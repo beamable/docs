@@ -1,3 +1,25 @@
+.md-grid {
+    max-width: 1500px;
+}
+
+.md-version__list {
+    width: 160px;
+    scroll-snap-type: none;
+}
+
+.md-version__item{
+    text-align: center;
+}
+
+.md-version__header{
+    color: #5284E0;
+    text-align: center;
+}
+
+.gslide-image img {
+    background: light-dark(white,black) !important;
+}
+
 .md-typeset img {
     display: block;
     margin: 0 auto;
