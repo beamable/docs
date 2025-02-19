@@ -1,16 +1,13 @@
 ﻿- [Introduction](index.md)
-- What's New?
-    - [2.0](whatsnew/2.0.md)
 - Getting Started
     - [Downloading and Installing](getting-started.md#cloning-and-installing-dependencies)
     - [Set up your Project](getting-started.md#set-up-the-beamable-sdk---fast-path)
     - [Making your First Request](getting-started.md#making-your-first-request)
-    - Sample Projects
-        - [Sample Project 1](getting-started.md#sample-project-1)
-        - [Sample Project 2](getting-started.md#sample-project-2)
-        - [Sample Project 3](getting-started.md#sample-project-3)
+- What's New
+    - [2.0](whatsnew/2.0.md)
 - [Beamable Concepts](concepts/)
-- [Unity SDK](unity/)
+- [SDK User Reference](unity/)
+- [Samples](unity/)
 - [Beamable CLI](cli/)
 - Support
     - [FAQ](faq.md)
