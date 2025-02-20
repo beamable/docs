@@ -1,4 +1,4 @@
-site_name: Unreal SDK
+site_name: Internal Beamable Docs
 site_url: https://beamable.github.io/Docs/
 theme:
   name: material
