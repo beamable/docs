@@ -27,12 +27,12 @@ Now that you are familiar with the **Beamable Window**, you are ready to make yo
 
 To get started, open your Level Blueprint and add the following pattern:
 
-![intro-init-sdk-with-frictionless-login.png](media/imgs/intro-init-sdk-with-frictionless-login.png)
+![intro-init-sdk-with-frictionless-login.png](../media/imgs/intro-init-sdk-with-frictionless-login.png)
 
 The `BeamRuntime` is an `GameInstanceSubsystem` that is responsible for controlling the SDK's lifecycle and, in clients, player authentication.
 
 !!! warning "SDK Technical Overview"
-The [Technical Overview](user-reference/overview.md) explains how the Beamable Runtime works. Please read it after you are done with this guide as the default Beamable configuration might not be the best fit for your type of game and it'll give you examples of common setups.
+    The [Technical Overview](user-reference/overview.md) explains how the Beamable Runtime works. Please read it after you are done with this guide as the default Beamable configuration might not be the best fit for your type of game and it'll give you examples of common setups.
 
 Calling this function will initialize the SDK and, after that is successful, will automatically log into Beamable as a **Guest Account**. There are 3 exposed callbacks here:
 
@@ -49,7 +49,7 @@ Now that you have this event hooked up, you can add your first **Beam Flow Node*
 - A set of Custom Event nodes (for success, error and completion) of the request being made to Beamable.
     - Because of this, Unreal does not allow the use of these nodes (or any node that expands to Event nodes) outside of **EventGraphs** or **Macros used in EventGraphs**.
 
-![intro-beam-flow-node.png](media/imgs/intro-beam-flow-node.png)
+![intro-beam-flow-node.png](../media/imgs/intro-beam-flow-node.png)
 
 With the SDKs default configuration and the above setup, you can enter PIE (Play-In-Editor). You should see several requests's responses being written to your Output Log window. After you see the final `GetMe` request, you can exit PIE knowing you've made your very first request to Beamable.
 
