@@ -12,6 +12,9 @@
   {
     "version": "Internal",
     "title": "Internal",
-    "aliases": []
+    "aliases": [],
+    "properties": {
+      "hidden": true
+    }
   }
 ]
