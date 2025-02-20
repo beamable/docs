@@ -49,151 +49,35 @@
          <lastmod>2025-02-20</lastmod>
     </url>
     <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/getting-started/SUMMARY/</loc>
+         <loc>https://beamable.github.io/Docs/Unity-2.0/unity/getting-started/SUMMARY/</loc>
          <lastmod>2025-02-20</lastmod>
     </url>
     <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/getting-started/first-request/</loc>
+         <loc>https://beamable.github.io/Docs/Unity-2.0/unity/samples/SUMMARY/</loc>
          <lastmod>2025-02-20</lastmod>
     </url>
     <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/getting-started/setup/</loc>
+         <loc>https://beamable.github.io/Docs/Unity-2.0/unity/samples/setup-samples/</loc>
          <lastmod>2025-02-20</lastmod>
     </url>
     <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/samples/SUMMARY/</loc>
+         <loc>https://beamable.github.io/Docs/Unity-2.0/unity/support/SUMMARY/</loc>
          <lastmod>2025-02-20</lastmod>
     </url>
     <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/samples/discord-demo/</loc>
+         <loc>https://beamable.github.io/Docs/Unity-2.0/unity/user-reference/SUMMARY/</loc>
          <lastmod>2025-02-20</lastmod>
     </url>
     <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/samples/hathora-demo/</loc>
+         <loc>https://beamable.github.io/Docs/Unity-2.0/unity/user-reference/getting%20started/</loc>
          <lastmod>2025-02-20</lastmod>
     </url>
     <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/samples/intro/</loc>
+         <loc>https://beamable.github.io/Docs/Unity-2.0/unity/whatsnew/2.0/</loc>
          <lastmod>2025-02-20</lastmod>
     </url>
     <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/samples/live-ops-demo/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/samples/steam-demo/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/support/SUMMARY/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/SUMMARY/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/overview/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/beamable-services/announcements/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/beamable-services/content/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/beamable-services/identity/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/beamable-services/inventory/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/beamable-services/lobbies/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/beamable-services/matchmaking/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/beamable-services/stats/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/beamable-services/stores/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/federation/federated-game-server/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/federation/federated-inventory/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/federation/federated-login/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/federation/federation/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/microservices/microservices/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/microservices/setting-microservices/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/online-subsystems/online-subsystem-identity/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/online-subsystems/online-subsystem/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/runtime-systems/connectivity/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/runtime-systems/lower-level/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/runtime-systems/operations-and-waits/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/runtime-systems/user-slots/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/servers-and-builds/dedicated-servers/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/user-reference/servers-and-builds/linux-builds/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/whatsnew/1.0.0/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/whatsnew/1.1.0/</loc>
-         <lastmod>2025-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://beamable.github.io/Docs/Unity-2.0/unreal/whatsnew/SUMMARY/</loc>
+         <loc>https://beamable.github.io/Docs/Unity-2.0/unity/whatsnew/SUMMARY/</loc>
          <lastmod>2025-02-20</lastmod>
     </url>
 </urlset>
