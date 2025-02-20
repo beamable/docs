@@ -33,7 +33,7 @@ In order to create write to a player stat from the client via Blueprints we will
 - After that,  use the `Commit Stats Operation` node to commit the new stats to Beamable.
 - That is it!
 
-![stats-create-stats.png](../../media/imgs/stats-create-stats.png)
+![stats-create-stats.png](../../../media/imgs/stats-create-stats.png)
 
 To verify it worked, you can:
 
@@ -43,7 +43,7 @@ To verify it worked, you can:
 - Go to `Stats` and search for `NewStatKey`.
 - You should see that it exists with correct value.
 
-![stats-portal.png](../../media/imgs/stats-portal.png)
+![stats-portal.png](../../../media/imgs/stats-portal.png)
 
 ## Usage Guidelines
 ### Batching updates

@@ -25,7 +25,7 @@ We use it to track the operation's state, its emitted events, its current status
 
 The lifecycle of an operation goes as follows:
 
-![operation-and-waits-lifecycle.png](../../media/imgs/operation-and-waits-lifecycle.png)
+![operation-and-waits-lifecycle.png](../../../media/imgs/operation-and-waits-lifecycle.png)
 
 ## Writing and Exposing your Own Operations
 We try and expose all of our main SDK operations in both BP and CPP flavors. 
@@ -124,7 +124,7 @@ Feel free to copy-paste them as a template of how to implement and reason about 
 There are two flavors of Beam-Flow nodes; one are Raw Requests that you can use to hit our APIs; the other is the Operation Beam Flow node.
 Operation Nodes look like this:
 
-![beam-flow-node](../../media/imgs/operation-and-waits-beam-flow-nodes.png)
+![beam-flow-node](../../../media/imgs/operation-and-waits-beam-flow-nodes.png)
 
 Beamable Operation Flow Nodes assume a few things:
 

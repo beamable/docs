@@ -11,10 +11,10 @@ The Beamable SDK is a collection of custom UE `Engine`, `Editor` and `GameInstan
 
 The image below describes how the SDK's lifecycle injects itself into UE's lifecycle:
 
-![runtime-concepts-init-flow.png](../media/imgs/runtime-concepts-init-flow.png)
+![runtime-concepts-init-flow.png](../../media/imgs/runtime-concepts-init-flow.png)
 The next image shows a high-level description of the authentication flows supported by the SDK:
 
-![runtime-concept-authflow.png](../media/imgs/runtime-concept-authflow.png)
+![runtime-concept-authflow.png](../../media/imgs/runtime-concept-authflow.png)
 Now that you have a high-level understanding of the SDK's initialization flows, read up on how to achieve the two most common Sign Up and Login flows among the ones we provide.
 
 ### Understanding `BeamRuntimeSubsystems`

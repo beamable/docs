@@ -63,7 +63,7 @@ Now, you are ready to sign into a game using Steam.
 ## Playing the sample
 
 Testing the Steam integration from the editor should be performed in `Standalone Game` mode.
-![steam-demo-PIE-mode.png](../media/imgs/steam-demo-PIE-mode.png)
+![steam-demo-PIE-mode.png](../../media/imgs/steam-demo-PIE-mode.png)
 
 Steam integration can encounter challenges when running in PIE mode. For this reason, 	Microservice needs to be deployed as local development of federation only works with PIE when not in Standalone Game mode.
 

@@ -9,7 +9,7 @@ A lot of cloud-code solutions sacrifice a lot of flexibility, cost-efficiency, p
 
 We do so by this architecture:
 
-![microservices-architecture.png](../../media/imgs/microservices-architecture.png)
+![microservices-architecture.png](../../../media/imgs/microservices-architecture.png)
 
 The Microservice is:
 
@@ -33,7 +33,7 @@ public int Add(int a, int b)
 ## Microservice Window
 The Microservice Window enables developers to start/stop local services, to read local service logs while in PIE and to configure local server settings for the collaborative workflow and for federations.
 
-![microservices-window-home.png](../../media/imgs/microservices-window-home.png)
+![microservices-window-home.png](../../../media/imgs/microservices-window-home.png)
 
 The left side of the window provides you a list of all services in your project with a set of filters based on **Service Groups**. The right side is the **Details Panel**.
 
@@ -55,7 +55,7 @@ The Details panel provides a detailed view of the microservices and access to a 
 #### Local - Logs Tab
 As the name implies, you can explore the logs for any running Microservice. You can filter by **Log Level**, substring search and also clear stored logs.
 
-![microservices-window-logs.png](../../media/imgs/microservices-window-logs.png)
+![microservices-window-logs.png](../../../media/imgs/microservices-window-logs.png)
 
 
 ## Microservice Coding
@@ -185,7 +185,7 @@ This allows us to integrate microservices running in your local machine "as thou
 - Requests made from this editor's PIE instance can chose a **Microservice Target**.
 - [Out-of-band Federations can be configured with opt-in filters that "steal" traffic](../federation/federation.md).
 
-![microservices-architecture-targets.png](../../media/imgs/microservices-architecture-targets.png)
+![microservices-architecture-targets.png](../../../media/imgs/microservices-architecture-targets.png)
 
 Enabling these two cases at the push of a button enables very fast development iteration speed.
 
@@ -281,7 +281,7 @@ Or... you could instead use Beamable's Collaborative Debugging workflow:
 - As the engineer, observe your (conditional or data) breakpoint is hit or read your additional `BeamableLogger` log lines.
 - Quickly diagnose the issue and unblock the designer.
 
-![microservices-window-collaboration.png](../../media/imgs/microservices-window-collaboration.png)
+![microservices-window-collaboration.png](../../../media/imgs/microservices-window-collaboration.png)
 
 For smaller teams that like to move fast and can rely on lots of direct communication between designers and engineers, this workflow is a **massive improvement to the current available alternatives**.
 

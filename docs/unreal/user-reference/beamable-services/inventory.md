@@ -70,7 +70,7 @@ Now, call this function while a user is signed in to grant the currency/item to 
 ???+ warning "Logging in" 
     Make sure that user is logged in when you call this function. See [Identity](identity.md)
 
-![inventory-operations.png](../../media/imgs/inventory-operations.png)
+![inventory-operations.png](../../../media/imgs/inventory-operations.png)
 
 After running the above function at least once, you should be able to see the results of these calls in the Beamable portal. To do so:
 
@@ -79,7 +79,7 @@ After running the above function at least once, you should be able to see the re
 - Go to `Engage->Players` and search for the player via `Gamertag/UserId`.
 - Go to `Inventory` and see that the appropriate currency and items are inside the user's inventory. 
 
-![inventory-portal.png](../../media/imgs/inventory-portal.png)
+![inventory-portal.png](../../../media/imgs/inventory-portal.png)
 
 ## Performance Guidelines
 

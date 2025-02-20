@@ -2,7 +2,7 @@
 
 This demo showcases how you can use the **Beamable Unreal SDK**'s in LiveOps game projects. Particularly it focus on the Player Stats, Announcements and Inventory Systems.
 
-![liveops.png](../media/imgs/liveops.png)
+![liveops.png](../../media/imgs/liveops.png)
 
 ## Introduction
 

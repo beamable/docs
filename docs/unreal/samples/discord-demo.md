@@ -76,7 +76,7 @@ In order to test the sample:
 8. Observe the text on the UI changing to reflect your ability to participate in matchmaking.
 9. Also, if `notify_channel` was specified correctly in configuration bot should inform about status change:
 
-![discord_sample_notify.png](../media/imgs/discord_sample_notify.png)
+![discord_sample_notify.png](../../media/imgs/discord_sample_notify.png)
 
 In order to actually gate matchmaking you'll need to set up a rule in your `GameType` content that excludes people from the queue that do not have the role. This is not shown on this demo.
 
