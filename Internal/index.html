@@ -20,7 +20,7 @@
     
     
       
-        <title>Internal Beamable Docs</title>
+        <title>Internal Documents</title>
       
     
     
@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction-to-unreal-sdk" class="md-skip">
+        <a href="#internal-beamable-documents" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Internal Beamable Docs" class="md-header__button md-logo" aria-label="Internal Beamable Docs" data-md-component="logo">
+    <a href="." title="Internal Documents" class="md-header__button md-logo" aria-label="Internal Documents" data-md-component="logo">
       
   <img src="assets/images/logo.png" alt="logo">
 
@@ -116,7 +116,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Internal Beamable Docs
+            Internal Documents
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -225,12 +225,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Internal Beamable Docs" class="md-nav__button md-logo" aria-label="Internal Beamable Docs" data-md-component="logo">
+    <a href="." title="Internal Documents" class="md-nav__button md-logo" aria-label="Internal Documents" data-md-component="logo">
       
   <img src="assets/images/logo.png" alt="logo">
 
     </a>
-    Internal Beamable Docs
+    Internal Documents
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -2778,89 +2778,8 @@
                   
 
 
-<h1 id="introduction-to-unreal-sdk">Introduction to Unreal SDK<a class="headerlink" href="#introduction-to-unreal-sdk" title="Permanent link">¶</a></h1>
-<p>Welcome to the Beamable!</p>
-<p>The Beamable Unreal SDK provides all the functionality to integrate The Beamable Systems in your Project. It include many features such as Authentication, Content, Events, Inventory, Microservices and more.</p>
-<p>Here's a bit of our philosophy when desing the SDK so you know a bit what to expect:</p>
-<table>
-<thead>
-<tr>
-<th><strong>The SDK's source code is entirely available and modifiable inside your project by you</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>In case you modify the SDK's source code, we cannot guarantee that its features will work. We trust you to know when doing so might be worth it for you (VCS are your friend here).</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th><strong>The SDK keeps itself as simple as possible, providing extension points and clear documented.</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>We believe that tools should helpful or at least not get in your way. If you find yourself working around parts of the SDK instead of using them even with MicroServices/Storages, reach out to us.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th><strong>The SDK is careful about assumptions it makes.</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Whenever we <strong><em>have to</em></strong> make an assumption, we try to be explicit about what it means. MicroServices/Storages are great ways to "just write what you want instead" when using our default services is not a good fit.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th><strong>Blueprint and C++ Code Parity</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Most of our docs contains examples using Blueprints. Unless described otherwise there is option to achieve same results in C++ while following Blueprint sample. In C++, the subsystems and function names are the same except that, for lambda-binding, you'll need to use the <code>CPP_</code> versions of functions.</td>
-</tr>
-</tbody>
-</table>
-<h1 id="technical-requirements">Technical Requirements<a class="headerlink" href="#technical-requirements" title="Permanent link">¶</a></h1>
-<p>Beamable currently supports <strong>Unreal 5.4.X</strong>.</p>
-<p>Beamable also has a dependency on  <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">.NET</a>. This is needed for:</p>
-<ul>
-<li>Installing the Beamable CLI (and therefore enabling the various Beamable workflows).</li>
-<li>Using C# Microservices through the CLI.</li>
-</ul>
-<p>Beamable has a hard-dependency on <a href="https://www.docker.com/products/docker-desktop/">Docker</a>. This is needed for two things:</p>
-<ul>
-<li>Building and Deploying Beamable Microservices to your realms (dev/staging/prod environments).</li>
-<li>Running Beamable Microservices without opening the service's project (for non-engineers that want to run microservices locally).</li>
-</ul>
-<p>If you don't have these installed, take this opportunity to install it while you investigate these docs further.</p>
-<h1 id="mobile-and-console-support">Mobile and Console Support<a class="headerlink" href="#mobile-and-console-support" title="Permanent link">¶</a></h1>
-<p>We do not provide Mobile support yet and Console support is under investigation. The current version of the SDK is focused on PC (Windows/Linux) and Dedicated Servers. Console and Mobile support will be added later</p>
-<h1 id="beamable-cli">Beamable CLI<a class="headerlink" href="#beamable-cli" title="Permanent link">¶</a></h1>
-<p>Most of the Beamable workflows are enabled through the Beamable CLI; our editor integrations making use of it to create Engine-specific workflows.</p>
-<p>The SDK is tightly integrated with the CLI in some ways more than others. For example:</p>
-<ul>
-<li><a href="features/content.md">Content</a>, being designer-focused, has its own UE-familiar content editing UI so you can edit the various JSON blobs that defines your game's content. </li>
-<li><a href="concepts/microservices.md">Microservices</a>, however, being more engineer focused, leans more directly on the CLI.</li>
-</ul>
-<p>In other words: <strong>The Beamable CLI is invisible to the user where it needs to be and explicit to users that need to work with them.</strong></p>
-<h1 id="where-to-start">Where to start?<a class="headerlink" href="#where-to-start" title="Permanent link">¶</a></h1>
-<p>Regardless of who you are, we recommend run through the <a href="guides/intro.md">Getting Strted</a>, <a href="concepts/runtime-concepts.md">Runtime Systems Overview</a> and <a href="features/identity.md">Identity</a> documents. After this, it depends on what you're game is or what you are looking to do.</p>
-<ul>
-<li>If you are a game maker looking to implement simple and common back-end features, take a look at the docs for <a href="features/inventory.md">Inventory</a>, for currency and items, and <a href="features/stats.md">Stats</a>, for player-scoped key-value stores.</li>
-<li>If you are a game maker looking to implement highly specific features, browse the documentation for <a href="features/content.md">Content</a> and <a href="concepts/microservices.md">Microservices</a> to think about how to structure your game's data and custom data with Beamable.</li>
-<li>If you are looking to integrate Beamable into your game through Unreal's <code>IOnlineSubsystem</code>, take a look at the <a href="concepts/online-subsystem.md">Online Subsystem Beamable</a>.</li>
-</ul>
-<p>If you have any questions, feel free to contact us through one of our Customer Success channels.</p>
+<h1 id="internal-beamable-documents">Internal Beamable Documents<a class="headerlink" href="#internal-beamable-documents" title="Permanent link">¶</a></h1>
+<p>This is the internal documentation of Beamable. It is intended for Beamable employees only. If you are a customer or partner, please refer to the <a href="https://beamable.github.io/docs/">public documentation</a>.</p>
 
 
 
