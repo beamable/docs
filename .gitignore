@@ -1,2 +1,5 @@
 # Ignore folder "/site"
 /site/
+
+# Ignore types of files
+*.bkp
