@@ -1700,7 +1700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../samples/samples/intro.md" class="md-nav__link">
+      <a href="../../../samples/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2212,7 +2212,7 @@
 
 <h1 id="beamable-microservices">Beamable Microservices<a class="headerlink" href="#beamable-microservices" title="Permanent link">¶</a></h1>
 <p>Beamable Microservices are Beamable's Cloud Code solution. It is a wrapper around a HTTP Server that makes the development process much simpler. These are written in C# and come with a set of development tools that are tightly integrated with the UE Editor and Beamable CLI.</p>
-<p>This page explains the high-to-low-level concepts of Microservices and to what end they can be used. <a href="../setting-microservices/">Take a look here for a getting started guide</a></p>
+<p>This page explains the high-to-low-level concepts of Microservices and to what end they can be used. <a href="../setting-microservices/">Take a look here for a getting started guide.</a></p>
 <h2 id="why-this-approach-to-cloud-code">Why this approach to Cloud-Code?<a class="headerlink" href="#why-this-approach-to-cloud-code" title="Permanent link">¶</a></h2>
 <p>A lot of cloud-code solutions sacrifice a lot of flexibility, cost-efficiency, performance or developer experience in exchange for simplifying the simple case. Our goal was to focus on helping you with the complex cases while keeping the simple case easy to work.</p>
 <p>We do so by this architecture:</p>
@@ -2238,12 +2238,10 @@
 <p>The left side of the window provides you a list of all services in your project with a set of filters based on <strong>Service Groups</strong>. The right side is the <strong>Details Panel</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Service Groups</p>
-</div>
 <p>In very rare cases, a project may require a non-trivial amount of services/storages. For Beamable's own internal development this is true (as we have microservices for each sample).</p>
-<div class="highlight"><pre><span></span><code>In cases like these, a line can be added to the `csproj` file of each service to assign them to groups. These can then be used by the CLI&#39;s `project` pallet as filters while also being used as a filter in this window. The line to be added to the `BeamableSettings` **PropertyGroup** : `&lt;BeamServiceGroup&gt;SomeGroupId&lt;/BeamServiceGroup&gt;`
-
-There are no limits on group names other than that `BEAMPROJ_` is a reserved prefix.
-</code></pre></div>
+<p>In cases like these, a line can be added to the <code>csproj</code> file of each service to assign them to groups. These can then be used by the CLI's <code>project</code> pallet as filters while also being used as a filter in this window. The line to be added to the <code>BeamableSettings</code> <strong>PropertyGroup</strong> : <code>&lt;BeamServiceGroup&gt;SomeGroupId&lt;/BeamServiceGroup&gt;</code> </p>
+<p>There are no restrictions on group names other than that <code>BEAMPROJ_</code> is a reserved prefix.</p>
+</div>
 <h3 id="the-details-panel">The Details Panel<a class="headerlink" href="#the-details-panel" title="Permanent link">¶</a></h3>
 <p>The Details panel provides a detailed view of the microservices and access to a few features:</p>
 <ul>
@@ -2288,10 +2286,6 @@ There are no limits on group names other than that `BEAMPROJ_` is a reserved pre
 <h3 id="constraints-on-callable-functions">Constraints on Callable Functions<a class="headerlink" href="#constraints-on-callable-functions" title="Permanent link">¶</a></h3>
 <p>Our CLI is capable of generating Unreal bindings that will allow your Unreal code to call your microservice much like you would make an API call to Beamable. In order to generate these bindings, we have <em>some</em> restrictions on what types can and can't be on method signatures for <code>Callables</code>. </p>
 <p>Each <code>Callable</code> generates at least two <code>UObject</code> classes, one representing request's input parameters and another representing the response type. It also generates a function inside the generated <code>UBeamMicroserviceNameApi</code> subsystem (and accompanying Blueprint nodes). </p>
-<div class="admonition note">
-<p class="admonition-title">Complex Types and Namespacing</p>
-<p>When generating these types we attempt to minimize the number of data-types we end up generating, this means that </p>
-</div>
 <h4 id="signature-constraints">Signature Constraints<a class="headerlink" href="#signature-constraints" title="Permanent link">¶</a></h4>
 <p>When declaring <code>Callable</code> functions, you should be aware of a few limitations regarding its signatures.</p>
 <ul>
@@ -2471,7 +2465,7 @@ There are no limits on group names other than that `BEAMPROJ_` is a reserved pre
 </ol>
 <p>This allows you to get services that might have complex logic working first and integrating them into Unreal later. <a href="#constraints-on-callable-functions">Keep in mind the type restrictions on method signatures mentioned here</a>.</p>
 <h4 id="integrating-with-unreal">Integrating with Unreal<a class="headerlink" href="#integrating-with-unreal" title="Permanent link">¶</a></h4>
-<p>Whenever it becomes preferable or necessary (see <a href="../../federation/federation/">Federations</a>) to test the microservice directly from Unreal's PIE mode, you can generate bindings for your <code>Callable</code> types and use them inside your game's code.</p>
+<p>Whenever it becomes preferable or necessary (see <a href="../../federation/federation.md">Federations</a>) to test the microservice directly from Unreal's PIE mode, you can generate bindings for your <code>Callable</code> types and use them inside your game's code.</p>
 <p>Here you have two options:</p>
 <ul>
 <li>Run the <code>dotnet beam project generate-client Path/to/Service/built/dll</code> command manually to generate these bindings.<ul>
@@ -2497,7 +2491,7 @@ There are no limits on group names other than that `BEAMPROJ_` is a reserved pre
 <li>Run PIE and hit the point where you call your microservice.</li>
 <li>See your local service's <code>Callable</code>'s be hit.</li>
 </ol>
-<p>If you are using <a href="../../federation/federation/">Federations</a>, there are a few particulars of this workflow of which you should be aware. If not, the above works as described.</p>
+<p>If you are using <a href="../../federation/federation.md">Federations</a>, there are a few particulars of this workflow of which you should be aware. If not, the above works as described.</p>
 <h4 id="deploying-to-a-realm">Deploying to a Realm<a class="headerlink" href="#deploying-to-a-realm" title="Permanent link">¶</a></h4>
 <p>Once you have things working locally, you'll likely want to make the Microservice available to other team members working on the realm. If you just push your code up, other team members would also have to run the service locally and that might not always be desirable.</p>
 <p>As such, you should publish the services to the appropriate realm.</p>

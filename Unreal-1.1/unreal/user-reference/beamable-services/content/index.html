@@ -953,6 +953,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#content-window" class="md-nav__link">
     <span class="md-ellipsis">
       Content Window
@@ -986,22 +995,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#defining-custom-content-types" class="md-nav__link">
+  <a href="#ubeamcontentobject-and-custom-content-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Defining Custom Content Types
+      UBeamContentObject and Custom Content Types
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ubeamcontentobject-and-sub-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      UBeamContentObject and Sub-types
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="UBeamContentObject and Sub-types">
+    <nav class="md-nav" aria-label="UBeamContentObject and Custom Content Types">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1025,14 +1025,29 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Runtime LifeCycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#baking-content" class="md-nav__link">
     <span class="md-ellipsis">
       Baking Content
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-on-binary-serialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes on Binary Serialization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1610,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../samples/samples/intro.md" class="md-nav__link">
+      <a href="../../../samples/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1932,6 +1947,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#content-window" class="md-nav__link">
     <span class="md-ellipsis">
       Content Window
@@ -1965,22 +1989,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#defining-custom-content-types" class="md-nav__link">
+  <a href="#ubeamcontentobject-and-custom-content-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Defining Custom Content Types
+      UBeamContentObject and Custom Content Types
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ubeamcontentobject-and-sub-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      UBeamContentObject and Sub-types
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="UBeamContentObject and Sub-types">
+    <nav class="md-nav" aria-label="UBeamContentObject and Custom Content Types">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2004,14 +2019,29 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Runtime LifeCycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#baking-content" class="md-nav__link">
     <span class="md-ellipsis">
       Baking Content
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-on-binary-serialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes on Binary Serialization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2031,13 +2061,17 @@
 
 
 <h1 id="content-system">Content System<a class="headerlink" href="#content-system" title="Permanent link">¶</a></h1>
-<p>Beamable Content System is a read-only (at runtime) arbitrary data store that allows you to define arbitrary JSON-serialized data for use
+<p>Beamable Content System is a read-only (at runtime) arbitrary data store that allows you to define arbitrary JSON-serialized <em>content objects</em> for use
 at runtime. Several of Beamable's own managed features also use content in some way or another.</p>
-<p>The system is manifest-based and has no server-side schema enforcing
-(which means you are solely responsible for maintaining backward compatibility for
-your custom content objects).</p>
-<p>Each individual content object in each manifest is identified by an ID with the format
-below:</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
+<p>The system is manifest-based. This means:</p>
+<ul>
+<li>That a <strong>manifest</strong> is an list of published content objects in a realm indexed by their content ids.</li>
+<li>That publishing a <strong>manifest</strong> means first uploading all the individual content objects to Beamable and, after that, uploading a manifest that knows all where each content lives.</li>
+<li>That downloading a <strong>manifest</strong> does not necessarily imply downloading the individual content object jsons (more information below).</li>
+</ul>
+<p>We don't provide server-side schema enforcing which means you are solely responsible for maintaining backward compatibility for your custom content objects.</p>
+<p>Each individual content object in each manifest is identified by an ID with the format below:</p>
 <blockquote>
 <p>ContentTypeId.ContentName</p>
 </blockquote>
@@ -2075,8 +2109,8 @@ The list of content objects displayed in the content window is very similar to a
 <li>Click the <code>Create</code> button.</li>
 </ol>
 <p>Deleting content can be done simply by pressing <code>Del</code> on your keyboard with a item selected or clicking the <code>Delete</code> button in the Item Details.</p>
-<p>Itens Created locally will have a <code>[+]</code> sign next to them informing that they are not in the realm yet and will be added in the next publish.</p>
-<p>Itens Deleted locally that have counterparts on the realm will have a <code>[-]</code> sign next to them informing that they will be removed from the realm in the next publish.</p>
+<p>Items created locally will have a <code>[+]</code> sign next to them informing that they are not in the realm yet and will be added in the next publish.</p>
+<p>Items deleted locally that have counterparts on the realm will have a <code>[-]</code> sign next to them informing that they will be removed from the realm in the next publish.</p>
 <h3 id="downloading-and-publishing">Downloading and Publishing<a class="headerlink" href="#downloading-and-publishing" title="Permanent link">¶</a></h3>
 <p>To sync your local content with the realm, you have to <strong>Download</strong> and <strong>Publish</strong>.</p>
 <p><strong>Download</strong> will collect all content from the realm, adding new content, replacing any <code>[M]</code> and restoring any <code>[-]</code> values to match the ones in the realm. It is similar to selecting all non-new files in a version control and "discarding changes".</p>
@@ -2091,16 +2125,12 @@ The list of content objects displayed in the content window is very similar to a
 <ul>
 <li>Each developer has it own Realm (Example: Realm1, Realm2, Realm3)</li>
 <li>The <code>Dev</code> Branch (If using Git) of the project is the <strong>Source of Truth</strong> shared for all developers, and each developer is working on this branch</li>
-<li>Each Developer Test their chances on their own realm and when done commits those changes to the <code>Dev</code> Branch so the rest of team can have access to this.</li>
+<li>Each Developer tests their changes on their own realm and when done commits those changes to the <code>Dev</code> Branch so the rest of team can have access to this.</li>
 <li>After pulling the <code>Dev</code> Branch, each developer should publish the new version of the content to their realms,so here can keep working in sync with the Dev branch.</li>
 </ul>
 </div>
-<h2 id="defining-custom-content-types">Defining Custom Content Types<a class="headerlink" href="#defining-custom-content-types" title="Permanent link">¶</a></h2>
-<h2 id="ubeamcontentobject-and-sub-types"><code>UBeamContentObject</code> and Sub-types<a class="headerlink" href="#ubeamcontentobject-and-sub-types" title="Permanent link">¶</a></h2>
-<p>In Unreal, you define content schemas as sub-classes of <code>UBeamContentObject</code> or any
-of its sub-types available in the SDK ( <code>UBeamItemContent</code> , <code>UBeamGameTypeContent</code> , etc...). Every
-content type must define a unique string id for that particular type and a function that
-returns it.</p>
+<h2 id="ubeamcontentobject-and-custom-content-types"><code>UBeamContentObject</code> and Custom Content Types<a class="headerlink" href="#ubeamcontentobject-and-custom-content-types" title="Permanent link">¶</a></h2>
+<p>In Unreal, you define content schemas as sub-classes of <code>UBeamContentObject</code> or any of its sub-types available in the SDK ( <code>UBeamItemContent</code> , <code>UBeamGameTypeContent</code> , etc...). Every content type must define a unique string id for that particular type and a function that returns it.</p>
 <p>The following example of <code>UBeamCurrencyContent</code> shows how that can be done:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">UCLASS</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">BEAMABLECORE_API</span><span class="w"> </span><span class="n">UBeamCurrencyContent</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UBeamContentObject</span>
@@ -2235,25 +2265,49 @@ returns it.</p>
 </table>
 <p>Take a look at <code>UMockBeamContentObject</code> to see the supported types.</p>
 <h2 id="runtime-lifecycle">Runtime LifeCycle<a class="headerlink" href="#runtime-lifecycle" title="Permanent link">¶</a></h2>
-<p>The SDK fetches the content manifest before the <code>OnBeamableStarted</code> callback is
-triggered. By default, it downloads the content manifest and each individual piece of content. You can enable and disable this behavior it can be configured to do so inside <code>Project Settings -&gt; Beamable Runtime</code>.</p>
+<p>The SDK fetches the content manifest before the <code>OnBeamableStarted</code> callback is triggered. By default, it downloads the content manifest and each individual piece of content. You can enable and disable this behavior it can be configured to do so inside <code>Project Settings -&gt; Beamable Runtime</code>.</p>
 <p><a class="glightbox" href="../../../../media/imgs/content-download-individual-on-start.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="content-download-individual-on-start.png" src="../../../../media/imgs/content-download-individual-on-start.png" /></a></p>
-<p>The SDK also supports automated content updates.</p>
-<p>While signed into Beamable, <code>UBeamContentSubsystem</code> listens for notifications that the realm's content manifest has been updated. If that happens, we will re-download the manifest. If the SDK is configured to download individual content pieces automatically, we do so for all changed content.</p>
-<p>If you disable this setting and want to control fetching the actual content objects yourself, there are APIs you can use to manually download individual content pieces: <code>FetchIndividualContentBatchOperation</code> and <code>FetchIndividualContentOperation</code>.</p>
-<h2 id="baking-content">Baking Content<a class="headerlink" href="#baking-content" title="Permanent link">¶</a></h2>
+<p>The SDK also supports live content updates (if you publish content while the game client is running):</p>
+<ul>
+<li>While signed in to Beamable, <code>UBeamContentSubsystem</code> listens for notifications that the realm's content manifest has been updated.</li>
+<li>If that happens, we will re-download the manifest. </li>
+<li>If the SDK is configured to download individual content pieces automatically, we do so for all changed content.<ul>
+<li>These updates are cached locally inside the <code>Saved</code> directory in binary form such that a user does not need to re-download content in subsequent runs of your game unless the published manifest changes.</li>
+</ul>
+</li>
+<li>If you disable this setting, you'll have to control fetching the actual content objects yourself.<ul>
+<li>There are APIs you can use to manually download individual content pieces: <code>FetchIndividualContentBatchOperation</code> and <code>FetchIndividualContentOperation</code>.</li>
+<li>Caching will still occur when manually downloading content.</li>
+</ul>
+</li>
+</ul>
+<h3 id="baking-content">Baking Content<a class="headerlink" href="#baking-content" title="Permanent link">¶</a></h3>
 <p>In a couple of cases, you might want to bake content to distribute it with your build:</p>
 <ul>
 <li>If you plan to release a new build every time you want to update your game.</li>
-<li>If you want to trade-off some binary size for spending less time waiting for the individual content download at initialization time.</li>
+<li>If you want to trade off some binary size for spending less time waiting for the individual content download at initialization time.</li>
 </ul>
-<p>To enable those cases, we provide an editor utility that will bake your local content into a <code>UBeamContentCache</code>; this is a special asset type that has the <code>UBeamContentObject</code> instances serialized using UE's serialization as opposed to JSON. <strong>Keep in mind that this utility uses your local content; so make sure your content matches the realm's content before running it</strong>.</p>
-<p>The utility is called <code>EBP_BakeContent</code> and can be found in Beamable Core's plugin folder under <code>/Editor/Utility/EBP_BakeContent.EBP_BakeContent</code>. Running this utility goes through your local content and bakes them into a <code>BCC_</code> assets ( <code>UBeamContentCache</code> ) stored in <code>/Game/Beamable/Content/Manifests/Cooked/</code> directory. This directory is configured, by default, to be included in packaged games.</p>
+<p>To enable those cases, we provide an editor utility that will bake your local content into a <code>UBeamContentCache</code>. 
+This is a special asset type that has the <code>UBeamContentObject</code> instances serialized using UE's binary serialization as opposed to JSON.
+<strong>Keep in mind that this utility uses your local content; so make sure your content matches the realm's content before running it</strong>.</p>
+<p>The utility is called <code>EBP_BakeContent</code> and can be found in Beamable Core's plugin folder under <code>/Editor/Utility/EBP_BakeContent.EBP_BakeContent</code>. 
+Running this utility goes through your local content and bakes them into a <code>BCC_</code> assets ( <code>UBeamContentCache</code> ) stored in <code>/Game/Beamable/Content/Manifests/Cooked/</code> directory.
+This directory is configured, by default, to be included in packaged games.</p>
 <p>At runtime, any <code>UBeamContentCache</code> is loaded automatically by the <code>UBeamContentSubsystem</code> if it exists and is configured correctly; so you don't have to do anything to have it work.</p>
 <div class="admonition warning">
 <p class="admonition-title">I can't find the Beamable Core Content in the Content Browser</p>
 <p>UE's Content Browser does not show Plugin content folders by default. If you want to see these, you need to turn it on at <code>Content Browser -&gt; Settings -&gt; Show Plugin Content</code>.</p>
 </div>
+<h3 id="notes-on-binary-serialization">Notes on Binary Serialization<a class="headerlink" href="#notes-on-binary-serialization" title="Permanent link">¶</a></h3>
+<p>Unreal's Binary serialization of <code>UObject</code> types works <em>mostly</em> out of the box without any need for you to write any code.
+However, in cases where you have inlined (<code>DefaultToInstanced, EditInlineNew</code>) <code>IBeamJsonSerializableUObject</code> types inside your <code>UBeamContentObject</code> subtype's schema, you'll need to write two things to support caching content of these types:</p>
+<ul>
+<li>Override the <code>virtual void Serialize(FArchive&amp; Ar) override</code> function of the inlined <code>IBeamJsonSerializableUObject</code> type.</li>
+<li>Override the <code>virtual void SerializeUObjects(FArchive&amp; Ar) override</code> function of the <code>UBeamContentObject</code> subtype that contains in its schema the inlined <code>IBeamJsonSerializableUObject</code>.</li>
+</ul>
+<p>In most cases, you should prefer using <code>FBeamJsonSerializableUStruct</code> subtypes <code>UBeamContentObject</code> as these will automatically support binary serialization.
+It is only in cases where you need a recursive type that we recommend the use of inlined <code>IBeamJsonSerializableUObject</code>.</p>
+<p>For examples of handling this edge case, you can look at the <code>UBeamGameTypeContent</code> and <code>UBeamStatComparisonRule</code> types shipped with the SDK.</p>
 
 
 

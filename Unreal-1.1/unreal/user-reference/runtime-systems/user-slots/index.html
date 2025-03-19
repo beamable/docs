@@ -1535,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../samples/samples/intro.md" class="md-nav__link">
+      <a href="../../../samples/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1890,27 +1890,37 @@ Only "public" APIs do not require them (APIs that you can call after the SDK has
 <ul>
 <li>By default, in C++, you should pass in the <code>UBeamCoreSettings::GetOwnerPlayerSlot()</code> (which defaults to <code>"Player0"</code>).</li>
 <li>In Blueprints, you'll only have to manually pass in user slots if you change the default slot from <code>"Player0"</code>.</li>
-<li>If you're using any of our lower-level APIs directly, you might see functions that take in a <code>UObject* ContextObject</code>.</li>
+<li>If you're using any of our lower-level APIs (<code>UBeam____Api</code> subsystems), you might see functions that take in a <code>UObject* ContextObject</code>.<ul>
 <li>These are there to support Unreal's Multiplayer PIE mode (for the same reason a lot of UE's own APIs also need one of these).    </li>
-<li>If you're calling them from a <code>UGameInstanceSubsystem</code>, <code>UActorComponent</code> or <code>AActor</code>, passing itself to this parameter is the simplest approach.</li>
+<li>If you're calling them from a <code>UGameInstanceSubsystem</code>, <code>UActorComponent</code> or <code>AActor</code>, passing itself (<code>this</code>) to this parameter is the simplest approach.</li>
+</ul>
+</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Non-Local Multiplayer Games</p>
-</div>
 <p>If you're game is a normal one-player-per-client multiplayer game, you might want to take a look at our <a href="../../beamable-services/matchmaking/">Matchmaking</a> and <a href="../../beamable-services/lobbies/">Lobbies</a> systems.</p>
+</div>
 <h2 id="user-slots-at-runtime">User Slots At Runtime<a class="headerlink" href="#user-slots-at-runtime" title="Permanent link">¶</a></h2>
 <p>The <code>UBeamUserSlots</code> Engine Subsystem is responsible for:</p>
 <ul>
-<li>Storing the authentication tokens for the last account that logged into a particular slot.</li>
+<li>Storing the authentication tokens for the last account that logged into a particular slot.<ul>
 <li>These are kept in Unreal's default <code>Saved</code> directory.</li>
-<li>Enabling local co-op games to have multiple players logged in at the same time.</li>
-<li>For more on this, see the <a href="../../overview/">SDK Lifecycle</a> and various login flows described in <a href="../../beamable-services/identity/">Identity</a>. </li>
-<li>Handles support for Multiplayer PIE-mode by namespacing each Slot (UE's <code>FWorldContext::WorldType</code> and <code>FWorldContext::PIEInstance</code>).</li>
+</ul>
+</li>
+<li>Enabling local co-op games to have multiple players logged in at the same time.<ul>
+<li>For more on login flows, see the <a href="../../overview/">SDK Lifecycle</a> and various flavors described in <a href="../../beamable-services/identity/">Identity</a>. </li>
+</ul>
+</li>
+<li>Handles support for Multiplayer PIE-mode by namespacing each Slot (UE's <code>FWorldContext::WorldType</code> and <code>FWorldContext::PIEInstance</code>).<ul>
 <li>To do so, we need to find an <code>UWorld</code> to get the context from.</li>
 <li>This is why, like UE, we take in a <code>UObject* CallingContext</code> in certain parts of our APIs.</li>
 <li><strong>At runtime, this parameter is NEVER optional!</strong></li>
-<li>Assert that only slots defined in the <code>UBeamCoreSettings</code> are in use.</li>
+</ul>
+</li>
+<li>Assert that only slots defined in the <code>UBeamCoreSettings</code> are in use.<ul>
 <li>Any User Slot with <code>Test</code> in its name is exempt from this rule so you can write automated tests with arbitrary amounts of user slots by using user slots with <code>Test</code> in their names.</li>
+</ul>
+</li>
 </ul>
 <p><strong><em>This subsystem does not handle the actual logging in and logging out.</em></strong> That is handled by two other Subsystems:</p>
 <ul>

@@ -1496,7 +1496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../samples/samples/intro.md" class="md-nav__link">
+      <a href="../../../samples/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1825,6 +1825,12 @@
 
 
 <h1 id="unreal-online-subsystems">Unreal Online Subsystems<a class="headerlink" href="#unreal-online-subsystems" title="Permanent link">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Will Be Discontinued</p>
+<p>After a thorough evaluation conducted with our closest game-maker partners and their projects, we have decided to discontinue the <code>OnlineSubsystemBeamable</code> Plugin extension. </p>
+<p>Beamable has a lot of unique features that are very useful but become a lot harder to leverage if you're keeping it behind the OnlineSubsystem interface. In other words, supporting it is costly but doesn't generate as much value to our customers and partners as we originally thought it would. As such, we have decided to phase out support for it in favor of focusing our efforts in our <code>BeamableCore</code> plugin, docs, samples and a showcase project that will show how to leverage Beamable inside UE for a live-services game project.</p>
+<p>The discontinuing will come into effect at the last release this year but no more updates to it will happen to this documentation or the package from now until then.  </p>
+</div>
 <p>To use our Online Subsystem integration to Unreal Online Subsystems, you'll need to update your <code>*.Target.cs</code> 's <code>Beam.ConfigureGame</code> method call. As well as re-running, <code>beam-init-game-maker.sh "Path/To/SDK/Clone" true</code> with a second argument as true.</p>
 <p>To enable the Enabling Online Subsystem would require updating the value of the second argument of that method, <code>Beam.OssConfig</code> value, example values for Hathora sample project:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">oss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Beam</span><span class="p">.</span><span class="n">OssConfig</span><span class="p">()</span>

@@ -1625,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../samples/samples/intro.md" class="md-nav__link">
+      <a href="../../../samples/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2079,7 +2079,8 @@
 </li>
 </ul>
 <h2 id="data-concepts">Data Concepts<a class="headerlink" href="#data-concepts" title="Permanent link">¶</a></h2>
-<p>Inventory manages two types of data- items and virtual currencies. One thing that both have in common is that during creation of each of them it is up to game maker to decide how they can be added to player inventory by specifying <code>clientPermission</code> field:</p>
+<p>Inventory manages two types of data: items and virtual currencies. 
+One thing that both have in common is that during creation of each of them it is up to game maker to decide how they can be added to player inventory by specifying <code>clientPermission</code> field:</p>
 <ul>
 <li>When toggled, the content becomes <strong>Client-Authoritative</strong>. The SDK allows game-clients to add/remove that item or currency to the player inventory directly. If your game does not include networked multiplayer and can tolerate cheating, allowing the client to read and write their own currencies is the simplest option.</li>
 <li>If not toggled, the content becomes <strong>Server-Authoritative</strong>. Trying to add/remove that item or currency to the player inventory from a game-client directly results in an error. The item/currencies are still readable in the game-client. To add/remove items and currencies that are <strong>Server-Authoritative</strong>, do so via a Microservice and a <code>ClientCallable</code>. </li>
@@ -2090,11 +2091,12 @@
 </div>
 <h3 id="virtual-currencies">Virtual Currencies<a class="headerlink" href="#virtual-currencies" title="Permanent link">¶</a></h3>
 <p>Currencies are used to buy items with our <a href="../stores/">Store system</a> (e.g., Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP).</p>
-<p>In Unreal SDK Currency is represented by <code>UBeamCurrencyContent</code> type. Each currency can specify a <code>startingAmount</code> that is used to pre-seed player accounts with that amount of currency.</p>
+<p>In the Unreal SDK, currencies are represented by the <code>UBeamCurrencyContent</code>. Each currency can specify a <code>startingAmount</code> that is used to pre-seed player accounts with that amount of currency.</p>
 <p>You can <a href="../content/#defining-custom-content-types">subclass</a> this content type if you want to add more information to currency that is specific to your like, such as UI related <code>ObjectPaths</code> and other references to assets that might be relevant to your game. </p>
 <h3 id="items">Items<a class="headerlink" href="#items" title="Permanent link">¶</a></h3>
 <p>The Items feature allows for the creation and management of various in-game objects, such as equipment, consumables, and resources.</p>
-<p>In the Unreal SDK, Items are represented by the <code>UBeamItemContent</code> type. You can <a href="../content/#defining-custom-content-types">subclass</a> this content type to add game-specific information to item content which is then accessible via the <code>UBeamContentSubsystem</code> and in Microservices.</p>
+<p>In the Unreal SDK, items are represented by the <code>UBeamItemContent</code> type. 
+You can <a href="../content/#defining-custom-content-types">subclass</a> this content type to add game-specific information to item content which is then accessible via the <code>UBeamContentSubsystem</code> and in Microservices.</p>
 <h4 id="item-state">Item State<a class="headerlink" href="#item-state" title="Permanent link">¶</a></h4>
 <p>Each item instance inside a player's inventory is represented by <code>FBeamItemState</code>. These instances have the following properties:</p>
 <ul>
@@ -2111,7 +2113,7 @@
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>To use the inventory system, you will need to first:</p>
 <ol>
-<li>Go to the Content Window.</li>
+<li>Go to the <a href="../content/">Content Window</a>.</li>
 <li>Select <code>item</code> as a type.</li>
 <li>Create an item content definition.</li>
 <li>Select <code>currency</code> as a type.</li>

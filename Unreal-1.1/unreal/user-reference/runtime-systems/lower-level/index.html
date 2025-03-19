@@ -1544,7 +1544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../samples/samples/intro.md" class="md-nav__link">
+      <a href="../../../samples/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1914,19 +1914,21 @@ Their code is pretty heavily commented; so, feel free to read it and figure thin
 </div>
 <p>The lowest layer of systems are shared between the SDK's UE Editor integration and the SDK's Runtime integration:</p>
 <ul>
-<li><code>UBeamUserSlots</code>: As explained at the start of this document, tracks multiple local signed-in users (for local co-op cases).</li>
 <li>
-<p>Take a look at <a href="../user-slots/">User Slots</a> for more information about these.</p>
+<p><code>UBeamUserSlots</code>: As explained at the start of this document, tracks multiple local signed-in users (for local co-op cases).</p>
+<ul>
+<li>Take a look at <a href="../user-slots/">User Slots</a> for more information about these.</li>
+</ul>
 </li>
 <li>
 <p><code>UBeamRequestTracker</code>: Provides BP-compatible async operations that emit various events as it goes along.</p>
-</li>
+<ul>
 <li>You can think of these as "BP-Compatible Promises".</li>
 <li>These are integrated with our <code>UBeam____Api</code> subsystems.</li>
 <li><code>BeginOperation</code> is effectively the same a creating a new promise.</li>
 <li><code>TriggerOperationSuccess</code>, <code>TriggerOperationError</code> and <code>TriggerOperationCancelled</code> should be called when you want to complete the Operation.</li>
-<li>
-<p>This is a somewhat complex subsystem so we recommend you read <a href="../operations-and-waits/">Operations and Waits</a></p>
+<li>This is a somewhat complex subsystem so we recommend you read <a href="../operations-and-waits/">Operations and Waits</a></li>
+</ul>
 </li>
 <li>
 <p><code>UBeam_____Api</code>:  Code-Generated Subsystems from our Backend OpenAPI spec.</p>
@@ -1943,23 +1945,32 @@ Their code is pretty heavily commented; so, feel free to read it and figure thin
 </ul>
 <h2 id="ubeambackend"><code>UBeamBackend</code><a class="headerlink" href="#ubeambackend" title="Permanent link">¶</a></h2>
 <p>This is the most important <code>UEngineSubsystem</code> in the SDK. It leverages Unreal's <code>HTTP</code> module to make requests to the configured Beamable backend.
-It contains the implementations used by the <code>UBeam____Api</code> classes to make the actual requests. These implementations handle:
-- Request/Response serialization and deserialization.
-- Configurable Retry Logic with per-request-type, per-user-slot and per-call-site granularity.
-- Request's response Cache-ing, though this is disabled by default as caching is a very context dependent endeavor.
-- Transparent and Automatic Re-Auth in case of expired <code>AccessToken</code> through a user's <code>RefreshToken</code>.</p>
-<p>We have a few different types of requests and 4 implementations to handle them:
-- <strong>CPP and BP Authenticated Requests</strong>: require an <code>FUserSlot</code> with a logged-in user whose access token we'll use to make the request. 
-- <strong>CPP and BP Non-Authenticated Requests</strong>: does not require an <code>FUserSlot</code> with a logged-in user.
-- <strong><code>UBeamBackend::CreateGenericBeamRequest</code></strong>: for making requests to non-Beamable servers by <code>UBeamGenericApi</code>.</p>
+It contains the implementations used by the <code>UBeam____Api</code> classes to make the actual requests. </p>
+<p>These implementations handle:</p>
+<ul>
+<li>Request/Response serialization and deserialization.</li>
+<li>Configurable Retry Logic with per-request-type, per-user-slot and per-call-site granularity.</li>
+<li>Request's response Cache-ing, though this is disabled by default as caching is a very context dependent endeavor.</li>
+<li>Transparent and Automatic Re-Auth in case of expired <code>AccessToken</code> through a user's <code>RefreshToken</code>.</li>
+</ul>
+<p>We have a few different types of requests and 4 implementations to handle them:</p>
+<ul>
+<li><strong>CPP and BP Authenticated Requests</strong>: require an <code>FUserSlot</code> with a logged-in user whose access token we'll use to make the request. </li>
+<li><strong>CPP and BP Non-Authenticated Requests</strong>: does not require an <code>FUserSlot</code> with a logged-in user.</li>
+<li><strong><code>UBeamBackend::CreateGenericBeamRequest</code></strong>: for making requests to non-Beamable servers by <code>UBeamGenericApi</code>.</li>
+</ul>
 <p>In addition to these implementations, we also have a hierarchy of retry configurations. 
 You can configure these in <code>UBeamCoreSettings</code> (<code>Project Settings -&gt; Beamable Core</code>).
 Retries happen automatically on timeouts and a few other known cases. By default, these are:</p>
 <ul>
-<li>The <code>FBeamErrorResponse</code> structure received is a <code>408</code> status.</li>
+<li>The <code>FBeamErrorResponse</code> structure received is a <code>408</code> status.<ul>
 <li>The Unreal HTTP Request returning a <code>EHttpFailureReason::ConnectionError</code> or <code>EHttpFailureReason::TimedOut</code> are parsed into <code>FBeamErrorResponse</code> with a <code>408</code>.</li>
-<li>We got any errors defined in <code>UBeamBackend::AUTH_ERROR_CODE_RETRY_ALLOWED</code>.</li>
+</ul>
+</li>
+<li>We got any errors defined in <code>UBeamBackend::AUTH_ERROR_CODE_RETRY_ALLOWED</code>.<ul>
 <li>These errors trigger out seamless authentication token refreshing flow. It'll refresh the token and then retry the request.</li>
+</ul>
+</li>
 </ul>
 <p>If you ever encounter issues with this system, <code>log LogBeamBackend Verbose</code> is a useful Unreal command that can be used as a diagnostic tool.
 It will print out the entire process of building the request, sending it out and receiving its response.</p>
@@ -1975,14 +1986,22 @@ This system leverages UE's <code>WebSocket</code> module to open web-socket conn
 This means the SDK (and the Beamable Servers) think that a user is online/offline based on whether this connection is alive and well.
 Which in turn means that, if you want to use any of our real-time services (<a href="../../beamable-services/matchmaking/">Matchmaking</a>, <a href="../../beamable-services/lobbies/">Lobbies</a>, etc...)
 this connection needs to be properly working. At runtime, <code>UBeamRuntime</code> and <code>UBeamConnectivityManager</code> handle per-<code>FUserSlot</code> <a href="../connectivity/">Connectivity</a> statuses.</p>
-<p>Aside from defining <a href="../connectivity/">Connectivity</a> semantics, this connection is also how the Beamable servers (or your own custom Microservices) send notifications to clients about certain events.
-For example:
-- Implementations of <code>UEngineSubsystem</code> called <code>UBeam_____Notifications</code> exist for each Beamable Services (that emit notifications).
-  - These expose two UE function versions, one BP-Compatible and the other Lambda-Compatible, that register a handler to process a specific type of notification.
-- These are used by that service's <code>UBeamRuntimeSubsystem</code> based on their semantic needs.
-  - For example, <code>UBeamMatchmakingNotifications</code> subscribes to notifications for the matchmaking ticket while a <code>FUserSlot</code> is on a given queue.
-- You can use Microservices to send out custom notifications --- those can be received in clients by creating your own subsystem modeled after these.
-  - Use <code>UBeamRuntime::SubscribeToCustomNotification</code> to subscribe to these easily at runtime. </p>
+<p>Aside from defining <a href="../connectivity/">Connectivity</a> semantics, this connection is also how the Beamable servers (or your own custom Microservices) send notifications to clients about certain events.</p>
+<p>For example:</p>
+<ul>
+<li>Implementations of <code>UEngineSubsystem</code> called <code>UBeam_____Notifications</code> exist for each Beamable Services (that emit notifications).<ul>
+<li>These expose two UE function versions, one BP-Compatible and the other Lambda-Compatible, that register a handler to process a specific type of notification.</li>
+</ul>
+</li>
+<li>These are used by that service's <code>UBeamRuntimeSubsystem</code> based on their semantic needs.<ul>
+<li>For example, <code>UBeamMatchmakingNotifications</code> subscribes to notifications for the matchmaking ticket while a <code>FUserSlot</code> is on a given queue.</li>
+</ul>
+</li>
+<li>You can use Microservices to send out custom notifications --- those can be received in clients by creating your own subsystem modeled after these.<ul>
+<li>Use <code>UBeamRuntime::SubscribeToCustomNotification</code> to subscribe to these easily at runtime. </li>
+</ul>
+</li>
+</ul>
 
 
 

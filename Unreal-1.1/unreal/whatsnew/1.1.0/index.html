@@ -1494,7 +1494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../samples/samples/intro.md" class="md-nav__link">
+      <a href="../../samples/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1831,7 +1831,10 @@
 The Beamable Editor Window was reworked making it easier to use the Beamable Systems in your project. Now you can easily access Home, Content and Microservices using fixed tabs on the top of the window without effort.</p>
 <h2 id="new-content-editor">New Content Editor<a class="headerlink" href="#new-content-editor" title="Permanent link">¶</a></h2>
 <p><a class="glightbox" href="../../../media/imgs/content-window.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="content-window.png" src="../../../media/imgs/content-window.png" /></a>
-The Content Editor received a complete rework improving the usability and fixing many bugs. Now the content is presented in a list of itens improving the visualization of large amount of data; The filters were fixed on the top and all changes in the data are now updated properly with realtime feedbacks without need to reload the window manually. You can check the new Content Editor Documentation <a href="../../user-reference/beamable-services/content/">here</a></p>
+The Content Editor received a complete rework improving the usability and fixing many bugs. Now the content is presented in a list of itens improving the visualization of large amount of data; The filters were fixed on the top and the search is now a <code>Contains</code> search instead of a <code>StartsWith</code> search. Also, all changes in the data are now updated properly with realtime feedbacks without need to reload the window manually. You can check the new Content Editor Documentation <a href="../../user-reference/beamable-services/content/">here</a></p>
+<h2 id="new-connectivity-management-utilities">New Connectivity Management Utilities<a class="headerlink" href="#new-connectivity-management-utilities" title="Permanent link">¶</a></h2>
+<p>In this version, the SDK now exposes utilities to assist you in dealing with loss of connectivity to the Beamable servers. These utilities allow you to gracefully respond to connection losses and instability.
+For more details, check out <a href="../../user-reference/runtime-systems/connectivity/">this page</a>.</p>
 <h2 id="new-unreal-documentation">New Unreal Documentation<a class="headerlink" href="#new-unreal-documentation" title="Permanent link">¶</a></h2>
 <p><a class="glightbox" href="../../../media/imgs/news-1.1.0-docs.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="news-1.1.0-docs.png" src="../../../media/imgs/news-1.1.0-docs.png" /></a>
 The Unreal Documentation was reorganized and improved to better guide the users on how to use the Beamable System in your project. More improvements in the Documentation of all Beamable Products are coming soon.</p>
@@ -1840,7 +1843,10 @@ The Unreal Documentation was reorganized and improved to better guide the users 
 The LiveOps Sample was improved with new UI and information. You can check the new LiveOps Sample Documentation <a href="../../samples/live-ops-demo/">here</a></p>
 <h1 id="other-changes">Other Changes<a class="headerlink" href="#other-changes" title="Permanent link">¶</a></h1>
 <ul>
-<li><code>OnlineSubsystemBeamable</code> plugin now supports Frictionless Authentication and Identity Attaching</li>
+<li><code>OnlineSubsystemBeamable</code> plugin now supports Frictionless Authentication and Identity Attaching.<ul>
+<li>This is the last feature update to this subsystem as it is now discontinued. </li>
+</ul>
+</li>
 <li>Samples are now selected by running <code>dotnet beam unreal select-sample BEAMPROJ_Name</code> instead of <code>BeamProjOverride.txt</code></li>
 <li><code>beam_init_game_maker.sh</code> will now try to remove any read-only flags of files inside the existing <code>Plugins/BeamableCore</code> folder.
   This is needed because UE's integrations with VCSs (Git, P4) will often lock binary files at the file system level; which then
@@ -1849,6 +1855,7 @@ The LiveOps Sample was improved with new UI and information. You can check the n
 <li><code>UBeamNotifications::TrySubscribeForMessage</code> now also accepts any type implementing <code>IBeamJsonSerializableUObject</code> for its message type.
   This enables usage of the <code>BeamGenerateSchema</code> attribute in microservice code to keep custom notification payloads in-sync between Microservice and UE code.</li>
 <li>Added support for serializing <code>FColor</code>, <code>FLinearColor</code>, <code>FVector</code> and <code>FIntVector</code> inside <code>UBeamContentObject</code>types.</li>
+<li>Local Microservices started from the Unreal editor will now correctly terminate when the editor closes</li>
 </ul>
 <h1 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">¶</a></h1>
 <ul>
@@ -1856,6 +1863,14 @@ The LiveOps Sample was improved with new UI and information. You can check the n
 <li>Fixed issue that could cause a crash when re-logging into any particular UserSlot (a cleaned up operation could be waited on; no longer possible now)</li>
 <li>Fixed an issue that would cause a subsystem initialized with <code>UBeamRuntime::ManuallyInitializeSubsystem</code> to not load its user's data correctly if the user signed in <strong>after</strong> the system was initialized.</li>
 <li>Fixed multiple cases where the Content Screen did not update automatically after changes</li>
+</ul>
+<h1 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">¶</a></h1>
+<ul>
+<li>When creating a custom event by hand, adding a <code>FUserSlot</code> parameter pin to that event can sometimes crash the engine. This also seems to happen with <em>some</em> Unreal types that have custom pins (the same crash happens with <code>bool</code> pins, though less frequently).<ul>
+<li>This does NOT happen if you create the event using the functionality in the <code>CreateEvent</code> node OR by any other means of creating a custom event with all the pins it knows it should have.</li>
+<li>This crash also seems less likely to happen the longer the editor stays open. </li>
+</ul>
+</li>
 </ul>
 
 

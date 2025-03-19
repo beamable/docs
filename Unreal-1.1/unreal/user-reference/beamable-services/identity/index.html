@@ -1544,7 +1544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../samples/samples/intro.md" class="md-nav__link">
+      <a href="../../../samples/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1900,18 +1900,51 @@
 
 <h1 id="identity">Identity<a class="headerlink" href="#identity" title="Permanent link">¶</a></h1>
 <p>The Beamable SDK comes with a set of pre-implemented operations for common sign-up use-cases. Here are how to set up a few of the common login/signup flows using Beamable.</p>
+<div class="admonition warning">
+<p class="admonition-title">Identity and Dedicated Servers</p>
+<p>None of these flows run in Dedicated Servers; even if <code>InitSDKWithFrictionlessLogin</code> is called.
+Dedicated Servers use a different form of authentication that is not based on <code>FUserSlot</code> (any valid user slot can be passed into functions in Dedicated Server code).</p>
+</div>
 <h2 id="login-flow-mobile-games-style-authentication">Login Flow - "Mobile Games" Style Authentication<a class="headerlink" href="#login-flow-mobile-games-style-authentication" title="Permanent link">¶</a></h2>
 <p>Mobile games often want to create a <strong>Guest Account</strong> for the player so they can start playing quickly and later decide if they want to <code>Attach</code> that guest account to a more permanent identity.</p>
-<p>The SDK supports this flow via the <code>UBeamRuntime::InitSDKWithFrictionlessLogin</code> function. Initializing the SDK with this function will immediately attempt to create a <strong>Guest Account</strong> at the <code>OwnerPlayerSlot</code> as soon as the SDK finishes initializing itself. If an account is already locally cached at that <code>FUserSlot</code> we'll login to that one automatically without making a request to Beamable.</p>
+<p>The SDK supports this flow via the <code>UBeamRuntime::InitSDKWithFrictionlessLogin</code> function.
+Initializing the SDK with this function will immediately attempt to create a <strong>Guest Account</strong> at the <code>OwnerPlayerSlot</code> as soon as the SDK finishes initializing itself.
+If an account is already locally cached at that <code>FUserSlot</code> we'll login to that one automatically without making a request to Beamable.</p>
 <p>The <code>On User Ready</code> callback provided to the <code>InitSDKWithFrictionlessLogin</code> function runs after the Guest Account was successfully created and, at that point, you can make further requests to Beamable.</p>
-<p><strong>Guest Accounts are lost if signed out (or have its locally cached data lost for any reason)</strong>. To avoid that, players can to "attach" some persistent identity information to that guest account. <code>UBeamRuntime::Attach_____</code> do that. After a successful attach call, a player will be able to login via the corresponding <code>UBeamRuntime::Login____</code> operation. For example, if you <code>AttachEmailAndPassword</code> you'll be able to <code>LoginEmailAndPassword</code> to sign back into the account.</p>
-<p>This user sign in flow does not run in Dedicated Servers even if <code>InitSDKWithFrictionlessLogin</code> is called. Dedicated Servers use a different form of authentication that is not based on <code>FUserSlots</code>.</p>
+<p><strong>Guest Accounts are lost if signed out (or have its locally cached data lost for any reason)</strong>. 
+To avoid that, players can to "attach" some persistent identity information to that guest account.<code>UBeamRuntime::Attach_____</code> functions do that.</p>
+<p>Attaching an identity can succeed or fail:</p>
+<ul>
+<li>After a successful <code>UBeamRuntime::Attach_____</code> call, a player will be able to log in via the corresponding <code>UBeamRuntime::Login____</code> operation. <ul>
+<li>For example, if you <code>AttachEmailAndPassword</code> you'll be able to <code>LoginEmailAndPassword</code> to sign back into the account.</li>
+</ul>
+</li>
+<li>If it fails with a <code>(...)_IN_USE</code> error code, it means that the identity is already in use. Handling of this is game specific, but most games will either:<ul>
+<li>Call the <code>UBeamRuntime::Login____</code> and log in with the in-use identity, discarding the guest account. This is the most common way to handle this.</li>
+<li>Detect progress on the guest account and, if above a particular threshold, leverage microservices to try and do some progress merging should the user want it. 
+  This is non-trivial and not a lot of games do it since cost-benefit isn't there in most cases (but it is <em>possible</em>).</li>
+</ul>
+</li>
+</ul>
+<p>You can check out our <a href="../../../samples/discord-demo/">Discord sample</a> for an example of this flow.</p>
 <h2 id="login-flow-pcconsole-style-authentication">Login Flow - "PC/Console" Style Authentication<a class="headerlink" href="#login-flow-pcconsole-style-authentication" title="Permanent link">¶</a></h2>
-<p>In PC/Console titles, often the user can sign-in and up from inside the game. That can happen either through an active form-filling process, an active request to third-party authentication (Discord, Google, etc...) or an automatic store-based login (Epic Online Services, PSN, Steam, etc...).</p>
+<p>In PC/Console titles, often the user can sign-in and up from inside the game.
+That can happen either through an active form-filling process, an active request to third-party authentication (Discord, Google, etc...) or an automatic store-based login (Epic Online Services, PSN, Steam, etc...).</p>
 <p><strong><em>If your game has these flows, we recommend you use <code>InitSDK</code> and manage the login/signup flows in your game code instead. The steps below explain how to do that.</em></strong></p>
-<p>In your <code>BeginPlay</code> implementation, call <code>UBeamRuntime::InitSDK</code>. It provides you different callbacks to handle initialization success or failure. At the end of a successful initialization, you can call <code>UBeamRuntime::SignUp____</code> or <code>UBeamRuntime::Login____</code> Operations with the appropriate parameters to login a user.</p>
-<p>You can react to the successful Login/SignUp either via registering a callback to <code>UBeamRuntime::OnUserReady</code> OR by the <a href="../../runtime-systems/operations-and-waits/">operatoion's own events</a></p>
-<p>We treat these operations as atomic inside the SDK and will clear any invalid partial state in case of any failure during their internal multi-step process; triggering <code>UBeamRuntime::OnUserReady</code> only in the case that the user is fully ready for use.</p>
+<ul>
+<li>In your <code>BeginPlay</code> implementation, call <code>UBeamRuntime::InitSDK</code>. <ul>
+<li>It provides you different callbacks to handle initialization success or failure.</li>
+</ul>
+</li>
+<li>At the end of a successful initialization, you can call <code>UBeamRuntime::SignUp____</code> or <code>UBeamRuntime::Login____</code> Operations with the appropriate parameters to log in a user.<ul>
+<li>Most of the time, this will be our <code>ExternalIdentity</code> functions. For more information on how to use these, see <a href="../../federation/federated-login/">Federated Login</a>. </li>
+</ul>
+</li>
+<li>You can react to the successful Login/SignUp either via registering a callback to <code>UBeamRuntime::OnUserReady</code> OR by the <a href="../../runtime-systems/operations-and-waits/">operation's own events</a></li>
+</ul>
+<p>These operations are atomic inside the SDK and will clear any invalid partial state in case of any failure during their internal process.
+In other words, <code>UBeamRuntime::OnUserReady</code> is only in the case that the user is fully ready for use.</p>
+<p>You can check out our <a href="../../../samples/steam-demo/">Steam sample</a> for an example of this flow.</p>
 
 
 
