@@ -1905,15 +1905,15 @@
 <ul>
 <li><code>Realm</code> is an isolated data environment (think of it as a branch, but for your backend).<ul>
 <li>By default, you have one of these these for your <code>dev</code>, <code>staging</code> and <code>prod</code> environments.</li>
-<li>The <code>ApplyToBuild</code> button sets the realm information in the <code>Config/DefaultEngine.ini</code> file of your project. Whatever realm is configured in this file, is the realm your build will be pointed towards. <a href="user-reference/servers-and-builds/dedicated-servers.md">Dedicated Server Builds</a> don't need to care about their baked in <code>TargetRealm</code>. They fetch their target realm from Environment Variables.</li>
+<li>The <code>ApplyToBuild</code> button sets the realm information in the <code>Config/DefaultEngine.ini</code> file of your project. Whatever realm is configured in this file, is the realm your build will be pointed towards. <a href="../../user-reference/servers-and-builds/dedicated-servers/">Dedicated Server Builds</a> don't need to care about their baked in <code>TargetRealm</code>. They fetch their target realm from Environment Variables.</li>
 </ul>
 </li>
 <li><code>Content</code> opens up the <strong>Content Window</strong>.<ul>
-<li><a href="user-reference/beamable-services/content.md">Content</a> is Beamable's solution for defining game-specific read-only data.</li>
+<li><a href="../../user-reference/beamable-services/content/">Content</a> is Beamable's solution for defining game-specific read-only data.</li>
 </ul>
 </li>
 <li><code>Microservices</code> opens the <strong>Microservice Window</strong>.<ul>
-<li><a href="user-reference/microservices/microservices.md">Microservices</a> are Beamable's approach to Cloud-Code.</li>
+<li><a href="../../user-reference/microservices/microservices/">Microservices</a> are Beamable's approach to Cloud-Code.</li>
 </ul>
 </li>
 <li><code>Reset PIE Users</code> (Play-In-Editor) removes your PIE users locally cached data.<ul>
@@ -1933,7 +1933,7 @@
 <p>The <code>BeamRuntime</code> is an <code>GameInstanceSubsystem</code> that is responsible for controlling the SDK's lifecycle and, in clients, player authentication.</p>
 <div class="admonition warning">
 <p class="admonition-title">SDK Technical Overview</p>
-<p>The <a href="user-reference/overview.md">Technical Overview</a> explains how the Beamable Runtime works. Please read it after you are done with this guide as the default Beamable configuration might not be the best fit for your type of game and it'll give you examples of common setups.</p>
+<p>The <a href="../../user-reference/overview/">Technical Overview</a> explains how the Beamable Runtime works. Please read it after you are done with this guide as the default Beamable configuration might not be the best fit for your type of game and it'll give you examples of common setups.</p>
 </div>
 <p>Calling this function will initialize the SDK and, after that is successful, will automatically log into Beamable as a <strong>Guest Account</strong>. There are 3 exposed callbacks here:</p>
 <ul>
@@ -1961,8 +1961,8 @@
 <p>This verbose logging will print out <strong><em>everything</em></strong> about the request being made. Its meant to aid us in diagnosing issues that you may encounter when using the SDK AND not for production use. To turn it off in the same editor session, just run <code>log LogBeamBackend Display</code> in the editor console.</p>
 <p>When reporting an issue, try to reproduce the issue with the logs of the relevant systems set to Verbose and attach them to the issue.</p>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
-<p>Now that you've made your first Beamable Request, take a look at the <a href="user-reference/overview.md">Technical Overview</a> page so you can understand more about how the SDK is structured and identify the best path to using it in your game.</p>
-<p>If you'd like to see a more samples running on Beamable, take a look at our <a href="samples/intro.md">Samples</a>.</p>
+<p>Now that you've made your first Beamable Request, take a look at the <a href="../../user-reference/overview/">Technical Overview</a> page so you can understand more about how the SDK is structured and identify the best path to using it in your game.</p>
+<p>If you'd like to see a more samples running on Beamable, take a look at our <a href="../../samples/intro/">Samples</a>.</p>
 <p>If you want to contact us for support, doubts or suggestions, you can do so through one of our <a href="https://discord.com/invite/beamable">Discord Channel</a>. </p>
 
 

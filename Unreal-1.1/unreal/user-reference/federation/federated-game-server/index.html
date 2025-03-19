@@ -1935,7 +1935,7 @@
 </code></pre></div>
 <p>There are two <a href="federation-calls">Federation Calls</a> to this function: <strong>Matchmaking Match Found</strong> and <strong>Provision Game Server for Lobby</strong>.</p>
 <h3 id="matchmaking-match-found">Matchmaking Match Found<a class="headerlink" href="#matchmaking-match-found" title="Permanent link">¶</a></h3>
-<p>This is an Out-of-Band call that happens as part of the <a href="matchmaking.md">Matchmaking</a> flow:</p>
+<p>This is an Out-of-Band call that happens as part of the <a href="../../beamable-services/matchmaking/">Matchmaking</a> flow:</p>
 <ol>
 <li>Add the <code>IFederatedGameServer</code> federation to your microservice with a particular <a href="../federation/#federated-id">Federated Id</a>.</li>
 <li>Set up that <a href="../federation/#federated-id">Federated Id</a> in any <code>UBeamGameTypeContent</code>'s <code>federation</code> field.</li>
@@ -1946,7 +1946,7 @@
 <li>Pre-fetch data associated from each player from <a href="../../beamable-services/stats/">Stats</a>, <a href="../../beamable-services/inventory/">Inventory</a> or <a href="../beamable-services/microservices.md">Storage Objects</a> and add that data into the <code>ServerInfo</code> return object.</li>
 </ol>
 </li>
-<li>The returned <code>ServerInfo</code> object gets merged into the <a href="../../features/lobbies.md">Lobby</a>'s global and player data.<ol>
+<li>The returned <code>ServerInfo</code> object gets merged into the <a href="../../beamable-services/lobbies/">Lobby</a>'s global and player data.<ol>
 <li>In your game server build, the Lobby can be automatically prefetched if configured correctly, check more about it <a href="../../concepts/dedicated-servers.md">here</a>.</li>
 </ol>
 </li>
@@ -1967,7 +1967,7 @@
 <ol>
 <li>Add the <code>IFederatedGameServer</code> federation to your microservice with a particular <a href="../federation/#federated-id">Federated Id</a>.</li>
 <li>Set up that <a href="../federation/#federated-id">Federated Id</a> in any <code>UBeamGameTypeContent</code>'s <code>federation</code> field.</li>
-<li>Create a <a href="../../features/lobbies.md">Lobby</a> with the <code>UBeamGameTypeContent</code>'s id.<ol>
+<li>Create a <a href="../../beamable-services/lobbies/">Lobby</a> with the <code>UBeamGameTypeContent</code>'s id.<ol>
 <li>Closed/Open lobbies both work with federation.</li>
 </ol>
 </li>
