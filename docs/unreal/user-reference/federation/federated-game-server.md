@@ -10,7 +10,7 @@ public async Promise<ServerInfo> CreateGameServer(Lobby lobby);
 There are two [Federation Calls](federation-calls) to this function: **Matchmaking Match Found** and **Provision Game Server for Lobby**.
 
 ### Matchmaking Match Found
-This is an Out-of-Band call that happens as part of the [Matchmaking](matchmaking.md) flow:
+This is an Out-of-Band call that happens as part of the [Matchmaking](../beamable-services/matchmaking.md) flow:
 
 1. Add the `IFederatedGameServer` federation to your microservice with a particular [Federated Id](federation.md#federated-id).
 2. Set up that [Federated Id](federation.md#federated-id) in any `UBeamGameTypeContent`'s `federation` field.
@@ -19,7 +19,7 @@ This is an Out-of-Band call that happens as part of the [Matchmaking](matchmakin
 5. This function can then do one or more of the following things:
 	1. Use a 3rd Party API to provision a game server, wait for it to spin up and add the connection information to the `ServerInfo` return object.
 	2. Pre-fetch data associated from each player from [Stats](../beamable-services/stats.md), [Inventory](../beamable-services/inventory.md) or [Storage Objects](../beamable-services/microservices.md) and add that data into the `ServerInfo` return object.
-6. The returned `ServerInfo` object gets merged into the [Lobby](../../features/lobbies.md)'s global and player data.
+6. The returned `ServerInfo` object gets merged into the [Lobby](../beamable-services/lobbies.md)'s global and player data.
 	1. In your game server build, the Lobby can be automatically prefetched if configured correctly, check more about it [here](../../concepts/dedicated-servers.md).
 7. The client SDK receives a notification from Beamable that a match is ready and invoke the `UBeamMatchmakingSubsystem`'s `OnMatchReady` callback for the match ticket.
 
@@ -42,7 +42,7 @@ Certain games allow players to [create custom lobbies](../../features/lobbies.md
 
 1. Add the `IFederatedGameServer` federation to your microservice with a particular [Federated Id](federation.md#federated-id).
 2. Set up that [Federated Id](federation.md#federated-id) in any `UBeamGameTypeContent`'s `federation` field.
-3. Create a [Lobby](../../features/lobbies.md) with the `UBeamGameTypeContent`'s id.
+3. Create a [Lobby](../beamable-services//lobbies.md) with the `UBeamGameTypeContent`'s id.
 	1. Closed/Open lobbies both work with federation.
 4. Players will join the lobby and eventually become ready.
 	1. Most custom lobby implementations use `UBeamLobbySubsystem`'s `UpdatePlayerTags` function to update each individual player's ready state.

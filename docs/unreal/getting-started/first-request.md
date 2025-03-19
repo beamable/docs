@@ -11,11 +11,11 @@ Here's some a quick tour of Beamable terminology:
 
 - `Realm` is an isolated data environment (think of it as a branch, but for your backend).
     - By default, you have one of these these for your `dev`, `staging` and `prod` environments.
-    - The `ApplyToBuild` button sets the realm information in the `Config/DefaultEngine.ini` file of your project. Whatever realm is configured in this file, is the realm your build will be pointed towards. [Dedicated Server Builds](user-reference/servers-and-builds/dedicated-servers.md) don't need to care about their baked in `TargetRealm`. They fetch their target realm from Environment Variables.
+    - The `ApplyToBuild` button sets the realm information in the `Config/DefaultEngine.ini` file of your project. Whatever realm is configured in this file, is the realm your build will be pointed towards. [Dedicated Server Builds](../user-reference/servers-and-builds/dedicated-servers.md) don't need to care about their baked in `TargetRealm`. They fetch their target realm from Environment Variables.
 - `Content` opens up the **Content Window**.
-    - [Content](user-reference/beamable-services/content.md) is Beamable's solution for defining game-specific read-only data.
+    - [Content](../user-reference/beamable-services/content.md) is Beamable's solution for defining game-specific read-only data.
 - `Microservices` opens the **Microservice Window**.
-    - [Microservices](user-reference/microservices/microservices.md) are Beamable's approach to Cloud-Code.
+    - [Microservices](../user-reference/microservices/microservices.md) are Beamable's approach to Cloud-Code.
 - `Reset PIE Users` (Play-In-Editor) removes your PIE users locally cached data.
     - By default, when you sign into a Beamable account in PIE (in your game code), Beamable will use the same user until you delete the files `Saved/Beamable/UserSlots/PIE_XXXXX.json`.
     - This button does that for you. After you click it, the next time you enter PIE, a brand new Beamable player account will be created in your current realm.
@@ -32,7 +32,7 @@ To get started, open your Level Blueprint and add the following pattern:
 The `BeamRuntime` is an `GameInstanceSubsystem` that is responsible for controlling the SDK's lifecycle and, in clients, player authentication.
 
 !!! warning "SDK Technical Overview"
-    The [Technical Overview](user-reference/overview.md) explains how the Beamable Runtime works. Please read it after you are done with this guide as the default Beamable configuration might not be the best fit for your type of game and it'll give you examples of common setups.
+    The [Technical Overview](../user-reference/overview.md) explains how the Beamable Runtime works. Please read it after you are done with this guide as the default Beamable configuration might not be the best fit for your type of game and it'll give you examples of common setups.
 
 Calling this function will initialize the SDK and, after that is successful, will automatically log into Beamable as a **Guest Account**. There are 3 exposed callbacks here:
 
@@ -61,8 +61,8 @@ This verbose logging will print out ***everything*** about the request being mad
 When reporting an issue, try to reproduce the issue with the logs of the relevant systems set to Verbose and attach them to the issue.
 
 ## Next Steps
-Now that you've made your first Beamable Request, take a look at the [Technical Overview](user-reference/overview.md) page so you can understand more about how the SDK is structured and identify the best path to using it in your game.
+Now that you've made your first Beamable Request, take a look at the [Technical Overview](../user-reference/overview.md) page so you can understand more about how the SDK is structured and identify the best path to using it in your game.
 
-If you'd like to see a more samples running on Beamable, take a look at our [Samples](samples/intro.md).
+If you'd like to see a more samples running on Beamable, take a look at our [Samples](../samples/intro.md).
 
 If you want to contact us for support, doubts or suggestions, you can do so through one of our [Discord Channel](https://discord.com/invite/beamable). 
