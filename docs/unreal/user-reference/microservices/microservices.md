@@ -2,7 +2,7 @@
 # Beamable Microservices
 Beamable Microservices are Beamable's Cloud Code solution. It is a wrapper around a HTTP Server that makes the development process much simpler. These are written in C# and come with a set of development tools that are tightly integrated with the UE Editor and Beamable CLI.
 
-This page explains the high-to-low-level concepts of Microservices and to what end they can be used. [Take a look here for a getting started guide](setting-microservices.md)
+This page explains the high-to-low-level concepts of Microservices and to what end they can be used. [Take a look here for a getting started guide.](setting-microservices.md)
 
 ## Why this approach to Cloud-Code?
 A lot of cloud-code solutions sacrifice a lot of flexibility, cost-efficiency, performance or developer experience in exchange for simplifying the simple case. Our goal was to focus on helping you with the complex cases while keeping the simple case easy to work.
@@ -38,11 +38,11 @@ The Microservice Window enables developers to start/stop local services, to read
 The left side of the window provides you a list of all services in your project with a set of filters based on **Service Groups**. The right side is the **Details Panel**.
 
 !!! note "Service Groups"
-In very rare cases, a project may require a non-trivial amount of services/storages. For Beamable's own internal development this is true (as we have microservices for each sample).
-
-	In cases like these, a line can be added to the `csproj` file of each service to assign them to groups. These can then be used by the CLI's `project` pallet as filters while also being used as a filter in this window. The line to be added to the `BeamableSettings` **PropertyGroup** : `<BeamServiceGroup>SomeGroupId</BeamServiceGroup>`
+	In very rare cases, a project may require a non-trivial amount of services/storages. For Beamable's own internal development this is true (as we have microservices for each sample).
 	
-	There are no limits on group names other than that `BEAMPROJ_` is a reserved prefix.
+	In cases like these, a line can be added to the `csproj` file of each service to assign them to groups. These can then be used by the CLI's `project` pallet as filters while also being used as a filter in this window. The line to be added to the `BeamableSettings` **PropertyGroup** : `<BeamServiceGroup>SomeGroupId</BeamServiceGroup>`	
+	
+	There are no restrictions on group names other than that `BEAMPROJ_` is a reserved prefix.
 
 ### The Details Panel
 The Details panel provides a detailed view of the microservices and access to a few features:
@@ -88,8 +88,6 @@ Our CLI is capable of generating Unreal bindings that will allow your Unreal cod
 
 Each `Callable` generates at least two `UObject` classes, one representing request's input parameters and another representing the response type. It also generates a function inside the generated `UBeamMicroserviceNameApi` subsystem (and accompanying Blueprint nodes). 
 
-!!! note "Complex Types and Namespacing"
-	When generating these types we attempt to minimize the number of data-types we end up generating, this means that 
 
 #### Signature Constraints
 When declaring `Callable` functions, you should be aware of a few limitations regarding its signatures.
@@ -212,7 +210,7 @@ Here are the steps:
 This allows you to get services that might have complex logic working first and integrating them into Unreal later. [Keep in mind the type restrictions on method signatures mentioned here](#constraints-on-callable-functions).
 
 #### Integrating with Unreal
-Whenever it becomes preferable or necessary (see [Federations](../federation/federation.md)) to test the microservice directly from Unreal's PIE mode, you can generate bindings for your `Callable` types and use them inside your game's code.
+Whenever it becomes preferable or necessary (see [Federations](../../federation/federation.md)) to test the microservice directly from Unreal's PIE mode, you can generate bindings for your `Callable` types and use them inside your game's code.
 
 Here you have two options:
 
@@ -235,7 +233,7 @@ Once you have these, you can:
 4. Run PIE and hit the point where you call your microservice.
 5. See your local service's `Callable`'s be hit.
 
-If you are using [Federations](../federation/federation.md), there are a few particulars of this workflow of which you should be aware. If not, the above works as described.
+If you are using [Federations](../../federation/federation.md), there are a few particulars of this workflow of which you should be aware. If not, the above works as described.
 
 #### Deploying to a Realm
 Once you have things working locally, you'll likely want to make the Microservice available to other team members working on the realm. If you just push your code up, other team members would also have to run the service locally and that might not always be desirable.
