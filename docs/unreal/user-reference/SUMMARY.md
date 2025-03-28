@@ -13,6 +13,8 @@
       - [Stores](beamable-services/stores.md)
       - [Lobbies](beamable-services/lobbies.md)
       - [Matchmaking](beamable-services/matchmaking.md)
+      - [Parties](beamable-services/parties.md)
+      - [Friends](beamable-services/friends.md)
 - Microservices
       - [Overview](microservices/microservices.md)
       - [Setting Up Microservices](microservices/setting-microservices.md)
