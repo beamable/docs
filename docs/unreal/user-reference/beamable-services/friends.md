@@ -98,13 +98,6 @@ There are two events related to blocking players: one for the player who initiat
 
 For the unblock flow is very similar to the block, so there's a `OnPlayerUnblocked` event and a `OnPlayerBeenUnblocked`.
 
-### How to check friend/player the status
-
-1. Open your Level Blueprint (or some other BP)
-2. Call the `Operation - Friend - FetchFriendPresencestatus`. This will allow you to create a asynchronos chain to the after fetch the current state for the presence status.
-
-![friends-fetch-presencestatus.png](../../../media/imgs/friends-fetch-presencestatus.png)
-
 #### Presence status update event
 
  For you to use the status presence as the common behavior of showing if your friend is online or offline we recommend to register in the `OnPresenceStatusUpdate` and handle the updates in the player status from this.
@@ -127,6 +120,12 @@ When a player is removed from the friend list it will triggers this notification
 The event that will be trigger is the `OnFriendRemoved`. When it triggers, the local state of the friend list will already been updated.
 
 ![friends-bind-friend-removed.png](../../../media/imgs/friends-bind-friend-removed.png)
+
+### How To Use The System State To Update The View (Invite Example)
+
+In the example below, we demonstrate how to retrieve the user's friend state and use it to update a view or another screen. In this case, the example simply sets a list of all invites in the friend state. There are other ways to handle this, such as adding or removing items based on events, rather than setting the entire list. For simplicity, we're showing this approach.
+
+![friends-local-state-received-invite.png](../../../media/imgs/friends-local-state-received-invite.png)
 
 ### Conclusion
 

@@ -42,7 +42,7 @@ With the multiplayer instances set we can start creating a Blueprint (BP) functi
 ![party-join](../../../media/imgs/party-join.png)
 
 ???+ Warning "Join Unrestrict Party"
-    if the party is the type unrestrict it's possible to join without receive an invite from another player just calling the join.
+    if the party is the type **unrestrict** it's possible to join without receive an invite from another player just calling the join.
 
 
 ### Invite player (Leader Only)
@@ -107,3 +107,9 @@ The invite events will be used mostly to handle updates on the invite list, like
 The party events will be response to handle updates on the party, like if a player leave/join, we can update the visuals, etc.
 
 ![party-bind-party-events](../../../media/imgs/party-bind-party-events.png)
+
+#### Party State Usage
+
+In this case, we are iterating over the player states within the party. This can be used to populate the UI with the party's details.
+
+![party-get-state](../../../media/imgs/party-get-state.png)
