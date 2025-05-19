@@ -41,6 +41,26 @@ The images below shows how to handle the steps above.
 
     **Please follow the extra steps in the unreal documentation to have everything ready.**
 
+## Installing the Turnkey 
+
+The Turnkey will start to install all needed, for most cases you will need only the default. But bellow you can see as the default of the options should looks like.
+
+| ![unreal-sdk-android-turnkey.png](../../media/imgs/unreal-sdk-android-turnkey.png) | 
+|:--:| 
+| *Default options* |
+
+The Turnkey will ask you to setup the sdk manager, so follow the bellow steps.
+
+| ![android-command-tool-1.png](../../media/imgs/android-command-tool-1.png) | 
+|:--:| 
+| *Command Tool Install* |
+
+
+| ![android-command-tool-2.png](../../media/imgs/android-command-tool-2.png) | 
+|:--:| 
+| *Command Tool Install* |
+
+
 ## First Setup
 
  As metioned in the reference of the unreal, you will need to fix the issues and setup the information in the Project Settings / Platform / Android.
