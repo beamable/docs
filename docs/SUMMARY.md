@@ -1,8 +1,5 @@
 ﻿- [Introduction](index.md)
 - [Getting Started](unreal/getting-started/)
 - [Whats New?](unreal/whatsnew/)
-- [Beamable Concepts](concepts/)
 - [SDK User Reference](unreal/user-reference/)
 - [Samples](unreal/samples/)
-- [Beamable CLI](cli/)
-- [Support](unreal/support/)
