@@ -1,2 +1,3 @@
-﻿- [Platform Overview](beamable_overview.md)
+﻿- [Introduction](beamable_intro.md)
+- [Archtecture Overview](archtecture/)
 - [Beamable Services](services/)

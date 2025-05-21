@@ -1,6 +1,2 @@
-﻿- [Content](content.md)
-- [Inventory](inventory.md)
-- [Lobbies](lobbies.md)
-- [Matchmaking](matchmaking.md)
-- [Stats](stats.md)
-- [Stores](stores.md)
+﻿- [Organization](organization/)
+- [Game Services](game_services/)
