@@ -1,4 +1,2 @@
-﻿- [Overview](overview.md)
-- [Repository Structure](repository.md)
-- [Editing Documents](editing.md)
-- [Unreal Android](unreal-android.md)
+﻿- [Introduction](introduction.md)
+- [Getting Started](getting-started.md)
