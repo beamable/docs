@@ -1,5 +1,10 @@
 [
   {
+    "version": "Unreal-2.0",
+    "title": "Unreal-2.0",
+    "aliases": []
+  },
+  {
     "version": "Unreal-1.1",
     "title": "Unreal-1.1",
     "aliases": []
