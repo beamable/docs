@@ -2,7 +2,9 @@
   {
     "version": "Unreal-2.0",
     "title": "Unreal-2.0",
-    "aliases": []
+    "aliases": [
+      "Unreal-Latest"
+    ]
   },
   {
     "version": "Unreal-1.1",
