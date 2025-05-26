@@ -1,9 +1,5 @@
 ﻿- [SDK Technical Overview](overview.md)
-- Runtime Systems
-      - [User Slots](runtime-systems/user-slots.md)
-      - [Operations & Waits](runtime-systems/operations-and-waits.md)
-      - [Connectivity Management](runtime-systems/connectivity.md)
-      - [Lower Level SDK](runtime-systems/lower-level.md)
+- [Runtime Systems](runtime-systems/)
 - Beamable Services
       - [Identity](beamable-services/identity.md)
       - [Content](beamable-services/content.md)

@@ -24,7 +24,7 @@ Aside from those core concepts, the links below explain some of our higher-level
 - [**Stores**](beamable-services/stores.md) and [Announcements](beamable-services/announcements.md) are part of our suite of services to help with live-ops meta-game engagement.
 
 
-## SDK's Runtime (`UBeamRuntime` & `UBeamRuntimeSubsystem`)
+# Beamable Runtime SDK
 `UBeamRuntime` is the entry point for the Beamable SDK at runtime (PIE, packaged game clients and dedicated servers).
 It is a `GameInstanceSubsystem` and follows its lifecycle rules. 
 It is responsible for a couple of things:
@@ -41,7 +41,7 @@ The next image shows a high-level description of the authentication flows suppor
 
 ![runtime-concept-authflow.png](../../media/imgs/runtime-concept-authflow.png)
 
-## Understanding `BeamRuntimeSubsystems`
+## Beamable Runtime Subsystems
 `BeamRuntimeSubsystems` are stateful subsystems that provide some specific Beamable functionality. 
 They are built on top of our auto-generated `UBeam____Api` classes to make it simpler to leverage our APIs; that way:
 
