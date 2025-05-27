@@ -27,7 +27,7 @@ Most of the time, you achieve this by doing the following:
 
 After this, the flow goes into your `Authenticate` function. What that function should do, depends on whether or not you are implementing 2FA or not.
 
-#### Federated Login - without 2FA
+# Federated Login - without 2FA
 Semantically, there are two ways the `Authenticate` function can be called:
 
 - **Account Creation Time**: When using **`UBeamRuntime`'s  `LoginExternalIdentity` or `SignUpExternalIdentity` Operations**. 
@@ -46,7 +46,7 @@ The main different between both cases is that:
 
 For non, 2FA flows (which are most of the Store and Console login flows) this is all that is needed.
 
-#### Federated Login - 2FA
+# Federated Login - 2FA
 Semantically, there are an additional two ways that the Authenticate function can be called:
 
 - **Without a `challenge`/`solution`**: This is the first part of the flow. 

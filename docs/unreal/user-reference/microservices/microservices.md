@@ -4,7 +4,7 @@ Beamable Microservices are Beamable's Cloud Code solution. It is a wrapper aroun
 
 This page explains the high-to-low-level concepts of Microservices and to what end they can be used. [Take a look here for a getting started guide.](setting-microservices.md)
 
-## Why this approach to Cloud-Code?
+# Why this approach to Cloud-Code?
 A lot of cloud-code solutions sacrifice a lot of flexibility, cost-efficiency, performance or developer experience in exchange for simplifying the simple case. Our goal was to focus on helping you with the complex cases while keeping the simple case easy to work.
 
 We do so by this architecture:
@@ -30,7 +30,7 @@ public int Add(int a, int b)
 }
 ```
 
-## Microservice Window
+# Microservice Window
 The Microservice Window enables developers to start/stop local services, to read local service logs while in PIE and to configure local server settings for the collaborative workflow and for federations.
 
 ![microservices-window-home.png](../../../media/imgs/microservices-window-home.png)
@@ -44,7 +44,7 @@ The left side of the window provides you a list of all services in your project 
 	
 	There are no restrictions on group names other than that `BEAMPROJ_` is a reserved prefix.
 
-### The Details Panel
+## The Details Panel
 The Details panel provides a detailed view of the microservices and access to a few features:
 
 - Start/Stop the service in your local machine.
@@ -52,13 +52,13 @@ The Details panel provides a detailed view of the microservices and access to a 
 - Open the Beamable Portal targeting **your local service**.
 - [Configure which **Microservice Target** the Play-in-Editor sessions will target](#collaborative-debugging).
 - [Configure Federation-specific settings](../federation/federation.md).
-#### Local - Logs Tab
+
+## Local - Logs Tab
 As the name implies, you can explore the logs for any running Microservice. You can filter by **Log Level**, substring search and also clear stored logs.
 
 ![microservices-window-logs.png](../../../media/imgs/microservices-window-logs.png)
 
-
-## Microservice Coding
+# Microservice Coding
 Microservices inherit from the `Microservice` base class and are `partial` by default. Inside each Microservice class, you can annotate instance methods with the following attributes to various effects:
 
 - `Callable`: This is the equivalent of a public endpoint. Any non-authenticated caller is allowed to invoke this function via a request.
@@ -83,13 +83,12 @@ Inside the method body, there are a few concepts that are relevant:
 
 [For more information on how to write microservice functions, you can take a look at our these docs as well.](https://docs.beamable.com/docs/microservices-feature-overview)
 
-### Constraints on Callable Functions
+## Constraints on Callable Functions
 Our CLI is capable of generating Unreal bindings that will allow your Unreal code to call your microservice much like you would make an API call to Beamable. In order to generate these bindings, we have *some* restrictions on what types can and can't be on method signatures for `Callables`. 
 
 Each `Callable` generates at least two `UObject` classes, one representing request's input parameters and another representing the response type. It also generates a function inside the generated `UBeamMicroserviceNameApi` subsystem (and accompanying Blueprint nodes). 
 
-
-#### Signature Constraints
+## Signature Constraints
 When declaring `Callable` functions, you should be aware of a few limitations regarding its signatures.
 
 - No `void` return.
@@ -124,7 +123,7 @@ Keep in mind that only a few things actually affect the shape of any particular 
 	- `public async Promise<MyCustomType> MyCustomFunction(int arg1)`
 	- `public async Task<MyCustomType> MyCustomFunction(int arg1)`
 
-#### Type Constraints
+## Type Constraints
 When you write types in C# and use them in `Callable` method signatures, you should keep in mind how these types map to the underlying UE `UObjects` and functions. The table below explains that mapping.
 
 | In UE                                                     | In C# Microservices                                                         | Notes                                                                                                                                                                                                               |
@@ -152,14 +151,14 @@ A few things to note:
 !!! note "Semantic Type Support"
 	In the future, we plan to support all `FBeamSemanticType` such as `FBeamGamerTag` and `FBeamContentId` as well as some Unreal-Specific types such as `FGameplayTag` and others.
 
-#### Making Requests on Behalf of Users
+## Making Requests on Behalf of Users
 It is quite a common case that a Microservice needs to use one of our many APIs on behalf of a particular user. This allows you to re-use our APIs (that are usually written in a client-facing way) to be used for multiple users. A practical example:
 
 > At the end of a MOBA match, you'll need to update player stats gathered during the match or process their account's new Experience or Rank. For this, you can make a `ServerCallable` called `ProcessMatchResults` and pass in information from your dedicated server whenever the match is over.
 
 In order to make requests on behalf of users we provide the `AssumeNewUser` function. It gives you back a `UserRequestDataHandler` that has fields like `Context` and `Services`. Making API calls from this `assumedUser.Services.Stats` instance as opposed to the usual `this.Services` will make the request on behalf of the user.
 
-#### Multiple Microservices and Organizing Code
+## Multiple Microservices and Organizing Code
 The first impulse a lot of people have is to separate microservices semantically; one-per-feature. **We do not recommend this.** Here's why:
 
 - Having a lot of microservices will increase your cost for *potentially* no benefit.
@@ -175,7 +174,7 @@ The key metric you should use to consider creating additional microservices is *
 
 We've found these to be *reasonable defaults* that give you generally good runtime scalability for a low-cost and provide a simple developer experience. You should always keep an eye on your service's behavior for optimization opportunities as you observe its behavior under load.
 
-### Microservice Routing and Microservice Target
+## Microservice Routing and Microservice Target
 When you make a request to a microservice, you're not actually directly talking to your service. Your request comes in via Beamable's Gateway service and that service figures out to which running Microservice instance it will forward that request.
 
 This allows us to integrate microservices running in your local machine "as though they" are part of the realm in two specific ways:
@@ -187,13 +186,12 @@ This allows us to integrate microservices running in your local machine "as thou
 
 Enabling these two cases at the push of a button enables very fast development iteration speed.
 
-
-## Common Developer Workflows
+# Common Developer Workflows
 There are a few different ways to work with Microservices in Unreal, each with their own advantages and disadvantages. So, here we make our recommendations about them.
 
 These are NOT how-to guides, they are high-level descriptions to help you get a feel regarding how to work with Beamable and how its tools can be used to work alone and as a team.
 
-#### Designing the API
+## Designing the API
 If you're in the very early stages of solving a problem and you just want to get the features to work, there's a workflow that doesn't require you to open Unreal at all, allowing you to focus only on getting your `Callables` to work!
 
 Here are the steps:
@@ -209,7 +207,7 @@ Here are the steps:
 
 This allows you to get services that might have complex logic working first and integrating them into Unreal later. [Keep in mind the type restrictions on method signatures mentioned here](#constraints-on-callable-functions).
 
-#### Integrating with Unreal
+## Integrating with Unreal
 Whenever it becomes preferable or necessary (see [Federations](../../federation/federation.md)) to test the microservice directly from Unreal's PIE mode, you can generate bindings for your `Callable` types and use them inside your game's code.
 
 Here you have two options:
@@ -235,7 +233,7 @@ Once you have these, you can:
 
 If you are using [Federations](../../federation/federation.md), there are a few particulars of this workflow of which you should be aware. If not, the above works as described.
 
-#### Deploying to a Realm
+## Deploying to a Realm
 Once you have things working locally, you'll likely want to make the Microservice available to other team members working on the realm. If you just push your code up, other team members would also have to run the service locally and that might not always be desirable.
 
 As such, you should publish the services to the appropriate realm.
@@ -254,7 +252,7 @@ The way to deploy services for our UE integration is 100% CLI-based. The documen
 !!! info "Why no Deploy Editor UI?"
 	If there's enough demand for it, we will consider adding it. However, deploying services is mostly done by engineers and CI/CD pipelines so we felt that compiling and opening the UE Editor just to do this didn't add enough value to the UE workflow.
 
-#### Collaborative Debugging
+## Collaborative Debugging
 This one is pretty unique to Beamable's Microservices. 
 
 Imagine the following: 
@@ -279,9 +277,10 @@ Or... you could instead use Beamable's Collaborative Debugging workflow:
 - As the engineer, observe your (conditional or data) breakpoint is hit or read your additional `BeamableLogger` log lines.
 - Quickly diagnose the issue and unblock the designer.
 
-![microservices-window-collaboration.png](../../../media/imgs/microservices-window-collaboration.png)
-
 For smaller teams that like to move fast and can rely on lots of direct communication between designers and engineers, this workflow is a **massive improvement to the current available alternatives**.
+
+![microservices-window-collaboration.png](../../../media/imgs/microservices-window-collaboration.png)
+<center>Colaboration Tab of the Microservice Window</center>
 
 # Micro Storages
 Beamable Microservices allow you to store data in Beamable's own managed services such as `Stats`(Per-Player key-value stores) and `Inventory` (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it just makes your particular problem simpler to solve (instead of trying to fit it into our default stores).
@@ -295,7 +294,7 @@ For those cases, Beamable offers a `MicroStorage`. This is a wrapper around a da
 	 
 	  **We recommend that `Callables` have unique request/response types for better long-term maintainability and flexibility**.
 
-#### Local Development Implications
+# Local Development Implications
 While you can develop microservices without Docker being run (except for its publishing step), you cannot do the same for `Microservices` that use `MicroStorages`. This is because the local running service expects there to be a locally running `MongoDB` instance it'll use as the Database.
 
 To make sure the above is true, we run `MongoDB`'s official container in your local Docker instance. This is managed automatically on startup of the microservice BUT does introduce a dependency on docker for local iterative development.

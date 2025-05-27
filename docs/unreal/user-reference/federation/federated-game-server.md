@@ -9,7 +9,7 @@ public async Promise<ServerInfo> CreateGameServer(Lobby lobby);
 
 There are two [Federation Calls](federation-calls) to this function: **Matchmaking Match Found** and **Provision Game Server for Lobby**.
 
-### Matchmaking Match Found
+# Matchmaking Match Found
 This is an Out-of-Band call that happens as part of the [Matchmaking](../beamable-services/matchmaking.md) flow:
 
 1. Add the `IFederatedGameServer` federation to your microservice with a particular [Federated Id](federation.md#federated-id).
@@ -25,7 +25,7 @@ This is an Out-of-Band call that happens as part of the [Matchmaking](../beamabl
 
 You can check out our [Hathora Demo](../../samples/hathora-demo.md) for more information on how to implement the actual `CreateGameServer` function.
 
-#### Working Locally
+# Working Locally
 Because this is an Out-of-Band call, you'll need to set a content-id filter for which queues you want your locally running microservice to handle when its running.
 
 You can do this via the [Federation tab of the Microservice](federation.md#workflows-for-developing-federations) window or by using the following commands:
@@ -37,7 +37,7 @@ dotnet beam federation local-settings get IFederatedGameServer --beamo-id MyServ
 dotnet beam federation local-settings set IFederatedGameServer --beamo-id HathoraDemo --fed-id hathora --content-ids game_types.my_queue
 ```
 
-### Provision Game Server for Lobby
+# Provision Game Server for Lobby
 Certain games allow players to [create custom lobbies](../../features/lobbies.md) manually. If those games also require invoking the federation endpoint to provision a server or run some arbitrary code, they can do so via the following steps:
 
 1. Add the `IFederatedGameServer` federation to your microservice with a particular [Federated Id](federation.md#federated-id).

@@ -1,11 +1,21 @@
 ﻿# Identity
-The Beamable SDK comes with a set of pre-implemented operations for common sign-up use-cases. Here are how to set up a few of the common login/signup flows using Beamable.
 
-!!! warning "Identity and Dedicated Servers"
-    None of these flows run in Dedicated Servers; even if `InitSDKWithFrictionlessLogin` is called.
-    Dedicated Servers use a different form of authentication that is not based on `FUserSlot` (any valid user slot can be passed into functions in Dedicated Server code).
+# Overview
 
-## Login Flow - "Mobile Games" Style Authentication
+Identity in Beamable provides authentication and account management functionality for your game. Through the Identity
+system, players can create accounts, sign in, and manage their credentials across different platforms and devices.
+
+The Beamable SDK includes a comprehensive set of pre-implemented operations that handle common authentication scenarios:
+
+- Guest account creation and management
+- Email/password authentication
+- Third-party platform integration (Steam, Epic, Discord, etc.)
+- Account merging and credential attachment
+
+These operations are designed to be easily integrated into your game's login and signup flows while maintaining security
+best practices.
+
+# "Mobile Games" Style Authentication
 Mobile games often want to create a **Guest Account** for the player so they can start playing quickly and later decide if they want to `Attach` that guest account to a more permanent identity.
 
 The SDK supports this flow via the `UBeamRuntime::InitSDKWithFrictionlessLogin` function.
@@ -28,7 +38,7 @@ Attaching an identity can succeed or fail:
 
 You can check out our [Discord sample](../../samples/discord-demo.md) for an example of this flow.
 
-## Login Flow - "PC/Console" Style Authentication
+# "PC/Console" Style Authentication
 In PC/Console titles, often the user can sign-in and up from inside the game.
 That can happen either through an active form-filling process, an active request to third-party authentication (Discord, Google, etc...) or an automatic store-based login (Epic Online Services, PSN, Steam, etc...).
 
@@ -44,3 +54,7 @@ These operations are atomic inside the SDK and will clear any invalid partial st
 In other words, `UBeamRuntime::OnUserReady` is only in the case that the user is fully ready for use.
 
 You can check out our [Steam sample](../../samples/steam-demo.md) for an example of this flow.
+
+# Dedicated Servers
+None of these flows run in Dedicated Servers; even if `InitSDKWithFrictionlessLogin` is called.
+Dedicated Servers use a different form of authentication that is not based on `FUserSlot` (any valid user slot can be passed into functions in Dedicated Server code).
