@@ -1,9 +1,21 @@
 # Matchmaking
-## Overview
 
-The Beamable SDK Matchmaking feature allows player to join a matchmaking queue (defined by a `UBeamGameTypeContent` instance), configure rules for matches to be made, receive notifications of progress and, optionally, provision a Game Server with a 3rd Party Game Server Orchestrator for the resulting match. 
+# Overview
 
-## `UBeamGameTypeContent` as Queues
+Beamable Matchmaking is a flexible system for connecting players together in online games. It provides a complete
+solution for:
+
+- Creating and managing matchmaking queues
+- Defining match rules and team configurations
+- Handling player matching logic based on stats and criteria
+- Managing match state and notifications
+- Optional integration with game server provisioning
+
+The Beamable SDK Matchmaking feature allows players to join a matchmaking queue (defined by a `UBeamGameTypeContent`
+instance), configure rules for matches to be made, receive notifications of progress and, optionally, provision a Game
+Server with a 3rd Party Game Server Orchestrator for the resulting match.
+
+# Matchmaking Queues
 Beamable's Matchmaking system depends on Beamable's [Content System](content.md) in order for you to define various matchmaking queues.
 
 Each Matchmaking queue is described by a `UBeamGameTypeContent`. This content type defines a few things about a queue:
@@ -30,7 +42,7 @@ Each Matchmaking queue is described by a `UBeamGameTypeContent`. This content ty
 	- If the time it takes to tick a queue is longer than the value set here, the longer value becomes the new tick.
 - `FederatedGameServerNamespace`: Defines a [Federation Id](../federation/federation.md#federation-id) for a [Federated Game Server](../federation/federated-game-server.md) federation.
 
-## Joining/Leaving Queues
+# Joining/Leaving Queues
 The **Matchmaking Subsystem** the SDK provides out of the box provides you a few things:
 
 - A "Join a Queue" Operation.
@@ -52,7 +64,7 @@ Each player can only be in a single queue at a time. When joining a queue, you c
 
 Leaving a queue is very straight-forward; just call the function with the appropriate `FUserSlot` and at the end of the Operation the "matchmaking ticket" will be invalidated and you'll no longer be in the queue. When using this, keep in mind that the ticket is only invalidated *after* the operation completes; not after this function is called.
 
-### Match Found and Tickets
+# Match Found and Tickets
 When you join a queue in Beamable's matchmaking, you get back a `FBeamMatchmakingTicket`. This ticket contains information about the entry onto the queue:
 
 - **GameType** is the queue type.
@@ -61,7 +73,8 @@ When you join a queue in Beamable's matchmaking, you get back a `FBeamMatchmakin
 - **FoundMatchLobbyId** is only filled inside the `OnMatchReady` callback and has the id for the resulting [Lobby](lobbies.md) for the match. You can use this to retrieve data from the [Lobby Subsystem](lobbies.md) inside the `OnMatchReady` callback to get connection information and more.
 
 If you want to understand a bit more about these tickets, we recommend taking a look at the source code of the `UBeamMatchmakingSubsystem` (it is pretty simple and should give you a lot more confidence in understanding the system).
-## Getting Started
+
+# Getting Started
 To use `UBeamMatchmakingSubsystem` via blueprints (or C++), you'll need to:
 
 - Use the [Content Window](content.md) to create a `game_type` content with a single team with a Min/Max player count of 1.
@@ -69,7 +82,6 @@ To use `UBeamMatchmakingSubsystem` via blueprints (or C++), you'll need to:
 - Assign delegates to `OnMatchReady`, `OnMatchCancelled`, `OnMatchTimedOut`, so on...
 - Call `TryJoinQueueOperation` with the signed in `FUserSlot` and the created `game_type` content.
 - After a short duration, you should see the `OnMatchReady` callback being triggered with a lobby containing just you as a player.
-- That is it!
 
 !!! warning "Loggin in"
 	Make sure that user is logged in when the code above runs. See our [Identity](identity.md) documentation

@@ -9,28 +9,8 @@ Here's how this works at a high-level:
 
 Here's some more detail:
 
-```csharp
-// The "id" parameter is the UserId that the IFederatedLogin.Authenticate generates
-// All this function really does is add instances of items and currencies to the 
-// response and forward it along.
-Promise<FederatedInventoryProxyState> GetInventoryState(string id);  
-
-// The "id" parameter is the UserId that the IFederatedLogin.Authenticate generates
-//
-// The "transaction" parameter is an optional string provided by the caller.
-// You are expected to provide an idempotency guarantee that every given 
-// transaction string value is only processed once.
-// In most cases, this is just a passalong to Web3 wallet or wherever you're 
-// keeping the inventory information. If that's not supported by your 3rd Party, 
-// you can leverage StorageObjects to provide this guarantee.
-Promise<FederatedInventoryProxyState> StartInventoryTransaction(  
-    string id,  
-    string transaction,  
-    Dictionary<string, long> currencies,  
-    List<FederatedItemCreateRequest> newItems,  
-    List<FederatedItemDeleteRequest> deleteItems,  
-    List<FederatedItemUpdateRequest> updateItems);
-```
+- The "id" parameter is the UserId that the IFederatedLogin.Authenticate generates All this function really does is add instances of items and currencies to the response and forward it along.
+- The "transaction" parameter is an optional string provided by the caller. You are expected to provide an idempotency guarantee that every given transaction string value is only processed once. In most cases, this is just a passalong to Web3 wallet or wherever you're keeping the inventory information. If that's not supported by your 3rd Party, you can leverage StorageObjects to provide this guarantee.
 
 !!! note "Support in SDK"
 	Support for this federation in the SDK's `UBeamInventorySubsystem` is coming soon.
