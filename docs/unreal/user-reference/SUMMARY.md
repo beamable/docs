@@ -11,6 +11,7 @@
       - [Matchmaking](beamable-services/matchmaking.md)
       - [Parties](beamable-services/parties.md)
       - [Friends](beamable-services/friends.md)
+      - [Leaderboards](beamable-services/leaderboards.md)
 - Microservices
       - [Overview](microservices/microservices.md)
       - [Setting Up Microservices](microservices/setting-microservices.md)
