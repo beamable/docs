@@ -56,13 +56,8 @@ Linking a project informs our CLI where it should put generated C++ files for co
 
 ```bash
 # Run manually whenever you make schema changes to `Callable` method signatures (or types used in them)
-dotnet beam project generate-client ProjectNameBeamable/services/MicroserviceName/bin/path/to/built/dll
+dotnet beam project generate-client ""
 ```
-
-!!! warning "Automatic Code Generation & Limitations"
-	You can also add `<GenerateClientCode>true</GenerateClientCode>` to the `BeamableSettings` **Property Group** inside `MicroserviceName.csproj`; this will run the command on every re-build of the service DLL.
-	
-	The automatic code generation is in early experimental stages and might see breaking changes in the near-future. For this reason, it is currently disabled by default.
 
 After the generating the client in your Unreal project, these are the next steps:
 
