@@ -5,6 +5,7 @@ Creating your first microservice will automatically create your solution for you
 
 ```
 /repo-root
+|- .beamable/
 |- ProjectName.uproject
 |- ProjectName.sln
 |- ProjectNameBeamable/
@@ -15,20 +16,18 @@ Creating your first microservice will automatically create your solution for you
 ```
 
 !!! warning "Unreal and Version Control Systems"
-	Most Unreal `.[vcs]ignore` file templates you can find online ignore all `*.sln` files. Instead of doing that, make sure to only ignore in the root directory with this  `/*.sln` instead of `*.sln`.
-	
-	In Git, you can also ensure your Microservice `.sln` is not ignored explicitly via `!/ProjectNameBeamable/ProjectNameBeamable.sln`.
+	Most Unreal `.[vcs]ignore` file templates you can find online ignore all `*.sln` files. Instead of doing that, make sure to only ignore in the root directory with this  `/*.sln` instead of `*.sln`.In Git, you can also ensure your Microservice `.sln` is not ignored explicitly via `!/ProjectNameBeamable/ProjectNameBeamable.sln`.
 
 ### Create the Microservice Solution and Project
-**Make sure the editor is not running before starting this guide.**
+**Make sure that you've completed the [Setup](../../getting-started/setup.md) process for the SDK and that the editor is not running before starting this guide.**
 
-Open a terminal/shell at your project's root and run the following command to create a new project and add a new microservice.
+Open a terminal/shell (in windows, we recommend `GitBash`) at your project's root and run the following command to create a new project and add a new microservice.
 
 ```
 dotnet beam project new service MicroserviceName --sln ProjectNameBeamable/ProjectNameBeamable.sln
 ```
 
- The created Microservice would look something like the example one below here.
+The created Microservice would look something like the example one below here.
  
 ```csharp
 [Microservice("MicroserviceName")]
@@ -44,18 +43,16 @@ public partial class MicroserviceName : Microservice
 
 **Now that you have a microservice, you can compile it via your IDE.**
 
-Afterwards, you can run the command below from your Game Project's root.
+Afterward, you can run the command below from your project's root.
 
 ```
 dotnet beam project add-unreal-project .
 ```
  
-Linking a project informs our CLI where it should put generated C++ files for communicating with the Microservice from UE code. 
-
-**To generate the project files, run**:
+Linking a project informs our CLI where it should put generated C++ files for communicating with the Microservice from UE code. **To generate the project files, run**:
 
 ```bash
-# Run manually whenever you make schema changes to `Callable` method signatures (or types used in them)
+# Run manually whenever you make schema changes to `Callable` method signatures or to types used in them
 dotnet beam project generate-client ""
 ```
 
@@ -63,11 +60,17 @@ After the generating the client in your Unreal project, these are the next steps
 
 - Add the generated plugin (`ProjectNameMicroserviceClients`) to your `uproject` file and enable it.
 - Add the `ProjectNameMicroserviceClients` modules to your `Target.cs` files.
-- Add `ProjectNameMicroserviceClients.AddMicroserviceClients(this)` line to your  `Build.cs` files.
+    - `MyProject.Target.cs` and `MyProjectEditor.Target.cs`
+    - `MyProjectServer.Target.cs`, if you have a dedicated server build.
+- Add `ProjectNameMicroserviceClients.AddMicroserviceClients(this)` line to your game module's `Build.cs` files.
 
-Now, you're ready to write code that invokes the microservice.
+The generated microservice clients are implementations of `UBeamMicroserviceClientSubsystem` which are `UEngineSubsystem`. The client exposes functions for each microservice request that are essentially the same as the [UBeam_____Api](../runtime-systems/lower-level.md) Lower Level API. 
 
-Here's what that would look like:
+To call microservices in Blueprints, you use `Low Level - Microservice Name` nodes.
+
+![microservices-example-blueprint-node.png](../../../media/imgs/microservices-example-blueprint-node.png)
+
+In C++ this is what calling a microservice looks like:
 
 ```cpp 
 // From inside any GameInstanceSubsystem, Actor or Component...
@@ -99,12 +102,12 @@ Take a look at the [Microservices docs](microservices.md) for more information a
 ## Optional - Create a MicroStorage
 MicroStorages are a Beamable feature that allows you, the Game-Maker, access to a MongoDB you can use to define your own custom persisted data formats to go along with your own custom microservice logic. 
 
-This is a useful architectural alternative when making complex features that do not map well to the default cases of Beamable's own data-storing Managed Services (Stats, Inventory and CloudStorage).
+This is a useful architectural alternative when making complex features that do not map well to the default cases of Beamable's own data-storing Managed Services ([Stats](../beamable-services/stats.md), [Inventory](../beamable-services/inventory.md), etc...).
 
 To create a `MicroStorage`, run the command below.
 
 ```
-beam project new storage StorageName --sln ProjectNameBeamable/ProjectNameBeamable.sln \
+dotnet beam project new storage StorageName --sln ProjectNameBeamable/ProjectNameBeamable.sln \
   --link-to MicroserviceName
 ```
 
@@ -115,7 +118,7 @@ Storages ***cannot*** exist independent of Microservices and must be associated 
 !!! warning "Running Locally"
 	MicroStorages require you to ALWAYS have docker running when running locally. Microservices that **DO NOT DEPEND** on storages can be run directly from the IDE without docker running at all. Microservices that **DO DEPEND** on storages can also be run from the IDE, but docker MUST be running too.
 
-Take a look at this documentation for more information on how to write the code inside Storages and how to access them in Microservices.
+Take a look at [this documentation](https://docs.beamable.com/docs/cli-guide-microservice-storage) for more information on how to write the code inside Storages and how to access them in Microservices.
 
 ## Optional - Libraries and C# Microservices
 One of the big advantages of Beamable C# Microservices is that they are regular `.NET` projects. This means you get access to Nuget packages should you need to integrate Beamable with any particular Third-Party technology that we don't support out-of-the-box.

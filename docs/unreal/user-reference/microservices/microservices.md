@@ -4,7 +4,7 @@ Beamable Microservices are Beamable's Cloud Code solution. It is a wrapper aroun
 
 This page explains the high-to-low-level concepts of Microservices and to what end they can be used. [Take a look here for a getting started guide.](setting-microservices.md)
 
-# Why this approach to Cloud-Code?
+## Why this approach to Cloud-Code?
 A lot of cloud-code solutions sacrifice a lot of flexibility, cost-efficiency, performance or developer experience in exchange for simplifying the simple case. Our goal was to focus on helping you with the complex cases while keeping the simple case easy to work.
 
 We do so by this architecture:
@@ -13,8 +13,8 @@ We do so by this architecture:
 
 The Microservice is:
 
-- An easy-to-write server that provides a set of Game-Maker-defined APIs.
-- Locally "debug-able" (really, just press Debug on Rider). [Collaboratively too](#collaborative-debugging).
+- An easy-to-write server that provides a set of APIs you, the Game-Maker, create.
+- Locally debuggable (really, just press Debug on Rider). [Collaboratively too](#collaborative-debugging).
 - Deployed as a Docker container that you can customize.
 - Promotable between Realms via the Portal OR our CLI (CI/CD folks rejoice).
 
@@ -30,8 +30,8 @@ public int Add(int a, int b)
 }
 ```
 
-# Microservice Window
-The Microservice Window enables developers to start/stop local services, to read local service logs while in PIE and to configure local server settings for the collaborative workflow and for federations.
+## Microservice Window
+The Microservice Window enables developers to start/stop local services, to read local service logs while in PIE and to configure local server settings for the collaborative workflow and for federations all through the Unreal Editor.
 
 ![microservices-window-home.png](../../../media/imgs/microservices-window-home.png)
 
@@ -44,7 +44,7 @@ The left side of the window provides you a list of all services in your project 
 	
 	There are no restrictions on group names other than that `BEAMPROJ_` is a reserved prefix.
 
-## The Details Panel
+### The Details Panel
 The Details panel provides a detailed view of the microservices and access to a few features:
 
 - Start/Stop the service in your local machine.
@@ -53,15 +53,15 @@ The Details panel provides a detailed view of the microservices and access to a 
 - [Configure which **Microservice Target** the Play-in-Editor sessions will target](#collaborative-debugging).
 - [Configure Federation-specific settings](../federation/federation.md).
 
-## Local - Logs Tab
-As the name implies, you can explore the logs for any running Microservice. You can filter by **Log Level**, substring search and also clear stored logs.
+### Local - Logs Tab
+Here you can explore the logs for any running Microservice. You can filter by **Log Level**, substring search and also clear stored logs.
 
 ![microservices-window-logs.png](../../../media/imgs/microservices-window-logs.png)
 
-# Microservice Coding
-Microservices inherit from the `Microservice` base class and are `partial` by default. Inside each Microservice class, you can annotate instance methods with the following attributes to various effects:
+## Microservice Coding
+Microservices are developed in C# and in their own solution. They inherit from the `Microservice` base class and are `partial` by default. Inside each Microservice class, you can annotate instance methods with the following attributes to various effects:
 
-- `Callable`: This is the equivalent of a public endpoint. Any non-authenticated caller is allowed to invoke this function via a request.
+- `Callable`: This is the equivalent of a public endpoint. Any non-authenticated caller is allowed to invoke this function via a request. In Unreal, these will not require a `FUserSlot` (authenticated user).
 - `ClientCallable`: This is equivalent to an authenticated request. Any authenticated user in the same realm as the microservice is able to run this.
 - `AdminOnlyCallable`: These are similar to `ClientCallables` but requires the user to have admin privileges. They are useful for making utility endpoints called by internal developer tools.
 - `ServerCallable`: This is equivalent to a trusted-server request. It requires authentication in the form of a Signed Request. Primarily, these are callable from your game's Dedicated Server builds.
@@ -88,7 +88,7 @@ Our CLI is capable of generating Unreal bindings that will allow your Unreal cod
 
 Each `Callable` generates at least two `UObject` classes, one representing request's input parameters and another representing the response type. It also generates a function inside the generated `UBeamMicroserviceNameApi` subsystem (and accompanying Blueprint nodes). 
 
-## Signature Constraints
+### Signature Constraints
 When declaring `Callable` functions, you should be aware of a few limitations regarding its signatures.
 
 - No `void` return.
@@ -123,7 +123,7 @@ Keep in mind that only a few things actually affect the shape of any particular 
 	- `public async Promise<MyCustomType> MyCustomFunction(int arg1)`
 	- `public async Task<MyCustomType> MyCustomFunction(int arg1)`
 
-## Type Constraints
+### Type Constraints
 When you write types in C# and use them in `Callable` method signatures, you should keep in mind how these types map to the underlying UE `UObjects` and functions. The table below explains that mapping.
 
 | In UE                                                     | In C# Microservices                                                         | Notes                                                                                                                                                                                                               |
@@ -151,30 +151,30 @@ A few things to note:
 !!! note "Semantic Type Support"
 	In the future, we plan to support all `FBeamSemanticType` such as `FBeamGamerTag` and `FBeamContentId` as well as some Unreal-Specific types such as `FGameplayTag` and others.
 
-## Making Requests on Behalf of Users
+### Making Requests on Behalf of Users
 It is quite a common case that a Microservice needs to use one of our many APIs on behalf of a particular user. This allows you to re-use our APIs (that are usually written in a client-facing way) to be used for multiple users. A practical example:
 
 > At the end of a MOBA match, you'll need to update player stats gathered during the match or process their account's new Experience or Rank. For this, you can make a `ServerCallable` called `ProcessMatchResults` and pass in information from your dedicated server whenever the match is over.
 
 In order to make requests on behalf of users we provide the `AssumeNewUser` function. It gives you back a `UserRequestDataHandler` that has fields like `Context` and `Services`. Making API calls from this `assumedUser.Services.Stats` instance as opposed to the usual `this.Services` will make the request on behalf of the user.
 
-## Multiple Microservices and Organizing Code
+### Multiple Microservices and Organizing Code
 The first impulse a lot of people have is to separate microservices semantically; one-per-feature. **We do not recommend this.** Here's why:
 
-- Having a lot of microservices will increase your cost for *potentially* no benefit.
-- Having a lot of microservices increases project complexity.
+- Having a lot of microservices will increase your cost for no benefit (_in most cases_).
+- Having a lot of microservices increases project complexity (which impact development costs).
 - Having a lot of microservices makes you add latency to things that otherwise wouldn't have it (cross microservice communication is possible, but rarely actually needed).
 - Having a lot of microservices increases deployment times.
 
-The key metric you should use to consider creating additional microservices is ***different load profiles at runtime***. Basically, if you have a set of features with similar expected load profiles, you can keep them together as the auto-scaling will work uniformly to handle the increased load. If you have services with spikey load profiles (either in memory usage or CPU), then consider putting each of them in their own service so that they can be scaled independently and faster than your other larger services.
+The key metric you should use to consider creating additional microservices is ***different load profiles at runtime***. Basically, if you have a set of features with similar expected load profiles, you can keep them together as the auto-scaling will work uniformly to handle the increased load. If you have services with "spike-y" load profiles (either in memory usage or CPU), then consider putting each of them in their own service so that they can be scaled independently and faster than your other larger services.
 
-> **Game Maker**: "If I have 5 features in one microservices, how do I organize my `Callable` functions?"
+> **Game Maker**: "If I have 5 features in a single Microservices, how do I organize my `Callable` functions?"
 >
 > **Beamable**: "You can create new parts of the `partial` Microservice type. You can declare utility static functions as well and make most `____Callable` just forward the call along."
 
-We've found these to be *reasonable defaults* that give you generally good runtime scalability for a low-cost and provide a simple developer experience. You should always keep an eye on your service's behavior for optimization opportunities as you observe its behavior under load.
+We've found these to be **reasonable defaults** that give you generally good runtime scalability for a low-cost and provide a simple developer experience. You should always keep an eye on your service's behavior for optimization opportunities as you observe its behavior under load.
 
-## Microservice Routing and Microservice Target
+### Microservice Routing and Microservice Target
 When you make a request to a microservice, you're not actually directly talking to your service. Your request comes in via Beamable's Gateway service and that service figures out to which running Microservice instance it will forward that request.
 
 This allows us to integrate microservices running in your local machine "as though they" are part of the realm in two specific ways:
@@ -187,12 +187,10 @@ This allows us to integrate microservices running in your local machine "as thou
 Enabling these two cases at the push of a button enables very fast development iteration speed.
 
 # Common Developer Workflows
-There are a few different ways to work with Microservices in Unreal, each with their own advantages and disadvantages. So, here we make our recommendations about them.
-
-These are NOT how-to guides, they are high-level descriptions to help you get a feel regarding how to work with Beamable and how its tools can be used to work alone and as a team.
+There are a few different ways to work with Microservices in Unreal, each with their own advantages and disadvantages. These are NOT how-to guides, they are high-level descriptions to help you get a feel regarding how to work with Beamable and how its tools can be used to work alone and as a team.
 
 ## Designing the API
-If you're in the very early stages of solving a problem and you just want to get the features to work, there's a workflow that doesn't require you to open Unreal at all, allowing you to focus only on getting your `Callables` to work!
+If you're in the very early stages of solving a problem, you just want to get the features to work. Here's a workflow that doesn't require you to open Unreal at all, allowing you to focus only on getting your `Callables` to work!
 
 Here are the steps:
 
@@ -200,23 +198,16 @@ Here are the steps:
 2. Press the Debug or Run button on the IDE.
 3. Wait for the Service to Start.
 	1. The service will print out `Service ready for traffic.`
-4. The service prints out a Portal URL for you.
-5. Access that.
-6. From that page, you can make requests to your service as though your own developer account was a player in your realm.
-7. Iterate quickly.
+4. The service prints out a Portal URL for you or you can use the `dotnet beam project open-swagger MicroserviceName` command to open the portal.
+5. From that page, you can make requests to your service as though your own developer account was a player in your realm.
+6. Iterate quickly.
 
 This allows you to get services that might have complex logic working first and integrating them into Unreal later. [Keep in mind the type restrictions on method signatures mentioned here](#constraints-on-callable-functions).
 
 ## Integrating with Unreal
 Whenever it becomes preferable or necessary (see [Federations](../../federation/federation.md)) to test the microservice directly from Unreal's PIE mode, you can generate bindings for your `Callable` types and use them inside your game's code.
 
-Here you have two options:
-
-- Run the `dotnet beam project generate-client Path/to/Service/built/dll` command manually to generate these bindings.
-	- This command regenerates your client bindings AND run Unreal's `Regenerate Project Files` utility for you.
-- Add the line below to the `BeamableSettings` Property Group of your Microservice's `.csproj` file.
-	- `<GenerateClientCode>true</GenerateClientCode>` 
-	- This will run the above command automatically on every microservice rebuild (with changes).
+> Run the `dotnet beam project generate-client ""` command manually to generate these bindings. This command regenerates your client bindings AND run Unreal's `Regenerate Project Files` utility for you.
 
 We generate both C++ and Blueprint Bindings for every microservice `Callable`.
 
