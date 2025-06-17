@@ -4,3 +4,4 @@
       - [Discord](discord-demo.md)
       - [Steam](steam-demo.md)
       - [Hathora](hathora-demo.md)
+      - [Beamball](beamball-demo.md)

@@ -20,13 +20,14 @@ To set up an organization and realm to run this sample, follow the steps below.
 2. Compile and open the `BeamableUnreal` editor project.
 3. Sign into your Beamable account and go to the `liveops-demo` realm.
       1. Optionally you can hit `Apply to Build` after the realm change is done.
-4. Let's Setup the Content
-      1. Open the `Content` window.
-      2. Ensure there's an `item` content with the name `sample_item`
-      3. Ensure there are 2 `currency` contents with names `gems` and `coins`
-      4. Click `Publish` to publish those new contents to the realm.
-      5. You can read more about the content system [Here](../user-reference/beamable-services/content.md)
-5. Now let's setup the Announcements
+5. Let's Setup the Content
+      1. First you will need to run the command dotnet beam content `replace-local --from DE_1816044586323024 --to YOUR_REALM_ID` to bring all the content from the sample to your current realm.
+      2. Open the `Content` window.
+      3. Ensure there's an `item` content with the name `sample_item`
+      4. Ensure there are 2 `currency` contents with names `gems` and `coins`
+      5. Click `Publish` to publish those new contents to the realm.
+      6. You can read more about the content system [Here](../user-reference/beamable-services/content.md)
+6. Now let's setup the Announcements
       1. Open the Beamable Portal.
       2. Choose `liveops-demo` realm from Beamable portal.
       3. Go to `Communicate->Campaigns`.
