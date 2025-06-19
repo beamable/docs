@@ -1,36 +1,30 @@
-
 # Inventory
-
-# Overview
 
 The Beamable Inventory system is designed to manage player inventories in a game, allowing for the addition and removal of items and currencies. It supports both **Fungible** and **Non-Fungible** content types:
 
 - **Fungible** means that each instance of that content is not unique. The simplest example is a Soft/Hard Currency in a live-services game. Each coin you grant the player is not unique. In Beamable, this type of content is represented as a `UBeamCurrencyContent`.
 - **Non-Fungible** means that each instance of that content is unique. The simplest example is an item in an MMORPG. Each instance of that item is unique and can have its own properties. In Beamable, this type of content is represented as a `UBeamItemContent`.
 
-Beamable's Inventory system is built on Beamable's Content Feature. This means that content can be created, edited and published via the Content Window, then granted to players through various workflows:
+Beamable's Inventory system is built on top of [Beamable's Content Feature](content.md). You create `Currency` and `Item` content via the content window. You can also inherit from their base types to define additional read-only properties for custom item/currencies in your game.
 
-- Add/Remove currencies or items to the active player during the course of gameplay. 
-	- Ex. the player earns a new "Sword" inventory item based on in-game progress.
-- Add inventory items to the active player via the Beamable Store. 
-	- Ex. the player pays some currency to buy a new "Sword" inventory item.
+Each player's inventory state can be thought of as:
 
-Inventory manages two types of data: items and virtual currencies.
+- A mapping of how much of each defined `Currency` the player currently has.
+- A list of instances of `Items` the player owns, each with their own unique `InstanceId` and Key-Value pair of instance properties.
+
+In short, Inventory manages two types of data: items and virtual currencies.
 
 ## Currencies
-Currencies are used to buy items with our [Store system](stores.md) (e.g., Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP).
+Currencies are used to buy items with our [Store system](stores.md) (e.g., Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP) depending on the specifics of your game system.
 
-In the Unreal SDK, currencies are represented by the `UBeamCurrencyContent`. Each currency can specify a `startingAmount` that is used to pre-seed player accounts with that amount of currency.
+In the Unreal SDK, currencies are represented by the `UBeamCurrencyContent`. Each currency can specify a `startingAmount` that is used to pre-seed player accounts with that amount of currency for very simple cases. For more control over each player's starting state we recommend using [our Federated Player Init](../federation/federated-player-init.md).   
 
-You can [subclass](content.md#defining-custom-content-types) this content type if you want to add more information to currency that is specific to your like, such as UI related `ObjectPaths` and other references to assets that might be relevant to your game. 
+You can [subclass](content.md#defining-custom-content-types) this content type if you want to add more information to currency that is specific to your like, such as UI related `ObjectPaths` and other references to assets that might be relevant to your game.
 
 ## Items
-The Items feature allows for the creation and management of various in-game objects, such as equipment, consumables, and resources.
+The Items feature allows for the creation and management of various in-game objects, such as equipment, consumables, and resources. In the Unreal SDK, items are represented by the `UBeamItemContent` type. You can [subclass](content.md#defining-custom-content-types) this content type to add game-specific information to item content which is then accessible via the `UBeamContentSubsystem` and in Microservices.
 
-In the Unreal SDK, items are represented by the `UBeamItemContent` type. 
-You can [subclass](content.md#defining-custom-content-types) this content type to add game-specific information to item content which is then accessible via the `UBeamContentSubsystem` and in Microservices.
-
-Each item instance inside a player's inventory is represented by `FBeamItemState`. These instances have the following properties:
+In the `UBeamInventorySubsystem`, each item instance inside a player's inventory is represented by `FBeamItemState`. These instances have the following properties:
 
 - **ContentId**: The Id of `UBeamItemContent` that represents the type of this item instance.
 - **Properties**: A key-value store of properties of this specific item instance. You control which properties exist here.
@@ -43,11 +37,13 @@ Each item instance inside a player's inventory is represented by `FBeamItemState
 
 I's up to developer to decide how the content can be added to player inventory by specifying `clientPermission` field:
 
-- When toggled, the content becomes **Client-Authoritative**. The SDK allows game-clients to add/remove that item or currency to the player inventory directly. If your game does not include networked multiplayer and can tolerate cheating, allowing the client to read and write their own currencies is the simplest option.
-- If not toggled, the content becomes **Server-Authoritative**. Trying to add/remove that item or currency to the player inventory from a game-client directly results in an error. The item/currencies are still readable in the game-client. To add/remove items and currencies that are **Server-Authoritative**, do so via a Microservice and a `ClientCallable`.
+When toggled, the content becomes **Client-Authoritative**: the SDK allows game-clients to add/remove that item or currency to the player inventory directly. If your game does not include networked multiplayer and can tolerate cheating, allowing the client to read and write their own currencies is the simplest option.
+
+
+If not toggled, the content becomes **Server-Authoritative**: trying to add/remove that item or currency to the player inventory from a game-client directly results in an error. The item/currencies are still readable in the game-client. To add/remove items and currencies that are **Server-Authoritative**, do so via a Microservice and a `ClientCallable`.
 
 !!! note "Edit player Inventory via Portal"
-Regardlesss of the value of the `clientPermission` field it is possible to view and modify players inventory through the Portal. More info [here](https://docs.beamable.com/docs/portal-inventory).
+	Regardless of the value of the `clientPermission` field it is possible to view and modify players inventory through the Portal. More info [here](https://docs.beamable.com/docs/portal-inventory).
 
 # Getting Started
 To use the inventory system, you will need to first:
@@ -70,9 +66,6 @@ Now that you have items and currencies published, follow the steps below to crea
 
 Now, call this function while a user is signed in to grant the currency/item to the player.
 
-???+ warning "Logging in" 
-    Make sure that user is logged in when you call this function. See [Identity](identity.md)
-
 ![inventory-operations.png](../../../media/imgs/inventory-operations.png)
 
 After running the above function at least once, you should be able to see the results of these calls in the Beamable portal. To do so:
@@ -84,10 +77,17 @@ After running the above function at least once, you should be able to see the re
 
 ![inventory-portal.png](../../../media/imgs/inventory-portal.png)
 
-# Batching updates
-In the getting started example, we make a new `FBeamInventoryUpdateCommand` and commit it right away. It is desirable, for both performance and latency reasons, to batch as many inventory changes as possible as long as it makes sense for your game's design. So, if you're game's feature allows for a "edit multiple, commit later" pattern of UX, leveraging this API is the most efficient way to go about it.
+## Batching updates
+In the getting started example, we make a new `FBeamInventoryUpdateCommand` and commit it right away. 
 
-# Item Instance Properties
+It is desirable, for both performance and latency reasons, to batch as many inventory changes as possible as long as it makes sense for your game's design. So, if you're game's feature allows for a "edit multiple, commit later" pattern of UX, leveraging this API is the most efficient way to go about it.
+
+## Reading Local State
+In order to read the local state of the player's inventory, you can use the following operations:
+
+![inventory-local-state.png](../../../media/imgs/inventory-local-state.png)
+
+## Item Instance Properties
 As with most key-value pairs for arbitrary data, try to follow the guidelines below:
 
 - For Keys:
