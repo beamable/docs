@@ -27,7 +27,7 @@ Since this sample requires several resources, we do not host it ourselves. So, i
 4. Compile and open the `BeamableUnreal` editor (it'll be configured as the `BEAMPROJ_HathoraDemo`) project.
 5. Sign into your Beamable account and go to the `hathora-demo` realm.
 	1. Hit `Apply to Build`.
-6. You will need to run the command dotnet beam content `replace-local --from DE_1752011665993756 --to YOUR_REALM_ID` to bring all the content from the sample to your current realm.
+6. You will need to run the command `dotnet beam content replace-local --from DE_1752011665993756 --to YOUR_REALM_ID` to bring all the content from the sample to your current realm.
 7. Open the `Content Window`.
 	1. Verify that there are two `game_types`: `solo_queue` and `training`.
 8. Hit `Publish` and wait. 
@@ -97,6 +97,7 @@ To test this out with two players (this is max players for this sample):
 There's a known issue that'll prevent you from actually getting PIE to connect to the Hathora URL; its an version mismatch problem with the Linux Build we generate. The error is called `OutdatedClient` --- and was seen even when the versions *should* be matching exactly. **This is being actively investigated** and a fix should be released in the next version.
 
 **You can still see the entire flow happening.**
+
 - If you look at your UE client logs, you can see that you correctly receive the lobby information with a valid Hathora connection string.
 - If you look at your Hathora Console, you can see the room being created and even the connection attempt.
 

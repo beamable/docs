@@ -17,9 +17,10 @@
       - [Setting Up Microservices](microservices/setting-microservices.md)
 - Federation
       - [Overview](federation/federation.md)
+      - [Federated Login](federation/federated-login.md)
+      - [Federated Player Init](federation/federated-player-init.md)
       - [Federated Inventory](federation/federated-inventory.md)
       - [Federated Game Server](federation/federated-game-server.md)
-      - [Federated Login](federation/federated-login.md)
 - Servers & Builds
       - [Dedicated Servers](servers-and-builds/dedicated-servers.md)
       - [Linux Buiilds](servers-and-builds/linux-builds.md)
