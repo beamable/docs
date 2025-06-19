@@ -22,9 +22,7 @@ Logging in with the Unreal SDK means:
 
 > Authenticate the user, fetch all relevant data from the backend into the `UBeamRuntimeSubsystem`'s in-memory state and the complete the operation.
 
-This is handled automatically by the `Login` operations and `UBeamRuntimeSubsystem` implementations. You can see details about how this all works [here](../runtime-systems/lower-level.md).
-
-But the short version is: "After calling `Login` operations, your local state is ready for use."
+This is handled automatically by the `Login` operations and `UBeamRuntimeSubsystem` implementations. You can see an overview about how this all works [here](../overview.md). But the short version is: "After calling `Login` operations, your local state is ready for use."
 
 Here's a simple example using `Login - Frictionless` Operation from one of our samples:
 ![alt text](../../../media/imgs/federations-player-init-login-example.png)

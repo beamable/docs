@@ -53,7 +53,7 @@ Linking a project informs our CLI where it should put generated C++ files for co
 
 ```bash
 # Run manually whenever you make schema changes to `Callable` method signatures or to types used in them
-dotnet beam project generate-client ""
+dotnet beam project generate-client "."
 ```
 
 After the generating the client in your Unreal project, these are the next steps:
