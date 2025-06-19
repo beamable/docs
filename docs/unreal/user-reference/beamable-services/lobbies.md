@@ -1,13 +1,11 @@
 # Lobbies
 
-# Overview
-
 Beamable's Lobby system can be used primarily for 2 cases:
 
-- **Open/Closed Custom Lobbies/Rooms**: Player-created custom rooms for room-based games
+- **Open/Closed Custom Lobbies/Rooms**: Player-created custom rooms for room-based games.
 - **Resulting Matchmaking Matches**: Matchmaking queues output lobbies with players in them at each matchmaking queue. See more in [Matchmaking](matchmaking.md).
 
-Conceptually, Lobbies are room containing only online players and a set of arbitrary room properties and player properties. There are a few rules you should be aware off:
+Lobbies are rooms containing only online players and a set of arbitrary room properties and per-player properties. There are a few rules you should be aware of:
 
 - Each Non-Matchmaking Lobby has a **Host** and other Players.
 - Becoming offline will remove you from the lobby (after a small delay).
@@ -15,11 +13,9 @@ Conceptually, Lobbies are room containing only online players and a set of arbit
 - The host player can edit global properties and any other player's properties.
 - The host player can kick other players whereas regular players can only leave themselves.
 - Players can **read** the entire lobby data but only **write** to their own state.
-- Matchmaking Result Lobbies have no host; instead they disband once every player is offline.
+- Matchmaking Result Lobbies have no host; instead they disband once every player in it becomes offline.
 
-We'll focus on how lobbies work and which operations can be made within them.
-
-# Lobby Types and Schema
+## Lobby Types and Schema
 There are two types of lobbies: **Open** and **Closed** lobbies. **Open** lobbies can be queried via `RefreshLobbies` and joined without the use of any passcode. **Closed** lobbies are not visible to `RefreshLobbies` and expect to be joined via the generated passcode.
 
 Both lobby types have the same schema and are represented by the `ULobby` class. This class has several properties:
@@ -43,8 +39,6 @@ Both lobby types have the same schema and are represented by the `ULobby` class.
 - **Data**: An arbitrary data store that can be filled and updated by the host of the lobby.
 	- Can be filled via [Federations](../federation/federated-game-server.md) as well.
 - **Created**: A ISO-8601 Date Time string for when the Lobby was created.
-
-# Getting Started
 
 ## Hosting Lobbies
 To use the SDK to enable a player to host a Beamable Lobby, you'll need the following:
@@ -76,6 +70,7 @@ To use the SDK to enable a player to join and manage its settings inside a Beama
 
 !!! note "About Parties"
 	Only the party leader is allowed to join a Lobby. Doing so will also bring all other party members into the Lobby with them. If the Lobby **MaxPlayer** count would be surpassed by the entire party joining, nobody can join.
+
 ## Synchronizing Across Clients
 Beamable's Lobby system will automatically notify every player inside a lobby of relevant events. Once you're in a lobby, the SDK keeps track of your local state inside `UBeamLobbyState` (one per-`UserSlot`). 
 

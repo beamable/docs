@@ -70,7 +70,7 @@ The source of truth for content in a realm is always whatever manifest was last 
 
 To publish content to a realm simply press the **Publish** button.
 
-### Same Realm Workflow
+### Understanding Content Auto-Sync Rules
 It is often desireable to have designers in a realm that is stable and allow them to work in `Blueprints`, `Beamable Content` and Unreal `Data Asset` in the same realm plus branch combination. 
 
 In order to enable this workflow, the Beamable SDK:
@@ -89,6 +89,8 @@ To prevent `Designer-B` from overwriting changes made by `Designer-A` the SDK wi
 - **Use Realm**: this will discard all local changes to that content and use whatever was published.
 - **Use Mine**: this will simply ignore the conflict (which means that it will allow you to publish and your publish WILL overwrite the version in the realm).
 
+![content-conflict.png](../../../media/imgs/content-conflict.png)
+
 As such, we recommend a few things:
 
 - Organize the designers in your to minimize the chance of **conflicts**.
@@ -99,8 +101,7 @@ As such, we recommend a few things:
 
 This workflow can also be used for engineers that are developing non-Beamable related features.
 
-### Individual Realm Workflows
-The above workflow greatly reduces the number of realms needed during development. However, there are cases where you might want to create realms in order to have a more controlled enviroment for developing. Common examples are:
+In addition to the workflow above, there are cases where you might want to create realms in order to have a more controlled enviroment for developing. Common examples are:
 
 - Large features that make use of new custom content definitions developed alongisde Microservices.
 - Content schema modifications or equivalents that will require migrating existing content to a new schema. 
