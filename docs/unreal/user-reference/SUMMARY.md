@@ -4,7 +4,6 @@
       - [Identity](beamable-services/identity.md)
       - [Content](beamable-services/content.md)
       - [Stats](beamable-services/stats.md)
-      - [Announcements](beamable-services/announcements.md)
       - [Inventory](beamable-services/inventory.md)
       - [Stores](beamable-services/stores.md)
       - [Lobbies](beamable-services/lobbies.md)
@@ -12,6 +11,7 @@
       - [Parties](beamable-services/parties.md)
       - [Friends](beamable-services/friends.md)
       - [Leaderboards](beamable-services/leaderboards.md)
+      - [Announcements](beamable-services/announcements.md)
 - Microservices
       - [Overview](microservices/microservices.md)
       - [Setting Up Microservices](microservices/setting-microservices.md)
