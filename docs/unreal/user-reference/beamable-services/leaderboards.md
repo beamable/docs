@@ -1,30 +1,25 @@
 # Leaderboards
 
-## Overview
-
-The beamable **Leaderboards** allow the game makers to track player scores in social rankings which are "global" (with hundreds of millions players) or "segmented" (in smaller groups).
-
-### Supported Features
+The Beamable **Leaderboards** allow the game makers to track player scores in social rankings which are "global" (with hundreds of millions players) or "segmented" (in smaller groups). It supports:
 
  - Assign a player to a specific leaderboard.
  - Retrieve entries from specific ranges in the leaderboard.
  - Leaderboard pagination.
  - Retrieve a specific player rank.
- - Retrieve the friends ranks.
- 
+ - Retrieve the friends ranks. 
 
 ## Getting Started
 
 In order to have a good overview for leaderboards we will present some common use cases and how to fully implement it. 
 
-### Creating the leaderboards
+### Creating the Leaderboards
 
 There's two ways to create a new leaderboard, using the portal or as a content.
 
 !!! note "Type of leaderboard"
 	If you created the leaderboard in the content, it will appears in the portal as expected. But if you create the leaderboard directly in the portal, it WON'T appear in the content.
 
-#### Creating the leaderboard using the content
+#### Creating via Content
 
 In order to create a content of leaderboard type, first you will need to open the **Beamable Window** in the top right and select the **Content** tab.
 
@@ -48,7 +43,7 @@ Before publish it there's some configurations that can change the way your leade
  - **Cohort Settings**: Specifies criteria for grouping players together.
 
 
-### Assign Player to leaderbord
+### Assign Player to Leaderbord
 
 There are two ways to assign a player to a leaderboard:
 
@@ -72,7 +67,7 @@ There are two ways to assign a player to a leaderboard:
 
 It is possible to modify meta-data and score for leaderboard entries. But it is more flexible in the microservice side, if you are using an client authoritative leaderboard won't be change other entry besides the authenticated player.
 
-### Add score to a player
+### Add Score to a Player
 
 Here is a example about how to add score in the client for authoritative client. 
 
@@ -92,7 +87,7 @@ The Stats in the leaderboard are mostly usage for keep cached a per entry inform
 
 With our SDK it is possible to create leaderboards like in [Brawl Stars](https://supercell.com/en/games/brawlstars/) 
 
-### Show the player rank
+### Show the Player Rank
 
 ![leaderboards-blueprint-player-rank.png](../../../media/imgs/leaderboards-blueprint-player-rank.png)
 
