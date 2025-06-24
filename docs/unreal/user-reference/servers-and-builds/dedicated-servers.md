@@ -1,9 +1,8 @@
 # Dedicated Servers
 
-## Overview
 The Beamable Unreal SDK was made with support for a dedicated servers in mind from the start. We also develop and maintain a simple [Sample Project](../../samples/hathora-demo.md) containing a `Dockerfile` for a Linux server container builds and a microservice example of how to integrate with a third-party Game Server Orchestrator such as Hathora.
 
-## SDK Dedicated Server Initialization
+# SDK Dedicated Server Initialization
 By default, each dedicated server instance it is expected to run a single lobby. When the server starts up, you should call `UBeamRuntime::InitSDK`. The SDK will look for some overrides and parameters coming in from Environment Variables OR Command-Line Arguments. **Command Line Arguments override Environment Variables when both are present**.
 
 The table below describe these overrides and what they are for:
@@ -18,10 +17,10 @@ The table below describe these overrides and what they are for:
 !!! note "Multiple Lobbies per Server Instance"
     If no Lobby ID is provided via the CLArg, we assume you'll manage fetching lobby data yourself via `UBeamLobbySubsystem::CPP_RefreshLobbyDataOperation`. You can use this to manage multiple lobbies per-instance in ways more specific to your game.
 
-## Differences from Game Client 
+# Differences from Game Client 
 The SDK works a bit different when its running inside a Dedicated Server and the way we recommend you integrate your server-authoritative logic is a bit different. This section explains these differences.
 
-### User Slots
+## User Slots
 User Slots are a big part of the regular workflow when working with Beamable SDK in game clients. For dedicated servers though they are not used. For interfaces containing the `UserSlot` parameter, that parameter can be ignored.
 
 This means a few things:
@@ -30,10 +29,10 @@ This means a few things:
 - Calling APIs that simply read data from users via their `GamerTag` or other Ids will work fine.
 - Calling APIs that write to user data is not recommended via regular SDK functions (see below for the alternative).
 
-### Writing User State
+## Writing User State
 The current recommended way of changing user state from dedicated server code is to write a `ServerCallable` functions in Microservices and invoking those. See [Microservices](../microservices/microservices.md) for more information about the various types of `Callable`.
 
-### Microservices & Federation
+## Microservices & Federation
 Beamable does not provide Game Server Orchestration. This means that, while we have Lobbies, Matchmaking and can find matches between players, we do NOT run the actual Game Server. For this, we partner with other companies and provide a simple way to integrate our Matchmaking and Lobbies with them.
 
 You can read more about this in the [Federated Game Server](../federation/federated-game-server.md) guide, but conceptually here's what happens:

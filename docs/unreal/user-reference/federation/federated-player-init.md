@@ -33,7 +33,7 @@ public async Promise<PlayerInitResult> CreatePlayer(Account account, Dictionary<
 }
 ```
 
-### Setting up the Client
+# Setting up the Client
 
 From Unreal, this federation is triggered by any of the `Operation - Sign-Up` calls OR `Operation - Login - Frictionless` (see [Identity](../beamable-services/identity.md)). The code in this federation will have already run by the time these operations are completed.
 
@@ -65,10 +65,10 @@ A few ideas on how to leverage this:
 - Use `Content` or `MicroStorages` to build more advanced segmented starting state logic.
 - Use information in the `InitProperties` to define different starting states. Ie.: you could use this to implement "console exclusive items" for example.
 
-## Working Locally
+# Working Locally
 All calls for this Federation are In-Band calls. Therefore, you can just run your service with the federation and it'll be used.
 
-## Examples
+# Examples
 
 You can see an example of this federation in the following samples:
 

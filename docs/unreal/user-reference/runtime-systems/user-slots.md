@@ -25,7 +25,7 @@ If you're game has **no _local_ multiplayer** (just a single local player), you 
 
 For games that do want to support multiple local players (each with their own Beamable account), the next sessions explain how this concept helps. 
 
-## User Slots At Runtime
+# User Slots At Runtime
 The `UBeamUserSlots` Engine Subsystem is responsible for:
 
 - Storing the authentication tokens for the last account that logged into a particular slot.

@@ -2,7 +2,7 @@
 
 Beamable provides several types of Blueprint nodes to interact with its systems. These are organized into four main categories: `Low Level`, `Local State`, `Events Bind` and `Operation`. Each category serves different purposes and complexity levels in your game development workflow.
 
-## Low Level Blueprints
+# Low Level Blueprints
 
 `Low Level` Blueprints provide direct access to Beamable's APIs. These nodes make raw API calls to Beamable's backend. They are typically used when you need precise control over the behavior or when building custom systems on top of Beamable's foundation.
 
@@ -13,7 +13,7 @@ Common use cases include:
 - Direct API requests
 - Customized behaviours not captured by our `UBeamRuntimeSubsystem` implementations
 
-## Operation Blueprints
+# Operation Blueprints
 
 `Operations` provide high-level Blueprint nodes for asynchronous communication with Beamable services. It's designed to simplify common game operations. These nodes combine multiple low-level operations into single, easy-to-use nodes that handle complex workflows automatically. They're perfect for rapid development and standard game features.
 
@@ -38,7 +38,7 @@ Common use cases include:
 - Matchmaking & Lobby operations
 - Fetching the latest state from the Beamable backend
 
-## Local State Blueprints
+# Local State Blueprints
 
 `Local State` Blueprints manage the player's in-memory (locally cached) version of the data associated with players. None of these are asynchronous operations and are meant to be used to read in-memory state and display it in UI or use in your own systems built on top of Beamable's systems.
 
@@ -53,7 +53,7 @@ Common use cases include:
 - Player inventory management including items and currencies
 - Access all local cached data of the Beamable `UBeamRuntimeSubsystem` implementations 
 
-## Events Bind
+# Events Bind
 
 Each of our subsystems also have an `Events - Bind` node that exposes all events that subsystem emits for binding.
 
@@ -91,7 +91,7 @@ We also provide additional utility Blueprint nodes such as:
 ![blueprint-subsystems.png](../../../media/imgs/blueprint-subsystems.png)
 <center>Sample of a Blueprint graph that access athe Beamable Inventory Subsystem and retrieve a currency amount from the local cached state</center>
 
-### Node Customization
+## Node Customization
 Multiple Blueprint nodes can be modified in their `Detail` panel. These configurations allow you to change the pin layout of the node for cases where one layout or another is more beneficial.
 
 

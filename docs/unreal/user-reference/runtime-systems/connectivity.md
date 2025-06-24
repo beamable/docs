@@ -6,7 +6,7 @@ Games with live services require access to the internet and an open connection t
 
 The semantics above is also what our servers use to keep track of any user's online status (relevant to our real-time services like [Matchmaking](../beamable-services/matchmaking.md) and [Lobbies](../beamable-services/lobbies.md)).
 
-## Thinking about Connectivity
+# Thinking about Connectivity
 
 The Beamable SDK provides a `UBeamConnectivityManager` class that keeps the connectivity state for any logged-in `FUserSlot`. For games that have only a single _local_ player, you can use `UBeamRuntime::GetOwnerSlotConnectivity` to access the correct manager by default. For games with multiple _local_ players, you can get the managers from `UBeamRuntime::GetSlotConnectivity` for each user (for the most part, they shouldn't differ in status though).
 
@@ -47,7 +47,7 @@ While in `CONN_Offline` mode, we'll keep trying to reestablish the `FUserSlot`'s
     - We'll wait until your game's code calls `UBeamConnectivityManager::NotifyFixupComplete()`.
         - Calling that puts you back into `CONN_Online` mode and stops ticking the `UBeamConnectivityManager::FixupTick` function.
 
-### Refreshing State after Reconnection
+## Refreshing State after Reconnection
 
 The `UBeamRuntimeSubsystem` implementations DO NOT attempt to refresh their local state after reconnecting automatically. This is an intentional design decision due to the following reasons:
 

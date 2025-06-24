@@ -1,7 +1,5 @@
 # Parties
 
-# Overview
-
 Beamable's Party system provides a comprehensive set of tools for managing player groups in your game. This feature
 enables players to create and join parties, manage invitations, and coordinate multiplayer experiences. Whether you're
 developing a cooperative game, competitive multiplayer, or social gaming features, the Party system offers flexible
@@ -100,7 +98,7 @@ With the multiplayer instances set we can start creating a Blueprint (BP) functi
 
 The events in the party will be used to react to actions like received a invite, join a party, etc.
 
-#### Invite Events
+### Invite Events
 
 The invite events will be used mostly to handle updates on the invite list, like show a popup of a invite or update the friend list with a new party invite.
 
