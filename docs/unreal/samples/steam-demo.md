@@ -62,16 +62,21 @@ Now, you are ready to sign into a game using Steam.
 
 ## Playing the sample
 
-Testing the Steam integration from the editor should be performed in `Standalone Game` mode.
-![steam-demo-PIE-mode.png](../../media/imgs/steam-demo-PIE-mode.png)
+Testing the Steam integration from the editor should be performed in `Standalone Game` mode as per Steam's documentation.
 
-Steam integration can encounter challenges when running in PIE mode. For this reason, 	Microservice needs to be deployed as local development of federation only works with PIE when not in Standalone Game mode.
+![steam-demo-PIE-mode.png](../../media/imgs/steam-demo-PIE-mode.png)
 
 In order to test the sample:
 
 - Start game with Steam open with the account to which you added the game.
 - It should automatically try to login to that account.
 - You should see your "Steam" status change to playing.
+
+## Sample Highlights
+
+This is how we initialize the SDK and Sign-In a user with their Steam account.
+
+![steam-demo-login.png](../../media/imgs/steam-demo-login.png)
 
 ## Can I use it as a Template?
 
