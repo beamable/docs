@@ -33,11 +33,11 @@ public async Promise<PlayerInitResult> CreatePlayer(Account account, Dictionary<
 }
 ```
 
-### From the Unreal SDK
+### Setting up the Client
 
 From Unreal, this federation is triggered by any of the `Operation - Sign-Up` calls OR `Operation - Login - Frictionless` (see [Identity](../beamable-services/identity.md)). The code in this federation will have already run by the time these operations are completed.
 
-The `Dictionary<string, string> properties` argument to the federation interface comes from the client. Aside from a few reserved properties listed below, you can pass in any values via the `InitProperies` parameter of the relevant operations.
+The `Dictionary<string, string> properties` argument in the Federation's C# Code is filled by the client. Aside from a few reserved properties listed below, you can pass in any values via the `InitProperies` parameter of the relevant operations.
 
 
 | Reserved Property                   | Available in Operations  | Notes                                                                                                                                                                                                               |
@@ -53,7 +53,7 @@ The `Dictionary<string, string> properties` argument to the federation interface
 
 In most cases, this is used to define a set of initial stats, currencies or items for a player. These will be available client-side when the operation completes.
 
-In Blueprints, the entire process above is captured here:
+In Blueprints, all you need to do is create a new account using `Login - Frictionless` or any of the `Sign-Up` operations.
 
 ![Player Init Federation](../../../media/imgs/federations-player-init-login-example.png)
 
