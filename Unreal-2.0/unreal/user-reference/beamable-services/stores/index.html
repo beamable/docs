@@ -789,17 +789,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Stores
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -809,82 +798,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#content-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Content Types
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Content Types">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#store-content" class="md-nav__link">
-    <span class="md-ellipsis">
-      Store Content
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#listing-content" class="md-nav__link">
-    <span class="md-ellipsis">
-      Listing Content
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#beam-store-subsystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Beam Store Subsystem
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Beam Store Subsystem">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#purchases-iap-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Purchases IAP support
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1666,71 +1579,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#content-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Content Types
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Content Types">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#store-content" class="md-nav__link">
-    <span class="md-ellipsis">
-      Store Content
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#listing-content" class="md-nav__link">
-    <span class="md-ellipsis">
-      Listing Content
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#beam-store-subsystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Beam Store Subsystem
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Beam Store Subsystem">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#purchases-iap-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Purchases IAP support
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1752,15 +1600,15 @@
 <li>Items and Virtual currency basic implementation</li>
 <li>Customizable store layouts and content</li>
 </ul>
-<h2 id="content-types">Content Types<a class="headerlink" href="#content-types" title="Permanent link">¶</a></h2>
+<h1 id="content-types">Content Types<a class="headerlink" href="#content-types" title="Permanent link">¶</a></h1>
 <p>In Unreal, Stores are represented by <code>UBeamStoreContent</code> class, which includes a store title and a list of links to <code>UBeamListingContent</code> types. The <code>UBeamListingContent</code> class contains all the details about the offer, such as player requirements, costs, and benefits. Make sure you understand the <a href="../content/">Content System</a> as both <code>UBeamStoreContent</code> and <code>UBeamListingContent</code> are subclasses of <code>UBeamContentObject</code>.</p>
-<h3 id="store-content">Store Content<a class="headerlink" href="#store-content" title="Permanent link">¶</a></h3>
+<h2 id="store-content">Store Content<a class="headerlink" href="#store-content" title="Permanent link">¶</a></h2>
 <p>The store content has the following properties:</p>
 <ul>
 <li><strong>Show Innactive Listing</strong>: Shows things that the user already bought and their outside of availability window or outside cohort settings.</li>
 <li><strong>ActiveListingLimit</strong>: Defaults to 20. The Store will only show the first N listings that are valid. When asking for all active listings for a particular user, the API will return a maximum of whatever is here.</li>
 </ul>
-<h3 id="listing-content">Listing Content<a class="headerlink" href="#listing-content" title="Permanent link">¶</a></h3>
+<h2 id="listing-content">Listing Content<a class="headerlink" href="#listing-content" title="Permanent link">¶</a></h2>
 <p>You can think of a listing as an "entry in a catalog of purchasable products".</p>
 <ul>
 <li><strong>Price</strong>: Is the definition of <code>currency</code> a player must have to acquire this listing.</li>
@@ -1770,10 +1618,10 @@
 <li><strong>Purchase Limit</strong>: Number of times the listing is purchasable by the same user. Since its optional, absent means infinite purchases allowed while the listing's other filters say you can buy it.</li>
 </ul>
 <p>We don't support subtypes of <code>UBeamListingContent</code>; use <code>ClientData</code> instead.</p>
-<h2 id="beam-store-subsystem">Beam Store Subsystem<a class="headerlink" href="#beam-store-subsystem" title="Permanent link">¶</a></h2>
+<h1 id="beam-store-subsystem">Beam Store Subsystem<a class="headerlink" href="#beam-store-subsystem" title="Permanent link">¶</a></h1>
 <p>Purchases are handled through the <code>UBeamStoreSubsystem</code>. This subsystem allows you to request the purchase of any available <code>Listing</code> on any <code>Store</code>. It also provides helper functions to retrieve detailed data from listings, making it easier to interact with store content.</p>
 <p>You can fetch a particular player's view of a particular store, via the <code>RefreshStoresOperation</code> or <code>RefreshStoreOperation</code>. After the view is refreshed, you can access the view for that particular player through <code>TryGetStoreView</code>. To make purchases, you can use the <code>PerformPurchaseOperation</code>.</p>
-<h3 id="purchases-iap-support">Purchases IAP support<a class="headerlink" href="#purchases-iap-support" title="Permanent link">¶</a></h3>
+<h2 id="purchases-iap-support">Purchases IAP support<a class="headerlink" href="#purchases-iap-support" title="Permanent link">¶</a></h2>
 <p>Beamable supports purchasing listings using in-game IAPs, but for the Unreal SDK, this feature is not yet available. It will be added in future releases.</p>
 
 

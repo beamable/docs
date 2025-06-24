@@ -620,17 +620,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Connectivity Management
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -640,49 +629,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#thinking-about-connectivity" class="md-nav__link">
-    <span class="md-ellipsis">
-      Thinking about Connectivity
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Thinking about Connectivity">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#refreshing-state-after-reconnection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Refreshing State after Reconnection
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1633,38 +1579,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#thinking-about-connectivity" class="md-nav__link">
-    <span class="md-ellipsis">
-      Thinking about Connectivity
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Thinking about Connectivity">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#refreshing-state-after-reconnection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Refreshing State after Reconnection
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1684,7 +1598,7 @@
 <p>When there's a signed-in user and the WebSocket connection (see <code>UBeamNotifications</code> and <code>UBeamRuntime</code>) for that user is alive.</p>
 </blockquote>
 <p>The semantics above is also what our servers use to keep track of any user's online status (relevant to our real-time services like <a href="../../beamable-services/matchmaking/">Matchmaking</a> and <a href="../../beamable-services/lobbies/">Lobbies</a>).</p>
-<h2 id="thinking-about-connectivity">Thinking about Connectivity<a class="headerlink" href="#thinking-about-connectivity" title="Permanent link">¶</a></h2>
+<h1 id="thinking-about-connectivity">Thinking about Connectivity<a class="headerlink" href="#thinking-about-connectivity" title="Permanent link">¶</a></h1>
 <p>The Beamable SDK provides a <code>UBeamConnectivityManager</code> class that keeps the connectivity state for any logged-in <code>FUserSlot</code>. For games that have only a single <em>local</em> player, you can use <code>UBeamRuntime::GetOwnerSlotConnectivity</code> to access the correct manager by default. For games with multiple <em>local</em> players, you can get the managers from <code>UBeamRuntime::GetSlotConnectivity</code> for each user (for the most part, they shouldn't differ in status though).</p>
 <p>In Blueprints, we have a few <a href="../blueprints/">special nodes</a> for accessing this data</p>
 <p><a class="glightbox" href="../../../../media/imgs/connectivity-local-state-nodes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="connectivity-local-state-nodes.png" src="../../../../media/imgs/connectivity-local-state-nodes.png" /></a></p>
@@ -1740,7 +1654,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="refreshing-state-after-reconnection">Refreshing State after Reconnection<a class="headerlink" href="#refreshing-state-after-reconnection" title="Permanent link">¶</a></h3>
+<h2 id="refreshing-state-after-reconnection">Refreshing State after Reconnection<a class="headerlink" href="#refreshing-state-after-reconnection" title="Permanent link">¶</a></h2>
 <p>The <code>UBeamRuntimeSubsystem</code> implementations DO NOT attempt to refresh their local state after reconnecting automatically. This is an intentional design decision due to the following reasons:</p>
 <ul>
 <li>

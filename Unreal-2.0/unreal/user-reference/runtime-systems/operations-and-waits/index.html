@@ -599,17 +599,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Operations & Waits
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -619,100 +608,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#operation-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      Operation Lifecycle
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#writing-and-exposing-your-own-regular-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Writing and Exposing your Own Regular Operations
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Writing and Exposing your Own Regular Operations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#beam-flow-nodes-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Beam Flow Nodes - Operations
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#writing-hooks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Writing Hooks...
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Writing Hooks...">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#beam-operation-hooks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Beam Operation Hooks
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-not-template-based-promises" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why not Template-based Promises?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#waits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Waits
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1684,89 +1579,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#operation-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      Operation Lifecycle
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#writing-and-exposing-your-own-regular-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Writing and Exposing your Own Regular Operations
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Writing and Exposing your Own Regular Operations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#beam-flow-nodes-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Beam Flow Nodes - Operations
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#writing-hooks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Writing Hooks...
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Writing Hooks...">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#beam-operation-hooks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Beam Operation Hooks
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-not-template-based-promises" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why not Template-based Promises?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#waits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Waits
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1795,7 +1607,7 @@
 <p class="admonition-title">Warning</p>
 <p>While possible, we don't recommend creating the actual operations as blueprints. It's OK to do so for a quick experimentation session; but shipping with it is <em>not recommended</em>. <strong>Calling <em>Operations</em> that are written in C++ is the primary way we recommend Blueprints to interact with the Beamable SDK (we even have <a href="../blueprints/">special nodes</a> for it).</strong></p>
 </div>
-<h2 id="operation-lifecycle">Operation Lifecycle<a class="headerlink" href="#operation-lifecycle" title="Permanent link">¶</a></h2>
+<h1 id="operation-lifecycle">Operation Lifecycle<a class="headerlink" href="#operation-lifecycle" title="Permanent link">¶</a></h1>
 <p>Every Operation has an <code>int64</code> id called the <code>FBeamOperationHandle</code> managed by the <code>UBeamRequestTracker</code>, a <code>UEngineSubsystem</code>. We use it to track the operation's state, its emitted events, its current status and which of Beamable's requests are part of it.</p>
 <p>The lifecycle of an operation goes as follows:</p>
 <p><a class="glightbox" href="../../../../media/imgs/operations-and-waits-lifecycle.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="operations-and-waits-lifecycle.png" src="../../../../media/imgs/operations-and-waits-lifecycle.png" /></a></p>
@@ -1804,7 +1616,7 @@
 <li><strong>Regular Operations</strong>: This is just a "Promise".</li>
 <li><strong>Operation Hooks</strong>: These involve two operations. The first one starts, and will at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own owrk.</li>
 </ul>
-<h2 id="writing-and-exposing-your-own-regular-operations">Writing and Exposing your Own Regular Operations<a class="headerlink" href="#writing-and-exposing-your-own-regular-operations" title="Permanent link">¶</a></h2>
+<h1 id="writing-and-exposing-your-own-regular-operations">Writing and Exposing your Own Regular Operations<a class="headerlink" href="#writing-and-exposing-your-own-regular-operations" title="Permanent link">¶</a></h1>
 <p>We expose all of our main SDK operations in both BP and CPP flavors. If you'd like to do the same thing, this section is for you. If you're looking for how to write hooks in C++, look into the next section.</p>
 <p>The primary trade-off is that: </p>
 <ul>
@@ -1890,7 +1702,7 @@
 <li>Any other sub-class of <code>UBeamRuntimeSubsystem</code>.</li>
 </ul>
 <p>Feel free to copy-paste them as a template of how to implement and reason about <code>Operations</code>.</p>
-<h3 id="beam-flow-nodes-operations">Beam Flow Nodes - Operations<a class="headerlink" href="#beam-flow-nodes-operations" title="Permanent link">¶</a></h3>
+<h2 id="beam-flow-nodes-operations">Beam Flow Nodes - Operations<a class="headerlink" href="#beam-flow-nodes-operations" title="Permanent link">¶</a></h2>
 <p>As part of our <a href="../blueprints/">Blueprint integration</a>, we have created a few custom nodes that make invoking operations from blueprints much simpler. These look like this:</p>
 <p><a class="glightbox" href="../../../../media/imgs/operation-and-waits-beam-flow-nodes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="beam-flow-node" src="../../../../media/imgs/operation-and-waits-beam-flow-nodes.png" /></a></p>
 <p>Beamable Operation Flow Nodes assume a few things:</p>
@@ -1938,7 +1750,7 @@
 </code></pre></div>
 <p>As long as you have one of these in an <code>UncookedOnly</code> module of your game, you'll be able to expose your own custom operations as BP nodes (this is compatible with Multiplayer PIE mode).</p>
 <p>This is very useful when designing unique features leveraging <a href="../../microservices/microservices/">MicroServices and MicroStorages</a></p>
-<h2 id="writing-hooks">Writing Hooks...<a class="headerlink" href="#writing-hooks" title="Permanent link">¶</a></h2>
+<h1 id="writing-hooks">Writing Hooks...<a class="headerlink" href="#writing-hooks" title="Permanent link">¶</a></h1>
 <p>... and other <code>FBeamOperationHandle</code> returning functions. These are the various callback flavors that we expose so you can customize your experience with our SDK. In other words:</p>
 <blockquote>
 <p>If you ever see a Delegate or Virtual Function that you can implement that returns one or more <code>FBeamOperationHandle</code>, you need to create operations and return their handles so that we can wait on your code before we proceed with our code.
@@ -1961,7 +1773,7 @@ It's basically a way for you to inject a promise that we'll run as part of a lar
 </ol>
 </li>
 </ol>
-<h3 id="beam-operation-hooks">Beam Operation Hooks<a class="headerlink" href="#beam-operation-hooks" title="Permanent link">¶</a></h3>
+<h2 id="beam-operation-hooks">Beam Operation Hooks<a class="headerlink" href="#beam-operation-hooks" title="Permanent link">¶</a></h2>
 <p><strong>Hooks</strong> have some more context that you should know about how to use them:</p>
 <ol>
 <li>You call some Operation we expose in our SDK. That Operation does a bunch of things and triggers the hooks at some well-known point during their execution.<ol>
@@ -2033,13 +1845,13 @@ It's basically a way for you to inject a promise that we'll run as part of a lar
 <a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Op</span><span class="p">;</span><span class="w">  </span>
 <a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a><span class="p">}));</span>
 </code></pre></div>
-<h2 id="why-not-template-based-promises">Why not Template-based Promises?<a class="headerlink" href="#why-not-template-based-promises" title="Permanent link">¶</a></h2>
+<h1 id="why-not-template-based-promises">Why not Template-based Promises?<a class="headerlink" href="#why-not-template-based-promises" title="Permanent link">¶</a></h1>
 <p>The biggest reason not to do that is Blueprint Compatibility. The most recognizable template-based Promise-style API just won't work with BPs. We wanted to create an underlying system that provided the same functionality but that retained BP compatibility even if it lost the template-based interface. The result was this <code>Operation</code> system.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>In using it inside our own SDK to develop our Stateful <code>UBeamRuntimeSubsystems</code>, we found that we didn't miss the template aspect or its chaining aspect of <code>Do().Then()</code>. However, the chaining might be something we eventually look into. Perhaps adding the ability to chain requests like these as "syntactic sugar"; but its highly unlikely we'll do anything with templates at the Operation-layer as we do not want to lose the BP-Compatibility.</p>
 </div>
-<h2 id="waits">Waits<a class="headerlink" href="#waits" title="Permanent link">¶</a></h2>
+<h1 id="waits">Waits<a class="headerlink" href="#waits" title="Permanent link">¶</a></h1>
 <p>This is equivalent to <code>Promise.All</code> or <code>Task.WhenAll</code> keeping with our promise analogy. It can be used to wait on a set of operations and/or requests executed concurrently whose errors and successes are handled all at once. To use this, call <code>UBeamRequestTracker::[CPP_]WaitAll</code>.</p>
 <p>This function takes arrays of <code>FBeamRequestContext</code>, <code>FBeamOperationHandle</code> and/or <code>FBeamWaitHandle</code> and a handler function. It'll wait until all the provided handles are completed and then gather all emitted events and request responses and invoke your handle function passing in a helper struct to identify successes/failures.</p>
 <p>You can find examples of these in our SDKs so you can learn how to use this yourself. The most common examples are:</p>

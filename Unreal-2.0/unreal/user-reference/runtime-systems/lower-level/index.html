@@ -641,17 +641,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Lower Level SDK
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -661,43 +650,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#ubeambackend" class="md-nav__link">
-    <span class="md-ellipsis">
-      UBeamBackend
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ubeamnotifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      UBeamNotifications
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1627,32 +1579,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#ubeambackend" class="md-nav__link">
-    <span class="md-ellipsis">
-      UBeamBackend
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ubeamnotifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      UBeamNotifications
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1708,7 +1634,7 @@
 <p><code>UBeamBackend</code>, <code>UBeamNotifications</code> and <code>UBeam_____Notifications</code> are discussed in the sections below.</p>
 </li>
 </ul>
-<h2 id="ubeambackend">UBeamBackend<a class="headerlink" href="#ubeambackend" title="Permanent link">¶</a></h2>
+<h1 id="ubeambackend">UBeamBackend<a class="headerlink" href="#ubeambackend" title="Permanent link">¶</a></h1>
 <p><code>UBeamBackend</code> is the most important <code>UEngineSubsystem</code> in the SDK. It leverages Unreal's <code>HTTP</code> module to make requests to the configured Beamable backend. It contains the implementations used by the <code>UBeam____Api</code> classes to make the actual requests. </p>
 <p>These implementations handle:</p>
 <ul>
@@ -1739,7 +1665,7 @@
 <p class="admonition-title">Connectivity</p>
 <p>In the Beamable SDK, we do NOT handle the concept of "player connectivity to the internet" via request/response heuristics. See <code>UBeamNotifications</code> below and <a href="../connectivity/">Connectivity</a> for more information.</p>
 </div>
-<h2 id="ubeamnotifications">UBeamNotifications<a class="headerlink" href="#ubeamnotifications" title="Permanent link">¶</a></h2>
+<h1 id="ubeamnotifications">UBeamNotifications<a class="headerlink" href="#ubeamnotifications" title="Permanent link">¶</a></h1>
 <p>Every connected Beamable player maintains a WebSocket connection to Beamable while they are logged-in. This system leverages UE's <code>WebSocket</code> module to open web-socket connections for each logged-in user (using <code>FUserSlot</code>).</p>
 <p>This WebSocket connection semantically represents the connectivity status for that particular user. This means the SDK (and the Beamable Servers) think that a user is online/offline based on whether this connection is alive and well. Which in turn means that, if you want to use any of our real-time services (<a href="../../beamable-services/matchmaking/">Matchmaking</a>, <a href="../../beamable-services/lobbies/">Lobbies</a>, etc...) this connection needs to be properly working. At runtime, <code>UBeamRuntime</code> and <code>UBeamConnectivityManager</code> handle per-<code>FUserSlot</code> <a href="../connectivity/">Connectivity</a> statuses.</p>
 <p>Aside from defining <a href="../connectivity/">Connectivity</a> semantics, this connection is also how the Beamable servers (or your own custom Microservices) send notifications to clients about certain events.</p>

@@ -768,17 +768,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Inventory
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -788,52 +777,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#currencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Currencies
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#items" class="md-nav__link">
-    <span class="md-ellipsis">
-      Items
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#client-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Client Permissions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1636,41 +1579,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#currencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Currencies
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#items" class="md-nav__link">
-    <span class="md-ellipsis">
-      Items
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#client-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Client Permissions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1697,29 +1605,6 @@
 <li>A list of instances of <code>Items</code> the player owns, each with their own unique <code>InstanceId</code> and Key-Value pair of instance properties.</li>
 </ul>
 <p>In short, Inventory manages two types of data: items and virtual currencies.</p>
-<h2 id="currencies">Currencies<a class="headerlink" href="#currencies" title="Permanent link">¶</a></h2>
-<p>Currencies are used to buy items with our <a href="../stores/">Store system</a> (e.g., Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP) depending on the specifics of your game system.</p>
-<p>In the Unreal SDK, currencies are represented by the <code>UBeamCurrencyContent</code>. Each currency can specify a <code>startingAmount</code> that is used to pre-seed player accounts with that amount of currency for very simple cases. For more control over each player's starting state we recommend using <a href="../../federation/federated-player-init/">our Federated Player Init</a>.   </p>
-<p>You can <a href="../content/#defining-custom-content-types">subclass</a> this content type if you want to add more information to currency that is specific to your like, such as UI related <code>ObjectPaths</code> and other references to assets that might be relevant to your game.</p>
-<h2 id="items">Items<a class="headerlink" href="#items" title="Permanent link">¶</a></h2>
-<p>The Items feature allows for the creation and management of various in-game objects, such as equipment, consumables, and resources. In the Unreal SDK, items are represented by the <code>UBeamItemContent</code> type. You can <a href="../content/#defining-custom-content-types">subclass</a> this content type to add game-specific information to item content which is then accessible via the <code>UBeamContentSubsystem</code> and in Microservices.</p>
-<p>In the <code>UBeamInventorySubsystem</code>, each item instance inside a player's inventory is represented by <code>FBeamItemState</code>. These instances have the following properties:</p>
-<ul>
-<li><strong>ContentId</strong>: The Id of <code>UBeamItemContent</code> that represents the type of this item instance.</li>
-<li><strong>Properties</strong>: A key-value store of properties of this specific item instance. You control which properties exist here.</li>
-<li><strong>InstanceId</strong>: A unique id of item instance inside this player's inventory.</li>
-<li><strong>CreatedAt</strong>: when item instance was created.</li>
-<li><strong>UpdatedAt</strong>: last edit date.</li>
-<li><strong>FederatedId</strong>: See <a href="../../federation/federated-inventory/">Inventory Federation</a> for more information about this field.</li>
-</ul>
-<h2 id="client-permissions">Client Permissions<a class="headerlink" href="#client-permissions" title="Permanent link">¶</a></h2>
-<p>I's up to developer to decide how the content can be added to player inventory by specifying <code>clientPermission</code> field:</p>
-<p>When toggled, the content becomes <strong>Client-Authoritative</strong>: the SDK allows game-clients to add/remove that item or currency to the player inventory directly. If your game does not include networked multiplayer and can tolerate cheating, allowing the client to read and write their own currencies is the simplest option.</p>
-<p>If not toggled, the content becomes <strong>Server-Authoritative</strong>: trying to add/remove that item or currency to the player inventory from a game-client directly results in an error. The item/currencies are still readable in the game-client. To add/remove items and currencies that are <strong>Server-Authoritative</strong>, do so via a Microservice and a <code>ClientCallable</code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Edit player Inventory via Portal</p>
-<p>Regardless of the value of the <code>clientPermission</code> field it is possible to view and modify players inventory through the Portal. More info <a href="https://docs.beamable.com/docs/portal-inventory">here</a>.</p>
-</div>
 <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h1>
 <p>To use the inventory system, you will need to first:</p>
 <ol>
@@ -1746,15 +1631,38 @@
 <li>Set aside the <code>Gamertag/UserId</code> from the Unreal Engine logs.</li>
 <li>Click <code>Open Portal</code> in Beamable window.</li>
 <li>Go to <code>Engage-&gt;Players</code> and search for the player via <code>Gamertag/UserId</code>.</li>
-<li>Go to <code>Inventory</code> and see that the appropriate currency and items are inside the user's inventory. </li>
+<li>Go to <code>Inventory</code> and see that the appropriate currency and items are inside the user's inventory.</li>
 </ul>
 <p><a class="glightbox" href="../../../../media/imgs/inventory-portal.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="inventory-portal.png" src="../../../../media/imgs/inventory-portal.png" /></a></p>
 <h2 id="batching-updates">Batching updates<a class="headerlink" href="#batching-updates" title="Permanent link">¶</a></h2>
-<p>In the getting started example, we make a new <code>FBeamInventoryUpdateCommand</code> and commit it right away. </p>
+<p>In the getting started example, we make a new <code>FBeamInventoryUpdateCommand</code> and commit it right away.</p>
 <p>It is desirable, for both performance and latency reasons, to batch as many inventory changes as possible as long as it makes sense for your game's design. So, if you're game's feature allows for a "edit multiple, commit later" pattern of UX, leveraging this API is the most efficient way to go about it.</p>
 <h2 id="reading-local-state">Reading Local State<a class="headerlink" href="#reading-local-state" title="Permanent link">¶</a></h2>
 <p>In order to read the local state of the player's inventory, you can use the following operations:</p>
 <p><a class="glightbox" href="../../../../media/imgs/inventory-local-state.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="inventory-local-state.png" src="../../../../media/imgs/inventory-local-state.png" /></a></p>
+<h1 id="currencies">Currencies<a class="headerlink" href="#currencies" title="Permanent link">¶</a></h1>
+<p>Currencies are used to buy items with our <a href="../stores/">Store system</a> (e.g., Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP) depending on the specifics of your game system.</p>
+<p>In the Unreal SDK, currencies are represented by the <code>UBeamCurrencyContent</code>. Each currency can specify a <code>startingAmount</code> that is used to pre-seed player accounts with that amount of currency for very simple cases. For more control over each player's starting state we recommend using <a href="../../federation/federated-player-init/">our Federated Player Init</a>.   </p>
+<p>You can <a href="../content/#defining-custom-content-types">subclass</a> this content type if you want to add more information to currency that is specific to your like, such as UI related <code>ObjectPaths</code> and other references to assets that might be relevant to your game.</p>
+<h1 id="items">Items<a class="headerlink" href="#items" title="Permanent link">¶</a></h1>
+<p>The Items feature allows for the creation and management of various in-game objects, such as equipment, consumables, and resources. In the Unreal SDK, items are represented by the <code>UBeamItemContent</code> type. You can <a href="../content/#defining-custom-content-types">subclass</a> this content type to add game-specific information to item content which is then accessible via the <code>UBeamContentSubsystem</code> and in Microservices.</p>
+<p>In the <code>UBeamInventorySubsystem</code>, each item instance inside a player's inventory is represented by <code>FBeamItemState</code>. These instances have the following properties:</p>
+<ul>
+<li><strong>ContentId</strong>: The Id of <code>UBeamItemContent</code> that represents the type of this item instance.</li>
+<li><strong>Properties</strong>: A key-value store of properties of this specific item instance. You control which properties exist here.</li>
+<li><strong>InstanceId</strong>: A unique id of item instance inside this player's inventory.</li>
+<li><strong>CreatedAt</strong>: when item instance was created.</li>
+<li><strong>UpdatedAt</strong>: last edit date.</li>
+<li><strong>FederatedId</strong>: See <a href="../../federation/federated-inventory/">Inventory Federation</a> for more information about this field.</li>
+</ul>
+<h1 id="client-permissions">Client Permissions<a class="headerlink" href="#client-permissions" title="Permanent link">¶</a></h1>
+<p>I's up to developer to decide how the content can be added to player inventory by specifying <code>clientPermission</code> field:</p>
+<p>When toggled, the content becomes <strong>Client-Authoritative</strong>: the SDK allows game-clients to add/remove that item or currency to the player inventory directly. If your game does not include networked multiplayer and can tolerate cheating, allowing the client to read and write their own currencies is the simplest option.</p>
+<p>If not toggled, the content becomes <strong>Server-Authoritative</strong>: trying to add/remove that item or currency to the player inventory from a game-client directly results in an error. The item/currencies are still readable in the game-client. To add/remove items and currencies that are <strong>Server-Authoritative</strong>, do so via a Microservice and a <code>ClientCallable</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Edit player Inventory via Portal</p>
+<p>Regardless of the value of the <code>clientPermission</code> field it is possible to view and modify players inventory through the Portal. More info <a href="https://docs.beamable.com/docs/portal-inventory">here</a>.</p>
+</div>
 <h2 id="item-instance-properties">Item Instance Properties<a class="headerlink" href="#item-instance-properties" title="Permanent link">¶</a></h2>
 <p>As with most key-value pairs for arbitrary data, try to follow the guidelines below:</p>
 <ul>

@@ -557,17 +557,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Blueprint Integration
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -577,61 +566,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#low-level-blueprints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Low Level Blueprints
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operation-blueprints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Operation Blueprints
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#local-state-blueprints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Local State Blueprints
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#events-bind" class="md-nav__link">
-    <span class="md-ellipsis">
-      Events Bind
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1645,50 +1579,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#low-level-blueprints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Low Level Blueprints
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operation-blueprints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Operation Blueprints
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#local-state-blueprints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Local State Blueprints
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#events-bind" class="md-nav__link">
-    <span class="md-ellipsis">
-      Events Bind
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1704,7 +1594,7 @@
 
 <h1 id="beamable-blueprint-systems">Beamable Blueprint Systems<a class="headerlink" href="#beamable-blueprint-systems" title="Permanent link">¶</a></h1>
 <p>Beamable provides several types of Blueprint nodes to interact with its systems. These are organized into four main categories: <code>Low Level</code>, <code>Local State</code>, <code>Events Bind</code> and <code>Operation</code>. Each category serves different purposes and complexity levels in your game development workflow.</p>
-<h2 id="low-level-blueprints">Low Level Blueprints<a class="headerlink" href="#low-level-blueprints" title="Permanent link">¶</a></h2>
+<h1 id="low-level-blueprints">Low Level Blueprints<a class="headerlink" href="#low-level-blueprints" title="Permanent link">¶</a></h1>
 <p><code>Low Level</code> Blueprints provide direct access to Beamable's APIs. These nodes make raw API calls to Beamable's backend. They are typically used when you need precise control over the behavior or when building custom systems on top of Beamable's foundation.</p>
 <p><a class="glightbox" href="../../../../media/imgs/blueprint-lowlevel.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="blueprint-lowlevel.png" src="../../../../media/imgs/blueprint-lowlevel.png" /></a></p>
 <p>Common use cases include:</p>
@@ -1712,7 +1602,7 @@
 <li>Direct API requests</li>
 <li>Customized behaviours not captured by our <code>UBeamRuntimeSubsystem</code> implementations</li>
 </ul>
-<h2 id="operation-blueprints">Operation Blueprints<a class="headerlink" href="#operation-blueprints" title="Permanent link">¶</a></h2>
+<h1 id="operation-blueprints">Operation Blueprints<a class="headerlink" href="#operation-blueprints" title="Permanent link">¶</a></h1>
 <p><code>Operations</code> provide high-level Blueprint nodes for asynchronous communication with Beamable services. It's designed to simplify common game operations. These nodes combine multiple low-level operations into single, easy-to-use nodes that handle complex workflows automatically. They're perfect for rapid development and standard game features.</p>
 <p><a class="glightbox" href="../../../../media/imgs/blueprint-operators.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="operators-sample.png" src="../../../../media/imgs/blueprint-operators.png" /></a>
 <center>Sample of a Operator Blueprint Node that encapsulate the Purchase Operation for a Listing from the Skin Store.</center></p>
@@ -1733,7 +1623,7 @@
 <li>Matchmaking &amp; Lobby operations</li>
 <li>Fetching the latest state from the Beamable backend</li>
 </ul>
-<h2 id="local-state-blueprints">Local State Blueprints<a class="headerlink" href="#local-state-blueprints" title="Permanent link">¶</a></h2>
+<h1 id="local-state-blueprints">Local State Blueprints<a class="headerlink" href="#local-state-blueprints" title="Permanent link">¶</a></h1>
 <p><code>Local State</code> Blueprints manage the player's in-memory (locally cached) version of the data associated with players. None of these are asynchronous operations and are meant to be used to read in-memory state and display it in UI or use in your own systems built on top of Beamable's systems.</p>
 <p><a class="glightbox" href="../../../../media/imgs/blueprint-localstate.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="blueprints-localstate.png" src="../../../../media/imgs/blueprint-localstate.png" /></a>
 <center>Sample of a Local State Blueprint Node that returns the local cached state of the player's Items of the Inventory.</center></p>
@@ -1744,7 +1634,7 @@
 <li>Player inventory management including items and currencies</li>
 <li>Access all local cached data of the Beamable <code>UBeamRuntimeSubsystem</code> implementations </li>
 </ul>
-<h2 id="events-bind">Events Bind<a class="headerlink" href="#events-bind" title="Permanent link">¶</a></h2>
+<h1 id="events-bind">Events Bind<a class="headerlink" href="#events-bind" title="Permanent link">¶</a></h1>
 <p>Each of our subsystems also have an <code>Events - Bind</code> node that exposes all events that subsystem emits for binding.</p>
 <p><a class="glightbox" href="../../../../media/imgs/blueprint-event.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="blueprint-event.png" src="../../../../media/imgs/blueprint-event.png" /></a>
 <center>Sample of a Blueprint Event Node called when the Local State of the Inventory is Updated.</center></p>
@@ -1774,7 +1664,7 @@
 </ul>
 <p><a class="glightbox" href="../../../../media/imgs/blueprint-subsystems.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="blueprint-subsystems.png" src="../../../../media/imgs/blueprint-subsystems.png" /></a>
 <center>Sample of a Blueprint graph that access athe Beamable Inventory Subsystem and retrieve a currency amount from the local cached state</center></p>
-<h3 id="node-customization">Node Customization<a class="headerlink" href="#node-customization" title="Permanent link">¶</a></h3>
+<h2 id="node-customization">Node Customization<a class="headerlink" href="#node-customization" title="Permanent link">¶</a></h2>
 <p>Multiple Blueprint nodes can be modified in their <code>Detail</code> panel. These configurations allow you to change the pin layout of the node for cases where one layout or another is more beneficial.</p>
 
 

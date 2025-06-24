@@ -1212,17 +1212,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Dedicated Servers
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1232,85 +1221,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sdk-dedicated-server-initialization" class="md-nav__link">
-    <span class="md-ellipsis">
-      SDK Dedicated Server Initialization
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#differences-from-game-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Differences from Game Client
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Differences from Game Client">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#user-slots" class="md-nav__link">
-    <span class="md-ellipsis">
-      User Slots
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#writing-user-state" class="md-nav__link">
-    <span class="md-ellipsis">
-      Writing User State
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#microservices-federation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Microservices &amp; Federation
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1669,74 +1579,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sdk-dedicated-server-initialization" class="md-nav__link">
-    <span class="md-ellipsis">
-      SDK Dedicated Server Initialization
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#differences-from-game-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Differences from Game Client
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Differences from Game Client">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#user-slots" class="md-nav__link">
-    <span class="md-ellipsis">
-      User Slots
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#writing-user-state" class="md-nav__link">
-    <span class="md-ellipsis">
-      Writing User State
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#microservices-federation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Microservices &amp; Federation
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1751,9 +1593,8 @@
 
 
 <h1 id="dedicated-servers">Dedicated Servers<a class="headerlink" href="#dedicated-servers" title="Permanent link">¶</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
 <p>The Beamable Unreal SDK was made with support for a dedicated servers in mind from the start. We also develop and maintain a simple <a href="../../../samples/hathora-demo/">Sample Project</a> containing a <code>Dockerfile</code> for a Linux server container builds and a microservice example of how to integrate with a third-party Game Server Orchestrator such as Hathora.</p>
-<h2 id="sdk-dedicated-server-initialization">SDK Dedicated Server Initialization<a class="headerlink" href="#sdk-dedicated-server-initialization" title="Permanent link">¶</a></h2>
+<h1 id="sdk-dedicated-server-initialization">SDK Dedicated Server Initialization<a class="headerlink" href="#sdk-dedicated-server-initialization" title="Permanent link">¶</a></h1>
 <p>By default, each dedicated server instance it is expected to run a single lobby. When the server starts up, you should call <code>UBeamRuntime::InitSDK</code>. The SDK will look for some overrides and parameters coming in from Environment Variables OR Command-Line Arguments. <strong>Command Line Arguments override Environment Variables when both are present</strong>.</p>
 <p>The table below describe these overrides and what they are for:</p>
 <table>
@@ -1786,9 +1627,9 @@
 <p class="admonition-title">Multiple Lobbies per Server Instance</p>
 <p>If no Lobby ID is provided via the CLArg, we assume you'll manage fetching lobby data yourself via <code>UBeamLobbySubsystem::CPP_RefreshLobbyDataOperation</code>. You can use this to manage multiple lobbies per-instance in ways more specific to your game.</p>
 </div>
-<h2 id="differences-from-game-client">Differences from Game Client<a class="headerlink" href="#differences-from-game-client" title="Permanent link">¶</a></h2>
+<h1 id="differences-from-game-client">Differences from Game Client<a class="headerlink" href="#differences-from-game-client" title="Permanent link">¶</a></h1>
 <p>The SDK works a bit different when its running inside a Dedicated Server and the way we recommend you integrate your server-authoritative logic is a bit different. This section explains these differences.</p>
-<h3 id="user-slots">User Slots<a class="headerlink" href="#user-slots" title="Permanent link">¶</a></h3>
+<h2 id="user-slots">User Slots<a class="headerlink" href="#user-slots" title="Permanent link">¶</a></h2>
 <p>User Slots are a big part of the regular workflow when working with Beamable SDK in game clients. For dedicated servers though they are not used. For interfaces containing the <code>UserSlot</code> parameter, that parameter can be ignored.</p>
 <p>This means a few things:</p>
 <ul>
@@ -1796,9 +1637,9 @@
 <li>Calling APIs that simply read data from users via their <code>GamerTag</code> or other Ids will work fine.</li>
 <li>Calling APIs that write to user data is not recommended via regular SDK functions (see below for the alternative).</li>
 </ul>
-<h3 id="writing-user-state">Writing User State<a class="headerlink" href="#writing-user-state" title="Permanent link">¶</a></h3>
+<h2 id="writing-user-state">Writing User State<a class="headerlink" href="#writing-user-state" title="Permanent link">¶</a></h2>
 <p>The current recommended way of changing user state from dedicated server code is to write a <code>ServerCallable</code> functions in Microservices and invoking those. See <a href="../../microservices/microservices/">Microservices</a> for more information about the various types of <code>Callable</code>.</p>
-<h3 id="microservices-federation">Microservices &amp; Federation<a class="headerlink" href="#microservices-federation" title="Permanent link">¶</a></h3>
+<h2 id="microservices-federation">Microservices &amp; Federation<a class="headerlink" href="#microservices-federation" title="Permanent link">¶</a></h2>
 <p>Beamable does not provide Game Server Orchestration. This means that, while we have Lobbies, Matchmaking and can find matches between players, we do NOT run the actual Game Server. For this, we partner with other companies and provide a simple way to integrate our Matchmaking and Lobbies with them.</p>
 <p>You can read more about this in the <a href="../../federation/federated-game-server/">Federated Game Server</a> guide, but conceptually here's what happens:</p>
 <ol>
