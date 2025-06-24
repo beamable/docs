@@ -207,7 +207,7 @@ This allows you to get services that might have complex logic working first and 
 ## Integrating with Unreal
 Whenever it becomes preferable or necessary (see [Federations](../../federation/federation.md)) to test the microservice directly from Unreal's PIE mode, you can generate bindings for your `Callable` types and use them inside your game's code.
 
-> Run the `dotnet beam project generate-client ""` command manually to generate these bindings. This command regenerates your client bindings AND run Unreal's `Regenerate Project Files` utility for you.
+> Run the `dotnet beam project generate-client "."` command manually to generate these bindings. This command regenerates your client bindings AND run Unreal's `Regenerate Project Files` utility for you.
 
 We generate both C++ and Blueprint Bindings for every microservice `Callable`.
 

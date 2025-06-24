@@ -11,9 +11,10 @@ These are defined in `UBeamCoreSettings::RuntimeUserSlots` (found in `Project Se
 
 Almost all of our APIs take in a `FUserSlot` struct representing the local user making the request. Only "public" APIs do not require them (APIs that you can call after the SDK has been initialized but before any `Login` has happened).
 
-If you're game has **no _local_ multiplayer** (just a single local player), you only need to know a few things about them:
+If you're game has **no _local_ multiplayer** (just a single local player), you only need to know a few things about **UserSlots**:
 
-- By default, in C++, you should pass in the `UBeamCoreSettings::GetOwnerPlayerSlot()` to any calls taking an `FUserSlot` (which defaults to `"Player0"`).
+- You should pass in the **Owner User Slot** (the one mapped to the "Local Player 0") to any calls taking an `FUserSlot`.
+    - In C++, you can use `UBeamCoreSettings::GetOwnerPlayerSlot()` to get it.
 - In Blueprints, you'll only have to manually pass in user slots if you change the default slot from `"Player0"`.
 - If you're using any of our lower-level APIs (`UBeam____Api` subsystems and `Low-Level` blueprint nodes), you might see functions that take in a `UObject* ContextObject`.
     - These are there to support Unreal's Multiplayer PIE mode (for the same reason a lot of UE's own APIs also need one of these).    

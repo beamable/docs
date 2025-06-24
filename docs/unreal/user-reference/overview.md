@@ -33,11 +33,11 @@ Aside from those core concepts, the links below explain some of our higher-level
 
 The image below describes how the SDK's lifecycle injects itself into UE's lifecycle:
 
-![runtime-concepts-init-flow.png](../../media/imgs/runtime-concepts-init-flow.png)
+![overview-sdk-lifecycle.png](../../media/imgs/overview-sdk-lifecycle.png)
 
 The next image shows a high-level description of the authentication flows supported by the SDK:
 
-![runtime-concept-authflow.png](../../media/imgs/runtime-concept-authflow.png)
+![overview-sdk-auth-flow.png](../../media/imgs/overview-sdk-auth-flow.png)
 
 **_We highly recommend that every engineer working with Beamable understand this lifecycle!_** It should enable them to make the best use and decisions when designing systems with or on top of Beamable. 
 

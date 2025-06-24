@@ -20,7 +20,7 @@ Every Operation has an `int64` id called the `FBeamOperationHandle` managed by t
 
 The lifecycle of an operation goes as follows:
 
-![operation-and-waits-lifecycle.png](../../../media/imgs/operation-and-waits-lifecycle.png)
+![operations-and-waits-lifecycle.png](../../../media/imgs/operations-and-waits-lifecycle.png)
 
 When writing Operations, there are two ways of thinking about them:
 
@@ -118,7 +118,7 @@ There are tons of examples of operations in our SDK. For some guidance, you can 
 Feel free to copy-paste them as a template of how to implement and reason about `Operations`.
 
 ### Beam Flow Nodes - Operations
-There are two flavors of Beam-Flow nodes; one are Raw Requests that you can use to hit our APIs; the other is the Operation Beam Flow node. Operation Nodes look like this:
+As part of our [Blueprint integration](blueprints.md), we have created a few custom nodes that make invoking operations from blueprints much simpler. These look like this:
 
 ![beam-flow-node](../../../media/imgs/operation-and-waits-beam-flow-nodes.png)
 
@@ -126,18 +126,19 @@ Beamable Operation Flow Nodes assume a few things:
 
 - One or more participating `UserSlots` (see [User Slots](user-slots.md) for more information).
 - An event handler for handling any of the events.
-- Events can be: `OET_SUCCESS`, `OET_ERROR` and `OET_CANCELLED` plus a `FName EventCode`.     
+- Events can be: `OET_SUCCESS`, `OET_ERROR` and `OET_CANCELLED` plus a `FName EventId`.    
 - Events can contain some arbitrary data associated with them (implementations of `IBeamOperationEventData`).
 
-To create these nodes for your own operations, you can look at any of our own nodes (that live inside our `UncookedOnly` module: `BeamableCoreBlueprintNodes` ) and copy/paste one implementation changing the values accordingly. However, there are a few restrictions:
+To create these nodes for your own operations, you can look at any of our own nodes (that live inside our `UncookedOnly` module: `BeamableCoreBlueprintNodes` ) and copy/paste one implementation changing the values accordingly. 
+
+However, there are a few restrictions:
 
 - The function must be a `UFUNCTION` that returns a `FBeamOperationHandle` and contains the following named parameters:
 	- `FUserSlot UserSlot`, if a single user is involved in the operation, or `TArray<FUserSlot> UserSlot`, if multiple users are involved in the operation.
       - If multiple users, the `UFUNCTION` must also add `meta=(BeamOperationMultiUser)`.
 	- `FBeamOperationEventHandler OnOperationEvent` to be the event handler that will handle all events raised by the operation.
     - The function can have any other parameters you want in any order as long as the above parameters are there.
-- The function must be declared from inside a `UGameInstanceSubsystem` / `UBeamRuntimeSubsystem` subclass.
-    - The subsystem must implement a `static UMySubsystem* GetSelf(const UObject* CallingContext)` `UFUNCTION` that returns the instance of itself.    
+- The function must be declared from inside any `UWorldSubsystem`, `UGameInstanceSubsystem` or `UBeamRuntimeSubsystem` subclass with a `static UMySubsystem* GetSelf(const UObject* CallingContext)` `UFUNCTION` that returns the instance of itself.
 
 Here's an example of what you need to declare one of these (we recommend copying from your own SDK code instead of this snippet).
 
@@ -166,7 +167,9 @@ class UK2BeamNode_Operation_CommitInventoryUpdate : public UK2BeamNode_Operation
 #undef LOCTEXT_NAMESPACE
 ```
 
-As long as you have one of these in an `UncookedOnly` module of your application, you should be able to expose your own operations as BP nodes (this is compatible with Multiplayer PIE mode).
+As long as you have one of these in an `UncookedOnly` module of your game, you'll be able to expose your own custom operations as BP nodes (this is compatible with Multiplayer PIE mode).
+
+This is very useful when designing unique features leveraging [MicroServices and MicroStorages](../microservices/microservices.md)
 
 ## Writing Hooks...
 ... and other `FBeamOperationHandle` returning functions. These are the various callback flavors that we expose so you can customize your experience with our SDK. In other words:
