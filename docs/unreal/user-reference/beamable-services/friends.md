@@ -24,6 +24,10 @@ To use the friend system, you will need to first setup your Unreal to PIE with m
 
 Once you have your enviroment setup to start, the follow steps will show how to implement the basic functinalities in BP.
 
+## How to Bind the Friends Events
+ In the SDK all the events can be binded using our custom node for bind from the subsystem. The image bellow shown a example how to do this.
+
+ ![friends-bind-events.png](../../../media/imgs/friends-bind-all-events.png)
 
 ## How to Invite a Friend
 
@@ -34,9 +38,7 @@ Once you have your enviroment setup to start, the follow steps will show how to 
 
 ### Invite Received Event
 
-It's possible to listen to the changes for the invites received, being responsive to this showing to the player that a new friend invite has been received. In order to to this you will bind to the event in the `FriendSubsystem` as shown in the BP sample below.
-
-![friends-bind-invite-received](../../../media/imgs/friends-bind-invite-received.png)
+It's possible to listen to the changes for the invites received, being responsive to this showing to the player that a new friend invite has been received. You will need to bind to the event `OnInviteReceived` shown in the [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
 
 ## How to Accept a Friend Invite
@@ -50,10 +52,7 @@ It's possible to listen to the changes for the invites received, being responsiv
 
 When the player that received the invite accept it, both receive the invite accepted event, it could be used for updates in the invite list or to start to show the new friend in the friend list.
 
-To bind to this event you can use the `FriendSubsystem` and do as shown in the BP below.
-
-
-![friends-bind-invite-accepted](../../../media/imgs/friends-bind-invite-accepted.png)
+To bind to this event you can use the `OnInviteAccepted` as shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
 ???+ Warning "Local Player Feedback"
     Once the player accepts the invite, if you prefer not to wait for the backend notification to update the friend list, you can directly use the operation for the player who accepted and update the local state either synchronously or asynchronously.
@@ -67,9 +66,8 @@ To bind to this event you can use the `FriendSubsystem` and do as shown in the B
 
 ### Invite Decline Event
 
-When the player that received the invite decline it, both receive the `OnInviteDeclined` notification, that can help to update the visuals and the player list. The local state is already updated when the player receive this notification.
+When the player that received the invite decline it, both receive the `OnInviteDeclined` notification, that can help to update the visuals and the player list. The local state is already updated when the player receive this notification. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
-![friends-bind-invite-decline](../../../media/imgs/friends-bind-invite-decline.png)
 
 ## How to Block/Unblock a Player
 
@@ -86,11 +84,7 @@ When the player that received the invite decline it, both receive the `OnInviteD
 
 ### Block/unblock player event
 
-There are two events related to blocking players: one for the player who initiates the block and one for the player who is blocked. The first event, `OnPlayerBlocked`, is triggered only for the player who blocks another player. The blocked player does not receive this event, as it is typically not necessary to handle the blocked player in this case. Instead, the blocked player will receive the second event, `OnPlayerBeenBlocked`.
-
-|Bind to player blocked |Bind to player been blocked|
-|:-:|:-:|
-![friends-bind-blocked-player.png](../../../media/imgs/friends-bind-blocked-player.png) | ![friends-bind-player-been-blocked.png](../../../media/imgs/friends-bind-player-been-blocked.png)
+There are two events related to blocking players: one for the player who initiates the block and one for the player who is blocked. The first event, `OnPlayerBlocked`, is triggered only for the player who blocks another player. The blocked player does not receive this event, as it is typically not necessary to handle the blocked player in this case. Instead, the blocked player will receive the second event, `OnPlayerBeenBlocked`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
 
 ???+ Warning "Removed Friend Event"
@@ -100,10 +94,7 @@ For the unblock flow is very similar to the block, so there's a `OnPlayerUnblock
 
 ### Presence status update event
 
- For you to use the status presence as the common behavior of showing if your friend is online or offline we recommend to register in the `OnPresenceStatusUpdate` and handle the updates in the player status from this.
-
-![friends-bind-presence-status-changed](../../../media/imgs/friends-bind-presence-status-changed.png)
-
+ For you to use the status presence as the common behavior of showing if your friend is online or offline we recommend to register in the `OnPresenceStatusUpdate` and handle the updates in the player status from this. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
 ## How to remove a friend
 
@@ -117,9 +108,8 @@ For the unblock flow is very similar to the block, so there's a `OnPlayerUnblock
 
 When a player is removed from the friend list it will triggers this notification. You will be able to register on this to treat the behavior in your game.
 
-The event that will be trigger is the `OnFriendRemoved`. When it triggers, the local state of the friend list will already been updated.
-
-![friends-bind-friend-removed.png](../../../media/imgs/friends-bind-friend-removed.png)
+The event that will be trigger is the `OnFriendRemoved`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
+When it triggers, the local state of the friend list will already been updated. 
 
 ## How To Use The System State To Update The View (Invite Example)
 
