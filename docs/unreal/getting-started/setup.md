@@ -55,4 +55,19 @@ Please, follow along these instructions:
     3. Run `dotnet beam --version` from inside your project root directory and see that it outputs a valid `X.Y.Z` string.
 7. Open your IDE and compile your editor.
 
+## Upgrading the SDK
 
+1. Check out a [tagged release version](https://github.com/beamable/UnrealSDK/releases) (in the form `X.X.X`).
+2. Copy the `beam_init_game_maker.sh` script into the root of your Unreal Project.
+3. From a terminal (on windows, **GitBash**) running in your project directory, run `beam_init_game_maker.sh` passing in the path to the **UnrealSDK** in your machine.
+    1. `. beam_init_game_maker.sh "E:/Path/To/UnrealSDK"`
+    2. `. beam_init_game_maker.sh "E:/Path/To/UnrealSDK" true` (if you are still using the `OnlineSubsystemBeamable` plugin)
+4. If you had any custom changes made to the SDK, leverage Git to re-apply them as needed.
+    1. When making custom changes to the SDK, don't for get to flag it with a comment so searching for them is easier in this step.
+5. Fix any compilation errors that happened due to breaking changes.
+    1. Don't forget to look fix any blueprints as well after you get the editor to compile.
+6. Run `dotnet tool restore` from your project root.
+    1. Verify that the CLI was updated to the proper version by running `dotnet beam version` and seeing that it matches the version in `E:/Path/To/UnrealSDK/.config/dotnet-tools.json`.
+7. If you have microservices:
+    1. Run `dotnet beam checks scan --fix all`.
+        1. Our CLI can fix _some_ breaking changes automatically with this command.
