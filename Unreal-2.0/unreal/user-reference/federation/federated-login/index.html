@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://beamable.github.io/Docs/Unreal-2.0/unreal/user-reference/federation/federated-login/">
       
       
-        <link rel="prev" href="../federated-game-server/">
+        <link rel="prev" href="../federation/">
       
       
-        <link rel="next" href="../../servers-and-builds/dedicated-servers/">
+        <link rel="next" href="../federated-player-init/">
       
       
       <link rel="icon" href="../../../../assets/images/beamable-badge.png">
@@ -546,6 +546,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../runtime-systems/blueprints/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blueprint Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../runtime-systems/user-slots/" class="md-nav__link">
         
   
@@ -736,27 +757,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../beamable-services/announcements/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Announcements
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../beamable-services/inventory/" class="md-nav__link">
         
   
@@ -867,6 +867,48 @@
   
   <span class="md-ellipsis">
     Friends
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beamable-services/leaderboards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Leaderboards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beamable-services/announcements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Announcements
   </span>
   
 
@@ -1031,48 +1073,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../federated-inventory/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Federated Inventory
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../federated-game-server/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Federated Game Server
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1128,14 +1128,62 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Federated Login - without 2FA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up the Client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-the-microservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing the Microservice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#federated-login-2fa" class="md-nav__link">
+  <a href="#federated-login-multi-factor-authentication" class="md-nav__link">
     <span class="md-ellipsis">
-      Federated Login - 2FA
+      Federated Login - Multi-Factor Authentication
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Federated Login - Multi-Factor Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-client_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up the Client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-the-microservice_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing the Microservice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1143,6 +1191,69 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../federated-player-init/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Federated Player Init
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../federated-inventory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Federated Inventory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../federated-game-server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Federated Game Server
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1410,7 +1521,7 @@
             
   
   <span class="md-ellipsis">
-    Sample Projects:
+    Sample Projects      
   </span>
   
 
@@ -1420,9 +1531,30 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
-            Sample Projects:
+            Sample Projects      
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../samples/steam-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Steam
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1473,27 +1605,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../samples/steam-demo/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Steam
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../samples/hathora-demo/" class="md-nav__link">
         
   
@@ -1508,56 +1619,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Beamable CLI
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            Beamable CLI
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
                 
   
@@ -1565,15 +1626,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cli/cli-overview/" class="md-nav__link">
+      <a href="../../../samples/beamball-demo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Overview
+    Beamball
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1619,14 +1688,62 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Federated Login - without 2FA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up the Client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-the-microservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing the Microservice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#federated-login-2fa" class="md-nav__link">
+  <a href="#federated-login-multi-factor-authentication" class="md-nav__link">
     <span class="md-ellipsis">
-      Federated Login - 2FA
+      Federated Login - Multi-Factor Authentication
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Federated Login - Multi-Factor Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-client_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up the Client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-the-microservice_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing the Microservice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1651,10 +1768,6 @@
 <p>Its interface has a single function called <strong>Authenticate</strong> with the following signature:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedAuthenticationResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Authenticate</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">challenge</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">solution</span><span class="p">);</span>
 </code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">2FA</p>
-<p>You can implement 2FA with this. That's the purpose of the <code>challenge</code> and <code>solution</code> parameters. However, the UE SDK doesn't officially support this yet.</p>
-</div>
 <p>The purpose of this function is:</p>
 <blockquote>
 <p>Map a 3rd Party token to a Unique Identifier for the user within the 3rd Party.</p>
@@ -1674,11 +1787,26 @@
 </li>
 </ol>
 <p>After this, the flow goes into your <code>Authenticate</code> function. What that function should do, depends on whether or not you are implementing 2FA or not.</p>
-<h4 id="federated-login-without-2fa">Federated Login - without 2FA<a class="headerlink" href="#federated-login-without-2fa" title="Permanent link">¶</a></h4>
+<h2 id="federated-login-without-2fa">Federated Login - without 2FA<a class="headerlink" href="#federated-login-without-2fa" title="Permanent link">¶</a></h2>
+<h3 id="setting-up-the-client">Setting up the Client<a class="headerlink" href="#setting-up-the-client" title="Permanent link">¶</a></h3>
+<p>In the client:</p>
+<ul>
+<li>Initialize the SDK.</li>
+<li>Use the <code>Sign-Up - Federated Identy</code> node with <code>Auto Login</code> passing in:<ul>
+<li>The Microservice's Id.</li>
+<li>The Federation's Id.</li>
+<li>The User Id <em><strong>of the Federated 3rd Party user</strong></em> (this would be the user's Steam Id, for example).</li>
+<li>A token that can be used to authenticate this user's account with the Federated 3rd Party.</li>
+</ul>
+</li>
+</ul>
+<p>It looks like this:</p>
+<p><a class="glightbox" href="../../../../media/imgs/steam-demo-login.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="steam-demo-login.png" src="../../../../media/imgs/steam-demo-login.png" /></a></p>
+<h3 id="writing-the-microservice">Writing the Microservice<a class="headerlink" href="#writing-the-microservice" title="Permanent link">¶</a></h3>
 <p>Semantically, there are two ways the <code>Authenticate</code> function can be called:</p>
 <ul>
-<li><strong>Account Creation Time</strong>: When using <strong><code>UBeamRuntime</code>'s  <code>LoginExternalIdentity</code> or <code>SignUpExternalIdentity</code> Operations</strong>. </li>
-<li><strong>Account Attach Time</strong>: When using <strong><code>UBeamRuntime</code>'s  <code>AttachExternalIdentity</code> Operations</strong>. </li>
+<li><strong>Account Creation Time</strong>: When using <strong><code>Login - Federated Identity</code> or <code>Sign-Up - Federated Identity</code> operations</strong>. </li>
+<li><strong>Account Attach Time</strong>: When using <strong><code>Attach - Federated Identity</code> operation</strong>. </li>
 </ul>
 <p>In both cases, what you want to do is:</p>
 <ol>
@@ -1691,8 +1819,28 @@
 <li><strong>Account Creation Time</strong>: <code>Context.UserId</code> is <code>0</code>; as at this time, no account exists.</li>
 <li><strong>Account Attach Time</strong>: <code>Context.UserId</code> is a valid <code>GamerTag</code>; as you are adding an identity to an existing account.</li>
 </ul>
-<p>For non, 2FA flows (which are most of the Store and Console login flows) this is all that is needed.</p>
-<h4 id="federated-login-2fa">Federated Login - 2FA<a class="headerlink" href="#federated-login-2fa" title="Permanent link">¶</a></h4>
+<p>For non-MFA flows (which are most of the Store and Console login flows) this is all that is needed. Here's an example from our <a href="../../../samples/steam-demo/">Steam Demo</a>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedAuthenticationResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Authenticate</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">challenge</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">solution</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// No user made the request, which means we are trying to sign in.</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isLogin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_requestContext</span><span class="p">.</span><span class="n">UserId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0L</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">// A user made the request which means we are trying to attach the identity to the user.</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isAttach</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_requestContext</span><span class="p">.</span><span class="n">UserId</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0L</span><span class="p">;</span><span class="w">    </span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="c1">// Get the token and use whatever 3rd Party SDK to fetch the user&#39;s id and return it</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FederatedAuthenticationResponse</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my3rdPartyId</span><span class="p">,</span><span class="w"> </span><span class="p">};</span><span class="w"> </span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="federated-login-multi-factor-authentication">Federated Login - Multi-Factor Authentication<a class="headerlink" href="#federated-login-multi-factor-authentication" title="Permanent link">¶</a></h2>
+<h3 id="setting-up-the-client_1">Setting up the Client<a class="headerlink" href="#setting-up-the-client_1" title="Permanent link">¶</a></h3>
+<p>In the client, we start by invoking our <code>Login - Federated Identity</code> operation. This operation has a sub-event that gets invoked when the microservice responds with a <code>challenge</code> string we need to solve. The SDK provides you a <code>UBeamMultiFactorLoginData</code> object you can store and carry around your game state so that your player can solve the challenge.</p>
+<p>Here's an example from our Sui-Wallet integration showcase.</p>
+<p><a class="glightbox" href="../../../../media/imgs/federated-login-2fa-start.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="federated-login-2fa-start.png" src="../../../../media/imgs/federated-login-2fa-start.png" /></a></p>
+<p>Once the player has solved the challenge, you can send it to the Microservice by calling <code>Login - Commit Federated Identity</code>. You can see an example below where we sign the challenge before sending over the solution to our microservice.</p>
+<p><a class="glightbox" href="../../../../media/imgs/federated-login-2fa-commit.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="federated-login-2fa-commit.png" src="../../../../media/imgs/federated-login-2fa-commit.png" /></a></p>
+<p>The <code>Login - Federated Identity</code> operation's Success/Error flows will run <strong><em>after</em></strong> the Success/Error flows of the <code>Login - Commit Federated Identity</code> operation.</p>
+<h3 id="writing-the-microservice_1">Writing the Microservice<a class="headerlink" href="#writing-the-microservice_1" title="Permanent link">¶</a></h3>
 <p>Semantically, there are an additional two ways that the Authenticate function can be called:</p>
 <ul>
 <li><strong>Without a <code>challenge</code>/<code>solution</code></strong>: This is the first part of the flow. <ul>
@@ -1709,11 +1857,42 @@
 </ul>
 </li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">UE SDK Support</p>
-<p>This flow's usability in the engine SDK is not particularly good right now. You can achieve this by writing your own implementation of <code>Login</code>/<code>Attach</code> that maps better to 2FA than the existing ones.</p>
-<p>This is a high priority issue for us and better 2FA support should be done in the next minor release.</p>
-</div>
+<p>The implementation looks something like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedAuthenticationResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Authenticate</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">challenge</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">solution</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// No user made the request, which means we are trying to sign in.</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isLogin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_requestContext</span><span class="p">.</span><span class="n">UserId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0L</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">// A user made the request which means we are trying to attach the identity to the user.</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isAttach</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_requestContext</span><span class="p">.</span><span class="n">UserId</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0L</span><span class="p">;</span><span class="w">                </span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">// Handle the case where we are asking for a challenge to solve (`solution` is empty). </span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">solution</span><span class="p">))</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="c1">// Return some challenge the user is expected to solve.</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="c1">// The `user_id` in the response is NOT set.</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FederatedAuthenticationResponse</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">            </span><span class="n">challenge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Some Challenge&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// The actual challenge people will need to solve</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">            </span><span class="n">challenge_ttl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="c1">// Some duration for the challenge</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="p">};</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="c1">// Handle the case where the user has provided the challenge AND the solution</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">challenge</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">solution</span><span class="p">))</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">        </span><span class="c1">// My code that validates the provided solution against the challenge.      </span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FederatedAuthenticationResponse</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">            </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UserIdInThirdParty</span><span class="w"> </span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">        </span><span class="p">};</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">    </span><span class="c1">// We should never get here in a Multi-Factor Flow</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">Exception</span><span class="p">();</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="p">}</span>
+</code></pre></div>
+<p>Keep in mind that if you need multiple <code>challenge/solution</code> back-and-forths between the client and the server you can do that by encoding the step in the challenge and parsing the challenge string in the client to decide at which point in the chain of <code>challenge/solution</code> flow you are (this is relevant in very rare cases). </p>
 
 
 
