@@ -44,6 +44,19 @@ Now you're set up to run the sample.
       2. If you can't see plugin content in your content browser, you can change the settings of the UE `Content Browser` to display it.
 5. Play the `Beamball_MainScreen` in the Editor.
 
+## Important Blueprints
+
+ The `WBP_MainMenu` is one of the most important blueprint in the main screen, it contains almost all flows to make the sample work.
+
+ Some example of the blueprint: 
+
+![bind-event.png](../../media/imgs/beamball-demo-blueprint-inventory-bind.png)
+**Binding to the inventory subystem to update the UI when it receive a event call.**
+  
+
+![matchmaking-flow.png](../../media/imgs/beamball-demo-blueprint-matchmaking-flow.png)
+**Showing how to handle matchmaking flow**
+
 ## Can I use it as a Template?
 
 This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here's what these are:
