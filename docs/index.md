@@ -48,6 +48,8 @@ We provide support for the following platforms:
 iOS support and Console support should be added before the end of 2025.
 
 # Beamable CLI
+The minimum Beamable CLI version for this release is 5.0.3.
+
 Most of the Beamable workflows are enabled through the Beamable CLI; our editor integrations making use of it to create Engine-specific workflows.
 
 The SDK is tightly integrated with the CLI in some ways more than others. For example:
@@ -59,7 +61,7 @@ In other words: **The Beamable CLI is invisible to the user where it needs to be
 
 # Where to start?
 
-Regardless of who you are, we recommend run through the [Getting Strted](guides/intro.md), [Runtime Systems Overview](concepts/runtime-concepts.md) and [Identity](features/identity.md) documents. After this, it depends on what you're game is or what you are looking to do.
+Regardless of who you are, we recommend run through the [Getting Started](guides/intro.md), [Runtime Systems Overview](concepts/runtime-concepts.md) and [Identity](features/identity.md) documents. After this, it depends on what you're game is or what you are looking to do.
 
 - If you are a game maker looking to implement simple and common back-end features, take a look at the docs for [Inventory](features/inventory.md), for currency and items, and [Stats](features/stats.md), for player-scoped key-value stores.
 - If you are a game maker looking to implement unique features, browse the documentation for [Content](features/content.md) and [Microservices](concepts/microservices.md) to think about how to structure your game's data and how to write custom code with Beamable.
