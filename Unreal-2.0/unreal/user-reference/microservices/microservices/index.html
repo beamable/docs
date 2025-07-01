@@ -2105,7 +2105,7 @@
 </ol>
 <p>This allows you to get services that might have complex logic working first and integrating them into Unreal later. <a href="#constraints-on-callable-functions">Keep in mind the type restrictions on method signatures mentioned here</a>.</p>
 <h2 id="integrating-with-unreal">Integrating with Unreal<a class="headerlink" href="#integrating-with-unreal" title="Permanent link">¶</a></h2>
-<p>Whenever it becomes preferable or necessary (see <a href="../../federation/federation.md">Federations</a>) to test the microservice directly from Unreal's PIE mode, you can generate bindings for your <code>Callable</code> types and use them inside your game's code.</p>
+<p>Whenever it becomes preferable or necessary (see <a href="../../federation/federation/">Federations</a>) to test the microservice directly from Unreal's PIE mode, you can generate bindings for your <code>Callable</code> types and use them inside your game's code.</p>
 <blockquote>
 <p>Run the <code>dotnet beam project generate-client "."</code> command manually to generate these bindings. This command regenerates your client bindings AND run Unreal's <code>Regenerate Project Files</code> utility for you.</p>
 </blockquote>
@@ -2122,7 +2122,7 @@
 <li>Run PIE and hit the point where you call your microservice.</li>
 <li>See your local service's <code>Callable</code>'s be hit.</li>
 </ol>
-<p>If you are using <a href="../../federation/federation.md">Federations</a>, there are a few particulars of this workflow of which you should be aware. If not, the above works as described.</p>
+<p>If you are using <a href="../../federation/federation/">Federations</a>, there are a few particulars of this workflow of which you should be aware. If not, the above works as described.</p>
 <h2 id="deploying-to-a-realm">Deploying to a Realm<a class="headerlink" href="#deploying-to-a-realm" title="Permanent link">¶</a></h2>
 <p>Once you have things working locally, you'll likely want to make the Microservice available to other team members working on the realm. If you just push your code up, other team members would also have to run the service locally and that might not always be desirable.</p>
 <p>As such, you should publish the services to the appropriate realm.</p>

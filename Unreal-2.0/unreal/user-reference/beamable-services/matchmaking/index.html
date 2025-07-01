@@ -1602,7 +1602,7 @@
 <li>Optional integration with game server provisioning</li>
 </ul>
 <p>The Beamable SDK Matchmaking feature allows players to join a matchmaking queue (defined by a <code>UBeamGameTypeContent</code> instance), configure rules for matches to be made, receive notifications of progress and, optionally, provision a Game Server with a 3rd Party Game Server Orchestrator for the resulting match.</p>
-<p>Once a match is found, the result is a <a href="../features/lobbies.md">Lobby</a> containing all the players in the match that was found. <strong><em>If you are working on a dedicated server game, we highly recommend you read</em></strong>:</p>
+<p>Once a match is found, the result is a <a href="../lobbies/">Lobby</a> containing all the players in the match that was found. <strong><em>If you are working on a dedicated server game, we highly recommend you read</em></strong>:</p>
 <ul>
 <li><a href="../../servers-and-builds/dedicated-servers/">Dedicated Servers</a></li>
 <li><a href="../../federation/federated-game-server/">Federated Game Servers</a></li>
@@ -1639,7 +1639,7 @@ The semantics for each event are:</p>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Dynamic Team Sizes</p>
-<p>This is for fixed-team-size queues. For teams that are built <em>after</em> the match is made, you can use the resulting <a href="../features/lobbies.md">Lobby</a>'s data and <a href="../../federation/federated-game-server/">Federated Game Servers</a> to compute and store the dynamic team split.</p>
+<p>This is for fixed-team-size queues. For teams that are built <em>after</em> the match is made, you can use the resulting <a href="../lobbies/">Lobby</a>'s data and <a href="../../federation/federated-game-server/">Federated Game Servers</a> to compute and store the dynamic team split.</p>
 </div>
 <ul>
 <li><code>FOptionalBeamStatComparisonRule EntryRules</code>: Optionally defines a set of <a href="../stats/">Stat</a> comparison rules. Only players whose <a href="../stats/">Stats</a> match those comparisons will be allowed into this queue.</li>
@@ -1668,7 +1668,7 @@ The semantics for each event are:</p>
 <li><code>FederatedGameServerNamespace</code>: Defines a <a href="../../federation/federation/#federation-id">Federation Id</a> for a <a href="../../federation/federated-game-server/">Federated Game Server</a> federation.</li>
 </ul>
 <h1 id="lobby-subsystem-integration">Lobby Subsystem Integration<a class="headerlink" href="#lobby-subsystem-integration" title="Permanent link">¶</a></h1>
-<p>The Matchmaking Subsystem works with the <a href="../features/lobbies.md">Lobby Subsystem</a> by default. It does the following things:</p>
+<p>The Matchmaking Subsystem works with the <a href="../lobbies/">Lobby Subsystem</a> by default. It does the following things:</p>
 <ul>
 <li>The <code>OnMatchReady</code> callback is ONLY invoked AFTER we've already fetched the match Lobby's data.<ul>
 <li>This means you can use the <code>Local State - Lobby</code> nodes to fetch information from the lobby directly on this event.</li>
@@ -1686,7 +1686,7 @@ The semantics for each event are:</p>
 <p>Every user in a party receives an <code>OnMatchRemoteSearchStarted</code> notification whenever the leader joins a queue. If the party leader leaves the queue or the party disbands, every user will receive the <code>OnMatchCancelled</code> notification so that they can respond to the change.</p>
 <p>When joining a queue as the party leader and passing in <code>FBeamTag</code>, those tags are only for the party leader. If you need to gather data for every user, we recommend using <a href="../../federation/federated-game-server/">Federated Game Server</a> and <a href="../stats/">Stats</a> to get that data into the <a href="../lobbies/">Lobby</a> instead.</p>
 <h1 id="match-found-and-tickets">Match Found and Tickets<a class="headerlink" href="#match-found-and-tickets" title="Permanent link">¶</a></h1>
-<p>When you join a queue in Beamable's matchmaking, you get back a <code>FBeamMatchmakingTicket</code>. This ticket contains information about the entry onto the queue:</p>
+<p>When you join a queue in Beamable's matchmaking, you get back a <code>FBeamMatchmakingTicket</code>. This ticket contains information about the entry onto the queue: </p>
 <ul>
 <li><strong>GameType</strong> is the queue type.</li>
 <li><strong>GamerTagsInTicket</strong> hold the list of players that are in the ticket.</li>

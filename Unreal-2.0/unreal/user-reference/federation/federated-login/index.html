@@ -1610,9 +1610,10 @@
 </li>
 <li>[<strong>Game Client</strong>]: Invoke a <code>Login</code>/<code>SignUp</code>/<code>Attach</code> <strong>Operation</strong> and pass the following parameters:<ol>
 <li><strong>MicroserviceName</strong>: this is the name of the Microservice (the <strong>csproj</strong> file name, in the default case).</li>
-<li><strong>IdentityNamespace</strong>: this is the Federation's <strong><a href="../concepts/federation.md#federation-id">Federation Id</a></strong>. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.</li>
+<li><strong>IdentityNamespace</strong>: this is the Federation's <strong><a href="../federation/#federation-id">Federation Id</a></strong>. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.</li>
 <li><strong>IdentityUserId</strong>: this is the 3rd Party's <code>UserId</code> for the user trying to login. We use this to determine if there's already a Beamable account mapped to this 3rd Party Id.</li>
 <li><strong>IdentityAuthToken</strong>: this is a token that for the user that can be used by the <code>Authenticate</code> function to map it back to a <code>UserId</code>.</li>
+<li><strong>Federation Id</strong>: this is the Federation's <strong><a href="../federation/#federation-id">Federation Id</a></strong>. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.</li>
 </ol>
 </li>
 </ol>
@@ -1722,7 +1723,7 @@
 <a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">Exception</span><span class="p">();</span>
 <a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="p">}</span>
 </code></pre></div>
-<p>Keep in mind that if you need multiple <code>challenge/solution</code> back-and-forths between the client and the server you can do that by encoding the step in the challenge and parsing the challenge string in the client to decide at which point in the chain of <code>challenge/solution</code> flow you are (this is relevant in very rare cases). </p>
+<p>Keep in mind that if you need multiple <code>challenge/solution</code> back-and-forths between the client and the server you can do that by encoding the step in the challenge and parsing the challenge string in the client to decide at which point in the chain of <code>challenge/solution</code> flow you are (this is relevant in very rare cases).</p>
 
 
 

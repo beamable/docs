@@ -1607,11 +1607,11 @@
 <li>Once a match is made, the <code>CreateGameServer</code> federated function will be invoked with a Lobby structure containing all of the players matched together.</li>
 <li>This function can then do one or more of the following things:<ol>
 <li>Use a 3rd Party API to provision a game server, wait for it to spin up and add the connection information to the <code>ServerInfo</code> return object.</li>
-<li>Pre-fetch data associated from each player from <a href="../../beamable-services/stats/">Stats</a>, <a href="../../beamable-services/inventory/">Inventory</a> or <a href="../beamable-services/microservices.md">Storage Objects</a> and add that data into the <code>ServerInfo</code> return object.</li>
+<li>Pre-fetch data associated from each player from <a href="../../beamable-services/stats/">Stats</a>, <a href="../../beamable-services/inventory/">Inventory</a> or <a href="../../microservices/microservices/">Storage Objects</a> and add that data into the <code>ServerInfo</code> return object.</li>
 </ol>
 </li>
 <li>The returned <code>ServerInfo</code> object gets merged into the <a href="../../beamable-services/lobbies/">Lobby</a>'s global and player data.<ol>
-<li>In your game server build, the Lobby can be automatically prefetched if configured correctly, check more about it <a href="../../concepts/dedicated-servers.md">here</a>.</li>
+<li>In your game server build, the Lobby can be automatically prefetched if configured correctly, check more about it <a href="../../servers-and-builds/dedicated-servers/">here</a>.</li>
 </ol>
 </li>
 <li>The client SDK receives a notification from Beamable that a match is ready and invoke the <code>UBeamMatchmakingSubsystem</code>'s <code>OnMatchReady</code> callback for the match ticket.</li>
@@ -1627,7 +1627,7 @@
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>federation<span class="w"> </span>local-settings<span class="w"> </span><span class="nb">set</span><span class="w"> </span>IFederatedGameServer<span class="w"> </span>--beamo-id<span class="w"> </span>HathoraDemo<span class="w"> </span>--fed-id<span class="w"> </span>hathora<span class="w"> </span>--content-ids<span class="w"> </span>game_types.my_queue
 </code></pre></div></p>
 <h1 id="provision-game-server-for-lobby">Provision Game Server for Lobby<a class="headerlink" href="#provision-game-server-for-lobby" title="Permanent link">¶</a></h1>
-<p>Certain games allow players to <a href="../../features/lobbies.md">create custom lobbies</a> manually. If those games also require invoking the federation endpoint to provision a server or run some arbitrary code, they can do so via the following steps:</p>
+<p>Certain games allow players to <a href="../../beamable-services/lobbies/">create custom lobbies</a> manually. If those games also require invoking the federation endpoint to provision a server or run some arbitrary code, they can do so via the following steps:</p>
 <ol>
 <li>Add the <code>IFederatedGameServer</code> federation to your microservice with a particular <a href="../federation/#federated-id">Federated Id</a>.</li>
 <li>Set up that <a href="../federation/#federated-id">Federated Id</a> in any <code>UBeamGameTypeContent</code>'s <code>federation</code> field.</li>
