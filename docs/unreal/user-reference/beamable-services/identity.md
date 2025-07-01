@@ -25,7 +25,7 @@ This is handled automatically by the `Login` operations and `UBeamRuntimeSubsyst
 Here's a simple example using `Login - Frictionless` Operation from one of our samples:
 ![alt text](../../../media/imgs/federations-player-init-login-example.png)
 
-As you can see, in the success handling of the operation, we simply tell our UI to go update itself. While not shown in this image, that UI can then use our [`Local State - Stats`](unreal/user-reference/beamable-services/stats.md) and [`Local State - Inventory`](unreal/user-reference/beamable-services/inventory.md) nodes to read the player's stats and inventory to render itself.
+As you can see, in the success handling of the operation, we simply tell our UI to go update itself. While not shown in this image, that UI can then use our [`Local State - Stats`](stats.md) and [`Local State - Inventory`](inventory.md) nodes to read the player's stats and inventory to render itself.
 
 !!! note "Customizing the Login Flow"
 	If you want to add calls to Microservices to be made as part of the login flow (such that every time your game opens you make those calls), you can see how you can implement your own [`UBeamRuntimeSubsystem`](../runtime-systems/lower-level.md) and call your custom Microservice from there.

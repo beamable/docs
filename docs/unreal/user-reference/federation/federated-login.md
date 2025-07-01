@@ -18,9 +18,10 @@ Most of the time, you achieve this by doing the following:
 	1. See our [Steam](../../samples/steam-demo.md) and [Discord](../../samples/discord-demo.md) Samples for examples of this.
 2. \[**Game Client**]: Invoke a `Login`/`SignUp`/`Attach` **Operation** and pass the following parameters:
 	1. **MicroserviceName**: this is the name of the Microservice (the **csproj** file name, in the default case).
-	2. **IdentityNamespace**: this is the Federation's **[Federation Id](../concepts/federation.md#federation-id)**. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.
+	2. **IdentityNamespace**: this is the Federation's **[Federation Id](federation.md#federation-id)**. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.
 	3. **IdentityUserId**: this is the 3rd Party's `UserId` for the user trying to login. We use this to determine if there's already a Beamable account mapped to this 3rd Party Id.
 	4. **IdentityAuthToken**: this is a token that for the user that can be used by the `Authenticate` function to map it back to a `UserId`.
+	5. **Federation Id**: this is the Federation's **[Federation Id](federation.md#federation-id)**. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.
 
 After this, the flow goes into your `Authenticate` function. What that function should do, depends on whether or not you are implementing 2FA or not.
 
@@ -144,4 +145,4 @@ public async Promise<FederatedAuthenticationResponse> Authenticate(string token,
 
 ```
 
-Keep in mind that if you need multiple `challenge/solution` back-and-forths between the client and the server you can do that by encoding the step in the challenge and parsing the challenge string in the client to decide at which point in the chain of `challenge/solution` flow you are (this is relevant in very rare cases). 
+Keep in mind that if you need multiple `challenge/solution` back-and-forths between the client and the server you can do that by encoding the step in the challenge and parsing the challenge string in the client to decide at which point in the chain of `challenge/solution` flow you are (this is relevant in very rare cases).

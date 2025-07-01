@@ -10,7 +10,7 @@ Beamable Matchmaking is a flexible system for connecting players together in onl
 
 The Beamable SDK Matchmaking feature allows players to join a matchmaking queue (defined by a `UBeamGameTypeContent` instance), configure rules for matches to be made, receive notifications of progress and, optionally, provision a Game Server with a 3rd Party Game Server Orchestrator for the resulting match.
 
-Once a match is found, the result is a [Lobby](../features/lobbies.md) containing all the players in the match that was found. **_If you are working on a dedicated server game, we highly recommend you read_**:
+Once a match is found, the result is a [Lobby](lobbies.md) containing all the players in the match that was found. **_If you are working on a dedicated server game, we highly recommend you read_**:
 
 - [Dedicated Servers](../servers-and-builds/dedicated-servers.md)
 - [Federated Game Servers](../federation/federated-game-server.md)
@@ -53,7 +53,7 @@ Beamable's Matchmaking system depends on Beamable's [Content System](content.md)
 - `TArray<FBeamMatchmakingTeamRules> Teams`: Defines the number of teams (one per entry in the array) and, for each of those teams, defines the number of players and a name.
 
 !!! note "Dynamic Team Sizes"
-	This is for fixed-team-size queues. For teams that are built *after* the match is made, you can use the resulting [Lobby](../features/lobbies.md)'s data and [Federated Game Servers](../federation/federated-game-server.md) to compute and store the dynamic team split.
+	This is for fixed-team-size queues. For teams that are built *after* the match is made, you can use the resulting [Lobby](lobbies.md)'s data and [Federated Game Servers](../federation/federated-game-server.md) to compute and store the dynamic team split.
 
 - `FOptionalBeamStatComparisonRule EntryRules`: Optionally defines a set of [Stat](stats.md) comparison rules. Only players whose [Stats](stats.md) match those comparisons will be allowed into this queue.
 
@@ -73,7 +73,7 @@ Beamable's Matchmaking system depends on Beamable's [Content System](content.md)
 - `FederatedGameServerNamespace`: Defines a [Federation Id](../federation/federation.md#federation-id) for a [Federated Game Server](../federation/federated-game-server.md) federation.
 
 # Lobby Subsystem Integration
-The Matchmaking Subsystem works with the [Lobby Subsystem](../features/lobbies.md) by default. It does the following things:
+The Matchmaking Subsystem works with the [Lobby Subsystem](lobbies.md) by default. It does the following things:
 
 - The `OnMatchReady` callback is ONLY invoked AFTER we've already fetched the match Lobby's data.
     - This means you can use the `Local State - Lobby` nodes to fetch information from the lobby directly on this event.
@@ -91,7 +91,7 @@ Every user in a party receives an `OnMatchRemoteSearchStarted` notification when
 When joining a queue as the party leader and passing in `FBeamTag`, those tags are only for the party leader. If you need to gather data for every user, we recommend using [Federated Game Server](../federation/federated-game-server.md) and [Stats](stats.md) to get that data into the [Lobby](lobbies.md) instead.
 
 # Match Found and Tickets
-When you join a queue in Beamable's matchmaking, you get back a `FBeamMatchmakingTicket`. This ticket contains information about the entry onto the queue:
+When you join a queue in Beamable's matchmaking, you get back a `FBeamMatchmakingTicket`. This ticket contains information about the entry onto the queue: 
 
 - **GameType** is the queue type.
 - **GamerTagsInTicket** hold the list of players that are in the ticket.

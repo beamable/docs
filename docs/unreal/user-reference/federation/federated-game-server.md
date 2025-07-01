@@ -18,9 +18,9 @@ This is an Out-of-Band call that happens as part of the [Matchmaking](../beamabl
 4. Once a match is made, the `CreateGameServer` federated function will be invoked with a Lobby structure containing all of the players matched together.
 5. This function can then do one or more of the following things:
 	1. Use a 3rd Party API to provision a game server, wait for it to spin up and add the connection information to the `ServerInfo` return object.
-	2. Pre-fetch data associated from each player from [Stats](../beamable-services/stats.md), [Inventory](../beamable-services/inventory.md) or [Storage Objects](../beamable-services/microservices.md) and add that data into the `ServerInfo` return object.
+	2. Pre-fetch data associated from each player from [Stats](../beamable-services/stats.md), [Inventory](../beamable-services/inventory.md) or [Storage Objects](../microservices/microservices.md) and add that data into the `ServerInfo` return object.
 6. The returned `ServerInfo` object gets merged into the [Lobby](../beamable-services/lobbies.md)'s global and player data.
-	1. In your game server build, the Lobby can be automatically prefetched if configured correctly, check more about it [here](../../concepts/dedicated-servers.md).
+	1. In your game server build, the Lobby can be automatically prefetched if configured correctly, check more about it [here](../servers-and-builds/dedicated-servers.md).
 7. The client SDK receives a notification from Beamable that a match is ready and invoke the `UBeamMatchmakingSubsystem`'s `OnMatchReady` callback for the match ticket.
 
 You can check out our [Hathora Demo](../../samples/hathora-demo.md) for more information on how to implement the actual `CreateGameServer` function.
@@ -38,7 +38,7 @@ dotnet beam federation local-settings set IFederatedGameServer --beamo-id Hathor
 ```
 
 # Provision Game Server for Lobby
-Certain games allow players to [create custom lobbies](../../features/lobbies.md) manually. If those games also require invoking the federation endpoint to provision a server or run some arbitrary code, they can do so via the following steps:
+Certain games allow players to [create custom lobbies](../beamable-services/lobbies.md) manually. If those games also require invoking the federation endpoint to provision a server or run some arbitrary code, they can do so via the following steps:
 
 1. Add the `IFederatedGameServer` federation to your microservice with a particular [Federated Id](federation.md#federated-id).
 2. Set up that [Federated Id](federation.md#federated-id) in any `UBeamGameTypeContent`'s `federation` field.
@@ -54,4 +54,3 @@ Certain games allow players to [create custom lobbies](../../features/lobbies.md
 	1. You can check if the connection information you generated inside `CreateGameServer` is within the lobby's global properties (`ULobby::Data`) and use that to connect all players to the newly created game server instance.
 
 While we don't have a sample showcasing this exact case, you can still learn a lot about this from our [Hathora Demo](../../samples/hathora-demo.md) sample.
-
