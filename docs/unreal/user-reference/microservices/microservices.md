@@ -1,4 +1,3 @@
-
 # Beamable Microservices
 Beamable Microservices are Beamable's Cloud Code solution. It is a wrapper around a HTTP Server that makes the development process much simpler. These are written in C# and come with a set of development tools that are tightly integrated with the UE Editor and Beamable CLI.
 
@@ -205,7 +204,7 @@ Here are the steps:
 This allows you to get services that might have complex logic working first and integrating them into Unreal later. [Keep in mind the type restrictions on method signatures mentioned here](#constraints-on-callable-functions).
 
 ## Integrating with Unreal
-Whenever it becomes preferable or necessary (see [Federations](../../federation/federation.md)) to test the microservice directly from Unreal's PIE mode, you can generate bindings for your `Callable` types and use them inside your game's code.
+Whenever it becomes preferable or necessary (see [Federations](../federation/federation.md)) to test the microservice directly from Unreal's PIE mode, you can generate bindings for your `Callable` types and use them inside your game's code.
 
 > Run the `dotnet beam project generate-client "."` command manually to generate these bindings. This command regenerates your client bindings AND run Unreal's `Regenerate Project Files` utility for you.
 
@@ -222,7 +221,7 @@ Once you have these, you can:
 4. Run PIE and hit the point where you call your microservice.
 5. See your local service's `Callable`'s be hit.
 
-If you are using [Federations](../../federation/federation.md), there are a few particulars of this workflow of which you should be aware. If not, the above works as described.
+If you are using [Federations](../federation/federation.md), there are a few particulars of this workflow of which you should be aware. If not, the above works as described.
 
 ## Deploying to a Realm
 Once you have things working locally, you'll likely want to make the Microservice available to other team members working on the realm. If you just push your code up, other team members would also have to run the service locally and that might not always be desirable.
@@ -289,12 +288,3 @@ For those cases, Beamable offers a `MicroStorage`. This is a wrapper around a da
 While you can develop microservices without Docker being run (except for its publishing step), you cannot do the same for `Microservices` that use `MicroStorages`. This is because the local running service expects there to be a locally running `MongoDB` instance it'll use as the Database.
 
 To make sure the above is true, we run `MongoDB`'s official container in your local Docker instance. This is managed automatically on startup of the microservice BUT does introduce a dependency on docker for local iterative development.
-
-
-
-
-
-
-
-
-

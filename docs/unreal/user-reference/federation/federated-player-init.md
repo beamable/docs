@@ -72,5 +72,5 @@ All calls for this Federation are In-Band calls. Therefore, you can just run you
 
 You can see an example of this federation in the following samples:
 
--  [Beamball](../../samples/beamball.md) sample.
+-  [Beamball](../../samples/beamball-demo.md) sample.
 -  [LiveOps Demo](../../samples/live-ops-demo.md) sample.
