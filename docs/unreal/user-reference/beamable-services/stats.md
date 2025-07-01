@@ -1,41 +1,31 @@
 # Stats
 
-## Overview
-
 The Beamable SDK Stats feature allows player to track a variety of built-in and custom player stat variables with configurable visibility levels. Two main use cases are:
 
 - **Data Store**- can hold key/value pairs associated with a particular user.
 - **Targeting**-  These key/value pairs can be used by other Beamable systems for various things (Announcement Campaings, Matchmaking and others).
 
-## Types of stats
+There are two important specifiers of each stat: Visibility and Domain.
 
-There are two important specifiers of each stat.
-
-First one is `visibility`, in Unreal represented by enum `EBeamStatsVisibility`, it describes who can see stat:
+Visibility, in Unreal represented by enum `EBeamStatsVisibility`, it describes who can see stat:
 
 - `private`- Visible only to owning User and Backend.
 - `public`- Visible to any User.
 
-Second one is stat `domain`, in Unreal represented by enum `EBeamStatsDomain`, it describes if stat can be retrieved from game itself or does it require using microservices:
+Domain, in Unreal represented by enum `EBeamStatsDomain`, it describes if stat can be retrieved from game itself or does it require using microservices:
 
 - `client`- Can be accessed from both the **Unreal** and **Microservices**.
 - `game`- Cannot be accessed from **Unreal** directly, it can still be accessed via **Microservice** using `ClientCallable` calls.
 
-## Getting Started
+# Getting Started
 
-In order to create write to a player stat from the client via Blueprints we will use `BeamStatsSubsystem`.
+In order to create write to a `client`/`public` stat from a client we use the `Set Stat Operation` for individual stat changes. For batching multiple stat changes use the `TryCreateUpdateCommand` to begin building a set of stat changes for the given `UserSlot` which are later commited via the `Commit Stats Operation`.
 
-???+ warning "Logging in"
-    Make sure that user is logged in when the code below runs. See [Identity](identity.md)
-
-- Call `Try Create Update Command` with a set of key-value pairs that are your stat values.
-- Optionally call `AddStatToUpdateCommand` and `RemoveStatFromUpdateCommand`.
-- After that,  use the `Commit Stats Operation` node to commit the new stats to Beamable.
-- That is it!
+These operations are backed by the `UBeamRuntimeSubsystem`. This is how it looks like in [Blueprints](../runtime-systems/blueprints.md):
 
 ![stats-create-stats.png](../../../media/imgs/stats-create-stats.png)
 
-To verify it worked, you can:
+You can check if it's working in the Beamable Portal:
 
 - Set aside the `Gamertag/UserId` from the Unreal Engine logs.
 - Click `Open Portal` in Beamable window.
@@ -44,9 +34,9 @@ To verify it worked, you can:
 - You should see that it exists with correct value.
 
 ![stats-portal.png](../../../media/imgs/stats-portal.png)
+<center>View of the stats in the Beamable Portal</center>
 
-## Usage Guidelines
-### Batching updates
+# Batching updates
 In this example there is created a new `UpdateCommand` and committed right away. For better performance and reduced calls to Beamable, it is encouraged to:
 
 - Create `UpdateCommand`
@@ -55,7 +45,12 @@ In this example there is created a new `UpdateCommand` and committed right away.
 
 When it is possible (and desirable) for your game, this flow reduces the overall latency your players experience and reduces the number of API calls you make to Beamable.
 
-### Stats Keys & Values
+# Reading Other Player's Public Stats
+You might want to read public stats of some other player to display information about them in your UI. To do that, you can use the following `Operation` and `Local State` calls. 
+
+![stats-reading-other-player-stats.png](../../../media/imgs/stats-reading-other-player-stats.png)
+
+# Stats Keys & Values
 We do not enforce limitations on stat-keys or values. However, we do *highly recommend* the following guidelines for project organization and performance reasons.
 
 - For Keys:

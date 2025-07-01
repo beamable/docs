@@ -1,26 +1,26 @@
 ﻿- [SDK Technical Overview](overview.md)
-- Runtime Systems
-      - [User Slots](runtime-systems/user-slots.md)
-      - [Operations & Waits](runtime-systems/operations-and-waits.md)
-      - [Connectivity Management](runtime-systems/connectivity.md)
-      - [Lower Level SDK](runtime-systems/lower-level.md)
+- [Runtime Systems](runtime-systems/)
 - Beamable Services
       - [Identity](beamable-services/identity.md)
       - [Content](beamable-services/content.md)
       - [Stats](beamable-services/stats.md)
-      - [Announcements](beamable-services/announcements.md)
       - [Inventory](beamable-services/inventory.md)
       - [Stores](beamable-services/stores.md)
       - [Lobbies](beamable-services/lobbies.md)
       - [Matchmaking](beamable-services/matchmaking.md)
+      - [Parties](beamable-services/parties.md)
+      - [Friends](beamable-services/friends.md)
+      - [Leaderboards](beamable-services/leaderboards.md)
+      - [Announcements](beamable-services/announcements.md)
 - Microservices
       - [Overview](microservices/microservices.md)
       - [Setting Up Microservices](microservices/setting-microservices.md)
 - Federation
       - [Overview](federation/federation.md)
+      - [Federated Login](federation/federated-login.md)
+      - [Federated Player Init](federation/federated-player-init.md)
       - [Federated Inventory](federation/federated-inventory.md)
       - [Federated Game Server](federation/federated-game-server.md)
-      - [Federated Login](federation/federated-login.md)
 - Servers & Builds
       - [Dedicated Servers](servers-and-builds/dedicated-servers.md)
       - [Linux Buiilds](servers-and-builds/linux-builds.md)

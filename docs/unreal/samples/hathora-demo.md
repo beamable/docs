@@ -27,19 +27,20 @@ Since this sample requires several resources, we do not host it ourselves. So, i
 4. Compile and open the `BeamableUnreal` editor (it'll be configured as the `BEAMPROJ_HathoraDemo`) project.
 5. Sign into your Beamable account and go to the `hathora-demo` realm.
 	1. Hit `Apply to Build`.
-6. Open the `Content Window`.
+6. You will need to run the command `dotnet beam content replace-local --from DE_1752011665993756 --to YOUR_REALM_ID` to bring all the content from the sample to your current realm.
+7. Open the `Content Window`.
 	1. Verify that there are two `game_types`: `solo_queue` and `training`.
-7. Hit `Publish` and wait. 
-8. Go to the Portal (`Operate -> Content`) and verify that the content is there.
-9. Open a bash terminal at the `BeamableUnreal` root directory.
-10. Run `dotnet beam project enable --with-group BEAMPROJ_HathoraDemo`
-11. Run `dotnet beam project disable --without-group BEAMPROJ_HathoraDemo`
-12. Guarantee `Docker` is open and running.
-13. Run `dotnet beam deploy plan`. 
+8. Hit `Publish` and wait. 
+9. Go to the Portal (`Operate -> Content`) and verify that the content is there.
+10. Open a bash terminal at the `BeamableUnreal` root directory.
+11. Run `dotnet beam project enable --with-group BEAMPROJ_HathoraDemo`
+12. Run `dotnet beam project disable --without-group BEAMPROJ_HathoraDemo`
+13. Guarantee `Docker` is open and running.
+14. Run `dotnet beam deploy plan`. 
 	1. This tells you details about the services you would deploy given your project's local state.
-14. Run `dotnet beam deploy release --latest-plan`. 
+15. Run `dotnet beam deploy release --latest-plan`. 
 	1. This deploys the services outlined by the generated plan in the previous command. 
-15. Go to the Portal (`Operate -> Microservices`) to verify that the microservices have initialized.
+16. Go to the Portal (`Operate -> Microservices`) to verify that the microservices have initialized.
 
 Now, we'll go set up a Hathora account and upload the sample dedicated server build:
 
@@ -96,6 +97,7 @@ To test this out with two players (this is max players for this sample):
 There's a known issue that'll prevent you from actually getting PIE to connect to the Hathora URL; its an version mismatch problem with the Linux Build we generate. The error is called `OutdatedClient` --- and was seen even when the versions *should* be matching exactly. **This is being actively investigated** and a fix should be released in the next version.
 
 **You can still see the entire flow happening.**
+
 - If you look at your UE client logs, you can see that you correctly receive the lobby information with a valid Hathora connection string.
 - If you look at your Hathora Console, you can see the room being created and even the connection attempt.
 
