@@ -63,6 +63,9 @@ If you encounter issues:
 
 This guide should provide all the necessary information to work with Beamable documentation using Mike and MkDocs. For more information, refer to the official documentation for [MkDocs](https://www.mkdocs.org/) and [Mike](https://github.com/jimporter/mike).
 
+## MKdocs Build Report
 
+mkdocs provides a list of information about the build process (running mkdocs serve or mike build), including warnings and errors reporting broken links, missing files, and other issues. You can use this report to debug and fix issues in your documentation.
 
+![mkdocs-debug.png](../../media/imgs/mkdocs-debug.png)
 
