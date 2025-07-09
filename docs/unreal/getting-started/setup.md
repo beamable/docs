@@ -8,7 +8,7 @@ To start using Beamable in your project you need to have a valid Account in our 
 Start by getting our repo, then installing .NET and Docker Dekstop.
 
  1. Clone [UnrealSDK](https://github.com/beamable/UnrealSDK) repo (make sure you have `git-lfs` installed).
- 2. Check out the a [tagged release version](https://github.com/beamable/UnrealSDK/releases) (in the form `X.X.X`).
+ 2. Check out a [tagged release version](https://github.com/beamable/UnrealSDK/releases) (in the form `X.X.X`).
 	 1. Most `git` clients will allow you to checkout a specific tagged commit via their UI.
 	 2. At Beamable, we're partial to [Fork](https://git-fork.com/).
  3. Run the `prepare_repo.sh` script.
