@@ -45,10 +45,10 @@ We provide support for the following platforms:
 - Dedicated Server:
     - Linux 
 
-iOS support and Console support should be added before the end of 2025.
+iOS support should be added before the end of 2025. Console support Q1/Q2 of 2026.
 
 # Beamable CLI
-The minimum Beamable CLI version for this release is 5.0.3.
+The minimum Beamable CLI version for this release is 5.1.0.
 
 Most of the Beamable workflows are enabled through the Beamable CLI; our editor integrations making use of it to create Engine-specific workflows.
 
