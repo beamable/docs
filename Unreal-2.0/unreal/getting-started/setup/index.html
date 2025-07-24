@@ -365,9 +365,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#set-up-the-beamable-sdk-fast-path" class="md-nav__link">
+  <a href="#set-up-the-beamable-sdk-fast-path-windows" class="md-nav__link">
     <span class="md-ellipsis">
-      Set up the Beamable SDK - Fast Path
+      Set up the Beamable SDK - Fast Path - Windows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-the-beamable-sdk-fast-path-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up the Beamable SDK - Fast Path - MacOS
     </span>
   </a>
   
@@ -1668,9 +1677,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#set-up-the-beamable-sdk-fast-path" class="md-nav__link">
+  <a href="#set-up-the-beamable-sdk-fast-path-windows" class="md-nav__link">
     <span class="md-ellipsis">
-      Set up the Beamable SDK - Fast Path
+      Set up the Beamable SDK - Fast Path - Windows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-the-beamable-sdk-fast-path-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up the Beamable SDK - Fast Path - MacOS
     </span>
   </a>
   
@@ -1708,18 +1726,26 @@
 <h2 id="cloning-and-installing-dependencies">Cloning and Installing Dependencies<a class="headerlink" href="#cloning-and-installing-dependencies" title="Permanent link">¶</a></h2>
 <p>Start by getting our repo, then installing .NET and Docker Dekstop.</p>
 <ol>
-<li>Clone <a href="https://github.com/beamable/UnrealSDK">UnrealSDK</a> repo (make sure you have <code>git-lfs</code> installed).</li>
+<li>Clone <a href="https://github.com/beamable/UnrealSDK">UnrealSDK</a> repo (make sure you have <code>git-lfs</code> installed).    </li>
 <li>Check out the a <a href="https://github.com/beamable/UnrealSDK/releases">tagged release version</a> (in the form <code>X.X.X</code>).<ol>
 <li>Most <code>git</code> clients will allow you to checkout a specific tagged commit via their UI.</li>
 <li>At Beamable, we're partial to <a href="https://git-fork.com/">Fork</a>.</li>
 </ol>
 </li>
-<li>Run the <code>prepare_repo.sh</code> script.<ol>
-<li>On Windows, use the <strong>GitBash</strong> that your <code>git</code> install contains.</li>
+<li>Ensure Git LFS downloaded the binary assets in the repo.<ol>
+<li>On Windows, you likely installed it along with <code>git</code>. On Mac, if <code>git-lfs</code> is not installed on your machine, you can run <code>brew install git-lfs</code>. </li>
+<li>Run <code>git lfs install</code> from the repository root </li>
+<li>Run <code>git lfs checkout</code> from the repository root.  </li>
 </ol>
 </li>
-<li>Generating Project Files.<ol>
-<li>On Windows, you can right-click the <code>.uproject</code> file and select <code>Generate Visual Studio project files</code>.</li>
+<li>Run the <code>prepare_repo.sh</code> script.<ol>
+<li>On Windows, use the <strong>GitBash</strong> that your <code>git</code> install contains.</li>
+<li>On Mac, you'll need to run <code>chmod +x ./prepare_repo.sh</code>. </li>
+</ol>
+</li>
+<li>Optional - Generating Project Files (if you want to open the SDK's own project).<ol>
+<li>On Windows, you can right-click the <code>.uproject</code> file and select <code>Generate Visual Studio project files</code>.</li>
+<li>On Mac, run <code>sh "/Users/Shared/Epic Games/UE_5.5/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh" "/Users/Path/To/Your/Project/YourProject.uproject" -game</code>.    </li>
 </ol>
 </li>
 <li>Optional - Verify things are working by compiling the editor of our SDK project.</li>
@@ -1730,7 +1756,7 @@
 <li><a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">.NET</a></li>
 </ul>
 <p>Once you have our repo and dependencies set up in your machine, follow along the next section to set up the SDK in your project.</p>
-<h2 id="set-up-the-beamable-sdk-fast-path">Set up the Beamable SDK - Fast Path<a class="headerlink" href="#set-up-the-beamable-sdk-fast-path" title="Permanent link">¶</a></h2>
+<h2 id="set-up-the-beamable-sdk-fast-path-windows">Set up the Beamable SDK - Fast Path - Windows<a class="headerlink" href="#set-up-the-beamable-sdk-fast-path-windows" title="Permanent link">¶</a></h2>
 <p>Setting up the SDK in your project is done by manually copying over a set of files from our <strong>Unreal SDK</strong> repo to your project. </p>
 <div class="admonition note">
 <p class="admonition-title">Unreal Project Requirements</p>
@@ -1740,7 +1766,7 @@
 <ol>
 <li>Copy the <code>beam_init_game_maker.sh</code> script into the root of your Unreal Project.</li>
 <li>From a terminal (on windows, <strong>GitBash</strong>) running in your project directory, run <code>beam_init_game_maker.sh</code> passing in the path to the <strong>UnrealSDK</strong> in your machine.<ol>
-<li><code>. beam_init_game_maker.sh "E:/Path/To/UnrealSDK"</code>   </li>
+<li><code>. beam_init_game_maker.sh "E:/Path/To/UnrealSDK"</code>     </li>
 </ol>
 </li>
 <li>For each of your <code>Target.cs</code> files, add the following lines to their constructor:<ol>
@@ -1756,14 +1782,46 @@
 <li>Pay attention to the type of module you're adding the SDK to and call the proper function. (You can see the module type in your <code>uproject</code> file)</li>
 </ol>
 </li>
-<li>Some OS-specific things:<ol>
-<li>On MacOS, you'll have to manually regenerate project files. </li>
-<li>On Windows, this was done by <code>beam_init_game_maker.sh</code> script. You can also right-click the <code>.uproject</code> file and select <code>Generate Visual Studio project files</code>.</li>
+<li>Regenerate project files.<ol>
+<li>This should've been done by <code>beam_init_game_maker.sh</code> script. You can also right-click the <code>.uproject</code> file and select <code>Generate Visual Studio project files</code>.</li>
 </ol>
 </li>
 <li>Verify that your project is set up correctly, go to your project's root directory:<ol>
 <li>Check there is a <code>.beamable</code> folder there.</li>
 <li>Check there is a <code>.config/dotnet-tools.json</code> file.    </li>
+<li>Run <code>dotnet beam --version</code> from inside your project root directory and see that it outputs a valid <code>X.Y.Z</code> string.</li>
+</ol>
+</li>
+<li>Open your IDE and compile your editor.</li>
+</ol>
+<h2 id="set-up-the-beamable-sdk-fast-path-macos">Set up the Beamable SDK - Fast Path - MacOS<a class="headerlink" href="#set-up-the-beamable-sdk-fast-path-macos" title="Permanent link">¶</a></h2>
+<ol>
+<li>Copy the <code>beam_init_game_maker.sh</code> script into the root of your Unreal Project.</li>
+<li>From a terminal, running in your project directory, run <code>beam_init_game_maker.sh</code> passing in the path to the <strong>UnrealSDK</strong> in your machine.    <ol>
+<li>Run <code>chmod +x ./beam_init_game_maker.sh</code> before running the script.</li>
+<li><code>. beam_init_game_maker.sh "/Users/Me/Path/To/UnrealSDK"</code>    </li>
+</ol>
+</li>
+<li>For each of your <code>Target.cs</code> files, add the following lines to their constructor:<ol>
+<li><code>MyProject.Target.cs =&gt; Beam.ConfigureGame(this, Beam.OssConfig.Disabled())</code>.</li>
+<li><code>MyProjectEditor.Target.cs =&gt; Beam.ConfigureEditor(this, Beam.OssConfig.Disabled())</code>.</li>
+<li><code>MyProjectServer.Target.cs =&gt; Beam.ConfigureServer(this, Beam.OssConfig.Disabled())</code>, if you have dedicated server builds.</li>
+</ol>
+</li>
+<li>In each of the Modules you want to use Beamable's SDK, add this to their <code>Build.cs</code> files:<ol>
+<li><code>RuntimeModule.Build.cs =&gt; Beam.AddRuntimeModuleDependencies(this);</code></li>
+<li><code>EditorModule.Build.cs =&gt; Beam.AddEditorModuleDependencies(this);</code></li>
+<li><code>UncookedOnlyModule.Build.cs =&gt; Beam.AddUncookedOnlyModuleDependencies(this);</code></li>
+<li>Pay attention to the type of module you're adding the SDK to and call the proper function. (You can see the module type in your <code>uproject</code> file)</li>
+</ol>
+</li>
+<li>Regenerate project files.<ol>
+<li>From a terminal, run <code>sh "/Users/Shared/Epic Games/UE_5.5/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh" "/Users/Path/To/Your/Project/YourProject.uproject" -game</code>.    </li>
+</ol>
+</li>
+<li>Verify that your project is set up correctly, go to your project's root directory:<ol>
+<li>Check there is a <code>.beamable</code> folder there.</li>
+<li>Check there is a <code>.config/dotnet-tools.json</code> file.</li>
 <li>Run <code>dotnet beam --version</code> from inside your project root directory and see that it outputs a valid <code>X.Y.Z</code> string.</li>
 </ol>
 </li>
@@ -1791,6 +1849,8 @@
 </ol>
 </li>
 <li>If you have microservices:<ol>
+<li>From your microservice project's directory, run <code>dotnet restore</code>.</li>
+<li>Verify that the CLI was updated to the proper version by running <code>dotnet beam version</code> from the microservice directory.</li>
 <li>Run <code>dotnet beam checks scan --fix all</code>.<ol>
 <li>Our CLI can fix <em>some</em> breaking changes automatically with this command.</li>
 </ol>

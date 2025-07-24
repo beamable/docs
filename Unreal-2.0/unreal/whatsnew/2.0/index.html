@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#version-200" class="md-skip">
+        <a href="#version-201" class="md-skip">
           Skip to content
         </a>
       
@@ -394,6 +394,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2.0
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -403,6 +414,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1577,6 +1625,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1590,10 +1664,44 @@
                   
 
 
+<h1 id="version-201">Version 2.0.1<a class="headerlink" href="#version-201" title="Permanent link">¶</a></h1>
+<p>This is the release notes for the Unreal SDK version 2.0.1.</p>
+<p>This release has several fixes w.r.t increasing support for MacOS as a development platform, fixing certain dedicated server (linux) issues as well as updating the backing CLI version for additional fixes within the microservice code-generation pipeline.</p>
+<p><strong>Follow the instructions to upgrade from <a href="../../getting-started/setup/#upgrading-the-sdk">here</a></strong>. </p>
+<p>Then do the following:</p>
+<ul>
+<li>If you're upgrading from <code>1.X.X</code>, please follow any instructions in the <a href="#version-200">version 2.0.0 upgrade guide</a>.</li>
+<li>In order to fix a bug, this hotfix requires that you regenerate your microservice clients after rebuilding the microservice projects, if you have any. So you'll need to run: <code>dotnet beam project generate-client "."</code></li>
+<li>Recompile your editor.</li>
+</ul>
+<h2 id="changes">Changes<a class="headerlink" href="#changes" title="Permanent link">¶</a></h2>
+<ul>
+<li>Added an override to the path to <code>dotnet</code> (found in <code>Project Settings -&gt; Beam Editor</code>) so that non-default <code>dotnet</code> setups can be used.<ul>
+<li>In some dev's setups, <code>dotnet</code> might be installed in non-default locations --- you can now override where we look for the <code>dotnet</code> executable when invoking our CLI (from within the editor integration).</li>
+<li>This changes nothing about the runtime of your program; it only affects how we use the CLI (which is not used outside the Unreal Editor integration).</li>
+<li>After changing this setting, please re-open the editor.</li>
+</ul>
+</li>
+<li>Added null guard to all <code>U[BeamJsonSerializableUObject]Library::Break</code> functions (change between ensure/silent-skip in <code>Project Settings -&gt; Beamable Core -&gt; bSilenceBreakGuardEnsures</code>).<ul>
+<li>This allows you to configure how <code>Break</code> nodes for this type respond to being given a null <code>UObject</code>. In most cases, however, we recommend you organize your program in a way that you can guarantee this is never null and keep the default ensure settings.</li>
+</ul>
+</li>
+</ul>
+<h2 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">¶</a></h2>
+<ul>
+<li>Fixed linux compilation problem when compiling with stricter options.</li>
+<li>Fixed default <code>dotnet</code> path for MacOS.</li>
+<li>Fixed issue where <code>CallingContext</code> wasn't being passed along in <code>Authenticate</code> calls in certain edge-cases</li>
+<li>Updated Auto Generated <code>UBeam___Api</code> classes code to fix a problem that would cause multiple PIE instances to behave incorrectly when running in non-standalone process mode.</li>
+</ul>
 <h1 id="version-200">Version 2.0.0<a class="headerlink" href="#version-200" title="Permanent link">¶</a></h1>
 <p>This is the release notes for the The Unreal SDK version 2.0.0</p>
 <p>This is a major release in our release cycle, it brings a lot of new features and improvements to the Beamable Unreal SDK support and user experience in general including a new Content Editor, a complete overhaull of our blueprint nodes, support to Friends and Parries, new support to Android and many others.</p>
-<p>Follow the instructions to upgrade from <a href="../../getting-started/setup/#upgrading-the-sdk">here</a>.</p>
+<p>Follow the instructions to upgrade from <a href="../../getting-started/setup/#upgrading-the-sdk">here</a>. Then do the following:</p>
+<ul>
+<li>Go into your <code>Saved/Config/WindowsEditor/EditorPerProjectUserSettings</code> and remove any setting referencing a <code>BeamEditorBootstrapper</code> (or <code>UBeamEditorBootstrapper</code>).</li>
+<li>We changed the way the Editor environment is initialized and having this here will cause the initialization to run twice which can lead to instability. </li>
+</ul>
 <h1 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">¶</a></h1>
 <h2 id="unreal-engine-55x-support">Unreal Engine 5.5.x Support<a class="headerlink" href="#unreal-engine-55x-support" title="Permanent link">¶</a></h2>
 <p>The Unreal SDK now supports Unreal Engine 5.5.x as it minimum version. Older versions of Unreal Engine are no longer officially supported. If you are using an older version of Unreal Engine, we recommend you upgrade to 5.5.x to take advantage of the latest features and improvements os stay in the 1.x versions of the Unreal SDK.</p>
@@ -1662,7 +1770,7 @@
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
 </code></pre></div>
 <p>We made a few changes to our authentication flow to make realm changing a faster and simpler process. In light of that, you'll need to re-authenticate with the CLI. So, run <code>dotnet beam login</code> and re-authenticate into your organization.</p>
-<h1 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">¶</a></h1>
+<h1 id="fixes_1">Fixes<a class="headerlink" href="#fixes_1" title="Permanent link">¶</a></h1>
 <ul>
 <li><code>ENotificationMessageType</code> names are now prefixed by <code>BEAM_</code> to avoid enum name conflicts with user declared enums in Linux builds.</li>
 <li><code>UBeamContentObject</code> serialization now correctly sorts the json's properties by name to ensure the generated JSON is deterministic and therefore the hash we use to decide whether its changed/unchanged is kept deterministic too.</li>
