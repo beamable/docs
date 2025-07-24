@@ -24,8 +24,12 @@ Beamable provides sample projects for Unreal as part of the Unreal SDK repositor
 4. Sign in to your Beamable account in the Beamable Window.
 5. Follow Sample-Specific Instructions. Each sample has its own documentation for additional steps or guidance.
 
+!!! warning "I can't find the Beamable Core Content in the Content Browser"
+      UE's Content Browser does not show Plugin content folders by default. If you want to see these, you need to turn it on at `Content Browser -> Settings -> Show Plugin Content`.
+
 !!! warning "Clean Up Sample Realms"
       If you are using your own organization (the one you’ll use to ship your game) to test any of these samples, don’t forget to delete the test realms when you’re finished exploring!
+
 
 
 ## Why Using a Single Repository?
