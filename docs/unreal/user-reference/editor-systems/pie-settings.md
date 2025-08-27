@@ -22,8 +22,7 @@ Player profiles can then be saved as either Local or Template, making them reusa
 
 * **Local (Green)**: Saved locally in your .beamable folder. Useful for personal testing and development.
 * **Template (Orange)**: Saved in your Saved folder and can be committed to version control. Intended as shared templates so the whole team can start from the same baseline.
-
-Profiles marked Grey are Captured Players. These are unsaved, temporary profiles and should be considered disposable.
+* **Captured (Grey)**: Per-session captured players are unsaved and cleared during the editor initialiaztion.
 
 !!! warning "Player Profile Names and Descriptions"
     Always give saved player profiles a name, as only named profiles will appear in Play Presets.
