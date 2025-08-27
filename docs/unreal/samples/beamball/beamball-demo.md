@@ -54,7 +54,7 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
       2. If you can't see plugin content in your content browser, you can change the settings of the UE `Content Browser` to display it.
 3. Go to the `Beamable -> PIE Settings -> Player Manager` window.
    4. Create two players, one with the name `Player1` and another with the name `Player2`.
-5. Go to the Beamable -> PIE Settings -> Play Presets` window.
+5. Go to the `Beamable -> PIE Settings -> Play Presets` window.
    6. Create a new Play Preset with the following settings:
       7. Name: `Beamball Gameplay`
       8. Available Maps: Add `L_Beamball_Gameplay` to the list.

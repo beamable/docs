@@ -7,3 +7,4 @@
       - Beamball
           - [Overview](beamball/beamball-demo.md)
           - [Content and Stores](beamball/beamball-content.md)
+          - [Matchmaking and Lobby](beamball/beamball-matchmaking.md)
