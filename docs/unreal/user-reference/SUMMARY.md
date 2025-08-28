@@ -24,7 +24,6 @@
       - [Federated Game Server](federation/federated-game-server.md)
 - [Realtime Multiplayer](realtime-multiplayer/)
 - Servers & Builds
-      - [Dedicated Servers](servers-and-builds/dedicated-servers.md)
       - [Linux Buiilds](servers-and-builds/linux-builds.md)
 - Unreal Online Subsystem
       - [Overview](online-subsystems/online-subsystem.md)

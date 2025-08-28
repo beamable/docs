@@ -1,2 +1,0 @@
-﻿# C++ Realtime Multiplayer Systems
-

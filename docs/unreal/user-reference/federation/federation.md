@@ -47,17 +47,7 @@ Examples:
 In other words, an id is just a unique `string` that you pass along in specific places depending on the federation to **choose between one or more federations if any should be used**.
 
 # Adding/Removing Federations
-Federations can be added and removed from services using  `dotnet beam fed` command pallet of the CLI.
-
-In code, Federations are tied to interfaces implemented in your `Microservice` inherited class --- these federations and its ids are automatically validated by a C# Analyzer that will tell you if you've missing things.
-
-```bash
-# Adds an IFederatedLogin implementation to the MyMicroservice service with the "cool" id.
-dotnet beam fed add MyMicroservice cool IFederatedLogin
-
-# Adds an IFederatedGameServer implementation to the MyMicroservice service with the "hathora" id.
-dotnet beam fed add MyMicroservice hathora IFederatedGameServer
-```
+Federations are tied to interfaces implemented in your `Microservice` inherited class --- these federations and its ids are automatically validated by a C# Analyzer that will tell you if you've missing things. To add one, simply implement its federation and recompile the microservice project.
 
 ```csharp
 // FederationIds.cs
@@ -75,12 +65,7 @@ public partial class MyMicroservice : IFederatedGameServer<HathoraId> { }
 
 After adding any federation, your IDE will likely complain that you are not implementing the functions of the interfaces above; most IDEs will then offer you the option of generating the function signatures for those interfaces. After that, all you have to do is write the code for it.
 
-!!! note "Why do you need the `federations.json`?"
-	We needed a consistent source of truth that would allow us to create the in-editor UXs *without needing the built DLL* to find which interfaces your service implements (because this is very slow and we can't guarantee this file's existence and "up-to-date-ness" easily).
-	
-	 This source of truth is the `federations.json` file the commands above manage for you. 
-	
-	This approach also allows us to detect implementation errors and emit compile-time errors for invalid or incorrect usage of microservice functionality. So... it was a win-win situation.
+Take a look at each individual federation docs page for more information on use-cases and usage guidelines.
 
 # Workflows for Developing Federations
 Most federations are inside complex application paths. As such, you need a way to iterate on them locally, much like how you do with `Callables` (see [Microservices](../microservices/microservices.md#common-developer-workflows)). This is the reason we differentiate between In-Band calls to Federations and Out-of-Band calls to federations.

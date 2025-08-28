@@ -37,6 +37,8 @@ public async Promise<PlayerInitResult> CreatePlayer(Account account, Dictionary<
 
 From Unreal, this federation is triggered by any of the `Operation - Sign-Up` calls OR `Operation - Login - Frictionless` (see [Identity](../beamable-services/identity.md)). The code in this federation will have already run by the time these operations are completed.
 
+The `Account account` argument also contains valid email (in case of `Sign Up - Email`) and External Identity (in case of `Sign Up - Federated Identity`). This can be used to prefill stat/inventory values for the user based on the identity they used to sign up among other things.
+
 The `Dictionary<string, string> properties` argument in the Federation's C# Code is filled by the client. Aside from a few reserved properties listed below, you can pass in any values via the `InitProperies` parameter of the relevant operations.
 
 
@@ -72,5 +74,5 @@ All calls for this Federation are In-Band calls. Therefore, you can just run you
 
 You can see an example of this federation in the following samples:
 
--  [Beamball](../../samples/beamball-demo.md) sample.
+-  [beamball-demo.md](../../samples/beamball/beamball-demo.md) sample.
 -  [LiveOps Demo](../../samples/live-ops-demo.md) sample.

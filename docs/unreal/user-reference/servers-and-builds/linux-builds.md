@@ -37,7 +37,7 @@ For the server ones it is easy to test them on Windows machine in two different 
 
 ### Docker
 
-Docker is often used by Game Server Orchestrators for running built Game Servers. Beamable does provide a working example of that workflow in [Hathora Sample](../../samples/hathora-demo.md).
+Docker is often used by Game Server Orchestrators for running built Game Servers. Beamable does provide a working example of that workflow in [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
 !!! note Assumption
     This part of tutorial is written with assumption that Docker is installed and operational.
