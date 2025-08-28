@@ -2,7 +2,7 @@
 
 There are multiple ways to design Real-Time multiplayer games: dedicated servers, listen servers in addition to deterministic approaches (such as lockstep or rollback based ones). Unreal has baked in workflows and utilities for the first two. The Beamable Unreal SDK currently officially supports only dedicated servers (though you can probably get listen servers to work too).
 
-# Dedicated Servers in Unreal with Beamable
+## Dedicated Servers in Unreal with Beamable
 
 Beamable integrates with Unreal's Gameplay Framework in a couple of different ways. That being said, none of those are via an **OnlineSubsystem**. That is because Beamable's approach to Cloud Code (custom code to extend backend functionality) does not mesh well with those interfaces --- you'd end up either losing a lot of Beamable's most useful functionality OR gaining a non-trivial amount of complexity to use. Therefore, the Beamable SDK provides you with utilities to make dedicated server games itself.
 
@@ -27,7 +27,10 @@ This documentation uses a few terms to refer to common parts of the architecture
 There _**are**_ other ways to arrange and organize server-authoritative games but most games do something at least similar to this, and, Unreal helps you more if you are close to this.  
 
 ## Getting Started - Setting up Gameplay Scenes and a PIE Setting
-This guide explains how to leverage our SDK's **[PIE Support](../editor-systems/pie-settings.md)** to set up your Gameplay Level so you can start experimenting with Beamable immediately. 
+This guide explains how to leverage our SDK's **[PIE Support](../editor-systems/pie-settings.md)** to set up your Gameplay Level so you can start experimenting with Beamable immediately.
+
+![multiplayer-scenes.png](../../../media/imgs/multiplayer-scenes.png)
+<center>Example of PIE Settings for a gameplay scene</center>
 
 1. Enable the Beam PIE in your **Project Settings > Beamable Core**.
 2. Restart your Editor.
@@ -42,16 +45,25 @@ This guide explains how to leverage our SDK's **[PIE Support](../editor-systems/
       3. In **Map Settings**, add a `my_key` and `my_value` to the Global Lobby Data.  
    3. In **User Settings**:
       1. Add a User and select the `My User` you created previously.
-      2. Verify `Copy on PIE` is disabled.      
-7. Next to the PIE Start button, you have a Beamable dropdown. Select the `My First Preset` option from it.
-8. Change Unreal's Playmode settings to be: **Play as Client** and **Number of Clients = 1** (to match the number of users in the Fake Lobby).
-9. Open your Gameplay Level's **Level Blueprint**.
-    1. In its **Begin Play**, add a `Beam - Easy PIE` node **_as the first thing it does_**.
-10. Create and/or open your **_GameMode_** Blueprint for this level.
-    1. In its **Post Login**, add a `Local State - Get Gamer Tag (by Player Controller)` and pass in the **NewPlayer**.
-    2. Then add a `Local State - Get Lobby Id by Gamer Tag` to get the Lobby Id for this player.
-    3. Then add a `Local State - TryGetGlobalData` passing in the Lobby Id and `my_key`.
-    4. Finally, add a `Print String` node that prints the returned value (it should be `my_value`).
+      2. Verify `Copy on PIE` is disabled.
+
+Now that you have a preset, you can set up your Gameplay Level to use it:
+
+1. Next to the PIE Start button, you have a Beamable dropdown. Select the `My First Preset` option from it.
+2. Change Unreal's Playmode settings to be: **Play as Client** and **Number of Clients = 1** (to match the number of users in the Fake Lobby).
+3. Open your Gameplay Level's **Level Blueprint**.
+    1. In its **Begin Play**, add a `Local State - PIE - Easy Enable` node **_as the first thing it does_**.
+
+![multiplayer-pie.png](../../../media/imgs/multiplayer-pie.png)
+
+Create and/or open your **_GameMode_** Blueprint for this level.
+
+1. In its **Post Login**, add a `Local State - Get Gamer Tag (by Player Controller)` and pass in the **NewPlayer**.
+2. Then add a `Local State - Get Lobby Id by Gamer Tag` to get the Lobby Id for this player.
+3. Then add a `Local State - TryGetGlobaLobbylDataById` passing in the Lobby Id and `my_key`.
+4. Finally, add a `Print String` node that prints the returned value (it should be `my_value`).
+
+![multiplayer-postlogin.png](../../../media/imgs/multiplayer-postlogin.png)
 
 If you enter PIE now, here's what happens under the hood:
 
@@ -105,25 +117,27 @@ If you are planning on having multiple lobbies per-game-server-process, your orc
 
 Either way, at that point, your orchestrator will have provided you the Lobby Id.
 
-### **Step 3 - Register the Lobby with the SDK Running in the Game Server**
+#### **Step 3 - Register the Lobby with the SDK Running in the Game Server**
 Now that we know what the Lobby Id is, we need to register this lobby with the Beamable SDK. "Registering a Lobby with the SDK" means that the SDK will fetch the lobby's information and set up the necessary mapping between each user in the lobby and Unreal's Gameplay framework types (`FUniqueNetIdRepl`).
 
 To do this, you can call `Operation - Lobby - Server - Register Lobby with Server`.
 
-### **Step 4 - Prepare for Gameplay and Notify Clients they can Connect**
+#### **Step 4 - Prepare for Gameplay and Notify Clients they can Connect**
 Once the lobby is registered, you can use `Local State - Lobby - TryGetLobbyById` (and `Local State - Lobby - TryGetLobbyPlayerDataById` and `Local State - Lobby - TryGetLobbyGlobalDataById`) to read data from the Lobby's to initialize your game server.
 
 This initialization can be preloading assets, making requests to microservices and so on...
 
 Once this is done and you are ready to accept client connections, you should call `Operation - Lobby - Server - Notify Lobby Ready for Clients`. This signals your awaiting **Game Server Federation's `CreateGameServer` implementation** that the game server is ready to accept client connections --- allowing it to complete so that Beamable notifies all players in the Lobby forwarding the connection information to them.
 
-
 After these steps are completed, you'll begin receiving connections --- in UE, handling player connection and initialization is done in a Game Mode implementation (see next section). 
+
+![multiplayer-build.png](../../../media/imgs/multiplayer-build.png)
+<center>Example of Level Blueprint for a Game Server Build</center>
 
 ## Integrating with Game Mode Callbacks & Others
 There are several overridable functions and events the Game Mode class exposes to you. There is a very distinction though between them:
 
-> Callbacks that happen BEFORE the **Player Controller** is fully created (before `PostLogin`), CANNOT interact with the Beamable SDK and do NOT have the guarantee the SDK is ready.
+Callbacks that happen before the **Player Controller** is fully created (before `PostLogin`), cannot interact with the Beamable SDK and do NOT have the guarantee the SDK is ready.
 
 This is because initializing the SDK is an Asynchronous Process and takes time --- so `Begin Play` cannot be used. From `PostLogin` forward, you can make use of the SDK; Content is ready, the Lobby information is available and so on...
 
