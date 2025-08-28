@@ -17,20 +17,24 @@ Here are all the components:
 
 You can see an example of a working implementation of these in the **[Beamball Sample](../../samples/beamball/beamball-demo.md)**.
 
+!!! warning "Does Beamable host our Game Servers?"
+    Beamable does not provide Game Server Orchestration. This means that, while we have Lobbies, Matchmaking and can find matches between players, we do NOT run the actual Game Server. For this, we partner with other companies and provide a simple way to integrate our Matchmaking and Lobbies with them (this is **[Game Server Federation](../federation/federated-game-server.md)**).
+
 ### Relevant Levels in the Architecture
 This documentation uses a few terms to refer to common parts of the architecture of a Dedicated Server Game.
 
 - **Main Boot Level**: Refers to the Level in which your Client applications start. This usually maps to your title/main menu screens.
 - **Waiting Room Level**: Some games will boot the server in a "Waiting Room Level" while players connect before performing a **Server Travel** to take all the clients to the actual gameplay map. We'll call this the Waiting Room Level.
 - **Gameplay Level**: This is the Level in which gameplay happens. During development, your designers and gameplay engineers need to enter this level directly using PIE.  
+- **Game Server Orchestrator** or just **Orchestrator**: whatever tech is running your actual Game Servers; Hathora, Agones, GameLyft and others exist in this space.
 
-There _**are**_ other ways to arrange and organize server-authoritative games but most games do something at least similar to this, and, Unreal helps you more if you are close to this.  
+There _**are**_ other ways to arrange and organize server-authoritative games but most games do something at least similar to this, and, Unreal helps you more if you are close to this. 
 
-## Getting Started - Setting up Gameplay Scenes and a PIE Setting
+## Getting Started - Setting up Gameplay Levels and a PIE Setting
 This guide explains how to leverage our SDK's **[PIE Support](../editor-systems/pie-settings.md)** to set up your Gameplay Level so you can start experimenting with Beamable immediately.
 
 ![multiplayer-scenes.png](../../../media/imgs/multiplayer-scenes.png)
-<center>Example of PIE Settings for a gameplay scene</center>
+<center>Example of PIE Settings for a gameplay level</center>
 
 1. Enable the Beam PIE in your **Project Settings > Beamable Core**.
 2. Restart your Editor.
@@ -49,9 +53,10 @@ This guide explains how to leverage our SDK's **[PIE Support](../editor-systems/
 
 Now that you have a preset, you can set up your Gameplay Level to use it:
 
-1. Next to the PIE Start button, you have a Beamable dropdown. Select the `My First Preset` option from it.
-2. Change Unreal's Playmode settings to be: **Play as Client** and **Number of Clients = 1** (to match the number of users in the Fake Lobby).
-3. Open your Gameplay Level's **Level Blueprint**.
+1. Open your **Gameplay Level**.
+2. Next to the PIE Start button, you have a Beamable dropdown. Select the `My First Preset` option from it.
+3. Change Unreal's Playmode settings to be: **Play as Client** and **Number of Clients = 1** (to match the number of users in the Fake Lobby).
+4. Open your Gameplay Level's **Level Blueprint**.
     1. In its **Begin Play**, add a `Local State - PIE - Easy Enable` node **_as the first thing it does_**.
 
 ![multiplayer-pie.png](../../../media/imgs/multiplayer-pie.png)
@@ -71,22 +76,34 @@ If you enter PIE now, here's what happens under the hood:
 - All PIE Clients log in to their mapped users (the ones you configured in your Preset).
 - The PIE Server instance keeps trying to create a lobby with the mapped users until it succeeds.
 - The PIE Clients wait until they become aware they were put into the Lobby.
-- Once the Lobby is created and all PIE clients are aware that they are in the lobby, our Waiting Room **Server Travels** back to the Gameplay Level you started in.
+- Once the Lobby is created and all PIE clients are aware that they are in the lobby, our Waiting Room **Server Travels** back to the Gameplay Level you started in --- this time, the `Easy Enable` does nothing.
 
 !!! warning "Iteration Time"
-     This is the quick setup way. There is a way to avoid the need for this Waiting Room but it requires C++ and a custom **Game Instance** --- this is outlined in our [C++ Real-Time Multiplayer Guide](code-multiplayer.md).
+     This is the quick setup way. There is a way to avoid the need for this Waiting Room but it requires C++ and a custom **Game Instance** --- this is outlined in our [C++ Real-Time Multiplayer Guide](code-multiplayer.md#making-beam-pie-faster).
 
 The above process guarantees two things:
 
 - The SDK in both Clients and Servers are guaranteed to be in the same state they'd be if you had entered the Gameplay Level via your normal flows (starting from the **Main Boot Level**): the Beamable SDK is fully initialized in both Server and each Client.
 - Every code/blueprint running AFTER the Game Mode's **PostLogin** is guaranteed to have no differences between the PIE flow and the Main Boot Level one.
 
-The above guarantees allow you to just use Beamable.
+And... the above guarantees allow you to just use Beamable with much less PIE-specific setup code.
+
+## Integrating with Game Mode Callbacks & Others
+There are several overridable functions and events the Game Mode class exposes to you. There is a very constraint affecting them:
+
+> Callbacks that happen before the **Player Controller** is fully created (before `PostLogin`), cannot interact with the Beamable SDK and do NOT have the guarantee the SDK is ready.
+
+This is because initializing the SDK is an Asynchronous Process and takes time --- so there's no way we can tell Unreal to wait until the SDK is initialized to then run `Begin Play`. From `PostLogin` forward, you can make use of the SDK; Content is ready, the Lobby information is available and so on...
+
+!!! warning "World Actors"
+If you have Blueprints in your Level Actor that need to access data inside the Lobby to be initialized, don't use `Begin Play` -- instead, call a function on it from a point where you have the guarantee the SDK is initialized and ready for use.
+
+If you'd like to see an example of this, take a look at our [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
 ## Preparing a Build for your Game Server Orchestrator
 This section explains what you need to do before you generate a build to upload to any Game Server Orchestrator such as Hathora, GameLyft or Agones. This explanation is Blueprint-based, an equivalent C++ explanation is described in our [C++ Real-Time Multiplayer Guide](code-multiplayer.md).
 
-### Setting Up your Gameplay Level's Level Blueprint 
+### Setting Up your Gameplay Level's Level Blueprint
 
 #### **Step 1 - Turn on Init on Server Build**
 Beamable provides you with an option in its `Local State - PIE - Easy Enable - Gameplay` node called `Init when Server Build`:
@@ -99,11 +116,21 @@ You must also create and bind `Custom Events` to the `OnStarted` and `OnStartedF
 
 This makes it so that the server build will initialize the SDK once it starts.
 
-#### **Step 2 - Extract Lobby Information**
-In a build, after the SDK is initialized in the server, you'll need to do some things to map the Beamable Lobby to this running instance of the game server. There are two strategies to do this:
+#### **Step 2 - Extract Information from Orchestrator**
+When configuring a build with your Orchestrator, they will typically allow you to pass in CLArgs or set Environment Vars for the running Game Server process. You'll need to set up the following ones:
+
+| Value        | CLArg/EnvVar                                                                                                                                                                                                                                                                                                                                    |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Realm Secret | **CLArg**: `beamable-realm-secret`<br>**EnvVar**: `BEAMABLE_REALM_SECRET`<br><br>This is a **high-security token** that can be found in: `Portal -> Games -> Any Realm (...) -> Project Secret` OR by running `dotnet beam config secret` from your project root.<br><br>Be very careful with this and DON'T commit it to your version control. |
+| CID          | **CLArg**: `beamable-customer-override`<br>**EnvVar**: `BEAMABLE_CUSTOMER_OVERRIDE`<br><br>This is mostly here so you can point our Sample builds to your organization; has little bearing on your own games.                                                                                                                                   |
+| PID          | **CLArg**: `beamable-realm-override`<br>**EnvVar**: `BEAMABLE_REALM_OVERRIDE`<br><br>This defines with which of your realms the server will attempt to communicate. Make sure this matches the Realm Secret.                                                                                                                                    |
+
+We can't tell you how to do this exactly, but for every Orchestrator we know how, you'll be able to see it in our **[Beamball Demo](../../samples/beamball/beamball-demo.md)**.
+
+In addition to this, inside the Game Server initialization logic, you'll need to do some things to map the Beamable Lobby to this running instance of the game server. There are two strategies to do this:
 
 ##### **One Lobby Per Process**
-The most common way Orchestrators such as Hathora, GameLyft or Agones pass in information to the running process is via Command Line Arguments or Environment Variables. If you are only ever running one Lobby per-game-server-process, we recommend passing in the lobby id this way.
+The most common way Orchestrators such as Hathora, GameLyft or Agones pass information to the running process is via Command Line Arguments or Environment Variables. If you are only ever running one Lobby per-game-server-process, we recommend passing in the lobby id this way.
 
 For this case, the Beamable SDK expects either the `CLArg: BeamableDedicatedServerInstanceLobbyId` or the `EnvVar: BEAMABLE_DEDICATED_SERVER_INSTANCE_LOBBY_ID` to be set and contain the Lobby Id for the match. If they do, you can use `Local State - Lobby - Get Lobby Id From CLArgs` to get this value.
 
@@ -129,22 +156,10 @@ This initialization can be preloading assets, making requests to microservices a
 
 Once this is done and you are ready to accept client connections, you should call `Operation - Lobby - Server - Notify Lobby Ready for Clients`. This signals your awaiting **Game Server Federation's `CreateGameServer` implementation** that the game server is ready to accept client connections --- allowing it to complete so that Beamable notifies all players in the Lobby forwarding the connection information to them.
 
-After these steps are completed, you'll begin receiving connections --- in UE, handling player connection and initialization is done in a Game Mode implementation (see next section). 
+After these steps are completed, you'll begin receiving connections --- in UE, handling player connection and initialization is done in a Game Mode implementation (see previous section). 
 
 ![multiplayer-build.png](../../../media/imgs/multiplayer-build.png)
 <center>Example of Level Blueprint for a Game Server Build</center>
-
-## Integrating with Game Mode Callbacks & Others
-There are several overridable functions and events the Game Mode class exposes to you. There is a very distinction though between them:
-
-Callbacks that happen before the **Player Controller** is fully created (before `PostLogin`), cannot interact with the Beamable SDK and do NOT have the guarantee the SDK is ready.
-
-This is because initializing the SDK is an Asynchronous Process and takes time --- so `Begin Play` cannot be used. From `PostLogin` forward, you can make use of the SDK; Content is ready, the Lobby information is available and so on...
-
-!!! warning "World Actors"
-     If you have Blueprints in your Level Actor that need to access data inside the Lobby to be initialized, don't use `Begin Play` -- instead, call a function on it from a point where you have the guarantee the SDK is initialized and ready for use.
-
-If you'd like to see an example of this, take a look at our [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
 ## What's next?
 
