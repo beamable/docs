@@ -4,23 +4,26 @@ There are multiple ways to design Real-Time multiplayer games: dedicated servers
 
 ## Dedicated Servers in Unreal with Beamable
 
-Beamable integrates with Unreal's Gameplay Framework in a couple of different ways. That being said, none of those are via an **OnlineSubsystem**. That is because Beamable's approach to Cloud Code (custom code to extend backend functionality) does not mesh well with those interfaces --- you'd end up either losing a lot of Beamable's most useful functionality OR gaining a non-trivial amount of complexity to use. Therefore, the Beamable SDK provides you with utilities to make dedicated server games itself.
+Beamable integrates with Unreal's Gameplay Framework in a couple of different ways; none of those are via an **OnlineSubsystem**. 
 
-Here are all the components:
+!!! note "Why no Online Subsystem?"
+     Because Beamable's approach to Cloud Code (custom code to extend backend functionality) does not mesh well with those interfaces --- you'd end up either losing a lot of Beamable's most useful functionality OR gaining a non-trivial amount of complexity to use it. Therefore, the Beamable SDK provides you with utilities to make dedicated server games itself.
+
+Instead, here are the main components of which you need to be aware:
 
 - **[Matchmaking](../beamable-services/matchmaking.md)**: Beamable provides you with a Matchmaking system out of the box that covers simple Matchmaking cases. It is useful during early development and also in production depending on your game's needs. [Beamable's Microservices](../microservices/microservices.md) allow you to implement or integrate with more specialized Matchmaking solutions should your game need it.
 - **[Lobbies](../beamable-services/lobbies.md)**: [Beamable's Matchmaking](../beamable-services/matchmaking.md) generates, for each match found, a Lobby structure of players. Lobbies are closest to what Unreal's OnlineSubsystem calls a "**Session**". Lobbies can also be created by players themselves.
-- **[Server Provisioning](../federation/federated-game-server.md)**: Beamable's approach to Cloud Code, [Microservices](../microservices/microservices.md), allows you to hook into certain processes that the Beamable Backend does; we call that **Federation**. For example, Game Server Federations can be used to run arbitrary code **after the matchmaking has created the lobby** but **before the clients are notified the match was found**. This allows you to fill the lobby with relevant data for your match, provision a server, wait for the server to spin up and then allow our Backend to notify the clients.
+- **[Server Provisioning](../federation/federated-game-server.md)**: Beamable's approach to Cloud Code, [Microservices](../microservices/microservices.md), allows you to hook into certain processes that the Beamable Backend does; we call that **Federation**. For example, Game Server Federations can be used to run arbitrary code **after the matchmaking has created the lobby** but **before the clients are notified the match was found**. This allows you to fill the lobby with relevant data for your match, provision a server, wait for the server to spin up and then allow our Backend to notify the clients. This flow significantly simplifies client and server code around this connection flow.
 - **[Game Server Authentication](code-multiplayer.md)**: It is pretty important that you implement Unreal's **PreLoginAsync** at some point before you ship a game. The Beamable SDK's **UBeamLobbySubsystem** provides you with utilities to validate the trying to connect _is in fact in a lobby the game server is managing and is a valid player_. 
-- **[PIE Support](../editor-systems/pie-settings.md)**: Anyone that has worked in multiplayer games knows about the challenge of maintaining a good workflow in PIE --- this is because code written for the gameplay makes all sorts of assumptions about the game state: it usually assumes clients are already logged in and SDKs are initialized, it assumes that a Lobby (or Session) already exists, it'll read data from that Lobby/Session as part of its initialization and systems and so on... the Beamable SDK's **BeamPIE** system gives you these guarantees in PIE with almost no work required; among other things, this is an extremely useful tool throughout all stages of development.
-- **[Local and Remote Multiplayer](../runtime-systems/user-slots.md)**: If your game needs BOTH multiple local players per-client AND remote play, the Beamable SDK also supports that via the User Slot system. Each Client has multiple **Runtime User Slots**: **Player0**, **Player1**, etc... In clients, these map to UE's own **LocalPlayerIndex**; this mapping is implicit. You can tell the Beamable SDK about  your game's **RuntimeUserSlots** in **Project Settings > Beamable Core**. If your game does NOT support local + remote multiplayer, then this is not relevant and the SDK's defaults will work for you. 
+- **[PIE Support](../editor-systems/pie-settings.md)**: Anyone that has worked in multiplayer games knows about the challenge of maintaining a good workflow in PIE --- this is because code written for the gameplay makes all sorts of assumptions about the game state: it usually assumes clients are already logged in and SDKs are initialized, it assumes that a Lobby (or Session) already exists, it'll read data from that Lobby/Session as part of its initialization and systems and so on... the Beamable SDK's **BeamPIE** system gives you these guarantees in PIE with a single Blueprint node; among other things, this is an extremely useful tool throughout all stages of development.
+- **[Local and Remote Multiplayer](../runtime-systems/user-slots.md)**: If your game needs BOTH multiple local players per-client AND remote play, the Beamable SDK also supports that via the User Slot system. Each Client has multiple **Runtime User Slots**: **Player0**, **Player1**, etc... In clients, these map to UE's own **LocalPlayerIndex**; this mapping is implicit and index-based. You can tell the Beamable SDK about  your game's **RuntimeUserSlots** in `Project Settings > Engine >  Beamable Core`. If your game does NOT support local + remote multiplayer, then this is not relevant and the SDK's defaults will work for you. 
 
 You can see an example of a working implementation of these in the **[Beamball Sample](../../samples/beamball/beamball-demo.md)**.
 
 !!! warning "Does Beamable host our Game Servers?"
     Beamable does not provide Game Server Orchestration. This means that, while we have Lobbies, Matchmaking and can find matches between players, we do NOT run the actual Game Server. For this, we partner with other companies and provide a simple way to integrate our Matchmaking and Lobbies with them (this is **[Game Server Federation](../federation/federated-game-server.md)**).
 
-### Relevant Levels in the Architecture
+### Relevant Architecture Terminology
 This documentation uses a few terms to refer to common parts of the architecture of a Dedicated Server Game.
 
 - **Main Boot Level**: Refers to the Level in which your Client applications start. This usually maps to your title/main menu screens.
@@ -36,17 +39,17 @@ This guide explains how to leverage our SDK's **[PIE Support](../editor-systems/
 ![multiplayer-scenes.png](../../../media/imgs/multiplayer-scenes.png)
 <center>Example of PIE Settings for a gameplay level</center>
 
-1. Enable the Beam PIE in your **Project Settings > Beamable Core**.
+1. Enable the Beam PIE in your `Project Settings > Engine > Beamable Core`.
 2. Restart your Editor.
 3. Create a Game Type content using the **Beamable Window - Content** tab. Name it `my_matchmaking_queue`.
 4. Go to the **Beamable Window - PIE** tab.
 5. Use the **Player Manager** to create a User and set its name to `My User`.
 6. Use the **Play Presets** window to create a `My First Preset`.
-   1. Toggle the **Fake Lobby** on.
-   2. In **Map Settings**:
+   1. In **Map Settings**:
       1. Choose your Gameplay Level from the dropdown of Allowed Maps. This will make this preset available for use when you have this map open in the editor.
-      2. In **Map Settings**, choose the `my_matchmaking_queue` game type from the dropdown.
-      3. In **Map Settings**, add a `my_key` and `my_value` to the Global Lobby Data.  
+   2. Toggle the **Fake Lobby Settings** on.
+      1. Choose the `my_matchmaking_queue` game type from the dropdown.
+      2. Add a `my_key` and `my_value` to the Global Lobby Data.  
    3. In **User Settings**:
       1. Add a User and select the `My User` you created previously.
       2. Verify `Copy on PIE` is disabled.
