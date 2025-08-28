@@ -3,6 +3,7 @@
       - [Steam](steam-demo.md)
       - [LiveOps](live-ops-demo.md)
       - [Discord](discord-demo.md)
+      - [Hathora](hathora-demo.md)
       - Beamball
           - [Overview](beamball/beamball-demo.md)
           - [Content and Stores](beamball/beamball-content.md)
