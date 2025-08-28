@@ -12,9 +12,9 @@ The Beamable SDK Matchmaking feature allows players to join a matchmaking queue 
 
 Once a match is found, the result is a [Lobby](lobbies.md) containing all the players in the match that was found. **_If you are working on a dedicated server game, we highly recommend you read_**:
 
-- [Dedicated Servers](../servers-and-builds/dedicated-servers.md)
+- [Runtime Dedicated Servers](../realtime-multiplayer/realtime-multiplayer-overview.md)
 - [Federated Game Servers](../federation/federated-game-server.md)
-- [Hathora](../../samples/hathora-demo.md)
+- [Beamball Demo](../../samples/beamball/beamball-demo.md)
 
 # Getting Started
 To use `UBeamMatchmakingSubsystem` via blueprints (or C++), you'll need to:

@@ -12,7 +12,7 @@ Beamable's Friend system allow the following game flows:
 
  There's support for local and multiplayer usage for the friend system, in this document we will focus on multiplayer, as it is the most common usage case.
 
-A sample that demonstrates the friend subsystem is available in our [GitHub](https://github.com/beamable/UnrealSDK). For more details, check out the [Hathora Demo](../../samples/hathora-demo.md).
+A sample that demonstrates the friend subsystem is available in our [GitHub](https://github.com/beamable/UnrealSDK). For more details, check out the [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
 # Getting Started
 To use the friend system, you will need to first setup your Unreal to PIE with multiple players. That will allow you to test everything due multiple instances. 

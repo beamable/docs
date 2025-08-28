@@ -23,7 +23,7 @@ This is an Out-of-Band call that happens as part of the [Matchmaking](../beamabl
 	1. In your game server build, the Lobby can be automatically prefetched if configured correctly, check more about it [here](../servers-and-builds/dedicated-servers.md).
 7. The client SDK receives a notification from Beamable that a match is ready and invoke the `UBeamMatchmakingSubsystem`'s `OnMatchReady` callback for the match ticket.
 
-You can check out our [Hathora Demo](../../samples/hathora-demo.md) for more information on how to implement the actual `CreateGameServer` function.
+You can check out our [Beamball Demo](../../samples/beamball/beamball-demo.md). for more information on how to implement the actual `CreateGameServer` function.
 
 # Working Locally
 Because this is an Out-of-Band call, you'll need to set a content-id filter for which queues you want your locally running microservice to handle when its running.
@@ -53,4 +53,4 @@ Certain games allow players to [create custom lobbies](../beamable-services/lobb
 7. Once that function returns, it'll trigger `UBeamLobbyState`'s `OnLobbyUpdated` callback for the lobby each particular player is in.
 	1. You can check if the connection information you generated inside `CreateGameServer` is within the lobby's global properties (`ULobby::Data`) and use that to connect all players to the newly created game server instance.
 
-While we don't have a sample showcasing this exact case, you can still learn a lot about this from our [Hathora Demo](../../samples/hathora-demo.md) sample.
+While we don't have a sample showcasing this exact case, you can still learn a lot about this from our [Beamball Demo](../../samples/beamball/beamball-demo.md). sample.

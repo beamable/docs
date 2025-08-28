@@ -1,6 +1,6 @@
 # Dedicated Servers
 
-The Beamable Unreal SDK was made with support for a dedicated servers in mind from the start. We also develop and maintain a simple [Sample Project](../../samples/hathora-demo.md) containing a `Dockerfile` for a Linux server container builds and a microservice example of how to integrate with a third-party Game Server Orchestrator such as Hathora.
+The Beamable Unreal SDK was made with support for a dedicated servers in mind from the start. We also develop and maintain a simple [Beamball Demo](../../samples/beamball/beamball-demo.md) containing a `Dockerfile` for a Linux server container builds and a microservice example of how to integrate with a third-party Game Server Orchestrator such as Hathora.
 
 # SDK Dedicated Server Initialization
 By default, each dedicated server instance it is expected to run a single lobby. When the server starts up, you should call `UBeamRuntime::InitSDK`. The SDK will look for some overrides and parameters coming in from Environment Variables OR Command-Line Arguments. **Command Line Arguments override Environment Variables when both are present**.
@@ -47,4 +47,4 @@ You can read more about this in the [Federated Game Server](../federation/federa
 4. The Beamable Backend then notifies all relevant game clients that the server is ready.
 5. The SDK detects that and invokes a callback where you can read set properties.
 
-Our [Hathora Sample Project](../../samples/hathora-demo.md) contains example of the flow above.
+Our [Beamball Demo](../../samples/beamball/beamball-demo.md) contains example of the flow above.
