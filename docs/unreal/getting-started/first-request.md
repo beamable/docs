@@ -14,7 +14,7 @@ Here's some a quick tour of Beamable terminology:
 - `Realm` is an isolated data environment (think of it as a branch, but for your backend).
     - By default, you have one of these these for your `dev`, `staging` and `prod` environments. You can make more of them through the portal.
     - The `ApplyToBuild` button sets the realm information in the `Config/DefaultEngine.ini` file of your project. Whatever realm is configured in this file, is the realm your build will be pointed towards.
-    - [Dedicated Server Builds](../user-reference/servers-and-builds/dedicated-servers.md) don't need to care about their baked in `TargetRealm`. They fetch their target realm from Environment Variables.
+    - Dedicated Servers don't need to care about their baked in `TargetRealm`. They fetch their target realm from Environment Variables.
 - `Content` opens up the **Content Window**.
     - [Content](../user-reference/beamable-services/content.md) is Beamable's solution for defining game-specific read-only data.
 - `Microservices` opens the **Microservice Window**.

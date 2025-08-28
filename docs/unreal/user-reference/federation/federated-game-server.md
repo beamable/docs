@@ -20,7 +20,7 @@ This is an Out-of-Band call that happens as part of the [Matchmaking](../beamabl
 	1. Use a 3rd Party API to provision a game server, wait for it to spin up and add the connection information to the `ServerInfo` return object.
 	2. Pre-fetch data associated from each player from [Stats](../beamable-services/stats.md), [Inventory](../beamable-services/inventory.md) or [Storage Objects](../microservices/microservices.md) and add that data into the `ServerInfo` return object.
 6. The returned `ServerInfo` object gets merged into the [Lobby](../beamable-services/lobbies.md)'s global and player data.
-	1. In your game server build, the Lobby can be automatically prefetched if configured correctly, check more about it [here](../servers-and-builds/dedicated-servers.md).
+	1. In your game server build, the Lobby can be automatically prefetched if configured correctly, check more about it in the [Realtime Multiplayer](../realtime-multiplayer/realtime-multiplayer-overview.md) session.
 7. The client SDK receives a notification from Beamable that a match is ready and invoke the `UBeamMatchmakingSubsystem`'s `OnMatchReady` callback for the match ticket.
 
 You can check out our [Beamball Demo](../../samples/beamball/beamball-demo.md). for more information on how to implement the actual `CreateGameServer` function.

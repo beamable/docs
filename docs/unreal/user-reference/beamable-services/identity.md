@@ -102,6 +102,6 @@ Each different platform (Steam, EOS, PSN, etc...) requires a different Microserv
     The advantages of the Federation approach is that the game-maker retains control of how they want to interact with the feature-set of each platform and gives them better control of upgrade timings.
 
 # Identity in Dedicated Servers
-Dedicated Servers use a different authentication model ([see here for more information](../servers-and-builds/dedicated-servers.md)) that is not `UserSlot`-based.
+Dedicated Servers use a different authentication model ([realtime multiplayer](../realtime-multiplayer/realtime-multiplayer-overview.md)) that is not `UserSlot`-based.
 
 As such, none of these flows run in Dedicated Servers.
