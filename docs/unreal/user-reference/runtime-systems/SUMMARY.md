@@ -3,4 +3,5 @@
 - [Operations & Waits](operations-and-waits.md)
 - [Connectivity Management](connectivity.md)
 - [Lower Level SDK](lower-level.md)
+- [Gameplay Framework Utilities](gameplay-framework-utilities.md)
 
