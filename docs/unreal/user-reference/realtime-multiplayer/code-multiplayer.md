@@ -1,5 +1,5 @@
 ﻿# C++ Realtime Multiplayer Systems
-In Unreal, there are certain parts of implementing a dedicated server game that MUST be implemented using C++. Namely, **Game Server Authentication**. This means: implementing logic that your Game Server runs to decided whether an incoming connection is allowed in this game server or not.
+In Unreal, there are certain parts of implementing a dedicated server game that MUST be implemented using C++. Namely, **Game Server Authentication**. This means: implementing logic that your Game Server runs to decide whether an incoming connection is allowed in this game server or not.
 
 By default, Beamable's integrates with the Gameplay Framework to give you cross-platform Game Server Authentication (to enable cross-play) WITHOUT going through OnlineSubsystem interfaces. Basically, the `FUniqueNetId` for each player is the user's `GamerTag`. More details about disabling this further down in this document (not recommended).
 
@@ -18,7 +18,7 @@ In C++, this would usually be done in `AGameMode::BeginPlay` and would look some
 ```c++
 virtual void BeginPlay() override
 {
-    // This will run once beamable (you can either call init here OR 
+    // This will run once the Beamable SDK is initialized (which you can call here OR in a blueprint)
     const auto BeamRuntime = GetGameInstance()->GetSubsystem<UBeamRuntime>();
     BeamRuntime->CPP_RegisterOnStarted(FBeamRuntimeHandlerCode::CreateLambda([this]()
     {
@@ -32,8 +32,7 @@ virtual void BeginPlay() override
             // Let's extract the Lobby Id from the CLArgs.
             const auto LobbyId = BeamMultiplayer::Orchestrator::GetLobbyIdFromCLArgs(this);
 
-            // Let's call RegisterLobbyWithServer so that the Federation becomes aware that the GameServer already has the Beamable lobby data in it.
-            // Only after this call succeeds will the Federation notify users that the match was found --- this means that PreLoginAsync is guaranteed to have the lobby data at that point. 
+            // Let's call RegisterLobbyWithServer so that the SDK running here becomes aware of this lobby.             
             BeamMultiplayer::Orchestrator::RegisterLobbyWithServer(this, LobbyId, FBeamOperationEventHandlerCode::CreateLambda([this, LobbyId](FBeamOperationEvent Evt)
             {
                 // Failed to get lobby data from Beamable
@@ -51,6 +50,7 @@ virtual void BeginPlay() override
                         // Game-Dependent: Use data in the lobby to load things.
                         
                         // Once you are done loading things and preparing the lobby, call this to let clients begin connecting to the server.
+                        // Only after this call succeeds does the Federation notify users that the match was found --- this means that PreLoginAsync is guaranteed to have the lobby data at that point.
                         BeamMultiplayer::Orchestrator::NotifyLobbyReady(this, LobbyId, FBeamOperationEventHandlerCode::CreateLambda([](FBeamOperationEvent Evt)
                         {
                             // Users will never receive the notification that a match was found, will timeout and get put back into the queue.
@@ -106,7 +106,7 @@ virtual void PreLoginAsync(const FString& Options, const FString& Address, const
             Super::PreLoginAsync(BeamOptions, Address, UniqueId, OnComplete);
         }
 
-        // If failed, deny entry into the server.
+        // If failed, deny entry into the server by calling OnComplete with a non-Empty string.
         if (Evt.CompletedWithError())
         {
             OnComplete.ExecuteIfBound(Evt.EventCode);
@@ -117,7 +117,7 @@ virtual void PreLoginAsync(const FString& Options, const FString& Address, const
 
 The `BeamMultiplayer::Authentication::PreLoginAsync` function runs an operation that, once completed successfully, informs you that we have validated the user is both who they say they are and are in the lobby they say they are. You can do game-specific logic here and combine it with our verification too.
 
-If you have multiple players per-client, you should also implement a subclass of `ULocalPlayer` as such. This will guarantee the correct GamerTag for each `UserSlot` in that client is correctly forwarded when that particular Local Player tries to connect to the Game Server.
+If you have multiple players per-client, you should also implement a subclass of `ULocalPlayer` as such. This will guarantee the correct GamerTag for each `UserSlot` in that client is correctly forwarded when that particular Local Player tries to connect to the Game Server. You can then configure the Local Player class for your game in `Project Settings > Engine > General Settings > Default Classes > Local Player Class`.
 
 ```c++
 /**
@@ -140,14 +140,15 @@ public:
 ## Understanding `FUniqueNetId` and Beamable
 `FUniqueNetId` is how UE identifies each player in the network. By default, when you sign in with Beamable, we set your `ULocalPlayer`'s preferred `FUniqueNetId` to be the user's `GamerTag`. This is how the Beamable SDK maps each Player in its `ULobby` objects to each **UE Player** objects. The `UBeamLobbySubsystem` has utility functions that help you get a `GamerTag` from a **Player Controller/State** object --- these rely on this mapping to work.
 
-As long as you are using the `Project Settings > Game > Beamable Runtime > Use Beamable GamerTags as Unique Ids`, this is all handled automatically for you (in various ways). If, for whatever reason, you want the `FUniqueNetId` to be something other than the Beamable GamerTag, you **_MUST_** also implement Game Server Authentication for these utility functions to work.
+As long as you are using the `Project Settings > Game > Beamable Runtime > Enable Gameplay Framework Integration`, this is all handled automatically for you (in various ways). If, for whatever reason, you want the `FUniqueNetId` to be something other than the Beamable GamerTag, you **_MUST_** also implement Game Server Authentication for these utility functions to work.
 
 This constraint exists because, for now, the logic in our `BeamMultiplayer::Authentication::PreLoginAsync` is the only place where we'll have both the `GamerTag` (from the `Options`) AND the `UniqueId` in order to map each player correctly.
 
 **_Keep in mind that the default SDK behavior does not need you to care about any of this._**
 
-## User Slots and User State in the SDK
-User Slots are a big part of the regular workflow when working with Beamable SDK in game clients. For dedicated servers though they are not used. For interfaces containing the `UserSlot` parameter, that parameter can be ignored.
+## User Slots in the Game Server SDK
+User Slots are a big part of the regular workflow when working with Beamable SDK in game clients. For dedicated servers though they are not used. Any functions containing the `UserSlot` parameter, that parameter can be ignored. 
+
 
 This means a few things:
 
@@ -166,7 +167,7 @@ Iteration time is one of the most important factors when developing a game. Beca
 
 However, it is possible with a custom `GameInstance` implementation.
 
-So, in order to enable you to take advantage of this, you can implement this snippet and configure your custom Game Instance class to be used in your `Project Settings > `.
+So, in order to enable you to take advantage of this, you can implement this snippet and configure your custom Game Instance class to be used in your `Project Settings > Project > Maps & Modes > Game Instance Class`.
 
 ```c++
 /**
@@ -212,7 +213,8 @@ public:
 #endif
 
 	/**
-	    For as long as you return `true` in this function, PIE Clients will wait before connecting to the game server. Our utility returns `true` until the Clients are fully initialized and in BeamPIE's automatically created Lobby.   
+	    For as long as you return `true` in this function, PIE Clients will wait before connecting to the game server. 
+	    Our utility returns `true` until the Clients are fully initialized and inside BeamPIE's automatically created Lobby.   
 	*/      
 	virtual bool DelayPendingNetGameTravel() override
 	{
@@ -222,7 +224,9 @@ public:
 ```
 
 !!! note "Why do I have to write this code instead of inheriting from a class you give us?"
-     Because that would force you to use a base class we provide which is significantly less flexible than you calling these functions in your own implementation.
+     The SDK's philosophy is one that tries **_not_** force you into situations where you cannot combine its utilities and your own project-specific ones. A common mistake in SDK design is to provide a base-class that users _must inherit_; while it does make the simplest case a little easier, it tends to make complex cases _significantly harder_ than they need to be.
+
+    As such, we evaluate this cost is worth the flexibility.
 
 **PLEASE REMEMBER: _In builds, all functions from the `BeamPIE` namespace are no-ops._**
 

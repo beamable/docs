@@ -75,31 +75,31 @@ Create and/or open your **_GameMode_** Blueprint for this level.
 
 If you enter PIE now, here's what happens under the hood:
 
-- The Beamable SDK's Easy PIE node will move the server to a development only Waiting Room and wait for all PIE clients to connect.
-- All PIE Clients log in to their mapped users (the ones you configured in your Preset).
+- The Beamable SDK's Easy PIE node will move the server to a development-only **Waiting Room Level** and wait for all PIE clients to connect.
+- All PIE Clients log in with their mapped users (the ones you configured in your `Play Preset`).
 - The PIE Server instance keeps trying to create a lobby with the mapped users until it succeeds.
 - The PIE Clients wait until they become aware they were put into the Lobby.
-- Once the Lobby is created and all PIE clients are aware that they are in the lobby, our Waiting Room **Server Travels** back to the Gameplay Level you started in --- this time, the `Easy Enable` does nothing.
+- Once the Lobby is created and all PIE clients are aware that they are in the lobby, our Waiting Room **Server Travels** back to the Gameplay Level you started in, taking all clients with them --- this time, the `Easy Enable` node does nothing.
 
 !!! warning "Iteration Time"
-     This is the quick setup way. There is a way to avoid the need for this Waiting Room but it requires C++ and a custom **Game Instance** --- this is outlined in our [C++ Real-Time Multiplayer Guide](code-multiplayer.md#making-beam-pie-faster).
+     This is the quick setup way. There is a way to avoid the need for this **Waiting Room** but it requires C++ and a custom **Game Instance** --- this is outlined in our [C++ Real-Time Multiplayer Guide](code-multiplayer.md#making-beam-pie-faster).
 
 The above process guarantees two things:
 
 - The SDK in both Clients and Servers are guaranteed to be in the same state they'd be if you had entered the Gameplay Level via your normal flows (starting from the **Main Boot Level**): the Beamable SDK is fully initialized in both Server and each Client.
 - Every code/blueprint running AFTER the Game Mode's **PostLogin** is guaranteed to have no differences between the PIE flow and the Main Boot Level one.
 
-And... the above guarantees allow you to just use Beamable with much less PIE-specific setup code.
+And... the above guarantees allow you to just use Beamable with much less PIE-specific code.
 
 ## Integrating with Game Mode Callbacks & Others
-There are several overridable functions and events the Game Mode class exposes to you. There is a very constraint affecting them:
+There are several overridable functions and events the Game Mode class exposes to you. There is a very important constraint affecting them:
 
 > Callbacks that happen before the **Player Controller** is fully created (before `PostLogin`), cannot interact with the Beamable SDK and do NOT have the guarantee the SDK is ready.
 
 This is because initializing the SDK is an Asynchronous Process and takes time --- so there's no way we can tell Unreal to wait until the SDK is initialized to then run `Begin Play`. From `PostLogin` forward, you can make use of the SDK; Content is ready, the Lobby information is available and so on...
 
 !!! warning "World Actors"
-If you have Blueprints in your Level Actor that need to access data inside the Lobby to be initialized, don't use `Begin Play` -- instead, call a function on it from a point where you have the guarantee the SDK is initialized and ready for use.
+    If you have Blueprints in your Level Actor that need to access data inside the Lobby to be initialized, don't use `Begin Play` -- instead, call a function on it from a point where you have the guarantee the SDK is initialized and ready for use.
 
 If you'd like to see an example of this, take a look at our [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
@@ -159,7 +159,7 @@ This initialization can be preloading assets, making requests to microservices a
 
 Once this is done and you are ready to accept client connections, you should call `Operation - Lobby - Server - Notify Lobby Ready for Clients`. This signals your awaiting **Game Server Federation's `CreateGameServer` implementation** that the game server is ready to accept client connections --- allowing it to complete so that Beamable notifies all players in the Lobby forwarding the connection information to them.
 
-After these steps are completed, you'll begin receiving connections --- in UE, handling player connection and initialization is done in a Game Mode implementation (see previous section). 
+After these steps are completed, you'll begin receiving connections --- in UE, handling player connection and initialization is done in a Game Mode implementation (see [here](#preparing-a-build-for-your-game-server-orchestrator)). 
 
 ![multiplayer-build.png](../../../media/imgs/multiplayer-build.png)
 <center>Example of Level Blueprint for a Game Server Build</center>
