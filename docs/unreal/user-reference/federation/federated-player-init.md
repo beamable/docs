@@ -65,14 +65,11 @@ A few ideas on how to leverage this:
 
 - Use `Game Client Versions` to define account initialization logic over time.
 - Use `Content` or `MicroStorages` to build more advanced segmented starting state logic.
-- Use information in the `InitProperties` to define different starting states. Ie.: you could use this to implement "console exclusive items" for example.
-
-# Working Locally
-All calls for this Federation are In-Band calls. Therefore, you can just run your service with the federation and it'll be used.
+- Use information in the `Account account` paramter and `Dictionary<string, string> properties` to define different starting states. Ie.: you could use this to implement "console exclusive items" for example.
 
 # Examples
 
 You can see an example of this federation in the following samples:
 
--  [beamball-demo.md](../../samples/beamball/beamball-demo.md) sample.
+-  [Beamball Demo](../../samples/beamball/beamball-demo.md) sample.
 -  [LiveOps Demo](../../samples/live-ops-demo.md) sample.

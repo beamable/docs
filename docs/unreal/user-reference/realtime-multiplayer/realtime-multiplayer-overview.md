@@ -58,18 +58,21 @@ Now that you have a preset, you can set up your Gameplay Level to use it:
 
 1. Open your **Gameplay Level**.
 2. Next to the PIE Start button, you have a Beamable dropdown. Select the `My First Preset` option from it.
-3. Change Unreal's Playmode settings to be: **Play as Client** and **Number of Clients = 1** (to match the number of users in the Fake Lobby).
+3. Change Unreal's Playmode settings to be: **Play as Client** and **Number of Players = 1** (to match the number of users in the Fake Lobby).
 4. Open your Gameplay Level's **Level Blueprint**.
     1. In its **Begin Play**, add a `Local State - PIE - Easy Enable` node **_as the first thing it does_**.
 
 ![multiplayer-pie.png](../../../media/imgs/multiplayer-pie.png)
 
+At this point, `BeamPIE` is configured. The next couple of steps are here so you can see that the Preset you configured actually created the lobby with the data you defined.
+
 Create and/or open your **_GameMode_** Blueprint for this level.
 
-1. In its **Post Login**, add a `Local State - Get Gamer Tag (by Player Controller)` and pass in the **NewPlayer**.
-2. Then add a `Local State - Get Lobby Id by Gamer Tag` to get the Lobby Id for this player.
-3. Then add a `Local State - TryGetGlobaLobbylDataById` passing in the Lobby Id and `my_key`.
+1. In its **Post Login**, add a `Local State - Lobby - Get Gamer Tag (by Player Controller)` and pass in the **NewPlayer**.
+2. Then add a `Local State - Lobby - Get Lobby Id by Gamer Tag` to get the Lobby Id for this player.
+3. Then add a `Local State - Lobby - TryGetGlobalLobbyDataById` passing in the Lobby Id and `my_key`.
 4. Finally, add a `Print String` node that prints the returned value (it should be `my_value`).
+5. Don't forget to set this `Game Mode` in UE's `World Settings > Game Mode Override`.
 
 ![multiplayer-postlogin.png](../../../media/imgs/multiplayer-postlogin.png)
 
