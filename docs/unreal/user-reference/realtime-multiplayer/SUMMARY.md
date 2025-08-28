@@ -1,3 +1,2 @@
 ﻿- [Overview](realtime-multiplayer-overview.md)
-- [Blueprint Multiplayer Systems](blueprint-multiplayer.md)
 - [C++ Multiplayer Systems](C-multiplayer.md)
