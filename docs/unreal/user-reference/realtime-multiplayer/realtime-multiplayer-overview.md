@@ -58,11 +58,19 @@ Now that you have a preset, you can set up your Gameplay Level to use it:
 
 1. Open your **Gameplay Level**.
 2. Next to the PIE Start button, you have a Beamable dropdown. Select the `My First Preset` option from it.
+
+![multiplayer-dropdown.png](../../../media/imgs/multiplayer-dropdown.png)
+
 3. Change Unreal's Playmode settings to be: **Play as Client** and **Number of Players = 1** (to match the number of users in the Fake Lobby).
+
+![multiplayer-clientcount.png](../../../media/imgs/multiplayer-clientcount.png)
+
 4. Open your Gameplay Level's **Level Blueprint**.
     1. In its **Begin Play**, add a `Local State - PIE - Easy Enable` node **_as the first thing it does_**.
 
 ![multiplayer-pie.png](../../../media/imgs/multiplayer-pie.png)
+
+
 
 At this point, `BeamPIE` is configured. The next couple of steps are here so you can see that the Preset you configured actually created the lobby with the data you defined.
 
