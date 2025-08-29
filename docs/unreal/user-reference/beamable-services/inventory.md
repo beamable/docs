@@ -57,6 +57,10 @@ In order to read the local state of the player's inventory, you can use the foll
 
 ![inventory-local-state.png](../../../media/imgs/inventory-local-state.png)
 
+You can also use the `Local State - Inventory - TryGetAllItemsFilter` node to iterate over all the items of a particular subtype in the inventory. 
+
+![inventory-auto-casting.png](../../../media/imgs/inventory-auto-casting.png)
+
 # Currencies
 Currencies are used to buy items with our [Store system](stores.md) (e.g., Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP) depending on the specifics of your game system.
 
