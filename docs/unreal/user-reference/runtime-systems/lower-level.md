@@ -30,7 +30,7 @@ The lowest layer of systems is shared between the SDK's UE Editor integration an
 
 - `UBeamBackend`, `UBeamNotifications` and `UBeam_____Notifications` are discussed in the sections below.
 
-# UBeamBackend
+## UBeamBackend
 `UBeamBackend` is the most important `UEngineSubsystem` in the SDK. It leverages Unreal's `HTTP` module to make requests to the configured Beamable backend. It contains the implementations used by the `UBeam____Api` classes to make the actual requests. 
 
 These implementations handle:
@@ -58,7 +58,7 @@ If you ever encounter issues with this system, `log LogBeamBackend Verbose` is a
 !!! note "Connectivity"
     In the Beamable SDK, we do NOT handle the concept of "player connectivity to the internet" via request/response heuristics. See `UBeamNotifications` below and [Connectivity](connectivity.md) for more information.
 
-# UBeamNotifications
+## UBeamNotifications
 
 Every connected Beamable player maintains a WebSocket connection to Beamable while they are logged-in. This system leverages UE's `WebSocket` module to open web-socket connections for each logged-in user (using `FUserSlot`).
 

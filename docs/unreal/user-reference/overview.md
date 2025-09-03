@@ -24,7 +24,7 @@ Aside from those core concepts, the links below explain some of our higher-level
 - [**Matchmaking**](beamable-services/matchmaking.md), [**Lobbies**](beamable-services/lobbies.md), [**Friends**](beamable-services/friends.md) and [**Parties**](beamable-services/parties.md) are part of our suite of services for real-time multiplayer games.
 - [**Stores**](beamable-services/stores.md), [**Leaderboards**](beamable-services/leaderboards.md) and [**Announcements**](beamable-services/announcements.md) are part of our suite of services to help with live-ops meta-game engagement.
 
-# Beamable Runtime SDK
+## Beamable Runtime SDK
 `UBeamRuntime` is the entry point for the Beamable SDK at runtime (PIE, packaged game clients and dedicated servers). It is a `GameInstanceSubsystem` and follows its lifecycle rules. It is responsible for a couple of things:
 
 - It controls the SDK's runtime initialization flow.
@@ -41,7 +41,7 @@ The next image shows a high-level description of the authentication flows suppor
 
 **_We highly recommend that every engineer working with Beamable understand this lifecycle!_** It should enable them to make the best use and decisions when designing systems with or on top of Beamable. 
 
-## Beamable Runtime Subsystems
+### Beamable Runtime Subsystems
 `BeamRuntimeSubsystems` are stateful subsystems that aim to provide an extendable baseline of some Beamable functionality. They are built on top of our auto-generated lower-level API (`UBeam____Api` classes) to make it simpler to leverage our APIs; that way:
 
 1. You don't have to set up the common case.
@@ -60,7 +60,7 @@ All of our [Blueprint](runtime-systems/blueprints.md) nodes, except our **Low-Le
 
 If the exposed hooks on these are not enough for your use case and constraints, as a user you can create your own `UBeamRuntimeSubsystem`. The SDK does not obfuscate its inner-workings from you so you can use the existing `UBeamRuntimeSubsystems` as a reference to understand how to create your own. The documentation in [Lower Level SDK](runtime-systems/lower-level.md) and [Operations & Waits](runtime-systems/operations-and-waits.md) can also be useful when implementing your own `UBeamRuntimeSubsystems`. 
 
-### Advanced - Disabling Runtime Subsystems
+#### Advanced - Disabling Runtime Subsystems
 
 You can also opt out of these entirely by adding them to `UBeamCoreSettings` 's property: `ManuallyInitializedRuntimeSubsystems`. All subsystems in this list, and any other subsystem that depends on it, are not automatically initialized by the SDK. For example, if `UBeamInventorySubsystem` is in this list, this system will not be usable until you manually initialize it. 
 
@@ -74,7 +74,7 @@ Keep in mind that the simplest way is to build your features *on top of* these s
 However, there are complex cases where it may be easier to make your own system *instead of* these subsystems. 
 That's why we allow you to enable/disable systems with this granularity.
 
-### Advanced - Beyond the Hooks and Modifications to the SDK
+#### Advanced - Beyond the Hooks and Modifications to the SDK
 
 In line with our philosophy that tools should enable you to do what you need, we distribute the SDK with the source code so that you can edit it if you need to do so. The code is kept organized and commented (as best as we can) to try and make modifications to it feasible. We do this for a few different reasons: 
 
