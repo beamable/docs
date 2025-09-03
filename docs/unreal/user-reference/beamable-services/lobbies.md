@@ -18,10 +18,10 @@ Lobbies are rooms containing only [online players](../runtime-systems/connectivi
     - ...can leave the lobby.  
 - Becoming offline will remove you from the lobby (after a small delay).
 
-# Getting Started - Open/Closed Lobbies
+## Getting Started - Open/Closed Lobbies
 This section describes how to set up and join manually created lobbies. Lobbies created via [Matchmaking](matchmaking.md) don't need this setup.
 
-## Creating Lobbies
+### Creating Lobbies
 
 Use the `Lobby - Create Open Lobby` operation to create an **_Open Lobby_**. This Lobby will be visible to all players in the realm. You can use the `Lobby - Refresh Lobbies` operation to fetch filtered paged lists of Open lobbies in a realm.
 
@@ -33,7 +33,7 @@ Use the `Lobby - Create Closed Lobby` operation to create a **_Closed Lobby_**. 
 
 When in a [Party](parties.md), only the party leader is allowed to join a Lobby. Doing so will also bring all other party members into the Lobby with them. If the Lobby **MaxPlayer** count would be surpassed by the entire party joining, nobody can join.
 
-## Leaving and Kicking Users
+### Leaving and Kicking Users
 Once in a Lobby, any player can leave it by using the `Lobby - Leave Lobby` operation. By default, whenever a host leaves the lobby, Beamable will disband the lobby and notify all players in it. The Lobby's Host also has the ability to kick players via the `Lobby - Kick Player` operation.
 
 ![lobbies-leave-kick.png](../../../media/imgs/lobbies-leave-kick.png)
@@ -42,13 +42,12 @@ In some games, you might want to make your host transfer ownership of the lobby 
 
 ![lobbies-transfer-ownership.png](../../../media/imgs/lobbies-transfer-ownership.png)
 
-
-## Dedicated Servers
+### Dedicated Servers
 For dedicated server games, you can use the `Lobby - Provision Game Server for Lobby` operation to trigger a [Game Server Federation](../federation/federated-game-server.md) to boot up a server instance for the game. If you need to differentiate between matchmaking lobbies and Open/Closed lobbies, you can verify whether the lobby has a host within the federation's logic to properly handle when and which game server to provision. 
 
 ![lobbies-provision-federation.png](../../../media/imgs/lobbies-provision-federation.png)
 
-# Reading and Writing to Lobbies
+## Reading and Writing to Lobbies
 For both Matchmaking lobbies and Open/Closed lobbies, we need APIs to read/write to lobby data that is synchronized between all players in the lobby.
 
 Updating the Lobby's `Global Data` and any of its configurations can only be done by the Lobby's host (or a server in case of Matchmaking lobbies).
@@ -67,7 +66,7 @@ To read from a specific player's data, you can use any of these nodes:
 
 ![lobbies-read-player-data.png](../../../media/imgs/lobbies-read-player-data.png)
 
-# Synchronizing Across Clients
+## Synchronizing Across Clients
 Beamable's Lobby system will automatically notify every player inside a lobby of relevant events. Once you're in a lobby, the SDK keeps track of your local state inside `UBeamLobbyState` (one per-`UserSlot`).
 
 You can use `GetCurrentSlotLobbyState` to get the `UBeamLobbyState` and setup various **Delegates** in this object to respond the these events, normally updating your UI or custom system built on top of this subsystem.
@@ -84,7 +83,7 @@ Here's the list of events we expose:
 	- Every remaining player in the lobby receives this notification. The host does not receive it.
 - **OnLobbyUpdate**: Whenever any property of the lobby changes via `CommitLobbyUpdateOperation`, `UpdatePlayerDataOperation` and `UpdateSlotPlayerDataOperation`, this will be invoked.
 
-# On Lobby Types and Lobby Schema
+## On Lobby Types and Lobby Schema
 There are two types of lobbies: **Open** and **Closed** lobbies. **Open** lobbies can be queried via `RefreshLobbies` and joined without the use of any passcode. **Closed** lobbies are not visible to `RefreshLobbies` and expect to be joined via the generated passcode.
 
 Both lobby types have the same schema and are represented by the `ULobby` class. This class has several properties:

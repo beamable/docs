@@ -14,7 +14,7 @@ We provide a lot of Operations inside our `UBeamRuntimeSubsystem` implementation
 !!! warning
 	While possible, we don't recommend creating the actual operations as blueprints. It's OK to do so for a quick experimentation session; but shipping with it is *not recommended*. **Calling *Operations* that are written in C++ is the primary way we recommend Blueprints to interact with the Beamable SDK (we even have [special nodes](blueprints.md) for it).**
 
-# Operation Lifecycle
+## Operation Lifecycle
 
 Every Operation has an `int64` id called the `FBeamOperationHandle` managed by the `UBeamRequestTracker`, a `UEngineSubsystem`. We use it to track the operation's state, its emitted events, its current status and which of Beamable's requests are part of it.
 
@@ -27,7 +27,7 @@ When writing Operations, there are two ways of thinking about them:
 - **Regular Operations**: This is just a "Promise".
 - **Operation Hooks**: These involve two operations. The first one starts, and will at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own owrk.
 
-# Writing and Exposing your Own Regular Operations
+## Writing and Exposing your Own Regular Operations
 We expose all of our main SDK operations in both BP and CPP flavors. If you'd like to do the same thing, this section is for you. If you're looking for how to write hooks in C++, look into the next section.
 
 The primary trade-off is that: 
@@ -117,7 +117,7 @@ There are tons of examples of operations in our SDK. For some guidance, you can 
 
 Feel free to copy-paste them as a template of how to implement and reason about `Operations`.
 
-## Beam Flow Nodes - Operations
+### Beam Flow Nodes - Operations
 As part of our [Blueprint integration](blueprints.md), we have created a few custom nodes that make invoking operations from blueprints much simpler. These look like this:
 
 ![beam-flow-node](../../../media/imgs/operation-and-waits-beam-flow-nodes.png)
@@ -169,10 +169,10 @@ class UK2BeamNode_Operation_CommitInventoryUpdate : public UK2BeamNode_Operation
 
 As long as you have one of these in an `UncookedOnly` module of your game, you'll be able to expose your own custom operations as BP nodes (this is compatible with Multiplayer PIE mode).
 
-This is very useful when designing unique features leveraging [MicroServices and MicroStorages](../microservices/microservices.md)
+This is very useful when designing unique features leveraging [MicroServices and MicroStorages](../microservices/microservices.md) and other `FBeamOperationHandle` returning functions.
 
-# Writing Hooks...
-... and other `FBeamOperationHandle` returning functions. These are the various callback flavors that we expose so you can customize your experience with our SDK. In other words:
+## Writing Hooks
+These are the various callback flavors that we expose so you can customize your experience with our SDK. In other words:
 
 > If you ever see a Delegate or Virtual Function that you can implement that returns one or more `FBeamOperationHandle`, you need to create operations and return their handles so that we can wait on your code before we proceed with our code.
 > It's basically a way for you to inject a promise that we'll run as part of a larger long-running operation.
@@ -188,7 +188,7 @@ There are a few flavors of this around the SDK:
 	1. We don't use Hooks ourselves IN ANY CIRCUNSTANCES and leave these as "game-maker-only extensions".
 	2. You can search for `DEFINE_BEAM_OPERATION_HOOK` and find some usages of the macro to better understand these. 
 
-## Beam Operation Hooks
+### Beam Operation Hooks
 **Hooks** have some more context that you should know about how to use them:
 
 1. You call some Operation we expose in our SDK. That Operation does a bunch of things and triggers the hooks at some well-known point during their execution.
@@ -259,13 +259,13 @@ SomeSystem->Hook.Add(F____::CreateLambda([this]()
 }));
 ```
 
-# Why not Template-based Promises?
+## Why not Template-based Promises?
 The biggest reason not to do that is Blueprint Compatibility. The most recognizable template-based Promise-style API just won't work with BPs. We wanted to create an underlying system that provided the same functionality but that retained BP compatibility even if it lost the template-based interface. The result was this `Operation` system.
 
 !!! info
 	In using it inside our own SDK to develop our Stateful `UBeamRuntimeSubsystems`, we found that we didn't miss the template aspect or its chaining aspect of `Do().Then()`. However, the chaining might be something we eventually look into. Perhaps adding the ability to chain requests like these as "syntactic sugar"; but its highly unlikely we'll do anything with templates at the Operation-layer as we do not want to lose the BP-Compatibility.
 
-# Waits
+## Waits
 This is equivalent to `Promise.All` or `Task.WhenAll` keeping with our promise analogy. It can be used to wait on a set of operations and/or requests executed concurrently whose errors and successes are handled all at once. To use this, call `UBeamRequestTracker::[CPP_]WaitAll`.
 
 This function takes arrays of `FBeamRequestContext`, `FBeamOperationHandle` and/or `FBeamWaitHandle` and a handler function. It'll wait until all the provided handles are completed and then gather all emitted events and request responses and invoke your handle function passing in a helper struct to identify successes/failures.

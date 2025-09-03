@@ -20,7 +20,7 @@ The Player clicks **Play** in the main menu then The **`Refresh Hatchora Ping St
 The matchmaking process is asynchronous, and the player is kept informed through event bindings on the **`Events - Matchmaking - Bind`**. The player is notified when they successfully started search for a match, when the Match is ready, canceled or timed out.
 
 # Starting a Match
-![Beamball-matchmaking2.png](../../../media/imgs/Beamball-matchmaking2.png)
+![beamball-matchmaking2.png](../../../media/imgs/beamball-matchmaking2.png)
 
 Once the matchmaking system has formed a lobby, the player is notified and can start. The **`Operation - Lobby - Load Level`** operator is called, which signals Beamable's backend to initiate the match using the configured Lobby Data. In this sample the Hathora Orquestrator handles the server alocation and return a call to Beamable to start the match, allowing players to seamlessly transition into the game.
 

@@ -14,40 +14,34 @@ Beamable's Friend system allow the following game flows:
 
 A sample that demonstrates the friend subsystem is available in our [GitHub](https://github.com/beamable/UnrealSDK). For more details, check out the [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
-# Getting Started
+## Getting Started
 To use the friend system, you will need to first setup your Unreal to PIE with multiple players. That will allow you to test everything due multiple instances. 
 
 ???+ Warning "Observation"
     The friend subsystem allow you to use the friend system for local players with multiple accounts, you can do as we showing here setting up the UserSlot for the correct player.
 
-
 Once you have your enviroment setup to start, the follow steps will show how to implement the basic functinalities in BP.
 
-## How to Bind the Friends Events
+### Binding the Friends Events
  In the SDK all the events can be binded using our custom node for bind from the subsystem. The image bellow shown a example how to do this.
 
  ![friends-bind-events.png](../../../media/imgs/friends-bind-all-events.png)
 
-## How to Invite a Friend
+### Inviting a Friend
 
 1. Open your Level Blueprint (or some other BP)
 2. Call the `Operation - Friend - SendFriendInvite`. This will allow you to create a asynchronos chain to the after invite someone to be a friend.
 
 ![friends-send-invite.png](../../../media/imgs/friends-send-invite.png)
 
-### Invite Received Event
-
 It's possible to listen to the changes for the invites received, being responsive to this showing to the player that a new friend invite has been received. You will need to bind to the event `OnInviteReceived` shown in the [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
-
-## How to Accept a Friend Invite
+### Accepting a Friend Invite
 
 1. Open your Level Blueprint (or some other BP)
 2. Call the `Operation - Friend - AcceptFriendInvite`. This will allow you to create a asynchronos chain to the after accept a friend invite.
 
 ![friends-accept-invite.png](../../../media/imgs/friends-accept-invite.png)
-
-### Invite Accepted Event 
 
 When the player that received the invite accept it, both receive the invite accepted event, it could be used for updates in the invite list or to start to show the new friend in the friend list.
 
@@ -56,19 +50,16 @@ To bind to this event you can use the `OnInviteAccepted` as shown in the section
 ???+ Warning "Local Player Feedback"
     Once the player accepts the invite, if you prefer not to wait for the backend notification to update the friend list, you can directly use the operation for the player who accepted and update the local state either synchronously or asynchronously.
 
-## How to Decline a Friend Invite
+### Declining a Friend Invite
 
 1. Open your Level Blueprint (or some other BP)
 2. Call the `Operation - Friend - DeclineFriendInvite`. This will allow you to create a asynchronos chain to the after decline a friend invite.
 
 ![friends-decline-invite.png](../../../media/imgs/friends-decline-invite.png)
 
-### Invite Decline Event
-
 When the player that received the invite decline it, both receive the `OnInviteDeclined` notification, that can help to update the visuals and the player list. The local state is already updated when the player receive this notification. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
-
-## How to Block/Unblock a Player
+### Blocking/Unblocking a Player
 
 1. Open your Level Blueprint (or some other BP)
 2. Call the `Operation - Friend - BlockPlayer`/`Operation - Friend - Unblock`. This will allow you to block/unblock a player using the gamer tag of this player.
@@ -81,36 +72,28 @@ When the player that received the invite decline it, both receive the `OnInviteD
 
 ![friends-block-player.png](../../../media/imgs/friends-block-player.png)
 
-### Block/unblock player event
-
 There are two events related to blocking players: one for the player who initiates the block and one for the player who is blocked. The first event, `OnPlayerBlocked`, is triggered only for the player who blocks another player. The blocked player does not receive this event, as it is typically not necessary to handle the blocked player in this case. Instead, the blocked player will receive the second event, `OnPlayerBeenBlocked`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
-
 
 ???+ Warning "Removed Friend Event"
     The removed friend event will be triggered in both players if they were friends before.
 
 For the unblock flow is very similar to the block, so there's a `OnPlayerUnblocked` event and a `OnPlayerBeenUnblocked`.
 
-### Presence status update event
+For you to use the status presence as the common behavior of showing if your friend is online or offline we recommend to register in the `OnPresenceStatusUpdate` and handle the updates in the player status from this. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
- For you to use the status presence as the common behavior of showing if your friend is online or offline we recommend to register in the `OnPresenceStatusUpdate` and handle the updates in the player status from this. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
-
-## How to remove a friend
+### Removing a Friend
 
 1. Open your Level Blueprint (or some other BP)
 2. Call the `Operation - Friend - RemoveFriend`. This will allow you to create a asynchronos chain to the after remove a friend.
 
 ![friends-remove-friend.png](../../../media/imgs/friends-remove-friend.png)
 
-
-### Remove friend event
-
 When a player is removed from the friend list it will triggers this notification. You will be able to register on this to treat the behavior in your game.
 
 The event that will be trigger is the `OnFriendRemoved`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 When it triggers, the local state of the friend list will already been updated. 
 
-## How To Use The System State To Update The View (Invite Example)
+### How To Use The System State To Update The View (Invite Sample)
 
 In the example below, we demonstrate how to retrieve the user's friend state and use it to update a view or another screen. In this case, the example simply sets a list of all invites in the friend state. There are other ways to handle this, such as adding or removing items based on events, rather than setting the entire list. For simplicity, we're showing this approach.
 

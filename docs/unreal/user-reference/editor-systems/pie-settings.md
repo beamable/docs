@@ -10,14 +10,14 @@ This enables you to test your game across multiple configurations and entry poin
 
     ![pie-enable.png](../../../media/imgs/pie-enable.png)
 
-# Player Manager
+## Player Manager
 The Player Manager lets you manage player profiles and settings for your game. It provides an easy-to-use interface to create, capture (from PIE), and save player profiles that can be used at runtime.
 
 Profiles with a name become available in Play Presets, making it simple to switch between different players during development and testing.
 
 ![pie-user.png](../../../media/imgs/pie-user.png)
 
-## Capturing and Saving Players
+### Capturing and Saving Players
 Whenever you run the game in the editor with PIE, the Player Manager records any logged-in players. This creates a new profile in the list, which can be inspected using the Open Portal button.
 
 Player profiles can then be saved as either Local or Template, making them reusable in Play Presets:
@@ -30,7 +30,7 @@ Player profiles can then be saved as either Local or Template, making them reusa
     Always give saved player profiles a name, as only named profiles will appear in Play Presets.
     You can also add descriptions and tags to profiles to provide extra context for testing scenarios.
 
-# Play Presets
+## Play Presets
 Play Presets let you define how your game should run in PIE. You can create, edit, and delete presets from the Play Presets section of the PIE Settings. This allows you to test different scenarios and entry points without modifying global project settings. Each preset can specify:
 
 * In which maps can the preset be used
@@ -46,12 +46,12 @@ To create a new Play Preset, click the **Create New Preset** button. You can the
 
 **_IMPORTANT: When "None" is selected, the entire system is disabled; including the automatic Beamable SDK initialization._**
 
-## Map Settings
+### Map Settings
 Play Presets can be configured to apply to specific maps or a list of maps which match the name rule requirement (Regex). This allows you to have different presets for different levels or game modes. You can specify the maps in the **Available Maps** list of the preset editor and/or add a name rule in the Map Name Pattern in case you have a lot of maps.
 
 ![pie-map-settings.png](../../../media/imgs/pie-map-settings.png)
 
-## Fake Lobbies
+### Fake Lobbies
 Play Presets can be configured to initialize lobbies for PIE, allowing you to test multiplayer scenarios with real Beamable accounts **_directly in PIE from the Gameplay Level_**. This is especially useful when testing games that use the **Gameplay Level** as the entry point, since it ensures the initialization of Beamable systems and lobby setup. Normally, this initialization would occur in earlier Levels, such as the **Main Boot Level** (Main Menu/Title Screen/etc...).  
 
 !!! warning "Integration with Beamable Realtime Multiplayer Systems"
@@ -66,7 +66,7 @@ In the Fake Lobby Settings you can configure:
 
 ![pie-fake-lobby.png](../../../media/imgs/pie-fake-lobby.png)
 
-## User Settings
+### User Settings
 The User Settings section allows you to configure per-player settings for the users that will be automatically logged in this session. The mapping goes as follows:
 
 - **PIE Client**: Starts at 1~X. X is the `Number of Players` you define in Unreal's own Play Mode Settings.

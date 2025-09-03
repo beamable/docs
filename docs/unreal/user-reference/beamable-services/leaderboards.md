@@ -8,18 +8,18 @@ The Beamable **Leaderboards** allow the game makers to track player scores in so
  - Retrieve a specific player rank.
  - Retrieve the friends ranks. 
 
-# Getting Started
+## Getting Started
 
 In order to have a good overview for leaderboards we will present some common use cases and how to fully implement it. 
 
-## Creating the Leaderboards
+### Creating the Leaderboards
 
 There's two ways to create a new leaderboard, using the portal or as a content.
 
 !!! note "Type of leaderboard"
 	If you created the leaderboard in the content, it will appears in the portal as expected. But if you create the leaderboard directly in the portal, it WON'T appear in the content.
 
-### Creating via Content
+#### Creating via Content
 
 In order to create a content of leaderboard type, first you will need to open the **Beamable Window** in the top right and select the **Content** tab.
 
@@ -43,7 +43,7 @@ Before publish it there's some configurations that can change the way your leade
  - **Cohort Settings**: Specifies criteria for grouping players together.
 
 
-## Assign Player to Leaderbord
+### Assign Player to Leaderbord
 
 There are two ways to assign a player to a leaderboard:
 
@@ -63,37 +63,35 @@ There are two ways to assign a player to a leaderboard:
 !!! note "Non Partitioned Leaderboard"
 	If you use this operation on a non-partitioned leaderboard, it will simply return the original leaderboard ID without any partition suffix.
 
-# Entries modify
+## Entries modify
 
 It is possible to modify meta-data and score for leaderboard entries. But it is more flexible in the microservice side, if you are using an client authoritative leaderboard won't be change other entry besides the authenticated player.
 
-## Add Score to a Player
+### Adding Score to a Player
 
 Here is a example about how to add score in the client for authoritative client. 
 
 ![leaderboards-blueprint-update-score.png](../../../media/imgs/leaderboards-blueprint-update-score.png)
 
-### Score Stats
-
 The Stats in the leaderboard are mostly usage for keep cached a per entry information that prevent multiple requests to the API. It's only possible to set the stats when you are updating the score, here is a example about how to set the stats in the leaderboard.
 
 ![leaderboards-blueprint-set-stats.png](../../../media/imgs/leaderboards-blueprint-set-stats.png)
 
-# Uses Cases
+## Leaderboards Samples
 
-## Fetch Top 10 Players
+### Fetch Top 10 Players
 
 ![leaderboards-blueprint-top10.png](../../../media/imgs/leaderboards-blueprint-top10.png)
 
 With our SDK it is possible to create leaderboards like in [Brawl Stars](https://supercell.com/en/games/brawlstars/) 
 
-## Show the Player Rank
+### Show the Player Rank
 
 ![leaderboards-blueprint-player-rank.png](../../../media/imgs/leaderboards-blueprint-player-rank.png)
 
 Using the blue print shown above it's possible to get the playe rank and show it as separetally entry. 
 
-## Leaderboard Pagination
+### Leaderboard Pagination
 
 ![leaderboards-blueprint-pagination.png](../../../media/imgs/leaderboards-blueprint-pagination.png)
 

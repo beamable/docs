@@ -14,7 +14,7 @@ The Beamable SDK includes a comprehensive set of pre-implemented operations that
 These operations are designed to be easily integrated into your game's login and signup flows while maintaining security
 best practices.
 
-# Login Semantics
+## Login Semantics
 
 Logging in with the Unreal SDK means:
 
@@ -34,7 +34,7 @@ This approach, coupled with [Federated Player Initialization](../federation/fede
 
 The following sections explain how to leverage our SDK to implement common authentication flows for different games and platforms.
 
-# "Mobile Games" Style Authentication
+## "Mobile Games" Style Authentication
 Mobile games often want to create a **Guest Account** for the player so they can start playing quickly and later decide if they want to `Attach` one or more permanent identities to that guest account.
 
 The SDK supports this flow via the `Login - Frictionless` operation.
@@ -52,7 +52,7 @@ Attaching an identity can succeed or fail:
 
 You can check out our [Discord sample](../../samples/discord-demo.md) for an example of this flow.
 
-# "PC/Console" Style Authentication
+## "PC/Console" Style Authentication
 In PC/Console titles, often the user can sign-in and up from inside the game. That can happen either through an active form-filling process, an active request to third-party authentication (Discord, Google, etc...) or an automatic platform-based login (Epic Online Services, PSN, Steam, etc...).
 
 In all of these cases, you usually want to keep the user signed into the machine after the login once (without having to go through the process of re-authenticating them every time).
@@ -61,7 +61,7 @@ For that, we provide a `Login - Local Cache`.
 
 ![Login - Local Cache](../../../media/imgs/identity-login-local-cache.png)
 
-## Local Cache + Email/Password Form
+### Local Cache + Email/Password Form
 Some games might have builds distributed outside of common platforms and instead might want to ask users to sign-up via Email/Password.
 
 In these cases and builds, you'll want to:
@@ -77,7 +77,7 @@ Here's what you would do once the user confirms the form:
 If your login/signup flows are the same (which is sometimes useful in early development), you can leverage the `Auto Login` option in this node. It'll create the account with email/password if it doesn't exist and, if it already does, it'll try to log into that account with the provided password.
 
 
-## Local Cache + Platform-specific
+### Local Cache + Platform-specific
 Beamable has a different approach for supporting 3rd-Party Platforms such as Steam. Instead of us trying to maintain a small subset of ALL existing 3rd-Party Platforms, we leverage our [Microservice Federation](../federation/federation.md) capabilities to allow you to implement whichever Platform-specific features you need for your game.
 
 Platform login flows are usually very simple. You can see that in our working [Steam Demo](../../samples/steam-demo.md).
@@ -101,7 +101,7 @@ Each different platform (Steam, EOS, PSN, etc...) requires a different Microserv
 
     The advantages of the Federation approach is that the game-maker retains control of how they want to interact with the feature-set of each platform and gives them better control of upgrade timings.
 
-# Identity in Dedicated Servers
+## Identity in Dedicated Servers
 Dedicated Servers use a different authentication model ([realtime multiplayer](../realtime-multiplayer/realtime-multiplayer-overview.md)) that is not `UserSlot`-based.
 
 As such, none of these flows run in Dedicated Servers.
