@@ -4,7 +4,7 @@
 
 In the **Beamball** sample we have a basic implementation of the Store and Inventory Systems. Those are build using the Beamable’s **Store** and **Content** services. The flow combines backend data (listings and offers) with **local DataAssets** that define the visual presentation of each item.
 
-# Loading and Displaying Store Items
+## Loading and Displaying Store Items
 
 ![beamball-content-blueprint.png](../../../media/imgs/beamball-content-blueprint.png)
 
@@ -34,7 +34,7 @@ Widgets are then placed dynamically into a **grid layout**, with positioning cal
     - **`Operation - Store - Refresh Store`**:  Refreshes the player’s store state from the backend.
     - **`Local State - Store - TryGetStoreView`**: Retrieves the updated StoreView from the local Beamable state.
 
-# Purchasing Items
+## Purchasing Items
 
 ![beamball-purchase.png](../../../media/imgs/beamball-purchase.png)
 

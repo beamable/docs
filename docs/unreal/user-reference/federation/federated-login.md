@@ -25,9 +25,9 @@ Most of the time, you achieve this by doing the following:
 
 After this, the flow goes into your `Authenticate` function. What that function should do, depends on whether or not you are implementing 2FA or not.
 
-# Federated Login - without 2FA
+## Federated Login - without 2FA
 
-## Setting up the Client
+### Setting up the Client
 
 In the client:
 
@@ -42,7 +42,7 @@ It looks like this:
 
 ![steam-demo-login.png](../../../media/imgs/steam-demo-login.png)
 
-## Writing the Microservice
+### Writing the Microservice
 Semantically, there are two ways the `Authenticate` function can be called:
 
 - **Account Creation Time**: When using **`Login - Federated Identity` or `Sign-Up - Federated Identity` operations**. 
@@ -76,9 +76,9 @@ public async Promise<FederatedAuthenticationResponse> Authenticate(string token,
 
 ```
 
-# Federated Login - Multi-Factor Authentication
+## Federated Login - Multi-Factor Authentication
 
-## Setting up the Client
+### Setting up the Client
 
 In the client, we start by invoking our `Login - Federated Identity` operation. This operation has a sub-event that gets invoked when the microservice responds with a `challenge` string we need to solve. The SDK provides you a `UBeamMultiFactorLoginData` object you can store and carry around your game state so that your player can solve the challenge.
 
@@ -92,7 +92,7 @@ Once the player has solved the challenge, you can send it to the Microservice by
 
 The `Login - Federated Identity` operation's Success/Error flows will run **_after_** the Success/Error flows of the `Login - Commit Federated Identity` operation.
 
-## Writing the Microservice
+### Writing the Microservice
 
 Semantically, there are an additional two ways that the Authenticate function can be called:
 
