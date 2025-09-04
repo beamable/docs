@@ -76,7 +76,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -137,21 +137,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
     
   
 </form>
@@ -1212,6 +1198,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Federated Login
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1221,6 +1218,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#federated-login-without-2fa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Federated Login - without 2FA
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Federated Login - without 2FA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up the Client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-the-microservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing the Microservice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#federated-login-multi-factor-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Federated Login - Multi-Factor Authentication
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Federated Login - Multi-Factor Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-client_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up the Client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-the-microservice_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing the Microservice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1855,6 +1937,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#federated-login-without-2fa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Federated Login - without 2FA
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Federated Login - without 2FA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up the Client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-the-microservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing the Microservice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#federated-login-multi-factor-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Federated Login - Multi-Factor Authentication
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Federated Login - Multi-Factor Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-client_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up the Client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-the-microservice_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing the Microservice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1894,8 +2050,8 @@
 </li>
 </ol>
 <p>After this, the flow goes into your <code>Authenticate</code> function. What that function should do, depends on whether or not you are implementing 2FA or not.</p>
-<h1 id="federated-login-without-2fa">Federated Login - without 2FA<a class="headerlink" href="#federated-login-without-2fa" title="Permanent link">¶</a></h1>
-<h2 id="setting-up-the-client">Setting up the Client<a class="headerlink" href="#setting-up-the-client" title="Permanent link">¶</a></h2>
+<h2 id="federated-login-without-2fa">Federated Login - without 2FA<a class="headerlink" href="#federated-login-without-2fa" title="Permanent link">¶</a></h2>
+<h3 id="setting-up-the-client">Setting up the Client<a class="headerlink" href="#setting-up-the-client" title="Permanent link">¶</a></h3>
 <p>In the client:</p>
 <ul>
 <li>Initialize the SDK.</li>
@@ -1909,7 +2065,7 @@
 </ul>
 <p>It looks like this:</p>
 <p><a class="glightbox" href="../../../../media/imgs/steam-demo-login.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="steam-demo-login.png" src="../../../../media/imgs/steam-demo-login.png" /></a></p>
-<h2 id="writing-the-microservice">Writing the Microservice<a class="headerlink" href="#writing-the-microservice" title="Permanent link">¶</a></h2>
+<h3 id="writing-the-microservice">Writing the Microservice<a class="headerlink" href="#writing-the-microservice" title="Permanent link">¶</a></h3>
 <p>Semantically, there are two ways the <code>Authenticate</code> function can be called:</p>
 <ul>
 <li><strong>Account Creation Time</strong>: When using <strong><code>Login - Federated Identity</code> or <code>Sign-Up - Federated Identity</code> operations</strong>. </li>
@@ -1939,15 +2095,15 @@
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FederatedAuthenticationResponse</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my3rdPartyId</span><span class="p">,</span><span class="w"> </span><span class="p">};</span><span class="w"> </span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
 </code></pre></div>
-<h1 id="federated-login-multi-factor-authentication">Federated Login - Multi-Factor Authentication<a class="headerlink" href="#federated-login-multi-factor-authentication" title="Permanent link">¶</a></h1>
-<h2 id="setting-up-the-client_1">Setting up the Client<a class="headerlink" href="#setting-up-the-client_1" title="Permanent link">¶</a></h2>
+<h2 id="federated-login-multi-factor-authentication">Federated Login - Multi-Factor Authentication<a class="headerlink" href="#federated-login-multi-factor-authentication" title="Permanent link">¶</a></h2>
+<h3 id="setting-up-the-client_1">Setting up the Client<a class="headerlink" href="#setting-up-the-client_1" title="Permanent link">¶</a></h3>
 <p>In the client, we start by invoking our <code>Login - Federated Identity</code> operation. This operation has a sub-event that gets invoked when the microservice responds with a <code>challenge</code> string we need to solve. The SDK provides you a <code>UBeamMultiFactorLoginData</code> object you can store and carry around your game state so that your player can solve the challenge.</p>
 <p>Here's an example from our Sui-Wallet integration showcase.</p>
 <p><a class="glightbox" href="../../../../media/imgs/federated-login-2fa-start.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="federated-login-2fa-start.png" src="../../../../media/imgs/federated-login-2fa-start.png" /></a></p>
 <p>Once the player has solved the challenge, you can send it to the Microservice by calling <code>Login - Commit Federated Identity</code>. You can see an example below where we sign the challenge before sending over the solution to our microservice.</p>
 <p><a class="glightbox" href="../../../../media/imgs/federated-login-2fa-commit.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="federated-login-2fa-commit.png" src="../../../../media/imgs/federated-login-2fa-commit.png" /></a></p>
 <p>The <code>Login - Federated Identity</code> operation's Success/Error flows will run <strong><em>after</em></strong> the Success/Error flows of the <code>Login - Commit Federated Identity</code> operation.</p>
-<h2 id="writing-the-microservice_1">Writing the Microservice<a class="headerlink" href="#writing-the-microservice_1" title="Permanent link">¶</a></h2>
+<h3 id="writing-the-microservice_1">Writing the Microservice<a class="headerlink" href="#writing-the-microservice_1" title="Permanent link">¶</a></h3>
 <p>Semantically, there are an additional two ways that the Authenticate function can be called:</p>
 <ul>
 <li><strong>Without a <code>challenge</code>/<code>solution</code></strong>: This is the first part of the flow. <ul>

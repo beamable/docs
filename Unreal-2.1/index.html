@@ -74,7 +74,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -135,21 +135,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
     
   
 </form>
@@ -251,6 +237,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -260,6 +257,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#technical-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Platform Support
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beamable-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beamable CLI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where to start?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1849,6 +1901,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#technical-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Platform Support
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beamable-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beamable CLI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where to start?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1869,52 +1965,52 @@
 <table>
 <thead>
 <tr>
-<th><strong>The SDK's source code is entirely available and modifiable inside your project by you</strong></th>
+<th><strong><center>The SDK's source code is entirely available and modifiable inside your project by you</center></strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>In case you modify the SDK's source code, we cannot guarantee that its features will work. We trust you to know when doing so might be worth it for you (VCS are your friend here).</td>
+<td><center>In case you modify the SDK's source code, we cannot guarantee that its features will work. We trust you to know when doing so might be worth it for you (VCS are your friend here).</td>
 </tr>
 </tbody>
 </table>
 <table>
 <thead>
 <tr>
-<th><strong>The SDK keeps itself as simple as possible, providing extension points and documentation.</strong></th>
+<th><strong><center>The SDK keeps itself as simple as possible, providing extension points and documentation.</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>We believe that tools should helpful or at least not get in your way. If you find yourself working around parts of the SDK instead of using them even with MicroServices/Storages, reach out to us.</td>
+<td><center>We believe that tools should helpful or at least not get in your way. If you find yourself working around parts of the SDK instead of using them even with MicroServices/Storages, reach out to us.</td>
 </tr>
 </tbody>
 </table>
 <table>
 <thead>
 <tr>
-<th><strong>The SDK is careful about assumptions it makes.</strong></th>
+<th><strong><center>The SDK is careful about assumptions it makes.</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Whenever we <strong><em>have to</em></strong> make an assumption, we try to be explicit about what it means. MicroServices/Storages are great ways to "just write what you want instead" when using our default services is not a good fit.</td>
+<td><center>Whenever we <strong><em>have to</em></strong> make an assumption, we try to be explicit about what it means. MicroServices/Storages are great ways to "just write what you want instead" when using our default services is not a good fit.</td>
 </tr>
 </tbody>
 </table>
 <table>
 <thead>
 <tr>
-<th><strong>Blueprint and C++ Code Parity</strong></th>
+<th><strong><center>Blueprint and C++ Code Parity</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Most of our docs contains examples using Blueprints. Unless described otherwise there is option to achieve same results in C++ while following Blueprint sample. In C++, the subsystems and function names are the same except that, for lambda-binding, you'll need to use the <code>CPP_</code> versions of functions.</td>
+<td><center>Most of our docs contains examples using Blueprints. Unless described otherwise there is option to achieve same results in C++ while following Blueprint sample. In C++, the subsystems and function names are the same except that, for lambda-binding, you'll need to use the <code>CPP_</code> versions of functions.</td>
 </tr>
 </tbody>
 </table>
-<h1 id="technical-requirements">Technical Requirements<a class="headerlink" href="#technical-requirements" title="Permanent link">¶</a></h1>
+<h2 id="technical-requirements">Technical Requirements<a class="headerlink" href="#technical-requirements" title="Permanent link">¶</a></h2>
 <p>Beamable currently supports <strong>Unreal 5.5.X</strong>.</p>
 <p>Beamable also has a dependency on  <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">.NET</a>. This is needed for:</p>
 <ul>
@@ -1927,7 +2023,7 @@
 <li>Running Beamable Microservices with MicroStorages without opening the service's project (for non-engineers that want to run microservices locally).</li>
 </ul>
 <p>If you don't have these installed, take this opportunity to install it while you investigate these docs further.</p>
-<h1 id="platform-support">Platform Support<a class="headerlink" href="#platform-support" title="Permanent link">¶</a></h1>
+<h2 id="platform-support">Platform Support<a class="headerlink" href="#platform-support" title="Permanent link">¶</a></h2>
 <p>We provide support for the following platforms:</p>
 <ul>
 <li>Client:<ul>
@@ -1941,7 +2037,7 @@
 </li>
 </ul>
 <p>iOS support should be added before the end of 2025. Console support Q1/Q2 of 2026.</p>
-<h1 id="beamable-cli">Beamable CLI<a class="headerlink" href="#beamable-cli" title="Permanent link">¶</a></h1>
+<h2 id="beamable-cli">Beamable CLI<a class="headerlink" href="#beamable-cli" title="Permanent link">¶</a></h2>
 <p>The minimum Beamable CLI version for this release is 5.1.0.</p>
 <p>Most of the Beamable workflows are enabled through the Beamable CLI; our editor integrations making use of it to create Engine-specific workflows.</p>
 <p>The SDK is tightly integrated with the CLI in some ways more than others. For example:</p>
@@ -1950,7 +2046,7 @@
 <li><a href="unreal/user-reference/microservices/microservices/">Microservices</a>, however, being more engineer focused, leans more directly on the CLI.</li>
 </ul>
 <p>In other words: <strong>The Beamable CLI is invisible to the user where it needs to be and explicit to users that need to work with them.</strong></p>
-<h1 id="where-to-start">Where to start?<a class="headerlink" href="#where-to-start" title="Permanent link">¶</a></h1>
+<h2 id="where-to-start">Where to start?<a class="headerlink" href="#where-to-start" title="Permanent link">¶</a></h2>
 <p>Regardless of who you are, we recommend run through:</p>
 <ul>
 <li><a href="unreal/getting-started/first-request/">Your First Request</a></li>

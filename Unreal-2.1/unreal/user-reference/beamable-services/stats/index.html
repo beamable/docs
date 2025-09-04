@@ -76,7 +76,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -137,21 +137,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
     
   
 </form>
@@ -874,6 +860,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Stats
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -883,6 +880,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batching-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batching updates
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-other-players-public-stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Other Player's Public Stats
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stats-keys-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stats Keys &amp; Values
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1855,6 +1907,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batching-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batching updates
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-other-players-public-stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Other Player's Public Stats
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stats-keys-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stats Keys &amp; Values
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1885,7 +1981,7 @@
 <li><code>client</code>- Can be accessed from both the <strong>Unreal</strong> and <strong>Microservices</strong>.</li>
 <li><code>game</code>- Cannot be accessed from <strong>Unreal</strong> directly, it can still be accessed via <strong>Microservice</strong> using <code>ClientCallable</code> calls.</li>
 </ul>
-<h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h1>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>In order to create write to a <code>client</code>/<code>public</code> stat from a client we use the <code>Set Stat Operation</code> for individual stat changes. For batching multiple stat changes use the <code>TryCreateUpdateCommand</code> to begin building a set of stat changes for the given <code>UserSlot</code> which are later commited via the <code>Commit Stats Operation</code>.</p>
 <p>These operations are backed by the <code>UBeamRuntimeSubsystem</code>. This is how it looks like in <a href="../../runtime-systems/blueprints/">Blueprints</a>:</p>
 <p><a class="glightbox" href="../../../../media/imgs/stats-create-stats.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="stats-create-stats.png" src="../../../../media/imgs/stats-create-stats.png" /></a></p>
@@ -1899,7 +1995,7 @@
 </ul>
 <p><a class="glightbox" href="../../../../media/imgs/stats-portal.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="stats-portal.png" src="../../../../media/imgs/stats-portal.png" /></a>
 <center>View of the stats in the Beamable Portal</center></p>
-<h1 id="batching-updates">Batching updates<a class="headerlink" href="#batching-updates" title="Permanent link">¶</a></h1>
+<h2 id="batching-updates">Batching updates<a class="headerlink" href="#batching-updates" title="Permanent link">¶</a></h2>
 <p>In this example there is created a new <code>UpdateCommand</code> and committed right away. For better performance and reduced calls to Beamable, it is encouraged to:</p>
 <ul>
 <li>Create <code>UpdateCommand</code></li>
@@ -1907,10 +2003,10 @@
 <li>Commit.</li>
 </ul>
 <p>When it is possible (and desirable) for your game, this flow reduces the overall latency your players experience and reduces the number of API calls you make to Beamable.</p>
-<h1 id="reading-other-players-public-stats">Reading Other Player's Public Stats<a class="headerlink" href="#reading-other-players-public-stats" title="Permanent link">¶</a></h1>
+<h2 id="reading-other-players-public-stats">Reading Other Player's Public Stats<a class="headerlink" href="#reading-other-players-public-stats" title="Permanent link">¶</a></h2>
 <p>You might want to read public stats of some other player to display information about them in your UI. To do that, you can use the following <code>Operation</code> and <code>Local State</code> calls. </p>
 <p><a class="glightbox" href="../../../../media/imgs/stats-reading-other-player-stats.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="stats-reading-other-player-stats.png" src="../../../../media/imgs/stats-reading-other-player-stats.png" /></a></p>
-<h1 id="stats-keys-values">Stats Keys &amp; Values<a class="headerlink" href="#stats-keys-values" title="Permanent link">¶</a></h1>
+<h2 id="stats-keys-values">Stats Keys &amp; Values<a class="headerlink" href="#stats-keys-values" title="Permanent link">¶</a></h2>
 <p>We do not enforce limitations on stat-keys or values. However, we do <em>highly recommend</em> the following guidelines for project organization and performance reasons.</p>
 <ul>
 <li>For Keys:<ul>
