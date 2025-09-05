@@ -23,7 +23,7 @@ Here's a bit of our philosophy when desing the SDK so you know a bit what to exp
 |<center>Most of our docs contains examples using Blueprints. Unless described otherwise there is option to achieve same results in C++ while following Blueprint sample. In C++, the subsystems and function names are the same except that, for lambda-binding, you'll need to use the `CPP_` versions of functions.|
 
 ## Technical Requirements 
-Beamable currently supports **Unreal 5.5.X**.
+Beamable currently supports **Unreal 5.6.X**.
 
 Beamable also has a dependency on  [.NET](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). This is needed for:
 
