@@ -58,7 +58,7 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
    6. Create a new Play Preset with the following settings:
       7. Name: `Beamball Gameplay`
       8. Available Maps: Add `L_Beamball_Gameplay` to the list.
-      10. Enable Fake Lobby: Enabled
+      10. Enable PIE Lobby: Enabled
       12. Game Type: `game_types.default`
       13. Add both `Player1` and `Player2` to the preset.
 6. Select the `Beamball Gameplay` Play Preset in the main toolbar.

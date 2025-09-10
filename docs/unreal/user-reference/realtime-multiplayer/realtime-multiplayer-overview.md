@@ -47,7 +47,7 @@ This guide explains how to leverage our SDK's **[PIE Support](../editor-systems/
 6. Use the **Play Presets** window to create a `My First Preset`.
    1. In **Map Settings**:
       1. Choose your Gameplay Level from the dropdown of Allowed Maps. This will make this preset available for use when you have this map open in the editor.
-   2. Toggle the **Fake Lobby Settings** on.
+   2. Toggle the **PIE Lobby Settings** on.
       1. Choose the `my_matchmaking_queue` game type from the dropdown.
       2. Add a `my_key` and `my_value` to the Global Lobby Data.  
    3. In **User Settings**:
@@ -61,7 +61,7 @@ Now that you have a preset, you can set up your Gameplay Level to use it:
 
 ![multiplayer-dropdown.png](../../../media/imgs/multiplayer-dropdown.png)
 
-3. Change Unreal's Playmode settings to be: **Play as Client** and **Number of Players = 1** (to match the number of users in the Fake Lobby).
+3. Change Unreal's Playmode settings to be: **Play as Client** and **Number of Players = 1** (to match the number of users in the PIE Lobby).
 
 ![multiplayer-clientcount.png](../../../media/imgs/multiplayer-clientcount.png)
 

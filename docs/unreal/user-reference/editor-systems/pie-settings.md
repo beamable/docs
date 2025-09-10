@@ -55,14 +55,14 @@ Play Presets can be configured to apply to specific maps or a list of maps which
 Play Presets can be configured to initialize lobbies for PIE, allowing you to test multiplayer scenarios with real Beamable accounts **_directly in PIE from the Gameplay Level_**. This is especially useful when testing games that use the **Gameplay Level** as the entry point, since it ensures the initialization of Beamable systems and lobby setup. Normally, this initialization would occur in earlier Levels, such as the **Main Boot Level** (Main Menu/Title Screen/etc...).  
 
 !!! warning "Integration with Beamable Realtime Multiplayer Systems"
-    Play Presets' Fake Lobby feature is tightly integrated with the Beamable Runtime Multiplayer Systems, having some requirements in your scenes to work properly. For more information, check the [Realtime Multiplayer Overview](../realtime-multiplayer/realtime-multiplayer-overview.md) page.
+    Play Presets' PIE Lobby feature is tightly integrated with the Beamable Runtime Multiplayer Systems, having some requirements in your scenes to work properly. For more information, check the [Realtime Multiplayer Overview](../realtime-multiplayer/realtime-multiplayer-overview.md) page.
 
-In the Fake Lobby Settings you can configure:
+In the PIE Lobby Settings you can configure:
 
-- **Enable/Disable**: The Checkbox in the header enables or disables the fake lobby simulation for this preset.
-- **Server Map Override**: The map that will be used as the server map for the fake lobby. This overrides the default server map defined in the Unreal Project Settings.
-- **Game Type**: The Game Type content that will be used for the fake lobby Scene. If there is a federation configured here, the federation does run too.
-- **Lobby Global Data**: Custom Global Key-Value pairs that will be used to initialize the fake lobby. This data is available in the Gameplay Scene and can be used to simulate different scenarios.
+- **Enable/Disable**: The Checkbox in the header enables or disables the PIE Lobby simulation for this preset.
+- **Server Map Override**: The map that will be used as the server map for the PIE Lobby. This overrides the default server map defined in the Unreal Project Settings.
+- **Game Type**: The Game Type content that will be used for the PIE Lobby Scene. If there is a federation configured here, the federation does run too.
+- **Lobby Global Data**: Custom Global Key-Value pairs that will be used to initialize the PIE Lobby. This data is available in the Gameplay Scene and can be used to simulate different scenarios.
 
 ![pie-fake-lobby.png](../../../media/imgs/pie-fake-lobby.png)
 
