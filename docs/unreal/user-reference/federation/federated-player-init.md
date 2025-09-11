@@ -33,9 +33,11 @@ public async Promise<PlayerInitResult> CreatePlayer(Account account, Dictionary<
 }
 ```
 
-# Setting up the Client
+## Setting up the Client
 
 From Unreal, this federation is triggered by any of the `Operation - Sign-Up` calls OR `Operation - Login - Frictionless` (see [Identity](../beamable-services/identity.md)). The code in this federation will have already run by the time these operations are completed.
+
+The `Account account` argument also contains valid email (in case of `Sign Up - Email`) and External Identity (in case of `Sign Up - Federated Identity`). This can be used to prefill stat/inventory values for the user based on the identity they used to sign up among other things.
 
 The `Dictionary<string, string> properties` argument in the Federation's C# Code is filled by the client. Aside from a few reserved properties listed below, you can pass in any values via the `InitProperies` parameter of the relevant operations.
 
@@ -63,14 +65,11 @@ A few ideas on how to leverage this:
 
 - Use `Game Client Versions` to define account initialization logic over time.
 - Use `Content` or `MicroStorages` to build more advanced segmented starting state logic.
-- Use information in the `InitProperties` to define different starting states. Ie.: you could use this to implement "console exclusive items" for example.
+- Use information in the `Account account` paramter and `Dictionary<string, string> properties` to define different starting states. Ie.: you could use this to implement "console exclusive items" for example.
 
-# Working Locally
-All calls for this Federation are In-Band calls. Therefore, you can just run your service with the federation and it'll be used.
-
-# Examples
+## Examples
 
 You can see an example of this federation in the following samples:
 
--  [Beamball](../../samples/beamball-demo.md) sample.
+-  [Beamball Demo](../../samples/beamball/beamball-demo.md) sample.
 -  [LiveOps Demo](../../samples/live-ops-demo.md) sample.

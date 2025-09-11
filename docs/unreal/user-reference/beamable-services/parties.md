@@ -10,13 +10,15 @@ The Beamable **Parties** feature supports various party management operations, i
 - Create
 - Join
 - Decline Invites
-- As party **LEADER** you can:
-    - Invite a player
-    - Kick a player
-    - Promote a player to leader
-    - Cancel the invite
 
-# Getting Started
+As party Leader you can:
+
+- Invite a player
+- Kick a player
+- Promote a player to leader
+- Cancel the invite
+
+## Getting Started
 
 This section will bring a simple case for a party system and show how to implement it using the Beamable's party subsystem.
 
@@ -24,7 +26,7 @@ To use the party system from beamable first you need to setup your enviroment wi
 
 With the multiplayer instances set we can start creating a Blueprint (BP) function that will do the basics operation of party.
 
-## Create a party
+### Creating a Party
 
 1. Open your Level Blueprint (or some other BP)
 2. Call the `Operation - Party - CreateParty`, It will create a party and put the user slot that call it inside the party.
@@ -36,7 +38,7 @@ With the multiplayer instances set we can start creating a Blueprint (BP) functi
     **Unrestrict**: Allows anyone to join the party without an invite.<br>
     **InviteOnly**: Only invited players can join the party.
 
-## Join a party
+### Joining a Party
 
 1. Open your Level Blueprint (or some other BP)
 2. Call the `TryGetUserPartyState` from the `BeamPartySubsystem`, if the player already in a party, it will return true and you need first to remove the player from the party before join into another party. If you try to join directly to other party it will return a error.
@@ -47,7 +49,7 @@ With the multiplayer instances set we can start creating a Blueprint (BP) functi
 ???+ Warning "Join Unrestrict Party"
     if the party is the type **unrestrict** it's possible to join without receive an invite from another player just calling the join.
 
-## Invite player (Leader Only)
+### Inviting player (Leader Only)
 
 1. Open your Level Blueprint (or some other BP)
 2. Call the `Operation - Party - InvitePlayerToMyParty`, It will send a invite to a given FBeamGamerTag.
@@ -58,39 +60,34 @@ With the multiplayer instances set we can start creating a Blueprint (BP) functi
 
 ![party-send-invite](../../../media/imgs/party-send-invite.png)
 
-## Decline Invite
+### Declining Invites
 
 1. Open your Level Blueprint (or some other BP)
 2. Call the `Operation - Party - DeclinePlayerInvite`, It will remove the received invite from the invite list of the player.
 
 ![party-decline](../../../media/imgs/party-decline.png)
 
-
-## Cancel Invite (Leader Only)
+### Canceling Invite (Leader Only)
 
 1. Open your Level Blueprint (or some other BP)
 2. Call the `Operation - Party - CancelPlayerPartyInvite`, It will cancel the invite sent to another player.
 
-
 ![party-promote-leader](../../../media/imgs/party-promote-leader.png)
 
-## Kick a player (Leader Only)
+### Kicking a Player (Leader Only)
 
 1. Open your Level Blueprint (or some other BP)
 2. Call the `Operation - Party - Kick Player From My Party`, It will remove a player from the party.
 
-
 ![party-party-kick](../../../media/imgs/party-kick.png)
 
-
-## Promote player to leader (Leader Only)
+### Promoting Player to Leader (Leader Only)
 
 1. Open your Level Blueprint (or some other BP)
 2. Call the `Operation - Party - Promote Player As My Party Leader`, It will promote another player as the party leader.
 
 ???+ Warning "Leader Leave the Party"
     When the leader leave the party, it will automatically pick another player as the party leader.
-
 
 ![party-promote-leader](../../../media/imgs/party-promote-leader.png)
 

@@ -17,7 +17,7 @@ Domain, in Unreal represented by enum `EBeamStatsDomain`, it describes if stat c
 - `client`- Can be accessed from both the **Unreal** and **Microservices**.
 - `game`- Cannot be accessed from **Unreal** directly, it can still be accessed via **Microservice** using `ClientCallable` calls.
 
-# Getting Started
+## Getting Started
 
 In order to create write to a `client`/`public` stat from a client we use the `Set Stat Operation` for individual stat changes. For batching multiple stat changes use the `TryCreateUpdateCommand` to begin building a set of stat changes for the given `UserSlot` which are later commited via the `Commit Stats Operation`.
 
@@ -36,7 +36,7 @@ You can check if it's working in the Beamable Portal:
 ![stats-portal.png](../../../media/imgs/stats-portal.png)
 <center>View of the stats in the Beamable Portal</center>
 
-# Batching updates
+## Batching updates
 In this example there is created a new `UpdateCommand` and committed right away. For better performance and reduced calls to Beamable, it is encouraged to:
 
 - Create `UpdateCommand`
@@ -45,12 +45,12 @@ In this example there is created a new `UpdateCommand` and committed right away.
 
 When it is possible (and desirable) for your game, this flow reduces the overall latency your players experience and reduces the number of API calls you make to Beamable.
 
-# Reading Other Player's Public Stats
+## Reading Other Player's Public Stats
 You might want to read public stats of some other player to display information about them in your UI. To do that, you can use the following `Operation` and `Local State` calls. 
 
 ![stats-reading-other-player-stats.png](../../../media/imgs/stats-reading-other-player-stats.png)
 
-# Stats Keys & Values
+## Stats Keys & Values
 We do not enforce limitations on stat-keys or values. However, we do *highly recommend* the following guidelines for project organization and performance reasons.
 
 - For Keys:

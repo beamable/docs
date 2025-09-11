@@ -12,7 +12,7 @@ This view defines whether the player has seen that announcement or claimed any g
 
 These are exposed in the `UAnnouncementView` object which can be accessed by the `UBeamAnnouncementsSubsystem::GetAnnouncements` method.
 
-# Getting Started
+## Getting Started
 
 It is common to attach gifts to announcements so that players can claim them. To do so, you can use the `ClaimAnnouncementsOperation` passing in the list of announcement ids (`UAnnouncementView::Id`).
 
