@@ -1,6 +1,16 @@
 ﻿# Beamable Blueprint Systems
 
-Beamable provides several types of Blueprint nodes to interact with its systems. These are organized into four main categories: `Low Level`, `Local State`, `Events Bind` and `Operation`. Each category serves different purposes and complexity levels in your game development workflow.
+Beamable provides several types of Blueprint nodes to interact with its systems. These are organized into four main categories: `Low Level`, `Local State`, `Events Bind` and `Operation`. Each category serves different purposes and complexity levels in your game development workflow. These are all "blueprint syntactic sugar" for the various usage patterns of their backing C++ functions.  
+
+!!! note "Navigating to C++ Code"
+    All of our special blueprint nodes link back to the appropriate C++ function via `Right-Click on Node > Go to Definition` or `Double-Click on Node`. 
+
+    To make sure this works, you can verify that: 
+
+    - `Editor Preferences > Blueprint Editor Settings > Navigate to Native Functions from Call Nodes` is `true` (this should be `true` by default).
+    
+    - You should also select your IDE in `Editor Preferences > Source Code > Source Code Editor` (this may or may not be automatically set depending on your choice of IDE).
+
 
 ## Low Level Blueprints
 
