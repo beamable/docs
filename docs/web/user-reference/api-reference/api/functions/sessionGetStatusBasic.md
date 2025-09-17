@@ -1,0 +1,42 @@
+[beamable-sdk](../../modules.md) / [api](../README.md) / sessionGetStatusBasic
+
+# Function: sessionGetStatusBasic()
+
+> **sessionGetStatusBasic**(`requester`, `intervalSecs`, `playerIds`, `gamertag?`): `Promise`<[`HttpResponse`](../../network/http/types/HttpResponse/interfaces/HttpResponse.md)<[`OnlineStatusResponses`](../../schema/type-aliases/OnlineStatusResponses.md)\>\>
+
+Defined in: [src/\_\_generated\_\_/apis/SessionApi.ts:81](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/apis/SessionApi.ts#L81)
+
+## Parameters
+
+### requester
+
+[`HttpRequester`](../../network/http/types/HttpRequester/interfaces/HttpRequester.md)
+
+The `HttpRequester` type to use for the API request.
+
+### intervalSecs
+
+The `intervalSecs` parameter to include in the API request.
+
+`string` | `bigint`
+
+### playerIds
+
+`string`
+
+The `playerIds` parameter to include in the API request.
+
+### gamertag?
+
+`string`
+
+Override the Gamer Tag of the player. This is generally inferred by the auth token.
+
+## Returns
+
+`Promise`<[`HttpResponse`](../../network/http/types/HttpResponse/interfaces/HttpResponse.md)<[`OnlineStatusResponses`](../../schema/type-aliases/OnlineStatusResponses.md)\>\>
+
+## Remarks
+
+**Authentication:**
+This method requires a valid bearer token in the `Authorization` header.

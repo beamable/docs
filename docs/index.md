@@ -1,4 +1,4 @@
-# Beamable TypeScript SDK
+# Beamable Web SDK
 The Beamable SDK provides functionality to integrate your game with the Beamable features. These range from Content (Remote Config) to Events to Inventory to Microservices (Beamable's unique approach to a Cloud Code Solution).
 
 <div class="grid cards" markdown>
@@ -7,7 +7,7 @@ The Beamable SDK provides functionality to integrate your game with the Beamable
 
 	---
 
-	Install TypeScript SDK and get up and running in minutes
+	Install Web SDK and get up and running in minutes
 
 	[:octicons-arrow-right-24: Getting started](#)
 
@@ -19,13 +19,13 @@ The Beamable SDK provides functionality to integrate your game with the Beamable
 
 	[:octicons-arrow-right-24: Beamable Concepts](#)
 
--   :octicons-rocket-24: __TypeScript SDK__
+-   :octicons-rocket-24: __Web SDK__
 
 	---
 
-	Learn how to implement Beamable SDK in your TypeScript project
+	Learn how to implement Beamable SDK in your Web project
 
-	[:octicons-arrow-right-24: Unity SDK](#)
+	[:octicons-arrow-right-24: Web SDK](#)
 
 -   :octicons-question-24: __Support__
 

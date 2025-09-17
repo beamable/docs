@@ -56,6 +56,10 @@ font-weight: bold;
     font-weight: bold;
 }
 
+h5, h6 {
+  text-transform: none !important;
+}
+
 :root > * {
 
     /* Primary color shades */

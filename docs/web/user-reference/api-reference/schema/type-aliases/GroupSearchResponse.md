@@ -1,0 +1,15 @@
+[beamable-sdk](../../modules.md) / [schema](../README.md) / GroupSearchResponse
+
+# Type Alias: GroupSearchResponse
+
+> **GroupSearchResponse** = `object`
+
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchResponse.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchResponse.ts#L8)
+
+## Properties
+
+### groups
+
+> **groups**: [`Group`](Group.md)[]
+
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchResponse.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchResponse.ts#L9)
