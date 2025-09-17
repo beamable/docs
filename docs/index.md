@@ -11,14 +11,6 @@ The Beamable SDK provides functionality to integrate your game with the Beamable
 
 	[:octicons-arrow-right-24: Getting started](#)
 
--   :octicons-package-24: __Beamble Concepts__
-
-	---
-
-	Check out the concepts behind Beamable Platform including CLI usage
-
-	[:octicons-arrow-right-24: Beamable Concepts](#)
-
 -   :octicons-rocket-24: __Web SDK__
 
 	---
@@ -26,13 +18,5 @@ The Beamable SDK provides functionality to integrate your game with the Beamable
 	Learn how to implement Beamable SDK in your Web project
 
 	[:octicons-arrow-right-24: Web SDK](#)
-
--   :octicons-question-24: __Support__
-
-	---
-
-	Check out the FAQ and Troubleshooting guide or contact us for help
-
-	[:octicons-arrow-right-24: Support](#)
 
 </div>

@@ -8,7 +8,7 @@ It is distributed in multiple module formats (ESM, CommonJS, IIFE) and provides 
 - [Installation](#installation)
 - [Using the SDK](#using-the-sdk)
 - [Documentation](#documentation)
-- [Contributing](_media/CONTRIBUTION.md)
+- [Contributing](../user-reference/api-reference/_media/CONTRIBUTION.md)
 - [License](#license)
 
 ## Installation
@@ -67,7 +67,7 @@ console.log(beam.player.id);
 
 Find detailed API references, usage examples, and integration guides for the Beam Web SDK:
 
-[Beam Web SDK Documentation](api-reference/modules.md)
+[Beam Web SDK Documentation](../user-reference/api-reference/modules.md)
 
 ## Token storage and automatic refresh
 

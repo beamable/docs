@@ -1,4 +1,4 @@
-﻿- API Reference
+- API Reference
     - [Overview](api-reference/modules.md)
     [//]: # (BEGIN AUTO-GENERATED: API MODULES)
     - [api](api-reference/api/README.md)
