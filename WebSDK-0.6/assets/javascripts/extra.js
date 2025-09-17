@@ -25,8 +25,8 @@ WaitForVersionNav('.md-version__list', function(element) {
         if(items[j].innerHTML.includes("Unreal")){unrealIndex = j;break;}
     }
 
-    for (let j = 0; j < items.length; j++) {
-        if(items[j].innerHTML.includes("WebSDK")){websdkIndex= j;break;}
+    for (let k = 0; k < items.length; k++) {
+        if(items[k].innerHTML.includes("WebSDK")){websdkIndex= k;break;}
     }
 
     // Unity Header
