@@ -2,7 +2,9 @@
   {
     "version": "WebSDK-0.6",
     "title": "WebSDK-0.6",
-    "aliases": []
+    "aliases": [
+      "WebSDK-Latest"
+    ]
   },
   {
     "version": "Unreal-2.1",
