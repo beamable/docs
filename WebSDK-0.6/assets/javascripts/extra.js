@@ -14,6 +14,7 @@ WaitForVersionNav('.md-version__list', function(element) {
 
     var unrealIndex = -1;
     var unityIndex = -1;
+    var websdkIndex = -1;
 
     const items = element.children;
     for (let i = 0; i < items.length; i++) {
@@ -22,6 +23,10 @@ WaitForVersionNav('.md-version__list', function(element) {
 
     for (let j = 0; j < items.length; j++) {
         if(items[j].innerHTML.includes("Unreal")){unrealIndex = j;break;}
+    }
+
+    for (let j = 0; j < items.length; j++) {
+        if(items[j].innerHTML.includes("WebSDK")){websdkIndex= j;break;}
     }
 
     // Unity Header
@@ -39,5 +44,12 @@ WaitForVersionNav('.md-version__list', function(element) {
         unrealHeader.innerText = "Unreal SDK";
         element.insertBefore(unrealHeader, items[unrealIndex]);
     }
-
+    
+    // WebSDK Header
+    if(websdkIndex !== -1) {
+        var websdkHeader = document.createElement("div");
+        websdkHeader.className = "md-version__header";
+        websdkHeader.innerText = "Web SDK";
+        element.insertBefore(websdkHeader, items[websdkIndex]);
+    }
 });
