@@ -7,6 +7,11 @@
     ]
   },
   {
+    "version": "Unreal-2.2",
+    "title": "Unreal-2.2",
+    "aliases": []
+  },
+  {
     "version": "Unreal-2.1",
     "title": "Unreal-2.1",
     "aliases": [
