@@ -31,7 +31,7 @@ The Beamable Unreal SDK is designed to work across multiple platforms. Below is 
 | Android  | ✅ | — | Released          |
 | Linux    | — | ✅ | Released         |
 | iOS      | 🚧 Planned | — | Q4 2025    |
-| Consoles | 🚧 Planned | 🚧 Planned | Q1/Q2 2026 |
+| Consoles | 🚧 Planned | — | Q1/Q2 2026 |
 
 ## Beamable CLI
 Most of the Beamable workflows are enabled through the Beamable CLI; our editor integrations making use of it to create Engine-specific workflows.
