@@ -1,5 +1,5 @@
 ﻿// Per Version Consts
-const VERSION_NAME = "Unreal" // "Unity", "Unreal", "WebSDK" or "" for all
+const VERSION_NAME = "WebSDK" // "Unity", "Unreal", "WebSDK" or "" for all
 
 // ---- Helpers ---------------------------------------------------------------
 function WaitForVersionNav(selector, callback) {
