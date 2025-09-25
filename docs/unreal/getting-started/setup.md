@@ -60,7 +60,7 @@ In each of the Modules you want to use Beamable's SDK, add this to their `Build.
 
 Pay attention to the type of module you're adding the SDK to and call the proper function. (You can see the module type in your `uproject` file)
 
-### Veryfing Installation and Running
+### Verifying Installation and Running
 Let's Check that everything is set up correctly and that you can compile your project.
 
 === "Windows"
