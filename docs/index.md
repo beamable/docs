@@ -22,35 +22,18 @@ Here's a bit of our philosophy when desing the SDK so you know a bit what to exp
 | ----------- | 
 |<center>Most of our docs contains examples using Blueprints. Unless described otherwise there is option to achieve same results in C++ while following Blueprint sample. In C++, the subsystems and function names are the same except that, for lambda-binding, you'll need to use the `CPP_` versions of functions.|
 
-## Technical Requirements 
-Beamable currently supports **Unreal 5.6.X**.
+## Platform Support Roadmap
+The Beamable Unreal SDK is designed to work across multiple platforms. Below is a table outlining the current support status and estimated time of arrival (ETA) for each platform.
 
-Beamable also has a dependency on  [.NET](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). This is needed for:
-
-- Installing the Beamable CLI (and therefore enabling the various Beamable workflows).
-- Using C# Microservices through the CLI.
-
-Beamable has a hard-dependency on [Docker](https://www.docker.com/products/docker-desktop/). This is needed for two things:
-
-- Building and Deploying Beamable Microservices to your realms (dev/staging/prod environments).
-- Running Beamable Microservices with MicroStorages without opening the service's project (for non-engineers that want to run microservices locally).
-
-If you don't have these installed, take this opportunity to install it while you investigate these docs further.
-
-## Platform Support
-We provide support for the following platforms:
-
-- Client:
-    - Windows
-    - Android    
-- Dedicated Server:
-    - Linux 
-
-iOS support should be added before the end of 2025. Console support Q1/Q2 of 2026.
+| Platform | Client Support | Dedicated Server Support | ETA        |
+|----------|----------------|--------------------------|------------|
+| Windows  | ✅ | — | Released   |
+| Android  | ✅ | — | Released          |
+| Linux    | — | ✅ | Released         |
+| iOS      | 🚧 Planned | — | Q4 2025    |
+| Consoles | 🚧 Planned | 🚧 Planned | Q1/Q2 2026 |
 
 ## Beamable CLI
-The minimum Beamable CLI version for this release is 5.1.0.
-
 Most of the Beamable workflows are enabled through the Beamable CLI; our editor integrations making use of it to create Engine-specific workflows.
 
 The SDK is tightly integrated with the CLI in some ways more than others. For example:
