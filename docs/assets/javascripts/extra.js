@@ -1,4 +1,7 @@
-﻿// Runs once the Version element is created by the mike scripts
+﻿// Per Version Consts
+const VERSION_NAME = "Unreal" // "Unity", "Unreal", "WebSDK" or "" for all
+
+// ---- Helpers ---------------------------------------------------------------
 function WaitForVersionNav(selector, callback) {
     const interval = setInterval(() => {
         const element = document.querySelector(selector);
@@ -6,50 +9,61 @@ function WaitForVersionNav(selector, callback) {
             clearInterval(interval);
             callback(element);
         }
-    }, 500); // Check each 500ms
+    }, 500);
 }
+
+function insertHeader(container, label, beforeNode) {
+    const header = document.createElement("div");
+    header.className = "md-version__header";
+    header.innerText = label;
+    container.insertBefore(header, beforeNode);
+}
+
+function headerLabel(name) {
+    const map = { Unity: "Unity SDK", Unreal: "Unreal SDK", WebSDK: "Web SDK" };
+    return map[name] || name || "Versions";
+}
+
+function isVersionEntry(node) {
+    // mike typically renders <a class="md-version__link">...</a> or <li>...</li>
+    return node?.classList?.contains('md-version__link') || node.tagName === 'A' || node.tagName === 'LI';
+}
+
+// ---- Main ------------------------------------------------------------------
 WaitForVersionNav('.md-version__list', function(element) {
-    console.log("Elemento encontrado:");
-    console.log(element)
+    const nodes = Array.from(element.children); // snapshot (avoid live-collection index shifts)
 
-    var unrealIndex = -1;
-    var unityIndex = -1;
-    var websdkIndex = -1;
+    // If VERSION_NAME is empty: show everything and add the three section headers like the original
+    if (!VERSION_NAME) {
+        // Find the first occurrence for each family BEFORE inserting anything
+        const firstUnity  = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Unity"));
+        const firstUnreal = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Unreal"));
+        const firstWeb    = nodes.find(n => isVersionEntry(n) && n.textContent.includes("WebSDK"));
 
-    const items = element.children;
-    for (let i = 0; i < items.length; i++) {
-        if(items[i].innerHTML.includes("Unity")){unityIndex = i;break;}
+        if (firstUnity)  insertHeader(element, "Unity SDK",  firstUnity);
+        if (firstUnreal) insertHeader(element, "Unreal SDK", firstUnreal);
+        if (firstWeb)    insertHeader(element, "Web SDK",    firstWeb);
+        return; // don't filter anything
     }
 
-    for (let j = 0; j < items.length; j++) {
-        if(items[j].innerHTML.includes("Unreal")){unrealIndex = j;break;}
+    // Otherwise: filter to only items that include VERSION_NAME
+    const visible = [];
+    for (const node of nodes) {
+        if (!isVersionEntry(node)) continue;
+        if (node.textContent.includes(VERSION_NAME)) {
+            visible.push(node);
+        } else {
+            node.style.display = 'none';
+            node.setAttribute('aria-hidden', 'true');
+        }
     }
 
-    for (let k = 0; k < items.length; k++) {
-        if(items[k].innerHTML.includes("WebSDK")){websdkIndex= k;break;}
-    }
-
-    // Unity Header
-    if(unityIndex !== -1) {
-        var unityHeader = document.createElement("div");
-        unityHeader.className = "md-version__header";
-        unityHeader.innerText = "Unity SDK";
-        element.insertBefore(unityHeader, items[unityIndex]);
-    }
-
-    // Unreal Header
-    if(unrealIndex !== -1) {
-        var unrealHeader = document.createElement("div");
-        unrealHeader.className = "md-version__header";
-        unrealHeader.innerText = "Unreal SDK";
-        element.insertBefore(unrealHeader, items[unrealIndex]);
-    }
-    
-    // WebSDK Header
-    if(websdkIndex !== -1) {
-        var websdkHeader = document.createElement("div");
-        websdkHeader.className = "md-version__header";
-        websdkHeader.innerText = "Web SDK";
-        element.insertBefore(websdkHeader, items[websdkIndex]);
+    if (visible.length > 0) {
+        insertHeader(element, headerLabel(VERSION_NAME), visible[0]);
+    } else {
+        const emptyMsg = document.createElement('div');
+        emptyMsg.className = 'md-version__empty';
+        emptyMsg.textContent = `No versions available for “${VERSION_NAME}”.`;
+        element.prepend(emptyMsg);
     }
 });
