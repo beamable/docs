@@ -21,7 +21,7 @@ To set up an organization and realm to run this sample, follow the steps below.
 3. Sign into your Beamable account and go to the `liveops-demo` realm.
       1. Optionally you can hit `Apply to Build` after the realm change is done.
 5. Let's Setup the Content
-      1. First you will need to run the command `dotnet beam content replace-local --from DE_1816044586323024 --to YOUR_REALM_ID` to bring all the content from the sample to your current realm.
+      1. First you will need to run the command `dotnet beam content restore --pid DE_1816044586323024 --name LastPublished-global` to bring all the content from the sample to your current realm.
       2. Open the `Content` window.
       3. Ensure there's an `item` content with the name `sample_item`
       4. Ensure there are 2 `currency` contents with names `gems` and `coins`
