@@ -1,3 +1,1 @@
-﻿- [Downloading and Installing](getting-started.md#cloning-and-installing-dependencies)
-- [Set up your Project](getting-started.md#set-up-the-beamable-sdk---fast-path)
-- [Making your First Request](getting-started.md#making-your-first-request)
+﻿- [Installing Beamable](installing-beamable.md)

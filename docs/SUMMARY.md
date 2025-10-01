@@ -1,8 +1,4 @@
 ﻿- [Introduction](index.md)
 - [Getting Started](unity/getting-started/)
 - [What's New?](unity/whatsnew/)
-- [Beamable Concepts](concepts/)
 - [SDK User Reference](unity/user-reference/)
-- [Samples](unity/samples/)
-- [Beamable CLI](cli/)
-- [Support](unity/support/)
