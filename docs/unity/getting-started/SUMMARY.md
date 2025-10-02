@@ -1,1 +1,1 @@
-﻿- [Installing Beamable](installing-beamable.md)
+﻿- [Setup Unity SDK](installing-beamable.md)
