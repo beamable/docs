@@ -1,8 +1,10 @@
 # Installing Beamable (Unity)
 
-## 1. Setup Unity
+Welcome to Beamable! This guide will walk you through the steps required to install the Beamable SDK into a Unity project.
 
-Create or open a Unity Project. For new projects, populate the Project Name, Location, and Template in the Unity "Hub" Window. 
+## Setup Unity
+
+Create or open your Unity Project. For new projects, populate the Project Name, Location, and Template in the Unity "Hub" Window. 
 
 Press the "Create" button to continue.
 
@@ -13,7 +15,7 @@ Press the "Create" button to continue.
 
 ![unity_hub_new_project_2019.jpg](../../media/imgs/unity_hub_new_project_2019.jpg)
 
-## 2. Setup Licensing
+## Setup Beamable SDK
 
 A Beamable license is required before completing the setup process below. Beamable cannot be downloaded, installed, or used without a license.
 
@@ -21,8 +23,6 @@ A Beamable license is required before completing the setup process below. Beamab
 
     • Sign up for Beamable today by [choosing a plan](https://www.beamable.com/pricing)! You can also [contact us](https://www.beamable.com/contact-us) if you have any questions  
     • License confirmation includes the **[Beamable SDK Installer Package](https://packages.beamable.com/com.beamable/Beamable_SDK_Installer.unitypackage)** file required for Step 3 below
-
-## 3. Setup Beamable
 
 Now use the **[Beamable SDK Installer Package](https://packages.beamable.com/com.beamable/Beamable_SDK_Installer.unitypackage)** file to install the Beamable SDK.
 
