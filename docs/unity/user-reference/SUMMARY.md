@@ -17,3 +17,4 @@
     - [Scheduled Jobs](cloud-services/scheduled-jobs.md)
 - Beamable Services
     - [Identity](beamable-services/identity/)
+    - [Profile & Storage](beamable-services/profile-storage/)
