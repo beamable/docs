@@ -13,7 +13,8 @@ ReadMe.io uses custom markdown extensions and proprietary syntax that need to be
 5. **Converting [block:image] blocks to standard markdown images**
 6. Replacing placeholder syntax with actual content
 7. Converting external image links to local references
-8. Cleaning up HTML elements and special syntax
+8. **Converting code block file naming syntax**
+9. Cleaning up HTML elements and special syntax
 
 ## Step-by-Step Conversion Process
 
@@ -322,36 +323,52 @@ ls -la docs/media/imgs/unity-editor-realm-selector.png
 [choosing a plan](https://www.beamable.com/pricing)
 ```
 
-### 8. Download External Images and Use Local References
+### 8. Convert Code Block File Naming Syntax
 
-**Process for each external image**:
+**Identify**: Look for code blocks with filenames included after the language identifier
 
-1. **Identify external image URLs** (typically ReadMe.io hosted)
-2. **Download images** using curl:
-   ```bash
-   curl -o "docs/media/imgs/descriptive-filename.png" "https://external-url.com/image.png"
-   ```
-3. **Update markdown references**:
-   ```markdown
-   ![Alt Text](../../media/imgs/descriptive-filename.png)
-   ```
+**Issue**: MkDocs does not support including filenames directly after the language identifier in code blocks. The filename must be placed before the code block as a separate line or heading.
 
-**Example**:
+**Example Conversion**:
 
-**Before**:
+**Before** (ReadMe.io format - NOT compatible with MkDocs):
 ```markdown
-![Import Package](https://files.readme.io/f7a8964-step-1.png)
+```csharp StatBehaviourExample.cs
+using Beamable.Stats;
+using UnityEngine;
+// ... rest of code
+```
 ```
 
-**Commands**:
-```bash
-curl -o "docs/media/imgs/step-1-import-package.png" "https://files.readme.io/f7a8964-step-1.png"
-```
-
-**After**:
+**After** (MkDocs compatible format):
 ```markdown
-![Import Package](../../media/imgs/step-1-import-package.png)
+StatBehaviourExample.cs
+```csharp
+using Beamable.Stats;
+using UnityEngine;
+// ... rest of code
 ```
+```
+
+**Alternative Format** (using heading):
+```markdown
+#### StatBehaviourExample.cs
+```csharp
+using Beamable.Stats;
+using UnityEngine;
+// ... rest of code
+```
+```
+
+**Common Patterns to Fix**:
+- ````csharp FileName.cs` → Move filename before code block
+- ````javascript script.js` → Move filename before code block  
+- ````python example.py` → Move filename before code block
+
+**Important Notes**:
+- The filename should be on its own line immediately before the code block
+- There should be no space between the filename line and the opening ```
+- This ensures proper syntax highlighting and rendering in MkDocs
 
 ### 9. Clean Up HTML Elements
 

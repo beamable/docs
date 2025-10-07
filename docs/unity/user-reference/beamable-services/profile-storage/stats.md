@@ -9,8 +9,8 @@ The **Stats** feature allows game makers to store and track pieces of data about
 
 The Stats feature offers two main entry points:
 
-- **StatsBehaviour** - This has high ease-of-use. 
-- **StatsService** - This has high flexibility.
+- **StatsService API** - This has high flexibility.
+- **StatsBehaviour Component** - This has high ease-of-use. 
 
 ## Custom Stats
 Beamable allows game makers to create custom status for the specific needs of the game design. Mind the following rules when creating defining those:
