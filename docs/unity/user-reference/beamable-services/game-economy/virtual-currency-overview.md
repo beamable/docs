@@ -18,7 +18,7 @@ The currencies for a given player can be managed in several ways, depending on y
 
 **Portal (Development):** Player currencies can also be modified through the Portal; Note that this should only be used during development or to make corrections to a player account.
 
-## API
+## Virtual Currency API
 
 The Beamable API provides helper functions to subscribe to changes in the currency, and modify the currency (if the client can write itself). The basis for the Currency system is built on the InventoryService, which is built on the Content service. If you're not familiar with how Content operations work, you can read about them in the [Content](../profile-storage/content/content-overview.md) section.
 
