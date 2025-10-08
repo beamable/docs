@@ -5,7 +5,7 @@ The purpose of this guide is for game makers to use Google Sign-In with the Beam
 Beamable integrates with Google's Sign-In service to provide seamless authentication for your game. Google's [Sign-In](https://developers.google.com/identity/sign-in/web/sign-in) manages the OAuth 2.0 flow and token lifecycle, simplifying your integration with Google APIs. A user always has the option to revoke access to an application at any time.
 
 When set up properly, the user experience in the game project will be as follows:
-![google-experience.png](../../../../media/imgs/google-experience.png)
+![google-experience.png](../../../../media/imgs/google-experience.png){: style="height:auto;width:500px"}
 
 !!! info "Prerequisites"
     Before Google Sign-In will work properly, the Unity project must be configured to support Google as a third-party authentication provider.

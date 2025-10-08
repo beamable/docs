@@ -28,4 +28,4 @@ Each feature has read/write access from the game client itself and via [Portal](
 
 _Example: Your game offers 3 'save slots'. On the first game session, the player chooses one empty save slot and all player-specific progress is stored at the end of each level. On subsequent game sessions, the player may continue from an existing save slot or choose an empty one. This is a good fit for the [Cloud Save](doc:cloud-save-feature-overview)._
 
-![Save Slots sample UI](../../../../../media/imgs/FileSelect.png)
+![Save Slots sample UI](../../../../../media/imgs/FileSelect.png){: style="height:auto;width:500px"}

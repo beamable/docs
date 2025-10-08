@@ -18,3 +18,4 @@
 - Beamable Services
     - [Identity](beamable-services/identity/)
     - [Profile & Storage](beamable-services/profile-storage/)
+    - [Game Economy](beamable-services/game-economy/)

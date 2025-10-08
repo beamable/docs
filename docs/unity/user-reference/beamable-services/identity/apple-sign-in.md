@@ -6,7 +6,7 @@ Beamable integrates with Apple Sign-In to make it easy for users to sign in to y
 
 When set up properly, the user experience in the game project will be as follows:
 
-![Apple Experience](../../../../media/imgs/apple-experience.png)
+![Apple Experience](../../../../media/imgs/apple-experience.png){: style="height:auto;width:500px"}
 
 !!! info "Prerequisites"
     Before Apple Sign-In will work properly, the Unity project must be configured to support Apple as a third-party authentication provider.

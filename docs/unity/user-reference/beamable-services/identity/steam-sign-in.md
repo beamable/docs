@@ -2,7 +2,7 @@
 
 In order to integrate Steam into any game you have to use the Steamworks SDK and the Steamworks API. This section will show you how to properly integrate the Steamworks SDK into a Unity Game. However, the implementations of Steamworks are relatively the same across various languages.
 
-![Steamworks](../../../../../media/imgs/4caee67-steamworks.png)
+![Steamworks](../../../../../media/imgs/4caee67-steamworks.png){: style="height:auto;width:500px"}
 
 !!! info "Install the Steamworks.NET SDK into your project."
     The Steamworks.NET SDK is a wrapper around the Steamworks SDK provided from Steam (Valve). You'll need to download the [Latest SDK](https://github.com/rlabrecque/Steamworks.NET/releases/latest) and install it into your project. Thankfully, it's only a Unity package and you can just import it into Unity like any other package.
@@ -13,7 +13,7 @@ In this guide, you will learn the key components to integrating Steam and Beamab
 
 Primarily we use the Steamworks SDK to acquire the Steam Token for Authentication. This same token is also used for purchases through steam. For Authentication as shown below, we use the token to validate it with Beamable, and once that has been accomplished we use the token result to then Login, Create or Attach the User in Steam to Beamable.
 
-![Steam Overview Flow](../../../../media/imgs/d37037e-steam_overview_flow.png)
+![Steam Overview Flow](../../../../media/imgs/d37037e-steam_overview_flow.png){: style="height:auto;width:500px"}
 
 ## Steam AppID Setup
 
@@ -21,7 +21,7 @@ You'll need an AppID, which you can acquire from Steam. If you do not have one, 
 
 `Example: MyAppName (1234567)`
 
-![Steam Create AppID](../../../../media/imgs/f5a715d-steam_create_appId.png)
+![Steam Create AppID](../../../../media/imgs/f5a715d-steam_create_appId.png){: style="height:auto;width:500px"}
 
 You then need to place this AppID in a file that was installed in the root of your project folder. This file is called **steam_appid.txt**. The root of your project is located in the folder above your _Assets_ folder. It should look like the following, with only the AppID present in the file steam_appid.txt: `1234567`
 
@@ -33,7 +33,7 @@ Once you have done this, you can verify that the Steamworks SDK is working by cr
 
 Log in to [Steam Partner Portal] and use the dropdown option to Manage Groups. In your main group, you will need to create a Web API Key if you have not created one yet. It will be located as an option in the right-hand side bar. If you have already created one, then it will be displayed in the side bar as well.
 
-![Create Web API Key](../../../../media/imgs/5156251-create_web_api_key.png)
+![Create Web API Key](../../../../media/imgs/5156251-create_web_api_key.png){: style="height:auto;width:500px"}
 
 Follow these steps in the Beamable Portal:
 
@@ -47,7 +47,7 @@ Follow these steps in the Beamable Portal:
 | 6 | Use your Steam AppID for the **appid** value |
 | 7 | Enter your WebAPI key for the **key** value |
 
-![Portal Realm Config Steam](../../../../media/imgs/7bf9ab2-Portal-Realm_Config_steam.png)
+![Portal Realm Config Steam](../../../../media/imgs/7bf9ab2-Portal-Realm_Config_steam.png){: style="height:auto;width:500px"}
 
 While the above steps are not needed to test that the Steamworks SDK is working, they are critical in order for the Beamable Steam integration to work properly. Note that you will also need to have a GameObject with the SteamManager script (from the [Steamworks.NET Example repository](https://github.com/rlabrecque/Steamworks.NET-Example/blob/master/Assets/Scripts/Steamworks.NET/SteamManager.cs)) attached.
 

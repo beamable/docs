@@ -1,1 +1,2 @@
 ﻿- [LightBeam](lightbeam.md)
+- [Android IAP](stores-android-iap.md)

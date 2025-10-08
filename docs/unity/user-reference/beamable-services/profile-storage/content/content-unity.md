@@ -12,16 +12,16 @@ This change unifies content management across Beamable's ecosystem without disru
 
 To open the Content Manager, select it from the Beamable Button.
 
-![Beamable Button Menu](../../../../../media/imgs/beamable-button-menu.png)
+![Beamable Button Menu](../../../../../media/imgs/beamable-button-menu.png){: style="height:auto;width:400px"}
 
 Here is the user interface of the Beamable "Content Manager" tool window.
 
-![The Beamable Content Manager](../../../../../media/imgs/content-manager-general.png)
+![The Beamable Content Manager](../../../../../media/imgs/content-manager-general.png){: style="height:auto;width:500px"}
 
 ### Content Status Bar
 Provide quick information about the status of local content compared to remote content.
 
-![The "Status Bar" indicates the status of local content](../../../../../media/imgs/content-status-bar.png)
+![The "Status Bar" indicates the status of local content](../../../../../media/imgs/content-status-bar.png){: style="height:auto;width:600px"}
 
 The level of the status bar indicates the overall state of local content:
 
@@ -57,15 +57,15 @@ This feature streamlines collaboration by keeping content in sync while safeguar
 ### Validate
 The validation window automatically filters any invalid content and lists it in a list. It centralizes all invalid content and validation error messages into a single place, allowing you to fix them individually without needing to search for them in the Content Editor.
 
-![Content Validate Button](../../../../../media/imgs/BeamContentEditor_Validate.png)
+![Content Validate Button](../../../../../media/imgs/BeamContentEditor_Validate.png){: style="height:auto;width:400px"}
 
 
-![The Validation Window](../../../../../media/imgs/content-validation-window.png)
+![The Validation Window](../../../../../media/imgs/content-validation-window.png){: style="height:auto;width:400px"}
 
 ### Sync
 The Sync operation enables synchronization between local and remote content, reverting any local changes to match the remote data on Realm. 
 
-![Content Sync Button](../../../../../media/imgs/content-sync-button.png)
+![Content Sync Button](../../../../../media/imgs/content-sync-button.png){: style="height:auto;width:400px"}
 
 
 You can choose to sync specific content types:
@@ -83,13 +83,13 @@ Then, the Revert Contents validation window gets all local changes and splits th
 - **Modified** 
 - **Conflicted** 
 
-![The Revert Summary Window](../../../../../media/imgs/content-revert-summary.png)
+![The Revert Summary Window](../../../../../media/imgs/content-revert-summary.png){: style="height:auto;width:400px"}
 
 After validating which contents will be reverted, the content manager will start the process of reverting your local data to match the target Realm.
 
 ### Publish
 
-![Content Publish Button](../../../../../media/imgs/content-publish-button.png)
+![Content Publish Button](../../../../../media/imgs/content-publish-button.png){: style="height:auto;width:400px"}
 
 The publish process compares the local content to the Beamable back-end and shows the publish confirmation window. 
 
@@ -99,7 +99,7 @@ The publish confirmation window organizes local changes into three categories:
 - **Deleted** 
 - **Modified**
 
-![The Publish Summary Window](../../../../../media/imgs/content-publish-summary.png)
+![The Publish Summary Window](../../../../../media/imgs/content-publish-summary.png){: style="height:auto;width:400px"}
 
 When executed, the operation:
 

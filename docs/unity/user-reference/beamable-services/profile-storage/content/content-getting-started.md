@@ -178,8 +178,8 @@ namespace Beamable.Examples.Services.ContentService
 
 After being added to a GameObject, the Inspector will display a drop-down of all valid content entries.
 
-![Content Service Example](../../../../../../media/imgs/ContentServiceExample.png)
+![Content Service Example](../../../../../../media/imgs/ContentServiceExample.png){: style="height:auto;width:500px"}
 
 Click Play in the Editor and inspect the console to see that the Item content was pulled successfully.
 
-![Content Service Logs](../../../../../../media/imgs/ContentServiceLogs.png)
+![Content Service Logs](../../../../../../media/imgs/ContentServiceLogs.png){: style="height:auto;width:500px"}

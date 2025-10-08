@@ -2,11 +2,11 @@
 
 Providing Facebook sign-in is a great, and very common, way to provide cross-platform identity support to your game. Facebook also provides a number of social features that are supported by Beamable and that will help you connect players together and create communities for your game(s).
 
-![Facebook Sign-In](../../../../media/imgs/e869edb-442d473-facebook3.png)
+![Facebook Sign-In](../../../../media/imgs/e869edb-442d473-facebook3.png){: style="height:auto;width:500px"}
 
 Below is a typical Facebook usage pattern. You initiate from your UI that you want to use Facebook to sign-in and then listen for the callbacks from the Facebook SDK. Once the player account has successfully logged into Facebook, then you can use Beamable to link to an existing account or create a new one.
 
-![Facebook Flow](../../../../media/imgs/d3ad803-facebook_flow.png)
+![Facebook Flow](../../../../media/imgs/d3ad803-facebook_flow.png){: style="height:auto;width:500px"}
 
 ## Facebook Sign-In
 

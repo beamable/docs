@@ -2,7 +2,7 @@
 
 The **Content** feature allows game maker to store project-specific data objects. It's embedded into many Beamable features, such as Inventory, Store, Leaderboards, and Tournaments. For simplicity, some Beamable data structures may be omitted from this diagram.
 
-![content-data-concepts.png](../../../../../media/imgs/content-data-concepts.png)
+![content-data-concepts.png](../../../../../media/imgs/content-data-concepts.png){: style="height:auto;width:500px"}
 
 ## Content ID
 
@@ -301,7 +301,7 @@ Content management is critical to keep the content in your game engaging and rea
 
 Beamable provides a streamlined Content Publishing pipeline. You can deploy your content across multiple environments that can be tailored to your own internal publishing workflow.
 
-![content-management.png](../../../../../media/imgs/content-management.png)
+![content-management.png](../../../../../media/imgs/content-management.png){: style="height:auto;width:500px"}
 
 When you create your Beamable account, we automatically create a "Development to Production" pipeline of distinct environments for you. These environments are "Dev" → "Staging" → "Production". This is how we enable you to publish your content to our servers for the development environment while allowing you the peace of mind to know that the "Production" environment has not been modified.
 
