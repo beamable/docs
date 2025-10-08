@@ -4,7 +4,7 @@ Beamable’s SDK provides frictionless authentication by default when the SDK is
 
 ## Frictionless Flow Diagram
 
-![Frictionless Flow](../../../../../media/imgs/frictionless_auth_lifecycle.png)
+![Frictionless Flow](../../../../../media/imgs/frictionless_auth_lifecycle.png){: style="height:auto;width:600px"}
 
 Whenever you use Beamable, you should initialize the SDK, this can be done more than once as it uses the Singleton pattern under the hood. That means it will only ever create one instance the Beamable API and it returns a reference to that instance.
 

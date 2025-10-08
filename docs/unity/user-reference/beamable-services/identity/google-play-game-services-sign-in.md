@@ -10,9 +10,6 @@ This document describes how to complete a basic Google Play Games Services integ
 
 !!! info "Prerequisites"
     Before Google Sign-In will work properly, the Unity project must be configured to support GPGS as a third-party authentication provider. Make sure that GPGS is working correctly and the user can login to GPGS in-game before using it as third-party provider.
-    
-    - [Prerequisites](google-play-game-services-sign-in-guide#prerequisites)
-    - [Configure Unity Project](google-play-game-services-sign-in-guide#configure-unity-project)
 
 ## Google Play Game Services Integration
 

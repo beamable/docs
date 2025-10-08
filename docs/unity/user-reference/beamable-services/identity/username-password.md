@@ -9,7 +9,7 @@ Beamable will create a user account for you when you initialize, but you can use
 
 Below is a simple username and password flow where, after initializing, we prompt the user for how they want to proceed. They have the option to create a new account or to log in. This example doesn't include flows for password recovery or account switching. However, those can be also implemented.
 
-![Simple Username Password Flow](../../../../media/imgs/d86e42f-simple_username_password_flow.png)
+![Simple Username Password Flow](../../../../media/imgs/d86e42f-simple_username_password_flow.png){: style="height:auto;width:600px"}
 
 Using the username and password feature is easy. There are just a few APIs you need to know about to be ready to go. Read more here to learn how to use `AddEmail` and `RecoverAccountWithEmail` methods of the `PlayerAccounts` SDK.
 
@@ -28,7 +28,7 @@ private async void Start()
 }
 ```
 
-## Add Email
+## Adding Email
 
 The Beamable SDK always has an implicit account after the `BeamContext` has been created. Various credentials may be added to the account, such as an email and password.
 

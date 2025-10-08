@@ -6,7 +6,7 @@ Authentication is often tricky and has more edge cases than one normally thinks 
 
 **Find the authentication type that best suits your game below and learn how easy it is to integrate into your game.**
 
-![Identity Flow Diagram](../../../../media/imgs/identity_flow.png)
+![Identity Flow Diagram](../../../../media/imgs/identity_flow.png){: style="height:auto;width:600px"}
 
 ## Login Functions
 

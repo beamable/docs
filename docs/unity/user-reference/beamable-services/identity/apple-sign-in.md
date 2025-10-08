@@ -11,10 +11,6 @@ When set up properly, the user experience in the game project will be as follows
 !!! info "Prerequisites"
     Before Apple Sign-In will work properly, the Unity project must be configured to support Apple as a third-party authentication provider.
 
-    - [Prerequisites](apple-sign-in-guide#prerequisites)
-    - [Configure Beamable](apple-sign-in-guide#configure-beamable)
-    - [Configure Xcode Project](apple-sign-in-guide#configure-xcode-project)
-
 ## Apple Sign-In Integration
 
 The recommended solution for implementing Apple Sign-In is to build a wrapper on top of SignInWithApple, a Unity package that is installed with Beamable.

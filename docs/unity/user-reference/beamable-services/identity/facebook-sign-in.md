@@ -12,12 +12,6 @@ Below is a typical Facebook usage pattern. You initiate from your UI that you wa
 
 You can use Facebook Sign-In without the prefab Account Management Flow as well. Below are the integration steps that will allow you to implement Facebook Sign-In & Beamable via Code.
 
-!!! info "Prerequisites"
-    You will still need to follow some Prerequisites, Configure Unity Project & Configure Beamable steps from the [Facebook Sign-In - Guide](facebook-sign-in-guide.md).
-
-    - [Prerequisites](facebook-sign-in-guide.md#prerequisites)
-    - [Configure Unity Project](facebook-sign-in-guide.md#configure-unity-project)
-    - [Configure Beamable](facebook-sign-in-guide.md#configure-beamable)
 
 While the guide describes a solid implementation of using the Facebook Sign-In feature, this section will describe several API pieces for you to implement your own wrapper.
 

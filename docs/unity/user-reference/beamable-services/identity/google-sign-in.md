@@ -10,10 +10,6 @@ When set up properly, the user experience in the game project will be as follows
 !!! info "Prerequisites"
     Before Google Sign-In will work properly, the Unity project must be configured to support Google as a third-party authentication provider.
 
-    - [Prerequisites](google-sign-in-guide#prerequisites)
-    - [Configure Unity Project](google-sign-in-guide#configure-unity-project)
-    - [Configure iOS Settings](google-sign-in-guide#additional-ios-setup) (if applicable)
-
 ## Google Sign-In Integration
 
 The Beamable SDK contains a wrapper for native Google Sign-In behavior on Android and iOS. The provided class is called GoogleSignIn, which can be initialized with the correct Web Client ID, iOS Client ID, as well as a "target" (a context for the sign in callback to attach to), and a callback method name.
