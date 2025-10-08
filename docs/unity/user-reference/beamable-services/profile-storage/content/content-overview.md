@@ -265,7 +265,7 @@ public async Promise<IList<IContentObject>> LoadMyTaggedContent(string tag)
 
 This 'MyCustomContent.cs' snippet includes the  `[Agnostic]` attribute. To make content classes available to your microservices, add the attribute to your content classes.
 
-See [Microservices](doc:microservices-feature-overview) for more info.
+See [Microservices](../../../cloud-services/microservices/microservice-framework.md) for more info.
 
 MyCustomContent.cs
 ```csharp
@@ -335,7 +335,7 @@ See source code of `Runtime/DisruptorEngine/Content/ContentCache.cs` for more in
 Config data, or "Content" as it is called within Beamable, is realm-scoped and can be deployed from either...
 
 - **Unity** -  Via Unity's [`ScriptableObject`](https://docs.unity3d.com/Manual/class-ScriptableObject.html)
-- **Google Sheets** -  Via Beamable's [Game Content Designer](doc:game-content-designer)
+- **Google Sheets** -  Via Beamable's Game Content Designer
 
 Within the context of a CI/CD pipeline, game makers can create jobs that invoke the Content deployment function against data it pulled from source control, and pass in arguments for which realm this Content should go to. This is not theoretical, this is what game makers do today in production.
 

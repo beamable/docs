@@ -69,7 +69,7 @@ The manifest tracks the MD5 checksum(etag) of the file and the common name(key) 
 
 ### Changing Service Configuration
 
-It is possible to override and adapt the service to best adapt to your application, the possible configurations are available in the `PlayerCloudSavingConfiguration` class. By default, the system will use a new instance of it if it has default values. To change their values you need to modify dependency to the Beamable Dependency Injection. For this, you can check this [guide](https://docs.beamable.com/docs/di-custom-services#modifying-services) of how to do it properly. The final result should look like this:
+It is possible to override and adapt the service to best adapt to your application, the possible configurations are available in the `PlayerCloudSavingConfiguration` class. By default, the system will use a new instance of it if it has default values. To change their values you need to modify dependency to the Beamable Dependency Injection. The final result should look like this:
 
 CustomRegisterExample.cs
 
@@ -141,13 +141,13 @@ For this option, whenever a File is Saved using the `SaveData` functions through
 
 The AutoCloud feature will automatically check the /data/ folder checking for changes every polling interval and automatically uploading any changes to the cloud service. It also updates the local manifest automatically. This is slightly more expensive than the first option as it needs to keep generating the checksum for the file every polling interval, but it allows you to write the file manually to the data folder.
 
-To enable this option, you will need to add or update the Custom dependency for `PlayerCloudSavingConfiguration` and set the property `UseAutoCloud` to true. Check the section [Changing Service Configuration](https://docs.beamable.com/docs/player-cloud-save-code#changing-service-configuration) to see how to properly add it.
+To enable this option, you will need to add or update the Custom dependency for `PlayerCloudSavingConfiguration` and set the property `UseAutoCloud` to true. Check the section [Changing Service Configuration](#changing-service-configuration) to see how to properly add it.
 
 ### Error Handling
 
 Is possible that some errors occur when trying to download a saved file. The system automatically will try to download the file 10 times, if the 10th time fails, the system will return an error. Which can be anything from no connection to a file not found. By default the service will use the DefaultRecover, which will not throw an exception if the file cannot be found in storage, ignoring its download and using the local reference as the new one. If there is any other error, it will throw the exception.
 
-If you want to change its behavior, you will need to add or update the Custom dependency for `PlayerCloudSavingConfiguration` and set the property `HandleDownloadFileError`. Check the section [Changing Service Configuration](https://docs.beamable.com/docs/player-cloud-save-code#changing-service-configuration) to see how to properly add it.
+If you want to change its behavior, you will need to add or update the Custom dependency for `PlayerCloudSavingConfiguration` and set the property `HandleDownloadFileError`. Check the section [Changing Service Configuration](#changing-service-configuration) to see how to properly add it.
 
 ## Data Limitations
 
@@ -155,7 +155,7 @@ There is a limit of 5MB per cloud save file.
 
 ## Data Management Via Portal
 
-The [Portal](doc:portal) allows the game maker to manage player data as well. Search for a player, select the CloudData tab, and navigate to the player data. 
+The Portal allows the game maker to manage player data as well. Search for a player, select the CloudData tab, and navigate to the player data. 
 
 Some common use-cases for game makers include;
 
