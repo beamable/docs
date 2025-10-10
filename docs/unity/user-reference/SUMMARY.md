@@ -20,3 +20,4 @@
     - [Profile & Storage](beamable-services/profile-storage/)
     - [Game Economy](beamable-services/game-economy/)
     - [Live Ops](beamable-services/live-ops/)
+    - [Social & Networking](beamable-services/social-networking/)
