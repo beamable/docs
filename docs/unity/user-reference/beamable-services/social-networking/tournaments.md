@@ -8,7 +8,7 @@ Tournaments offer deep engagement and social competition features for your game.
 
 Beamable offers two types of recurring live events to increase player engagement and retention:
 
-- **1. Events** - Scheduled competitions with specific start and end times. See [Events](events-feature-overview.md) for more info.
+- **1. Events** - Scheduled competitions with specific start and end times. See [Events](../live-ops/events-overview.md) for more info.
 - **2. Tournaments** - Recurring competitions with automatic tier-based progression. Continue reading below for more info.
 
 ![tournments-experience.png](../../../../media/imgs/tournments-experience.png){width="600px" height="auto"}

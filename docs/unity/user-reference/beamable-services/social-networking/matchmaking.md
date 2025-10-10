@@ -6,7 +6,7 @@ In multiplayer gaming, matchmaking is the process of creating/finding a **Match*
 
 The Matchmaking service has many built-in events to attach listeners (e.g. match starting, search timeout, etc). This makes it very simple to connect your game's custom UI to Beamable's services.
 
-The outcome of a successful matchmaking search gives the participating players a match ID. This can be used to integrate Beamable's in-house [Multiplayer](doc:multiplayer-feature-overview) solution, or a third-party multiplayer suite such as [Photon](https://www.photonengine.com/).
+The outcome of a successful matchmaking search gives the participating players a match ID. This can be used to integrate Beamable's in-house [Multiplayer](multiplayer.md) solution, or a third-party multiplayer suite such as [Photon](https://www.photonengine.com/).
 
 The basic flow for matchmaking is described below:
 
@@ -18,10 +18,6 @@ The basic flow for matchmaking is described below:
 | Wait For Search   | The player waits for other players to also enter matchmaking. This is a good place to display matchmaking callbacks to the user (how many players have been found so far, how long the search has taken in seconds, etc). |
 | Report Timeout    | If a duration of time has passed and a suitable match has not been found, the search is ended, at which point the player will need to restart searching.                                                                  |
 | Join Match        | A suitable match has been found, the participating clients are now supplied with a match ID which they can use to join the "room".                                                                                        |
-
-!!! info "Related Features"
-
-    • [Multiplayer](doc:multiplayer-feature-overview) - Beamable's multiplayer solution
 
 ## Matchmaking API
 
@@ -38,12 +34,6 @@ The main API is the [`MatchmakingService`](https://csharp.cdocs.beamable.com/lat
 | MatchmakingHandle | Handles events from the matchmaking process<br><br>• `OnUpdate` - Process is in progress, with success<br>• `OnMatchReady` - Process complete with success<br>• `OnMatchTimeout` - Process complete with failure |
 
 Here is a custom, game-specific implementation which matches any 2 players without filtering. Depending on game design needs, the service can be extended to filter and match players with similar attributes; e.g. game skill level, network latency, spoken language, or geographic location.
-
-!!! info "Learning Fundamentals"
-
-    Understanding asynchronous programming is essential for working with Beamable's matchmaking system.
-
-    • See [Beamable: Asynchronous Programming](https://docs.beamable.com/docs/guides-overview#asynchronous-programming) for more info
 
 The following shows partial sample code snippets:
 
@@ -461,11 +451,11 @@ To create a **Matchmaking** experience with Beamable, using the `SimGameType` co
 
 The following steps outline the matchmaking setup process:
 
-| Step | Detail |
-|------|--------|
-| 1. Setup Beamable | • See [Step 1 - Getting Started](doc:installing-beamable) |
-| 2. Setup Content | • The content type related to Matchmaking is the `SimGameType`. It defines the parameters for the match to be created.<br><br>_Note: See [Setup Content](#setup-content) below for more info_ |
-| 3. Create C# multiplayer-specific logic | • Access Local Player Information<br>• Create Multiplayer Session<br>• Handle Events<br>• Send Events<br><br>_Note: See [Multiplayer - Code](doc:multiplayer-code) for more info_ |
+| Step | Detail                                                                                                                                                                   |
+|------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1. Setup Beamable | • See [Getting Started](../../getting-started.md)                                                                                                               |
+| 2. Setup Content | • The content type related to Matchmaking is the `SimGameType`. It defines the parameters for the match to be created.                                                   |
+| 3. Create C# multiplayer-specific logic | • Access Local Player Information<br>• Create Multiplayer Session<br>• Handle Events<br>• Send Events<br><br>_Note: See [Multiplayer](multiplayer.md) for more info_     |
 | 4. Create C# game-specific logic | • Convert input to events<br>• Gracefully handle network latency<br>• Convert events into graphics and audio rendering<br>• Handle game logic (e.g. win/loss conditions) |
 
 The content type related to Matchmaking is the `SimGameType`. It defines the parameters for the match to be created.

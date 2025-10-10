@@ -42,7 +42,7 @@ The Beamable Multiplayer API is lean and straightforward to setup. The pipeline 
 
 Beamable's Multiplayer is a **relay server**. This means that Beamable keeps a list of all events sent from all clients in a given match. Then, via push or pull, each client can ask "for all events since last time I asked". The clients then MUST advance the game play deterministically, replaying each player's input, so each client is in sync.
 
-Plus, with Beamable Multiplayer, the game logic can access the full suite of Beamable functionality including [Admin Flow](doc:admin-prefab), [Cloud Save](doc:cloud-save-feature-overview), [Inventory Flow](doc:inventory-prefab), and more!
+Plus, with Beamable Multiplayer, the game logic can access the full suite of Beamable functionality including [Inventory](../game-economy/inventory-overview.md), [Cloud Save](../profile-storage/cloud-save.md), and more!
 
 here is a high-level diagram of the Beamable Multiplayer terms
 
@@ -51,7 +51,7 @@ here is a high-level diagram of the Beamable Multiplayer terms
 | Client | This refers to the instance of the game code that is running on each player's local device (e.g. Mobile Phone) |
 | Event | The data packet that represents a player's turn in the game. This may be any serializable C# structure. |
 | Latency | This measurement indicates the average total time needed for the game **client** to send an event to the Multiplayer **server** and receive the reply. Latency is measured in milliseconds (e.g. 200ms) |
-| Matchmaking | This is the process of choosing a `MatchId` based on criteria. E.g. "Give me a match to play in with 3 total players with beginner skill level". Beamable includes an optional, light-weight Matchmaking service.<br><br>_Note: See [Matchmaking](doc:matchmaking-feature-overview) for more info_ |
+| Matchmaking | This is the process of choosing a `MatchId` based on criteria. E.g. "Give me a match to play in with 3 total players with beginner skill level". Beamable includes an optional, light-weight Matchmaking service.<br><br>_Note: See [Matchmaking](matchmaking.md) for more info_ |
 | SimClient | This class is the main entry point for Beamable's Multiplayer feature. |
 | SimClient's TargetNetworkLead | This is network buffer. It represents how long the Multiplayer **server** holds game **events** before sending them back to clients. E.g. With a value of 5, the Multiplayer **server** will hold 5 events before sending those 5 to the game client's. A higher value provides more consistency to the **clients'** rendering experience, but at the cost of higher latency. |
 | SimClient's Match | This represents a set of players playing a specific instance of the game together. Only players in the **same** match may collaborate, compete, and communicate. |
@@ -86,7 +86,7 @@ The sample game includes an optional bot opponent. This is an AI that plays agai
 
 The sample game allows a workflow to test the full 2 player experience with relative ease. Build the Unity sample project as a standalone game for either Mac or PC. Then run the game in the Unity Editor **also**. Simply click "Start Game: Human vs Human" from the Menu Scene in **both** game clients to activate it. 
 
-Doing a build takes a few minutes. Depending on the specifics of your game, it may not be required to rebuild the standalone after **every** code change. See <a href="#game-maker-user-experience">Game Maker User Experience</a> for more info.
+Doing a build takes a few minutes. Depending on the specifics of your game, it may not be required to rebuild the standalone after **every** code change.
 
 This is the process of choosing a `MatchId` based on criteria. E.g. "Give me a match to play in with 3 total players with beginner skill level". Beamable includes an optional, light-weight Matchmaking service.
 
@@ -197,7 +197,7 @@ In the event that a network outage is unrecoverable, the entire `SimNetworkEvent
 
 #### Custom Fault Tolerance
 
-It is possible to inject custom network outage fault tolerance logic. Use [Custom Dependency Injection](doc:player-centric-api-dependency-injection#custom-services) to inject a new instance of `ISimFaultHandler`, or pass in a custom instance of `ISimFaultHandler` as an optional parameter to the `SimNetworkEventStream`.
+It is possible to inject custom network outage fault tolerance logic. Use [Custom Dependency Injection](../../runtime-systems/dependency-injection/di-custom-services.md) to inject a new instance of `ISimFaultHandler`, or pass in a custom instance of `ISimFaultHandler` as an optional parameter to the `SimNetworkEventStream`.
 
 The default implementation of the `ISimFaultHandler` is the `DefaultSimFaultHandler`.
 

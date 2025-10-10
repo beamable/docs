@@ -329,5 +329,4 @@ namespace Beamable.Examples.Services.GroupsService
 The chat feature includes full functionality for groups. Players can send chat messages within their group. Players can also send chat messages globally, within rooms, and directly to a specific player. See [Chat](chat.md) for more info.
 
 ## Adding Group Events
-
-The events feature includes full functionality for groups. Players can collaborate with group members and get group rewards. See [Events](doc:events-feature-overview) for more info.
+The events feature includes full functionality for groups. Players can collaborate with group members and get group rewards. See [Events](../live-ops/live-ops.md) for more info.

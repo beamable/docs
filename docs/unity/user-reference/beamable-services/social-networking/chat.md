@@ -7,7 +7,7 @@ The purpose of this feature is to allow players to communicate together in-game 
 Here are some common use cases for the Chat feature:
 
 - **Single Player Games:** Broaden the metagame with social features to boost retention  
-- **Multiplayer Games:** Deepen the core game to increase engagement. See [Multiplayer](doc:multiplayer-feature-overview) for more info
+- **Multiplayer Games:** Deepen the core game to increase engagement. See [Multiplayer](multiplayer.md) for more info
 
 Here is the main chat-related terms to be aware.
 
@@ -54,7 +54,7 @@ private void OnMessageReceived (Message message)
 
 ### Group Chat
 
-Players can create groups, interact, and chat with group members in real-time. See [Groups](doc:groups-feature-overview) for more info.
+Players can create groups, interact, and chat with group members in real-time. See [Groups](groups.md) for more info.
 
 ### Filtering Chat Messages
 
