@@ -276,12 +276,16 @@ Even more content...
 }
 [/block]
 ```
-→ 
+→
 ```markdown
 ![Image 1](../../media/imgs/filename1.png)
 
 ![Image 2](../../media/imgs/filename2.png)
 ```
+
+**Image Styling**:
+- `{width="600px"}` - Set fixed width in pixels
+Always optimze this size to fit well within the content layout.
 
 **Download Script Example**:
 ```bash
@@ -362,7 +366,7 @@ using UnityEngine;
 
 **Common Patterns to Fix**:
 - ````csharp FileName.cs` → Move filename before code block
-- ````javascript script.js` → Move filename before code block  
+- ````javascript script.js` → Move filename before code block
 - ````python example.py` → Move filename before code block
 
 **Important Notes**:
@@ -488,7 +492,7 @@ Path: `../../../../media/imgs/filename.png`
 For file: `docs/unity/user-reference/editor-systems/builds-environments.md`
 - `docs/` (level 0 - root)
 - `unity/` (level 1)
-- `user-reference/` (level 2) 
+- `user-reference/` (level 2)
 - `editor-systems/` (level 3)
 - `builds-environments.md` (level 4)
 
@@ -504,3 +508,4 @@ After conversion, always verify that:
 1. The path correctly navigates to the `docs/media/imgs/` folder
 2. The image file actually exists in that location
 3. The relative path works from the markdown file's location
+
