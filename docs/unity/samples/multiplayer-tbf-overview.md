@@ -4,8 +4,8 @@ Welcome to "Turn-based Beamable Fighters" (TBF). In this game, **Choose strategi
 
 !!! info "Related Features"
 
-    • [Matchmaking](../../../concepts/services/matchmaking.md) - Connect remote players in a match (i.e. a multiplayer "room")  
-    • [Multiplayer](../../../concepts/services/multiplayer.md) - Enable real-time multiplayer gameplay experiences
+    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a match (i.e. a multiplayer "room")  
+    • [Multiplayer](../user-reference/beamable-services/social-networking/connectivity.md) - Enable real-time multiplayer gameplay experiences
 
 ## Screenshots
 
@@ -75,7 +75,7 @@ These steps are **already complete** in the sample project. The instructions her
 
 !!! info "Related Features"
 
-    • [Matchmaking](../../user-reference/multiplayer/matchmaking.md) - Connect remote players in a match (i.e. a multiplayer "room")  
+    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a match (i.e. a multiplayer "room")  
     • [Multiplayer](../../../concepts/services/multiplayer.md) - Enable real-time multiplayer gameplay experiences
 
 ### Step 1. Setup Project

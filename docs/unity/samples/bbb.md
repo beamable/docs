@@ -4,7 +4,7 @@ In the "Beamable Boss Battle" (BBB) sample game, **The Hero has reached the dung
 
 !!! info "Related Features"
 
-    • [Microservices](microservices-feature-overview.md) - Server-side code that runs in the cloud to handle game logic, data validation, and real-time multiplayer functionality
+    • [Microservices](../user-reference/cloud-services/microservices/microservices-overview.md) - Server-side code that runs in the cloud to handle game logic, data validation, and real-time multiplayer functionality
 
 ### Screenshots
 
@@ -54,7 +54,7 @@ Here are the steps to implement the sample:
 
     Related Features:
 
-    • [Microservices](microservices-feature-overview.md) - Server-side code that runs in the cloud to handle game logic, data validation, and real-time multiplayer functionality
+    • [Microservices](../user-reference/cloud-services/microservices/microservices-overview.md) - Server-side code that runs in the cloud to handle game logic, data validation, and real-time multiplayer functionality
 
 ### Step 1. Setup Beamable Content
 
