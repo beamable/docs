@@ -1,4 +1,4 @@
-# Username / Password
+# Username-Password Authentication
 
 Username and Password is a great way to provide cross platform authentication if you do not want social integration. In addition, you can use this method for allowing a player to signup for your game or service.
 

@@ -4,9 +4,8 @@ The purpose of this guide is for game makers to use Google Play Games Services w
 
 Beamable integrates with Google Play Games Services to make it easy for users to sign in to your apps using their ID. Instead of filling out forms, verifying email addresses, and choosing new passwords, they can use a simple sign-in method to set up an account and start using your app right away. It makes it easy to use Beamable across different devices using one credential. A user always has the option to revoke access to an application at any time.
 
-This document describes how to complete a basic Google Play Games Services integration. When set up properly, the user experience in the game project will be as follows:
+This document describes how to complete a basic Google Play Games Services integration.
 
-![google-experience.png](../../../../media/imgs/google-experience.png){: style="height:auto;width:500px"}
 
 !!! info "Prerequisites"
     Before Google Sign-In will work properly, the Unity project must be configured to support GPGS as a third-party authentication provider. Make sure that GPGS is working correctly and the user can login to GPGS in-game before using it as third-party provider.

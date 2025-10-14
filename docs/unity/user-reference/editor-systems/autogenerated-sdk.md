@@ -77,7 +77,7 @@ Most Beamable APIs require user authorization. The generated SDK functions for t
 
 However, some Beamable APIs do not require user authorization. If authorization isn't required, the SDK function will include a boolean parameter, `includeAuthHeader`. The parameter will always default to `true`, but it is possible to override the default behavior and pass in `false`. Sending a request without an authorization header will have different effects depending on the SDK being executed. 
 
-## Examples
+## Sample Code
 
 In this example, the `IInventoryApi` is being used to set the player's inventory and then fetch the latest inventory state. The `InventoryUpdateRequest` and `InventoryView` are public class members to illustrate that they can be visualized in the Inspector. 
 

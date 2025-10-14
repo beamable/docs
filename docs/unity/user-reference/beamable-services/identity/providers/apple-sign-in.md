@@ -4,10 +4,6 @@ The purpose of this guide is for game makers to use Apple Sign-In with the Beama
 
 Beamable integrates with Apple Sign-In to make it easy for users to sign in to your apps and websites using their Apple ID. Instead of filling out forms, verifying email addresses, and choosing new passwords, they can use Sign in with Apple to set up an account and start using your app right away. All accounts are protected with two-factor authentication for superior security, and Apple will not track users' activity in your app or website.
 
-When set up properly, the user experience in the game project will be as follows:
-
-![Apple Experience](../../../../media/imgs/apple-experience.png){: style="height:auto;width:500px"}
-
 !!! info "Prerequisites"
     Before Apple Sign-In will work properly, the Unity project must be configured to support Apple as a third-party authentication provider.
 

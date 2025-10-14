@@ -2,7 +2,7 @@
 
 Beamable Microstorages are mongo databases that integrate seamlessly with Beamable Microservices to provide powerful custom state management solutions. Microstorages have a C# project written in dotnet that _represents_ the storage database. This C# project is used as identity, and can be a place to put data related code, such as model types. Beamable Microservices can access storage objects through the `Storages` accessor.
 
-## Creating a Microstorage
+## Getting Started
 
 The gist of a common example Microstorage and Microservice is below.
 
@@ -153,7 +153,7 @@ public class UserDataMicroServiceExample : MonoBehaviour
 }
 ```
 
-## Helper Functions
+## MongCrudExtensions API
 
 To make interactions with mongo storage feature easier and more affordable we've introduced `MongoCrudExtensions` class that contains following methods:
 
