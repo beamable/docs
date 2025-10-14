@@ -1,4 +1,16 @@
-# Admin Tools
+﻿# Beam Library Overview
+
+The Beam Library is a collection of package samples and prefabs to help get you started learning the Unity SDK. To open the Beam Library, click on the Beamable Button (at the top-right of the Unity window), and select _Beam Library_. 
+
+![Select "Open Beam Library" from the Beamable Button](../../../media/imgs/533076e9cddc444ecdf9be5f5e2310b7d293fbc95b5792a9959a803433fd7955-image.png){width="400px"}
+
+Now the _Beam Library_ should be open. 
+
+![Beam Library Window](../../../media/imgs/7b0d4957423d75029795d0d58132b6e7ca953f448a97b7057065519465467364-image.png){width="400px"}
+
+Each card represents a Package Sample. When you click the "Open Scene" button, a Beamable sample will be added to your assets folder under `Assets/Samples/Beamable`.
+
+## Admin Console
 
 Beamable provides you with an easy way to get debug information about your Beamable game. We provide you with a command line tool, as a prefab, that can be placed in a unity scene and allow you to access information via command.
 
@@ -18,17 +30,11 @@ Beamable provides you with an easy way to get debug information about your Beama
 
 These are but a few of the commands you can perform from within the Admin tool. To get a full list of the available commands you can type **help** at the prompt and see all available commands.
 
-## Admin Tools API
+### AdminFlow API
 
-### Creating Custom Admin Commands
+#### Creating Custom Admin Commands
 
 Game makers can create custom admin commands for additional functionality.
-
-**Code**
-
-!!! info "Code Example"
-
-    • See complete examples at [GitHub.com/Beamable_SDK_Examples](https://www.Github.com/beamable/Beamable_SDK_Examples/)
 
 AdminFlowCustomCommandExample.cs
 ```csharp
@@ -67,36 +73,36 @@ namespace Beamable.Examples.Features.AdminFlow
 }
 ```
 
-## Admin - Prefab
+### Admin Console Prefab
 
-### Overview
+#### Overview
 
 The **Admin Flow** Feature Prefab provides developers with debugging capabilities.
 
 The purpose of this feature is to offer the game maker an in-game UI for executing game commands and cheats.
 
-### Usage
+#### Usage
 
 The Admin Flow can be opened at runtime in multiple ways...
 
 - Within the Unity Editor, press the "~" key
 - Within a Mobile Build, use a "three-finger swipe-up gesture"
 
-### The User Interface
+#### The User Interface
 
-![The Beamable "Admin Flow" UI in the Unity Game Window](../../../../../media/imgs/admin-flow-ui-game-window.png){width="200px"}
+![The Beamable "Admin Flow" UI in the Unity Game Window](../../../media/imgs/admin-flow-ui-game-window.png){width="200px"}
 
-### Adding to your project
+#### Adding to your project
 
 The Admin Prefab is accessible via the _Beam Library_ window. You can open the _Beam Library_ and add the admin prefab to your scene.
 
-### Admin Commands
+#### Admin Commands
 
 Once the Admin Flow is open, type an admin command into the input field and press return.
 
 There are built-in Beamable admin commands and game makers can create custom admin commands for additional functionality.
 
-#### Using Beamable Admin Commands
+##### Using Beamable Admin Commands
 
 | Command                                         | Detail                                                                                                               |
 | :---------------------------------------------- | :------------------------------------------------------------------------------------------------------------------- |
@@ -124,7 +130,7 @@ There are built-in Beamable admin commands and game makers can create custom adm
 | `IAP_BUY <listing> <sku>`                       | Invokes the real money transaction flow to purchase the given item_symbol.                                           |
 | `IAP_PENDING`                                   | Displays pending transactions                                                                                        |
 
-### Force-Enabled
+#### Force-Enabled
 
 Within the Unity Editor, press the "~" key to open the in-game console. This always works, regardless of player privileges or "Admin Flow" settings.
 
@@ -137,3 +143,4 @@ On device, use a three-finger swipe gesture to open the in-game console. This on
 The in-game console, on-device, will **only** appear if the force-enabled checkbox is true, or if the current player's account has tester, developer, or admin privileges.
 
 The Portal allows game makers to grant player privileges. This privilege-requirement only applies to device, not the Unity Editor.
+
