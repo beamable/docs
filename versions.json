@@ -9,14 +9,14 @@
   {
     "version": "Unreal-2.2",
     "title": "Unreal-2.2",
-    "aliases": []
+    "aliases": [
+      "Unreal-Latest"
+    ]
   },
   {
     "version": "Unreal-2.1",
     "title": "Unreal-2.1",
-    "aliases": [
-      "Unreal-Latest"
-    ]
+    "aliases": []
   },
   {
     "version": "Unreal-2.0",
