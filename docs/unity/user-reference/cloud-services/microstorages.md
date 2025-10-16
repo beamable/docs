@@ -153,7 +153,7 @@ public class UserDataMicroServiceExample : MonoBehaviour
 }
 ```
 
-## MongCrudExtensions API
+## MongoCrudExtensions API
 
 To make interactions with mongo storage feature easier and more affordable we've introduced `MongoCrudExtensions` class that contains following methods:
 
