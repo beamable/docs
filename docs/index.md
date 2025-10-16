@@ -1,38 +1,21 @@
-# Beamable Unity SDK
-The Beamable SDK provides functionality to integrate your game with the Beamable features. These range from Content (Remote Config) to Events to Inventory to Microservices (Beamable's unique approach to a Cloud Code Solution).
+# Beamable Unity SDK Documentation
 
-<div class="grid cards" markdown>
+Welcome to the comprehensive documentation for the Beamable Unity SDK! Beamable provides a complete backend-as-a-service platform that enables game developers to build modern multiplayer games with advanced features like live operations, social networking, game economy, analytics, and cloud services—all without the complexity of managing backend infrastructure.
 
--   :material-clock-fast:{ .lg .middle } __Getting Started__
+## System Requirements
+- Unity 2021.3 to 2023.3 (all template types supported)
+- Platforms: Windows, Mac, iOS, Android, WebGL
 
-	---
+## Quick Start
 
-	Install Unity SDK and get up and running in minutes
+New to Beamable? Get up and running in minutes:
 
-	[:octicons-arrow-right-24: Getting started](#)
+2. **[Installing the Unity SDK](unity/getting-started/installing-beamable.md)** - Add Beamable to your Unity project
+3. **[Technical Overview](unity/user-reference/technical-overview.md)** - Understand Beamable's architecture
 
--   :octicons-package-24: __Beamble Concepts__
+## Support
 
-	---
+Need help? We've got you covered:
 
-	Check out the concepts behind Beamable Platform including CLI usage
-
-	[:octicons-arrow-right-24: Beamable Concepts](#)
-
--   :octicons-rocket-24: __Unity SDK__
-
-	---
-
-	Learn how to implement Beamable SDK in your Unity project
-
-	[:octicons-arrow-right-24: Unity SDK](#)
-
--   :octicons-question-24: __Support__
-
-	---
-
-	Check out the FAQ and Troubleshooting guide or contact us for help
-
-	[:octicons-arrow-right-24: Support](#)
-
-</div>
+- **[Community Portal](https://portal.beamable.com/)** - Connect with other developers
+- **[GitHub Repository](https://github.com/beamable/BeamableProduct)** - Source code and issues

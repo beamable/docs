@@ -1,16 +1,26 @@
-﻿# Beamable Unity SDK Technical Overview
+﻿# Unity SDK Technical Overview
 
 ## Introduction
 
-The Beamable Unity SDK is a comprehensive game development platform that provides a complete suite of backend services, tools, and frameworks designed specifically for Unity game developers. Modern game development faces numerous challenges: setting up scalable backend infrastructure, implementing secure authentication systems, managing virtual economies, handling real-time multiplayer networking, and analyzing player behavior. Beamable solves these problems by providing a unified platform that enables developers to build modern multiplayer games with advanced features like live operations, social networking, game economy, analytics, and cloud services without the complexity of managing backend infrastructure.
+Modern game development faces numerous challenges: setting up scalable backend infrastructure, implementing secure authentication systems, managing virtual economies, handling real-time multiplayer networking, and analyzing player behavior. Beamable solves these problems by providing a unified platform that enables developers to build modern multiplayer games with advanced features like live operations, social networking, game economy, analytics, and cloud services without the complexity of managing backend infrastructure.
 
-## Player-Centric API
+## Beamable Way
+
+The Beamable Unity SDK allows your Unity Project to connect with the Beamable Services. This addresses the fundamental challenges of modern game development by providing a comprehensive, integrated platform that eliminates the need to build backend infrastructure from scratch. Instead of spending months implementing authentication systems, virtual economies, and multiplayer networking, developers can focus on creating compelling gameplay experiences. 
+
+The platform's player-centric design ensures that all systems work together seamlessly, while the deep Unity Editor integration maintains developer productivity. With first citzen support to C# Microservices, developers can extend the platform with custom server-side logic without managing servers or scaling infrastructure. This combination of features and ease of use empowers developers to build, launch, and operate modern multiplayer games efficiently.
+
+Bellow you can find a comprehensive technical overview of the Beamable Unity SDK, highlighting its key components, architecture, and features.
+
+![Framework.png](../../media/imgs/Framework.png)
+
+### Player-Centric API and Dependency Injection
 
 Beamable follows a player-centric architecture that fundamentally changes how developers think about game backend services. Traditional game development often requires managing multiple disparate systems, each with their own APIs, authentication methods, and data models. This fragmentation leads to increased development time, security vulnerabilities, and maintenance overhead.
 
 The [Player-Centric API](runtime-systems/player-centric-api.md) solves this by organizing all services around the player experience, providing a unified interface that treats the player as the central entity. The [Dependency Injection System](runtime-systems/di.md) ensures clean architecture patterns for managing service dependencies, making code more testable and maintainable. On top of it, a suite of Unity Editor Tools deeply integrated provides a seamless development workflow, allowing developers to configure, test, and deploy backend services directly from the Unity Editor.
 
-## Microservice-First Architecture
+### Microservice-First Architecture
 
 Many games require custom server-side logic that goes beyond standard backend services. Traditional approaches often require managing servers, scaling infrastructure, and handling deployment complexity. This creates significant operational overhead and limits development agility.
 
@@ -69,7 +79,3 @@ Understanding player behavior and optimizing game performance requires sophistic
 Beamable's business intelligence suite provides data-driven insights and optimization tools that solve these challenges. [Analytics](beamable-services/bi/analytics-overview.md) offers comprehensive player behavior tracking and game analytics with real-time dashboards and custom event tracking. [A/B Testing](beamable-services/bi/ab-testing-overview.md) provides experiment management and optimization tools that enable data-driven decision making about game features and monetization.
 
 [Segmentation](beamable-services/bi/segmentation-overview.md) enables sophisticated player segmentation for targeted experiences, allowing developers to customize gameplay for different player types. [Telemetry](beamable-services/bi/telemetry-overview.md) provides performance monitoring and data collection capabilities that help identify technical issues and optimization opportunities.
-
-## The Beamable Advantage
-
-The Beamable Unity SDK addresses the fundamental challenges of modern game development by providing a comprehensive, integrated platform that eliminates the need to build backend infrastructure from scratch. Instead of spending months implementing authentication systems, virtual economies, and multiplayer networking, developers can focus on creating compelling gameplay experiences. The platform's player-centric design ensures that all systems work together seamlessly, while the deep Unity Editor integration maintains developer productivity. With built-in analytics, A/B testing, and live operations capabilities, Beamable enables data-driven game development that can adapt and evolve based on player behavior and feedback.
