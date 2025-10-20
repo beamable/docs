@@ -1,2 +1,18 @@
-﻿- [Beamable Concepts](concepts/)
-- [Beamable CLI](cli/)
+﻿- Beamable CLI
+    - [Getting Started](cli/guides/0_Getting-Started.md)
+    - [Configuration](cli/guides/1_Configuration.md)
+    - [Upgrading](cli/guides/2_Upgrading.md)
+    - [Notifications](cli/guides/3_Notifications.md)
+    - Microservices
+        - [Overview](cli/guides/4_Microservices.md)
+        - [Microservice Deployment](cli/guides/5_Microservice-Deployment.md)
+        - [Microservice Debugging](cli/guides/6_Microservice-Debugging.md)
+        - [Microservice Configuration](cli/guides/7_Microservice-Configuration.md)
+        - [Microservice Routing](cli/guides/8_Microservice-Routing.md)
+        - [Microservice Storage](cli/guides/9_Microservice-Storage.md)
+        - [Microservice Federation](cli/guides/9_MIcroservice-Federation.md)
+        - [Microservice CLI Workflows](cli/guides/10_Microservice-CLI-Workflows.md)
+        - [Microservice UPM](cli/guides/11_Microservice-UPM.md)
+        - [Microservice Logging](cli/guides/13_Microservice-Logging.md)
+    - [Command Line Output](cli/guides/12_Command-Line-Outout.md)
+    
