@@ -1,5 +1,3 @@
-# Beamable Docs
-Welcome to the Beamable documentation! Here you will find everything you need to get started with Beamable, from setting up your project to creating your first game.
+# Beamable CLI Docs
 
-
-This is a Update for the Concepts and Beamable Concepts 2-1
+Welcome to the Beamable CLI documentation! This guide will help you get started with using the Beamable Command Line Interface (CLI) to manage your Beamable projects and services.

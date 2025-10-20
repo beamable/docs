@@ -1,8 +1,10 @@
-Configuring a Standalone Microservice
+# Microservice Configuration
+
+Configure Standalone Microservices
 
 ## Dependencies
 
-Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](doc:cli-guide-getting-started). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
+Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](0_Getting-Started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -83,8 +85,8 @@ The `<BeamId>` controls the name of the Beamable project.
 
 #### BeamEnabled
 
-The `<BeamEnabled>` is a boolean property. When `false`, when services are [deployed](doc:cli-guide-microservice-deployment) , the service will not be enabled, and will not cost Beamable Cloud resources.
-This option can be set using the [project enable](doc:cli-project-enable) or the [project disable](doc:cli-project-enable) commands.
+The `<BeamEnabled>` is a boolean property. When `false`, when services are [deployed](5_Microservice-Deployment.md) , the service will not be enabled, and will not cost Beamable Cloud resources.
+This option can be set using the project enable or the project disable commands.
 
 | Property Name   | Default Value |
 | --------------- | ------------- |
@@ -122,7 +124,7 @@ You can disable the cache invalidation by setting this property to `true`.
 
 #### GenerateClientCode 
 
-The `<GenerateClientCode>` property is boolean property, only valid on Standalone Microservice projects. When the project is built, if there are any linked Unity or Unreal projects, client code may be generated for the engine client and placed in the linked project folders. In order to link a project, use the [add-unity-project](doc:cli-add-unity-project) command, or the [add-unreal-project](doc:cli-add-unreal-project) command. 
+The `<GenerateClientCode>` property is boolean property, only valid on Standalone Microservice projects. When the project is built, if there are any linked Unity or Unreal projects, client code may be generated for the engine client and placed in the linked project folders. In order to link a project, use the add-unity-project command, or the add-unreal-project command. 
 
 | Property Name          | Default Value | Note                                  |
 | ---------------------- | ------------- | ------------------------------------- |
@@ -187,11 +189,11 @@ Common Dotnet properties may be explored through [Dotnet's Documentation](https:
 
 [https://github.com/beamable/BeamableProduct/blob/cli-6.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props](https://github.com/beamable/BeamableProduct/blob/cli-2.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props)
 
-> 📘 Make sure to reference the right version!
->
-> The link above points to the cli-6.0.0 release tag version of the source code. Make sure that you are looking the same version as your `Beamable.Microservice.Runtime` nuget version is using in the `.csproj`. 
- 
+!!! info "Make sure to reference the right version!"
+
+    The link above points to the cli-6.0.0 release tag version of the source code. Make sure that you are looking the same version as your `Beamable.Microservice.Runtime` nuget version is using in the `.csproj`.
+
+
 Other than the default properties set in the `.props` file, a major requirement of Beamable Standalone Microservices the `TargetFramework` property. If you are using CLI 3.0.0 and above, you may target `net8.0` . 
 
-If you are using CLI 2.0.1 or below, you must target `net6.0`. 
-
+If you are using CLI 2.0.1 or below, you must target `net6.0`.

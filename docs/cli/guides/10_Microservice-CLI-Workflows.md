@@ -1,8 +1,10 @@
+# Microservice CLI Workflows
+
 Managing Microservices from the CLI
 
 ## Dependencies
 
-Before you can manage Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](doc:cli-guide-getting-started). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
+Before you can manage Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](0_Getting-Started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -10,7 +12,7 @@ dotnet --version
 beam version # beam --version also works.
 ```
 
-## Creating New Projects
+## Creating New Projects {#creating-new-projects}
 
 New Microservices, Storages, and Common projects can be created within an existing `.beamable` folder workspace. 
 
@@ -28,7 +30,7 @@ Projects will be created in the `/services` directory by default.
 
 ## Finding Microservices
 
-Once there is a Microservice in your `.beamable` workspace, you can check for its existence by running the [project list](doc:cli-project-list) command. It will return services detected in your workspace.
+Once there is a Microservice in your `.beamable` workspace, you can check for its existence by running the project list command. It will return services detected in your workspace.
 
 ```sh
 MyProject % dotnet beam project list
@@ -51,7 +53,7 @@ Microservices can be run in several ways,
 2. using `dotnet` commands directly, or
 3. using `beam` commands. 
 
-The [project run](doc:cli-project-run) command will turn on a service.
+The project run command will turn on a service.
 
 ```sh
 dotnet beam project run --ids HelloWorld
@@ -61,7 +63,7 @@ Optionally, you can enable hot-reload by passing the `-w` flag.
 
 ## Checking Running Microservices
 
-You can use the [project ps](doc:cli-project-ps) command to check for _running_ services. If you run the command while no services are running, the output will be empty. However, if the command is executed while a Microservice is running, then it will be displayed.
+You can use the project ps command to check for _running_ services. If you run the command while no services are running, the output will be empty. However, if the command is executed while a Microservice is running, then it will be displayed.
 
 ```sh
 MyProject % dotnet beam project ps
@@ -74,7 +76,7 @@ Optionally, you can pass the `-w` flag to watch for changes to running services.
 
 ## Stopping Services
 
-If a service is running, then the [project stop](doc:cli-project-stop) command may be used to stop the program. If the service is not running, then the command will have no output. However, if the service is running, it will log a stop message. 
+If a service is running, then the project stop command may be used to stop the program. If the service is not running, then the command will have no output. However, if the service is running, it will log a stop message. 
 
 ```sh
 MyProject % dotnet beam project stop --ids HelloWorld
@@ -89,7 +91,7 @@ When a service is stopped this way, you should expect to see a log in the Micros
 
 ## Observing Logs
 
-When a service is run, the process that starts the service should receive the log outputs. For example, if the service is run through the IDE, then the IDE should emit the logs from the service. However, it is possible to attach to the logs of a running service from a separate process. 
+When a service is run, the process that starts the service should receive the log outputs. For example, if the service is run through the IDE, then the IDE should receive the logs from the service. However, it is possible to attach to the logs of a running service from a separate process. 
 
 For example, imagine that a service is run through `dotnet` directly,
 
@@ -97,7 +99,7 @@ For example, imagine that a service is run through `dotnet` directly,
 dotnet dotnet run --project services/HelloWorld
 ```
 
-Then, in a separate terminal window, the [project logs](doc:cli-project-logs) command can be used to tail the logs.
+Then, in a separate terminal window, the project logs command can be used to tail the logs.
 
 ```sh
 MyProject % dotnet beam project logs HelloWorld
@@ -105,4 +107,3 @@ MyProject % dotnet beam project logs HelloWorld
 [Debug] Skipped ProvideContext
 ...
 ```
-

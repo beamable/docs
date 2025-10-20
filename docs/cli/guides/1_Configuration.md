@@ -1,3 +1,5 @@
+# Configuration
+
 ## What is the .beamable folder?
 
 The Beam CLI uses a `./beamable` folder to manage state between multiple invocations of `beam` commands. The `./beamable` folder has information for 1 Beamable project.
@@ -68,4 +70,3 @@ The rest of the files are described in the table below:
 | `temp/connection-auth.json` |        File containing local user credentials        |                     no |
 | `localTags.json`            |        File containing tags of local content         |                    yes |
 | `Content/*json`             |            Files describing each content             |                    yes |
-

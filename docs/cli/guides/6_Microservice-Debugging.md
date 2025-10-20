@@ -1,8 +1,10 @@
-Debug and validate your Microservice
+# Microservice Debugging
+
+Debug Standalone Microservices locally
 
 ## Dependencies
 
-Before you can debug Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](doc:cli-guide-getting-started). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
+Before you can debug Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](0_Getting-Started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -55,4 +57,4 @@ dotnet watch 🔥 Hot reload of changes succeeded.
 ```
 ### Beam CLI
 
-The Beam CLI no longer supports hot reload natively. It was supported in 2.0.1, but due to technical limitations, support was removed in 3.0.0 
+The Beam CLI no longer supports hot reload natively. It was supported in 2.0.1, but due to technical limitations, support was removed in 3.0.0

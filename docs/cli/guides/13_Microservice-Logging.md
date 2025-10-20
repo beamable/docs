@@ -1,3 +1,5 @@
+# Microservice Logging
+
 Logging from a Microservice
 ## Dependencies
 
@@ -389,4 +391,4 @@ As you interact with the service, you should see logs appear in BetterStack.
 This section dealt with exporting logs to BetterStack, but the situation is similar for other log providers, like DataDog. The part that needs to change is how the collector is configured. 
 
 > [!WARNING]
-> When you do this, you will not see logs in Beamable. This demonstration _replaces_ the Beamable logs for BetterStack. 
+> When you do this, you will not see logs in Beamable. This demonstration _replaces_ the Beamable logs for BetterStack.

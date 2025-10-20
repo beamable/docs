@@ -1,7 +1,10 @@
-Calling a function on a Microservice
+# Microservice Routing
+
+Configure Standalone Microservice routing and client generation
+
 ## Dependencies
 
-Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](doc:cli-guide-getting-started). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
+Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](0_Getting-Started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -90,11 +93,11 @@ The account information is accessible via the `Context.UserId` property when exe
 
 ## Calling Microservice Code From Unity
 
-> 📘 Use the Unity SDK
->
-> You should be using the Beamable SDK in your Unity projects that use Standalone Microservices. Otherwise, there will be many compile errors as the Beamable SDK is not available.
+!!! info "Use the Unity SDK"
 
-Microservices can automatically generate client code for the Unity game engine. First, a Unity project needs to be linked to the `.beamable` workspace. To do this, use the [project add-unity-project](doc:cli-project-add-unity-project) command. 
+    You should be using the Beamable SDK in your Unity projects that use Standalone Microservices. Otherwise, there will be many compile errors as the Beamable SDK is not available.
+
+Microservices can automatically generate client code for the Unity game engine. First, a Unity project needs to be linked to the `.beamable` workspace. To do this, use the project add-unity-project command. 
 
 ```sh
 dotnet beam project add-unity-project <relative-path-to-unity-project>
@@ -125,19 +128,17 @@ public async Promise TalkToMicroservice(){
 }
 ```
 
-The automatic client code generation can be disabled when a project builds by modifying the `<GenerateClientCode>` option. Learn more in the [configuration guide](doc:cli-guide-microservice-configuration#GenerateClientCode). 
+The automatic client code generation can be disabled when a project builds by modifying the `<GenerateClientCode>` option. Learn more in the [configuration guide](7_Microservice-Configuration.md#GenerateClientCode).
 
-## Custom Clients
+### Open API
 
-It is possible to use the [project oapi](doc:cli-project-oapi) command to generate an Open API document and then use open source tools to transpile the document into a client in some other programming language. 
-
-The following command will output the Open API document for the service into a file called `doc.json`.  
+It is possible to use the project oapi command to generate an Open API document and then use open source tools to transpile the document into a client in some other programming language.
 
 ```sh
-beam project oapi --ids HelloWorld | jq '.data.openApi | fromjson' > doc.json
+dotnet beam project oapi --output example.json --ids MyService
 ```
 
-In fact, that command can baked into the Microservice's `.csproj` file with a custom build target. This requires that the `<SolutionDir>` property is set, which only happens when you run the project from the IDE. See the [generate-props](doc:cli-generate-properties) command to extend the `<SolutionDir>` property outside of IDE use cases. 
+In fact, that command can baked into the Microservice's `.csproj` file with a custom build target. This requires that the `<SolutionDir>` property is set, which only happens when you run the project from the IDE. See the generate-props command to extend the `<SolutionDir>` property outside of IDE use cases. 
 ```xml
 <Target Name="Build Local OpenAPI File" AfterTargets="Build">  
     <Exec Command="$(BeamableTool) project oapi --ids HelloWorld | jq '.data.openApi | fromjson' > $(SolutionDir)local/doc.json"/>  
@@ -193,4 +194,5 @@ Then, a sample web page might use a similar script to interact with the Microser
 
         </script>
     </body>
-</html>```
+</html>
+```

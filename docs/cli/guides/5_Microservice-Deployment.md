@@ -1,9 +1,10 @@
-Deploying Beamable Standalone Microservices
+# Microservice Deployment
 
+Deploy Standalone Microservices to the Beamable Cloud
 
 ## Dependencies
 
-Before you can deploy Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](doc:cli-guide-getting-started). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
+Before you can deploy Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](0_Getting-Started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -148,11 +149,11 @@ dotnet beam project disable --ids HelloWorld
 dotnet beam project enable --ids HelloWorld
 ```
 
-See the [Microservice Configuration Section](doc:cli-guide-microservice-configuration) for more details about project configuration. 
+See the [Microservice Configuration Section](7_Microservice-Configuration.md) for more details about project configuration. 
 
-> 📘 Services Cost Money! 
->
-> Remember, Every service running on Beamable Cloud may increase your Beamable Bill. Disable your services to reduce your monthly bill.
+!!! info "Services Cost Money!"
+
+    Remember, Every service running on Beamable Cloud may increase your Beamable Bill. Disable your services to reduce your monthly bill.
 
 A quick-note: we highly recommend you ***delete services from your repository*** instead of enabling/disabling them *in most cases*. This feature exists for use-cases similar to the ones we have for the distribution of our Unreal SDK samples.
 
@@ -169,10 +170,11 @@ You may modify this file to extend the capabilities of your resulting docker ima
 
 Beamable has validated that dotnet 8 is stable for all supported platforms. You may change the dotnet framework version at your own peril.
 
-> 📘 Docker CPU Architecture
-> Beamable Cloud requires that all services are built to x64 CPU architectures. Unfortunately, this means that developers with non x86 based computers will need to _cross compile_ services, which causes the `deploy` process to take longer. 
-> 
-> This is transparent to you and handled by your own machine's installed .NET toolchain.
+!!! info "Docker CPU Architecture"
+
+    Beamable Cloud requires that all services are built to x64 CPU architectures. Unfortunately, this means that developers with non x86 based computers will need to _cross compile_ services, which causes the `deploy` process to take longer.
+    
+    This is transparent to you and handled by your own machine's installed .NET toolchain.
 
 Finally, the port `6565` **MUST** be exposed. The port is used as a health check mechanism within the Beamable Cloud. If you delete that line, your services will fail to pass health checks and cannot be uploaded. 
 
@@ -230,7 +232,7 @@ cd example
 docker compose up
 ```
 
-You can validate that your services are running in docker using [project ps](doc:cli-project-ps) or by using Docker directly.
+You can validate that your services are running in docker using project ps or by using Docker directly.
 
 ```sh
 dotnet beam project ps 
@@ -264,11 +266,11 @@ ENTRYPOINT ["tail", "-f", "/dev/null"]
 
 When you do that, the service will not start --- but the container will look exactly like it does just before the service runs, except it won't be cleaned up by the health-check failing. This means you can easily inspect its file structure via Docker for Windows/Mac's UI or other tools.
 
-> 📘 Troubleshoot
-> 
-> If you are on a Mac with the apple silicon processors (M1, M2, etc) the following error might occur when deploying C# Microservices. In that case, make sure that the `Use Rosetta for emulation on Apple Silicon` is disabled in your Docker settings.
-> 
-> ```
-> assertion failed [block != nullptr]: BasicBlock requested for unrecognized address
-> (BuilderBase.h:550 block_for_offset)
-> ```
+!!! info "Troubleshoot"
+
+    If you are on a Mac with the apple silicon processors (M1, M2, etc) the following error might occur when deploying C# Microservices. In that case, make sure that the `Use Rosetta for emulation on Apple Silicon` is disabled in your Docker settings.
+    
+    ```
+    assertion failed [block != nullptr]: BasicBlock requested for unrecognized address
+    (BuilderBase.h:550 block_for_offset)
+    ```

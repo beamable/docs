@@ -1,3 +1,5 @@
+# Command-Line Output
+
 Passing output from the CLI to other processes
 
 ## Dependencies
@@ -132,4 +134,4 @@ Logs at
   .beamable/temp/logs/beamCliLog.txt
 ```
 
-Log files are only stored in your beamable workspace's `temp/logs` folder. If you are not in a beamable workspace, then no log file is created. These logs will remove themselves automatically as you use the CLI. Once there are more than 250 log files, every CLI invocation will remove all log files older than a day. You can remove the log files manually using the `dotnet beam temp clear logs` command. 
+Log files are only stored in your beamable workspace's `temp/logs` folder. If you are not in a beamable workspace, then no log file is created. These logs will remove themselves automatically as you use the CLI. Once there are more than 250 log files, every CLI invocation will remove all log files older than a day. You can remove the log files manually using the `dotnet beam temp clear logs` command.
