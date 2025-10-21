@@ -59,7 +59,11 @@ jobs:
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-      
+
+      - name: Fetch gh_pages branch
+        run: |
+          git fetch origin gh_pages:gh_pages || git checkout --orphan gh_pages
+
       # Deploy with mike
       - name: Deploy SDK with mike
         run: mike deploy "${{ github.event.inputs.sdk }}-${{ github.event.inputs.version }}"
