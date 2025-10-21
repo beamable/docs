@@ -1,13 +1,13 @@
 ﻿- Beamable CLI
-    - [Getting Started](cli/guides/0_Getting-Started.md)
-    - [Configuration](cli/guides/1_Configuration.md)
-    - [Upgrading](cli/guides/2_Upgrading.md)
-    - [Notifications](cli/guides/3_Notifications.md)
+    - [Getting Started](cli/guides/gettting-started.md)
+    - [Configuration](cli/guides/configuration.md)
+    - [Upgrading](cli/guides/upgrading.md)
+    - [Notifications](cli/guides/notifications.md)
     - Microservices
-        - [Overview](cli/guides/4_Microservices.md)
-        - [Deployment](cli/guides/5_Microservice-Deployment.md)
-        - [Debugging](cli/guides/6_Microservice-Debugging.md)
-        - [Configuration](cli/guides/7_Microservice-Configuration.md)
+        - [Overview](cli/guides/microservices.md)
+        - [Deployment](cli/guides/ms-deployment.md)
+        - [Debugging](cli/guides/ms-debugging.md)
+        - [Configuration](cli/guides/ms-configuration.md)
         - [Routing](cli/guides/8_Microservice-Routing.md)
         - [Storage](cli/guides/9_Microservice-Storage.md)
         - [Federation](cli/guides/9_MIcroservice-Federation.md)
@@ -15,4 +15,6 @@
         - [UPM](cli/guides/11_Microservice-UPM.md)
         - [Logging](cli/guides/13_Microservice-Logging.md)
     - [Command Line Output](cli/guides/12_Command-Line-Outout.md)
-    
+    - Beam CLI Commands
+        - [Commands Overview](cli/commands/cli-command-reference.md)
+        - [Commands Reference](cli/commands/cli-command-reference/)
