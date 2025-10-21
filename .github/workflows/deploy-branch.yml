@@ -20,6 +20,7 @@ on:
         required: true
         type: string
 
+run-name: Deploy Branch ${{ github.event.inputs.branch }} - ${{ github.event.inputs.sdk }} - ${{ github.event.inputs.version }} by @${{ github.actor }}
 jobs:
   deploy:
     name: Deploy ${{ github.event.inputs.branch }} - ${{ github.event.inputs.sdk }} - ${{ github.event.inputs.version }}
