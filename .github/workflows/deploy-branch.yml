@@ -1,0 +1,66 @@
+name: Deploy Docs Branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Enter branch to deploy (must exist in the repo)'
+        required: true
+        type: string
+      sdk:
+        description: 'Select SDK to deploy'
+        required: true
+        type: choice
+        options:
+          - Unity
+          - Unreal
+          - WebSDK
+      version:
+        description: 'Version to deploy (e.g., 4.0, 2.2, 0.6)'
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout main branch first
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      # Run setup.sh
+      - name: Run setup.sh
+        run: bash setup.sh
+
+      # Fetch all remote branches
+      - name: Fetch all branches
+        run: git fetch --all
+
+      # Verify the branch exists
+      - name: Verify branch exists
+        run: |
+          if ! git show-ref --verify --quiet refs/remotes/origin/${{ github.event.inputs.branch }}; then
+            echo "Error: Branch '${{ github.event.inputs.branch }}' does not exist."
+            exit 1
+          fi
+
+      # Checkout the selected branch
+      - name: Checkout selected branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch }}
+
+      # Deploy with mike
+      - name: Deploy SDK with mike
+        run: mike deploy "${{ github.event.inputs.sdk }}-${{ github.event.inputs.version }}"
+
+      # Push gh_pages branch to remote
+      # - name: Push gh_pages branch
+      #   run: |
+      #     git config user.name "${{ github.actor }}"
+      #     git config user.email "${{ github.actor }}@users.noreply.github.com"
+      #     git checkout gh_pages
+      #     git merge --no-ff ${{ github.event.inputs.branch }}
+      #     git push origin gh_pages
