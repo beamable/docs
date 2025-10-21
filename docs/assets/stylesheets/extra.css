@@ -2,18 +2,34 @@
     max-width: 1500px;
 }
 
+.md-version {
+    position: relative;
+}
+
 .md-version__list {
     width: 160px;
     scroll-snap-type: none;
+    margin: 0;
+
+    position: absolute;
+    top: 42px;
+    left: 18px;
+    padding: 0;
+
+}
+
+.beam-sdk__list {
+    left: 0px;
+    width: 110px;
 }
 
 .md-version__item{
-    text-align: center;
+    text-align: left;
 }
 
 .md-version__header{
     color: #5284E0;
-    text-align: center;
+    text-align: left;
 }
 
 .gslide-image img {
