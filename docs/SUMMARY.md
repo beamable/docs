@@ -3,3 +3,4 @@
 - [What's New?](unity/whatsnew/)
 - [SDK User Reference](unity/user-reference/)
 - [Samples](unity/samples/)
+- [Beamable CLI](cli/)
