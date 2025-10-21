@@ -22,6 +22,7 @@ on:
 
 jobs:
   deploy:
+    name: Deploy ${{ github.event.inputs.branch }} - ${{ github.event.inputs.sdk }} - ${{ github.event.inputs.version }}
     runs-on: ubuntu-latest
     steps:
       # Checkout main branch first
@@ -35,8 +36,8 @@ jobs:
         run: bash setup.sh
 
       # Fetch all remote branches
-      - name: Fetch all branches
-        run: git fetch --all
+      - name: Fetch remote branches (fast)
+        run: git fetch --depth=1 origin +refs/heads/*:refs/remotes/origin/*
 
       # Verify the branch exists
       - name: Verify branch exists
