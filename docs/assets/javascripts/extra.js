@@ -82,7 +82,6 @@ WaitForVersionNav('.md-version__list:not(.beam-sdk__list)', function(element) {
         const subNode = subNodes[i];
         if (subNode.tagName == 'BUTTON' || subNode.tagName == 'A'){
             for (var j = 0 ; j < textReplacements.length; j ++){
-                console.log('replacing', subNode)
                 subNode.textContent = subNode.textContent.replace(textReplacements[j], '')
             }
         }
