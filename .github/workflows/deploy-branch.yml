@@ -49,7 +49,7 @@ jobs:
           fi
           
       # Checkout the gh-pages branch
-      - name: Checkout selected branch
+      - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
           ref: gh-pages
@@ -67,13 +67,5 @@ jobs:
 
       # Deploy with mike
       - name: Deploy SDK with mike
-        run: mike deploy "${{ github.event.inputs.sdk }}-${{ github.event.inputs.version }}"
+        run: mike deploy "${{ github.event.inputs.sdk }}-${{ github.event.inputs.version }}" --push
 
-      # Push gh-pages branch to remote
-      - name: Push gh-pages branch
-        run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git checkout gh-pages
-          git merge --no-ff ${{ github.event.inputs.branch }}
-          git push origin gh-pages
