@@ -53,16 +53,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.inputs.branch }}
+    
+      - name: Fetch gh-pages branch
+        run: |
+          git fetch origin gh-pages:gh-pages || echo "gh-pages does not exist yet"
 
-      # Set Git user for mike
-      - name: Configure git user
+      - name: Configure git for mike
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-
-      - name: Fetch gh_pages branch
-        run: |
-          git fetch origin gh_pages:gh_pages || git checkout --orphan gh_pages
 
       # Deploy with mike
       - name: Deploy SDK with mike
