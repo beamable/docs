@@ -54,6 +54,12 @@ jobs:
         with:
           ref: ${{ github.event.inputs.branch }}
 
+      # Set Git user for mike
+      - name: Configure git user
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+      
       # Deploy with mike
       - name: Deploy SDK with mike
         run: mike deploy "${{ github.event.inputs.sdk }}-${{ github.event.inputs.version }}"
