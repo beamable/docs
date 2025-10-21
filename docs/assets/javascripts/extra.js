@@ -74,6 +74,20 @@ WaitForVersionNav('.md-version__list:not(.beam-sdk__list)', function(element) {
         emptyMsg.textContent = `No versions available for “${VERSION_NAME}”.`;
         element.prepend(emptyMsg);
     }
+
+    // after filtering, strip off the sdk name, because it is extranous
+    const subNodes = document.querySelectorAll('.md-header__topic .md-version *');
+    const textReplacements = ['Unity-', 'Unreal-', 'WebSDK-']
+    for (var i = 0 ; i < subNodes.length; i ++){
+        const subNode = subNodes[i];
+        if (subNode.tagName == 'BUTTON' || subNode.tagName == 'A'){
+            for (var j = 0 ; j < textReplacements.length; j ++){
+                console.log('replacing', subNode)
+                subNode.textContent = subNode.textContent.replace(textReplacements[j], '')
+            }
+        }
+    }
+
 });
 
 WaitForVersionNav('.md-header__topic span.md-ellipsis', function(element) {
