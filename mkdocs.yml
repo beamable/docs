@@ -55,9 +55,34 @@ plugins:
       nav_file: SUMMARY.md
 
 copyright: |
-  &copy; 2024 <a href="https://github.com/Beamable"  target="_blank" rel="noopener">Beamable</a>
-
+  &copy; 2025 <a href="https://beamable.com"  target="_blank" rel="noopener">Beamable</a>, made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
 extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/beamable
+      name: GitHub
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UCM21fAotUddHG3fwrUV3ORg
+      name: Youtube
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/beamable/
+      name: Instagram
+    - icon: fontawesome/brands/twitter
+      link: https://x.com/Beamable
+      name: X
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/BuiltOnBeamable
+      name: Facebook
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/beamable/
+      name: LinkedIn
+    - icon: fontawesome/brands/tiktok
+      link: https://www.tiktok.com/@buildonbeamable
+      name: TikTok
+    - icon: fontawesome/solid/link
+      link: https://beamable.com
+      name: Website
   version:
     provider: mike
 
