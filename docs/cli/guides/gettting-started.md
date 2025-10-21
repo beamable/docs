@@ -63,4 +63,4 @@ From here, you can:
 - Setup [Standalone Microservices](microservices.md)
 - Manage Content,
 - Listen to server events,
-- [learn how the CLI handles data output](12_Command-Line-Outout.md).
+- [learn how the CLI handles data output](ms-command-line.md).

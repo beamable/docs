@@ -23,7 +23,7 @@ dotnet beam project new service HelloWorld
 
 A Storage Object is a Mongo database. Beamable will host and manage a database on your behalf when you deploy your project. Locally, the Beam CLI creates a local mongo database inside a Docker container. Beamable never installs mongo directly on your host machine. 
 
-To create a Storage Object, use the [project new storage](10_Microservice-CLI-Workflows.md#creating-new-projects) command. 
+To create a Storage Object, use the [project new storage](ms-workflow.md#creating-new-projects) command. 
 
 ```sh
 beam project new storage

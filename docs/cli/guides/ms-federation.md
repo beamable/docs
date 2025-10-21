@@ -13,12 +13,12 @@ beam version # beam --version also works.
 ```
 
 In order to federate using a Microservice, you also need to have a local `.beamable` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
+
 ```sh
 beam init MyProject
 cd MyProject
 dotnet beam project new service HelloWorld
 ```
----
 
 ## Federation
 

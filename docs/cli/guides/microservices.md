@@ -24,7 +24,7 @@ beam init MyProject
 cd MyProject
 ```
 
-Once you have a `.beamble` workspace, you can create a new Standalone Microservice using the [project new](10_Microservice-CLI-Workflows.md#creating-new-projects) command. 
+Once you have a `.beamble` workspace, you can create a new Standalone Microservice using the [project new](ms-workflow.md#creating-new-projects) command. 
 
 ```sh
 # run this inside your .beamable workspace
@@ -113,10 +113,10 @@ There are many topics to continue learning about Beamable Standalone Microservic
 
 - [Deploy your Microservice to the Beamable Cloud](ms-deployment.md)
 - [Debugging Techniques](ms-debugging.md)
-- [Add a Beamable Database Storage Object](9_Microservice-Storage.md)
+- [Add a Beamable Database Storage Object](ms-storage.md)
 - [Microservice Configuration Settings](7_Microservice-Configuration.md)
-- [Beam CLI Commands for Managing Microservices](10_Microservice-CLI-Workflows.md)
-- [Microservice Routing and Client Usage](8_Microservice-Routing.md)
+- [Beam CLI Commands for Managing Microservices](ms-workflow.md)
+- [Microservice Routing and Client Usage](ms-routing.md)
 
 ---
 ## Possible Issues and Solutions
