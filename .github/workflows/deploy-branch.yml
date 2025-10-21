@@ -48,16 +48,18 @@ jobs:
             exit 1
           fi
           
+      # Checkout the gh-pages branch
+      - name: Checkout selected branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+    
       # Checkout the selected branch
       - name: Checkout selected branch
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.inputs.branch }}
     
-      - name: Fetch gh-pages branch
-        run: |
-          git fetch origin gh-pages:gh-pages || echo "gh-pages does not exist yet"
-
       - name: Configure git for mike
         run: |
           git config --global user.name "${{ github.actor }}"
@@ -67,11 +69,11 @@ jobs:
       - name: Deploy SDK with mike
         run: mike deploy "${{ github.event.inputs.sdk }}-${{ github.event.inputs.version }}"
 
-      # Push gh_pages branch to remote
+      # Push gh-pages branch to remote
       - name: Push gh-pages branch
         run: |
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git checkout gh_pages
+          git checkout gh-pages
           git merge --no-ff ${{ github.event.inputs.branch }}
           git push origin gh-pages
