@@ -3,7 +3,7 @@
 ## What is the .beamable folder?
 
 The Beam CLI uses a `./beamable` folder to manage state between multiple invocations of `beam` commands. The `./beamable` folder has information for 1 Beamable project.
-Everytime you execute a `beam` command, it searches for the nearest `./beamable` folder in the parent lineage of your current directory. If you run [beam config](doc:cli-config) in a folder containing `./beamable`, or any child folder, then that `./beamable` folder is used for the configuration. 
+Everytime you execute a `beam` command, it searches for the nearest `./beamable` folder in the parent lineage of your current directory. If you run [beam config](../commands/cli-command-reference/cli-config.md) in a folder containing `./beamable`, or any child folder, then that `./beamable` folder is used for the configuration.
 
 We can also pass `--dir <directory_path>` flag to `beam` command in order to specify specific directory to use as config directory.
 
@@ -30,7 +30,7 @@ someOtherFolder
 
 ## Validation 
 
-From any folder, you can run the [beam config](doc:cli-config)  command to print information about your current Beamable folder. 
+From any folder, you can run the [beam config](../commands/cli-command-reference/cli-config.md)  command to print information about your current Beamable folder. 
 
 In the example directory structure above, if the `beam config` command was invoked from the `mainFolder`, it would log information about the `mainFolder/.beamable` folder. 
 ```sh

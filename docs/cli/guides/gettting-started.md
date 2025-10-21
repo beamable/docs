@@ -34,14 +34,14 @@ There may be updates you are required to do, so please check the [migration guid
 
 Now that Beamable is installed, you can connect to an existing Beamable organization. If you haven't setup an organization yet, [create a Beamable organization](https://beta-portal.beamable.com/signup/registration/) first. 
 
-You can connect the CLI to your Beamable organization with the [beam init](../commands/init.md) command. 
+You can connect the CLI to your Beamable organization with the [beam init](../commands/cli-command-reference/cli-init.md) command. 
 
 ```shell
 mkdir MyProject
 beam init
 ```
 
-This command will prompt you for your organization's alias, your credentials, and which realm to use. When it is complete, you should see a `./beamable` folder in the current directory. See the [Configuration](configuration.md) for details about this folder. Now, you can run a [beam config](../commands/config.md) command to verify your project is set up.
+This command will prompt you for your organization's alias, your credentials, and which realm to use. When it is complete, you should see a `./beamable` folder in the current directory. See the [Configuration](configuration.md) for details about this folder. Now, you can run a [beam config](../commands/cli-command-reference/cli-config.md) command to verify your project is set up.
 
 ```shell
 dotnet beam config
