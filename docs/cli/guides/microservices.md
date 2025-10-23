@@ -236,10 +236,13 @@ public partial class MyMicroservice : Microservice
     public async Task CallMicroservice() {}
 }
 ```
+
+---
+
 ### Invalid Type Usage in Callable Method
 
 **Explanation**:  
-Types used in `[ClientCallable]` methods must be available to both server and client. Declaring types inside the microservice class makes them inaccessible to the Unity client as we're not regenerating DTO for Client.
+Types used in `[ClientCallable]` methods must be available to both server and client. Declaring types inside the microservice class makes them inaccessible to the Unity client.
 
 **Example Code Triggering the Error**:
 ```csharp
