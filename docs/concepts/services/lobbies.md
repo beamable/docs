@@ -2,7 +2,7 @@
 Beamable's Lobby system can be used primarily for 2 cases:
 
 - **Open/Closed Custom Lobbies/Rooms**: Player-created custom rooms for room-based games
-- **Resulting Matchmaking Matches**: Matchmaking queues output lobbies with players in them at each matchmaking queue. See more in [Matchmaking](../features/matchmaking.md).
+- **Resulting Matchmaking Matches**: Matchmaking queues output lobbies with players in them at each matchmaking queue. See more in [Matchmaking](matchmaking.md).
 
 Conceptually, Lobbies are room containing only online players and a set of arbitrary room properties and player properties. There are a few rules you should be aware off:
 

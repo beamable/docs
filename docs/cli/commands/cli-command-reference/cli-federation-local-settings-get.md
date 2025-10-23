@@ -50,4 +50,4 @@ Get the local settings for any particular federation
 
 ### Sub Commands
 
-[federation-local-settings-get-IFederatedGameServer](cli-federation-local-settings-get-IFederatedGameServer.md)
+[federation-local-settings-get-IFederatedGameServer](cli-federation-local-settings-get-ifederatedgameserver.md)

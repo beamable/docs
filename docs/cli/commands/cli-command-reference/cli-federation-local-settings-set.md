@@ -50,4 +50,4 @@ Sets the local settings for any particular federation
 
 ### Sub Commands
 
-[federation-local-settings-set-IFederatedGameServer](cli-federation-local-settings-set-IFederatedGameServer.md)
+[federation-local-settings-set-IFederatedGameServer](cli-federation-local-settings-set-ifederatedgameserver.md)
