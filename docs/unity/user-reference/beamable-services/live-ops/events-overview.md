@@ -300,7 +300,7 @@ At this point, your event has been created and has been published live to player
 
 In this image and tables are **example** name/value pairs to demonstrate how to populate the Event content object. The actual name and values used depend on the specific needs of the game project.
 
-![Events Configuration Long](../../../../../media/imgs/events-configuration-long.png){: style="height:auto;width:400px"}
+![Events Configuration Long](../../../../media/imgs/events-configuration-long.png){: style="height:auto;width:400px"}
 
 ### Adding Rules
 
@@ -348,4 +348,4 @@ However, with **group** events, rewards are based on group progress (e.g., combi
 
 See [Groups](doc:groups-feature-overview) for more information about creating and joining a group.
 
-![Group Events](../../../../../media/imgs/events-group-events.png)
+![Events Group Events](../../../../media/imgs/events-group-events.png)

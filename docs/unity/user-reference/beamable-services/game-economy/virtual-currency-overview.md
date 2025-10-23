@@ -2,13 +2,13 @@
 
 The Beamable **Currency** feature allows game makers to manage in-game currencies for purchasing and economic systems. Virtual Currencies provide a flexible economic foundation for your game, enabling players to earn, spend, and manage various types of in-game money. The Virtual Currency system in Beamable is built on top of the [Content  System](../profile-storage/content/content-overview.md). Currencies exist out of the box in the Beamable SDK as a content type.
 
-![virtual-currency-experience.png](../../../../../media/imgs/virtual-currency-experience.png){: style="height:auto;width:500px"}
+![virtual-currency-experience.png](../../../../media/imgs/virtual-currency-experience.png){: style="height:auto;width:500px"}
 
 ## Managing Currencies
 
 Currencies can be configured from the [Content Manager Editor](../profile-storage/content/content-unity.md#content-manager-editor), with optional parameters for Starting Amount for new players, and "Write Self" under Client Permissions (meaning the client can modify their own currencies). Here is an example of a currency as seen in the inspector:
 
-![Gem Currency Inspector](../../../../../media/imgs/gem-currency-inspector.png){: style="height:auto;width:500px"}
+![Gem Currency Inspector](../../../../media/imgs/gem-currency-inspector.png){: style="height:auto;width:500px"}
 
 The currencies for a given player can be managed in several ways, depending on your use case.
 

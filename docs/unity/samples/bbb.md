@@ -4,7 +4,7 @@ In the "Beamable Boss Battle" (BBB) sample game, **The Hero has reached the dung
 
 !!! info "Related Features"
 
-    • [Microservices](../user-reference/cloud-services/microservices/microservices-overview.md) - Server-side code that runs in the cloud to handle game logic, data validation, and real-time multiplayer functionality
+    • [Microservices](../user-reference/cloud-services/microservices/microservice-framework.md) - Server-side code that runs in the cloud to handle game logic, data validation, and real-time multiplayer functionality
 
 ### Screenshots
 
@@ -31,7 +31,7 @@ Learning Resources:
 
 | Source | Detail |
 |--------|--------|
-| ![Beamable Logo](../../media/imgs/beamable-logo-small.jpg){width="35"} | 1. **Download** the [Microservices BBB Sample Project](https://github.com/beamable/Microservices_BBB_Sample_Project)<br/>2. Open in Unity Editor (Version 2021.3 or later)<br/>3. Open the Beamable [Toolbox](toolbox.md)<br/>4. Sign-In / Register To Beamable. See [Installing Beamable](installing-beamable.md) for more info<br/>5. Complete the Docker setup. See [Microservices](microservices-feature-overview.md) for more info<br/>6. Click to "Start" the server. See [Microservices](microservices-feature-overview.md) for more info<br/>7. Publish the Beamable Content to your realm. See [Content Manager](content-manager-overview.md#publish) for more info<br/>8. Open the `1.Intro` Scene<br/>9. Play The Scene: Unity → Edit → Play<br/><br/>_Note: Sample projects are compatible with the latest supported Unity versions_ |
+| ![Beamable Logo](../../media/imgs/beamable-logo-small.jpg){width="35"} | 1. **Download** the [Microservices BBB Sample Project](https://github.com/beamable/Microservices_BBB_Sample_Project)<br/>2. Open in Unity Editor (Version 2021.3 or later)<br/>3. Open the Beamable Toolbox<br/>4. Sign-In / Register To Beamable. See [Installing Beamable](../getting-started/installing-beamable.md) for more info<br/>5. Complete the Docker setup. See [Microservices](../user-reference/cloud-services/microservices/microservice-framework.md) for more info<br/>6. Click to "Start" the server. See [Microservices](../user-reference/cloud-services/microservices/microservice-framework.md) for more info<br/>7. Publish the Beamable Content to your realm. See [Content Manager](../user-reference/beamable-services/profile-storage/content/content-overview.md#publish) for more info<br/>8. Open the `1.Intro` Scene<br/>9. Play The Scene: Unity → Edit → Play<br/><br/>_Note: Sample projects are compatible with the latest supported Unity versions_ |
 
 ### Player Experience Flowchart
 
@@ -54,15 +54,15 @@ Here are the steps to implement the sample:
 
     Related Features:
 
-    • [Microservices](../user-reference/cloud-services/microservices/microservices-overview.md) - Server-side code that runs in the cloud to handle game logic, data validation, and real-time multiplayer functionality
+    • [Microservices](../user-reference/cloud-services/microservices/microservice-framework.md) - Server-side code that runs in the cloud to handle game logic, data validation, and real-time multiplayer functionality
 
 ### Step 1. Setup Beamable Content
 
-This is a general overview of Beamable's Content flow. For more detailed instructions, see the [Content Manager](content-manager-overview.md) doc.
+This is a general overview of Beamable's Content flow. For more detailed instructions, see the [Content Manager](../user-reference/beamable-services/profile-storage/content/content-overview.md) doc.
 
 | Step | Detail |
 |------|--------|
-| 1. Setup Beamable Microservices | • See [Getting Started With Beamable Microservices](microservices-guide.md#getting-started-with-beamable-microservices) |
+| 1. Setup Beamable Microservices | • See [Getting Started With Beamable Microservices](../user-reference/cloud-services/microservices/microservice-framework.md#getting-started-with-beamable-microservices) |
 | 2. Create `Weapon` content class | `[ContentType("weapon")]`<br/>`public class Weapon : ContentObject`<br/>`{`<br/>&nbsp;&nbsp;&nbsp;`public float HitChance = 0.5f;`<br/>&nbsp;&nbsp;&nbsp;`public int MinDamage = 25;`<br/>&nbsp;&nbsp;&nbsp;`public int MaxDamage = 50;`<br/>`}` |
 | 3. Create the "Weapon" content | ![Content Manager Create](../../media/imgs/content-manager-create-content.jpg){width="200" style="float: right; margin: 0px 0px 15px 15px;"}<br/>• Select the content type in the list<br/>• Press the "Create" button<br/>• Populate the content name |
 | 4. Populate all data fields | ![Weapon Configuration](../../media/imgs/microservices-bbb-weapon-config.jpg) |
@@ -70,7 +70,7 @@ This is a general overview of Beamable's Content flow. For more detailed instruc
 | 6. Create "Boss" content | ![Content Manager Create](../../media/imgs/content-manager-create-content.jpg){width="200" style="float: right; margin: 0px 0px 15px 15px;"}<br/>• Select the content type in the list<br/>• Press the "Create" button<br/>• Populate the content name |
 | 7. Populate all data fields | ![Boss Configuration](../../media/imgs/microservices-bbb-boss-config.jpg) |
 | 8. Save the Unity Project | • Unity → File → Save Project<br/><br/>_Best Practice: If you are working on a team, commit to version control in this step._ |
-| 9. Publish the content | • Press the "Publish" button in the Content Manager Window. See [Content Manager](content-manager-overview.md#publish) for more info. |
+| 9. Publish the content | • Press the "Publish" button in the Content Manager Window. See [Content Manager](../user-reference/beamable-services/profile-storage/content/content-overview.md#publish) for more info. |
 
 ### Step 2. Create Game Client Code
 
@@ -94,7 +94,7 @@ Here is the `Configuration.cs` holding high-level, easily-configurable values us
 
     Here are some common issues and solutions:
 
-    • While the name is similar, this `Configuration.cs` is wholly unrelated to Beamable's [Configuration Manager](configuration-manager.md).
+    • While the name is similar, this `Configuration.cs` is wholly unrelated to Beamable's Configuration Manager.
 
 ![Configuration Inspector](../../media/imgs/microservices-bbb-configuration-inspector.jpg)
 *The "Configuration" values are easily configurable*

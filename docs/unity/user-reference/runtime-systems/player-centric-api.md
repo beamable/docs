@@ -128,7 +128,7 @@ When a BeamContext instance is initialized, a GameObject will be instantiated un
 
 Since this object is linked to the associated Context, calling `Stop()` on the context will delete this object, and vice versa.
 
-![Beamable Context GameObject](../../../../media/imgs/beamable-context-gameobject.png)
+![Beamable Context GameObject](../../../media/imgs/beamable-context-gameobject.png)
 
 
 ## Legacy Beamable API

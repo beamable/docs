@@ -25,7 +25,7 @@ The player navigates from the Intro Scene to the Game Scene, where all the actio
 
 ## Multiplayer (KOR) - Guide
 
-This downloadable sample game project showcases the [Multiplayer](multiplayer-feature-overview.md) feature in game development. Or watch this video:
+This downloadable sample game project showcases the [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) feature in game development. Or watch this video:
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0;">
   <iframe src="https://www.youtube.com/embed/UmtIWE01WXA?autoplay=0&fs=1" 
@@ -40,7 +40,7 @@ Learning Resources:
 
 | Source | Detail |
 |--------|--------|
-| ![Beamable Logo](../../media/imgs/beamable-logo-small.jpg){width="35"} | 1. **Download** the [Multiplayer KOR Sample Project](https://github.com/beamable/Multiplayer_KOR_Sample_Project)<br/>2. Open in Unity Editor (Version 2021.3 or later)<br/>3. Open the Beamable [Toolbox](toolbox.md)<br/>4. Sign-In / Register To Beamable. See [Installing Beamable](installing-beamable.md) for more info<br/>5. Rebuild the Unity [Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@1.3/manual/AddressableAssetsDevelopmentCycle.html): Unity → Window → Asset Management → Groups, then Build → Update a Previous Build<br/>6. Open the `1.Intro` Scene<br/>7. Play The Scene: Unity → Edit → Play<br/>8. Click "Start Game: Human vs Bot" for an easy start. Or do a standalone build of the game and run the build. Then run the Unity Editor. In both running games, choose "Start Game: Human vs Human" to play against yourself<br/>9. Enjoy!<br/><br/>*Note: Sample projects are compatible with the latest supported Unity versions* |
+| ![Beamable Logo](../../media/imgs/beamable-logo-small.jpg){width="35"} | 1. **Download** the [Multiplayer KOR Sample Project](https://github.com/beamable/Multiplayer_KOR_Sample_Project)<br/>2. Open in Unity Editor (Version 2021.3 or later)<br/>3. Open the Beamable [Toolbox](../user-reference/editor-systems/unity-editor-login.md)<br/>4. Sign-In / Register To Beamable. See [Installing Beamable](../getting-started/installing-beamable.md) for more info<br/>5. Rebuild the Unity [Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@1.3/manual/AddressableAssetsDevelopmentCycle.html): Unity → Window → Asset Management → Groups, then Build → Update a Previous Build<br/>6. Open the `1.Intro` Scene<br/>7. Play The Scene: Unity → Edit → Play<br/>8. Click "Start Game: Human vs Bot" for an easy start. Or do a standalone build of the game and run the build. Then run the Unity Editor. In both running games, choose "Start Game: Human vs Human" to play against yourself<br/>9. Enjoy!<br/><br/>*Note: Sample projects are compatible with the latest supported Unity versions* |
 
 ### Rules of the Game
 
@@ -79,7 +79,7 @@ Here are instructions to setup the Beamable SDK and "GameType" content.
 
 | Step | Detail |
 |------|--------|
-| 1. Install the Beamable SDK and Register/Login | • See [Installing Beamable](installing-beamable.md) for more info. |
+| 1. Install the Beamable SDK and Register/Login | • See [Installing Beamable](../getting-started/installing-beamable.md) for more info. |
 | 2. Open the Content Manager Window | • Unity → Window → Beamable → Open Content Manager |
 | 3. Create the "GameType" content | ![Content Manager Create](../../media/imgs/content-manager-create-content.jpg){width="200" style="float: right; margin: 0px 0px 15px 15px;"}<br/><br/><br/>• Select the content type in the list<br/>• Press the "Create" button<br/>• Populate the content name |
 | 4. Configure "GameType" content | ![KOR GameType](../../media/imgs/multiplayer-kor-game-type-config.png)<br/>• Populate the `Max Players` field<br/>_Note: The other fields are optional and may be needed for advanced use cases_ |
@@ -88,7 +88,7 @@ Here are instructions to setup the Beamable SDK and "GameType" content.
 
 ### Step 2. Plan the Multiplayer Game Design
 
-See [Multiplayer (Planning)](multiplayer-guide.md#planning) for more info.
+See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.
 
 ### Step 3. Create the Game Code
 
@@ -111,7 +111,7 @@ Here is the `Configuration.cs` holding high-level, easily-configurable values us
 
     Here are some common issues and solutions:
 
-    • While the name is similar, this `Configuration.cs` is wholly unrelated to Beamable's [Configuration Manager](configuration-manager.md).
+    • While the name is similar, this `Configuration.cs` is wholly unrelated to Beamable's Configuration Manager.
 
 ![Configuration](../../media/imgs/multiplayer-kor-configuration.png){width="550"}
 *The "Configuration" values are easily configurable*
@@ -549,16 +549,16 @@ Did you complete all the experiments with success? we'd love to hear about it. [
 
 In multiplayer gaming, matchmaking is the process of choosing a room based on criteria (e.g. "Give me a room to play in with 2 total players of any skill level"). Beamable supports matchmaking through its matchmaking service.
 
-See [Matchmaking](matchmaking-feature-overview.md) for more info.
+See [Matchmaking](../user-reference/beamable-services/social-networking/matchmaking.md) for more info.
 
 ## Game Security
 
-See [Multiplayer (Game Security)](multiplayer-feature-overview.md#game-security) for more info.
+See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.
 
 ## Playing "Against Yourself"
 
-See [Multiplayer (Playing Against Yourself)](multiplayer-feature-overview.md#playing-against-yourself) for more info.
+See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.
 
 ## Randomization and Determinism
 
-See [Multiplayer (Randomization and Determinism)](multiplayer-code.md#randomization-and-determinism) for more info.
+See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.

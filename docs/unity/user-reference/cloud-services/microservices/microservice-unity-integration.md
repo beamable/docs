@@ -206,6 +206,6 @@ Congratulations! You have a locally running Microservice!
 
 As you write Microservices, you need to test the code you are writing. This is done is a few ways, through in-game testing, and by manually calling the Microservice methods from the auto generated Portal testing page. The easiest way to check your Microservice methods is to use the Portal testing page. In the _Beam Services_ window, click the globe icon in the top-right of the Microservice log section. This will open the Beamable Portal website to a section directly targeting your locally running Microservice.
 
-![Portal Testing Page](../../../../../media/imgs/microservice-portal-testing-page.png)
+![Microservice Portal Testing Page](../../../../media/imgs/microservice-portal-testing-page.png)
 
 You can use this UI to send sample web requests to your Microservice. To learn more about testing the Microservice from your Unity game, check out the Calling Microservices from Unity section.

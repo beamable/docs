@@ -1,7 +1,7 @@
 ---
 title: "Services Update-dockerfile"
 slug: "cli-services-update-dockerfile"
-excerpt: "[INTERNAL] [REMOVED] Updates the Dockerfile for the specified service"
+excerpt: "[INTERNAL] Updates the Dockerfile for the specified service"
 hidden: true
 createdAt: "Wed Dec 04 2024 11:27:36 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Oct 14 2025 19:06:35 GMT+0000 (Coordinated Universal Time)"
@@ -12,7 +12,7 @@ beam services update-dockerfile <ServiceName> [options]
 
 ## About
 
-[INTERNAL] [REMOVED] Updates the Dockerfile for the specified service
+[INTERNAL] Updates the Dockerfile for the specified service
 
 ## Arguments
 

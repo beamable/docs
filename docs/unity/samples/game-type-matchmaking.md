@@ -17,7 +17,7 @@ Learning Resources:
 
 | Source | Detail |
 |--------|--------|
-| ![Beamable Logo](../../media/imgs/beamable-logo.jpg){width="35px"} | 1. **Download** the [Game Type Based Matchmaking Example](https://github.com/beamable/GameTypeBasedMatchmakingExample)<br>2. Open in Unity Editor (Version 2021.3 or later)<br>3. Open the Beamable [Toolbox](../../user-reference/toolbox.md)<br>4. Sign-In / Register To Beamable. See [Step 1 - Getting Started](../../getting-started/index.md) for more info<br>5. Install TextMeshPro in the project. This can be done through the prompt in the Beamable toolbox.<br><br>*Note: Beamable supports Unity versions 2021.3 to 2023.3* |
+| ![Beamable Logo](../../media/imgs/beamable-logo.jpg){width="35px"} | 1. **Download** the [Game Type Based Matchmaking Example](https://github.com/beamable/GameTypeBasedMatchmakingExample)<br>2. Open in Unity Editor (Version 2021.3 or later)<br>3. Open the Beamable [Toolbox](../user-reference/editor-systems/unity-editor-login.md)<br>4. Sign-In / Register To Beamable. See [Getting Started](../getting-started/installing-beamable.md) for more info<br>5. Install TextMeshPro in the project. This can be done through the prompt in the Beamable toolbox.<br><br>*Note: Beamable supports Unity versions 2021.3 to 2023.3* |
 
 ## Project Structure
 
@@ -51,7 +51,7 @@ For this example, we'll be creating a few game types for some different regions 
 
 !!! info "Game Content Designer"
 
-    For more info on how to manage content in your project, check out the [Game Content Designer](../../user-reference/content-manager.md) documentation.
+    For more info on how to manage content in your project, check out the [Game Content Designer](../user-reference/beamable-services/profile-storage/content/content-overview.md) documentation.
 
 ![Game Type Content Creation](../../media/imgs/gametype-content-creation.png)
 
@@ -63,7 +63,6 @@ Configure the content on the game type with the appropriate region name. Of cour
 
 *Game type for the Asia region, with a 1 vs 1 configuration.*
 
-![Game Type Europe Configuration](../../media/imgs/gametype-europe-config.png){width="600px"}
 
 *Game type for the Europe region, with a 2 vs 2 configuration.*
 

@@ -26,7 +26,7 @@ The login page needs a form that gathers email and password.
 
 In the HTML above, the Login button refers to a JavaScript function that does not yet exist, namely `login()`. Let’s use a bit of jQuery to retrieve the username and password values from the form and then pass them along to the `/basic/auth/token` endpoint.
 
-The CID value is a decimal number that can be found in the Unity project at `\Assets\Beamable\Resources\config-defaults.txt` or the Beamable [Portal](../../portal.md). Substitute your own CID as shown when logging into the Beamable Portal from within Unity.
+The CID value is a decimal number that can be found in the Unity project at `\Assets\Beamable\Resources\config-defaults.txt` or the Beamable Portal. Substitute your own CID as shown when logging into the Beamable Portal from within Unity.
 
 ```javascript
 function login(evt) {

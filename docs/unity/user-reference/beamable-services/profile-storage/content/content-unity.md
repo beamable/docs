@@ -219,7 +219,7 @@ Beamable provides **built-in validation** and also allows for **custom validatio
 
 | ContentObject (Valid) | ContentObject (Invalid) |
 | :-------------------- | :---------------------- |
-| ![Valid](../../../../../../media/imgs/valid.png) | ![Invalid](../../../../../../media/imgs/invalid.png) |
+| ![Valid](../../../../../media/imgs/valid.png) | ![Invalid](../../../../../media/imgs/invalid.png) |
 
 ### Content Validation Types
 
@@ -394,7 +394,7 @@ namespace Beamable.Examples.Services.ContentService
 
 Beamable includes a suite of "optional" datatypes. Here the game maker must set the checkbox to true in the inspector before populating the field. The "optional" functionality and the "validation" functionality may be combined too.
 
-![Optional Value](../../../../../../media/imgs/optional.png)
+![Optional](../../../../../media/imgs/optional.png)
 
 
 ## Version Control Advisory

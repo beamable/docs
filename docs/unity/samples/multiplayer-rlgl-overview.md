@@ -6,7 +6,7 @@ Welcome to "Red Light, Green Light" (RLGL). In this game, **Race other players t
 
     • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a match (i.e. a multiplayer "room")  
     • [Leaderboards](../user-reference/beamable-services/live-ops/player-stats-and-activities.md) - Track and display player rankings and scores  
-    • [Microservices](../user-reference/cloud-services/microservices/microservices-overview.md) - Custom server-side logic and game rules
+    • [Microservices](../user-reference/cloud-services/microservices/microservice-framework.md) - Custom server-side logic and game rules
 
 ## Screenshots
 
@@ -42,8 +42,8 @@ To learn more about Photon Fusion, read more on the [official documentation](htt
 |------|--------|
 | 1. Download the sample project from GitHub | [Multiplayer RLGL Sample Project](https://github.com/beamable/Multiplayer_RLGL_Sample_Project/) |
 | 2. Open in Unity Editor | Unity version 2020.3.22 |
-| 3. Open the Beamable Toolbox | [Beamable Toolbox](../../user-reference/toolbox.md) |
-| 4. Sign-In / Register To Beamable | See [Installing Beamable](../../getting-started/installing-beamable.md) for more info |
+| 3. Open the Beamable Toolbox | [Beamable Toolbox](../user-reference/editor-systems/unity-editor-login.md) |
+| 4. Sign-In / Register To Beamable | See [Installing Beamable](../getting-started/installing-beamable.md) for more info |
 | 5. Open the `Login` Scene | `Assets/_Game/Scenes/Login.unity` |
 
 ### Photon Setup
@@ -62,9 +62,9 @@ The sample project includes additional features that are not required to run the
 
 | Step | Detail |
 |------|--------|
-| Setup Facebook Sign-In | [Facebook Sign-In - Overview](../../user-reference/social/facebook-sign-in.md) |
-| Setup Google Sign-In | [Google Sign-In - Overview](../../user-reference/social/google-sign-in.md) |
-| Setup Steam Sign-In | [Steam Integration - Overview](../../user-reference/social/steam-integration.md) |
+| Setup Facebook Sign-In | [Facebook Sign-In - Overview](../user-reference/beamable-services/identity/providers/facebook-sign-in.md) |
+| Setup Google Sign-In | [Google Sign-In - Overview](../user-reference/beamable-services/identity/providers/google-sign-in.md) |
+| Setup Steam Sign-In | [Steam Integration - Overview](../user-reference/beamable-services/identity/providers/steam-sign-in.md) |
 
 ## Installing Photon Fusion
 
@@ -141,7 +141,7 @@ Here are instructions to setup the Game Type content.
 
 | Step | Detail |
 |------|--------|
-| 1. Install the Beamable SDK and Register/Login | • See [Installing Beamable](../../getting-started/installing-beamable.md) for more info. |
+| 1. Install the Beamable SDK and Register/Login | • See [Installing Beamable](../getting-started/installing-beamable.md) for more info. |
 | 2. Open the Content Manager Window | • Unity → Window → Beamable → Open Content Manager |
 | 3. Create the "GameType" content | ![Content Manager Create](../../media/imgs/tbf-content-manager-create.jpg){width="50%" style="float: right; margin: 0px 0px 15px 15px;"}<br><br>• Select the content type in the list<br>• Press the "Create" button<br>• Populate the content name |
 | 4. Configure "GameType" content | ![Game Type Config](../../media/imgs/rlgl-gametype-config.png)<br>• Populate the `Max Players` and `Teams`<br>*Note: The other fields are optional and may be needed for advanced use cases* |

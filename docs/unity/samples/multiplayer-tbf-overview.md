@@ -18,7 +18,7 @@ The player navigates from the Intro Scene to the Game Scene, where all the actio
 
 ## Multiplayer (TBF) - Guide
 
-This document and the sample project allow game makers to understand and apply the benefits of Beamable [Multiplayer](../../../concepts/services/multiplayer.md) in game development. Or watch this video:
+This document and the sample project allow game makers to understand and apply the benefits of Beamable [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) in game development. Or watch this video:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3m55jsjfXUc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -28,7 +28,7 @@ Learning Resources:
 
 | Source | Detail |
 |--------|--------|
-| ![Beamable Logo](../../media/imgs/beamable-logo.jpg){width="35px"} | 1. **Download** the [Multiplayer TBF Sample Project](https://github.com/beamable/Multiplayer_TBF_Sample_Project/)<br>2. Open in Unity Editor (Version 2021.3 or later)<br>3. Open the Beamable [Toolbox](../../user-reference/toolbox.md)<br>4. Sign-In / Register To Beamable. See [Step 1 - Getting Started](../../getting-started/index.md) for more info<br>5. Open the `1.Intro` Scene<br>6. Play The Scene: Unity → Edit → Play<br>7. Click "Start Game: Human vs Bot" for an easy start. Or do a standalone build of the game and run the build. Then run the Unity Editor. In both running games, choose "Start Game: Human vs Human" to play against yourself<br>8. Enjoy!<br><br>*Note: Beamable supports Unity versions 2021.3 to 2023.3* |
+| ![Beamable Logo](../../media/imgs/beamable-logo.jpg){width="35px"} | 1. **Download** the [Multiplayer TBF Sample Project](https://github.com/beamable/Multiplayer_TBF_Sample_Project/)<br>2. Open in Unity Editor (Version 2021.3 or later)<br>3. Open the Beamable [Toolbox](../user-reference/editor-systems/unity-editor-login.md)<br>4. Sign-In / Register To Beamable. See [Getting Started](../getting-started/installing-beamable.md) for more info<br>5. Open the `1.Intro` Scene<br>6. Play The Scene: Unity → Edit → Play<br>7. Click "Start Game: Human vs Bot" for an easy start. Or do a standalone build of the game and run the build. Then run the Unity Editor. In both running games, choose "Start Game: Human vs Human" to play against yourself<br>8. Enjoy!<br><br>*Note: Beamable supports Unity versions 2021.3 to 2023.3* |
 
 ### Rules of the Game
 
@@ -76,7 +76,7 @@ These steps are **already complete** in the sample project. The instructions her
 !!! info "Related Features"
 
     • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a match (i.e. a multiplayer "room")  
-    • [Multiplayer](../../../concepts/services/multiplayer.md) - Enable real-time multiplayer gameplay experiences
+    • [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) - Enable real-time multiplayer gameplay experiences
 
 ### Step 1. Setup Project
 
@@ -146,7 +146,7 @@ Here is the `Configuration.cs` holding high-level, easily-configurable values us
 
     Here are some common issues and solutions:
 
-    • While the name is similar, this `Configuration.cs` is wholly unrelated to Beamable's [Configuration Manager](../../user-reference/configuration-manager.md).
+    • While the name is similar, this `Configuration.cs` is wholly unrelated to Beamable's Configuration Manager.
 
 ![Configuration Inspector](../../media/imgs/tbf-configuration-inspector.jpg){width="80%"}
 

@@ -427,7 +427,7 @@ namespace Beamable.Examples.Services.CommerceService
 
 As a game maker you will find that in some cases you need to be able to report purchases from outside the Beamable store flow. Beamable provides you with a way to do this through a small configuration change in Portal and some client side tracking code.
 
-![Payment Audits Realm Config](../../../../../media/imgs/payment-audits-realm-config.png)
+![Payment Audits Realm Config](../../../../media/imgs/payment-audits-realm-config.png)
 
 As shown in the above example, you will need to set a key in your Realm configuration to override purchase reporting to enable this functionality. Without this configuration change the API will error and not report anything.
 
@@ -493,8 +493,8 @@ private async Task TrackSomePurchase()
 
 Once you do the above tracking, you can view the results by going to the Portal and clicking on _Real Money Transactions_ under the Monetization section. Within a few minutes at most, the tracking that was posted should appear there and you can view the details of your transactions.
 
-![Portal Purchase Results](../../../../../media/imgs/portal-purchase-results.png){: style="height:auto;width:500px"}
+![Portal Purchase Results](../../../../media/imgs/portal-purchase-results.png){: style="height:auto;width:500px"}
 
 In addition, the dashboards on the Realm should reflect the purchase as well.
 
-![Dashboard Purchase Tracking](../../../../../media/imgs/dashboard-purchase-tracking.png){: style="height:auto;width:500px"}
+![Dashboard Purchase Tracking](../../../../media/imgs/dashboard-purchase-tracking.png){: style="height:auto;width:500px"}

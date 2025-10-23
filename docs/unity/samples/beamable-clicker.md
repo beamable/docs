@@ -30,23 +30,23 @@ A simple clicker game sample demonstrating Beamable's Leaderboard system. **In t
 
 ## Project Repository
 
-The code for the Leaderboard ABC Sample is available at [Leaderboard ABC Sample Project](https://github.com/beamable/Leaderboard_ABC_Sample_Project). Please check the [Guide](beamable-clicker-guide.md) for detailed implementation guidance.
+The code for the Leaderboard ABC Sample is available at [Leaderboard ABC Sample Project](https://github.com/beamable/Leaderboard_ABC_Sample_Project).
 
 ## Screenshots
 
 | Intro Scene | Game Scene | Leaderboard Scene | Project Structure |
 | :---------- | :--------- | :---------------- | :---------------- |
-| ![ABC Intro Scene](../../../media/imgs/abc1.jpg){width="200"} | ![ABC Game Scene](../../../media/imgs/abc2.jpg){width="200"} | ![ABC Leaderboard Scene](../../../media/imgs/abc3.jpg){width="200"} | ![ABC Project](../../../media/imgs/abc4.jpg){width="200"} |
+| ![ABC Intro Scene](../../media/imgs/abc1.jpg){width="200"} | ![ABC Game Scene](../../media/imgs/abc2.jpg){width="200"} | ![ABC Leaderboard Scene](../../media/imgs/abc3.jpg){width="200"} | ![ABC Project](../../media/imgs/abc4.jpg){width="200"} |
 
 ## Download
 
 | Source | Detail |
 |--------|--------|
-| **Beamable** | 1. **Download** the [Leaderboard ABC Sample Project](https://github.com/beamable/Leaderboard_ABC_Sample_Project)<br>2. Open in Unity Editor (Version 2021.3 or later)<br>3. Open the Beamable [Toolbox](../user-reference/editor-systems/unity-editor-login.md)<br>4. Sign-In / Register To Beamable. See [Getting Started](../../getting-started/installing-beamable.md) for more info<br>5. Open the Content Manager Window and click "Publish". See [Content Manager](../user-reference/editor-systems/content-manager.md) for more info<br>6. Open the `1.Intro` Scene<br>7. Play The Scene: Unity → Edit → Play<br>8. Enjoy!<br><br>_Note: Sample projects are compatible with supported Unity versions_ |
+| **Beamable** | 1. **Download** the [Leaderboard ABC Sample Project](https://github.com/beamable/Leaderboard_ABC_Sample_Project)<br>2. Open in Unity Editor (Version 2021.3 or later)<br>3. Open the Beamable [Toolbox](../user-reference/editor-systems/unity-editor-login.md)<br>4. Sign-In / Register To Beamable. See [Getting Started](../getting-started/installing-beamable.md) for more info<br>5. Open the Content Manager Window and click "Publish". See [Content Manager](../user-reference/beamable-services/profile-storage/content/content-overview.md) for more info<br>6. Open the `1.Intro` Scene<br>7. Play The Scene: Unity → Edit → Play<br>8. Enjoy!<br><br>_Note: Sample projects are compatible with supported Unity versions_ |
 
 ## Implementation Guide
 
-For detailed implementation steps and code examples, see the [Beamable Clicker Implementation Guide](beamable-clicker-guide.md).
+This sample demonstrates key Beamable integration patterns for leaderboards and stats.
 
 ### Key Components
 
@@ -90,7 +90,7 @@ This sample uses Beamable Stats to track player progress. While not strictly nec
 
 ### Managing Leaderboards via Portal
 
-The [Portal](../user-reference/web-portal/portal-overview.md) allows game makers to manage leaderboards, view player scores, and configure leaderboard settings.
+The Portal allows game makers to manage leaderboards, view player scores, and configure leaderboard settings.
 
 !!! warning "Configuration Note"
 

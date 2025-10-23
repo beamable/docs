@@ -118,7 +118,7 @@ if (playerStats.TryGetValue("player_level", out string level))
 
 The Beamable Portal allows you to view and edit player stats directly through the web interface:
 
-![Portal Stats Editor](../../../../../media/imgs/portal-stats-profile-edit.png)
+![Portal Stats Profile Edit](../../../../media/imgs/portal-stats-profile-edit.png)
 
 ## Getting Started
 This section walks through the steps to create a custom stat and then read/write that stat via the `StatBehaviour` and via raw C# coding.
@@ -128,9 +128,9 @@ Custom stats are created on-demand the first time they are written to. However, 
 
 | Step | Detail |
 |------|--------|
-| 1. Create the Stat | ![Create Stat](../../../../../media/imgs/stats-create-stat-step1.jpg)<br><br>• Unity → Assets → Create → Beamable → Stat |
-| 2. Name the asset file | ![Name Asset](../../../../../media/imgs/stats-name-asset-step2.jpg) |
-| 3. Populate all data fields | ![Populate Fields](../../../../../media/imgs/stats-populate-fields-step3.jpg)<br><br>_Best Practice: It is a best practice to match the `Stat Key` value with the asset file name_ |
+| 1. Create the Stat | ![Create Stat](../../../../media/imgs/stats-create-stat-step1.jpg)<br><br>• Unity → Assets → Create → Beamable → Stat |
+| 2. Name the asset file | ![Name Asset](../../../../media/imgs/stats-name-asset-step2.jpg) |
+| 3. Populate all data fields | ![Populate Fields](../../../../media/imgs/stats-populate-fields-step3.jpg)<br><br>_Best Practice: It is a best practice to match the `Stat Key` value with the asset file name_ |
 | 4. Save the Unity Project | • Unity → File → Save Project<br><br>_Best Practice: If you are working on a team, commit to version control in this step._ |
 
 There are two main methods for interacting with Stats: 
@@ -146,7 +146,7 @@ This method offers higher ease-of-use using pre made components
 
 | Unity Hierarchy | Unity Inspector |
 | :-------------- | :-------------- |
-| ![StatBehaviour Hierarchy](../../../../../media/imgs/stats-behaviour-hierarchy.jpg) | ![StatBehaviour Inspector](../../../../../media/imgs/stats-behaviour-inspector.jpg) |
+| ![StatBehaviour Hierarchy](../../../../media/imgs/stats-behaviour-hierarchy.jpg) | ![StatBehaviour Inspector](../../../../media/imgs/stats-behaviour-inspector.jpg) |
 
 StatBehaviourExample.cs
 ```csharp
@@ -196,7 +196,7 @@ This method offers higher flexibility using raw C# coding using the StatsService
 
 | Unity Hierarchy | Unity Inspector |
 | :-------------- | :-------------- |
-| ![Coding Hierarchy](../../../../../media/imgs/stats-coding-hierarchy.jpg) | ![Coding Inspector](../../../../../media/imgs/stats-coding-inspector.jpg) |
+| ![Coding Hierarchy](../../../../media/imgs/stats-coding-hierarchy.jpg) | ![Coding Inspector](../../../../media/imgs/stats-coding-inspector.jpg) |
 
 The SetStats and GetStats methods require additional parameters.
 

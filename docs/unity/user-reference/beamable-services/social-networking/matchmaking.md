@@ -453,7 +453,7 @@ The following steps outline the matchmaking setup process:
 
 | Step | Detail                                                                                                                                                                   |
 |------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1. Setup Beamable | • See [Getting Started](../../getting-started.md)                                                                                                               |
+| 1. Setup Beamable | • See [Getting Started](../../../getting-started/installing-beamable.md)                                                                                                               |
 | 2. Setup Content | • The content type related to Matchmaking is the `SimGameType`. It defines the parameters for the match to be created.                                                   |
 | 3. Create C# multiplayer-specific logic | • Access Local Player Information<br>• Create Multiplayer Session<br>• Handle Events<br>• Send Events<br><br>_Note: See [Multiplayer](multiplayer.md) for more info_     |
 | 4. Create C# game-specific logic | • Convert input to events<br>• Gracefully handle network latency<br>• Convert events into graphics and audio rendering<br>• Handle game logic (e.g. win/loss conditions) |

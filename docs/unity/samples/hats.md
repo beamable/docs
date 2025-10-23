@@ -13,7 +13,7 @@ Welcome to "HATS" (Head Adornment Test Scenario). In this game, **Think ahead qu
 
 ## Multiplayer (HATS) - Guide
 
-This downloadable sample game project showcases the Beamable [Multiplayer](multiplayer-feature-overview.md) Feature.
+This downloadable sample game project showcases the Beamable [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) Feature.
 
 ## Download
 
@@ -21,7 +21,7 @@ Learning Resources:
 
 | Source | Detail |
 |--------|--------|
-| ![Beamable Logo](../../media/imgs/beamable-logo-small.jpg){width="35"} | 1. **Download** the [HATS Sample Game](https://github.com/beamable/Hats_Sample_Game)<br/>2. Open in Unity Editor (Version 2021.3 or later)<br/>3. Open the Beamable [Toolbox](toolbox.md)<br/>4. Sign-In / Register To Beamable. See [Step 1 - Getting Started](getting-started.md) for more info<br/>5. Open the `Scene01Intro` Scene<br/>6. Play The Scene: Unity → Edit → Play<br/>7. Click "Play" for an easy start. Or do a standalone build of the game and run the build. Then run the Unity Editor. In both running games, choose "Play" to play against yourself.<br/>_You need to rebuild [Addressable Asset Groups](https://docs.unity3d.com/Packages/com.unity.addressables@1.4/manual/AddressableAssetsGettingStarted.html) before doing a standalone build. To build content in the Editor, open the Addressables Groups window, then select Build > New Build > Default Build Script._<br/>8. Enjoy!<br/><br/>*Note: Sample projects are compatible with the latest supported Unity versions |
+| ![Beamable Logo](../../media/imgs/beamable-logo-small.jpg){width="35"} | 1. **Download** the [HATS Sample Game](https://github.com/beamable/Hats_Sample_Game)<br/>2. Open in Unity Editor (Version 2021.3 or later)<br/>3. Open the Beamable [Toolbox](../user-reference/editor-systems/unity-editor-login.md)<br/>4. Sign-In / Register To Beamable. See [Getting Started](../getting-started/installing-beamable.md) for more info<br/>5. Open the `Scene01Intro` Scene<br/>6. Play The Scene: Unity → Edit → Play<br/>7. Click "Play" for an easy start. Or do a standalone build of the game and run the build. Then run the Unity Editor. In both running games, choose "Play" to play against yourself.<br/>_You need to rebuild [Addressable Asset Groups](https://docs.unity3d.com/Packages/com.unity.addressables@1.4/manual/AddressableAssetsGettingStarted.html) before doing a standalone build. To build content in the Editor, open the Addressables Groups window, then select Build > New Build > Default Build Script._<br/>8. Enjoy!<br/><br/>*Note: Sample projects are compatible with the latest supported Unity versions |
 
 ### Rules of the Game
 
@@ -60,7 +60,7 @@ Here are instructions to setup the Beamable SDK and "GameType" content.
 
 | Step | Detail |
 |------|--------|
-| 1. Install the Beamable SDK and Register/Login | • See [Step 1 - Getting Started](getting-started.md) for more info. |
+| 1. Install the Beamable SDK and Register/Login | • See [Getting Started](../getting-started/installing-beamable.md) for more info. |
 | 2. Open the Content Manager Window | • Unity → Window → Beamable → Open Content Manager |
 | 3. Create the "GameType" content | ![Content Manager Create](../../media/imgs/content-manager-create-content.jpg){width="200" style="float: right; margin: 0px 0px 15px 15px;"}<br/><br/><br/>• Select the content type in the list<br/>• Press the "Create" button<br/>• Populate the content name |
 | 4. Configure "GameType" content | ![HATS GameType](../../media/imgs/hats-free-for-all-gametype.png)<br/>• Populate the `Max Players` field<br/>_Note: The other fields are optional and may be needed for advanced use cases like Matchmaking._ |
@@ -69,7 +69,7 @@ Here are instructions to setup the Beamable SDK and "GameType" content.
 
 ### Step 2. Plan the Multiplayer Game Design
 
-See [Multiplayer (Plan the Multiplayer Game Design)](multiplayer-feature-overview.md#plan-the-multiplayer-game-design) for more info.
+See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.
 
 ### Step 3. Create the Game Code
 
@@ -180,7 +180,7 @@ foreach (var evt in Simulation.PlayGame())
 
     Related Guides: It is recommended to read the guide before continuing with the sample steps below.
 
-    • [Leaderboards](leaderboards-feature-overview.md) - Display and update per-game leaderboards
+    • [Leaderboards](../user-reference/beamable-services/social-networking/leaderboards.md) - Display and update per-game leaderboards
 
 Leaderboard-related functionality is handled via `LeaderboardScreenController`. It retrieves the current leaderboard in one essential call to Beamable's leaderboard SDK:
 
@@ -203,9 +203,9 @@ if (isWinner)
 
     Related Guides: It is recommended to read the guide before continuing with the sample steps below.
 
-    • [Inventory](inventory-feature-overview.md) - Define player inventory and offer items in a store
+    • [Inventory](../user-reference/beamable-services/game-economy/inventory-overview.md) - Define player inventory and offer items in a store
 
-HATS offers players to buy characters and hats, both being purely decorative items without any effect on gameplay. Players need to earn Gems to buy these items. All items are subtypes of Beamable's `ItemContent` and are managed by the [Beamable Content Manager](content-manager.md). Transactions and available shop listings are handled by `CharacterPanelController`, going hand in hand with `PlayerInventory`:
+HATS offers players to buy characters and hats, both being purely decorative items without any effect on gameplay. Players need to earn Gems to buy these items. All items are subtypes of Beamable's `ItemContent` and are managed by the [Beamable Content Manager](../user-reference/beamable-services/profile-storage/content/content-overview.md). Transactions and available shop listings are handled by `CharacterPanelController`, going hand in hand with `PlayerInventory`:
 
 CharacterPanelController.cs
 ```csharp
@@ -242,9 +242,9 @@ Did you complete all the experiments with success? We'd love to hear about it. [
 
 | Difficulty | Scene | Name | Detail |
 |------------|-------|------|--------|
-| Beginner | - | Give yourself gems without winning even a single game | _Hint: There is one default [Currency](virtual-currency-feature-overview.md) type_ |
+| Beginner | - | Give yourself gems without winning even a single game | _Hint: There is one default [Currency](../user-reference/beamable-services/game-economy/virtual-currency-overview.md) type_ |
 | Beginner | All Scenes | Change game asset to create a new theme (SciFi, Fantasy, ...) | • Replace (or add) all visible textures and sprites in UI and the game itself<br/>• If you add assets, update all image references accordingly |
-| Intermediate | All Scenes | Add more characters, hats or tile types | • Find the birthday hat and offer a normal and a drunk version<br/>• To add a new character, both Prefab and Content need to be updated. Start with duplicating and adapting an existing character Prefab.<br/>• Tile types: Have a look at BattleGrid.<br/><br/>_Hint: All of that requires [Content](content-feature-overview.md) changes_ |
+| Intermediate | All Scenes | Add more characters, hats or tile types | • Find the birthday hat and offer a normal and a drunk version<br/>• To add a new character, both Prefab and Content need to be updated. Start with duplicating and adapting an existing character Prefab.<br/>• Tile types: Have a look at BattleGrid.<br/><br/>_Hint: All of that requires [Content](../user-reference/beamable-services/profile-storage/content/content-overview.md) changes_ |
 | Intermediate | Scene02Game | Make a surrendered player carry a white flag | • A player can be dead in two ways now<br/>• Adapt the way that players are rendered accordingly |
 | Advanced | Scene02Game | Add arrow frenzy | • Add a powerup that shoots arrows in all directions at once. It should only last one turn.<br/>• Little Twist: Shoot arrows sequentially, in clockwise order |
 | Advanced | All Scenes | Make the game 3D | • For starters, leave GameSimulation alone and work your way through BattleGrid first |
@@ -253,7 +253,7 @@ Did you complete all the experiments with success? We'd love to hear about it. [
 
 In multiplayer gaming, matchmaking is the process of choosing a room based on criteria (e.g. "Give me a room to play in with 2 total players of any skill level"). Beamable supports matchmaking through its matchmaking service.
 
-See [Matchmaking](matchmaking-feature-overview.md) for more info.
+See [Matchmaking](../user-reference/beamable-services/social-networking/matchmaking.md) for more info.
 
 For HATS, a single catch-all GameType is used, allowing the player to play against up to three bots **or** other human contenders, waiting 10 seconds until the match starts.
 
@@ -295,12 +295,12 @@ MatchmakingHandle = await _api.Experimental.MatchmakingService.StartMatchmaking(
 
 ## Game Security
 
-See [Multiplayer (Game Security)](multiplayer-feature-overview.md#game-security) for more info.
+See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.
 
 ## Playing "Against Yourself"
 
-See [Multiplayer (Playing Against Yourself)](multiplayer-feature-overview.md#playing-against-yourself) for more info.
+See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.
 
 ## Randomization and Determinism
 
-See [Multiplayer (Randomization and Determinism)](multiplayer-code.md#randomization-and-determinism) for more info.
+See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.

@@ -96,7 +96,7 @@ Example Player Manifest
 
 ### Stats
 
-The [Stats](../stats-overview.md) feature is related to A/B Testing in a couple of ways.
+The [Stats](../profile-storage/stats.md) feature is related to A/B Testing in a couple of ways.
 
 **1. Automatic Stats**
 

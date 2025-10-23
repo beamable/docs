@@ -11,14 +11,14 @@ Beamable's Inventory system is built on the Content feature. This means that con
 
 The [`InventoryService`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Inventory_1_1InventoryService.html#details) manages items owned by the active player. Whereas the [`ContentService`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Content_1_1ContentService.html#details) manages all items available in the game, regardless if owned or not. Each **Inventory Item** owned by the active player relates to a specific **Content Item**.
 
-![inventory-data-concept.png](../../../../../media/imgs/inventory-data-concept.png)v
+![Inventory Data Concept](../../../../media/imgs/inventory-data-concept.png)
 
 
 ## Portal
 
 Player inventories can be viewed/edited on the Portal. More information can be found in the [Portal - Inventory](https://docs.beamable.com/docs/portal-inventory) guide.
 
-![Portal Inventory Overview](../../../../../media/imgs/portal-inventory-overview.png){: style="height:auto;width:500px"}
+![Portal Inventory Overview](../../../../media/imgs/portal-inventory-overview.png){: style="height:auto;width:500px"}
 
 
 ### Pruning Deprecated Items
@@ -29,7 +29,7 @@ Normally inventory item types are meant to be long-lasting, and the correspondin
 
 When a player owns an item but the content entry defining that item type has been deleted, the item stays in the player's inventory but is considered to be "deprecated". In the Beamable Portal, items' deprecated status will appear in the _Permission_ section of the inventory view.
 
-![Inventory Deprecated Items in Portal](../../../../../media/imgs/inventory-deprecated-items-portal.png){: style="height:auto;width:200px"}
+![Inventory Deprecated Items in Portal](../../../../media/imgs/inventory-deprecated-items-portal.png){: style="height:auto;width:200px"}
 
 Items that are deprecated cannot be used effectively in game code, since the Beamable SDK has no way of knowing what their fields should be. Without the content definition, the SDK cannot determine the schema for those items.
 
@@ -39,9 +39,9 @@ When you know that you will be causing items to become deprecated, you can enabl
 
 To enable inventory pruning, go to the _Operate_ > _Config_ section of the Beamable Portal and add two entries in the "inventory" namespace using the _Add +_ button. The two configuration values to add are `pruneItems` and `deprecatedContentTtlDays`. Item pruning is turned off by default (that is, the default value for `pruneItems` is false), and the default time-to-live (TTL) is 10 days.
 
-![Inventory Pruning Configuration 1](../../../../../media/imgs/inventory-pruning-config-1.png){: style="height:auto;width:400px"}
+![Inventory Pruning Configuration 1](../../../../media/imgs/inventory-pruning-config-1.png){: style="height:auto;width:400px"}
 
-![Inventory Pruning Configuration 2](../../../../../media/imgs/inventory-pruning-config-2.png){: style="height:auto;width:400px"}
+![Inventory Pruning Configuration 2](../../../../media/imgs/inventory-pruning-config-2.png){: style="height:auto;width:400px"}
 
 Note that pruning is "lazy": the criteria for inventory pruning will only be evaluated by Beamable services when the player's inventory is loaded into memory. As such, pruning will _NOT_ occur for players who have not played recently.
 
@@ -61,10 +61,10 @@ Some use cases:
 
 You can see bellow the flows when getting and granting the Inventory Items with Federation enabled
 
-![Federated Inventory Get Flow](../../../../../media/imgs/federated-inventory-get-flow.png){: style="height:auto;width:400px"}
+![Federated Inventory Get Flow](../../../../media/imgs/federated-inventory-get-flow.png){: style="height:auto;width:400px"}
 
 
-![Federated Inventory Grant Flow](../../../../../media/imgs/federated-inventory-grant-flow.png){: style="height:auto;width:400px"}
+![Federated Inventory Grant Flow](../../../../media/imgs/federated-inventory-grant-flow.png){: style="height:auto;width:400px"}
 
 ### `IFederatedInventory<T>` interface
 
@@ -193,7 +193,7 @@ If your game allows the user to purchase items from the store in the form of arm
 
 This is demonstrated in Beamable's [HATS Sample](https://docs.beamable.com/docs/multiplayer-hats-overview) project.
 
-![The player inventory, full of hats](../../../../../media/imgs/inventory-sample-hats.png){: style="height:auto;width:200px"}
+![The player inventory, full of hats](../../../../media/imgs/inventory-sample-hats.png){: style="height:auto;width:200px"}
 
 You can also check those other samples:
 

@@ -41,7 +41,7 @@ Based on guidelines for user account deletion, this method should be paired with
 **The script can be downloaded as a GitHub Gist here:** [DeletePlayerInfoService.cs](https://gist.github.com/beamable-gists/4ee1ecc72475eca5e6f63aecfdba762a)  
 _The full script can also be found at the bottom of this document._
 
-The API is only callable by an admin (e.g., a microservice). Therefore, you will need to follow the steps to create a microservice before this script can be called. See the [Microservices - Guide](../../user-reference/microservices/microservices-guide.md) for more info.
+The API is only callable by an admin (e.g., a microservice). Therefore, you will need to follow the steps to create a microservice before this script can be called. See the [Microservice Framework](../user-reference/cloud-services/microservices/microservice-framework.md) for more info.
 
 The API used here is [`object/accounts/{objectId}/admin/forget`](https://docs.beamable.com/reference/delete_object-accounts-objectid-admin-forget). The `objectId` is the player's account ID, **not** their realm ID. Typically, a user's realm ID is equal to the account ID+1 since both these values are created in rapid succession.
 
@@ -143,7 +143,7 @@ await Beam.ClearAndStopAllContexts();
 
 ## Complete Script
 
-Create a microservice via the [Microservices Manager](../../user-reference/microservices/microservices-manager.md), then paste this script into the C# source file.
+Create a microservice via the [Microservice Unity Integration](../user-reference/cloud-services/microservices/microservice-unity-integration.md), then paste this script into the C# source file.
 
 DeletePlayerAccount.cs
 ```csharp

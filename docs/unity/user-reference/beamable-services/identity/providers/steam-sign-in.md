@@ -2,7 +2,7 @@
 
 In order to integrate Steam into any game you have to use the Steamworks SDK and the Steamworks API. This section will show you how to properly integrate the Steamworks SDK into a Unity Game. However, the implementations of Steamworks are relatively the same across various languages.
 
-![Steamworks](../../../../../../media/imgs/4caee67-steamworks.png){: style="height:auto;width:500px"}
+![Steamworks](../../../../../media/imgs/4caee67-steamworks.png){: style="height:auto;width:500px"}
 
 !!! info "Install the Steamworks.NET SDK into your project."
     The Steamworks.NET SDK is a wrapper around the Steamworks SDK provided from Steam (Valve). You'll need to download the [Latest SDK](https://github.com/rlabrecque/Steamworks.NET/releases/latest) and install it into your project. Thankfully, it's only a Unity package and you can just import it into Unity like any other package.

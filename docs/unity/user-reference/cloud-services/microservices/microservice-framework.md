@@ -164,7 +164,7 @@ When designing each microservice method, a key question is 'Who is allowed acces
 
 With the Portal, game makers can view and manage the deployed Microservices.
 
-![Portal Microservices Options](../../../../../media/imgs/portal-microservices-options-numbers.png)
+![Portal Microservices Options Numbers](../../../../media/imgs/portal-microservices-options-numbers.png)
 
 | Name              | Details                                                                                                                   |
 | :---------------- | :------------------------------------------------------------------------------------------------------------------------ |
@@ -296,7 +296,7 @@ Beamable Microservices uses the industry standard Docker technology. Docker simp
 
 Beamable handles all coordination and configuration of Docker including the `beamableinc/beamservice` base image hosted on Docker's [DockerHub](https://hub.docker.com/u/beamableinc).
 
-![Docker](../../../../../media/imgs/docker.png)
+![Docker](../../../../media/imgs/docker.png)
 
 ## Publishing Microservices
 
@@ -314,7 +314,7 @@ Once the services have been published, they are viewable on the Beamable Portal.
 
 By default, Microservices use a DEBUG log level when published. These logs can be viewed in the Portal. However, starting with Beamable 1.15.0, if you want to see even more detailed VERBOSE logs, or quiet your logs to only show WARNINGS or ERRORS, it is possible through Realm Config. In the Realm Config page of portal, create a new namespace called "service_logs". Then, create an entry in the "service_logs" namespace for each service you want to change the log level for. The entry should be the name of the Microservice. The value should be one of the following, "verbose", "debug", "info", "warn", "error", or "fatal".
 
-![Service Logs Realm Config](../../../../../media/imgs/service-logs-realm-config.png)
+![Service Logs Realm Config](../../../../media/imgs/service-logs-realm-config.png)
 
 If you configure the service with "fatal", then only log messages at the "fatal" level will be shown. However, if you configure the service with "debug", then all log messages with a log level of "debug" or greater will be shown, including "debug", "info", "warn", "error", and "fatal".
 

@@ -97,10 +97,10 @@ Game makers may create new content of _existing_ content types or new content of
 | Step | Detail                                                                                                                                                                                                                       |
 |------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1. Open the Content Manager Window | • Unity → Window → Beamable → Open Content Manager                                                                                                                                                                           |
-| 2. Create the "Item" content | ![Beamable Content Manager](../../../../../../media/imgs/Beamable_Windows_Content_Manager_Create_Content_v3.jpg)<br/>• Select the content type in the list<br/>• Press the "Create" button<br/>• Populate the content name |
+| 2. Create the "Item" content | ![Beamable Content Manager](../../../../../media/imgs/Beamable_Windows_Content_Manager_Create_Content_v3.jpg)<br/>• Select the content type in the list<br/>• Press the "Create" button<br/>• Populate the content name |
 | 3. Open the Unity Project Window | • Unity → Window → General→ Project                                                                                                                                                                                          |
 | 4. Select the "Item" asset | • Search by the name given in step #3<br/>• View the asset in the Unity Inspector Window                                                                                                                                     |
-| 5. Populate all data fields | ![Item Fields](../../../../../../media/imgs/content-item.jpg)<br/><br/>_Note: The icons can be set to any valid Unity's [`Addressable`](https://docs.unity3d.com/Manual/com.unity.addressables.html) object._             |
+| 5. Populate all data fields | ![Item Fields](../../../../../media/imgs/content-item.jpg)<br/><br/>_Note: The icons can be set to any valid Unity's [`Addressable`](https://docs.unity3d.com/Manual/com.unity.addressables.html) object._             |
 | 6. Save the Unity Project | • Unity → File → Save Project<br/><br/>_Best Practice: If you are working on a team, commit to version control in this step._                                                                                                |
 | 7. Publish the content | • Press the "Publish" button in the Content Manager Window                                                                                                                                                                   |
 
@@ -178,8 +178,8 @@ namespace Beamable.Examples.Services.ContentService
 
 After being added to a GameObject, the Inspector will display a drop-down of all valid content entries.
 
-![Content Service Example](../../../../../../media/imgs/ContentServiceExample.png){: style="height:auto;width:500px"}
+![Content Service Example](../../../../../media/imgs/ContentServiceExample.png){: style="height:auto;width:500px"}
 
 Click Play in the Editor and inspect the console to see that the Item content was pulled successfully.
 
-![Content Service Logs](../../../../../../media/imgs/ContentServiceLogs.png){: style="height:auto;width:500px"}
+![Content Service Logs](../../../../../media/imgs/ContentServiceLogs.png){: style="height:auto;width:500px"}

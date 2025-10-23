@@ -28,14 +28,14 @@ In "Global Price War" (GPW), the winners say **Buy low, sell high! Finish rich a
 
     There are two repos for the "Global Price Wars" game each with distinct learning goals.
 
-    1. [Chat GPW Sample Project](chat-gpw-overview.md) - Simpler project, the `GPWBasicDataFactory` uses random, local data values. **You are currently viewing the documentation for this project.**
-    2. [Chat GPW2 Sample Project With MicroStorage](../chat-microstorage-gpw2/chat-gpw2-overview.md) - Complex project, the `GPWMicroStorageDataFactory` uses Beamable Microservices and MicroStorage with data values stored in shared database
+    1. **Chat GPW Sample Project** - Simpler project, the `GPWBasicDataFactory` uses random, local data values. **You are currently viewing the documentation for this project.**
+    2. [Chat GPW2 Sample Project With MicroStorage](gpw2.md) - Complex project, the `GPWMicroStorageDataFactory` uses Beamable Microservices and MicroStorage with data values stored in shared database
 
 ## Download
 
 | Source | Detail |
 | :--- | :--- |
-| **Beamable** | 1. **Download** the [Chat GPW Sample Project](https://github.com/beamable/Chat_GPW_Sample_Project)<br/>2. Open in Unity Editor (Version 2021.3 or later)<br/>3. Open the Beamable [Toolbox](../../user-reference/editor-systems/unity-editor-login.md)<br/>4. Sign-In / Register To Beamable. See [Getting Started](../../getting-started/installing-beamable.md) for more info<br/>5. Rebuild the Unity [Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@1.3/manual/AddressableAssetsDevelopmentCycle.html) : Unity → Window → Asset Management → Groups, then Build → Update a Previous Build<br/>6. Open the `Scene01Intro` Scene<br/>7. Play The Scene: Unity → Edit → Play<br/>8. Click the "Start" Button<br/>9. Enjoy!<br/><br/>_Note: This sample project is compatible with Unity 2021.3 and later versions._ |
+| **Beamable** | 1. **Download** the [Chat GPW Sample Project](https://github.com/beamable/Chat_GPW_Sample_Project)<br/>2. Open in Unity Editor (Version 2021.3 or later)<br/>3. Open the Beamable [Toolbox](../user-reference/editor-systems/unity-editor-login.md)<br/>4. Sign-In / Register To Beamable. See [Getting Started](../getting-started/installing-beamable.md) for more info<br/>5. Rebuild the Unity [Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@1.3/manual/AddressableAssetsDevelopmentCycle.html) : Unity → Window → Asset Management → Groups, then Build → Update a Previous Build<br/>6. Open the `Scene01Intro` Scene<br/>7. Play The Scene: Unity → Edit → Play<br/>8. Click the "Start" Button<br/>9. Enjoy!<br/><br/>_Note: This sample project is compatible with Unity 2021.3 and later versions._ |
 
 ### Rules of the Game
 
@@ -56,7 +56,7 @@ Many Beamable features are used to implement the game design and game rules.
 
 ### Content
 
-Using the Beamable [Content](../../user-reference/beamable-services/profile-storage/content/content-overview.md) feature, this game stores core data with ease and flexibility.
+Using the Beamable [Content](../user-reference/beamable-services/profile-storage/content/content-overview.md) feature, this game stores core data with ease and flexibility.
 
 | Remote Configuration | Location | Product |
 | :--- | :--- | :--- |

@@ -164,7 +164,7 @@ Some common use-cases for game makers include;
 
 Here are the major operations that can be performed against the player data.
 
-![Portal Cloud Data Management](../../../../../media/imgs/portal-cloud-data-management.png)
+![Portal Cloud Data Management](../../../../media/imgs/portal-cloud-data-management.png)
 
 | Name        | Detail                                                                                          |
 | :---------- | :---------------------------------------------------------------------------------------------- |

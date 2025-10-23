@@ -221,7 +221,7 @@ All examples (1-9) are available in the following Google Sheets example file:
 
 | Source | Detail |
 |--------|--------|
-| ![Beamable Logo](../../../../../../media/imgs/beamable-logo-small.jpg) | 1. **Open** the [Game Content Designer - Google Sheets Examples](https://docs.google.com/spreadsheets/d/1mYB6q-pFjbI3RMZLHh-hN6v1Wv4kVAq9NfbjPc42P44/edit?usp=sharing)<br/>2. Explore the tabs, descriptions, and cells<br/>3. Enjoy!<br/><br/>_Note: It is not recommended to use this file as-is directly in a production project. Simply learn from it and be inspired_ |
+| ![Beamable Logo](../../../../../media/imgs/beamable-logo-small.jpg) | 1. **Open** the [Game Content Designer - Google Sheets Examples](https://docs.google.com/spreadsheets/d/1mYB6q-pFjbI3RMZLHh-hN6v1Wv4kVAq9NfbjPc42P44/edit?usp=sharing)<br/>2. Explore the tabs, descriptions, and cells<br/>3. Enjoy!<br/><br/>_Note: It is not recommended to use this file as-is directly in a production project. Simply learn from it and be inspired_ |
 
 ## Using the Data
 

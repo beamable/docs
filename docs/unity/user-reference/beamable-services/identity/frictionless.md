@@ -3,7 +3,7 @@
 Beamable’s SDK provides frictionless authentication by default when the SDK is initialized. This is completely done for you under the hood. It is quite simple, and thus the Code Sample for it is short. However, this is an opportunity for you to learn more about the Beamable SDK and what it does for you when it is initialized from any “prefab”, service or API.
 
 
-![Frictionless Flow](../../../../../media/imgs/frictionless_auth_lifecycle.png){: style="height:auto;width:600px"}
+![Frictionless Flow](../../../../media/imgs/frictionless_auth_lifecycle.png){: style="height:auto;width:600px"}
 
 Whenever you use Beamable, you should initialize the SDK, this can be done more than once as it uses the Singleton pattern under the hood. That means it will only ever create one instance the Beamable API and it returns a reference to that instance.
 
@@ -40,11 +40,11 @@ Not all games require authentication to be visible to get into the game. As such
 
 Observe the classic flow of frictionless authentication.
 
-![Frictionless Guide](../../../../../media/imgs/3e1d303-583b4d1-frictionless_auth.png)
+![Frictionless Guide](../../../../media/imgs/3e1d303-583b4d1-frictionless_auth.png)
 
 You can _always_ prompt the user to authenticate another way once the above step has been established. In fact just using the Login Prefab does the above process and then allows you to set a Display Name (alias) for the anonymous user.
 
-![Beamable Auth Show Login](../../../../../media/imgs/faeb11a-2039d7c-beamable_auth_showlogin.png)
+![Beamable Auth Show Login](../../../../media/imgs/faeb11a-2039d7c-beamable_auth_showlogin.png)
 
 ## Sample Code
 

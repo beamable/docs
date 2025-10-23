@@ -8,7 +8,7 @@ Announcements exist in the form of content objects. They are created and publish
 
 The content included in an announcement is quite easy to edit via the Inspector:
 
-![Announcements Content Manager Inspector](../../../../../media/imgs/announcements-content-manager-inspector.png){: style="height:auto;width:400px"}
+![Announcements Content Manager Inspector](../../../../media/imgs/announcements-content-manager-inspector.png){: style="height:auto;width:400px"}
 
 ## Announcements API
 
@@ -74,7 +74,7 @@ private void PrintAnnouncements(List<AnnouncementView> announcements)
 
 Call either the `SubscribeToAnnouncements()` or `GetAnnouncements()` functions and inspect the Unity console to validate that your functions are working. Below is the console for a successful run.
 
-![Announcement Test Results](../../../../../media/imgs/announcements-test-console.png){: style="height:auto;width:400px"}
+![Announcement Test Results](../../../../media/imgs/announcements-test-console.png){: style="height:auto;width:400px"}
 
 ### Sample Code
 
