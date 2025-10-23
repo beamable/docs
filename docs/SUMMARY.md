@@ -1,20 +1,3 @@
-﻿- Beamable CLI
-    - [Getting Started](cli/guides/gettting-started.md)
-    - [Configuration](cli/guides/configuration.md)
-    - [Upgrading](cli/guides/upgrading.md)
-    - [Notifications](cli/guides/notifications.md)
-    - Microservices
-        - [Overview](cli/guides/microservices.md)
-        - [Deployment](cli/guides/ms-deployment.md)
-        - [Debugging](cli/guides/ms-debugging.md)
-        - [Configuration](cli/guides/ms-configuration.md)
-        - [Routing](cli/guides/ms-routing.md)
-        - [Storage](cli/guides/ms-storage.md)
-        - [Federation](cli/guides/ms-federation.md)
-        - [CLI Workflows](cli/guides/ms-workflow.md)
-        - [UPM](cli/guides/ms-upm.md)
-        - [Logging](cli/guides/ms-logging.md)
-        - [Command Line Output](cli/guides/ms-command-line.md)
-    - Beam CLI Commands
-        - [Commands Overview](cli/commands/cli-command-reference.md)
-        - [Commands Reference](cli/commands/cli-command-reference/)
+﻿- Beamable API
+    - [Authentication](api/authenticating.md)
+    - [Open API Specification](api/oapi.md)
