@@ -32,6 +32,7 @@
         - [UPM](cli/guides/ms-upm.md)
         - [Logging](cli/guides/ms-logging.md)
         - [Command Line Output](cli/guides/ms-command-line.md)
+        - [Troubleshooting](cli/guides/ms-troubleshooting.md)
     - Beam CLI Commands
         - [Commands Overview](cli/commands/cli-command-reference.md)
         - [Commands Reference](cli/commands/cli-command-reference/)
