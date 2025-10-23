@@ -83,6 +83,13 @@ The `<BeamId>` controls the name of the Beamable project.
 | ------------- | ------------------------- |
 | `<BeamId>`    | _the name of the .csproj_ |
 
+#### BeamLogProvider
+The `<BeamLogProvider>` determines which log provider the microservice will use. There are two options: `ClickHouse` and `CloudWatch`. If any other value is provided, `ClickHouse` will be used as the default.
+| Property Name | Default Value |
+| ------------- |---------------|
+| `<BeamLogProvider>`    | _Clickhouse_  |
+
+
 #### BeamEnabled
 
 The `<BeamEnabled>` is a boolean property. When `false`, when services are [deployed](ms-deployment.md) , the service will not be enabled, and will not cost Beamable Cloud resources.
