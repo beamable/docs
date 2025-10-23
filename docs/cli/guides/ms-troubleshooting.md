@@ -1,0 +1,545 @@
+﻿# Possible Issues and Solutions
+
+This page lists possible issues and solutions for common errors that can occur when using the Beam SDK and how to fix them.
+
+## Multiple Microservice Classes Detected
+
+**Explanation**:  
+Only one `Microservice` class should exist per microservice project. Multiple classes marked with the `[Microservice]` attribute will cause conflicts in code generation and runtime behavior.
+
+**Example Code Triggering the Error**:
+```csharp
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice {}
+
+[Microservice("MyOtherMicroservice")]
+public partial class MyOtherMicroservice : Microservice {}
+```
+
+**Example Error Message**:
+```
+Multiple Microservice classes detected. Make sure only a single class implementing Microservice exists in each service project. ClassNames=MyMicroservice, MyOtherMicroservice.
+```
+
+**Solutions**:
+- Ensure only one class is marked as a `Microservice` in your project.
+
+**Example of Solved Code**:
+```csharp
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice {}
+```
+
+---
+
+## Non-Partial Microservice Class Detected
+
+**Explanation**:  
+Microservice classes must be marked as `partial` to allow code generation tools to extend them.
+
+**Example Code Triggering the Error**:
+```csharp
+[Microservice("MyMicroservice")]
+public class MyMicroservice : Microservice {}
+```
+
+**Example Error Message**:
+```
+Non-Partial Microservice class detected. Make sure your Microservice class is marked as partial.
+```
+
+**Solutions**:
+- Add the `partial` modifier to the class.
+
+**Example of Solved Code**:
+```csharp
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice {}
+```
+
+---
+
+## Microservice Class Missing Microservice Id
+
+**Explanation**:  
+The `Microservice` class must include the `[Microservice("Id")]` attribute to define its identifier.
+
+**Example Code Triggering the Error**:
+```csharp
+public partial class MyMicroservice : Microservice {}
+```
+
+**Example Error Message**:
+```
+Microservice class is missing the microservice id
+```
+
+**Solutions**:
+- Add the `[Microservice("Id")]` attribute to the class.
+
+**Example of Solved Code**:
+```csharp
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice {}
+```
+
+---
+
+## Async Void Callable Methods
+
+**Explanation**:  
+Methods marked as `[Callable]`, `[ClientCallable]`, `[ServerCallable] ` should not be `async void`. Using `async void` makes it impossible to track errors or await completion.
+
+**Example Code Triggering the Error**:
+```csharp
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice 
+{
+    [Callable]
+    public async void CallMicroservice() {}
+}
+```
+
+**Example Error Message**:
+```
+Microservice Callable methods cannot be async voids. Ex: CallMicroservice.
+```
+
+**Solutions**:
+- Change the return type to `Task`.
+
+**Example of Solved Code**:
+```csharp
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice 
+{
+    [Callable]
+    public async Task CallMicroservice() {}
+}
+```
+## Invalid Type Usage in Callable Method
+
+**Explanation**:  
+Types used in `[ClientCallable]` methods must be available to both server and client. Declaring types inside the microservice class makes them inaccessible to the Unity client as we're not regenerating DTO for Client.
+
+**Example Code Triggering the Error**:
+```csharp
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice 
+{
+        [ClientCallable]
+    public async Task<DTO> CallServiceAsync() => new DTO { x = 1 };
+
+    [ClientCallable]
+    public void CallService(DTO data) {}
+}
+
+public class DTO
+{
+    public int x;
+}
+
+```
+
+**Example Error Message**:
+```
+Microservice Callable method CallServiceAsync uses a Type that cannot be inside microservice scope. Type: DTO.
+```
+
+**Solutions**:
+- Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server.
+
+**Example of Solved Code** (Microservice):
+```csharp
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice 
+{
+    [ClientCallable]
+    public async Task<DTO> CallServiceAsync() => new DTO { x = 1 };
+
+    [ClientCallable]
+    public void CallService(DTO data) {}
+}
+```
+
+**Shared Project Code**:
+```csharp
+public class DTO
+{
+    public int x;
+}
+```
+
+---
+
+## Callable Method Types usage are Nested
+
+**Explanation**:  
+Types used in `[ClientCallable]` methods must be declared in outer scope so the Source Code Generator can handle it properly.
+
+**Example Code Triggering the Error**:
+```csharp
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice 
+{
+    public class DTO
+    {
+        public int x;
+    }
+
+    [ClientCallable]
+    public void CallService(DTO data) {}
+}
+```
+
+**Example Error Message**:
+```
+{nameof(Server.Microservice)} Callable method CallService uses a Type that is Nested, which is not supported by the Source Code Generator. Please move DTO to outer scope.
+```
+
+**Solutions**:
+- Move named types used by `Callable` methods to a non-nested scope.
+
+**Example of Solved Code**:
+```csharp
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice 
+{
+    [ClientCallable]
+    public void CallService(DTO data) {}
+}
+
+public class DTO
+{
+    public int x;
+}
+```
+
+---
+
+## Beam Generated Schema Class is a Nested Type
+
+**Explanation**:  
+Classes that uses the attribute `[BeamGenerateSchema]` cannot be declared as nested type because the Source Generator Cannot handle it.
+
+**Example Code Triggering the Error**:
+```csharp
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice 
+{
+    [BeamGenerateSchema]
+    public class DTO
+    {
+        public int x;
+    }
+}
+```
+
+**Example Error Message**:
+```
+Type DTO contains [BeamGenerateSchema] attribute and is a Nested type, which is not supported by the Source Generator. Please move DTO to outer scope.
+```
+
+**Solutions**:
+- Move classes that contains `[BeamGenerateSchema]` attribute to a non-nested scope.
+
+**Example of Solved Code**:
+```csharp
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice { }
+
+[BeamGenerateSchema]
+public class DTO
+{
+    public int x;
+}
+```
+---
+
+## Invalid Microservice ID
+
+**Explanation**:  
+Microservices IDs must match the `<BeamID>` property on csproj. If there is none `<BeamID>` property it needs to match the project's name.
+
+**Example Code Triggering the Error**:
+```csharp
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice {}
+```
+
+**Example CSProj Triggering the Error**:
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+    ...
+    <PropertyGroup Label="Beamable Settings">
+        ...
+        <BeamId>OtherBeamId</BeamId>
+        ...
+    </PropertyGroup>
+    ...
+</Project>
+```
+
+**Example Error Message**:
+```
+Microservice ID: `MyMicroservice` is invalid, it needs to be the same as <BeamId> csharp property (or as csproj name if none exist): `OtherBeamId`
+```
+
+**Solutions**:
+- Switch `Microservice` attribute parameter to use the same value as `<BeamId>`
+  **Example of Solved Code**:
+    ```csharp
+    [Microservice("OtherBeamId")]
+    public partial class MyMicroservice : Microservice { }
+    
+    [BeamGenerateSchema]
+    public class DTO
+    {
+        public int x;
+    }
+    ```
+- Update `<BeamId>` property to match the `Microservice` attribute value
+  **Example of Solved CSProj**:
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk">
+        ...
+        <PropertyGroup Label="Beamable Settings">
+            ...
+            <BeamId>MyMicroservice</BeamId>
+            ...
+        </PropertyGroup>
+        ...
+    </Project>
+    ```
+---
+
+## Static Field in Microservice
+
+**Explanation**:  
+Non-readonly static fields in Microservices are discouraged because they do not behave reliably in horizontally scaled environments. Their state is not shared across instances.
+
+**Example Code Triggering the Warning**:
+```csharp
+public partial class MyMicroservice : Microservice
+{
+    public static string ContentId = "coins.gems";
+}
+```
+
+**Example Warning Message**:
+```
+Consider making 'ContentId' a readonly field. Otherwise the value may be inconsistent in production environments.
+```
+
+**Solutions**:
+- Make the static field `readonly` if it's intended to be constant after initialization.
+  **Example of Solved Code**:
+    ```csharp
+    public partial class MyMicroservice : Microservice
+    {
+        public static readonly string ContentId = "coins.gems";
+    }
+    ```
+- Or convert it to a non-static field if it should be instance-bound.
+
+---
+
+## Missing Serializable Attribute on Type
+
+**Explanation**:  
+All types used in Microservice method signatures or marked with `[BeamGenerateSchema]` must be annotated with `[Serializable]` to ensure correct serialization and code generation.
+
+**Examples Code Triggering the Error**:
+
+```csharp
+[BeamGenerateSchema]
+public class MyDto
+{
+    public int x;
+}
+public class MyOtherDto
+{
+    public int x;
+}
+[Microservice("OtherBeamId")]
+public partial class MyMicroservice : Microservice 
+{
+    [ClientCallable]
+    public void CallService(MyOtherDto data) {}
+}
+```
+
+**Example Error Messages**:
+```
+Add the [Serializable] attribute to type 'MyDto'
+```
+```
+Add the [Serializable] attribute to type 'MyOtherDto'
+```
+
+**Solution**:
+- Add the `[Serializable]` attribute.
+  **Example of Solved Code**:
+    ```csharp
+    [Serializable]
+    [BeamGenerateSchema]
+    public class MyDto
+    {
+        public int x;
+    }
+    [Serializable]
+    public class MyOtherDto
+    {
+        public int x;
+    }
+    [Microservice("OtherBeamId")]
+    public partial class MyMicroservice : Microservice
+    {
+        [ClientCallable]
+        public void CallService(MyOtherDto data) {}
+    }
+    ```
+
+---
+
+## Property Found in Serializable Type
+
+**Explanation**:  
+Properties in types used in Microservice method signatures or marked with `[BeamGenerateSchema]` are ignored by the client code generator. Fields should be used instead.
+
+**Example Code Triggering the Warning**:
+```csharp
+[Serializable]
+public class MyDto
+{
+    public int X { get; set; }
+}
+```
+
+**Example Warning Message**:
+```
+Consider changing property 'X' to a field to include it in client-generated code
+```
+
+**Solution**:
+- Use fields instead of properties.
+  **Example of Solved Code**:
+    ```csharp
+    [Serializable]
+    public class MyDto
+    {
+        public int X;
+    }
+    ```
+
+---
+
+## Nullable Field in Serializable Type
+
+**Explanation**:  
+Fields with nullable types (e.g., `int?`, `string?`) are not supported in types used in Microservice method signatures or marked with `[BeamGenerateSchema]`. Use `Optional<T>` instead to ensure predictable behavior.
+
+**Example Code Triggering the Error**:
+```csharp
+[Serializable]
+public class MyDto
+{
+    public int? Score;
+}
+```
+
+**Example Error Message**:
+```
+Change field 'Score' to use Optional<T> instead of a nullable type
+```
+
+**Solution**:
+- Use `Optional<T>` instead of nullable types.
+  **Example of Solved Code**:
+    ```csharp
+    [Serializable]
+    public class MyDto
+    {
+        public Optional<int> Score;
+    }
+    ```
+
+---
+
+## Invalid ContentObject Used
+
+**Explanation**:\
+Using `ContentObject` or its subtypes directly in serializable fields or parameters is discouraged, as it may lead to large data payloads. Instead, prefer using `ContentRef<T>` to reference content objects efficiently.
+
+**Example Code Triggering the Error**:
+
+```csharp
+[BeamGenerateSchema]
+public class MyDTO
+{
+    public MyItem item; 
+}
+
+public class MyItem : ContentObject {}
+```
+
+**Example Error Message**:
+
+```
+Change 'item' to use ContentRef<MyItem> instead of MyItem
+```
+
+**Solution**:
+
+- Replace the direct `ContentObject` usage with `ContentRef<T>`.
+
+**Example of Solved Code**:
+```csharp
+[BeamGenerateSchema]
+public class MyDTO
+{
+    public ContentRef<MyItem> item;
+}
+
+public class MyItem : ContentObject {}
+```
+
+
+## Type Used in BeamGenerateSchema is Missing Attribute
+
+**Explanation**:  
+When a class is marked with `[BeamGenerateSchema]`, all custom types used in its fields must also be annotated with `[BeamGenerateSchema]`.
+
+**Example Code Triggering the Error**:
+```csharp
+[BeamGenerateSchema]
+public class MyDTO
+{
+    public MyOtherDTO otherDTO;
+}
+public class MyOtherDTO
+{
+    public int Value;
+}
+```
+
+**Example Error Message**:
+```
+Add the [BeamGenerateSchema] attribute to type 'MyOtherDTO'
+```
+
+**Solution**:
+- Add `[BeamGenerateSchema]` to all nested field types.
+  **Example of Solved Code**:
+    ```csharp
+    [BeamGenerateSchema]
+    public class MyDTO
+    {
+        public MyOtherDTO otherDTO;
+    }
+    [BeamGenerateSchema]
+    public class MyOtherDTO
+    {
+        public int Value;
+    }
+    ```
