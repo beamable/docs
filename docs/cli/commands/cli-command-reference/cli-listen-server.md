@@ -19,7 +19,7 @@ connection, and require admin level privileges.
 This command is meant only as a diagnostic tool, and does not have robust  
 connection recovery logic. 
 
-To get started with the command, make sure you have the [CLI configured](cli-getting-started.md),  
+To get started with the command, make sure you have the [CLI configured](../../guides/gettting-started.md),  
 and an available player.
 
 1. Run `beam listen server`, and leave the process running. 

@@ -17,7 +17,7 @@ dotnetbeam version # beam --version also works.
 ---
 ## Quick Start
 
-Standalone Microservices require a `.beamable` workspace, so you either need to create one with [beam init](../commands/init.md), or use an existing one.
+Standalone Microservices require a `.beamable` workspace, so you either need to create one with [beam init](../commands/cli-command-reference/cli-init.md), or use an existing one.
 
 ```sh
 beam init MyProject
@@ -103,7 +103,7 @@ Each file in the Standalone Microservice has a valuable function that is importa
 | `MyProject/services/Dockerfile`        | When the Standalone Microservice is deployed, it will be containerized using Docker. You can modify the Dockerfile to extend the capabilities of the service. See the [Deployment Section](ms-deployment.md#Dockerfiles) for more details |
 | `MyProject/services/HelloWorld.cs`     | This file is the main `.cs` file that has your server functionality                                                                                                                                                            |
 | `MyProject/services/Programcs`         | This file is the entry point of the dotnet application. It bootstraps the server and starts it. You may edit it, but make sure not to remove the section that enables the service.                                                                             |
-| `MyProject/services/HelloWorld.csproj` | This file is the dotnet project file for your service. You can modify the `.csproj` file to customize your service. See the [Microservice Configuration Section](7_Microservice-Configuration.md) section for more details                            |
+| `MyProject/services/HelloWorld.csproj` | This file is the dotnet project file for your service. You can modify the `.csproj` file to customize your service. See the [Microservice Configuration Section](ms-configuration.md) section for more details                            |
 | `MyProject/BeamableServices.sln`       | This file is the dotnet solution file, and organizes your services. If you add additional services or storage databases, they will be tracked through the `.sln` file.                                                                                         |
 
 ---
@@ -114,7 +114,7 @@ There are many topics to continue learning about Beamable Standalone Microservic
 - [Deploy your Microservice to the Beamable Cloud](ms-deployment.md)
 - [Debugging Techniques](ms-debugging.md)
 - [Add a Beamable Database Storage Object](ms-storage.md)
-- [Microservice Configuration Settings](7_Microservice-Configuration.md)
+- [Microservice Configuration Settings](ms-configuration.md)
 - [Beam CLI Commands for Managing Microservices](ms-workflow.md)
 - [Microservice Routing and Client Usage](ms-routing.md)
 

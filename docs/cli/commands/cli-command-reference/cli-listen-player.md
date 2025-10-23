@@ -27,7 +27,7 @@ Try setting the realm config to beam with this command,
 ""beam config realm set --key-values 'notification|publisher::beamable'""
 ```
 
-To get started with the command, make sure you have the [CLI configured](cli-getting-started.md),  
+To get started with the command, make sure you have the [CLI configured](../../guides/gettting-started.md),  
 and an available player. 
 
 1. Run `beam me` to get access to the player's `playerId`. 

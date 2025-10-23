@@ -128,7 +128,7 @@ public async Promise TalkToMicroservice(){
 }
 ```
 
-The automatic client code generation can be disabled when a project builds by modifying the `<GenerateClientCode>` option. Learn more in the [configuration guide](7_Microservice-Configuration.md#GenerateClientCode).
+The automatic client code generation can be disabled when a project builds by modifying the `<GenerateClientCode>` option. Learn more in the [configuration guide](ms-configuration.md#GenerateClientCode).
 
 ### Open API
 
