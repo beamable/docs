@@ -40,5 +40,10 @@
     "properties": {
       "hidden": true
     }
+  },
+  {
+    "version": "Core-6.1",
+    "title": "Core-6.1",
+    "aliases": []
   }
 ]
