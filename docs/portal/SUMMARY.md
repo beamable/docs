@@ -1,0 +1,16 @@
+﻿- [Portal Overview](portal/portal.md)
+- Managing Accounts
+    - [Adding Beamable Developers](portal/portal-adding-beamable-developers.md)
+    - [Granting Realm Scoped Developer Permissions](portal/portal-granting-realm-scoped-developer-permissions.md)
+- Services
+    - [Players](portal/portal-players.md)
+    - [Groups](portal/portal-groups.md)
+    - [Stats](portal/portal-stats.md)
+    - [Announcements](portal/portal-announcements.md)
+    - [Campaigns](portal/campaigns.md)
+    - [Notify All Players](portal/notify-all-players.md)
+    - [In-App Purchases](portal/portal-in-app-purchases.md)
+    - [Inventory](portal/portal-inventory.md)
+    - [Leaderboards](portal/portal-leaderboards.md)
+    - [Tournaments](portal/portal-tournaments.md)
+    - [Cloud Data](portal/portal-cloud-data.md)
