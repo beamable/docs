@@ -50,7 +50,7 @@ WaitForVersionNav('.md-version__list:not(.beam-sdk__list)', function(element) {
         const firstUnity  = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Unity"));
         const firstUnreal = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Unreal"));
         const firstWeb    = nodes.find(n => isVersionEntry(n) && n.textContent.includes("WebSDK"));
-        const firstCli    = nodes.find(n => isVersionEntry(n) && n.textContent.includes("CLI"));
+        const firstCli    = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Core"));
 
         if (firstUnity)  insertHeader(element, "Unity SDK",  firstUnity);
         if (firstUnreal) insertHeader(element, "Unreal SDK", firstUnreal);
