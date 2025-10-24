@@ -31,7 +31,9 @@
   {
     "version": "Unity-4.0",
     "title": "Unity-4.0",
-    "aliases": []
+    "aliases": [
+      "Unity-Latest"
+    ]
   },
   {
     "version": "Internal",
