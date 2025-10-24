@@ -47,10 +47,12 @@ WaitForVersionNav('.md-version__list:not(.beam-sdk__list)', function(element) {
         const firstUnity  = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Unity"));
         const firstUnreal = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Unreal"));
         const firstWeb    = nodes.find(n => isVersionEntry(n) && n.textContent.includes("WebSDK"));
+        const firstCli    = nodes.find(n => isVersionEntry(n) && n.textContent.includes("CLI"));
 
         if (firstUnity)  insertHeader(element, "Unity SDK",  firstUnity);
         if (firstUnreal) insertHeader(element, "Unreal SDK", firstUnreal);
         if (firstWeb)    insertHeader(element, "Web SDK",    firstWeb);
+        if (firstCli)    insertHeader(element, "CLI",    firstWeb);
         return; // don't filter anything
     }
 
@@ -77,7 +79,7 @@ WaitForVersionNav('.md-version__list:not(.beam-sdk__list)', function(element) {
 
     // after filtering, strip off the sdk name, because it is extranous
     const subNodes = document.querySelectorAll('.md-header__topic .md-version *');
-    const textReplacements = ['Unity-', 'Unreal-', 'WebSDK-']
+    const textReplacements = ['Unity-', 'Unreal-', 'WebSDK-', 'CLI-']
     for (var i = 0 ; i < subNodes.length; i ++){
         const subNode = subNodes[i];
         if (subNode.tagName == 'BUTTON' || subNode.tagName == 'A'){
@@ -114,6 +116,10 @@ WaitForVersionNav('.md-header__topic span.md-ellipsis', function(element) {
          {
             name: 'Web SDK',
             link: 'WebSDK-Latest'
+        },
+        {
+            name: 'CLI',
+            link: 'CLI-Latest'
         }
     ]
 
