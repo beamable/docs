@@ -10,7 +10,7 @@ if (window.location.pathname.includes('Unreal')) {
 }
 
 // We can't use the same solution because CLI will be in all the branches. Let's hardcode it for this
-VERSION_NAME = "Core"
+VERSION_NAME = "CLI"
 
 // ---- Helpers ---------------------------------------------------------------
 function WaitForVersionNav(selector, callback) {
@@ -50,7 +50,7 @@ WaitForVersionNav('.md-version__list:not(.beam-sdk__list)', function(element) {
         const firstUnity  = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Unity"));
         const firstUnreal = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Unreal"));
         const firstWeb    = nodes.find(n => isVersionEntry(n) && n.textContent.includes("WebSDK"));
-        const firstCli    = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Core"));
+        const firstCli    = nodes.find(n => isVersionEntry(n) && n.textContent.includes("CLI"));
 
         if (firstUnity)  insertHeader(element, "Unity SDK",  firstUnity);
         if (firstUnreal) insertHeader(element, "Unreal SDK", firstUnreal);
