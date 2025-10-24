@@ -3,6 +3,8 @@
 - [Whats New?](unreal/whatsnew/)
 - [SDK User Reference](unreal/user-reference/)
 - [Samples](unreal/samples/)
+- [Beamable Portal](portal/)
+- [Beamable CLI](cli/)
 
 # Final Sections after we implement the rest of the docs
 #- [Introduction](index.md)
