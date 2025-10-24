@@ -17,4 +17,4 @@
     - [Troubleshooting](cli/guides/ms-troubleshooting.md)
 - Beam CLI Commands
     - [Commands Overview](cli/commands/cli-command-reference.md)
-    - [Commands Reference](cli/commands/cli-command-reference/)
+    - [cli-command-reference](commands/cli-command-reference/)
