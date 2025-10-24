@@ -82,7 +82,7 @@ WaitForVersionNav('.md-version__list:not(.beam-sdk__list)', function(element) {
 
     // after filtering, strip off the sdk name, because it is extranous
     const subNodes = document.querySelectorAll('.md-header__topic .md-version *');
-    const textReplacements = ['Unity-', 'Unreal-', 'WebSDK-', 'Core-'];
+    const textReplacements = ['Unity-', 'Unreal-', 'WebSDK-', 'CLI-'];
     for (var i = 0 ; i < subNodes.length; i ++){
         const subNode = subNodes[i];
         if (subNode.tagName == 'BUTTON' || subNode.tagName == 'A'){
