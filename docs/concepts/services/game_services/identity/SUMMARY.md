@@ -1,3 +1,0 @@
-﻿- [Overview](identity_handling.md)
-- [Stats and Data](player_stats.md)
-- [Cloud Save](cloud_save.md)
