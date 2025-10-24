@@ -1,11 +1,8 @@
 # Announcements
 
-
-## Overview
-
 This page provides access to the Announcements Feature within the Portal Tool Window.
 
-## Steps
+## Getting Started
 
 Follow these steps to access and configure Announcements:
 

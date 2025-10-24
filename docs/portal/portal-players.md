@@ -1,10 +1,8 @@
 # Players
 
-## Overview
-
 The Admin feature's **Players** section can be managed from the Portal.
 
-## Steps
+## Getting Started
 
 Follow these steps to manage players: 
 

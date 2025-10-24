@@ -1,10 +1,8 @@
 # Stats
 
-## Overview
-
 The Analytics feature's **Stats** section can be managed from the Portal.
 
-## Steps
+## Getting Started
 
 Follow these steps to manage player stats: 
 
@@ -22,5 +20,5 @@ The stats management interface allows you to view and modify player statistics:
 
 ![Player Stats Profile](../media/imgs/Portal-Stats-1-profile.png)
 
-![Add Player Stats](../media/imgs/Portal-Stats-2-profile-add.png)
+![Add Player Stats](../media/imgs/Portal-Stats-2-profile-add.png){width="400px"}
 

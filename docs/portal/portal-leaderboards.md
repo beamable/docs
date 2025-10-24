@@ -1,10 +1,8 @@
 # Leaderboards
 
-## Overview
-
 The Leaderboards feature can be managed from the Portal.
 
-## Steps
+## Getting Started
 
 Follow these steps to manage leaderboards: 
 
@@ -20,5 +18,5 @@ The leaderboards management interface allows you to view and configure leaderboa
 
 ![Portal Leaderboards Interface](../media/imgs/Portal-Leaderboards.png)
 
-![Add Leaderboard Dialog](../media/imgs/Portal-Leaderboards-Add.png)
+![Add Leaderboard Dialog](../media/imgs/Portal-Leaderboards-Add.png){width="400px"}
 
