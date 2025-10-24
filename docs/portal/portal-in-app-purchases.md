@@ -1,11 +1,8 @@
 # In-App Purchases
 
-
-## Overview
-
 The Store feature's In-App Purchases can be managed and configured through the Portal.
 
-## Steps
+## Getting Started
 
 Follow these steps to configure In-App Purchases settings:
 

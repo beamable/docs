@@ -1,11 +1,8 @@
 # Groups
 
-
-## Overview
-
 The Groups feature allows you to organize and manage player groups through the Portal.
 
-## Steps
+## Getting Started
 
 Follow these steps to configure Groups settings:
 

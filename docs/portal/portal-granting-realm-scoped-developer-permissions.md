@@ -1,7 +1,7 @@
 # Granting Developer Permissions
 When your Beamable account contains multiple games, you may wish to allow different teammates different access levels depending on which game they are working on. This article shows how to set up realm-scoped permissions.
 
-## Instructions
+## Getting Started
 
 This guide assumes there is already an account for the person whose access you are changing. If they need a new account, follow the instructions in [Portal / Adding Developers](portal-adding-beamable-developers.md) first. 
 
@@ -50,9 +50,9 @@ This guide assumes there is already an account for the person whose access you a
 
     To get your customer ID (CID), look for _config-defaults.txt_ in your project. The shell snippet below illustrates how to get it from the command line if you are on MacOS.
 
-```text
-% find . -name config-defaults.txt
-./Assets/Beamable/Resources/config-defaults.txt
-% grep cid ./Assets/Beamable/Resources/config-defaults.txt
-    "cid": "1320644969098300",
-```
+    ```text
+    % find . -name config-defaults.txt
+    ./Assets/Beamable/Resources/config-defaults.txt
+    % grep cid ./Assets/Beamable/Resources/config-defaults.txt
+        "cid": "1320644969098300",
+    ```

@@ -3,7 +3,6 @@ To access the Notify All Players feature, navigate to the Communicate section an
 
 ![Notify All Players Interface](../media/imgs/notify-all-players-interface.png)
 
-
 Any text put into this field will be sent to the NotificationService and into the DBENGINE.SYSTEM.MSG channel. By subscribing to this channel using the NotificationService, you can receive this message at the game client and display it to players. 
 
 To collect this message and display it in the game client using Unity, use the following code which should go inside a class that inherits from MonoBehavior:

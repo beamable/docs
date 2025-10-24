@@ -1,11 +1,11 @@
 # Adding Developers
 Congratulations! You have set up your Beamable account and you are ready for development, but you need to add your fellow developers and testers to the account so that they can make games faster, too! This article aims to walk you through the process of adding another person to your Beamable account.
 
-## Instructions
+## Getting Started
 
 For purposes of privacy and security, when you add someone to your account through the Beamable Portal, their account is inaccessible until they choose a password. This happens through the same password reset flow as someone would use if they forgot their password.
 
-## A. Create the Account (Team Admin)
+### Creating the Account (Team Admin)
 
 First, let's create your teammate's new account:
 
@@ -24,14 +24,14 @@ The "User Administration" page features a list of all of the admins, developers,
 
 4. In the "Permissions" menu that pops up, type in the email address of the teammate you intend to add.
 
-5. Choose a role for from the drop down list to define the global permissions to grant to your teammate.  
-   [User permissions can be changed](https://docs.beamable.com/docs/portal-granting-realm-scoped-developer-permissions/) later.
+5. Choose a role for from the drop down list to define the global permissions to grant to your teammate. 
+   [User permissions can be changed](portal-granting-realm-scoped-developer-permissions.md) later.
 
 6. Click _save_ to register an account for your teammate. They will receive an auto-generated email with login instructions.
 
 ![Portal Add Devs A3 Add](../media/imgs/Portal-Add_Devs-A3_Add.png)
 
-## B. Set Your Password (New Teammate)
+### Setting Your Password (New Teammate)
 
 Next, your teammate should follow these steps to proceed through the password reset process:
 
@@ -53,15 +53,15 @@ Next, your teammate should follow these steps to proceed through the password re
 
 6. Go forth and make great games, as a team!
 
-!!! info "TIP: Finding your CID"
+### Finding your CID
 
-    To get your customer ID (CID), look for _config-defaults.txt_ in your project. The shell snippet below illustrates how to get it from the command line if you are on MacOS.
-
-    You can also email us at [support@beamable.com](mailto:support@beamable.com) with the email you used to register and we can look it up for you.
+To get your customer ID (CID), look for _config-defaults.txt_ in your project. The shell snippet below illustrates how to get it from the command line if you are on MacOS.
 
 ```text
-% find . -name config-defaults.txt
-./Assets/Beamable/Resources/config-defaults.txt
-% grep cid ./Assets/Beamable/Resources/config-defaults.txt
-    "cid": "1320644969098300",
-```
+   % find . -name config-defaults.txt
+   ./Assets/Beamable/Resources/config-defaults.txt
+   % grep cid ./Assets/Beamable/Resources/config-defaults.txt
+       "cid": "1320644969098300",
+   ```
+You can also email us at [support@beamable.com](mailto:support@beamable.com) with the email you used to register and we can look it up for you.
+
