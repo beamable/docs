@@ -16,7 +16,7 @@
         - [Tournaments](portal/portal-tournaments.md)
         - [Cloud Data](portal/portal-cloud-data.md)
 - Beamable CLI
-    - [Getting Started](cli/guides/gettting-started.md)
+    - [Getting Started](cli/guides/getting-started.md)
     - [Configuration](cli/guides/configuration.md)
     - [Upgrading](cli/guides/upgrading.md)
     - [Notifications](cli/guides/notifications.md)
