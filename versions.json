@@ -40,5 +40,10 @@
     "properties": {
       "hidden": true
     }
+  },
+  {
+    "version": "CLI-6.0",
+    "title": "CLI-6.0",
+    "aliases": []
   }
 ]

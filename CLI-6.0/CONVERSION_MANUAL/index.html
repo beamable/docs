@@ -1,0 +1,7272 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://beamable.github.io/Docs/CLI-6.0/CONVERSION_MANUAL/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/beamable-badge.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>ReadMe.io to MkDocs Conversion Manual - Beamable Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#readmeio-to-mkdocs-conversion-manual" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Beamable Docs" class="md-header__button md-logo" aria-label="Beamable Docs" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Beamable Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ReadMe.io to MkDocs Conversion Manual
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Beamable Docs" class="md-nav__button md-logo" aria-label="Beamable Docs" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    Beamable Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Beamable Portal
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Beamable Portal
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portal/portal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Portal Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Managing Accounts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Managing Accounts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portal/portal-adding-beamable-developers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Adding Beamable Developers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portal/portal-granting-realm-scoped-developer-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Granting Realm Scoped Developer Permissions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Services
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portal/portal-players/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Players
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portal/portal-groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portal/portal-stats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stats
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portal/portal-announcements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Announcements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portal/campaigns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Campaigns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portal/notify-all-players/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Notify All Players
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portal/portal-in-app-purchases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In-App Purchases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portal/portal-inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inventory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portal/portal-leaderboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Leaderboards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portal/portal-tournaments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tournaments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portal/portal-cloud-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Beamable CLI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Beamable CLI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/gettting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/upgrading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Upgrading
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Notifications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Microservices
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Microservices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/microservices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/ms-deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/ms-debugging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Debugging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/ms-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/ms-routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Routing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/ms-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/ms-federation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/ms-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CLI Workflows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/ms-upm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UPM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/ms-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/ms-command-line/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Command Line Output
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/guides/ms-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Beam CLI Commands
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Beam CLI Commands
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Commands Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_2" id="__nav_2_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Commands Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Commands Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-checks-scan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Checks Scan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-checks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Checks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-collector-get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Collector Get
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-collector-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Collector Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-collector-status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Collector Status
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-collector-stop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Collector Stop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-collector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Collector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-config-realm-remove/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Config Realm Remove
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-config-realm-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Config Realm Set
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-config-realm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Config Realm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-config-routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Config Routes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-config-secret/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Config Secret
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-config-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Config Set
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-archive-manifest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Archive-manifest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-bulk-edit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Bulk-edit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-list-manifests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content List-manifests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-local-manifest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Local-manifest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-new-manifest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content New-manifest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-open/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Open
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-ps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Ps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-publish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Publish
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-pull/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Pull
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-replace-local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Replace-local
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-reset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Reset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-resolve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Resolve
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-restore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Restore
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-save/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Save
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-snapshot-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Snapshot-list
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-snapshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Snapshot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Status
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-sync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Sync
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-tag-add/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Tag Add
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-tag-rm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Tag Rm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-tag-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Tag Set
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content-tag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Tag
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-content/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-delete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Delete
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-deployment-get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Get
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-deployment-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-deployment-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Plan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-deployment-registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Registry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-deployment-release/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Release
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-deployment-status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Status
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-developer-user-manager-clean-captured-user-buffer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developer-user-manager Clean-captured-user-buffer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-developer-user-manager-copy-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developer-user-manager Copy-state
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-developer-user-manager-create-user-batch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developer-user-manager Create-user-batch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-developer-user-manager-create-user/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developer-user-manager Create-user
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-developer-user-manager-ps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developer-user-manager Ps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-developer-user-manager-remove-user/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developer-user-manager Remove-user
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-developer-user-manager-save-user/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developer-user-manager Save-user
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-developer-user-manager-update-info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developer-user-manager Update-info
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-developer-user-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developer-user-manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-docs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-add/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Add
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-disable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Disable
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-enable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Enable
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-key/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-key
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-get-ifederatedgameserver-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Get IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-get-ifederatedgameserver-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Get IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-get-ifederatedgameserver-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Get IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-get-ifederatedgameserver-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Get IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-get-ifederatedgameserver-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Get IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-get-ifederatedgameserver-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Get IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-get-ifederatedgameserver-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Get IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-get-ifederatedgameserver-7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Get IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-get-ifederatedgameserver-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Get IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-get-ifederatedgameserver-9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Get IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-get-ifederatedgameserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Get IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Get
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-set-ifederatedgameserver-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Set IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-set-ifederatedgameserver-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Set IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-set-ifederatedgameserver-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Set IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-set-ifederatedgameserver-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Set IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-set-ifederatedgameserver-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Set IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-set-ifederatedgameserver-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Set IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-set-ifederatedgameserver-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Set IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-set-ifederatedgameserver-7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Set IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-set-ifederatedgameserver-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Set IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-set-ifederatedgameserver-9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Set IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-set-ifederatedgameserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Set IFederatedGameServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings Set
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-local-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Local-settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-remove/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Remove
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation Set
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-federation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Federation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-generate-interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generate-interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-grafana-open/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Grafana Open
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-grafana-ps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Grafana Ps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-grafana-stop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Grafana Stop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-grafana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Grafana
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-listen-player/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Listen Player
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-listen-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Listen Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-listen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Listen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-login/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Login
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-logout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logout
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-me/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Me
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-oapi-download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Oapi Download
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-oapi-generate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Oapi Generate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-oapi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Oapi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-org-games/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Org Games
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-org-new/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Org New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-org-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Org Realms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-org/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Org
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-portal-player/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Portal Player
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-portal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Portal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-post/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Post
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-profile-check-counters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Profile Check-counters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-profile-check-nbomber/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Profile Check-nbomber
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-profile-run-nbomber/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Profile Run-nbomber
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-profile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-add-paths/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Add-paths
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-add-unity-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Add-unity-project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-add-unreal-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Add-unreal-project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-add/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Add
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-build-sln/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Build-sln
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Build
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-dependencies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Dependencies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-deps-add/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Deps Add
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-deps-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Deps List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-deps-remove/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Deps Remove
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-deps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Deps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-disable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Disable
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-enable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Enable
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-generate-client-oapi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Generate-client-oapi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-generate-client/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Generate-client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-generate-env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Generate-env
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-generate-ignore-file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Generate-ignore-file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-generate-properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Generate-properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-generate-web-client/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Generate Web-client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-generate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Generate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-group-add/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Group Add
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-group-rm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Group Rm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Group
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Logs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-new-common-lib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project New Common-lib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-new-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project New Service
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-new-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project New Storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-new/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-oapi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Oapi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-open-mongo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Open-mongo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-open-swagger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Open-swagger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-open/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Open
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-ps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Ps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-read-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Read-settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-regenerate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Regenerate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-remote-logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Remote-logs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-remote-manifest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Remote-manifest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-remove/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Remove
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Run
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-share-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Share-code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-stop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Stop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-storage-erase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Storage Erase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-storage-restore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Storage Restore
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-storage-snapshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Storage Snapshot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-update-unity-beam-package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Update-unity-beam-package
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-version/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Version
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project-write-setting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Write-setting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-put/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Put
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-server-clear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server Clear
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-server-ps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server Ps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-server-req/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server Req
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-server-serve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server Serve
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Build
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Deploy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-docker-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Docker Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-docker-status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Docker Status
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-enable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Enable
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-get-connection-string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Get-connection-string
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-manifests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Manifests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-modify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Modify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-promote/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Promote
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-ps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Ps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-register/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Register
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Registry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-reset-container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Reset Container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-reset-image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Reset Image
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-reset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Reset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Run
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-service-logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Service-logs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-service-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Service-metrics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-stop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Stop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Templates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-update-dockerfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Update-dockerfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services-upload-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services Upload-api
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-telemetry-collector-get/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry Collector Get
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-telemetry-collector-ps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry Collector Ps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-telemetry-collector-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry Collector Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-telemetry-collector-stop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry Collector Stop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-telemetry-collector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry Collector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-telemetry-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-telemetry-get-creds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry Get-creds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-telemetry-logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry Logs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-telemetry-prune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry Prune
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-telemetry-push/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry Push
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-telemetry-report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry Report
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-telemetry-set-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry Set-config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-telemetry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-temp-clear-logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Temp Clear Logs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-temp-clear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Temp Clear
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-temp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Temp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-token-from-refresh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Token From-refresh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-token-inspect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Token Inspect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-token-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Token List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-token-new-guest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Token New-guest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-token/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Token
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-unity-copy-dotnet-src/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity Copy-dotnet-src
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-unity-download-all-nuget-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity Download-all-nuget-packages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-unity-download-nuget-package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity Download-nuget-package
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-unity-get-version-info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity Get-version-info
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-unity-manifest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity Manifest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-unity-release-shared-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity Release-shared-code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-unity-restore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity Restore
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-unity-update-dlls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity Update-dlls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-unity-update-references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity Update-references
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-unity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-unreal-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unreal Init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-unreal-select-sample/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unreal Select-sample
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-unreal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unreal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-version-construct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Version Construct
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-version-install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Version Install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-version-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Version List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/commands/cli-command-reference/cli-version/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Version
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-conversion-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-Step Conversion Process
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step Conversion Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-remove-readmeio-header-metadata-and-add-proper-markdown-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Remove ReadMe.io Header Metadata and Add Proper Markdown Headers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-convert-block-quotes-to-mkdocs-callouts" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Convert Block Quotes to MkDocs Callouts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-remove-readmeio-html-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Remove ReadMe.io HTML Blocks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-convert-parameter-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Convert Parameter Tables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-convert-blockimage-blocks-to-standard-markdown-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Convert [block:image] Blocks to Standard Markdown Images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-replace-placeholder-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Replace Placeholder Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-convert-links-and-remove-special-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Convert Links and Remove Special Attributes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-convert-code-block-file-naming-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Convert Code Block File Naming Syntax
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="readmeio-to-mkdocs-conversion-manual">ReadMe.io to MkDocs Conversion Manual<a class="headerlink" href="#readmeio-to-mkdocs-conversion-manual" title="Permanent link">¶</a></h1>
+<p>This manual documents the step-by-step process for converting ReadMe.io documentation to MkDocs-compatible markdown format.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
+<p>ReadMe.io uses custom markdown extensions and proprietary syntax that need to be converted to standard markdown compatible with MkDocs Material theme. This conversion process involves:</p>
+<ol>
+<li><strong>Removing ReadMe.io header metadata and adding proper markdown headers</strong></li>
+<li>Converting block quotes to MkDocs callouts</li>
+<li>Removing ReadMe.io-specific HTML blocks</li>
+<li>Converting parameter tables to standard markdown tables</li>
+<li><strong>Converting [block:image] blocks to standard markdown images</strong></li>
+<li>Replacing placeholder syntax with actual content</li>
+<li>Converting external image links to local references</li>
+<li><strong>Converting code block file naming syntax</strong></li>
+<li>Cleaning up HTML elements and special syntax</li>
+</ol>
+<h2 id="step-by-step-conversion-process">Step-by-Step Conversion Process<a class="headerlink" href="#step-by-step-conversion-process" title="Permanent link">¶</a></h2>
+<h3 id="1-remove-readmeio-header-metadata-and-add-proper-markdown-headers">1. Remove ReadMe.io Header Metadata and Add Proper Markdown Headers<a class="headerlink" href="#1-remove-readmeio-header-metadata-and-add-proper-markdown-headers" title="Permanent link">¶</a></h3>
+<p><strong>Identify</strong>: Look for YAML front matter at the top of ReadMe.io files</p>
+<p><strong>ReadMe.io Header Format</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>---
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>title: &quot;Builds &amp; Environments&quot;
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>slug: &quot;builds-environments&quot;
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>excerpt: &quot;&quot;
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>hidden: false
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>createdAt: &quot;Wed Jun 12 2024 17:42:51 GMT+0000 (Coordinated Universal Time)&quot;
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="gu">updatedAt: &quot;Fri Nov 01 2024 17:14:03 GMT+0000 (Coordinated Universal Time)&quot;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="gu">---</span>
+</code></pre></div></p>
+<p><strong>Action</strong>: 
+1. <strong>Remove the entire YAML front matter block</strong> (everything between the <code>---</code> markers)
+2. <strong>Replace with a proper markdown H1 header</strong> using the title from the metadata
+3. Ensure only ONE H1 header (<code>#</code>) exists per document** - all other sections should use H2 (<code>##</code>) or lower</p>
+<p><strong>Example Conversion</strong>:</p>
+<p><strong>Before</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>---
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>title: &quot;Builds &amp; Environments&quot;
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>slug: &quot;builds-environments&quot;
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>excerpt: &quot;&quot;
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>hidden: false
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>createdAt: &quot;Wed Jun 12 2024 17:42:51 GMT+0000 (Coordinated Universal Time)&quot;
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="gu">updatedAt: &quot;Fri Nov 01 2024 17:14:03 GMT+0000 (Coordinated Universal Time)&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="gu">---</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>If you run the project in the Unity editor...
+</code></pre></div></p>
+<p><strong>After</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gh"># Builds &amp; Environments</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>If you run the project in the Unity editor...
+</code></pre></div></p>
+<p><strong>Important Notes</strong>:
+- The title should be extracted from the <code>title</code> field in the metadata
+- Remove quotes around the title when converting to the H1 header
+- Ensure there's a blank line between the header and the first paragraph
+- This creates proper document structure for MkDocs
+- <strong>ONLY ONE H1 HEADER PER DOCUMENT</strong>: If a ReadMe.io file contains multiple documents (indicated by multiple <code>---</code> sections), convert additional titles to H2 headers (<code>##</code>) instead of H1 (<code>#</code>)</p>
+<p><strong>Multi-Document Files</strong>:
+Some ReadMe.io exports contain multiple documents concatenated together. Handle these as follows:</p>
+<p><strong>Before</strong> (Multiple document sections):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>---
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="gu">title: &quot;Player Centric API - Overview&quot;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="gu">---</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Content here...
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>---
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="gu">title: &quot;Player Centric API - Lifecycle Functions&quot;  </span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="gu">---</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>More content...
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>---
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="gu">title: &quot;Player Centric API - Code&quot;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="gu">---</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>Even more content...
+</code></pre></div></p>
+<p><strong>After</strong> (Single document with proper hierarchy):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gh"># Player Centric API - Overview</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Content here...
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="gu">## Player Centric API - Lifecycle Functions</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>More content...
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="gu">## Player Centric API - Code</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>Even more content...
+</code></pre></div></p>
+<p><strong>Header Hierarchy Rules</strong>:
+- <strong>H1 (<code>#</code>)</strong>: Document title only (one per file)
+- <strong>H2 (<code>##</code>)</strong>: Major sections
+- <strong>H3 (<code>###</code>)</strong>: Subsections
+- <strong>H4 (<code>####</code>)</strong>: Sub-subsections
+- Never skip header levels (e.g., don't go from H2 directly to H4)</p>
+<h3 id="2-convert-block-quotes-to-mkdocs-callouts">2. Convert Block Quotes to MkDocs Callouts<a class="headerlink" href="#2-convert-block-quotes-to-mkdocs-callouts" title="Permanent link">¶</a></h3>
+<p><strong>Identify</strong>: Look for sections starting with <code>&gt;</code> (block quotes)</p>
+<p><strong>Convert based on emoji/content type</strong>:</p>
+<ul>
+<li><code>&gt; 📘</code> → <code>!!! info "Title"</code></li>
+<li><code>&gt; 🚧</code> → <code>!!! warning "Title"</code></li>
+<li><code>&gt; ❗️</code> → <code>!!! danger "Title"</code></li>
+</ul>
+<p><strong>Example Conversion</strong>:</p>
+<p><strong>Before</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">&gt; </span><span class="ge">📘 Compatibility</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&gt; 
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">&gt; </span><span class="ge">• Beamable supports Unity versions 2021.3 to 2023.3</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">&gt; </span><span class="ge">• Beamable supports Windows, Mac, iOS, Android platforms</span>
+</code></pre></div></p>
+<p><strong>After</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>!!! info &quot;Compatibility&quot;
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    • Beamable supports Unity versions 2021.3 to 2023.3
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    • Beamable supports Windows, Mac, iOS, Android platforms
+</code></pre></div></p>
+<h3 id="3-remove-readmeio-html-blocks">3. Remove ReadMe.io HTML Blocks<a class="headerlink" href="#3-remove-readmeio-html-blocks" title="Permanent link">¶</a></h3>
+<p><strong>Identify</strong>: Look for <code>[block:html]</code> sections</p>
+<p><strong>Action</strong>: Remove entire blocks as they contain ReadMe.io-specific CSS that won't work in MkDocs</p>
+<p><strong>Example</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[block:html]
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>{
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  &quot;html&quot;: &quot;&lt;style&gt;\n  .aInCallout\n  {\n    text-decoration:underline !important;\n  }\n&lt;/style&gt;&quot;
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>}
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>[/block]
+</code></pre></div>
+→ <strong>DELETE ENTIRELY</strong></p>
+<h3 id="4-convert-parameter-tables">4. Convert Parameter Tables<a class="headerlink" href="#4-convert-parameter-tables" title="Permanent link">¶</a></h3>
+<p><strong>Identify</strong>: Look for <code>[block:parameters]</code> sections</p>
+<p><strong>Convert</strong>: Transform JSON-structured tables to standard markdown tables</p>
+<p><strong>Example Conversion</strong>:</p>
+<p><strong>Before</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>[block:parameters]
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>{
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  &quot;data&quot;: {
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    &quot;h-0&quot;: &quot;Field&quot;,
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    &quot;h-1&quot;: &quot;Detail&quot;,
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    &quot;0-0&quot;: &quot;Customer Alias&quot;,
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    &quot;0-1&quot;: &quot;Enter studio name&quot;,
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    &quot;1-0&quot;: &quot;Game Name&quot;,
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    &quot;1-1&quot;: &quot;Enter game project name&quot;
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>  },
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>  &quot;cols&quot;: 2,
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>  &quot;rows&quot;: 2
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>}
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>[/block]
+</code></pre></div></p>
+<p><strong>After</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>| Field | Detail |
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>|-------|--------|
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>| Customer Alias | Enter studio name |
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>| Game Name | Enter game project name |
+</code></pre></div></p>
+<h3 id="5-convert-blockimage-blocks-to-standard-markdown-images">5. Convert [block:image] Blocks to Standard Markdown Images<a class="headerlink" href="#5-convert-blockimage-blocks-to-standard-markdown-images" title="Permanent link">¶</a></h3>
+<p><strong>Identify</strong>: Look for <code>[block:image]</code> sections containing JSON-structured image data</p>
+<p><strong>Process</strong>:
+1. <strong>Extract the image URL</strong> from the JSON structure (first element in the "image" array)
+2. <strong>Check if image exists</strong> in <code>docs/media/imgs/</code> directory
+3. <strong>Download if missing</strong> using curl with a descriptive filename
+4. <strong>Convert to standard markdown</strong> image syntax</p>
+<p><strong>Example Conversion</strong>:</p>
+<p><strong>Before</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>[block:image]
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>{
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>&quot;images&quot;: [
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>{
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>&quot;image&quot;: [
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>&quot;https://files.readme.io/cc24bbf-Screenshot_2024-06-12_at_5.00.58_PM.png&quot;,
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>&quot;&quot;,
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>&quot;&quot;
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>],
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>&quot;align&quot;: &quot;center&quot;
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>}
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>]
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>}
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>[/block]
+</code></pre></div></p>
+<p><strong>Steps</strong>:
+1. Extract URL: <code>https://files.readme.io/cc24bbf-Screenshot_2024-06-12_at_5.00.58_PM.png</code>
+2. Check if image exists in <code>docs/media/imgs/</code>
+3. If not found, download with descriptive name:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>curl<span class="w"> </span>-o<span class="w"> </span><span class="s2">&quot;docs/media/imgs/realm-selector-screenshot.png&quot;</span><span class="w"> </span><span class="s2">&quot;https://files.readme.io/cc24bbf-Screenshot_2024-06-12_at_5.00.58_PM.png&quot;</span>
+</code></pre></div>
+4. Convert to markdown:</p>
+<p><strong>After</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>![<span class="nt">Realm Selector</span>](<span class="na">../../media/imgs/realm-selector-screenshot.png</span>)
+</code></pre></div></p>
+<p><strong>Image Naming Convention</strong>:
+- Use descriptive, kebab-case filenames
+- Include context from surrounding content
+- Examples:
+  - <code>realm-selector-screenshot.png</code>
+  - <code>config-defaults-save-button.png</code>
+  - <code>build-environments-config-files.png</code></p>
+<p><strong>Common [block:image] Patterns</strong>:</p>
+<p><strong>Single Image</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>[block:image]
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>{
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>&quot;images&quot;: [
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>{
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>&quot;image&quot;: [&quot;URL&quot;, &quot;alt-text&quot;, &quot;caption&quot;],
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>&quot;align&quot;: &quot;center&quot;
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>}
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>]
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>}
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>[/block]
+</code></pre></div>
+→ <code>![Alt Text](../../media/imgs/filename.png)</code></p>
+<p><strong>Multiple Images</strong> (convert each separately):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>[block:image]
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>{
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>&quot;images&quot;: [
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>{
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>&quot;image&quot;: [&quot;URL1&quot;, &quot;&quot;, &quot;&quot;],
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>&quot;align&quot;: &quot;left&quot;
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>},
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>{
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>&quot;image&quot;: [&quot;URL2&quot;, &quot;&quot;, &quot;&quot;],
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>&quot;align&quot;: &quot;right&quot;
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>}
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>]
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>}
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>[/block]
+</code></pre></div>
+→
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>![<span class="nt">Image 1</span>](<span class="na">../../media/imgs/filename1.png</span>)
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>![<span class="nt">Image 2</span>](<span class="na">../../media/imgs/filename2.png</span>)
+</code></pre></div></p>
+<p><strong>Image Styling</strong>:
+- <code>{width="600px"}</code> - Set fixed width in pixels
+Always optimze this size to fit well within the content layout.</p>
+<p><strong>Download Script Example</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Extract image URL from [block:image]</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="c1"># Download with descriptive filename</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>curl<span class="w"> </span>-o<span class="w"> </span><span class="s2">&quot;docs/media/imgs/unity-editor-realm-selector.png&quot;</span><span class="w"> </span><span class="s2">&quot;https://files.readme.io/cc24bbf-Screenshot_2024-06-12_at_5.00.58_PM.png&quot;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1"># Verify download</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>ls<span class="w"> </span>-la<span class="w"> </span>docs/media/imgs/unity-editor-realm-selector.png
+</code></pre></div></p>
+<h3 id="6-replace-placeholder-syntax">6. Replace Placeholder Syntax<a class="headerlink" href="#6-replace-placeholder-syntax" title="Permanent link">¶</a></h3>
+<p><strong>Identify</strong>: Look for <code>&lt;&lt;TEXT_*&gt;&gt;</code> and <code>&lt;&lt;glossary:*&gt;&gt;</code> placeholders</p>
+<p><strong>Convert</strong>: Replace with appropriate content or plain text</p>
+<p><strong>Common Replacements</strong>:
+- <code>&lt;&lt;TXT_CALLOUT_COMPATIBILITY_TITLE&gt;&gt;</code> → "Compatibility"
+- <code>&lt;&lt;TXT_BEAMABLE_SUPPORTS&gt;&gt;</code> → "Beamable supports"
+- <code>&lt;&lt;TXT_OPEN_TOOLBOX_WINDOW&gt;&gt;</code> → "Open the Beamable Toolbox Window by clicking the Beamable button in the Unity toolbar."
+- <code>&lt;&lt;glossary:Login&gt;&gt;</code> → "Login"
+- <code>&lt;&lt;glossary:PlayerId&gt;&gt;</code> → "PlayerId"
+- <code>&lt;&lt;TXT_GOTCHAS&gt;&gt;</code> → "Here are some common issues and solutions:"</p>
+<h3 id="7-convert-links-and-remove-special-attributes">7. Convert Links and Remove Special Attributes<a class="headerlink" href="#7-convert-links-and-remove-special-attributes" title="Permanent link">¶</a></h3>
+<p><strong>Identify</strong>: HTML anchor tags with special classes</p>
+<p><strong>Example Conversion</strong>:</p>
+<p><strong>Before</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://www.beamable.com/pricing&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;aInCallout&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span><span class="p">&gt;</span>choosing a plan<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<p><strong>After</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>[<span class="nt">choosing a plan</span>](<span class="na">https://www.beamable.com/pricing</span>)
+</code></pre></div></p>
+<h3 id="8-convert-code-block-file-naming-syntax">8. Convert Code Block File Naming Syntax<a class="headerlink" href="#8-convert-code-block-file-naming-syntax" title="Permanent link">¶</a></h3>
+<p><strong>Identify</strong>: Look for code blocks with filenames included after the language identifier</p>
+<p><strong>Issue</strong>: MkDocs does not support including filenames directly after the language identifier in code blocks. The filename must be placed before the code block as a separate line or heading.</p>
+<p><strong>Example Conversion</strong>:</p>
+<p><strong>Before</strong> (ReadMe.io format - NOT compatible with MkDocs):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>```csharp StatBehaviourExample.cs
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>using Beamable.Stats;
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>using UnityEngine;
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>// ... rest of code
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>**After** (MkDocs compatible format):
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>```markdown
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>StatBehaviourExample.cs
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>```csharp
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>using Beamable.Stats;
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>using UnityEngine;
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>// ... rest of code
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>**Alternative Format** (using heading):
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>```markdown
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>#### StatBehaviourExample.cs
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>```csharp
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>using Beamable.Stats;
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>using UnityEngine;
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>// ... rest of code
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>**Common Patterns to Fix**:
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>- ````csharp FileName.cs` → Move filename before code block
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>- ````javascript script.js` → Move filename before code block
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>- ````python example.py` → Move filename before code block
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>**Important Notes**:
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>- The filename should be on its own line immediately before the code block
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>- There should be no space between the filename line and the opening ```
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>- This ensures proper syntax highlighting and rendering in MkDocs
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>### 9. Clean Up HTML Elements
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>**Remove or Convert**:
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>- `&lt;br /&gt;` tags (use line breaks instead)
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>- Custom HTML styling
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>- ReadMe.io-specific attributes
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>### 10. Fix Table Formatting
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>**Ensure proper markdown table syntax**:
+<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>- Headers separated by `|`
+<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a>- Header row followed by separator row with `|------|`
+<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a>- Consistent column alignment
+<a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a>- Handle multi-line content with `&lt;br&gt;` tags where needed
+<a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a>
+<a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a>## Quality Checklist
+<a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a>
+<a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a>After conversion, verify:
+<a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a>
+<a id="__codelineno-22-30" name="__codelineno-22-30" href="#__codelineno-22-30"></a>- [ ] **ReadMe.io header metadata removed and replaced with proper H1 markdown header**
+<a id="__codelineno-22-31" name="__codelineno-22-31" href="#__codelineno-22-31"></a>- [ ] All block quotes converted to appropriate callouts
+<a id="__codelineno-22-32" name="__codelineno-22-32" href="#__codelineno-22-32"></a>- [ ] All ReadMe.io HTML blocks removed
+<a id="__codelineno-22-33" name="__codelineno-22-33" href="#__codelineno-22-33"></a>- [ ] All parameter tables converted to markdown tables
+<a id="__codelineno-22-34" name="__codelineno-22-34" href="#__codelineno-22-34"></a>- [ ] All placeholder syntax replaced with actual content
+<a id="__codelineno-22-35" name="__codelineno-22-35" href="#__codelineno-22-35"></a>- [ ] All external images downloaded and referenced locally
+<a id="__codelineno-22-36" name="__codelineno-22-36" href="#__codelineno-22-36"></a>- [ ] **All image paths use correct relative paths based on file location depth**
+<a id="__codelineno-22-37" name="__codelineno-22-37" href="#__codelineno-22-37"></a>- [ ] All HTML links converted to markdown format
+<a id="__codelineno-22-38" name="__codelineno-22-38" href="#__codelineno-22-38"></a>- [ ] All `&lt;br /&gt;` tags removed or replaced with proper line breaks
+<a id="__codelineno-22-39" name="__codelineno-22-39" href="#__codelineno-22-39"></a>- [ ] Tables have proper markdown syntax
+<a id="__codelineno-22-40" name="__codelineno-22-40" href="#__codelineno-22-40"></a>- [ ] No ReadMe.io-specific syntax remains
+<a id="__codelineno-22-41" name="__codelineno-22-41" href="#__codelineno-22-41"></a>
+<a id="__codelineno-22-42" name="__codelineno-22-42" href="#__codelineno-22-42"></a>## File Structure Considerations
+<a id="__codelineno-22-43" name="__codelineno-22-43" href="#__codelineno-22-43"></a>
+<a id="__codelineno-22-44" name="__codelineno-22-44" href="#__codelineno-22-44"></a>### Image Organization
+<a id="__codelineno-22-45" name="__codelineno-22-45" href="#__codelineno-22-45"></a>- Store all images in `docs/media/imgs/` folder
+<a id="__codelineno-22-46" name="__codelineno-22-46" href="#__codelineno-22-46"></a>- Use descriptive filenames (e.g., `step-1-import-package.png`)
+<a id="__codelineno-22-47" name="__codelineno-22-47" href="#__codelineno-22-47"></a>- **CRITICAL: Calculate correct relative paths based on file location depth**
+<a id="__codelineno-22-48" name="__codelineno-22-48" href="#__codelineno-22-48"></a>
+<a id="__codelineno-22-49" name="__codelineno-22-49" href="#__codelineno-22-49"></a>### Calculating Correct Relative Paths to Images
+<a id="__codelineno-22-50" name="__codelineno-22-50" href="#__codelineno-22-50"></a>
+<a id="__codelineno-22-51" name="__codelineno-22-51" href="#__codelineno-22-51"></a>**Important**: The relative path to `media/imgs/` depends on how deep your markdown file is nested within the `docs/` folder structure.
+<a id="__codelineno-22-52" name="__codelineno-22-52" href="#__codelineno-22-52"></a>
+<a id="__codelineno-22-53" name="__codelineno-22-53" href="#__codelineno-22-53"></a>**Path Calculation Formula**:
+<a id="__codelineno-22-54" name="__codelineno-22-54" href="#__codelineno-22-54"></a>- Count the number of folder levels from your `.md` file to the `docs/` root
+<a id="__codelineno-22-55" name="__codelineno-22-55" href="#__codelineno-22-55"></a>- Use that many `../` segments to go back to the docs root
+<a id="__codelineno-22-56" name="__codelineno-22-56" href="#__codelineno-22-56"></a>- Then add `media/imgs/filename.png`
+<a id="__codelineno-22-57" name="__codelineno-22-57" href="#__codelineno-22-57"></a>
+<a id="__codelineno-22-58" name="__codelineno-22-58" href="#__codelineno-22-58"></a>**Examples by File Location**:
+<a id="__codelineno-22-59" name="__codelineno-22-59" href="#__codelineno-22-59"></a>
+<a id="__codelineno-22-60" name="__codelineno-22-60" href="#__codelineno-22-60"></a>**Level 1** - Files directly in `docs/` folder:
+</code></pre></div>
+docs/
+├── index.md                    → media/imgs/filename.png
+└── media/imgs/filename.png
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Path: `media/imgs/filename.png`
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>**Level 2** - Files one folder deep:
+</code></pre></div>
+docs/
+├── unity/
+│   └── getting-started.md      → ../media/imgs/filename.png
+└── media/imgs/filename.png
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Path: `../media/imgs/filename.png`
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>**Level 3** - Files two folders deep:
+</code></pre></div>
+docs/
+├── unity/
+│   └── user-reference/
+│       └── overview.md         → ../../media/imgs/filename.png
+└── media/imgs/filename.png
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Path: `../../media/imgs/filename.png`
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>**Level 4** - Files three folders deep:
+</code></pre></div>
+docs/
+├── unity/
+│   └── user-reference/
+│       └── editor-systems/
+│           └── builds-environments.md → ../../../media/imgs/filename.png
+└── media/imgs/filename.png
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Path: `../../../media/imgs/filename.png`
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>**Level 5** - Files four folders deep:
+</code></pre></div>
+docs/
+├── unity/
+│   └── user-reference/
+│       └── editor-systems/
+│           └── subsection/
+│               └── detail.md   → ../../../../media/imgs/filename.png
+└── media/imgs/filename.png
+<code>``
+Path:</code>../../../../media/imgs/filename.png`</p>
+<p><strong>Quick Reference Table</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>File Depth</th>
+<th>Relative Path Pattern</th>
+<th>Example File Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 level</td>
+<td><code>media/imgs/</code></td>
+<td><code>docs/index.md</code></td>
+</tr>
+<tr>
+<td>2 levels</td>
+<td><code>../media/imgs/</code></td>
+<td><code>docs/unity/overview.md</code></td>
+</tr>
+<tr>
+<td>3 levels</td>
+<td><code>../../media/imgs/</code></td>
+<td><code>docs/unity/user-reference/index.md</code></td>
+</tr>
+<tr>
+<td>4 levels</td>
+<td><code>../../../media/imgs/</code></td>
+<td><code>docs/unity/user-reference/editor-systems/builds-environments.md</code></td>
+</tr>
+<tr>
+<td>5 levels</td>
+<td><code>../../../../media/imgs/</code></td>
+<td><code>docs/unity/user-reference/editor-systems/subsection/detail.md</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>How to Count Levels</strong>:
+1. Start from the <code>docs/</code> folder (this is level 0)
+2. Count each folder you go into as +1 level
+3. Your markdown file's level = number of <code>../</code> needed</p>
+<p><strong>Example Walkthrough</strong>:
+For file: <code>docs/unity/user-reference/editor-systems/builds-environments.md</code>
+- <code>docs/</code> (level 0 - root)
+- <code>unity/</code> (level 1)
+- <code>user-reference/</code> (level 2)
+- <code>editor-systems/</code> (level 3)
+- <code>builds-environments.md</code> (level 4)</p>
+<p>Result: Need 3 <code>../</code> to get back to docs root → <code>../../../media/imgs/filename.png</code></p>
+<p><strong>Common Mistakes to Avoid</strong>:
+- ❌ Using <code>../../media/imgs/</code> for all files (only works for level 3)
+- ❌ Not counting the file's own folder level
+- ❌ Forgetting to update paths when moving files to different depths</p>
+<p><strong>Verification Method</strong>:
+After conversion, always verify that:
+1. The path correctly navigates to the <code>docs/media/imgs/</code> folder
+2. The image file actually exists in that location
+3. The relative path works from the markdown file's location</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/Beamable"  target="_blank" rel="noopener">Beamable</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../assets/javascripts/extra.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
