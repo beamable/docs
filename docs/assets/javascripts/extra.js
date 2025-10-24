@@ -122,7 +122,7 @@ WaitForVersionNav('.md-header__topic span.md-ellipsis', function(element) {
         },
         {
             name: 'CLI',
-            link: 'Core-Latest'
+            link: 'CLI-Latest'
         }
     ]
 
