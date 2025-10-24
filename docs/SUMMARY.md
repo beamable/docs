@@ -2,6 +2,8 @@
 - [Getting Started](unreal/getting-started/)
 - [Whats New?](unreal/whatsnew/)
 - [SDK User Reference](unreal/user-reference/)
+- [Beamble Portal](portal/)
+- [Beamable CLI](cli/)
 - [Samples](unreal/samples/)
 
 # Final Sections after we implement the rest of the docs
