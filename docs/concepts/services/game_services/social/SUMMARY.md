@@ -1,5 +1,5 @@
 ﻿- [Multiplayer and Matchmaking](multiplayer_intro.md)
-- [Lobbies](lobbies_intro.md)
-- [Friends and Parties](friends_intro.md)
+- [Lobbies](lobbies.md)
+- [Friends and Parties](friends_parties.md)
 - [Message and Communication](messaging_communication.md)
-- [Tournments and Leaerboards](tournaments_leaderboards.md)
+- [Tournments and Leaerboards](tournments_leaderboards.md)
