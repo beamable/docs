@@ -1,4 +1,0 @@
-﻿- [Beamable Online Services](online_services.md)
-- [Services Structure](services_structure.md)
-- [Microservices First Architecture](microservice_architecture.md)
-- [Client Integrations and SDKs](client_integration.md)
