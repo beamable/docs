@@ -42,6 +42,11 @@
     }
   },
   {
+    "version": "CLI-6.1",
+    "title": "CLI-6.1",
+    "aliases": []
+  },
+  {
     "version": "CLI-6.0",
     "title": "CLI-6.0",
     "aliases": []
