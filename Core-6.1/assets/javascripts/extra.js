@@ -10,7 +10,7 @@ if (window.location.pathname.includes('Unreal')) {
 }
 
 // We can't use the same solution because CLI will be in all the branches. Let's hardcode it for this
-VERSION_NAME = "CLI"
+VERSION_NAME = "Core"
 
 // ---- Helpers ---------------------------------------------------------------
 function WaitForVersionNav(selector, callback) {
