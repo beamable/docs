@@ -2,7 +2,7 @@
 
 The Beamable SDK uses a dependency injection system to manage the creation and life cycle of services used throughout the SDK. The dependency injection system is built around the `IDependencyProvider` interface, which is responsible for creating and managing service instances.
 
-## Dependency Service Licecycle
+## Dependency Service Lifecycle
 
 Every service in the dependency scope follows a life cycle determined by the service's registration type, and how the dependency scope is disposed. 
 

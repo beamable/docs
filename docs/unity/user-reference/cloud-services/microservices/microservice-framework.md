@@ -44,15 +44,15 @@ public void RequestDetails()
 
 !!! info "Account Id"
 
-    Sometimes, Beamable features require an Account Id instead of a Player Id. If you need to access the Account Id of the caller, you use the `GetAccountId` function available from the Auth Service.
+    Sometimes, Beamable features require an Account Id instead of a Player Id. If a player signs up on a single realm, they get a _Player Id_ for that realm, and a global _Account Id_. When they sign up on a _second_ realm (perhaps a developer account, or on a second game), they get a new _Player Id_ for the new realm, but they use the same global _Account Id_ as before. 
     
     ```csharp
-    var accountId = await Services.Auth.GetAccountId();
+    var accountId = Context.AccountId;
     ```
 
 #### Access Unity Version via Headers
 
- In Beamable 1.3+, the HTTP headers can be found via the `Context.Headers` property. The `Headers` is a `Dictionary<string, string>`, where the keys represent HTTP header names, and the values represent HTTP header values. 
+The HTTP headers can be found via the `Context.Headers` property. The `Headers` is a `Dictionary<string, string>`, where the keys represent HTTP header names, and the values represent HTTP header values. 
 
 The Unity Beamable SDK sends a few special headers that describe the game's environment, including the game's version, Unity's version, Beamable's version, and Unity's runtime target. 
 
@@ -63,7 +63,7 @@ The Unity Beamable SDK sends a few special headers that describe the game's envi
 | X-KS-USER-AGENT | `var headerPresent = Context.Headers.TryGetClientType(out var version);` | The name of the engine that sent the request. | Unity, UnityEditor |
 | X-KS-GAME-VERSION | `var headerPresent = Context.Headers.TryGetClientGameVersion(out var version);` | The version of the game that sent the request. | 1.0, 0.1 |
 
-These headers are sent automatically from Beamable 1.3+. If a request is sent from elsewhere, such as Portal, or a custom script, the headers may not be present.
+These headers are sent automatically from the Unity SDK. If a request is sent from elsewhere, such as a custom script, the headers may not be present.
 
 #### Handling Request Timeouts
 
@@ -312,7 +312,23 @@ Once the services have been published, they are viewable on the Beamable Portal.
 
 ### Remote Logging
 
-By default, Microservices use a DEBUG log level when published. These logs can be viewed in the Portal. However, starting with Beamable 1.15.0, if you want to see even more detailed VERBOSE logs, or quiet your logs to only show WARNINGS or ERRORS, it is possible through Realm Config. In the Realm Config page of portal, create a new namespace called "service_logs". Then, create an entry in the "service_logs" namespace for each service you want to change the log level for. The entry should be the name of the Microservice. The value should be one of the following, "verbose", "debug", "info", "warn", "error", or "fatal".
+By default, Microservices use an INFO log level when published.
+
+!!! tip
+    However, Microservices use a DEBUG log level when running locally.
+
+If you need to change the log level, consider first using request based log level controls. Navigate to the microservice section of the Portal, and create a Log Config Rule for your desired service. You can change the log level dynamically per request based on what player is requesting the service, or which route is being invoked. 
+
+For example, you could enable DEBUG logging for a player that called into your customer support line, or enable DEBUG logs for a particularly sensitive route. 
+
+You can also use the Log Config section to change the default request level. 
+
+It is also possible to change the default log level for a service by using Realm Config.
+
+!!! tip
+    The _request_ level will set the log level for all requests made to your service, but internal background Beamable framework logs will still be set to a default level of INFO (which means very few system logs). 
+
+If you need to change the default log level, then go to the Realm Config page of portal, create a new namespace called "service_logs". Then, create an entry in the "service_logs" namespace for each service you want to change the log level for. The entry should be the name of the Microservice. The value should be one of the following, "verbose", "debug", "info", "warn", "error", or "fatal".
 
 ![Service Logs Realm Config](../../../../media/imgs/service-logs-realm-config.png)
 

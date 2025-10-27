@@ -66,16 +66,6 @@ private void MyMethodViaSynchronous()
 }
 ```
 
-**Observing Players**  
-Players can be "observed" by other players, allowing them limited access to some of their player data. such as public stats.
-
-```csharp
-var otherPlayer = beamContext.ObservePlayer(otherPlayerId);
-var otherPlayerStats = otherPlayer.Stats;
-```
-
-After that setup, game makers use the `BeamContext` object as the main entry-point to Beamable functionality. Benefits of this API include that it relates to _one or more_ local players and most Beamable functionality within may be called **asynchronously** or **synchronously**. Game makers may choose from the syntax options above (and mix-and-match them) to find what that works best for their needs.
-
 
 ## BeamContext Lifecycle
 

@@ -12,66 +12,8 @@ Each card represents a Package Sample. When you click the "Open Scene" button, a
 
 ## Admin Console
 
-Beamable provides you with an easy way to get debug information about your Beamable game. We provide you with a command line tool, as a prefab, that can be placed in a unity scene and allow you to access information via command.
+Most of the package samples are entire Scenes that help you get started understanding a topic. However, the _Admin Console_ is unique, because it is a prefab that gets added to your project.The prefab is helpful to dropping into your project, because you can use it to interact with Beamable at runtime.
 
-!!! info "This is currently a Unity only feature"
-
-    This feature currently requires Unity 3D development environment and is not available for other platforms. It is designed to be used within the Unity Editor.
-
-| Command       | Details                                                             |
-| :------------ | :------------------------------------------------------------------ |
-| LOGIN_ACCOUNT | Login to the PlayerId designated by the given username & password   |
-| IDFA          | Get the Advertising ID of the current device                        |
-| HEARTBEAT     | Get the heart beat of a user account                                |
-| TOKEN         | Show current access token                                           |
-| EXPIRE_TOKEN  | Expires the current access token                                    |
-| CORRUPT_TOKEN | Corrupts the current access token to trigger the refresh token flow |
-| RESET         | Clear the access token and start with a fresh account               |
-
-These are but a few of the commands you can perform from within the Admin tool. To get a full list of the available commands you can type **help** at the prompt and see all available commands.
-
-### AdminFlow API
-
-#### Creating Custom Admin Commands
-
-Game makers can create custom admin commands for additional functionality.
-
-AdminFlowCustomCommandExample.cs
-```csharp
-using Beamable.ConsoleCommands;
-using UnityEngine;
-
-namespace Beamable.Examples.Features.AdminFlow
-{
-    [BeamableConsoleCommandProvider]
-    public class CustomConsoleCommandProvider 
-    {
-        [BeamableConsoleCommand ("Add", "A sample addition command", "Add <int> <int>")]
-        public string Add(string[] args)
-        {
-            var a = int.Parse(args[0]);
-            var b = int.Parse(args[1]);
-            return "Result: " + (a + b);
-        }
-    }
-    
-    /// <summary>
-    /// Demonstrates <see cref="AdminFlow"/>.
-    /// </summary>
-    public class AdminFlowCustomCommandExample : MonoBehaviour
-    {
-        //  Unity Methods  --------------------------------
-        protected void Start()
-        {
-            Debug.Log($"Start() Instructions...\n" + 
-                      " * Run The Scene\n" + 
-                      " * Type '~' in Unity Game Window to open Admin Console\n" + 
-                      " * Type 'Add 5 10'\n" + 
-                      " * See 'Result: 15' in Unity Console Window\n");
-        }
-    }
-}
-```
 
 ### Admin Console Prefab
 
@@ -144,3 +86,46 @@ The in-game console, on-device, will **only** appear if the force-enabled checkb
 
 The Portal allows game makers to grant player privileges. This privilege-requirement only applies to device, not the Unity Editor.
 
+
+### AdminFlow API
+
+#### Creating Custom Admin Commands
+
+Game makers can create custom admin commands for additional functionality.
+
+AdminFlowCustomCommandExample.cs
+```csharp
+using Beamable.ConsoleCommands;
+using UnityEngine;
+
+namespace Beamable.Examples.Features.AdminFlow
+{
+    [BeamableConsoleCommandProvider]
+    public class CustomConsoleCommandProvider 
+    {
+        [BeamableConsoleCommand ("Add", "A sample addition command", "Add <int> <int>")]
+        public string Add(string[] args)
+        {
+            var a = int.Parse(args[0]);
+            var b = int.Parse(args[1]);
+            return "Result: " + (a + b);
+        }
+    }
+    
+    /// <summary>
+    /// Demonstrates <see cref="AdminFlow"/>.
+    /// </summary>
+    public class AdminFlowCustomCommandExample : MonoBehaviour
+    {
+        //  Unity Methods  --------------------------------
+        protected void Start()
+        {
+            Debug.Log($"Start() Instructions...\n" + 
+                      " * Run The Scene\n" + 
+                      " * Type '~' in Unity Game Window to open Admin Console\n" + 
+                      " * Type 'Add 5 10'\n" + 
+                      " * See 'Result: 15' in Unity Console Window\n");
+        }
+    }
+}
+```
