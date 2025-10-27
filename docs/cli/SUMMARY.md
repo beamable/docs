@@ -1,4 +1,4 @@
-﻿- [Getting Started](guides/gettting-started.md)
+﻿- [Getting Started](guides/getting-started.md)
 - [Configuration](guides/configuration.md)
 - [Upgrading](guides/upgrading.md)
 - [Notifications](guides/notifications.md)
