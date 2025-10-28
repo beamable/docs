@@ -33,9 +33,7 @@ Congratulations the Beamable SDK is now installed!
 
 Open the Beamable Login Window by clicking the Beamable button in the Unity toolbar.  Now see the Beamable Login Window prompts for user account credentials. Enter the Organization Alias and Password you created when you signed up for Beamable.
 
-<div class="login-window">
 ![Beamable Login Window](../../media/imgs/Beamable_Windows_Login_New_User.jpg)
-</div>
 
 Now you're ready to start your first Beamable project!
 
