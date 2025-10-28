@@ -590,13 +590,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dependency-service-licecycle" class="md-nav__link">
+  <a href="#dependency-service-lifecycle" class="md-nav__link">
     <span class="md-ellipsis">
-      Dependency Service Licecycle
+      Dependency Service Lifecycle
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Dependency Service Licecycle">
+    <nav class="md-nav" aria-label="Dependency Service Lifecycle">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7610,13 +7610,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dependency-service-licecycle" class="md-nav__link">
+  <a href="#dependency-service-lifecycle" class="md-nav__link">
     <span class="md-ellipsis">
-      Dependency Service Licecycle
+      Dependency Service Lifecycle
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Dependency Service Licecycle">
+    <nav class="md-nav" aria-label="Dependency Service Lifecycle">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7792,7 +7792,7 @@
 
 <h1 id="dependency-injection-overview">Dependency Injection Overview<a class="headerlink" href="#dependency-injection-overview" title="Permanent link">¶</a></h1>
 <p>The Beamable SDK uses a dependency injection system to manage the creation and life cycle of services used throughout the SDK. The dependency injection system is built around the <code>IDependencyProvider</code> interface, which is responsible for creating and managing service instances.</p>
-<h2 id="dependency-service-licecycle">Dependency Service Licecycle<a class="headerlink" href="#dependency-service-licecycle" title="Permanent link">¶</a></h2>
+<h2 id="dependency-service-lifecycle">Dependency Service Lifecycle<a class="headerlink" href="#dependency-service-lifecycle" title="Permanent link">¶</a></h2>
 <p>Every service in the dependency scope follows a life cycle determined by the service's registration type, and how the dependency scope is disposed. </p>
 <p>A service is instantiated <strong>only</strong> when it is requested from a call to the <code>IDependencyProvider.GetService&lt;T&gt;()</code>, <em>or</em> because the service is required to construct a requested service. </p>
 <h3 id="service-types">Service Types<a class="headerlink" href="#service-types" title="Permanent link">¶</a></h3>

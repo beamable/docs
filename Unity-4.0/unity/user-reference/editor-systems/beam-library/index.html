@@ -692,30 +692,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#adminflow-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      AdminFlow API
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="AdminFlow API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-custom-admin-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating Custom Admin Commands
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#admin-console-prefab" class="md-nav__link">
     <span class="md-ellipsis">
       Admin Console Prefab
@@ -789,6 +765,30 @@
   <a href="#force-enabled" class="md-nav__link">
     <span class="md-ellipsis">
       Force-Enabled
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adminflow-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      AdminFlow API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AdminFlow API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-custom-admin-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Custom Admin Commands
     </span>
   </a>
   
@@ -7578,30 +7578,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#adminflow-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      AdminFlow API
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="AdminFlow API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-custom-admin-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating Custom Admin Commands
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#admin-console-prefab" class="md-nav__link">
     <span class="md-ellipsis">
       Admin Console Prefab
@@ -7685,6 +7661,30 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#adminflow-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      AdminFlow API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AdminFlow API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-custom-admin-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Custom Admin Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7713,120 +7713,7 @@
 <p><a class="glightbox" href="../../../../media/imgs/7b0d4957423d75029795d0d58132b6e7ca953f448a97b7057065519465467364-image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Beam Library Window" src="../../../../media/imgs/7b0d4957423d75029795d0d58132b6e7ca953f448a97b7057065519465467364-image.png" width="400px" /></a></p>
 <p>Each card represents a Package Sample. When you click the "Open Scene" button, a Beamable sample will be added to your assets folder under <code>Assets/Samples/Beamable</code>.</p>
 <h2 id="admin-console">Admin Console<a class="headerlink" href="#admin-console" title="Permanent link">¶</a></h2>
-<p>Beamable provides you with an easy way to get debug information about your Beamable game. We provide you with a command line tool, as a prefab, that can be placed in a unity scene and allow you to access information via command.</p>
-<div class="admonition info">
-<p class="admonition-title">This is currently a Unity only feature</p>
-<p>This feature currently requires Unity 3D development environment and is not available for other platforms. It is designed to be used within the Unity Editor.</p>
-</div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Command</th>
-<th style="text-align: left;">Details</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">LOGIN_ACCOUNT</td>
-<td style="text-align: left;">Login to the PlayerId designated by the given username &amp; password</td>
-</tr>
-<tr>
-<td style="text-align: left;">IDFA</td>
-<td style="text-align: left;">Get the Advertising ID of the current device</td>
-</tr>
-<tr>
-<td style="text-align: left;">HEARTBEAT</td>
-<td style="text-align: left;">Get the heart beat of a user account</td>
-</tr>
-<tr>
-<td style="text-align: left;">TOKEN</td>
-<td style="text-align: left;">Show current access token</td>
-</tr>
-<tr>
-<td style="text-align: left;">EXPIRE_TOKEN</td>
-<td style="text-align: left;">Expires the current access token</td>
-</tr>
-<tr>
-<td style="text-align: left;">CORRUPT_TOKEN</td>
-<td style="text-align: left;">Corrupts the current access token to trigger the refresh token flow</td>
-</tr>
-<tr>
-<td style="text-align: left;">RESET</td>
-<td style="text-align: left;">Clear the access token and start with a fresh account</td>
-</tr>
-</tbody>
-</table>
-<p>These are but a few of the commands you can perform from within the Admin tool. To get a full list of the available commands you can type <strong>help</strong> at the prompt and see all available commands.</p>
-<h3 id="adminflow-api">AdminFlow API<a class="headerlink" href="#adminflow-api" title="Permanent link">¶</a></h3>
-<h4 id="creating-custom-admin-commands">Creating Custom Admin Commands<a class="headerlink" href="#creating-custom-admin-commands" title="Permanent link">¶</a></h4>
-<p>Game makers can create custom admin commands for additional functionality.</p>
-<p>AdminFlowCustomCommandExample.cs
-<div class="language-csharp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.ConsoleCommands</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
-
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Features.AdminFlow</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[BeamableConsoleCommandProvider]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomConsoleCommandProvider</span><span class="w"> </span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="na">[BeamableConsoleCommand (&quot;Add&quot;, &quot;A sample addition command&quot;, &quot;Add &lt;int&gt; &lt;int&gt;&quot;)]</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="m">0</span><span class="p">]);</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="m">1</span><span class="p">]);</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Result: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">    </span><span class="c1">/// Demonstrates &lt;see cref=&quot;AdminFlow&quot;/&gt;.</span>
-<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AdminFlowCustomCommandExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">//  Unity Methods  --------------------------------</span>
-<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Start() Instructions...\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
-<span class="w">                      </span><span class="s">&quot; * Run The Scene\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
-<span class="w">                      </span><span class="s">&quot; * Type &#39;~&#39; in Unity Game Window to open Admin Console\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
-<span class="w">                      </span><span class="s">&quot; * Type &#39;Add 5 10&#39;\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
-<span class="w">                      </span><span class="s">&quot; * See &#39;Result: 15&#39; in Unity Console Window\n&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div></p>
+<p>Most of the package samples are entire Scenes that help you get started understanding a topic. However, the <em>Admin Console</em> is unique, because it is a prefab that gets added to your project.The prefab is helpful to dropping into your project, because you can use it to interact with Beamable at runtime.</p>
 <h3 id="admin-console-prefab">Admin Console Prefab<a class="headerlink" href="#admin-console-prefab" title="Permanent link">¶</a></h3>
 <h4 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h4>
 <p>The <strong>Admin Flow</strong> Feature Prefab provides developers with debugging capabilities.</p>
@@ -7958,6 +7845,76 @@
 </div>
 <p>The in-game console, on-device, will <strong>only</strong> appear if the force-enabled checkbox is true, or if the current player's account has tester, developer, or admin privileges.</p>
 <p>The Portal allows game makers to grant player privileges. This privilege-requirement only applies to device, not the Unity Editor.</p>
+<h3 id="adminflow-api">AdminFlow API<a class="headerlink" href="#adminflow-api" title="Permanent link">¶</a></h3>
+<h4 id="creating-custom-admin-commands">Creating Custom Admin Commands<a class="headerlink" href="#creating-custom-admin-commands" title="Permanent link">¶</a></h4>
+<p>Game makers can create custom admin commands for additional functionality.</p>
+<p>AdminFlowCustomCommandExample.cs
+<div class="language-csharp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.ConsoleCommands</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Features.AdminFlow</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[BeamableConsoleCommandProvider]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomConsoleCommandProvider</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="na">[BeamableConsoleCommand (&quot;Add&quot;, &quot;A sample addition command&quot;, &quot;Add &lt;int&gt; &lt;int&gt;&quot;)]</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="m">0</span><span class="p">]);</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="m">1</span><span class="p">]);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Result: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">    </span><span class="c1">/// Demonstrates &lt;see cref=&quot;AdminFlow&quot;/&gt;.</span>
+<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AdminFlowCustomCommandExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//  Unity Methods  --------------------------------</span>
+<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;Start() Instructions...\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">                      </span><span class="s">&quot; * Run The Scene\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">                      </span><span class="s">&quot; * Type &#39;~&#39; in Unity Game Window to open Admin Console\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">                      </span><span class="s">&quot; * Type &#39;Add 5 10&#39;\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">                      </span><span class="s">&quot; * See &#39;Result: 15&#39; in Unity Console Window\n&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
 
 
 

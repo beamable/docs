@@ -7639,13 +7639,6 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 <span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;beamContext02.PlayerId = {beamContext02.PlayerId}&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p><strong>Observing Players</strong><br />
-Players can be "observed" by other players, allowing them limited access to some of their player data. such as public stats.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">otherPlayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">ObservePlayer</span><span class="p">(</span><span class="n">otherPlayerId</span><span class="p">);</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">otherPlayerStats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">otherPlayer</span><span class="p">.</span><span class="n">Stats</span><span class="p">;</span>
-</code></pre></div></td></tr></table></div>
-<p>After that setup, game makers use the <code>BeamContext</code> object as the main entry-point to Beamable functionality. Benefits of this API include that it relates to <em>one or more</em> local players and most Beamable functionality within may be called <strong>asynchronously</strong> or <strong>synchronously</strong>. Game makers may choose from the syntax options above (and mix-and-match them) to find what that works best for their needs.</p>
 <h2 id="beamcontext-lifecycle">BeamContext Lifecycle<a class="headerlink" href="#beamcontext-lifecycle" title="Permanent link">¶</a></h2>
 <p>The Lifecycle of the <code>BeamContext</code> instance is very straightforward. You can see the complete list of functions below:</p>
 <table>
