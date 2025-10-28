@@ -1,4 +1,6 @@
-﻿- [LightBeam](lightbeam.md)
+﻿- Lightbeam
+    - [LightBeam Overview](lightbeam.md)
+    - [Account Manager](lightbeam-account.md)
 - SDK Samples
     - [Game Type Matchmaking](game-type-matchmaking.md)
     - [Android IAP](stores-android-iap.md)

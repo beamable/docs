@@ -12,8 +12,6 @@ The platform's player-centric design ensures that all systems work together seam
 
 Bellow you can find a comprehensive technical overview of the Beamable Unity SDK, highlighting its key components, architecture, and features.
 
-![Framework.png](../../media/imgs/Framework.png)
-
 ### Player-Centric API and Dependency Injection
 
 Beamable follows a player-centric architecture that fundamentally changes how developers think about game backend services. Traditional game development often requires managing multiple disparate systems, each with their own APIs, authentication methods, and data models. This fragmentation leads to increased development time, security vulnerabilities, and maintenance overhead.
