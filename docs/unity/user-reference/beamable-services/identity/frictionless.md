@@ -23,16 +23,17 @@ At face value, the following creates a player instance with access to Beamable A
 ```csharp
 private async void Start()
 {
-    _beamContext = BeamContext.Default;
-    await beamContext.OnReady;
+    _beamContext = await BeamContext.Default.Instance;
 }
 ```
 
 In this example we output the PlayerId to the console, which you can use to look up the Player in [Portal](https://docs.beamable.com/docs/portal).
 
 ```csharp
-Debug.Log($"User Id: {_beamContext.PlayerId}");
+Debug.Log($"Player Id: {_beamContext.PlayerId}");
 ```
+
+<try-it-out git-fragment="Assets/Minis/Basics/01_BeamContext_HelloWorld/Logic.cs" title="Hello World" args="scene=mini-basic-01"/>
 
 By default, Beamable’s SDK always ensures there is a player token loaded, which means you will always have a unique user account that is anonymous. From here you can then use other forms of account linking/account creation such as Username & Password or Social Logins like Facebook (aka LoginThirdParty).
 

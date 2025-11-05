@@ -88,6 +88,15 @@ extra:
 
 extra_css:
   - assets/stylesheets/extra.css
+  - assets/stylesheets/beam.css
+  - assets/stylesheets/pico.css
+  - assets/apps/login/main.css
+  - assets/apps/tryitout/main.css
 
 extra_javascript:
   - assets/javascripts/extra.js
+  - assets/javascripts/beam-sdk-6-0.min.js
+  - assets/javascripts/beam-sdk-0-6-0.api.min.js
+  - assets/apps/login/main.js
+  - assets/apps/tryitout/main.js
+  - assets/javascripts/beam.js
