@@ -7,7 +7,6 @@ Welcome to Beamable! This guide will walk you through the steps required to inst
     • Beamable supports Unity versions 2021.3 to 6000 and is compatible with all template types  
     • Beamable supports Windows, Mac, iOS, Android, and WebGL platforms
 
-Hello
 
 ## Signing Up Account in Beamable Portal
 
@@ -78,3 +77,5 @@ As new versions of the Beamable SDK are released, they depend on different Beam 
 !!! danger "User Beware: Changing the CLI version may cause issues"
 
     Starting in SDK 3.0, you _may_ disable the SDK's explicit control of the `dotnet-tools.json` by enabling the `Beamable/Editor/AdvancedCli/Disable Version Requirement` setting in Unity's Project Settings window. If you do this, please understand that the Beamable SDK may stop functioning, as it is trying to use an unplanned version.
+
+(goodbye!)
