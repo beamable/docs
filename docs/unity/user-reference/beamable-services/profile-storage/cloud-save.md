@@ -1,10 +1,12 @@
 # Cloud Save - Overview
 
-Beamable's **Cloud Save** feature allows players to store and retrieve their game progress.
+Beamable's **Cloud Save** feature provides secure, cross-platform storage for player game data. It enables players to seamlessly save their progress and access it across multiple devices, ensuring data persistence and continuity throughout their gaming experience.
 
-The purpose of this feature is to allow the player to store and retrieve progress in their game.
-
-Cloud Save provides secure, reliable storage for player data that can be accessed across multiple devices and platforms.
+**Key Benefits:**
+- **Cross-Device Sync**: Players can switch between devices without losing progress
+- **Automatic Conflict Resolution**: Handles data conflicts when multiple saves exist
+- **Secure Storage**: Encrypted cloud storage with up to 5MB per file
+- **Offline Support**: Local caching ensures gameplay continues without connectivity
 
 !!! warning "Migrating from [Old Cloud Save Service](https://docs.beamable.com/docs/cloud-save-code)"
 
@@ -123,7 +125,7 @@ public class PlayerCloudSaveCustomRegister
 
 ### Syncing Of Data
 
-The downloading operation uses Unity's [`DownloadHandlerFile`](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Networking.DownloadHandlerFile.html). If the file is new, it will be saved directly to the /data/ Folder. If the file has a conflict it will be first saved to the /temp/ folder, if the resolver chooses to use the Cloud Save, it'll be moved to the /data/ folder, if not, it will be archived.
+The downloading operation uses Unity's [`DownloadHandlerFile`](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Networking.DownloadHandlerFile.html). If the file is new, it will be saved directly to the `/data/` Folder. If the file has a conflict it will be first saved to the /temp/ folder, if the resolver chooses to use the Cloud Save, it'll be moved to the `/data/` folder, if not, it will be archived.
 
 _Note_ If the destination files are kept open by some unrelated system during the syncing process, the `CloudSavingService` will reattempt several times. Upon any ultimate failure, an `IOException` will be thrown.
 
@@ -135,17 +137,17 @@ There are two options for detecting changes to the Local Save files, the first o
 
 #### Detecting Changes from Local Manifest
 
-For this option, whenever a File is Saved using the `SaveData` functions through the service, which could be from `ICloudSavingService` or from the `CloudDataUpdateBuilder` it will update the local manifest automatically. After the polling interval taken on the `Init` function, it will automatically upload any changes to the cloud service. If you write a file directly to the /data/ folder, this option will not detect it automatically.
+For this option, whenever a File is Saved using the `SaveData` functions through the service, which could be from `ICloudSavingService` or from the `CloudDataUpdateBuilder` it will update the local manifest automatically. After the polling interval taken on the `Init` function, it will automatically upload any changes to the cloud service. If you write a file directly to the `/data/` folder, this option will not detect it automatically.
 
 #### Detecting Changes from Data Folder (AutoCloud)
 
-The AutoCloud feature will automatically check the /data/ folder checking for changes every polling interval and automatically uploading any changes to the cloud service. It also updates the local manifest automatically. This is slightly more expensive than the first option as it needs to keep generating the checksum for the file every polling interval, but it allows you to write the file manually to the data folder.
+The AutoCloud feature will automatically check the `/data/` folder checking for changes every polling interval and automatically uploading any changes to the cloud service. It also updates the local manifest automatically. This is slightly more expensive than the first option as it needs to keep generating the checksum for the file every polling interval, but it allows you to write the file manually to the data folder.
 
 To enable this option, you will need to add or update the Custom dependency for `PlayerCloudSavingConfiguration` and set the property `UseAutoCloud` to true. Check the section [Changing Service Configuration](#changing-service-configuration) to see how to properly add it.
 
 ### Error Handling
 
-Is possible that some errors occur when trying to download a saved file. The system automatically will try to download the file 10 times, if the 10th time fails, the system will return an error. Which can be anything from no connection to a file not found. By default the service will use the DefaultRecover, which will not throw an exception if the file cannot be found in storage, ignoring its download and using the local reference as the new one. If there is any other error, it will throw the exception.
+Is possible that some errors occur when trying to download a saved file. The system automatically will try to download the file 10 times, if the 10th retry fails, the system will return an error. Which can be anything from no connection to a file not found. By default, the service will use the DefaultRecover, which will not throw an exception if the file cannot be found in storage, ignoring its download and using the local reference as the new one. If there is any other error, it will throw the exception.
 
 If you want to change its behavior, you will need to add or update the Custom dependency for `PlayerCloudSavingConfiguration` and set the property `HandleDownloadFileError`. Check the section [Changing Service Configuration](#changing-service-configuration) to see how to properly add it.
 

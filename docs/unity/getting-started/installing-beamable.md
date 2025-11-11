@@ -7,8 +7,6 @@ Welcome to Beamable! This guide will walk you through the steps required to inst
     • Beamable supports Unity versions 2021.3 to 6000 and is compatible with all template types  
     • Beamable supports Windows, Mac, iOS, Android, and WebGL platforms
 
-Hello World
-
 ## Signing Up Account in Beamable Portal
 
 To start using Beamable in your project you need to have a valid Account in our Platform. Please do so via our [Portal](https://portal.beamable.com/signup/registration). Please remember your **Alias** as it'll be used to log into the SDK in your editor or via the Beamable CLI.
