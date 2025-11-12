@@ -5,3 +5,8 @@
 - [Samples](unity/samples/)
 - [Beamable Portal](portal/)
 - [Beamable CLI](cli/)
+- [Beamable API](https://beam-api.readme.io/reference/how-to-authenticate)
+- Beamable Community
+    - [Find Support](https://beamable.com/support)
+    - [Ask a Question](https://github.com/orgs/beamable/discussions)
+    - [Discord Server](https://discord.com/invite/UHjf25h)
