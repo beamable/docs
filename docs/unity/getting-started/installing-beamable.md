@@ -76,5 +76,3 @@ As new versions of the Beamable SDK are released, they depend on different Beam 
 !!! danger "User Beware: Changing the CLI version may cause issues"
 
     Starting in SDK 3.0, you _may_ disable the SDK's explicit control of the `dotnet-tools.json` by enabling the `Beamable/Editor/AdvancedCli/Disable Version Requirement` setting in Unity's Project Settings window. If you do this, please understand that the Beamable SDK may stop functioning, as it is trying to use an unplanned version.
-
-(goodbye!)
