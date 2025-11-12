@@ -16,4 +16,8 @@
 #- [SDK User Reference](unreal/user-reference/)
 #- [Samples](unreal/samples/)
 #- [Beamable CLI](cli/)
-#- [Support](unreal/support/)
+#- [Support](unreal/support/)#- [Support](unreal/support/)- [Beamable API](https://beam-api.readme.io/reference/how-to-authenticate)
+- Beamable Community
+    - [Find Support](https://beamable.com/support)
+    - [Ask a Question](https://github.com/orgs/beamable/discussions)
+    - [Discord Server](https://discord.com/invite/UHjf25h)
