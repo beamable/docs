@@ -7,9 +7,9 @@ Welcome to Beamable! This guide will walk you through the steps required to inst
     • Beamable supports Unity versions 2021.3 to 6000 and is compatible with all template types  
     • Beamable supports Windows, Mac, iOS, Android, and WebGL platforms
 
-## Signing Up Account in Beamable Portal
+## Setting Up Account in Beamable Portal
 
-To start using Beamable in your project you need to have a valid Account in our Platform. Please do so via our [Portal](https://portal.beamable.com/signup/registration). Please remember your **Alias** as it'll be used to log into the SDK in your editor or via the Beamable CLI.
+To start using Beamable in your project you need to have a valid Beamable account. Please do so via our [Portal](https://portal.beamable.com/signup/registration). Please remember your **Alias** as it'll be used to log into the SDK in your editor or via the Beamable CLI.
 
 
 ## Downloading and Installing the Beamable SDK
@@ -22,33 +22,37 @@ Once downloaded, follow these steps to install the Beamable SDK into your Unity 
 |------|--------|
 | 1. Import the **Beamable SDK Installer Package** | ![Import Package](../../media/imgs/step-1-import-package.png)<br>• Unity → Assets → Import Package → Custom Package |
 | 2. Verify the import | ![Verify Import](../../media/imgs/step-2-verify-import.png)<br>• Press the "Import" button |
-| 3. Install the **Beamable SDK** | ![Install SDK](../../media/imgs/step-3-install-sdk.png)<br>• Click to continue |
-| 4. Remove the **Beamable SDK Installer Package** | ![Remove Package](../../media/imgs/step-4-remove-package.png)<br>• Click to continue<br>*Note: Now that the installation process is complete, the installer package is no longer needed.* |
+| 3. Install the **Beamable SDK** | ![Install SDK](./installation-01.png)<br>• Click to continue |
+| 4. Remove the **Beamable SDK Installer Package** | • Now that the installation process is complete, the installer package is no longer needed. You can remove it. |
 | 5. **Install Dotnet (if required)** | Starting with the Unity 2.1.0 SDK, Beamable requires that you have dotnet 8.0.302 installed on your machine. If you don't, the Beamable SDK will offer a download option for you, and once you've finished installing it, you can continue through the dialog. |
 
 Congratulations the Beamable SDK is now installed!
+
+!!! Note
+    If you need to install a Release Candidate version of Beamable, use the _Search for specific version_ drop down under the main _Install Beamable SDK_ button. You can also find nightly builds here. 
 
 ## Log into Beamable
 
 Open the Beamable Login Window by clicking the Beamable button in the Unity toolbar.  Now see the Beamable Login Window prompts for user account credentials. Enter the Organization Alias and Password you created when you signed up for Beamable.
 
-![Beamable Login Window](../../media/imgs/Beamable_Windows_Login_New_User.jpg)
+![Beamable Login Window](./login.png){: style="max-width: 400px;" }
 
 Now you're ready to start your first Beamable project!
 
-## Verifying the Installation
-To confirm that the Beamable SDK is properly installed and working, we'll create a simple test that displays your player's unique PlayerId both on-screen and in the Unity Console. This demonstrates that Beamable is successfully creating and managing player accounts.
+## Say _Hello_ to Beamable!
+To confirm that you have a working Beamable setup, we will pull in the default Beamable runtime console prefab and make sure we can access a player account. 
 
-| Step | Action | Expected Result |
-|------|--------|----------------|
-| 1. **Create a new Unity Scene** | • **File** → **New Scene**<br>• Choose **Basic (Built-in)** or **Basic (URP/HDRP)** template<br>• Save the scene with **Ctrl+S** (name it "BeamableTest") | A new empty scene appears in the Scene view |
-| 2. **Open the Beamable Library** | • Click the **Beamable** button in the Unity toolbar<br>• Select **Open Beam Library** from the dropdown menu | The Beamable Library window opens, showing available prefabs and samples |
-| 3. **Add the Admin Flow Prefab** | • In the Beamable Library window, locate **"Admin Flow"** prefab<br>• Drag and drop it into your scene hierarchy<br>• Position it anywhere in the scene (position doesn't matter) | The Admin Flow prefab appears in your scene hierarchy and Scene view |
-| 4. **Enter Play Mode** | • Click the **Play** button in Unity (or press **Ctrl+P**)<br>• Wait for the scene to fully load | The scene starts playing, and Beamable initializes in the background |
-| 5. **Open the In-Game Console** | • Press the **`~`** key (tilde, usually above Tab)<br>• If that doesn't work, try **`** (backtick) or check the Admin Flow UI for a console button | A console overlay appears on your game screen |
-| 6. **Request Your PlayerId** | • In the console input field, type: **`dbid`**<br>• Press **Enter** to submit the command | Your unique PlayerId appears both:<br>• On-screen in the console<br>• In Unity's Console window |
-| 7. **Verify Success** | • Check that you see a PlayerId like: `1234567890123456789`<br>• Open Unity's Console window (**Window** → **General** → **Console**)<br>• Confirm the same PlayerId appears there | ✅ **Success!** Beamable is working correctly |
+Navigate to the _Beam Library_ by finding it from the Beamable Button in the top-right of the Unity editor. 
 
+In the _Beam Library_, find the _Admin Console_ card and click the _Add Prefab_ button to add the prefab to an empty scene.
+![Beamable Admin Console](./library-admin-console.png){: style="max-width: 700px;"}
+
+Enter play-mode, and hit the `~` character (the same character as `` ` ``). This should open up the _Admin Console_. You can type in a bunch of commands like `help`, or `dbid`. 
+
+!!! Note
+    The `dbid` command will print out the current player's id. Learn more in the [frictionless auth section](./../user-reference/beamable-services/identity/frictionless.md).
+
+<try-it-out git-fragment="Assets/Minis/Basics/SetupConsole/Logic.cs" title="Console Access" args="scene=setup_console"/>
 
 ## Beam CLI Dependency
 
