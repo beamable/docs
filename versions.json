@@ -51,14 +51,14 @@
   {
     "version": "CLI-6.2",
     "title": "CLI-6.2",
-    "aliases": []
+    "aliases": [
+      "CLI-Latest"
+    ]
   },
   {
     "version": "CLI-6.1",
     "title": "CLI-6.1",
-    "aliases": [
-      "CLI-Latest"
-    ]
+    "aliases": []
   },
   {
     "version": "CLI-6.0",
