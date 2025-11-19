@@ -1,5 +1,10 @@
 [
   {
+    "version": "WebSDK-1.0",
+    "title": "WebSDK-1.0",
+    "aliases": []
+  },
+  {
     "version": "WebSDK-0.6",
     "title": "WebSDK-0.6",
     "aliases": [
