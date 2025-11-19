@@ -4,7 +4,7 @@
 
 > **Group** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L12)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:12](https://github.com/beama
 
 > `optional` **canDisband**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:27](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L27)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:27](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L27)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:27](https://github.com/beama
 
 > `optional` **canUpdateEnrollment**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:28](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L28)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:28](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L28)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:28](https://github.com/beama
 
 > `optional` **canUpdateMOTD**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:29](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L29)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:29](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L29)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:29](https://github.com/beama
 
 > `optional` **canUpdateSlogan**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:30](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L30)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:30](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L30)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:30](https://github.com/beama
 
 > `optional` **clientData**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:31](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L31)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:31](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L31)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:31](https://github.com/beama
 
 > **created**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L13)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:13](https://github.com/beama
 
 > `optional` **donations**: [`DonationRequest`](DonationRequest.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:32](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L32)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:32](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L32)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:32](https://github.com/beama
 
 > **enrollmentType**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L14)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:14](https://github.com/beama
 
 > **freeSlots**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L15)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:15](https://github.com/beama
 
 > **id**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L16)
 
 ***
 
@@ -92,7 +92,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:16](https://github.com/beama
 
 > `optional` **inFlight**: [`InFlightMessage`](InFlightMessage.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:33](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L33)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:33](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L33)
 
 ***
 
@@ -100,7 +100,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:33](https://github.com/beama
 
 > **leader**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L17)
 
 ***
 
@@ -108,7 +108,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:17](https://github.com/beama
 
 > **maxSize**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L18)
 
 ***
 
@@ -116,7 +116,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:18](https://github.com/beama
 
 > `optional` **maybeDonations**: `Record`<`string`, [`DonationRequest`](DonationRequest.md)\>
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:34](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L34)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:34](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L34)
 
 ***
 
@@ -124,7 +124,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:34](https://github.com/beama
 
 > **members**: [`Member`](Member.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L19)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L19)
 
 ***
 
@@ -132,7 +132,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:19](https://github.com/beama
 
 > **motd**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:20](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L20)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:20](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L20)
 
 ***
 
@@ -140,7 +140,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:20](https://github.com/beama
 
 > **name**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:21](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L21)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:21](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L21)
 
 ***
 
@@ -148,7 +148,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:21](https://github.com/beama
 
 > **requirement**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:22](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L22)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:22](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L22)
 
 ***
 
@@ -156,7 +156,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:22](https://github.com/beama
 
 > `optional` **roles**: [`GroupRole`](GroupRole.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:35](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L35)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:35](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L35)
 
 ***
 
@@ -164,7 +164,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:35](https://github.com/beama
 
 > **scores**: `Record`<`string`, `string`\>
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:23](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L23)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:23](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L23)
 
 ***
 
@@ -172,7 +172,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:23](https://github.com/beama
 
 > `optional` **shard**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:36](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L36)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:36](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L36)
 
 ***
 
@@ -180,7 +180,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:36](https://github.com/beama
 
 > **slogan**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:24](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L24)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:24](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L24)
 
 ***
 
@@ -188,7 +188,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:24](https://github.com/beama
 
 > **subGroups**: `Group`[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:25](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L25)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:25](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L25)
 
 ***
 
@@ -196,7 +196,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:25](https://github.com/beama
 
 > `optional` **tag**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:37](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L37)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:37](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L37)
 
 ***
 
@@ -204,7 +204,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:37](https://github.com/beama
 
 > **type**: [`GroupType`](../enumerations/GroupType.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:26](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L26)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:26](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L26)
 
 ***
 
@@ -212,4 +212,4 @@ Defined in: [src/\_\_generated\_\_/schemas/Group.ts:26](https://github.com/beama
 
 > `optional` **version**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/Group.ts:38](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Group.ts#L38)
+Defined in: [src/\_\_generated\_\_/schemas/Group.ts:38](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Group.ts#L38)

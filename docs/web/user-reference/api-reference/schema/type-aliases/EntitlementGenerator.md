@@ -4,7 +4,7 @@
 
 > **EntitlementGenerator** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/EntitlementGenerator.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/EntitlementGenerator.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:8](https://gi
 
 > **action**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/EntitlementGenerator.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/EntitlementGenerator.ts#L9)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:9](https://gi
 
 > `optional` **claimWindow**: [`EntitlementClaimWindow`](EntitlementClaimWindow.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/EntitlementGenerator.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/EntitlementGenerator.ts#L11)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:11](https://g
 
 > `optional` **params**: `Record`<`string`, `string`\>
 
-Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/EntitlementGenerator.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/EntitlementGenerator.ts#L12)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:12](https://g
 
 > `optional` **quantity**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/EntitlementGenerator.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/EntitlementGenerator.ts#L13)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:13](https://g
 
 > `optional` **specialization**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/EntitlementGenerator.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/EntitlementGenerator.ts#L14)
 
 ***
 
@@ -52,4 +52,4 @@ Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:14](https://g
 
 > **symbol**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/EntitlementGenerator.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/EntitlementGenerator.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/EntitlementGenerator.ts#L10)

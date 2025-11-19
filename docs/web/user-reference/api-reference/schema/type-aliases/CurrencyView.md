@@ -4,7 +4,7 @@
 
 > **CurrencyView** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/CurrencyView.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CurrencyView.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/CurrencyView.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CurrencyView.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CurrencyView.ts:9](https://github.com
 
 > **amount**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CurrencyView.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CurrencyView.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/CurrencyView.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CurrencyView.ts#L10)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CurrencyView.ts:10](https://github.co
 
 > **id**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CurrencyView.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CurrencyView.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/CurrencyView.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CurrencyView.ts#L11)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CurrencyView.ts:11](https://github.co
 
 > **properties**: [`CurrencyProperty`](CurrencyProperty.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/CurrencyView.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CurrencyView.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/CurrencyView.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CurrencyView.ts#L12)
 
 ***
 
@@ -36,4 +36,4 @@ Defined in: [src/\_\_generated\_\_/schemas/CurrencyView.ts:12](https://github.co
 
 > `optional` **proxy**: [`FederationInfo`](FederationInfo.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/CurrencyView.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CurrencyView.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/CurrencyView.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CurrencyView.ts#L13)

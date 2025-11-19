@@ -4,7 +4,7 @@
 
 > **TrackPurchaseRequest** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:9](https://gi
 
 > **isoCurrencySymbol**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L10)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:10](https://g
 
 > **obtainCurrency**: [`CurrencyChange`](CurrencyChange.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L11)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:11](https://g
 
 > **obtainItems**: [`ItemCreateRequest`](ItemCreateRequest.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L12)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:12](https://g
 
 > **priceInLocalCurrency**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L13)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:13](https://g
 
 > **purchaseId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L14)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:14](https://g
 
 > **skuName**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L15)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:15](https://g
 
 > **skuProductId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L16)
 
 ***
 
@@ -68,4 +68,4 @@ Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:16](https://g
 
 > **store**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/TrackPurchaseRequest.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TrackPurchaseRequest.ts#L17)

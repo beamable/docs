@@ -4,7 +4,7 @@
 
 > **parseSocketMessage**<`K`\>(`rawMessage`): [`RefreshableServiceMap`](../../types/RefreshableServiceMap/interfaces/RefreshableServiceMap.md)\[`K`\]
 
-Defined in: [src/core/BeamUtils.ts:28](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamUtils.ts#L28)
+Defined in: [src/core/BeamUtils.ts:38](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamUtils.ts#L38)
 
 Parses a raw socket message string into a structured object based on the expected `RefreshableServiceMap` type.
 

@@ -4,7 +4,7 @@
 
 > **SessionClientHistoryResponse** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/SessionClientHistoryResponse.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SessionClientHistoryResponse.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/SessionClientHistoryResponse.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SessionClientHistoryResponse.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SessionClientHistoryResponse.ts:8](ht
 
 > **date**: [`LocalDate`](LocalDate.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/SessionClientHistoryResponse.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SessionClientHistoryResponse.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/SessionClientHistoryResponse.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SessionClientHistoryResponse.ts#L9)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SessionClientHistoryResponse.ts:9](ht
 
 > **daysPlayed**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/SessionClientHistoryResponse.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SessionClientHistoryResponse.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/SessionClientHistoryResponse.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SessionClientHistoryResponse.ts#L10)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SessionClientHistoryResponse.ts:10](h
 
 > `optional` **installDate**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/SessionClientHistoryResponse.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SessionClientHistoryResponse.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/SessionClientHistoryResponse.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SessionClientHistoryResponse.ts#L12)
 
 ***
 
@@ -36,4 +36,4 @@ Defined in: [src/\_\_generated\_\_/schemas/SessionClientHistoryResponse.ts:12](h
 
 > **sessions**: `string`[]
 
-Defined in: [src/\_\_generated\_\_/schemas/SessionClientHistoryResponse.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SessionClientHistoryResponse.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/SessionClientHistoryResponse.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SessionClientHistoryResponse.ts#L11)

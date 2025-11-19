@@ -4,7 +4,7 @@
 
 > **Event** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/Event.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Event.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/Event.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Event.ts#L13)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Event.ts:13](https://github.com/beama
 
 > `optional` **cohortSettings**: [`LeaderboardCohortSettings`](LeaderboardCohortSettings.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/Event.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Event.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/Event.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Event.ts#L18)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Event.ts:18](https://github.com/beama
 
 > `optional` **group\_rewards**: [`EventGroupRewards`](EventGroupRewards.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/Event.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Event.ts#L19)
+Defined in: [src/\_\_generated\_\_/schemas/Event.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Event.ts#L19)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Event.ts:19](https://github.com/beama
 
 > **name**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Event.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Event.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/Event.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Event.ts#L14)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Event.ts:14](https://github.com/beama
 
 > `optional` **partition\_size**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/Event.ts:20](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Event.ts#L20)
+Defined in: [src/\_\_generated\_\_/schemas/Event.ts:20](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Event.ts#L20)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Event.ts:20](https://github.com/beama
 
 > `optional` **permissions**: [`ClientPermission`](ClientPermission.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/Event.ts:21](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Event.ts#L21)
+Defined in: [src/\_\_generated\_\_/schemas/Event.ts:21](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Event.ts#L21)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Event.ts:21](https://github.com/beama
 
 > **phases**: [`EventPhase`](EventPhase.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Event.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Event.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/Event.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Event.ts#L15)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Event.ts:15](https://github.com/beama
 
 > `optional` **rank\_rewards**: [`EventRewardContent`](EventRewardContent.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Event.ts:22](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Event.ts#L22)
+Defined in: [src/\_\_generated\_\_/schemas/Event.ts:22](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Event.ts#L22)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Event.ts:22](https://github.com/beama
 
 > `optional` **schedule**: [`Schedule`](Schedule.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/Event.ts:23](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Event.ts#L23)
+Defined in: [src/\_\_generated\_\_/schemas/Event.ts:23](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Event.ts#L23)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Event.ts:23](https://github.com/beama
 
 > `optional` **score\_rewards**: [`EventRewardContent`](EventRewardContent.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Event.ts:24](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Event.ts#L24)
+Defined in: [src/\_\_generated\_\_/schemas/Event.ts:24](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Event.ts#L24)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Event.ts:24](https://github.com/beama
 
 > **start\_date**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Event.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Event.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/Event.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Event.ts#L16)
 
 ***
 
@@ -92,7 +92,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Event.ts:16](https://github.com/beama
 
 > `optional` **stores**: `string`[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Event.ts:25](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Event.ts#L25)
+Defined in: [src/\_\_generated\_\_/schemas/Event.ts:25](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Event.ts#L25)
 
 ***
 
@@ -100,4 +100,4 @@ Defined in: [src/\_\_generated\_\_/schemas/Event.ts:25](https://github.com/beama
 
 > **symbol**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Event.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Event.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/Event.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Event.ts#L17)

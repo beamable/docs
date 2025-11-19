@@ -4,7 +4,7 @@
 
 > **ContentBasicManifestChecksum** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:6](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifestChecksum.ts#L6)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:6](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifestChecksum.ts#L6)
 
 ⚠️ THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.
 All manual edits will be lost when this file is regenerated.
@@ -15,7 +15,7 @@ All manual edits will be lost when this file is regenerated.
 
 > `optional` **archived**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifestChecksum.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifestChecksum.ts#L10)
 
 ***
 
@@ -23,7 +23,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:10](h
 
 > **checksum**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:7](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifestChecksum.ts#L7)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:7](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifestChecksum.ts#L7)
 
 ***
 
@@ -31,7 +31,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:7](ht
 
 > **createdAt**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifestChecksum.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifestChecksum.ts#L8)
 
 ***
 
@@ -39,7 +39,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:8](ht
 
 > **id**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifestChecksum.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifestChecksum.ts#L9)
 
 ***
 
@@ -47,4 +47,4 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:9](ht
 
 > `optional` **uid**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifestChecksum.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifestChecksum.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifestChecksum.ts#L11)

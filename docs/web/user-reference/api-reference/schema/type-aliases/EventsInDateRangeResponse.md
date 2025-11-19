@@ -4,7 +4,7 @@
 
 > **EventsInDateRangeResponse** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/EventsInDateRangeResponse.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/EventsInDateRangeResponse.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/EventsInDateRangeResponse.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/EventsInDateRangeResponse.ts#L8)
 
 ## Properties
 
@@ -12,4 +12,4 @@ Defined in: [src/\_\_generated\_\_/schemas/EventsInDateRangeResponse.ts:8](https
 
 > **eventInDateRange**: [`EventDateRanges`](EventDateRanges.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/EventsInDateRangeResponse.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/EventsInDateRangeResponse.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/EventsInDateRangeResponse.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/EventsInDateRangeResponse.ts#L9)

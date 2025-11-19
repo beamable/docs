@@ -4,7 +4,7 @@
 
 > **JobActivityView** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobActivityView.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobActivityView.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:8](https://github.
 
 > `optional` **id**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobActivityView.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobActivityView.ts#L9)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:9](https://github.
 
 > `optional` **jobId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobActivityView.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobActivityView.ts#L10)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:10](https://github
 
 > `optional` **jobName**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobActivityView.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobActivityView.ts#L11)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:11](https://github
 
 > `optional` **message**: `string` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobActivityView.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobActivityView.ts#L12)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:12](https://github
 
 > `optional` **state**: [`JobState`](../enumerations/JobState.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobActivityView.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobActivityView.ts#L13)
 
 ***
 
@@ -52,4 +52,4 @@ Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:13](https://github
 
 > `optional` **timestamp**: `Date`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobActivityView.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/JobActivityView.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobActivityView.ts#L14)

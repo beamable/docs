@@ -4,7 +4,7 @@
 
 > **JobDefinition** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobDefinition.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobDefinition.ts#L14)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:14](https://github.c
 
 > `optional` **analytics**: [`JobAnalytics`](JobAnalytics.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobDefinition.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobDefinition.ts#L15)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:15](https://github.c
 
 > `optional` **id**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobDefinition.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobDefinition.ts#L16)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:16](https://github.c
 
 > `optional` **isUnique**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobDefinition.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobDefinition.ts#L17)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:17](https://github.c
 
 > `optional` **jobAction**: [`HttpCall`](HttpCall.md) \| [`PublishMessage`](PublishMessage.md) \| [`ServiceCall`](ServiceCall.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobDefinition.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobDefinition.ts#L18)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:18](https://github.c
 
 > `optional` **lastUpdate**: `Date`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobDefinition.ts#L19)
+Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobDefinition.ts#L19)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:19](https://github.c
 
 > `optional` **name**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:20](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobDefinition.ts#L20)
+Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:20](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobDefinition.ts#L20)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:20](https://github.c
 
 > `optional` **nonce**: `string` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:21](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobDefinition.ts#L21)
+Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:21](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobDefinition.ts#L21)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:21](https://github.c
 
 > `optional` **owner**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:22](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobDefinition.ts#L22)
+Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:22](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobDefinition.ts#L22)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:22](https://github.c
 
 > `optional` **retryPolicy**: [`JobRetryPolicy`](JobRetryPolicy.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:23](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobDefinition.ts#L23)
+Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:23](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobDefinition.ts#L23)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:23](https://github.c
 
 > `optional` **source**: `string` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:24](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobDefinition.ts#L24)
+Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:24](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobDefinition.ts#L24)
 
 ***
 
@@ -92,7 +92,7 @@ Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:24](https://github.c
 
 > `optional` **suspendedAt**: `Date` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:25](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobDefinition.ts#L25)
+Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:25](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobDefinition.ts#L25)
 
 ***
 
@@ -100,4 +100,4 @@ Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:25](https://github.c
 
 > `optional` **triggers**: ([`CronTrigger`](CronTrigger.md) \| [`ExactTrigger`](ExactTrigger.md))[]
 
-Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:26](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/JobDefinition.ts#L26)
+Defined in: [src/\_\_generated\_\_/schemas/JobDefinition.ts:26](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/JobDefinition.ts#L26)

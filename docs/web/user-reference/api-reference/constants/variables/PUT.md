@@ -4,4 +4,4 @@
 
 > `const` **PUT**: `"PUT"` = `'PUT'`
 
-Defined in: [src/constants/index.ts:3](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/constants/index.ts#L3)
+Defined in: [src/constants/index.ts:3](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/constants/index.ts#L3)

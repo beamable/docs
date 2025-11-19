@@ -2,7 +2,7 @@
 
 # Interface: EmailCredentialParams
 
-Defined in: [src/services/AccountService.ts:27](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L27)
+Defined in: [src/services/AccountService.ts:27](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L27)
 
 ## Properties
 
@@ -10,4 +10,4 @@ Defined in: [src/services/AccountService.ts:27](https://github.com/beamable/Beam
 
 > **email**: `string`
 
-Defined in: [src/services/AccountService.ts:28](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L28)
+Defined in: [src/services/AccountService.ts:28](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L28)

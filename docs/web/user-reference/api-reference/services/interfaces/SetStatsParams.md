@@ -2,7 +2,7 @@
 
 # Interface: SetStatsParams
 
-Defined in: [src/services/StatsService.ts:28](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/StatsService.ts#L28)
+Defined in: [src/services/StatsService.ts:28](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/StatsService.ts#L28)
 
 ## Properties
 
@@ -10,7 +10,7 @@ Defined in: [src/services/StatsService.ts:28](https://github.com/beamable/Beamab
 
 > **accessType**: `"public"` \| `"private"`
 
-Defined in: [src/services/StatsService.ts:39](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/StatsService.ts#L39)
+Defined in: [src/services/StatsService.ts:39](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/StatsService.ts#L39)
 
 The type of access for the stats.
 
@@ -24,7 +24,7 @@ The type of access for the stats.
 
 > `optional` **domainType**: `"client"` \| `"game"`
 
-Defined in: [src/services/StatsService.ts:34](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/StatsService.ts#L34)
+Defined in: [src/services/StatsService.ts:34](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/StatsService.ts#L34)
 
 The type of domain for the stats.
 
@@ -44,7 +44,7 @@ The type of domain for the stats.
 
 > `optional` **emitAnalytics**: `boolean`
 
-Defined in: [src/services/StatsService.ts:46](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/StatsService.ts#L46)
+Defined in: [src/services/StatsService.ts:46](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/StatsService.ts#L46)
 
 Whether to emit analytics for the stats change.
 
@@ -54,7 +54,7 @@ Whether to emit analytics for the stats change.
 
 > **stats**: `Record`<`string`, `string`\>
 
-Defined in: [src/services/StatsService.ts:44](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/StatsService.ts#L44)
+Defined in: [src/services/StatsService.ts:44](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/StatsService.ts#L44)
 
 The stats to set for the current player.
 

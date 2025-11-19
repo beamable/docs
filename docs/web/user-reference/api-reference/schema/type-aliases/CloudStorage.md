@@ -4,7 +4,7 @@
 
 > **CloudStorage** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:8](https://github.com
 
 > `optional` **added**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L14)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:14](https://github.co
 
 > `optional` **data**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L15)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:15](https://github.co
 
 > **ejected**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L9)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:9](https://github.com
 
 > `optional` **expiration**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L16)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:16](https://github.co
 
 > `optional` **gt**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L17)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:17](https://github.co
 
 > `optional` **jobId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L18)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:18](https://github.co
 
 > `optional` **reference**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L19)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L19)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:19](https://github.co
 
 > `optional` **retrieved**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:20](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L20)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:20](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L20)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:20](https://github.co
 
 > **sent**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L10)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:10](https://github.co
 
 > **sid**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L11)
 
 ***
 
@@ -92,7 +92,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:11](https://github.co
 
 > **status**: [`CloudDataStatus`](CloudDataStatus.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L12)
 
 ***
 
@@ -100,7 +100,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:12](https://github.co
 
 > **stype**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L13)
 
 ***
 
@@ -108,7 +108,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:13](https://github.co
 
 > `optional` **uniqueIdentifier**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:21](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L21)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:21](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L21)
 
 ***
 
@@ -116,7 +116,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:21](https://github.co
 
 > `optional` **updated**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:22](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L22)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:22](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L22)
 
 ***
 
@@ -124,4 +124,4 @@ Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:22](https://github.co
 
 > `optional` **version**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:23](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CloudStorage.ts#L23)
+Defined in: [src/\_\_generated\_\_/schemas/CloudStorage.ts:23](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CloudStorage.ts#L23)

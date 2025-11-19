@@ -4,7 +4,7 @@
 
 > **TournamentClientView** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:6](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TournamentClientView.ts#L6)
+Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:6](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TournamentClientView.ts#L6)
 
 ⚠️ THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.
 All manual edits will be lost when this file is regenerated.
@@ -15,7 +15,7 @@ All manual edits will be lost when this file is regenerated.
 
 > **contentId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:7](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TournamentClientView.ts#L7)
+Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:7](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TournamentClientView.ts#L7)
 
 ***
 
@@ -23,7 +23,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:7](https://gi
 
 > **cycle**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TournamentClientView.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TournamentClientView.ts#L8)
 
 ***
 
@@ -31,7 +31,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:8](https://gi
 
 > **endTimeUtc**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TournamentClientView.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TournamentClientView.ts#L9)
 
 ***
 
@@ -39,7 +39,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:9](https://gi
 
 > **secondsRemaining**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TournamentClientView.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TournamentClientView.ts#L10)
 
 ***
 
@@ -47,7 +47,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:10](https://g
 
 > **startTimeUtc**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TournamentClientView.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TournamentClientView.ts#L11)
 
 ***
 
@@ -55,4 +55,4 @@ Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:11](https://g
 
 > **tournamentId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TournamentClientView.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/TournamentClientView.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TournamentClientView.ts#L12)

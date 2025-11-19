@@ -4,7 +4,7 @@
 
 > **GamerTag** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GamerTag.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GamerTag.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:9](https://github.com/bea
 
 > `optional` **added**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GamerTag.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GamerTag.ts#L12)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:12](https://github.com/be
 
 > `optional` **alias**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GamerTag.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GamerTag.ts#L13)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:13](https://github.com/be
 
 > **platform**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GamerTag.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GamerTag.ts#L10)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:10](https://github.com/be
 
 > **tag**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GamerTag.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GamerTag.ts#L11)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:11](https://github.com/be
 
 > `optional` **trials**: [`CohortEntry`](CohortEntry.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GamerTag.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GamerTag.ts#L14)
 
 ***
 
@@ -52,4 +52,4 @@ Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:14](https://github.com/be
 
 > `optional` **user**: [`SessionUser`](SessionUser.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GamerTag.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/GamerTag.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GamerTag.ts#L15)

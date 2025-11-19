@@ -2,7 +2,7 @@
 
 # Abstract Class: TokenStorage
 
-Defined in: [src/platform/types/TokenStorage.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/TokenStorage.ts#L10)
+Defined in: [src/platform/types/TokenStorage.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/TokenStorage.ts#L10)
 
 Abstraction for managing a persisted authentication token.
 
@@ -24,7 +24,7 @@ Abstraction for managing a persisted authentication token.
 
 > **get** **isExpired**(): `boolean`
 
-Defined in: [src/platform/types/TokenStorage.ts:32](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/TokenStorage.ts#L32)
+Defined in: [src/platform/types/TokenStorage.ts:32](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/TokenStorage.ts#L32)
 
 True if the token has already expired OR will expire within the next 24 hours.
 
@@ -38,7 +38,7 @@ True if the token has already expired OR will expire within the next 24 hours.
 
 > `abstract` **clear**(): `void`
 
-Defined in: [src/platform/types/TokenStorage.ts:26](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/TokenStorage.ts#L26)
+Defined in: [src/platform/types/TokenStorage.ts:26](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/TokenStorage.ts#L26)
 
 Clears all stored tokens and expiry information.
 
@@ -52,7 +52,7 @@ Clears all stored tokens and expiry information.
 
 > `abstract` **dispose**(): `void`
 
-Defined in: [src/platform/types/TokenStorage.ts:29](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/TokenStorage.ts#L29)
+Defined in: [src/platform/types/TokenStorage.ts:29](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/TokenStorage.ts#L29)
 
 Clean up BroadcastChannel and storage listener in the case of browser environment (e.g., on logout).
 
@@ -66,7 +66,7 @@ Clean up BroadcastChannel and storage listener in the case of browser environmen
 
 > `abstract` **getTokenData**(): `Promise`<[`TokenData`](../interfaces/TokenData.md)\>
 
-Defined in: [src/platform/types/TokenStorage.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/TokenStorage.ts#L16)
+Defined in: [src/platform/types/TokenStorage.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/TokenStorage.ts#L16)
 
 Retrieves the stored token data.
 
@@ -80,7 +80,7 @@ Retrieves the stored token data.
 
 > `abstract` **setTokenData**(`data`): `Promise`<`TokenStorage`\>
 
-Defined in: [src/platform/types/TokenStorage.ts:23](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/TokenStorage.ts#L23)
+Defined in: [src/platform/types/TokenStorage.ts:23](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/TokenStorage.ts#L23)
 
 Updates the stored token data. Fields not provided are left unchanged.
 Set a field to `null` to clear it.

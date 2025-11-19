@@ -4,7 +4,7 @@
 
 > **LeaderboardCreateRequest** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:9](https:
 
 > `optional` **cohortSettings**: [`LeaderboardCohortSettings`](LeaderboardCohortSettings.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L11)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:11](https
 
 > `optional` **derivatives**: `string`[]
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L12)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:12](https
 
 > `optional` **freezeTime**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L13)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:13](https
 
 > `optional` **maxEntries**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L14)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:14](https
 
 > `optional` **partitioned**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L15)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:15](https
 
 > `optional` **permissions**: [`ClientPermission`](ClientPermission.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L16)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:16](https
 
 > `optional` **scoreName**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L17)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:17](https
 
 > **sharded**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L10)
 
 ***
 
@@ -76,4 +76,4 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:10](https
 
 > `optional` **ttl**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardCreateRequest.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardCreateRequest.ts#L18)

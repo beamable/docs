@@ -4,7 +4,7 @@
 
 > **ContentTypeFromId**<`Id`\> = `Id` *extends* keyof [`ContentTypeMap`](../interfaces/ContentTypeMap.md) ? [`ContentTypeMap`](../interfaces/ContentTypeMap.md)\[`Id`\] : `ExtractPrefixes`<`Id`\> *extends* infer Prefixes ? `Prefixes` *extends* keyof [`ContentTypeMap`](../interfaces/ContentTypeMap.md) ? [`ContentTypeMap`](../interfaces/ContentTypeMap.md)\[`Prefixes`\] : [`ContentBase`](../interfaces/ContentBase.md) : [`ContentBase`](../interfaces/ContentBase.md)
 
-Defined in: [src/contents/types/ContentTypeFromId.ts:40](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/contents/types/ContentTypeFromId.ts#L40)
+Defined in: [src/contents/types/ContentTypeFromId.ts:40](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/contents/types/ContentTypeFromId.ts#L40)
 
 Derives the most specific TypeScript type for a given content ID.
 

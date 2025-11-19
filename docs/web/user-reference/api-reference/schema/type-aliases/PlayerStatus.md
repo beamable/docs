@@ -4,7 +4,7 @@
 
 > **PlayerStatus** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerStatus.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerStatus.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:8](https://github.com
 
 > **contentId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerStatus.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerStatus.ts#L9)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:9](https://github.com
 
 > `optional` **groupId**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerStatus.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerStatus.ts#L16)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:16](https://github.co
 
 > **lastUpdateCycle**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerStatus.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerStatus.ts#L10)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:10](https://github.co
 
 > **playerId**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerStatus.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerStatus.ts#L11)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:11](https://github.co
 
 > **stage**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerStatus.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerStatus.ts#L12)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:12](https://github.co
 
 > **tier**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerStatus.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerStatus.ts#L13)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:13](https://github.co
 
 > **tournamentId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerStatus.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerStatus.ts#L14)
 
 ***
 
@@ -68,4 +68,4 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:14](https://github.co
 
 > **unclaimedRewards**: [`TournamentCurrencyReward`](TournamentCurrencyReward.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerStatus.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerStatus.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerStatus.ts#L15)

@@ -2,7 +2,7 @@
 
 # Enumeration: HEADERS
 
-Defined in: [src/constants/index.ts:6](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/constants/index.ts#L6)
+Defined in: [src/constants/index.ts:6](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/constants/index.ts#L6)
 
 ## Enumeration Members
 
@@ -10,7 +10,7 @@ Defined in: [src/constants/index.ts:6](https://github.com/beamable/BeamableProdu
 
 > **ACCEPT**: `"Accept"`
 
-Defined in: [src/constants/index.ts:7](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/constants/index.ts#L7)
+Defined in: [src/constants/index.ts:7](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/constants/index.ts#L7)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [src/constants/index.ts:7](https://github.com/beamable/BeamableProdu
 
 > **AUTHORIZATION**: `"Authorization"`
 
-Defined in: [src/constants/index.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/constants/index.ts#L8)
+Defined in: [src/constants/index.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/constants/index.ts#L8)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [src/constants/index.ts:8](https://github.com/beamable/BeamableProdu
 
 > **BEAM\_SCOPE**: `"X-BEAM-SCOPE"`
 
-Defined in: [src/constants/index.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/constants/index.ts#L10)
+Defined in: [src/constants/index.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/constants/index.ts#L10)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [src/constants/index.ts:10](https://github.com/beamable/BeamableProd
 
 > **BEAM\_SDK\_VERSION**: `"X-KS-BEAM-SDK-VERSION"`
 
-Defined in: [src/constants/index.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/constants/index.ts#L11)
+Defined in: [src/constants/index.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/constants/index.ts#L11)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [src/constants/index.ts:11](https://github.com/beamable/BeamableProd
 
 > **BEAM\_SIGNATURE**: `"X-BEAM-SIGNATURE"`
 
-Defined in: [src/constants/index.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/constants/index.ts#L12)
+Defined in: [src/constants/index.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/constants/index.ts#L12)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [src/constants/index.ts:12](https://github.com/beamable/BeamableProd
 
 > **CONTENT\_TYPE**: `"Content-Type"`
 
-Defined in: [src/constants/index.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/constants/index.ts#L9)
+Defined in: [src/constants/index.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/constants/index.ts#L9)
 
 ***
 
@@ -58,7 +58,7 @@ Defined in: [src/constants/index.ts:9](https://github.com/beamable/BeamableProdu
 
 > **GAME\_VERSION**: `"X-KS-GAME-VERSION"`
 
-Defined in: [src/constants/index.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/constants/index.ts#L13)
+Defined in: [src/constants/index.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/constants/index.ts#L13)
 
 ***
 
@@ -66,7 +66,7 @@ Defined in: [src/constants/index.ts:13](https://github.com/beamable/BeamableProd
 
 > **GAMERTAG**: `"X-BEAM-GAMERTAG"`
 
-Defined in: [src/constants/index.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/constants/index.ts#L16)
+Defined in: [src/constants/index.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/constants/index.ts#L16)
 
 ***
 
@@ -74,7 +74,7 @@ Defined in: [src/constants/index.ts:16](https://github.com/beamable/BeamableProd
 
 > **ROUTING\_KEY**: `"X-BEAM-SERVICE-ROUTING-KEY"`
 
-Defined in: [src/constants/index.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/constants/index.ts#L17)
+Defined in: [src/constants/index.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/constants/index.ts#L17)
 
 ***
 
@@ -82,7 +82,7 @@ Defined in: [src/constants/index.ts:17](https://github.com/beamable/BeamableProd
 
 > **UA**: `"X-KS-USER-AGENT"`
 
-Defined in: [src/constants/index.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/constants/index.ts#L14)
+Defined in: [src/constants/index.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/constants/index.ts#L14)
 
 ***
 
@@ -90,4 +90,4 @@ Defined in: [src/constants/index.ts:14](https://github.com/beamable/BeamableProd
 
 > **UA\_VERSION**: `"X-KS-USER-AGENT-VERSION"`
 
-Defined in: [src/constants/index.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/constants/index.ts#L15)
+Defined in: [src/constants/index.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/constants/index.ts#L15)

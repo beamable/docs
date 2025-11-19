@@ -2,28 +2,28 @@
 
 # Interface: TokenData
 
-Defined in: [src/platform/types/TokenStorage.ts:1](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/TokenStorage.ts#L1)
+Defined in: [src/platform/types/TokenStorage.ts:1](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/TokenStorage.ts#L1)
 
 ## Properties
 
 ### accessToken
 
-> **accessToken**: `null` \| `string`
+> **accessToken**: `string` \| `null`
 
-Defined in: [src/platform/types/TokenStorage.ts:2](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/TokenStorage.ts#L2)
+Defined in: [src/platform/types/TokenStorage.ts:2](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/TokenStorage.ts#L2)
 
 ***
 
 ### expiresIn
 
-> **expiresIn**: `null` \| `number`
+> **expiresIn**: `number` \| `null`
 
-Defined in: [src/platform/types/TokenStorage.ts:4](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/TokenStorage.ts#L4)
+Defined in: [src/platform/types/TokenStorage.ts:4](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/TokenStorage.ts#L4)
 
 ***
 
 ### refreshToken
 
-> **refreshToken**: `null` \| `string`
+> **refreshToken**: `string` \| `null`
 
-Defined in: [src/platform/types/TokenStorage.ts:3](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/TokenStorage.ts#L3)
+Defined in: [src/platform/types/TokenStorage.ts:3](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/TokenStorage.ts#L3)

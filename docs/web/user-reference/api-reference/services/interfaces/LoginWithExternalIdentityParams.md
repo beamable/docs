@@ -2,7 +2,7 @@
 
 # Interface: LoginWithExternalIdentityParams
 
-Defined in: [src/services/AuthService.ts:24](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L24)
+Defined in: [src/services/AuthService.ts:24](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L24)
 
 ## Properties
 
@@ -10,7 +10,7 @@ Defined in: [src/services/AuthService.ts:24](https://github.com/beamable/Beamabl
 
 > `optional` **challengeHandler**: (`challenge`) => `string` \| `Promise`<`string`\>
 
-Defined in: [src/services/AuthService.ts:28](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L28)
+Defined in: [src/services/AuthService.ts:28](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L28)
 
 #### Parameters
 
@@ -28,7 +28,7 @@ Defined in: [src/services/AuthService.ts:28](https://github.com/beamable/Beamabl
 
 > **externalToken**: `string`
 
-Defined in: [src/services/AuthService.ts:25](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L25)
+Defined in: [src/services/AuthService.ts:25](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L25)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/services/AuthService.ts:25](https://github.com/beamable/Beamabl
 
 > **providerNamespace**: `string`
 
-Defined in: [src/services/AuthService.ts:27](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L27)
+Defined in: [src/services/AuthService.ts:27](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L27)
 
 ***
 
@@ -44,4 +44,4 @@ Defined in: [src/services/AuthService.ts:27](https://github.com/beamable/Beamabl
 
 > **providerService**: `string`
 
-Defined in: [src/services/AuthService.ts:26](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L26)
+Defined in: [src/services/AuthService.ts:26](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L26)

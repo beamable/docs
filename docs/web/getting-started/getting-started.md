@@ -54,7 +54,7 @@ console.log(beam.player.id);
 <script src="https://unpkg.com/beamable-sdk"></script>
 <script>
   // global variable exposed as Beamable
-  const { Beam, BeamEnvironment } = Beamable;
+  const { Beam } = Beamable;
   const beam = await Beam.init({
     cid: 'YOUR_CUSTOMER_ID',
     pid: 'YOUR_PROJECT_ID',
@@ -86,13 +86,12 @@ If the SDK fails to refresh the access token (for example, the refresh token has
 import { RefreshAccessTokenError } from 'beamable-sdk';
 
 try {
-  await beam.api.someService.someEndpoint();
+  await beam.someService.someMethod();
 } catch (error) {
   if (error instanceof RefreshAccessTokenError) {
     // Refresh failed: redirect user to login
     redirectToLoginPage();
   }
-  throw error;
 }
 ```
 
@@ -104,7 +103,7 @@ If you need a different storage mechanism, implement the `TokenStorage` interfac
 import { TokenStorage } from 'beamable-sdk';
 
 class MyTokenStorage implements TokenStorage {
-  /* implement getAccessToken, setAccessToken, ... */
+  /* implement getTokenData, setTokenData, ... */
 }
 
 const beam = await Beam.init({

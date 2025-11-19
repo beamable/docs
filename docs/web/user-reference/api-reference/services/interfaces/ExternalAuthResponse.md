@@ -2,7 +2,7 @@
 
 # Interface: ExternalAuthResponse
 
-Defined in: [src/services/AuthService.ts:43](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L43)
+Defined in: [src/services/AuthService.ts:43](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L43)
 
 ## Properties
 
@@ -10,7 +10,7 @@ Defined in: [src/services/AuthService.ts:43](https://github.com/beamable/Beamabl
 
 > `optional` **challengeResponse**: [`ExternalChallengeResponse`](ExternalChallengeResponse.md)
 
-Defined in: [src/services/AuthService.ts:45](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L45)
+Defined in: [src/services/AuthService.ts:45](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L45)
 
 ***
 
@@ -18,4 +18,4 @@ Defined in: [src/services/AuthService.ts:45](https://github.com/beamable/Beamabl
 
 > `optional` **tokenResponse**: [`TokenResponse`](../../schema/type-aliases/TokenResponse.md)
 
-Defined in: [src/services/AuthService.ts:44](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L44)
+Defined in: [src/services/AuthService.ts:44](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L44)

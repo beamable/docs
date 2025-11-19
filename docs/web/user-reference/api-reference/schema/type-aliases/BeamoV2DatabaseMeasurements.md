@@ -4,7 +4,7 @@
 
 > **BeamoV2DatabaseMeasurements** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:9](htt
 
 > **databaseName**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L10)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:10](ht
 
 > `optional` **end**: `Date` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L11)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:11](ht
 
 > `optional` **granularity**: `string` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L12)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:12](ht
 
 > `optional` **groupId**: `string` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L13)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:13](ht
 
 > `optional` **hostId**: `string` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L14)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:14](ht
 
 > `optional` **links**: [`BeamoV2Link`](BeamoV2Link.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L15)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:15](ht
 
 > `optional` **measurements**: [`BeamoV2DatabaseMeasurement`](BeamoV2DatabaseMeasurement.md)[] \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L16)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:16](ht
 
 > `optional` **processId**: `string` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L17)
 
 ***
 
@@ -76,4 +76,4 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:17](ht
 
 > `optional` **start**: `Date` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2DatabaseMeasurements.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2DatabaseMeasurements.ts#L18)

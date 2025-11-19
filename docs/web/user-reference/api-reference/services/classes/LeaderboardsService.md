@@ -2,7 +2,7 @@
 
 # Class: LeaderboardsService
 
-Defined in: [src/services/LeaderboardsService.ts:72](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/LeaderboardsService.ts#L72)
+Defined in: [src/services/LeaderboardsService.ts:72](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/LeaderboardsService.ts#L72)
 
 ## Extends
 
@@ -14,7 +14,7 @@ Defined in: [src/services/LeaderboardsService.ts:72](https://github.com/beamable
 
 > **new LeaderboardsService**(`props`): `LeaderboardsService`
 
-Defined in: [src/services/LeaderboardsService.ts:73](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/LeaderboardsService.ts#L73)
+Defined in: [src/services/LeaderboardsService.ts:73](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/LeaderboardsService.ts#L73)
 
 #### Parameters
 
@@ -36,7 +36,7 @@ Defined in: [src/services/LeaderboardsService.ts:73](https://github.com/beamable
 
 > **freeze**(`params`): `Promise`<`void`\>
 
-Defined in: [src/services/LeaderboardsService.ts:270](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/LeaderboardsService.ts#L270)
+Defined in: [src/services/LeaderboardsService.ts:270](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/LeaderboardsService.ts#L270)
 
 Freezes a leaderboard, preventing further score updates.
 
@@ -71,7 +71,7 @@ If the request fails, the leaderboard does not exist,
 
 > **get**(`params`): `Promise`<[`LeaderBoardView`](../../schema/type-aliases/LeaderBoardView.md)\>
 
-Defined in: [src/services/LeaderboardsService.ts:103](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/LeaderboardsService.ts#L103)
+Defined in: [src/services/LeaderboardsService.ts:103](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/LeaderboardsService.ts#L103)
 
 Fetches a leaderboard view for the current player.
 
@@ -114,7 +114,7 @@ If the request fails or the leaderboard does not exist.
 
 > **getAssignedBoard**(`params`): `Promise`<[`LeaderBoardView`](../../schema/type-aliases/LeaderBoardView.md)\>
 
-Defined in: [src/services/LeaderboardsService.ts:143](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/LeaderboardsService.ts#L143)
+Defined in: [src/services/LeaderboardsService.ts:143](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/LeaderboardsService.ts#L143)
 
 Fetches the partitioned or cohorted leaderboard view for the current player.
 
@@ -153,7 +153,7 @@ If the assignment does not exist or the leaderboard cannot be fetched.
 
 > **getFriendRanks**(`params`): `Promise`<[`LeaderBoardView`](../../schema/type-aliases/LeaderBoardView.md)\>
 
-Defined in: [src/services/LeaderboardsService.ts:174](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/LeaderboardsService.ts#L174)
+Defined in: [src/services/LeaderboardsService.ts:174](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/LeaderboardsService.ts#L174)
 
 Fetches the ranks of friends in a leaderboard for the current player.
 
@@ -190,7 +190,7 @@ If the request fails or the leaderboard does not exist.
 
 > **getRanks**(`params`): `Promise`<[`LeaderBoardView`](../../schema/type-aliases/LeaderBoardView.md)\>
 
-Defined in: [src/services/LeaderboardsService.ts:202](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/LeaderboardsService.ts#L202)
+Defined in: [src/services/LeaderboardsService.ts:202](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/LeaderboardsService.ts#L202)
 
 Fetches the ranks of specific players in a leaderboard for the current player.
 
@@ -228,7 +228,7 @@ If the request fails or the leaderboard does not exist.
 
 > **setScore**(`params`): `Promise`<`void`\>
 
-Defined in: [src/services/LeaderboardsService.ts:231](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/LeaderboardsService.ts#L231)
+Defined in: [src/services/LeaderboardsService.ts:231](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/LeaderboardsService.ts#L231)
 
 Sets the score for the current player in a leaderboard.
 

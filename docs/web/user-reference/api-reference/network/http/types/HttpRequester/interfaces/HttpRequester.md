@@ -2,7 +2,7 @@
 
 # Interface: HttpRequester
 
-Defined in: [src/network/http/types/HttpRequester.ts:5](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/network/http/types/HttpRequester.ts#L5)
+Defined in: [src/network/http/types/HttpRequester.ts:5](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/network/http/types/HttpRequester.ts#L5)
 
 A pluggable HTTP client abstraction that can send requests and receive typed responses.
 
@@ -14,7 +14,7 @@ A pluggable HTTP client abstraction that can send requests and receive typed res
 
 > **set** **baseUrl**(`url`): `void`
 
-Defined in: [src/network/http/types/HttpRequester.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/network/http/types/HttpRequester.ts#L18)
+Defined in: [src/network/http/types/HttpRequester.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/network/http/types/HttpRequester.ts#L18)
 
 Overrides the base URL used for all subsequent requests.
 
@@ -36,7 +36,7 @@ Overrides the base URL used for all subsequent requests.
 
 > **set** **defaultHeaders**(`header`): `void`
 
-Defined in: [src/network/http/types/HttpRequester.ts:21](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/network/http/types/HttpRequester.ts#L21)
+Defined in: [src/network/http/types/HttpRequester.ts:21](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/network/http/types/HttpRequester.ts#L21)
 
 Sets the default headers to include on every request.
 
@@ -56,7 +56,7 @@ Sets the default headers to include on every request.
 
 > **request**<`TRes`, `TReq`\>(`req`): `Promise`<[`HttpResponse`](../../HttpResponse/interfaces/HttpResponse.md)<`TRes`\>\>
 
-Defined in: [src/network/http/types/HttpRequester.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/network/http/types/HttpRequester.ts#L13)
+Defined in: [src/network/http/types/HttpRequester.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/network/http/types/HttpRequester.ts#L13)
 
 Sends an HTTP request and returns a typed response.
 

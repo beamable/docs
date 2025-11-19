@@ -4,7 +4,7 @@
 
 > **GroupSearchRequest** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchRequest.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupSearchRequest.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:8](https://gith
 
 > `optional` **enrollmentTypes**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchRequest.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupSearchRequest.ts#L10)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:10](https://git
 
 > `optional` **hasSlots**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchRequest.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupSearchRequest.ts#L11)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:11](https://git
 
 > `optional` **limit**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchRequest.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupSearchRequest.ts#L12)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:12](https://git
 
 > `optional` **name**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchRequest.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupSearchRequest.ts#L13)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:13](https://git
 
 > `optional` **offset**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchRequest.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupSearchRequest.ts#L14)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:14](https://git
 
 > `optional` **scoreMax**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchRequest.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupSearchRequest.ts#L15)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:15](https://git
 
 > `optional` **scoreMin**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchRequest.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupSearchRequest.ts#L16)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:16](https://git
 
 > `optional` **sortField**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchRequest.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupSearchRequest.ts#L17)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:17](https://git
 
 > `optional` **sortValue**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchRequest.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupSearchRequest.ts#L18)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:18](https://git
 
 > `optional` **subGroup**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchRequest.ts#L19)
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupSearchRequest.ts#L19)
 
 ***
 
@@ -92,7 +92,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:19](https://git
 
 > **type**: [`GroupType`](../enumerations/GroupType.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchRequest.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupSearchRequest.ts#L9)
 
 ***
 
@@ -100,4 +100,4 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:9](https://gith
 
 > `optional` **userScore**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:20](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupSearchRequest.ts#L20)
+Defined in: [src/\_\_generated\_\_/schemas/GroupSearchRequest.ts:20](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupSearchRequest.ts#L20)

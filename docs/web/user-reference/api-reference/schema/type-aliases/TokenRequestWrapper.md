@@ -4,7 +4,7 @@
 
 > **TokenRequestWrapper** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:9](https://git
 
 > `optional` **challenge\_solution**: [`ChallengeSolution`](ChallengeSolution.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L11)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:11](https://gi
 
 > `optional` **client\_id**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L12)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:12](https://gi
 
 > `optional` **code**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L13)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:13](https://gi
 
 > `optional` **context**: [`AuthBasicContextInfo`](AuthBasicContextInfo.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L14)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:14](https://gi
 
 > `optional` **customerScoped**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L15)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:15](https://gi
 
 > `optional` **device\_id**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L16)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:16](https://gi
 
 > `optional` **external\_token**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L17)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:17](https://gi
 
 > **grant\_type**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L10)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:10](https://gi
 
 > `optional` **initProperties**: `Record`<`string`, `string`\>
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L18)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:18](https://gi
 
 > `optional` **password**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L19)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L19)
 
 ***
 
@@ -92,7 +92,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:19](https://gi
 
 > `optional` **provider\_namespace**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:20](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L20)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:20](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L20)
 
 ***
 
@@ -100,7 +100,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:20](https://gi
 
 > `optional` **provider\_service**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:21](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L21)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:21](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L21)
 
 ***
 
@@ -108,7 +108,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:21](https://gi
 
 > `optional` **redirect\_uri**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:22](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L22)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:22](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L22)
 
 ***
 
@@ -116,7 +116,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:22](https://gi
 
 > `optional` **refresh\_token**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:23](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L23)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:23](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L23)
 
 ***
 
@@ -124,7 +124,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:23](https://gi
 
 > `optional` **scope**: `string`[]
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:24](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L24)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:24](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L24)
 
 ***
 
@@ -132,7 +132,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:24](https://gi
 
 > `optional` **third\_party**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:25](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L25)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:25](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L25)
 
 ***
 
@@ -140,7 +140,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:25](https://gi
 
 > `optional` **token**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:26](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L26)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:26](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L26)
 
 ***
 
@@ -148,4 +148,4 @@ Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:26](https://gi
 
 > `optional` **username**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:27](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TokenRequestWrapper.ts#L27)
+Defined in: [src/\_\_generated\_\_/schemas/TokenRequestWrapper.ts:27](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TokenRequestWrapper.ts#L27)

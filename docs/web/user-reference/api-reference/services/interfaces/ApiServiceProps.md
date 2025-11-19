@@ -2,7 +2,7 @@
 
 # Interface: ApiServiceProps
 
-Defined in: [src/services/types/ApiService.ts:5](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/types/ApiService.ts#L5)
+Defined in: [src/services/types/ApiService.ts:5](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/types/ApiService.ts#L5)
 
 ## Properties
 
@@ -10,7 +10,7 @@ Defined in: [src/services/types/ApiService.ts:5](https://github.com/beamable/Bea
 
 > **beam**: [`BeamBase`](../../core/BeamBase/classes/BeamBase.md)
 
-Defined in: [src/services/types/ApiService.ts:6](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/types/ApiService.ts#L6)
+Defined in: [src/services/types/ApiService.ts:6](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/types/ApiService.ts#L6)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [src/services/types/ApiService.ts:6](https://github.com/beamable/Bea
 
 > `optional` **getPlayer**: () => [`PlayerService`](../classes/PlayerService.md)
 
-Defined in: [src/services/types/ApiService.ts:7](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/types/ApiService.ts#L7)
+Defined in: [src/services/types/ApiService.ts:7](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/types/ApiService.ts#L7)
 
 #### Returns
 

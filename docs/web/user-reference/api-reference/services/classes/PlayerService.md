@@ -2,7 +2,7 @@
 
 # Class: PlayerService
 
-Defined in: [src/services/PlayerService.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/PlayerService.ts#L11)
+Defined in: [src/services/PlayerService.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/PlayerService.ts#L11)
 
 A service for managing player-related data and operations.
 
@@ -14,7 +14,7 @@ A service for managing player-related data and operations.
 
 > **get** **account**(): [`AccountPlayerView`](../../schema/type-aliases/AccountPlayerView.md)
 
-Defined in: [src/services/PlayerService.ts:59](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/PlayerService.ts#L59)
+Defined in: [src/services/PlayerService.ts:59](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/PlayerService.ts#L59)
 
 Retrieves the current player's account information.
 
@@ -30,7 +30,7 @@ Retrieves the current player's account information.
 
 > **get** **announcements**(): [`AnnouncementView`](../../schema/type-aliases/AnnouncementView.md)[]
 
-Defined in: [src/services/PlayerService.ts:77](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/PlayerService.ts#L77)
+Defined in: [src/services/PlayerService.ts:77](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/PlayerService.ts#L77)
 
 Retrieves the current player's announcements.
 
@@ -46,7 +46,7 @@ Retrieves the current player's announcements.
 
 > **get** **id**(): `string`
 
-Defined in: [src/services/PlayerService.ts:64](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/PlayerService.ts#L64)
+Defined in: [src/services/PlayerService.ts:64](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/PlayerService.ts#L64)
 
 Retrieves the current player's ID.
 
@@ -62,7 +62,7 @@ Retrieves the current player's ID.
 
 > **get** **leaderboards**(): `Record`<`string`, [`LeaderBoardView`](../../schema/type-aliases/LeaderBoardView.md)\>
 
-Defined in: [src/services/PlayerService.ts:90](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/PlayerService.ts#L90)
+Defined in: [src/services/PlayerService.ts:90](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/PlayerService.ts#L90)
 
 Retrieves the current player's leaderboards.
 
@@ -78,7 +78,7 @@ Retrieves the current player's leaderboards.
 
 > **get** **stats**(): `Record`<`string`, `string`\>
 
-Defined in: [src/services/PlayerService.ts:137](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/PlayerService.ts#L137)
+Defined in: [src/services/PlayerService.ts:137](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/PlayerService.ts#L137)
 
 Retrieves the current player's stats.
 
@@ -92,7 +92,7 @@ Retrieves the current player's stats.
 
 > **hasThirdPartyAssociation**(`provider`): `boolean`
 
-Defined in: [src/services/PlayerService.ts:44](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/PlayerService.ts#L44)
+Defined in: [src/services/PlayerService.ts:44](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/PlayerService.ts#L44)
 
 Checks if the current player has an association with the given third-party provider.
 

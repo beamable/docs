@@ -4,7 +4,7 @@
 
 > **StatsSearchRequest** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/StatsSearchRequest.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/StatsSearchRequest.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/StatsSearchRequest.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/StatsSearchRequest.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/StatsSearchRequest.ts:8](https://gith
 
 > **access**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/StatsSearchRequest.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/StatsSearchRequest.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/StatsSearchRequest.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/StatsSearchRequest.ts#L9)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/StatsSearchRequest.ts:9](https://gith
 
 > **criteria**: [`StatsSearchCriteria`](StatsSearchCriteria.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/StatsSearchRequest.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/StatsSearchRequest.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/StatsSearchRequest.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/StatsSearchRequest.ts#L10)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/StatsSearchRequest.ts:10](https://git
 
 > **domain**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/StatsSearchRequest.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/StatsSearchRequest.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/StatsSearchRequest.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/StatsSearchRequest.ts#L11)
 
 ***
 
@@ -36,4 +36,4 @@ Defined in: [src/\_\_generated\_\_/schemas/StatsSearchRequest.ts:11](https://git
 
 > **objectType**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/StatsSearchRequest.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/StatsSearchRequest.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/StatsSearchRequest.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/StatsSearchRequest.ts#L12)

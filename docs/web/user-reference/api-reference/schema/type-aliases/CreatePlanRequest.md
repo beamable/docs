@@ -4,7 +4,7 @@
 
 > **CreatePlanRequest** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CreatePlanRequest.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CreatePlanRequest.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:8](https://githu
 
 > **memcachedHosts**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CreatePlanRequest.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CreatePlanRequest.ts#L9)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:9](https://githu
 
 > `optional` **messageBusAnalytics**: `string`[]
 
-Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CreatePlanRequest.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CreatePlanRequest.ts#L16)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:16](https://gith
 
 > `optional` **messageBusCommon**: `string`[]
 
-Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CreatePlanRequest.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CreatePlanRequest.ts#L17)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:17](https://gith
 
 > **mongoHosts**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CreatePlanRequest.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CreatePlanRequest.ts#L10)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:10](https://gith
 
 > `optional` **mongoSrvAddress**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CreatePlanRequest.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CreatePlanRequest.ts#L18)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:18](https://gith
 
 > **mongoSSL**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CreatePlanRequest.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CreatePlanRequest.ts#L11)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:11](https://gith
 
 > **name**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CreatePlanRequest.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CreatePlanRequest.ts#L12)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:12](https://gith
 
 > **platformJBDC**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CreatePlanRequest.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CreatePlanRequest.ts#L13)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:13](https://gith
 
 > **redisShards**: [`RedisShardRequest`](RedisShardRequest.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CreatePlanRequest.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CreatePlanRequest.ts#L14)
 
 ***
 
@@ -84,4 +84,4 @@ Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:14](https://gith
 
 > **sharded**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/CreatePlanRequest.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/CreatePlanRequest.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/CreatePlanRequest.ts#L15)

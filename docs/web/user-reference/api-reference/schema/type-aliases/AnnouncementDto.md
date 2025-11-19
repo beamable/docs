@@ -4,7 +4,7 @@
 
 > **AnnouncementDto** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementDto.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementDto.ts#L11)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:11](https://github
 
 > `optional` **attachments**: [`AnnouncementAttachment`](AnnouncementAttachment.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementDto.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementDto.ts#L17)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:17](https://github
 
 > **body**: [`LocalizationRef`](LocalizationRef.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementDto.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementDto.ts#L12)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:12](https://github
 
 > **channel**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementDto.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementDto.ts#L13)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:13](https://github
 
 > `optional` **clientData**: `Record`<`string`, `string`\>
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementDto.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementDto.ts#L18)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:18](https://github
 
 > `optional` **end\_date**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementDto.ts#L19)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementDto.ts#L19)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:19](https://github
 
 > `optional` **gift**: [`PlayerReward`](PlayerReward.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:20](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementDto.ts#L20)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:20](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementDto.ts#L20)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:20](https://github
 
 > `optional` **start\_date**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:21](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementDto.ts#L21)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:21](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementDto.ts#L21)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:21](https://github
 
 > `optional` **stat\_requirements**: [`PlayerStatRequirement`](PlayerStatRequirement.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:22](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementDto.ts#L22)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:22](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementDto.ts#L22)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:22](https://github
 
 > **summary**: [`LocalizationRef`](LocalizationRef.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementDto.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementDto.ts#L14)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:14](https://github
 
 > **symbol**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementDto.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementDto.ts#L15)
 
 ***
 
@@ -92,7 +92,7 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:15](https://github
 
 > `optional` **tags**: `string`[]
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:23](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementDto.ts#L23)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:23](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementDto.ts#L23)
 
 ***
 
@@ -100,4 +100,4 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:23](https://github
 
 > **title**: [`LocalizationRef`](LocalizationRef.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementDto.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementDto.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementDto.ts#L16)

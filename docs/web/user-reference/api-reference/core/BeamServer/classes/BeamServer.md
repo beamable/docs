@@ -2,7 +2,7 @@
 
 # Class: BeamServer
 
-Defined in: [src/core/BeamServer.ts:30](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamServer.ts#L30)
+Defined in: [src/core/BeamServer.ts:30](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamServer.ts#L30)
 
 The main class for interacting with the Beam Server SDK.
 
@@ -64,7 +64,7 @@ The main class for interacting with the Beam Server SDK.
 
 > **cid**: `string`
 
-Defined in: [src/core/BeamBase.ts:34](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamBase.ts#L34)
+Defined in: [src/core/BeamBase.ts:34](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamBase.ts#L34)
 
 The Beamable Customer ID.
 
@@ -110,7 +110,7 @@ The Beamable Customer ID.
 
 > **pid**: `string`
 
-Defined in: [src/core/BeamBase.ts:36](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamBase.ts#L36)
+Defined in: [src/core/BeamBase.ts:36](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamBase.ts#L36)
 
 The Beamable Project ID.
 
@@ -124,7 +124,7 @@ The Beamable Project ID.
 
 > `readonly` **requester**: [`HttpRequester`](../../../network/http/types/HttpRequester/interfaces/HttpRequester.md)
 
-Defined in: [src/core/BeamBase.ts:32](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamBase.ts#L32)
+Defined in: [src/core/BeamBase.ts:32](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamBase.ts#L32)
 
 The HTTP requester instance used by the Beam SDK.
 
@@ -154,7 +154,7 @@ The HTTP requester instance used by the Beam SDK.
 
 > **tokenStorage**: [`TokenStorage`](../../../platform/types/TokenStorage/classes/TokenStorage.md)
 
-Defined in: [src/core/BeamBase.ts:42](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamBase.ts#L42)
+Defined in: [src/core/BeamBase.ts:42](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamBase.ts#L42)
 
 The token storage instance used by the client SDK.
 Defaults to `BrowserTokenStorage` in browser environments and `NodeTokenStorage` in Node.js environments.
@@ -172,7 +172,7 @@ Can be overridden via the `tokenStorage` option in the `BeamConfig`.
 
 > **get** `static` **env**(): [`BeamEnvVars`](../../BeamBase/interfaces/BeamEnvVars.md)
 
-Defined in: [src/core/BeamServer.ts:60](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamServer.ts#L60)
+Defined in: [src/core/BeamServer.ts:61](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamServer.ts#L61)
 
 Environment variables that can be set to configure the Beam SDK.
 
@@ -202,7 +202,7 @@ const beam = await Beam.init({ ... });
 
 > **off**<`K`\>(`eventType`, `handler?`): `void`
 
-Defined in: [src/core/BeamServer.ts:144](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamServer.ts#L144)
+Defined in: [src/core/BeamServer.ts:168](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamServer.ts#L168)
 
 Unsubscribes from a specific server-event or removes all subscriptions if no handler is provided.
 
@@ -244,7 +244,7 @@ beamServer.off('content.manifest');
 
 > **on**<`K`\>(`eventType`, `handler`): `void`
 
-Defined in: [src/core/BeamServer.ts:113](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamServer.ts#L113)
+Defined in: [src/core/BeamServer.ts:137](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamServer.ts#L137)
 
 Subscribes to a server-event and listens for messages.
 
@@ -287,39 +287,42 @@ beamServer.on('content.manifest', handler);
 
 #### Call Signature
 
-> **use**<`T`\>(`Service`): `this`
+> **use**<`T`\>(`ctors`): `this`
 
-Defined in: [src/core/BeamServer.ts:64](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamServer.ts#L64)
+Defined in: [src/core/BeamServer.ts:65](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamServer.ts#L65)
 
-Dynamically adds a service to the Beam SDK instance.
+Dynamically adds multiple api services or microservice clients to the Beam SDK.
 
 ##### Type Parameters
 
 ###### T
 
-`T` *extends* [`ApiService`](../../../services/classes/ApiService.md)
+`T` *extends* [`ApiServiceCtor`](../../../services/type-aliases/ApiServiceCtor.md)<`any`\> \| [`BeamMicroServiceClientCtor`](../../BeamMicroServiceClient/type-aliases/BeamMicroServiceClientCtor.md)<`any`\>
 
 ##### Parameters
 
-###### Service
+###### ctors
 
-[`ApiServiceCtor`](../../../services/type-aliases/ApiServiceCtor.md)<`T`\>
+readonly `T`[]
 
-The service class to add.
+An array of constructors for the api service or microservice client.
 
 ##### Returns
 
 `this`
 
+The current instance of BeamBase.
+
 ##### Example
 
 ```ts
-// client-side:
-beam.use(StatsService);
-await beam.stats.get({...});
-// server-side:
-beamServer.use(StatsService);
-await beamServer.stats.get({...});
+const beam = await Beam.init({ ... });
+beam.use([LeadboardService, StatsService]);
+```
+or
+```ts
+const beam = await Beam.init({ ... });
+beam.use([MyMicroserviceClient, MyOtherMicroserviceClient]);
 ```
 
 ##### Overrides
@@ -328,39 +331,42 @@ await beamServer.stats.get({...});
 
 #### Call Signature
 
-> **use**<`T`\>(`Client`): `this`
+> **use**<`T`\>(`ctor`): `this`
 
-Defined in: [src/core/BeamServer.ts:65](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamServer.ts#L65)
+Defined in: [src/core/BeamServer.ts:68](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamServer.ts#L68)
 
-Dynamically adds a microservice client to the Beam SDK instance.
+Dynamically adds a single api service or microservice client to the Beam SDK.
 
 ##### Type Parameters
 
 ###### T
 
-`T` *extends* [`BeamMicroServiceClient`](../../BeamMicroServiceClient/classes/BeamMicroServiceClient.md)
+`T` *extends* [`ApiServiceCtor`](../../../services/type-aliases/ApiServiceCtor.md)<`any`\> \| [`BeamMicroServiceClientCtor`](../../BeamMicroServiceClient/type-aliases/BeamMicroServiceClientCtor.md)<`any`\>
 
 ##### Parameters
 
-###### Client
+###### ctor
 
-[`BeamMicroServiceClientCtor`](../../BeamMicroServiceClient/type-aliases/BeamMicroServiceClientCtor.md)<`T`\>
+`T`
 
-The microservice client class to add.
+The constructor for the api service or microservice client.
 
 ##### Returns
 
 `this`
 
+The current instance of BeamBase.
+
 ##### Example
 
 ```ts
-// client-side:
-beam.use(MyMicroServiceClient);
-beam.myMicroServiceClient.serviceName;
-// server-side:
-beamServer.use(MyMicroServiceClient);
-beamServer.myMicroServiceClient.serviceName;
+const beam = await Beam.init({ ... });
+beam.use(StatsService);
+```
+or
+```ts
+const beam = await Beam.init({ ... });
+beam.use(MyMicroserviceClient);
 ```
 
 ##### Overrides
@@ -373,7 +379,7 @@ beamServer.myMicroServiceClient.serviceName;
 
 > `static` **init**(`config`): `Promise`<`BeamServer`\>
 
-Defined in: [src/core/BeamServer.ts:36](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamServer.ts#L36)
+Defined in: [src/core/BeamServer.ts:36](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamServer.ts#L36)
 
 Initialize a new Beam server instance.
 

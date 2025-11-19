@@ -4,7 +4,7 @@
 
 > **Store** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/Store.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Store.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/Store.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Store.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Store.ts:8](https://github.com/beamab
 
 > `optional` **activeListingLimit**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/Store.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Store.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/Store.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Store.ts#L11)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Store.ts:11](https://github.com/beama
 
 > `optional` **choose**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/Store.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Store.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/Store.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Store.ts#L12)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Store.ts:12](https://github.com/beama
 
 > **listings**: [`Listing`](Listing.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Store.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Store.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/Store.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Store.ts#L9)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Store.ts:9](https://github.com/beamab
 
 > `optional` **refreshTime**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/Store.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Store.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/Store.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Store.ts#L13)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Store.ts:13](https://github.com/beama
 
 > `optional` **showInactiveListings**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/Store.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Store.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/Store.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Store.ts#L14)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Store.ts:14](https://github.com/beama
 
 > **symbol**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Store.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Store.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/Store.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Store.ts#L10)
 
 ***
 
@@ -60,4 +60,4 @@ Defined in: [src/\_\_generated\_\_/schemas/Store.ts:10](https://github.com/beama
 
 > `optional` **title**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Store.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Store.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/Store.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Store.ts#L15)

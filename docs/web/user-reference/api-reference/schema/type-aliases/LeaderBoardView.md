@@ -4,7 +4,7 @@
 
 > **LeaderBoardView** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderBoardView.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderBoardView.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderBoardView.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderBoardView.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderBoardView.ts:8](https://github.
 
 > **boardSize**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderBoardView.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderBoardView.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderBoardView.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderBoardView.ts#L9)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderBoardView.ts:9](https://github.
 
 > **lbId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderBoardView.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderBoardView.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderBoardView.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderBoardView.ts#L10)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderBoardView.ts:10](https://github
 
 > `optional` **rankgt**: [`RankEntry`](RankEntry.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderBoardView.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderBoardView.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderBoardView.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderBoardView.ts#L12)
 
 ***
 
@@ -36,4 +36,4 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderBoardView.ts:12](https://github
 
 > **rankings**: [`RankEntry`](RankEntry.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderBoardView.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderBoardView.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderBoardView.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderBoardView.ts#L11)

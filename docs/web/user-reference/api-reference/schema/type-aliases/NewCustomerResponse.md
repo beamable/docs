@@ -4,7 +4,7 @@
 
 > **NewCustomerResponse** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/NewCustomerResponse.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/NewCustomerResponse.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:8](https://git
 
 > **activationPending**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/NewCustomerResponse.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/NewCustomerResponse.ts#L9)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:9](https://git
 
 > `optional` **alias**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/NewCustomerResponse.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/NewCustomerResponse.ts#L15)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:15](https://gi
 
 > **cid**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/NewCustomerResponse.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/NewCustomerResponse.ts#L10)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:10](https://gi
 
 > **name**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/NewCustomerResponse.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/NewCustomerResponse.ts#L11)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:11](https://gi
 
 > **pid**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/NewCustomerResponse.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/NewCustomerResponse.ts#L12)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:12](https://gi
 
 > **projectName**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/NewCustomerResponse.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/NewCustomerResponse.ts#L13)
 
 ***
 
@@ -60,4 +60,4 @@ Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:13](https://gi
 
 > **token**: [`TokenResponse`](TokenResponse.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/NewCustomerResponse.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/NewCustomerResponse.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/NewCustomerResponse.ts#L14)

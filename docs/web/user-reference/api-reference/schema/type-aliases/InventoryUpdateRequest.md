@@ -4,7 +4,7 @@
 
 > **InventoryUpdateRequest** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L11)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:11](https:/
 
 > `optional` **applyVipBonus**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L12)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:12](https:/
 
 > `optional` **currencies**: `Record`<`string`, `bigint` \| `string`\>
 
-Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L13)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:13](https:/
 
 > `optional` **currencyProperties**: `Record`<`string`, [`CurrencyProperty`](CurrencyProperty.md)[]\>
 
-Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L14)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:14](https:/
 
 > `optional` **deleteItems**: [`ItemDeleteRequest`](ItemDeleteRequest.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L15)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:15](https:/
 
 > `optional` **newItems**: [`ItemCreateRequest`](ItemCreateRequest.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L16)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:16](https:/
 
 > `optional` **transaction**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L17)
 
 ***
 
@@ -60,4 +60,4 @@ Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:17](https:/
 
 > `optional` **updateItems**: [`ItemUpdateRequest`](ItemUpdateRequest.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/InventoryUpdateRequest.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/InventoryUpdateRequest.ts#L18)

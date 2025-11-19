@@ -8,6 +8,8 @@
 
 ## Functions
 
+- [clientServices](functions/clientServices.md)
 - [createStandaloneRequester](functions/createStandaloneRequester.md)
 - [parseSocketMessage](functions/parseSocketMessage.md)
 - [saveToken](functions/saveToken.md)
+- [serverServices](functions/serverServices.md)

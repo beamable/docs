@@ -2,7 +2,7 @@
 
 # Class: StatsService
 
-Defined in: [src/services/StatsService.ts:49](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/StatsService.ts#L49)
+Defined in: [src/services/StatsService.ts:49](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/StatsService.ts#L49)
 
 ## Extends
 
@@ -14,7 +14,7 @@ Defined in: [src/services/StatsService.ts:49](https://github.com/beamable/Beamab
 
 > **new StatsService**(`props`): `StatsService`
 
-Defined in: [src/services/StatsService.ts:50](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/StatsService.ts#L50)
+Defined in: [src/services/StatsService.ts:50](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/StatsService.ts#L50)
 
 #### Parameters
 
@@ -36,7 +36,7 @@ Defined in: [src/services/StatsService.ts:50](https://github.com/beamable/Beamab
 
 > **get**(`params`): `Promise`<`Record`<`string`, `string`\>\>
 
-Defined in: [src/services/StatsService.ts:78](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/StatsService.ts#L78)
+Defined in: [src/services/StatsService.ts:78](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/StatsService.ts#L78)
 
 Fetches stats for the current player.
 
@@ -80,7 +80,7 @@ If the request fails or the stats do not exist.
 
 > **set**(`params`): `Promise`<`void`\>
 
-Defined in: [src/services/StatsService.ts:134](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/StatsService.ts#L134)
+Defined in: [src/services/StatsService.ts:134](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/StatsService.ts#L134)
 
 Sets a stats for the current player.
 

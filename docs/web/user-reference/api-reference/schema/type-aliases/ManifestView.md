@@ -4,7 +4,7 @@
 
 > **ManifestView** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ManifestView.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ManifestView.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:9](https://github.com
 
 > **checksum**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ManifestView.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ManifestView.ts#L10)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:10](https://github.co
 
 > `optional` **comments**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ManifestView.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ManifestView.ts#L14)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:14](https://github.co
 
 > **created**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ManifestView.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ManifestView.ts#L11)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:11](https://github.co
 
 > `optional` **createdByAccountId**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ManifestView.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ManifestView.ts#L15)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:15](https://github.co
 
 > **id**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ManifestView.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ManifestView.ts#L12)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:12](https://github.co
 
 > **manifest**: [`ServiceReference`](ServiceReference.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ManifestView.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ManifestView.ts#L13)
 
 ***
 
@@ -60,4 +60,4 @@ Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:13](https://github.co
 
 > `optional` **storageReference**: [`ServiceStorageReference`](ServiceStorageReference.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ManifestView.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/ManifestView.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ManifestView.ts#L16)

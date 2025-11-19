@@ -2,7 +2,7 @@
 
 # Abstract Class: ContentStorage
 
-Defined in: [src/platform/types/ContentStorage.ts:6](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/ContentStorage.ts#L6)
+Defined in: [src/platform/types/ContentStorage.ts:6](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/ContentStorage.ts#L6)
 
 Abstraction for managing and storing Beamable contents.
 
@@ -22,7 +22,7 @@ Abstraction for managing and storing Beamable contents.
 
 > `abstract` **clear**(): `Promise`<`void`\>
 
-Defined in: [src/platform/types/ContentStorage.ts:31](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/ContentStorage.ts#L31)
+Defined in: [src/platform/types/ContentStorage.ts:31](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/ContentStorage.ts#L31)
 
 Clears the entire content storage.
 
@@ -36,7 +36,7 @@ Clears the entire content storage.
 
 > **close**(): `void`
 
-Defined in: [src/platform/types/ContentStorage.ts:34](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/ContentStorage.ts#L34)
+Defined in: [src/platform/types/ContentStorage.ts:34](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/ContentStorage.ts#L34)
 
 Closes the content storage.
 
@@ -50,7 +50,7 @@ Closes the content storage.
 
 > `abstract` **del**(`key`): `Promise`<`void`\>
 
-Defined in: [src/platform/types/ContentStorage.ts:28](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/ContentStorage.ts#L28)
+Defined in: [src/platform/types/ContentStorage.ts:28](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/ContentStorage.ts#L28)
 
 Deletes a value from the content storage.
 
@@ -68,9 +68,9 @@ Deletes a value from the content storage.
 
 ### get()
 
-> `abstract` **get**<`T`\>(`key`): `Promise`<`undefined` \| `T`\>
+> `abstract` **get**<`T`\>(`key`): `Promise`<`T` \| `undefined`\>
 
-Defined in: [src/platform/types/ContentStorage.ts:22](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/ContentStorage.ts#L22)
+Defined in: [src/platform/types/ContentStorage.ts:22](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/ContentStorage.ts#L22)
 
 Gets a value from the content storage.
 
@@ -88,7 +88,7 @@ Gets a value from the content storage.
 
 #### Returns
 
-`Promise`<`undefined` \| `T`\>
+`Promise`<`T` \| `undefined`\>
 
 ***
 
@@ -96,7 +96,7 @@ Gets a value from the content storage.
 
 > `abstract` **has**(`key`): `Promise`<`boolean`\>
 
-Defined in: [src/platform/types/ContentStorage.ts:25](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/ContentStorage.ts#L25)
+Defined in: [src/platform/types/ContentStorage.ts:25](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/ContentStorage.ts#L25)
 
 Checks if a value exists in the content storage.
 
@@ -116,7 +116,7 @@ Checks if a value exists in the content storage.
 
 > `abstract` **set**<`T`\>(`key`, `value`): `Promise`<`void`\>
 
-Defined in: [src/platform/types/ContentStorage.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/ContentStorage.ts#L19)
+Defined in: [src/platform/types/ContentStorage.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/ContentStorage.ts#L19)
 
 Sets a value in the content storage.
 
@@ -146,7 +146,7 @@ Sets a value in the content storage.
 
 > `static` **open**(): `Promise`<`ContentStorage`\>
 
-Defined in: [src/platform/types/ContentStorage.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/ContentStorage.ts#L12)
+Defined in: [src/platform/types/ContentStorage.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/ContentStorage.ts#L12)
 
 Opens a content storage.
 

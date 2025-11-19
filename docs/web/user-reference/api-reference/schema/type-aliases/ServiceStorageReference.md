@@ -4,7 +4,7 @@
 
 > **ServiceStorageReference** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:6](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceStorageReference.ts#L6)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:6](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceStorageReference.ts#L6)
 
 ⚠️ THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.
 All manual edits will be lost when this file is regenerated.
@@ -15,7 +15,7 @@ All manual edits will be lost when this file is regenerated.
 
 > **archived**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:7](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceStorageReference.ts#L7)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:7](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceStorageReference.ts#L7)
 
 ***
 
@@ -23,7 +23,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:7](https:/
 
 > **checksum**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceStorageReference.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceStorageReference.ts#L8)
 
 ***
 
@@ -31,7 +31,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:8](https:/
 
 > **enabled**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceStorageReference.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceStorageReference.ts#L9)
 
 ***
 
@@ -39,7 +39,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:9](https:/
 
 > **id**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceStorageReference.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceStorageReference.ts#L10)
 
 ***
 
@@ -47,7 +47,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:10](https:
 
 > **storageType**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceStorageReference.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceStorageReference.ts#L11)
 
 ***
 
@@ -55,4 +55,4 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:11](https:
 
 > `optional` **templateId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceStorageReference.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceStorageReference.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceStorageReference.ts#L12)

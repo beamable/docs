@@ -4,7 +4,7 @@
 
 > **LocalDate** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LocalDate.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LocalDate.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:9](https://github.com/be
 
 > **chronology**: [`IsoChronology`](IsoChronology.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LocalDate.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LocalDate.ts#L10)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:10](https://github.com/b
 
 > **dayOfMonth**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LocalDate.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LocalDate.ts#L11)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:11](https://github.com/b
 
 > **dayOfWeek**: `"SATURDAY"` \| `"MONDAY"` \| `"THURSDAY"` \| `"TUESDAY"` \| `"FRIDAY"` \| `"WEDNESDAY"` \| `"SUNDAY"`
 
-Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LocalDate.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LocalDate.ts#L12)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:12](https://github.com/b
 
 > **dayOfYear**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LocalDate.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LocalDate.ts#L13)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:13](https://github.com/b
 
 > **era**: [`Era`](Era.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LocalDate.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LocalDate.ts#L14)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:14](https://github.com/b
 
 > **leapYear**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LocalDate.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LocalDate.ts#L15)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:15](https://github.com/b
 
 > **month**: `"DECEMBER"` \| `"APRIL"` \| `"JULY"` \| `"SEPTEMBER"` \| `"JUNE"` \| `"FEBRUARY"` \| `"OCTOBER"` \| `"AUGUST"` \| `"NOVEMBER"` \| `"MARCH"` \| `"MAY"` \| `"JANUARY"`
 
-Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LocalDate.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LocalDate.ts#L16)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:16](https://github.com/b
 
 > **monthValue**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LocalDate.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LocalDate.ts#L17)
 
 ***
 
@@ -76,4 +76,4 @@ Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:17](https://github.com/b
 
 > **year**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LocalDate.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/LocalDate.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LocalDate.ts#L18)

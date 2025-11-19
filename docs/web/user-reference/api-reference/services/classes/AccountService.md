@@ -2,7 +2,7 @@
 
 # Class: AccountService
 
-Defined in: [src/services/AccountService.ts:54](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L54)
+Defined in: [src/services/AccountService.ts:54](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L54)
 
 ## Extends
 
@@ -14,7 +14,7 @@ Defined in: [src/services/AccountService.ts:54](https://github.com/beamable/Beam
 
 > **new AccountService**(`props`): `AccountService`
 
-Defined in: [src/services/AccountService.ts:55](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L55)
+Defined in: [src/services/AccountService.ts:55](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L55)
 
 #### Parameters
 
@@ -36,7 +36,7 @@ Defined in: [src/services/AccountService.ts:55](https://github.com/beamable/Beam
 
 > **addCredentials**(`params`): `Promise`<[`AccountPlayerView`](../../schema/type-aliases/AccountPlayerView.md)\>
 
-Defined in: [src/services/AccountService.ts:100](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L100)
+Defined in: [src/services/AccountService.ts:100](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L100)
 
 Registers a new account with the given email and password, and associates it with the current player.
 
@@ -74,7 +74,7 @@ If the registration fails (e.g., email already exists, invalid password).
 
 > **addExternalIdentity**(`params`): `Promise`<[`AccountPlayerView`](../../schema/type-aliases/AccountPlayerView.md)\>
 
-Defined in: [src/services/AccountService.ts:175](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L175)
+Defined in: [src/services/AccountService.ts:175](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L175)
 
 Links an external identity to the current player's Beamable account.
 
@@ -118,7 +118,7 @@ If the linking fails (e.g., invalid token, account already linked).
 
 > **addThirdParty**(`params`): `Promise`<[`AccountPlayerView`](../../schema/type-aliases/AccountPlayerView.md)\>
 
-Defined in: [src/services/AccountService.ts:134](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L134)
+Defined in: [src/services/AccountService.ts:134](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L134)
 
 Associates a third-party account with the current player's Beamable account.
 
@@ -156,7 +156,7 @@ If the association fails (e.g., invalid token, account already linked).
 
 > **confirmEmailUpdate**(`params`): `Promise`<`void`\>
 
-Defined in: [src/services/AccountService.ts:445](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L445)
+Defined in: [src/services/AccountService.ts:445](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L445)
 
 Confirms an email update process for the current player's account using a provided confirmation code and password.
 
@@ -194,7 +194,7 @@ If the confirmation fails (e.g., invalid code, incorrect password).
 
 > **confirmPasswordUpdate**(`params`): `Promise`<`void`\>
 
-Defined in: [src/services/AccountService.ts:495](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L495)
+Defined in: [src/services/AccountService.ts:495](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L495)
 
 Confirms a password update process for the current player's account using a provided confirmation code and new password.
 
@@ -232,7 +232,7 @@ If the confirmation fails (e.g., invalid code, invalid new password).
 
 > **current**(): `Promise`<[`AccountPlayerView`](../../schema/type-aliases/AccountPlayerView.md)\>
 
-Defined in: [src/services/AccountService.ts:75](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L75)
+Defined in: [src/services/AccountService.ts:75](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L75)
 
 Fetches the current player's account information.
 
@@ -259,7 +259,7 @@ If the request fails.
 
 > **getEmailCredentialStatus**(`params`): `Promise`<[`CredentialStatus`](../enumerations/CredentialStatus.md)\>
 
-Defined in: [src/services/AccountService.ts:315](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L315)
+Defined in: [src/services/AccountService.ts:315](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L315)
 
 Checks the status of an email credential.
 
@@ -295,7 +295,7 @@ if (status === CredentialStatus.NotAssigned) {
 
 > **getExternalIdentityStatus**(`params`): `Promise`<[`CredentialStatus`](../enumerations/CredentialStatus.md)\>
 
-Defined in: [src/services/AccountService.ts:387](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L387)
+Defined in: [src/services/AccountService.ts:387](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L387)
 
 Checks the status of an external identity credential.
 
@@ -333,7 +333,7 @@ if (status === CredentialStatus.NotAssigned) {
 
 > **getThirdPartyStatus**(`params`): `Promise`<[`CredentialStatus`](../enumerations/CredentialStatus.md)\>
 
-Defined in: [src/services/AccountService.ts:350](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L350)
+Defined in: [src/services/AccountService.ts:350](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L350)
 
 Checks the status of a third-party credential.
 
@@ -370,7 +370,7 @@ if (status === CredentialStatus.NotAssigned) {
 
 > **initiateEmailUpdate**(`params`): `Promise`<`void`\>
 
-Defined in: [src/services/AccountService.ts:421](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L421)
+Defined in: [src/services/AccountService.ts:421](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L421)
 
 Initiates an email update process for the current player's account.
 
@@ -407,7 +407,7 @@ If the initiation fails (e.g., email already in use, invalid email).
 
 > **initiatePasswordUpdate**(`params`): `Promise`<`void`\>
 
-Defined in: [src/services/AccountService.ts:468](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L468)
+Defined in: [src/services/AccountService.ts:468](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L468)
 
 Initiates a password update process for the current player's account.
 
@@ -444,7 +444,7 @@ If the initiation fails (e.g., invalid email).
 
 > **removeExternalIdentity**(`params`): `Promise`<[`AccountPlayerView`](../../schema/type-aliases/AccountPlayerView.md)\>
 
-Defined in: [src/services/AccountService.ts:282](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L282)
+Defined in: [src/services/AccountService.ts:282](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L282)
 
 Removes an external identity association from the current player's Beamable account.
 
@@ -483,7 +483,7 @@ If the disassociation fails (e.g., invalid token, account not linked).
 
 > **removeThirdParty**(`params`): `Promise`<[`AccountPlayerView`](../../schema/type-aliases/AccountPlayerView.md)\>
 
-Defined in: [src/services/AccountService.ts:247](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AccountService.ts#L247)
+Defined in: [src/services/AccountService.ts:247](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AccountService.ts#L247)
 
 Removes a third-party account association from the current player's Beamable account.
 

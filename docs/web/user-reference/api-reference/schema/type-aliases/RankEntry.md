@@ -4,7 +4,7 @@
 
 > **RankEntry** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/RankEntry.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/RankEntry.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:8](https://github.com/be
 
 > **columns**: `Record`<`string`, `bigint` \| `string`\>
 
-Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/RankEntry.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/RankEntry.ts#L9)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:9](https://github.com/be
 
 > **gt**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/RankEntry.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/RankEntry.ts#L10)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:10](https://github.com/b
 
 > **rank**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/RankEntry.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/RankEntry.ts#L11)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:11](https://github.com/b
 
 > `optional` **score**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/RankEntry.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/RankEntry.ts#L12)
 
 ***
 
@@ -44,4 +44,4 @@ Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:12](https://github.com/b
 
 > `optional` **stats**: [`RankEntryStat`](RankEntryStat.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/RankEntry.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/RankEntry.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/RankEntry.ts#L13)

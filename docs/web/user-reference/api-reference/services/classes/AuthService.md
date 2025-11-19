@@ -2,7 +2,7 @@
 
 # Class: AuthService
 
-Defined in: [src/services/AuthService.ts:52](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L52)
+Defined in: [src/services/AuthService.ts:52](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L52)
 
 ## Extends
 
@@ -14,7 +14,7 @@ Defined in: [src/services/AuthService.ts:52](https://github.com/beamable/Beamabl
 
 > **new AuthService**(`props`): `AuthService`
 
-Defined in: [src/services/AuthService.ts:53](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L53)
+Defined in: [src/services/AuthService.ts:53](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L53)
 
 #### Parameters
 
@@ -36,7 +36,7 @@ Defined in: [src/services/AuthService.ts:53](https://github.com/beamable/Beamabl
 
 > **handleThirdPartyAuthFlow**(`params`): `Promise`<`void`\>
 
-Defined in: [src/services/AuthService.ts:247](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L247)
+Defined in: [src/services/AuthService.ts:247](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L247)
 
 Orchestrates a third-party login / linking flow
 
@@ -75,7 +75,7 @@ If the authentication flow fails.
 
 > **loginAsGuest**(): `Promise`<[`TokenResponse`](../../schema/type-aliases/TokenResponse.md)\>
 
-Defined in: [src/services/AuthService.ts:71](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L71)
+Defined in: [src/services/AuthService.ts:71](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L71)
 
 Authenticates a guest user.
 
@@ -100,7 +100,7 @@ If the authentication fails.
 
 > **loginWithEmail**(`params`): `Promise`<[`TokenResponse`](../../schema/type-aliases/TokenResponse.md)\>
 
-Defined in: [src/services/AuthService.ts:96](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L96)
+Defined in: [src/services/AuthService.ts:96](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L96)
 
 Authenticates a user with an email and password.
 
@@ -134,7 +134,7 @@ If the authentication fails.
 
 > **loginWithExternalIdentity**(`params`): `Promise`<[`TokenResponse`](../../schema/type-aliases/TokenResponse.md)\>
 
-Defined in: [src/services/AuthService.ts:159](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L159)
+Defined in: [src/services/AuthService.ts:159](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L159)
 
 Authenticates a user with an external identity.
 
@@ -175,7 +175,7 @@ If the authentication fails.
 
 > **loginWithThirdParty**(`params`): `Promise`<[`TokenResponse`](../../schema/type-aliases/TokenResponse.md)\>
 
-Defined in: [src/services/AuthService.ts:123](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L123)
+Defined in: [src/services/AuthService.ts:123](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L123)
 
 Authenticates a user with a third-party provider (e.g., Google, Facebook).
 
@@ -209,7 +209,7 @@ If the authentication fails.
 
 > **refreshAuthToken**(`params`): `Promise`<[`TokenResponse`](../../schema/type-aliases/TokenResponse.md)\>
 
-Defined in: [src/services/AuthService.ts:313](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L313)
+Defined in: [src/services/AuthService.ts:313](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L313)
 
 Requests a new access token using the stored refresh token.
 

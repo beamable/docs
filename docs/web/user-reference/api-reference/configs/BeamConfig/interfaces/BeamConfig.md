@@ -2,7 +2,7 @@
 
 # Interface: BeamConfig
 
-Defined in: [src/configs/BeamConfig.ts:4](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/configs/BeamConfig.ts#L4)
+Defined in: [src/configs/BeamConfig.ts:5](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamConfig.ts#L5)
 
 Configuration options for initializing the Beam Client SDK.
 
@@ -16,7 +16,7 @@ Configuration options for initializing the Beam Client SDK.
 
 > **cid**: `string`
 
-Defined in: [src/configs/BeamBaseConfig.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/configs/BeamBaseConfig.ts#L8)
+Defined in: [src/configs/BeamBaseConfig.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamBaseConfig.ts#L8)
 
 Beamable Customer ID (CID).
 
@@ -30,7 +30,7 @@ Beamable Customer ID (CID).
 
 > `optional` **contentNamespaces**: `string`[]
 
-Defined in: [src/configs/BeamBaseConfig.ts:33](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/configs/BeamBaseConfig.ts#L33)
+Defined in: [src/configs/BeamBaseConfig.ts:33](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamBaseConfig.ts#L33)
 
 List of content namespaces to load. By default, only 'global' is loaded.
 
@@ -44,7 +44,7 @@ List of content namespaces to load. By default, only 'global' is loaded.
 
 > `optional` **environment**: [`BeamEnvironmentName`](../../BeamEnvironmentConfig/type-aliases/BeamEnvironmentName.md)
 
-Defined in: [src/configs/BeamBaseConfig.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/configs/BeamBaseConfig.ts#L18)
+Defined in: [src/configs/BeamBaseConfig.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamBaseConfig.ts#L18)
 
 The Beamable environment to connect to.
 Can be one of 'prod', 'stg', 'dev', or a custom environment name.
@@ -65,7 +65,7 @@ Can be one of 'prod', 'stg', 'dev', or a custom environment name.
 
 > `optional` **gameEngine**: `string`
 
-Defined in: [src/configs/BeamConfig.ts:6](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/configs/BeamConfig.ts#L6)
+Defined in: [src/configs/BeamConfig.ts:7](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamConfig.ts#L7)
 
 Name of the game engine (e.g., "Three.js", "Phaser", "Babylon", "PlayCanvas").
 
@@ -75,7 +75,7 @@ Name of the game engine (e.g., "Three.js", "Phaser", "Babylon", "PlayCanvas").
 
 > `optional` **gameEngineVersion**: `string`
 
-Defined in: [src/configs/BeamConfig.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/configs/BeamConfig.ts#L9)
+Defined in: [src/configs/BeamConfig.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamConfig.ts#L10)
 
 Version of the game engine.
 
@@ -85,7 +85,7 @@ Version of the game engine.
 
 > `optional` **gameVersion**: `string`
 
-Defined in: [src/configs/BeamBaseConfig.ts:30](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/configs/BeamBaseConfig.ts#L30)
+Defined in: [src/configs/BeamBaseConfig.ts:30](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamBaseConfig.ts#L30)
 
 Published version of the game.
 
@@ -99,7 +99,7 @@ Published version of the game.
 
 > `optional` **instanceTag**: `string`
 
-Defined in: [src/configs/BeamBaseConfig.ts:27](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/configs/BeamBaseConfig.ts#L27)
+Defined in: [src/configs/BeamBaseConfig.ts:27](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamBaseConfig.ts#L27)
 
 Unique tag for instance-specific token storage synchronization.
 
@@ -113,7 +113,7 @@ Unique tag for instance-specific token storage synchronization.
 
 > **pid**: `string`
 
-Defined in: [src/configs/BeamBaseConfig.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/configs/BeamBaseConfig.ts#L11)
+Defined in: [src/configs/BeamBaseConfig.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamBaseConfig.ts#L11)
 
 Beamable Project ID (PID).
 
@@ -127,7 +127,7 @@ Beamable Project ID (PID).
 
 > `optional` **requester**: [`HttpRequester`](../../../network/http/types/HttpRequester/interfaces/HttpRequester.md)
 
-Defined in: [src/configs/BeamBaseConfig.ts:21](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/configs/BeamBaseConfig.ts#L21)
+Defined in: [src/configs/BeamBaseConfig.ts:21](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamBaseConfig.ts#L21)
 
 Custom HTTP requester implementation.
 
@@ -137,11 +137,41 @@ Custom HTTP requester implementation.
 
 ***
 
+### services()?
+
+> `optional` **services**: (`beam`) => `void`
+
+Defined in: [src/configs/BeamConfig.ts:24](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamConfig.ts#L24)
+
+Optional callback invoked during Beam Client SDK initialization to register or configure client services.
+
+#### Parameters
+
+##### beam
+
+[`Beam`](../../../core/Beam/classes/Beam.md)
+
+#### Returns
+
+`void`
+
+#### Example
+
+```ts
+import { clientServices } from "beamable-sdk";
+
+const config: BeamConfig = {
+  services: clientServices,
+};
+```
+
+***
+
 ### tokenStorage?
 
 > `optional` **tokenStorage**: [`TokenStorage`](../../../platform/types/TokenStorage/classes/TokenStorage.md)
 
-Defined in: [src/configs/BeamBaseConfig.ts:24](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/configs/BeamBaseConfig.ts#L24)
+Defined in: [src/configs/BeamBaseConfig.ts:24](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamBaseConfig.ts#L24)
 
 Custom token storage implementation.
 

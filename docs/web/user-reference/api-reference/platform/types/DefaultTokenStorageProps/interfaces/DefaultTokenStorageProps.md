@@ -2,7 +2,7 @@
 
 # Interface: DefaultTokenStorageProps
 
-Defined in: [src/platform/types/DefaultTokenStorageProps.ts:1](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/DefaultTokenStorageProps.ts#L1)
+Defined in: [src/platform/types/DefaultTokenStorageProps.ts:1](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/DefaultTokenStorageProps.ts#L1)
 
 ## Properties
 
@@ -10,7 +10,7 @@ Defined in: [src/platform/types/DefaultTokenStorageProps.ts:1](https://github.co
 
 > **pid**: `string`
 
-Defined in: [src/platform/types/DefaultTokenStorageProps.ts:3](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/DefaultTokenStorageProps.ts#L3)
+Defined in: [src/platform/types/DefaultTokenStorageProps.ts:3](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/DefaultTokenStorageProps.ts#L3)
 
 The Beamable Project ID.
 
@@ -20,6 +20,6 @@ The Beamable Project ID.
 
 > `optional` **tag**: `string`
 
-Defined in: [src/platform/types/DefaultTokenStorageProps.ts:5](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/platform/types/DefaultTokenStorageProps.ts#L5)
+Defined in: [src/platform/types/DefaultTokenStorageProps.ts:5](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/platform/types/DefaultTokenStorageProps.ts#L5)
 
 Unique tag for instance-specific token storage synchronization.

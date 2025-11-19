@@ -4,7 +4,7 @@
 
 > **AnnouncementAttachment** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementAttachment.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementAttachment.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementAttachment.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementAttachment.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementAttachment.ts:8](https://
 
 > **count**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementAttachment.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementAttachment.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementAttachment.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementAttachment.ts#L9)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementAttachment.ts:9](https://
 
 > `optional` **properties**: [`AttachmentProperty`](AttachmentProperty.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementAttachment.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementAttachment.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementAttachment.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementAttachment.ts#L11)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementAttachment.ts:11](https:/
 
 > **symbol**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementAttachment.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementAttachment.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementAttachment.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementAttachment.ts#L10)
 
 ***
 
@@ -36,4 +36,4 @@ Defined in: [src/\_\_generated\_\_/schemas/AnnouncementAttachment.ts:10](https:/
 
 > `optional` **type**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/AnnouncementAttachment.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/AnnouncementAttachment.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/AnnouncementAttachment.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/AnnouncementAttachment.ts#L12)

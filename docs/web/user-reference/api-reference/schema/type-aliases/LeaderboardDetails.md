@@ -4,7 +4,7 @@
 
 > **LeaderboardDetails** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardDetails.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardDetails.ts#L10)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:10](https://git
 
 > **fullName**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardDetails.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardDetails.ts#L11)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:11](https://git
 
 > **lbid**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardDetails.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardDetails.ts#L12)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:12](https://git
 
 > `optional` **metaData**: [`MetadataView`](MetadataView.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardDetails.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardDetails.ts#L15)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:15](https://git
 
 > **numberOfEntries**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardDetails.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardDetails.ts#L13)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:13](https://git
 
 > `optional` **orules**: [`OrderRules`](OrderRules.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardDetails.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardDetails.ts#L16)
 
 ***
 
@@ -52,4 +52,4 @@ Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:16](https://git
 
 > **view**: [`LeaderBoardView`](LeaderBoardView.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/LeaderboardDetails.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/LeaderboardDetails.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/LeaderboardDetails.ts#L14)

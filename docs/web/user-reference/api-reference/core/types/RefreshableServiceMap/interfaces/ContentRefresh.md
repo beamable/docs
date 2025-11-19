@@ -2,7 +2,7 @@
 
 # Interface: ContentRefresh
 
-Defined in: [src/core/types/RefreshableServiceMap.ts:35](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/types/RefreshableServiceMap.ts#L35)
+Defined in: [src/core/types/RefreshableServiceMap.ts:35](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/types/RefreshableServiceMap.ts#L35)
 
 ## Extends
 
@@ -14,7 +14,7 @@ Defined in: [src/core/types/RefreshableServiceMap.ts:35](https://github.com/beam
 
 > **data**: [`ContentManifestChecksum`](../../../../services/interfaces/ContentManifestChecksum.md)
 
-Defined in: [src/core/types/RefreshableServiceMap.ts:37](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/types/RefreshableServiceMap.ts#L37)
+Defined in: [src/core/types/RefreshableServiceMap.ts:37](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/types/RefreshableServiceMap.ts#L37)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/core/types/RefreshableServiceMap.ts:37](https://github.com/beam
 
 > **delay**: `number`
 
-Defined in: [src/core/types/RefreshableServiceMap.ts:27](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/types/RefreshableServiceMap.ts#L27)
+Defined in: [src/core/types/RefreshableServiceMap.ts:27](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/types/RefreshableServiceMap.ts#L27)
 
 #### Inherited from
 
@@ -34,4 +34,4 @@ Defined in: [src/core/types/RefreshableServiceMap.ts:27](https://github.com/beam
 
 > **scopes**: `string`[]
 
-Defined in: [src/core/types/RefreshableServiceMap.ts:36](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/types/RefreshableServiceMap.ts#L36)
+Defined in: [src/core/types/RefreshableServiceMap.ts:36](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/types/RefreshableServiceMap.ts#L36)

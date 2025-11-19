@@ -4,7 +4,7 @@
 
 > **HttpCall** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/HttpCall.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/HttpCall.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:8](https://github.com/bea
 
 > `optional` **body**: `string` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/HttpCall.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/HttpCall.ts#L9)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:9](https://github.com/bea
 
 > `optional` **contentType**: `string` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/HttpCall.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/HttpCall.ts#L10)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:10](https://github.com/be
 
 > `optional` **headers**: [`StringStringKeyValuePair`](StringStringKeyValuePair.md)[] \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/HttpCall.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/HttpCall.ts#L11)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:11](https://github.com/be
 
 > `optional` **method**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/HttpCall.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/HttpCall.ts#L12)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:12](https://github.com/be
 
 > `optional` **type**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/HttpCall.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/HttpCall.ts#L13)
 
 ***
 
@@ -52,4 +52,4 @@ Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:13](https://github.com/be
 
 > `optional` **uri**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/HttpCall.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/HttpCall.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/HttpCall.ts#L14)

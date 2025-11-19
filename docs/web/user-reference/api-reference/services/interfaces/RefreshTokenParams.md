@@ -2,7 +2,7 @@
 
 # Interface: RefreshTokenParams
 
-Defined in: [src/services/AuthService.ts:48](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L48)
+Defined in: [src/services/AuthService.ts:48](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L48)
 
 ## Properties
 
@@ -10,4 +10,4 @@ Defined in: [src/services/AuthService.ts:48](https://github.com/beamable/Beamabl
 
 > **refreshToken**: `string`
 
-Defined in: [src/services/AuthService.ts:49](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AuthService.ts#L49)
+Defined in: [src/services/AuthService.ts:49](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AuthService.ts#L49)

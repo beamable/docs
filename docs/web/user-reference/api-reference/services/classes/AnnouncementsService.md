@@ -2,7 +2,7 @@
 
 # Class: AnnouncementsService
 
-Defined in: [src/services/AnnouncementsService.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AnnouncementsService.ts#L19)
+Defined in: [src/services/AnnouncementsService.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AnnouncementsService.ts#L19)
 
 Represents a service that can be refreshed.
 
@@ -20,7 +20,7 @@ Represents a service that can be refreshed.
 
 > **new AnnouncementsService**(`props`): `AnnouncementsService`
 
-Defined in: [src/services/AnnouncementsService.ts:23](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AnnouncementsService.ts#L23)
+Defined in: [src/services/AnnouncementsService.ts:23](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AnnouncementsService.ts#L23)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [src/services/AnnouncementsService.ts:23](https://github.com/beamabl
 
 > **claim**(`params`): `Promise`<`void`\>
 
-Defined in: [src/services/AnnouncementsService.ts:85](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AnnouncementsService.ts#L85)
+Defined in: [src/services/AnnouncementsService.ts:85](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AnnouncementsService.ts#L85)
 
 Claims one or more announcements for the current player.
 
@@ -83,7 +83,7 @@ If the announcement ID is invalid or the operation fails.
 
 > **delete**(`params`): `Promise`<`void`\>
 
-Defined in: [src/services/AnnouncementsService.ts:159](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AnnouncementsService.ts#L159)
+Defined in: [src/services/AnnouncementsService.ts:159](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AnnouncementsService.ts#L159)
 
 Deletes one or more announcements for the current player.
 
@@ -124,7 +124,7 @@ If the announcement ID is invalid or the operation fails.
 
 > **list**(): `Promise`<[`AnnouncementView`](../../schema/type-aliases/AnnouncementView.md)[]\>
 
-Defined in: [src/services/AnnouncementsService.ts:56](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AnnouncementsService.ts#L56)
+Defined in: [src/services/AnnouncementsService.ts:56](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AnnouncementsService.ts#L56)
 
 Fetches all active announcements for the current player.
 
@@ -151,7 +151,7 @@ If the request fails.
 
 > **markAsRead**(`params`): `Promise`<`void`\>
 
-Defined in: [src/services/AnnouncementsService.ts:122](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AnnouncementsService.ts#L122)
+Defined in: [src/services/AnnouncementsService.ts:122](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AnnouncementsService.ts#L122)
 
 Marks one or more announcements as read for the current player.
 
@@ -188,7 +188,7 @@ If the announcement ID is invalid or the operation fails.
 
 > **refresh**(): `Promise`<[`AnnouncementView`](../../schema/type-aliases/AnnouncementView.md)[]\>
 
-Defined in: [src/services/AnnouncementsService.ts:41](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/AnnouncementsService.ts#L41)
+Defined in: [src/services/AnnouncementsService.ts:41](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/AnnouncementsService.ts#L41)
 
 Refreshes the announcements for the current player.
 

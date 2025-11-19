@@ -2,7 +2,7 @@
 
 # Interface: ContentBase<T\>
 
-Defined in: [src/contents/types/ContentBase.ts:5](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/contents/types/ContentBase.ts#L5)
+Defined in: [src/contents/types/ContentBase.ts:5](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/contents/types/ContentBase.ts#L5)
 
 Base interface for content types.
 This interface defines the common structure for all content types in the system.
@@ -19,7 +19,7 @@ This interface defines the common structure for all content types in the system.
 
 > `optional` **createdAt**: `string` \| `bigint`
 
-Defined in: [src/contents/types/ContentBase.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/contents/types/ContentBase.ts#L10)
+Defined in: [src/contents/types/ContentBase.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/contents/types/ContentBase.ts#L10)
 
 ***
 
@@ -27,7 +27,7 @@ Defined in: [src/contents/types/ContentBase.ts:10](https://github.com/beamable/B
 
 > **id**: `string`
 
-Defined in: [src/contents/types/ContentBase.ts:6](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/contents/types/ContentBase.ts#L6)
+Defined in: [src/contents/types/ContentBase.ts:6](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/contents/types/ContentBase.ts#L6)
 
 ***
 
@@ -35,7 +35,7 @@ Defined in: [src/contents/types/ContentBase.ts:6](https://github.com/beamable/Be
 
 > **properties**: `T`
 
-Defined in: [src/contents/types/ContentBase.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/contents/types/ContentBase.ts#L11)
+Defined in: [src/contents/types/ContentBase.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/contents/types/ContentBase.ts#L11)
 
 ***
 
@@ -43,7 +43,7 @@ Defined in: [src/contents/types/ContentBase.ts:11](https://github.com/beamable/B
 
 > **tags**: `string`[]
 
-Defined in: [src/contents/types/ContentBase.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/contents/types/ContentBase.ts#L9)
+Defined in: [src/contents/types/ContentBase.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/contents/types/ContentBase.ts#L9)
 
 ***
 
@@ -51,7 +51,7 @@ Defined in: [src/contents/types/ContentBase.ts:9](https://github.com/beamable/Be
 
 > **uri**: `string`
 
-Defined in: [src/contents/types/ContentBase.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/contents/types/ContentBase.ts#L8)
+Defined in: [src/contents/types/ContentBase.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/contents/types/ContentBase.ts#L8)
 
 ***
 
@@ -59,4 +59,4 @@ Defined in: [src/contents/types/ContentBase.ts:8](https://github.com/beamable/Be
 
 > **version**: `string`
 
-Defined in: [src/contents/types/ContentBase.ts:7](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/contents/types/ContentBase.ts#L7)
+Defined in: [src/contents/types/ContentBase.ts:7](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/contents/types/ContentBase.ts#L7)

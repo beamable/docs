@@ -2,7 +2,7 @@
 
 # Interface: HttpRequest<TReq\>
 
-Defined in: [src/network/http/types/HttpRequest.ts:7](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/network/http/types/HttpRequest.ts#L7)
+Defined in: [src/network/http/types/HttpRequest.ts:7](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/network/http/types/HttpRequest.ts#L7)
 
 Describes the configuration for an HTTP request.
 
@@ -20,7 +20,7 @@ The expected type of the request body.
 
 > `optional` **body**: `TReq`
 
-Defined in: [src/network/http/types/HttpRequest.ts:21](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/network/http/types/HttpRequest.ts#L21)
+Defined in: [src/network/http/types/HttpRequest.ts:21](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/network/http/types/HttpRequest.ts#L21)
 
 The payload to send with the request, of type TReq.
 
@@ -30,7 +30,7 @@ The payload to send with the request, of type TReq.
 
 > `optional` **headers**: `Record`<`string`, `string`\>
 
-Defined in: [src/network/http/types/HttpRequest.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/network/http/types/HttpRequest.ts#L18)
+Defined in: [src/network/http/types/HttpRequest.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/network/http/types/HttpRequest.ts#L18)
 
 A collection of HTTP headers to include with the request.
 
@@ -40,7 +40,7 @@ A collection of HTTP headers to include with the request.
 
 > `optional` **method**: [`HttpMethod`](../../HttpMethod/type-aliases/HttpMethod.md)
 
-Defined in: [src/network/http/types/HttpRequest.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/network/http/types/HttpRequest.ts#L15)
+Defined in: [src/network/http/types/HttpRequest.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/network/http/types/HttpRequest.ts#L15)
 
 The HTTP method to use for the request (e.g., 'GET', 'POST', 'PUT', 'PATCH', 'DELETE').
 If omitted, the requester will assume a default (often 'GET').
@@ -51,7 +51,7 @@ If omitted, the requester will assume a default (often 'GET').
 
 > **url**: `string`
 
-Defined in: [src/network/http/types/HttpRequest.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/network/http/types/HttpRequest.ts#L9)
+Defined in: [src/network/http/types/HttpRequest.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/network/http/types/HttpRequest.ts#L9)
 
 The URL for the request. Can be a full URL or a path relative to the base URL.
 
@@ -61,7 +61,7 @@ The URL for the request. Can be a full URL or a path relative to the base URL.
 
 > `optional` **withAuth**: `boolean`
 
-Defined in: [src/network/http/types/HttpRequest.ts:27](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/network/http/types/HttpRequest.ts#L27)
+Defined in: [src/network/http/types/HttpRequest.ts:27](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/network/http/types/HttpRequest.ts#L27)
 
 Whether to automatically include an authorization token (e.g., Bearer token)
 in the request headers. Implementations should respect this flag.

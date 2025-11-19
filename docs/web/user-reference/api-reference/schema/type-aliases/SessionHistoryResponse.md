@@ -4,7 +4,7 @@
 
 > **SessionHistoryResponse** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SessionHistoryResponse.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SessionHistoryResponse.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:9](https://
 
 > **date**: [`LocalDate`](LocalDate.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SessionHistoryResponse.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SessionHistoryResponse.ts#L10)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:10](https:/
 
 > **daysPlayed**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SessionHistoryResponse.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SessionHistoryResponse.ts#L11)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:11](https:/
 
 > `optional` **installDate**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SessionHistoryResponse.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SessionHistoryResponse.ts#L15)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:15](https:/
 
 > **payments**: `string`[]
 
-Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SessionHistoryResponse.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SessionHistoryResponse.ts#L12)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:12](https:/
 
 > **sessions**: `string`[]
 
-Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SessionHistoryResponse.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SessionHistoryResponse.ts#L13)
 
 ***
 
@@ -52,4 +52,4 @@ Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:13](https:/
 
 > **totalPaid**: [`PaymentTotal`](PaymentTotal.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SessionHistoryResponse.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/SessionHistoryResponse.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SessionHistoryResponse.ts#L14)

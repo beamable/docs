@@ -4,7 +4,7 @@
 
 > **TournamentGroupEntry** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TournamentGroupEntry.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TournamentGroupEntry.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:8](https://gi
 
 > **currencyRewards**: [`TournamentCurrencyReward`](TournamentCurrencyReward.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TournamentGroupEntry.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TournamentGroupEntry.ts#L9)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:9](https://gi
 
 > **groupId**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TournamentGroupEntry.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TournamentGroupEntry.ts#L10)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:10](https://g
 
 > **rank**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TournamentGroupEntry.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TournamentGroupEntry.ts#L11)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:11](https://g
 
 > **score**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TournamentGroupEntry.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TournamentGroupEntry.ts#L12)
 
 ***
 
@@ -44,4 +44,4 @@ Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:12](https://g
 
 > **stageChange**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/TournamentGroupEntry.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/TournamentGroupEntry.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/TournamentGroupEntry.ts#L13)

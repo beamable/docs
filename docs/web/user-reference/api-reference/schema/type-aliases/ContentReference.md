@@ -4,7 +4,7 @@
 
 > **ContentReference** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentReference.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentReference.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:8](https://github
 
 > `optional` **checksum**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentReference.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentReference.ts#L16)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:16](https://githu
 
 > `optional` **created**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentReference.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentReference.ts#L17)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:17](https://githu
 
 > **id**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentReference.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentReference.ts#L9)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:9](https://github
 
 > `optional` **lastChanged**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentReference.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentReference.ts#L18)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:18](https://githu
 
 > **tag**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentReference.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentReference.ts#L10)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:10](https://githu
 
 > **tags**: `string`[]
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentReference.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentReference.ts#L11)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:11](https://githu
 
 > **type**: `"content"`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentReference.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentReference.ts#L12)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:12](https://githu
 
 > **uri**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentReference.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentReference.ts#L13)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:13](https://githu
 
 > **version**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentReference.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentReference.ts#L14)
 
 ***
 
@@ -84,4 +84,4 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:14](https://githu
 
 > **visibility**: [`ContentVisibility`](../enumerations/ContentVisibility.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentReference.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/ContentReference.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentReference.ts#L15)

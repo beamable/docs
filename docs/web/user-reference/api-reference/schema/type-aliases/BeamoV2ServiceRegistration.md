@@ -4,7 +4,7 @@
 
 > **BeamoV2ServiceRegistration** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:8](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L8)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:8](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L8)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:8](http
 
 > `optional` **beamoName**: `string` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L9)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:9](http
 
 > `optional` **cid**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L10)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:10](htt
 
 > `optional` **federation**: [`BeamoV2SupportedFederation`](BeamoV2SupportedFederation.md)[] \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L11)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:11](htt
 
 > `optional` **instanceCount**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L12)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:12](htt
 
 > `optional` **pid**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L13)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:13](htt
 
 > `optional` **routingKey**: `string` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L14)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:14](htt
 
 > `optional` **serviceName**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L15)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:15](htt
 
 > `optional` **startedById**: `bigint` \| `string` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L16)
 
 ***
 
@@ -76,4 +76,4 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:16](htt
 
 > `optional` **trafficFilterEnabled**: `boolean` \| `null`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2ServiceRegistration.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2ServiceRegistration.ts#L17)

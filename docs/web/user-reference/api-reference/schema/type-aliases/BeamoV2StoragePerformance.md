@@ -4,7 +4,7 @@
 
 > **BeamoV2StoragePerformance** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2StoragePerformance.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2StoragePerformance.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2StoragePerformance.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2StoragePerformance.ts#L11)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2StoragePerformance.ts:11](http
 
 > **databaseMeasurements**: [`BeamoV2DatabaseMeasurements`](BeamoV2DatabaseMeasurements.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2StoragePerformance.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2StoragePerformance.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2StoragePerformance.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2StoragePerformance.ts#L12)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2StoragePerformance.ts:12](http
 
 > **indexes**: [`BeamoV2PASuggestedIndex`](BeamoV2PASuggestedIndex.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2StoragePerformance.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2StoragePerformance.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2StoragePerformance.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2StoragePerformance.ts#L13)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2StoragePerformance.ts:13](http
 
 > **namespaces**: [`BeamoV2PANamespace`](BeamoV2PANamespace.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2StoragePerformance.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2StoragePerformance.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2StoragePerformance.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2StoragePerformance.ts#L14)
 
 ***
 
@@ -36,4 +36,4 @@ Defined in: [src/\_\_generated\_\_/schemas/BeamoV2StoragePerformance.ts:14](http
 
 > **queries**: [`BeamoV2PASlowQuery`](BeamoV2PASlowQuery.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/BeamoV2StoragePerformance.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/BeamoV2StoragePerformance.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/BeamoV2StoragePerformance.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/BeamoV2StoragePerformance.ts#L15)

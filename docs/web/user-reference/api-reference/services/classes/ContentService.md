@@ -2,7 +2,7 @@
 
 # Class: ContentService
 
-Defined in: [src/services/ContentService.ts:56](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/ContentService.ts#L56)
+Defined in: [src/services/ContentService.ts:56](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/ContentService.ts#L56)
 
 Represents a service that can be refreshed.
 
@@ -20,7 +20,7 @@ Represents a service that can be refreshed.
 
 > **new ContentService**(`props`): `ContentService`
 
-Defined in: [src/services/ContentService.ts:73](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/ContentService.ts#L73)
+Defined in: [src/services/ContentService.ts:73](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/ContentService.ts#L73)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [src/services/ContentService.ts:73](https://github.com/beamable/Beam
 
 > **get** **contentsCache**(): `Record`<`string`, `Record`<`string`, [`ContentBase`](../../contents/types/interfaces/ContentBase.md)\>\>
 
-Defined in: [src/services/ContentService.ts:84](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/ContentService.ts#L84)
+Defined in: [src/services/ContentService.ts:84](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/ContentService.ts#L84)
 
 Retrieves the contents cache.
 
@@ -60,7 +60,7 @@ Retrieves the contents cache.
 
 > **get** **manifestChecksumsCache**(): `Record`<`string`, [`ContentManifestChecksum`](../interfaces/ContentManifestChecksum.md)\>
 
-Defined in: [src/services/ContentService.ts:89](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/ContentService.ts#L89)
+Defined in: [src/services/ContentService.ts:89](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/ContentService.ts#L89)
 
 Retrieves the manifest checksums cache.
 
@@ -76,7 +76,7 @@ Retrieves the manifest checksums cache.
 
 > **get** **manifestEntriesCache**(): `Record`<`string`, [`ClientContentInfoJson`](../../schema/type-aliases/ClientContentInfoJson.md)[]\>
 
-Defined in: [src/services/ContentService.ts:94](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/ContentService.ts#L94)
+Defined in: [src/services/ContentService.ts:94](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/ContentService.ts#L94)
 
 Retrieves the manifest entries cache.
 
@@ -90,7 +90,7 @@ Retrieves the manifest entries cache.
 
 > **getById**<`T`\>(`params`): `Promise`<[`ContentTypeFromId`](../../contents/types/type-aliases/ContentTypeFromId.md)<`T`\>\>
 
-Defined in: [src/services/ContentService.ts:162](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/ContentService.ts#L162)
+Defined in: [src/services/ContentService.ts:162](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/ContentService.ts#L162)
 
 Retrieves content by its ID.
 
@@ -136,7 +136,7 @@ If the content is not found or cannot be retrieved.
 
 > **getByIds**(`params`): `Promise`<[`ContentBase`](../../contents/types/interfaces/ContentBase.md)<`unknown`\>[]\>
 
-Defined in: [src/services/ContentService.ts:185](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/ContentService.ts#L185)
+Defined in: [src/services/ContentService.ts:185](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/ContentService.ts#L185)
 
 Retrieves group of contents by their IDs.
 
@@ -176,7 +176,7 @@ If any content is not found or cannot be retrieved.
 
 > **getByType**<`T`\>(`params`): `Promise`<[`ContentTypeFromId`](../../contents/types/type-aliases/ContentTypeFromId.md)<`T`\>[]\>
 
-Defined in: [src/services/ContentService.ts:211](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/ContentService.ts#L211)
+Defined in: [src/services/ContentService.ts:211](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/ContentService.ts#L211)
 
 Retrieves group of contents by their type.
 
@@ -222,7 +222,7 @@ If the content is not found or cannot be retrieved.
 
 > **getManifestEntries**(`params`): `Promise`<[`ClientContentInfoJson`](../../schema/type-aliases/ClientContentInfoJson.md)[]\>
 
-Defined in: [src/services/ContentService.ts:135](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/ContentService.ts#L135)
+Defined in: [src/services/ContentService.ts:135](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/ContentService.ts#L135)
 
 Retrieves all manifest entries for a given manifest ID.
 
@@ -257,7 +257,7 @@ console.log(entries[0].contentId);
 
 > **refresh**(`data`): `Promise`<[`ContentManifestChecksum`](../interfaces/ContentManifestChecksum.md)\>
 
-Defined in: [src/services/ContentService.ts:111](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/ContentService.ts#L111)
+Defined in: [src/services/ContentService.ts:111](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/ContentService.ts#L111)
 
 Refreshes the content manifest for a given ID.
 

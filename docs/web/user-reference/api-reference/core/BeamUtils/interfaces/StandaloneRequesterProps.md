@@ -2,7 +2,7 @@
 
 # Interface: StandaloneRequesterProps
 
-Defined in: [src/core/BeamUtils.ts:43](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamUtils.ts#L43)
+Defined in: [src/core/BeamUtils.ts:53](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamUtils.ts#L53)
 
 ## Properties
 
@@ -10,7 +10,7 @@ Defined in: [src/core/BeamUtils.ts:43](https://github.com/beamable/BeamableProdu
 
 > **cid**: `string`
 
-Defined in: [src/core/BeamUtils.ts:45](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamUtils.ts#L45)
+Defined in: [src/core/BeamUtils.ts:55](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamUtils.ts#L55)
 
 The Beamable Customer ID.
 
@@ -20,7 +20,7 @@ The Beamable Customer ID.
 
 > `optional` **environment**: [`BeamEnvironmentName`](../../../configs/BeamEnvironmentConfig/type-aliases/BeamEnvironmentName.md)
 
-Defined in: [src/core/BeamUtils.ts:53](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamUtils.ts#L53)
+Defined in: [src/core/BeamUtils.ts:63](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamUtils.ts#L63)
 
 The Beamable environment to connect to.
 Can be one of 'prod', 'stg', 'dev', or a custom environment name.
@@ -37,7 +37,7 @@ Can be one of 'prod', 'stg', 'dev', or a custom environment name.
 
 > **pid**: `string`
 
-Defined in: [src/core/BeamUtils.ts:47](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamUtils.ts#L47)
+Defined in: [src/core/BeamUtils.ts:57](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamUtils.ts#L57)
 
 The Beamable Project ID.
 
@@ -47,7 +47,7 @@ The Beamable Project ID.
 
 > `optional` **requester**: [`HttpRequester`](../../../network/http/types/HttpRequester/interfaces/HttpRequester.md)
 
-Defined in: [src/core/BeamUtils.ts:55](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamUtils.ts#L55)
+Defined in: [src/core/BeamUtils.ts:65](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamUtils.ts#L65)
 
 The custom `HttpRequester` to use for the API requests. If not provided, a default one will be used.
 
@@ -57,7 +57,7 @@ The custom `HttpRequester` to use for the API requests. If not provided, a defau
 
 > `optional` **tokenStorage**: [`TokenStorage`](../../../platform/types/TokenStorage/classes/TokenStorage.md)
 
-Defined in: [src/core/BeamUtils.ts:57](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamUtils.ts#L57)
+Defined in: [src/core/BeamUtils.ts:67](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamUtils.ts#L67)
 
 The custom `TokenStorage` to use for the API requests. If not provided, a default one will be used.
 
@@ -67,7 +67,7 @@ The custom `TokenStorage` to use for the API requests. If not provided, a defaul
 
 > `optional` **tokenStorageTag**: `string`
 
-Defined in: [src/core/BeamUtils.ts:59](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamUtils.ts#L59)
+Defined in: [src/core/BeamUtils.ts:69](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamUtils.ts#L69)
 
 Unique tag for instance-specific token storage synchronization.
 
@@ -77,7 +77,7 @@ Unique tag for instance-specific token storage synchronization.
 
 > `optional` **useSignedRequest**: `boolean`
 
-Defined in: [src/core/BeamUtils.ts:67](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamUtils.ts#L67)
+Defined in: [src/core/BeamUtils.ts:77](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamUtils.ts#L77)
 
 Enables signing outgoing requests with a signature header.
 

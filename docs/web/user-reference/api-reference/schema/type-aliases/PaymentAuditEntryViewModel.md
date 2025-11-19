@@ -4,7 +4,7 @@
 
 > **PaymentAuditEntryViewModel** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L12)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:12](htt
 
 > `optional` **created**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:21](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L21)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:21](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L21)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:21](htt
 
 > **details**: [`PaymentDetailsEntryViewModel`](PaymentDetailsEntryViewModel.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L13)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:13](htt
 
 > **entitlements**: [`EntitlementGenerator`](EntitlementGenerator.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L14)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:14](htt
 
 > **gt**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L15)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:15](htt
 
 > **history**: [`PaymentHistoryEntryViewModel`](PaymentHistoryEntryViewModel.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L16)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:16](htt
 
 > `optional` **obtainCurrency**: [`CurrencyChange`](CurrencyChange.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:22](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L22)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:22](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L22)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:22](htt
 
 > `optional` **obtainItems**: [`ItemCreateRequest`](ItemCreateRequest.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:23](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L23)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:23](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L23)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:23](htt
 
 > **providerid**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L17)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:17](htt
 
 > **providername**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L18)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:18](htt
 
 > `optional` **replayGuardValue**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:24](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L24)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:24](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L24)
 
 ***
 
@@ -92,7 +92,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:24](htt
 
 > **txid**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L19)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L19)
 
 ***
 
@@ -100,7 +100,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:19](htt
 
 > **txstate**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:20](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L20)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:20](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L20)
 
 ***
 
@@ -108,7 +108,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:20](htt
 
 > `optional` **updated**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:25](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L25)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:25](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L25)
 
 ***
 
@@ -116,4 +116,4 @@ Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:25](htt
 
 > `optional` **version**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:26](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L26)
+Defined in: [src/\_\_generated\_\_/schemas/PaymentAuditEntryViewModel.ts:26](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PaymentAuditEntryViewModel.ts#L26)

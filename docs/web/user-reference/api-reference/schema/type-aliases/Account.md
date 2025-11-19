@@ -4,7 +4,7 @@
 
 > **Account** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L12)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:12](https://github.com/bea
 
 > `optional` **country**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:20](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L20)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:20](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L20)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:20](https://github.com/bea
 
 > **createdTimeMillis**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L13)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:13](https://github.com/bea
 
 > `optional` **deviceId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:21](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L21)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:21](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L21)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:21](https://github.com/bea
 
 > `optional` **deviceIds**: `string`[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:22](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L22)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:22](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L22)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:22](https://github.com/bea
 
 > `optional` **email**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:23](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L23)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:23](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L23)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:23](https://github.com/bea
 
 > **external**: [`ExternalIdentity`](ExternalIdentity.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L14)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:14](https://github.com/bea
 
 > **gamerTags**: [`GamerTagAssociation`](GamerTagAssociation.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L15)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:15](https://github.com/bea
 
 > `optional` **heartbeat**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:24](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L24)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:24](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L24)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:24](https://github.com/bea
 
 > **id**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L16)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:16](https://github.com/bea
 
 > `optional` **inFlight**: [`InFlightMessage`](InFlightMessage.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:25](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L25)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:25](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L25)
 
 ***
 
@@ -92,7 +92,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:25](https://github.com/bea
 
 > `optional` **language**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:26](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L26)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:26](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L26)
 
 ***
 
@@ -100,7 +100,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:26](https://github.com/bea
 
 > `optional` **password**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:27](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L27)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:27](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L27)
 
 ***
 
@@ -108,7 +108,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:27](https://github.com/bea
 
 > **privilegedAccount**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L17)
 
 ***
 
@@ -116,7 +116,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:17](https://github.com/bea
 
 > `optional` **realmId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:28](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L28)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:28](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L28)
 
 ***
 
@@ -124,7 +124,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:28](https://github.com/bea
 
 > `optional` **roles**: [`RoleMapping`](RoleMapping.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:30](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L30)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:30](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L30)
 
 ***
 
@@ -132,7 +132,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:30](https://github.com/bea
 
 > `optional` **roleString**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:29](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L29)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:29](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L29)
 
 ***
 
@@ -140,7 +140,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:29](https://github.com/bea
 
 > **thirdParties**: [`ThirdPartyAssociation`](ThirdPartyAssociation.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L18)
 
 ***
 
@@ -148,7 +148,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:18](https://github.com/bea
 
 > **updatedTimeMillis**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L19)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L19)
 
 ***
 
@@ -156,7 +156,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:19](https://github.com/bea
 
 > `optional` **userName**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:31](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L31)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:31](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L31)
 
 ***
 
@@ -164,4 +164,4 @@ Defined in: [src/\_\_generated\_\_/schemas/Account.ts:31](https://github.com/bea
 
 > `optional` **wasMigrated**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/Account.ts:32](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Account.ts#L32)
+Defined in: [src/\_\_generated\_\_/schemas/Account.ts:32](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Account.ts#L32)

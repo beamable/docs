@@ -4,7 +4,7 @@
 
 > **Item** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/Item.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Item.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/Item.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Item.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Item.ts:9](https://github.com/beamabl
 
 > `optional` **createdAt**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Item.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Item.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/Item.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Item.ts#L12)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Item.ts:12](https://github.com/beamab
 
 > **id**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Item.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Item.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/Item.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Item.ts#L10)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Item.ts:10](https://github.com/beamab
 
 > **properties**: [`ItemProperty`](ItemProperty.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Item.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Item.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/Item.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Item.ts#L11)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Item.ts:11](https://github.com/beamab
 
 > `optional` **proxy**: [`FederationInfo`](FederationInfo.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/Item.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Item.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/Item.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Item.ts#L13)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Item.ts:13](https://github.com/beamab
 
 > `optional` **proxyId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Item.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Item.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/Item.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Item.ts#L14)
 
 ***
 
@@ -52,4 +52,4 @@ Defined in: [src/\_\_generated\_\_/schemas/Item.ts:14](https://github.com/beamab
 
 > `optional` **updatedAt**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Item.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Item.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/Item.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Item.ts#L15)

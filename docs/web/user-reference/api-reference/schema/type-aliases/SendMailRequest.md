@@ -4,7 +4,7 @@
 
 > **SendMailRequest** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SendMailRequest.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SendMailRequest.ts#L10)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:10](https://github
 
 > `optional` **attachments**: [`AttachmentRequest`](AttachmentRequest.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SendMailRequest.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SendMailRequest.ts#L14)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:14](https://github
 
 > `optional` **body**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SendMailRequest.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SendMailRequest.ts#L15)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:15](https://github
 
 > `optional` **bodyRef**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SendMailRequest.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SendMailRequest.ts#L16)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:16](https://github
 
 > **category**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SendMailRequest.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SendMailRequest.ts#L11)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:11](https://github
 
 > `optional` **expires**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SendMailRequest.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SendMailRequest.ts#L17)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:17](https://github
 
 > `optional` **id**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SendMailRequest.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SendMailRequest.ts#L18)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:18](https://github
 
 > `optional` **playerRewards**: [`PlayerReward`](PlayerReward.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SendMailRequest.ts#L19)
+Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SendMailRequest.ts#L19)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:19](https://github
 
 > **receiverGamerTag**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SendMailRequest.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SendMailRequest.ts#L12)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:12](https://github
 
 > `optional` **rewards**: [`MailRewards`](MailRewards.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:20](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SendMailRequest.ts#L20)
+Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:20](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SendMailRequest.ts#L20)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:20](https://github
 
 > **senderGamerTag**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SendMailRequest.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SendMailRequest.ts#L13)
 
 ***
 
@@ -92,4 +92,4 @@ Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:13](https://github
 
 > `optional` **subject**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:21](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/SendMailRequest.ts#L21)
+Defined in: [src/\_\_generated\_\_/schemas/SendMailRequest.ts:21](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/SendMailRequest.ts#L21)

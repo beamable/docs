@@ -2,7 +2,7 @@
 
 # Class: BeamEnvironmentRegistry
 
-Defined in: [src/core/BeamEnvironmentRegistry.ts:34](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamEnvironmentRegistry.ts#L34)
+Defined in: [src/core/BeamEnvironmentRegistry.ts:34](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamEnvironmentRegistry.ts#L34)
 
 A registry for Beamable environment configurations.
 Allows for registering and retrieving environment configurations by name.
@@ -13,7 +13,7 @@ Allows for registering and retrieving environment configurations by name.
 
 > **new BeamEnvironmentRegistry**(`initial`): `BeamEnvironmentRegistry`
 
-Defined in: [src/core/BeamEnvironmentRegistry.ts:37](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamEnvironmentRegistry.ts#L37)
+Defined in: [src/core/BeamEnvironmentRegistry.ts:37](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamEnvironmentRegistry.ts#L37)
 
 #### Parameters
 
@@ -31,7 +31,7 @@ Defined in: [src/core/BeamEnvironmentRegistry.ts:37](https://github.com/beamable
 
 > **get**(`name`): [`BeamEnvironmentConfig`](../../../configs/BeamEnvironmentConfig/interfaces/BeamEnvironmentConfig.md)
 
-Defined in: [src/core/BeamEnvironmentRegistry.ts:52](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamEnvironmentRegistry.ts#L52)
+Defined in: [src/core/BeamEnvironmentRegistry.ts:52](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamEnvironmentRegistry.ts#L52)
 
 Get a registered environment configuration.
 
@@ -51,7 +51,7 @@ Get a registered environment configuration.
 
 > **list**(): `Readonly`<`Record`<`string`, [`BeamEnvironmentConfig`](../../../configs/BeamEnvironmentConfig/interfaces/BeamEnvironmentConfig.md)\>\>
 
-Defined in: [src/core/BeamEnvironmentRegistry.ts:47](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamEnvironmentRegistry.ts#L47)
+Defined in: [src/core/BeamEnvironmentRegistry.ts:47](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamEnvironmentRegistry.ts#L47)
 
 Read-only snapshot of all registered environments (useful for debugging/UIs).
 
@@ -65,7 +65,7 @@ Read-only snapshot of all registered environments (useful for debugging/UIs).
 
 > **register**(`name`, `cfg`): `void`
 
-Defined in: [src/core/BeamEnvironmentRegistry.ts:42](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamEnvironmentRegistry.ts#L42)
+Defined in: [src/core/BeamEnvironmentRegistry.ts:42](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamEnvironmentRegistry.ts#L42)
 
 Add or overwrite an environment configuration at runtime.
 

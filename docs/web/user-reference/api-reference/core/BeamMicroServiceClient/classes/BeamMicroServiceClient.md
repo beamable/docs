@@ -2,7 +2,7 @@
 
 # Abstract Class: BeamMicroServiceClient
 
-Defined in: [src/core/BeamMicroServiceClient.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamMicroServiceClient.ts#L12)
+Defined in: [src/core/BeamMicroServiceClient.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamMicroServiceClient.ts#L12)
 
 ## Accessors
 
@@ -12,7 +12,7 @@ Defined in: [src/core/BeamMicroServiceClient.ts:12](https://github.com/beamable/
 
 > **get** `abstract` **serviceName**(): `string`
 
-Defined in: [src/core/BeamMicroServiceClient.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/core/BeamMicroServiceClient.ts#L19)
+Defined in: [src/core/BeamMicroServiceClient.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/core/BeamMicroServiceClient.ts#L19)
 
 ##### Returns
 

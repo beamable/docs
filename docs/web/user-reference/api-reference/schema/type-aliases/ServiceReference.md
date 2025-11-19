@@ -4,7 +4,7 @@
 
 > **ServiceReference** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceReference.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceReference.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:9](https://github
 
 > **archived**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceReference.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceReference.ts#L10)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:10](https://githu
 
 > **arm**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceReference.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceReference.ts#L11)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:11](https://githu
 
 > **checksum**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceReference.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceReference.ts#L12)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:12](https://githu
 
 > `optional` **comments**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceReference.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceReference.ts#L17)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:17](https://githu
 
 > `optional` **components**: [`ServiceComponent`](ServiceComponent.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceReference.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceReference.ts#L18)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:18](https://githu
 
 > `optional` **containerHealthCheckPort**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceReference.ts#L19)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceReference.ts#L19)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:19](https://githu
 
 > `optional` **dependencies**: [`ServiceDependencyReference`](ServiceDependencyReference.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:20](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceReference.ts#L20)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:20](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceReference.ts#L20)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:20](https://githu
 
 > **enabled**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceReference.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceReference.ts#L13)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:13](https://githu
 
 > `optional` **imageCpuArch**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:21](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceReference.ts#L21)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:21](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceReference.ts#L21)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:21](https://githu
 
 > **imageId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceReference.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceReference.ts#L14)
 
 ***
 
@@ -92,7 +92,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:14](https://githu
 
 > **serviceName**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceReference.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceReference.ts#L15)
 
 ***
 
@@ -100,4 +100,4 @@ Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:15](https://githu
 
 > **templateId**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ServiceReference.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/ServiceReference.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ServiceReference.ts#L16)

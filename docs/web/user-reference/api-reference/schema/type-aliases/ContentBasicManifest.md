@@ -4,7 +4,7 @@
 
 > **ContentBasicManifest** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifest.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifest.ts#L10)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:10](https://g
 
 > `optional` **archived**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifest.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifest.ts#L15)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:15](https://g
 
 > **checksum**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifest.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifest.ts#L11)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:11](https://g
 
 > **created**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifest.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifest.ts#L12)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:12](https://g
 
 > `optional` **diffObjectKey**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifest.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifest.ts#L16)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:16](https://g
 
 > **id**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifest.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifest.ts#L13)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:13](https://g
 
 > `optional` **lastChanged**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifest.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifest.ts#L17)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:17](https://g
 
 > `optional` **publisherAccountId**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifest.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifest.ts#L18)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:18](https://g
 
 > **references**: ([`ContentReference`](ContentReference.md) \| [`TextReference`](TextReference.md) \| [`BinaryReference`](BinaryReference.md))[]
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifest.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifest.ts#L14)
 
 ***
 
@@ -76,4 +76,4 @@ Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:14](https://g
 
 > `optional` **uid**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/ContentBasicManifest.ts#L19)
+Defined in: [src/\_\_generated\_\_/schemas/ContentBasicManifest.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/ContentBasicManifest.ts#L19)

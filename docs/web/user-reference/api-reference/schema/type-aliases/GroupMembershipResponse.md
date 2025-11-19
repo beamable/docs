@@ -4,7 +4,7 @@
 
 > **GroupMembershipResponse** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupMembershipResponse.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupMembershipResponse.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:9](https:/
 
 > `optional` **gamerTag**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupMembershipResponse.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupMembershipResponse.ts#L14)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:14](https:
 
 > **group**: [`GroupMetaData`](GroupMetaData.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupMembershipResponse.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupMembershipResponse.ts#L10)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:10](https:
 
 > **member**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupMembershipResponse.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupMembershipResponse.ts#L11)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:11](https:
 
 > **subGroups**: (`bigint` \| `string`)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupMembershipResponse.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupMembershipResponse.ts#L12)
 
 ***
 
@@ -44,4 +44,4 @@ Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:12](https:
 
 > **type**: [`GroupType`](../enumerations/GroupType.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/GroupMembershipResponse.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/GroupMembershipResponse.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/GroupMembershipResponse.ts#L13)

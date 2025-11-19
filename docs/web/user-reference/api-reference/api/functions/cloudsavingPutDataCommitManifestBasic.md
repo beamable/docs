@@ -4,7 +4,7 @@
 
 > **cloudsavingPutDataCommitManifestBasic**(`requester`, `payload`, `gamertag?`): `Promise`<[`HttpResponse`](../../network/http/types/HttpResponse/interfaces/HttpResponse.md)<[`CloudsavingBasicManifest`](../../schema/type-aliases/CloudsavingBasicManifest.md)\>\>
 
-Defined in: [src/\_\_generated\_\_/apis/CloudsavingApi.ts:200](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/apis/CloudsavingApi.ts#L200)
+Defined in: [src/\_\_generated\_\_/apis/CloudsavingApi.ts:200](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/apis/CloudsavingApi.ts#L200)
 
 ## Parameters
 

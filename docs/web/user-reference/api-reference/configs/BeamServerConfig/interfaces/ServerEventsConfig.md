@@ -2,7 +2,7 @@
 
 # Interface: ServerEventsConfig
 
-Defined in: [src/configs/BeamServerConfig.ts:26](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/configs/BeamServerConfig.ts#L26)
+Defined in: [src/configs/BeamServerConfig.ts:41](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamServerConfig.ts#L41)
 
 Configuration options for server-events.
 
@@ -12,7 +12,7 @@ Configuration options for server-events.
 
 > `optional` **enabled**: `boolean`
 
-Defined in: [src/configs/BeamServerConfig.ts:31](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/configs/BeamServerConfig.ts#L31)
+Defined in: [src/configs/BeamServerConfig.ts:46](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamServerConfig.ts#L46)
 
 Enables the server-events feature (gateway notifications over WebSocket).
 
@@ -28,6 +28,6 @@ false
 
 > `optional` **eventWhitelist**: [`ServerEventType`](../../../core/types/ServerEventType/type-aliases/ServerEventType.md)[]
 
-Defined in: [src/configs/BeamServerConfig.ts:33](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/configs/BeamServerConfig.ts#L33)
+Defined in: [src/configs/BeamServerConfig.ts:48](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/configs/BeamServerConfig.ts#L48)
 
 A list of server events to subscribe to. If not provided, all events will be subscribed to.

@@ -4,7 +4,7 @@
 
 > **PlayerListingView** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerListingView.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerListingView.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:9](https://githu
 
 > **active**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerListingView.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerListingView.ts#L10)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:10](https://gith
 
 > **clientData**: `Record`<`string`, `string`\>
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerListingView.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerListingView.ts#L11)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:11](https://gith
 
 > **clientDataList**: [`ClientDataEntry`](ClientDataEntry.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerListingView.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerListingView.ts#L12)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:12](https://gith
 
 > `optional` **cooldown**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerListingView.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerListingView.ts#L17)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:17](https://gith
 
 > **offer**: [`PlayerOfferView`](PlayerOfferView.md)
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerListingView.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerListingView.ts#L13)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:13](https://gith
 
 > `optional` **purchasesRemain**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerListingView.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerListingView.ts#L18)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:18](https://gith
 
 > **queryAfterPurchase**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerListingView.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerListingView.ts#L14)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:14](https://gith
 
 > **secondsActive**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerListingView.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerListingView.ts#L15)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:15](https://gith
 
 > `optional` **secondsRemain**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerListingView.ts#L19)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerListingView.ts#L19)
 
 ***
 
@@ -84,4 +84,4 @@ Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:19](https://gith
 
 > **symbol**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/PlayerListingView.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/PlayerListingView.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/PlayerListingView.ts#L16)

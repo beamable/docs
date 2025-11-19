@@ -4,7 +4,7 @@
 
 > **Cohort** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Cohort.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Cohort.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:9](https://github.com/beama
 
 > **assigned**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Cohort.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Cohort.ts#L10)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:10](https://github.com/beam
 
 > `optional` **cloudData**: [`CloudStorage`](CloudStorage.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Cohort.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Cohort.ts#L12)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:12](https://github.com/beam
 
 > `optional` **customRule**: [`CustomCohortRule`](CustomCohortRule.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Cohort.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Cohort.ts#L13)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:13](https://github.com/beam
 
 > **name**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Cohort.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Cohort.ts#L11)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:11](https://github.com/beam
 
 > `optional` **pct**: `number`
 
-Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Cohort.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Cohort.ts#L14)
 
 ***
 
@@ -52,4 +52,4 @@ Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:14](https://github.com/beam
 
 > `optional` **populationCap**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Cohort.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/Cohort.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Cohort.ts#L15)

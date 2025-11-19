@@ -4,7 +4,7 @@
 
 > **Trial** = `object`
 
-Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Trial.ts#L9)
+Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Trial.ts#L9)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:9](https://github.com/beamab
 
 > `optional` **activated**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:17](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Trial.ts#L17)
+Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:17](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Trial.ts#L17)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:17](https://github.com/beama
 
 > **active**: `boolean`
 
-Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:10](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Trial.ts#L10)
+Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:10](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Trial.ts#L10)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:10](https://github.com/beama
 
 > **assigned**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:11](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Trial.ts#L11)
+Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:11](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Trial.ts#L11)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:11](https://github.com/beama
 
 > **cohorts**: [`Cohort`](Cohort.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:12](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Trial.ts#L12)
+Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:12](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Trial.ts#L12)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:12](https://github.com/beama
 
 > `optional` **created**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:18](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Trial.ts#L18)
+Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:18](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Trial.ts#L18)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:18](https://github.com/beama
 
 > **ctype**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:13](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Trial.ts#L13)
+Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:13](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Trial.ts#L13)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:13](https://github.com/beama
 
 > `optional` **customRules**: [`CustomCohortRule`](CustomCohortRule.md)[]
 
-Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:19](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Trial.ts#L19)
+Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:19](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Trial.ts#L19)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:19](https://github.com/beama
 
 > **name**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:14](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Trial.ts#L14)
+Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:14](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Trial.ts#L14)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:14](https://github.com/beama
 
 > `optional` **scheduleStart**: `bigint` \| `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:20](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Trial.ts#L20)
+Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:20](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Trial.ts#L20)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:20](https://github.com/beama
 
 > **strategy**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Trial.ts#L15)
+Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Trial.ts#L15)
 
 ***
 
@@ -92,4 +92,4 @@ Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:15](https://github.com/beama
 
 > **ttype**: `string`
 
-Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:16](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/__generated__/schemas/Trial.ts#L16)
+Defined in: [src/\_\_generated\_\_/schemas/Trial.ts:16](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/__generated__/schemas/Trial.ts#L16)

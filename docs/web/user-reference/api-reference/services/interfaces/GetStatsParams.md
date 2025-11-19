@@ -2,7 +2,7 @@
 
 # Interface: GetStatsParams
 
-Defined in: [src/services/StatsService.ts:9](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/StatsService.ts#L9)
+Defined in: [src/services/StatsService.ts:9](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/StatsService.ts#L9)
 
 ## Properties
 
@@ -10,7 +10,7 @@ Defined in: [src/services/StatsService.ts:9](https://github.com/beamable/Beamabl
 
 > **accessType**: `"public"` \| `"private"`
 
-Defined in: [src/services/StatsService.ts:20](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/StatsService.ts#L20)
+Defined in: [src/services/StatsService.ts:20](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/StatsService.ts#L20)
 
 The type of access for the stats.
 
@@ -24,7 +24,7 @@ The type of access for the stats.
 
 > `optional` **domainType**: `"client"` \| `"game"`
 
-Defined in: [src/services/StatsService.ts:15](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/StatsService.ts#L15)
+Defined in: [src/services/StatsService.ts:15](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/StatsService.ts#L15)
 
 The type of domain for the stats.
 
@@ -44,7 +44,7 @@ The type of domain for the stats.
 
 > `optional` **stats**: `string`[]
 
-Defined in: [src/services/StatsService.ts:25](https://github.com/beamable/BeamableProduct/blob/c39f644099ee36ab2d4430de7f8a10c2265b0568/web/src/services/StatsService.ts#L25)
+Defined in: [src/services/StatsService.ts:25](https://github.com/beamable/BeamableProduct/blob/8522a95acdbee31d2e40c5c43a7ae65ea7f2809f/web/src/services/StatsService.ts#L25)
 
 The specific stats to fetch.
 
