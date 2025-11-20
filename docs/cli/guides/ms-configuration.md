@@ -85,6 +85,7 @@ The `<BeamId>` controls the name of the Beamable project.
 
 #### BeamLogProvider
 The `<BeamLogProvider>` determines which log provider the microservice will use. There are two options: `ClickHouse` and `CloudWatch`. If any other value is provided, `ClickHouse` will be used as the default.
+
 | Property Name | Default Value |
 | ------------- |---------------|
 | `<BeamLogProvider>`    | _Clickhouse_  |
@@ -98,8 +99,8 @@ This option can be set using the project enable or the project disable commands.
 | Property Name   | Default Value |
 | --------------- | ------------- |
 | `<BeamEnabled>` | true          |
-#### BeamPreventOapiGen
 
+#### BeamPreventOapiGen
 The `<BeamPreventOapiGen>` property is a boolean property, only valid on Microservice projects. When false, when the project is built, an open API document will be generated and placed in the `/bin` directory of the project. 
 
 | Property Name          | Default Value |
@@ -112,6 +113,7 @@ In version 6.0+, the Microservice uses an open telemetry collector process to se
 | Property Name            | Default Value                                          |
 | ------------------------ | ------------------------------------------------------ |
 | `<BeamCollectorVersion>` | a semver value specific to the CLI version being used. |
+
 #### BeamDisableCollectorResolution
 In version 6.0+, the Microservice uses an open telemetry collector process to send logs from the service to Beamable's log warehouse. When the Microservice is built, the collector is automatically downloaded. This can be disabled by setting the property to `true`. 
 
@@ -143,6 +145,7 @@ The `<EnableUnrealBlueprintCompatibility>` property is a boolean property, only 
 | Property Name                          | Default Value |
 | -------------------------------------- | ------------- |
 | `<EnableUnrealBlueprintCompatibility>` | false         |
+
 #### BeamValidateCallableTypesExistInSharedLibraries
 
 The `<BeamValidateCallableTypesExistInSharedLibraries>` property is a boolean property, only valid on Microservice projects. 
