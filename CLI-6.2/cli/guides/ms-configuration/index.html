@@ -1055,9 +1055,27 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#beampreventoapigen" class="md-nav__link">
+    <span class="md-ellipsis">
+      BeamPreventOapiGen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#beamcollectorversion" class="md-nav__link">
     <span class="md-ellipsis">
       BeamCollectorVersion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beamdisablecollectorresolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      BeamDisableCollectorResolution
     </span>
   </a>
   
@@ -1085,6 +1103,15 @@
   <a href="#enableunrealblueprintcompatibility" class="md-nav__link">
     <span class="md-ellipsis">
       EnableUnrealBlueprintCompatibility
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beamvalidatecallabletypesexistinsharedlibraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      BeamValidateCallableTypesExistInSharedLibraries
     </span>
   </a>
   
@@ -5171,9 +5198,27 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#beampreventoapigen" class="md-nav__link">
+    <span class="md-ellipsis">
+      BeamPreventOapiGen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#beamcollectorversion" class="md-nav__link">
     <span class="md-ellipsis">
       BeamCollectorVersion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beamdisablecollectorresolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      BeamDisableCollectorResolution
     </span>
   </a>
   
@@ -5201,6 +5246,15 @@
   <a href="#enableunrealblueprintcompatibility" class="md-nav__link">
     <span class="md-ellipsis">
       EnableUnrealBlueprintCompatibility
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beamvalidatecallabletypesexistinsharedlibraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      BeamValidateCallableTypesExistInSharedLibraries
     </span>
   </a>
   
@@ -5365,10 +5419,21 @@
 </tbody>
 </table>
 <h4 id="beamlogprovider">BeamLogProvider<a class="headerlink" href="#beamlogprovider" title="Permanent link">¶</a></h4>
-<p>The <code>&lt;BeamLogProvider&gt;</code> determines which log provider the microservice will use. There are two options: <code>ClickHouse</code> and <code>CloudWatch</code>. If any other value is provided, <code>ClickHouse</code> will be used as the default.
-| Property Name | Default Value |
-| ------------- |---------------|
-| <code>&lt;BeamLogProvider&gt;</code>    | <em>Clickhouse</em>  |</p>
+<p>The <code>&lt;BeamLogProvider&gt;</code> determines which log provider the microservice will use. There are two options: <code>ClickHouse</code> and <code>CloudWatch</code>. If any other value is provided, <code>ClickHouse</code> will be used as the default.</p>
+<table>
+<thead>
+<tr>
+<th>Property Name</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;BeamLogProvider&gt;</code></td>
+<td><em>Clickhouse</em></td>
+</tr>
+</tbody>
+</table>
 <h4 id="beamenabled">BeamEnabled<a class="headerlink" href="#beamenabled" title="Permanent link">¶</a></h4>
 <p>The <code>&lt;BeamEnabled&gt;</code> is a boolean property. When <code>false</code>, when services are <a href="../ms-deployment/">deployed</a> , the service will not be enabled, and will not cost Beamable Cloud resources.
 This option can be set using the project enable or the project disable commands.</p>
@@ -5384,12 +5449,9 @@ This option can be set using the project enable or the project disable commands.
 <td><code>&lt;BeamEnabled&gt;</code></td>
 <td>true</td>
 </tr>
-<tr>
-<td>#### BeamPreventOapiGen</td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<h4 id="beampreventoapigen">BeamPreventOapiGen<a class="headerlink" href="#beampreventoapigen" title="Permanent link">¶</a></h4>
 <p>The <code>&lt;BeamPreventOapiGen&gt;</code> property is a boolean property, only valid on Microservice projects. When false, when the project is built, an open API document will be generated and placed in the <code>/bin</code> directory of the project. </p>
 <table>
 <thead>
@@ -5419,16 +5481,10 @@ This option can be set using the project enable or the project disable commands.
 <td><code>&lt;BeamCollectorVersion&gt;</code></td>
 <td>a semver value specific to the CLI version being used.</td>
 </tr>
-<tr>
-<td>#### BeamDisableCollectorResolution</td>
-<td></td>
-</tr>
-<tr>
-<td>In version 6.0+, the Microservice uses an open telemetry collector process to send logs from the service to Beamable's log warehouse. When the Microservice is built, the collector is automatically downloaded. This can be disabled by setting the property to <code>true</code>.</td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<h4 id="beamdisablecollectorresolution">BeamDisableCollectorResolution<a class="headerlink" href="#beamdisablecollectorresolution" title="Permanent link">¶</a></h4>
+<p>In version 6.0+, the Microservice uses an open telemetry collector process to send logs from the service to Beamable's log warehouse. When the Microservice is built, the collector is automatically downloaded. This can be disabled by setting the property to <code>true</code>. </p>
 <table>
 <thead>
 <tr>
@@ -5492,12 +5548,9 @@ This option can be set using the project enable or the project disable commands.
 <td><code>&lt;EnableUnrealBlueprintCompatibility&gt;</code></td>
 <td>false</td>
 </tr>
-<tr>
-<td>#### BeamValidateCallableTypesExistInSharedLibraries</td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<h4 id="beamvalidatecallabletypesexistinsharedlibraries">BeamValidateCallableTypesExistInSharedLibraries<a class="headerlink" href="#beamvalidatecallabletypesexistinsharedlibraries" title="Permanent link">¶</a></h4>
 <p>The <code>&lt;BeamValidateCallableTypesExistInSharedLibraries&gt;</code> property is a boolean property, only valid on Microservice projects. 
 When it is enabled, and the <code>Beamable.Microservice.SourceGen</code> nuget package is referenced, the static analyzer will
 disallow type references on <code>[Callable]</code> methods that are defined <em>within</em> the Microservice assembly. 
