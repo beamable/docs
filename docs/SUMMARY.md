@@ -5,6 +5,8 @@
 - [Beamble Portal](portal/)
 - [Beamable CLI](cli/)
 - [Samples](unreal/samples/)
+- [Beamable Portal](portal/)
+- [Beamable CLI](cli/)
 
 # Final Sections after we implement the rest of the docs
 #- [Introduction](index.md)

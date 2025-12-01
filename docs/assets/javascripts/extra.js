@@ -109,11 +109,11 @@ WaitForVersionNav('.md-header__topic span.md-ellipsis', function(element) {
             name: 'Unity SDK',
             link: 'Unity-Latest'
         },
-         {
+        {
             name: 'Unreal SDK',
             link: 'Unreal-Latest'
         },
-         {
+        {
             name: 'Web SDK',
             link: 'WebSDK-Latest'
         },
