@@ -5,8 +5,6 @@
 - [Beamble Portal](portal/)
 - [Beamable CLI](cli/)
 - [Samples](unreal/samples/)
-- [Beamable Portal](portal/)
-- [Beamable CLI](cli/)
 - Beamable Community
     - [Find Support](https://beamable.com/support)
     - [Ask a Question](https://github.com/orgs/beamable/discussions)

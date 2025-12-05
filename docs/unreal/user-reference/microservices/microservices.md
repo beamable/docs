@@ -1,5 +1,5 @@
 # Beamable Microservices
-Beamable Microservices are Beamable's Cloud Code solution. It is a wrapper around a HTTP Server that makes the development process much simpler. These are written in C# and come with a set of development tools that are tightly integrated with the UE Editor and Beamable CLI.
+Beamable Microservices are Beamable's "Cloud Code" solution. It is a wrapper around a HTTP Server that makes the development process much simpler. These are written in C# and come with a set of development tools that are tightly integrated with the UE Editor and Beamable CLI.
 
 This page explains the high-to-low-level concepts of Microservices and to what end they can be used. [Take a look here for a getting started guide.](setting-microservices.md)
 
@@ -30,32 +30,21 @@ public int Add(int a, int b)
 ```
 
 ## Microservice Window
-The Microservice Window enables developers to start/stop local services, to read local service logs while in PIE and to configure local server settings for the collaborative workflow and for federations all through the Unreal Editor.
+The Microservice Window enables developers to start/stop local services, to configure local server settings for the collaborative workflow all inside the Unreal Editor.
 
-![microservices-window-home.png](../../../media/imgs/microservices-window-home.png)
+![editor-ms.png](../../../media/imgs/editor-ms.png)
 
-The left side of the window provides you a list of all services in your project with a set of filters based on **Service Groups**. The right side is the **Details Panel**.
+The left side of the window provides you a list of all services in your project. The right side is the **Details Panel**.
 
-!!! note "Service Groups"
-	In very rare cases, a project may require a non-trivial amount of services/storages. For Beamable's own internal development this is true (as we have microservices for each sample).
-	
-	In cases like these, a line can be added to the `csproj` file of each service to assign them to groups. These can then be used by the CLI's `project` pallet as filters while also being used as a filter in this window. The line to be added to the `BeamableSettings` **PropertyGroup** : `<BeamServiceGroup>SomeGroupId</BeamServiceGroup>`	
-	
-	There are no restrictions on group names other than that `BEAMPROJ_` is a reserved prefix.
+### Export to Docker
+The Microservices of the Project can be exported to a Docker image. This is done by clicking the **Export to Docker** button in the Header.
 
-### The Details Panel
-The Details panel provides a detailed view of the microservices and access to a few features:
+### Service Groups
+In very rare cases, a project may require a non-trivial amount of services/storages. For Beamable's own internal development this is true (as we have microservices for each sample).
 
-- Start/Stop the service in your local machine.
-- Display logs for the service running on your local machine.
-- Open the Beamable Portal targeting **your local service**.
-- [Configure which **Microservice Target** the Play-in-Editor sessions will target](#collaborative-debugging).
-- [Configure Federation-specific settings](../federation/federation.md).
+In cases like these, a line can be added to the `csproj` file of each service to assign them to groups. These can then be used by the CLI's `project` pallet as filters while also being used as a filter in this window. The line to be added to the `BeamableSettings` **PropertyGroup** : `<BeamServiceGroup>SomeGroupId</BeamServiceGroup>`	
 
-### Local - Logs Tab
-Here you can explore the logs for any running Microservice. You can filter by **Log Level**, substring search and also clear stored logs.
-
-![microservices-window-logs.png](../../../media/imgs/microservices-window-logs.png)
+There are no restrictions on group names other than that `BEAMPROJ_` is a reserved prefix.
 
 ## Microservice Coding
 Microservices are developed in C# and in their own solution. They inherit from the `Microservice` base class and are `partial` by default. Inside each Microservice class, you can annotate instance methods with the following attributes to various effects:
@@ -243,34 +232,15 @@ The way to deploy services for our UE integration is 100% CLI-based. The documen
 	If there's enough demand for it, we will consider adding it. However, deploying services is mostly done by engineers and CI/CD pipelines so we felt that compiling and opening the UE Editor just to do this didn't add enough value to the UE workflow.
 
 ## Collaborative Debugging
-This one is pretty unique to Beamable's Microservices. 
+This one is pretty unique to Beamable's Microservices that allows you to debug services running in a realm collaboratively with other team members. This is especially useful for developers working in PIE that hit a bug that is hard to repro outside of their specific setup.
 
-Imagine the following: 
+Beamable's Collaborative Debugging allows you to follow a streamlined workflow to handle those cases. Consider this scenario for a engineer and a designer working together to repro and fix a tricky bug:
 
-- You have a service published in a realm with your designer working and testing against it.
-- The designer does something that reveals a bug in your service.
-- It is unclear what causes it exactly and but the designer can repro it consistently by playing in PIE.
-
-Now, the usual flow for handling this situation would be similar to this:
-
-- Make a ticket.
-- Live with the bug while a ticket/task finds its way to an engineer, impacting designer productivity.
-- Hope the engineer can repro it as consistently as the designer... or do it at all.
-- Try to fix it in the future.
-
-Or... you could instead use Beamable's Collaborative Debugging workflow:
-
-- As the engineer, hop on a voice chat with the designer and make sure you're in the same realm as them.
-- As the engineer, boot up your local service with a debugger attached and a breakpoint.
-- As the designer, open the editor and the **Microservice Window's Collaboration tab** for the service and select your engineer's email from the drop-down.
-- As the designer, enter PIE and do what you do to repro the bug.
+- As the engineer, hop on a voice chat with the designer and make sure you're in the same realm as them. Boot up your local service with a debugger attached and a breakpoint.
+- As the designer, open the editor and the **Microservice Window's Collaboration tab** for the service and select your engineer's email from the drop-down. enter PIE and do what you need to repro the bug.
 - As the engineer, observe your (conditional or data) breakpoint is hit or read your additional `BeamableLogger` log lines.
-- Quickly diagnose the issue and unblock the designer.
 
-For smaller teams that like to move fast and can rely on lots of direct communication between designers and engineers, this workflow is a **massive improvement to the current available alternatives**.
-
-![microservices-window-collaboration.png](../../../media/imgs/microservices-window-collaboration.png)
-<center>Colaboration Tab of the Microservice Window</center>
+This workflow allows you to quickly diagnose the issue. For smaller teams that like to move fast and can rely on lots of direct communication between designers and engineers, this workflow is a **massive improvement to the current available alternatives**.
 
 # Micro Storages
 Beamable Microservices allow you to store data in Beamable's own managed services such as `Stats`(Per-Player key-value stores) and `Inventory` (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it just makes your particular problem simpler to solve (instead of trying to fit it into our default stores).
