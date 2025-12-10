@@ -1,6 +1,6 @@
 ﻿# Announcements
 
-The Beamable SDK Announcement feature allows players view and receive game-wide announcements configured by the Game-Makers. A few of the main use cases are:
+The Beamable SDK Announcement feature allows players to view and receive game-wide announcements configured by the Game-Makers. A few of the main use cases are:
 
 - **Communicating to Players** information about the game's live operations that are relevant.
 - **Targeting a Subset of Players** with gifts or compensations due to things that happen over the course of your live-game services.

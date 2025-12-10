@@ -82,7 +82,7 @@ In the `UBeamInventorySubsystem`, each item instance inside a player's inventory
 
 ## Client Permissions
 
-I's up to developer to decide how the content can be added to player inventory by specifying `clientPermission` field:
+It's up to the developer to decide how the content can be added to player inventory by specifying the `clientPermission` field:
 
 When toggled, the content becomes **Client-Authoritative**: the SDK allows game-clients to add/remove that item or currency to the player inventory directly. If your game does not include networked multiplayer and can tolerate cheating, allowing the client to read and write their own currencies is the simplest option.
 

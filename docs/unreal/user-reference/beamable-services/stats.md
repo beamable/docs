@@ -1,18 +1,18 @@
 # Stats
 
-The Beamable SDK Stats feature allows player to track a variety of built-in and custom player stat variables with configurable visibility levels. Two main use cases are:
+The Beamable SDK Stats feature allows players to track a variety of built-in and custom player stat variables with configurable visibility levels. Two main use cases are:
 
 - **Data Store**- can hold key/value pairs associated with a particular user.
 - **Targeting**-  These key/value pairs can be used by other Beamable systems for various things (Announcement Campaings, Matchmaking and others).
 
 There are two important specifiers of each stat: Visibility and Domain.
 
-Visibility, in Unreal represented by enum `EBeamStatsVisibility`, it describes who can see stat:
+Visibility, represented in Unreal by enum `EBeamStatsVisibility`, describes who can see the stat:
 
 - `private`- Visible only to owning User and Backend.
 - `public`- Visible to any User.
 
-Domain, in Unreal represented by enum `EBeamStatsDomain`, it describes if stat can be retrieved from game itself or does it require using microservices:
+Domain, represented in Unreal by enum `EBeamStatsDomain`, describes if the stat can be retrieved from the game itself or if it requires using microservices:
 
 - `client`- Can be accessed from both the **Unreal** and **Microservices**.
 - `game`- Cannot be accessed from **Unreal** directly, it can still be accessed via **Microservice** using `ClientCallable` calls.
@@ -37,7 +37,7 @@ You can check if it's working in the Beamable Portal:
 <center>View of the stats in the Beamable Portal</center>
 
 ## Batching updates
-In this example there is created a new `UpdateCommand` and committed right away. For better performance and reduced calls to Beamable, it is encouraged to:
+In this example, a new `UpdateCommand` is created and committed right away. For better performance and reduced calls to Beamable, it is encouraged to:
 
 - Create `UpdateCommand`
 - Use the other functions in the `UBeamStatsSubsystem` to set up as many changes as possible.

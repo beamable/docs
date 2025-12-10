@@ -14,7 +14,7 @@ The Beamable Editor Panel is the main interface for interacting with Beamable fe
 * **PIE Settings**: A set of settings that allow you to configure your game for Play In Editor (PIE) mode, including player profiles and custom play presets.
 
 ### Accessing the Beamable Editor Panel
-To open the Beamable Editor Panel, go to the **Beamable** icon in the right side of the Unreal Engine editor toolbar and click on" it. This will open the Beamable Editor Panel, where you can access all the available features and settings.
+To open the Beamable Editor Panel, go to the **Beamable** icon in the right side of the Unreal Engine editor toolbar and click on it. This will open the Beamable Editor Panel, where you can access all the available features and settings.
 ![editor-home-opening.png](../../../media/imgs/editor-home-opening.png)
 
 ### Home Section

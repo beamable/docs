@@ -21,7 +21,7 @@ If you're game has **no _local_ multiplayer** (just a single local player), you 
     - If you're calling them from a `UGameInstanceSubsystem`, `UActorComponent` or `AActor` or `Blueprint`, you can pass itself (`this`/`Self`) to this parameter.
 
 !!! warning "Non-Local Multiplayer Games"
-    If you're game is a normal one-player-per-client multiplayer game, you might want to take a look at our [Matchmaking](../beamable-services/matchmaking.md) and [Lobbies](../beamable-services/lobbies.md) systems.
+    If your game is a normal one-player-per-client multiplayer game, you might want to take a look at our [Matchmaking](../beamable-services/matchmaking.md) and [Lobbies](../beamable-services/lobbies.md) systems.
 
 For games that do want to support multiple local players (each with their own Beamable account), the next sessions explain how this concept helps. 
 

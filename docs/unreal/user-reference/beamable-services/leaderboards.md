@@ -14,10 +14,10 @@ In order to have a good overview for leaderboards we will present some common us
 
 ### Creating the Leaderboards
 
-There's two ways to create a new leaderboard, using the portal or as a content.
+There are two ways to create a new leaderboard, using the portal or as a content.
 
 !!! note "Type of leaderboard"
-	If you created the leaderboard in the content, it will appears in the portal as expected. But if you create the leaderboard directly in the portal, it WON'T appear in the content.
+	If you created the leaderboard in the content, it will appear in the portal as expected. But if you create the leaderboard directly in the portal, it WON'T appear in the content.
 
 #### Creating via Content
 
@@ -37,8 +37,8 @@ Before publish it there's some configurations that can change the way your leade
 
 ![leaderboards-content-details.png](../../../media/imgs/leaderboards-content-details.png)
 
- - **Client Permission**: Allow the clients to update they score in the leaderboard. **OBS: This will be possible vunerability in your game**  
- - **Partioned**: Determines whether this leaderboard automatically partitions into smaller leaderboards.
+ - **Client Permission**: Allows clients to update their score in the leaderboard. **OBS: This will be a possible vulnerability in your game**  
+ - **Partitioned**: Determines whether this leaderboard automatically partitions into smaller leaderboards.
  - **Max Entries**: Determines the maximum number of entries in a given leaderboard partition.
  - **Cohort Settings**: Specifies criteria for grouping players together.
 
@@ -65,15 +65,15 @@ There are two ways to assign a player to a leaderboard:
 
 ## Entries modify
 
-It is possible to modify meta-data and score for leaderboard entries. But it is more flexible in the microservice side, if you are using an client authoritative leaderboard won't be change other entry besides the authenticated player.
+It is possible to modify meta-data and score for leaderboard entries. But it is more flexible in the microservice side, if you are using a client-authoritative leaderboard it won't change other entries besides the authenticated player.
 
 ### Adding Score to a Player
 
-Here is a example about how to add score in the client for authoritative client. 
+Here is an example of how to add a score on the client for a client-authoritative leaderboard. 
 
 ![leaderboards-blueprint-update-score.png](../../../media/imgs/leaderboards-blueprint-update-score.png)
 
-The Stats in the leaderboard are mostly usage for keep cached a per entry information that prevent multiple requests to the API. It's only possible to set the stats when you are updating the score, here is a example about how to set the stats in the leaderboard.
+The Stats in the leaderboard are mostly used to keep cached per-entry information that prevents multiple requests to the API. It's only possible to set the stats when you are updating the score. Here is an example of how to set the stats in the leaderboard.
 
 ![leaderboards-blueprint-set-stats.png](../../../media/imgs/leaderboards-blueprint-set-stats.png)
 
@@ -89,7 +89,7 @@ With our SDK it is possible to create leaderboards like in [Brawl Stars](https:/
 
 ![leaderboards-blueprint-player-rank.png](../../../media/imgs/leaderboards-blueprint-player-rank.png)
 
-Using the blue print shown above it's possible to get the playe rank and show it as separetally entry. 
+Using the blueprint shown above, it's possible to get the player rank and show it as a separate entry. 
 
 ### Leaderboard Pagination
 

@@ -1,13 +1,13 @@
 # Setup Beamable SDK
 
-Welcome to Beamable! Here we will guide you through the process of download and setting up the Beamable SDK in your Unreal Engine project!
+Welcome to Beamable! Here we will guide you through the process of downloading and setting up the Beamable SDK in your Unreal Engine project!
 
 ## Signing Up Account in Beamable Portal
 
-To start using Beamable in your project you need to have a valid Account in our Platform. Please do so via our [Portal](https://portal.beamable.com/signup/registration). Please remember your **Alias** as it'll be used to log into the SDK in your editor or via the Beamable CLI.
+To start using Beamable in your project, you need to have a valid Account in our Platform. Please do so via our [Portal](https://portal.beamable.com/signup/registration). Please remember your **Alias** as it'll be used to log into the SDK in your editor or via the Beamable CLI.
 
 ## Project Requirements
-Make Sure you have installed our Dependencies
+Make sure you have installed our Dependencies
 
 | Requirement | Version | Notes |
 |-------------|---------|-------|
@@ -23,7 +23,7 @@ Make Sure you have installed our Dependencies
 Once you have our repo and dependencies set up in your machine, follow along the next section to set up the SDK in your project.
 
 ## Setup The Beamable SDK in your Project
-Now that you have the SDK downloaded, you can set it up in your Unreal Project. The steps to do so are slightly different depending on your OS.
+Now that you have downloaded the SDK, you can set it up in your Unreal Project. The steps to do so are slightly different depending on your OS.
 
 ### Running Beamable Initialization Script
 We need to run the `beam_init_game_maker.sh` script to set up the SDK in your project. The script will copy over the necessary files from the UnrealSDK repo to your project and set up some configuration files.
@@ -61,7 +61,7 @@ In each of the Modules you want to use Beamable's SDK, add this to their `Build.
 Pay attention to the type of module you're adding the SDK to and call the proper function. (You can see the module type in your `uproject` file)
 
 ### Verifying Installation and Running
-Let's Check that everything is set up correctly and that you can compile your project.
+Let's check that everything is set up correctly and that you can compile your project.
 
 === "Windows"
     1. Regenerate project files.
@@ -88,8 +88,8 @@ The Process to upgrade the SDK is similar to the initial setup. The main differe
 
 1. Download the latest [tagged release version](https://github.com/beamable/UnrealSDK/releases)
 2. Run steps from the [Setup SDK](#setup-the-beamable-sdk-in-your-project) section
-3. If you had any custom changes made to the SDK, leverage Git to re-apply them as needed. When making custom changes to the SDK, don't for get to flag it with a comment so searching for them is easier in this step.
-4. Fix any compilation errors that happened due to breaking changes. Don't forget to look fix any blueprints as well after you get the editor to compile.
+3. If you had any custom changes made to the SDK, leverage Git to re-apply them as needed. When making custom changes to the SDK, don't forget to flag it with a comment so searching for them is easier in this step.
+4. Fix any compilation errors that happened due to breaking changes. Don't forget to fix any blueprints as well after you get the editor to compile.
 5. Run `dotnet tool restore` from your project root. 
 6. Verify that the CLI was updated to the proper version by running `dotnet beam version` and seeing that it matches the version in `E:/Path/To/UnrealSDK/.config/dotnet-tools.json`.
 7. If you have microservices:

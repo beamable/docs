@@ -25,13 +25,13 @@ The content window is the main tool to create, edit and publish new content to y
 
 ![contentv2-window.png](../../../media/imgs/contentv2-window.png)
 
-The list of content objects displayed in the content window is very similar to a "Status" window in Git or some other version control systems. Beside show your local content it also presents the differences between your local state and the state in your currently targeted `Realm`.
+The list of content objects displayed in the content window is very similar to a "Status" window in Git or some other version control systems. Besides showing your local content it also presents the differences between your local state and the state in your currently targeted `Realm`.
 
 These differences are represented by the `[+]`,`[-]` and `[M]` signs.
 
 - `[+]`: Means the content exists locally but NOT in the realm.
 - `[M]`: Means the content exists BOTH locally and in the realm AND that it is modified relative to the one in the realm.
-    - `[!]`: Means the content had changes locally when a someone else published to the realm. This means that your changes would overwrite the published changes. We call this a **Conflict** and you MUST resolve conflicts before publishing your changes.
+    - `[!]`: Means the content had changes locally when someone else published to the realm. This means that your changes would overwrite the published changes. We call this a **Conflict** and you MUST resolve conflicts before publishing your changes.
 - `[-]`: Means the content DOES NOT exists locally but DOES exist in the realm.
 
 If the content is not marked with any of these signs, it means it is in sync with the realm.
@@ -92,7 +92,7 @@ To prevent `Designer-B` from overwriting changes made by `Designer-A` the SDK wi
 
 As such, we recommend a few things:
 
-- Organize the designers in your to minimize the chance of **conflicts**.
+- Organize the designers in your team to minimize the chance of **conflicts**.
     - As long as they are working in different content objects, working in the same realm should be seamless.
     - Common distributions of work that work well with this is to assign owners to subset of your content when mapping out who's doing what work.
 - Instruct designers to ALWAYS talk to the person whose publish action caused the conflict _before_ resolving things.

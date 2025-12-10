@@ -22,15 +22,15 @@ As party Leader you can:
 
 This section will bring a simple case for a party system and show how to implement it using the Beamable's party subsystem.
 
-To use the party system from beamable first you need to setup your enviroment with the PIE mode, it will allow you to player with multiple instances. This will help to understand the concepts and follow the guide.
+To use the party system from Beamable, first you need to set up your environment with the PIE mode, which will allow you to play with multiple instances. This will help to understand the concepts and follow the guide.
 
 With the multiplayer instances set we can start creating a Blueprint (BP) function that will do the basics operation of party.
 
 ### Creating a Party
 
 1. Open your Level Blueprint (or some other BP)
-2. Call the `Operation - Party - CreateParty`, It will create a party and put the user slot that call it inside the party.
-3. Get the state of the current party that the user is party of.
+2. Call the `Operation - Party - CreateParty`, It will create a party and put the user slot that called it inside the party.
+3. Get the state of the current party that the user is part of.
 
 ![party-create](../../../media/imgs/party-create.png)
 
@@ -41,13 +41,13 @@ With the multiplayer instances set we can start creating a Blueprint (BP) functi
 ### Joining a Party
 
 1. Open your Level Blueprint (or some other BP)
-2. Call the `TryGetUserPartyState` from the `BeamPartySubsystem`, if the player already in a party, it will return true and you need first to remove the player from the party before join into another party. If you try to join directly to other party it will return a error.
-3. After verify and remove the player from the party if necessary, you will call the operation `Operation - Party - JoinPlayerParty`.
+2. Call the `TryGetUserPartyState` from the `BeamPartySubsystem`. If the player is already in a party, it will return true and you need to first remove the player from the party before joining another party. If you try to join directly to another party, it will return an error.
+3. After verifying and removing the player from the party if necessary, you will call the operation `Operation - Party - JoinPlayerParty`.
 
 ![party-join](../../../media/imgs/party-join.png)
 
 ???+ Warning "Join Unrestrict Party"
-    if the party is the type **unrestrict** it's possible to join without receive an invite from another player just calling the join.
+    If the party is the **unrestrict** type, it's possible to join without receiving an invite from another player just by calling the join operation.
 
 ### Inviting player (Leader Only)
 
@@ -87,7 +87,7 @@ With the multiplayer instances set we can start creating a Blueprint (BP) functi
 2. Call the `Operation - Party - Promote Player As My Party Leader`, It will promote another player as the party leader.
 
 ???+ Warning "Leader Leave the Party"
-    When the leader leave the party, it will automatically pick another player as the party leader.
+    When the leader leaves the party, it will automatically pick another player as the party leader.
 
 ![party-promote-leader](../../../media/imgs/party-promote-leader.png)
 
@@ -97,13 +97,13 @@ The events in the party will be used to react to actions like received a invite,
 
 ### Invite Events
 
-The invite events will be used mostly to handle updates on the invite list, like show a popup of a invite or update the friend list with a new party invite.
+The invite events will be used mostly to handle updates on the invite list, like showing a popup of an invite or updating the friend list with a new party invite.
 
 ![party-bind-invite-events](../../../media/imgs/party-bind-invite-events.png)
 
 ### Party Events
 
-The party events will be response to handle updates on the party, like if a player leave/join, we can update the visuals, etc.
+The party events will be used to handle updates on the party, like if a player leaves/joins, we can update the visuals, etc.
 
 ![party-bind-party-events](../../../media/imgs/party-bind-party-events.png)
 

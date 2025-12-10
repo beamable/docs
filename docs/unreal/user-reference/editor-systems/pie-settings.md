@@ -40,7 +40,7 @@ Play Presets let you define how your game should run in PIE. You can create, edi
 ![pie-settings.png](../../../media/imgs/pie-settings.png)
 
 ## Creating and Using Play Presets
-To create a new Play Preset, click the **Create New Preset** button. You can then configure the preset with the desired settings. Once created, you can select a preset from tuhe dropdown men in the Main Toolbar UI to apply it to the current map.
+To create a new Play Preset, click the **Create New Preset** button. You can then configure the preset with the desired settings. Once created, you can select a preset from the dropdown menu in the Main Toolbar UI to apply it to the current map.
 
 ![pie-use-preset.png](../../../media/imgs/pie-use-preset.png)
 

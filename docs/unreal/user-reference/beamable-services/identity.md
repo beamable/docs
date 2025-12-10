@@ -1,4 +1,4 @@
-﻿# Identity
+﻿﻿# Identity
 
 Identity in Beamable provides authentication and account management functionality for your game. Through the Identity
 system, players can create accounts, sign in, and manage their credentials across different platforms and devices.
@@ -18,7 +18,7 @@ best practices.
 
 Logging in with the Unreal SDK means:
 
-> Authenticate the user, fetch all relevant data from the backend into the `UBeamRuntimeSubsystem`'s in-memory state and the complete the operation.
+> Authenticate the user, fetch all relevant data from the backend into the `UBeamRuntimeSubsystem`'s in-memory state and complete the operation.
 
 This is handled automatically by the `Login` operations and `UBeamRuntimeSubsystem` implementations. You can see an overview about how this all works [here](../overview.md). But the short version is: "After calling `Login` operations, your local state is ready for use."
 
@@ -40,7 +40,7 @@ Mobile games often want to create a **Guest Account** for the player so they can
 The SDK supports this flow via the `Login - Frictionless` operation.
 If an account is already locally cached at that `FUserSlot`, we'll login to that one automatically without making a request to Beamable.
 
-**Guest Accounts are lost if signed out (or have its locally cached data lost for any reason)**. To avoid that, players can to "attach" some persistent identity information to that guest account.`Operation - Attach` nodes to do.
+**Guest Accounts are lost if signed out (or have its locally cached data lost for any reason)**. To avoid that, players can "attach" some persistent identity information to that guest account via `Operation - Attach` nodes.
 
 Attaching an identity can succeed or fail:
 
@@ -68,7 +68,7 @@ In these cases and builds, you'll want to:
 
 - Call `Login - Local Cache` so we first try to login as the locally cached user in that slot.
 - Call `Sign Up - Email And Password` with `bAutoLogin` as true.
-    - You can optionally make use of properly configured Microservice with [Federated Player Initialization](../federation/federated-player-init.md) and the `InitProperties` in the `SignUp` node to pass in additional data to influence initial player state.
+    - You can optionally make use of a properly configured Microservice with [Federated Player Initialization](../federation/federated-player-init.md) and the `InitProperties` in the `SignUp` node to pass in additional data to influence initial player state.
 
 Here's what you would do once the user confirms the form:
 

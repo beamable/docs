@@ -99,7 +99,7 @@ We also provide additional utility Blueprint nodes such as:
 - Helper nodes for common operations and data transformations
 
 ![blueprint-subsystems.png](../../../media/imgs/blueprint-subsystems.png)
-<center>Sample of a Blueprint graph that access athe Beamable Inventory Subsystem and retrieve a currency amount from the local cached state</center>
+<center>Sample of a Blueprint graph that access the Beamable Inventory Subsystem and retrieve a currency amount from the local cached state</center>
 
 ## Node Customization
 Multiple Blueprint nodes can be modified in their `Detail` panel. These configurations allow you to change the pin layout of the node for cases where one layout or another is more beneficial.

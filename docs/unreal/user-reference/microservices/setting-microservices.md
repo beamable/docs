@@ -16,7 +16,7 @@ Creating your first microservice will automatically create your solution for you
 ```
 
 !!! warning "Unreal and Version Control Systems"
-	Most Unreal `.[vcs]ignore` file templates you can find online ignore all `*.sln` files. Instead of doing that, make sure to only ignore in the root directory with this  `/*.sln` instead of `*.sln`.In Git, you can also ensure your Microservice `.sln` is not ignored explicitly via `!/ProjectNameBeamable/ProjectNameBeamable.sln`.
+	Most Unreal `.[vcs]ignore` file templates you can find online ignore all `*.sln` files. Instead of doing that, make sure to only ignore in the root directory with this  `/*.sln` instead of `*.sln`. In Git, you can also ensure your Microservice `.sln` is not ignored explicitly via `!/ProjectNameBeamable/ProjectNameBeamable.sln`.
 
 ### Create the Microservice Solution and Project
 **Make sure that you've completed the [Setup](../../getting-started/setup.md) process for the SDK and that the editor is not running before starting this guide.**

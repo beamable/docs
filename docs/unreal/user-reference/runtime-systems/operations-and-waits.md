@@ -185,7 +185,7 @@ There are a few flavors of this around the SDK:
 	1. This is for when you wish to make a system that ties into the Beamable life-cycle like our own `UBeamRuntimeSubsystem` implementations do.
 	2. This is rarely needed, but... in unique custom use-cases, it's likely to be the best way to accomplish your goals.
 3. **Hooks:** Bind into delegates created via `DEFINE_BEAM_OPERATION_HOOK`.
-	1. We don't use Hooks ourselves IN ANY CIRCUNSTANCES and leave these as "game-maker-only extensions".
+	1. We don't use Hooks ourselves IN ANY CIRCUMSTANCES and leave these as "game-maker-only extensions".
 	2. You can search for `DEFINE_BEAM_OPERATION_HOOK` and find some usages of the macro to better understand these. 
 
 ### Beam Operation Hooks
