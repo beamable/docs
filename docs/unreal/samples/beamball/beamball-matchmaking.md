@@ -6,7 +6,7 @@ In the **Beamball** sample we demonstrate a basic implementation of the Beamable
 
 ![beamball-matchmaking.png](../../../media/imgs/beamball-matchmaking.png)
 
-The Player clicks **Play** in the main menu. The **`Refresh Hatchora Ping Stat Operation`** updates ping in the player's stats allowing the server to choose the best lobby for this player. The local state is checked with **`Local State - Matchmaking - IsUserInQueue`**, leaving the queue if already in. The **`Local State - Lobby - TryGetCurrentLobby`** checks if the player is in a lobby, leaving if so. Finally, if there's no impediment, the player joins the matchmaking queue with **`Operation - Matchmaking - Join Queue`**. Beamable services handle the rest of the matchmaking process, forming balanced lobbies and starting the match.
+The Player clicks **Play** in the main menu. The **`Refresh Hathora Ping Stat Operation`** updates ping in the player's stats allowing the server to choose the best lobby for this player. The local state is checked with **`Local State - Matchmaking - IsUserInQueue`**, leaving the queue if already in. The **`Local State - Lobby - TryGetCurrentLobby`** checks if the player is in a lobby, leaving if so. Finally, if there's no impediment, the player joins the matchmaking queue with **`Operation - Matchmaking - Join Queue`**. Beamable services handle the rest of the matchmaking process, forming balanced lobbies and starting the match.
 
 !!! note "Main SDK Functions to be aware of:"
     - **`Operation - Matchmaking - Leave Queue`**: Removes the player from the current matchmaking queue.  
