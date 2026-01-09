@@ -45,7 +45,7 @@ When the player selects an item to purchase, the corresponding widget calls the 
 - Deducting the cost,
 - Adding the item to the player’s inventory.
 
-Upon successful completion of the purchase operation, the player's inventory changes with the addition of the item. It triggers a redraw from scratch for the UI so it can include the newly acquired item.
+Upon successful completion of the purchase operation, the player's inventory changes with the addition of the item. This triggers a redraw from scratch for the UI so it can include the newly acquired item.
 
 ![beamball-pruchase2.png](../../../media/imgs/beamball-pruchase2.png)
 
