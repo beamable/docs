@@ -95,3 +95,39 @@ var shouldCreateUser = available && userHasCredentials;
 //Should we attach the credentials to an existing user?
 var shouldAttachToCurrentUser = available && !userHasCredentials;
 ```
+
+## Getting Started
+
+This guide provides step-by-step instructions to set up Google Play Game Services Sign-In with Beamable's Accounts feature in a Unity project.
+
+### Prerequisites
+
+This guide assumes the following prerequisites have been completed:
+
+| Steps | Details |
+| --- | --- |
+| **1. Unity: Set up the Beamable SDK for Unity** | • See Beamable's [Getting Started](../../../../getting-started/installing-beamable.md) for more info |
+| **2. Unity: Switch platform to Android** | • Unity → File → Build Settings<br>• Select Android then press Switch Platform |
+| **3. Unity: Establish Keystore for Signing** | • Unity → File → Build Settings<br>• Press Player Settings...<br>• In Inspector, go to Publishing Settings and create the keystore (or unlock an existing one). |
+| **4. Android: Set up the corresponding Google Cloud Platform application with OAuth 2.0 credentials** | • See Google's [start-integrating#configure_a_project](https://developers.google.com/identity/sign-in/android/start-integrating#configure_a_project) for more info<br>**Note:** You will need both Web application credentials AND platform specific credentials for Android or iOS or both. |
+
+
+### Configure Unity Project
+
+In orther to setup the Unity Project you need to Set the GPS Secret to Beamable Platofrm
+
+- See [Google's tutorial](https://developers.google.com/games/services/v1/android/offline-access#create_an_associated_server-side_web_application_for_your_game) for how get client_secret.json and obtain Web client values.
+- Go to Portal → Operate → Config and press Add Config and add config with namespace auth, key gps_secret and value that is encoded to base64 content of client_secret.json.
+
+![f12a299-portalScreen.png](../../../../../media/imgs/f12a299-portalScreen.png)
+
+
+### Additional iOS Setup
+
+Make sure that your game flow takes into account fact that the iOS is not supported platform by Google Play Game Services.
+
+
+### Next Steps
+
+* Players can edit account details (name, avatar).
+* Players can switch accounts or sign in with various methods. See the [Identity](../identity.md) feature page for more info.

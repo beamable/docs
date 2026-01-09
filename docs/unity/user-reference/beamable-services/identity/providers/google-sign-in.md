@@ -128,6 +128,102 @@ if(shouldAttachToCurrentUser)
 }
 ```
 
-## Remarks
+## Getting Started
 
-A complete example demonstrating the functionality for Google Sign-In can be found in GoogleSignInBehavior.cs, which is used by the Account Management Flow prefab packaged with Beamable.
+This guide provides step-by-step instructions to set up Google Sign-In with Beamable's Accounts feature in a Unity project.
+
+### Prerequisites
+
+This guide assumes the following prerequisites have been completed:
+
+| Steps | Details |
+| --- | --- |
+| **1. Unity: Set up the Beamable SDK for Unity** | • See Beamable's [Getting Started](../../../../getting-started/installing-beamable.md) for more info |
+| **2. Unity: Switch platform to Android** | • Unity → File → Build Settings<br>• Select Android then press Switch Platform |
+| **3. Unity: Establish Keystore for Signing** | • Unity → File → Build Settings<br>• Press Player Settings...<br>• In Inspector, go to Publishing Settings and create the keystore (or unlock an existing one). |
+| **4. Android: Set up the corresponding Google Cloud Platform application with OAuth 2.0 credentials** | • See Google's [start-integrating#configure_a_project](https://developers.google.com/identity/sign-in/android/start-integrating#configure_a_project) for more info<br>**Note:** You will need both Web application credentials AND platform specific credentials for Android or iOS or both. |
+
+---
+
+### Configure Unity Project
+
+In orther to setup the Unity Project you need to edit gradle file.
+
+- Open the `.gradle` file located in your project at `Plugins/Android/mainTemplate.gradle`. Look for the `dependencies` block and add `play-services-auth`.
+
+See the code sample below.
+
+
+```gradle
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.gms:play-services-auth:18.1.0'
+    **DEPS**
+}
+
+```
+
+---
+
+### Additional iOS Setup
+
+When using Google Sign-In on Apple, the Login Flow depends on version 5 of Google's Sign-In SDK framework for iOS. Enabling sign-in on iOS also requires first-time setup regarding a custom URL scheme specific to your Google Cloud App, including overriding the `openURL` method on `UnityAppController`.
+
+| Step | Detail |
+| --- | --- |
+| **1. Install the Google Sign-In SDK** | • Download Google Sign-In SDK version 5.0.0 or newer from [https://developers.google.com/identity/sign-in/ios/sdk](https://developers.google.com/identity/sign-in/ios/sdk)<br>• Create the `Assets/Plugins/iOS` folder in your Unity project if it does not already exist<br>• Extract the SDK archive, then copy `GoogleSignIn.framework` and `GoogleSignInDependencies.framework` to your `Assets/Plugins/iOS` folder |
+| **2. Add the URL scheme to your project** | • Your custom URL scheme is a reversed version of your iOS Client ID: `com.googleusercontent.apps.<your-app-id>`<br>• Unity -> File -> Build Settings -> Player Settings... -> Other Settings<br>• Supported URL schemes: set size to 1 and enter your reversed ID as Element 0 |
+| **3. Ensure app delegate handles `openURL`** | • The app delegate for your app should handle `application:openURL:options:` and invoke the `handleURL` method of `GIDSignIn`. |
+
+#### Method Swizzling for iOS URL Handling
+
+The response from the Google Sign-In flow on Apple uses the custom **Supported URL Scheme**. This requires that the app delegate (`UnityAppController`) implement the `openURL` method. Using **swizzling**, we can define a new method and exchange implementations at runtime.
+
+Place both `GoogleSignInAppController.h` and `GoogleSignInAppController.mm` within a `Plugins/iOS` folder in your Unity project.
+
+**GoogleSignInAppController.h**
+
+```objectivec
+#import <GoogleSignIn/GIDSignIn.h>
+#import <UnityAppController.h>
+
+@interface UnityAppController (GoogleSignInAppController)
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<NSString *, id> *)options;
+
+@end
+
+```
+
+**GoogleSignInAppController.m**
+
+```objectivec
+#import "GoogleSignInAppController.h"
+#import <objc/runtime.h>
+
+@implementation UnityAppController (GoogleSignInController)
+
++ (void)load {
+    method_exchangeImplementations(
+        class_getInstanceMethod(self, @selector(application:openURL:options:)),
+        class_getInstanceMethod(self, @selector(GoogleSignInAppController:openURL:options:))
+    );
+}
+
+- (BOOL)GoogleSignInAppController:(UIApplication *)app
+                           openURL:(NSURL *)url
+                           options:(NSDictionary *)options {
+    BOOL handled = [self GoogleSignInAppController:app openURL:url options:options];
+    return [[GIDSignIn sharedInstance] handleURL:url] || handled;
+}
+
+@end
+
+```
+
+### Next Steps
+
+* Players can edit account details (name, avatar).
+* Players can switch accounts or sign in with various methods. See the [Identity](../identity.md) feature page for more info.
