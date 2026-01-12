@@ -8,12 +8,19 @@ Below is a typical Facebook usage pattern. You initiate from your UI that you wa
 
 ![Facebook Flow](../../../../../media/imgs/d3ad803-facebook_flow.png){: style="height:auto;width:500px"}
 
+
+### Configure Facebook App
+
+In orther to setup the Unity Project you need to configure the Facebook Dashboard:
+
+- The app must be connected to a business and the business should be verified.
+- Since we are using email you need to add it's permissions: Dashboard / Use Cases / Customize the `Authenticate and request data from users with Faebook Login / Permissions and Features => add email
+
+![facebook-app.png](../../../../../media/imgs/facebook-app.png)
+
 ## Facebook Sign-In
 
-You can use Facebook Sign-In without the prefab Account Management Flow as well. Below are the integration steps that will allow you to implement Facebook Sign-In & Beamable via Code.
-
-
-While the guide describes a solid implementation of using the Facebook Sign-In feature, this section will describe several API pieces for you to implement your own wrapper.
+Below are the integration steps that will allow you to implement Facebook Sign-In & Beamable via Code. This section will describe several API pieces for you to implement your own wrapper.
 
 ## Facebook Login & Callbacks
 
