@@ -1228,6 +1228,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#configure-facebook-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Facebook App
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#facebook-sign-in" class="md-nav__link">
     <span class="md-ellipsis">
       Facebook Sign-In
@@ -7743,6 +7752,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#configure-facebook-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Facebook App
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#facebook-sign-in" class="md-nav__link">
     <span class="md-ellipsis">
       Facebook Sign-In
@@ -7892,9 +7910,15 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/e869edb-442d473-facebook3.png" data-desc-position="bottom"><img alt="Facebook Sign-In" src="../../../../../../media/imgs/e869edb-442d473-facebook3.png" style="height:auto;width:500px"></a></p>
 <p>Below is a typical Facebook usage pattern. You initiate from your UI that you want to use Facebook to sign-in and then listen for the callbacks from the Facebook SDK. Once the player account has successfully logged into Facebook, then you can use Beamable to link to an existing account or create a new one.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/d3ad803-facebook_flow.png" data-desc-position="bottom"><img alt="Facebook Flow" src="../../../../../../media/imgs/d3ad803-facebook_flow.png" style="height:auto;width:500px"></a></p>
+<h3 id="configure-facebook-app">Configure Facebook App<a class="headerlink" href="#configure-facebook-app" title="Permanent link">¶</a></h3>
+<p>In orther to setup the Unity Project you need to configure the Facebook Dashboard:</p>
+<ul>
+<li>The app must be connected to a business and the business should be verified.</li>
+<li>Since we are using email you need to add it's permissions: Dashboard / Use Cases / Customize the `Authenticate and request data from users with Faebook Login / Permissions and Features =&gt; add email</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/facebook-app.png" data-desc-position="bottom"><img alt="facebook-app.png" src="../../../../../../media/imgs/facebook-app.png"></a></p>
 <h2 id="facebook-sign-in">Facebook Sign-In<a class="headerlink" href="#facebook-sign-in" title="Permanent link">¶</a></h2>
-<p>You can use Facebook Sign-In without the prefab Account Management Flow as well. Below are the integration steps that will allow you to implement Facebook Sign-In &amp; Beamable via Code.</p>
-<p>While the guide describes a solid implementation of using the Facebook Sign-In feature, this section will describe several API pieces for you to implement your own wrapper.</p>
+<p>Below are the integration steps that will allow you to implement Facebook Sign-In &amp; Beamable via Code. This section will describe several API pieces for you to implement your own wrapper.</p>
 <h2 id="facebook-login-callbacks">Facebook Login &amp; Callbacks<a class="headerlink" href="#facebook-login-callbacks" title="Permanent link">¶</a></h2>
 <p>Ultimately you will have to implement the Facebook SDK and listen for the callback with the Login Result. The callback is triggered by the <em>FB.LogInWithReadPermissions()</em> API call.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
