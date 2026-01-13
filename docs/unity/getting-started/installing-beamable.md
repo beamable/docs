@@ -4,7 +4,7 @@ Welcome to Beamable! This guide will walk you through the steps required to inst
 
 !!! info "Compatibility"
 
-    • Beamable supports Unity versions 2021.3 to 6000 and is compatible with all template types  
+    • Beamable supports Unity versions 2021.3 to 6000.3 and is compatible with all template types  
     • Beamable supports Windows, Mac, iOS, Android, and WebGL platforms
 
 ## Setting Up Account in Beamable Portal
@@ -24,7 +24,7 @@ Once downloaded, follow these steps to install the Beamable SDK into your Unity 
 | 2. Verify the import | ![Verify Import](../../media/imgs/step-2-verify-import.png)<br>• Press the "Import" button |
 | 3. Install the **Beamable SDK** | ![Install SDK](./installation-01.png)<br>• Click to continue |
 | 4. Remove the **Beamable SDK Installer Package** | • Now that the installation process is complete, the installer package is no longer needed. You can remove it. |
-| 5. **Install Dotnet (if required)** | Starting with the Unity 2.1.0 SDK, Beamable requires that you have dotnet 8.0.302 installed on your machine. If you don't, the Beamable SDK will offer a download option for you, and once you've finished installing it, you can continue through the dialog. |
+| 5. **Install Dotnet (if required)** | Starting with the Unity 5.0.0 SDK, Beamable requires that you have dotnet 10.0.100 or 8.0.302 installed on your machine. If you don't, the Beamable SDK will offer a download option for you, and once you've finished installing it, you can continue through the dialog. |
 
 Congratulations the Beamable SDK is now installed!
 
@@ -66,6 +66,12 @@ As new versions of the Beamable SDK are released, they depend on different Beam 
 
 | SDK Version | CLI Version |
 | :---------- | :---------- |
+| 4.0.3       | 6.2.2 |
+| 4.0.2       | 6.2.1 |
+| 4.0.1       | 6.2.0 |
+| 4.0.0       | 6.2.0 |
+| 3.1.7       | 5.4.3 |
+| 3.1.6       | 5.4.2 |
 | 3.1.5       | 5.4.2 |
 | 3.1.4       | 5.4.2 |
 | 3.1.3       | 5.4.2 |
@@ -73,7 +79,7 @@ As new versions of the Beamable SDK are released, they depend on different Beam 
 | 3.1.1       | 5.4.1 |
 | 3.1.0       | 5.4.0 |
 | 3.0.0       | 5.3.0 |
-| 2.4.3       | 4.3.4       |
+| 2.4.3       | 4.3.4 |
 
 
 
