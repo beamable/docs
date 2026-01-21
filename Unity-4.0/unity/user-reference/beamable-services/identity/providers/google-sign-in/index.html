@@ -1261,9 +1261,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#create-a-unity-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      Create a Unity Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-keystore-for-signing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create KeyStore for Signing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-google-cloud-console-oauth-20-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Google Cloud Console - OAuth 2.0 Credentials
     </span>
   </a>
   
@@ -1275,6 +1293,30 @@
       Configure Unity Project
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Configure Unity Project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-custom-android-gradle-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Custom Android Gradle Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-play-services-auth-dependency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add play-services-auth Dependency
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -7741,9 +7783,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#create-a-unity-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      Create a Unity Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-keystore-for-signing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create KeyStore for Signing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-google-cloud-console-oauth-20-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Google Cloud Console - OAuth 2.0 Credentials
     </span>
   </a>
   
@@ -7755,6 +7815,30 @@
       Configure Unity Project
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Configure Unity Project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-custom-android-gradle-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Custom Android Gradle Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-play-services-auth-dependency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add play-services-auth Dependency
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -7866,54 +7950,93 @@
 <h1 id="google-sign-in">Google Sign-In<a class="headerlink" href="#google-sign-in" title="Permanent link">¶</a></h1>
 <p>The purpose of this guide is for game makers to use Google Sign-In with the Beamable Accounts feature.</p>
 <p>Beamable integrates with Google's Sign-In service to provide seamless authentication for your game. Google's <a href="https://developers.google.com/identity/sign-in/web/sign-in">Sign-In</a> manages the OAuth 2.0 flow and token lifecycle, simplifying your integration with Google APIs. A user always has the option to revoke access to an application at any time.</p>
-<div class="admonition info">
-<p class="admonition-title">Prerequisites</p>
-<p>Before Google Sign-In will work properly, the Unity project must be configured to support Google as a third-party authentication provider.</p>
-</div>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>This guide provides step-by-step instructions to set up Google Sign-In with Beamable's Accounts feature in a Unity project.</p>
-<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h3>
-<p>This guide assumes the following prerequisites have been completed:</p>
-<table>
-<thead>
-<tr>
-<th>Steps</th>
-<th>Details</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>1. Unity: Set up the Beamable SDK for Unity</strong></td>
-<td>• See Beamable's <a href="../../../../../getting-started/installing-beamable/">Getting Started</a> for more info</td>
-</tr>
-<tr>
-<td><strong>2. Unity: Switch platform to Android</strong></td>
-<td>• Unity → File → Build Settings<br>• Select Android then press Switch Platform</td>
-</tr>
-<tr>
-<td><strong>3. Unity: Establish Keystore for Signing</strong></td>
-<td>• Unity → File → Build Settings<br>• Press Player Settings...<br>• In Inspector, go to Publishing Settings and create the keystore (or unlock an existing one).</td>
-</tr>
-<tr>
-<td><strong>4. Android: Set up the corresponding Google Cloud Platform application with OAuth 2.0 credentials</strong></td>
-<td>• See Google's <a href="https://developers.google.com/identity/sign-in/android/start-integrating#configure_a_project">start-integrating#configure_a_project</a> for more info<br><strong>Note:</strong> You will need both Web application credentials AND platform specific credentials for Android or iOS or both.</td>
-</tr>
-</tbody>
-</table>
+<div class="admonition note">
+<p class="admonition-title">Google Play Game Services</p>
+<p>This guide may not 100% apply with Google Play Game Services, which uses a different authentication mechanism and may require additional setup.</p>
+</div>
+<h3 id="create-a-unity-project">Create a Unity Project<a class="headerlink" href="#create-a-unity-project" title="Permanent link">¶</a></h3>
+<p><strong>Set up the Beamable SDK for Unity</strong></p>
+<ul>
+<li>See Beamable's <a href="../../../../../getting-started/installing-beamable/">Getting Started</a> for more info</li>
+</ul>
+<p><strong>Switch platform to Android</strong></p>
+<ul>
+<li>Unity → File → Build Settings</li>
+<li>Select Android then press Switch Platform</li>
+</ul>
+<p><strong>Set Package Name</strong></p>
+<ul>
+<li>Unity → File → Build Settings → Player Settings</li>
+<li>Set your package name (e.g., <code>com.yourcompany.yourgame</code>)</li>
+<li>You will need this exact package name for Google Cloud Console setup</li>
+</ul>
+<h3 id="create-keystore-for-signing">Create KeyStore for Signing<a class="headerlink" href="#create-keystore-for-signing" title="Permanent link">¶</a></h3>
+<p><strong>Create a KeyStore</strong></p>
+<ul>
+<li>Go to Unity → File → Build Settings → Player Settings</li>
+<li>In Inspector, go to <strong>Publishing Settings</strong> and create the keystore (or unlock an existing one)</li>
+<li><strong>Important:</strong> Save the password securely</li>
+</ul>
+<p><strong>Record the KeyStore SHA-1 Fingerprint</strong></p>
+<ul>
+<li>Open a terminal where you created the keystore and run:
+   <div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>keytool<span class="w"> </span>-list<span class="w"> </span>-v<span class="w"> </span>-keystore<span class="w"> </span>&lt;your.keystore&gt;
+</code></pre></div></td></tr></tbody></table></div></li>
+<li>Look for the SHA-1 fingerprint in the output and save it</li>
+<li>If you don't have <code>keytool</code> installed, follow the instructions after installing Java to your machine: <a href="https://stackoverflow.com/questions/5488339/how-can-i-find-and-run-the-keytool">Here</a></li>
+</ul>
+<h3 id="create-google-cloud-console-oauth-20-credentials">Create Google Cloud Console - OAuth 2.0 Credentials<a class="headerlink" href="#create-google-cloud-console-oauth-20-credentials" title="Permanent link">¶</a></h3>
+<p><strong>Create a Project &amp; Enable APIs:</strong></p>
+<ul>
+<li>Go to <a href="https://console.cloud.google.com/">Google Cloud Console</a></li>
+<li>Create OR select an existing project</li>
+<li>Go to <strong>APIs &amp; Services</strong> → <strong>Enable APIs and Services</strong></li>
+<li>Enable the following API: <strong>Google+ API</strong></li>
+</ul>
+<p><strong>Create Credentials:</strong></p>
+<p>Go to <strong>API &amp; Services</strong> → <strong>Credentials</strong> → <strong>Create Credentials</strong> → <strong>OAuth client ID</strong></p>
+<p>You need to create <strong>TWO</strong> credentials:</p>
+<p><strong>Web Application Credentials:</strong></p>
+<ul>
+<li>Select "Web application" as the application type</li>
+<li>Give it a name</li>
+<li><strong>Important:</strong> Save the <strong>Client ID</strong> and <strong>Client Secret</strong> - you will need these later</li>
+</ul>
+<p><strong>Android Credentials:</strong></p>
+<ul>
+<li>Select "Android" as the application type</li>
+<li>Enter your exact package name (from Step 1.3)</li>
+<li>Enter the SHA-1 fingerprint (from Step 2.2)</li>
+<li>Save the Client ID just in case it is necessary later</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>You will need both Web application credentials AND platform-specific credentials for Android or iOS or both.</p>
+</div>
 <hr>
 <h3 id="configure-unity-project">Configure Unity Project<a class="headerlink" href="#configure-unity-project" title="Permanent link">¶</a></h3>
-<p>In orther to setup the Unity Project you need to edit gradle file.</p>
+<p>Beamable's Google SignIn integration requires <code>play-services-auth</code> in your Android build.</p>
+<h4 id="enable-custom-android-gradle-template">Enable Custom Android Gradle Template<a class="headerlink" href="#enable-custom-android-gradle-template" title="Permanent link">¶</a></h4>
 <ul>
-<li>Open the <code>.gradle</code> file located in your project at <code>Plugins/Android/mainTemplate.gradle</code>. Look for the <code>dependencies</code> block and add <code>play-services-auth</code>.</li>
+<li>Change platform to Android (if not already done)</li>
+<li>Enable Custom Gradle Template: <strong>Project Settings</strong> → <strong>Player</strong> → <strong>Other Settings</strong> → <strong>Custom Gradle Template</strong></li>
+<li>This will generate a file at <code>Plugins/Android/mainTemplate.gradle</code></li>
 </ul>
-<p>See the code sample below.</p>
+<h4 id="add-play-services-auth-dependency">Add play-services-auth Dependency<a class="headerlink" href="#add-play-services-auth-dependency" title="Permanent link">¶</a></h4>
+<ul>
+<li>Open the <code>.gradle</code> file located in your project at <code>Plugins/Android/mainTemplate.gradle</code></li>
+<li>Look for the <code>dependencies</code> block</li>
+<li>Add <code>play-services-auth</code> as shown below:</li>
+</ul>
 <div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.google.android.gms:play-services-auth:18.1.0'
+    implementation 'com.google.android.gms:play-services-auth:21.5.0'
     **DEPS**
 }
 </code></pre></div></td></tr></tbody></table></div>
@@ -7930,15 +8053,15 @@
 <tbody>
 <tr>
 <td><strong>1. Install the Google Sign-In SDK</strong></td>
-<td>• Download Google Sign-In SDK version 5.0.0 or newer from <a href="https://developers.google.com/identity/sign-in/ios/sdk">https://developers.google.com/identity/sign-in/ios/sdk</a><br>• Create the <code>Assets/Plugins/iOS</code> folder in your Unity project if it does not already exist<br>• Extract the SDK archive, then copy <code>GoogleSignIn.framework</code> and <code>GoogleSignInDependencies.framework</code> to your <code>Assets/Plugins/iOS</code> folder</td>
+<td>Download Google Sign-In SDK version 5.0.0 or newer from <a href="https://developers.google.com/identity/sign-in/ios/sdk">https://developers.google.com/identity/sign-in/ios/sdk</a><br><br>Create the <code>Assets/Plugins/iOS</code> folder in your Unity project if it does not already exist<br><br>Extract the SDK archive, then copy <code>GoogleSignIn.framework</code> and <code>GoogleSignInDependencies.framework</code> to your <code>Assets/Plugins/iOS</code> folder</td>
 </tr>
 <tr>
 <td><strong>2. Add the URL scheme to your project</strong></td>
-<td>• Your custom URL scheme is a reversed version of your iOS Client ID: <code>com.googleusercontent.apps.&lt;your-app-id&gt;</code><br>• Unity -&gt; File -&gt; Build Settings -&gt; Player Settings... -&gt; Other Settings<br>• Supported URL schemes: set size to 1 and enter your reversed ID as Element 0</td>
+<td>Your custom URL scheme is a reversed version of your iOS Client ID: <code>com.googleusercontent.apps.&lt;your-app-id&gt;</code><br><br>Unity → File → Build Settings → Player Settings → Other Settings<br><br>Supported URL schemes: set size to 1 and enter your reversed ID as Element 0</td>
 </tr>
 <tr>
 <td><strong>3. Ensure app delegate handles <code>openURL</code></strong></td>
-<td>• The app delegate for your app should handle <code>application:openURL:options:</code> and invoke the <code>handleURL</code> method of <code>GIDSignIn</code>.</td>
+<td>The app delegate for your app should handle <code>application:openURL:options:</code> and invoke the <code>handleURL</code> method of <code>GIDSignIn</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -8084,9 +8207,11 @@
 <li>Returning Player linking their account with Google</li>
 </ul>
 <p>We can account for this by determining if we need to:</p>
-<p>Switch Player - Player wants to switch credentials to a new Player<br>
-Create New Player - Player wants to Create a new Player account<br>
-Attach To Current Player - Player wants to Attach this 3rd Party Login to an already authenticated Player.</p>
+<ul>
+<li><strong>Switch Player</strong> - Player wants to switch credentials to a new Player</li>
+<li><strong>Create New Player</strong> - Player wants to Create a new Player account</li>
+<li><strong>Attach To Current Player</strong> - Player wants to Attach this 3rd Party Login to an already authenticated Player</li>
+</ul>
 <div class="admonition info">
 <p class="admonition-title">Beamable SDK Initialization</p>
 <p>The following assumes that you have initialized the Beamable SDK and it is stored in _beamContext variable.</p>
