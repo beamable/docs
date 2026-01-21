@@ -4,40 +4,100 @@ The purpose of this guide is for game makers to use Google Sign-In with the Beam
 
 Beamable integrates with Google's Sign-In service to provide seamless authentication for your game. Google's [Sign-In](https://developers.google.com/identity/sign-in/web/sign-in) manages the OAuth 2.0 flow and token lifecycle, simplifying your integration with Google APIs. A user always has the option to revoke access to an application at any time.
 
-!!! info "Prerequisites"
-    Before Google Sign-In will work properly, the Unity project must be configured to support Google as a third-party authentication provider.
-
-
 ## Getting Started
 
 This guide provides step-by-step instructions to set up Google Sign-In with Beamable's Accounts feature in a Unity project.
 
-### Prerequisites
+!!! note "Google Play Game Services"
+    This guide may not 100% apply with Google Play Game Services, which uses a different authentication mechanism and may require additional setup.
 
-This guide assumes the following prerequisites have been completed:
+### Create a Unity Project
 
-| Steps | Details |
-| --- | --- |
-| **1. Unity: Set up the Beamable SDK for Unity** | • See Beamable's [Getting Started](../../../../getting-started/installing-beamable.md) for more info |
-| **2. Unity: Switch platform to Android** | • Unity → File → Build Settings<br>• Select Android then press Switch Platform |
-| **3. Unity: Establish Keystore for Signing** | • Unity → File → Build Settings<br>• Press Player Settings...<br>• In Inspector, go to Publishing Settings and create the keystore (or unlock an existing one). |
-| **4. Android: Set up the corresponding Google Cloud Platform application with OAuth 2.0 credentials** | • See Google's [start-integrating#configure_a_project](https://developers.google.com/identity/sign-in/android/start-integrating#configure_a_project) for more info<br>**Note:** You will need both Web application credentials AND platform specific credentials for Android or iOS or both. |
+**Set up the Beamable SDK for Unity**
+
+   - See Beamable's [Getting Started](../../../../getting-started/installing-beamable.md) for more info
+
+**Switch platform to Android**
+
+   - Unity → File → Build Settings
+   - Select Android then press Switch Platform
+
+**Set Package Name**
+
+   - Unity → File → Build Settings → Player Settings
+   - Set your package name (e.g., `com.yourcompany.yourgame`)
+   - You will need this exact package name for Google Cloud Console setup
+
+### Create KeyStore for Signing
+
+**Create a KeyStore**
+
+   - Go to Unity → File → Build Settings → Player Settings
+   - In Inspector, go to **Publishing Settings** and create the keystore (or unlock an existing one)
+   - **Important:** Save the password securely
+
+**Record the KeyStore SHA-1 Fingerprint**
+
+   - Open a terminal where you created the keystore and run:
+   ```bash
+   keytool -list -v -keystore <your.keystore>
+   ```
+   - Look for the SHA-1 fingerprint in the output and save it
+   - If you don't have `keytool` installed, follow the instructions after installing Java to your machine: [Here](https://stackoverflow.com/questions/5488339/how-can-i-find-and-run-the-keytool)
+
+### Create Google Cloud Console - OAuth 2.0 Credentials
+
+**Create a Project & Enable APIs:**
+
+   - Go to [Google Cloud Console](https://console.cloud.google.com/)
+   - Create OR select an existing project
+   - Go to **APIs & Services** → **Enable APIs and Services**
+   - Enable the following API: **Google+ API**
+
+**Create Credentials:**
+
+Go to **API & Services** → **Credentials** → **Create Credentials** → **OAuth client ID**
+
+You need to create **TWO** credentials:
+
+**Web Application Credentials:**
+
+   - Select "Web application" as the application type
+   - Give it a name
+   - **Important:** Save the **Client ID** and **Client Secret** - you will need these later
+
+**Android Credentials:**
+
+   - Select "Android" as the application type
+   - Enter your exact package name (from Step 1.3)
+   - Enter the SHA-1 fingerprint (from Step 2.2)
+   - Save the Client ID just in case it is necessary later
+
+!!! warning "Important"
+    You will need both Web application credentials AND platform-specific credentials for Android or iOS or both.
 
 ---
 
 ### Configure Unity Project
 
-In orther to setup the Unity Project you need to edit gradle file.
+Beamable's Google SignIn integration requires `play-services-auth` in your Android build.
 
-- Open the `.gradle` file located in your project at `Plugins/Android/mainTemplate.gradle`. Look for the `dependencies` block and add `play-services-auth`.
+#### Enable Custom Android Gradle Template
 
-See the code sample below.
+- Change platform to Android (if not already done)
+- Enable Custom Gradle Template: **Project Settings** → **Player** → **Other Settings** → **Custom Gradle Template**
+- This will generate a file at `Plugins/Android/mainTemplate.gradle`
 
+#### Add play-services-auth Dependency
+
+- Open the `.gradle` file located in your project at `Plugins/Android/mainTemplate.gradle`
+- Look for the `dependencies` block
+- Add `play-services-auth` as shown below:
 
 ```gradle
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.google.android.gms:play-services-auth:18.1.0'
+    implementation 'com.google.android.gms:play-services-auth:21.5.0'
     **DEPS**
 }
 
@@ -51,9 +111,9 @@ When using Google Sign-In on Apple, the Login Flow depends on version 5 of Googl
 
 | Step | Detail |
 | --- | --- |
-| **1. Install the Google Sign-In SDK** | • Download Google Sign-In SDK version 5.0.0 or newer from [https://developers.google.com/identity/sign-in/ios/sdk](https://developers.google.com/identity/sign-in/ios/sdk)<br>• Create the `Assets/Plugins/iOS` folder in your Unity project if it does not already exist<br>• Extract the SDK archive, then copy `GoogleSignIn.framework` and `GoogleSignInDependencies.framework` to your `Assets/Plugins/iOS` folder |
-| **2. Add the URL scheme to your project** | • Your custom URL scheme is a reversed version of your iOS Client ID: `com.googleusercontent.apps.<your-app-id>`<br>• Unity -> File -> Build Settings -> Player Settings... -> Other Settings<br>• Supported URL schemes: set size to 1 and enter your reversed ID as Element 0 |
-| **3. Ensure app delegate handles `openURL`** | • The app delegate for your app should handle `application:openURL:options:` and invoke the `handleURL` method of `GIDSignIn`. |
+| **1. Install the Google Sign-In SDK** | Download Google Sign-In SDK version 5.0.0 or newer from [https://developers.google.com/identity/sign-in/ios/sdk](https://developers.google.com/identity/sign-in/ios/sdk)<br><br>Create the `Assets/Plugins/iOS` folder in your Unity project if it does not already exist<br><br>Extract the SDK archive, then copy `GoogleSignIn.framework` and `GoogleSignInDependencies.framework` to your `Assets/Plugins/iOS` folder |
+| **2. Add the URL scheme to your project** | Your custom URL scheme is a reversed version of your iOS Client ID: `com.googleusercontent.apps.<your-app-id>`<br><br>Unity → File → Build Settings → Player Settings → Other Settings<br><br>Supported URL schemes: set size to 1 and enter your reversed ID as Element 0 |
+| **3. Ensure app delegate handles `openURL`** | The app delegate for your app should handle `application:openURL:options:` and invoke the `handleURL` method of `GIDSignIn`. |
 
 #### Method Swizzling for iOS URL Handling
 
@@ -158,9 +218,9 @@ Now that we have the Google credential (token), we need to account for 3 differe
 
 We can account for this by determining if we need to:
 
-Switch Player - Player wants to switch credentials to a new Player  
-Create New Player - Player wants to Create a new Player account  
-Attach To Current Player - Player wants to Attach this 3rd Party Login to an already authenticated Player.
+- **Switch Player** - Player wants to switch credentials to a new Player
+- **Create New Player** - Player wants to Create a new Player account
+- **Attach To Current Player** - Player wants to Attach this 3rd Party Login to an already authenticated Player
 
 !!! info "Beamable SDK Initialization"
     The following assumes that you have initialized the Beamable SDK and it is stored in _beamContext variable.
@@ -227,5 +287,5 @@ if(shouldAttachToCurrentUser)
 
 ## Next Steps
 
-* Players can edit account details (name, avatar).
-* Players can switch accounts or sign in with various methods. See the [Identity](../identity.md) feature page for more info.
+- Players can edit account details (name, avatar).
+- Players can switch accounts or sign in with various methods. See the [Identity](../identity.md) feature page for more info.
