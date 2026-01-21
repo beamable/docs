@@ -49,6 +49,80 @@ The `MySample` class included as the generic type in the `IFederatedLogin` inter
 [FederationId("myId")]
 public class MySample : IFederationId { }
 ```
+
+### Federated Login
+
+This feature allows you to implement OAuth2, OpenID Connect, or custom external authentication providers within Beamable. It also supports two-way, challenge-based flows for PKI-based authentication, commonly used in Web3/blockchain scenarios.
+
+#### Use Cases
+
+- **Blockchain Wallet Authentication**: Attach a wallet to a player's account and use it for secure authentication.
+- **External Provider Integration**: Integrate with providers like **Auth0** to provide a Single Sign-On (SSO) experience for your game.
+
+#### Implementation
+
+To add support for federated login, implement the `IFederatedLogin<FederationId>` interface. This interface requires the implementation of the `Authenticate` method, which is used to verify a player's identity via the federated provider. This method supports both standard single-step authentication and two-step challenge-response flows.
+
+It can be used for 2 step verification as well as regular authentication.
+
+!!! info "User Id generation"
+
+    Ensure that User IDs are generated deterministically. For a given input from the provider, the resulting User ID must always be the same. Avoid using `Guid.NewGuid().ToString()`, as this creates a new account for every login attempt. Instead, use a unique identifier provided by the external auth provider (e.g., a subject ID or public key).
+
+#### Simple Implementation (Single-Step)
+
+This implementation assumes the external provider gives a token that can be validated immediately.
+
+```csharp
+public async Promise<FederatedAuthenticationResponse> Authenticate(string token, string challenge, string solution)
+{
+	var externalId = await CallExternalAuthProvider(token);
+	return new FederatedAuthenticationResponse { user_id = externalId };
+}
+
+async Promise<string> CallExternalAuthProvider(string token)
+{
+    // Call external auth provider API here
+    return token;
+}
+```
+
+#### Two-Step Verification (Challenge-Response)
+
+For scenarios like [Solana/Phantom wallet authentication](https://github.com/beamable/solana-example/tree/develop/Packages/com.beamable.solana/Runtime/BeamableServices~/SolanaFederation), you must issue a challenge for the client to sign.
+
+```csharp
+public Promise<FederatedAuthenticationResponse> Authenticate(string token, string challenge, string solution)
+{
+    if (string.IsNullOrEmpty(token))
+    {
+        BeamableLogger.LogError("We didn't receive a token (public key)");
+        throw new InvalidAuthenticationRequest("Token (public key) is required");
+    }
+
+    if (!string.IsNullOrEmpty(challenge) && !string.IsNullOrEmpty(solution))
+    {
+        // Verify the solution
+        if (AuthenticationService.IsSignatureValid(token, challenge, solution))
+            // User identity is confirmed
+            return Promise<FederatedAuthenticationResponse>.Successful(new FederatedAuthenticationResponse
+                { user_id = token });
+        // Signature is invalid, user identity isn't confirmed
+        BeamableLogger.LogWarning(
+            "Invalid signature {signature} for challenge {challenge} and wallet {wallet}", solution,
+            challenge, token);
+        throw new UnauthorizedException();
+    }
+
+    // Generate a challenge
+    return Promise<FederatedAuthenticationResponse>.Successful(new FederatedAuthenticationResponse
+    {
+        challenge = $"Please sign this random message to authenticate, {Guid.NewGuid()}",
+        challenge_ttl = Configuration.AuthenticationChallengeTtlSec
+    });
+}
+```
+
 ---
 
 ## CLI Commands
