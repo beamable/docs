@@ -92,7 +92,7 @@ async Promise<string> CallExternalAuthProvider(string token)
 For scenarios like [Solana/Phantom wallet authentication](https://github.com/beamable/solana-example/tree/develop/Packages/com.beamable.solana/Runtime/BeamableServices~/SolanaFederation), you must issue a challenge for the client to sign.
 
 ```csharp
-public Promise<FederatedAuthenticationResponse> Authenticate(string token, string challenge, string solution)
+public async Promise<FederatedAuthenticationResponse> Authenticate(string token, string challenge, string solution)
 {
     if (string.IsNullOrEmpty(token))
     {
@@ -105,8 +105,8 @@ public Promise<FederatedAuthenticationResponse> Authenticate(string token, strin
         // Verify the solution
         if (AuthenticationService.IsSignatureValid(token, challenge, solution))
             // User identity is confirmed
-            return Promise<FederatedAuthenticationResponse>.Successful(new FederatedAuthenticationResponse
-                { user_id = token });
+            return new FederatedAuthenticationResponse
+                { user_id = token };
         // Signature is invalid, user identity isn't confirmed
         BeamableLogger.LogWarning(
             "Invalid signature {signature} for challenge {challenge} and wallet {wallet}", solution,
@@ -115,11 +115,11 @@ public Promise<FederatedAuthenticationResponse> Authenticate(string token, strin
     }
 
     // Generate a challenge
-    return Promise<FederatedAuthenticationResponse>.Successful(new FederatedAuthenticationResponse
+    return new FederatedAuthenticationResponse
     {
         challenge = $"Please sign this random message to authenticate, {Guid.NewGuid()}",
         challenge_ttl = Configuration.AuthenticationChallengeTtlSec
-    });
+    };
 }
 ```
 
