@@ -68,7 +68,7 @@ You can see bellow the flows when getting and granting the Inventory Items with 
 
 ### `IFederatedInventory<T>` interface
 
-TO use the Federated Inventory you should start by implementing the `IFederatedInventory<T>` interface in your microservice. Be aware that this interface also implements `IFederatedLogin<T>` because federated authentication is a prerequisite, as mentioned earlier. `T` must be your implementation of the `IThirdPartyCloudIdentity` - a very simple interface that requires you to define a unique name/namespace for your federation. This enables you to have multiple federation implementations in a single microservice.
+To use the Federated Inventory you should start by implementing the `IFederatedInventory<T>` interface in your microservice. Be aware that this interface also implements `IFederatedLogin<T>` because federated authentication is a prerequisite, as mentioned earlier. `T` must be your implementation of the `IThirdPartyCloudIdentity` - a very simple interface that requires you to define a unique name/namespace for your federation. This enables you to have multiple federation implementations in a single microservice.
 
 ```csharp
 public class MyFederationIdentity : IThirdPartyCloudIdentity
@@ -98,7 +98,7 @@ public class MyFederationService : Microservice, IFederatedInventory<MyFederatio
 
 ### `GetInventoryState` implementation
 
-You can do any custom logic here. For example, you could AI generate some items, load items from a smart contract, use microstorage, or do anything that satisfies your specific requirements.  
+You can do any custom logic here. For example, you could AI generate some items, load items from a smart contract, use microstorage, or do anything that satisfies your specific requirements.
 Here's a dummy example that will return some static items and currency, just to showcase the response structure:
 
 ```csharp
@@ -159,7 +159,7 @@ public Promise<FederatedInventoryProxyState> GetInventoryState(string id)
 }
 ```
 
-The important thing to emphasize here is the `id` argument. It's the same external account id that you return from the `Authenticate` method. If you want to access the player's id in the Beamable system, you can use `this.Context.UserId`  
+The important thing to emphasize here is the `id` argument. It's the same external account id that you return from the `Authenticate` method. If you want to access the player's id in the Beamable system, you can use `this.Context.UserId`
 As an example, you can use the wallet address as an external user identifier when implementing blockchain federation.
 
 ### `StartInventoryTransaction` implementation
