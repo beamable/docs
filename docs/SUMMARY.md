@@ -1,2 +1,2 @@
-﻿- [Beamable Portal](portal/)
-- [Beamable CLI](cli/)
+﻿- [Website](https://beamable.com)
+- [Support](https://beamable.com/support)
