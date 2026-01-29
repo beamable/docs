@@ -54,6 +54,11 @@
     }
   },
   {
+    "version": "Home",
+    "title": "Home",
+    "aliases": []
+  },
+  {
     "version": "CLI-6.2",
     "title": "CLI-6.2",
     "aliases": [
