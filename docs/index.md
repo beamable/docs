@@ -47,7 +47,7 @@ This is the official comprehensive guide to utilizing the entire suite of Beamab
 
 # :material-file-document-multiple: Legacy SDK Versions?
 
-If you're using Unity's Beamable SDK 2.0 or below please check our **[Legacy Documentation](getting-started/first-project.md)**
+If you're using Unity's Beamable SDK 2.0 or below please check our **[Legacy Documentation](https://docs.beamable.com/docs/beamable-overview)**
 
 
 
