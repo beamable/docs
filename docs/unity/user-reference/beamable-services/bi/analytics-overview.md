@@ -35,25 +35,25 @@ These KPI's, defined below, are meant to help you in the following ways:
 
 | KPI | Detail |
 |-----|--------|
-| platform_session_install | detect when a player is first created |
-| platform_session_daily | detect daily activity of the player, good for measuring retention |
-| platform_session_session | provides you with session data |
-| platform_session_session_end | provides you with end of session data |
-| platform_ua_attribution | provides you with user acquisition data related to campaigns |
-| platform_cohort_join | data to identify when a player joins a cohort (segment) |
-| platform_commerce_external_revenue | data to identify when a player makes real money purchases from an external source |
-| platform_commerce_hard_purchase | data to identify when a player makes real money purchases (Hard Currency) |
-| platform_commerce_virtual_purchase | data to identify when a player spends virtual currency |
-| platform_commerce_failed_purchase | data to identify when purchases have failed |
-| platform_entitlement_entitlement | Player has been granted an entitlement |
-| platform_stats_stats | player stat has been modified |
-| platform_group_group_create | group has been created |
-| platform_group_group_invite | player has been invited to a group |
-| platform_group_group_join | player has joined a group |
-| platform_group_group_leave | player has left a group |
-| platform_group_group_application | player has applied to join a group |
-| platform_administration_change_email | player has changed their email |
-| platform_administration_reset_password | player has reset their password |
+| `platform_session_install` | detect when a player is first created |
+| `platform_session_daily` | detect daily activity of the player, good for measuring retention |
+| `platform_session_session` | provides you with session data |
+| `platform_session_session_end` | provides you with end of session data |
+| `platform_ua_attribution` | provides you with user acquisition data related to campaigns |
+| `platform_cohort_join` | data to identify when a player joins a cohort (segment) |
+| `platform_commerce_external_revenue` | data to identify when a player makes real money purchases from an external source |
+| `platform_commerce_hard_purchase` | data to identify when a player makes real money purchases (Hard Currency) |
+| `platform_commerce_virtual_purchase` | data to identify when a player spends virtual currency |
+| `platform_commerce_failed_purchase` | data to identify when purchases have failed |
+| `platform_entitlement_entitlement` | Player has been granted an entitlement |
+| `platform_stats_stats` | player stat has been modified |
+| `platform_group_group_create` | group has been created |
+| `platform_group_group_invite` | player has been invited to a group |
+| `platform_group_group_join` | player has joined a group |
+| `platform_group_group_leave` | player has left a group |
+| `platform_group_group_application` | player has applied to join a group |
+| `platform_administration_change_email` | player has changed their email |
+| `platform_administration_reset_password` | player has reset their password |
 
 ## Game Maker User Experience
 
@@ -291,43 +291,43 @@ SELECT * FROM information_schema.columns WHERE table_schema = '[your de_ID goes 
 
 The above query will yield the following results. And as you can see the information provided in this table is immensely valuable. Beamable by default calculates a bunch of information for you making it easy to extract MAU, DAU, Session Length, Spending habits and more.
 
-| Column Name                  | Data Type    | Detail                                                                                |
-| :--------------------------- | :----------- | :------------------------------------------------------------------------------------ |
-| event_id                     | bigint       | Id of the event                                                                       |
-| act_date                     | varchar(256) | Date of the event as a string                                                         |
-| act_time                     | timestamp    | timestamp of the event                                                                |
-| gamer_tag                    | bigint       | PlayerId of the player                                                                |
-| e.spend3d                    | varchar(256) | How much the player has spent in the last 3 days                                      |
-| e.sessions14d                | varchar(256) | how many sessions the player has had in the last 14 days                              |
-| e.corrid                     | varchar(256) | a correlation id which can be used across tables                                      |
-| e.sessiondays                | varchar(256) | has played a session at least once for a total of N days.  These are not consecutive. |
-| e.spendtotal                 | varchar(256) | total amount spent                                                                    |
-| e.sessions28d                | varchar(256) | how many session the player has had in the last 28 days                               |
-| e.device.platform            | varchar(256) | what platform they were using when this event was written                             |
-| e.sessionstotal              | varchar(256) | total number of sessions                                                              |
-| e.purchasestotal             | varchar(256) | total purchases                                                                       |
-| e.spend7d                    | varchar(256) | total amount spent in the last 7 days                                                 |
-| e.timebetweensessionsminutes | varchar(256) | average time between sessions in minutes                                              |
-| e.firstdailysession          | varchar(256) | was this event the first daily session?                                               |
-| e.sessions3d                 | varchar(256) | how many sessions in the last 3 days                                                  |
-| e.purchases7d                | varchar(256) | how many purchases in the last 7 days                                                 |
-| e.dayssinceinstall           | varchar(256) | how many days since the player installed                                              |
-| e.sessions7d                 | varchar(256) | how many session in the last 7 days                                                   |
-| e.spend28d                   | varchar(256) | how much have they spent in the last 28 days                                          |
-| e.ip                         | varchar(256) | the ip address of the player for this session event                                   |
-| e.purchases14d               | varchar(256) | total purchases in the last 14 days                                                   |
-| e.purchases28d               | varchar(256) | total purchases in the last 28 days                                                   |
-| e.purchases3d                | varchar(256) | total purchases in the last 3 days                                                    |
-| e.spend14                    | varchar(256) | total spend in the last 14 days                                                       |
+| Column Name                    | Data Type    | Detail                                                                                |
+| :----------------------------- | :----------- | :------------------------------------------------------------------------------------ |
+| `event_id`                     | bigint       | Id of the event                                                                       |
+| `act_date`                     | varchar(256) | Date of the event as a string                                                         |
+| `act_time`                     | timestamp    | timestamp of the event                                                                |
+| `gamer_tag`                    | bigint       | PlayerId of the player                                                                |
+| `e.spend3d`                    | varchar(256) | How much the player has spent in the last 3 days                                      |
+| `e.sessions14d`                | varchar(256) | how many sessions the player has had in the last 14 days                              |
+| `e.corrid`                     | varchar(256) | a correlation id which can be used across tables                                      |
+| `e.sessiondays`                | varchar(256) | has played a session at least once for a total of N days.  These are not consecutive. |
+| `e.spendtotal`                 | varchar(256) | total amount spent                                                                    |
+| `e.sessions28d`                | varchar(256) | how many session the player has had in the last 28 days                               |
+| `e.device.platform`            | varchar(256) | what platform they were using when this event was written                             |
+| `e.sessionstotal`              | varchar(256) | total number of sessions                                                              |
+| `e.purchasestotal`             | varchar(256) | total purchases                                                                       |
+| `e.spend7d`                    | varchar(256) | total amount spent in the last 7 days                                                 |
+| `e.timebetweensessionsminutes` | varchar(256) | average time between sessions in minutes                                              |
+| `e.firstdailysession`          | varchar(256) | was this event the first daily session?                                               |
+| `e.sessions3d`                 | varchar(256) | how many sessions in the last 3 days                                                  |
+| `e.purchases7d`                | varchar(256) | how many purchases in the last 7 days                                                 |
+| `e.dayssinceinstall`           | varchar(256) | how many days since the player installed                                              |
+| `e.sessions7d`                 | varchar(256) | how many session in the last 7 days                                                   |
+| `e.spend28d`                   | varchar(256) | how much have they spent in the last 28 days                                          |
+| `e.ip`                         | varchar(256) | the ip address of the player for this session event                                   |
+| `e.purchases14d`               | varchar(256) | total purchases in the last 14 days                                                   |
+| `e.purchases28d`               | varchar(256) | total purchases in the last 28 days                                                   |
+| `e.purchases3d`                | varchar(256) | total purchases in the last 3 days                                                    |
+| `e.spend14`                    | varchar(256) | total spend in the last 14 days                                                       |
 
 ### What Tables are available?
 
 As you use Beamable, more and more data will be available. That means more tables will also be available. By default there are a select few tables available.
 
-- platform
-- platform_session_session
-- platform_session_session_end
-- platform_session_install
+- `platform`
+- `platform_session_session`
+- `platform_session_session_end`
+- `platform_session_install`
 
 But as you use Beamable features and as you write custom Telemetry events more data and tables will automatically be available. So it's important that you query to see what tables are available from time to time. The following query will provide you with a list of tables that are available to you at any given point in time.
 
