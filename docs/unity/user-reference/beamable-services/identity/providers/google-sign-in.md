@@ -1,6 +1,6 @@
 # Google Sign-In
 
-The purpose of this guide is for game makers to use Google Sign-In with the Beamable Accounts feature.
+The purpose of this guide is to help game makers use Google Sign-In with the Beamable Accounts feature.
 
 Beamable integrates with Google's Sign-In service to provide seamless authentication for your game. Google's [Sign-In](https://developers.google.com/identity/sign-in/web/sign-in) manages the OAuth 2.0 flow and token lifecycle, simplifying your integration with Google APIs. A user always has the option to revoke access to an application at any time.
 
@@ -9,7 +9,7 @@ Beamable integrates with Google's Sign-In service to provide seamless authentica
 This guide provides step-by-step instructions to set up Google Sign-In with Beamable's Accounts feature in a Unity project.
 
 !!! note "Google Play Game Services"
-    This guide may not 100% apply with Google Play Game Services, which uses a different authentication mechanism and may require additional setup.
+    This guide covers Google Sign-In using OAuth. It does not apply to Google Play Game Services (GPGS), which uses a different authentication flow.
 
 ### Create a Unity Project
 
@@ -20,13 +20,13 @@ This guide provides step-by-step instructions to set up Google Sign-In with Beam
 **Switch platform to Android**
 
    - Unity → File → Build Settings
-   - Select Android then press Switch Platform
+   - Select Android, then press Switch Platform
 
 **Set Package Name**
 
    - Unity → File → Build Settings → Player Settings
    - Set your package name (e.g., `com.yourcompany.yourgame`)
-   - You will need this exact package name for Google Cloud Console setup
+   - You will need this exact package name for the Google Cloud Console setup
 
 ### Create KeyStore for Signing
 
@@ -43,7 +43,7 @@ This guide provides step-by-step instructions to set up Google Sign-In with Beam
    keytool -list -v -keystore <your.keystore>
    ```
    - Look for the SHA-1 fingerprint in the output and save it
-   - If you don't have `keytool` installed, follow the instructions after installing Java to your machine: [Here](https://stackoverflow.com/questions/5488339/how-can-i-find-and-run-the-keytool)
+   - If you don't have `keytool` installed, follow the instructions after installing Java on your machine: [Here](https://stackoverflow.com/questions/5488339/how-can-i-find-and-run-the-keytool)
 
 ### Create Google Cloud Console - OAuth 2.0 Credentials
 
@@ -80,7 +80,7 @@ You need to create **TWO** credentials:
 
 ### Configure Unity Project
 
-Beamable's Google SignIn integration requires `play-services-auth` in your Android build.
+Beamable's Google Sign-In integration requires `play-services-auth` in your Android build.
 
 #### Enable Custom Android Gradle Template
 
@@ -219,7 +219,7 @@ Now that we have the Google credential (token), we need to account for 3 differe
 We can account for this by determining if we need to:
 
 - **Switch Player** - Player wants to switch credentials to a new Player
-- **Create New Player** - Player wants to Create a new Player account
+- **Create New Player** - Player wants to create a new Player account
 - **Attach To Current Player** - Player wants to Attach this 3rd Party Login to an already authenticated Player
 
 !!! info "Beamable SDK Initialization"
@@ -260,7 +260,7 @@ if(shouldSwitchUsers)
 
 ### Create New User
 
-If we want to create a new user then apply the third party credentials, we can use the following calls from AuthService.
+If we want to create a new user and apply the third-party credentials, we can use the following calls from AuthService.
 
 ```csharp
 if(shouldCreateUser)
