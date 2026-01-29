@@ -2,7 +2,7 @@ site_name: Beamable Documentation
 site_url: https://beamable.github.io/Docs/
 theme:
   name: material
-  logo: assets/images/logo.png
+  logo: assets/images/logoSmall.png
   favicon: assets/images/beamable-badge.png
   features:
     - header.autohide
