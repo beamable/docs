@@ -2,7 +2,7 @@
 
 The Account Management Lightbeam can be opened through the Beam Library window.
 
-There are no prerequisites to use this Lightbeam. This sample will allow you create multiple accounts, optionally attach email & password credentials, and configure the accounts' alias and avatar.
+There are no prerequisites to use this Lightbeam. This sample will allow you create multiple accounts, optionally attach email & password credentials, and configure the accounts' aliases and avatars.
 
 !!! tip "Read the SDK Docs"
     Find more information about the Accounts SDK by reading the [Username / Password](../user-reference/beamable-services/identity/username-password.md) Section
