@@ -36,7 +36,7 @@ Let's say you already have a TunaService that holds all your user's data. We wil
 
 ```csharp
 [Microservice("AuthenticationMicroservice")]
-public class AuthenticationMicroservice : IFederatedLogin<TunaCloudIdentity>, IFederatedLogin<HaddockCloudIdentity>
+public class AuthenticationMicroservice : IFederatedLogin<TunaCloudIdentity>, IFederatedLogin<HaddockCloudIdentity>, Microservice
 {
   public async Promise<FederatedAuthenticationResponse> IFederatedLogin<TunaCloudIdentity>.Authenticate(string token, string challenge, string solution)
   {
@@ -56,7 +56,45 @@ public class AuthenticationMicroservice : IFederatedLogin<TunaCloudIdentity>, IF
 }
 ```
 
+!!! info "User Id generation"
+
+  Ensure that User IDs are generated deterministically. For a given input from the provider, the resulting User ID must always be the same. Avoid using `Guid.NewGuid().ToString()`, as this creates a new account for every login attempt. Instead, use a unique identifier provided by the external auth provider (e.g., a subject ID or public key).
+
+
 In this example, we didn't use the "challenge" and "solution" arguments. The standard use case for challenges is wallet authentication. If a client sends us a wallet address as a token, the only way to verify the ownership of that wallet is to issue a challenge, and require a user to sign that challenge using their private key. [Solana/Phantom wallet authentication](https://github.com/beamable/solana-example) is an example that uses a challenge.
+
+
+```csharp
+public async Promise<FederatedAuthenticationResponse> Authenticate(string token, string challenge, string solution)
+{
+    if (string.IsNullOrEmpty(token))
+    {
+        BeamableLogger.LogError("We didn't receive a token (public key)");
+        throw new InvalidAuthenticationRequest("Token (public key) is required");
+    }
+
+    if (!string.IsNullOrEmpty(challenge) && !string.IsNullOrEmpty(solution))
+    {
+        // Verify the solution
+        if (AuthenticationService.IsSignatureValid(token, challenge, solution))
+            // User identity is confirmed
+            return new FederatedAuthenticationResponse
+                { user_id = token };
+        // Signature is invalid, user identity isn't confirmed
+        BeamableLogger.LogWarning(
+            "Invalid signature {signature} for challenge {challenge} and wallet {wallet}", solution,
+            challenge, token);
+        throw new UnauthorizedException();
+    }
+
+    // Generate a challenge
+    return new FederatedAuthenticationResponse
+    {
+        challenge = $"Please sign this random message to authenticate, {Guid.NewGuid()}",
+        challenge_ttl = Configuration.AuthenticationChallengeTtlSec
+    };
+}
+```
 
 ### Attaching an external identity to a player (CLIENT)
 
