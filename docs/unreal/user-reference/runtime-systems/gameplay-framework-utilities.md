@@ -2,7 +2,7 @@
 
 To streamline the integration between the Beamable SDK and the Unreal Engine Gameplay Framework, we've provided a set of utilities and helper functions. These tools are designed to simplify and accelerate your workflow when combining both systems.
 
-Beamable introduces the concept of [User Slots](user-slots.md), which are used to manage named local players. On the Unreal side, **local players** refer to users who are directly connected to the game instance, while **remote players** are those connected via the network.
+Beamable introduces the concept of [User Slots](user-slots.md), which are used to manage named local players. On the Unreal side, **local players** refers to users who are directly connected to the game instance, while **remote players** are those connected via the network.
 
 To help bridge the gap between these two models, Beamable automatically handles the mapping of local and remote players on the **client side**. However, if your game includes a **dedicated server**, some additional setup may be required to ensure this mapping works correctly on the server as well.
 
@@ -32,6 +32,6 @@ This step is required to correctly map Beamable users to Unreal's gameplay frame
 
 ## Enable/Disable the Feature
 
-If you would like to enable/disable the automatically link between the Game Framework and Beamable, you can go to `Project Settings > Beamable Runtime > Enable Gameplay Framework Integration`. 
+If you would like to enable/disable the automatically created link between the Game Framework and Beamable, you can go to `Project Settings > Beamable Runtime > Enable Gameplay Framework Integration`. 
 
 ![PlayerState Utility](../../../media/imgs/beamruntime-enable-gameplayframework.png)
