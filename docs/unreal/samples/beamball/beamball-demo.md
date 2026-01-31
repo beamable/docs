@@ -2,7 +2,7 @@
 
 ![beamable-release.gif](../../../media/imgs/beamable-release.gif)
 
-This demo showcases how you can use the **Beamable Unreal SDK**'s in full game project. Particularly it focus on the Store, Leaderboard, Stats and Matchmaking.
+This demo showcases how you can use the **Beamable Unreal SDK** in a full game project. Particularly it focuses on the Store, Leaderboard, Stats and Matchmaking services.
 
 ## Introduction
 
@@ -23,12 +23,12 @@ To set up an organization and realm to run this sample, follow the steps below.
 5. Let's Setup the Content
       1. First you will need to run the command `dotnet beam content restore --pid DE_1885450253346843 --name LastPublished-global` to bring all the content from the sample to your current realm.
       2. Open the `Content` window.
-      3. Ensure there's an `game_types` content with the name `default`
-      3. Ensure there's an `currency` content with the name `coins`
+      3. Ensure there's a `game_types` content with the name `default`
+      3. Ensure there's a `currency` content with the name `coins`
       3. Ensure there are 4 `itemskin` content with the names `skin1`, `skin2`, `skin3`, `skin4`
-      3. Ensure there's an `leaderboard` content with the name `global`
+      3. Ensure there's a `leaderboard` content with the name `global`
       3. Ensure there are 3 `listings` content with the names `skin1`, `skin2`, `skin3`
-      5. Click `Publish` to publish those new contents to the realm.
+      5. Select `Publish` to publish those new contents to the realm.
       6. You can read more about the content system [Here](../../user-reference/beamable-services/content.md)
 
 ## Running the Sample in Editor

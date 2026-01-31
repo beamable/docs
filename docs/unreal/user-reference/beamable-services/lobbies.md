@@ -2,21 +2,23 @@
 
 Beamable's Lobby system can be used primarily for 2 cases:
 
-- **Open/Closed Custom Lobbies/Rooms**: Player-created custom rooms for room-based games.
-- **Resulting Matchmaking Matches**: Matchmaking queues output lobbies with players in them at each matchmaking queue. See more in [Matchmaking](matchmaking.md).
+- **Open/Closed Custom Lobbies/Rooms**: player-created custom rooms for room-based games.
+- **Resulting Matchmaking Matches**: matchmaking queues output lobbies with players in them at each matchmaking queue. See more in [Matchmaking](matchmaking.md).
 
-Lobbies are rooms containing only [online players](../runtime-systems/connectivity.md) and a set of arbitrary room properties and per-player properties. There are a few rules you should be aware of:
+Lobbies are rooms containing only [online players](../runtime-systems/connectivity.md), a set of arbitrary room properties, and per-player properties. There are a few rules you should be aware of:
 
-- Each Non-Matchmaking Lobby has a **Host** and other Players.
-	- Matchmaking Result Lobbies have no host; instead they disband once every player in it becomes offline.
-- The Host Player...
-    - ...becoming offline will disband a lobby (after a small delay).
-    - ...can edit global properties and any other player's properties.
-    - ...can kick other players.
-- Other Players...
-  	- ...can **read** the entire lobby data but only **write** to their own state.
-    - ...can leave the lobby.  
-- Becoming offline will remove you from the lobby (after a small delay).
+- Each Non-Matchmaking Lobby has a **Host** and other Players. 
+- Matchmaking Result Lobbies have no host; instead they disband once every player in them is offline. <br><br>
+
+- **The Host Player**:
+    - Becoming offline will disband a lobby (after a small delay).
+    - Can edit global properties and any other player's properties.
+    - Can kick other players. <br><br>
+
+- **Other Players**:
+  	- Can **read** the entire lobby data but only **write** to their own state.
+    - Can leave the lobby.  
+	- Will be removed from the lobby after becoming offline (after a small delay).
 
 ## Getting Started - Open/Closed Lobbies
 This section describes how to set up and join manually created lobbies. Lobbies created via [Matchmaking](matchmaking.md) don't need this setup.
@@ -38,12 +40,12 @@ Once in a Lobby, any player can leave it by using the `Lobby - Leave Lobby` oper
 
 ![lobbies-leave-kick.png](../../../media/imgs/lobbies-leave-kick.png)
 
-In some games, you might want to make your host transfer ownership of the lobby before leaving. To do that, you can update the Lobby's host before leaving.
+Optionally, the host can be forced to transfer ownership before leaving a lobby. 
 
 ![lobbies-transfer-ownership.png](../../../media/imgs/lobbies-transfer-ownership.png)
 
 ### Dedicated Servers
-For dedicated server games, you can use the `Lobby - Provision Game Server for Lobby` operation to trigger a [Game Server Federation](../federation/federated-game-server.md) to boot up a server instance for the game. If you need to differentiate between matchmaking lobbies and Open/Closed lobbies, you can verify whether the lobby has a host within the federation's logic to properly handle when and which game server to provision. 
+For games with dedicated servers, the `Lobby - Provision Game Server for Lobby` operation triggers [Game Server Federation](../federation/federated-game-server.md) to boot up a server instance for the game. If you need to differentiate between matchmaking lobbies and Open/Closed lobbies, you can verify whether the lobby has a host within the federation's logic to properly handle when and which game server to provision. 
 
 ![lobbies-provision-federation.png](../../../media/imgs/lobbies-provision-federation.png)
 
@@ -69,52 +71,56 @@ To read from a specific player's data, you can use any of these nodes:
 ## Synchronizing Across Clients
 Beamable's Lobby system will automatically notify every player inside a lobby of relevant events. Once you're in a lobby, the SDK keeps track of your local state inside `UBeamLobbyState` (one per-`UserSlot`).
 
-You can use `GetCurrentSlotLobbyState` to get the `UBeamLobbyState` and setup various **Delegates** in this object to respond the these events, normally updating your UI or custom system built on top of this subsystem.
+You can use `GetCurrentSlotLobbyState` to get the `UBeamLobbyState` and setup various **Delegates** in this object to respond to these events, normally updating your UI or custom system built on top of this subsystem.
 
 ![lobbies-notification-binding.png](../../../media/imgs/lobbies-notification-binding.png)
 
 Here's the list of events we expose:
 
-- **OnKickedFromLobby**: Received whenever a host removes a player from the lobby via `KickPlayerOperation`.
-	- Every player in the lobby receives this notification, including the host.
-- **OnLeftLobby**: Received whenever a player leaves the lobby via `LeaveLobbyOperation`.
-	- Every remaining player in the lobby receives this notification.
-- **OnLobbyDisbanded**: Received whenever the host player leaves.
-	- Every remaining player in the lobby receives this notification. The host does not receive it.
+- **OnKickedFromLobby**: received whenever a host removes a player from the lobby via `KickPlayerOperation`.
+	- Every player in the lobby receives this notification, including the host. <br><br>
+
+- **OnLeftLobby**: received whenever a player leaves the lobby via `LeaveLobbyOperation`.
+	- Every remaining player in the lobby receives this notification.<br><br>
+
+- **OnLobbyDisbanded**: received whenever the host player leaves.
+	- Every remaining player in the lobby receives this notification. The host does not receive it.<br><br>
+
 - **OnLobbyUpdate**: Whenever any property of the lobby changes via `CommitLobbyUpdateOperation`, `UpdatePlayerDataOperation` and `UpdateSlotPlayerDataOperation`, this will be invoked.
 
-## On Lobby Types and Lobby Schema
-There are two types of lobbies: **Open** and **Closed** lobbies. **Open** lobbies can be queried via `RefreshLobbies` and joined without the use of any passcode. **Closed** lobbies are not visible to `RefreshLobbies` and expect to be joined via the generated passcode.
+## Lobby Types and Lobby Schema
+There are two types of lobbies:
+
+- **Open** lobbies can be queried via `RefreshLobbies` and joined without the use of any passcode. 
+- **Closed** lobbies are not visible to `RefreshLobbies` and expect to be joined via the generated passcode.
 
 Both lobby types have the same schema and are represented by the `ULobby` class. This class has several properties:
 
-- **LobbyId**: The unique identifier for the Lobby.
-- **MatchType**: Contains information about the `UBeamGameTypeContent` that is associated with the lobby.
-- **Name** and **Description**: Are arbitrarily defined when the lobby is created.
-	- For matchmaking, these are empty.
-- **Host**: The host player's `FBeamGamerTag`. 
-	- For matchmaking result lobbies, there is no host. // Federation thing: Make a section here explaining LoL-style matchmaking where player properties change after the match is made but BEFORE the server is provisioned.
-- **Restriction**: Defines whether the lobby is **Open** or **Closed**.
-	- Can be changed --- whenever it is changed to **Closed**, a new **Passcode** is generated.
-- **Passcode**: An auto-generated realm-scoped unique value that can be use to `JoinLobbyByPasscode`.
-	- This is filled on-creation and the passcode length has a minimum of 6.
-- **MaxPlayers**: Defines the maximum amount of players that can be in this lobby at the same time.
+- **LobbyId**: the unique identifier for the Lobby.
+- **MatchType**: contains information about the `UBeamGameTypeContent` that is associated with the lobby.
+- **Name** and **Description**: are arbitrarily defined when the lobby is created. For matchmaking, these are empty.
+- **Host**: the host player's `FBeamGamerTag`. For matchmaking lobbies, there is no host. <!-- TODO(@drewbleam): Federation thing: Make a section here explaining LoL-style matchmaking where player properties change after the match is made but BEFORE the server is provisioned. -->
+- **Restriction**: defines whether the lobby is **Open** or **Closed**.
+	- Can be changed -- whenever it is changed to **Closed**, a new **Passcode** is generated.
+- **Passcode**: an auto-generated realm-scoped unique value that can be used to `JoinLobbyByPasscode`.
+	- This is filled on-creation and the passcode length has a minimum of 6 characters.
+- **MaxPlayers**: defines the maximum amount of players that can be in this lobby at the same time.
 	- When changing this via `CommitLobbyUpdateOperation`, if you have more players than the new **MaxPlayer** value, you'll get an error.
-- **Players**: A list of `ULobbyPlayer` containing data associated to each player in the lobby.
-	- **PlayerId**: The player's `FBeamGamerTag`.
-	- **Joined**: A ISO-8601 Date Time string for when the player.
-	- **Tags**: An array of Key-Value pairs (allows duplicates).
-- **Data**: An arbitrary data store that can be filled and updated by the host of the lobby.
+- **Players**: a list of `ULobbyPlayer` containing data associated to each player in the lobby.
+	- **PlayerId**: the player's `FBeamGamerTag`.
+	- **Joined**: a ISO-8601 date time string for when the player.
+	- **Tags**: an array of Key-Value pairs (allows duplicates).
+- **Data**: an arbitrary data store that can be filled and updated by the host of the lobby.
 	- Can be filled via [Federations](../federation/federated-game-server.md) as well.
-- **Created**: A ISO-8601 Date Time string for when the Lobby was created.
+- **Created**: a ISO-8601 date time string for when the Lobby was created.
 
 # Utilities for Dedicated Server Games
-The Lobby subsystem provides you with utilities that help you integrate Beamable into UE's Gameplay Framework. It provides a set of functions that:
+The Lobby subsystem provides you with utilities that help you integrate Beamable into UE's Gameplay Framework. 
 
-- **Local State - Lobby - Open Level**: This node can be used in Game Clients to connect to a Game Server by extracting connection information (URL and Port) from the Lobby's Global Data.
-- **Local State - Lobby - Client - Prepare Login Options**: These nodes can be used in GameClients to add Beamable's required parameters to the `FString Options` you'll need pass along to UE's default `Open Level` node.
-- **Local State - Lobby - Get Gamer Tag** and **Local State - Lobby - Get User Slot**: These nodes are ment to map UE constructs, such as `PlayerControllers` and `PlayerState` instances, to Beamable constructs like `GamerTag` and `UserSlots`; please refer to their tooltips for a better understanding on the mapping.
+- **Local State - Lobby - Open Level**: can be used in Game Clients to connect to a Game Server by extracting connection information (URL and Port) from the Lobby's Global Data.
+- **Local State - Lobby - Client - Prepare Login Options**: can be used in Game Clients to add Beamable's required parameters to the `FString Options` you'll need to pass along to UE's default `Open Level` node.
+- **Local State - Lobby - Get Gamer Tag** and **Local State - Lobby - Get User Slot**: These nodes are meant to map UE constructs, such as `PlayerControllers` and `PlayerState` instances, to Beamable constructs like `GamerTag` and `UserSlots`; please refer to their tooltips for a better understanding of the mapping.
 - **Local State - Lobby - Get Lobby Id (by Gamer Tag)**: This returns the LobbyId containing the user of the given `GamerTag`. 
-- **Local State - Lobby - Server - Get Lobby Id From CLArgs**: This is meant to help integrating with Game Server Orchestrators --- please refer to our [Real-Time Multiplayer Docs](../realtime-multiplayer/realtime-multiplayer-overview.md) for more information.
+- **Local State - Lobby - Server - Get Lobby Id From CLArgs**: This is meant to help integrate with Game Server Orchestrators -- please refer to our [Real-Time Multiplayer Docs](../realtime-multiplayer/realtime-multiplayer-overview.md) for more information.
 
 ![lobbies-gameplay-helpers.png](../../../media/imgs/lobbies-gameplay-helpers.png)

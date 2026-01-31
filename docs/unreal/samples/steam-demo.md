@@ -17,7 +17,7 @@ To set up this sample you'll need a few things:
 To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_SteamDemo`.
 
 !!! note "Assumptions"
-      Instructions below assume that you already have the Steam application created, if that is not the case create one first.
+      Instructions below assume that you already have the Steam application created. If that is not the case, be sure to create one first.
 
 ## Setting Steam Application
 
@@ -26,7 +26,7 @@ Since this sample requires several resources, we do not host it ourselves. So, i
 1. Log into your [Steam](https://partner.steamgames.com/apps) developer account.
 2. Go to your App and set aside its `AppId`.
 3. Create a Publisher Web API key using [this tutorial](https://partner.steamgames.com/doc/webapi_overview/auth#publisher-keys). Set it aside in a notepad for future use.
-4. Make sure that game is added to user that you want to use to login. To do that:
+4. Make sure that the game is added to the user that you want to use to log in. To do that:
 	1. Generate a Steam Key.
 	2. Add it to your Steam account so you can access the game.
 
@@ -54,7 +54,7 @@ Now, you'll need to configure a Beamable realm so you can use it:
 14. Run `dotnet beam deploy release --latest-plan`. 
 	1. This deploys the services outlined by the generated plan in the previous command. 
 15. Go to the Portal (`Operate -> Microservices`) to verify that the microservices have initialized.
-17. In `DefaultEngine.ini` set the value of `SteamDevAppId` to your Steam Application ID. For more there tutorial [here](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Online/Steam/).
+17. In `DefaultEngine.ini` set the value of `SteamDevAppId` to your Steam Application ID. For more info, view the tutorial [here](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Online/Steam/).
 18. Package the project.
 19. In main folder (in the built game's folder where the executable is) create `steam_appid.txt` file with Steam Application ID as only content.
 
@@ -74,7 +74,7 @@ In order to test the sample:
 
 ## Sample Highlights
 
-This is how we initialize the SDK and Sign-In a user with their Steam account.
+This is how we initialize the SDK and sign in a user with their Steam account.
 
 ![steam-demo-login.png](../../media/imgs/steam-demo-login.png)
 
