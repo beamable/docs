@@ -52,7 +52,7 @@ var job = await Services.Scheduler.Schedule()
 	.Save("sample");
 ```
 
-The `.Http()` method allows the developer to use the `.Run()` function which creates a HTTP action for the job. Optionally, a third parameter can be given as the body for the HTTP request. By default, the HTTP action will use JSON to serialize any request payload. There are overloads of the method available that allow a developer to specify a custom body, accept header, and custom headers.  
+The `.Http()` method allows the developer to use the `.Run()` function which creates a HTTP action for the job. Optionally, a third parameter can be given as the body for the HTTP request. By default, the HTTP action will use JSON to serialize any request payload. There are overloads of the method available that allow a developer to specify a custom body, accept header, and custom headers.
 
 ## Job Triggers
 

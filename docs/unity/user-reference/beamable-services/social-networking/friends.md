@@ -170,7 +170,7 @@ public class FriendsSample : MonoBehaviour
 
 #### Importing Friends from Facebook
 
-A player who has associated a Facebook credential with their account may automatically import Facebook friends. Facebook friends who have also linked a Facebook credential will be listed as Beamable friends. When one player imports Facebook friends, all imported friends will have the initiating player as a friend as well.
+A player who has associated a Facebook credential with their account may import Facebook friends in bulk. Facebook friends who have also linked a Facebook credential will be listed as Beamable friends. When one player imports Facebook friends, all imported friends will have the initiating player as a friend as well.
 
 ```csharp
 using Beamable;

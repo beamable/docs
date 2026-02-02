@@ -11,7 +11,7 @@ The concept of A/B Testing is to run experiments across a cohort, segmented set,
 - **Increase KPIs** - Key performance indicators, including retention, can be isolated and improved through testing
 - **Increase Revenue** - By improving KPIs, improve revenue
 - **Decrease Costs** - Game makers can focus on a leaner feature-set which is proven to matter to players
-- **Decrease Risks** - Roll out new gameplay features more frequently to a subset of the players. Ensure its ready before releasing to everyone
+- **Decrease Risks** - Roll out new gameplay features more frequently to a subset of the players. Ensure it is ready before releasing to everyone
 
 Generally you will want to follow a process:
 
@@ -182,7 +182,7 @@ GetCloudDataManifestResponse playerManifestResponse =
 
 **Loading Data**
 
-Loop through the `meta`. There will be 0 or more values. The implementation here depends on the needs of the project. In this example, each loop iteration is parsed as Json and tested for compatibility with the `MyPlayerProgression` data type.
+Loop through the `meta`. There will be 0 or more values. The implementation here depends on the needs of the project. In this example, each loop iteration is parsed as JSON and tested for compatibility with the `MyPlayerProgression` data type.
 
 ```csharp
 foreach (CloudMetaData cloudMetaData in playerManifestResponse.meta)

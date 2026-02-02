@@ -20,7 +20,7 @@ Namespaces are locations for content to be published so that the content does no
 
 !!! warning Global Namespace
 
-    Beamable APIs that use content under the hood can only look to the global namespace.
+    Beamable APIs that use content under the hood, such as Commerce and Inventory, can only use entries from the "global" namespace.
 
 ## Content Data
 
@@ -124,16 +124,18 @@ private async void SetupBeamable()
 }
 ```
 
-Beamable supports subscriptions to Content as well as direct references to certain pieces of content. Both of these will allow you to download content from the server, depending on the Game Maker's needs.
+Beamable supports subscriptions to Content as well as direct references to individual pieces of content. Both of these will allow you to download content from the server as needed.
 
 ### ContentLink and ContentRef
 
 Subscriptions use a PlatformSubscription to dynamically read the data on the server, and fire a callback when the data is changed. However, ContentLink and ContentRef are both resolved manually when the data is needed.
 
-Beamable supports 2 methodologies for referencing a content object; [`ContentLink`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1ContentLink.html) and [`ContentRef`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1ContentRef.html). While they are both very similar syntactically and need to be resolved before using, they perform differently and have different use-cases.
+Beamable supports two methodologies for referencing a content object; [`ContentLink`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1ContentLink.html) and [`ContentRef`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1ContentRef.html). While they are both very similar syntactically and need to be resolved before using, they perform differently and have different use-cases.
 
 - `ContentLink` - Beamable will perform a first frame load to resolve the reference. `ContentLink`s must be present and resolvable (that is, they cannot be `null`)
 - `ContentRef` - Beamable will perform a lazy load to resolve the reference. As such, it is okay for a `ContentRef` to be `null` as long as it is never resolved
+
+In short, `ContentLink`s are strict "hard" connections whereas `ContentRef`s are "soft" or "loose" connections.
 
 ContentServiceExistingExample.cs
 ```csharp
@@ -301,7 +303,7 @@ Beamable provides a streamlined Content Publishing pipeline. You can deploy your
 
 ![content-management.png](../../../../../media/imgs/content-management.png){: style="height:auto;width:500px"}
 
-When you create your Beamable account, we automatically create a "Development to Production" pipeline of distinct environments for you. These environments are "Dev" → "Staging" → "Production". This is how we enable you to publish your content to our servers for the development environment while allowing you the peace of mind to know that the "Production" environment has not been modified.
+When you create your Beamable account, we automatically create a "Development to Production" pipeline of distinct environments for you. These environments are "Dev" → "Staging" → "Production". This is how Beamable enables you to publish your content for the development environment while allowing you the peace of mind to know that the "Production" environment has not been modified.
 
 Then, once you have tested that the new content in your environment looks correct, you can go into the Portal to promote the "Dev" content to "Staging" and eventually "Production".
 
@@ -315,9 +317,9 @@ While using the Content Manager Editor (Unity Editor) it will be saved locally t
 /Assets/Beamable/Editor/content/
 ```
 
-On Client's Builds (On-device) The development location is not included in the built game project. Instead, when the player loads the game, a fresh copy of all content is retrieved from the Beamable back-end and stored on-device. This allows Beamable to serve _dynamic_ content to the game project. By default, this is a lazy loading operation. Each of Beamable's feature prefabs show a loading progress indicator UI automatically.
+On client builds for devices, the development location is not included in the built game project. Instead, when the player loads the game, a fresh copy of all content is retrieved from the Beamable backend and stored on device. This allows Beamable to serve _dynamic_ content to the game project. By default, this is a lazy loading operation. Each of Beamable's feature prefabs show a loading progress indicator UI automatically.
 
-Content is stored on-device in a within Unity's [`Application.persistentDataPath`](https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html).
+Content is stored on device within Unity's [`Application.persistentDataPath`](https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html).
 
 ```csharp
  Application.persistentDataPath + $"/content/{contentId}.json";
@@ -327,16 +329,6 @@ Content is stored on-device in a within Unity's [`Application.persistentDataPath
 Content is cached by the client and stored both in memory and persisted to disk. When content is updated on our backend, Beamable updates a client manifest and push it to all clients to invalidate and update the cache.
 
 See source code of `Runtime/DisruptorEngine/Content/ContentCache.cs` for more info.
-
-## Game Content Designer
-
-Config data, or "Content" as it is called within Beamable, is realm-scoped and can be deployed from either...
-
-- **Unity** -  Via Unity's [`ScriptableObject`](https://docs.unity3d.com/Manual/class-ScriptableObject.html)
-- **Google Sheets** -  Via Beamable's Game Content Designer
-
-Within the context of a CI/CD pipeline, game makers can create jobs that invoke the Content deployment function against data it pulled from source control, and pass in arguments for which realm this Content should go to. This is not theoretical, this is what game makers do today in production.
-
 
 ## Remote Configuration Workflows
 

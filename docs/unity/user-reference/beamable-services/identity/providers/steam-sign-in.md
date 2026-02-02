@@ -155,8 +155,8 @@ In the following sections, you will see that we use the above code to convert th
 
 Now that we have the Steam Session Token, we need to account for 3 different scenarios:
 
-New Player  
-Returning Player already linked to Steam  
+New Player
+Returning Player already linked to Steam
 Returning Player linking their account with Steam
 
 We can tell which of these scenarios to follow by checking two pieces of information: whether the Steam ID is already attached to a Beamable account and whether the current, local account has a Steam 3rd party association.

@@ -12,7 +12,7 @@ Lobbies can also be found by game type and optionally setting a limit or skip va
 
 To join a lobby requires a `lobbyId` in the case of an open lobby and `passcode` in the case of a closed lobby.
 
-Other actions provided by the Beamable **Lobbies** feature includes:
+Other actions provided by the Beamable **Lobbies** feature include:
 
 - Adding players to the lobby
 - Removing players from the lobby

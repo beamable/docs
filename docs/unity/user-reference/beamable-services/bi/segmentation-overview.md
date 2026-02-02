@@ -27,11 +27,11 @@ Most of the segmentation in Beamable is to create a cohort by a _stat_. You can 
 
 ![Create Cohort via Stat](../../../../media/imgs/create_cohort_via_stat.png)
 
-In this trail, we also added these values to complete and save the trial.
+In this trial, we also added these values to complete and save the trial.
 
-![Trail Save](../../../../media/imgs/trail_save.png)
+![Trial Save](../../../../media/imgs/trail_save.png)
 
-What this is doing is creating a trail that can be joined by a cohort. As you will learn in the A/B Testing area, that trials can be used in various places to run experiments. The above will create a cohort called "7thDayReturningPlayers" and all actions can be performed on this cohort from various other parts of Beamable.
+What this is doing is creating a trial that can be joined by a cohort. As you will learn in the A/B Testing area, that trials can be used in various places to run experiments. The above will create a cohort called "7thDayReturningPlayers" and all actions can be performed on this cohort from various other parts of Beamable.
 
 ### Upload CSV to Create a Cohort
 

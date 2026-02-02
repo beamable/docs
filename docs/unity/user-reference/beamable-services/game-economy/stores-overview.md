@@ -435,7 +435,7 @@ Here we are setting the namespace to **payments** and then the key is **client_a
 
 !!! danger "Security Warning"
 
-    This feature is not secure unless you track this from within a MicroService and validate the purchase. It is highly advisable to do so in order to not allow a customer to spoof or false track a purchase.
+    This feature is not secure unless you track this from within a MicroService and validate the purchase. It is highly advisable to do so in order to not allow a customer to spoof or falsely track a purchase.
 
 Once your configuration has been setup to allow this API to function, then you can use the `.Api.PaymentService.Track` API to track the purchase. The various fields of the tracking request may be arbitrary strings of your choice, but for the sake of consistency you may want to match the patterns used by the Beamable Commerce Service.
 

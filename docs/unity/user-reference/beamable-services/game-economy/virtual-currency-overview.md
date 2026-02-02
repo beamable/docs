@@ -12,9 +12,9 @@ Currencies can be configured from the [Content Manager Editor](../profile-storag
 
 The currencies for a given player can be managed in several ways, depending on your use case.
 
-**Client-Authoritative (Unity code):** If your game does not include networked multiplayer and can tolerate cheating, allowing the client to read/write their own currencies is the simplest option. Examples of this can be seen in the bellow. Note that your currency must have "Write Self" enabled.
+**Client-Authoritative (Unity code):** If your game does not include networked multiplayer and can tolerate cheating, allowing the client to read/write their own currencies is the simplest option. Examples of this can be seen below. Note that your currency must have "Write Self" enabled.
 
-**Server-Authoritative (Microservice):** A much more secure way to handle currency modifications is via a Microservice. In this scenario, the client is not able to modify their currencies directly, it is handled on the server. You can check the [Microservices](../../cloud-services/microservices/microservice-framework.md) section for more information.
+**Server-Authoritative (Microservice):** A much more secure way to handle currency modifications is via a Microservice. In this scenario, the client is not able to modify their currencies directly, because it is handled on the server. You can check the [Microservices](../../cloud-services/microservices/microservice-framework.md) section for more information.
 
 **Portal (Development):** Player currencies can also be modified through the Portal; Note that this should only be used during development or to make corrections to a player account.
 
@@ -24,7 +24,7 @@ The Beamable API provides helper functions to subscribe to changes in the curren
 
 The main API components are [`InventoryUpdateBuilder`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Api_1_1Inventory_1_1InventoryUpdateBuilder.html#details) which builds a list of one or more currency operations to execute, and [`InventoryService`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Inventory_1_1InventoryService.html#details) which executes the currency operations.
 
-_Note: This Beamable system handles player inventory **and also** player currency._
+_Note: This Beamable system handles player inventory of items **and also** currency._
 
 ### Adding Currency
 
