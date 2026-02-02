@@ -29,7 +29,7 @@ someOtherFolder
 
 ## Validation 
 
-From any folder, you can run the [beam config](../commands/cli-command-reference/config/config.md)  command to print information about your current Beamable folder. 
+From any folder, you can run the [beam config](../commands/cli-command-reference/config/config.md) command to print information about your current Beamable folder. 
 
 In the example directory structure above, if the `beam config` command was invoked from the `mainFolder`, it would log information about the `mainFolder/.beamable` folder. 
 ```sh
@@ -60,7 +60,7 @@ Logs at
 
 ## Dotnet Tool Folder
 
-The Beamable CLI executes as a local dotnet tool installation. That means that there should be a `.config` folder in your project. There should be a file called `dotnet-tools.json` in the folder, declaring the version of the CLI you are using.
+The Beamable CLI executes as a local dotnet tool installation. That means that there should be a `.config/` folder in your project. There should be a file called `dotnet-tools.json` in the folder, declaring the version of the CLI you are using.
 
 ```json
 {
@@ -78,12 +78,12 @@ The Beamable CLI executes as a local dotnet tool installation. That means that t
 ```
 
 !!! info The folder can exist in a higher folder. 
-    Normally the `.config` folder exists as a sibling of the `.beamable` folder. However, the `.config` folder _may_ exist in a parent folder. The closest `.config` folder will be used. See the [dotnet tool documentation](https://learn.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use) for more information. 
+    Normally the `.config/` folder exists as a sibling of the `.beamable/` folder. However, the `.config/` folder _may_ exist in a parent folder. The closest `.config/` folder will be used. See the [dotnet tool documentation](https://learn.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use) for more information. 
 
 
 ## Workspace Overview
 
-A Beamable workspace is defined by the existence of a `.beamable` folder. 
+A Beamable workspace is defined by the existence of a `.beamable/` folder. 
 
 | Path             | Note              |
 | ---------------- | ----------------- |
