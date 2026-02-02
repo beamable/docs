@@ -7,8 +7,8 @@ The purpose of this feature is to allow players to play together in-game.
 Players can create groups and interact in real-time. Interactions include donating currency between group members for spending on in-game items. Depending on the game design, group members may have shared goals where interaction and collaboration are a key part of success.
 Here are some common use cases for the Groups feature:
 
-• **Collaboration** - Group members may share resources to progress on common goals (e.g. quests)  
-• **Competition** - All groups in the game community compete directly and indirectly for rewards  
+• **Collaboration** - Group members may share resources to progress on common goals (such as quests)
+• **Competition** - All groups in the game community compete directly and indirectly for rewards
 • **Communication** - Groups functionality integrates with text chat. See [Chat](chat.md) for more info
 
 Here is the glossary of group-related terms.
