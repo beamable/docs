@@ -11,7 +11,7 @@ Before you can develop a Beamable Standalone Microservice, you need to complete 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
 dotnet --version
-dotnetbeam version # beam --version also works.
+dotnet beam version # beam --version also works.
 ```
 
 ---
@@ -24,7 +24,7 @@ beam init MyProject
 cd MyProject
 ```
 
-Once you have a `.beamble` workspace, you can create a new Standalone Microservice using the [project new](ms-workflow.md#creating-new-projects) command. 
+Once you have a `.beamable` workspace, you can create a new Standalone Microservice using the [project new](ms-workflow.md#creating-new-projects) command. 
 
 ```sh
 # run this inside your .beamable workspace
@@ -47,7 +47,7 @@ However you decide to run the project, you should see a stream of logs similar t
 
 ```
 
-The service is running! You can send requests to the service over HTTPS. To verify, you can open the local Open API documentation by using the project open-swagger command. 
+The service is running! You can send requests to the service over HTTP. To verify, you can open the local Open API documentation by using the project open-swagger command. 
 
 ```sh
 dotnet beam project open-swagger
@@ -74,23 +74,23 @@ And then click the Execute button! In your Standalone Microservice project, you 
 The `Add` function is defined in the `HelloWorld.cs` file. 
 
 ```csharp
-using Beamable.Server;  
+using Beamable.Server;
   
-namespace Beamable.HelloWorld  
-{  
-    [Microservice("HelloWorld")]  
-    public class HelloWorld : Microservice  
-    {  
-       [ClientCallable]  
-       public int Add(int a, int b)  
+namespace Beamable.HelloWorld
+{
+    [Microservice("HelloWorld")]
+    public class HelloWorld : Microservice
+    {
+       [ClientCallable]
+       public int Add(int a, int b)
        {
-	       return a + b;  
-       }    
+	       return a + b;
+       }
     }
 }
 ```
 
-You can write new functions and tag them with `[ClientCallable]` to make them accessible on the Open API page. And now you know the basics of working with Beamable Standalone Microservices! 
+You can write new functions and tag them with `[ClientCallable]` to make them accessible on the Open API page. Now you know the basics of working with Beamable Standalone Microservices! 
 
 ---
 ## Project Structure
@@ -117,5 +117,3 @@ There are many topics to continue learning about Beamable Standalone Microservic
 - [Microservice Configuration Settings](ms-configuration.md)
 - [Beam CLI Commands for Managing Microservices](ms-workflow.md)
 - [Microservice Routing and Client Usage](ms-routing.md)
-
-  ---
