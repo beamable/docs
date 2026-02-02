@@ -173,9 +173,9 @@ Game Makers set up tournaments by defining their content. This content includes 
 
 ### Testing Notes
 
-- **Manage Test Tournaments**. Tournaments set to cycle frequently (e.g., hourly) for testing purposes can cause issues if left active. It is best practice to delete these test tournaments after completing your testing.
+- **Manage Test Tournaments**. Tournaments set to cycle frequently (for example, hourly) for testing purposes can cause issues if left active. It is best practice to delete these test tournaments after completing your testing.
 - **Early Cycle Termination**. Game makers can end a tournament cycle early. However, this action only affects the current cycle. Subsequent tournaments remain scheduled and operate under their original time cycle parameters.
-- **Avoid Cadence Changes on Existing Tournaments**. Changing the cadence (e.g., from daily to weekly) for a tournament that already exists with a specific Tournament ID can lead to errors during testing. To avoid issues, create a new tournament (with new Tournament ID) when a different cadence is desired.
+- **Avoid Cadence Changes on Existing Tournaments**. Changing the cadence (for example, from daily to weekly) for a tournament that already exists with a specific Tournament ID can lead to errors during testing. To avoid issues, create a new tournament (with new Tournament ID) when a different cadence is desired.
 
 ### Protips
 
