@@ -49,7 +49,7 @@ When changes are detected by the service and finished saving locally, the Local 
 
 Cloud Saved files are written to an object store that is managed by the Cloud Saving service. The key of the object is the MD5 checksum of the content in the file, this is done to preserve the history of the files.
 
-The manifest tracks the MD5 checksum(etag) of the file and the common name(key) of the file, so we can fetch the object by its MD5 checksum and write it to disk using the common name.
+The manifest tracks the MD5 checksum (etag) of the file and the common name (key) of the file, so we can fetch the object by its MD5 checksum and write it to disk using the common name.
 
 **Json Format**
 
@@ -185,7 +185,7 @@ Here are the major operations that can be performed against the player data.
 
 ## Sample Code
 
-Here is a sample code that demonstrates how to use the Cloud Save Service in Unity. This is a sample code that shows all the different options for using the Cloud Save Service. Note that this is an example for reference only. We do not recommend copying directly the functions used in the sample.
+Here is some sample code that demonstrates how to use the Cloud Save Service in Unity. This sample code shows all the different options for using the Cloud Save Service. Note that this is an example for reference only. We do not recommend copying directly the functions used in the sample.
 
 CloudSavingServiceExample.cs
 

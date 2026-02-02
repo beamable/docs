@@ -4,13 +4,13 @@ If you run the project in the Unity editor in play mode, the realm that will act
 
 ![Realm Selector in Unity Editor](../../../media/imgs/realm-selector-unity-editor.png){width=600px}
 
-When you do a build in Unity, the realm that is selected for the build is whatever is stored in the config-default.txt file.
+When you do a build in Unity, the realm that is selected for the build is whatever is stored in the `config-defaults.txt` file in the `Assets/Beamable/Resources/` folder.
 
-To update what is in the config-defaults.txt, you can open the account section, and click the "Save Configs-Defaults" file which will save whatever realm you are using in the editor to the file.
+To update what is in `config-defaults.txt`, you can open the account section, and click the "Save Config-Defaults" file which will save whatever realm you are using in the editor to the file.
 
 ![Save Config Defaults Button](../../../media/imgs/save-config-defaults-button.png){width=400px}
 
-For automated builds (e.g. Unity Cloud, Github Actions, etc.), we also have a Unity pre-build script which will swap out the realm based on an environment variable. You can basically have multiple config-<env>.txt files.
+For automated builds (such as Unity Cloud, Github Actions, etc.), we also have a Unity pre-build script which will swap out the realm based on an environment variable. You can basically have multiple `config-<env>.txt` files.
 
 ![Multiple Config Files Example](../../../media/imgs/multiple-config-files-example.png){width=300px}
 

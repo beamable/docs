@@ -338,7 +338,7 @@ Refer to the table below for an example of a limited store, where event-driven o
 
 Typically, the event rewards (for the **standard** events described above) are based on the player's individual progress (score, rank, etc.) in the game and the reward is given to that individual.
 
-However, with **group** events, rewards are based on group progress (e.g., combined score of every group member). When a group event is rewarded, all **eligible** members of the group receive the reward — regardless of individual contribution to the event.
+However, with **group** events, rewards are based on group progress (that is, combined score of every group member). When a group event is rewarded, all **eligible** members of the group receive the reward — regardless of individual contribution to the event.
 
 !!! warning "Important Notes"
 

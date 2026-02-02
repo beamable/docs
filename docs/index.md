@@ -21,5 +21,5 @@ New to Beamable? Get up and running in minutes:
 
 Need help? We've got you covered:
 
-- **[Community Portal](https://portal.beamable.com/)** - Connect with other developers
+- **[Support Hub](https://beamable.com/support)** - Connect with Beamable experts
 - **[GitHub Repository](https://github.com/beamable/BeamableProduct)** - Source code and issues

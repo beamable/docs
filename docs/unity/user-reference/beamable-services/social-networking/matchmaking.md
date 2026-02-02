@@ -2,9 +2,9 @@
 
 The Beamable **Multiplayer** feature allows game makers to create real-time and turn-based multi-user game experiences. For a project to offer multiplayer, it must first offer **matchmaking**. 
 
-In multiplayer gaming, matchmaking is the process of creating/finding a **Match** (e.g. Multiplayer 'Room') based on criteria. For example, a client could say "give me a match to play in with 2 total players of any skill level". Beamable supports matchmaking through its [`MatchmakingService`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Matchmaking_1_1MatchmakingService.html).
+In multiplayer gaming, matchmaking is the process of creating/finding a **Match** (for example, a Multiplayer 'Room') based on criteria. For example, a client could say "give me a match to play in with 2 total players of any skill level". Beamable supports matchmaking through its [`MatchmakingService`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Matchmaking_1_1MatchmakingService.html).
 
-The Matchmaking service has many built-in events to attach listeners (e.g. match starting, search timeout, etc). This makes it very simple to connect your game's custom UI to Beamable's services.
+The Matchmaking service has many built-in events to attach listeners (match starting, search timeout, etc). This makes it very simple to connect your game's custom UI to Beamable's services.
 
 The outcome of a successful matchmaking search gives the participating players a match ID. This can be used to integrate Beamable's in-house [Multiplayer](multiplayer.md) solution, or a third-party multiplayer suite such as [Photon](https://www.photonengine.com/).
 

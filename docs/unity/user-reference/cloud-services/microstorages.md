@@ -1,6 +1,6 @@
 # Microstorages
 
-Beamable Microstorages are mongo databases that integrate seamlessly with Beamable Microservices to provide powerful custom state management solutions. Microstorages have a C# project written in dotnet that _represents_ the storage database. This C# project is used as identity, and can be a place to put data related code, such as model types. Beamable Microservices can access storage objects through the `Storages` accessor.
+Beamable Microstorages are MongoDB databases that integrate seamlessly with Beamable Microservices to provide powerful custom state management solutions. Microstorages have a C# project written in dotnet that _represents_ the storage database. This C# project is used as identity, and can be a place to put data related code, such as model types. Beamable Microservices can access storage objects through the `Storages` accessor.
 
 ## Getting Started
 

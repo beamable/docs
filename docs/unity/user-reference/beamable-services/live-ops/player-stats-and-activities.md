@@ -46,6 +46,6 @@ These are used to create campaigns using time as parameters. For example, you ca
 - Last session date
 - Last purchase date
 
-And as another parameter, you can set if you want the campaign to happen before and to the date point, only in the specified day or during and after that day, as showed in the image below.
+As another parameter, you can choose whether the date point comparison looks for players whose stat falls on or before the date point, exactly on the date point, or on or after the date point, as illustrated below.
 
 ![Player Activities Date Options](../../../../media/imgs/player-activities-date-options.png){: style="height:auto;width:400px"}

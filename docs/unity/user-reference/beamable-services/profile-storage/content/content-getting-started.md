@@ -1,9 +1,10 @@
 # Content - Getting Started
-Beamable's ContentService allows game makers to create, manage, and distribute game content. Content can be created in the Beamable Content Manager window in the Unity Editor, and then published to Beamable's servers. Once published, content can be pulled into a game at runtime via the ContentService API.
+
+Beamable's Content Service allows game makers to create, manage, and distribute game content. Content can be created in the Beamable Content Manager window in the Unity Editor, and then published to Beamable's servers. Once published, content can be pulled into a game at runtime via the ContentService API.
 
 ## Creating Custom Content Types
 
-In this snippet, the custom `Armor` item type is created. Note that, as a subclass of `ItemContent`, whose content type is already `"items"`, Armor's resulting content type will be `"items.armor"`. In the Content Manager in Unity, this will appear as a nested category under the `items` type.
+In this snippet, the custom `ArmorItem` item type is created. Note that, as a subclass of `ItemContent`, whose content type is already `"items"`, Armor's resulting content type will be `"items.armor"`. In the Content Manager in Unity, this will appear as a nested category under the `items` type.
 
 Armor.cs
 ```csharp
@@ -13,7 +14,7 @@ using Beamable.Common.Inventory;
 namespace Beamable.Examples.Services.ContentService
 {
     [ContentType("armor")]
-    public class Armor : ItemContent
+    public class ArmorItem : ItemContent
     {
         public string Name = "";
         public int Defense = 0;
@@ -21,7 +22,7 @@ namespace Beamable.Examples.Services.ContentService
 }
 ```
 
-In this snippet, the `Armor` reference is resolved for use at runtime. There are 2 different methods for resolving content. Both are shown here for comparison. In production, choose whichever one method works best for the needs of the project.
+In this snippet, the `ArmorItem` reference is resolved for use at runtime. There are two different methods for resolving content. Both are shown here for comparison. In production, choose whichever one method works best for the needs of the project.
 
 See session [ContentLink vs ContentRef](content-overview.md#contentlink-and-contentref) in the Content Overview for more info.
 
@@ -38,11 +39,11 @@ namespace Beamable.Examples.Services.ContentService
     public class ContentServiceCustomExample : MonoBehaviour
     {
         //  Fields  ---------------------------------------
-        [SerializeField] private ArmorLink _armorLink;
-        [SerializeField] private ArmorRef _armorRef;
+        [SerializeField] private ArmorItemLink _armorLink;
+        [SerializeField] private ArmorItemRef _armorRef;
 
-        private Armor _armorFromLink = null;
-        private Armor _armorFromRef = null;
+        private ArmorItem _armorFromLink = null;
+        private ArmorItem _armorFromRef = null;
         
         //  Unity Methods  --------------------------------
         protected void Start()

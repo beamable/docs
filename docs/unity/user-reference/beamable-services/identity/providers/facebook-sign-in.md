@@ -11,10 +11,10 @@ Below is a typical Facebook usage pattern. You initiate from your UI that you wa
 
 ### Configure Facebook App
 
-In orther to setup the Unity Project you need to configure the Facebook Dashboard:
+In order to setup the Unity Project you need to configure the Facebook Dashboard:
 
 - The app must be connected to a business and the business should be verified.
-- Since we are using email you need to add it's permissions: Dashboard / Use Cases / Customize the `Authenticate and request data from users with Faebook Login / Permissions and Features => add email
+- Since we are using email you need to add its permissions: Dashboard / Use Cases / Customize the `Authenticate and request data from users with Facebook Login / Permissions and Features => add email
 
 ![facebook-app.png](../../../../../media/imgs/facebook-app.png)
 
@@ -55,7 +55,7 @@ private void FB_AuthCallback (ILoginResult result)
 ## Beamable Login with AccessToken
 
 !!! info "Beamable SDK Initialization"
-    The following assumes that you have initialized the Beamable SDK and it is stored in _beamContext variable.
+    The following assumes that you have initialized the Beamable SDK and it is stored in a variable named `_beamContext`.
     ```csharp
         _beamContext = BeamContext.Default;
         await _beamContext.OnReady;

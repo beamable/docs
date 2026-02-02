@@ -25,7 +25,7 @@ The purpose of this feature is to offer the game maker an in-game UI for executi
 
 #### Usage
 
-The Admin Flow can be opened at runtime in multiple ways...
+The Admin Flow can be opened at runtime in multiple ways:
 
 - Within the Unity Editor, press the "~" key
 - Within a Mobile Build, use a "three-finger swipe-up gesture"

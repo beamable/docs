@@ -1,6 +1,6 @@
 # Unity Editor Integration of Beamable Content Services
 
-The Unity SDK many features to support the Beamable Content Service within the Unity Editor including a Content Manager window, Conflict Handlings, Validation tools and others
+The Unity SDK has many features to support the Beamable Content Service within the Unity Editor.
 
 ## Content Manager Editor
 
@@ -44,11 +44,11 @@ The Content Manager now supports **Auto-Sync**, which automatically detects remo
 A file is marked as **Conflicted** only when:
 
 - Both local and remote versions have been modified, **and**
-- The changes are incompatible (i.e., they don't match).
+- The changes are incompatible (that is, they don't match).
 
 **No conflict is triggered if:**
 
-- Both sides made identical changes (e.g., the same field updated to the same value).
+- Both sides made identical changes (for example, the same field updated to the same value).
 - The file is deleted on both sides.
 - Only one side has changes (remote-only or local-only modifications sync normally).
 

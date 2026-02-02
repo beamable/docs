@@ -1,6 +1,6 @@
 # Frictionless Authentication
 
-Beamable’s SDK provides frictionless authentication by default when the SDK is initialized. This is completely done for you under the hood. It is quite simple, and thus the Code Sample for it is short. However, this is an opportunity for you to learn more about the Beamable SDK and what it does for you when it is initialized from any “prefab”, service or API.
+Beamable’s SDK provides frictionless authentication by default when the SDK is initialized. This is completely done for you under the hood. It is quite simple, and thus the Code Sample for it is short. However, this is an opportunity for you to learn more about the Beamable SDK and what it does for you when it is initialized from any prefab, service or API.
 
 
 ![Frictionless Flow](../../../../media/imgs/frictionless_auth_lifecycle.png){: style="height:auto;width:600px"}

@@ -1,6 +1,6 @@
 # Connectivity
 
-The Connectivity drives the heartbeat sent back to the Beamable backend platform. If the game client loses connectivity, the heartbeat will stop and the Beamable API will gracefully wait for reconnection before resuming the full online feature-set.
+The Connectivity system drives the heartbeat sent back to the Beamable backend platform. If the game client loses connectivity, the heartbeat will stop and the Beamable API will gracefully wait for reconnection before resuming the full online feature-set.
 
 The system monitors internet connectivity and updates automatically if any changes occur; including remote server outages or loss of local ethernet/Wi-Fi internet.
 
@@ -13,14 +13,14 @@ The main API highlights include [`ConnectivityService`](https://csharp.cdocs.bea
 | Method Name | Detail |
 | :---------- | :----- |
 | HasConnectivity | Getter. Determines if the app has internet connectivity |
-| SetHasInternet | Setter. Determines if the app has internet connectivity<br><br>_Note: Calling this is not required. The Beamable system will properly monitor connectivity and update the ConnectivityService._ |
+| SetHasInternet | Setter. Determines if the app has internet connectivity<br><br>_Note: Calling this is not required. The Beamable system will automatically monitor connectivity and update the ConnectivityService._ |
 
 
 ### Sample Code
 
 Here are some code examples to help you get started.
 
-In this `ConnectivityServiceExample.cs`, the UI shows the current state of the internet connectivity and updates automatically if any changes occur (ex. if the ethernet / Wi-Fi is manually disabled or enabled by the user).
+In this `ConnectivityServiceExample.cs`, the UI shows the current state of the internet connectivity and updates automatically if any changes occur (for example, if the ethernet / Wi-Fi is manually disabled or enabled by the user).
 
 ConnectivityServiceExample.cs
 ```csharp
@@ -117,7 +117,7 @@ namespace Beamable.Examples.Services.ConnectivityService
 
 ### Disable Network Connection
 
-Game makers can set a global disable to simulate not having wifi before BeamContext initialization.
+Game makers can set a global disable to simulate not having Wi-Fi before BeamContext initialization.
 
 ```csharp
 private static void ForceDisableConnectivity()
@@ -363,7 +363,7 @@ A few noteworthy clarifications:
   2. **ConnectivityService**: This service maintains the state on whether internet connectivity is currently available, and is also responsible for invoking any reconnect hooks and so forth
 2. The NoConnectivityException errors can occur as a result of a couple of conditions:
   1. The **ConnectivityChecker**, which checks connectivity every 3 seconds, experiences a failure **OR**
-  2. A request to Beamable experiences a timeout or HTTP status code 0 from Unity  
+  2. A request to Beamable experiences a timeout or HTTP status code 0 from Unity
      Beamable also makes regular heartbeat calls which may also fall into this class
 3. When a NoConnectivityException is encountered, the **ConnectivityService** is notified that the internet connection has been lost, and the **ConnectivityService** then invokes any relevant hooks for reconnecting when the service is restored.
 
