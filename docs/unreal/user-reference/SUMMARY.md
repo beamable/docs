@@ -28,3 +28,5 @@
 - Unreal Online Subsystem
       - [Overview](online-subsystems/online-subsystem.md)
       - [Online Subsystem Identity](online-subsystems/online-subsystem-identity.md)
+- Extensions
+      - [Code base modification guide](extension/code-base-modification.md)
