@@ -9,12 +9,12 @@ Welcome to Beamable! This guide will walk you through the steps required to inst
 
 ## Setting Up Account in Beamable Portal
 
-To start using Beamable in your project you need to have a valid Beamable account. Please do so via our [Portal](https://portal.beamable.com/signup/registration). Please remember your **Alias** as it'll be used to log into the SDK in your editor or via the Beamable CLI.
+To start using Beamable in your project, you need to have a valid Beamable account. Please create an account via our [Portal](https://portal.beamable.com/signup/registration). Please remember your **Alias** as it'll be used to log into the SDK in your editor or via the Beamable CLI.
 
 
 ## Downloading and Installing the Beamable SDK
 
-You can Download the Beamable SDK Installer Package [Here](https://packages.beamable.com/com.beamable/Beamable_SDK_Installer.unitypackage).
+You can download the Beamable SDK Installer Package [Here](https://packages.beamable.com/com.beamable/Beamable_SDK_Installer.unitypackage).
 
 Once downloaded, follow these steps to install the Beamable SDK into your Unity project.
 
@@ -26,10 +26,10 @@ Once downloaded, follow these steps to install the Beamable SDK into your Unity 
 | 4. Remove the **Beamable SDK Installer Package** | • Now that the installation process is complete, the installer package is no longer needed. You can remove it. |
 | 5. **Install Dotnet (if required)** | Starting with the Unity 2.1.0 SDK, Beamable requires that you have dotnet 8.0.302 installed on your machine. If you don't, the Beamable SDK will offer a download option for you, and once you've finished installing it, you can continue through the dialog. |
 
-Congratulations the Beamable SDK is now installed!
+Congratulations, the Beamable SDK is now installed!
 
 !!! Note
-    If you need to install a Release Candidate version of Beamable, use the _Search for specific version_ drop down under the main _Install Beamable SDK_ button. You can also find nightly builds here. 
+    If you need to install a Release Candidate version of Beamable, use the _Search for specific version_ drop-down under the main _Install Beamable SDK_ button. You can also find nightly builds here. 
 
 ## Log into Beamable
 
@@ -62,7 +62,7 @@ You should expect to see a `.beamable` folder and a `.config` folder in your Uni
 
 The `.config` folder has a file called `dotnet-tools.json` which specifies the version of the Beam CLI being used by the Beamable Unity SDK. By default, the Beamable SDK will maintain this number, and you should not edit it by hand.
 
-As new versions of the Beamable SDK are released, they depend on different Beam CLI versions. This table shows which versions of the Beamable SDK depend on what CLI versions. 
+New versions of the Beamable SDK may depend on different versions of the Beam CLI. This table shows which versions of the Beamable SDK depend on what CLI versions. 
 
 | SDK Version | CLI Version |
 | :---------- | :---------- |
