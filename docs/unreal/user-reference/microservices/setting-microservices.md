@@ -21,7 +21,7 @@ Creating your first microservice will automatically create your solution for you
 ### Create the Microservice Solution and Project
 **Make sure that you've completed the [Setup](../../getting-started/setup.md) process for the SDK and that the editor is not running before starting this guide.**
 
-Open a terminal/shell (in windows, we recommend `GitBash`) at your project's root and run the following command to create a new project and add a new microservice.
+Open a terminal/shell (in Windows, we recommend `GitBash`) at your project's root and run the following command to create a new project and add a new microservice.
 
 ```
 dotnet beam project new service MicroserviceName --sln ProjectNameBeamable/ProjectNameBeamable.sln
@@ -56,7 +56,7 @@ Linking a project informs our CLI where it should put generated C++ files for co
 dotnet beam project generate-client "."
 ```
 
-After the generating the client in your Unreal project, these are the next steps:
+After generating the client in your Unreal project, these are the next steps:
 
 - Add the generated plugin (`ProjectNameMicroserviceClients`) to your `uproject` file and enable it.
 - Add the `ProjectNameMicroserviceClients` modules to your `Target.cs` files.
@@ -123,7 +123,7 @@ Take a look at [this documentation](https://docs.beamable.com/docs/cli-guide-mic
 ## Optional - Libraries and C# Microservices
 One of the big advantages of Beamable C# Microservices is that they are regular `.NET` projects. This means you get access to Nuget packages should you need to integrate Beamable with any particular Third-Party technology that we don't support out-of-the-box.
 
-To do so, use Nuget to add a package dependency to a project (this can be done easily through any IDE --- or through `dotnet nuget` command pallet).
+To do so, use Nuget to add a package dependency to a project (this can be done easily through any IDE --- or through `dotnet nuget` command pallete).
 
 While definitely not the common case, it is possible for projects to require multiple services. When that happens, it is also common that those services share some logic or internal data types. To write your own code that is then shared between services:
 

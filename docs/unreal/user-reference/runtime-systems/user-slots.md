@@ -1,6 +1,6 @@
 ﻿# User Slots
 
-User Slots are at the core of how the SDK handles local users.
+**User Slots are at the core of how the SDK handles local users.**
 
 > Each `UserSlot` is a named slot that represents a local user.
 
@@ -11,7 +11,7 @@ These are defined in `UBeamCoreSettings::RuntimeUserSlots` (found in `Project Se
 
 Almost all of our APIs take in a `FUserSlot` struct representing the local user making the request. Only "public" APIs do not require them (APIs that you can call after the SDK has been initialized but before any `Login` has happened).
 
-If you're game has **no _local_ multiplayer** (just a single local player), you only need to know a few things about **UserSlots**:
+If your game has **no _local_ multiplayer** (just a single local player), you only need to know a few things about **UserSlots**:
 
 - You should pass in the **Owner User Slot** (the one mapped to the "Local Player 0") to any calls taking an `FUserSlot`.
     - In C++, you can use `UBeamCoreSettings::GetOwnerPlayerSlot()` to get it.
@@ -21,9 +21,9 @@ If you're game has **no _local_ multiplayer** (just a single local player), you 
     - If you're calling them from a `UGameInstanceSubsystem`, `UActorComponent` or `AActor` or `Blueprint`, you can pass itself (`this`/`Self`) to this parameter.
 
 !!! warning "Non-Local Multiplayer Games"
-    If your game is a normal one-player-per-client multiplayer game, you might want to take a look at our [Matchmaking](../beamable-services/matchmaking.md) and [Lobbies](../beamable-services/lobbies.md) systems.
+    If your game is a normal one-player-per-client multiplayer game, you may want to take a look at our [Matchmaking](../beamable-services/matchmaking.md) and [Lobbies](../beamable-services/lobbies.md) systems.
 
-For games that do want to support multiple local players (each with their own Beamable account), the next sessions explain how this concept helps. 
+For games that do want to support multiple local players (each with their own Beamable account), the next sections explain how this concept helps. 
 
 ## User Slots At Runtime
 The `UBeamUserSlots` Engine Subsystem is responsible for:
@@ -32,15 +32,15 @@ The `UBeamUserSlots` Engine Subsystem is responsible for:
     - These are kept in Unreal's default `Saved` directory.
 - Enabling local co-op games to have multiple players logged in at the same time.
     - For more on login flows, see the [SDK Lifecycle](../overview.md) and various flavors described in [Identity](../beamable-services/identity.md). 
-- Handles support for Multiplayer PIE-mode by namespacing each Slot (UE's `FWorldContext::WorldType` and `FWorldContext::PIEInstance`).
-    - To do so, we need to find an `UWorld` to get the context from.
+- Handling support for Multiplayer PIE-mode by namespacing each Slot (UE's `FWorldContext::WorldType` and `FWorldContext::PIEInstance`).
+    - To do so, we need to find a `UWorld` to get the context from.
     - This is why, like UE, we take in a `UObject* CallingContext` in certain parts of our APIs.
     - **At runtime, this parameter is NEVER optional!**
-- Assert that only slots defined in the `UBeamCoreSettings` are in use.
+- Asserting that only slots defined in the `UBeamCoreSettings` are in use.
     - Any User Slot with `Test` in its name is exempt from this rule so you can write automated tests with arbitrary amounts of user slots by using user slots with `Test` in their names.
   
-***This subsystem does not handle the actual logging in and logging out.*** That is handled by the  `UBeamRuntime` , a `GameInstanceSubsystem`, is responsible for PIE instances and packaged games.
+***This subsystem does not handle the actual logging in and logging out.*** That is handled by `UBeamRuntime`, a `GameInstanceSubsystem`, is responsible for PIE instances and packaged games. <!-- TODO(@drewbleam): Clarify the above system. Is this saying that UBeamRuntime is a GameInstance Subsystem, or are these separate statements? -->
 
-[After logging in](../beamable-services/identity.md), you can use [these Blueprint nodes](blueprints.md) to get information about the account logged-into the given slot.
+[After logging in](../beamable-services/identity.md), you can use [these Blueprint nodes](blueprints.md) to get information about the account logged into the given slot.
 
 ![user-slots-get-user-data.png](../../../media/imgs/user-slots-get-user-data.png)

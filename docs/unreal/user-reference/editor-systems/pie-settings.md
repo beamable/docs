@@ -2,7 +2,7 @@
 
 The new Beamable PIE Settings provide a flexible way to configure your game for Play In Editor (PIE). With this system, you can create, capture, and save player profiles for use at runtime, as well as define custom play presets directly within your Unreal projects.
 
-This enables you to test your game across multiple configurations and entry points without repeatedly changing project settings. You can even simulate custom lobbies inside **Gameplay Level** while even overriding both per-player and global settings.
+This enables you to test your game across multiple configurations and entry points without repeatedly changing project settings. You can even simulate custom lobbies inside **Gameplay Levels** while overriding both per-player and global settings.
 
 !!! warning "PIE Settings are Experimental"
     PIE Settings are currently marked as Experimental under `Project Settings > Engine > Beamable Core` and are disabled by default.
@@ -44,7 +44,8 @@ To create a new Play Preset, click the **Create New Preset** button. You can the
 
 ![pie-use-preset.png](../../../media/imgs/pie-use-preset.png)
 
-**_IMPORTANT: When "None" is selected, the entire system is disabled; including the automatic Beamable SDK initialization._**
+!!! warning "IMPORTANT"
+When "None" is selected, the entire system is disabled; including the automatic Beamable SDK initialization._
 
 ### Map Settings
 Play Presets can be configured to apply to specific maps or a list of maps which match the name rule requirement (Regex). This allows you to have different presets for different levels or game modes. You can specify the maps in the **Available Maps** list of the preset editor and/or add a name rule in the Map Name Pattern in case you have a lot of maps.
@@ -54,14 +55,14 @@ Play Presets can be configured to apply to specific maps or a list of maps which
 ### Fake Lobbies
 Play Presets can be configured to initialize lobbies for PIE, allowing you to test multiplayer scenarios with real Beamable accounts **_directly in PIE from the Gameplay Level_**. This is especially useful when testing games that use the **Gameplay Level** as the entry point, since it ensures the initialization of Beamable systems and lobby setup. Normally, this initialization would occur in earlier Levels, such as the **Main Boot Level** (Main Menu/Title Screen/etc...).  
 
-!!! warning "Integration with Beamable Realtime Multiplayer Systems"
+!!! warning "Tight Integration with Beamable Realtime Multiplayer Systems"
     Play Presets' PIE Lobby feature is tightly integrated with the Beamable Runtime Multiplayer Systems, having some requirements in your scenes to work properly. For more information, check the [Realtime Multiplayer Overview](../realtime-multiplayer/realtime-multiplayer-overview.md) page.
 
 In the PIE Lobby Settings you can configure:
 
-- **Enable/Disable**: The Checkbox in the header enables or disables the PIE Lobby simulation for this preset.
-- **Server Map Override**: The map that will be used as the server map for the PIE Lobby. This overrides the default server map defined in the Unreal Project Settings.
-- **Game Type**: The Game Type content that will be used for the PIE Lobby Scene. If there is a federation configured here, the federation does run too.
+- **Enable/Disable**: checkbox in the header enables or disables the PIE Lobby simulation for this preset.
+- **Server Map Override**: map that will be used as the server map for the PIE Lobby. This overrides the default server map defined in the Unreal Project Settings.
+- **Game Type**: Game Type content that will be used for the PIE Lobby Scene. If there is a federation configured here, the federation does run too.
 - **Lobby Global Data**: Custom Global Key-Value pairs that will be used to initialize the PIE Lobby. This data is available in the Gameplay Scene and can be used to simulate different scenarios.
 
 ![pie-fake-lobby.png](../../../media/imgs/pie-fake-lobby.png)
@@ -77,7 +78,7 @@ For the most part, adding users will configure this correctly. We also do valida
 When selecting players, a few things are relevant:
 
 - You can check `Copy on PIE` in order to get a new user with Stats and Inventory copied from the selected user account. This is useful when you want to keep a consistent starting state so you can test things (think of keeping users at various progression points in your game).
-- **Shared Users** will always `Copy on PIE`. This is because Shared Users are meant a workflow baseline. The recommendation is that designer leads can leverage this to enforce in-house workflows, training and on-boarding.
+- **Shared Users** will always `Copy on PIE`. This is because Shared Users are meant a workflow baseline. The recommendation is that design leads can leverage this to enforce in-house workflows, training and on-boarding.
 - **Users from realms other than your current one** will also always `Copy on PIE`. This is because BeamPIE cannot sign in with a user from another realm into a different one. So we copy it instead.
 
 When Fake Lobbies are enabled, the Add Lobby Data will be available to add custom Key-Value pairs that will be used to initialize the per-player key-value store lobby itself. This data is accessible in the Gameplay Level and can be used to simulate various scenarios such as the selection of which skin the player chose or many other parameters that would get put into the lobby either via Federation or Matchmaking/Lobby systems themselves.

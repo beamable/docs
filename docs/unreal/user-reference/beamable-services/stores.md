@@ -8,29 +8,31 @@ Beamable's Store feature enables game-makers to create and manage dynamic in-gam
 - Customizable store layouts and content
 
 ## Content Types
-In Unreal, Stores are represented by the `UBeamStoreContent` class, which includes a store title and a list of links to `UBeamListingContent` types. The `UBeamListingContent` class contains all the details about the offer, such as player requirements, costs, and benefits. Make sure you understand the [Content System](content.md) as both `UBeamStoreContent` and `UBeamListingContent` are subclasses of `UBeamContentObject`.
+In Unreal, Stores are represented by `UBeamStoreContent` class, which includes a store title and a list of links to `UBeamListingContent` types. The `UBeamListingContent` class contains all of the details about the offer, such as player requirements, costs, and benefits. 
+
+The [Content System](content.md), as both `UBeamStoreContent` and `UBeamListingContent`, are subclasses of `UBeamContentObject`. <!-- TODO(@drewbleam): Review this sentence for accuracy. -->
 
 ### Store Content
 The store content has the following properties:
 
-- **Show Inactive Listing**: Shows things that the user already bought and are outside of availability window or outside cohort settings.
-- **ActiveListingLimit**: Defaults to 20. The Store will only show the first N listings that are valid. When asking for all active listings for a particular user, the API will return a maximum of whatever is here.
+- **Show Innactive Listings**: shows listing that the user already purchased and that are outside of the availability window or cohort settings.
+- **Active Listing Limit**: defaults to 20. The Store will only show the first N listings that are valid. When asking for all active listings for a particular user, the API will return a maximum of whatever is here.
 
 ### Listing Content
-You can think of a listing as an "entry in a catalog of purchasable products".
+You can think of a listing as an entry in a catalog of purchasable products.
 
-- **Price**: Is the definition of `currency` a player must have to acquire this listing.
+- **Price**: Is the amount of `currency` a player must have to acquire this listing.
 - **Offer**: Describes what will be added to the player's inventory once the purchase is completed.
 - **Client Data**: Use this to store information specific to your game's UI in a way that you can parse and display.
-- **DateTime**: Is an active period is an ISO-8601 string.
-- **Purchase Limit**: Number of times the listing is purchasable by the same user. Since it's optional, absent means infinite purchases allowed while the listing's other filters say you can buy it.
+- **DateTime**: Is an active period as an ISO-8601 string.
+- **Purchase Limit**: Number of times the listing is purchasable by the same user. Since its optional, absent means infinite purchases are allowed while the listing's other filters say you can buy it.
 
-We don't support subtypes of `UBeamListingContent`; use `ClientData` instead.
+Subtypes of `UBeamListingContent` are not supported; use `ClientData` instead.
 
 ## Beam Store Subsystem
 Purchases are handled through the `UBeamStoreSubsystem`. This subsystem allows you to request the purchase of any available `Listing` on any `Store`. It also provides helper functions to retrieve detailed data from listings, making it easier to interact with store content.
 
-You can fetch a particular player's view of a particular store via the `RefreshStoresOperation` or `RefreshStoreOperation`. After the view is refreshed, you can access the view for that particular player through `TryGetStoreView`. To make purchases, you can use the `PerformPurchaseOperation`.
+You can fetch a particular player's view of a particular store, via the `RefreshStoresOperation` or `RefreshStoreOperation`. After the view is refreshed, you can access the view for that particular player through `TryGetStoreView`. To make purchases, you can use the `PerformPurchaseOperation`.
 
 ### Purchases IAP support
 Beamable supports purchasing listings using in-game IAPs, but for the Unreal SDK, this feature is not yet available. It will be added in future releases.

@@ -1,11 +1,11 @@
 ﻿# C++ Realtime Multiplayer Systems
 In Unreal, there are certain parts of implementing a dedicated server game that MUST be implemented using C++. Namely, **Game Server Authentication**. This means: implementing logic that your Game Server runs to decide whether an incoming connection is allowed in this game server or not.
 
-By default, Beamable's integrates with the Gameplay Framework to give you cross-platform Game Server Authentication (to enable cross-play) WITHOUT going through OnlineSubsystem interfaces. Basically, the `FUniqueNetId` for each player is the user's `GamerTag`. More details about disabling this further down in this document (not recommended).
+By default, Beamable integrates with the Gameplay Framework to give you cross-platform Game Server Authentication (to enable cross-play) WITHOUT going through OnlineSubsystem interfaces. Basically, the `FUniqueNetId` for each player is the user's `GamerTag`. More details about disabling this further down in this document (not recommended).
 
 There are a few components here that you need to know about before you implement this:
 
-- **AGameMode::BeginPlay**: In most Cpp-based implementations, this is your server's "entry point". 
+- **AGameMode::BeginPlay**: In most C++-based implementations, this is your server's "entry point". 
 - **AGameMode::PreLoginAsync**: This is what UE calls whenever a client attempts to connect to a game server --- once you invoke a callback it provides, the user is either accepted or rejected. This will be invoked on the server once per-player (if you have multiple players per-client, this is an important distinction).
 - **ULocalPlayer::GetGameLoginOptions**: This appends a string of Options to each `ULocalPlayer`'s connection string.
 - **FUniqueNetIdRepl**: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework.
@@ -87,7 +87,7 @@ In clients builds', passing these options can be achieved using `UBeamLobbySubsy
 When implementing `PreLoginAsync`, you need to call two functions:
 
 - `BeamPIE::Authentication::GetExpectedClientPIEOptions` --- this enables our PIE integration to work with Game Server Authentication (it gets around UE limitations --- see further down for more information on this).
-- `BeamMultiplayer::Authentication::PreLoginAsync` --- this uses the `Options` to validate the user is in-fact inside a lobby that has been registered with this server. 
+- `BeamMultiplayer::Authentication::PreLoginAsync` --- this uses the `Options` to validate the user is in fact inside a lobby that has been registered with this server. 
 
 A simple implementation of that looks like this:
 
@@ -224,7 +224,7 @@ public:
 ```
 
 !!! note "Why do I have to write this code instead of inheriting from a class you give us?"
-     The SDK's philosophy is one that tries **_not_** force you into situations where you cannot combine its utilities and your own project-specific ones. A common mistake in SDK design is to provide a base-class that users _must inherit_; while it does make the simplest case a little easier, it tends to make complex cases _significantly harder_ than they need to be.
+     The SDK's philosophy is one that tries **_not_** to force you into situations where you cannot combine its utilities and your own project-specific ones. A common mistake in SDK design is to provide a base-class that users _must inherit_; while it does make the simplest case a little easier, it tends to make complex cases _significantly harder_ than they need to be.
 
     As such, we evaluate this cost is worth the flexibility.
 

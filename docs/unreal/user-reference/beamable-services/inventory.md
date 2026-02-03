@@ -1,11 +1,11 @@
 # Inventory
 
-The Beamable Inventory system is designed to manage player inventories in a game, allowing for the addition and removal of items and currencies. It supports both **Fungible** and **Non-Fungible** content types:
+The Beamable Inventory system is designed to manage player inventories, allowing for the addition and removal of items and currencies. It supports both **Fungible** and **Non-Fungible** content types:
 
 - **Fungible** means that each instance of that content is not unique. The simplest example is a Soft/Hard Currency in a live-services game. Each coin you grant the player is not unique. In Beamable, this type of content is represented as a `UBeamCurrencyContent`.
 - **Non-Fungible** means that each instance of that content is unique. The simplest example is an item in an MMORPG. Each instance of that item is unique and can have its own properties. In Beamable, this type of content is represented as a `UBeamItemContent`.
 
-Beamable's Inventory system is built on top of [Beamable's Content Feature](content.md). You create `Currency` and `Item` content via the content window. You can also inherit from their base types to define additional read-only properties for custom item/currencies in your game.
+The Inventory system is built on top of Beamable's [Content Feature](content.md). `Currency` and `Item` content is created via the content window. You can also inherit from their base types to define additional read-only properties for custom items/currencies in your game.
 
 Each player's inventory state can be thought of as:
 
@@ -22,7 +22,7 @@ To use the inventory system, you will need to first:
 2. Select `item` as a type.
 3. Create an item content definition.
 4. Select `currency` as a type.
-5. Create an currency content definition.
+5. Create a currency content definition.
 6. For this guide, make sure their `Client Permission` property is set to `true`.
 7. Publish this content to the realm.
 
@@ -40,8 +40,8 @@ Now, call this function while a user is signed in to grant the currency/item to 
 
 After running the above function at least once, you should be able to see the results of these calls in the Beamable portal. To do so:
 
-- Set aside the `Gamertag/UserId` from the Unreal Engine logs.
-- Click `Open Portal` in Beamable window.
+- Copy the `Gamertag/UserId` from the Unreal Engine logs.
+- Select `Open Portal` in Beamable window.
 - Go to `Engage->Players` and search for the player via `Gamertag/UserId`.
 - Go to `Inventory` and see that the appropriate currency and items are inside the user's inventory.
 
@@ -50,7 +50,7 @@ After running the above function at least once, you should be able to see the re
 ### Batching updates
 In the getting started example, we make a new `FBeamInventoryUpdateCommand` and commit it right away.
 
-It is desirable, for both performance and latency reasons, to batch as many inventory changes as possible as long as it makes sense for your game's design. So, if you're game's feature allows for a "edit multiple, commit later" pattern of UX, leveraging this API is the most efficient way to go about it.
+It is desirable, for both performance and latency reasons, to batch as many inventory changes as possible as long as it makes sense for your game's design. So, if your game's feature allows for a "edit multiple, commit later" pattern of UX, leveraging this API is the most efficient way to go about it.
 
 ### Reading Local State
 In order to read the local state of the player's inventory, you can use the following operations:
@@ -62,47 +62,48 @@ You can also use the `Local State - Inventory - TryGetAllItemsFilter` node to it
 ![inventory-auto-casting.png](../../../media/imgs/inventory-auto-casting.png)
 
 ## Currencies
-Currencies are used to buy items with our [Store system](stores.md) (e.g., Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP) depending on the specifics of your game system.
+Currencies are used to buy items with our [Store system](stores.md) (e.g. Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP) depending on the specifics of your game system.
 
 In the Unreal SDK, currencies are represented by the `UBeamCurrencyContent`. Each currency can specify a `startingAmount` that is used to pre-seed player accounts with that amount of currency for very simple cases. For more control over each player's starting state we recommend using [our Federated Player Init](../federation/federated-player-init.md).   
 
-You can [subclass](content.md#defining-custom-content-types) this content type if you want to add more information to currency that is specific to your like, such as UI related `ObjectPaths` and other references to assets that might be relevant to your game.
+You can [subclass](content.md#defining-custom-content-types) this content type if you want to add more information to currency that is specific to your liking, such as UI related `ObjectPaths` and other references to assets that might be relevant to your game.
 
 ## Items
 The Items feature allows for the creation and management of various in-game objects, such as equipment, consumables, and resources. In the Unreal SDK, items are represented by the `UBeamItemContent` type. You can [subclass](content.md#defining-custom-content-types) this content type to add game-specific information to item content which is then accessible via the `UBeamContentSubsystem` and in Microservices.
 
 In the `UBeamInventorySubsystem`, each item instance inside a player's inventory is represented by `FBeamItemState`. These instances have the following properties:
 
-- **ContentId**: The Id of `UBeamItemContent` that represents the type of this item instance.
-- **Properties**: A key-value store of properties of this specific item instance. You control which properties exist here.
-- **InstanceId**: A unique id of item instance inside this player's inventory.
+- **ContentId**: the Id of `UBeamItemContent` that represents the type of this item instance.
+- **Properties**: a key-value store of properties of this specific item instance. You control which properties exist here.
+- **InstanceId**: a unique id of item instance inside this player's inventory.
 - **CreatedAt**: when item instance was created.
 - **UpdatedAt**: last edit date.
 - **FederatedId**: See [Inventory Federation](../federation/federated-inventory.md) for more information about this field.
 
 ## Client Permissions
 
-It's up to the developer to decide how the content can be added to player inventory by specifying the `clientPermission` field:
+It's up to developers to decide how the content can be added to player inventory by specifying `clientPermission` field:
 
 When toggled, the content becomes **Client-Authoritative**: the SDK allows game-clients to add/remove that item or currency to the player inventory directly. If your game does not include networked multiplayer and can tolerate cheating, allowing the client to read and write their own currencies is the simplest option.
 
 If not toggled, the content becomes **Server-Authoritative**: trying to add/remove that item or currency to the player inventory from a game-client directly results in an error. The item/currencies are still readable in the game-client. To add/remove items and currencies that are **Server-Authoritative**, do so via a Microservice and a `ClientCallable`.
 
 !!! note "Edit player Inventory via Portal"
-	Regardless of the value of the `clientPermission` field it is possible to view and modify players inventory through the Portal. More info [here](https://docs.beamable.com/docs/portal-inventory).
+	Regardless of the value of the `clientPermission` field it is possible to view and modify players' inventory through the Portal. More info [here](https://docs.beamable.com/docs/portal-inventory).
 
 ## Item Instance Properties
 As with most key-value pairs for arbitrary data, try to follow the guidelines below:
 
-- For Keys:
-	- 8-20 characters are ideal (purely for human ergonomics).
-	- Keeping them under a few hundred characters is best for performance.
-	- Use enforce-able and recognizable patterns for your keys.
-		- Bad: `ItemEnhancementName` and `ENH_Count`
-		- Good: `ENHANCE_Name` and `ENHANCE_Count` OR `ItemEnhancementName` and `ItemEnhancementCount`.
-	- Keeping your project organized is key.
-- For Values:
-	- Values should be no more than a few hundred characters long.
+**For Keys**:
+- 8-20 characters are ideal (purely for human ergonomics).
+- Keeping them under a few hundred characters is best for performance.
+- Use enforceable and recognizable patterns for your keys.
+	- Bad: `ItemEnhancementName` and `ENH_Count`
+	- Good: `ENHANCE_Name` and `ENHANCE_Count` OR `ItemEnhancementName` and `ItemEnhancementCount`.
 
-If you need larger complex data structures, we recommend you use [Micro Storages](../microservices/microservices.md#micro-storages) instead of this key-value store. This is especially true if you do NOT need to use the data in these properties at the same time as you need the list of items; for example, a list view which then opens some sort of details view. This reduces pressure on the inventory service and can help reduce latency of inventory query requests.
+**For Values**: Values should be no more than a few hundred characters long.
+
+**For larger, complex data structures**: we recommend you use [Micro Storages](../microservices/microservices.md#micro-storages) instead of this key-value store. 
+
+This is especially true if you do NOT need to use the data in these properties at the same time as you need the list of items (for example, a list view which then opens some sort of details view). This reduces pressure on the inventory service and can help reduce latency of inventory query requests.
 

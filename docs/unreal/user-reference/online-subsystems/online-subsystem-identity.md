@@ -6,7 +6,7 @@ There are several different styles of signup/login flows games might want to use
 This flow is useful for when you want to automatically create a user for the player and then, some time in the future, you'll provide your player the opportunity to attach identities to them. Mostly used by mobile games, but can also be used to implement automatic Steam/Epic store logins.
 
 - Use the `IOnlineIdentity::Login` function with a `LoginType` of `BeamOSS::GetIdentityTypeFrictionless()` to create an account (or sign into the locally cached one).
-- Then, while signed into to an account, call `Login` again with a `LoginType` of `BeamOSS::GetIdentityTypeAttach____()` to attach a new identity to the currently logged in account.
+- Then, while signed into an account, call `Login` again with a `LoginType` of `BeamOSS::GetIdentityTypeAttach____()` to attach a new identity to the currently logged in account.
     - Don't forget to reassign the callbacks on `OnLoginCompleteDelegates` before calling login to respond to success/failure of attaching.
 
 !!! warning "Swapping Accounts when Attaching"

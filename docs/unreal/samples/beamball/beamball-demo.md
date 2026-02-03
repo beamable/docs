@@ -2,7 +2,7 @@
 
 ![beamable-release.gif](../../../media/imgs/beamable-release.gif)
 
-This demo showcases how you can use the **Beamable Unreal SDK** in a full game project. Particularly it focuses on the Store, Leaderboard, Stats and Matchmaking.
+This demo showcases how you can use the **Beamable Unreal SDK** in a full game project. Particularly it focuses on the Store, Leaderboard, Stats and Matchmaking services.
 
 ## Introduction
 
@@ -11,7 +11,7 @@ Aside from our `BeamableCore` Plugin, here's what the sample contains:
 - **`BEAMPROJ_Beamball` Unreal Plugin.**: Contains the UE implementation for the sample's client. The core code is inside `LiveOpsDemoMainMenu.h` and part of the implementation is done through BPs inside the folder `UI_BPs` folder of the `BEAMPROJ_Beamball` project.
 - **`Microservice/BeamballMs` Microservice**: Microservice containing code that's used by the sample for various matchmaking and stats stuff.
 
-To set up this sample you'll need a Beamable Account and a Realm. To configure the repo for the sample run `dotnet beam unreal select-sample BEAMPROJ_Beamball`.
+To set up this sample you'll need a a Beamable Account and a Realm. To configure the repo for the sample run `dotnet beam unreal select-sample BEAMPROJ_Beamball`.
 
 ## Setting up the Project
 To set up an organization and realm to run this sample, follow the steps below.
@@ -20,7 +20,7 @@ To set up an organization and realm to run this sample, follow the steps below.
 2. Compile and open the `BeamableUnreal` editor project.
 3. Sign into your Beamable account and go to the `Beamball` realm.
       1. Optionally you can hit `Apply to Build` after the realm change is done.
-5. Let's Set Up the Content
+5. Let's Setup the Content
       1. First you will need to run the command `dotnet beam content restore --pid DE_1885450253346843 --name LastPublished-global` to bring all the content from the sample to your current realm.
       2. Open the `Content` window.
       3. Ensure there's a `game_types` content with the name `default`
@@ -28,7 +28,7 @@ To set up an organization and realm to run this sample, follow the steps below.
       3. Ensure there are 4 `itemskin` content with the names `skin1`, `skin2`, `skin3`, `skin4`
       3. Ensure there's a `leaderboard` content with the name `global`
       3. Ensure there are 3 `listings` content with the names `skin1`, `skin2`, `skin3`
-      5. Click `Publish` to publish those new contents to the realm.
+      5. Select `Publish` to publish those new contents to the realm.
       6. You can read more about the content system [Here](../../user-reference/beamable-services/content.md)
 
 ## Running the Sample in Editor
@@ -44,7 +44,7 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
       1. You should see the `BeamballMS` service there. Select it.
       2. Click `Run` and wait until you see the `Service ready for traffic` log line (and the running icon in the Microservice's card to change).
       3. After you're done with the sample, don't forget to come here and stop the service.
-4. You don't need to select any Play Preset, as the `Beamball_MainScreen` level is the common entry point for the sample. So leave the Play Preset selector to `None`.
+4. You don't need select any Play Preset, as the `Beamball_MainScreen` level is the common entry point for the sample. So leave the Play Preset selector to `None`.
 5. Play the `L_Beamball_MainScreen` in the Editor.
 
 ### Running from the Gameplay Scene
@@ -67,7 +67,7 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
 
 ## Can I use it as a Template?
 
-This sample is not meant to be used as a template directly; however, its components are free for you to copy and use in your own project. Here's what these are:
+This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here's what these are:
 
 - The `BeamballMS` Microservice : located inside Microservice/BeamballMS
 - Beamable code and blueprints inside BEAMPROJ_Beamball plugin
