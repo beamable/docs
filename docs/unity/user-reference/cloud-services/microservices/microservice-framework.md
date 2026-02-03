@@ -1,6 +1,6 @@
 # Microservices Overview
 
-Beamable Microservices are small C# projects that can handle web traffic for your game in Unity, Unreal, or custom engine. The C# project is written with the modern dotnet library which means you have full access to the vast majority of dotnet features, including Nuget, Msbuild, and the myriad of performance improvements available in recent dotnet updates. 
+Beamable Microservices are small C# projects that can handle web traffic for your Unity game, Unreal game, or custom engine game. The C# project is written with the modern dotnet library which means you have full access to the vast majority of dotnet features, including Nuget, Msbuild, and the myriad of performance improvements available in recent .NET updates. 
 
 !!! warning "Dotnet and Docker Dependency!"
 
@@ -254,10 +254,6 @@ However, within a Beamable's Microservice, game makers must rely instead on Beam
 | Supported Types | Unsupported Types |
 |-----------------|-------------------|
 | [Microservice Serialization Supported Types](https://docs.google.com/spreadsheets/d/1EWGhLQmoDIEAjwHk6Fn0BTJ3u8yAj5B2TxbefuBvZ88/edit?usp=sharing) | All other types |
-
-#### UseLegacySerialization
-
-A breaking change is introduced in Beamable SDK v0.11.0. If you began your project with an **earlier** version of the SDK, see [Beamable Releases Unity SDK Version 0.11.0](https://www.beamable.com/blog/beamable-releases-unity-sd-version-0-11-0) for more info. Otherwise, simply disregard this issue.
 
 ### Handling Errors
 

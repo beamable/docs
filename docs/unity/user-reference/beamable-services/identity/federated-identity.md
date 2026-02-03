@@ -15,7 +15,7 @@ You should first create a microservice or use an existing one. You can bundle mu
 
 ### Implementing an IFederationId interface
 
-Create an implementation of IThirdPartyCloudIdentity in Beamable/Common (or any shared assembly).  
+Create an implementation of IThirdPartyCloudIdentity in Beamable/Common (or any shared assembly).
 This will create a "tuna" namespace for your new authentication scheme. Namespace will be a part of the authentication endpoint path. In the following example, TunaCloudIdentity will correspond to `/your_microservice/tuna/authenticate` and HaddockCloudIdentity will correspond to `/your_microservice/haddock/authenticate`.
 
 ```csharp

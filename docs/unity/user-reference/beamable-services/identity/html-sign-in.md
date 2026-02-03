@@ -133,4 +133,4 @@ function login(evt) {
 !!! warning "CID-scoped logins"
     When the scope field is in `{{cid}}.{{pid}}` form, that is a realm-scoped login, the standard login for players. For some purposes, such as administrative tools, you may want a CID-scoped login, which will yield a token that is pertinent to your organization as a whole, rather than a specific realm.
     
-    In the case of CID-scoped logins, you must include 'customerScoped=true' in the body.
+    In the case of CID-scoped logins, you must include `"customerScoped":true` in the body.

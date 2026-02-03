@@ -4,7 +4,7 @@ Welcome to Beamable! This guide will walk you through the steps required to inst
 
 !!! info "Compatibility"
 
-    • Beamable supports Unity versions 2021.3 to 6000 and is compatible with all template types  
+    • Beamable supports Unity versions 2021.3 to 6000 and is compatible with all template types (NOTE: Beamable Unity SDK 4.0 only supports up through Unity 6000.2; for Unity 6000.3 support, use the Beamable Unity SDK v5.x or higher)
     • Beamable supports Windows, Mac, iOS, Android, and WebGL platforms
 
 ## Setting Up Account in Beamable Portal
@@ -33,7 +33,7 @@ Congratulations the Beamable SDK is now installed!
 
 ## Log into Beamable
 
-Open the Beamable Login Window by clicking the Beamable button in the Unity toolbar.  Now see the Beamable Login Window prompts for user account credentials. Enter the Organization Alias and Password you created when you signed up for Beamable.
+Open the Beamable Login Window by clicking the Beamable button in the Unity toolbar.  Now see the Beamable Login Window prompts for user account credentials. Enter the Organization Alias, Email, and Password with which you signed up for Beamable.
 
 ![Beamable Login Window](./login.png){: style="max-width: 400px;" }
 
@@ -47,7 +47,7 @@ Navigate to the _Beam Library_ by finding it from the Beamable Button in the top
 In the _Beam Library_, find the _Admin Console_ card and click the _Add Prefab_ button to add the prefab to an empty scene.
 ![Beamable Admin Console](./library-admin-console.png){: style="max-width: 700px;"}
 
-Enter play-mode, and hit the `~` character (the same character as `` ` ``). This should open up the _Admin Console_. You can type in a bunch of commands like `help`, or `dbid`. 
+Enter play-mode, and hit the `~` character (the same key as `` ` ``). This should open up the _Admin Console_. You can type in a bunch of commands like `help`, or `dbid`. 
 
 !!! Note
     The `dbid` command will print out the current player's id. Learn more in the [frictionless auth section](./../user-reference/beamable-services/identity/frictionless.md).
@@ -56,9 +56,9 @@ Enter play-mode, and hit the `~` character (the same character as `` ` ``). This
 
 ## Beam CLI Dependency
 
-The Beamable plugin will automatically install the Beam CLI into your Unity project. The Beam CLI is a developer tool for managing Beamable resources like Microservices, Content, and more. The Beamable Unity plugin relies on the CLI for interacting with Beamable. Your Unity project is a valid Beamable CLI project, which means you can also use the CLI directly if required.  
+The Beamable plugin will automatically install the Beam CLI into your Unity project. The Beam CLI is a developer tool for managing Beamable resources like Microservices, Content, and more. The Beamable Unity plugin relies on the CLI for interacting with Beamable. Your Unity project is a valid Beamable CLI project, which means you can also use the CLI directly if required.
 
-You should expect to see a `.beamable` folder and a `.config`folder in your Unity project's file structure. The `.beamable` folder contains Beamable specific information about your project, and the `.config` folder is a special `dotnet` folder that defines the version of the Beam CLI. If you are using source-control, both of these folders should be included in source-control.
+You should expect to see a `.beamable` folder and a `.config` folder in your Unity project's file structure. The `.beamable` folder contains Beamable-specific information about your project, and the `.config` folder is a special `dotnet` folder that defines the version of the Beam CLI. If you are using source-control, you should include both of these folders in source control.
 
 The `.config` folder has a file called `dotnet-tools.json` which specifies the version of the Beam CLI being used by the Beamable Unity SDK. By default, the Beamable SDK will maintain this number, and you should not edit it by hand.
 
@@ -66,6 +66,7 @@ As new versions of the Beamable SDK are released, they depend on different Beam 
 
 | SDK Version | CLI Version |
 | :---------- | :---------- |
+| 4.0.3       | 6.1.2 |
 | 3.1.5       | 5.4.2 |
 | 3.1.4       | 5.4.2 |
 | 3.1.3       | 5.4.2 |
@@ -73,10 +74,10 @@ As new versions of the Beamable SDK are released, they depend on different Beam 
 | 3.1.1       | 5.4.1 |
 | 3.1.0       | 5.4.0 |
 | 3.0.0       | 5.3.0 |
-| 2.4.3       | 4.3.4       |
+| 2.4.3       | 4.3.4 |
 
 
 
 !!! danger "User Beware: Changing the CLI version may cause issues"
 
-    Starting in SDK 3.0, you _may_ disable the SDK's explicit control of the `dotnet-tools.json` by enabling the `Beamable/Editor/AdvancedCli/Disable Version Requirement` setting in Unity's Project Settings window. If you do this, please understand that the Beamable SDK may stop functioning, as it is trying to use an unplanned version.
+    Starting in SDK 3.0, you _may_ disable the SDK's explicit control of the `dotnet-tools.json` by enabling the `Beamable/Editor/AdvancedCli/Disable Version Requirement` setting in Unity's Project Settings window. If you do this, please understand that the Beamable SDK may stop functioning, as it would then be trying to use an unplanned version.
