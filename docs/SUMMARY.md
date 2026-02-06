@@ -1,2 +1,8 @@
 ﻿- [Website](https://beamable.com)
+- [Unity SDK](https://help.beamable.com/Unity-Latest/)
+- [Unreal SDK](https://help.beamable.com/Unreal-Latest/)
+- [Web SDK](https://help.beamable.com/WebSDK-Latest/)
+- [Beamable CLI](https://help.beamable.com/CLI-Latest/)
+- [Beamable API](https://beam-api.readme.io/reference/how-to-authenticate)
+- [Legacy Docs](https://docs.beamable.com/docs/beamable-overview)
 - [Support](https://beamable.com/support)
