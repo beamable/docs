@@ -8,7 +8,7 @@ These examples cover common use cases for Parties. The `_beamContext` variable u
 
 ### Creating a Party
 
-The `Create` method will fill the state of a current party which can be accessed through `_beamContext.Party.State`.  
+The `Create` method will fill the state of a current party which can be accessed through `_beamContext.Party.State`.
 The `Create` method has a number of optional parameters:
 
 - `maxSize` determines maximum allowed number of players in the party. 0 means default value which is currently defined by the backend and is equal to 25.
