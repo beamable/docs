@@ -10,7 +10,7 @@ To install the latest version of the CLI, use the following command.
 dotnet beam version install latest
 ```
 
-You can also search for available versions with the beam version ls command. The beam version install command accepts any valid version instead of the "latest" string in the example above. 
+You can also search for available versions with the `beam version ls` command. The `beam version install` command accepts any valid version instead of the "latest" string in the example above. 
 
 !!! info ".config/dotnet-tools.json"
 
@@ -45,7 +45,7 @@ When you upgrade your service to 6.0, you will begin to see a new log workflow i
 #### Telemetry Warning
 The 6.0 CLI will collect usage data and send it back to Beamable. By default, the CLI will ask you to opt into sending the usage information. The result of your selection is stored in the `.beamable/otel-config.json` file. You can change the `BeamCliAllowTelemetry` property to opt in or out of the usage collection. 
 
-Additionally, you can completely opt out of usage reporting by setting the `BEAM_NO_TELEMETRY` environment variable.  
+Additionally, you can completely opt out of usage reporting by setting the `BEAM_NO_TELEMETRY` environment variable.
 
 #### `services` command removed
 
