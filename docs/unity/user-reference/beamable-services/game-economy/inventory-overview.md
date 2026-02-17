@@ -59,7 +59,7 @@ Some use cases:
 - Federated Inventory depends on the implementation of [Federated Identity](../identity/federated-identity.md). That means that every player first needs to have a federated identity with the same microservice that federates inventory.
 - Inventory items are content-driven. To enable federation, content items must be marked as federated to a specific microservice.
 
-You can see bellow the flows when getting and granting the Inventory Items with Federation enabled
+You can see below the flows when getting and granting the Inventory Items with Federation enabled
 
 ![Federated Inventory Get Flow](../../../../media/imgs/federated-inventory-get-flow.png){: style="height:auto;width:400px"}
 
