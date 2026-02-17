@@ -9,7 +9,7 @@ Before you can use the Beamable CLI, you need to complete the [Getting-Started G
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
 dotnet --version
-beam version # beam --version also works.
+dotnet beam version # dotnet beam --version also works.
 ```
 
 
@@ -99,7 +99,11 @@ dotnet beam config | jq '.data.cid'
 Sometimes it is important to get the unescaped JSON, so the `fromjson` component of JQ can be used. For example, if we wanted the `cid` value, but without quotes, 
 
 ```sh
-beam config | jq '.data.cid | fromjson'
+dotnet beam config | jq '.data.cid | fromjson'
+123
+
+# This can also be achieved with the -r flag to jq.
+dotnet beam config | jq -r .data.cid
 123
 ```
 
@@ -110,7 +114,7 @@ When the `--raw` flag is used, or a command is piped to a file, then the Standar
 In order to do so, the Standard Error Buffer must be piped to a file. For example, the following expression will put the process logs into a file. 
 
 ```sh
- beam config --logs v 2> test.txt
+dotnet beam config --logs v 2> test.txt
 ```
 
 The contents of the `test.txt` file contain the process logs, not the `--raw` output.

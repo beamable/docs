@@ -9,7 +9,7 @@ Before you can deploy Beamable Standalone Microservices, you need to complete th
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
 dotnet --version
-beam version 
+beam version
 # "beam --version" also works 
 # "dotnet beam version" when using the CLI with an engine integration
 ```
@@ -21,7 +21,7 @@ docker --version
 
 In order to deploy a Microservice, you also need to have a local `.beamable` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below (Unity/Unreal engine integrations will do this for you).
 ```sh
-beam init MyProject
+dotnet beam init MyProject
 cd MyProject
 dotnet beam project new service HelloWorld
 ```

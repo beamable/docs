@@ -14,7 +14,7 @@ To install the Beamable CLI, run the following command in a shell.
 ```shell
 dotnet tool install --global Beamable.Tools
 ```
-It is also possible to install a specific version instead of the latest one using the param `--version`
+It is also possible to install a specific version instead of the latest one using the `--version` parameter
 ```shell
 dotnet tool install --global Beamable.Tools --version X.Y.Z
 ```
