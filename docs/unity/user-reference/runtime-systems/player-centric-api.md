@@ -29,7 +29,7 @@ Additionally The Beamable Player-Centric API has multiple ways to return the ref
 
 You can see more samples of it usage below:
 
-**One Local Player Sync**  
+**One Local Player Sync**
 Here the game maker references the context _synchronously_. Note that the `PlayerId` may be null during the initialization of the Beamable system.
 
 ```csharp
@@ -40,7 +40,7 @@ private void MyMethodViaSynchronous()
 }
 ```
 
-**One Local Player Async**  
+**One Local Player Async**
 Here the game maker references the context _asynchronously_ to guarantee the value `PlayerId` will be set.
 
 ```csharp
@@ -52,7 +52,7 @@ private async void MyMethodViaAsynchronous()
 }
 ```
 
-**Two or More Local Players**  
+**Two or More Local Players**
 Here the game maker references 2 (or more) contexts. This is ideal for advanced use-cases such as couch-coop games.
 
 ```csharp
@@ -135,7 +135,7 @@ private async void InitializeLegacyAPI()
 
 After that setup, game makers use the `beamableAPI` object as the main entry-point to Beamable functionality. Limitations of this API include that it relates to exactly _one_ local player and most Beamable functionality within must be called **asynchronously**.
 
-You can the difference between the two APIs in the table below:
+You can see the difference between the two APIs in the table below:
 
 | Benefits | Legacy API | Player-Centric API |
 |----------|------------|-------------------|
