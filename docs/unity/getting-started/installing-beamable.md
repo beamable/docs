@@ -66,6 +66,8 @@ New versions of the Beamable SDK may depend on different versions of the Beam CL
 
 | SDK Version | CLI Version |
 | :---------- | :---------- |
+| 5.0.0       | 7.0.0 |
+| 4.0.4       | 6.2.2 |
 | 4.0.3       | 6.2.2 |
 | 4.0.2       | 6.2.1 |
 | 4.0.1       | 6.2.0 |
