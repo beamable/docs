@@ -27,7 +27,7 @@ Additionally The Beamable Player-Centric API has multiple ways to return the ref
 | `var beamContext = BeamContext.ForContext("MyPlayer01");` | Ideal for games with 2+ local players                                            |
 | `var beamContext = BeamContext.ForContext(this);`         | Traverses the hierarchy for relevant configuration data. **Advanced Users Only** |
 
-You can see more samples of it usage bellow:
+You can see more samples of it usage below:
 
 **One Local Player Sync**  
 Here the game maker references the context _synchronously_. Note that the `PlayerId` may be null during the initialization of the Beamable system.
