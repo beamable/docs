@@ -21,7 +21,7 @@ To open the panel, select "Log in" from the Beamable Button if you are not logge
 
 ## Login Information
 
-When you log into Beamable in the Unity editor, the log-in information is kept in the `.beamable` workspace folder in your Unity project's root folder. You can run terminal commands from that folder with the same authentication. If you log out from either the CLI or the Unity editor, the log-in information will be removed.
+When you log into Beamable in the Unity editor, the log-in information is kept in the `.beamable` workspace folder in your Unity project's root folder. You can run terminal commands from the project's root folder with the same authentication. If you log out from either the CLI or the Unity editor, the log-in information will be removed.
 
 ## Changing Beamable Environment
 
