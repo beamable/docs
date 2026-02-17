@@ -11,7 +11,7 @@ Before you can develop a Beamable Standalone Microservice, you need to complete 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
 dotnet --version
-dotnet beam version # beam --version also works.
+dotnet beam version # dotnet beam --version also works.
 ```
 
 ---
@@ -20,7 +20,7 @@ dotnet beam version # beam --version also works.
 Standalone Microservices require a `.beamable` workspace, so you either need to create one with [beam init](../commands/cli-command-reference/init.md), or use an existing one.
 
 ```sh
-beam init MyProject
+dotnet beam init MyProject
 cd MyProject
 ```
 
