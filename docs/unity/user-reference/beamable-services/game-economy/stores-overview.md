@@ -1,6 +1,6 @@
 # Stores - Overview
 
-Beamable's Store feature allows the game maker to create a storefront in their application. Users can purchase items with real money or virtual currency. These can be attached to third-party purchasing methods (Apple, Google, etc), or Unity's built-in IAP system.
+Beamable's Store feature allows the game maker to create a storefront in their application. Users can purchase items with real money or virtual currency. These can be attached to third-party purchasing methods (Apple, Google, etc.), or Unity's built-in IAP system.
 
 The setup for Stores uses the [Content Manager](../profile-storage/content/content-overview.md#content-management), and relies on at least one valid [Virtual Currency](virtual-currency-overview.md), so it is recommended to review those features before implementation.
 
