@@ -23,7 +23,7 @@ A job must execute a single action. That action can be a privileged call to a Mi
 
 ### Microservice Action
 
-A scheduled job executing a Microservice should use the `.Schedule().Microservice()` utility function.  
+A scheduled job executing a Microservice should use the `.Schedule().Microservice()` utility function.
 
 ```csharp
 var job = await Services.Scheduler.Schedule()
@@ -135,7 +135,7 @@ This table shows common schedule patterns that may be helpful.
 
 Every job has a retry policy. Each time a job executes, if the action fails, the execution has failed. When an execution fails, the retry policy determines what happens next. If the policy allows, the action is retried until it either succeeds, or the policy is exhausted. 
 
-The default retry policy allows for 1 retry, after 10 seconds.  
+The default retry policy allows for 1 retry, after 10 seconds.
 In this sample, the policy is set to allow for 2 retries, half a second apart.
 
 ```csharp

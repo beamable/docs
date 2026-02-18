@@ -1,6 +1,6 @@
 # Leaderboards
 
-The purpose of this feature is to allow the player to see the Leaderboard.
+The purpose of this feature is to allow players to see and participate in score-based Leaderboards.
 
 Leaderboards provide competitive ranking systems that encourage player engagement and retention by displaying player performance relative to others.
 
