@@ -4,12 +4,12 @@ Configure Standalone Microservice routing and client generation
 
 ## Dependencies
 
-Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
+Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
 dotnet --version
-beam version # beam --version also works.
+dotnet beam version # dotnet beam --version also works.
 ```
 
 In order to configure a Microservice, you also need to have a local `.beamable` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
@@ -50,7 +50,7 @@ The variables are described in the following table.
 
 When the `host` (`api.beamable.com`) receives an HTTP request with the following `uri` format, the request will be deconstructed into the variable components, and the contents of the HTTP request will be forwarded to your Microservice via the _Thorium_ web socket protocol. The Microservice receives the request, and uses the `method` component of the original request to invoke the right `[Callable]` method.  
 
-#### X-BEAM-SERVICE-ROUTING-KEY
+#### X-BEAM-SERVICE-ROUTING-KEY Header
 
 When a Microservice is started locally, it may share the same name with a Microservice running in the Beamable cloud. When this happens, and your local development machine is generating traffic for the named service, the _routing key_ defines _which_ Microservice instance (the local or remote) receives the traffic. 
 
@@ -76,7 +76,7 @@ var scope = cid + '.' + pid;
 Finally, while not required, it is important to send an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project. 
 
 ```sh
-cat .beamable/temp/connection-auth.json
+cat .beamable/temp/auth.beam.json
 ```
 
 

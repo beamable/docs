@@ -4,12 +4,12 @@ Managing Microservices from the CLI
 
 ## Dependencies
 
-Before you can manage Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
+Before you can manage Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
 dotnet --version
-beam version # beam --version also works.
+dotnet beam version   # dotnet beam --version also works.
 ```
 
 ## Creating New Projects {#creating-new-projects}
@@ -26,7 +26,7 @@ dotnet beam project new common-lib <name> # create a new Common Library
 
 All of these commands will create a new `.csproj` project and configure it to work with Beamable. The new `.csproj` will be referenced in the `.sln` file. If there is already a `.sln` file, then the first `.sln` file detected in the `.beamable` workspace will be modified to include the `.csproj` reference. If there is no `.sln`, then a file called `BeamableServices.sln` will be created. However, the `--sln` option may be given to override this behavior and specify a .`sln` file to use.
 
-Projects will be created in the `/services` directory by default. 
+Projects will be created in the `BeamableServices/services/` directory by default. 
 
 ## Finding Microservices
 
@@ -63,7 +63,7 @@ Optionally, you can enable hot-reload by passing the `-w` flag.
 
 ## Checking Running Microservices
 
-You can use the project ps command to check for _running_ services. If you run the command while no services are running, the output will be empty. However, if the command is executed while a Microservice is running, then it will be displayed.
+You can use the `project ps` command to check for _running_ services. If you run the command while no services are running, the output will be empty. However, if the command is executed while a Microservice is running, then it will be displayed.
 
 ```sh
 MyProject % dotnet beam project ps

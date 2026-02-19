@@ -10,7 +10,7 @@ To install the latest version of the CLI, use the following command.
 dotnet beam version install latest
 ```
 
-You can also search for available versions with the beam version ls command. The beam version install command accepts any valid version instead of the "latest" string in the example above. 
+You can also search for available versions with the `beam version ls` command. The `beam version install` command accepts any valid version instead of the "latest" string in the example above. 
 
 !!! info ".config/dotnet-tools.json"
 
@@ -23,6 +23,17 @@ The Beamable CLI may include changes between versions that require developer int
 
 These are ordered with the latest versions towards the top, and the older versions toward the bottom of the document. **When jumping multiple versions (A.A.A -> C.C.C), apply the migrations without skipping steps (A.A.A -> B.B.B -> C.C.C).**
 
+### From 6.2.x to 7.0.0
+There is one large change between CLI 6 and CLI 7, but there is an automatic upgrade path. 
+
+#### Configuration Refactor
+The 7.0 release restructures the `.beamable` folder in your project. Previously, there were several single-use files in the folder. Now, those files have been merged into a single `config.beam.json`. 
+
+The first time you run any command with CLI 7.0, your config files will be automatically merged into the new format.
+
+#### Net10 Support
+While not a _breaking change_, it is worth noting that the CLI 7.x release multi-targets `net8.0`, and `net10.0`. We recommend you use `net10.0` whenever possible.
+
 ### From 5.4.x to 6.0.0
 There are no compile time breaking changes between 5.x and 6.0. However, there are a few major _workflow_ changes you should know.
 
@@ -34,7 +45,7 @@ When you upgrade your service to 6.0, you will begin to see a new log workflow i
 #### Telemetry Warning
 The 6.0 CLI will collect usage data and send it back to Beamable. By default, the CLI will ask you to opt into sending the usage information. The result of your selection is stored in the `.beamable/otel-config.json` file. You can change the `BeamCliAllowTelemetry` property to opt in or out of the usage collection. 
 
-Additionally, you can completely opt out of usage reporting by setting the `BEAM_NO_TELEMETRY` environment variable.  
+Additionally, you can completely opt out of usage reporting by setting the `BEAM_NO_TELEMETRY` environment variable.
 
 #### `services` command removed
 
