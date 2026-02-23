@@ -49,7 +49,7 @@ plugins:
    - mike:
         version_selector: false
    - open-in-new-tab:
-        add_icon: true
+        add_icon: false
    - literate-nav:
       nav_file: SUMMARY.md
 
