@@ -36,7 +36,7 @@ This is the official comprehensive guide to utilizing the entire suite of Beamab
 
     [:octicons-arrow-right-24: Getting started](https://help.beamable.com/CLI-Latest/)
 
--   **[![Beamable-e1761237652815.png](media/imgs/Beamable-e1761237652815.png)](https://help.beamable.com/CLI-Latest/) <span style="display: block; text-align: center; font-weight: bold; font-size: 30px;">Beamable API</span>**
+-   **[![Beamable-e1761237652815.png](media/imgs/Beamable-e1761237652815.png)](https://beam-api.readme.io/reference/how-to-authenticate) <span style="display: block; text-align: center; font-weight: bold; font-size: 30px;">Beamable API</span>**
 
     ---
     Access our comprehensive API documentation to understand the full capabilities of Beamable services and how to integrate them into your projects.
