@@ -70,8 +70,6 @@ To publish content to a realm simply use the Publish button.
 
 	**Publishing** means deleting all the contents of the Dropbox folder and replacing them with your local files.  
 
-
-
 ### Understanding Content Auto-Sync Rules
 It is often desirable to have designers in a realm that is stable and allow them to work in `Blueprints`, `Beamable Content` and Unreal `Data Asset` in the same realm plus branch combination. 
 
@@ -114,7 +112,7 @@ To achieve this --- just create a new realm for the development of that feature.
 
 	If you are a team that prefer to use feature flags over feature branches, you can still make the realm. Just write the code behind the feature flag to expect to be running in a realm whose Microservices, configuration and content match the feature realm's one.
 
-Once your work is done, you can configure the stable realm with whatever new configuration is required and then use the CLI or the Portal to move the content over to the new realm. 
+Once your work is done, you can configure the stable realm with whatever new configuration is required and then use the CLI or the Portal to move the content over to the new realm.
 
 ## Custom Content Types
 
@@ -198,6 +196,43 @@ The SDK also supports live content updates (if you publish content while the gam
 Accessing content at runtime is fairly simple:
 
 ![content-accessing.png](../../../media/imgs/content-accessing.png)
+
+## Content Snapshots
+The content snapshot system allows you to save the state of your local content at any given time and restore it later.
+
+![content-snapshots-window.png](../../../media/imgs/content-snapshots-window.png)
+
+This is useful for a couple of workflows:
+
+- You can use it to save the state of your local content before trying out risky changes and then restore it if you don't like the changes.
+- You can save the current state of your local content and share it with your teammates so they can load it in their machines and have the same local content state as you.
+- You can save the content state of your current realm and apply it to another realm.
+
+Content snapshots can be local or shared between users. The local ones are kept in the `.bleamable\contentSnapshots` folder and the shared ones in the .beamable\shared\contentSnapshot folder of the project, so it can be versionated on git.
+
+### Creating Content Snapshots
+To create a content snapshot, simply click on the button in the top right corner of the content window. This will create a snapshot of your current local content state. It then will be added to the list of snapshots in the Snapshots Window.
+
+![content_snapshot_create.png](../../../media/imgs/content_snapshot_create.png)
+
+### Applying Content Snapshots
+To apply the content of a snapshot to your current workspace, simply select the snapshot in the list and click on the `Apply Snapshot` button
+
+![content-apply-snapshot.png](../../../media/imgs/content-apply-snapshot.png)
+
+Aditionally you can also select the following options:
+
+- Delete Preset: deletes the snapshot after applying it.
+- Additive: if checked, the snapshot will be applied on top of your current local content state only adding the new and modified content. If unchecked, the snapshot will replace your current local content state.
+
+### Sharing Content Snapshots
+Shared snapshots are stored in the `.beamable\shared\contentSnapshot` folder, so you can share them with your teammates by sharing that file through git or any other way you like. To save a Local Snapshot as Shared simply click on the `Save as Template` button. 
+
+The Shared Snapshots are identified in the list with a different (ornge) icon.
+
+![content-shared-snapshot.png](../../../media/imgs/content-shared-snapshot.png)
+
+Notice that everytime you publish content to the realm it will automatically update the shared snapshot called `LatestPublished` to match the content that was just published. This means that you can always share with your teammates the latest published content by sharing that snapshot.
 
 ## Baking Content
 In a couple of cases, you might want to bake content to distribute it with your build:
