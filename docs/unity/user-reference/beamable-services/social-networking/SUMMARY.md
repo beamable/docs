@@ -1,5 +1,4 @@
 ﻿- [Overview](overview.md)
-- [Chat](chat.md)
 - [Connectivity](connectivity.md)
 - [Friends](friends.md)
 - [Groups](groups.md)

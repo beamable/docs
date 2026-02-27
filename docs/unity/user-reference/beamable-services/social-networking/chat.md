@@ -2,302 +2,67 @@
 
 The **Chat** feature allows players to communicate together in-game with text chat.
 
-The purpose of this feature is to allow players to communicate together in-game with text chat.
+!!! danger "Deprecated API"
 
-Here are some common use cases for the Chat feature:
+    As of December 2025, the Beamable Chat API described in this document is deprecated. Alternatives for real-time player communication include 3rd party solutions or implementing custom, game-specific chat using Beamable C# Microservices and the Beamable Notification service.
 
-- **Single Player Games:** Broaden the metagame with social features to boost retention  
-- **Multiplayer Games:** Deepen the core game to increase engagement. See [Multiplayer](multiplayer.md) for more info
-
-Here is the main chat-related terms to be aware.
-
-| Name        | Detail                                                              |
-| :---------- | :------------------------------------------------------------------ |
-| Room        | A collection of game players (e.g. chatting about a specific topic) |
-| Room Player | A game player within the room                                       |
-| Message     | Text sent from one player to all players within the room            |
-
-## Chat API
-
-!!! danger "Experimental API"
-
-    This API is experimental and may change in future versions.
-
-Unlike many Beamable Features, Chat does not require a specific Beamable Feature Prefab to be used. The main entry point to this feature is C# programming.
-
-Players can easily send and receive messages in real-time.
-
-The main API highlights include [`ChatService`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Chat_1_1ChatService.html).
-
-| Method Name | Detail                                  |
-| :---------- | :-------------------------------------- |
-| Subscribe   | Callback to observe changes             |
-| CreateRoom  | Create a new room                       |
-| GetMyRooms  | Get list of all current rooms           |
-| LeaveRoom   | Leave the current room                  |
-| SendMessage | Send a text message to all room players |
-
-### Sending Room Message
-
-```csharp
-room.SendMessage("Hello World!");
-```
-
-### Receiving Room Message
-
-```csharp
-private void OnMessageReceived (Message message)
-{
-  Debug.Log($"Message = {message.content}");
-}
-```
-
-### Group Chat
-
-Players can create groups, interact, and chat with group members in real-time. See [Groups](groups.md) for more info.
-
-### Filtering Chat Messages
-
-Beamable supports filtering chat messages to help keep the game chat safe.
-
-```csharp
-public async void IsProfanity()
-{
-    string text = "pornography"; // Ex. This string is profane
-    
-    bool isProfanityText = true;
-    try
-    {
-        var result = await _beamContext.Api.Experimental.ChatService.ProfanityAssert(text);
-        isProfanityText = false;
-    } catch{}
-
-    Debug.Log($"isProfanityText = {isProfanityText} for {text}");
-} 
-```
-
-### Limitations
-
-It's worth noting that chat rooms have no specified limit to their capacity. While the network may be perfectly capable of processing messages from hundreds of users, the game clients will start flooding with messages before it becomes a performance problem.
-
-## Code Samples
-
-In this example, the player may create a room and send a chat message.
-
-ChatServiceExample.cs
-```csharp
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Beamable.Common.Api;
-using UnityEngine;
-using Beamable.Experimental.Api.Chat;
-using UnityEngine.Events;
-
-namespace Beamable.Examples.Labs.ChatService
-{
-    /// <summary>
-    /// Holds data for use in the <see cref="ChatServiceExampleUI"/>.
-    /// </summary>
-    [System.Serializable]
-    public class ChatServiceExampleData
-    {
-        public List<string> RoomNames = new List<string>();
-        public List<string> RoomPlayers = new List<string>();
-        public List<string> RoomMessages = new List<string>();
-        public string RoomToCreateName = "";
-        public string RoomToLeaveName = "";
-        public bool IsInRoom = false;
-        public string MessageToSend = "";
-    }
-   
-    [System.Serializable]
-    public class RefreshedUnityEvent : UnityEvent<ChatServiceExampleData> { }
-    
-    /// <summary>
-    /// Demonstrates <see cref="ChatService"/>.
-    /// </summary>
-    public class ChatServiceExample : MonoBehaviour
-    {
-        //  Events  ---------------------------------------
-        [HideInInspector]
-        public RefreshedUnityEvent OnRefreshed = new RefreshedUnityEvent();
-        
-        //  Fields  ---------------------------------------
-        private ChatView _chatView = null;
-        private BeamContext _beamContext;
-        private ChatServiceExampleData _data = new ChatServiceExampleData();
-    
-        //  Unity Methods  --------------------------------
-        protected void Start()
-        {
-            Debug.Log("Start()");
-
-            SetupBeamable();
-        }
-        
-        //  Methods  --------------------------------------
-        private async void SetupBeamable()
-        {
-            _beamContext = BeamContext.Default;
-            await _beamContext.OnReady;
-
-            Debug.Log($"beamContext.UserId = {_beamContext.UserId}");
-
-            // Observe ChatService Changes
-            _beamContext.Api.Experimental.ChatService.Subscribe(chatView =>
-            {
-                _chatView = chatView;
-                
-                // Clear data when ChatService changes
-                _data.RoomNames.Clear();
-                _data.RoomMessages.Clear();
-                _data.RoomPlayers.Clear();
-                
-                foreach(RoomHandle room in chatView.roomHandles)
-                {
-                    room.OnRemoved += Room_OnRemoved;
-                    
-                    string roomName = $"{room.Name}";
-                    _data.RoomNames.Add(roomName);
-                    
-                    room.Subscribe().Then(_ =>
-                    {
-                        // Clear data (again) when Room changes
-                        _data.RoomMessages.Clear();
-                        _data.RoomPlayers.Clear();
-                        _data.RoomToLeaveName = room.Name;
-                        
-                        foreach(var message in room.Messages)
-                        {
-                            string roomMessage = $"{message.gamerTag}: {message.content}";
-                            _data.RoomMessages.Add(roomMessage);
-                        }
-                        
-                        
-                        foreach(var player in room.Players)
-                        {
-                            string playerName = $"{player}";
-                            _data.RoomPlayers.Add(playerName);
-                        }
-                        
-                        Refresh();
-                    });
-                    room.OnMessageReceived += Room_OnMessageReceived;
-                }
-                Refresh();
-            });
-        }
+The deprecation of the Chat service is due to its reliance on PubNub, a
+third party service for publish/subscribe workflows including real-time
+communication. If your game already uses Beamable Chat, it is possible
+to continue using the service by using your own PubNub account in place
+of the deprecated Beamable PubNub integration.
 
 
+PubNub Account Setup
+--------------------
 
-        public async Task<bool> IsProfanity(string text)
-        {
-            bool isProfanityText = true;
-            try
-            {
-                var result = await _beamContext.Api.Experimental.ChatService.ProfanityAssert(text);
-                isProfanityText = false;
-            } catch{}
+Before proceeding, you will need to have a paid PubNub account of your
+own. Go to https://admin.pubnub.com/ and sign up for an account. You
+will need to register an _App_ and a _Keyset_ with PubNub, and ensure
+that your account is in paid production mode (Testing keys will not
+work with Beamable Chat).
 
-            return isProfanityText;
-        }
-        
-        public async Task<EmptyResponse> SendRoomMessage()
-        {
-            string messageToSend = _data.MessageToSend;
-            
-            bool isProfanity  = await IsProfanity(messageToSend);
+1. Sign up for a PubNub account at https://admin.pubnub.com/
+2. Create an App for use with Beamable Chat. You may name this as you like, possibly something like "Beamable Chat Integration".
+3. Add a Keyset to your PubNub App. Note that this keyset _MUST_ be for the Production environment.
 
-            if (isProfanity)
-            {
-                // Disallow (or prompt Player to resubmit)
-                messageToSend = "Message Not Allowed";
-            }
-            
-            foreach(RoomHandle room in _chatView.roomHandles)
-            {
-                if (room.Players.Count > 0)
-                {
-                    await room.SendMessage(messageToSend);
-                }
-            }
+When you have created your Keyset, you should have a publish key and a
+subscribe key. Both of these will be needed by Beamable Chat, but you
+will not need to use the PubNub secret key.
 
-            return new EmptyResponse();
-        }
-        
-        public async Task<EmptyResponse> CreateRoom ()
-        {
-            string roomName = _data.RoomToCreateName;
-            bool keepSubscribed = false;
-            List<long> players = new List<long>{_beamContext.PlayerId};
-            
-            var result = await _beamContext.Api.Experimental.ChatService.CreateRoom(
-                roomName, keepSubscribed, players);
-            
-            Refresh();
-            
-            return new EmptyResponse();
-        }
-        
-        public async Task<EmptyResponse> LeaveRoom()
-        {
-            var roomInfos = await _beamContext.Api.Experimental.ChatService.GetMyRooms();
-            
-            foreach(var roomInfo in roomInfos)
-            {
-                var result = await _beamContext.Api.Experimental.ChatService.LeaveRoom(roomInfo.id);
-            }
+Publish keys have a format of `pub-c-<uuid>` and subscribe keys have a
+format of `sub-c-<uuid>`.
 
-            Refresh();
-            
-            return new EmptyResponse();
-        }
-        
-        public void Refresh()
-        {
-            _data.IsInRoom = _data.RoomPlayers.Count > 0;
-            
-            // Create new mock message 
-            int messageIndex = _data.RoomMessages.Count;
-            _data.MessageToSend = $"Hello {messageIndex:000}!";
-            
-            // Create new mock group name
-            int groupIndex = _data.RoomNames.Count;
-            _data.RoomToCreateName = $"Room{groupIndex:000}";
-            
-            // Create temp name for pretty UI
-            if (string.IsNullOrEmpty(_data.RoomToLeaveName))
-            {
-                _data.RoomToLeaveName = _data.RoomToCreateName;
-            }
-            
-            // Log
-            string refreshLog = $"Refresh() ...\n" +
-                                $"\n * RoomNames.Count = {_data.RoomNames.Count}" +
-                                $"\n * RoomPlayers.Count = {_data.RoomPlayers.Count}" +
-                                $"\n * RoomMessages.Count = {_data.RoomMessages.Count}" +
-                                $"\n * IsInRoom = {_data.IsInRoom}\n\n";
-            
-            Debug.Log(refreshLog);
-            
-            // Send relevant data to the UI for rendering
-            OnRefreshed?.Invoke(_data);
-        }
-        
-        //  Event Handlers  -------------------------------
-        private void Room_OnMessageReceived(Message message)
-        {
-            string roomMessage = $"{message.gamerTag}: {message.content}";
-            Debug.Log($"Room_OnMessageReceived() roomMessage = {roomMessage}");
-            _data.RoomMessages.Add(roomMessage);
-            Refresh();
-        }
-        
-        private void Room_OnRemoved()
-        {
-            Debug.Log($"Room_OnRemoved");
-            Refresh();
-        }
-    }
-}
-```
+Beamable Realm Configuration
+----------------------------
+
+There are three realm config settings that need to be added in order
+to use your own PubNub keys with Beamable: `notification|publisher`,
+`pubnub|publishKey`, and `pubnub|subscribeKey`.
+
+To add realm config values, go to the Beamable admin portal at
+https://portal.beamable.com/ and, after choosing the desired
+realm, use Operate > Config to navigate to Realm Config. From there,
+you can add or modify configuration values in the `notification` and
+`pubnub` namespaces. If you do not already have values in those
+namespaces, use the _+ Add Config_ button to add them.
+
+1. Go to https://portal.beamable.com/
+2. Choose the realm you want to configure
+3. Navigate to Operate > Config
+4. Use _+ Add Config_ to add three new realm configs
+
+![add config dialog](../../../../media/imgs/RealmConfig_AddConfigDialog_NotificationPublisher.png "Add Config Dialog")
+
+| namespace | key | value |
+| --------- | --- | ----- |
+| `notification` | `publisher` | `pubnub` |
+| `pubnub` | `publishKey` | the pub-c key from your PubNub account setup |
+| `pubnub` | `subscribeKey` | the sub-c key from your PubNub account setup |
+
+Legacy Chat Documentation
+-------------------------
+
+If you need to view the past documentation for the Beamable "Chat V2"
+service, you can find it in the v4.0 Beamable Unity SDK docs:
+[Beamable v4.0 Documentation - Chat](https://help.beamable.com/Unity-4.0/unity/user-reference/beamable-services/social-networking/chat/)
