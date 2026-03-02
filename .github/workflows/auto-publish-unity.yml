@@ -1,0 +1,89 @@
+name: Auto-Publish Unity Docs
+
+on:
+  push:
+    branches:
+      - 'unity/**'
+
+run-name: Auto-Publish ${{ github.ref_name }} by @${{ github.actor }}
+
+jobs:
+  auto-publish:
+    name: Auto-Publish ${{ github.ref_name }}
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout main to get setup.sh
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      # Install Python dependencies
+      - name: Run setup.sh
+        run: bash setup.sh
+
+      # Fetch all remote branches (needed to read gh-pages:versions.json)
+      - name: Fetch remote branch names
+        run: git fetch --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+
+      # Extract version from branch name, then check versions.json on gh-pages
+      # to determine if this version has already been published via mike.
+      # The check is case-insensitive. Exits cleanly if not yet published.
+      - name: Check if version is already published
+        id: check
+        run: |
+          BRANCH="${{ github.ref_name }}"
+          VERSION="${BRANCH#unity/}"
+          MIKE_ALIAS="Unity-${VERSION}"
+
+          echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
+          echo "mike_alias=${MIKE_ALIAS}" >> $GITHUB_OUTPUT
+
+          VERSIONS_JSON=$(git show origin/gh-pages:versions.json 2>/dev/null || echo "[]")
+
+          PUBLISHED=$(VERSIONS_JSON="$VERSIONS_JSON" MIKE_ALIAS="$MIKE_ALIAS" python3 -c "import json,os,sys; data=json.loads(os.environ['VERSIONS_JSON']); alias=os.environ['MIKE_ALIAS'].lower(); print('true') if any(e.get('version','').lower()==alias for e in data) else print('false')")
+
+          echo "published=${PUBLISHED}" >> $GITHUB_OUTPUT
+
+      - name: Skip if not published
+        if: steps.check.outputs.published == 'false'
+        run: echo "Skipping — ${{ steps.check.outputs.mike_alias }} has not been manually published yet."
+
+      # Checkout gh-pages so mike can read existing version state
+      - name: Checkout gh-pages branch
+        if: steps.check.outputs.published == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      # Checkout the pushed unity branch (the actual docs content to deploy)
+      - name: Checkout unity branch
+        if: steps.check.outputs.published == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Configure git for mike
+        if: steps.check.outputs.published == 'true'
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Deploy with mike
+        if: steps.check.outputs.published == 'true'
+        run: mike deploy "${{ steps.check.outputs.mike_alias }}" --push
+
+      - name: Notify Slack
+        if: steps.check.outputs.published == 'true'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_DOCS_CHANNEL_URL }}
+          MIKE_ALIAS: ${{ steps.check.outputs.mike_alias }}
+          BRANCH: ${{ steps.check.outputs.branch }}
+        run: |
+          PAYLOAD=$(jq -n \
+            --arg alias "$MIKE_ALIAS" \
+            --arg branch "$BRANCH" \
+            '{text: "Docs published: *\($alias)* from branch `\($branch)`\n<https://beamable.github.io/Docs/\($alias)/|View docs>"}')
+          curl -s -X POST "$SLACK_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD"
