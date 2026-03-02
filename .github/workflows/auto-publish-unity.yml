@@ -32,34 +32,59 @@ jobs:
         with:
           ref: gh-pages
 
-      # Use `mike list` to check if this version has already been published.
-      # The check is case-insensitive. Exits cleanly if not yet published.
-      - name: Check if version is already published
-        id: check
+      # Extract the version and mike alias from the branch name
+      - name: Extract version info
+        id: version
         run: |
           BRANCH="${{ github.ref_name }}"
           VERSION="${BRANCH#unity/}"
           MIKE_ALIAS="Unity-${VERSION}"
-
           echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
           echo "mike_alias=${MIKE_ALIAS}" >> $GITHUB_OUTPUT
+          echo "Pushed branch:  ${BRANCH}"
+          echo "Extracted version: ${VERSION}"
+          echo "Mike alias to check: ${MIKE_ALIAS}"
 
-          if mike list | grep -qiE "^${MIKE_ALIAS}( |$)"; then
+      # List all published versions so we can see what mike knows about
+      - name: List published versions
+        run: |
+          echo "Currently published versions:"
+          mike list --branch gh-pages
+
+      # Check whether this version has already been published (case-insensitive)
+      - name: Check if version is already published
+        id: check
+        run: |
+          MIKE_ALIAS="${{ steps.version.outputs.mike_alias }}"
+          if mike list --branch gh-pages | grep -qiE "^${MIKE_ALIAS}( |$)"; then
             echo "published=true" >> $GITHUB_OUTPUT
+            echo "Found '${MIKE_ALIAS}' in published versions — will deploy."
           else
             echo "published=false" >> $GITHUB_OUTPUT
+            echo "'${MIKE_ALIAS}' is not published yet — skipping."
           fi
 
       - name: Skip if not published
         if: steps.check.outputs.published == 'false'
-        run: echo "Skipping — ${{ steps.check.outputs.mike_alias }} has not been manually published yet."
+        run: echo "Skipping — ${{ steps.version.outputs.mike_alias }} has not been manually published yet."
 
-      # Checkout the pushed unity branch (the actual docs content to deploy)
+      # Checkout the pushed unity branch so mike can build the docs
       - name: Checkout unity branch
         if: steps.check.outputs.published == 'true'
         uses: actions/checkout@v4
         with:
           ref: ${{ github.ref_name }}
+
+      # Confirm mkdocs.yml is present before attempting a deploy
+      - name: Verify mkdocs.yml exists
+        if: steps.check.outputs.published == 'true'
+        run: |
+          if [ ! -f mkdocs.yml ]; then
+            echo "ERROR: mkdocs.yml not found in ${{ github.ref_name }}"
+            exit 1
+          fi
+          echo "mkdocs.yml found:"
+          cat mkdocs.yml
 
       - name: Configure git for mike
         if: steps.check.outputs.published == 'true'
@@ -69,14 +94,14 @@ jobs:
 
       - name: Deploy with mike
         if: steps.check.outputs.published == 'true'
-        run: mike deploy "${{ steps.check.outputs.mike_alias }}" --push
+        run: mike deploy "${{ steps.version.outputs.mike_alias }}" --branch gh-pages --push
 
       - name: Notify Slack
         if: steps.check.outputs.published == 'true'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_DOCS_CHANNEL_URL }}
-          MIKE_ALIAS: ${{ steps.check.outputs.mike_alias }}
-          BRANCH: ${{ steps.check.outputs.branch }}
+          MIKE_ALIAS: ${{ steps.version.outputs.mike_alias }}
+          BRANCH: ${{ steps.version.outputs.branch }}
         run: |
           PAYLOAD=$(jq -n \
             --arg alias "$MIKE_ALIAS" \
