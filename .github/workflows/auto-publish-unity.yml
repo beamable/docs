@@ -49,14 +49,14 @@ jobs:
       - name: List published versions
         run: |
           echo "Currently published versions:"
-          mike list --branch gh-pages
+          mike list
 
       # Check whether this version has already been published (case-insensitive)
       - name: Check if version is already published
         id: check
         run: |
           MIKE_ALIAS="${{ steps.version.outputs.mike_alias }}"
-          if mike list --branch gh-pages | grep -qiE "^${MIKE_ALIAS}( |$)"; then
+          if mike list | grep -qiE "^${MIKE_ALIAS}"; then
             echo "published=true" >> $GITHUB_OUTPUT
             echo "Found '${MIKE_ALIAS}' in published versions — will deploy."
           else
