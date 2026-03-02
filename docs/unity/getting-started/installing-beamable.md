@@ -11,7 +11,6 @@ Welcome to Beamable! This guide will walk you through the steps required to inst
 
 To start using Beamable in your project, you need to have a valid Beamable account. Please create an account via our [Portal](https://portal.beamable.com/signup/registration). Please remember your **Alias** as it'll be used to log into the SDK in your editor or via the Beamable CLI.
 
-
 ## Downloading and Installing the Beamable SDK
 
 You can download the Beamable SDK Installer Package [Here](https://packages.beamable.com/com.beamable/Beamable_SDK_Installer.unitypackage).
