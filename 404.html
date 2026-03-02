@@ -351,13 +351,14 @@
     const DEPTH      = 900;
     const stars      = [];
 
-    function mkStar(scatter) {
-      const angle = Math.random() * Math.PI * 2;
-      const dist  = scatter ? Math.random() * DEPTH * 0.9 : Math.random() * 10;
-      const z     = scatter ? Math.random() * DEPTH * 0.9 + 50 : DEPTH * 0.75 + Math.random() * DEPTH * 0.25;
-      const rnd   = Math.random();
-      const tint  = rnd < 0.12 ? 'warm' : rnd < 0.28 ? 'cool' : 'white';
-      return { x: Math.cos(angle) * dist, y: Math.sin(angle) * dist, z, pz: z, tint };
+    function mkStar() {
+      const angle     = Math.random() * Math.PI * 2;
+      const z         = 50 + Math.random() * (DEPTH * 0.9 - 50); // full range every time
+      const dist      = Math.random() * z * 0.014; // scale with z so all stars start near centre visually
+      const rnd       = Math.random();
+      const tint      = rnd < 0.12 ? 'warm' : rnd < 0.28 ? 'cool' : 'white';
+      const speedMult = 0.5 + Math.random() * 1.1; // per-star speed variation decorrelates arrivals
+      return { x: Math.cos(angle) * dist, y: Math.sin(angle) * dist, z, pz: z, tint, speedMult };
     }
 
     function resize() {
@@ -369,7 +370,7 @@
 
     function initStars() {
       stars.length = 0;
-      for (let i = 0; i < STAR_COUNT; i++) stars.push(mkStar(true));
+      for (let i = 0; i < STAR_COUNT; i++) stars.push(mkStar());
     }
 
     function starColor(tint, bright) {
@@ -404,9 +405,9 @@
 
       for (const s of stars) {
         s.pz = s.z;
-        s.z -= BASE_SPEED + (1 - s.z / DEPTH) * BASE_SPEED * 1.5;
+        s.z -= (BASE_SPEED + (1 - s.z / DEPTH) * BASE_SPEED * 1.5) * s.speedMult;
 
-        if (s.z <= 1) { Object.assign(s, mkStar(false)); continue; }
+        if (s.z <= 1) { Object.assign(s, mkStar()); continue; }
 
         const sx = (s.x / s.z) * W + CX;
         const sy = (s.y / s.z) * H + CY;
@@ -414,7 +415,7 @@
         const py = (s.y / s.pz) * H + CY;
 
         if (sx < -10 || sx > W + 10 || sy < -10 || sy > H + 10) {
-          Object.assign(s, mkStar(false)); continue;
+          Object.assign(s, mkStar()); continue;
         }
 
         const progress = 1 - s.z / DEPTH;
