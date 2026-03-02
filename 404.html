@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 – Page Not Found | Beamable Docs</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #0d1117;
+      color: #e6edf3;
+      font-family: ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      animation: twinkle var(--d) ease-in-out infinite alternate;
+      opacity: 0;
+    }
+
+    @keyframes twinkle {
+      to { opacity: var(--o); }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+    }
+
+    .glitch {
+      font-size: clamp(5rem, 20vw, 10rem);
+      font-weight: 900;
+      line-height: 1;
+      color: #58a6ff;
+      text-shadow:
+        -3px 0 #f78166,
+         3px 0 #3fb950;
+      animation: glitch 2.4s infinite;
+      letter-spacing: -0.02em;
+    }
+
+    @keyframes glitch {
+      0%, 90%, 100% { text-shadow: -3px 0 #f78166, 3px 0 #3fb950; transform: translate(0); }
+      92%           { text-shadow:  3px 0 #f78166, -3px 0 #3fb950; transform: translate(-2px, 1px); }
+      94%           { text-shadow: -3px 0 #f78166,  3px 0 #3fb950; transform: translate(2px, -1px); }
+      96%           { text-shadow:  3px 0 #f78166, -3px 0 #3fb950; transform: translate(0, 1px); }
+    }
+
+    .subtitle {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #3fb950;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .message {
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: #8b949e;
+      line-height: 1.7;
+    }
+
+    .message code {
+      color: #f78166;
+      background: #161b22;
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    .prompt {
+      margin-top: 2.5rem;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      font-size: 0.875rem;
+      color: #8b949e;
+    }
+
+    .prompt .line::before {
+      content: '> ';
+      color: #3fb950;
+    }
+
+    .prompt .line { margin-bottom: 0.3rem; }
+    .prompt .line:last-child { margin-bottom: 0; }
+    .prompt .line .val { color: #58a6ff; }
+    .prompt .line .err { color: #f78166; }
+
+    .links {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .links a {
+      display: inline-block;
+      padding: 0.5rem 1.1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .links a.primary {
+      background: #1f6feb;
+      color: #fff;
+    }
+    .links a.primary:hover { background: #388bfd; }
+
+    .links a.secondary {
+      background: #161b22;
+      color: #8b949e;
+      border: 1px solid #30363d;
+    }
+    .links a.secondary:hover { color: #e6edf3; border-color: #58a6ff; }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <div class="content">
+    <div class="glitch">404</div>
+    <div class="subtitle">Sector not found</div>
+
+    <p class="message">
+      The page at <code id="path"></code> doesn't exist.<br>
+      It may have been moved, deleted, or you may have taken a wrong turn at the space station.
+    </p>
+
+    <div class="prompt">
+      <div class="line">Scanning known sectors…</div>
+      <div class="line"><span class="err">ERROR</span> — coordinate not in registry</div>
+      <div class="line">Suggested action: <span class="val">return to base</span></div>
+    </div>
+
+    <div class="links">
+      <a class="primary" href="/Docs/Unity-Latest/">Unity Docs</a>
+      <a class="secondary" href="/Docs/Unreal-Latest/">Unreal Docs</a>
+      <a class="secondary" href="/Docs/WebSDK-Latest/">WebSDK Docs</a>
+      <a class="secondary" href="/Docs/CLI-Latest/">CLI Docs</a>
+    </div>
+  </div>
+
+  <script>
+    // Show the bad path
+    document.getElementById('path').textContent = window.location.pathname;
+
+    // Generate stars
+    const container = document.getElementById('stars');
+    for (let i = 0; i < 120; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = Math.random() * 2 + 1;
+      s.style.cssText = [
+        `width:${size}px`, `height:${size}px`,
+        `top:${Math.random() * 100}%`, `left:${Math.random() * 100}%`,
+        `--d:${(Math.random() * 3 + 1.5).toFixed(1)}s`,
+        `--o:${(Math.random() * 0.6 + 0.2).toFixed(2)}`
+      ].join(';');
+      container.appendChild(s);
+    }
+  </script>
+</body>
+</html>
