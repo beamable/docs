@@ -109,7 +109,7 @@ jobs:
           PAYLOAD=$(jq -n \
             --arg alias "$MIKE_ALIAS" \
             --arg branch "$BRANCH" \
-            '{text: "Docs published: *\($alias)* from branch `\($branch)`\n<https://beamable.github.io/Docs/\($alias)/|View docs>"}')
+            '{text: "Docs published: *\($alias)* from branch `\($branch)`\n<https://help.beamable.com/\($alias)/|View docs>"}')
           curl -s -X POST "$SLACK_WEBHOOK_URL" \
             -H "Content-Type: application/json" \
             -d "$PAYLOAD"
