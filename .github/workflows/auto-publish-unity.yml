@@ -40,6 +40,18 @@ jobs:
           echo "Extracted version: ${VERSION}"
           echo "Mike alias to check: ${MIKE_ALIAS}"
 
+     # Checkout gh-pages so mike can read the published versions list
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      # Checkout the pushed unity branch so mike can build the docs
+      - name: Checkout unity branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
       # List all published versions so we can see what mike knows about
       - name: List published versions
         run: |
@@ -63,18 +75,7 @@ jobs:
         if: steps.check.outputs.published == 'false'
         run: echo "Skipping — ${{ steps.version.outputs.mike_alias }} has not been manually published yet."
 
-      # Checkout gh-pages so mike can read the published versions list
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-
-      # Checkout the pushed unity branch so mike can build the docs
-      - name: Checkout unity branch
-        if: steps.check.outputs.published == 'true'
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref_name }}
+ 
 
       # Confirm mkdocs.yml is present before attempting a deploy
       - name: Verify mkdocs.yml exists
