@@ -22,7 +22,7 @@ main() {
         rm get-pip.py
     fi
     
-    $PIP install mkdocs-material mkdocs-glightbox mkdocs-autorefs mkdocs-literate-nav mike
+    $PIP install "mkdocs<2" mkdocs-material mkdocs-glightbox mkdocs-autorefs mkdocs-literate-nav mike
   
 }
 
