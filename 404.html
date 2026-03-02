@@ -346,15 +346,15 @@
     const ctx    = canvas.getContext('2d');
     let W, H, CX, CY;
 
-    const STAR_COUNT = 200;
-    const BASE_SPEED = 1.2;
+    const STAR_COUNT = 100;
+    const BASE_SPEED = 0.5;
     const DEPTH      = 900;
     const stars      = [];
 
     function mkStar() {
       const angle     = Math.random() * Math.PI * 2;
       const z         = 50 + Math.random() * (DEPTH * 0.9 - 50); // full range every time
-      const dist      = Math.random() * z * 0.014; // scale with z so all stars start near centre visually
+      const dist      = Math.random() * z * 0.03; // wider spread
       const rnd       = Math.random();
       const tint      = rnd < 0.12 ? 'warm' : rnd < 0.28 ? 'cool' : 'white';
       const speedMult = 0.5 + Math.random() * 1.1; // per-star speed variation decorrelates arrivals
@@ -419,8 +419,8 @@
         }
 
         const progress = 1 - s.z / DEPTH;
-        const size     = 0.4 + progress * 2.8;
-        const bright   = 100 + progress * 155;
+        const size     = 0.3 + progress * 1.4;
+        const bright   = 55 + progress * 100;
 
         ctx.strokeStyle = starColor(s.tint, bright);
         ctx.lineWidth   = size;
