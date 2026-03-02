@@ -26,11 +26,6 @@ jobs:
       - name: Fetch remote branch names
         run: git fetch --depth=1 origin +refs/heads/*:refs/remotes/origin/*
 
-      # Checkout gh-pages so mike can read the published versions list
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
 
       # Extract the version and mike alias from the branch name
       - name: Extract version info
@@ -67,6 +62,12 @@ jobs:
       - name: Skip if not published
         if: steps.check.outputs.published == 'false'
         run: echo "Skipping — ${{ steps.version.outputs.mike_alias }} has not been manually published yet."
+
+      # Checkout gh-pages so mike can read the published versions list
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
 
       # Checkout the pushed unity branch so mike can build the docs
       - name: Checkout unity branch
