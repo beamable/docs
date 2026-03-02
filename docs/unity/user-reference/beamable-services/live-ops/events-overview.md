@@ -8,24 +8,24 @@ Events provide a powerful way to drive player engagement through time-limited ch
 
 Beamable offers two main types of live events to engage your player community:
 
-- **1. Tournaments** - Competitive events with structured phases and rankings. See [Tournament Flow](doc:tournaments-prefab) for more info.
-- **2. Events** - Flexible time-limited activities and challenges. Continue reading below for more info.
+- **1. Tournaments** – Competitive events with structured phases and rankings. See [Tournament Flow](doc:tournaments-prefab) for more info.
+- **2. Events** – Flexible time-limited activities and challenges. Continue reading below for more info.
 
-Events provide an engaging user experience through time-limited activities that encourage regular gameplay and community participation .
+Events provide an engaging user experience through time-limited activities that encourage regular gameplay and community participation.
 
 ![events-experience.png](../../../../media/imgs/events-experience.png)
 
 Here is the glossary of Events competition terms:
 
-| Term | Meaning |
-|------|---------|
-| Partition Size | The number of Event players in **direct** competition (e.g., 50). |
-| Phase | Each phase is a unique time period within the event.<br/><br/>_Example: Phase I could be "collect gems", whereas Phase II could be "collect swords" ⁠— these actions ultimately contribute to a single score on a [Leaderboard](doc:leaderboards-feature-overview)._ |
-| Phase Duration | The duration of time between each phase (e.g., 24 Hrs). The sum duration of all phases is the Event duration. |
-| Rank | The position of a player score, relative to the game's community. |
-| Reward | The extrinsic payoff to the player, calculated score and score rank.<br/><br/>_Note: Currency Content and/or Item Content may be rewarded._ |
-| Rule | Rules that are applied to the player. See [Advanced](#advanced) for more info. |
-| Score | The in-game performance of a player, often represented as a number (e.g., "100" points). |
+| Term           | Meaning                                                                                                                                                                                                                                                              |
+|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Partition Size | The number of Event players in **direct** competition (e.g., 50).                                                                                                                                                                                                    |
+| Phase          | Each phase is a unique time period within the event.<br/><br/>_Example: Phase I could be "collect gems", whereas Phase II could be "collect swords" ⁠— these actions ultimately contribute to a single score on a [Leaderboard](doc:leaderboards-feature-overview)._ |
+| Phase Duration | The duration of time between each phase (e.g., 24 Hrs). The sum duration of all phases is the Event duration.                                                                                                                                                        |
+| Rank           | The position of a player score, relative to the game's community.                                                                                                                                                                                                    |
+| Reward         | The extrinsic payoff to the player, calculated score and score rank.<br/><br/>_Note: Currency Content and/or Item Content may be rewarded._                                                                                                                          |
+| Rule           | Rules that are applied to the player. See [Advanced](#advanced) for more info.                                                                                                                                                                                       |
+| Score          | The in-game performance of a player, often represented as a number (e.g., "100" points).                                                                                                                                                                             |
 
 ## Events API
 
@@ -286,15 +286,14 @@ Events, like many other Beamable features, are created, configured, and publishe
 
 Follow these steps to create and configure an event:
 
-| Step | Detail                                                                                                                                                                                                                              |
-|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1. Open the "Toolbox" Window | • Unity → Window → Beamable → Open Beamable Toolbox                                                                                                                                                                                 |
-| 2. Open the [Content Manager](doc:content-manager) Window | • Unity → Window → Beamable → Open Content Manager                                                                                                                                                                                  |
-| 3. Create the "Event" content | ![Content Manager Create Content](../../../../media/imgs/beamable-content-manager-create-content.jpg)<br/>• Select the content type in the list<br/>• Press the "Create" button<br/>• Populate the content name                     |
-| 4. Select the "Event" asset | • Click the asset in the Content Manager Window<br/>• View the asset in the Unity Inspector Window                                                                                                                                  |
-| 5. Populate all fields | ![Events Configuration Short](../../../../media/imgs/events-configuration-short.png){: style="height:auto;width:300px"}<br/><br/>_Note: The few fields shown are the minimum requirement. See [Advanced](#advanced) for more info._ |
-| 6. Save the Unity Project | • Unity → File → Save Project<br/><br/>_Best Practice: If you are working on a team, commit to version control in this step._                                                                                                       |
-| 7. Publish the content | • Press the "Publish" button in the Content Manager Window                                                                                                                                                                          |
+| Step                                                      | Detail                                                                                                                                                                                                                              |
+|-----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1. Open the [Content Manager](doc:content-manager) Window | • Unity → Window → Beamable → Open Beam Content                                                                                                                                                                                     |
+| 2. Create the "Event" content                             | ![Content Manager Create Content](../../../../media/imgs/beamable-content-manager-create-event.jpg)<br/>• Select the content type in the list<br/>• Press the "Create" button<br/>• Populate the content name                       |
+| 3. Select the "Event" asset                               | • Click the asset in the Content Manager Window<br/>• View the asset in the Unity Inspector Window                                                                                                                                  |
+| 4. Populate all fields                                    | ![Events Configuration Short](../../../../media/imgs/events-configuration-short.png){: style="height:auto;width:300px"}<br/><br/>_Note: The few fields shown are the minimum requirement. See [Advanced](#advanced) for more info._ |
+| 5. Save the Unity Project                                 | • Unity → File → Save Project<br/><br/>_Best Practice: If you are working on a team, commit to version control in this step._                                                                                                       |
+| 6. Publish the content                                    | • Press the "Publish" button in the Content Manager Window                                                                                                                                                                          |
 
 At this point, your event has been created and has been published live to players. To see how players can interact with the event, see the [Code](doc:events-code) section. Below are some more advanced topics, covering optional parameters for the events in your app.
 
@@ -304,34 +303,34 @@ In this image and tables are **example** name/value pairs to demonstrate how to 
 
 ### Adding Rules
 
-Event rules are optional and are not parsed by the client side. However, they are powerful tool to use to create and maintain server-authoritative logic.
+Event rules are optional and are not parsed by the client side. However, they are a powerful tool to use to create and maintain server-authoritative logic.
 
-| Name | Value | Detail |
-|------|-------|--------|
-| "collect_gems" | 10 | Create custom client logic to parse the name and value.<br/><br/>Require that players meet this rule.<br/><br/>_Example: Limit which players may enter the Event or limit which players may claim rewards_ |
+| Name           | Value               | Detail                                                                                                                                                                                                     |
+|----------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| "collect_gems" | 10                  | Create custom client logic to parse the name and value.<br/><br/>Require that players meet this rule.<br/><br/>_Example: Limit which players may enter the Event or limit which players may claim rewards_ |
 | "idle_content" | < some content id > | Create custom client logic to parse the name and value.<br/><br/>Require that players meet this rule.<br/><br/>_Example: Limit which players may enter the Event or limit which players may claim rewards_ |
 
 ### Adding Rewards
 
-Event rewards are optional but they are a fundamental part of marketing the live Event. Rewards encourage player participation.
+Event rewards are optional, but they are a fundamental part of marketing the live Event. Rewards encourage player participation.
 
 The criteria for a reward may be either a certain score or a certain score rank.
 
-The reward give to the player may be of currency type, of item type, or both.
+The reward given to the player may be of currency type, of item type, or both.
 
-| Name | Example Value | Example Result |
-|------|---------------|----------------|
-| "currency.Currency01" | 10 | Each player who meets the criteria will earn 10 gems. |
-| "items.BronzeArmor" | 1 | Each player who meets the criteria will earn 1 Bronze Armor inventory item. |
+| Name                  | Example Value | Example Result                                                              |
+|-----------------------|---------------|-----------------------------------------------------------------------------|
+| "currency.Currency01" | 10            | Each player who meets the criteria will earn 10 gems.                       |
+| "items.BronzeArmor"   | 1             | Each player who meets the criteria will earn 1 Bronze Armor inventory item. |
 
 ### Adding Stores
 
-Event stores are optional but they are a fundamental part of monetizing a live event. Game makers can make a limited-time offer within in-game stores to encourage player purchase behavior. This creates effective monetization because there is an urgency and sense of purpose to the related purchases.
+Event stores are optional, but they are a fundamental part of monetizing a live event. Game makers can make a limited-time offer within in-game stores to encourage player purchase behavior. This creates effective monetization because there is urgency and sense of purpose to the related purchases.
 
 Refer to the table below for an example of a limited store, where event-driven offers will be kept.
 
-| Name | Value | Detail |
-|------|-------|--------|
+| Name       | Value                 | Detail                                                                                                                                                                      |
+|------------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | "Store Id" | stores.LimitedStore01 | Each player in the Event will see a special "LimitedStore" version of the in-game store. Game makers can offer new items or can offer existing items at an exclusive price. |
 
 ### Adding Group Rewards
