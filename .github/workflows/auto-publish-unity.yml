@@ -18,16 +18,21 @@ jobs:
         with:
           ref: main
 
-      # Install Python dependencies
+      # Install Python dependencies (includes mike)
       - name: Run setup.sh
         run: bash setup.sh
 
-      # Fetch all remote branches (needed to read gh-pages:versions.json)
+      # Fetch all remote branches
       - name: Fetch remote branch names
         run: git fetch --depth=1 origin +refs/heads/*:refs/remotes/origin/*
 
-      # Extract version from branch name, then check versions.json on gh-pages
-      # to determine if this version has already been published via mike.
+      # Checkout gh-pages so mike can read the published versions list
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      # Use `mike list` to check if this version has already been published.
       # The check is case-insensitive. Exits cleanly if not yet published.
       - name: Check if version is already published
         id: check
@@ -39,22 +44,15 @@ jobs:
           echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
           echo "mike_alias=${MIKE_ALIAS}" >> $GITHUB_OUTPUT
 
-          VERSIONS_JSON=$(git show origin/gh-pages:versions.json 2>/dev/null || echo "[]")
-
-          PUBLISHED=$(VERSIONS_JSON="$VERSIONS_JSON" MIKE_ALIAS="$MIKE_ALIAS" python3 -c "import json,os,sys; data=json.loads(os.environ['VERSIONS_JSON']); alias=os.environ['MIKE_ALIAS'].lower(); print('true') if any(e.get('version','').lower()==alias for e in data) else print('false')")
-
-          echo "published=${PUBLISHED}" >> $GITHUB_OUTPUT
+          if mike list | grep -qiE "^${MIKE_ALIAS}( |$)"; then
+            echo "published=true" >> $GITHUB_OUTPUT
+          else
+            echo "published=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Skip if not published
         if: steps.check.outputs.published == 'false'
         run: echo "Skipping — ${{ steps.check.outputs.mike_alias }} has not been manually published yet."
-
-      # Checkout gh-pages so mike can read existing version state
-      - name: Checkout gh-pages branch
-        if: steps.check.outputs.published == 'true'
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
 
       # Checkout the pushed unity branch (the actual docs content to deploy)
       - name: Checkout unity branch
