@@ -231,7 +231,7 @@
     let W, H, CX, CY;
 
     const STAR_COUNT = 200;
-    const BASE_SPEED = 5;
+    const BASE_SPEED = 1.2;
     const DEPTH      = 900;
     const stars      = [];
 
@@ -265,13 +265,32 @@
 
     function drawStars() {
       // Semi-transparent clear produces motion-blur trails
-      ctx.fillStyle = 'rgba(13,17,23,0.22)';
+      ctx.fillStyle = 'rgba(13,17,23,0.28)';
+      ctx.fillRect(0, 0, W, H);
+
+      // Radial fog — deep blue-black at edges fading to transparent at centre
+      const fog = ctx.createRadialGradient(CX, CY, W * 0.15, CX, CY, W * 0.75);
+      fog.addColorStop(0, 'rgba(13,17,23,0)');
+      fog.addColorStop(0.6, 'rgba(10,14,30,0.18)');
+      fog.addColorStop(1,   'rgba(6,10,24,0.72)');
+      ctx.fillStyle = fog;
+      ctx.fillRect(0, 0, W, H);
+
+      // Ambient nebula glow — slow-drifting coloured bloom near centre
+      const t      = performance.now() * 0.00018;
+      const nx     = CX + Math.sin(t * 0.7) * W * 0.12;
+      const ny     = CY + Math.cos(t * 0.5) * H * 0.10;
+      const nebula = ctx.createRadialGradient(nx, ny, 0, nx, ny, W * 0.45);
+      nebula.addColorStop(0,   'rgba(30,50,120,0.07)');
+      nebula.addColorStop(0.5, 'rgba(20,80,100,0.04)');
+      nebula.addColorStop(1,   'rgba(0,0,0,0)');
+      ctx.fillStyle = nebula;
       ctx.fillRect(0, 0, W, H);
 
       for (const s of stars) {
         s.pz = s.z;
-        // Accelerate as stars approach — rush-forward feel
-        s.z -= BASE_SPEED + (1 - s.z / DEPTH) * BASE_SPEED * 3.5;
+        // Gentle acceleration as stars approach
+        s.z -= BASE_SPEED + (1 - s.z / DEPTH) * BASE_SPEED * 1.5;
 
         if (s.z <= 1) { Object.assign(s, mkStar(false)); continue; }
 
@@ -316,8 +335,10 @@
     }
 
     function scheduleGlitch() {
-      // Irregular pauses: mostly calm, occasionally twitchy
-      const pause = 1000 + Math.random() * 5000;
+      // Biased toward short pauses with occasional longer lulls
+      const pause = Math.random() < 0.7
+        ? 300  + Math.random() * 900    // frequent short gaps
+        : 1200 + Math.random() * 2000;  // rare longer calm
       setTimeout(runGlitch, pause);
     }
 
