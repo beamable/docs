@@ -33,6 +33,7 @@ jobs:
         run: |
           BRANCH="${{ github.ref_name }}"
           VERSION="${BRANCH#unity/}"
+          VERSION="${VERSION#v}"
           MIKE_ALIAS="Unity-${VERSION}"
           echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
           echo "mike_alias=${MIKE_ALIAS}" >> $GITHUB_OUTPUT
