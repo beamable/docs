@@ -8,7 +8,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: #0d1117;
+      background: #0d1117;
       color: #e6edf3;
       font-family: ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
       min-height: 100vh;
@@ -18,25 +18,13 @@
       justify-content: center;
       padding: 2rem;
       text-align: center;
+      overflow: hidden;
     }
 
-    .stars {
+    canvas {
       position: fixed;
       inset: 0;
-      overflow: hidden;
       z-index: 0;
-    }
-
-    .star {
-      position: absolute;
-      background: #fff;
-      border-radius: 50%;
-      animation: twinkle var(--d) ease-in-out infinite alternate;
-      opacity: 0;
-    }
-
-    @keyframes twinkle {
-      to { opacity: var(--o); }
     }
 
     .content {
@@ -45,25 +33,39 @@
       max-width: 640px;
     }
 
-    .glitch {
+    /* ── Glitch 404 ── */
+    .glitch-wrap {
+      position: relative;
+      display: inline-block;
       font-size: clamp(5rem, 20vw, 10rem);
       font-weight: 900;
       line-height: 1;
-      color: #58a6ff;
-      text-shadow:
-        -3px 0 #f78166,
-         3px 0 #3fb950;
-      animation: glitch 2.4s infinite;
       letter-spacing: -0.02em;
     }
 
-    @keyframes glitch {
-      0%, 90%, 100% { text-shadow: -3px 0 #f78166, 3px 0 #3fb950; transform: translate(0); }
-      92%           { text-shadow:  3px 0 #f78166, -3px 0 #3fb950; transform: translate(-2px, 1px); }
-      94%           { text-shadow: -3px 0 #f78166,  3px 0 #3fb950; transform: translate(2px, -1px); }
-      96%           { text-shadow:  3px 0 #f78166, -3px 0 #3fb950; transform: translate(0, 1px); }
+    .glitch-layer {
+      display: block;
+      user-select: none;
     }
 
+    .layer-main {
+      color: #58a6ff;
+      position: relative;
+      z-index: 2;
+    }
+
+    .layer-r,
+    .layer-g {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .layer-r { color: #f78166; opacity: 0.75; }
+    .layer-g { color: #3fb950; opacity: 0.75; }
+
+    /* ── Rest of layout ── */
     .subtitle {
       margin-top: 0.5rem;
       font-size: 1rem;
@@ -89,24 +91,20 @@
 
     .prompt {
       margin-top: 2.5rem;
-      background: #161b22;
+      background: rgba(22, 27, 34, 0.85);
       border: 1px solid #30363d;
       border-radius: 8px;
       padding: 1.25rem 1.5rem;
       text-align: left;
       font-size: 0.875rem;
-      color: #8b949e;
+      line-height: 1.9;
+      backdrop-filter: blur(4px);
     }
 
-    .prompt .line::before {
-      content: '> ';
-      color: #3fb950;
-    }
-
-    .prompt .line { margin-bottom: 0.3rem; }
-    .prompt .line:last-child { margin-bottom: 0; }
-    .prompt .line .val { color: #58a6ff; }
-    .prompt .line .err { color: #f78166; }
+    .l-action { color: #8b949e; }
+    .l-action::before { content: '> '; color: #3fb950; }
+    .l-error   { color: #f78166; padding-left: 1.1rem; }
+    .l-suggest { color: #58a6ff; padding-left: 1.1rem; }
 
     .links {
       margin-top: 2.5rem;
@@ -122,44 +120,47 @@
       border-radius: 6px;
       text-decoration: none;
       font-size: 0.875rem;
-      transition: background 0.15s, color 0.15s;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
     }
 
-    .links a.primary {
-      background: #1f6feb;
-      color: #fff;
-    }
+    .links a.primary { background: #1f6feb; color: #fff; }
     .links a.primary:hover { background: #388bfd; }
 
     .links a.secondary {
-      background: #161b22;
+      background: rgba(22, 27, 34, 0.85);
       color: #8b949e;
       border: 1px solid #30363d;
+      backdrop-filter: blur(4px);
     }
     .links a.secondary:hover { color: #e6edf3; border-color: #58a6ff; }
   </style>
 </head>
 <body>
 
-  <div class="stars" id="stars"></div>
+  <canvas id="starfield"></canvas>
 
   <div class="content">
-    <div class="glitch">404</div>
+    <div class="glitch-wrap">
+      <span class="glitch-layer layer-r" id="gl-r">404</span>
+      <span class="glitch-layer layer-main" id="gl-m">404</span>
+      <span class="glitch-layer layer-g" id="gl-g">404</span>
+    </div>
+
     <div class="subtitle">Sector not found</div>
 
     <p class="message">
-      The page at <code id="path"></code> doesn't exist.<br>
-      It may have been moved, deleted, or you may have taken a wrong turn at the space station.
+      The page at <code id="bad-path"></code> doesn't exist.<br>
+      You've drifted into uncharted space.
     </p>
 
     <div class="prompt">
-      <div class="line">Scanning known sectors…</div>
-      <div class="line"><span class="err">ERROR</span> — coordinate not in registry</div>
-      <div class="line">Suggested action: <span class="val">return to base</span></div>
+      <div class="l-action"  id="msg-action"></div>
+      <div class="l-error"   id="msg-error"></div>
+      <div class="l-suggest" id="msg-suggest"></div>
     </div>
 
     <div class="links">
-      <a class="primary" href="/Docs/Unity-Latest/">Unity Docs</a>
+      <a class="primary"   href="/Docs/Unity-Latest/">Unity Docs</a>
       <a class="secondary" href="/Docs/Unreal-Latest/">Unreal Docs</a>
       <a class="secondary" href="/Docs/WebSDK-Latest/">WebSDK Docs</a>
       <a class="secondary" href="/Docs/CLI-Latest/">CLI Docs</a>
@@ -167,23 +168,220 @@
   </div>
 
   <script>
-    // Show the bad path
-    document.getElementById('path').textContent = window.location.pathname;
+    // ── Bad path display ───────────────────────────────────────────────────────
+    document.getElementById('bad-path').textContent = window.location.pathname;
 
-    // Generate stars
-    const container = document.getElementById('stars');
-    for (let i = 0; i < 120; i++) {
-      const s = document.createElement('div');
-      s.className = 'star';
-      const size = Math.random() * 2 + 1;
-      s.style.cssText = [
-        `width:${size}px`, `height:${size}px`,
-        `top:${Math.random() * 100}%`, `left:${Math.random() * 100}%`,
-        `--d:${(Math.random() * 3 + 1.5).toFixed(1)}s`,
-        `--o:${(Math.random() * 0.6 + 0.2).toFixed(2)}`
-      ].join(';');
-      container.appendChild(s);
+    // ── Random terminal messages (15 variants) ─────────────────────────────────
+    const MESSAGES = [
+      { action: 'Scanning known sectors…',
+        error:  'ERROR — coordinate not in registry',
+        suggest:'Suggested action: return to base' },
+      { action: 'Querying navigation database…',
+        error:  'MISS — destination unreachable',
+        suggest:'Initiating reroute sequence' },
+      { action: 'Resolving beacon signal…',
+        error:  'TIMEOUT — beacon offline for 404ms',
+        suggest:'Attempting emergency handshake' },
+      { action: 'Pinging relay node…',
+        error:  'UNREACHABLE — signal lost in transit',
+        suggest:'Falling back to last known position' },
+      { action: 'Triangulating coordinates…',
+        error:  'FAILED — location outside mapped space',
+        suggest:'Plotting course to nearest hub' },
+      { action: 'Loading sector manifest…',
+        error:  'CORRUPT — manifest not found at this path',
+        suggest:'Falling back to cached index' },
+      { action: 'Authenticating access token…',
+        error:  'REJECTED — route does not exist',
+        suggest:'Try a valid coordinate' },
+      { action: 'Deploying nav beacon…',
+        error:  'NULL — object reference missing',
+        suggest:'Clearing debris field and retrying' },
+      { action: 'Syncing game state…',
+        error:  'DESYNC — timeline mismatch at this URL',
+        suggest:'Resynchronizing with server' },
+      { action: 'Searching documentation index…',
+        error:  '404 — page evicted from cache',
+        suggest:'Rebuilding sector map' },
+      { action: 'Running deep scan…',
+        error:  'ANOMALY — path leads to void',
+        suggest:'Quarantining corrupted route' },
+      { action: 'Contacting Beamable HQ…',
+        error:  'NO SIGNAL — transmission lost in hyperspace',
+        suggest:'Broadcasting on backup frequency' },
+      { action: 'Checking spawn registry…',
+        error:  'EMPTY — no respawn point registered here',
+        suggest:'Return to main lobby' },
+      { action: 'Executing pathfinder…',
+        error:  'DEAD END — route was decommissioned',
+        suggest:'Suggest alternate vector' },
+      { action: 'Compiling route table…',
+        error:  'FATAL — recursion depth exceeded at this path',
+        suggest:'Stack unwound to safe origin' },
+    ];
+
+    const msg = MESSAGES[Math.floor(Math.random() * MESSAGES.length)];
+    document.getElementById('msg-action').textContent  = msg.action;
+    document.getElementById('msg-error').textContent   = msg.error;
+    document.getElementById('msg-suggest').textContent = msg.suggest;
+
+    // ── Star field (zoom warp) ─────────────────────────────────────────────────
+    const canvas = document.getElementById('starfield');
+    const ctx    = canvas.getContext('2d');
+    let W, H, CX, CY;
+
+    const STAR_COUNT = 200;
+    const BASE_SPEED = 5;
+    const DEPTH      = 900;
+    const stars      = [];
+
+    function mkStar(scatter) {
+      const angle = Math.random() * Math.PI * 2;
+      const dist  = scatter ? Math.random() * DEPTH * 0.9 : Math.random() * 10;
+      const z     = scatter ? Math.random() * DEPTH * 0.9 + 50 : DEPTH;
+      const rnd   = Math.random();
+      const tint  = rnd < 0.12 ? 'warm' : rnd < 0.28 ? 'cool' : 'white';
+      return { x: Math.cos(angle) * dist, y: Math.sin(angle) * dist, z, pz: z, tint };
     }
+
+    function resize() {
+      W  = canvas.width  = window.innerWidth;
+      H  = canvas.height = window.innerHeight;
+      CX = W / 2;
+      CY = H / 2;
+    }
+
+    function initStars() {
+      stars.length = 0;
+      for (let i = 0; i < STAR_COUNT; i++) stars.push(mkStar(true));
+    }
+
+    function starColor(tint, bright) {
+      const b = Math.floor(bright);
+      if (tint === 'warm') return `rgb(${b},${Math.floor(b*0.82)},${Math.floor(b*0.45)})`;
+      if (tint === 'cool') return `rgb(${Math.floor(b*0.72)},${Math.floor(b*0.88)},${b})`;
+      return `rgb(${b},${b},${b})`;
+    }
+
+    function drawStars() {
+      // Semi-transparent clear produces motion-blur trails
+      ctx.fillStyle = 'rgba(13,17,23,0.22)';
+      ctx.fillRect(0, 0, W, H);
+
+      for (const s of stars) {
+        s.pz = s.z;
+        // Accelerate as stars approach — rush-forward feel
+        s.z -= BASE_SPEED + (1 - s.z / DEPTH) * BASE_SPEED * 3.5;
+
+        if (s.z <= 1) { Object.assign(s, mkStar(false)); continue; }
+
+        const sx = (s.x / s.z) * W + CX;
+        const sy = (s.y / s.z) * H + CY;
+        const px = (s.x / s.pz) * W + CX;
+        const py = (s.y / s.pz) * H + CY;
+
+        if (sx < -10 || sx > W + 10 || sy < -10 || sy > H + 10) {
+          Object.assign(s, mkStar(false)); continue;
+        }
+
+        const progress = 1 - s.z / DEPTH;
+        const size     = 0.4 + progress * 2.8;
+        const bright   = 100 + progress * 155;
+
+        ctx.strokeStyle = starColor(s.tint, bright);
+        ctx.lineWidth   = size;
+        ctx.beginPath();
+        ctx.moveTo(px, py);
+        ctx.lineTo(sx, sy);
+        ctx.stroke();
+      }
+
+      requestAnimationFrame(drawStars);
+    }
+
+    window.addEventListener('resize', () => { resize(); initStars(); });
+    resize();
+    initStars();
+    drawStars();
+
+    // ── Glitch effect ──────────────────────────────────────────────────────────
+    const glR = document.getElementById('gl-r');
+    const glM = document.getElementById('gl-m');
+    const glG = document.getElementById('gl-g');
+
+    function resetGlitch() {
+      glR.style.transform = glG.style.transform = glM.style.transform = '';
+      glR.style.clipPath  = glG.style.clipPath  = '';
+      glR.style.opacity   = glG.style.opacity   = '0.75';
+    }
+
+    function scheduleGlitch() {
+      // Irregular pauses: mostly calm, occasionally twitchy
+      const pause = 1000 + Math.random() * 5000;
+      setTimeout(runGlitch, pause);
+    }
+
+    function runGlitch() {
+      const intensity = 0.15 + Math.random() * 0.85;
+
+      // Short sharp hit vs long rolling disturbance
+      const duration = Math.random() < 0.6
+        ? 40  + Math.random() * 120
+        : 200 + Math.random() * 500;
+
+      // Sometimes chain a second glitch immediately after
+      const chain = Math.random() < 0.25;
+
+      const start = performance.now();
+
+      function frame(now) {
+        const elapsed = now - start;
+
+        if (elapsed >= duration) {
+          resetGlitch();
+          chain ? setTimeout(runGlitch, 40 + Math.random() * 100) : scheduleGlitch();
+          return;
+        }
+
+        // Sine envelope — ramps up then back down
+        const env  = Math.sin((elapsed / duration) * Math.PI);
+        const mag  = intensity * env;
+
+        const rX = (Math.random() - 0.5) * 44 * mag;
+        const gX = (Math.random() - 0.5) * 44 * mag;
+        const mX = (Math.random() - 0.5) * 10 * mag;
+        const mY = (Math.random() - 0.5) *  8 * mag;
+
+        glR.style.transform = `translate(${rX}px, 0)`;
+        glG.style.transform = `translate(${gX}px, 0)`;
+        glM.style.transform = `translate(${mX}px, ${mY}px)`;
+
+        // Clip each colour layer to a random horizontal slice
+        if (Math.random() < 0.55) {
+          const t1 = Math.random() * 75, t2 = t1 + 8 + Math.random() * 35;
+          glR.style.clipPath = `inset(${t1}% 0 ${100 - t2}% 0)`;
+        } else { glR.style.clipPath = ''; }
+
+        if (Math.random() < 0.55) {
+          const t1 = Math.random() * 75, t2 = t1 + 8 + Math.random() * 35;
+          glG.style.clipPath = `inset(${t1}% 0 ${100 - t2}% 0)`;
+        } else { glG.style.clipPath = ''; }
+
+        // Occasional opacity flicker on colour layers
+        if (Math.random() < 0.2 * mag) {
+          glR.style.opacity = (0.3 + Math.random() * 0.7).toFixed(2);
+          glG.style.opacity = (0.3 + Math.random() * 0.7).toFixed(2);
+        } else {
+          glR.style.opacity = glG.style.opacity = '0.75';
+        }
+
+        requestAnimationFrame(frame);
+      }
+
+      requestAnimationFrame(frame);
+    }
+
+    scheduleGlitch();
   </script>
 </body>
 </html>
