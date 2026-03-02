@@ -234,7 +234,7 @@
       <span class="glitch-layer layer-g" id="gl-g">404</span>
     </div>
 
-    <div class="subtitle">Sector not found</div>
+    <div class="subtitle">Page not found</div>
 
     <p class="message">
       The page at <code id="bad-path"></code> doesn't exist.<br>
@@ -354,7 +354,7 @@
     function mkStar(scatter) {
       const angle = Math.random() * Math.PI * 2;
       const dist  = scatter ? Math.random() * DEPTH * 0.9 : Math.random() * 10;
-      const z     = scatter ? Math.random() * DEPTH * 0.9 + 50 : DEPTH;
+      const z     = scatter ? Math.random() * DEPTH * 0.9 + 50 : DEPTH * 0.75 + Math.random() * DEPTH * 0.25;
       const rnd   = Math.random();
       const tint  = rnd < 0.12 ? 'warm' : rnd < 0.28 ? 'cool' : 'white';
       return { x: Math.cos(angle) * dist, y: Math.sin(angle) * dist, z, pz: z, tint };
@@ -432,7 +432,8 @@
       requestAnimationFrame(drawStars);
     }
 
-    window.addEventListener('resize', () => { resize(); initStars(); });
+    // Only update dimensions on resize — reinitialising stars causes a burst
+    window.addEventListener('resize', resize);
     resize();
     initStars();
     drawStars();
