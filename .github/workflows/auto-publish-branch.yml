@@ -3,7 +3,10 @@ name: Auto Publish Branch
 on:
   push:
     branches:
-      - '**'
+      - 'unity/**'
+      - 'unreal/**'
+      - 'core/**'
+      - 'websdk/**'
 
 run-name: Auto Publish Branch ${{ github.ref_name }} by @${{ github.actor }}
 
