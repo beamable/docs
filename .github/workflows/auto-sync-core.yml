@@ -108,13 +108,18 @@ jobs:
     needs: merge_branches
     steps:
       - name: Send Slack Summary
-        if: false
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_DOCS_CHANNEL_URL }}
           SUCCESS: ${{ needs.merge_branches.outputs.success_branches }}
           CONFLICT: ${{ needs.merge_branches.outputs.conflicted_branches }}
           PR_URLS: ${{ needs.merge_branches.outputs.conflict_pr_urls }}
         run: |
+          # If both are empty, do nothing
+          if [ -z "$SUCCESS" ] && [ -z "$CONFLICT" ]; then
+            echo "No successes or conflicts — skipping Slack notification."
+            exit 0
+          fi
+
           SUCCESS_MSG=$( [ -n "$SUCCESS" ] && echo $'Success:\n• '"$SUCCESS" || echo "Success: None" )
 
           if [ -n "$CONFLICT" ]; then
