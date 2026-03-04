@@ -6,7 +6,7 @@ Beamable offers a rich microservice development workflow using the Beam CLI and 
 
 ## Dependencies
 
-Before you can develop a Beamable Standalone Microservice, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
+Before you can develop a Beamable Standalone Microservice, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh

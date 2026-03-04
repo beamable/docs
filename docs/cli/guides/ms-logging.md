@@ -5,7 +5,7 @@ Logging from a Microservice
 
 This guide assumes you have an existing Microservice. You need to complete the 
 [Getting-Started Guide]
-(getting-started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+(getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh

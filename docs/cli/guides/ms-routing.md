@@ -4,7 +4,7 @@ Configure Standalone Microservice routing and client generation
 
 ## Dependencies
 
-Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
+Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -76,7 +76,7 @@ var scope = cid + '.' + pid;
 Finally, while not required, it is important to send an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project. 
 
 ```sh
-cat .beamable/temp/connection-auth.json
+cat .beamable/temp/auth.beam.json
 ```
 
 
