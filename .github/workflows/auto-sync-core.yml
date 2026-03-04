@@ -78,7 +78,7 @@ jobs:
         run: |
           conflict_pr_urls=""
           if [ "${{ steps.merge.outputs.status }}" = "conflict" ]; then
-            safe_branch=$(echo "${{ matrix.branch }}" | tr '/' '_')
+            safe_branch=${{ matrix.branch }}"
             pr_url="${{ steps.create_pr.outputs.pull-request-url }}"
             echo "${safe_branch}=${pr_url}" >> $GITHUB_OUTPUT
             conflict_pr_urls="$safe_branch=$pr_url"
