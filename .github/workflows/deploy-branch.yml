@@ -8,7 +8,7 @@ on:
         type: boolean
         default: false
 
-run-name: Deploy Branch ${{ github.event.inputs.branch }} - ${{ github.event.inputs.sdk }} - ${{ github.event.inputs.version }} by @${{ github.actor }}
+run-name: Deploy Branch ${{ github.ref_name }} by @${{ github.actor }}
 jobs:
   deploy:
     name: Deploy ${{ github.event.inputs.branch }} - ${{ github.event.inputs.sdk }} - ${{ github.event.inputs.version }}
