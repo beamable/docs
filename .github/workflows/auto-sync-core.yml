@@ -35,8 +35,7 @@ jobs:
         id: merge
         run: |
           git fetch origin ${{ github.ref_name }}
-          if git merge origin/${{ github.ref_name }} --no-commit --no-ff --allow-unrelated-histories; then
-            git commit -m "Merge ${{ github.ref_name }} into ${{ matrix.branch }}" || true
+          if git merge origin/${{ github.ref_name }} --no-ff; then
             git push origin ${{ matrix.branch }}
             echo "status=success" >> $GITHUB_OUTPUT
           else
