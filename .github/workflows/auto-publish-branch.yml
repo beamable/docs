@@ -1,0 +1,148 @@
+name: Auto Publish Branch
+
+on:
+  push:
+    branches:
+      - '**'
+
+run-name: Auto Publish Branch ${{ github.ref_name }} by @${{ github.actor }}
+
+jobs:
+  auto-publish:
+    name: Auto Publish ${{ github.ref_name }}
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout main to get setup.sh
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      # Install Python dependencies (includes mike)
+      - name: Run setup.sh
+        run: bash setup.sh
+
+      # Fetch all remote branches
+      - name: Fetch remote branch names
+        run: git fetch --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+
+
+      # Extract the version and mike alias from the branch name
+      - name: Extract version info
+        id: version
+        run: |
+          BRANCH="${{ github.ref_name }}"
+              
+              # Extract the product prefix (before the first /)
+              PRODUCT_PREFIX="${BRANCH%%/*}"
+              
+              # Map branch prefix to product name
+              case "$PRODUCT_PREFIX" in
+                unity)
+                  PRODUCT_NAME="Unity"
+                  ;;
+                unreal)
+                  PRODUCT_NAME="Unreal"
+                  ;;
+                websdk)
+                  PRODUCT_NAME="WebSDK"
+                  ;;
+                core)
+                  PRODUCT_NAME="CLI"
+                  ;;
+                *)
+                  PRODUCT_NAME="Unknown"
+                  ;;
+              esac
+
+              # Extract version (after /v)
+              VERSION="${BRANCH#*/v}"
+
+              # Build mike alias
+              MIKE_ALIAS="${PRODUCT_NAME}-${VERSION}"
+
+              # Set outputs
+              echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
+              echo "product_name=${PRODUCT_NAME}" >> $GITHUB_OUTPUT
+              echo "version=${VERSION}" >> $GITHUB_OUTPUT
+              echo "mike_alias=${MIKE_ALIAS}" >> $GITHUB_OUTPUT
+
+              # Logging
+              echo "Pushed branch: ${BRANCH}"
+              echo "Product name: ${PRODUCT_NAME}"
+              echo "Extracted version: ${VERSION}"
+              echo "Mike alias to check: ${MIKE_ALIAS}"
+
+     # Checkout gh-pages so mike can read the published versions list
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      # Checkout the pushed branch so mike can build the docs
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      # List all published versions so we can see what mike knows about
+      - name: List published versions
+        run: |
+          echo "Currently published versions:"
+          mike list
+
+      # Check whether this version has already been published (case-insensitive)
+      - name: Check if version is already published
+        id: check
+        run: |
+          MIKE_ALIAS="${{ steps.version.outputs.mike_alias }}"
+          if mike list | grep -qiE "^${MIKE_ALIAS}"; then
+            echo "published=true" >> $GITHUB_OUTPUT
+            echo "Found '${MIKE_ALIAS}' in published versions — will deploy."
+          else
+            echo "published=false" >> $GITHUB_OUTPUT
+            echo "'${MIKE_ALIAS}' is not published yet — skipping."
+          fi
+
+      - name: Skip if not published
+        if: steps.check.outputs.published == 'false'
+        run: echo "Skipping — ${{ steps.version.outputs.mike_alias }} has not been manually published yet."
+
+ 
+
+      # Confirm mkdocs.yml is present before attempting a deploy
+      - name: Verify mkdocs.yml exists
+        if: steps.check.outputs.published == 'true'
+        run: |
+          if [ ! -f mkdocs.yml ]; then
+            echo "ERROR: mkdocs.yml not found in ${{ github.ref_name }}"
+            exit 1
+          fi
+          echo "mkdocs.yml found:"
+          cat mkdocs.yml
+
+      - name: Configure git for mike
+        if: steps.check.outputs.published == 'true'
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Deploy with mike
+        if: steps.check.outputs.published == 'true'
+        run: mike deploy "${{ steps.version.outputs.mike_alias }}" --branch gh-pages --push
+
+      - name: Notify Slack
+        # if: steps.check.outputs.published == 'true' 
+        if: false
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_DOCS_CHANNEL_URL }}
+          MIKE_ALIAS: ${{ steps.version.outputs.mike_alias }}
+          BRANCH: ${{ steps.version.outputs.branch }}
+        run: |
+          PAYLOAD=$(jq -n \
+            --arg alias "$MIKE_ALIAS" \
+            --arg branch "$BRANCH" \
+            '{text: "Docs published: *\($alias)* from branch `\($branch)`\n<https://help.beamable.com/\($alias)/|View docs>"}')
+          curl -s -X POST "$SLACK_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD"
