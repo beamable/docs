@@ -1,0 +1,83 @@
+name: Deploy Docs Branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Run without deploying'
+        type: boolean
+        default: false
+
+run-name: Deploy Branch ${{ github.ref_name }} by @${{ github.actor }}
+jobs:
+  deploy:
+    name: Deploy ${{ github.event.inputs.branch }} - ${{ github.event.inputs.sdk }} - ${{ github.event.inputs.version }}
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Extract SDK and version from branch name
+        id: parse_branch
+        run: |
+          BRANCH="${{ github.ref_name }}"
+          echo "Branch is: $BRANCH"
+
+          if [[ "$BRANCH" =~ ^([^/]+)/v(.+)$ ]]; then
+            RAW_PRODUCT="${BASH_REMATCH[1]}"
+            VERSION="${BASH_REMATCH[2]}"
+
+            # Normalize product casing (capitalize first letter)
+            PRODUCT="$(tr '[:upper:]' '[:lower:]' <<< "$RAW_PRODUCT")"
+            PRODUCT="$(tr '[:lower:]' '[:upper:]' <<< "${PRODUCT:0:1}")${PRODUCT:1}"
+
+            echo "sdk=$PRODUCT" >> "$GITHUB_OUTPUT"
+            echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          else
+            echo "Branch name must match format <product>/v<version>"
+            exit 1
+          fi
+
+      - name: Print parsed values
+        run: |
+          echo "Parsed SDK: ${{ steps.parse_branch.outputs.sdk }}"
+          echo "Parsed Version: ${{ steps.parse_branch.outputs.version }}"
+
+      # Checkout main branch first
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      # Run setup.sh
+      - name: Run setup.sh
+        run: bash setup.sh
+
+      # Fetch all remote branches
+      - name: Fetch remote branch names 
+        run: git fetch --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+          
+      # Checkout the gh-pages branch
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+    
+      # Checkout the branch that the workflow file is running from
+      - name: Checkout workflow branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Configure git for mike
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+
+      # Deploy with mike in dry run mode
+      - name: Deploy SDK (dry run)
+        if: ${{ github.event.inputs.dry_run == 'true' }}
+        run: mike deploy "${{ steps.parse_branch.outputs.sdk }}-${{ steps.parse_branch.outputs.version }}"  
+
+      # Deploy with mike and push
+      - name: Deploy SDK (push)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: mike deploy "${{ steps.parse_branch.outputs.sdk }}-${{ steps.parse_branch.outputs.version }}" --push
