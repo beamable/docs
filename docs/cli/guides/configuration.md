@@ -81,7 +81,6 @@ The Beamable CLI executes as a local dotnet tool installation. That means that t
     Normally the `.config/` folder exists as a sibling of the `.beamable/` folder. However, the `.config/` folder _may_ exist in a parent folder. The closest `.config/` folder will be used. See the [dotnet tool documentation](https://learn.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use) for more information. 
 
 
-
 ## Workspace Overview
 
 A Beamable workspace is defined by the existence of a `.beamable/` folder. 
