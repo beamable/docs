@@ -6,7 +6,9 @@ on:
 run-name: Invalid main @${{ github.actor }}
 jobs:
   deploy:
-    - name: Skip main
-      run: |
-        echo "Cannot deploy from this branch. Use the branch selector in the dispatch window. "
-        exit 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Skip main
+        run: |
+          echo "Cannot deploy from this branch. Use the branch selector in the dispatch window. "
+          exit 1
