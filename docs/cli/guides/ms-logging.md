@@ -42,8 +42,9 @@ public void SampleLog()
 }
 ```
 
-> [!NOTE]
-> Local microservice logs will not appear in Portal unless the `BEAM_LOCAL_OTEL` environment variable is set.
+!!! info
+
+	Local microservice logs will not appear in Portal unless the `BEAM_LOCAL_OTEL` environment variable is set.
 
 ### Log Level
 
