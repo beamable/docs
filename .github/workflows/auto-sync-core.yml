@@ -80,7 +80,7 @@ jobs:
           if [ "${{ steps.merge.outputs.status }}" = "conflict" ]; then
             safe_branch=$(echo "${{ matrix.branch }}" | tr '/' '_')
             pr_url="${{ steps.create_pr.outputs.pull-request-url }}"
-            echo "PR_URL_${safe_branch}=${pr_url}" >> $GITHUB_OUTPUT
+            echo "${safe_branch}=${pr_url}" >> $GITHUB_OUTPUT
             conflict_pr_urls="$safe_branch=$pr_url"
           fi
           echo "conflict_pr_urls=${conflict_pr_urls}" >> $GITHUB_OUTPUT
@@ -126,7 +126,7 @@ jobs:
             CONFLICT_MSG="Conflicts:"
             IFS=',' read -ra BRANCHES <<< "$CONFLICT"
             for b in "${BRANCHES[@]}"; do
-              url=$(echo "$PR_URLS" | grep "^PR_URL_$b=" | cut -d= -f2-)
+              url=$(echo "$PR_URLS" | grep "^$b=" | cut -d= -f2-)
               CONFLICT_MSG+=$'\n• '"$b: $url"
             done
           else
