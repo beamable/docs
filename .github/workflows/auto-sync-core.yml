@@ -8,7 +8,7 @@ on:
 jobs:
   merge_branches:
     runs-on: ubuntu-latest
-    run-name: Merge ${{ github.ref_name }} into ${{ matrix.branch }}
+    name: Merge ${{ github.ref_name }} into ${{ matrix.branch }}
     strategy:
       matrix:
         branch: [unity/v5.0]
