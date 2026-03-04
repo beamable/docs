@@ -24,7 +24,7 @@ jobs:
         with:
           ref: ${{ matrix.branch }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch_depth: 0
+          fetch-depth: 0
 
       - name: Configure Git
         run: |
@@ -35,8 +35,7 @@ jobs:
         id: merge
         run: |
           git fetch origin ${{ github.ref_name }}
-          if git merge origin/${{ github.ref_name }} --no-commit --no-ff --allow-unrelated-histories; then
-            git commit -m "Merge ${{ github.ref_name }} into ${{ matrix.branch }}" || true
+          if git merge origin/${{ github.ref_name }} --no-ff; then
             git push origin ${{ matrix.branch }}
             echo "status=success" >> $GITHUB_OUTPUT
           else
@@ -80,6 +79,7 @@ jobs:
     needs: merge_branches
     steps:
       - name: Send Slack Summary
+        if: false
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_DOCS_CHANNEL_URL }}
           SUCCESS: ${{ needs.merge_branches.outputs.success_branches }}
