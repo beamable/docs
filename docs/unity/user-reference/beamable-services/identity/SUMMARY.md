@@ -1,0 +1,12 @@
+﻿- [Identity Overview](identity.md)
+- [Frictionless Auth](frictionless.md)
+- [Username Auth](username-password.md)
+- [Federated Sign-In](federated-identity.md)
+- [HTML Sign-In](html-sign-in.md)
+- Third Parties
+    - [Facebook](providers/facebook-sign-in.md)
+    - [Google](providers/google-sign-in.md)
+    - [Google Play Game Services](providers/google-play-game-services-sign-in.md)
+    - [Apple](providers/apple-sign-in.md)
+    - [Steam](providers/steam-sign-in.md)
+

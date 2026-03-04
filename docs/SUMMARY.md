@@ -1,2 +1,12 @@
-﻿- [Beamable Portal](portal/)
+﻿- [Introduction](index.md)
+- [Getting Started](unity/getting-started/)
+- [What's New?](unity/whatsnew/)
+- [SDK User Reference](unity/user-reference/)
+- [Samples](unity/samples/)
+- [Beamable Portal](portal/)
 - [Beamable CLI](cli/)
+- [Beamable API](https://beam-api.readme.io/reference/how-to-authenticate)
+- Beamable Community
+    - [Find Support](https://beamable.com/support)
+    - [Ask a Question](https://github.com/orgs/beamable/discussions)
+    - [Discord Server](https://discord.com/invite/UHjf25h)
