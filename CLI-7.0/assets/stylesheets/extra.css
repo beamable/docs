@@ -6,20 +6,6 @@
     position: relative;
 }
 
-/* Add external link icon for any link that starts with http */
-.md-nav__link[href^="http"]::after {
-  content: "↗";
-  font-size: 0.8em;
-  margin-right: 6px;
-  opacity: 0.7;
-}
-.md-nav__link[href^="http"]>span {
-    flex-grow: 1;
-}
-.md-nav__link[href^="http"]{
-    display: flex;
-}
-
 .md-version__list {
     width: 160px;
     scroll-snap-type: none;
