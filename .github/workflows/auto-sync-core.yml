@@ -18,6 +18,7 @@ jobs:
     outputs:
       success_branches: ${{ steps.aggregate.outputs.success_branches }}
       conflicted_branches: ${{ steps.aggregate.outputs.conflicted_branches }}
+
     steps:
       - name: Checkout target branch
         uses: actions/checkout@v4
@@ -36,15 +37,28 @@ jobs:
         id: merge
         run: |
           git fetch origin ${{ github.ref_name }}
+
+          # Try a normal squash merge
           if git merge origin/${{ github.ref_name }} --squash; then
-            git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
-            git push origin ${{ matrix.branch }}
-            echo "status=success" >> $GITHUB_OUTPUT
+              # Only commit if there are changes
+              if ! git diff --quiet; then
+                  git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
+                  git push origin ${{ matrix.branch }}
+                  echo "status=success" >> $GITHUB_OUTPUT
+              else
+                  echo "No changes to commit"
+                  echo "status=no_changes" >> $GITHUB_OUTPUT
+              fi
           else
-            git reset --hard HEAD
-            git merge origin/${{ github.ref_name }} --squash -X theirs
-            git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
-            echo "status=conflict" >> $GITHUB_OUTPUT
+              # Merge conflict: retry with 'theirs' strategy
+              git reset --hard HEAD
+              git merge origin/${{ github.ref_name }} --squash -X theirs
+
+              # Commit whatever changes resulted from the conflict resolution
+              if ! git diff --quiet; then
+                  git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
+              fi
+              echo "status=conflict" >> $GITHUB_OUTPUT
           fi
 
       - name: Create Pull Request
@@ -64,7 +78,8 @@ jobs:
         id: collect_pr
         run: |
           if [ "${{ steps.merge.outputs.status }}" == "conflict" ]; then
-            echo "PR_URL_${{ matrix.branch }}=${{ steps.create-pr.outputs.pull-request-url }}" >> "$GITHUB_ENV"
+            echo ${{ matrix.branch }}=${{ steps.create-pr.outputs.pull-request-url }}
+            echo "PR_URL_${{ matrix.branch }}=${{ steps.create-pr.outputs.pull-request-url }}" >> $GITHUB_OUTPUT
           fi
       - name: Aggregate results
         id: aggregate
