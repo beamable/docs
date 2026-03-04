@@ -79,6 +79,7 @@ jobs:
     needs: merge_branches
     steps:
       - name: Send Slack Summary
+        if: false
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_DOCS_CHANNEL_URL }}
           SUCCESS: ${{ needs.merge_branches.outputs.success_branches }}
