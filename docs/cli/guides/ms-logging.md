@@ -60,8 +60,9 @@ When you run a Microservice locally, you will see log messages at the _Debug_ le
 
 The `Log` type has methods for each type of log level.
 
-> [!NOTE]
-> The default log level is `DEBUG` when you are running a service locally in development. However, deployed services use the `INFO` level by default. 
+!!! info
+
+	The default log level is `DEBUG` when you are running a service locally in development. However, deployed services use the `INFO` level by default. 
 
 #### Request Dynamic Log Levels
 
