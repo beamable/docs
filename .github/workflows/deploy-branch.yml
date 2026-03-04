@@ -2,6 +2,11 @@ name: Deploy Docs Branch
 
 on:
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Run without deploying'
+        type: boolean
+        default: false
 
 run-name: Deploy Branch ${{ github.event.inputs.branch }} - ${{ github.event.inputs.sdk }} - ${{ github.event.inputs.version }} by @${{ github.actor }}
 jobs:
@@ -67,7 +72,12 @@ jobs:
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
-      # Deploy with mike
-      - name: Deploy SDK with mike
-        run: mike deploy "${{ steps.parse_branch.outputs.sdk }}"-${{ steps.parse_branch.outputs.version }}"" --push
+      # Deploy with mike in dry run mode
+      - name: Deploy SDK (dry run)
+        if: ${{ github.event.inputs.dry_run == 'true' }}
+        run: mike deploy "${{ steps.parse_branch.outputs.sdk }}-${{ steps.parse_branch.outputs.version }}"  
 
+      # Deploy with mike and push
+      - name: Deploy SDK (push)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: mike deploy "${{ steps.parse_branch.outputs.sdk }}-${{ steps.parse_branch.outputs.version }}" --push
