@@ -1,0 +1,12 @@
+name: Deploy Docs Branch
+
+on:
+  workflow_dispatch:
+
+run-name: Invalid main @${{ github.actor }}
+jobs:
+  deploy:
+    - name: Skip main
+      run: |
+        echo "Cannot deploy from this branch. Use the branch selector in the dispatch window. "
+        exit 1
