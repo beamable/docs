@@ -42,13 +42,9 @@ jobs:
 
           # Try a normal squash merge
           if git merge origin/${{ github.ref_name }} --squash; then
-              if ! git diff --quiet; then
-                  git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
-                  git push origin ${{ matrix.branch }}
-                  echo "status=success" >> $GITHUB_OUTPUT
-              else
-                  echo "No changes to commit"
-                  echo "status=no_changes" >> $GITHUB_OUTPUT
+                git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
+                git push origin ${{ matrix.branch }}
+                echo "status=success" >> $GITHUB_OUTPUT
               fi
           else
               # Merge conflict: retry with 'theirs'
@@ -115,8 +111,8 @@ jobs:
           PR_URLS: ${{ needs.merge_branches.outputs.conflict_pr_urls }}
         run: |
           # If both are empty, do nothing
-          if [ -z "$SUCCESS" ] && [ -z "$CONFLICT" ]; then
-            echo "No successes or conflicts — skipping Slack notification."
+          if [ -z "$CONFLICT" ]; then
+            echo "No conflicts — skipping Slack notification."
             exit 0
           fi
 
