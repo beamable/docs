@@ -6,13 +6,13 @@ on:
       - 'core/v7.0'
 
 run-name: "Merge ${{ github.ref_name }} into docs"
-
+permissions:
+  workflows: write
 jobs:
   merge_branches:
     permissions:
       contents: write
       pull-requests: write
-      workflows: write
     runs-on: ubuntu-latest
     name: Merge ${{ github.ref_name }} into ${{ matrix.branch }}
     strategy:
