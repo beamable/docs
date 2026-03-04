@@ -51,8 +51,7 @@ jobs:
           title: "Merge ${{ github.ref_name }} into ${{ matrix.branch }} (Conflicts)"
           body: "Automatic merge failed due to conflicts. Please resolve manually."
           base: ${{ github.ref_name }}
-          branch: merge-${{ github.ref_name }}-${{ matrix.branch }}
-          delete-branch: true
+          branch: ${{ github.ref_name }}
           labels: auto-merge-conflict
 
       - name: Collect PR URL
@@ -85,9 +84,9 @@ jobs:
           CONFLICT: ${{ needs.merge_branches.outputs.conflicted_branches }}
           PR_URLS: ${{ needs.merge_branches.outputs.conflict_pr_urls }}
         run: |
-          SUCCESS_MSG=$( [ -n "$SUCCESS" ] && echo $'✅ Success:\n• '"$SUCCESS" || echo "✅ Success: None" )
+          SUCCESS_MSG=$( [ -n "$SUCCESS" ] && echo $'Success:\n• '"$SUCCESS" || echo "Success: None" )
           if [ -n "$CONFLICT" ]; then
-            CONFLICT_MSG="⚠️ Conflicts:"
+            CONFLICT_MSG="Conflicts:"
             IFS=',' read -ra BRANCHES <<< "$CONFLICT"
             for b in "${BRANCHES[@]}"; do
               # Assuming PR_URLS are stored in format branch=URL
@@ -95,11 +94,11 @@ jobs:
               CONFLICT_MSG+=$'\n• '"$b: $url"
             done
           else
-            CONFLICT_MSG="⚠️ Conflicts: None"
+            CONFLICT_MSG="Conflicts: None"
           fi
 
           PAYLOAD=$(jq -n --arg success "$SUCCESS_MSG" --arg conflict "$CONFLICT_MSG" \
-            '{text: "\($success)\n\($conflict)"}')
+            '{text: "${{ github.ref_name }} auto merge results:\n \($success)\n\($conflict)"}')
           curl -s -X POST "$SLACK_WEBHOOK_URL" \
             -H "Content-Type: application/json" \
             -d "$PAYLOAD"
