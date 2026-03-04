@@ -1,0 +1,82 @@
+name: Auto Merge core/v7.0
+
+on:
+  push:
+    branches:
+      - 'core/v7.0'
+
+jobs:
+  merge_branches:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch: [unity/v5.0]
+    outputs:
+      success_branches: ${{ steps.aggregate.outputs.success_branches }}
+      conflicted_branches: ${{ steps.aggregate.outputs.conflicted_branches }}
+    steps:
+      - name: Checkout target branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ matrix.branch }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Attempt merge
+        id: merge
+        run: |
+          git fetch origin core/v7.0
+          if git merge origin/core/v7.0 --no-commit --no-ff; then
+            git commit -m "Merge core/v7.0 into ${{ matrix.branch }}" || true
+            git push origin ${{ matrix.branch }}
+            echo "status=success" >> $GITHUB_OUTPUT
+          else
+            git merge --abort
+            echo "status=conflict" >> $GITHUB_OUTPUT
+
+      - name: Create PR on conflict
+        if: steps.merge.outputs.status == 'conflict'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "Merge core/v7.0 into ${{ matrix.branch }} (Conflicts)"
+          body: "Automatic merge failed due to conflicts. Please resolve manually."
+          base: ${{ matrix.branch }}
+          head: core/v7.0
+          draft: true
+          labels: auto-merge-conflict
+
+      - name: Aggregate results
+        id: aggregate
+        run: |
+          echo "SUCCESS_LIST=${{ matrix.branch }}" >> $GITHUB_OUTPUT
+          echo "CONFLICT_LIST=" >> $GITHUB_OUTPUT
+          if [ "${{ steps.merge.outputs.status }}" == "success" ]; then
+            echo "success_branches=${{ matrix.branch }}" >> $GITHUB_OUTPUT
+            echo "conflicted_branches=" >> $GITHUB_OUTPUT
+          else
+            echo "success_branches=" >> $GITHUB_OUTPUT
+            echo "conflicted_branches=${{ matrix.branch }}" >> $GITHUB_OUTPUT
+          fi
+
+  notify_slack:
+    runs-on: ubuntu-latest
+    needs: merge_branches
+    steps:
+      - name: Send Slack Summary
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_DOCS_CHANNEL_URL }}
+          SUCCESS: ${{ needs.merge_branches.outputs.success_branches }}
+          CONFLICT: ${{ needs.merge_branches.outputs.conflicted_branches }}
+        run: |
+          SUCCESS_MSG=$( [ -n "$SUCCESS" ] && echo "Success:\n• $SUCCESS" || echo "Success: None" )
+          CONFLICT_MSG=$( [ -n "$CONFLICT" ] && echo "Conflicts:\n• $CONFLICT" || echo "Conflicts: None" )
+          PAYLOAD=$(jq -n --arg success "$SUCCESS_MSG" --arg conflict "$CONFLICT_MSG" \
+            '{text: "\($success)\n\($conflict)"}')
+          curl -s -X POST "$SLACK_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD"
