@@ -45,7 +45,6 @@ jobs:
                 git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
                 git push origin ${{ matrix.branch }}
                 echo "status=success" >> $GITHUB_OUTPUT
-              fi
           else
               # Merge conflict: retry with 'theirs'
               git reset --hard HEAD

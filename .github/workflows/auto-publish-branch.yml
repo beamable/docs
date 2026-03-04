@@ -135,7 +135,8 @@ jobs:
         run: mike deploy "${{ steps.version.outputs.mike_alias }}" --branch gh-pages --push
 
       - name: Notify Slack
-        if: steps.check.outputs.published == 'true' 
+        # if: steps.check.outputs.published == 'true' 
+        if: false
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_DOCS_CHANNEL_URL }}
           MIKE_ALIAS: ${{ steps.version.outputs.mike_alias }}
