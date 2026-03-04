@@ -1,15 +1,15 @@
-name: Auto-Publish Unity Docs
+name: Auto Publish Branch
 
 on:
   push:
     branches:
-      - 'unity/**'
+      - '**'
 
-run-name: Auto-Publish ${{ github.ref_name }} by @${{ github.actor }}
+run-name: Auto Publish Branch ${{ github.ref_name }} by @${{ github.actor }}
 
 jobs:
   auto-publish:
-    name: Auto-Publish ${{ github.ref_name }}
+    name: Auto Publish ${{ github.ref_name }}
     runs-on: ubuntu-latest
     steps:
       # Checkout main to get setup.sh
@@ -32,14 +32,46 @@ jobs:
         id: version
         run: |
           BRANCH="${{ github.ref_name }}"
-          VERSION="${BRANCH#unity/}"
-          VERSION="${VERSION#v}"
-          MIKE_ALIAS="Unity-${VERSION}"
-          echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
-          echo "mike_alias=${MIKE_ALIAS}" >> $GITHUB_OUTPUT
-          echo "Pushed branch:  ${BRANCH}"
-          echo "Extracted version: ${VERSION}"
-          echo "Mike alias to check: ${MIKE_ALIAS}"
+              
+              # Extract the product prefix (before the first /)
+              PRODUCT_PREFIX="${BRANCH%%/*}"
+              
+              # Map branch prefix to product name
+              case "$PRODUCT_PREFIX" in
+                unity)
+                  PRODUCT_NAME="Unity"
+                  ;;
+                unreal)
+                  PRODUCT_NAME="Unreal"
+                  ;;
+                websdk)
+                  PRODUCT_NAME="WebSDK"
+                  ;;
+                core)
+                  PRODUCT_NAME="CLI"
+                  ;;
+                *)
+                  PRODUCT_NAME="Unknown"
+                  ;;
+              esac
+
+              # Extract version (after /v)
+              VERSION="${BRANCH#*/v}"
+
+              # Build mike alias
+              MIKE_ALIAS="${PRODUCT_NAME}-${VERSION}"
+
+              # Set outputs
+              echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
+              echo "product_name=${PRODUCT_NAME}" >> $GITHUB_OUTPUT
+              echo "version=${VERSION}" >> $GITHUB_OUTPUT
+              echo "mike_alias=${MIKE_ALIAS}" >> $GITHUB_OUTPUT
+
+              # Logging
+              echo "Pushed branch: ${BRANCH}"
+              echo "Product name: ${PRODUCT_NAME}"
+              echo "Extracted version: ${VERSION}"
+              echo "Mike alias to check: ${MIKE_ALIAS}"
 
      # Checkout gh-pages so mike can read the published versions list
       - name: Checkout gh-pages branch
@@ -47,8 +79,8 @@ jobs:
         with:
           ref: gh-pages
 
-      # Checkout the pushed unity branch so mike can build the docs
-      - name: Checkout unity branch
+      # Checkout the pushed branch so mike can build the docs
+      - name: Checkout branch
         uses: actions/checkout@v4
         with:
           ref: ${{ github.ref_name }}
