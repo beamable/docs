@@ -4,9 +4,12 @@ on:
   push:
     branches:
       - 'core/v7.0'
-run-name: "Merge ${{ github.ref_name }} into Unity Branches"
+run-name: "Merge ${{ github.ref_name }} into docs"
 jobs:
   merge_branches:
+    permissions:
+      contents: write
+      pull-requests: write
     runs-on: ubuntu-latest
     name: Merge ${{ github.ref_name }} into ${{ matrix.branch }}
     strategy:
@@ -45,13 +48,19 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: "Merge core/v7.0 into ${{ matrix.branch }} (Conflicts)"
+          title: "Merge ${{ github.ref_name }} into ${{ matrix.branch }} (Conflicts)"
           body: "Automatic merge failed due to conflicts. Please resolve manually."
-          base: ${{ matrix.branch }}
-          head: core/v7.0
-          draft: true
+          base: ${{ github.ref_name }}
+          branch: merge-${{ github.ref_name }}-${{ matrix.branch }}
+          delete-branch: true
           labels: auto-merge-conflict
 
+      - name: Collect PR URL
+        id: collect_pr
+        run: |
+          if [ "${{ steps.merge.outputs.status }}" == "conflict" ]; then
+            echo "PR_URL_${{ matrix.branch }}=${{ steps.create_pr.outputs.pull-request-url }}" >> "$GITHUB_ENV"
+          fi
       - name: Aggregate results
         id: aggregate
         run: |
@@ -74,9 +83,21 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_DOCS_CHANNEL_URL }}
           SUCCESS: ${{ needs.merge_branches.outputs.success_branches }}
           CONFLICT: ${{ needs.merge_branches.outputs.conflicted_branches }}
+          PR_URLS: ${{ needs.merge_branches.outputs.conflict_pr_urls }}
         run: |
-          SUCCESS_MSG=$( [ -n "$SUCCESS" ] && echo "Success:\n• $SUCCESS" || echo "Success: None" )
-          CONFLICT_MSG=$( [ -n "$CONFLICT" ] && echo "Conflicts:\n• $CONFLICT" || echo "Conflicts: None" )
+          SUCCESS_MSG=$( [ -n "$SUCCESS" ] && echo $'✅ Success:\n• '"$SUCCESS" || echo "✅ Success: None" )
+          if [ -n "$CONFLICT" ]; then
+            CONFLICT_MSG="⚠️ Conflicts:"
+            IFS=',' read -ra BRANCHES <<< "$CONFLICT"
+            for b in "${BRANCHES[@]}"; do
+              # Assuming PR_URLS are stored in format branch=URL
+              url=$(echo "$PR_URLS" | grep "^PR_URL_$b=" | cut -d= -f2-)
+              CONFLICT_MSG+=$'\n• '"$b: $url"
+            done
+          else
+            CONFLICT_MSG="⚠️ Conflicts: None"
+          fi
+
           PAYLOAD=$(jq -n --arg success "$SUCCESS_MSG" --arg conflict "$CONFLICT_MSG" \
             '{text: "\($success)\n\($conflict)"}')
           curl -s -X POST "$SLACK_WEBHOOK_URL" \
