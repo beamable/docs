@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - 'core/v7.0'
+
 run-name: "Merge ${{ github.ref_name }} into docs"
+
 jobs:
   merge_branches:
     permissions:
@@ -18,6 +20,7 @@ jobs:
     outputs:
       success_branches: ${{ steps.aggregate.outputs.success_branches }}
       conflicted_branches: ${{ steps.aggregate.outputs.conflicted_branches }}
+      conflict_pr_urls: ${{ steps.aggregate.outputs.conflict_pr_urls }}
 
     steps:
       - name: Checkout target branch
@@ -26,7 +29,6 @@ jobs:
           ref: ${{ matrix.branch }}
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
-
 
       - name: Configure Git
         run: |
@@ -40,7 +42,6 @@ jobs:
 
           # Try a normal squash merge
           if git merge origin/${{ github.ref_name }} --squash; then
-              # Only commit if there are changes
               if ! git diff --quiet; then
                   git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
                   git push origin ${{ matrix.branch }}
@@ -50,20 +51,17 @@ jobs:
                   echo "status=no_changes" >> $GITHUB_OUTPUT
               fi
           else
-              # Merge conflict: retry with 'theirs' strategy
+              # Merge conflict: retry with 'theirs'
               git reset --hard HEAD
               git merge origin/${{ github.ref_name }} --squash -X theirs
-
-              # Commit whatever changes resulted from the conflict resolution
               if ! git diff --quiet; then
                   git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
               fi
               echo "status=conflict" >> $GITHUB_OUTPUT
-          fi
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
-        id: create-pr
+        id: create_pr
         if: steps.merge.outputs.status == 'conflict'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -77,22 +75,32 @@ jobs:
       - name: Collect PR URL
         id: collect_pr
         run: |
-          if [ "${{ steps.merge.outputs.status }}" == "conflict" ]; then
-            echo ${{ matrix.branch }}=${{ steps.create-pr.outputs.pull-request-url }}
-            echo "PR_URL_${{ matrix.branch }}=${{ steps.create-pr.outputs.pull-request-url }}" >> $GITHUB_OUTPUT
+          conflict_pr_urls=""
+          if [ "${{ steps.merge.outputs.status }}" = "conflict" ]; then
+            safe_branch=$(echo "${{ matrix.branch }}" | tr '/' '_')
+            pr_url="${{ steps.create_pr.outputs.pull-request-url }}"
+            echo "PR_URL_${safe_branch}=${pr_url}" >> $GITHUB_OUTPUT
+            conflict_pr_urls="$safe_branch=$pr_url"
           fi
+          echo "conflict_pr_urls=${conflict_pr_urls}" >> $GITHUB_OUTPUT
+
       - name: Aggregate results
         id: aggregate
         run: |
-          echo "SUCCESS_LIST=${{ matrix.branch }}" >> $GITHUB_OUTPUT
-          echo "CONFLICT_LIST=" >> $GITHUB_OUTPUT
-          if [ "${{ steps.merge.outputs.status }}" == "success" ]; then
-            echo "success_branches=${{ matrix.branch }}" >> $GITHUB_OUTPUT
-            echo "conflicted_branches=" >> $GITHUB_OUTPUT
-          else
-            echo "success_branches=" >> $GITHUB_OUTPUT
-            echo "conflicted_branches=${{ matrix.branch }}" >> $GITHUB_OUTPUT
+          success_list=""
+          conflict_list=""
+          conflict_urls=""
+
+          if [ "${{ steps.merge.outputs.status }}" = "success" ]; then
+            success_list="${{ matrix.branch }}"
+          elif [ "${{ steps.merge.outputs.status }}" = "conflict" ]; then
+            conflict_list="${{ matrix.branch }}"
+            conflict_urls="${{ steps.collect_pr.outputs.conflict_pr_urls }}"
           fi
+
+          echo "success_branches=${success_list}" >> $GITHUB_OUTPUT
+          echo "conflicted_branches=${conflict_list}" >> $GITHUB_OUTPUT
+          echo "conflict_pr_urls=${conflict_urls}" >> $GITHUB_OUTPUT
 
   notify_slack:
     runs-on: ubuntu-latest
@@ -107,11 +115,11 @@ jobs:
           PR_URLS: ${{ needs.merge_branches.outputs.conflict_pr_urls }}
         run: |
           SUCCESS_MSG=$( [ -n "$SUCCESS" ] && echo $'Success:\n• '"$SUCCESS" || echo "Success: None" )
+
           if [ -n "$CONFLICT" ]; then
             CONFLICT_MSG="Conflicts:"
             IFS=',' read -ra BRANCHES <<< "$CONFLICT"
             for b in "${BRANCHES[@]}"; do
-              # Assuming PR_URLS are stored in format branch=URL
               url=$(echo "$PR_URLS" | grep "^PR_URL_$b=" | cut -d= -f2-)
               CONFLICT_MSG+=$'\n• '"$b: $url"
             done
