@@ -72,6 +72,7 @@ jobs:
           delete-branch: true
           base: ${{ matrix.branch }}
           labels: bot
+          token: ${{ secrets.DOCS_PAT }}
 
       - name: Collect PR URL
         id: collect_pr
