@@ -6,8 +6,7 @@ on:
       - 'core/v7.0'
 
 run-name: "Merge ${{ github.ref_name }} into docs"
-permissions:
-  workflows: write
+
 jobs:
   merge_branches:
     permissions:
