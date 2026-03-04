@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - 'core/v7.0'
-
+run-name: "Merge ${{ github.ref_name }} into Unity Branches"
 jobs:
   merge_branches:
     runs-on: ubuntu-latest
@@ -31,7 +31,7 @@ jobs:
         id: merge
         run: |
           git fetch origin core/v7.0
-          if git merge origin/core/v7.0 --no-commit --no-ff; then
+          if git merge origin/core/v7.0 --no-commit --no-ff --allow-unrelated-histories; then
             git commit -m "Merge core/v7.0 into ${{ matrix.branch }}" || true
             git push origin ${{ matrix.branch }}
             echo "status=success" >> $GITHUB_OUTPUT
