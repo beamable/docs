@@ -5,6 +5,7 @@
     - [Game Type Matchmaking](game-type-matchmaking.md)
     - [Android IAP](stores-android-iap.md)
     - [Web Access](web-access.md)
+    - [Battle Pass](battle-pass.md)
 - Full Samples
     - [Chat - GPW](gpw.md)
     - [Chat and Microstorage - GPW2](gpw2.md)
