@@ -16,7 +16,7 @@ jobs:
     name: Merge ${{ github.ref_name }} into ${{ matrix.branch }}
     strategy:
       matrix:
-        branch: [unity/v5.0]
+        branch: [unity/v5.0, unreal/v2.3]
     outputs:
       success_branches: ${{ steps.aggregate.outputs.success_branches }}
       conflicted_branches: ${{ steps.aggregate.outputs.conflicted_branches }}
