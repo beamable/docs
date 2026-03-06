@@ -49,7 +49,7 @@ Content Manager:
   - Set the `EndDate` using the ISO 8601 format (e.g., `2024-12-31T23:59:59Z`).
   - Define the tiers and rewards (Example in screenshot)
   
-![Battle Pass Content](docs/media/imgs/battlepass-content.jpg)
+![Battle Pass Content](../../media/imgs/battlepass-content.jpg)
 
 - **Step 4: Publish the content:**
   - Once the Battle Pass is configured, press the **Publish** button in the Content Manager to push the Battle Pass 
