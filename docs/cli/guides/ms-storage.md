@@ -9,7 +9,7 @@ Before you can use Beamable Storage Objects, you need to complete the [Getting-S
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
 dotnet --version
-beam version # beam --version also works.
+dotnet beam version # dotnet beam --version also works.
 ```
 
 In order to use a Storage Object, you also need to have a local `.beamable` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
@@ -21,12 +21,12 @@ dotnet beam project new service HelloWorld
 
 ## Storage Objects
 
-A Storage Object is a Mongo database. Beamable will host and manage a database on your behalf when you deploy your project. Locally, the Beam CLI creates a local mongo database inside a Docker container. Beamable never installs mongo directly on your host machine. 
+A Storage Object is a MongoDB database. Beamable will host and manage a database on your behalf when you deploy your project. Locally, the Beam CLI creates a local mongo database inside a Docker container. Beamable never installs mongo directly on your host machine. 
 
 To create a Storage Object, use the [project new storage](ms-workflow.md#creating-new-projects) command. 
 
 ```sh
-beam project new storage
+dotnet beam project new storage
 ```
 
 This creates a new `.csproj` in your existing `.sln`. You will also be prompted to assign a reference between the Storage Object and some Microservices. A Storage Object cannot exist independently of a Microservice. When you specify a dependency between a Storage Object and a Microservice, Beamable knows to pass the connection credentials to the Microservice. 

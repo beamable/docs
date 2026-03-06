@@ -6,7 +6,8 @@ The Beamable CLI is a dotnet tool that allows developers to interact with Beamab
 You'll need to install [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) before you can get started. 
 Verify it is installed by running `dotnet --version` from a terminal.
 
-!!! info We support Dotnet 8 as well.
+!!! info "We support Dotnet 8 as well."
+
     If you are using the Beamable CLI before version 7.0, then you should be using [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). Starting with CLI 7.0 and beyond, we support both versions of dotnet, but we recommend you use `net10.0`. 
 
 ## Installing
@@ -16,7 +17,11 @@ To install the Beamable CLI, run the following command in a shell.
 ```shell
 dotnet tool install --global Beamable.Tools
 ```
-
+It is also possible to install a specific version instead of the latest one using the `--version` parameter
+```shell
+dotnet tool install --global Beamable.Tools --version X.Y.Z
+```
+If you are using the Beamable CLI on Unity, please check if the installed version matches the Unity SDK version that you are using, you can use [this](https://beamable.github.io/docs/unity/getting-started/installing-beamable/#beam-cli-dependency) table to check the version.
 And verify your installation with `beam version`.
 
 ### Updating
