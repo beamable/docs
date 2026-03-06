@@ -10,7 +10,7 @@ This guide assumes you have an existing Microservice. You need to complete the
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
 dotnet --version
-beam version # beam --version also works.
+dotnet beam version # dotnet beam --version also works.
 ```
 
 In order to configure a Microservice, you also need to have a local `.beamable` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
@@ -42,8 +42,9 @@ public void SampleLog()
 }
 ```
 
-> [!NOTE]
-> Local microservice logs will not appear in Portal unless the `BEAM_LOCAL_OTEL` environment variable is set.
+!!! info
+
+	Local microservice logs will not appear in Portal unless the `BEAM_LOCAL_OTEL` environment variable is set.
 
 ### Log Level
 
@@ -59,8 +60,9 @@ When you run a Microservice locally, you will see log messages at the _Debug_ le
 
 The `Log` type has methods for each type of log level.
 
-> [!NOTE]
-> The default log level is `DEBUG` when you are running a service locally in development. However, deployed services use the `INFO` level by default. 
+!!! info
+
+	The default log level is `DEBUG` when you are running a service locally in development. However, deployed services use the `INFO` level by default. 
 
 #### Request Dynamic Log Levels
 
