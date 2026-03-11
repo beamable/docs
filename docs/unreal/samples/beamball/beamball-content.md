@@ -2,7 +2,7 @@
 
 ![beamball-content.gif](../../../media/imgs/beamball-content.gif)
 
-In the **Beamball** sample we have a basic implementation of the Store and Inventory Systems. Those are build using the Beamable’s **Store** and **Content** services. The flow combines backend data (listings and offers) with **local DataAssets** that define the visual presentation of each item.
+In the **Beamball** sample we have a basic implementation of the Store and Inventory Systems. Those are built using the Beamable’s **Store** and **Content** services. The flow combines backend data (listings and offers) with **local DataAssets** that define the visual presentation of each item.
 
 ## Loading and Displaying Store Items
 
@@ -19,7 +19,7 @@ When the store screen is opened, the client first updates the player’s store s
 
 The returned `Content Store View` contain the listings and their offers available to the player. Each listing represents a category of items, and contains references to one or more offers that can be purchased. In the Beamball sample, we have four listings, each representing a different skin for the player. Each listing contains a single offer that allows the player to purchase that skin.
 
-The Listing data is combined with a local **DataAssets** that define how each item should be presented in the UI. In this case, we have a DataAsset for each skin, containing information such as the skin’s name, description, and thumbnail image. The DataAssets are linked to the listings using it path as a Soft Object Reference in the `path` field of the listing.
+The Listing data is combined with a local **DataAssets** that define how each item should be presented in the UI. In this case, we have a DataAsset for each skin, containing information such as the skin’s name, description, and thumbnail image. The DataAssets are linked to the listings using its path as a Soft Object Reference in the `path` field of the listing.
 
 Each listing is transformed into an **item widget**.  During initialization, the widget receives:
 
@@ -38,14 +38,14 @@ Widgets are then placed dynamically into a **grid layout**, with positioning cal
 
 ![beamball-purchase.png](../../../media/imgs/beamball-purchase.png)
 
-When the player selects an item to purchase, the corresponding widget calls the **`Operation - Store - Performa Purchase`** operator. This operator takes care of the entire purchase flow, including:
+When the player selects an item to purchase, the corresponding widget calls the **`Operation - Store - Perform Purchase`** operator. This operator takes care of the entire purchase flow, including:
 
 - Validating the offer,
 - Checking the player’s balance,
 - Deducting the cost,
 - Adding the item to the player’s inventory.
 
-Upon successful completion of the purchase operation, the player’s inventory changes with the addition of the item. It triggers a redraw from scratch fro the UI so it can include the newly acquired item.
+Upon successful completion of the purchase operation, the player’s inventory changes with the addition of the item. It triggers a redraw from scratch from the UI so it can include the newly acquired item.
 
 ![beamball-pruchase2.png](../../../media/imgs/beamball-pruchase2.png)
 

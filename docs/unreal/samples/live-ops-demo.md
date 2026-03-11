@@ -1,6 +1,6 @@
 # LiveOps Sample
 
-This demo showcases how you can use the **Beamable Unreal SDK**'s in LiveOps game projects. Particularly it focus on the Player Stats, Announcements and Inventory Systems.
+This demo showcases how you can use the **Beamable Unreal SDK** in LiveOps game projects. Particularly, it focuses on the Player Stats, Announcements, and Inventory Systems.
 
 ![liveops.png](../../media/imgs/liveops.png)
 
@@ -11,7 +11,7 @@ Aside from our `BeamableCore` Plugin, here's what the sample contains:
 - **`BEAMPROJ_LiveOpsDemo` Unreal Plugin.**: Contains the UE implementation for the sample's client. The core code is inside `LiveOpsDemoMainMenu.h` and part of the implementation is done through BPs inside the folder `UI_BPs` folder of the `BEAMPROJ_LiveOpsDemo` project.
 - **`Microservice/LiveOpsDemo` Microservice**: Microservice containing code that's used by the sample for various inventory and stat related things.
 
-To set up this sample you'll need a a Beamable Account and a Realm. To configure the repo for the sample run `dotnet beam unreal select-sample BEAMPROJ_LiveOpsDemo`.
+To set up this sample you'll need a Beamable Account and a Realm. To configure the repo for the sample run `dotnet beam unreal select-sample BEAMPROJ_LiveOpsDemo`.
 
 ## Setting up the Project
 To set up an organization and realm to run this sample, follow the steps below.
@@ -20,7 +20,7 @@ To set up an organization and realm to run this sample, follow the steps below.
 2. Compile and open the `BeamableUnreal` editor project.
 3. Sign into your Beamable account and go to the `liveops-demo` realm.
       1. Optionally you can hit `Apply to Build` after the realm change is done.
-5. Let's Setup the Content
+5. Let's setup the content:
       1. First you will need to run the command `dotnet beam content restore --pid DE_1816044586323024 --name LastPublished-global` to bring all the content from the sample to your current realm.
       2. Open the `Content` window.
       3. Ensure there's an `item` content with the name `sample_item`
@@ -61,7 +61,7 @@ At runtime, the sample works in the following way:
       1. You can also click the button next to the `sample stat` stat to increment it.
 2. In the announcements page, you'll find all the announcements you configured via the portal (provided the schedule you put in makes it active). 
       1. You can click on any announcement.
-      2. Doing so, shows its content and all the rewards/gifts that could be claimed through this announcement (if any).
+      2. Doing so shows its content and all the rewards/gifts that could be claimed through this announcement (if any).
       3. You can claim the gifts inside the announcement by clicking on the claim button.    
 4. In the Inventory page, You can see each of the `sample_item` instances the player has and their level at the right portion of the screen.
       1. You should be able to upgrade the item level using the upgrade button.

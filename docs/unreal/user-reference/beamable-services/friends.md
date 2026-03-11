@@ -1,8 +1,8 @@
 # Friends
 
-The Beamable **Friends** Feature allows game makers to connect players with each other and manage the status of the new friends.
+The Beamable **Friends** feature allows game makers to connect players with each other and manage the status of the new friends.
 
-Beamable's Friend system allow the following game flows: 
+Beamable's Friend system allows the following game flows: 
 
  - Send friend invites to other players.
  - Accept/Decline invites received from other players.
@@ -15,22 +15,22 @@ Beamable's Friend system allow the following game flows:
 A sample that demonstrates the friend subsystem is available in our [GitHub](https://github.com/beamable/UnrealSDK). For more details, check out the [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
 ## Getting Started
-To use the friend system, you will need to first setup your Unreal to PIE with multiple players. That will allow you to test everything due multiple instances. 
+To use the friend system, you will need to first set up your Unreal to PIE with multiple players. That will allow you to test everything due to multiple instances. 
 
 ???+ Warning "Observation"
     The friend subsystem allow you to use the friend system for local players with multiple accounts, you can do as we showing here setting up the UserSlot for the correct player.
 
-Once you have your enviroment setup to start, the follow steps will show how to implement the basic functinalities in BP.
+Once you have your environment setup to start, the following steps will show how to implement the basic functinalities in BP.
 
 ### Binding the Friends Events
- In the SDK all the events can be binded using our custom node for bind from the subsystem. The image bellow shown a example how to do this.
+ In the SDK all the events can be bound using our custom node for bind from the subsystem. The image bellow shown a example how to do this.
 
  ![friends-bind-events.png](../../../media/imgs/friends-bind-all-events.png)
 
 ### Inviting a Friend
 
 1. Open your Level Blueprint (or some other BP)
-2. Call the `Operation - Friend - SendFriendInvite`. This will allow you to create a asynchronos chain to the after invite someone to be a friend.
+2. Call the `Operation - Friend - SendFriendInvite`. This will allow you to create a asynchronous chain to the after invite someone to be a friend.
 
 ![friends-send-invite.png](../../../media/imgs/friends-send-invite.png)
 
@@ -43,7 +43,7 @@ It's possible to listen to the changes for the invites received, being responsiv
 
 ![friends-accept-invite.png](../../../media/imgs/friends-accept-invite.png)
 
-When the player that received the invite accept it, both receive the invite accepted event, it could be used for updates in the invite list or to start to show the new friend in the friend list.
+When the player that received the invite accepts it, both receive the invite accepted event, it could be used for updates in the invite list or to start to show the new friend in the friend list.
 
 To bind to this event you can use the `OnInviteAccepted` as shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
@@ -88,10 +88,10 @@ For you to use the status presence as the common behavior of showing if your fri
 
 ![friends-remove-friend.png](../../../media/imgs/friends-remove-friend.png)
 
-When a player is removed from the friend list it will triggers this notification. You will be able to register on this to treat the behavior in your game.
+When a player is removed from the friend list it will trigger this notification. You will be able to register on this to treat the behavior in your game.
 
 The event that will be trigger is the `OnFriendRemoved`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
-When it triggers, the local state of the friend list will already been updated. 
+When it triggers, the local state of the friend list will already have been updated. 
 
 ### How To Use The System State To Update The View (Invite Sample)
 

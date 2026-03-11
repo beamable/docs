@@ -2,12 +2,13 @@
 
 Beamable Content System is a read-only (at runtime) arbitrary data store that allows you to define arbitrary JSON-serialized _content objects_ for use at runtime. Several of Beamable's own managed features also use content in some way or another.
 
-The system is manifest-based. This means:
+The system is manifest-based. 
 
 - A **manifest** is a list of published content objects in a realm indexed by their content ids.
-- Publishing a **manifest** means first uploading all the individual content objects to Beamable and, after that, uploading a manifest that knows all where each content lives.
-- Downloading a **manifest** does not necessarily imply downloading the individual content object jsons (more information below).
-- **_You are solely responsible for maintaining backward compatibility for your custom content objects._**
+- **Publishing** a manifest means first uploading all the individual content objects to Beamable and, after that, uploading a manifest that knows where the content objects live.
+- **Downloading** a manifest does not necessarily imply downloading the individual content object jsons (more information below).
+
+**_You are solely responsible for maintaining backward compatibility for your custom content objects._**
 
 Each individual content object in each manifest is identified by an ID with the format below:
 
@@ -18,21 +19,21 @@ Each individual content object in each manifest is identified by an ID with the 
 > `UMyGameItemContent` inherits from `UBeamItemContent`
 > `items.mygameitem.MyGameItemName`
 
-The last part of the id is the only one you edit through the **Content Window**. The `ContentTypeId` is inferred by the type hierarchy.
+The last part of the ID is the only one you edit through the **Content Window**. The `ContentTypeId` is inferred by the type hierarchy.
 
 ## Content Window
-The content window is the main tool to create, edit and publish new content to your project.
+The Content Window is the main tool to create, edit, and publish new content to your project.
 
 ![contentv2-window.png](../../../media/imgs/contentv2-window.png)
 
-The list of content objects displayed in the content window is very similar to a "Status" window in Git or some other version control systems. Beside show your local content it also presents the differences between your local state and the state in your currently targeted `Realm`.
+The list of content objects displayed in the content window is very similar to a "Status" window in Git or some other version control systems. Besides showing your local content, it also presents the differences between your local state and the state in your currently targeted `Realm`.
 
 These differences are represented by the `[+]`,`[-]` and `[M]` signs.
 
 - `[+]`: Means the content exists locally but NOT in the realm.
 - `[M]`: Means the content exists BOTH locally and in the realm AND that it is modified relative to the one in the realm.
-    - `[!]`: Means the content had changes locally when a someone else published to the realm. This means that your changes would overwrite the published changes. We call this a **Conflict** and you MUST resolve conflicts before publishing your changes.
-- `[-]`: Means the content DOES NOT exists locally but DOES exist in the realm.
+    - `[!]`: Means the content had changes locally when someone else published to the realm. This means that your changes would overwrite the published changes. We call this a **Conflict**. You MUST resolve conflicts before changes can be published.
+- `[-]`: Means the content DOES NOT exist locally but DOES exist in the realm.
 
 If the content is not marked with any of these signs, it means it is in sync with the realm.
 
@@ -46,39 +47,41 @@ If the content is not marked with any of these signs, it means it is in sync wit
 
 ![content-add-content.gif](../../../media/imgs/content-add-content.gif)
 
-To create a new piece of content locally:
+**To create a new piece of content locally:**
 
-1. Click **+** next to any of the content type headers to create a content of that type.
-2. Rename the created content with whatever name you want; it cannot contain whitespaces or `.`.
+1. Select **+** next to any of the content type headers to create a content of that type.
+2. Rename the created content; it cannot contain whitespaces or `.`.
 
-Deleting content can be done simply by pressing `Del` on your keyboard with a item selected or clicking the `[X]` button in the Item Details.
+Deleting content can be done simply by pressing `Del` on your keyboard with an item selected or selecting the `[X]` button in the Item Details.
 
 Items created locally will have a `[+]` sign next to them informing that they are not in the realm yet and will be added in the next publish. Items deleted locally that have counterparts on the realm will have a `[-]` sign next to them informing that they will be removed from the realm in the next publish.
 
-Modifying content can be done by via the Details editor in the **Content Window**. Modified content, relative to the latest published manifest, is shown with an `[M]` icon next to them. They can be reverted to their state at the realm by using the `Revert` button.
+Modifying content can be done by via the Details Editor in the **Content Window**. Modified content, relative to the latest published manifest, is shown with an `[M]` icon next to them. They can be reverted to their state at the realm by using the `Revert` button.
 
 ![content-revert.png](../../../media/imgs/content-revert.png)
 
-## Publishing and Auto-Synch'ing
-The source of truth for content in a realm is always whatever manifest was last published to that realm. **Publishing** is telling the Beamable SDK that you want to send your entire local content state to the realm and make that the source of truth.
+## Publishing and Auto-Syncing
+**Publishing** tells the Beamable SDK that you want to send your entire local content state to the realm and make that the source of truth. The source of truth for content in a realm is always whatever manifest was last published to that realm. 
+
+To publish content to a realm simply use the Publish button.
 
 !!! note "For Designers"
-	You can think of the realm's published content as a "Dropbox/Google Drive folder" that contains all content object's serialized JSON files and the manifest is an index that tells the SDK which content exists and where to download their JSON file.
+	You can think of the realm's published content as a "Dropbox/Google Drive folder" that contains all content objects' serialized JSON files. The manifest is an index that tells the SDK which content exists and where to download their JSON files.
 
 	**Publishing** means deleting all the contents of the Dropbox folder and replacing them with your local files.  
 
-To publish content to a realm simply press the **Publish** button.
+
 
 ### Understanding Content Auto-Sync Rules
-It is often desireable to have designers in a realm that is stable and allow them to work in `Blueprints`, `Beamable Content` and Unreal `Data Asset` in the same realm plus branch combination. 
+It is often desirable to have designers in a realm that is stable and allow them to work in `Blueprints`, `Beamable Content` and Unreal `Data Asset` in the same realm plus branch combination. 
 
 In order to enable this workflow, the Beamable SDK:
 
 - Listens for whenever any developer publishes content to a realm and notifies other developers working on that same realm.
-	- If `Designer-A` publishes changes, `Designer-B` will see a UE-notification informing them that `Designer-A` has just published.  
+	- If `Designer-A` publishes changes, `Designer-B` will see a UE-notification informing them that `Designer-A` has just published. <br><br>
 - Automatically keeps any un-modified local files up-to-date with the latest version of that file published to the realm.
     - If `Designer-A` publishes changes to `Content-1` and `Designer-B` had no changes made to that file in their machine, the SDK in `Designer-B`'s machine will automatically update their `Content-1` file to match the newest version of it published by `Designer-A`.
-    - The notification tells you what content was automatically synchronized.
+    - The notification tells you what content was automatically synchronized. <br><br>
 - Informs you that you had made changes to a file that was modified in the published manifest. This is called a **Conflict**.
 	- If `Designer-A` publishes changes to `Content-1` and `Designer-B` had made changes to that file in their machine, the SDK in `Designer-B`'s machine will NOT automatically update their `Content-1` file. Instead, it'll accuse a **Conflict**.
     - The notification informs you if a conflict happened.
@@ -92,17 +95,16 @@ To prevent `Designer-B` from overwriting changes made by `Designer-A` the SDK wi
 
 As such, we recommend a few things:
 
-- Organize the designers in your to minimize the chance of **conflicts**.
-    - As long as they are working in different content objects, working in the same realm should be seamless.
-    - Common distributions of work that work well with this is to assign owners to subset of your content when mapping out who's doing what work.
+- Organize the designers in your realm to minimize the chance of **conflicts**.
+    - As long as they are working in different content objects, working in the same realm should be seamless.<br><br>
 - Instruct designers to ALWAYS talk to the person whose publish action caused the conflict _before_ resolving things.
   	- This is why we inform you _who_ made the last publish that caused the conflict.
 
 This workflow can also be used for engineers that are developing non-Beamable related features.
 
-In addition to the workflow above, there are cases where you might want to create realms in order to have a more controlled enviroment for developing. Common examples are:
+In addition to the workflow above, there are cases where you might want to create realms in order to have a more controlled environment for developing. Common examples are:
 
-- Large features that make use of new custom content definitions developed alongisde Microservices.
+- Large features that make use of new custom content definitions developed alongside Microservices.
 - Content schema modifications or equivalents that will require migrating existing content to a new schema. 
 
 To achieve this --- just create a new realm for the development of that feature.
@@ -116,7 +118,7 @@ Once your work is done, you can configure the stable realm with whatever new con
 
 ## Custom Content Types
 
-In Unreal, you define content schemas as sub-classes of `UBeamContentObject` or any of its subtypes available in the SDK ( `UBeamItemContent` , `UBeamGameTypeContent` , etc...). Every content type must define a unique string id for that particular type and a function that returns it.
+In Unreal, you define content schemas as sub-classes of `UBeamContentObject` or any of its subtypes available in the SDK ( `UBeamItemContent` , `UBeamGameTypeContent` , etc...). Every content type must define a unique string ID for that particular type and a function that returns it.
 
 The following example of `UBeamCurrencyContent` shows how that can be done:
 
@@ -205,11 +207,10 @@ In a couple of cases, you might want to bake content to distribute it with your 
 
 To enable those cases, we provide an editor utility that will bake your local content into a `UBeamContentCache`. 
 This is a special asset type that has the `UBeamContentObject` instances serialized using UE's binary serialization as opposed to JSON.
-**Keep in mind that this utility uses your local content; so make sure your content matches the realm's content before running it**.
 
-The utility is called `EBP_BakeContent` and can be found in Beamable Core's plugin folder under `/Editor/Utility/EBP_BakeContent.EBP_BakeContent`. 
-Running this utility goes through your local content and bakes them into a `BCC_` assets ( `UBeamContentCache` ) stored in `/Game/Beamable/Content/Manifests/Cooked/` directory.
-This directory is configured, by default, to be included in packaged games.
+**Keep in mind that this utility uses your local content, so make sure your content matches the realm's content before running it**.
+
+The utility is called `EBP_BakeContent` and can be found in Beamable Core's plugin folder under `/Editor/Utility/EBP_BakeContent.EBP_BakeContent`. Running this utility goes through your local content and bakes them into a `BCC_` assets ( `UBeamContentCache` ) stored in `/Game/Beamable/Content/Manifests/Cooked/` directory. This directory is configured, by default, to be included in packaged games.
 
 At runtime, any `UBeamContentCache` is loaded automatically by the `UBeamContentSubsystem` if it exists and is configured correctly; so you don't have to do anything to have it work.
 
@@ -223,6 +224,8 @@ Unreal's Binary serialization of `UObject` types works _mostly_ out of the box w
 - When referencing types inside content objects use `UClass*`.
 - When referencing non-asset `IBeamJsonSerializableUObject` inside content objects use `UMyObject*` directly and add `DefaultToInstanced, EditInlineNew` to the `UCLASS` macro of that type.
 
-Doing that will make the binary serialization of content for local cache-ing work in each of these cases.   
+Doing that will make the binary serialization of content for local caching work in each of these cases.   
 
-For serializing arbitrary data structures, prefer `FBeamJsonSerializableUStruct` subtypes `UBeamContentObject` as these are simpler to set up. It is only in cases where you need a recursive type that we recommend the use of inlined `IBeamJsonSerializableUObject`. For examples of handling this edge case, you can look at the `UBeamGameTypeContent` and `UBeamStatComparisonRule` types shipped with the SDK.
+For serializing arbitrary data structures, prefer `FBeamJsonSerializableUStruct` subtypes `UBeamContentObject` as these are simpler to set up. It is only in cases where you need a recursive type that we recommend the use of inlined `IBeamJsonSerializableUObject`. 
+
+For examples of handling this edge case, you can look at the `UBeamGameTypeContent` and `UBeamStatComparisonRule` types shipped with the SDK.
