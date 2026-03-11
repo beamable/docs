@@ -79,7 +79,7 @@ That's why we allow you to enable/disable systems with this granularity.
 
 #### Advanced - Beyond Hooks and SDK Modifications
 
-In line with our philosophy that tools should enable you to do what you need, we distribute the SDK with the source code so that you can edit it if you need to do so. The code is kept organized and commented (as best as we can) to try and make modifications feasible. We do this for a few different reasons: 
+In line with our philosophy that tools should enable you to do what you need, we distribute the SDK with the source code so that you can edit it if you need to do so. The code is kept organized and commented (as best we can) to try and make modifications feasible. We do this for a few different reasons: 
 
 - **Owning Dependencies**: It is the philosophy of the UE team here at Beamable that dependencies should be managed explicitly and, whenever possible, be included in your VCS. Since the Beamable SDK is a huge dependency of your project, we want you to have as much control over it as possible.
 - **Visibility**: We also believe that, while you shouldn't depend directly on internals of the SDK, having access to them can inform better system design choices. You shouldn't be afraid to take a look at the details of how we implement our `UBeamRuntimeSubsystem`s as it can be informative when designing custom systems on top of Beamable yourself.  
