@@ -405,12 +405,25 @@ Each content JSON file contains a `referenceManifestId` representing its last sy
 - Identifying potential conflicts
 - Maintaining synchronization integrity
 
+### Why `.beamable/local/` Is Gitignored
+
+The SDK adds the following entries to `.beamable/.gitignore`:
+
+```
+temp/**/*
+local/**/*
+```
+
+The `local/**/*` entry intentionally excludes `.beamable/local/` from Git. Because `referenceManifestId` is updated on every publish, even a single publish touches every content JSON file — producing frequent, low-signal commits. For Git-friendly content tracking, use **Content Snapshots** instead (see the Snapshot button in Beam Content).
+
+You can track the raw local JSON files in Git by removing `local/**/*` from your `.gitignore`, but this is not recommended unless your team is comfortable with the resulting commit noise.
+
 ### Version Control Best Practices
 
 1. **Minimize Unnecessary Commits**
    - Avoid committing files when only the referenceManifestId has changed
    - These changes can safely be reverted if needed
-2. **Handling Revert Operations**  
+2. **Handling Revert Operations**
    Reverting to an older version will trigger conflict detection (due to mismatched `referenceManifestId`). To resolve while preserving your content changes, run:
    ```shell
    beam content resolve --use local
@@ -422,4 +435,11 @@ Each content JSON file contains a `referenceManifestId` representing its last sy
 
 While each content object inherits from Unity's [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html), these objects exist solely in memory for Unity Editor inspection and are not saved to disk.
 
-The actual content data is stored as JSON files in your project's: `.beamable/content/<YOUR_PID>/global/` directory
+The actual content data is stored as JSON files under `.beamable/` in two locations:
+
+| Location | Contents |
+| --- | --- |
+| `.beamable/content/<YOUR_PID>/global/` | Most recently **synchronized remote content** — reflects what is currently published to the realm |
+| `.beamable/local/content/<YOUR_PID>/global/` | **Local working copy** — may include work-in-progress changes that have not yet been published |
+
+When you switch realms and synchronize using Beam Content, both folders are populated with the content for that realm.
