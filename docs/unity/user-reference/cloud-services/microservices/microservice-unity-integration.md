@@ -1,0 +1,211 @@
+# Unity Microservices Integration
+
+Microservices are first class citizens in the Beamable Unity SDK. You can create, run, and debug Microservices directly from the Unity Editor.
+
+## Beam Services Editor
+
+The _Beam Services_ window allows you to manage your Microservice and Microstorage objects in the project. You can open the _Beam Services_ window by clicking the _Beamable Button_ and selecting _Open Beam Services_.
+
+![Select Open Beam Services](../../../../media/imgs/beam-services-open-menu.png){width="400px"}
+
+### The User Interface
+
+Here is the user interface of the _Beam Services_ window.
+
+![Beam Services UI Overview](../../../../media/imgs/beam-services-ui-overview.png){width="400px"}
+
+Along the top bar are 4 major buttons,
+
+| Button  | Description                                                                                                  |
+| :------ |:-------------------------------------------------------------------------------------------------------------|
+| Config  | Sets the _Beam Services_ window to config mode for the selected service.                                     |
+| Publish | Opens the publish window, which will begin the process to building your services to publication to Beamable. |
+| Create  | Create a new service, storage, or federation id.                                                             |
+| Open    | Open a code editor to view all the services in a shared solution.                                            |
+
+The mid bar has a single dropdown which is the service selector. The _Beam Services_ window only shows a single service at a time. If you had multiple services, you would switch between them using the dropdown. The dropdown also has function buttons to quickly toggle a service's state, go to the Open API documentation, and more.
+
+The lower bar has a row of function buttons for the selected Service. These buttons do not have text, so the following table will describe them in order from left to right.
+
+| Button / Icon        | Anchor | Description                                                                                                                                                               |
+| :------------------- | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Service Icon         | Left   | A simple icon denoting this is a MIcroservice. If a Microstorage were selected, this icon would show a Storage symbol.                                                    |
+| Run Button           | Center | This button will highlight blue when the service is running. The first time you click it, it will start the service. If you click it again, it will turn off the service. |
+| Documentation Button | Right  | Opens the auto-generated OpenAPI documentation page in Portal.                                                                                                            |
+| Open Code Button     | Right  | Opens the shared dotnet solution file for all services and storages.                                                                                                      |
+| More Options Button  | Right  | Opens a dropdown showing more options for each service card.                                                                                                              |
+
+Finally, the main content of the _Beam Window_ is the log view for the Microservice. The logs from locally running Microservices will be sent to this section. There are log level filters similar to the Unity Console logs. However, this window has additional log levels, including Verbose, Debug, and Fatal. By default, Verbose and Debug are disabled, because they can be overly noisy when looking at your service logs. However, they can be helpful to debug a broken Microservice.
+
+
+## Auto Generated Code
+Beamable will auto generate Unity csharp code to interact with your Microservice. Below is an example of a simple Microservice, and how to access the auto-generated client.
+
+**Server Code**
+
+```csharp
+using Beamable.Server;
+
+namespace Beamable.DemoService
+{
+	[Microservice("DemoService")]
+	public partial class DemoService : Microservice
+	{
+		[ClientCallable]
+		public int Add(int a, int b)
+		{
+			return a + b;
+		}
+	}
+}
+```
+
+**Client Code**
+
+```csharp
+public async void Start()
+{
+    // get access to Beamable 
+    var ctx = await BeamContext.Default.Instance;
+    
+    // use extension methods to access a pre-configured client
+    var demoClient = ctx.Microservices().DemoService();
+
+    // use the auto-generated Add client method
+    var sum = await demoClient.Add(1, 2);
+}
+```
+
+In the client code, the first step is acquire a `BeamContext`. The `BeamContext` is the root instance for each player in Beamable. If you are not familiar with with `BeamContext`, learn more by reading the Player Centric API - Overview.
+
+Every time the Microservice builds, Unity will generate the client code.
+
+## Serialization Constraints
+
+The autogenerated code is making HTTP calls to communicate with your Microservice. The parameters of the methods are being serialized into JSON objects and sent along with the HTTP request. The Microservice deserializes the JSON and spreads the objects back out into the method parameters. The return value from the method is serialized as JSON and sent back to Unity to close the HTTP request. The autogenerated client deserializes the response JSON and converts it into the instance that is returned from the generated method.
+
+The client side serialization and deserialization rely heavily on the built in Unity `JsonUtility` class, and as such, share many of the same constraints as the built in Unity JSON serialization. The following is a list of criteria for valid serializations.
+
+1. Request and Response objects should use public fields instead of properties.
+2. `Dictionary` types are not supported.
+
+## Client Generation Configuration
+
+Client code generation should happen automatically any time the Microservice is _built_. Any time you start the service after changing code, it will be built. However, if the client is not being generated, you can use the dot-dot-dot menu in the _Beam Services_ window to select _Generate Client_. You can also use this section to disable automatic generation if you would prefer to do it by hand.
+
+The generated client code will be put in the following path in your Unity Project...
+
+`/Assets/Beamable/Autogenerated/Microservices`
+
+The client generation path can be changed in two ways.
+
+1. If you create an assembly definition that has a name ending with your Microservice's name and `.client`, then the client code will be generated in the folder where the assembly definition exists. For example, if you had a service called `HotSauce`, then you could create a custom assembly definition called `Custom.HowSauce.Client`, and the client code would be generated.
+
+!!! warning "You need a second script in the assembly definition!"
+
+    Unity will not register the assembly definition if no script file exists in the folder, which can create a nasty chicken-and-egg problem. If you only have the assembly definition and no existing script files, then Unity will ignore it, and therefor, the Beamable SDK will not recognize the assembly definition exists, and will not generate the client in the folder. Please include at least one (even an empty) script in the assembly definition.
+
+2. The `Microservice`class has an attribute called `[Microservice]`. The attribute can accept a custom parameter, `CustomAutoGeneratedClientPath`, which should be a path relative to your Unity project root. Mostly commonly, it should start with either `Assets/` or `Packages/`.
+
+## Setup Assembly Definitions
+
+Unity uses C# code, and so do Microservices. The same C# code can run in Unity and a Microservice.
+
+In Unity, you can set up an Assembly Definition that will be imported to a Microservice. The Assembly Definition may reference other assemblies, or even reference custom `.dll` files in Unity. However, please keep in mind that anything referenced will be executing within the Microservice.
+
+!!! warning "Be careful about Licensing!"
+
+    Beamable provides a shim for a few of the most common `UnityEngine` and `UnityEditor` types so that you can use them from a Microservice, but it is against Unity's license agreement to run Unity software without additional serial keys. The Microservice build process will not let you reference the full `UnityEngine` assemblies to avoid license issues. However, the same principle may apply to other licensed code, and Beamable does not make any custom accommodations for any assembly other than the standard Unity assemblies.
+
+Every Beamable project will create a default Assembly Definition in `/Assets/Beamable/Common`. This Assembly is included by default in Microservices. Any class file you create in this folder will be part of the default shared Assembly, and therefor will be available from the Microservice.
+
+Each Microservice can configure the Assembly Definitions that are imported to the service. In the _Beam Services_ window, select a service, and then select the _Config_ button in the top of the window. In the config section, there is a list of referenced Assembly Definitions. You can add any Assembly Definition.
+
+To create a new shared Assembly Definition, you need to create a regular Assembly Definition, and then add it to the list in the config section.
+
+All shared assemblies will be cause dotnet compatible projects to generate in your Unity project's `/Library/BeamEditor/generatedProjects` folder. These projects are automatically referenced in your Microservice's `.csproj` file.
+
+## Sharing Microservices Between Projects
+
+The primary way to use Microservices in Unity is to create a new service for each Unity project. However, there are several ways to share Microservice functionality between multiple Unity projects using Beamable.
+
+### Unity Package Manager
+
+You can create a custom Unity Package by following Unity's documentation, <https://docs.unity3d.com/Manual/CustomPackages.html>. A custom package can include a Microservice. When downstream Unity projects import the package, they will have readonly access to the Microservice.
+
+After you have made a custom Unity project, follow these steps to add a Microservice to the package.
+
+1. Create a hidden folder in the package called `BeamableServices~`. The `~` character is a special character in Unity that instructs the compiler and asset database to completely ignore the folder. This folder will contain the Microservice and Unity should not attempt to compile the `.cs` code.
+2. Move an existing Microservice folder into the new `BeamableServices~` folder, or create a new service in that folder directly with the CLI's [Project New Service](doc:cli-project-new-service)command.
+3. Create a custom Assembly definition in your package for the auto-generated client. Follow the [Calling Microservices from Unity](doc:calling-microservices-from-unity) steps to create an Assembly definition that ends with your `<name>.Client.asmdef`. The Unity Package will contain the auto-generated client itself, and downstream projects will not attempt to regenerate the client.
+
+As you develop your Microservice in the /Packages folder, it will act like any Microservice in your /Assets folder. However, when a downstream project imports the custom Unity package, it will appear as "Read Only".
+
+### Nuget
+
+An alternative approach to sharing Microservice capabilities is to package and distribute your server code as a composable _Nuget_ package. Multiple Unity projects will need to create their own Microservice projects in the project's /Assets folder; and simply use Nuget to reference the custom code from within the Microservice itself.
+
+An advantage to this approach is that the downstream projects can modify the Microservice code to extend or modify the code as need be.
+
+## Getting Started
+
+Before you can get started creating a new Microservice, you should make sure the following steps are complete.
+
+1. Install the Beamable SDK into your Unity project. If you haven't done this yet, check the Installing Beamable (Unity) guide. Make sure you install the SDK with version 2.0 or higher.
+2. Log into a Beamable organization inside the Unity SDK.
+3. Install Docker on your system. Docker is an industry standard tool for bundling code into distributable packages. You can download DockerHub from their website, <https://www.docker.com/products/docker-desktop/>. If you forget this step, the _Beam Services_ window in the Unity SDK will prompt you to install Docker later.
+
+!!! info "You do not need a Docker account"
+
+    Docker's website and DockerHub software will to convince you to create an account with Docker. You may eventually need to create an account for other reasons, but you _do not_ need an account to get started with Beamable Microservices.
+
+To create a Microservice, open the _Beam Services_ window in Unity by clicking the _Beamable Button_ and selecting _Open Beam Services_.
+
+If your Unity project does not have any Microservices yet, then the _Beam Services_ window will automatically prompt you to create one. If there is already an existing service and you want to create a new one, click on the _Create_ button at the top of the window and select, _Service_. You need to enter a valid service name, and then click the _Create Service_ button.
+
+!!! warning "Service names must follow conventional variable naming"
+
+    The name of the service will be used in various generated code and therefore must follow normal variable naming conventions. It must start with a letter, and can only contain alpha-numeric characters (plus underscores).
+
+After the Microservice has been created, the _Beam Services_ window will focus on the service, showing the logs of the service and various buttons to interact with the service. Refer to the Beam Services page for how to navigate the _Beam Services_ window.
+
+When you open the code for the new service (using the folder icon button), you will see the standard boilerplate Beamable Microservice code snippet.
+
+```csharp
+using Beamable.Server;
+
+namespace Beamable.DemoService
+{
+	[Microservice("DemoService")]
+	public partial class DemoService : Microservice
+	{
+		[ClientCallable]
+		public int Add(int a, int b)
+		{
+			return a + b;
+		}
+	}
+}
+```
+
+Before you start the service, make sure to change your Realm to a non-production realm.
+
+!!! danger "Be careful running local Microservices on production realms!"
+
+    Beamable _Realms_ are environments for your game to use and usually there are at least three, one for development, one for staging, and one for production. If you run a local Microservice on the production realm, there is a _risk_ that the service could tamper with your production environment.  By default, Beamable will prevent the local service from receiving web traffic on a production Realm. To override this, see the Handling Requests page.
+
+Back in Unity, in the _Beam Services_ window, press the play button to start the service. You can also run the service directly from your IDE using the IDE's play or debugging buttons. Log messages will appear in the _Beam Services_ window, and eventually when the service has successfully initialized, this log message will appear.
+
+```
+Service ready for traffic
+```
+
+Congratulations! You have a locally running Microservice!
+
+### Testing the Microservice
+
+As you write Microservices, you need to test the code you are writing. This is done is a few ways, through in-game testing, and by manually calling the Microservice methods from the auto generated Portal testing page. The easiest way to check your Microservice methods is to use the Portal testing page. In the _Beam Services_ window, click the globe icon in the top-right of the Microservice log section. This will open the Beamable Portal website to a section directly targeting your locally running Microservice.
+
+![Microservice Portal Testing Page](../../../../media/imgs/microservice-portal-testing-page.png)
+
+You can use this UI to send sample web requests to your Microservice. To learn more about testing the Microservice from your Unity game, check out the Calling Microservices from Unity section.

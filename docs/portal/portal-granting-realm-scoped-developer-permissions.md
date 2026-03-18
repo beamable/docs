@@ -5,7 +5,7 @@ When your Beamable account contains multiple games, you may wish to allow differ
 
 This guide assumes there is already an account for the person whose access you are changing. If they need a new account, follow the instructions in [Portal / Adding Developers](portal-adding-beamable-developers.md) first. 
 
-1. Navigate to [beta-portal.beamable.com/login/](https://beta-portal.beamable.com/login/) and login using the customer ID, email, and password with which you registered your project.
+1. Navigate to [portal.beamable.com/login/](https://portal.beamable.com/login/) and login using the customer ID, email, and password with which you registered your project.
 
 ![Portal Login](../media/imgs/Portal_login.png)
 

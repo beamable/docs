@@ -9,7 +9,7 @@ For purposes of privacy and security, when you add someone to your account throu
 
 First, let's create your teammate's new account:
 
-1. Navigate to [beta-portal.beamable.com/login/](https://beta-portal.beamable.com/login/) and login using the customer ID, email, and password with which you registered your project.
+1. Navigate to [portal.beamable.com/login/](https://portal.beamable.com/login/) and login using the customer ID, email, and password with which you registered your project.
 
 ![Portal Login](../media/imgs/Portal_login.png)
 
@@ -35,7 +35,7 @@ The "User Administration" page features a list of all of the admins, developers,
 
 Next, your teammate should follow these steps to proceed through the password reset process:
 
-1. Navigate to [beta-portal.beamable.com/login/](https://beta-portal.beamable.com/login/) and enter your organization's CID. 
+1. Navigate to [portal.beamable.com/login/](https://portal.beamable.com/login/) and enter your organization's CID. 
    1. _If you do not have your CID or forgotten it, please request your CID from [support@beamable.com](mailto:support@beamable.com)._
 
 2. Click the _Forgot Password_ link at the bottom of the login screen.
