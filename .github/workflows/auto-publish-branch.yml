@@ -7,6 +7,7 @@ on:
       - 'unreal/**'
       - 'core/**'
       - 'websdk/**'
+      - 'internal'
 
 run-name: Auto Publish Branch ${{ github.ref_name }} by @${{ github.actor }}
 
@@ -35,6 +36,13 @@ jobs:
         id: version
         run: |
           BRANCH="${{ github.ref_name }}"
+
+          # Internal docs branch uses a fixed mike alias.
+          if [ "${BRANCH,,}" = "internal" ]; then
+            PRODUCT_NAME="Internal"
+            VERSION="Latest"
+            MIKE_ALIAS="Internal"
+          else
               
               # Extract the product prefix (before the first /)
               PRODUCT_PREFIX="${BRANCH%%/*}"
@@ -63,6 +71,7 @@ jobs:
 
               # Build mike alias
               MIKE_ALIAS="${PRODUCT_NAME}-${VERSION}"
+          fi
 
               # Set outputs
               echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
