@@ -1997,6 +1997,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#why-beamablelocal-is-gitignored" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why .beamable/local/ Is Gitignored
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#version-control-best-practices" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -9546,6 +9557,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#why-beamablelocal-is-gitignored" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why .beamable/local/ Is Gitignored
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#version-control-best-practices" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -10193,12 +10215,20 @@ This <code>MustBeStringLength.cs</code> snippet demonstrates the implementation 
 <li>Identifying potential conflicts</li>
 <li>Maintaining synchronization integrity</li>
 </ul>
+<h3 id="why-beamablelocal-is-gitignored">Why <code>.beamable/local/</code> Is Gitignored<a class="headerlink" href="#why-beamablelocal-is-gitignored" title="Permanent link">¶</a></h3>
+<p>The SDK adds the following entries to <code>.beamable/.gitignore</code>:</p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>temp/**/*
+local/**/*
+</code></pre></div></td></tr></tbody></table></div>
+<p>The <code>local/**/*</code> entry intentionally excludes <code>.beamable/local/</code> from Git. Because <code>referenceManifestId</code> is updated on every publish, even a single publish touches every content JSON file — producing frequent, low-signal commits. For Git-friendly content tracking, use <strong>Content Snapshots</strong> instead (see the Snapshot button in Beam Content).</p>
+<p>You can track the raw local JSON files in Git by removing <code>local/**/*</code> from your <code>.gitignore</code>, but this is not recommended unless your team is comfortable with the resulting commit noise.</p>
 <h3 id="version-control-best-practices">Version Control Best Practices<a class="headerlink" href="#version-control-best-practices" title="Permanent link">¶</a></h3>
 <ol>
 <li><strong>Minimize Unnecessary Commits</strong></li>
 <li>Avoid committing files when only the referenceManifestId has changed</li>
 <li>These changes can safely be reverted if needed</li>
-<li><strong>Handling Revert Operations</strong><br>
+<li><strong>Handling Revert Operations</strong>
    Reverting to an older version will trigger conflict detection (due to mismatched <code>referenceManifestId</code>). To resolve while preserving your content changes, run:
    <div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>content<span class="w"> </span>resolve<span class="w"> </span>--use<span class="w"> </span><span class="nb">local</span>
 </code></pre></div></td></tr></tbody></table></div>
@@ -10206,7 +10236,26 @@ This <code>MustBeStringLength.cs</code> snippet demonstrates the implementation 
 </ol>
 <h2 id="storage-location-of-content-types-in-editor">Storage Location of Content Types in Editor<a class="headerlink" href="#storage-location-of-content-types-in-editor" title="Permanent link">¶</a></h2>
 <p>While each content object inherits from Unity's <a href="https://docs.unity3d.com/Manual/class-ScriptableObject.html">ScriptableObject</a>, these objects exist solely in memory for Unity Editor inspection and are not saved to disk.</p>
-<p>The actual content data is stored as JSON files in your project's: <code>.beamable/content/&lt;YOUR_PID&gt;/global/</code> directory</p>
+<p>The actual content data is stored as JSON files under <code>.beamable/</code> in two locations:</p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.beamable/content/&lt;YOUR_PID&gt;/global/</code></td>
+<td>Most recently <strong>synchronized remote content</strong> — reflects what is currently published to the realm</td>
+</tr>
+<tr>
+<td><code>.beamable/local/content/&lt;YOUR_PID&gt;/global/</code></td>
+<td><strong>Local working copy</strong> — may include work-in-progress changes that have not yet been published</td>
+</tr>
+</tbody>
+</table>
+<p>When you switch realms and synchronize using Beam Content, both folders are populated with the content for that realm.</p>
 
 
 

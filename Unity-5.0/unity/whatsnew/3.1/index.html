@@ -578,6 +578,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Unity SDK 3.1.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upgrading-from-sdk-2x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrading from SDK 2.x
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -9308,6 +9325,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Unity SDK 3.1.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upgrading-from-sdk-2x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrading from SDK 2.x
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -9364,7 +9398,13 @@
 <h2 id="unity-sdk-310">Unity SDK 3.1.0<a class="headerlink" href="#unity-sdk-310" title="Permanent link">¶</a></h2>
 <p>Added</p>
 <ul>
-<li>[Unity] Support to CLI Snapshot management on Content editor.</li>
+<li>[Unity] Support to CLI Snapshot management on Content editor.<ul>
+<li>Snapshots capture the entire content state of a realm as a single JSON file, making them suitable for Git.</li>
+<li>Automatic snapshots can be written to <code>.beamable/local/</code> (default, gitignored) or <code>.beamable/shared/</code> (not gitignored).</li>
+<li>Configure snapshot destination in <strong>Project Settings → Beamable → Content → On Publish Auto Snapshot Type</strong> (<code>None</code> / <code>Local Only</code> / <code>Shared Only</code> / <code>Both</code>).</li>
+<li>To track content in Git, set the snapshot type to <code>Shared Only</code> or <code>Both</code> and commit <code>.beamable/shared/</code>.</li>
+</ul>
+</li>
 </ul>
 <p>Fixed</p>
 <ul>
@@ -9373,6 +9413,18 @@
 <p>Changed</p>
 <ul>
 <li>[Unity] Updated Microservices configuration Federation list to a view-mode only. Now federation are listed based on the OpenApi specification generated from the Microservices. So no need to previously add Federation Id to a Federation Interface on Unity.</li>
+</ul>
+<h3 id="upgrading-from-sdk-2x">Upgrading from SDK 2.x<a class="headerlink" href="#upgrading-from-sdk-2x" title="Permanent link">¶</a></h3>
+<p>When upgrading from 2.x, in addition to the standard migration, you may want to consider the following Git changes:</p>
+<ul>
+<li>Stop committing <code>Assets/Beamable/Resources/content/</code> to Git — this folder is no longer the source of truth for content.</li>
+<li>Content is now stored as JSON files under <code>.beamable/</code>:<ul>
+<li><code>.beamable/content/&lt;realm&gt;/</code> — most recently synchronized remote content.</li>
+<li><code>.beamable/local/content/&lt;realm&gt;/</code> — local working copy, may contain unpublished changes.</li>
+</ul>
+</li>
+<li><code>.beamable/local/</code> is gitignored by default (see <code>.beamable/.gitignore</code>). Raw content JSON files change on every publish due to <code>referenceManifestId</code> updates, making them too noisy for direct Git tracking. Use Snapshots instead.</li>
+<li><strong>Realm-to-realm promotion:</strong> publish from Unity to your Dev realm, then promote to Staging and Production via the Beamable web portal.</li>
 </ul>
 
 
