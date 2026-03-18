@@ -1,2 +1,0 @@
-﻿- [Organization](organization/)
-- [Game Services](game_services/)

@@ -1,7 +1,7 @@
 # Federated Login
-Login Federation is Beamable's approach to integrating 3rd Party Authentication with various platforms. You can find working examples of this federation in both [Steam](../../samples/steam-demo.md) and [Discord](../../samples/discord-demo.md) Samples.
+Login Federation is Beamable's approach to integrating third-party Authentication with various platforms. You can find working examples of this federation in both [Steam](../../samples/steam-demo.md) and [Discord](../../samples/discord-demo.md) Samples.
 
-This Federation is always [invoked In-Band](federation.md#federation-calls) and via the `Login_____`,  `SignUp____` and `Attach____` functions of the `UBeamRuntime` subsystem class.
+This Federation is always [invoked in-band](federation.md#federation-calls) and via the `Login_____`, `SignUp____`, and `Attach____` functions of the `UBeamRuntime` subsystem class.
 
 Its interface has a single function called **Authenticate** with the following signature:
 
@@ -10,7 +10,7 @@ public async Promise<FederatedAuthenticationResponse> Authenticate(string token,
 ```
 
 The purpose of this function is:
-> Map a 3rd Party token to a Unique Identifier for the user within the 3rd Party.
+> Map a third-party token to a Unique Identifier for the user within the 3rd Party.
 
 Most of the time, you achieve this by doing the following:
 
@@ -25,14 +25,14 @@ Most of the time, you achieve this by doing the following:
 
 After this, the flow goes into your `Authenticate` function. What that function should do, depends on whether or not you are implementing 2FA or not.
 
-# Federated Login - without 2FA
+## Federated Login - without 2FA
 
-## Setting up the Client
+### Setting up the Client
 
 In the client:
 
 - Initialize the SDK.
-- Use the `Sign-Up - Federated Identy` node with `Auto Login` passing in:
+- Use the `Sign-Up - Federated Identity` node with `Auto Login` passing in:
     - The Microservice's Id.
     - The Federation's Id.
     - The User Id _**of the Federated 3rd Party user**_ (this would be the user's Steam Id, for example).
@@ -42,7 +42,7 @@ It looks like this:
 
 ![steam-demo-login.png](../../../media/imgs/steam-demo-login.png)
 
-## Writing the Microservice
+### Writing the Microservice
 Semantically, there are two ways the `Authenticate` function can be called:
 
 - **Account Creation Time**: When using **`Login - Federated Identity` or `Sign-Up - Federated Identity` operations**. 
@@ -54,7 +54,7 @@ In both cases, what you want to do is:
 2. Use the 3rd Party's APIs or C# SDKs to get the `UserId` for that `token`'s user.
 3. Return `UserId` the `FederatedAuthenticationResponse` .
 
-The main different between both cases is that:
+The main difference:
 
 - **Account Creation Time**: `Context.UserId` is `0`; as at this time, no account exists.
 - **Account Attach Time**: `Context.UserId` is a valid `GamerTag`; as you are adding an identity to an existing account.
@@ -76,9 +76,9 @@ public async Promise<FederatedAuthenticationResponse> Authenticate(string token,
 
 ```
 
-# Federated Login - Multi-Factor Authentication
+## Federated Login - Multi-Factor Authentication
 
-## Setting up the Client
+### Setting up the Client
 
 In the client, we start by invoking our `Login - Federated Identity` operation. This operation has a sub-event that gets invoked when the microservice responds with a `challenge` string we need to solve. The SDK provides you a `UBeamMultiFactorLoginData` object you can store and carry around your game state so that your player can solve the challenge.
 
@@ -92,19 +92,19 @@ Once the player has solved the challenge, you can send it to the Microservice by
 
 The `Login - Federated Identity` operation's Success/Error flows will run **_after_** the Success/Error flows of the `Login - Commit Federated Identity` operation.
 
-## Writing the Microservice
+### Writing the Microservice
 
 Semantically, there are an additional two ways that the Authenticate function can be called:
 
 - **Without a `challenge`/`solution`**: This is the first part of the flow. 
 	- Here, your function should generate a `challenge` and return it in the `FederatedAuthenticationResponse`.
-	- The `UserId` in `FederatedAuthenticatedResponse` should be empty in this first step.
-	- 3rd Party SDK's that support/require 2FA will typically provide you a function to generate said challenge.
+	- The `UserId` in `FederatedAuthenticationResponse` should be empty in this first step.
+	- Third-party SDKs that support/require 2FA will typically provide you a function to generate said challenge.
 	- The `challenge` is sent back to the client who should then solve it.
 	- After solving the challenge, the client must invoke `Login`/`Attach` again, but now passing in the `challenge` and `solution`.
 - **With a `challenge`/`solution`**: This is the second part of the flow.
 	- If the `solution` is not empty, the `Authenticate` function should validate it against the `challenge`.
-	- If successful, the function should then return a valid `UserId` in `FederatedAuthenticationResponse`.
+	- If successful, the function should return a valid `UserId` in `FederatedAuthenticationResponse`.
 
 The implementation looks something like this:
 

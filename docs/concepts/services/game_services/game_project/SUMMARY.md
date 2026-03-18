@@ -1,2 +1,0 @@
-﻿- [Realms](project_realms.md)
-- [Development Workflows](development_workflows.md)

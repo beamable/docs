@@ -2,9 +2,9 @@
 
 ![beamable-release.gif](../../../media/imgs/beamable-release.gif)
 
-This demo showcases how you can use the **Beamable Unreal SDK**'s in full game project. Particularly it focus on the Store, Leaderboard, Stats and Matchmaking.
+This demo showcases how you can use the **Beamable Unreal SDK** in a full game project. Particularly it focuses on the Store, Leaderboard, Stats and Matchmaking services.
 
-# Introduction
+## Introduction
 
 Aside from our `BeamableCore` Plugin, here's what the sample contains:
 
@@ -13,7 +13,7 @@ Aside from our `BeamableCore` Plugin, here's what the sample contains:
 
 To set up this sample you'll need a a Beamable Account and a Realm. To configure the repo for the sample run `dotnet beam unreal select-sample BEAMPROJ_Beamball`.
 
-# Setting up the Project
+## Setting up the Project
 To set up an organization and realm to run this sample, follow the steps below.
 
 1. Go to the Beamable Portal and create a new Beamable realm called `Beamball`    
@@ -21,17 +21,17 @@ To set up an organization and realm to run this sample, follow the steps below.
 3. Sign into your Beamable account and go to the `Beamball` realm.
       1. Optionally you can hit `Apply to Build` after the realm change is done.
 5. Let's Setup the Content
-      1. First you will need to run the command `dotnet beam content replace-local --from DE_1885450253346843 --to YOUR_REALM_ID` to bring all the content from the sample to your current realm.
+      1. First you will need to run the command `dotnet beam content restore --pid DE_1885450253346843 --name LastPublished-global` to bring all the content from the sample to your current realm.
       2. Open the `Content` window.
-      3. Ensure there's an `game_types` content with the name `default`
-      3. Ensure there's an `currency` content with the name `coins`
+      3. Ensure there's a `game_types` content with the name `default`
+      3. Ensure there's a `currency` content with the name `coins`
       3. Ensure there are 4 `itemskin` content with the names `skin1`, `skin2`, `skin3`, `skin4`
-      3. Ensure there's an `leaderboard` content with the name `global`
+      3. Ensure there's a `leaderboard` content with the name `global`
       3. Ensure there are 3 `listings` content with the names `skin1`, `skin2`, `skin3`
-      5. Click `Publish` to publish those new contents to the realm.
+      5. Select `Publish` to publish those new contents to the realm.
       6. You can read more about the content system [Here](../../user-reference/beamable-services/content.md)
 
-# Running the Sample in Editor
+## Running the Sample in Editor
 
 Leveraging the new Beamable PIE Settings, you can run the sample in editor through two entry points: The Main Menu or the Gameplay scene.
 
@@ -47,7 +47,7 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
 4. You don't need select any Play Preset, as the `Beamball_MainScreen` level is the common entry point for the sample. So leave the Play Preset selector to `None`.
 5. Play the `L_Beamball_MainScreen` in the Editor.
 
-## Running from the Gameplay Scene
+### Running from the Gameplay Scene
 1. Open the Unreal editor.
 2. Open the `L_Beamball_Gameplay` Level if it's not opened yet.
       1. You can find it inside the `BEAMPROJ_Beamball Content`  folder.
@@ -58,14 +58,14 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
    6. Create a new Play Preset with the following settings:
       7. Name: `Beamball Gameplay`
       8. Available Maps: Add `L_Beamball_Gameplay` to the list.
-      10. Enable Fake Lobby: Enabled
+      10. Enable PIE Lobby: Enabled
       12. Game Type: `game_types.default`
       13. Add both `Player1` and `Player2` to the preset.
 6. Select the `Beamball Gameplay` Play Preset in the main toolbar.
 7. Select `Play as Client` in the Net Mode settings and set the `Number of players` to 2.
 7. Play the `L_Beamball_Gameplay` in the Editor.
 
-# Can I use it as a Template?
+## Can I use it as a Template?
 
 This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here's what these are:
 

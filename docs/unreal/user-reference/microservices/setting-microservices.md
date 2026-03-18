@@ -1,6 +1,6 @@
 # Setting Up Microservices
 
-# Getting Started with C# Microservices
+## Getting Started with C# Microservices
 Creating your first microservice will automatically create your solution for you. Following the guide below will generate the following recommended folder structure:
 
 ```
@@ -16,12 +16,12 @@ Creating your first microservice will automatically create your solution for you
 ```
 
 !!! warning "Unreal and Version Control Systems"
-	Most Unreal `.[vcs]ignore` file templates you can find online ignore all `*.sln` files. Instead of doing that, make sure to only ignore in the root directory with this  `/*.sln` instead of `*.sln`.In Git, you can also ensure your Microservice `.sln` is not ignored explicitly via `!/ProjectNameBeamable/ProjectNameBeamable.sln`.
+	Most Unreal `.[vcs]ignore` file templates you can find online ignore all `*.sln` files. Instead of doing that, make sure to only ignore in the root directory with this  `/*.sln` instead of `*.sln`. In Git, you can also ensure your Microservice `.sln` is not ignored explicitly via `!/ProjectNameBeamable/ProjectNameBeamable.sln`.
 
-## Create the Microservice Solution and Project
+### Create the Microservice Solution and Project
 **Make sure that you've completed the [Setup](../../getting-started/setup.md) process for the SDK and that the editor is not running before starting this guide.**
 
-Open a terminal/shell (in windows, we recommend `GitBash`) at your project's root and run the following command to create a new project and add a new microservice.
+Open a terminal/shell (in Windows, we recommend `GitBash`) at your project's root and run the following command to create a new project and add a new microservice.
 
 ```
 dotnet beam project new service MicroserviceName --sln ProjectNameBeamable/ProjectNameBeamable.sln
@@ -56,7 +56,7 @@ Linking a project informs our CLI where it should put generated C++ files for co
 dotnet beam project generate-client "."
 ```
 
-After the generating the client in your Unreal project, these are the next steps:
+After generating the client in your Unreal project, these are the next steps:
 
 - Add the generated plugin (`ProjectNameMicroserviceClients`) to your `uproject` file and enable it.
 - Add the `ProjectNameMicroserviceClients` modules to your `Target.cs` files.
@@ -99,7 +99,7 @@ MsApi->CPP_Add(UserSlot, Req, Handler, Ctx, {}, this);
 
 Take a look at the [Microservices docs](microservices.md) for more information about where to go from here.
 
-# Optional - Create a MicroStorage
+## Optional - Create a MicroStorage
 MicroStorages are a Beamable feature that allows you, the Game-Maker, access to a MongoDB you can use to define your own custom persisted data formats to go along with your own custom microservice logic. 
 
 This is a useful architectural alternative when making complex features that do not map well to the default cases of Beamable's own data-storing Managed Services ([Stats](../beamable-services/stats.md), [Inventory](../beamable-services/inventory.md), etc...).
@@ -120,10 +120,10 @@ Storages ***cannot*** exist independent of Microservices and must be associated 
 
 Take a look at [this documentation](https://docs.beamable.com/docs/cli-guide-microservice-storage) for more information on how to write the code inside Storages and how to access them in Microservices.
 
-# Optional - Libraries and C# Microservices
+## Optional - Libraries and C# Microservices
 One of the big advantages of Beamable C# Microservices is that they are regular `.NET` projects. This means you get access to Nuget packages should you need to integrate Beamable with any particular Third-Party technology that we don't support out-of-the-box.
 
-To do so, use Nuget to add a package dependency to a project (this can be done easily through any IDE --- or through `dotnet nuget` command pallet).
+To do so, use Nuget to add a package dependency to a project (this can be done easily through any IDE --- or through `dotnet nuget` command pallete).
 
 While definitely not the common case, it is possible for projects to require multiple services. When that happens, it is also common that those services share some logic or internal data types. To write your own code that is then shared between services:
 

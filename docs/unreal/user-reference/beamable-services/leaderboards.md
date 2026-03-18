@@ -1,6 +1,6 @@
 # Leaderboards
 
-The Beamable **Leaderboards** allow the game makers to track player scores in social rankings which are "global" (with hundreds of millions players) or "segmented" (in smaller groups). It supports:
+The Beamable **Leaderboards** allow the game makers to track player scores in social rankings which are "global" (with hundreds of millions of players) or "segmented" (in smaller groups). It supports:
 
  - Assign a player to a specific leaderboard.
  - Retrieve entries from specific ranges in the leaderboard.
@@ -17,7 +17,7 @@ In order to have a good overview for leaderboards we will present some common us
 There's two ways to create a new leaderboard, using the portal or as a content.
 
 !!! note "Type of leaderboard"
-	If you created the leaderboard in the content, it will appears in the portal as expected. But if you create the leaderboard directly in the portal, it WON'T appear in the content.
+	If you created the leaderboard in the content, it will appear in the portal as expected. But if you create the leaderboard directly in the portal, it WON'T appear in the content.
 
 #### Creating via Content
 
@@ -27,23 +27,23 @@ Then select the leaderboard content type as shown in the image below.
 
 ![leaderboards-select-content-type.png](../../../media/imgs/leaderboards-select-content-type.png)
 
-After select the leaderboard content type, you will type the name of the leaderboard using the input field.
+After selecting the leaderboard content type, you will type the name of the leaderboard using the input field.
 
 ![leaderboards-content-create.png](../../../media/imgs/leaderboards-content-create.png)
 
-You will be able to see the leaderboard as a new content in the content list. That means that was created with success, but it still need to be published.
+You will be able to see the leaderboard as a new content in the content list. That means that was created with success, but it still needs to be published.
 
 Before publish it there's some configurations that can change the way your leaderboard works.
 
 ![leaderboards-content-details.png](../../../media/imgs/leaderboards-content-details.png)
 
- - **Client Permission**: Allow the clients to update they score in the leaderboard. **OBS: This will be possible vunerability in your game**  
- - **Partioned**: Determines whether this leaderboard automatically partitions into smaller leaderboards.
+ - **Client Permission**: Allow the clients to update their score in the leaderboard. **OBS: This will be possible vulnerability in your game**  
+ - **Partitioned**: Determines whether this leaderboard automatically partitions into smaller leaderboards.
  - **Max Entries**: Determines the maximum number of entries in a given leaderboard partition.
  - **Cohort Settings**: Specifies criteria for grouping players together.
 
 
-### Assign Player to Leaderbord
+### Assign Player to Leaderboard
 
 There are two ways to assign a player to a leaderboard:
 
@@ -63,7 +63,7 @@ There are two ways to assign a player to a leaderboard:
 !!! note "Non Partitioned Leaderboard"
 	If you use this operation on a non-partitioned leaderboard, it will simply return the original leaderboard ID without any partition suffix.
 
-## Entries modify
+## Modifying Entries
 
 It is possible to modify meta-data and score for leaderboard entries. But it is more flexible in the microservice side, if you are using an client authoritative leaderboard won't be change other entry besides the authenticated player.
 
@@ -77,7 +77,7 @@ The Stats in the leaderboard are mostly usage for keep cached a per entry inform
 
 ![leaderboards-blueprint-set-stats.png](../../../media/imgs/leaderboards-blueprint-set-stats.png)
 
-## Leaderboards Samples
+## Leaderboard Samples
 
 ### Fetch Top 10 Players
 
@@ -89,7 +89,7 @@ With our SDK it is possible to create leaderboards like in [Brawl Stars](https:/
 
 ![leaderboards-blueprint-player-rank.png](../../../media/imgs/leaderboards-blueprint-player-rank.png)
 
-Using the blue print shown above it's possible to get the playe rank and show it as separetally entry. 
+Using the blue print shown above it's possible to get the player rank and show it as separate
 
 ### Leaderboard Pagination
 

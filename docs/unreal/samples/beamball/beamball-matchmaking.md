@@ -1,12 +1,12 @@
 ﻿# Beamball – Matchmaking and Lobby System
 
-In the **Beamball** sample we demonstrate a basic implementation of the Beamable's **Matchmaking** and **Lobby** services and Hathora Orquestrators.
+In the **Beamball** sample we demonstrate a basic implementation of the Beamable SDK's **Matchmaking** and **Lobby** services and Hathora Orchestrators.
 
-# Starting a Matchmaking Queue
+## Starting a Matchmaking Queue
 
 ![beamball-matchmaking.png](../../../media/imgs/beamball-matchmaking.png)
 
-The Player clicks **Play** in the main menu then The **`Refresh Hatchora Ping Stat Operation`** updates ping in the player's stats allowing the server to choose the best lobby to this player. TheLocal state is checked with **`Local State - Matchmaking - IsUserInQueue`**, leaving the queue if already in. The  **`Local State - Lobby - TryGetCurrentLobby`** checks if the player is in a lobby, leaving if so. Finally, if there's impediment the player joins the matchmaking queue with **`Operation - Matchmaking - Join Queue`**. Beamable services handle the rest of the matchmaking process, forming balanced lobbies and starting the match.
+The Player selects **Play** in the main menu then the **`Refresh Hatchora Ping Stat Operation`** updates ping in the player's stats allowing the server to choose the best lobby to this player. The local state is checked with **`Local State - Matchmaking - IsUserInQueue`**, leaving the queue if already in. The  **`Local State - Lobby - TryGetCurrentLobby`** checks if the player is in a lobby, leaving if so. Finally, if there's impediment the player joins the matchmaking queue with **`Operation - Matchmaking - Join Queue`**. Beamable services handle the rest of the matchmaking process, forming balanced lobbies and starting the match.
 
 !!! note "Main SDK Functions to be aware of:"
     - **`Operation - Matchmaking - Leave Queue`**: Removes the player from the current matchmaking queue.  
@@ -15,16 +15,16 @@ The Player clicks **Play** in the main menu then The **`Refresh Hatchora Ping St
     - **`Local State - Matchmaking - IsUserInQueue`**: Checks if the player is currently in a matchmaking queue.  
     - **`Local State - Lobby - TryGetCurrentLobby`**: Retrieves the current lobby if the player is in one.
 
-# Matchmaking Events
+## Matchmaking Events
 ![beamball-matchmacking3.png](../../../media/imgs/beamball-matchmacking3.png)
 The matchmaking process is asynchronous, and the player is kept informed through event bindings on the **`Events - Matchmaking - Bind`**. The player is notified when they successfully started search for a match, when the Match is ready, canceled or timed out.
 
-# Starting a Match
+## Starting a Match
 ![beamball-matchmaking2.png](../../../media/imgs/beamball-matchmaking2.png)
 
-Once the matchmaking system has formed a lobby, the player is notified and can start. The **`Operation - Lobby - Load Level`** operator is called, which signals Beamable's backend to initiate the match using the configured Lobby Data. In this sample the Hathora Orquestrator handles the server alocation and return a call to Beamable to start the match, allowing players to seamlessly transition into the game.
+Once the matchmaking system has formed a lobby, the player is notified and can start. The **`Operation - Lobby - Load Level`** operator is called, which signals Beamable's backend to initiate the match using the configured Lobby Data. In this sample the Hathora Orchestrator handles the server alocation and returns a call to Beamable to start the match, allowing players to seamlessly transition into the game.
 
-# Summary
+## Summary
 
 The matchmaking system in Beamball demonstrates how to integrate Beamable’s **Matchmaking** and **Lobby** operators in a clean sequence:
 

@@ -1,4 +1,0 @@
-﻿- [Game Project](game_project/)
-- [Player Identity](identity/)
-- [Content and Ecconomy](content_economy/)
-- [Social Integraion](social/)

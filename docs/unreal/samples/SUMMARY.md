@@ -3,8 +3,13 @@
       - [Steam](steam-demo.md)
       - [LiveOps](live-ops-demo.md)
       - [Discord](discord-demo.md)
-      - [Hathora](hathora-demo.md)
       - Beamball
           - [Overview](beamball/beamball-demo.md)
           - [Content and Stores](beamball/beamball-content.md)
           - [Matchmaking and Lobby](beamball/beamball-matchmaking.md)
+          - [Steam Integration](beamball/steam-integration.md)
+          - [EOS Integration](beamball/eos-integration.md)
+     - BeamFarm
+          - [Overview](beamfarm/beamfarm-demo.md)
+          - [Google Integration](beamfarm/google-integration.md)
+          - [Apple Integration](beamfarm/apple-integration.md)
