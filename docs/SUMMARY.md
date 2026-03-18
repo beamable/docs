@@ -1,5 +1,5 @@
 ﻿- [Introduction](index.md)
-- [Beamable Concepts](concepts/)
+- [Beamable Portal](portal/)
 - [Beamable CLI](cli/)
 - Unreal
     - [Getting Started](unreal/getting-started/)
