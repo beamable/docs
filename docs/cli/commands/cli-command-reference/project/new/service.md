@@ -1,11 +1,16 @@
-
-
 ```shell
 beam project new service <name> [options]
 ```
 
 ## About
 Create a new microservice project
+
+When creating a microservice, you can configure the Docker base image by setting MSBuild properties in the generated `.csproj`. The CLI reads these properties during deployment to determine the appropriate base image:
+
+- **`ContainerFamily`**: Choose between `alpine` (default) or `noble` base images
+- **`TargetFramework`**: Determines the .NET runtime version
+
+The CLI combines these to form the Docker base image tag. For example, `<ContainerFamily>noble</ContainerFamily>` with `<TargetFramework>net8.0</TargetFramework>` results in `mcr.microsoft.com/dotnet/runtime:8.0-noble`.
 
 ## Arguments 
 |Name|Type|Description|
@@ -52,5 +57,3 @@ Create a new microservice project
 
 ### Parent Command
 [project new](./new.md)
-
-
