@@ -18,3 +18,6 @@
 - Beam CLI Commands
     - [Commands Overview](commands/cli-command-reference.md)
     - [Commands Reference](commands/cli-command-reference/)
+- Local Backend Development
+    - [Getting Started](local/getting-started.md)
+    - [Local Commands](local/local-commands.md)
