@@ -1,5 +1,3 @@
-
-
 ```shell
 beam services build [options]
 ```
@@ -7,7 +5,46 @@ beam services build [options]
 ## About
 [REMOVED] Build a set of services into docker images
 
+**Note**: This command has been deprecated and removed from active CLI usage. For building services as part of deployment, use `beam deployment plan` instead, which provides the same Docker image building functionality with enhanced deployment planning capabilities.
 
+## Docker base image configuration
+
+When building services with this command (when it was active), the CLI automatically determined the appropriate Docker base image tag based on your service's configuration. The base image tag is constructed from:
+
+1. **Target framework**: Extracted from the `TargetFramework` property in your service's `.csproj` file
+2. **Container family**: Read from the `ContainerFamily` MSBuild property in your service's `.csproj` file
+
+### ContainerFamily property
+
+The `ContainerFamily` property controls which Docker base image variant to use:
+
+- **`alpine`** (default): Uses Alpine Linux base images (e.g., `mcr.microsoft.com/dotnet/runtime:8.0-alpine`)
+- **`noble`**: Uses Ubuntu Noble base images (e.g., `mcr.microsoft.com/dotnet/runtime:8.0-noble`)
+
+To specify a container family, add this property to your service's `.csproj` file:
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net8.0</TargetFramework>
+  <ContainerFamily>noble</ContainerFamily>
+</PropertyGroup>
+```
+
+If `ContainerFamily` is not specified or contains an unrecognized value, it defaults to `alpine`.
+
+### Base image tag construction
+
+The CLI constructs the `BEAM_DOTNET_VERSION` build argument by combining the .NET version from your `TargetFramework` with the `ContainerFamily`:
+
+- `net8.0` + `alpine` → `8.0-alpine`
+- `net10.0` + `noble` → `10.0-noble`
+- `net8.0` + (unspecified) → `8.0-alpine`
+
+This build argument is passed to `docker buildx build` as `--build-arg BEAM_DOTNET_VERSION=<version>-<family>`, allowing your Dockerfile to use the appropriate base image.
+
+### Modern alternative
+
+Since this command is removed, use `beam deployment plan` for building services. The deployment planning process includes the same Docker image building logic with the ContainerFamily property support, plus additional deployment preparation features.
 
 ## Options
 
@@ -51,5 +88,3 @@ beam services build [options]
 
 ### Parent Command
 [services](./services.md)
-
-
