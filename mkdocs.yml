@@ -52,7 +52,8 @@ plugins:
    - glightbox
    - search
    - autorefs
-   - mike
+   - mike:
+      version_selector: false
    - literate-nav:
       nav_file: SUMMARY.md
 

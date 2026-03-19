@@ -1,18 +1,8 @@
 ﻿- [Introduction](index.md)
-- [Beamable Portal](portal/)
-- [Beamable CLI](cli/)
-- Unreal
-    - [Getting Started](unreal/getting-started/)
-    - [Whats New?](unreal/whatsnew/)
-    - [SDK User Reference](unreal/user-reference/)
-    - [Samples](unreal/samples/)
-    - [Support](unreal/support/)
-- Unity
-    - [Getting Started](unity/getting-started/)
-    - [Whats New?](unity/whatsnew/)
-    - [SDK User Reference](unity/user-reference/)
-    - [Samples](unity/samples/)
-    - [Support](unity/support/)
 - Internal
     - [Documentation](internal/documentation/)
     - [Workflows](internal/workflows/)
+- [Beamable Core](https://help.beamable.com/CLI-Latest/)
+- [Unity](https://help.beamable.com/Unreal-Latest/)
+- [Unreal](https://help.beamable.com/Unreal-Latest/)
+- [WebSDK](https://help.beamable.com/WebSDK-Latest/)
