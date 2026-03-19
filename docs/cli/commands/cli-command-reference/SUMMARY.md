@@ -55,6 +55,17 @@
 - listen
 	- [player](listen/player.md)
 	- [server](listen/server.md)
+- local
+	- [audit-realm-config](local/audit-realm-config.md)
+	- [compile](local/compile.md)
+	- [inspect](local/inspect.md)
+	- [list-tools](local/list-tools.md)
+	- [logs](local/logs.md)
+	- [ps](local/ps.md)
+	- [run](local/run.md)
+	- [set-local-vars](local/set-local-vars.md)
+	- [stop](local/stop.md)
+	- [validate](local/validate.md)
 - [login](login.md)
 - [logout](logout.md)
 - [me](me.md)
