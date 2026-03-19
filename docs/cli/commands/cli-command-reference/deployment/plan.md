@@ -1,5 +1,3 @@
-
-
 ```shell
 beam deployment plan [options]
 ```
@@ -50,9 +48,28 @@ Plan a deployment for later release
 |--version|Boolean|Show version information|
 |--help|Boolean|Show help and usage information|
 
+## Container Base Images
 
+When building Docker images during deployment, the CLI automatically selects the appropriate base image tag by combining the .NET version from your service's `TargetFramework` with a container family.
+
+You can control the container base image by setting the `ContainerFamily` MSBuild property in your service's `.csproj` file:
+
+```xml
+<PropertyGroup>
+  <ContainerFamily>noble</ContainerFamily>
+</PropertyGroup>
+```
+
+### Supported Container Families
+
+- **alpine** (default): Uses Alpine Linux base images (e.g., `mcr.microsoft.com/dotnet/runtime:8.0-alpine`)
+- **noble**: Uses Ubuntu 24.04 LTS base images (e.g., `mcr.microsoft.com/dotnet/runtime:8.0-noble`)
+
+The CLI extracts the .NET version from your `TargetFramework` property and combines it with the `ContainerFamily` to form the final base image tag. For example:
+- `<TargetFramework>net8.0</TargetFramework>` + `<ContainerFamily>noble</ContainerFamily>` → `8.0-noble`
+- `<TargetFramework>net10.0</TargetFramework>` with no `ContainerFamily` → `10.0-alpine`
+
+This is particularly useful when your Dockerfile requires tools or libraries that are available in Ubuntu but not in Alpine Linux, such as `apt-get` package management.
 
 ### Parent Command
 [deployment](./deployment.md)
-
-
