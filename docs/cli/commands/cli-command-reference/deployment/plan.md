@@ -1,5 +1,3 @@
-
-
 ```shell
 beam deployment plan [options]
 ```
@@ -7,7 +5,71 @@ beam deployment plan [options]
 ## About
 Plan a deployment for later release
 
+## Container base image configuration
 
+The CLI automatically determines the Docker base image tag for your microservices by reading MSBuild properties from each service's `.csproj` file during the build phase of deployment:
+
+- **`TargetFramework`**: Extracts the .NET version (e.g., `net8.0` becomes `8.0`)
+- **`ContainerFamily`**: Specifies the base image family (defaults to `alpine`)
+
+### Why this matters
+
+Services requiring Ubuntu-specific packages (like `apt-get install git`, `curl`, or system libraries available through `apt`) would fail during deployment when using Alpine Linux base images. Alpine uses `apk` as its package manager and has a different filesystem structure. This configuration resolves compatibility issues by allowing services to use Ubuntu Noble base images that support standard Ubuntu packages and tooling.
+
+### Supported container families
+
+| Family | Description | Package manager | Use case |
+|--------|-------------|----------------|----------|
+| `alpine` | Alpine Linux-based images (default) | `apk` | Smaller image size, minimal footprint |
+| `noble` | Ubuntu Noble-based images | `apt-get` | Ubuntu packages, broader compatibility, system libraries |
+
+### Configuration
+
+Add to your service's `.csproj`:
+
+```xml
+<PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ContainerFamily>noble</ContainerFamily>
+</PropertyGroup>
+```
+
+This generates the Docker build argument `--build-arg BEAM_DOTNET_VERSION=8.0-noble`, using the base image `mcr.microsoft.com/dotnet/runtime:8.0-noble`.
+
+### Deployment failure scenarios
+
+Without setting `ContainerFamily` to `noble`, services that use Ubuntu packages will fail during the Docker build phase with errors like:
+
+```
+/bin/sh: apt-get: not found
+```
+
+This occurs because Alpine Linux doesn't include `apt-get` - it uses `apk` instead. The deployment will stop at the Docker build step and never reach the running container phase.
+
+### Migration from hardcoded base images
+
+Before this fix, users had to work around the CLI's hardcoded Alpine tag behavior by manually editing their Dockerfiles to specify exact base images (e.g., `FROM mcr.microsoft.com/dotnet/runtime:8.0-noble`). This prevented the CLI from automatically managing .NET version updates and created maintenance overhead.
+
+If you previously worked around this limitation:
+
+1. Set `<ContainerFamily>noble</ContainerFamily>` in your `.csproj`
+2. Change your Dockerfile back to `FROM mcr.microsoft.com/dotnet/runtime:${BEAM_DOTNET_VERSION}`
+3. The CLI will automatically pass the correct tag during deployment
+
+### Performance and security considerations
+
+- **Image size**: Alpine images are typically 5-10MB smaller than Ubuntu Noble images
+- **Security**: Alpine has a smaller attack surface due to fewer installed packages by default
+- **Compatibility**: Noble provides broader package availability and compatibility with Ubuntu-based tooling
+- **Build time**: Noble images may have slightly longer pull times due to larger base size
+
+Choose `alpine` for minimal production services with no special dependencies, and `noble` when you need Ubuntu packages or broader system library support.
+
+### Impact on existing services
+
+- **Existing deployed services**: No change. They continue running with their current base images.
+- **New deployments**: Only services that explicitly set `ContainerFamily` will use different base images.
+- **Default behavior**: Unchanged. Services without `ContainerFamily` still use Alpine images.
 
 ## Options
 
@@ -54,5 +116,3 @@ Plan a deployment for later release
 
 ### Parent Command
 [deployment](./deployment.md)
-
-
