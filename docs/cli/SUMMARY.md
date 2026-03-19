@@ -15,6 +15,10 @@
     - [Logging](guides/ms-logging.md)
     - [Command Line Output](guides/ms-command-line.md)
     - [Troubleshooting](guides/ms-troubleshooting.md)
+- Local Backend Development
+    - [Overview](guides/local-backend-overview.md)
+    - [Setup and Dependencies](guides/local-backend-setup.md)
+    - [Running Tools](guides/local-backend-tools.md)
 - Beam CLI Commands
     - [Commands Overview](commands/cli-command-reference.md)
     - [Commands Reference](commands/cli-command-reference/)
