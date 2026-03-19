@@ -1,5 +1,3 @@
-
-
 ```shell
 beam deployment plan [options]
 ```
@@ -7,7 +5,111 @@ beam deployment plan [options]
 ## About
 Plan a deployment for later release
 
+When planning a deployment, the CLI builds Docker images for your services and prepares them for deployment. This process fixes a critical deployment failure scenario where users previously couldn't use non-Alpine base images at all. The build process now automatically configures the appropriate Docker base image based on your service configuration, making Docker overrides work as originally intended.
 
+## Docker base image configuration
+
+During the deployment planning process, the CLI constructs Docker images using base image tags determined by your service's MSBuild properties. This change fixes the previous behavior where the CLI hardcoded Alpine base images regardless of user configuration, causing deployment failures when services required non-Alpine environments.
+
+### Why users care about this change
+
+Previously, the CLI always passed `--build-arg BEAM_DOTNET_VERSION=X.0-alpine` to `docker buildx build`, completely overriding any `ARG BEAM_DOTNET_VERSION` declarations in your Dockerfile. This made it impossible to use Ubuntu-based images or other variants, causing deployment failures when services required packages or tools not available in Alpine Linux.
+
+Error examples that previously occurred even when users tried to override the Dockerfile:
+```
+/bin/sh: apt-get: not found
+Unable to locate package build-essential  
+rustc: command not found
+node: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.XX' not found
+```
+
+These errors happened because Alpine uses different package managers (`apk` instead of `apt-get`) and a different C library (musl instead of glibc). The CLI change now makes Dockerfile overrides work as intended.
+
+### ContainerFamily property
+
+The `ContainerFamily` MSBuild property in your service's `.csproj` file controls which Docker base image variant to use:
+
+- **`alpine`** (default): Uses Alpine Linux base images (smaller, security-focused)
+- **`noble`**: Uses Ubuntu Noble base images (more packages available, better for complex dependencies)
+
+To configure the container family, add this property to your service's `.csproj` file:
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net8.0</TargetFramework>
+  <ContainerFamily>noble</ContainerFamily>
+</PropertyGroup>
+```
+
+### When to use noble instead of alpine
+
+Choose the `noble` container family when your service needs:
+
+- **System packages not available in Alpine**: Many development tools and libraries are only packaged for Ubuntu/Debian
+- **glibc compatibility**: Some applications require glibc instead of Alpine's musl libc
+- **Complex build dependencies**: Ubuntu's extensive package ecosystem makes it easier to install build tools like Rust, specific compilers, or native libraries
+- **Third-party tools during container build**: Tools that expect standard Linux distributions
+
+**Example scenario**: A service that installs Rust during the Docker build would fail with Alpine because `apt-get` commands don't work. The error would look like:
+```
+/bin/sh: apt-get: not found
+```
+
+Switching to `noble` resolves this because Ubuntu Noble provides the `apt-get` package manager.
+
+### Base image tag construction
+
+The CLI automatically constructs the `BEAM_DOTNET_VERSION` Docker build argument by combining:
+
+1. The .NET version extracted from your `TargetFramework` property
+2. The `ContainerFamily` value (defaulting to `alpine` if unspecified)
+
+Examples:
+- `net8.0` + `alpine` → `8.0-alpine`
+- `net10.0` + `noble` → `10.0-noble`
+- `net8.0` + (unspecified) → `8.0-alpine`
+
+The version extraction works generically from the Target Framework Moniker (`net10.0` → `10.0`), making it forward-compatible with future .NET versions without requiring hardcoded version lists.
+
+This ensures your Dockerfile receives the correct base image tag via the `BEAM_DOTNET_VERSION` build argument, allowing you to write Dockerfiles that use non-Alpine base images when needed.
+
+### Compatibility with existing setups
+
+**Previous BEAM_DOTNET_VERSION overrides**: If you were previously overriding `BEAM_DOTNET_VERSION` in your Dockerfile, this change now makes that override work as originally intended. Before, the CLI would always pass `--build-arg BEAM_DOTNET_VERSION=X.0-alpine` regardless of your Dockerfile's default value, overriding your customization. Now, the CLI respects your `ContainerFamily` setting and constructs the appropriate tag.
+
+**Migration requirements**: When switching container families:
+
+- **No automatic redeployment**: Services deployed with alpine will continue running alpine until you redeploy them
+- **Explicit redeployment needed**: Run `beam deployment plan` followed by `beam deployment release` to deploy with the new base image
+- **Dockerfile compatibility**: Your existing Dockerfiles work without modification—the CLI handles base image selection automatically
+
+### Performance and resource implications
+
+| Aspect | Alpine | Noble |
+|--------|--------|--------|
+| **Image size** | ~80MB smaller | ~240MB larger |
+| **Build time** | Faster (fewer layers) | Slower (more system packages) |
+| **Security** | Smaller attack surface | Larger attack surface |
+| **Package availability** | Limited Alpine packages | Full Ubuntu package ecosystem |
+| **glibc compatibility** | Uses musl (compatibility issues) | Standard glibc (broad compatibility) |
+| **Development tools** | Minimal, requires apk add | Rich development environment |
+| **Resource usage in Beamable Cloud** | Lower memory footprint | Higher memory footprint |
+| **Deployment times** | Faster image pulls | Slower image pulls due to size |
+
+The 240MB size difference affects deployment times in the Beamable Cloud environment. Larger images take longer to pull and start, but the impact varies based on your realm's region and current load. Choose Alpine for production services with minimal dependencies. Choose Noble for services requiring extensive build tools, third-party packages, or glibc compatibility.
+
+### Validation behavior
+
+The CLI validates `ContainerFamily` values against supported options (`alpine`, `noble`). If you specify an invalid value:
+
+- **No error is shown**: The CLI silently falls back to `alpine` as the default
+- **Build continues normally**: Your deployment will proceed using Alpine Linux base images
+- **Log indication**: Check build logs for the actual `BEAM_DOTNET_VERSION` build argument passed to Docker
+
+Users should get a warning about this fallback behavior, but currently the CLI handles validation silently. To verify your container family selection is working, examine the Docker build output for lines like:
+```
+--build-arg BEAM_DOTNET_VERSION=8.0-noble
+```
 
 ## Options
 
@@ -54,5 +156,3 @@ Plan a deployment for later release
 
 ### Parent Command
 [deployment](./deployment.md)
-
-
