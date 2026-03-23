@@ -42,7 +42,7 @@ mainFolder % dotnet beam config
  } 
 ```
 
-However, if the `beam config` command was invoked from the `someOtherFolder` path, you should expect to see an error, because there is no `.beamable` folder within the parent linear. 
+However, if the `beam config` command was invoked from the `someOtherFolder` path, you should expect to see an error, because there is no `.beamable` folder within the parent lineage. 
 
 ```sh
 someOtherFolder % dotnet beam config
