@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -10030,7 +10030,7 @@ Non-readonly static fields in Microservices are discouraged because they do not 
 </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Consider making 'ContentId' a readonly field. Otherwise the value may be inconsistent in production environments.
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solutions</strong>:
-- Make the static field <code>readonly</code> if it's intended to be constant after initialization.
+- Make the static field <code>readonly</code> if it is intended to be constant after initialization.
   <strong>Example of Solved Code</strong>:
     </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>

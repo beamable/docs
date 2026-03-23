@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -9590,7 +9590,7 @@
 
 
 <h1 id="content-overview">Content - Overview<a class="headerlink" href="#content-overview" title="Permanent link">¶</a></h1>
-<p>The <strong>Content</strong> feature allows game maker to store project-specific data objects. It's embedded into many Beamable features, such as Inventory, Store, Leaderboards, and Tournaments. For simplicity, some Beamable data structures may be omitted from this diagram.</p>
+<p>The <strong>Content</strong> feature allows game maker to store project-specific data objects. It is embedded into many Beamable features, such as Inventory, Store, Leaderboards, and Tournaments. For simplicity, some Beamable data structures may be omitted from this diagram.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/content-data-concepts.png" data-desc-position="bottom"><img alt="content-data-concepts.png" src="../../../../../../media/imgs/content-data-concepts.png" style="height:auto;width:500px"></a></p>
 <h2 id="content-id">Content ID<a class="headerlink" href="#content-id" title="Permanent link">¶</a></h2>
 <p>The content ID is assigned at creation of a new content, and is composed of content <code>type</code> and content <code>id</code>. A content ID always starts with the content type. For example, a currency content for dollars would be: 
@@ -9754,7 +9754,7 @@
 <span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BaseCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/** (...) */</span><span class="w"> </span><span class="p">}</span>
 
 <span class="c1">// AbstractCustomContent.cs</span>
-<span class="c1">// This type is not a Beamable ContentType, but it'll share its members and functions with it's children.</span>
+<span class="c1">// This type is not a Beamable ContentType, but it'll share its members and functions with its children.</span>
 <span class="na">[System.Serializable]</span>
 <span class="k">public</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AbstractCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">BaseCustomContent</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/** (...) */</span><span class="w"> </span><span class="p">}</span>
 
