@@ -125,7 +125,7 @@ public class PlayerCloudSaveCustomRegister
 
 ### Syncing Of Data
 
-The downloading operation uses Unity's [`DownloadHandlerFile`](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Networking.DownloadHandlerFile.html). If the file is new, it will be saved directly to the `/data/` Folder. If the file has a conflict it will be first saved to the /temp/ folder, if the resolver chooses to use the Cloud Save, it'll be moved to the `/data/` folder, if not, it will be archived.
+The downloading operation uses Unity's [`DownloadHandlerFile`](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Networking.DownloadHandlerFile.html). If the file is new, it will be saved directly to the `/data/` Folder. If the file has a conflict it will first be saved to the `/temp/` folder, if the resolver chooses to use the Cloud Save, it'll be moved to the `/data/` folder, if not, it will be archived.
 
 _Note_ If the destination files are kept open by some unrelated system during the syncing process, the `CloudSavingService` will reattempt several times. Upon any ultimate failure, an `IOException` will be thrown.
 
