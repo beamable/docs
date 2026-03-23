@@ -132,7 +132,7 @@ The end result here is that you have two `ClientCallables` in the same `MyPartia
 
 #### What should I use different C#MSs for?
 
-Basically, the decision for this has to do with expected traffic hitting that feature/service and how it's resources are expected to scale. When reasoning about this, here are a couple of things to keep in mind:
+Basically, the decision for this has to do with expected traffic hitting that feature/service and how its resources are expected to scale. When reasoning about this, here are a couple of things to keep in mind:
 
 - Requests Per Second that a feature can be expected to have. You can calculate this in a "back-of-the-napkin" way by estimating the number of non-locally cached requests the features make per-player every second and then multiply that by the expected number of concurrent players utilizing the feature.
 

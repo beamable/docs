@@ -1,6 +1,6 @@
 # Content - Overview
 
-The **Content** feature allows game maker to store project-specific data objects. It's embedded into many Beamable features, such as Inventory, Store, Leaderboards, and Tournaments. For simplicity, some Beamable data structures may be omitted from this diagram.
+The **Content** feature allows game maker to store project-specific data objects. It is embedded into many Beamable features, such as Inventory, Store, Leaderboards, and Tournaments. For simplicity, some Beamable data structures may be omitted from this diagram.
 
 ![content-data-concepts.png](../../../../../media/imgs/content-data-concepts.png){: style="height:auto;width:500px"}
 
@@ -81,7 +81,7 @@ The snippet below demonstrate what that would look like.
 public class BaseCustomContent : ContentObject { /** (...) */ }
 
 // AbstractCustomContent.cs
-// This type is not a Beamable ContentType, but it'll share its members and functions with it's children.
+// This type is not a Beamable ContentType, but it'll share its members and functions with its children.
 [System.Serializable]
 public abstract class AbstractCustomContent : BaseCustomContent { /** (...) */ }
 
