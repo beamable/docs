@@ -25,7 +25,7 @@ Unlike many Beamable Features, Groups do not require a specific Beamable Feature
 
 !!! info "Learning Fundamentals"
 
-    Before using this feature, it's recommended to understand Beamable's fundamental concepts.
+    Before using this feature, it is recommended to understand Beamable's fundamental concepts.
     
     • See [Beamable: Asynchronous Programming](https://docs.beamable.com/docs/guides-overview#asynchronous-programming) for more info
 

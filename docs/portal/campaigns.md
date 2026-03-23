@@ -36,7 +36,7 @@ After that, you can create campaigns setting some information through a few step
 
 ## Client Implementation
 
-For the client implementation, it's going to depend on which type your campaign is for. All of the following types have  their own implementation and can be triggered by campaigns as well as other means like custom C# microservices.
+For the client implementation, it is going to depend on which type your campaign is for. All of the following types have  their own implementation and can be triggered by campaigns as well as other means like custom C# microservices.
 
 - **Email and In-game mail**: Follow the mail documentation for more information on how to implement this.
 - **Push Notifications**: Follow the Push Notifications documentation for information on how to implement.

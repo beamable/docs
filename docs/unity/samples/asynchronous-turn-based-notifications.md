@@ -17,7 +17,7 @@ The `TurnSystem` class handles the following responsibilities:
 - Initializes the player's context and subscribes to ping notifications.
 - Sends a ping to the opponent using the server's microservices.
 - Listens for notifications to know when it is the player's turn.
-- Updates the UI to display whether it's the player's turn or the opponent's turn.
+- Updates the UI to display whether it is the player's turn or the opponent's turn.
 
 #### Key functionality in the client:
 

@@ -1,6 +1,6 @@
 # Player Stats and Activities
 
-Stats are a way for the Game Makers to create variables that can be used to determine players to receive campaigns [documentation](doc:campaigns) and other live ops events. These can be created in the portal page and you can use this [documentation](doc:stats) to check how it's done.
+Stats are a way for the Game Makers to create variables that can be used to determine players to receive campaigns [documentation](doc:campaigns) and other live ops events. These can be created in the portal page and you can use this [documentation](doc:stats) to check how it is done.
 
 ## Creating a Player Stat
 

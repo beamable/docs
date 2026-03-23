@@ -175,5 +175,5 @@ Currently, there is no sample for this feature; however, here is how to do it. I
 whether they bought it or not.
 
 3. **Microservices:** Here you can enforce the business side of the season pass (checking current date/time if 
-it's within the window, granting the season's rewards, or performing a cleanup or reset at season boundaries).
+it is within the window, granting the season's rewards, or performing a cleanup or reset at season boundaries).
 

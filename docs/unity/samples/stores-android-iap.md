@@ -30,7 +30,7 @@ You will also need to upload a build of your game to the console, but you do not
 
 | Step | Notes |
 |------|-------|
-| 1. Select a developer account, or set up a new one if it's your first time. | |
+| 1. Select a developer account, or set up a new one if it is your first time. | |
 | 2. Select (or create) your app from the available list. | If you are setting up an app for the first time, follow the steps to upload a build. If your app already has a build uploaded with in-app purchasing enabled, skip to [Step 4](#step-4-setup-products-google-play-console). |
 | 3. From your dashboard, complete the prerequisites for uploading your build. | This includes various metadata about your game, including content ratings, promotional images, etc. |
 | 4. Enable the checkbox for "Build App Bundle", then create a Unity build, targeting Android, signed with your organization's keystore. | |
