@@ -49,7 +49,7 @@ To set a custom logger, you can pass a delegate to `config.AddLoggerProvider` in
 ```csharp
 	await BeamServer
 		.Create()
-		.IncludeRoutes<BeamService>(routePrefix: "")
+		.IncludeRoutes<BeamService>()
 		.OverrideConfig(config => 
 		{
 			config.AddLoggerProvider = builder =>
