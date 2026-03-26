@@ -4,7 +4,7 @@ Welcome to "King of the Ring" (KOR). You must **Attack with power & dodge with s
 
 !!! info "Related Features"
 
-    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a room  
+    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a room
     • [Multiplayer](../user-reference/beamable-services/social-networking/connectivity.md) - Real-time multiplayer game functionality that enables multiple players to interact in shared game sessions
 
 ## Screenshots
@@ -28,8 +28,8 @@ The player navigates from the Intro Scene to the Game Scene, where all the actio
 This downloadable sample game project showcases the [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) feature in game development. Or watch this video:
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-  <iframe src="https://www.youtube.com/embed/UmtIWE01WXA?autoplay=0&fs=1" 
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+  <iframe src="https://www.youtube.com/embed/UmtIWE01WXA?autoplay=0&fs=1"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
           allowfullscreen>
   </iframe>
 </div>
@@ -70,7 +70,7 @@ These steps are **already complete** in the sample project. The instructions her
 
 !!! info "Related Features"
 
-    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a room  
+    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a room
     • [Multiplayer](../user-reference/beamable-services/social-networking/connectivity.md) - Real-time multiplayer game functionality that enables multiple players to interact in shared game sessions
 
 ### Step 1. Setup Project

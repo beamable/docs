@@ -26,7 +26,7 @@ Unlike many Beamable Features, Groups do not require a specific Beamable Feature
 !!! info "Learning Fundamentals"
 
     Before using this feature, it is recommended to understand Beamable's fundamental concepts.
-    
+
     • See [Beamable: Asynchronous Programming](https://docs.beamable.com/docs/guides-overview#asynchronous-programming) for more info
 
 The main API highlights include [`GroupsService`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Groups_1_1GroupsService.html).
@@ -93,12 +93,12 @@ namespace Beamable.Examples.Services.GroupsService
         public bool IsInGroup = false;
         public bool IsInRoom = false;
         public string MessageToSend = "";
-      
+
     }
-   
+
     [System.Serializable]
     public class RefreshedUnityEvent : UnityEvent<GroupsServiceExampleData> { }
-    
+
     /// <summary>
     /// Demonstrates <see cref="GroupsService"/>.
     /// </summary>
@@ -107,14 +107,14 @@ namespace Beamable.Examples.Services.GroupsService
         //  Events  ---------------------------------------
         [HideInInspector]
         public RefreshedUnityEvent OnRefreshed = new RefreshedUnityEvent();
-        
+
         //  Fields  ---------------------------------------
         private ChatView _chatView = null;
         private GroupsView _groupsView = null;
         private BeamContext _beamContext;
         private ChatService _chatService;
         private GroupsServiceExampleData _data = new GroupsServiceExampleData();
-    
+
         //  Unity Methods  --------------------------------
         private async void Start()
         {
@@ -122,7 +122,7 @@ namespace Beamable.Examples.Services.GroupsService
 
             await SetupBeamable();
         }
-        
+
         //  Methods  --------------------------------------
         private async Task SetupBeamable()
         {
@@ -136,9 +136,9 @@ namespace Beamable.Examples.Services.GroupsService
             {
                 _groupsView = groupsView;
                 _data.IsInGroup = _groupsView.Groups.Count > 0;
-                
+
                 Debug.Log("GroupsService.Subscribe 1: " + _groupsView.Groups.Count);
-                
+
                 _data.GroupNames.Clear();
                 _data.GroupPlayerNames.Clear();
                 foreach(var groupView in groupsView.Groups)
@@ -156,11 +156,11 @@ namespace Beamable.Examples.Services.GroupsService
                     string roomName = $"Room For {groupView.Group.name}";
                     await _chatService.CreateRoom(roomName, false,
                         new List<long> {_beamContext.PlayerId});
-                    
+
                 }
                 Refresh();
             });
-            
+
             // Observe ChatService Changes
             _chatService.Subscribe(chatView =>
             {
@@ -175,7 +175,7 @@ namespace Beamable.Examples.Services.GroupsService
                     if (room.Players.Count > 0)
                     {
                         roomsWithPlayers++;
-                        
+
                         string roomName = $"Name = {room.Name}, Players = {room.Players.Count}";
                         _data.RoomNames.Add(roomName);
 
@@ -202,11 +202,11 @@ namespace Beamable.Examples.Services.GroupsService
 
                 _data.IsInRoom = roomsWithPlayers > 0;
                 Debug.Log("ChatService.Subscribe 1: " + roomsWithPlayers);
-                
+
                 Refresh();
             });
         }
-        
+
         public async Task<EmptyResponse> SendGroupMessage()
         {
             foreach(RoomHandle room in _chatView.roomHandles)
@@ -215,20 +215,20 @@ namespace Beamable.Examples.Services.GroupsService
             }
             return new EmptyResponse();
         }
-        
+
         public async Task<EmptyResponse> CreateGroup ()
         {
             // Leave any existing group
             await LeaveGroups();
-            
+
             string groupName = _data.GroupToCreateName;
             string groupTag = "t01";
             string enrollmentType = "open";
 
             // Search existing group
-            var groupSearchResponse = await _beamContext.Api.GroupsService.Search(groupName, 
+            var groupSearchResponse = await _beamContext.Api.GroupsService.Search(groupName,
                 new List<string> {enrollmentType});
-            
+
             // Join or Create new group
             if (groupSearchResponse.groups.Count > 0)
             {
@@ -244,58 +244,58 @@ namespace Beamable.Examples.Services.GroupsService
             }
 
             // HACK: Force refresh here (0.10.1)
-            // Wait (arbitrary milliseconds) for refresh to complete 
+            // Wait (arbitrary milliseconds) for refresh to complete
             _beamContext.Api.GroupsService.Subscribable.ForceRefresh();
-            await Task.Delay(300); 
-            
+            await Task.Delay(300);
+
             Refresh();
 
             return new EmptyResponse();
         }
-        
+
         public async Task<EmptyResponse> LeaveGroups()
         {
             // Leave any existing room
             await LeaveRooms();
-            
+
             // Leave any existing groups
             foreach(var group in _groupsView.Groups)
             {
                 var result = await _beamContext.Api.GroupsService.LeaveGroup(group.Group.id);
             }
-            
+
             // HACK: Force refresh here (0.10.1)
-            // Wait (arbitrary milliseconds) for refresh to complete 
+            // Wait (arbitrary milliseconds) for refresh to complete
             _beamContext.Api.GroupsService.Subscribable.ForceRefresh();
-            await Task.Delay(300); 
-            
+            await Task.Delay(300);
+
             Refresh();
-            
+
             return new EmptyResponse();
         }
-        
+
         public async Task<EmptyResponse> LeaveRooms()
         {
-            
+
             Debug.Log("_chatView 1: " + _chatView.roomHandles.Count);
             foreach(var room in _chatView.roomHandles)
             {
                 var result = await _chatService.LeaveRoom(room.Id);
             }
-            
+
             Debug.Log("_chatView 2: " + _chatView.roomHandles.Count);
-            
+
             _data.RoomMessages.Clear();
             Refresh();
             return new EmptyResponse();
         }
-        
+
         public void Refresh()
         {
-            // Create new mock message 
+            // Create new mock message
             int messageIndex = _data.RoomMessages.Count + 1;
             _data.MessageToSend = $"Hello {messageIndex:000}!";
-            
+
             // Create new mock group name
             int groupIndex = _data.GroupNames.Count + 1;
             _data.GroupToCreateName = $"Group{groupIndex:000}";
@@ -308,11 +308,11 @@ namespace Beamable.Examples.Services.GroupsService
                                 $"\n * IsInGroup = {_data.IsInGroup}" +
                                 $"\n * IsInRoom = {_data.IsInRoom}\n\n";
             //Debug.Log(refreshLog);
-          
+
             // Send relevant data to the UI for rendering
             OnRefreshed?.Invoke(_data);
         }
-        
+
         //  Event Handlers  -------------------------------
         private void RoomHandle_OnMessageReceived(Message message)
         {

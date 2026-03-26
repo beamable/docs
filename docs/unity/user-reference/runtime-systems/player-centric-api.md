@@ -6,7 +6,7 @@ This class is designed to support multiple local players, flexible API reference
 
 ## BeamContext Overview
 
-After that setup, game makers use the `BeamContext` object as the main entry-point to Beamable functionality. Here's a simple example of initializing the `BeamContext` 
+After that setup, game makers use the `BeamContext` object as the main entry-point to Beamable functionality. Here's a simple example of initializing the `BeamContext`
 
 ```csharp
 private async void InitializeBeamContext()
@@ -91,7 +91,7 @@ Here the game maker references the context and subscribes to service changes via
 private async void MyMethodForCurrencyCallback()
 {
     var beamContext = BeamContext.Default;
-    beamContext.Inventory.Currencies.OnUpdated += () => 
+    beamContext.Inventory.Currencies.OnUpdated += () =>
    {
         Debug.Log("The currency has been modified.");
    };
@@ -112,8 +112,8 @@ private async void MyMethodForCurrencyCallback()
 
 When a BeamContext instance is initialized, a GameObject will be instantiated under Unity's "DontDestroyOnLoad" folder in the scene hierarchy. This GameObject will be named "Beamable" and contains information and behaviours for the currently running context, including:
 
-• The current Authorized User  
-• Player Stats  
+• The current Authorized User
+• Player Stats
 • Subscription/Coroutine managers
 
 Since this object is linked to the associated Context, calling `Stop()` on the context will delete this object, and vice versa.

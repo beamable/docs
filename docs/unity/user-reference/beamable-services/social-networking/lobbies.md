@@ -22,7 +22,7 @@ Other actions provided by the Beamable **Lobbies** feature include:
 !!! tip "Design Considerations"
 
     Here are some additional things to consider when designing a lobby for matchmaking:
-    
+
     - The lobby should be designed to be visually appealing and user-friendly.
     - The lobby should provide players with information about the status of their matchmaking queue, such as how many players are currently in the lobby and how long it is expected to take to find a match.
     - The lobby should allow players to communicate with each other before the game starts. This can help to improve the overall experience for players.
@@ -167,9 +167,9 @@ public class BeamManager : MonoBehaviour
     public List<Lobby> Lobbies { get; private set; }
 
     public Lobby ActiveLobby { get; private set; }
-    
+
     public string PlayerId { get; private set;  }
-    
+
     private void Start() => SetupBeamable();
 
     private async void SetupBeamable()

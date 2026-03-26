@@ -1,6 +1,6 @@
 # Multiplayer
 
-The Beamable Multiplayer feature allows game makers to create real-time and turn-based multi-user game experiences. 
+The Beamable Multiplayer feature allows game makers to create real-time and turn-based multi-user game experiences.
 
 **What is a game server?** A game **server** is the source of event coordination in a multiplayer video game. The server transmits enough events about its internal state to allow each connected **client** to maintain their own accurate version of the game. Events may contain various types of information including; properties about the game world, the players, and player input. See [Wikipedia](https://en.wikipedia.org/wiki/Game_server) for more info.
 
@@ -8,22 +8,22 @@ The Beamable Multiplayer feature allows game makers to create real-time and turn
 
 Here are the leading options;
 
-**Dedicated Server** 
+**Dedicated Server**
 
 - The server processes game-specific logic. The server **is** the game.
 - Ideal For: Persistent world games, MMOs, and first-person shooters.
 
-**Peer-To-Peer Server** 
+**Peer-To-Peer Server**
 
-- The server introduces client to client. Key communication passes directly from client to client. 
+- The server introduces client to client. Key communication passes directly from client to client.
 - Ideal For: First-person shooters and games that can tolerate cheating.
 
-**Relay Server** 
+**Relay Server**
 
 - The server sends and receives events _between_ all clients in a match. The match is the "Room" in which all the game players interact. Each client **is** the game.
 - Ideal For: Real-time strategy, tower defense, MOBAs, card battlers, auto chess, and more...
 
-_Here is a comparison of various game servers;_ 
+_Here is a comparison of various game servers;_
 
 | Default Benefits                              | Relay Server     | Dedicated Server          | Peer-To-Peer Server    |
 | :-------------------------------------------- | :--------------- | :------------------------ | :--------------------- |
@@ -60,9 +60,9 @@ here is a high-level diagram of the Beamable Multiplayer terms
 
 ### Game Security
 
-To be more secure against any malicious hackers in your multiplayer game's community, consider never sending any game object state (player's heath, power of weapon, etc) as part of the messages to be synchronized over the network. 
+To be more secure against any malicious hackers in your multiplayer game's community, consider never sending any game object state (player's heath, power of weapon, etc) as part of the messages to be synchronized over the network.
 
-Any enterprising hacker can "easily" hack a game client to send inflated values which will only make the game worse for everyone. If all a player can do is send an "action". i.e. "What I did" ("I fired my equipped gun" rather than "I hit player 2 for 100 damage"), it becomes quite a bit harder for someone to cheat. 
+Any enterprising hacker can "easily" hack a game client to send inflated values which will only make the game worse for everyone. If all a player can do is send an "action". i.e. "What I did" ("I fired my equipped gun" rather than "I hit player 2 for 100 damage"), it becomes quite a bit harder for someone to cheat.
 
 A hacker may also attempt to replay actions AGAIN for a particular turn or to send malformed game event object messages that can lead to a worst experience for other players.
 
@@ -74,17 +74,17 @@ See [Matchmaking](matchmaking.md) for more info.
 
 ### Playing "Against Yourself"
 
-One of the challenges of developing a multiplayer game is testing it frequently as an individual developer. Finding a friend to play against you **every** time you run the game in development is prohibitive. 
+One of the challenges of developing a multiplayer game is testing it frequently as an individual developer. Finding a friend to play against you **every** time you run the game in development is prohibitive.
 
 Here are 2 strategies to help the development process.
 
 #### Adding a Bot
 
-The sample game includes an optional bot opponent. This is an AI that plays against you. Simply click "Start Game: Human vs Bot" from the Menu Scene to activate it. Architecturally this is similar to the full game and it fully uses the Beamable Multiplayer event objects for each player move. However, it requires only one human player. 
+The sample game includes an optional bot opponent. This is an AI that plays against you. Simply click "Start Game: Human vs Bot" from the Menu Scene to activate it. Architecturally this is similar to the full game and it fully uses the Beamable Multiplayer event objects for each player move. However, it requires only one human player.
 
 #### Playing Against Yourself
 
-The sample game allows a workflow to test the full 2 player experience with relative ease. Build the Unity sample project as a standalone game for either Mac or PC. Then run the game in the Unity Editor **also**. Simply click "Start Game: Human vs Human" from the Menu Scene in **both** game clients to activate it. 
+The sample game allows a workflow to test the full 2 player experience with relative ease. Build the Unity sample project as a standalone game for either Mac or PC. Then run the game in the Unity Editor **also**. Simply click "Start Game: Human vs Human" from the Menu Scene in **both** game clients to activate it.
 
 Doing a build takes a few minutes. Depending on the specifics of your game, it may not be required to rebuild the standalone after **every** code change.
 
@@ -113,7 +113,7 @@ Each game client connects this way. No one client has special status of 'host'. 
 _simClient = new SimClient(new SimNetworkEventStream(MatchId, BeamContext.Default.ServiceProvider), FramesPerSecond, TargetNetworkLead);
 ```
 
-**Create Custom Event **  
+**Create Custom Event **
 Depending on the complexity of the game play, there may be dozens of custom events.
 
 ```csharp
@@ -135,7 +135,7 @@ _simClient.On<MyPlayerMoveEvent>(MyPlayerMoveEvent.Name, _localPlayerDbid.ToStri
      SimClient_OnMyPlayerMoveEvent);
 ```
 
-### Sending Events  
+### Sending Events
 Typically each player's input is converted into an event.
 
 ```csharp
@@ -143,7 +143,7 @@ _simClient.SendEvent(MyPlayerMoveEvent.Name,
      new MyPlayerMoveEvent(_localPlayerDbid, new Vector3(0, 0, 0)));
 ```
 
-### Handling Event 
+### Handling Event
 Typically for a fair and consistent game play experience, best practices dictate that all events, even the local clients own player's events are sent to the server, later received, and then converted to rendered graphics and sounds. This way the requisite latency is the same for the local client as it is for all other clients in the same match.
 
 ```csharp
@@ -236,7 +236,7 @@ namespace Beamable.Examples.Services.Multiplayer
       Connected,
       Disconnected
    }
-   
+
    /// <summary>
    /// Holds data for use in the <see cref="MultiplayerExample"/>.
    /// </summary>
@@ -252,7 +252,7 @@ namespace Beamable.Examples.Services.Multiplayer
       public List<string> PlayerMoveLogs = new List<string>();
       public List<string> PlayerDbids = new List<string>();
    }
-   
+
    /// <summary>
    /// Defines a simple type of in-game "move" sent by a player
    /// </summary>
@@ -273,7 +273,7 @@ namespace Beamable.Examples.Services.Multiplayer
          return $"[MyPlayerMoveEvent({Position})]";
       }
    }
-   
+
     /// <summary>
     /// Demonstrates <see cref="SimClient"/>.
     /// </summary>
@@ -282,33 +282,33 @@ namespace Beamable.Examples.Services.Multiplayer
        //  Events  ---------------------------------------
        [HideInInspector]
        public MultiplayerExampleDataEvent OnRefreshed = new MultiplayerExampleDataEvent();
-       
+
         //  Fields  ---------------------------------------
-       
+
         private MultiplayerExampleData _multiplayerExampleData = new MultiplayerExampleData();
         private const long FramesPerSecond = 20;
         private const long TargetNetworkLead = 4;
         private SimClient _simClient;
         private BeamContext _beamContext;
-        
+
         //  Unity Methods  --------------------------------
         protected void Start()
         {
-           Debug.Log($"Start() Instructions...\n\n" + 
-                     " * Run The Scene\n" + 
-                     " * Press 'Start Multiplayer'\n" + 
-                     " * Press 'Send Player Move'\n" + 
+           Debug.Log($"Start() Instructions...\n\n" +
+                     " * Run The Scene\n" +
+                     " * Press 'Start Multiplayer'\n" +
+                     " * Press 'Send Player Move'\n" +
                      " * See results in the in-game UI\n");
 
             SetupBeamable();
         }
-        
-        
+
+
         protected void Update()
         {
-           if (_simClient != null) 
-           { 
-              _simClient.Update(); 
+           if (_simClient != null)
+           {
+              _simClient.Update();
            }
 
            string refreshString = "";
@@ -324,7 +324,7 @@ namespace Beamable.Examples.Services.Multiplayer
            //Debug.Log($"message:{refreshString}");
         }
 
-        
+
         protected void OnDestroy()
         {
            if (_simClient != null)
@@ -332,8 +332,8 @@ namespace Beamable.Examples.Services.Multiplayer
               StopMultiplayer();
            }
         }
-        
-        
+
+
         //  Methods  --------------------------------------
         private async void SetupBeamable()
         {
@@ -341,31 +341,31 @@ namespace Beamable.Examples.Services.Multiplayer
            await _beamContext.OnReady;
 
             Debug.Log($"_beamContext.PlayerId = {_beamContext.PlayerId}");
-            
+
             // Access Local Player Information
             _multiplayerExampleData.LocalPlayerDbid = _beamContext.PlayerId;
 
         }
-        
+
         public void StartMultiplayer()
         {
            if (_simClient != null)
            {
               StopMultiplayer();
            }
-           
+
            _multiplayerExampleData.SessionState = SessionState.Initializing;
            Refresh();
-           
+
            // Generates a specific MatchId
            // (Otherwise use Beamable's MatchmakingService)
            _multiplayerExampleData.MatchId = "MyCustomMatchId_" + UnityEngine.Random.Range(0,99999);
-           
+
            // Create Multiplayer Session
            _simClient = new SimClient(
-              new SimNetworkEventStream(_multiplayerExampleData.MatchId, _beamContext.ServiceProvider), 
+              new SimNetworkEventStream(_multiplayerExampleData.MatchId, _beamContext.ServiceProvider),
               FramesPerSecond, TargetNetworkLead);
-        
+
            // Handle Common Events
            _simClient.OnInit(SimClient_OnInit);
            _simClient.OnConnect(SimClient_OnConnect);
@@ -391,79 +391,79 @@ namespace Beamable.Examples.Services.Multiplayer
            {
               return;
            }
-           
+
            // Create a mock  player position
            Vector3 position = new Vector3(
               Random.Range(1, 10),
               Random.Range(1, 10),
               Random.Range(1, 10)
               );
-           
+
            _simClient.SendEvent(MyPlayerMoveEvent.Name,
               new MyPlayerMoveEvent(_multiplayerExampleData.LocalPlayerDbid, position));
         }
-        
+
         public void Refresh()
         {
            string refreshLog = $"Refresh() ...\n" +
                                $"\n * LocalPlayerDbid = {_multiplayerExampleData.LocalPlayerDbid}\n\n" +
                                $"\n * PlayerDbids.Count = {_multiplayerExampleData.PlayerDbids.Count}\n\n" +
                                $"\n * PlayerMoveLogs.Count = {_multiplayerExampleData.PlayerMoveLogs.Count}\n\n";
-            
+
            //Debug.Log(refreshLog);
 
            OnRefreshed?.Invoke(_multiplayerExampleData);
         }
 
-        
+
         //  Event Handlers  -------------------------------
         private void SimClient_OnInit(string sessionSeed)
         {
            _multiplayerExampleData.SessionState = SessionState.Initialized;
            _multiplayerExampleData.SessionSeed = sessionSeed;
            Refresh();
-           
-           Debug.Log($"SimClient_OnInit()...\n" + 
+
+           Debug.Log($"SimClient_OnInit()...\n" +
                      $"MatchId = {_multiplayerExampleData.MatchId}, " +
                      $"sessionSeed = {sessionSeed}");
         }
 
-        
+
         private void SimClient_OnConnect(string dbid)
         {
            _multiplayerExampleData.SessionState = SessionState.Connected;
            _multiplayerExampleData.PlayerDbids.Add(dbid);
            Refresh();
-        
+
            // Handle Custom Events for EACH dbid
            _simClient.On<MyPlayerMoveEvent>(MyPlayerMoveEvent.Name, dbid,
               SimClient_OnMyPlayerMoveEvent);
-        
+
            Debug.Log($"SimClient_OnConnect() dbid = {dbid}");
         }
 
-        
+
         private void SimClient_OnDisconnect(string dbid)
         {
            if (long.Parse(dbid) == _multiplayerExampleData.LocalPlayerDbid)
            {
               StopMultiplayer();
            }
-           
+
            _multiplayerExampleData.PlayerDbids.Remove(dbid);
            Refresh();
-           
+
            Debug.Log($"SimClient_OnDisconnect() dbid = {dbid}");
         }
 
-        
+
         private void SimClient_OnTick(long currentFrame)
         {
            _multiplayerExampleData.CurrentFrame = currentFrame;
            Refresh();
         }
 
-        
+
         private void SimClient_OnMyPlayerMoveEvent(MyPlayerMoveEvent myPlayerMoveEvent)
         {
            string playerMoveLog = $"{myPlayerMoveEvent}";

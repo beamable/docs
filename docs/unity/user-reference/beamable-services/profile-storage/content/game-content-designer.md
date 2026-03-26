@@ -198,7 +198,7 @@ A3     | B3   | C3         | D3         | E3       | F3             | G3
 !!! warning "Important Notes"
 
     Here are some common issues and solutions:
-    
+
     • Avoid naming any cell as **_locale**. That is a reserved keyword for GCD
 
 ### More Data Formatting Options
@@ -337,7 +337,7 @@ namespace Beamable.Examples.Labs.GameContentDesigner.Json
       protected void Start()
       {
          Debug.Log($"Start()");
-         
+
          WeaponsJson weapons = JsonUtility.FromJson<WeaponsJson>(_weaponsJson.text);
 
          foreach (WeaponJson weapon in weapons.Weapons)
@@ -410,7 +410,7 @@ namespace Beamable.Examples.Labs.GameContentDesignerDemo.Content
       protected async void Start()
       {
          Debug.Log($"Start()");
-         
+
          GCDWeapons weaponsContent = await _weaponsContentRef.Resolve();
 
          foreach (WeaponContentRef weaponContentRef in weaponsContent.WeaponContentRefs)
@@ -435,7 +435,7 @@ Mouse over a schema header to reveal the **cell notes**. Notes store the column 
 !!! info "Best Practice"
 
     While **cell notes** can be edited manually, it is recommended to use the provided settings UI
-    
+
     • **Sheet Settings** - Google Sheet → Add-Ons → Game Content Designer → Documentation Settings
     • **Column Settings** - Google Sheet → Add-Ons → Game Content Designer → Documentation Settings
     • **Validation Settings** - Google Sheet → Add-Ons → Game Content Designer → Validation

@@ -129,7 +129,7 @@ The party is disbanded automatically when all of the members leave. When a leade
 
 Both properties point to the same object. However `Party.Value` is obsolete.
 
-> Is `Party.State` / `Party.Value` automatically updated if there is a change in party data? (new member join, owner change, etc). I found that we can also get Party data directly from `Party`, ex: `Party.Id`, `Party.Members`, `Party.Leader`.  
+> Is `Party.State` / `Party.Value` automatically updated if there is a change in party data? (new member join, owner change, etc). I found that we can also get Party data directly from `Party`, ex: `Party.Id`, `Party.Members`, `Party.Leader`.
   Members data is `List<string>`. Are those string values userIds? Why string not long? What is the difference between userId (long) vs playerId (string)?
 
 Yes, party data gets updated automatically based on notifications. Properties like `Party.Id` are just a shorthand for `Party.State.Id`. Use the `PartyMember` observable list to get access to the list of party members instead of the obsolete `Member` list. `PartyMember` instances have `long` userId types instead of `string`.

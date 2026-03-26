@@ -1,10 +1,10 @@
 ﻿# Beam Library Overview
 
-The Beam Library is a collection of package samples and prefabs to help get you started learning the Unity SDK. To open the Beam Library, click on the Beamable Button (at the top-right of the Unity window), and select _Beam Library_. 
+The Beam Library is a collection of package samples and prefabs to help get you started learning the Unity SDK. To open the Beam Library, click on the Beamable Button (at the top-right of the Unity window), and select _Beam Library_.
 
 ![Select "Open Beam Library" from the Beamable Button](../../../media/imgs/533076e9cddc444ecdf9be5f5e2310b7d293fbc95b5792a9959a803433fd7955-image.png){width="400px"}
 
-Now the _Beam Library_ should be open. 
+Now the _Beam Library_ should be open.
 
 ![Beam Library Window](../../../media/imgs/7b0d4957423d75029795d0d58132b6e7ca953f448a97b7057065519465467364-image.png){width="400px"}
 
@@ -101,7 +101,7 @@ using UnityEngine;
 namespace Beamable.Examples.Features.AdminFlow
 {
     [BeamableConsoleCommandProvider]
-    public class CustomConsoleCommandProvider 
+    public class CustomConsoleCommandProvider
     {
         [BeamableConsoleCommand ("Add", "A sample addition command", "Add <int> <int>")]
         public string Add(string[] args)
@@ -111,7 +111,7 @@ namespace Beamable.Examples.Features.AdminFlow
             return "Result: " + (a + b);
         }
     }
-    
+
     /// <summary>
     /// Demonstrates <see cref="AdminFlow"/>.
     /// </summary>
@@ -120,10 +120,10 @@ namespace Beamable.Examples.Features.AdminFlow
         //  Unity Methods  --------------------------------
         protected void Start()
         {
-            Debug.Log($"Start() Instructions...\n" + 
-                      " * Run The Scene\n" + 
-                      " * Type '~' in Unity Game Window to open Admin Console\n" + 
-                      " * Type 'Add 5 10'\n" + 
+            Debug.Log($"Start() Instructions...\n" +
+                      " * Run The Scene\n" +
+                      " * Type '~' in Unity Game Window to open Admin Console\n" +
+                      " * Type 'Add 5 10'\n" +
                       " * See 'Result: 15' in Unity Console Window\n");
         }
     }

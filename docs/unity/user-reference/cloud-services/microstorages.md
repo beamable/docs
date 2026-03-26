@@ -11,7 +11,7 @@ The gist of a common example Microstorage and Microservice is below.
 A custom child of `MongoStorageObject` is defined to wrap the database. The `UserMessage` is added as the high-level object to be stored in the database.
 
 UserDataStorage.cs
-```csharp 
+```csharp
 using Beamable.Server;
 using MongoDB.Bson;
 
@@ -40,7 +40,7 @@ The Beamable Microservice `UserDataService` is created to wrap all calls to the 
 See [Microservices](doc:microservices-feature-overview) for more info.
 
 UserDataService.cs
-```csharp 
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,7 +67,7 @@ namespace Beamable.Server
                X = x,
                Y = y
             });
-            
+
             isSuccess = true;
          }
          catch (Exception e)
@@ -77,7 +77,7 @@ namespace Beamable.Server
 
          return isSuccess;
       }
-      
+
       [ClientCallable]
       public async Promise<List<string>> GetMessage(int x, int y)
       {
@@ -96,7 +96,7 @@ namespace Beamable.Server
 **UserDataMicroServiceExample**
 
 UserDataMicroServiceExample.cs
-```csharp 
+```csharp
 using System.Collections.Generic;
 using UnityEngine;
 using Beamable.Server.Clients;
@@ -109,24 +109,24 @@ namespace Beamable.Examples.Features.Microservices.UserDataMicroServiceExample
 public class UserDataMicroServiceExample : MonoBehaviour
 {
     //  Properties  -----------------------------------
-        
+
     //  Fields  ---------------------------------------
     private UserDataServiceClient _userDataServiceClient = null;
-        
+
     //  Unity Methods  --------------------------------
 
     protected void Start()
     {
-        Debug.Log("Start() Instructions...\n" + 
+        Debug.Log("Start() Instructions...\n" +
         "* Complete docker setup per https://docs.beamable.com/docs/microservices-feature-overview\n" +
         "* Start the server per https://docs.beamable.com/docs/microservices-feature-overview\n" +
-        "* Play This Scene\n" + 
-        "* View the Unity Console output\n" + 
+        "* Play This Scene\n" +
+        "* View the Unity Console output\n" +
         "* Enjoy!\n\n\n");
-            
+
         SetupBeamable();
     }
-        
+
         //  Methods  --------------------------------------
         private async void SetupBeamable()
         {
@@ -134,18 +134,18 @@ public class UserDataMicroServiceExample : MonoBehaviour
             await beamContext.OnReady;
 
             Debug.Log($"beamContext.PlayerId = {beamContext.PlayerId}");
-            
+
             _userDataServiceClient = new UserDataServiceClient();
-            
+
             // #1 - Call Microservice
             bool isSuccess = await _userDataServiceClient.SaveMessage("Hello World!", 0, 0);
-                
+
             // #2 - Result = true
             Debug.Log ($"SaveMessage() isSuccess = {isSuccess}");
-            
+
             // #3 - Call Microservice
             List<string> messages = await _userDataServiceClient.GetMessage(0, 0);
-                
+
             // #4 - Result = true
             Debug.Log ($"GetMessage() messages.Count = {messages.Count}, messages[0] = {messages[0]}");
         }
@@ -157,7 +157,7 @@ public class UserDataMicroServiceExample : MonoBehaviour
 
 To make interactions with mongo storage feature easier and more affordable we've introduced `MongoCrudExtensions` class that contains following methods:
 
-- Get 
+- Get
 - Create
 - Update
 - Delete
@@ -165,7 +165,7 @@ To make interactions with mongo storage feature easier and more affordable we've
 In the example, there is a `TestDocument` storage document as described below.
 
 TestDocument.cs
-```csharp 
+```csharp
 namespace Beamable.Server
 {
 	public class TestDocument : StorageDocument
@@ -179,7 +179,7 @@ namespace Beamable.Server
 The example targets the `TestStorage` StorageObject class.
 
 TestStorage.cs
-```csharp 
+```csharp
 using Beamable.Common;
 using MongoDB.Driver;
 
@@ -195,7 +195,7 @@ namespace Beamable.Server
 Then, in a Microservice, the `TestDocument` can be created, read, updated, and deleted as shown below.
 
 TestMicroservice.cs
-```csharp 
+```csharp
 using Beamable.Mongo;
 using Beamable.Server;
 using MongoDB.Driver;

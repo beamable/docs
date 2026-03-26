@@ -17,7 +17,7 @@ private async void SetupBeamable()
     await _beamContext.OnReady;
     Debug.Log($"_beamContext.PlayerId = {_beamContext.PlayerId}");
 
-    LeaderboardContent leaderboardContent = 
+    LeaderboardContent leaderboardContent =
     await _leaderboardMainMenuCustom.LeaderboardBehavior.Leaderboard.Resolve();
 
     Debug.Log($"PopulateLeaderboard Starting. Wait < 30 seconds... ");
@@ -25,21 +25,21 @@ private async void SetupBeamable()
     int leaderboardScoreMin = 99;
     int leaderboardScoreMax = 99999;
 
-    // Populate with custom values 
+    // Populate with custom values
     Dictionary<string, object> leaderboardStats = new Dictionary<string, object>();
-    leaderboardStats.Add("leaderboard_score_timestamp", new 
+    leaderboardStats.Add("leaderboard_score_timestamp", new
     DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds());
     leaderboardStats.Add("leaderboard_score_velocity", 99); // 99 score delta per second
-            
+
     // Populates mock "alias" and "score" for each leaderboard row
     string loggingResult = await MockDataCreator.PopulateLeaderboardWithMockData(
-    _beamContext, 
+    _beamContext,
     leaderboardContent,
     leaderboardRowCountMin,
     leaderboardScoreMin,
     leaderboardScoreMax,
     leaderboardStats);
-            
+
     Debug.Log($"PopulateLeaderboard Finish. Result = {loggingResult}");
 }
 ```
@@ -57,7 +57,7 @@ public void Update()
     long currentTimestamp = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds();
     long millisecondsSinceSubmission = currentTimestamp - scoreTimestamp;
     long scoreSinceSubmission = (millisecondsSinceSubmission * scoreVelocity) / 1000;
-   
+
     // Render value
     double score = _rankEntry.score + scoreSinceSubmission;
     TxtScore.text = $"{score:00000}";
@@ -81,23 +81,23 @@ Here is a snippet from [`LeaderboardServiceExample.cs`](https://github.com/beama
 ```csharp
 private async Task<List<RankEntry>> LeaderboardServiceGetBoard(string id, long userId)
 {
-    LeaderBoardView leaderBoardView = await _beamContext.Api.LeaderboardService.GetBoard(id, 0, 100, 
+    LeaderBoardView leaderBoardView = await _beamContext.Api.LeaderboardService.GetBoard(id, 0, 100,
     userId);
 
     foreach (RankEntry rankEntry in leaderBoardView.rankings)
     {
         // Get alias for userId of rankEntry
         long nextUserId = rankEntry.gt;
-        var stats = 
+        var stats =
                 await _beamContext.Api.StatsService.GetStats("client", "public", "player", nextUserId );
-                
+
         string alias = "";
         stats.TryGetValue(alias, out alias);
         if (string.IsNullOrEmpty(alias))
         {
             alias = "Unknown Alias";
         }
-                
+
         // Log
         Debug.Log($"Rank = {rankEntry.rank}, Alias = {alias}, Score = {rankEntry.score}");
     }

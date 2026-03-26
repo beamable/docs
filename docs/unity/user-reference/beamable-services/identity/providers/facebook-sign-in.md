@@ -34,19 +34,19 @@ FB.LogInWithReadPermissions(perms, result => FB_AuthCallback(result));
 In this example, we are forwarding the result into our own method. In this method you should check for errors from Facebook. In addition, you would check to ensure that login was successful.
 
 ```csharp
-private void FB_AuthCallback (ILoginResult result) 
+private void FB_AuthCallback (ILoginResult result)
 {
 	if(!string.IsNullOrEmpty(result.Error)){
   	 //There was an error to handle
      return;
 	}
-  
+
   if(FB.IsLoggedIn){
 		//User is logged into facebook successfully.
-    
+
     // AccessToken class will have session details
     var aToken = Facebook.Unity.AccessToken.CurrentAccessToken;
-    
+
     return;
 	}
 }

@@ -125,7 +125,7 @@ public class IAPExample : MonoBehaviour
         var purchaser = await _context.Api.BeamableIAP;
         var purchaseResult = await purchaser.StartPurchase(listing.Id, sku.name)
             .Error(Debug.LogError);
-        
+
         if (string.IsNullOrEmpty(purchaseResult.Receipt)) return;
         Debug.Log(purchaseResult.Receipt);
         Debug.Log("Purchase successful!");

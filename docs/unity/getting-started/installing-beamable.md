@@ -29,7 +29,7 @@ Once downloaded, follow these steps to install the Beamable SDK into your Unity 
 Congratulations, the Beamable SDK is now installed!
 
 !!! Note
-    If you need to install a Release Candidate version of Beamable, use the _Search for specific version_ drop-down under the main _Install Beamable SDK_ button. You can also find nightly builds here. 
+    If you need to install a Release Candidate version of Beamable, use the _Search for specific version_ drop-down under the main _Install Beamable SDK_ button. You can also find nightly builds here.
 
 ## Log into Beamable
 
@@ -40,14 +40,14 @@ Open the Beamable Login Window by clicking the Beamable button in the Unity tool
 Now you're ready to start your first Beamable project!
 
 ## Say _Hello_ to Beamable!
-To confirm that you have a working Beamable setup, we will pull in the default Beamable runtime console prefab and make sure we can access a player account. 
+To confirm that you have a working Beamable setup, we will pull in the default Beamable runtime console prefab and make sure we can access a player account.
 
-Navigate to the _Beam Library_ by finding it from the Beamable Button in the top-right of the Unity editor. 
+Navigate to the _Beam Library_ by finding it from the Beamable Button in the top-right of the Unity editor.
 
 In the _Beam Library_, find the _Admin Console_ card and click the _Add Prefab_ button to add the prefab to an empty scene.
 ![Beamable Admin Console](./library-admin-console.png){: style="max-width: 700px;"}
 
-Enter play-mode, and hit the `~` character (the same key as `` ` ``). This should open up the _Admin Console_. You can type in a bunch of commands like `help`, or `dbid`. 
+Enter play-mode, and hit the `~` character (the same key as `` ` ``). This should open up the _Admin Console_. You can type in a bunch of commands like `help`, or `dbid`.
 
 !!! Note
     The `dbid` command will print out the current player's id. Learn more in the [frictionless auth section](./../user-reference/beamable-services/identity/frictionless.md).
@@ -62,7 +62,7 @@ You should expect to see a `.beamable` folder and a `.config`folder in your Unit
 
 The `.config` folder has a file called `dotnet-tools.json` which specifies the version of the Beam CLI being used by the Beamable Unity SDK. By default, the Beamable SDK will maintain this number, and you should not edit it by hand.
 
-New versions of the Beamable SDK may depend on different versions of the Beam CLI. This table shows which versions of the Beamable SDK depend on what CLI versions. 
+New versions of the Beamable SDK may depend on different versions of the Beam CLI. This table shows which versions of the Beamable SDK depend on what CLI versions.
 
 | SDK Version | CLI Version |
 | :---------- | :---------- |

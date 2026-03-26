@@ -57,7 +57,7 @@ The `PlayerAccount` contains the player's gamer tag, their alias, and any other 
 using Beamable;
 using Beamable.Player;
 
-public class SilentLogin 
+public class SilentLogin
 {
     private BeamContext _beamContext;
     public PlayerAccount account;

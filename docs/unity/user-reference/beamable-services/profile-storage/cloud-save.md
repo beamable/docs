@@ -10,8 +10,8 @@ Beamable's **Cloud Save** feature provides secure, cross-platform storage for pl
 
 !!! warning "Migrating from [Old Cloud Save Service](https://docs.beamable.com/docs/cloud-save-code)"
 
-    If your application uses the old Cloud Save you must keep in mind some specifics when migrating to the new one:  
-    • You cannot initialize both Services at the same time, the first one initialized will lock the other to be used.  
+    If your application uses the old Cloud Save you must keep in mind some specifics when migrating to the new one:
+    • You cannot initialize both Services at the same time, the first one initialized will lock the other to be used.
     • Both services share the same cloud storage, but the saved data are stored in different system paths. When you switch to the new one, it will automatically download your data.
 
 ### Cloud Save API
@@ -21,7 +21,7 @@ Unlike many Beamable Features, Cloud Save does not require the usage of a specif
 !!! info "Learning Fundamentals"
 
     For comprehensive learning about Beamable fundamentals, we recommend the following resources:
-    
+
     • See [Beamable: Asynchronous Programming](https://docs.beamable.com/docs/guides-overview#asynchronous-programming) for more info
 
 _Note: This API is demonstrated in the `CloudSavingServiceExample.cs` below._
@@ -75,7 +75,7 @@ It is possible to override and adapt the service to best adapt to your applicati
 
 CustomRegisterExample.cs
 
-```csharp 
+```csharp
 [BeamContextSystem]
 public class PlayerCloudSaveCustomRegister
 {
@@ -157,7 +157,7 @@ There is a limit of 5MB per cloud save file.
 
 ## Data Management Via Portal
 
-The Portal allows the game maker to manage player data as well. Search for a player, select the CloudData tab, and navigate to the player data. 
+The Portal allows the game maker to manage player data as well. Search for a player, select the CloudData tab, and navigate to the player data.
 
 Some common use-cases for game makers include;
 
@@ -177,10 +177,10 @@ Here are the major operations that can be performed against the player data.
 !!! warning "Gotchas"
 
     Here are some common issues and solutions:
-    
-    • While Beamable supports _minor_ edits to the player data from the portal, restoring the a customer's player data completely to a historic backup state is **not supported**.  
-    • The CloudSavingService **does not support** _multiple game sessions using the same user. If there are multiple sessions for the same user, for the same game, this will create an infinite ping/pong effect. E.g. Device A will send updates that Device B will fetch, which will send updates that Device A will fetch, etc..._  
-    • Manually deleting content from the `LocalCloudDataFullPath` is **not supported**  
+
+    • While Beamable supports _minor_ edits to the player data from the portal, restoring the a customer's player data completely to a historic backup state is **not supported**.
+    • The CloudSavingService **does not support** _multiple game sessions using the same user. If there are multiple sessions for the same user, for the same game, this will create an infinite ping/pong effect. E.g. Device A will send updates that Device B will fetch, which will send updates that Device A will fetch, etc..._
+    • Manually deleting content from the `LocalCloudDataFullPath` is **not supported**
     • [Old Cloud Save Service](doc:cloud-save-code) **doesn't support** multiple files with the **same content**. If you want files with the same content (for example a backup file), please add a tag to **differentiate** them or use the [New Cloud Save Service](doc:player-cloud-save-code).
 
 ## Sample Code
@@ -189,7 +189,7 @@ Here is some sample code that demonstrates how to use the Cloud Save Service in 
 
 CloudSavingServiceExample.cs
 
-```csharp 
+```csharp
 using Beamable;
 using Beamable.Api.CloudSaving;
 using Beamable.Common;
@@ -219,7 +219,7 @@ public class CloudSaving_Sample : MonoBehaviour
 	{
 		CheckSaveDataAsync();
 	}
-	
+
 	[ContextMenu("Update Save File")]
 	public void SaveFile()
 	{
@@ -231,7 +231,7 @@ public class CloudSaving_Sample : MonoBehaviour
 	{
 		ForceUploadSaveFileAsync();
 	}
-	
+
 	[ContextMenu("Force Download Save File")]
 	public void ForceDownloadSaveFile()
 	{
@@ -254,15 +254,15 @@ public class CloudSaving_Sample : MonoBehaviour
 	{
 		// Get BeamContext
 		BeamContext context = await BeamContext.Default.Instance;
-		
+
 		_cloudSavingService = context.CloudSaving;
 		// Register to CloudSavingError and OnManifestUpdate | This is optional, use it if you need to handle it by yourself
 		_cloudSavingService.OnCloudSavingError += OnCloudSavingError;
 		_cloudSavingService.OnManifestUpdated += OnManifestUpdated;
-		
+
 		// Init System and start to check for Local and Remote Changes
 		await _cloudSavingService.Init(3);
-		
+
 		Debug.Log("Cloud Saving Service Initialized");
 
 	}
@@ -296,7 +296,7 @@ public class CloudSaving_Sample : MonoBehaviour
 	private async Promise SaveFileAsync(string forceContent = null)
 	{
 		// Save files with random with Forced value or with random values
-		
+
 		string contents = string.IsNullOrEmpty(forceContent)
 			? DateTime.UtcNow.ToString(CultureInfo.InvariantCulture)
 			: forceContent;
@@ -319,13 +319,13 @@ public class CloudSaving_Sample : MonoBehaviour
 		await SaveFileAsync($"ForcedContent-{DateTime.Now.ToString(CultureInfo.InvariantCulture)}");
 		await _cloudSavingService.ForceUploadLocalData();
 	}
-	
+
 	private async void ForceDownloadSaveFileAsync()
 	{
 		// Force download Cloud Values replacing any Local Changes.
 		await _cloudSavingService.ForceDownloadCloudData();
 	}
-	
+
 	[Serializable]
 	private class GameSave
 	{

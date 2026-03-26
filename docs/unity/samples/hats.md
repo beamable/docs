@@ -4,7 +4,7 @@ Welcome to "HATS" (Head Adornment Test Scenario). In this game, **Think ahead qu
 
 !!! info "Related Features"
 
-    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a room  
+    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a room
     • [Multiplayer](../user-reference/beamable-services/social-networking/connectivity.md) - Real-time multiplayer game functionality that enables multiple players to interact in shared game sessions
 
 ## Screenshots
@@ -51,7 +51,7 @@ These steps are **already complete** in the sample project. The instructions her
 
 !!! info "Related Features"
 
-    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a room  
+    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a room
     • [Multiplayer](../user-reference/beamable-services/social-networking/connectivity.md) - Real-time multiplayer game functionality that enables multiple players to interact in shared game sessions
 
 ### Step 1. Setup Project

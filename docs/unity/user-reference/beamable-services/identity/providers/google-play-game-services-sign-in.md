@@ -105,7 +105,7 @@ We can account for this by determining if we need to:
 
 !!! info "Beamable SDK Initialization"
     The following assumes that you have initialized the Beamable SDK and it is stored in _beamContext variable.
-    
+
     ```csharp
     _beamContext = BeamContext.Default;
     await _beamContext.OnReady;

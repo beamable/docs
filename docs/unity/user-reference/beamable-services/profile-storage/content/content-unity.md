@@ -40,7 +40,7 @@ The Content Manager now supports **Auto-Sync**, which automatically detects remo
 
 **Automatic Updates:** Whenever content is modified or created remotely, the changes are seamlessly pulled to your local workspace.
 
-**Conflict Handling:**  
+**Conflict Handling:**
 A file is marked as **Conflicted** only when:
 
 - Both local and remote versions have been modified, **and**
@@ -63,7 +63,7 @@ The validation window automatically filters any invalid content and lists it in 
 ![The Validation Window](../../../../../media/imgs/content-validation-window.png){: style="height:auto;width:400px"}
 
 ### Sync
-The Sync operation enables synchronization between local and remote content, reverting any local changes to match the remote data on Realm. 
+The Sync operation enables synchronization between local and remote content, reverting any local changes to match the remote data on Realm.
 
 ![Content Sync Button](../../../../../media/imgs/content-sync-button.png){: style="height:auto;width:400px"}
 
@@ -79,9 +79,9 @@ You can choose to sync specific content types:
 Then, the Revert Contents validation window gets all local changes and splits them into four categories:
 
 - **Created**
-- **Deleted** 
-- **Modified** 
-- **Conflicted** 
+- **Deleted**
+- **Modified**
+- **Conflicted**
 
 ![The Revert Summary Window](../../../../../media/imgs/content-revert-summary.png){: style="height:auto;width:400px"}
 
@@ -91,12 +91,12 @@ After validating which contents will be reverted, the content manager will start
 
 ![Content Publish Button](../../../../../media/imgs/content-publish-button.png){: style="height:auto;width:400px"}
 
-The publish process compares the local content to the Beamable back-end and shows the publish confirmation window. 
+The publish process compares the local content to the Beamable back-end and shows the publish confirmation window.
 
 The publish confirmation window organizes local changes into three categories:
 
-- **Created** 
-- **Deleted** 
+- **Created**
+- **Deleted**
 - **Modified**
 
 ![The Publish Summary Window](../../../../../media/imgs/content-publish-summary.png){: style="height:auto;width:400px"}
@@ -268,7 +268,7 @@ namespace Beamable.Examples.Services.ContentService
     /// Using validation is optional.
     ///
     /// See "Beamable.Common.Content.Validation" for full list.
-    /// 
+    ///
     /// </summary>
     [ContentType("complex_item")]
     public class ComplexItem : ItemContent
@@ -278,7 +278,7 @@ namespace Beamable.Examples.Services.ContentService
         /// </summary>
         [CannotBeBlank]
         public string Name = "";
-        
+
         /// <summary>
         /// Custom: Validation requires that the value be string and of
         /// string length of 2 or 3.
@@ -286,7 +286,7 @@ namespace Beamable.Examples.Services.ContentService
         /// </summary>
         [MustBeStringLength (2, 3)]
         public string FavoriteLetters = "";
-        
+
         /// <summary>
         /// Built-in: Validation requires that the value be positive and
         /// non-zero.
@@ -325,7 +325,7 @@ namespace Beamable.Examples.Services.ContentService
         private int _stringLengthMax = 0;
 
         //  Constructor Methods  --------------------------------
-        
+
         /// <summary>
         /// Optional. Pass validation arguments.
         /// </summary>
@@ -338,14 +338,14 @@ namespace Beamable.Examples.Services.ContentService
         }
 
         //  Other Methods  --------------------------------
-        
+
         /// <summary>
         /// Performs the validation using the current field type,
         /// field value, and any validation arguments.
         ///
         /// Any thrown <see cref="ContentValidationException"/> will
         /// show helpful text in the inspector to the game maker.
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         /// <exception cref="ContentValidationException"></exception>
@@ -355,7 +355,7 @@ namespace Beamable.Examples.Services.ContentService
             IContentObject content = args.Content;
             Type type = validationField.FieldType;
             object obj = validationField.GetValue();
-            
+
             if (typeof(Optional).IsAssignableFrom(type))
             {
                 Optional optional = obj as Optional;
@@ -367,22 +367,22 @@ namespace Beamable.Examples.Services.ContentService
             // Validation: Is it a string?
             if (ValidationAttribute.IsNumericType(type))
             {
-                throw new ContentValidationException(content, validationField, STRING_TYPE );  
+                throw new ContentValidationException(content, validationField, STRING_TYPE );
             }
 
             // Validation: Are the arguments correct?
             if (_stringLengthMin > _stringLengthMax)
             {
-                throw new ContentValidationException(content, validationField, 
-                    string.Format(ARGUMENT_ERROR, _stringLengthMin, _stringLengthMax)); 
+                throw new ContentValidationException(content, validationField,
+                    string.Format(ARGUMENT_ERROR, _stringLengthMin, _stringLengthMax));
             }
 
             // Validation: Is the current value correct?
             string stringValue = obj as string;
-            if (stringValue == null || 
+            if (stringValue == null ||
                 !(stringValue.Length >= _stringLengthMin && stringValue.Length <= _stringLengthMax))
             {
-                throw new ContentValidationException(content, validationField, 
+                throw new ContentValidationException(content, validationField,
                     string.Format(VALUE_ERROR, stringValue.Length, _stringLengthMin, _stringLengthMax));
             }
         }

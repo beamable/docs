@@ -1,6 +1,6 @@
 # Beamable Boss Battle - Microservices Sample
 
-In the "Beamable Boss Battle" (BBB) sample game, **The Hero has reached the dungeon. Battle the Boss to win.** 
+In the "Beamable Boss Battle" (BBB) sample game, **The Hero has reached the dungeon. Battle the Boss to win.**
 
 !!! info "Related Features"
 
@@ -19,8 +19,8 @@ The player navigates from the Intro Scene to the Game Scene, where all the actio
 This document and the sample project allow game makers to understand and apply the benefits of Microservices in game development. Or watch this video:
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-  <iframe src="https://www.youtube.com/embed/NpEGdH7NvnQ?autoplay=0&fs=1" 
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+  <iframe src="https://www.youtube.com/embed/NpEGdH7NvnQ?autoplay=0&fs=1"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
           allowfullscreen>
   </iframe>
 </div>
@@ -105,7 +105,7 @@ _Optional: Game Makers may experiment with new **Delay** values in the **Attack*
 
 BBBGameManagerSA.cs
 ```csharp
-namespace Beamable.Samples.BBB 
+namespace Beamable.Samples.BBB
 {
    public class BBBGameManagerSA : MonoBehaviour
    {

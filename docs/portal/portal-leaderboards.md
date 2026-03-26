@@ -4,7 +4,7 @@ The Leaderboards feature can be managed from the Portal.
 
 ## Getting Started
 
-Follow these steps to manage leaderboards: 
+Follow these steps to manage leaderboards:
 
 | Step                                      | Detail                                   |
 | :---------------------------------------- | :--------------------------------------- |

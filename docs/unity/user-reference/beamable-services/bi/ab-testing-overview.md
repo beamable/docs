@@ -187,10 +187,10 @@ Loop through the `meta`. There will be 0 or more values. The implementation here
 ```csharp
 foreach (CloudMetaData cloudMetaData in playerManifestResponse.meta)
 {
-    string response = 
+    string response =
         await _trialDataService.GetCloudDataContent(cloudMetaData);
 
-    MyPlayerProgression myPlayerProgression = 
+    MyPlayerProgression myPlayerProgression =
         JsonUtility.FromJson<MyPlayerProgression>(response);
 
     // Store the data
@@ -260,7 +260,7 @@ namespace Beamable.Examples.Services.TrialDataService
     /// NOTE: This demo uses other concepts
     /// too. See <see cref="CloudSavingServiceExample"/>
     /// for more info.
-    /// 
+    ///
     /// </summary>
     public class TrialDataServiceExample : MonoBehaviour
     {
@@ -279,7 +279,7 @@ namespace Beamable.Examples.Services.TrialDataService
                       " * Setup AB Testing in Portal per https://docs.beamable.com/docs/abtesting-code\n" +
                       " * Run The Scene\n" +
                       " * See onscreen UI for results.\n" +
-                      " * If IsInABTest is false, something is incorrect. Repeat these steps.\n" + 
+                      " * If IsInABTest is false, something is incorrect. Repeat these steps.\n" +
                       " * If IsInABTest is true, everything is correct. Visit the portal to change " +
                       "the `PLAYER_LEVEL` stat value, then repeat these steps see load other data.\n");
 
@@ -304,7 +304,7 @@ namespace Beamable.Examples.Services.TrialDataService
             // Load any trials
             GetCloudDataManifestResponse playerManifestResponse =
                 await _trialDataService.GetPlayerManifest();
-            
+
             // Loop through trials
             _data.MyPlayerProgression = null;
             _data.CloudMetaDatas = playerManifestResponse.meta;
@@ -313,10 +313,10 @@ namespace Beamable.Examples.Services.TrialDataService
                 string path = $"http://{cloudMetaData.uri}";
 
                 // Load the data, respecting GZip format
-                string response = 
+                string response =
                     await ExampleProjectHelper.GetResponseFromHttpWebRequest(path);
 
-                MyPlayerProgression myPlayerProgression = 
+                MyPlayerProgression myPlayerProgression =
                     JsonUtility.FromJson<MyPlayerProgression>(response);
 
                 // If trial is related, store data

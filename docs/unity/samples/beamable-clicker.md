@@ -3,7 +3,7 @@
 A simple clicker game sample demonstrating Beamable's Leaderboard system. **In this game, button clicks grow trees. Click as many times as possible within the time limit.**
 
 <div style="position: relative; padding-bottom: 56.25%;">
-  <iframe 
+  <iframe
     src="https://www.youtube.com/embed/z4SaSi0vzkw?autoplay=0&fs=1"
     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
     allowfullscreen>
@@ -56,9 +56,9 @@ private async void SetupBeamable()
 {
     _beamContext = BeamContext.Default;
     await _beamContext.OnReady;
-    
+
     // Handle connectivity changes
-    _beamContext.Api.ConnectivityService.OnConnectivityChanged += 
+    _beamContext.Api.ConnectivityService.OnConnectivityChanged +=
         ConnectivityService_OnConnectivityChanged;
 }
 ```

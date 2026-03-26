@@ -39,10 +39,10 @@ namespace Beamable.Examples.Services.ConnectivityService
         public List<string> OutputLogs = new List<string>();
         public bool HasConnectivity = false;
     }
-   
+
     [System.Serializable]
     public class RefreshedUnityEvent : UnityEvent<ConnectivityServiceExampleData> { }
-    
+
     /// <summary>
     /// Demonstrates <see cref="ConnectivityService"/>.
     /// </summary>
@@ -51,11 +51,11 @@ namespace Beamable.Examples.Services.ConnectivityService
         //  Events  ---------------------------------------
         [HideInInspector]
         public RefreshedUnityEvent OnRefreshed = new RefreshedUnityEvent();
-        
+
         //  Fields  ---------------------------------------
         private BeamContext _beamContext;
         private ConnectivityServiceExampleData _data = new ConnectivityServiceExampleData();
-    
+
         //  Unity Methods  --------------------------------
         protected void Start()
         {
@@ -68,7 +68,7 @@ namespace Beamable.Examples.Services.ConnectivityService
 
             SetupBeamable();
         }
-        
+
         //  Methods  --------------------------------------
         private async void SetupBeamable()
         {
@@ -79,12 +79,12 @@ namespace Beamable.Examples.Services.ConnectivityService
 
             // Observe ConnectivityService Changes
             _beamContext.Api.ConnectivityService.OnConnectivityChanged += ConnectivityService_OnConnectivityChanged;
-            
+
             // Update UI Immediately
             bool hasConnectivity = _beamContext.Api.ConnectivityService.HasConnectivity;
             ConnectivityService_OnConnectivityChanged(hasConnectivity);
         }
-        
+
         public void ToggleHasInternet()
         {
             _beamContext.Api.ConnectivityService.SetHasInternet(!_data.HasConnectivity);
@@ -93,22 +93,22 @@ namespace Beamable.Examples.Services.ConnectivityService
         public void Refresh()
         {
             string refreshLog = $"Refresh() ..." +
-                                $"\n * HasConnectivity = {_data.HasConnectivity}" + 
+                                $"\n * HasConnectivity = {_data.HasConnectivity}" +
                                 $"\n * OutputLogs = {_data.OutputLogs.Count}\n\n";
-            
+
             //Debug.Log(refreshLog);
-            
+
             // Send relevant data to the UI for rendering
             OnRefreshed?.Invoke(_data);
         }
-        
+
         //  Event Handlers  -------------------------------
         private void ConnectivityService_OnConnectivityChanged(bool hasConnectivity)
         {
             _data.HasConnectivity = hasConnectivity;
-            
+
             _data.OutputLogs.Add($"HasConnectivity = {_data.HasConnectivity}");
-            
+
             Refresh();
         }
     }
@@ -167,17 +167,17 @@ public class CustomConnectivityService : IConnectivityService
     public bool ForceDisabled { get; set; }
     public bool Disabled => ForceDisabled || IConnectivityServiceExtensions.GlobalForceDisabled;
     public event Action<bool> OnConnectivityChanged;
-    
+
     public  Promise SetHasInternet(bool hasInternet)
     {
         var promise = new Promise();
-        
+
         if (!Disabled)
         {
             _isConnected = hasInternet;
             OnConnectivityChanged?.Invoke(hasInternet);
         }
-        
+
         promise.CompleteSuccess();
         return promise;
     }
@@ -204,10 +204,10 @@ public class CustomConnectivityService : IConnectivityService
     {
         const string url = "http://127.0.0.1:3000/ping";
         using var webRequest = UnityWebRequest.Get(url);
-        
+
         // Send the request asynchronously
         yield return webRequest.SendWebRequest();
-        
+
         if (webRequest.result == UnityWebRequest.Result.Success)
         {
             // Request was successful, and you can handle the response data here.
@@ -276,12 +276,12 @@ public class CustomConnectivityServiceExample : MonoBehaviour
     //  Events  ---------------------------------------
     [HideInInspector]
     public RefreshedUnityEvent OnRefreshed = new();
-    
+
     //  Fields  ---------------------------------------
     private BeamContext _beamContext;
     private ConnectivityServiceData _data = new();
     private IConnectivityService _connectivityService;
-    
+
     //  Properties  -----------------------------------
     public ConnectivityServiceData Data => _data;
 
@@ -324,7 +324,7 @@ public class CustomConnectivityServiceExample : MonoBehaviour
         // Observe ConnectivityService Changes
         _connectivityService.OnConnectivityChanged += ConnectivityService_OnConnectivityChanged;
     }
-    
+
     public void ToggleHasInternet()
     {
         _connectivityService.SetHasInternet(!_data.HasConnectivity);
@@ -333,22 +333,22 @@ public class CustomConnectivityServiceExample : MonoBehaviour
     public void Refresh()
     {
         string refreshLog = $"Refresh() ..." +
-                            $"\n * HasConnectivity = {_data.HasConnectivity}" + 
+                            $"\n * HasConnectivity = {_data.HasConnectivity}" +
                             $"\n * OutputLogs = {_data.OutputLogs.Count}\n\n";
-        
+
         Debug.Log(refreshLog);
-        
+
         // Send relevant data to the UI for rendering
         OnRefreshed?.Invoke(_data);
     }
-    
+
     //  Event Handlers  -------------------------------
     private void ConnectivityService_OnConnectivityChanged(bool hasConnectivity)
     {
         _data.HasConnectivity = hasConnectivity;
-        
+
         _data.OutputLogs.Add($"HasConnectivity = {_data.HasConnectivity}");
-        
+
         Refresh();
     }
 }

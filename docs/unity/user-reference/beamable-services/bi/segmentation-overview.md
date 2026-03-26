@@ -62,16 +62,16 @@ Sometimes you might want to create a cohort from custom telemetry in your game. 
 ```sql
 select distinct gamer_tag, stat_name, stat_value from (
 
-    select distinct 
-        gamer_tag, 
+    select distinct
+        gamer_tag,
     '   sessions7d' as "stat_name",
         round(avg(cast("e.sessions7d" as integer))) stat_value
-    from 
-        platform_session_session 
-    group by 
+    from
+        platform_session_session
+    group by
         gamer_tag
-) 
-where 
+)
+where
 stat_value > 7
 ```
 

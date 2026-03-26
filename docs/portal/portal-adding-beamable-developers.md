@@ -24,7 +24,7 @@ The "User Administration" page features a list of all of the admins, developers,
 
 4. In the "Permissions" menu that pops up, type in the email address of the teammate you intend to add.
 
-5. Choose a role for from the drop down list to define the global permissions to grant to your teammate. 
+5. Choose a role for from the drop down list to define the global permissions to grant to your teammate.
    [User permissions can be changed](portal-granting-realm-scoped-developer-permissions.md) later.
 
 6. Click _save_ to register an account for your teammate. They will receive an auto-generated email with login instructions.
@@ -35,7 +35,7 @@ The "User Administration" page features a list of all of the admins, developers,
 
 Next, your teammate should follow these steps to proceed through the password reset process:
 
-1. Navigate to [portal.beamable.com/login/](https://portal.beamable.com/login/) and enter your organization's CID. 
+1. Navigate to [portal.beamable.com/login/](https://portal.beamable.com/login/) and enter your organization's CID.
    1. _If you do not have your CID or forgotten it, please request your CID from [support@beamable.com](mailto:support@beamable.com)._
 
 2. Click the _Forgot Password_ link at the bottom of the login screen.
@@ -43,9 +43,9 @@ Next, your teammate should follow these steps to proceed through the password re
 ![Portal Add Devs Forgot Password](../media/imgs/Portal-Add_Devs-B1_forgot_pw.png)
 
 
-3. Enter your email address and press _Send Code_. An email with a reset code will be sent to the address entered. Each reset code is valid for 1 hour. A fresh reset code will be required if the "Change Password" is closed. 
+3. Enter your email address and press _Send Code_. An email with a reset code will be sent to the address entered. Each reset code is valid for 1 hour. A fresh reset code will be required if the "Change Password" is closed.
 
-4. Retrieve the reset code from that email and navigate back to the "Change Password" page. 
+4. Retrieve the reset code from that email and navigate back to the "Change Password" page.
 
 ![Portal Add Devs B2 Reset Password](../media/imgs/Portal-Add_Devs-B2_reset_pw.png)
 

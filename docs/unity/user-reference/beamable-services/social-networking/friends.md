@@ -32,7 +32,7 @@ using UnityEngine;
 public class FriendsSample : MonoBehaviour
 {
     public PlayerSocial social;
-   
+
     async void Start()
     {
         var ctx = BeamContext.Default;
@@ -64,7 +64,7 @@ using UnityEngine;
 public class FriendsSample : MonoBehaviour
 {
     public long playerToBefriend;
-    
+
     [ContextMenu("Invite")]
     async void Invite()
     {
@@ -198,7 +198,7 @@ A friend may have a presence object that describes the friend's online status. F
 
 ```csharp
 var ctx = await BeamContext.ForPlayer(code).Instance;
-	   
+
 ctx.Social.FriendPresenceChanged += friend =>
 {
   Debug.Log($"{ctx.UserId} saw friend {friend.UserId} go online=[{friend.Presence.status}] - desc=[{friend.Presence.description}]");

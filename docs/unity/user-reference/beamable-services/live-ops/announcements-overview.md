@@ -20,7 +20,7 @@ Before we can perform any actions, the current player must be logged in and Beam
 
 ```csharp
 private BeamContext _beamContext;
-    
+
 private async void Start()
 {
     _beamContext = BeamContext.Default;
@@ -95,12 +95,12 @@ public class AnnouncementsTest : MonoBehaviour
     {
         _beamContext = BeamContext.Default;
         await _beamContext.OnReady;
-    
+
         Debug.Log($"User Id: {_beamContext.PlayerId}");
 
         var announcements = await GetAnnouncements();
         PrintAnnouncements(announcements);
-        
+
         SubscribeToAnnouncements();
     }
 

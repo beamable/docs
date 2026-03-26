@@ -2,7 +2,7 @@
 
 A sample project demonstrating Beamable's Chat feature through a trading game called "Global Price Wars".
 
-In "Global Price War" (GPW), the winners say **Buy low, sell high! Finish rich and be top on the Leaderboard.**. 
+In "Global Price War" (GPW), the winners say **Buy low, sell high! Finish rich and be top on the Leaderboard.**.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2yVdP53Gw64?si=Y7t2Z5EvIduv5bmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -10,7 +10,7 @@ In "Global Price War" (GPW), the winners say **Buy low, sell high! Finish rich a
 !!! info "Beamable Features Used"
 
     This sample demonstrates integration with multiple Beamable services:
-    
+
     - [Chat](../user-reference/beamable-services/social-networking/chat.md) - Real-time messaging between players
     - [Connectivity](../user-reference/beamable-services/social-networking/connectivity.md) - Player connection and presence
     - [Content](../user-reference/beamable-services/profile-storage/content/content-overview.md) - Game configuration and data management
@@ -72,11 +72,11 @@ Here is a high-level chart showing the _partial_ structure.
 
 ### Design of Data
 
-The data within the `RuntimeDataStorage` is vital for the core game loop. 
+The data within the `RuntimeDataStorage` is vital for the core game loop.
 
 The game design requires that all users in the same game (e.g. same chat session) to see a shared world of consistent pricing. This is accomplished using the data structure and data factory below.
 
-**Data Structure**  
+**Data Structure**
 The structure contains all the locations of the game. Within each location is information about each product; including its price and quantity.
 
 - List < LocationContentView >
@@ -87,7 +87,7 @@ The structure contains all the locations of the game. Within each location is in
       - Price (e.g. "10")
       - Quantity (e.g. "3")
 
-**Data Factory**  
+**Data Factory**
 The `IDataFactory` gets data as shown in the diagram below.
 
 - A. The `RuntimeDataStorage` calls to `GetLocationContentViews()` at the start of each game session

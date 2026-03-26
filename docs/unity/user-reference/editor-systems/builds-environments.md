@@ -42,7 +42,7 @@ public class BuildProcessorOverrideConfigDefaults : IPreprocessBuildWithReport
         {
             throw new IOException($"Beamable Config Defaults missing! Config file was not found at path: '{configDefaultsAssetPath}'.");
         }
-        
+
         if (!string.IsNullOrEmpty(configKey))
         {
             Debug.Log($"Beamable Config override provided. Attempting to copy 'config-{configKey}.txt' to 'config-defaults.txt'.");
@@ -55,14 +55,14 @@ public class BuildProcessorOverrideConfigDefaults : IPreprocessBuildWithReport
 
                 var configDefaultsText = File.ReadAllText(configDefaultsAssetPath);
                 var configAssetText = File.ReadAllText(configAssetPath);
-                
+
                 if (configAssetText != configDefaultsText)
                 {
                     throw new IOException("Beamable Config override failed to copy to config-defaults. Config content does not match." +
-                                          $"\n[config-defaults.txt]:\n{configDefaultsText}\n" + 
+                                          $"\n[config-defaults.txt]:\n{configDefaultsText}\n" +
                                           $"\n[config-{configKey}.txt]:\n{configAssetText}");
                 }
-                
+
                 Debug.Log($"Beamable Config override successfully copied to config-defaults: '{configAssetPath}'.");
             }
             else

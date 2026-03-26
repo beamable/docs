@@ -4,8 +4,8 @@ Welcome to "Red Light, Green Light" (RLGL). In this game, **Race other players t
 
 !!! info "Related Features"
 
-    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a match (i.e. a multiplayer "room")  
-    • [Leaderboards](../user-reference/beamable-services/live-ops/player-stats-and-activities.md) - Track and display player rankings and scores  
+    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a match (i.e. a multiplayer "room")
+    • [Leaderboards](../user-reference/beamable-services/live-ops/player-stats-and-activities.md) - Track and display player rankings and scores
     • [Microservices](../user-reference/cloud-services/microservices/microservice-framework.md) - Custom server-side logic and game rules
 
 ## Screenshots
@@ -70,8 +70,8 @@ The sample project includes additional features that are not required to run the
 
 In the _Red Light, Green Light_ sample project, the Photon Fusion SDK is already installed in the Unity project. However, installing the SDK into your own Unity project is simple. A full guide for installing the Photon Fusion SDK can be found here: [Fusion 101 - Getting Started](https://doc.photonengine.com/en-us/fusion/current/fusion-100/fusion-101). The basic steps include:
 
-• Create a PhotonEngine account  
-• Download and Install the Fusion SDK in your Unity project  
+• Create a PhotonEngine account
+• Download and Install the Fusion SDK in your Unity project
 • Configure your Unity project and connect it to your Photon App ID
 
 You will need a unique Photon App ID for each of your Beamable games.
@@ -116,7 +116,7 @@ FusionLauncher.cs
 //_runner is a NetworkRunner, a Photon class representing a simulation.
 await _runner.StartGame(new StartGameArgs()
 {
-    GameMode = mode, 
+    GameMode = mode,
     SessionName = matchId,
     SceneObjectProvider = sceneLoader,
     PlayerCount = playerCount

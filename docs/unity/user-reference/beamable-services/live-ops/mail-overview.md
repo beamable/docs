@@ -74,7 +74,7 @@ namespace Beamable.Examples.Services.MailService
    {
       public long Dbid = 0;
       public int UnreadMailCount = 0;
-      
+
       // UI messages that indicate mail exists or not
       public List<string> UnreadMailLogs = new List<string>();
       public List<string> UpdateMailLogs = new List<string>();
@@ -82,10 +82,10 @@ namespace Beamable.Examples.Services.MailService
       public List<string> MailMessageLogs = new List<string>();
       public bool IsBeamableSetup = false;
    }
-   
+
    [System.Serializable]
    public class RefreshedUnityEvent : UnityEvent<MailServiceExampleData> { }
-   
+
    /// <summary>
    /// Demonstrates <see cref="MailService"/>.
    /// </summary>
@@ -94,14 +94,14 @@ namespace Beamable.Examples.Services.MailService
       //  Events  ---------------------------------------
       [HideInInspector]
       public RefreshedUnityEvent OnRefreshed = new RefreshedUnityEvent();
-      
-      
+
+
       //  Fields  ---------------------------------------
       private BeamContext _beamContext;
       private const string MailCategory = "";
       private MailServiceExampleData _data = new MailServiceExampleData();
 
-      
+
       //  Unity Methods  --------------------------------
       protected void Start()
       {
@@ -109,13 +109,13 @@ namespace Beamable.Examples.Services.MailService
                            $"\n * Play Scene" +
                            $"\n * Check for mail using UI. Probably none" +
                            $"\n * Stop Scene" +
-                           $"\n * Unity → Window → Beamable → Examples → MailService → Send Test Mail To 
+                           $"\n * Unity → Window → Beamable → Examples → MailService → Send Test Mail To
                                Active User" +
                            $"\n * Play Scene" +
                            $"\n * Check for mail using UI. Probably some\n\n";
-         
+
          Debug.Log(startLog);
-         
+
          SetupBeamable();
          Refresh();
       }
@@ -123,7 +123,7 @@ namespace Beamable.Examples.Services.MailService
 
       //  Methods  --------------------------------------
       private async void SetupBeamable()
-      { 
+      {
          _beamContext = BeamContext.Default;
          await _beamContext.OnReady;
 
@@ -143,11 +143,11 @@ namespace Beamable.Examples.Services.MailService
          });
 
          Refresh();
-         
+
          _data.IsBeamableSetup = _beamContext != null;
       }
 
-      
+
       private async Task<EmptyResponse> GetMail()
       {
          _data.MailMessageLogs.Clear();
@@ -162,18 +162,18 @@ namespace Beamable.Examples.Services.MailService
                                     $"\n";
             _data.MailMessageLogs.Add(mailMessageLog);
          }
-         
+
          Refresh();
 
          return new EmptyResponse();
       }
 
-      
+
       public async void UpdateMail()
       {
          _data.UpdateMailLogs.Clear();
          var mailUpdateRequest = new MailUpdateRequest();
-         
+
          // Arbitrary Example - Toggle "read" to "unread"
          var listMailResponse = await _beamContext.Api.MailService.GetMail(MailCategory);
          foreach (var mailMessage in listMailResponse.result)
@@ -185,16 +185,16 @@ namespace Beamable.Examples.Services.MailService
             }
             mailUpdateRequest.Add(mailMessage.id, newMailState, true, mailMessage.expires);
          }
-    
+
          await _beamContext.Api.MailService.Update(mailUpdateRequest);
-         
+
          string updateMailLog = $"updateMailRequests = {mailUpdateRequest.updateMailRequests.Count}";
          _data.UpdateMailLogs.Add(updateMailLog);
-         
+
          Refresh();
       }
-      
-      
+
+
       public void Refresh()
       {
          if (_data.IsBeamableSetup)
@@ -211,8 +211,8 @@ namespace Beamable.Examples.Services.MailService
          // Send relevant data to the UI for rendering
          OnRefreshed?.Invoke(_data);
       }
-      
-      
+
+
       /// <summary>
       /// NOTE: This must be called from a user with
       /// admin privileges or from a microservice
@@ -222,8 +222,8 @@ namespace Beamable.Examples.Services.MailService
          var beamContext = BeamContext.Default;
          await beamContext.OnReady;
          long playerId = beamContext.UserId;
-      
-         // Arbitrary Example - Send mail from ME to ME 
+
+         // Arbitrary Example - Send mail from ME to ME
          var mailSendRequest = new MailSendRequest();
          var mailSendEntry = new MailSendEntry();
          mailSendEntry.category = MailCategory;
@@ -238,13 +238,13 @@ namespace Beamable.Examples.Services.MailService
          try
          {
             Debug.Log($"beamContext.UserId = {playerId}");
-            
+
             var emptyResponse = await beamContext.Api.MailService.SendMail(mailSendRequest);
          }
          catch (Exception e)
          {
             Debug.LogError(e.Message + "\n\n");
-            Debug.LogWarning($"Solution To Error: Add the beamContext.UserId of {playerId} with the role 
+            Debug.LogWarning($"Solution To Error: Add the beamContext.UserId of {playerId} with the role
                 of 'Admin' via Portal → Teams and retry this operation.\n\n");
             isSuccess = false;
          }

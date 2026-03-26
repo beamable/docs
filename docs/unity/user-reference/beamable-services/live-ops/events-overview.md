@@ -58,10 +58,10 @@ namespace Beamable.Examples.Services.EventsService
 
       public bool SetScoreButtonIsInteractable = true;
    }
-   
+
    [System.Serializable]
    public class RefreshedUnityEvent : UnityEvent<EventsServiceExampleData> { }
-   
+
    /// <summary>
    /// Demonstrates <see cref="EventsService"/>.
    /// </summary>
@@ -70,13 +70,13 @@ namespace Beamable.Examples.Services.EventsService
       //  Events  ---------------------------------------
       [HideInInspector]
       public RefreshedUnityEvent OnRefreshed = new RefreshedUnityEvent();
-      
-      
+
+
       //  Fields  ---------------------------------------
       private BeamContext _beamContext;
       private EventsServiceExampleData _data = new EventsServiceExampleData();
 
-      
+
       //  Unity Methods  --------------------------------
       protected void Start()
       {
@@ -85,10 +85,10 @@ namespace Beamable.Examples.Services.EventsService
          SetupBeamable();
       }
 
-      
+
       //  Methods  --------------------------------------
       private async void SetupBeamable()
-      { 
+      {
          _beamContext = BeamContext.Default;
          await _beamContext.OnReady;
 
@@ -105,26 +105,26 @@ namespace Beamable.Examples.Services.EventsService
                index++;
                string endTime = $"{eventView.endTime.ToShortDateString()} at " +
                                 $"{eventView.endTime.ToShortTimeString()}";
-               
+
                string totalPhaseCount = eventView.allPhases.Count.ToString();
                string totalRulesCount = eventView.currentPhase.rules.Count.ToString();
                string currentPhase = eventView.currentPhase.name;
                _data.Score = eventView.score;
                double groupScore = eventView.groupRewards.groupScore;
-               
+
                string eventLog = $"Event #{index}\n" +
-                     $"\n\tname = {eventView.name}" + 
+                     $"\n\tname = {eventView.name}" +
                      $"\n\tendTime = {endTime}" +
                      $"\n\ttotalPhaseCount = {totalPhaseCount}" +
-                     $"\n\ttotalRulesCount = {totalRulesCount}" + 
-                                 
+                     $"\n\ttotalRulesCount = {totalRulesCount}" +
+
                      $"\n\n  (Standard Events)" +
                      $"\n\tcurrentPhase = {currentPhase}" +
                      $"\n\tscore = {_data.Score}" +
 
                      $"\n\n  (Group Events)" +
                      $"\n\tgroupScore = {groupScore}";
-               
+
                _data.RunningEventsLogs.Add(eventLog);
                _data.SetScoreButtonIsInteractable = true;
             }
@@ -134,12 +134,12 @@ namespace Beamable.Examples.Services.EventsService
          Refresh();
       }
 
-      
+
       public async void SetScoreInEvents()
       {
          _data.SetScoreButtonIsInteractable = false;
          _data.Score += 1;
-         
+
          // SetScore() in **ALL** events.
          // Typical usage is to SetScore() in just one event.
          EventsGetResponse eventsGetResponse = await _beamContext.Api.EventsService.GetCurrent();
@@ -154,22 +154,22 @@ namespace Beamable.Examples.Services.EventsService
             _data.SetScoreLogs.Clear();
             _data.SetScoreLogs.Add(score);
          }
-         
+
          Refresh();
-         
+
          // HACK: Force refresh here (0.10.1)
-         // wait (arbitrary milliseconds) for refresh to complete 
+         // wait (arbitrary milliseconds) for refresh to complete
          _beamContext.Api.EventsService.Subscribable.ForceRefresh();
-         await Task.Delay(300); 
-         
+         await Task.Delay(300);
+
          Refresh();
       }
-      
-      
+
+
       public async void ClaimRewardsInEvents()
       {
          _data.ClaimLogs.Clear();
-         
+
          // Claim() in **ALL** events.
          // Typical usage is to Claim() in just one event.
          EventsGetResponse eventsGetResponse = await _beamContext.Api.EventsService.GetCurrent();
@@ -186,11 +186,11 @@ namespace Beamable.Examples.Services.EventsService
                {
                   Debug.Log($"ClaimableScore. min = {eventReward.min}, " +
                             $"max = {eventReward.max}");
-                  
+
                   hasClaimableScoreReward = true;
                }
             }
-            
+
             // GROUP EVENTS
             // The systems supports scoreRewards (redeemable at any time)
             // and rankRewards (redeemable only at end of phase)
@@ -204,16 +204,16 @@ namespace Beamable.Examples.Services.EventsService
                   {
                      Debug.Log($"ClaimableGroupScore. min = {eventReward.min}, " +
                                $"max = {eventReward.max}");
-                  
+
                      hasClaimableGroupScoreReward = true;
                   }
                }
             }
-            
+
             // Get value, or default
             double? groupScore = eventView?.groupRewards?.groupScore;
             groupScore = groupScore.HasValue ? groupScore.Value: 0;
-            
+
             bool canClaim = hasClaimableScoreReward || hasClaimableGroupScoreReward;
             string claim = "";
             if (canClaim)
@@ -221,9 +221,9 @@ namespace Beamable.Examples.Services.EventsService
                // Claim() fails if there is nothing to be claimed
                try
                {
-                  EventClaimResponse eventClaimResponse = await 
+                  EventClaimResponse eventClaimResponse = await
                       _beamContext.Api.EventsService.Claim(eventView.id);
-                  
+
                   // Get value, or default
                   int? groupScoreRewardsCount = eventClaimResponse.view.groupRewards?.scoreRewards?.Count;
                   groupScoreRewardsCount = groupScoreRewardsCount.HasValue ? groupScoreRewardsCount.Value: 0;
@@ -232,11 +232,11 @@ namespace Beamable.Examples.Services.EventsService
                            $"\n\tname = {eventView.name}" +
                            $"\n\tcanClaim= {canClaim}" +
                            $"\n\thasClaimableScoreReward = {hasClaimableScoreReward}" +
-                           
+
                            $"\n\n  (Standard Events)" +
                            $"\n\trankRewards = {eventClaimResponse.view.rankRewards.Count}" +
                            $"\n\tscoreRewards = {eventClaimResponse.view.scoreRewards.Count}" +
-                           
+
                            $"\n\n  (Group Events)" +
                            $"\n\tgroupScoreRewardsCount = {groupScoreRewardsCount}";
                }
@@ -256,15 +256,15 @@ namespace Beamable.Examples.Services.EventsService
                         $"\n\tcanClaim= {canClaim}" +
                         $"\n\thasClaimableScoreReward = {hasClaimableScoreReward}";
             }
-            
+
 
             _data.ClaimLogs.Add(claim);
-     
+
          }
          Refresh();
       }
-      
-      
+
+
       public void Refresh()
       {
          string refreshLog = $"Refresh() ...\n" +
@@ -272,7 +272,7 @@ namespace Beamable.Examples.Services.EventsService
                              $"\n * SetScoreLogs.Count = {_data.SetScoreLogs.Count}" +
                              $"\n * ClaimLog.Count = {_data.ClaimLogs.Count}\n\n";
          //Debug.Log(refreshLog);
-         
+
          // Send relevant data to the UI for rendering
          OnRefreshed?.Invoke(_data);
       }
@@ -342,7 +342,7 @@ However, with **group** events, rewards are based on group progress (that is, co
 !!! warning "Important Notes"
 
     Here are some common issues and solutions:
-    
+
     • To be eligible for a **group** reward, the player must join the group **before** the event begins. Or the player must be the creator of the group
 
 See [Groups](doc:groups-feature-overview) for more information about creating and joining a group.

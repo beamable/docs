@@ -65,9 +65,9 @@ namespace Beamable.DemoService
 ```csharp
 public async void Start()
 {
-    // get access to Beamable 
+    // get access to Beamable
     var ctx = await BeamContext.Default.Instance;
-    
+
     // use extension methods to access a pre-configured client
     var demoClient = ctx.Microservices().DemoService();
 

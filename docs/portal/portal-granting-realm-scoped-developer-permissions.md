@@ -3,7 +3,7 @@ When your Beamable account contains multiple games, you may wish to allow differ
 
 ## Getting Started
 
-This guide assumes there is already an account for the person whose access you are changing. If they need a new account, follow the instructions in [Portal / Adding Developers](portal-adding-beamable-developers.md) first. 
+This guide assumes there is already an account for the person whose access you are changing. If they need a new account, follow the instructions in [Portal / Adding Developers](portal-adding-beamable-developers.md) first.
 
 1. Navigate to [portal.beamable.com/login/](https://portal.beamable.com/login/) and login using the customer ID, email, and password with which you registered your project.
 
@@ -22,7 +22,7 @@ This guide assumes there is already an account for the person whose access you a
 
 5. Select a role to apply it and grant its permissions to the teammate's account.
 
-6. To set up permissions specific to a game realm, click on _Realm-scoped +_ to open additional fields. Use them to grant a role within a specific realm.  
+6. To set up permissions specific to a game realm, click on _Realm-scoped +_ to open additional fields. Use them to grant a role within a specific realm.
    (**NOTE:** Existing realm-scoped permissions cannot be changed; click the red X to remove a permission. Click the green arrow to undelete a realm-scoped role.)
 
 !!! info "Basic Roles and Permissions"

@@ -10,7 +10,7 @@ The **Stats** feature allows game makers to store and track pieces of data about
 The Stats feature offers two main entry points:
 
 - **StatsService API** - This has high flexibility.
-- **StatsBehaviour Component** - This has high ease-of-use. 
+- **StatsBehaviour Component** - This has high ease-of-use.
 
 ## Custom Stats
 Beamable allows game makers to create custom status for the specific needs of the game design. Mind the following rules when creating defining those:
@@ -133,11 +133,11 @@ Custom stats are created on-demand the first time they are written to. However, 
 | 3. Populate all data fields | ![Populate Fields](../../../../media/imgs/stats-populate-fields-step3.jpg)<br><br>_Best Practice: It is a best practice to match the `Stat Key` value with the asset file name_ |
 | 4. Save the Unity Project | • Unity → File → Save Project<br><br>_Best Practice: If you are working on a team, commit to version control in this step._ |
 
-There are two main methods for interacting with Stats: 
+There are two main methods for interacting with Stats:
 
 - Using the [`StatBehaviour`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Stats_1_1StatBehaviour.html) Component
 - Raw C# coding using the StatsService.
- 
+
 Game makers can use either/both methods to meet the needs of the game project.
 
 ### Using StatsBehaviour Component

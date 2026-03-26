@@ -33,11 +33,11 @@ The following example example shows how to write custom telemetry data into the 
 Start off by creating a custom event data structure. This holds the **payload** for your event which you will send to Beamable.
 
 ```csharp
-public class MyExampleEvent : CoreEvent 
+public class MyExampleEvent : CoreEvent
     {
         public MyExampleEvent(string foo, string bar) : base (
-            "example",  
-            "my_example_event", 
+            "example",
+            "my_example_event",
             new Dictionary<string, object>
             {
                 ["foo"] = foo,
@@ -59,7 +59,7 @@ await beamContext.OnReady;
 var foo = "lorem ipsum 1";
 var bar = "lorem ipsum 2";
 var myExampleEvent = new MyExampleEvent(foo, bar);
-            
+
 //Send Immediately
 var sendImmediately = true;
 //Send the event to Beamable's Analytics Database (Athena)

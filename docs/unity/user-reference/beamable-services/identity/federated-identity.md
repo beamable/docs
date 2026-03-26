@@ -48,7 +48,7 @@ public class AuthenticationMicroservice : IFederatedLogin<TunaCloudIdentity>, IF
     }
     return new FederatedAuthenticationResponse { user_id = tunaUserResponse.userId };
   }
-  
+
   public async Promise<FederatedAuthenticationResponse> IFederatedLogin<HaddockCloudIdentity>.Authenticate(string token, string challenge, string solution)
   {
   	throw new NotImplementedException("Haddock identity is not implemented. Please use Tuna identity instead.");

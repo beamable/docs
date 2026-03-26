@@ -4,7 +4,7 @@ The Analytics feature's **Stats** section can be managed from the Portal.
 
 ## Getting Started
 
-Follow these steps to manage player stats: 
+Follow these steps to manage player stats:
 
 | Step                                      | Detail                                                |
 | :---------------------------------------- | :---------------------------------------------------- |

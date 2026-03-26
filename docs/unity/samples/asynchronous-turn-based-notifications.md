@@ -2,11 +2,11 @@
 
 Update players and UI with turn based notifications.
 
-[This sample project](https://github.com/beamable/beamable-sample-sandbox/tree/ping-pong-system) demonstrates how to utilize Beamable features to handle turn management and real-time communication between players. 
+[This sample project](https://github.com/beamable/beamable-sample-sandbox/tree/ping-pong-system) demonstrates how to utilize Beamable features to handle turn management and real-time communication between players.
 
 In this example, we have created a simple turn-based "ping-pong" game where two players take turns pinging each other. The Unity client subscribes to notifications to listen for turn updates, sends pings to the opponent, and checks whose turn it is to update the UI.
 
-The server maintains the turn state in a shared `TurnData` document and provides endpoints for the client to ping the opponent and check the current turn. 
+The server maintains the turn state in a shared `TurnData` document and provides endpoints for the client to ping the opponent and check the current turn.
 
 ## Components Breakdown
 

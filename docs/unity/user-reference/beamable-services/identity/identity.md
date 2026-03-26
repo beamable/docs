@@ -1,6 +1,6 @@
 # Identity Overview
 
-Beamable provides a robust identity solution that integrates with 3rd party solutions. This set of features gives you ultimate flexibility about how to authenticate users into your game. Beamable knows that authentication varies from game to game. This is exactly why we provide you with multiple authentication features to suit your needs. 
+Beamable provides a robust identity solution that integrates with 3rd party solutions. This set of features gives you ultimate flexibility about how to authenticate users into your game. Beamable knows that authentication varies from game to game. This is exactly why we provide you with multiple authentication features to suit your needs.
 
 Authentication is often tricky and has more edge cases than one normally thinks about, you have to factor in what happens when errors occur and how to handle those errors. Below is a diagram of authentication flow that exposes how you can potentially handle these types of scenarios.
 
@@ -20,7 +20,7 @@ BeamContext.Default.Accounts.RecoverAccountWithEmail(email, password)
 BeamContext.Default.Accounts.RecoverAccountWithThirdParty(thirdParty, accessToken)
 ```
 
-Both of these methods work similarly, returning a `PlayerRecoveryOperation`. The `PlayerRecoveryOperation` structure can be used to inspect the account that the user is trying to recover if the correct credentials were supplied. If incorrect credentials were given, the `PlayerRecoveryOperation` will contain an `error`, and its `isSuccess` field will be false. 
+Both of these methods work similarly, returning a `PlayerRecoveryOperation`. The `PlayerRecoveryOperation` structure can be used to inspect the account that the user is trying to recover if the correct credentials were supplied. If incorrect credentials were given, the `PlayerRecoveryOperation` will contain an `error`, and its `isSuccess` field will be false.
 
 However, assuming that the credentials are correct, then the `PlayerRecoveryOperation.SwitchToAccount()` function can be invoked to save the account's access token to the user's device. The next time the user starts the app, the game can check if a token exists for that user, and skip the manual sign-in process (performing a "silent" login).
 

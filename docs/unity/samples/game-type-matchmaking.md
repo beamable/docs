@@ -6,7 +6,7 @@ Match players together based on region of the world
 
 This is a **code-only** sample project demonstrating game type based matchmaking. A core concept of the matchmaking system is game types, and Game Makers have the option to silo matchmaking pools by game type. This can have multiple usages:
 
-• Limiting matchmaking by the game rules (for example, King Of The Hill players shouldn't be matched with Capture The Flag players)  
+• Limiting matchmaking by the game rules (for example, King Of The Hill players shouldn't be matched with Capture The Flag players)
 • Grouping different competitive leagues to play together
 
 In this example, game types are used to only match players in a specific region of the world. Matching players in different regions may not be a good fit for some games, such as competitive multiplayer games, or games featuring region-specific content. This is the primary use-case demonstrated in the sample project.
@@ -32,10 +32,10 @@ namespace MatchmakingExample
 {
     [Serializable]
     public class GeoGameTypeLink : ContentLink<GeoGameType>{}
-    
+
     [Serializable]
     public class GeoGameTypeRef : ContentRef<GeoGameType> {}
-    
+
     [ContentType("geo")]
     [Serializable]
     public class GeoGameType : SimGameType
@@ -76,7 +76,7 @@ The "Geo" scene in the project is partially configured to test this functionalit
 
 You will need 2 instances of the project running in order to test. This can be accomplished in 2 ways:
 
-• Create a build for your target platform, and run 2 instances of it, or  
+• Create a build for your target platform, and run 2 instances of it, or
 • Run 2 instances of the project in the Unity Editor, which may require 2 machines
 
 Once you have 2 games running, select the same game type on both instances and click the Start Matchmaking button and they will be matched. To validate the game type filtering, change the game type on one of the machines. This will create a mismatch, then start matchmaking again and observe that the two players are not matched up.

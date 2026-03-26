@@ -2,7 +2,7 @@
 
 A sample project demonstrating Beamable's Chat and MicroStorage features through an advanced trading game called "Global Price Wars 2".
 
-In "Global Price War" (GPW), the winners say **Buy low, sell high! Finish rich and be top on the Leaderboard.**. 
+In "Global Price War" (GPW), the winners say **Buy low, sell high! Finish rich and be top on the Leaderboard.**.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2yVdP53Gw64?si=6f3VCYe6z6tWcxAa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 

@@ -27,7 +27,7 @@ StoreTest.cs
 private async Task<bool> MakePurchase()
 {
     var success = true;
-        
+
   	//Errors are simply logged to the console here,
  	  //but the user should also be notified in the UI or otherwise.
     await _beamContext.Api.CommerceService.Purchase(storeRef.Id, listingRef.Id)
@@ -36,7 +36,7 @@ private async Task<bool> MakePurchase()
             Debug.LogError(error);
             success = false;
         });
-        
+
     return success;
 }
 ```
@@ -140,36 +140,36 @@ public class CustomPurchaser : IBeamablePurchaser
 {
     private PaymentService _paymentService;
     private YourPaymentProvider _paymentProvider; // Your payment provider SDK
-    
+
     public async Promise<Unit> Initialize(IDependencyProvider provider = null)
     {
         // Initialize your payment provider
         _paymentProvider = new YourPaymentProvider();
         await _paymentProvider.Initialize();
-        
+
         // Get reference to Beamable's payment service
         var context = await BeamContext.Default.Instance;
         _paymentService = context.Api.PaymentService;
-        
+
         return new Unit();
     }
-    
+
     public string GetLocalizedPrice(string skuSymbol)
     {
         // Query your payment provider for localized price
         return _paymentProvider.GetLocalizedPrice(skuSymbol);
     }
-    
+
     public async Promise<CompletedTransaction> StartPurchase(string listingSymbol, string skuSymbol)
     {
         try
         {
             // 1. Notify Beamable that purchase is starting
             await _paymentService.BeginPurchase(listingSymbol);
-            
+
             // 2. Start purchase with your payment provider
             var result = await _paymentProvider.ProcessPayment(skuSymbol);
-            
+
             if (result.Success)
             {
                 // 3. Complete purchase with Beamable for fulfillment
@@ -216,7 +216,7 @@ public class Registrations
 ```
 
 ### Custom Stores
-The Beamable **CommerceService** feature allows game makers to create custom storefronts with flexible purchasing options. 
+The Beamable **CommerceService** feature allows game makers to create custom storefronts with flexible purchasing options.
 
 ```csharp
 await _beamContext.Api.CommerceService.Purchase(storeSymbol, listingSymbol);
@@ -240,7 +240,7 @@ namespace Beamable.Examples.Services.CommerceService
 {
     [System.Serializable]
     public class RefreshedUnityEvent : UnityEvent<CommerceServiceExampleData> { }
-    
+
     /// <summary>
     /// Demonstrates <see cref="CommerceService"/>.
     /// </summary>
@@ -249,21 +249,21 @@ namespace Beamable.Examples.Services.CommerceService
         //  Events  ---------------------------------------
         [HideInInspector]
         public RefreshedUnityEvent OnRefreshed = new RefreshedUnityEvent();
-        
+
         //  Fields  ---------------------------------------
         private const string ItemContentType = "items";
         private const string CurrencyContentType = "currency";
         private const string CurrencyType = "currency.Coin";
         private const string EmptyDisplayName = "[Empty]";
         private const string CurrencyDisplayName = "Coin";
-        
+
         [SerializeField]
         private StoreRef _storeRef = null;
         private StoreContent _storeContent = null;
         private BeamContext _beamContext;
-  
+
         private CommerceServiceExampleData _data = new CommerceServiceExampleData();
-    
+
         //  Unity Methods  --------------------------------
         protected void Start()
         {
@@ -276,7 +276,7 @@ namespace Beamable.Examples.Services.CommerceService
 
             SetupBeamable();
         }
-        
+
         //  Methods  --------------------------------------
         private async void SetupBeamable()
         {
@@ -291,23 +291,23 @@ namespace Beamable.Examples.Services.CommerceService
             _beamContext.Api.InventoryService.Subscribe(ItemContentType, Inventory_OnChanged);
             _beamContext.Api.InventoryService.Subscribe(CurrencyContentType, Currency_OnChanged);
             _beamContext.Api.CommerceService.Subscribe(_storeContent.Id, CommerceService_OnChanged);
-            
+
             // Update UI Immediately
             Refresh();
         }
-        
+
         public async void Buy()
         {
             if (_data.SelectedItemData == null)
             {
-                Debug.LogError($"BuySelectedStoreItem() failed because _selectedItemData = 
+                Debug.LogError($"BuySelectedStoreItem() failed because _selectedItemData =
                  {_data.SelectedItemData}.");
                 return;
             }
 
             if (!_data.CanAffordSelectedStoreItemData)
             {
-                Debug.LogError($"BuySelectedStoreItem() failed because CanAffordSelectedStoreItemData = 
+                Debug.LogError($"BuySelectedStoreItem() failed because CanAffordSelectedStoreItemData =
                  {_data.CanAffordSelectedStoreItemData}.");
                 return;
             }
@@ -316,7 +316,7 @@ namespace Beamable.Examples.Services.CommerceService
             string storeSymbol = _storeContent.Id;
             string listingSymbol = _data.SelectedItemData.PlayerListingView.symbol;
             await _beamContext.Api.CommerceService.Purchase(storeSymbol, listingSymbol);
-            
+
         }
 
         public void Refresh()
@@ -325,17 +325,17 @@ namespace Beamable.Examples.Services.CommerceService
                                 $"\n * StoreItemDatas.Count = {_data.StoreItemDatas.Count}\n\n" +
                                 $"\n * InventoryItemDatas.Count = {_data.InventoryItemDatas.Count}\n\n" +
                                 $"\n * CurrencyAmount.Count = {_data.CurrencyAmount}\n\n";
-            
+
             _data.InstructionLogs.Clear();
             _data.InstructionLogs.Add("Click `Buy` to add 1 item to Inventory");
             _data.InstructionLogs.Add("or Click `Reset` to delete and create a new player");
-                               
+
             //Debug.Log(refreshLog);
-            
+
             // Send relevant data to the UI for rendering
             OnRefreshed?.Invoke(_data);
         }
-        
+
         //  Event Handlers  -------------------------------
         private async void Inventory_OnChanged(InventoryView inventoryView)
         {
@@ -343,13 +343,13 @@ namespace Beamable.Examples.Services.CommerceService
             foreach (KeyValuePair<string, List<ItemView>> kvp in inventoryView.items)
             {
                 string itemName = ExampleProjectHelper.GetDisplayNameFromContentId(kvp.Key);
-                
-                ItemContent itemContent = await 
+
+                ItemContent itemContent = await
                     ExampleProjectHelper.GetItemContentById(_beamContext, kvp.Key);
 
                 string title = $"{itemName} x {kvp.Value.Count}";
                 ItemData itemData = new ItemData(title, itemContent, null);
-                
+
                 _data.InventoryItemDatas.Add(itemData);
             }
 
@@ -378,20 +378,20 @@ namespace Beamable.Examples.Services.CommerceService
                 }
 
                 string itemName = ExampleProjectHelper.GetDisplayNameFromContentId(kvp.Key);
-                
-                CurrencyContent currencyContent = 
+
+                CurrencyContent currencyContent =
                     await ExampleProjectHelper.GetCurrencyContentById(_beamContext, kvp.Key);
-                
+
                 _data.CurrencyContent = currencyContent;
                 _data.CurrencyLogs.Add($"{itemName} x {kvp.Value}");
             }
-            
+
             Debug.Log("_data.CurrencyAmount: " + _data.CurrencyAmount);
             if (_data.CurrencyLogs.Count == 0)
             {
                 _data.CurrencyLogs.Add(EmptyDisplayName);
             }
-            
+
             Refresh();
         }
 
@@ -401,23 +401,23 @@ namespace Beamable.Examples.Services.CommerceService
 
             foreach (PlayerListingView playerListingView in playerStoreView.listings)
             {
-                int price = playerListingView.offer.price.amount;   
+                int price = playerListingView.offer.price.amount;
                 string contentId = playerListingView.offer.obtainItems[0].contentId;
                 string itemName = ExampleProjectHelper.GetDisplayNameFromContentId(contentId);
-                ItemContent itemContent = await ExampleProjectHelper.GetItemContentById(_beamContext, 
+                ItemContent itemContent = await ExampleProjectHelper.GetItemContentById(_beamContext,
                  contentId);
 
                 string title = $"{itemName} ({price} {CurrencyDisplayName})";
                 ItemData itemData = new ItemData(title, itemContent, playerListingView);
                 _data.StoreItemDatas.Add(itemData);
             }
-            
+
             if (_data.StoreItemDatas.Count == 0)
             {
                 // Show "Empty"
                 _data.StoreItemDatas.Add(new ItemData(EmptyDisplayName, null, null));
             }
-            
+
             Refresh();
         }
     }

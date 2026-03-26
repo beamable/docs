@@ -61,7 +61,7 @@ void Start(){
 You should see that your Steam ID is printed to the console.
 
 !!! info "Using Steamworks"
-    Be sure to include the Steamworks.NET SDK in the files you are working with.  
+    Be sure to include the Steamworks.NET SDK in the files you are working with.
     `using Steamworks;`
 
 ## Getting Steam Session Ticket
@@ -112,7 +112,7 @@ One next step you can take is to validate the Session Ticket with Beamable. Beam
 private Promise<bool> BeamableValidateSteamTicket(string ticket)
 {
     var promise = new Promise<bool>();
-    
+
     _beamContext.Requester.Request<Beamable.Common.Api.EmptyResponse>(
         Beamable.Common.Api.Method.POST,
         $"/basic/payments/steam/auth",
@@ -125,7 +125,7 @@ private Promise<bool> BeamableValidateSteamTicket(string ticket)
         Debug.LogError(ex);
         promise.CompleteSuccess(false);
     });
-    
+
     return promise;
 }
 ```
@@ -273,7 +273,7 @@ async void Start()
     }
     var steamUserID = SteamUser.GetSteamID().ToString();
     Debug.Log($"SteamUserID:{steamUserID}");
-    
+
     var ticket = await GetSteamAuthTicket();
     Debug.Log($"Current Steam Ticket: {ticket}");
 

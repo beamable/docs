@@ -1,6 +1,6 @@
 ﻿# Building a Battle Pass
 
-A battle pass is a common engagement feature for players. You can implement a Battle Pass for your game by utilizing 
+A battle pass is a common engagement feature for players. You can implement a Battle Pass for your game by utilizing
 Beamable's Custom Content capabilities. This is a quick guide for how to think about using Beamable for this feature.
 
 -------------------
@@ -10,32 +10,32 @@ First, define a custom content type for the Battle Pass by creating a class that
 Each Battle Pass will have tiers, and each tier can have rewards.
 
 ```csharp
-[ContentType("battlepass")]  
-public class Battlepass : ContentObject  
-{  
+[ContentType("battlepass")]
+public class Battlepass : ContentObject
+{
     public string Name;
     public string EndDate;
-    public List<Tier> Tiers;  
+    public List<Tier> Tiers;
 }
 
-[Serializable]  
-public class Tier  
-{  
-    public int Level;  
-    public List<Reward> Rewards;  
+[Serializable]
+public class Tier
+{
+    public int Level;
+    public List<Reward> Rewards;
 }
 
-[Serializable]  
-public class Reward  
-{  
-    public string RewardName;  
-    public int Quantity;  
+[Serializable]
+public class Reward
+{
+    public string RewardName;
+    public int Quantity;
 }
 ```
 
 ### Content Setup
 
-Once the custom type is defined, follow these steps to add a Battle Pass content object in the Beamable 
+Once the custom type is defined, follow these steps to add a Battle Pass content object in the Beamable
 Content Manager:
 
 - **Step 1: Open the Content Manager:**
@@ -48,18 +48,18 @@ Content Manager:
   - Name the Battle Pass
   - Set the `EndDate` using the ISO 8601 format (e.g., `2024-12-31T23:59:59Z`).
   - Define the tiers and rewards (Example in screenshot)
-  
+
 ![Battle Pass Content](../../media/imgs/battlepass-content.jpg)
 
 - **Step 4: Publish the content:**
-  - Once the Battle Pass is configured, press the **Publish** button in the Content Manager to push the Battle Pass 
+  - Once the Battle Pass is configured, press the **Publish** button in the Content Manager to push the Battle Pass
   content live.
 
 ------------------------------------------------
 
 ## Fetching and Using the Battle Pass at Runtime
 
-After the Battle Pass is defined and published, use Beamable’s features to fetch and use the content at runtime. 
+After the Battle Pass is defined and published, use Beamable’s features to fetch and use the content at runtime.
 In this example, we'll retrieve the Battle Pass.
 
 ```csharp
@@ -104,7 +104,7 @@ private async Promise DisplayBattlePassDetails()
 ```
 
 ## Adding the Battle Pass to Player Inventory
-You can add the Battle Pass to a player's inventory using Beamable's Inventory system. Here's how you can use the 
+You can add the Battle Pass to a player's inventory using Beamable's Inventory system. Here's how you can use the
 `Inventory.Update` method to store the Battle Pass details, such as its name and end date.
 
 To access `items.battlepass`, an item named `battlepass` should be created and published through the Content Manager.
@@ -128,7 +128,7 @@ private async Task AddBattlepassToInventory()
 
 ## Handling End Date and Expiration Validation in a Microservice
 
-You can use Beamable’s Microservices to validate the Battle Pass expiration. Since `Battlepass` is a custom 
+You can use Beamable’s Microservices to validate the Battle Pass expiration. Since `Battlepass` is a custom
 `ContentObject`, the type won't be findable by default in Microservices. You can create or move the `Battlepass`
 custom content script into the Beamable's `Common` folder, which is also referenced in the Microservices. The folder
 can be found in `Assets/Beamable/Common`.
@@ -145,7 +145,7 @@ public async Task<bool> IsBattlepassValid(ContentRef<Battlepass> battlepass)
     }
 
     var currentTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-    if (DateTimeOffset.TryParseExact(battlePass.EndDate, "yyyy-MM-ddTHH:mm:ssZ", 
+    if (DateTimeOffset.TryParseExact(battlePass.EndDate, "yyyy-MM-ddTHH:mm:ssZ",
             CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out var endDate))
     {
         long endDateUnix = endDate.ToUnixTimeSeconds();
@@ -168,12 +168,12 @@ Download the full sample code from [Beamable Battle Pass Sample](https://github.
 You can also create a season pass that can be used to unlock new content or features.
 Currently, there is no sample for this feature; however, here is how to do it. It is very similar to the Battle Pass.
 
-1. **Create a `Season Pass` content object:** This will include the metadata needed for the season 
+1. **Create a `Season Pass` content object:** This will include the metadata needed for the season
 (its offerings, rewards, end time, etc.).
 
-2. **Inventory or Stats services:** You can use these services to track per-player ownership of a season pass, 
+2. **Inventory or Stats services:** You can use these services to track per-player ownership of a season pass,
 whether they bought it or not.
 
-3. **Microservices:** Here you can enforce the business side of the season pass (checking current date/time if 
+3. **Microservices:** Here you can enforce the business side of the season pass (checking current date/time if
 it is within the window, granting the season's rewards, or performing a cleanup or reset at season boundaries).
 

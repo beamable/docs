@@ -6,7 +6,7 @@ The **Content** feature allows game maker to store project-specific data objects
 
 ## Content ID
 
-The content ID is assigned at creation of a new content, and is composed of content `type` and content `id`. A content ID always starts with the content type. For example, a currency content for dollars would be: 
+The content ID is assigned at creation of a new content, and is composed of content `type` and content `id`. A content ID always starts with the content type. For example, a currency content for dollars would be:
 `currency.dollars`.
 
 One important concept of the Content ID is the "Nesting". Content IDs can be nested, and the resulting hierarchy will be baked in to the name. For example, to group "weekend" events under a common folder -- the content ID would be:
@@ -24,7 +24,7 @@ Namespaces are locations for content to be published so that the content does no
 
 ## Content Data
 
-Content types are must extend [`Beamable.Common.Content.ContentObject`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1ContentObject.html). All derive from Unity's [`ScriptableObject`](https://docs.unity3d.com/Manual/class-ScriptableObject.html). The Beamable SDK for Unity ships with all content types needed for common use cases. 
+Content types are must extend [`Beamable.Common.Content.ContentObject`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1ContentObject.html). All derive from Unity's [`ScriptableObject`](https://docs.unity3d.com/Manual/class-ScriptableObject.html). The Beamable SDK for Unity ships with all content types needed for common use cases.
 
 | Class Name | Related Feature | Coding Required? |
 |------------|-----------------|------------------|
@@ -57,7 +57,7 @@ MyCustomContent.cs
 ```csharp
 [Agnostic]
 [ContentType("MyCustomContent")]
-public class MyCustomContent : ContentObject 
+public class MyCustomContent : ContentObject
 {
      public string Name;
      public AssetReferenceSprite Icon;
@@ -106,17 +106,17 @@ You can subscribe to all content changes, or filter by a specific type of conten
 
 ```csharp
 private async void SetupBeamable()
-{ 
+{
     var beamContext = BeamContext.Default;
     await beamContext.OnReady;
-      
-    // Fetch All  
+
+    // Fetch All
     beamContext.Api.ContentService.Subscribe(clientManifest =>
     {
         Debug.Log($"#1. ContentService, all object count = {clientManifest.entries.Count}");
     });
 
-    // Fetch Filtered 
+    // Fetch Filtered
     beamContext.Api.ContentService.Subscribe("items", clientManifest =>
     {
         Debug.Log($"#2. ContentService, filtered 'items' object count = {clientManifest.entries.Count}");
@@ -148,7 +148,7 @@ namespace Beamable.Examples.Services.ContentService
 {
     [Serializable]
     public class ItemLink : ContentLink<ItemContent> {}
-    
+
     /// <summary>
     /// Demonstrates <see cref="ContentService"/>.
     /// </summary>
@@ -160,12 +160,12 @@ namespace Beamable.Examples.Services.ContentService
 
         private ItemContent _itemContentFromLink = null;
         private ItemContent _itemContentFromRef = null;
-        
+
         //  Unity Methods  --------------------------------
         protected void Start()
         {
             Debug.Log($"Start()");
-            
+
             SetupBeamable();
         }
 
@@ -174,31 +174,31 @@ namespace Beamable.Examples.Services.ContentService
         {
             var beamContext = BeamContext.Default;
             await beamContext.OnReady;
-      
+
             Debug.Log($"beamContext.PlayerId = {beamContext.PlayerId}");
-            
+
             await _itemLink.Resolve()
                 .Then(content =>
                 {
-                    _itemContentFromLink = content; 
+                    _itemContentFromLink = content;
                     Debug.Log($"_itemContentFromLink.Resolve() Success! " +
                               $"Id = {_itemContentFromLink.Id}");
                 })
                 .Error(ex =>
                 {
-                    Debug.LogError($"_itemContentFromLink.Resolve() Error!"); 
+                    Debug.LogError($"_itemContentFromLink.Resolve() Error!");
                 });
-            
+
             await _itemRef.Resolve()
                 .Then(content =>
                 {
-                    _itemContentFromRef = content; 
+                    _itemContentFromRef = content;
                     Debug.Log($"_itemContentFromRef.Resolve() Success! " +
                               $"Id = {_itemContentFromRef.Id}");
-                    
+
                 }).Error(ex =>
                 {
-                    Debug.LogError($"_itemContentFromRef.Resolve() Error!"); 
+                    Debug.LogError($"_itemContentFromRef.Resolve() Error!");
                 });
         }
     }
@@ -228,7 +228,7 @@ public async Promise<IList<IContentObject>> LoadMyTaggedContent(string tag)
     var content =  await manifest.ResolveAll();
 
     return content;
-}	
+}
 ```
 
 ### GetContent Method

@@ -5,7 +5,7 @@
 Beamable's Analytics solution provides the most control and access to your data. There are important reports that are needed in order to measure the success of your game and, as a game maker, you want to know:
 
 - How many unique total players you have per month (MAU)
-- How many active players you have per day (DAU) 
+- How many active players you have per day (DAU)
 - How many of those users are returning users that have played previously (Retention)
 
 These examples are among a select few necessities to measure the success of your game, and Beamable empowers you as a game maker by giving you full control over your data so you can gain the most value from writing Telemetry.
@@ -109,21 +109,21 @@ For example, If you find that your average session length is decreasing over tim
 MAU & DAU
 ```sql
 --MAU DAU
-select 
-    count(event_id) METRIC 
-from platform_session_session 
-where 
+select
+    count(event_id) METRIC
+from platform_session_session
+where
     "e.firstDailySession"='true'
     and act_time >= date_add('day', {{days}}, CURRENT_TIMESTAMP);
 ```
 
 Average Session Length
 ```sql
---Average Session Length    
-select 
-    round(avg(cast("e.session_length_minutes" as integer)),2) average_session_length 
-from platform_session_session_end 
-where 
+--Average Session Length
+select
+    round(avg(cast("e.session_length_minutes" as integer)),2) average_session_length
+from platform_session_session_end
+where
  act_time >= date_add('day', {{days}}, CURRENT_TIMESTAMP);
 ```
 
@@ -136,9 +136,9 @@ Now that you have engaged players, you will want to ensure they they are sticky.
     When using PopSQL, you'll need the PID realm ID and a start and end date. If not using PopSQL, replace the {{pid}} field and the {{start_date}} and {{end_date}} fields with correct values.
 
 ```sql
-WITH 
+WITH
 activities as (
- select DATE(act_date) as start, gamer_tag 
+ select DATE(act_date) as start, gamer_tag
  from {{pid}}.platform_session_session
  where DATE(act_date) BETWEEN DATE('{{start_date}}') AND DATE('{{end_date}}')
  AND gamer_tag NOT IN (
@@ -189,10 +189,10 @@ When you have an engaged & retained player base and you offer any sort of IAP (i
 
 Monthly Spending
 ```sql
-select 
+select
     sum(cast("e.spendTotal" as integer)) SpendTotal
 from platform_session_session
-where 
+where
  act_time >= date_add('day', {{days}}, CURRENT_TIMESTAMP);
 ```
 
@@ -206,10 +206,10 @@ Knowing how much money your game is making from IAP each day is highly valuable.
 
 30 Day Daily Spending
 ```sql
-select 
+select
     date(act_time) SessionDate, sum(cast("e.spendTotal" as integer)) SpendTotal
 from platform_session_session
-where 
+where
  act_time >= date_add('day', {{days}}, CURRENT_TIMESTAMP)
 group by date(act_time)
 order by date(act_time);

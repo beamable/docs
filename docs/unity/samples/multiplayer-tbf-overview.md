@@ -4,7 +4,7 @@ Welcome to "Turn-based Beamable Fighters" (TBF). In this game, **Choose strategi
 
 !!! info "Related Features"
 
-    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a match (i.e. a multiplayer "room")  
+    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a match (i.e. a multiplayer "room")
     • [Multiplayer](../user-reference/beamable-services/social-networking/connectivity.md) - Enable real-time multiplayer gameplay experiences
 
 ## Screenshots
@@ -75,7 +75,7 @@ These steps are **already complete** in the sample project. The instructions her
 
 !!! info "Related Features"
 
-    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a match (i.e. a multiplayer "room")  
+    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a match (i.e. a multiplayer "room")
     • [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) - Enable real-time multiplayer gameplay experiences
 
 ### Step 1. Setup Project
@@ -468,7 +468,7 @@ namespace Beamable.Samples.TBF
 {
    /// <summary>
    /// List of all phases of the gameplay.
-   /// There are arguably more states here than are needed, 
+   /// There are arguably more states here than are needed,
    /// however all are indeed used, in the order shown, for deliberate separation.
    /// </summary>
    public enum GameState
@@ -531,7 +531,7 @@ namespace Beamable.Samples.TBF
 
          // SetGameState() is async...
          //    Pros: We can use operations like "Task.Delay" to slow down execution
-         //    Cons: Error handling is tricky. 
+         //    Cons: Error handling is tricky.
          //    Workaround: AsyncUtility helps with its try/catch.
          await AsyncUtility.AsyncSafe(async () =>
          {
@@ -542,7 +542,7 @@ namespace Beamable.Samples.TBF
 
                case GameState.Loading:
                   // **************************************
-                  // Render the scene before any latency 
+                  // Render the scene before any latency
                   // of multiplayer begins
                   // **************************************
 
@@ -561,7 +561,7 @@ namespace Beamable.Samples.TBF
                case GameState.Loaded:
                   // **************************************
                   //  Update UI
-                  //  
+                  //
                   // **************************************
 
                   _gameSceneManager.SetStatusText(TBFConstants.StatusText_GameState_Loaded, TMP_BufferedText.BufferedTextMode.Queue);
@@ -570,7 +570,7 @@ namespace Beamable.Samples.TBF
                case GameState.Initializing:
                   // **************************************
                   //  Update UI
-                  //  
+                  //
                   // **************************************
 
                   _gameSceneManager.SetStatusText(TBFConstants.StatusText_GameState_Initializing, TMP_BufferedText.BufferedTextMode.Queue);
@@ -579,7 +579,7 @@ namespace Beamable.Samples.TBF
                case GameState.Initialized:
                   // **************************************
                   //  Update UI
-                  //  
+                  //
                   // **************************************
 
                   _gameSceneManager.SetStatusText(TBFConstants.StatusText_GameState_Initialized, TMP_BufferedText.BufferedTextMode.Queue);
@@ -588,7 +588,7 @@ namespace Beamable.Samples.TBF
                case GameState.Connecting:
                   // **************************************
                   //  Update UI
-                  //  
+                  //
                   // **************************************
 
                   _gameSceneManager.SetStatusText(string.Format(TBFConstants.StatusText_GameState_Connecting,
@@ -598,8 +598,8 @@ namespace Beamable.Samples.TBF
 
                case GameState.Connected:
                   // **************************************
-                  //  Advanced the state 
-                  //  
+                  //  Advanced the state
+                  //
                   // **************************************
 
                   await SetGameState(GameState.GameStarting);
@@ -608,7 +608,7 @@ namespace Beamable.Samples.TBF
                case GameState.GameStarting:
                   // **************************************
                   //  Reset the game-specific data
-                  //  
+                  //
                   // **************************************
 
                   _gameSceneManager.GameProgressData.StartGame();
@@ -617,7 +617,7 @@ namespace Beamable.Samples.TBF
                case GameState.GameStarted:
                   // **************************************
                   //  Now that all players have connected, setup AI
-                  //  
+                  //
                   // **************************************
 
                   // RemotePlayerAI is always created, but enabled only sometimes
@@ -634,7 +634,7 @@ namespace Beamable.Samples.TBF
                case GameState.RoundStarting:
                   // **************************************
                   //  Reste the round-specific data.
-                  //  Advance the state. 
+                  //  Advance the state.
                   //  This happens before EACH round during a game
                   // **************************************
 
@@ -648,7 +648,7 @@ namespace Beamable.Samples.TBF
                case GameState.RoundStarted:
                   // **************************************
                   //  Advance the state
-                  //  
+                  //
                   // **************************************
 
                   while (_gameSceneManager.GameUIView.BufferedText.HasRemainingQueueText)
@@ -664,25 +664,25 @@ namespace Beamable.Samples.TBF
                case GameState.RoundPlayerMoving:
                   // **************************************
                   //  Update UI
-                  //  
+                  //
                   // **************************************
 
-                  _gameSceneManager.SetStatusText(string.Format(TBFConstants.StatusText_GameState_PlayerMoving), 
+                  _gameSceneManager.SetStatusText(string.Format(TBFConstants.StatusText_GameState_PlayerMoving),
                      TMP_BufferedText.BufferedTextMode.Queue);
 
                   break;
 
                case GameState.RoundPlayerMoved:
                   // **************************************
-                  //  
-                  //  
+                  //
+                  //
                   // **************************************
 
                   long localPlayerDbid = _gameSceneManager.MultiplayerSession.GetPlayerDbidForIndex(TBFConstants.PlayerIndexLocal);
                   GameMoveEvent localGameMoveEvent = _gameSceneManager.GameProgressData.GameMoveEventsThisRoundBucket.GetByPlayerDbid(localPlayerDbid);
 
                   GameMoveType localGameMoveType = localGameMoveEvent.GameMoveType;
-                  
+
                   long remotePlayerDbid;
 
                   if (_gameSceneManager.RemotePlayerAI.IsEnabled)
@@ -707,7 +707,7 @@ namespace Beamable.Samples.TBF
                   await RenderPlayerMove(TBFConstants.PlayerIndexRemote, remoteGameMoveType);
 
                   // All players have moved
-                  _gameSceneManager.SetStatusText(string.Format(TBFConstants.StatusText_GameState_PlayersAllMoved), 
+                  _gameSceneManager.SetStatusText(string.Format(TBFConstants.StatusText_GameState_PlayersAllMoved),
                      TMP_BufferedText.BufferedTextMode.Queue);
 
                   if (_gameSceneManager.RemotePlayerAI.IsEnabled)
@@ -733,7 +733,7 @@ namespace Beamable.Samples.TBF
                   // **************************************
                   //  Evalute all the player moves and store result.
                   //  Advance the state
-                  //  
+                  //
                   // **************************************
 
                   _gameSceneManager.GameProgressData.EvaluateGameMoveEventsThisRound();
@@ -745,7 +745,7 @@ namespace Beamable.Samples.TBF
                   // **************************************
                   // Render results onscreen (animation, sounds).
                   // Decide: Advance round or end game
-                  //  
+                  //
                   // **************************************
 
                   RoundResult currentRoundResult = _gameSceneManager.GameProgressData.CurrentRoundResult;
@@ -802,8 +802,8 @@ namespace Beamable.Samples.TBF
 
                case GameState.GameEvaluating:
                   // **************************************
-                  //  Advance the state 
-                  //  
+                  //  Advance the state
+                  //
                   // **************************************
 
                   if (_gameSceneManager.GameProgressData.GameHasWinnerPlayerDbid)
@@ -819,7 +819,7 @@ namespace Beamable.Samples.TBF
                case GameState.GameEnding:
                   // **************************************
                   //  Render loss (animation and sound)
-                  //  Game stays here. 
+                  //  Game stays here.
                   // **************************************
 
                   // if the game loser does not have 0 health, move to 0 health
@@ -838,7 +838,7 @@ namespace Beamable.Samples.TBF
                   }
                   else
                   {
-                     gameWinnerName = GetPlayerNameByIndex(TBFConstants.PlayerIndexRemote);   
+                     gameWinnerName = GetPlayerNameByIndex(TBFConstants.PlayerIndexRemote);
 
                      //Remote winner
                      SoundManager.Instance.PlayAudioClip(SoundConstants.GameOverLoss);
@@ -854,7 +854,7 @@ namespace Beamable.Samples.TBF
                   break;
                case GameState.GameEnded:
                   // **************************************
-                  //  Game stays here. 
+                  //  Game stays here.
                   //  User must click "Back" buton
                   //
                   // NOTE: We come here from GameState.GameEnding and/or when a player disconnects

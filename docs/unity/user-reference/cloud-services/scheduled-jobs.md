@@ -2,7 +2,7 @@
 
 A scheduled job is a networking event that happens in the future. Scheduled jobs can be microservice `Callable` invocations, HTTP calls, or generalized Beamable message bus events. Today, scheduled jobs are available directly via the Beamable API (see the [Open API swagger](https://dev.api.beamable.com/api/platform/docs) doc), or through an SDK accessible in Microservices using Beamable 1.16.0 or later.
 
-Every scheduled job has 4 main components, 
+Every scheduled job has 4 main components,
 
 - Metadata
 - A single action
@@ -11,15 +11,15 @@ Every scheduled job has 4 main components,
 
 ## Job Metadata
 
-The metadata for a job includes a `name`, a `source`, and after it is saved, an `id`. The `name` and `source` can both be used to search for existing jobs. The `id` is unique for each job. 
+The metadata for a job includes a `name`, a `source`, and after it is saved, an `id`. The `name` and `source` can both be used to search for existing jobs. The `id` is unique for each job.
 
-Commonly, the `source` represents the entity or process that creates a job. By default, the `source` will be the Microservice's name that schedules the job. 
+Commonly, the `source` represents the entity or process that creates a job. By default, the `source` will be the Microservice's name that schedules the job.
 
 The `name` can be anything, but should be used to uniquely describe the job. For example, before creating a job to award bonus currency to a player, your system can check for the existence of a job with the name, `$"award-{Context.UserId}"`, and only if the job does _not_ exist, will you create it.
 
 ## Job Actions
 
-A job must execute a single action. That action can be a privileged call to a Microservice, an HTTP call, or an internal Beamable message bus call. In the SDK, only Microservice and HTTP calls are supported. 
+A job must execute a single action. That action can be a privileged call to a Microservice, an HTTP call, or an internal Beamable message bus call. In the SDK, only Microservice and HTTP calls are supported.
 
 ### Microservice Action
 
@@ -35,10 +35,10 @@ var job = await Services.Scheduler.Schedule()
 
 The `.Microservice<ExampleService>()` method allows the developer to use the `Run()` method, which will require the developer to provide an expression mapping to a callable method. The input parameter to `Run()` should map an instance of the desired service to the _method group_ that will be run when the job executes. The lack of parenthesis on `n => n.ExampleMethod` indicates it is a method group. If the desired method takes input arguments,  the values should be passed as additional arguments to the `.Run()` method.
 
-The target method group must return a `Task` or `Promise`. It is invalid to schedule a call to a function that itself returns any value. The target method should be marked with the `[ServerCallable]` attribute. When Beamable executes the job and calls the method, it will not provide any `playerId`, so the `[ClientCallable]` attribute will be invalid. However, to protect and secure endpoints, they should require the admin `"*"` scope. The `[ServerCallable]` attribute ensures that the method invocation has the admin scope, but does not need a `playerId`. 
+The target method group must return a `Task` or `Promise`. It is invalid to schedule a call to a function that itself returns any value. The target method should be marked with the `[ServerCallable]` attribute. When Beamable executes the job and calls the method, it will not provide any `playerId`, so the `[ClientCallable]` attribute will be invalid. However, to protect and secure endpoints, they should require the admin `"*"` scope. The `[ServerCallable]` attribute ensures that the method invocation has the admin scope, but does not need a `playerId`.
 
-The `.Microservice<T>()` method takes an optional parameter called `useLocal`. When Beamable executes the job, it can send a request to a locally running Microservice, or to the deployed Microservice on the realm. When `useLocal` is set to `true`, the request will be sent to whatever address scheduled the job. For local testing, this means that if you schedule a Microservice action from a locally running Microservice, your locally running Microservice will be expected to handle the method call later. If the remote service is used to schedule the job, then the remote service will be sent the invocation. If `useLocal` is set to `false`, then all requests will always be sent to the remote, even if they were scheduled from a locally running service.  
-By default, `useLocal` is set as `true`. 
+The `.Microservice<T>()` method takes an optional parameter called `useLocal`. When Beamable executes the job, it can send a request to a locally running Microservice, or to the deployed Microservice on the realm. When `useLocal` is set to `true`, the request will be sent to whatever address scheduled the job. For local testing, this means that if you schedule a Microservice action from a locally running Microservice, your locally running Microservice will be expected to handle the method call later. If the remote service is used to schedule the job, then the remote service will be sent the invocation. If `useLocal` is set to `false`, then all requests will always be sent to the remote, even if they were scheduled from a locally running service.
+By default, `useLocal` is set as `true`.
 
 ### HTTP Action
 
@@ -56,7 +56,7 @@ The `.Http()` method allows the developer to use the `.Run()` function which cre
 
 ## Job Triggers
 
-A job must have at least 1 trigger, but may have many. A trigger is some schedule that defines when the job should execute the action. There are two types of triggers, a cron trigger, and a time trigger. 
+A job must have at least 1 trigger, but may have many. A trigger is some schedule that defines when the job should execute the action. There are two types of triggers, a cron trigger, and a time trigger.
 
 ### Time Triggers
 
@@ -98,7 +98,7 @@ A cron trigger specifies an [NCronTab](https://github.com/atifaziz/NCrontab) exp
 +------------- sec (0 - 59)
 ```
 
-Creating cron strings by hand is allowed, but is tricky for the uninitiated. As an alternative, there is a cron builder utility function. 
+Creating cron strings by hand is allowed, but is tricky for the uninitiated. As an alternative, there is a cron builder utility function.
 
 ```csharp
 var job = await Services.Scheduler.Schedule()
@@ -114,13 +114,13 @@ var job = await Services.Scheduler.Schedule()
 	.Save("sample");
 ```
 
-The cron builder must specify all components of the cron string. Each time unit has an `At` method that specifies an exact value for the time. Each time unit also has an `Every` variant that puts a `*` in the place of that time value. Each time unit also has an `EveryNth` that places a `n/*` value in the cron string. `Between` and `Complex` can also be provided. 
+The cron builder must specify all components of the cron string. Each time unit has an `At` method that specifies an exact value for the time. Each time unit also has an `Every` variant that puts a `*` in the place of that time value. Each time unit also has an `EveryNth` that places a `n/*` value in the cron string. `Between` and `Complex` can also be provided.
 
 !!! warning "Don't forget about Cron Triggers!"
 
     It is easy to create a scheduled job using a cron trigger, and then forget it exists! Make sure keep track of your cron jobs. The API and SDK can search for active jobs, but it is always a good idea to have a sense of the jobs running in your realm.
 
-For common schedule types (daily, weekly, monthly, twiceMonthly), short cuts exist.  
+For common schedule types (daily, weekly, monthly, twiceMonthly), short cuts exist.
 This table shows common schedule patterns that may be helpful.
 
 | Code                                                                                                       | Description                                                                     |
@@ -133,7 +133,7 @@ This table shows common schedule patterns that may be helpful.
 
 ## Job Retry Policy
 
-Every job has a retry policy. Each time a job executes, if the action fails, the execution has failed. When an execution fails, the retry policy determines what happens next. If the policy allows, the action is retried until it either succeeds, or the policy is exhausted. 
+Every job has a retry policy. Each time a job executes, if the action fails, the execution has failed. When an execution fails, the retry policy determines what happens next. If the policy allows, the action is retried until it either succeeds, or the policy is exhausted.
 
 The default retry policy allows for 1 retry, after 10 seconds.
 In this sample, the policy is set to allow for 2 retries, half a second apart.
@@ -149,7 +149,7 @@ var job = await Services.Scheduler.Schedule()
 
 ## Job Executions
 
-A job may execute many times depending on the job's triggers. It may be useful to know about past executions, and upcoming executions. 
+A job may execute many times depending on the job's triggers. It may be useful to know about past executions, and upcoming executions.
 
 ### Upcoming Job Executions
 
@@ -160,7 +160,7 @@ var api = Provider.GetService<BeamScheduler>();
 var upcoming = await api.GetJobUpcomingExecutions(jobId);
 ```
 
-Upcoming job executions are `DateTime` structures. If the job has a cron trigger, then this will return the first 1000 execution times. An optional `limit` parameter may be passed to get less or more executions. 
+Upcoming job executions are `DateTime` structures. If the job has a cron trigger, then this will return the first 1000 execution times. An optional `limit` parameter may be passed to get less or more executions.
 
 ### Past and Current Executions
 
@@ -218,7 +218,7 @@ public class ExampleService : Microservice
 	public async Promise<Job> ScheduleAward()
 	{
 		var job = await Services.Scheduler
-      .Schedule() 
+      .Schedule()
 			.Microservice<ExampleService>() // execute a type safe method on the ExampleService
 			.Run(t => t.AwardBonus, Context.UserId) // Run AwardBonus, with the current player id.
 			.After(TimeSpan.FromMinutes(1)) // Trigger the method in 1 minute
@@ -236,5 +236,5 @@ public class ExampleService : Microservice
     var assumed = AssumeNewUser(userId, requireAdminUser: false);
 		await assumed.Services.Inventory.AddCurrency("currency.gems", 10);
 	}
-}	
+}
 ```

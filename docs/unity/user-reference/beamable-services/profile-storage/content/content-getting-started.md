@@ -44,12 +44,12 @@ namespace Beamable.Examples.Services.ContentService
 
         private ArmorItem _armorFromLink = null;
         private ArmorItem _armorFromRef = null;
-        
+
         //  Unity Methods  --------------------------------
         protected void Start()
         {
             Debug.Log($"Start()");
-            
+
             SetupBeamable();
         }
 
@@ -58,33 +58,33 @@ namespace Beamable.Examples.Services.ContentService
         {
             var beamContext = BeamContext.Default;
             await beamContext.OnReady;
-      
+
             Debug.Log($"beamContext.PlayerId = {beamContext.PlayerId}");
-            
+
             await _armorLink.Resolve()
                 .Then(content =>
                 {
-                    _armorFromLink = content; 
+                    _armorFromLink = content;
                     Debug.Log($"_armorFromLink.Resolve() Success! " +
                               $"Id = {_armorFromLink.Id}");
                 })
                 .Error(ex =>
                 {
-                    Debug.LogError($"_armorFromLink.Resolve() Error!"); 
+                    Debug.LogError($"_armorFromLink.Resolve() Error!");
                 });
-            
+
             await _armorRef.Resolve()
                 .Then(content =>
                 {
-                    _armorFromRef = content; 
+                    _armorFromRef = content;
                     Debug.Log($"_armorFromRef.Resolve() Success! " +
                               $"Id = {_armorFromRef.Id}");
-                    
+
                 }).Error(ex =>
                 {
-                    Debug.LogError($"_armorFromRef.Resolve() Error!"); 
+                    Debug.LogError($"_armorFromRef.Resolve() Error!");
                 });
-            
+
 
         }
     }
@@ -120,7 +120,7 @@ namespace Beamable.Examples.Services.ContentService
 {
     [Serializable]
     public class ItemLink : ContentLink<ItemContent> {}
-    
+
     /// <summary>
     /// Demonstrates <see cref="ContentService"/>.
     /// </summary>
@@ -132,12 +132,12 @@ namespace Beamable.Examples.Services.ContentService
 
         private ItemContent _itemContentFromLink = null;
         private ItemContent _itemContentFromRef = null;
-        
+
         //  Unity Methods  --------------------------------
         protected void Start()
         {
             Debug.Log($"Start()");
-            
+
             SetupBeamable();
         }
 
@@ -146,31 +146,31 @@ namespace Beamable.Examples.Services.ContentService
         {
             var beamContext = BeamContext.Default;
             await beamContext.OnReady;
-      
+
             Debug.Log($"beamContext.PlayerId = {beamContext.PlayerId}");
-            
+
             await _itemLink.Resolve()
                 .Then(content =>
                 {
-                    _itemContentFromLink = content; 
+                    _itemContentFromLink = content;
                     Debug.Log($"_itemContentFromLink.Resolve() Success! " +
                               $"Id = {_itemContentFromLink.Id}");
                 })
                 .Error(ex =>
                 {
-                    Debug.LogError($"_itemContentFromLink.Resolve() Error!"); 
+                    Debug.LogError($"_itemContentFromLink.Resolve() Error!");
                 });
-            
+
             await _itemRef.Resolve()
                 .Then(content =>
                 {
-                    _itemContentFromRef = content; 
+                    _itemContentFromRef = content;
                     Debug.Log($"_itemContentFromRef.Resolve() Success! " +
                               $"Id = {_itemContentFromRef.Id}");
-                    
+
                 }).Error(ex =>
                 {
-                    Debug.LogError($"_itemContentFromRef.Resolve() Error!"); 
+                    Debug.LogError($"_itemContentFromRef.Resolve() Error!");
                 });
         }
     }

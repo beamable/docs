@@ -52,15 +52,15 @@ jobs:
         run: bash setup.sh
 
       # Fetch all remote branches
-      - name: Fetch remote branch names 
+      - name: Fetch remote branch names
         run: git fetch --depth=1 origin +refs/heads/*:refs/remotes/origin/*
-          
+
       # Checkout the gh-pages branch
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
           ref: gh-pages
-    
+
       # Checkout the branch that the workflow file is running from
       - name: Checkout workflow branch
         uses: actions/checkout@v4
@@ -75,7 +75,7 @@ jobs:
       # Deploy with mike in dry run mode
       - name: Deploy SDK (dry run)
         if: ${{ github.event.inputs.dry_run == 'true' }}
-        run: mike deploy "${{ steps.parse_branch.outputs.sdk }}-${{ steps.parse_branch.outputs.version }}"  
+        run: mike deploy "${{ steps.parse_branch.outputs.sdk }}-${{ steps.parse_branch.outputs.version }}"
 
       # Deploy with mike and push
       - name: Deploy SDK (push)

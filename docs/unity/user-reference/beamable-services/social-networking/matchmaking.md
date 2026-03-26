@@ -1,6 +1,6 @@
 # Matchmaking
 
-The Beamable **Multiplayer** feature allows game makers to create real-time and turn-based multi-user game experiences. For a project to offer multiplayer, it must first offer **matchmaking**. 
+The Beamable **Multiplayer** feature allows game makers to create real-time and turn-based multi-user game experiences. For a project to offer multiplayer, it must first offer **matchmaking**.
 
 In multiplayer gaming, matchmaking is the process of creating/finding a **Match** (for example, a Multiplayer 'Room') based on criteria. For example, a client could say "give me a match to play in with 2 total players of any skill level". Beamable supports matchmaking through its [`MatchmakingService`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Matchmaking_1_1MatchmakingService.html).
 
@@ -91,7 +91,7 @@ namespace Beamable.Examples.Services.MatchmakingService
 
     }
 
-    
+
     /// <summary>
     /// Holds data for use in the <see cref="MatchmakingServiceExampleUI"/>.
     /// </summary>
@@ -99,16 +99,16 @@ namespace Beamable.Examples.Services.MatchmakingService
     public class MatchmakingServiceExampleData
     {
         public SessionState SessionState = SessionState.None;
-        public bool CanStart { get { return SessionState == SessionState.Disconnected;}} 
-        public bool CanCancel { get { return SessionState == SessionState.Connected;}} 
+        public bool CanStart { get { return SessionState == SessionState.Disconnected;}}
+        public bool CanCancel { get { return SessionState == SessionState.Connected;}}
         public List<string> MainLogs = new List<string>();
         public List<string> MatchmakingLogs = new List<string>();
         public List<string> InstructionsLogs = new List<string>();
     }
-   
+
     [System.Serializable]
     public class RefreshedUnityEvent : UnityEvent<MatchmakingServiceExampleData> { }
-    
+
     /// <summary>
     /// Demonstrates the creation of and joining to a
     /// Multiplayer game match with Beamable Multiplayer.
@@ -119,7 +119,7 @@ namespace Beamable.Examples.Services.MatchmakingService
         [HideInInspector]
         public RefreshedUnityEvent OnRefreshed = new RefreshedUnityEvent();
 
-        
+
         //  Fields  ---------------------------------------
 
         /// <summary>
@@ -138,12 +138,12 @@ namespace Beamable.Examples.Services.MatchmakingService
                               $"\n * Play Scene" +
                               $"\n * View UI" +
                               $"\n * Press 'Start Matchmaking' Button \n\n";
-         
+
             Debug.Log(startLog);
-            
+
             _data.InstructionsLogs.Add("View UI");
             _data.InstructionsLogs.Add("Press 'Start Matchmaking' Button");
-            
+
             SetupBeamable();
         }
 
@@ -156,7 +156,7 @@ namespace Beamable.Examples.Services.MatchmakingService
             Debug.Log($"beamContext.PlayerId = {_beamContext.PlayerId}\n\n");
 
             _data.SessionState = SessionState.Disconnected;
-            
+
             _simGameType = await _simGameTypeRef.Resolve();
             _data.MainLogs.Add($"beamContext.PlayerId = {_beamContext.PlayerId}");
             _data.MainLogs.Add($"SimGameType.Teams.Count = {_simGameType.teams.Count}");
@@ -176,43 +176,43 @@ namespace Beamable.Examples.Services.MatchmakingService
         public async void StartMatchmaking()
         {
             string log = $"StartMatchmaking()";
-            
+
             //Debug.Log(log);
             _data.SessionState = SessionState.Connecting;
             _data.MatchmakingLogs.Add(log);
             Refresh();
-            
+
             await _myMatchmaking.StartMatchmaking();
         }
-        
+
         public async void CancelMatchmaking()
         {
             string log = $"CancelMatchmaking()";
             //Debug.Log(log);
-            
+
             _data.SessionState = SessionState.Disconnecting;
             _data.MatchmakingLogs.Add(log);
             Refresh();
-            
+
             await _myMatchmaking.CancelMatchmaking();
-            
+
             _data.SessionState = SessionState.Disconnected;
             Refresh();
         }
-        
+
 
         public void Refresh()
         {
             string refreshLog = $"Refresh() ...\n" +
                                 $"\n * MainLogs.Count = {_data.MainLogs.Count}" +
                                 $"\n * MatchmakingLogs.Count = {_data.MatchmakingLogs.Count}\n\n";
-         
+
             //Debug.Log(refreshLog);
-         
+
             // Send relevant data to the UI for rendering
             OnRefreshed?.Invoke(_data);
         }
-        
+
         //  Event Handlers  -------------------------------
         private void MyMatchmaking_OnProgress(MyMatchmakingResult myMatchmakingResult)
         {
@@ -224,11 +224,11 @@ namespace Beamable.Examples.Services.MatchmakingService
 
         private void MyMatchmaking_OnComplete(MyMatchmakingResult myMatchmakingResult)
         {
-            string log = $"OnComplete()...\n" + 
+            string log = $"OnComplete()...\n" +
                          $"\tMatchId = {myMatchmakingResult.MatchId}\n " +
                          $"\tLocalPlayer = {myMatchmakingResult.LocalPlayer}\n" +
                          $"\tPlayers = {string.Join(",", myMatchmakingResult.Players)}\n";
-            
+
             //Debug.Log(log);
             _data.SessionState = SessionState.Connected;
             _data.MatchmakingLogs.Add(log);
@@ -240,7 +240,7 @@ namespace Beamable.Examples.Services.MatchmakingService
         {
             _data.SessionState = SessionState.Disconnected;
             string log = $"OnError(), ErrorMessage = {myMatchmakingResult.ErrorMessage}\n";
-            
+
             //Debug.Log(log);
             _data.MatchmakingLogs.Add(log);
             Refresh();
@@ -284,7 +284,7 @@ namespace Beamable.Examples.Services.MatchmakingService
             return _matchmakingHandle.Status.Players.Select(i => long.Parse(i)).ToList();
          }
       }
-      
+
       public int PlayerCountMin
       {
          get
@@ -300,7 +300,7 @@ namespace Beamable.Examples.Services.MatchmakingService
             return playerCountMin;
          }
       }
-      
+
       public int PlayerCountMax
       {
          get
@@ -313,7 +313,7 @@ namespace Beamable.Examples.Services.MatchmakingService
             return playerCountMax;
          }
       }
-      
+
       public string MatchId
       {
          get
@@ -321,7 +321,7 @@ namespace Beamable.Examples.Services.MatchmakingService
             return _matchmakingHandle?.Match?.matchId;
          }
       }
-      
+
       public long LocalPlayer { get { return _localPlayer; } }
       public SimGameType SimGameType { get { return _simGameType; } }
       public MatchmakingHandle MatchmakingHandle { get { return _matchmakingHandle; } set { _matchmakingHandle = value;} }
@@ -361,17 +361,17 @@ namespace Beamable.Examples.Services.MatchmakingService
       public MyMatchmakingEvent OnProgress = new MyMatchmakingEvent();
       public MyMatchmakingEvent OnComplete = new MyMatchmakingEvent();
       public MyMatchmakingEvent OnError = new MyMatchmakingEvent();
-      
-      
+
+
       //  Properties  -------------------------------------
       public MyMatchmakingResult MyMatchmakingResult { get { return _myMatchmakingResult; } }
 
-      
+
       //  Fields  -----------------------------------------
       private MyMatchmakingResult _myMatchmakingResult = null;
       private Experimental.Api.Matchmaking.MatchmakingService _matchmakingService = null;
       public const string TimeoutErrorMessage = "Timeout";
-      
+
 
       //  Constructor  ------------------------------------
       public MyMatchmaking(Experimental.Api.Matchmaking.MatchmakingService matchmakingService,
@@ -381,7 +381,7 @@ namespace Beamable.Examples.Services.MatchmakingService
          _myMatchmakingResult = new MyMatchmakingResult(simGameType, localPlayerDbid);
       }
 
-      
+
       //  Other Methods  ----------------------------------
       public async Task StartMatchmaking()
       {
@@ -391,9 +391,9 @@ namespace Beamable.Examples.Services.MatchmakingService
                            $"IsInProgress must not be {_myMatchmakingResult.IsInProgress}.\n\n");
             return;
          }
-         
+
          _myMatchmakingResult.IsInProgress = true;
-         
+
          _myMatchmakingResult.MatchmakingHandle =  await _matchmakingService.StartMatchmaking(
             _myMatchmakingResult.SimGameType.Id,
             maxWait: TimeSpan.FromSeconds(10),
@@ -420,21 +420,21 @@ namespace Beamable.Examples.Services.MatchmakingService
       {
          await _matchmakingService.CancelMatchmaking(_myMatchmakingResult.MatchmakingHandle.Tickets[0].ticketId);
       }
-      
-      
+
+
       //  Event Handlers  ----------------------------------
       private void OnUpdateHandler(MatchmakingHandle handle)
       {
          OnProgress.Invoke(_myMatchmakingResult);
       }
-      
+
       private void OnReadyHandler(MatchmakingHandle handle)
       {
          Debug.Assert(handle.State == MatchmakingState.Ready);
          _myMatchmakingResult.IsInProgress = false;
          OnComplete.Invoke(_myMatchmakingResult);
       }
-      
+
       private void OnTimeoutHandler(MatchmakingHandle handle)
       {
          _myMatchmakingResult.IsInProgress = false;
