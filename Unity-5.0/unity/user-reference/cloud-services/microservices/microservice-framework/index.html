@@ -9871,7 +9871,7 @@
 </tbody>
 </table>
 <p><strong>Managing Deployed Microservices Via Portal</strong></p>
-<p>With the Portal, game makers can view and manage the deployed Microservices.</p>
+<p>With the Beamable Portal, game makers can view and manage the deployed Microservices.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/portal-microservices-options-numbers.png" data-desc-position="bottom"><img alt="Portal Microservices Options Numbers" src="../../../../../media/imgs/portal-microservices-options-numbers.png"></a></p>
 <table>
 <thead>
@@ -10064,7 +10064,7 @@
 <p class="admonition-title">Tip</p>
 <p>However, Microservices use a DEBUG log level when running locally.</p>
 </div>
-<p>If you need to change the log level, consider first using request based log level controls. Navigate to the microservice section of the Portal, and create a Log Config Rule for your desired service. You can change the log level dynamically per request based on what player is requesting the service, or which route is being invoked.</p>
+<p>If you need to change the log level, consider first using request based log level controls. Navigate to the microservice section of Portal, and create a Log Config Rule for your desired service. You can change the log level dynamically per request based on what player is requesting the service, or which route is being invoked.</p>
 <p>For example, you could enable DEBUG logging for a player that called into your customer support line, or enable DEBUG logs for a particularly sensitive route.</p>
 <p>You can also use the Log Config section to change the default request level.</p>
 <p>It is also possible to change the default log level for a service by using Realm Config.</p>
@@ -10072,7 +10072,7 @@
 <p class="admonition-title">Tip</p>
 <p>The <em>request</em> level will set the log level for all requests made to your service, but internal background Beamable framework logs will still be set to a default level of INFO (which means very few system logs).</p>
 </div>
-<p>If you need to change the default log level, then go to the Realm Config page of portal, create a new namespace called "service_logs". Then, create an entry in the "service_logs" namespace for each service you want to change the log level for. The entry should be the name of the Microservice. The value should be one of the following, "verbose", "debug", "info", "warn", "error", or "fatal".</p>
+<p>If you need to change the default log level, then go to the Realm Config page of Portal, create a new namespace called "service_logs". Then, create an entry in the "service_logs" namespace for each service you want to change the log level for. The entry should be the name of the Microservice. The value should be one of the following, "verbose", "debug", "info", "warn", "error", or "fatal".</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/service-logs-realm-config.png" data-desc-position="bottom"><img alt="Service Logs Realm Config" src="../../../../../media/imgs/service-logs-realm-config.png"></a></p>
 <p>If you configure the service with "fatal", then only log messages at the "fatal" level will be shown. However, if you configure the service with "debug", then all log messages with a log level of "debug" or greater will be shown, including "debug", "info", "warn", "error", and "fatal".</p>
 <h2 id="deleting-a-service">Deleting a Service<a class="headerlink" href="#deleting-a-service" title="Permanent link">¶</a></h2>

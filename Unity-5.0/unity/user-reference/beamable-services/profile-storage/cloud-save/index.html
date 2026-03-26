@@ -9681,7 +9681,7 @@
 <h2 id="data-limitations">Data Limitations<a class="headerlink" href="#data-limitations" title="Permanent link">¶</a></h2>
 <p>There is a limit of 5MB per cloud save file.</p>
 <h2 id="data-management-via-portal">Data Management Via Portal<a class="headerlink" href="#data-management-via-portal" title="Permanent link">¶</a></h2>
-<p>The Portal allows the game maker to manage player data as well. Search for a player, select the CloudData tab, and navigate to the player data.</p>
+<p>The Beamable Portal allows the game maker to manage player data as well. Search for a player, select the CloudData tab, and navigate to the player data.</p>
 <p>Some common use-cases for game makers include;</p>
 <ul>
 <li><strong>Debugging</strong> - Play as a customer's player data to test and investigate reported issues</li>
@@ -9714,7 +9714,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Gotchas</p>
 <p>Here are some common issues and solutions:</p>
-<p>• While Beamable supports <em>minor</em> edits to the player data from the portal, restoring the a customer's player data completely to a historic backup state is <strong>not supported</strong>.
+<p>• While Beamable supports <em>minor</em> edits to the player data from Portal, restoring the a customer's player data completely to a historic backup state is <strong>not supported</strong>.
 • The CloudSavingService <strong>does not support</strong> <em>multiple game sessions using the same user. If there are multiple sessions for the same user, for the same game, this will create an infinite ping/pong effect. E.g. Device A will send updates that Device B will fetch, which will send updates that Device A will fetch, etc...</em>
 • Manually deleting content from the <code>LocalCloudDataFullPath</code> is <strong>not supported</strong>
 • <a href="doc:cloud-save-code">Old Cloud Save Service</a> <strong>doesn't support</strong> multiple files with the <strong>same content</strong>. If you want files with the same content (for example a backup file), please add a tag to <strong>differentiate</strong> them or use the <a href="doc:player-cloud-save-code">New Cloud Save Service</a>.</p>
