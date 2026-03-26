@@ -9311,7 +9311,7 @@
 <p>The "Beamable SDK for Unity" provides a main entry point to Beamable functions in your Unity Code and the Beamable Player-Centric API is the recommended way to access Beamable APIs.</p>
 <p>This class is designed to support multiple local players, flexible API reference syntax, testability, and lazy initialization. The Beamable Player-Centric API also continues to offer a flexible API reference syntax of Async / Await, Callbacks, Coroutines, as well as <strong>Synchronous</strong>.</p>
 <h2 id="beamcontext-overview">BeamContext Overview<a class="headerlink" href="#beamcontext-overview" title="Permanent link">¶</a></h2>
-<p>After that setup, game makers use the <code>BeamContext</code> object as the main entry-point to Beamable functionality. Here's a simple example of initializing the <code>BeamContext</code> </p>
+<p>After that setup, game makers use the <code>BeamContext</code> object as the main entry-point to Beamable functionality. Here's a simple example of initializing the <code>BeamContext</code></p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -9442,7 +9442,7 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 <span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">MyMethodForCurrencyCallback</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">    </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Inventory</span><span class="p">.</span><span class="n">Currencies</span><span class="p">.</span><span class="n">OnUpdated</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Inventory</span><span class="p">.</span><span class="n">Currencies</span><span class="p">.</span><span class="n">OnUpdated</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">   </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"The currency has been modified."</span><span class="p">);</span>
 <span class="w">   </span><span class="p">};</span>
@@ -9477,8 +9477,8 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 </table>
 <h2 id="in-the-unity-editor">In the Unity Editor<a class="headerlink" href="#in-the-unity-editor" title="Permanent link">¶</a></h2>
 <p>When a BeamContext instance is initialized, a GameObject will be instantiated under Unity's "DontDestroyOnLoad" folder in the scene hierarchy. This GameObject will be named "Beamable" and contains information and behaviours for the currently running context, including:</p>
-<p>• The current Authorized User<br>
-• Player Stats<br>
+<p>• The current Authorized User
+• Player Stats
 • Subscription/Coroutine managers</p>
 <p>Since this object is linked to the associated Context, calling <code>Stop()</code> on the context will delete this object, and vice versa.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamable-context-gameobject.png" data-desc-position="bottom"><img alt="Beamable Context GameObject" src="../../../../media/imgs/beamable-context-gameobject.png"></a></p>

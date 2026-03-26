@@ -9356,16 +9356,16 @@
 <span class="normal">12</span>
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">gamer_tag</span><span class="p">,</span><span class="w"> </span><span class="n">stat_name</span><span class="p">,</span><span class="w"> </span><span class="n">stat_value</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">(</span>
 
-<span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span>
-<span class="w">        </span><span class="n">gamer_tag</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="k">distinct</span>
+<span class="w">        </span><span class="n">gamer_tag</span><span class="p">,</span>
 <span class="w">    </span><span class="s1">'   sessions7d'</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="ss">"stat_name"</span><span class="p">,</span>
 <span class="w">        </span><span class="n">round</span><span class="p">(</span><span class="k">avg</span><span class="p">(</span><span class="k">cast</span><span class="p">(</span><span class="ss">"e.sessions7d"</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb">integer</span><span class="p">)))</span><span class="w"> </span><span class="n">stat_value</span>
-<span class="w">    </span><span class="k">from</span><span class="w"> </span>
-<span class="w">        </span><span class="n">platform_session_session</span><span class="w"> </span>
-<span class="w">    </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span>
+<span class="w">    </span><span class="k">from</span>
+<span class="w">        </span><span class="n">platform_session_session</span>
+<span class="w">    </span><span class="k">group</span><span class="w"> </span><span class="k">by</span>
 <span class="w">        </span><span class="n">gamer_tag</span>
-<span class="p">)</span><span class="w"> </span>
-<span class="k">where</span><span class="w"> </span>
+<span class="p">)</span>
+<span class="k">where</span>
 <span class="n">stat_value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">7</span>
 </code></pre></div></td></tr></tbody></table></div>
 <p>In this query, we are creating a customized set of data based on sessions. You can do this type of aggregation on your own custom telemetry that you write.</p>

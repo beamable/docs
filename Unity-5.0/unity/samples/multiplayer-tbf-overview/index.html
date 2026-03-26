@@ -9511,7 +9511,7 @@
 <p>Welcome to "Turn-based Beamable Fighters" (TBF). In this game, <strong>Choose strategic attacks to win! Only the bravest knight survives.</strong></p>
 <div class="admonition info">
 <p class="admonition-title">Related Features</p>
-<p>• <a href="../../user-reference/beamable-services/social-networking/connectivity/">Matchmaking</a> - Connect remote players in a match (i.e. a multiplayer "room")<br>
+<p>• <a href="../../user-reference/beamable-services/social-networking/connectivity/">Matchmaking</a> - Connect remote players in a match (i.e. a multiplayer "room")
 • <a href="../../user-reference/beamable-services/social-networking/connectivity/">Multiplayer</a> - Enable real-time multiplayer gameplay experiences</p>
 </div>
 <h2 id="screenshots">Screenshots<a class="headerlink" href="#screenshots" title="Permanent link">¶</a></h2>
@@ -9596,7 +9596,7 @@
 <p>These steps are <strong>already complete</strong> in the sample project. The instructions here explain the process.</p>
 <div class="admonition info">
 <p class="admonition-title">Related Features</p>
-<p>• <a href="../../user-reference/beamable-services/social-networking/connectivity/">Matchmaking</a> - Connect remote players in a match (i.e. a multiplayer "room")<br>
+<p>• <a href="../../user-reference/beamable-services/social-networking/connectivity/">Matchmaking</a> - Connect remote players in a match (i.e. a multiplayer "room")
 • <a href="../../user-reference/beamable-services/social-networking/multiplayer/">Multiplayer</a> - Enable real-time multiplayer gameplay experiences</p>
 </div>
 <h3 id="step-1-setup-project">Step 1. Setup Project<a class="headerlink" href="#step-1-setup-project" title="Permanent link">¶</a></h3>
@@ -10792,7 +10792,7 @@
 <span class="p">{</span>
 <span class="w">   </span><span class="c1">/// &lt;summary&gt;</span>
 <span class="w">   </span><span class="c1">/// List of all phases of the gameplay.</span>
-<span class="w">   </span><span class="c1">/// There are arguably more states here than are needed, </span>
+<span class="w">   </span><span class="c1">/// There are arguably more states here than are needed,</span>
 <span class="w">   </span><span class="c1">/// however all are indeed used, in the order shown, for deliberate separation.</span>
 <span class="w">   </span><span class="c1">/// &lt;/summary&gt;</span>
 <span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">GameState</span>
@@ -10855,7 +10855,7 @@
 
 <span class="w">         </span><span class="c1">// SetGameState() is async...</span>
 <span class="w">         </span><span class="c1">//    Pros: We can use operations like "Task.Delay" to slow down execution</span>
-<span class="w">         </span><span class="c1">//    Cons: Error handling is tricky. </span>
+<span class="w">         </span><span class="c1">//    Cons: Error handling is tricky.</span>
 <span class="w">         </span><span class="c1">//    Workaround: AsyncUtility helps with its try/catch.</span>
 <span class="w">         </span><span class="k">await</span><span class="w"> </span><span class="n">AsyncUtility</span><span class="p">.</span><span class="n">AsyncSafe</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">         </span><span class="p">{</span>
@@ -10866,7 +10866,7 @@
 
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">Loading</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
-<span class="w">                  </span><span class="c1">// Render the scene before any latency </span>
+<span class="w">                  </span><span class="c1">// Render the scene before any latency</span>
 <span class="w">                  </span><span class="c1">// of multiplayer begins</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
@@ -10885,7 +10885,7 @@
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">Loaded</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 <span class="w">                  </span><span class="c1">//  Update UI</span>
-<span class="w">                  </span><span class="c1">//  </span>
+<span class="w">                  </span><span class="c1">//</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
 <span class="w">                  </span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">SetStatusText</span><span class="p">(</span><span class="n">TBFConstants</span><span class="p">.</span><span class="n">StatusText_GameState_Loaded</span><span class="p">,</span><span class="w"> </span><span class="n">TMP_BufferedText</span><span class="p">.</span><span class="n">BufferedTextMode</span><span class="p">.</span><span class="n">Queue</span><span class="p">);</span>
@@ -10894,7 +10894,7 @@
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">Initializing</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 <span class="w">                  </span><span class="c1">//  Update UI</span>
-<span class="w">                  </span><span class="c1">//  </span>
+<span class="w">                  </span><span class="c1">//</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
 <span class="w">                  </span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">SetStatusText</span><span class="p">(</span><span class="n">TBFConstants</span><span class="p">.</span><span class="n">StatusText_GameState_Initializing</span><span class="p">,</span><span class="w"> </span><span class="n">TMP_BufferedText</span><span class="p">.</span><span class="n">BufferedTextMode</span><span class="p">.</span><span class="n">Queue</span><span class="p">);</span>
@@ -10903,7 +10903,7 @@
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">Initialized</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 <span class="w">                  </span><span class="c1">//  Update UI</span>
-<span class="w">                  </span><span class="c1">//  </span>
+<span class="w">                  </span><span class="c1">//</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
 <span class="w">                  </span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">SetStatusText</span><span class="p">(</span><span class="n">TBFConstants</span><span class="p">.</span><span class="n">StatusText_GameState_Initialized</span><span class="p">,</span><span class="w"> </span><span class="n">TMP_BufferedText</span><span class="p">.</span><span class="n">BufferedTextMode</span><span class="p">.</span><span class="n">Queue</span><span class="p">);</span>
@@ -10912,7 +10912,7 @@
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">Connecting</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 <span class="w">                  </span><span class="c1">//  Update UI</span>
-<span class="w">                  </span><span class="c1">//  </span>
+<span class="w">                  </span><span class="c1">//</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
 <span class="w">                  </span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">SetStatusText</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">TBFConstants</span><span class="p">.</span><span class="n">StatusText_GameState_Connecting</span><span class="p">,</span>
@@ -10922,8 +10922,8 @@
 
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">Connected</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
-<span class="w">                  </span><span class="c1">//  Advanced the state </span>
-<span class="w">                  </span><span class="c1">//  </span>
+<span class="w">                  </span><span class="c1">//  Advanced the state</span>
+<span class="w">                  </span><span class="c1">//</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
 <span class="w">                  </span><span class="k">await</span><span class="w"> </span><span class="nf">SetGameState</span><span class="p">(</span><span class="n">GameState</span><span class="p">.</span><span class="n">GameStarting</span><span class="p">);</span>
@@ -10932,7 +10932,7 @@
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">GameStarting</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 <span class="w">                  </span><span class="c1">//  Reset the game-specific data</span>
-<span class="w">                  </span><span class="c1">//  </span>
+<span class="w">                  </span><span class="c1">//</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
 <span class="w">                  </span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">GameProgressData</span><span class="p">.</span><span class="n">StartGame</span><span class="p">();</span>
@@ -10941,7 +10941,7 @@
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">GameStarted</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 <span class="w">                  </span><span class="c1">//  Now that all players have connected, setup AI</span>
-<span class="w">                  </span><span class="c1">//  </span>
+<span class="w">                  </span><span class="c1">//</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
 <span class="w">                  </span><span class="c1">// RemotePlayerAI is always created, but enabled only sometimes</span>
@@ -10958,7 +10958,7 @@
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">RoundStarting</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 <span class="w">                  </span><span class="c1">//  Reste the round-specific data.</span>
-<span class="w">                  </span><span class="c1">//  Advance the state. </span>
+<span class="w">                  </span><span class="c1">//  Advance the state.</span>
 <span class="w">                  </span><span class="c1">//  This happens before EACH round during a game</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
@@ -10972,7 +10972,7 @@
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">RoundStarted</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 <span class="w">                  </span><span class="c1">//  Advance the state</span>
-<span class="w">                  </span><span class="c1">//  </span>
+<span class="w">                  </span><span class="c1">//</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
 <span class="w">                  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">GameUIView</span><span class="p">.</span><span class="n">BufferedText</span><span class="p">.</span><span class="n">HasRemainingQueueText</span><span class="p">)</span>
@@ -10988,18 +10988,18 @@
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">RoundPlayerMoving</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 <span class="w">                  </span><span class="c1">//  Update UI</span>
-<span class="w">                  </span><span class="c1">//  </span>
+<span class="w">                  </span><span class="c1">//</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
-<span class="w">                  </span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">SetStatusText</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">TBFConstants</span><span class="p">.</span><span class="n">StatusText_GameState_PlayerMoving</span><span class="p">),</span><span class="w"> </span>
+<span class="w">                  </span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">SetStatusText</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">TBFConstants</span><span class="p">.</span><span class="n">StatusText_GameState_PlayerMoving</span><span class="p">),</span>
 <span class="w">                     </span><span class="n">TMP_BufferedText</span><span class="p">.</span><span class="n">BufferedTextMode</span><span class="p">.</span><span class="n">Queue</span><span class="p">);</span>
 
 <span class="w">                  </span><span class="k">break</span><span class="p">;</span>
 
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">RoundPlayerMoved</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
-<span class="w">                  </span><span class="c1">//  </span>
-<span class="w">                  </span><span class="c1">//  </span>
+<span class="w">                  </span><span class="c1">//</span>
+<span class="w">                  </span><span class="c1">//</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
 <span class="w">                  </span><span class="kt">long</span><span class="w"> </span><span class="n">localPlayerDbid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">MultiplayerSession</span><span class="p">.</span><span class="n">GetPlayerDbidForIndex</span><span class="p">(</span><span class="n">TBFConstants</span><span class="p">.</span><span class="n">PlayerIndexLocal</span><span class="p">);</span>
@@ -11031,7 +11031,7 @@
 <span class="w">                  </span><span class="k">await</span><span class="w"> </span><span class="nf">RenderPlayerMove</span><span class="p">(</span><span class="n">TBFConstants</span><span class="p">.</span><span class="n">PlayerIndexRemote</span><span class="p">,</span><span class="w"> </span><span class="n">remoteGameMoveType</span><span class="p">);</span>
 
 <span class="w">                  </span><span class="c1">// All players have moved</span>
-<span class="w">                  </span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">SetStatusText</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">TBFConstants</span><span class="p">.</span><span class="n">StatusText_GameState_PlayersAllMoved</span><span class="p">),</span><span class="w"> </span>
+<span class="w">                  </span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">SetStatusText</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">TBFConstants</span><span class="p">.</span><span class="n">StatusText_GameState_PlayersAllMoved</span><span class="p">),</span>
 <span class="w">                     </span><span class="n">TMP_BufferedText</span><span class="p">.</span><span class="n">BufferedTextMode</span><span class="p">.</span><span class="n">Queue</span><span class="p">);</span>
 
 <span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">RemotePlayerAI</span><span class="p">.</span><span class="n">IsEnabled</span><span class="p">)</span>
@@ -11057,7 +11057,7 @@
 <span class="w">                  </span><span class="c1">// **************************************</span>
 <span class="w">                  </span><span class="c1">//  Evalute all the player moves and store result.</span>
 <span class="w">                  </span><span class="c1">//  Advance the state</span>
-<span class="w">                  </span><span class="c1">//  </span>
+<span class="w">                  </span><span class="c1">//</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
 <span class="w">                  </span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">GameProgressData</span><span class="p">.</span><span class="n">EvaluateGameMoveEventsThisRound</span><span class="p">();</span>
@@ -11069,7 +11069,7 @@
 <span class="w">                  </span><span class="c1">// **************************************</span>
 <span class="w">                  </span><span class="c1">// Render results onscreen (animation, sounds).</span>
 <span class="w">                  </span><span class="c1">// Decide: Advance round or end game</span>
-<span class="w">                  </span><span class="c1">//  </span>
+<span class="w">                  </span><span class="c1">//</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
 <span class="w">                  </span><span class="n">RoundResult</span><span class="w"> </span><span class="n">currentRoundResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">GameProgressData</span><span class="p">.</span><span class="n">CurrentRoundResult</span><span class="p">;</span>
@@ -11126,8 +11126,8 @@
 
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">GameEvaluating</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
-<span class="w">                  </span><span class="c1">//  Advance the state </span>
-<span class="w">                  </span><span class="c1">//  </span>
+<span class="w">                  </span><span class="c1">//  Advance the state</span>
+<span class="w">                  </span><span class="c1">//</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
 <span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_gameSceneManager</span><span class="p">.</span><span class="n">GameProgressData</span><span class="p">.</span><span class="n">GameHasWinnerPlayerDbid</span><span class="p">)</span>
@@ -11143,7 +11143,7 @@
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">GameEnding</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 <span class="w">                  </span><span class="c1">//  Render loss (animation and sound)</span>
-<span class="w">                  </span><span class="c1">//  Game stays here. </span>
+<span class="w">                  </span><span class="c1">//  Game stays here.</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
 
 <span class="w">                  </span><span class="c1">// if the game loser does not have 0 health, move to 0 health</span>
@@ -11162,7 +11162,7 @@
 <span class="w">                  </span><span class="p">}</span>
 <span class="w">                  </span><span class="k">else</span>
 <span class="w">                  </span><span class="p">{</span>
-<span class="w">                     </span><span class="n">gameWinnerName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetPlayerNameByIndex</span><span class="p">(</span><span class="n">TBFConstants</span><span class="p">.</span><span class="n">PlayerIndexRemote</span><span class="p">);</span><span class="w">   </span>
+<span class="w">                     </span><span class="n">gameWinnerName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetPlayerNameByIndex</span><span class="p">(</span><span class="n">TBFConstants</span><span class="p">.</span><span class="n">PlayerIndexRemote</span><span class="p">);</span>
 
 <span class="w">                     </span><span class="c1">//Remote winner</span>
 <span class="w">                     </span><span class="n">SoundManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">PlayAudioClip</span><span class="p">(</span><span class="n">SoundConstants</span><span class="p">.</span><span class="n">GameOverLoss</span><span class="p">);</span>
@@ -11178,7 +11178,7 @@
 <span class="w">                  </span><span class="k">break</span><span class="p">;</span>
 <span class="w">               </span><span class="k">case</span><span class="w"> </span><span class="n">GameState</span><span class="p">.</span><span class="n">GameEnded</span><span class="p">:</span>
 <span class="w">                  </span><span class="c1">// **************************************</span>
-<span class="w">                  </span><span class="c1">//  Game stays here. </span>
+<span class="w">                  </span><span class="c1">//  Game stays here.</span>
 <span class="w">                  </span><span class="c1">//  User must click "Back" buton</span>
 <span class="w">                  </span><span class="c1">//</span>
 <span class="w">                  </span><span class="c1">// NOTE: We come here from GameState.GameEnding and/or when a player disconnects</span>

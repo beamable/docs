@@ -9584,7 +9584,7 @@ The <code>Create</code> method has a number of optional parameters:</p>
 </blockquote>
 <p>Both properties point to the same object. However <code>Party.Value</code> is obsolete.</p>
 <blockquote>
-<p>Is <code>Party.State</code> / <code>Party.Value</code> automatically updated if there is a change in party data? (new member join, owner change, etc). I found that we can also get Party data directly from <code>Party</code>, ex: <code>Party.Id</code>, <code>Party.Members</code>, <code>Party.Leader</code>.<br>
+<p>Is <code>Party.State</code> / <code>Party.Value</code> automatically updated if there is a change in party data? (new member join, owner change, etc). I found that we can also get Party data directly from <code>Party</code>, ex: <code>Party.Id</code>, <code>Party.Members</code>, <code>Party.Leader</code>.
   Members data is <code>List&lt;string&gt;</code>. Are those string values userIds? Why string not long? What is the difference between userId (long) vs playerId (string)?</p>
 </blockquote>
 <p>Yes, party data gets updated automatically based on notifications. Properties like <code>Party.Id</code> are just a shorthand for <code>Party.State.Id</code>. Use the <code>PartyMember</code> observable list to get access to the list of party members instead of the obsolete <code>Member</code> list. <code>PartyMember</code> instances have <code>long</code> userId types instead of <code>string</code>.</p>

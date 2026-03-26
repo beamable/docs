@@ -9812,7 +9812,7 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="custom-stores">Custom Stores<a class="headerlink" href="#custom-stores" title="Permanent link">¶</a></h3>
-<p>The Beamable <strong>CommerceService</strong> feature allows game makers to create custom storefronts with flexible purchasing options. </p>
+<p>The Beamable <strong>CommerceService</strong> feature allows game makers to create custom storefronts with flexible purchasing options.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">CommerceService</span><span class="p">.</span><span class="n">Purchase</span><span class="p">(</span><span class="n">storeSymbol</span><span class="p">,</span><span class="w"> </span><span class="n">listingSymbol</span><span class="p">);</span>
 </code></pre></div></td></tr></tbody></table></div>
 <p>There are 3 major parts to the Store setup process. The workflow involves configuring Unity IAP, setting up platform integrations, and creating Beamable content.
@@ -10085,14 +10085,14 @@ The following code examples demonstrate how to implement a custom store experien
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_data</span><span class="p">.</span><span class="n">SelectedItemData</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"BuySelectedStoreItem() failed because _selectedItemData = </span>
+<span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"BuySelectedStoreItem() failed because _selectedItemData =</span>
 <span class="w">                 </span><span class="p">{</span><span class="n">_data</span><span class="p">.</span><span class="n">SelectedItemData</span><span class="p">}.</span><span class="s">");</span>
 <span class="w">                </span><span class="k">return</span><span class="p">;</span>
 <span class="w">            </span><span class="p">}</span>
 
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">_data</span><span class="p">.</span><span class="n">CanAffordSelectedStoreItemData</span><span class="p">)</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"BuySelectedStoreItem() failed because CanAffordSelectedStoreItemData = </span>
+<span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"BuySelectedStoreItem() failed because CanAffordSelectedStoreItemData =</span>
 <span class="w">                 </span><span class="p">{</span><span class="n">_data</span><span class="p">.</span><span class="n">CanAffordSelectedStoreItemData</span><span class="p">}.</span><span class="s">");</span>
 <span class="w">                </span><span class="k">return</span><span class="p">;</span>
 <span class="w">            </span><span class="p">}</span>
@@ -10129,7 +10129,7 @@ The following code examples demonstrate how to implement a custom store experien
 <span class="w">            </span><span class="p">{</span>
 <span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">itemName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetDisplayNameFromContentId</span><span class="p">(</span><span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">);</span>
 
-<span class="w">                </span><span class="n">ItemContent</span><span class="w"> </span><span class="n">itemContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span>
+<span class="w">                </span><span class="n">ItemContent</span><span class="w"> </span><span class="n">itemContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span>
 <span class="w">                    </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetItemContentById</span><span class="p">(</span><span class="n">_beamContext</span><span class="p">,</span><span class="w"> </span><span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">);</span>
 
 <span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"{itemName} x {kvp.Value.Count}"</span><span class="p">;</span>
@@ -10164,7 +10164,7 @@ The following code examples demonstrate how to implement a custom store experien
 
 <span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">itemName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetDisplayNameFromContentId</span><span class="p">(</span><span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">);</span>
 
-<span class="w">                </span><span class="n">CurrencyContent</span><span class="w"> </span><span class="n">currencyContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w">                </span><span class="n">CurrencyContent</span><span class="w"> </span><span class="n">currencyContent</span><span class="w"> </span><span class="o">=</span>
 <span class="w">                    </span><span class="k">await</span><span class="w"> </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetCurrencyContentById</span><span class="p">(</span><span class="n">_beamContext</span><span class="p">,</span><span class="w"> </span><span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">);</span>
 
 <span class="w">                </span><span class="n">_data</span><span class="p">.</span><span class="n">CurrencyContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currencyContent</span><span class="p">;</span>
@@ -10186,10 +10186,10 @@ The following code examples demonstrate how to implement a custom store experien
 
 <span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">PlayerListingView</span><span class="w"> </span><span class="n">playerListingView</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">playerStoreView</span><span class="p">.</span><span class="n">listings</span><span class="p">)</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">playerListingView</span><span class="p">.</span><span class="n">offer</span><span class="p">.</span><span class="n">price</span><span class="p">.</span><span class="n">amount</span><span class="p">;</span><span class="w">   </span>
+<span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">playerListingView</span><span class="p">.</span><span class="n">offer</span><span class="p">.</span><span class="n">price</span><span class="p">.</span><span class="n">amount</span><span class="p">;</span>
 <span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">contentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">playerListingView</span><span class="p">.</span><span class="n">offer</span><span class="p">.</span><span class="n">obtainItems</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">contentId</span><span class="p">;</span>
 <span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">itemName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetDisplayNameFromContentId</span><span class="p">(</span><span class="n">contentId</span><span class="p">);</span>
-<span class="w">                </span><span class="n">ItemContent</span><span class="w"> </span><span class="n">itemContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetItemContentById</span><span class="p">(</span><span class="n">_beamContext</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                </span><span class="n">ItemContent</span><span class="w"> </span><span class="n">itemContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetItemContentById</span><span class="p">(</span><span class="n">_beamContext</span><span class="p">,</span>
 <span class="w">                 </span><span class="n">contentId</span><span class="p">);</span>
 
 <span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"{itemName} ({price} {CurrencyDisplayName})"</span><span class="p">;</span>

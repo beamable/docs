@@ -9488,9 +9488,9 @@
 
 
 <h1 id="beam-library-overview">Beam Library Overview<a class="headerlink" href="#beam-library-overview" title="Permanent link">¶</a></h1>
-<p>The Beam Library is a collection of package samples and prefabs to help get you started learning the Unity SDK. To open the Beam Library, click on the Beamable Button (at the top-right of the Unity window), and select <em>Beam Library</em>. </p>
+<p>The Beam Library is a collection of package samples and prefabs to help get you started learning the Unity SDK. To open the Beam Library, click on the Beamable Button (at the top-right of the Unity window), and select <em>Beam Library</em>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/533076e9cddc444ecdf9be5f5e2310b7d293fbc95b5792a9959a803433fd7955-image.png" data-desc-position="bottom"><img alt="Select &quot;Open Beam Library&quot; from the Beamable Button" src="../../../../media/imgs/533076e9cddc444ecdf9be5f5e2310b7d293fbc95b5792a9959a803433fd7955-image.png" width="400px"></a></p>
-<p>Now the <em>Beam Library</em> should be open. </p>
+<p>Now the <em>Beam Library</em> should be open.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/7b0d4957423d75029795d0d58132b6e7ca953f448a97b7057065519465467364-image.png" data-desc-position="bottom"><img alt="Beam Library Window" src="../../../../media/imgs/7b0d4957423d75029795d0d58132b6e7ca953f448a97b7057065519465467364-image.png" width="400px"></a></p>
 <p>Each card represents a Package Sample. When you click the "Open Scene" button, a Beamable sample will be added to your assets folder under <code>Assets/Samples/Beamable</code>.</p>
 <h2 id="admin-console">Admin Console<a class="headerlink" href="#admin-console" title="Permanent link">¶</a></h2>
@@ -9668,7 +9668,7 @@
 <span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Features.AdminFlow</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="na">[BeamableConsoleCommandProvider]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomConsoleCommandProvider</span><span class="w"> </span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomConsoleCommandProvider</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="na">[BeamableConsoleCommand ("Add", "A sample addition command", "Add &lt;int&gt; &lt;int&gt;")]</span>
 <span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
@@ -9687,10 +9687,10 @@
 <span class="w">        </span><span class="c1">//  Unity Methods  --------------------------------</span>
 <span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start() Instructions...\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
-<span class="w">                      </span><span class="s">" * Run The Scene\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
-<span class="w">                      </span><span class="s">" * Type '~' in Unity Game Window to open Admin Console\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
-<span class="w">                      </span><span class="s">" * Type 'Add 5 10'\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start() Instructions...\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                      </span><span class="s">" * Run The Scene\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                      </span><span class="s">" * Type '~' in Unity Game Window to open Admin Console\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                      </span><span class="s">" * Type 'Add 5 10'\n"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                      </span><span class="s">" * See 'Result: 15' in Unity Console Window\n"</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>

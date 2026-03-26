@@ -9874,7 +9874,7 @@ Here are some common use cases for the Groups feature:</p>
 <span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">enrollmentType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"open"</span><span class="p">;</span>
 
 <span class="w">            </span><span class="c1">// Search existing group</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">groupSearchResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">GroupsService</span><span class="p">.</span><span class="n">Search</span><span class="p">(</span><span class="n">groupName</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">groupSearchResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">GroupsService</span><span class="p">.</span><span class="n">Search</span><span class="p">(</span><span class="n">groupName</span><span class="p">,</span>
 <span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">enrollmentType</span><span class="p">});</span>
 
 <span class="w">            </span><span class="c1">// Join or Create new group</span>
@@ -9892,9 +9892,9 @@ Here are some common use cases for the Groups feature:</p>
 <span class="w">            </span><span class="p">}</span>
 
 <span class="w">            </span><span class="c1">// HACK: Force refresh here (0.10.1)</span>
-<span class="w">            </span><span class="c1">// Wait (arbitrary milliseconds) for refresh to complete </span>
+<span class="w">            </span><span class="c1">// Wait (arbitrary milliseconds) for refresh to complete</span>
 <span class="w">            </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">GroupsService</span><span class="p">.</span><span class="n">Subscribable</span><span class="p">.</span><span class="n">ForceRefresh</span><span class="p">();</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="m">300</span><span class="p">);</span><span class="w"> </span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="m">300</span><span class="p">);</span>
 
 <span class="w">            </span><span class="n">Refresh</span><span class="p">();</span>
 
@@ -9913,9 +9913,9 @@ Here are some common use cases for the Groups feature:</p>
 <span class="w">            </span><span class="p">}</span>
 
 <span class="w">            </span><span class="c1">// HACK: Force refresh here (0.10.1)</span>
-<span class="w">            </span><span class="c1">// Wait (arbitrary milliseconds) for refresh to complete </span>
+<span class="w">            </span><span class="c1">// Wait (arbitrary milliseconds) for refresh to complete</span>
 <span class="w">            </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">GroupsService</span><span class="p">.</span><span class="n">Subscribable</span><span class="p">.</span><span class="n">ForceRefresh</span><span class="p">();</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="m">300</span><span class="p">);</span><span class="w"> </span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="m">300</span><span class="p">);</span>
 
 <span class="w">            </span><span class="n">Refresh</span><span class="p">();</span>
 
@@ -9940,7 +9940,7 @@ Here are some common use cases for the Groups feature:</p>
 
 <span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Refresh</span><span class="p">()</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// Create new mock message </span>
+<span class="w">            </span><span class="c1">// Create new mock message</span>
 <span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">messageIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_data</span><span class="p">.</span><span class="n">RoomMessages</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
 <span class="w">            </span><span class="n">_data</span><span class="p">.</span><span class="n">MessageToSend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"Hello {messageIndex:000}!"</span><span class="p">;</span>
 

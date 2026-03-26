@@ -9808,10 +9808,10 @@
 <span class="normal">13</span>
 <span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">CloudMetaData</span><span class="w"> </span><span class="n">cloudMetaData</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">playerManifestResponse</span><span class="p">.</span><span class="n">meta</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span>
 <span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">_trialDataService</span><span class="p">.</span><span class="n">GetCloudDataContent</span><span class="p">(</span><span class="n">cloudMetaData</span><span class="p">);</span>
 
-<span class="w">    </span><span class="n">MyPlayerProgression</span><span class="w"> </span><span class="n">myPlayerProgression</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w">    </span><span class="n">MyPlayerProgression</span><span class="w"> </span><span class="n">myPlayerProgression</span><span class="w"> </span><span class="o">=</span>
 <span class="w">        </span><span class="n">JsonUtility</span><span class="p">.</span><span class="n">FromJson</span><span class="o">&lt;</span><span class="n">MyPlayerProgression</span><span class="o">&gt;</span><span class="p">(</span><span class="n">response</span><span class="p">);</span>
 
 <span class="w">    </span><span class="c1">// Store the data</span>
@@ -10006,7 +10006,7 @@
 <span class="w">    </span><span class="c1">/// NOTE: This demo uses other concepts</span>
 <span class="w">    </span><span class="c1">/// too. See &lt;see cref="CloudSavingServiceExample"/&gt;</span>
 <span class="w">    </span><span class="c1">/// for more info.</span>
-<span class="w">    </span><span class="c1">/// </span>
+<span class="w">    </span><span class="c1">///</span>
 <span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TrialDataServiceExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
 <span class="w">    </span><span class="p">{</span>
@@ -10025,7 +10025,7 @@
 <span class="w">                      </span><span class="s">" * Setup AB Testing in Portal per https://docs.beamable.com/docs/abtesting-code\n"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                      </span><span class="s">" * Run The Scene\n"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                      </span><span class="s">" * See onscreen UI for results.\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                      </span><span class="s">" * If IsInABTest is false, something is incorrect. Repeat these steps.\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">                      </span><span class="s">" * If IsInABTest is false, something is incorrect. Repeat these steps.\n"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                      </span><span class="s">" * If IsInABTest is true, everything is correct. Visit the portal to change "</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                      </span><span class="s">"the `PLAYER_LEVEL` stat value, then repeat these steps see load other data.\n"</span><span class="p">);</span>
 
@@ -10059,10 +10059,10 @@
 <span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"http://{cloudMetaData.uri}"</span><span class="p">;</span>
 
 <span class="w">                </span><span class="c1">// Load the data, respecting GZip format</span>
-<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span>
 <span class="w">                    </span><span class="k">await</span><span class="w"> </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetResponseFromHttpWebRequest</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
 
-<span class="w">                </span><span class="n">MyPlayerProgression</span><span class="w"> </span><span class="n">myPlayerProgression</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w">                </span><span class="n">MyPlayerProgression</span><span class="w"> </span><span class="n">myPlayerProgression</span><span class="w"> </span><span class="o">=</span>
 <span class="w">                    </span><span class="n">JsonUtility</span><span class="p">.</span><span class="n">FromJson</span><span class="o">&lt;</span><span class="n">MyPlayerProgression</span><span class="o">&gt;</span><span class="p">(</span><span class="n">response</span><span class="p">);</span>
 
 <span class="w">                </span><span class="c1">// If trial is related, store data</span>

@@ -9261,7 +9261,7 @@
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">configAssetText</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">configDefaultsText</span><span class="p">)</span>
 <span class="w">                </span><span class="p">{</span>
 <span class="w">                    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">IOException</span><span class="p">(</span><span class="s">"Beamable Config override failed to copy to config-defaults. Config content does not match."</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                                          </span><span class="s">$"\n[config-defaults.txt]:\n{configDefaultsText}\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">                                          </span><span class="s">$"\n[config-defaults.txt]:\n{configDefaultsText}\n"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                                          </span><span class="s">$"\n[config-{configKey}.txt]:\n{configAssetText}"</span><span class="p">);</span>
 <span class="w">                </span><span class="p">}</span>
 

@@ -9656,12 +9656,12 @@
 
 
 <h1 id="microservices-overview">Microservices Overview<a class="headerlink" href="#microservices-overview" title="Permanent link">¶</a></h1>
-<p>Beamable Microservices are small C# projects that can handle web traffic for your Unity game, Unreal game, or custom engine game. The C# project is written with the modern dotnet library which means you have full access to the vast majority of dotnet features, including Nuget, Msbuild, and the myriad of performance improvements available in recent .NET updates. </p>
+<p>Beamable Microservices are small C# projects that can handle web traffic for your Unity game, Unreal game, or custom engine game. The C# project is written with the modern dotnet library which means you have full access to the vast majority of dotnet features, including Nuget, Msbuild, and the myriad of performance improvements available in recent .NET updates.</p>
 <div class="admonition warning">
 <p class="admonition-title">Dotnet and Docker Dependency!</p>
 <p>To use Microservices, you will need to install <a href="https://dotnet.microsoft.com/en-us/download">dotnet 8</a> onto your machine. In order to publish services, you will need to install <a href="https://www.docker.com/products/docker-desktop/">Docker</a>. (You <em>do not</em> need to create a Docker account). These are only development dependencies.</p>
 </div>
-<p>The basic gist of a Beamable Microservice is a simple class like the one below, </p>
+<p>The basic gist of a Beamable Microservice is a simple class like the one below,</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -9680,9 +9680,9 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>The <code>Add</code> method will be available as a callable HTTP route on the service. The serialization of the parameters and response types happen automatically as JSON based conversions. Client code is generated for Unity and Unreal as part of our engine integrations. Beamable handles the deployment, routing, and scaling of these services. </p>
+<p>The <code>Add</code> method will be available as a callable HTTP route on the service. The serialization of the parameters and response types happen automatically as JSON based conversions. Client code is generated for Unity and Unreal as part of our engine integrations. Beamable handles the deployment, routing, and scaling of these services.</p>
 <h2 id="microservices-framework">Microservices Framework<a class="headerlink" href="#microservices-framework" title="Permanent link">¶</a></h2>
-<p>The Microservices use a framework for managing user requests and facilitating access to the rest of Beamable's feature suite. </p>
+<p>The Microservices use a framework for managing user requests and facilitating access to the rest of Beamable's feature suite.</p>
 <h3 id="request-details">Request Details<a class="headerlink" href="#request-details" title="Permanent link">¶</a></h3>
 <p>When a <code>[ClientCallable]</code> method executes, there is an available class field, <code>Context</code>, that contains information about the HTTP request responsible for initiating the <code>[ClientCallable]</code>.</p>
 <h4 id="access-caller-information">Access Caller Information<a class="headerlink" href="#access-caller-information" title="Permanent link">¶</a></h4>
@@ -9699,13 +9699,13 @@
 </code></pre></div></td></tr></tbody></table></div>
 <div class="admonition info">
 <p class="admonition-title">Account Id</p>
-<p>Sometimes, Beamable features require an Account Id instead of a Player Id. If a player signs up on a single realm, they get a <em>Player Id</em> for that realm, and a global <em>Account Id</em>. When they sign up on a <em>second</em> realm (perhaps a developer account, or on a second game), they get a new <em>Player Id</em> for the new realm, but they use the same global <em>Account Id</em> as before. </p>
+<p>Sometimes, Beamable features require an Account Id instead of a Player Id. If a player signs up on a single realm, they get a <em>Player Id</em> for that realm, and a global <em>Account Id</em>. When they sign up on a <em>second</em> realm (perhaps a developer account, or on a second game), they get a new <em>Player Id</em> for the new realm, but they use the same global <em>Account Id</em> as before.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">accountId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Context</span><span class="p">.</span><span class="n">AccountId</span><span class="p">;</span>
 </code></pre></div></td></tr></tbody></table></div>
 </div>
 <h4 id="access-unity-version-via-headers">Access Unity Version via Headers<a class="headerlink" href="#access-unity-version-via-headers" title="Permanent link">¶</a></h4>
-<p>The HTTP headers can be found via the <code>Context.Headers</code> property. The <code>Headers</code> is a <code>Dictionary&lt;string, string&gt;</code>, where the keys represent HTTP header names, and the values represent HTTP header values. </p>
-<p>The Unity Beamable SDK sends a few special headers that describe the game's environment, including the game's version, Unity's version, Beamable's version, and Unity's runtime target. </p>
+<p>The HTTP headers can be found via the <code>Context.Headers</code> property. The <code>Headers</code> is a <code>Dictionary&lt;string, string&gt;</code>, where the keys represent HTTP header names, and the values represent HTTP header values.</p>
+<p>The Unity Beamable SDK sends a few special headers that describe the game's environment, including the game's version, Unity's version, Beamable's version, and Unity's runtime target.</p>
 <table>
 <thead>
 <tr>
@@ -9770,8 +9770,8 @@
 <span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ClientCallable]</span>
 <span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Example</span><span class="p">();</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">true</span><span class="p">)</span><span class="w"> </span>
-<span class="w">  </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
 <span class="w">     </span><span class="c1">// if the request has not been cancelled, this is a no-op.</span>
 <span class="w">     </span><span class="n">Context</span><span class="p">.</span><span class="n">ThrowIfCancelled</span><span class="p">();</span>
 <span class="w">  </span><span class="p">}</span>
@@ -9915,14 +9915,14 @@
 <p>Each custom Microservice created extends the Beamable <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Server_1_1Microservice.html"><code>Microservice</code></a> class.</p>
 <p>This gives the custom Microservice access to key member variables:</p>
 <ul>
-<li><a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Server_1_1RequestContext.html"><code>Context</code></a> - Refers to the current request context. It contains info including what PlayerId is calling and which path is run </li>
+<li><a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Server_1_1RequestContext.html"><code>Context</code></a> - Refers to the current request context. It contains info including what PlayerId is calling and which path is run</li>
 <li><a href="https://csharp.cdocs.beamable.com/latest/interfaceBeamable_1_1Common_1_1Api_1_1IBeamableRequester.html"><code>Requester</code></a> - It can be used to make direct (and admin privileged) requests to the rest of the Beamable Platform</li>
 <li><a href="https://csharp.cdocs.beamable.com/latest/interfaceBeamable_1_1Server_1_1IBeamableServices.html"><code>Services</code></a> - The powerful Microservice entry-point to Beamable's <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Stats_1_1StatsService.html"><code>StatsService</code></a>, <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Inventory_1_1InventoryService.html"><code>InventoryService</code></a>, and more</li>
 </ul>
 <p><strong>Example</strong></p>
 <p>Below are two versions of the same method call with varied implementations. Notice that #2 handles more functionality on the Microservice-side and is thus more secure.</p>
 <p><strong>#1. Method Without Beamable Services</strong></p>
-<p>Here the eligibility of reward is evaluated and the amount is calculated. This assumes the client side will handle the rewarding of the currency. </p>
+<p>Here the eligibility of reward is evaluated and the amount is calculated. This assumes the client side will handle the rewarding of the currency.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -9981,11 +9981,11 @@
 </code></pre></div></td></tr></tbody></table></div>
 <div class="admonition info">
 <p class="admonition-title">Custom HttpClient Implementation</p>
-<p>You can also implement your own services that will handle calling other sites. </p>
+<p>You can also implement your own services that will handle calling other sites.</p>
 <p>Learn more: <a href="https://makolyte.com/csharp-how-to-make-concurrent-requests-with-httpclient/">https://makolyte.com/csharp-how-to-make-concurrent-requests-with-httpclient/</a></p>
 </div>
 <h3 id="microservice-serialization">Microservice Serialization<a class="headerlink" href="#microservice-serialization" title="Permanent link">¶</a></h3>
-<p>Unity's built-in features use <a href="https://docs.unity3d.com/Manual/script-Serialization.html">Unity's serialization</a>. </p>
+<p>Unity's built-in features use <a href="https://docs.unity3d.com/Manual/script-Serialization.html">Unity's serialization</a>.</p>
 <p>However, within a Beamable's Microservice, game makers must rely instead on Beamable's custom Serialization. This serialization is strict and has limitations.</p>
 <h4 id="types">Types<a class="headerlink" href="#types" title="Permanent link">¶</a></h4>
 <table>
@@ -10064,13 +10064,13 @@
 <p class="admonition-title">Tip</p>
 <p>However, Microservices use a DEBUG log level when running locally.</p>
 </div>
-<p>If you need to change the log level, consider first using request based log level controls. Navigate to the microservice section of the Portal, and create a Log Config Rule for your desired service. You can change the log level dynamically per request based on what player is requesting the service, or which route is being invoked. </p>
-<p>For example, you could enable DEBUG logging for a player that called into your customer support line, or enable DEBUG logs for a particularly sensitive route. </p>
-<p>You can also use the Log Config section to change the default request level. </p>
+<p>If you need to change the log level, consider first using request based log level controls. Navigate to the microservice section of the Portal, and create a Log Config Rule for your desired service. You can change the log level dynamically per request based on what player is requesting the service, or which route is being invoked.</p>
+<p>For example, you could enable DEBUG logging for a player that called into your customer support line, or enable DEBUG logs for a particularly sensitive route.</p>
+<p>You can also use the Log Config section to change the default request level.</p>
 <p>It is also possible to change the default log level for a service by using Realm Config.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The <em>request</em> level will set the log level for all requests made to your service, but internal background Beamable framework logs will still be set to a default level of INFO (which means very few system logs). </p>
+<p>The <em>request</em> level will set the log level for all requests made to your service, but internal background Beamable framework logs will still be set to a default level of INFO (which means very few system logs).</p>
 </div>
 <p>If you need to change the default log level, then go to the Realm Config page of portal, create a new namespace called "service_logs". Then, create an entry in the "service_logs" namespace for each service you want to change the log level for. The entry should be the name of the Microservice. The value should be one of the following, "verbose", "debug", "info", "warn", "error", or "fatal".</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/service-logs-realm-config.png" data-desc-position="bottom"><img alt="Service Logs Realm Config" src="../../../../../media/imgs/service-logs-realm-config.png"></a></p>

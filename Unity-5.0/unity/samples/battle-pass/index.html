@@ -9342,7 +9342,7 @@
 
 
 <h1 id="building-a-battle-pass">Building a Battle Pass<a class="headerlink" href="#building-a-battle-pass" title="Permanent link">¶</a></h1>
-<p>A battle pass is a common engagement feature for players. You can implement a Battle Pass for your game by utilizing 
+<p>A battle pass is a common engagement feature for players. You can implement a Battle Pass for your game by utilizing
 Beamable's Custom Content capabilities. This is a quick guide for how to think about using Beamable for this feature.</p>
 <hr>
 <h2 id="custom-content">Custom Content<a class="headerlink" href="#custom-content" title="Permanent link">¶</a></h2>
@@ -9368,30 +9368,30 @@ Each Battle Pass will have tiers, and each tier can have rewards.</p>
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ContentType("battlepass")]</span><span class="w">  </span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Battlepass</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w">  </span>
-<span class="p">{</span><span class="w">  </span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ContentType("battlepass")]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Battlepass</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span>
+<span class="p">{</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">;</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">EndDate</span><span class="p">;</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Tier</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Tiers</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Tier</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Tiers</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="na">[Serializable]</span><span class="w">  </span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tier</span><span class="w">  </span>
-<span class="p">{</span><span class="w">  </span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Level</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Reward</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Rewards</span><span class="p">;</span><span class="w">  </span>
+<span class="na">[Serializable]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tier</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Level</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Reward</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Rewards</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="na">[Serializable]</span><span class="w">  </span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Reward</span><span class="w">  </span>
-<span class="p">{</span><span class="w">  </span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">RewardName</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Quantity</span><span class="p">;</span><span class="w">  </span>
+<span class="na">[Serializable]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Reward</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">RewardName</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Quantity</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="content-setup">Content Setup<a class="headerlink" href="#content-setup" title="Permanent link">¶</a></h3>
-<p>Once the custom type is defined, follow these steps to add a Battle Pass content object in the Beamable 
+<p>Once the custom type is defined, follow these steps to add a Battle Pass content object in the Beamable
 Content Manager:</p>
 <ul>
 <li><strong>Step 1: Open the Content Manager:</strong></li>
@@ -9408,12 +9408,12 @@ Content Manager:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/battlepass-content.jpg" data-desc-position="bottom"><img alt="Battle Pass Content" src="../../../media/imgs/battlepass-content.jpg"></a></p>
 <ul>
 <li><strong>Step 4: Publish the content:</strong></li>
-<li>Once the Battle Pass is configured, press the <strong>Publish</strong> button in the Content Manager to push the Battle Pass 
+<li>Once the Battle Pass is configured, press the <strong>Publish</strong> button in the Content Manager to push the Battle Pass
   content live.</li>
 </ul>
 <hr>
 <h2 id="fetching-and-using-the-battle-pass-at-runtime">Fetching and Using the Battle Pass at Runtime<a class="headerlink" href="#fetching-and-using-the-battle-pass-at-runtime" title="Permanent link">¶</a></h2>
-<p>After the Battle Pass is defined and published, use Beamable’s features to fetch and use the content at runtime. 
+<p>After the Battle Pass is defined and published, use Beamable’s features to fetch and use the content at runtime.
 In this example, we'll retrieve the Battle Pass.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -9492,7 +9492,7 @@ In this example, we'll retrieve the Battle Pass.</p>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h2 id="adding-the-battle-pass-to-player-inventory">Adding the Battle Pass to Player Inventory<a class="headerlink" href="#adding-the-battle-pass-to-player-inventory" title="Permanent link">¶</a></h2>
-<p>You can add the Battle Pass to a player's inventory using Beamable's Inventory system. Here's how you can use the 
+<p>You can add the Battle Pass to a player's inventory using Beamable's Inventory system. Here's how you can use the
 <code>Inventory.Update</code> method to store the Battle Pass details, such as its name and end date.</p>
 <p>To access <code>items.battlepass</code>, an item named <code>battlepass</code> should be created and published through the Content Manager.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -9524,7 +9524,7 @@ In this example, we'll retrieve the Battle Pass.</p>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h2 id="handling-end-date-and-expiration-validation-in-a-microservice">Handling End Date and Expiration Validation in a Microservice<a class="headerlink" href="#handling-end-date-and-expiration-validation-in-a-microservice" title="Permanent link">¶</a></h2>
-<p>You can use Beamable’s Microservices to validate the Battle Pass expiration. Since <code>Battlepass</code> is a custom 
+<p>You can use Beamable’s Microservices to validate the Battle Pass expiration. Since <code>Battlepass</code> is a custom
 <code>ContentObject</code>, the type won't be findable by default in Microservices. You can create or move the <code>Battlepass</code>
 custom content script into the Beamable's <code>Common</code> folder, which is also referenced in the Microservices. The folder
 can be found in <code>Assets/Beamable/Common</code>.</p>
@@ -9559,7 +9559,7 @@ can be found in <code>Assets/Beamable/Common</code>.</p>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">currentTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTimeOffset</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">.</span><span class="n">ToUnixTimeSeconds</span><span class="p">();</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">DateTimeOffset</span><span class="p">.</span><span class="n">TryParseExact</span><span class="p">(</span><span class="n">battlePass</span><span class="p">.</span><span class="n">EndDate</span><span class="p">,</span><span class="w"> </span><span class="s">"yyyy-MM-ddTHH:mm:ssZ"</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">DateTimeOffset</span><span class="p">.</span><span class="n">TryParseExact</span><span class="p">(</span><span class="n">battlePass</span><span class="p">.</span><span class="n">EndDate</span><span class="p">,</span><span class="w"> </span><span class="s">"yyyy-MM-ddTHH:mm:ssZ"</span><span class="p">,</span>
 <span class="w">            </span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">,</span><span class="w"> </span><span class="n">DateTimeStyles</span><span class="p">.</span><span class="n">AssumeUniversal</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">endDate</span><span class="p">))</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">endDateUnix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">endDate</span><span class="p">.</span><span class="n">ToUnixTimeSeconds</span><span class="p">();</span>
@@ -9580,15 +9580,15 @@ can be found in <code>Assets/Beamable/Common</code>.</p>
 Currently, there is no sample for this feature; however, here is how to do it. It is very similar to the Battle Pass.</p>
 <ol>
 <li>
-<p><strong>Create a <code>Season Pass</code> content object:</strong> This will include the metadata needed for the season 
+<p><strong>Create a <code>Season Pass</code> content object:</strong> This will include the metadata needed for the season
 (its offerings, rewards, end time, etc.).</p>
 </li>
 <li>
-<p><strong>Inventory or Stats services:</strong> You can use these services to track per-player ownership of a season pass, 
+<p><strong>Inventory or Stats services:</strong> You can use these services to track per-player ownership of a season pass,
 whether they bought it or not.</p>
 </li>
 <li>
-<p><strong>Microservices:</strong> Here you can enforce the business side of the season pass (checking current date/time if 
+<p><strong>Microservices:</strong> Here you can enforce the business side of the season pass (checking current date/time if
 it is within the window, granting the season's rewards, or performing a cleanup or reset at season boundaries).</p>
 </li>
 </ol>

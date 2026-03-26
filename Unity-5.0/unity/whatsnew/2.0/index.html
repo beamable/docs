@@ -9611,7 +9611,7 @@
 <li><strong>Firewall Permissions on Windows</strong></li>
 <li>During the installation, your OS may prompt a pop-up for asking for firewall access.</li>
 <li>Grant permission to avoid functionality issues.</li>
-<li><strong>Types aren't working in the IDE</strong><br>
+<li><strong>Types aren't working in the IDE</strong>
    Its possible in some cases where the BeamableServices solution won't recognize any of the Beamable types. To fix this, use the IDE to unload and reload the entire solution.</li>
 </ol>
 <p>This documentation provides a comprehensive guide to migrating your UnitySDK. For further assistance, feel free to contact our support team.</p>
@@ -9630,7 +9630,7 @@
 <p>Services are no longer stored in the Unity's Assets folder. Instead, they are located in a sibling folder, BeamableServices. The services are not Unity assets, and there is no Assembly Definition representing the service any longer. Previously, the Assembly Definition asset was critical for adding references to other code or Microstorages. In the 2.0 release, those settings are configured in the <em>Beam Services</em> window via the <em>Config</em> mode. Select the "Config" button for a selected service to see the available settings.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://files.readme.io/717c00495e0b5712966892f9b78d6b174e08c812bda8d75ec699183610fee795-image.png" data-desc-position="bottom"><img align="center" border="{false}" width="50% " src="https://files.readme.io/717c00495e0b5712966892f9b78d6b174e08c812bda8d75ec699183610fee795-image.png"></a></p>
 <h3 id="routing">Routing<a class="headerlink" href="#routing" title="Permanent link">¶</a></h3>
-<p>Previously, when you started your Unity game in Playmode, any requests to a Beamable Microservice would go to your locally running service <em>if it was running</em>. If the service was not running locally, the traffic would be sent to the remote published service. This is now configurable in the Config section of the <em>Beam Services</em> window. By default, the same behaviour is the same, except you can start your Microservice after you enter Playmode.<br>
+<p>Previously, when you started your Unity game in Playmode, any requests to a Beamable Microservice would go to your locally running service <em>if it was running</em>. If the service was not running locally, the traffic would be sent to the remote published service. This is now configurable in the Config section of the <em>Beam Services</em> window. By default, the same behaviour is the same, except you can start your Microservice after you enter Playmode.
 The <code>Routing Mode</code> setting allows you to configure how the routing should happen.</p>
 <h3 id="federation">Federation<a class="headerlink" href="#federation" title="Permanent link">¶</a></h3>
 <p>Previously, implementing a Federation on a Microservice only required that you added an interface to the Microservice class signature. In the 2.0 release, you must also specify the federation in the Config section of the <em>Beam Services</em> window.</p>

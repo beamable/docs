@@ -9593,7 +9593,7 @@
 <p>The <strong>Content</strong> feature allows game maker to store project-specific data objects. It is embedded into many Beamable features, such as Inventory, Store, Leaderboards, and Tournaments. For simplicity, some Beamable data structures may be omitted from this diagram.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/content-data-concepts.png" data-desc-position="bottom"><img alt="content-data-concepts.png" src="../../../../../../media/imgs/content-data-concepts.png" style="height:auto;width:500px"></a></p>
 <h2 id="content-id">Content ID<a class="headerlink" href="#content-id" title="Permanent link">¶</a></h2>
-<p>The content ID is assigned at creation of a new content, and is composed of content <code>type</code> and content <code>id</code>. A content ID always starts with the content type. For example, a currency content for dollars would be: 
+<p>The content ID is assigned at creation of a new content, and is composed of content <code>type</code> and content <code>id</code>. A content ID always starts with the content type. For example, a currency content for dollars would be:
 <code>currency.dollars</code>.</p>
 <p>One important concept of the Content ID is the "Nesting". Content IDs can be nested, and the resulting hierarchy will be baked in to the name. For example, to group "weekend" events under a common folder -- the content ID would be:
 <code>events.weekend.&lt;user-defined-id&gt;</code>.</p>
@@ -9605,7 +9605,7 @@
 <p>Beamable APIs that use content under the hood, such as Commerce and Inventory, can only use entries from the "global" namespace.</p>
 </div>
 <h2 id="content-data">Content Data<a class="headerlink" href="#content-data" title="Permanent link">¶</a></h2>
-<p>Content types are must extend <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1ContentObject.html"><code>Beamable.Common.Content.ContentObject</code></a>. All derive from Unity's <a href="https://docs.unity3d.com/Manual/class-ScriptableObject.html"><code>ScriptableObject</code></a>. The Beamable SDK for Unity ships with all content types needed for common use cases. </p>
+<p>Content types are must extend <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1ContentObject.html"><code>Beamable.Common.Content.ContentObject</code></a>. All derive from Unity's <a href="https://docs.unity3d.com/Manual/class-ScriptableObject.html"><code>ScriptableObject</code></a>. The Beamable SDK for Unity ships with all content types needed for common use cases.</p>
 <table>
 <thead>
 <tr>
@@ -9717,7 +9717,7 @@
 <span class="normal">10</span>
 <span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Agnostic]</span>
 <span class="na">[ContentType("MyCustomContent")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w"> </span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span>
 <span class="p">{</span>
 <span class="w">     </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">;</span>
 <span class="w">     </span><span class="k">public</span><span class="w"> </span><span class="n">AssetReferenceSprite</span><span class="w"> </span><span class="n">Icon</span><span class="p">;</span>
@@ -9789,17 +9789,17 @@
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
-<span class="p">{</span><span class="w"> </span>
+<span class="p">{</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
 <span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-<span class="w">    </span><span class="c1">// Fetch All  </span>
+<span class="w">    </span><span class="c1">// Fetch All</span>
 <span class="w">    </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ContentService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">clientManifest</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"#1. ContentService, all object count = {clientManifest.entries.Count}"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">});</span>
 
-<span class="w">    </span><span class="c1">// Fetch Filtered </span>
+<span class="w">    </span><span class="c1">// Fetch Filtered</span>
 <span class="w">    </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ContentService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="s">"items"</span><span class="p">,</span><span class="w"> </span><span class="n">clientManifest</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"#2. ContentService, filtered 'items' object count = {clientManifest.entries.Count}"</span><span class="p">);</span>
@@ -9920,25 +9920,25 @@
 <span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_itemLink</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
 <span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_itemContentFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">_itemContentFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
 <span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_itemContentFromLink.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                              </span><span class="s">$"Id = {_itemContentFromLink.Id}"</span><span class="p">);</span>
 <span class="w">                </span><span class="p">})</span>
 <span class="w">                </span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromLink.Resolve() Error!"</span><span class="p">);</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromLink.Resolve() Error!"</span><span class="p">);</span>
 <span class="w">                </span><span class="p">});</span>
 
 <span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_itemRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
 <span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_itemContentFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">_itemContentFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
 <span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_itemContentFromRef.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                              </span><span class="s">$"Id = {_itemContentFromRef.Id}"</span><span class="p">);</span>
 
 <span class="w">                </span><span class="p">}).</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromRef.Resolve() Error!"</span><span class="p">);</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromRef.Resolve() Error!"</span><span class="p">);</span>
 <span class="w">                </span><span class="p">});</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
@@ -9977,7 +9977,7 @@
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="n">manifest</span><span class="p">.</span><span class="n">ResolveAll</span><span class="p">();</span>
 
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
-<span class="p">}</span><span class="w">   </span>
+<span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="getcontent-method">GetContent Method<a class="headerlink" href="#getcontent-method" title="Permanent link">¶</a></h3>
 <p>Beamable's ContentService has another method that can pull content: GetContent. Since this method will attempt to pull several pieces of content at once, it is often inefficient, however it may be useful depending on the scope of your project.</p>

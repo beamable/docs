@@ -9332,15 +9332,15 @@
 <h1 id="command-line-output">Command-Line Output<a class="headerlink" href="#command-line-output" title="Permanent link">¶</a></h1>
 <p>Passing output from the CLI to other processes</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>Before you can use the Beamable CLI, you need to complete the <a href="doc:cli-guide-getting-started">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">Dotnet 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>. </p>
+<p>Before you can use the Beamable CLI, you need to complete the <a href="doc:cli-guide-getting-started">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">Dotnet 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
 </p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>--version
 dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">¶</a></h2>
-<p>By default, the Beam CLI uses an informational level of logging. Usually, only the final output of a command will be printed to the console. However, for diagnostic purposes, you can change the log level of the CLI using the <code>--log</code> switch. </p>
-<p>The log levels are as follows, </p>
+<p>By default, the Beam CLI uses an informational level of logging. Usually, only the final output of a command will be printed to the console. However, for diagnostic purposes, you can change the log level of the CLI using the <code>--log</code> switch.</p>
+<p>The log levels are as follows,</p>
 <table>
 <thead>
 <tr>
@@ -9375,12 +9375,12 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"
 </tr>
 </tbody>
 </table>
-<p>In order to set the log level, the full level name may be used (case insensitive), or simply the first letter of the level. For example, to use verbose logs, the following expression may be used. </p>
+<p>In order to set the log level, the full level name may be used (case insensitive), or simply the first letter of the level. For example, to use verbose logs, the following expression may be used.</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span>--logs<span class="w"> </span>v
 </code></pre></div></td></tr></tbody></table></div>
 <h2 id="raw-output-mode">Raw Output Mode<a class="headerlink" href="#raw-output-mode" title="Permanent link">¶</a></h2>
-<p>By default, the Beam CLI prints output in a variety of ways. Some commands will print JSON to the Standard Output Buffer (StdOut), and other commands will print conversational messages. However, all commands can be forced to print in a structured JSON format. </p>
-<p>The <code>--raw</code> flag will always print messages in JSON. The <code>--raw</code> message contains additional information than what may be printed for commands that already use JSON. For example, the <code>beam config</code> command prints JSON, </p>
+<p>By default, the Beam CLI prints output in a variety of ways. Some commands will print JSON to the Standard Output Buffer (StdOut), and other commands will print conversational messages. However, all commands can be forced to print in a structured JSON format.</p>
+<p>The <code>--raw</code> flag will always print messages in JSON. The <code>--raw</code> message contains additional information than what may be printed for commands that already use JSON. For example, the <code>beam config</code> command prints JSON,</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -9388,14 +9388,14 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>config
-<span class="w"> </span><span class="o">{</span><span class="w">                                                                 </span>
-<span class="w">    </span><span class="s2">"host"</span>:<span class="w"> </span><span class="s2">"https://api.beamable.com"</span>,<span class="w">                            </span>
-<span class="w">    </span><span class="s2">"cid"</span>:<span class="w"> </span><span class="s2">"123"</span>,<span class="w">                                     </span>
-<span class="w">    </span><span class="s2">"pid"</span>:<span class="w"> </span><span class="s2">"DE_123"</span>,<span class="w">                                  </span>
-<span class="w">    </span><span class="s2">"configPath"</span>:<span class="w"> </span><span class="s2">"/Users/Test/MyProject/.beamable"</span><span class="w"> </span>
-<span class="w"> </span><span class="o">}</span><span class="w"> </span>
+<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">"host"</span>:<span class="w"> </span><span class="s2">"https://api.beamable.com"</span>,
+<span class="w">    </span><span class="s2">"cid"</span>:<span class="w"> </span><span class="s2">"123"</span>,
+<span class="w">    </span><span class="s2">"pid"</span>:<span class="w"> </span><span class="s2">"DE_123"</span>,
+<span class="w">    </span><span class="s2">"configPath"</span>:<span class="w"> </span><span class="s2">"/Users/Test/MyProject/.beamable"</span>
+<span class="w"> </span><span class="o">}</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>However, when the <code>--raw</code> flag is given, the output becomes, </p>
+<p>However, when the <code>--raw</code> flag is given, the output becomes,</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span>--raw
 <span class="o">{</span><span class="s2">"ts"</span>:1716908373832,<span class="s2">"type"</span>:<span class="s2">"stream"</span>,<span class="s2">"data"</span>:<span class="o">{</span><span class="s2">"host"</span>:<span class="s2">"https://api.beamable.com"</span>,<span class="s2">"cid"</span>:<span class="s2">"123"</span>,<span class="s2">"pid"</span>:<span class="s2">"DE_123"</span>,<span class="s2">"configPath"</span>:<span class="s2">"/Users/Test/MyProject/.beamable"</span><span class="o">}}</span>
@@ -9428,11 +9428,11 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span>&gt;<span class="w"> </span>output.txt
-cat<span class="w"> </span>output.txt<span class="w"> </span>
+cat<span class="w"> </span>output.txt
 <span class="o">{</span><span class="s2">"ts"</span>:1716908709811,<span class="s2">"type"</span>:<span class="s2">"stream"</span>,<span class="s2">"data"</span>:<span class="o">{</span><span class="s2">"host"</span>:<span class="s2">"https://api.beamable.com"</span>,<span class="s2">"cid"</span>:<span class="s2">"123"</span>,<span class="s2">"pid"</span>:<span class="s2">"DE_123"</span>,<span class="s2">"configPath"</span>:<span class="s2">"/Users/Test/MyProject/.beamable"</span><span class="o">}}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <p>A common workflow is to use the <a href="https://jqlang.github.io/jq/download/">JQ</a> tool to navigate the piped <code>--raw</code> output. Below are some common examples.</p>
-<p>In order to pipe the <code>data</code> to a file, we could write, 
+<p>In order to pipe the <code>data</code> to a file, we could write,
 </p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -9441,7 +9441,7 @@ cat<span class="w"> </span>output.txt<span class="w"> </span>
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.data'</span><span class="w"> </span>&gt;<span class="w"> </span>output.txt
-cat<span class="w"> </span>output.txt<span class="w"> </span>
+cat<span class="w"> </span>output.txt
 <span class="o">{</span>
 <span class="w">  </span><span class="s2">"host"</span>:<span class="w"> </span><span class="s2">"https://api.beamable.com"</span>,
 <span class="w">  </span><span class="s2">"cid"</span>:<span class="w"> </span><span class="s2">"123"</span>,
@@ -9454,7 +9454,7 @@ cat<span class="w"> </span>output.txt<span class="w"> </span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.data.cid'</span>
 <span class="s2">"123"</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
-<p>Sometimes it is important to get the unescaped JSON, so the <code>fromjson</code> component of JQ can be used. For example, if we wanted the <code>cid</code> value, but without quotes, </p>
+<p>Sometimes it is important to get the unescaped JSON, so the <code>fromjson</code> component of JQ can be used. For example, if we wanted the <code>cid</code> value, but without quotes,</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -9468,8 +9468,8 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w">
 <span class="m">123</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h2 id="piping-and-logging">Piping and Logging<a class="headerlink" href="#piping-and-logging" title="Permanent link">¶</a></h2>
-<p>When the <code>--raw</code> flag is used, or a command is piped to a file, then the Standard Output Buffer will only receive the <code>--raw</code> output data. If the <code>--logs</code> flag is set, then logs will be sent to the Standard Error Buffer, such that will appear in the console. However, it can be tricky to emit the process logs to a file. </p>
-<p>In order to do so, the Standard Error Buffer must be piped to a file. For example, the following expression will put the process logs into a file. </p>
+<p>When the <code>--raw</code> flag is used, or a command is piped to a file, then the Standard Output Buffer will only receive the <code>--raw</code> output data. If the <code>--logs</code> flag is set, then logs will be sent to the Standard Error Buffer, such that will appear in the console. However, it can be tricky to emit the process logs to a file.</p>
+<p>In order to do so, the Standard Error Buffer must be piped to a file. For example, the following expression will put the process logs into a file.</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span>--logs<span class="w"> </span>v<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>test.txt
 </code></pre></div></td></tr></tbody></table></div>
 <p>The contents of the <code>test.txt</code> file contain the process logs, not the <code>--raw</code> output.</p>
@@ -9477,7 +9477,7 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w">
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>cat<span class="w"> </span>test.txt<span class="w"> </span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>cat<span class="w"> </span>test.txt
 Trying<span class="w"> </span>to<span class="w"> </span>get<span class="w"> </span><span class="nv">option</span><span class="o">=</span>ConfigDirOption<span class="w"> </span>from<span class="w"> </span>Env<span class="w"> </span>Vars!<span class="w"> </span>Value<span class="w"> </span><span class="nv">Found</span><span class="o">=</span>
 Using<span class="w"> </span>standard<span class="w"> </span>unix<span class="w"> </span>docker<span class="w"> </span><span class="nv">uri</span><span class="o">=[</span>unix:/var/run/docker.sock<span class="o">]</span>
 GET<span class="w"> </span>call:<span class="w"> </span>/basic/beamo/manifest/current

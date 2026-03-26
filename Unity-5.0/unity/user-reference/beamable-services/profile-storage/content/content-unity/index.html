@@ -9662,7 +9662,7 @@
 <h3 id="auto-sync">Auto-Sync<a class="headerlink" href="#auto-sync" title="Permanent link">¶</a></h3>
 <p>The Content Manager now supports <strong>Auto-Sync</strong>, which automatically detects remote content changes and downloads them to your local environment. No manual syncing required.</p>
 <p><strong>Automatic Updates:</strong> Whenever content is modified or created remotely, the changes are seamlessly pulled to your local workspace.</p>
-<p><strong>Conflict Handling:</strong><br>
+<p><strong>Conflict Handling:</strong>
 A file is marked as <strong>Conflicted</strong> only when:</p>
 <ul>
 <li>Both local and remote versions have been modified, <strong>and</strong></li>
@@ -9680,7 +9680,7 @@ A file is marked as <strong>Conflicted</strong> only when:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/BeamContentEditor_Validate.png" data-desc-position="bottom"><img alt="Content Validate Button" src="../../../../../../media/imgs/BeamContentEditor_Validate.png" style="height:auto;width:400px"></a></p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/content-validation-window.png" data-desc-position="bottom"><img alt="The Validation Window" src="../../../../../../media/imgs/content-validation-window.png" style="height:auto;width:400px"></a></p>
 <h3 id="sync">Sync<a class="headerlink" href="#sync" title="Permanent link">¶</a></h3>
-<p>The Sync operation enables synchronization between local and remote content, reverting any local changes to match the remote data on Realm. </p>
+<p>The Sync operation enables synchronization between local and remote content, reverting any local changes to match the remote data on Realm.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/content-sync-button.png" data-desc-position="bottom"><img alt="Content Sync Button" src="../../../../../../media/imgs/content-sync-button.png" style="height:auto;width:400px"></a></p>
 <p>You can choose to sync specific content types:</p>
 <ul>
@@ -9693,19 +9693,19 @@ A file is marked as <strong>Conflicted</strong> only when:</p>
 <p>Then, the Revert Contents validation window gets all local changes and splits them into four categories:</p>
 <ul>
 <li><strong>Created</strong></li>
-<li><strong>Deleted</strong> </li>
-<li><strong>Modified</strong> </li>
-<li><strong>Conflicted</strong> </li>
+<li><strong>Deleted</strong></li>
+<li><strong>Modified</strong></li>
+<li><strong>Conflicted</strong></li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/content-revert-summary.png" data-desc-position="bottom"><img alt="The Revert Summary Window" src="../../../../../../media/imgs/content-revert-summary.png" style="height:auto;width:400px"></a></p>
 <p>After validating which contents will be reverted, the content manager will start the process of reverting your local data to match the target Realm.</p>
 <h3 id="publish">Publish<a class="headerlink" href="#publish" title="Permanent link">¶</a></h3>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/content-publish-button.png" data-desc-position="bottom"><img alt="Content Publish Button" src="../../../../../../media/imgs/content-publish-button.png" style="height:auto;width:400px"></a></p>
-<p>The publish process compares the local content to the Beamable back-end and shows the publish confirmation window. </p>
+<p>The publish process compares the local content to the Beamable back-end and shows the publish confirmation window.</p>
 <p>The publish confirmation window organizes local changes into three categories:</p>
 <ul>
-<li><strong>Created</strong> </li>
-<li><strong>Deleted</strong> </li>
+<li><strong>Created</strong></li>
+<li><strong>Deleted</strong></li>
 <li><strong>Modified</strong></li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/content-publish-summary.png" data-desc-position="bottom"><img alt="The Publish Summary Window" src="../../../../../../media/imgs/content-publish-summary.png" style="height:auto;width:400px"></a></p>
@@ -10004,7 +10004,7 @@ A file is marked as <strong>Conflicted</strong> only when:</p>
 <span class="w">    </span><span class="c1">/// Using validation is optional.</span>
 <span class="w">    </span><span class="c1">///</span>
 <span class="w">    </span><span class="c1">/// See "Beamable.Common.Content.Validation" for full list.</span>
-<span class="w">    </span><span class="c1">/// </span>
+<span class="w">    </span><span class="c1">///</span>
 <span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
 <span class="w">    </span><span class="na">[ContentType("complex_item")]</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ComplexItem</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ItemContent</span>
@@ -10161,7 +10161,7 @@ This <code>MustBeStringLength.cs</code> snippet demonstrates the implementation 
 <span class="w">        </span><span class="c1">///</span>
 <span class="w">        </span><span class="c1">/// Any thrown &lt;see cref="ContentValidationException"/&gt; will</span>
 <span class="w">        </span><span class="c1">/// show helpful text in the inspector to the game maker.</span>
-<span class="w">        </span><span class="c1">/// </span>
+<span class="w">        </span><span class="c1">///</span>
 <span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
 <span class="w">        </span><span class="c1">/// &lt;param name="args"&gt;&lt;/param&gt;</span>
 <span class="w">        </span><span class="c1">/// &lt;exception cref="ContentValidationException"&gt;&lt;/exception&gt;</span>
@@ -10183,22 +10183,22 @@ This <code>MustBeStringLength.cs</code> snippet demonstrates the implementation 
 <span class="w">            </span><span class="c1">// Validation: Is it a string?</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ValidationAttribute</span><span class="p">.</span><span class="n">IsNumericType</span><span class="p">(</span><span class="n">type</span><span class="p">))</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span><span class="w"> </span><span class="n">STRING_TYPE</span><span class="w"> </span><span class="p">);</span><span class="w">  </span>
+<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span><span class="w"> </span><span class="n">STRING_TYPE</span><span class="w"> </span><span class="p">);</span>
 <span class="w">            </span><span class="p">}</span>
 
 <span class="w">            </span><span class="c1">// Validation: Are the arguments correct?</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_stringLengthMin</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">)</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span><span class="w"> </span>
-<span class="w">                    </span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">ARGUMENT_ERROR</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">));</span><span class="w"> </span>
+<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span>
+<span class="w">                    </span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">ARGUMENT_ERROR</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">));</span>
 <span class="w">            </span><span class="p">}</span>
 
 <span class="w">            </span><span class="c1">// Validation: Is the current value correct?</span>
 <span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">stringValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stringValue</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stringValue</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">||</span>
 <span class="w">                </span><span class="o">!</span><span class="p">(</span><span class="n">stringValue</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">stringValue</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">))</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span>
 <span class="w">                    </span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">VALUE_ERROR</span><span class="p">,</span><span class="w"> </span><span class="n">stringValue</span><span class="p">.</span><span class="n">Length</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">));</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>

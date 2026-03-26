@@ -9664,7 +9664,7 @@
 <span class="w">                           </span><span class="s">$"\n * Play Scene"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                           </span><span class="s">$"\n * Check for mail using UI. Probably none"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                           </span><span class="s">$"\n * Stop Scene"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                           </span><span class="s">$"\n * Unity → Window → Beamable → Examples → MailService → Send Test Mail To </span>
+<span class="w">                           </span><span class="s">$"\n * Unity → Window → Beamable → Examples → MailService → Send Test Mail To</span>
 <span class="w">                               </span><span class="n">Active</span><span class="w"> </span><span class="n">User</span><span class="s">" +</span>
 <span class="w">                           </span><span class="s">$"\n * Play Scene"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                           </span><span class="s">$"\n * Check for mail using UI. Probably some\n\n"</span><span class="p">;</span>
@@ -9678,7 +9678,7 @@
 
 <span class="w">      </span><span class="c1">//  Methods  --------------------------------------</span>
 <span class="w">      </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span>
+<span class="w">      </span><span class="p">{</span>
 <span class="w">         </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
 <span class="w">         </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
@@ -9778,7 +9778,7 @@
 <span class="w">         </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 <span class="w">         </span><span class="kt">long</span><span class="w"> </span><span class="n">playerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">UserId</span><span class="p">;</span>
 
-<span class="w">         </span><span class="c1">// Arbitrary Example - Send mail from ME to ME </span>
+<span class="w">         </span><span class="c1">// Arbitrary Example - Send mail from ME to ME</span>
 <span class="w">         </span><span class="kt">var</span><span class="w"> </span><span class="n">mailSendRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MailSendRequest</span><span class="p">();</span>
 <span class="w">         </span><span class="kt">var</span><span class="w"> </span><span class="n">mailSendEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MailSendEntry</span><span class="p">();</span>
 <span class="w">         </span><span class="n">mailSendEntry</span><span class="p">.</span><span class="n">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MailCategory</span><span class="p">;</span>
@@ -9799,7 +9799,7 @@
 <span class="w">         </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
 <span class="w">         </span><span class="p">{</span>
 <span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Message</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"\n\n"</span><span class="p">);</span>
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogWarning</span><span class="p">(</span><span class="s">$"Solution To Error: Add the beamContext.UserId of {playerId} with the role </span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogWarning</span><span class="p">(</span><span class="s">$"Solution To Error: Add the beamContext.UserId of {playerId} with the role</span>
 <span class="w">                </span><span class="n">of</span><span class="w"> </span><span class="err">'</span><span class="n">Admin</span><span class="err">'</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">Portal</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Teams</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">retry</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="n">operation</span><span class="p">.</span><span class="err">\</span><span class="n">n</span><span class="err">\</span><span class="n">n</span><span class="s">");</span>
 <span class="w">            </span><span class="n">isSuccess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
 <span class="w">         </span><span class="p">}</span>

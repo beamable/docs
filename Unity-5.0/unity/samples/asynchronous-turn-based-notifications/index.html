@@ -9267,9 +9267,9 @@
 
 <h1 id="asynchronous-turn-based-notifications">Asynchronous Turn Based Notifications<a class="headerlink" href="#asynchronous-turn-based-notifications" title="Permanent link">¶</a></h1>
 <p>Update players and UI with turn based notifications.</p>
-<p><a href="https://github.com/beamable/beamable-sample-sandbox/tree/ping-pong-system">This sample project</a> demonstrates how to utilize Beamable features to handle turn management and real-time communication between players. </p>
+<p><a href="https://github.com/beamable/beamable-sample-sandbox/tree/ping-pong-system">This sample project</a> demonstrates how to utilize Beamable features to handle turn management and real-time communication between players.</p>
 <p>In this example, we have created a simple turn-based "ping-pong" game where two players take turns pinging each other. The Unity client subscribes to notifications to listen for turn updates, sends pings to the opponent, and checks whose turn it is to update the UI.</p>
-<p>The server maintains the turn state in a shared <code>TurnData</code> document and provides endpoints for the client to ping the opponent and check the current turn. </p>
+<p>The server maintains the turn state in a shared <code>TurnData</code> document and provides endpoints for the client to ping the opponent and check the current turn.</p>
 <h2 id="components-breakdown">Components Breakdown<a class="headerlink" href="#components-breakdown" title="Permanent link">¶</a></h2>
 <h3 id="1-turnsystem-client">1. TurnSystem (Client)<a class="headerlink" href="#1-turnsystem-client" title="Permanent link">¶</a></h3>
 <p>The <code>TurnSystem</code> class handles the following responsibilities:</p>

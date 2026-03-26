@@ -9377,7 +9377,7 @@
 
 <h1 id="global-price-war-chat-sample">Global Price War - Chat Sample<a class="headerlink" href="#global-price-war-chat-sample" title="Permanent link">¶</a></h1>
 <p>A sample project demonstrating Beamable's Chat feature through a trading game called "Global Price Wars".</p>
-<p>In "Global Price War" (GPW), the winners say <strong>Buy low, sell high! Finish rich and be top on the Leaderboard.</strong>. </p>
+<p>In "Global Price War" (GPW), the winners say <strong>Buy low, sell high! Finish rich and be top on the Leaderboard.</strong>.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2yVdP53Gw64?si=Y7t2Z5EvIduv5bmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
 
 <div class="admonition info">
@@ -9473,9 +9473,9 @@
 <!-- Class organization diagram would go here -->
 
 <h3 id="design-of-data">Design of Data<a class="headerlink" href="#design-of-data" title="Permanent link">¶</a></h3>
-<p>The data within the <code>RuntimeDataStorage</code> is vital for the core game loop. </p>
+<p>The data within the <code>RuntimeDataStorage</code> is vital for the core game loop.</p>
 <p>The game design requires that all users in the same game (e.g. same chat session) to see a shared world of consistent pricing. This is accomplished using the data structure and data factory below.</p>
-<p><strong>Data Structure</strong><br>
+<p><strong>Data Structure</strong>
 The structure contains all the locations of the game. Within each location is information about each product; including its price and quantity.</p>
 <ul>
 <li>List &lt; LocationContentView &gt;</li>
@@ -9488,7 +9488,7 @@ The structure contains all the locations of the game. Within each location is in
 </ul>
 </li>
 </ul>
-<p><strong>Data Factory</strong><br>
+<p><strong>Data Factory</strong>
 The <code>IDataFactory</code> gets data as shown in the diagram below.</p>
 <ul>
 <li>A. The <code>RuntimeDataStorage</code> calls to <code>GetLocationContentViews()</code> at the start of each game session</li>

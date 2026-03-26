@@ -9600,26 +9600,26 @@
 
 
 <h1 id="multiplayer">Multiplayer<a class="headerlink" href="#multiplayer" title="Permanent link">¶</a></h1>
-<p>The Beamable Multiplayer feature allows game makers to create real-time and turn-based multi-user game experiences. </p>
+<p>The Beamable Multiplayer feature allows game makers to create real-time and turn-based multi-user game experiences.</p>
 <p><strong>What is a game server?</strong> A game <strong>server</strong> is the source of event coordination in a multiplayer video game. The server transmits enough events about its internal state to allow each connected <strong>client</strong> to maintain their own accurate version of the game. Events may contain various types of information including; properties about the game world, the players, and player input. See <a href="https://en.wikipedia.org/wiki/Game_server">Wikipedia</a> for more info.</p>
 <h2 id="game-servers">Game Servers<a class="headerlink" href="#game-servers" title="Permanent link">¶</a></h2>
 <p>Here are the leading options;</p>
-<p><strong>Dedicated Server</strong> </p>
+<p><strong>Dedicated Server</strong></p>
 <ul>
 <li>The server processes game-specific logic. The server <strong>is</strong> the game.</li>
 <li>Ideal For: Persistent world games, MMOs, and first-person shooters.</li>
 </ul>
-<p><strong>Peer-To-Peer Server</strong> </p>
+<p><strong>Peer-To-Peer Server</strong></p>
 <ul>
-<li>The server introduces client to client. Key communication passes directly from client to client. </li>
+<li>The server introduces client to client. Key communication passes directly from client to client.</li>
 <li>Ideal For: First-person shooters and games that can tolerate cheating.</li>
 </ul>
-<p><strong>Relay Server</strong> </p>
+<p><strong>Relay Server</strong></p>
 <ul>
 <li>The server sends and receives events <em>between</em> all clients in a match. The match is the "Room" in which all the game players interact. Each client <strong>is</strong> the game.</li>
 <li>Ideal For: Real-time strategy, tower defense, MOBAs, card battlers, auto chess, and more...</li>
 </ul>
-<p><em>Here is a comparison of various game servers;</em> </p>
+<p><em>Here is a comparison of various game servers;</em></p>
 <table>
 <thead>
 <tr>
@@ -9723,19 +9723,19 @@
 </tbody>
 </table>
 <h3 id="game-security">Game Security<a class="headerlink" href="#game-security" title="Permanent link">¶</a></h3>
-<p>To be more secure against any malicious hackers in your multiplayer game's community, consider never sending any game object state (player's heath, power of weapon, etc) as part of the messages to be synchronized over the network. </p>
-<p>Any enterprising hacker can "easily" hack a game client to send inflated values which will only make the game worse for everyone. If all a player can do is send an "action". i.e. "What I did" ("I fired my equipped gun" rather than "I hit player 2 for 100 damage"), it becomes quite a bit harder for someone to cheat. </p>
+<p>To be more secure against any malicious hackers in your multiplayer game's community, consider never sending any game object state (player's heath, power of weapon, etc) as part of the messages to be synchronized over the network.</p>
+<p>Any enterprising hacker can "easily" hack a game client to send inflated values which will only make the game worse for everyone. If all a player can do is send an "action". i.e. "What I did" ("I fired my equipped gun" rather than "I hit player 2 for 100 damage"), it becomes quite a bit harder for someone to cheat.</p>
 <p>A hacker may also attempt to replay actions AGAIN for a particular turn or to send malformed game event object messages that can lead to a worst experience for other players.</p>
 <h3 id="matchmaking">Matchmaking<a class="headerlink" href="#matchmaking" title="Permanent link">¶</a></h3>
 <p>In multiplayer gaming, matchmaking is the process of choosing a <code>MatchId</code> based on criteria (e.g. "Give me a match to play in with 2 total players of any skill level"). Beamable supports matchmaking through its matchmaking service.</p>
 <p>See <a href="../matchmaking/">Matchmaking</a> for more info.</p>
 <h3 id="playing-against-yourself">Playing "Against Yourself"<a class="headerlink" href="#playing-against-yourself" title="Permanent link">¶</a></h3>
-<p>One of the challenges of developing a multiplayer game is testing it frequently as an individual developer. Finding a friend to play against you <strong>every</strong> time you run the game in development is prohibitive. </p>
+<p>One of the challenges of developing a multiplayer game is testing it frequently as an individual developer. Finding a friend to play against you <strong>every</strong> time you run the game in development is prohibitive.</p>
 <p>Here are 2 strategies to help the development process.</p>
 <h4 id="adding-a-bot">Adding a Bot<a class="headerlink" href="#adding-a-bot" title="Permanent link">¶</a></h4>
-<p>The sample game includes an optional bot opponent. This is an AI that plays against you. Simply click "Start Game: Human vs Bot" from the Menu Scene to activate it. Architecturally this is similar to the full game and it fully uses the Beamable Multiplayer event objects for each player move. However, it requires only one human player. </p>
+<p>The sample game includes an optional bot opponent. This is an AI that plays against you. Simply click "Start Game: Human vs Bot" from the Menu Scene to activate it. Architecturally this is similar to the full game and it fully uses the Beamable Multiplayer event objects for each player move. However, it requires only one human player.</p>
 <h4 id="playing-against-yourself_1">Playing Against Yourself<a class="headerlink" href="#playing-against-yourself_1" title="Permanent link">¶</a></h4>
-<p>The sample game allows a workflow to test the full 2 player experience with relative ease. Build the Unity sample project as a standalone game for either Mac or PC. Then run the game in the Unity Editor <strong>also</strong>. Simply click "Start Game: Human vs Human" from the Menu Scene in <strong>both</strong> game clients to activate it. </p>
+<p>The sample game allows a workflow to test the full 2 player experience with relative ease. Build the Unity sample project as a standalone game for either Mac or PC. Then run the game in the Unity Editor <strong>also</strong>. Simply click "Start Game: Human vs Human" from the Menu Scene in <strong>both</strong> game clients to activate it.</p>
 <p>Doing a build takes a few minutes. Depending on the specifics of your game, it may not be required to rebuild the standalone after <strong>every</strong> code change.</p>
 <p>This is the process of choosing a <code>MatchId</code> based on criteria. E.g. "Give me a match to play in with 3 total players with beginner skill level". Beamable includes an optional, light-weight Matchmaking service.</p>
 <h3 id="randomization-and-determinism">Randomization and Determinism<a class="headerlink" href="#randomization-and-determinism" title="Permanent link">¶</a></h3>
@@ -9752,7 +9752,7 @@
 <p>Each game client connects this way. No one client has special status of 'host'. Depending on the needs of the game, the <code>SimClient</code> session may stay from the moment any one player joins until the moment the last player leaves.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">_simClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">SimNetworkEventStream</span><span class="p">(</span><span class="n">MatchId</span><span class="p">,</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">ServiceProvider</span><span class="p">),</span><span class="w"> </span><span class="n">FramesPerSecond</span><span class="p">,</span><span class="w"> </span><span class="n">TargetNetworkLead</span><span class="p">);</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p><strong>Create Custom Event </strong><br>
+<p>**Create Custom Event **
 Depending on the complexity of the game play, there may be dozens of custom events.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -10198,10 +10198,10 @@ Depending on the complexity of the game play, there may be dozens of custom even
 <span class="w">        </span><span class="c1">//  Unity Methods  --------------------------------</span>
 <span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">           </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start() Instructions...\n\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
-<span class="w">                     </span><span class="s">" * Run The Scene\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
-<span class="w">                     </span><span class="s">" * Press 'Start Multiplayer'\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
-<span class="w">                     </span><span class="s">" * Press 'Send Player Move'\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">           </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start() Instructions...\n\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                     </span><span class="s">" * Run The Scene\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                     </span><span class="s">" * Press 'Start Multiplayer'\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                     </span><span class="s">" * Press 'Send Player Move'\n"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                     </span><span class="s">" * See results in the in-game UI\n"</span><span class="p">);</span>
 
 <span class="w">            </span><span class="n">SetupBeamable</span><span class="p">();</span>
@@ -10210,9 +10210,9 @@ Depending on the complexity of the game play, there may be dozens of custom even
 
 <span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Update</span><span class="p">()</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">           </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_simClient</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span>
-<span class="w">           </span><span class="p">{</span><span class="w"> </span>
-<span class="w">              </span><span class="n">_simClient</span><span class="p">.</span><span class="n">Update</span><span class="p">();</span><span class="w"> </span>
+<span class="w">           </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_simClient</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<span class="w">           </span><span class="p">{</span>
+<span class="w">              </span><span class="n">_simClient</span><span class="p">.</span><span class="n">Update</span><span class="p">();</span>
 <span class="w">           </span><span class="p">}</span>
 
 <span class="w">           </span><span class="kt">string</span><span class="w"> </span><span class="n">refreshString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
@@ -10267,7 +10267,7 @@ Depending on the complexity of the game play, there may be dozens of custom even
 
 <span class="w">           </span><span class="c1">// Create Multiplayer Session</span>
 <span class="w">           </span><span class="n">_simClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimClient</span><span class="p">(</span>
-<span class="w">              </span><span class="k">new</span><span class="w"> </span><span class="nf">SimNetworkEventStream</span><span class="p">(</span><span class="n">_multiplayerExampleData</span><span class="p">.</span><span class="n">MatchId</span><span class="p">,</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">ServiceProvider</span><span class="p">),</span><span class="w"> </span>
+<span class="w">              </span><span class="k">new</span><span class="w"> </span><span class="nf">SimNetworkEventStream</span><span class="p">(</span><span class="n">_multiplayerExampleData</span><span class="p">.</span><span class="n">MatchId</span><span class="p">,</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">ServiceProvider</span><span class="p">),</span>
 <span class="w">              </span><span class="n">FramesPerSecond</span><span class="p">,</span><span class="w"> </span><span class="n">TargetNetworkLead</span><span class="p">);</span>
 
 <span class="w">           </span><span class="c1">// Handle Common Events</span>
@@ -10327,7 +10327,7 @@ Depending on the complexity of the game play, there may be dozens of custom even
 <span class="w">           </span><span class="n">_multiplayerExampleData</span><span class="p">.</span><span class="n">SessionSeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sessionSeed</span><span class="p">;</span>
 <span class="w">           </span><span class="n">Refresh</span><span class="p">();</span>
 
-<span class="w">           </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"SimClient_OnInit()...\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">           </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"SimClient_OnInit()...\n"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                     </span><span class="s">$"MatchId = {_multiplayerExampleData.MatchId}, "</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                     </span><span class="s">$"sessionSeed = {sessionSeed}"</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>

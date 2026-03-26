@@ -9395,25 +9395,25 @@
 <span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_armorLink</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
 <span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_armorFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">_armorFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
 <span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_armorFromLink.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                              </span><span class="s">$"Id = {_armorFromLink.Id}"</span><span class="p">);</span>
 <span class="w">                </span><span class="p">})</span>
 <span class="w">                </span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_armorFromLink.Resolve() Error!"</span><span class="p">);</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_armorFromLink.Resolve() Error!"</span><span class="p">);</span>
 <span class="w">                </span><span class="p">});</span>
 
 <span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_armorRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
 <span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_armorFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">_armorFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
 <span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_armorFromRef.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                              </span><span class="s">$"Id = {_armorFromRef.Id}"</span><span class="p">);</span>
 
 <span class="w">                </span><span class="p">}).</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_armorFromRef.Resolve() Error!"</span><span class="p">);</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_armorFromRef.Resolve() Error!"</span><span class="p">);</span>
 <span class="w">                </span><span class="p">});</span>
 
 
@@ -9568,25 +9568,25 @@
 <span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_itemLink</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
 <span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_itemContentFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">_itemContentFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
 <span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_itemContentFromLink.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                              </span><span class="s">$"Id = {_itemContentFromLink.Id}"</span><span class="p">);</span>
 <span class="w">                </span><span class="p">})</span>
 <span class="w">                </span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromLink.Resolve() Error!"</span><span class="p">);</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromLink.Resolve() Error!"</span><span class="p">);</span>
 <span class="w">                </span><span class="p">});</span>
 
 <span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_itemRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
 <span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_itemContentFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">_itemContentFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
 <span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_itemContentFromRef.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                              </span><span class="s">$"Id = {_itemContentFromRef.Id}"</span><span class="p">);</span>
 
 <span class="w">                </span><span class="p">}).</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromRef.Resolve() Error!"</span><span class="p">);</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromRef.Resolve() Error!"</span><span class="p">);</span>
 <span class="w">                </span><span class="p">});</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>

@@ -9280,21 +9280,21 @@
 <h2 id="about">About<a class="headerlink" href="#about" title="Permanent link">¶</a></h2>
 <p>The listen player command will monitor events sent to the logged in
 player on the CLI. Player events include updates such as content
-notifications, inventory updates, mail updates, and more. </p>
+notifications, inventory updates, mail updates, and more.</p>
 <p><strong>IMPORTANT</strong>: The command only works if the realm is configured to use
-Beamable Notifications, which is the default setting for new realms 
+Beamable Notifications, which is the default setting for new realms
 as of July 2023. However, if the realm is not using Beamable Notifications,
 the following error will be displayed.</p>
 <div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Only realms with beam notifications are supported. This realm currently has pubnub.
-Try setting the realm config to beam with this command, 
+Try setting the realm config to beam with this command,
 ""beam config realm set --key-values 'notification|publisher::beamable'""
 </code></pre></div></td></tr></tbody></table></div>
 <p>To get started with the command, make sure you have the <a href="../../../../guides/getting-started/">CLI configured</a>,
-and an available player. </p>
+and an available player.</p>
 <ol>
-<li>Run <code>beam me</code> to get access to the player's <code>playerId</code>. </li>
+<li>Run <code>beam me</code> to get access to the player's <code>playerId</code>.</li>
 <li>Use the portal, and navigate to the player's inventory page.</li>
 <li>Run <code>beam listen player</code>, and leave the program running. This starts the listening process.</li>
 <li>On the portal, change the player's currency value. Alternatively, send the player some mail.</li>

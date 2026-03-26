@@ -9388,7 +9388,7 @@
 <h1 id="microservice-federation">Microservice Federation<a class="headerlink" href="#microservice-federation" title="Permanent link">¶</a></h1>
 <p>Federate Standalone Microservices with external services</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>Before you can federate using Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">Dotnet 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>. </p>
+<p>Before you can federate using Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">Dotnet 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
 </p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>--version
@@ -9402,9 +9402,9 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"
 dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
 </code></pre></div></td></tr></tbody></table></div>
 <h2 id="federation">Federation<a class="headerlink" href="#federation" title="Permanent link">¶</a></h2>
-<p>Microservice <em>Federation</em> is the ability to inject custom server logic in the middle of existing Beamable server functionality. Federation can be used to add custom behaviour to your game like supporting external identity auth providers, using a block chain as the backing data provider for player inventory, managing how match making works, and more. </p>
-<p>There are 4 types of federation. All of these federations have C# interfaces 
-that define the types of functions that they require. 
+<p>Microservice <em>Federation</em> is the ability to inject custom server logic in the middle of existing Beamable server functionality. Federation can be used to add custom behaviour to your game like supporting external identity auth providers, using a block chain as the backing data provider for player inventory, managing how match making works, and more.</p>
+<p>There are 4 types of federation. All of these federations have C# interfaces
+that define the types of functions that they require.
 1. <code>IFederatedLogin</code>
 2. <code>IFederatedInventory</code>
 3. <code>IFederatedGameServer</code>
@@ -9414,7 +9414,7 @@ that define the types of functions that they require.
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ExampleService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederatedLogin</span><span class="o">&lt;</span><span class="n">MySample</span><span class="o">&gt;</span><span class="w"> </span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ExampleService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederatedLogin</span><span class="o">&lt;</span><span class="n">MySample</span><span class="o">&gt;</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="c1">// implementation</span>
 <span class="p">}</span>
@@ -9425,8 +9425,8 @@ that define the types of functions that they require.
 <span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MySample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div><a class="headerlink" href="#1-2federationidmyid-public-class-mysample-ifederationid" title="Permanent link">¶</a></h2>
 <h2 id="cli-commands">CLI Commands<a class="headerlink" href="#cli-commands" title="Permanent link">¶</a></h2>
-<p>The CLI offers a few commands to enable and disable federations for a service. The <code>beam fed</code> command suite allows you to read and write federation data. None of the commands will modify your C# source files. </p>
-<p>The <code>beam fed list</code> command will show all federations for all services. 
+<p>The CLI offers a few commands to enable and disable federations for a service. The <code>beam fed</code> command suite allows you to read and write federation data. None of the commands will modify your C# source files.</p>
+<p>The <code>beam fed list</code> command will show all federations for all services.
 </p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -9441,19 +9441,19 @@ that define the types of functions that they require.
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>fed<span class="w"> </span>list
-<span class="w"> </span><span class="o">{</span><span class="w">                                                                               </span>
-<span class="w">    </span><span class="s2">"cid"</span>:<span class="w"> </span><span class="s2">"1338004997867618"</span>,<span class="w">                                                   </span>
-<span class="w">    </span><span class="s2">"pid"</span>:<span class="w"> </span><span class="s2">"DE_1754280032981028"</span>,<span class="w">                                                </span>
-<span class="w">    </span><span class="s2">"services"</span>:<span class="w"> </span><span class="o">[</span><span class="w">                                                                </span>
-<span class="w">       </span><span class="o">{</span><span class="w">                                                                         </span>
-<span class="w">          </span><span class="s2">"beamoName"</span>:<span class="w"> </span><span class="s2">"ExampleService"</span>,<span class="w">                                         </span>
-<span class="w">          </span><span class="s2">"routingKey"</span>:<span class="w"> </span><span class="s2">"chriss-macbook-pro-2_59e8e38ad189aefe093dfa7d74e18841"</span>,<span class="w"> </span>
-<span class="w">          </span><span class="s2">"federations"</span>:<span class="w"> </span><span class="o">{</span><span class="w">                                                       </span>
-<span class="w">             </span><span class="s2">"myId"</span>:<span class="w"> </span><span class="o">[</span><span class="w">                                                           </span>
-<span class="w">                </span><span class="o">{</span><span class="w">                                                                </span>
-<span class="w">                   </span><span class="s2">"interface"</span>:<span class="w"> </span><span class="s2">"IFederatedLogin"</span><span class="w">                                </span>
-<span class="w">                </span><span class="o">}</span><span class="w">                                                                </span>
-<span class="w">             </span><span class="o">]</span><span class="w">    </span>
+<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">"cid"</span>:<span class="w"> </span><span class="s2">"1338004997867618"</span>,
+<span class="w">    </span><span class="s2">"pid"</span>:<span class="w"> </span><span class="s2">"DE_1754280032981028"</span>,
+<span class="w">    </span><span class="s2">"services"</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">       </span><span class="o">{</span>
+<span class="w">          </span><span class="s2">"beamoName"</span>:<span class="w"> </span><span class="s2">"ExampleService"</span>,
+<span class="w">          </span><span class="s2">"routingKey"</span>:<span class="w"> </span><span class="s2">"chriss-macbook-pro-2_59e8e38ad189aefe093dfa7d74e18841"</span>,
+<span class="w">          </span><span class="s2">"federations"</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">             </span><span class="s2">"myId"</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">                </span><span class="o">{</span>
+<span class="w">                   </span><span class="s2">"interface"</span>:<span class="w"> </span><span class="s2">"IFederatedLogin"</span>
+<span class="w">                </span><span class="o">}</span>
+<span class="w">             </span><span class="o">]</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <hr>
 <h2 id="possible-issues-and-solutions">Possible Issues and Solutions<a class="headerlink" href="#possible-issues-and-solutions" title="Permanent link">¶</a></h2>

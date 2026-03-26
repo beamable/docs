@@ -9695,7 +9695,7 @@
 
 <span class="w">      </span><span class="c1">//  Methods  --------------------------------------</span>
 <span class="w">      </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span>
+<span class="w">      </span><span class="p">{</span>
 <span class="w">         </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
 <span class="w">         </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
@@ -9720,10 +9720,10 @@
 <span class="w">               </span><span class="kt">double</span><span class="w"> </span><span class="n">groupScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eventView</span><span class="p">.</span><span class="n">groupRewards</span><span class="p">.</span><span class="n">groupScore</span><span class="p">;</span>
 
 <span class="w">               </span><span class="kt">string</span><span class="w"> </span><span class="n">eventLog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"Event #{index}\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                     </span><span class="s">$"\n\tname = {eventView.name}"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">                     </span><span class="s">$"\n\tname = {eventView.name}"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                     </span><span class="s">$"\n\tendTime = {endTime}"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                     </span><span class="s">$"\n\ttotalPhaseCount = {totalPhaseCount}"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                     </span><span class="s">$"\n\ttotalRulesCount = {totalRulesCount}"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">                     </span><span class="s">$"\n\ttotalRulesCount = {totalRulesCount}"</span><span class="w"> </span><span class="o">+</span>
 
 <span class="w">                     </span><span class="s">$"\n\n  (Standard Events)"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                     </span><span class="s">$"\n\tcurrentPhase = {currentPhase}"</span><span class="w"> </span><span class="o">+</span>
@@ -9765,9 +9765,9 @@
 <span class="w">         </span><span class="n">Refresh</span><span class="p">();</span>
 
 <span class="w">         </span><span class="c1">// HACK: Force refresh here (0.10.1)</span>
-<span class="w">         </span><span class="c1">// wait (arbitrary milliseconds) for refresh to complete </span>
+<span class="w">         </span><span class="c1">// wait (arbitrary milliseconds) for refresh to complete</span>
 <span class="w">         </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">EventsService</span><span class="p">.</span><span class="n">Subscribable</span><span class="p">.</span><span class="n">ForceRefresh</span><span class="p">();</span>
-<span class="w">         </span><span class="k">await</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="m">300</span><span class="p">);</span><span class="w"> </span>
+<span class="w">         </span><span class="k">await</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="m">300</span><span class="p">);</span>
 
 <span class="w">         </span><span class="n">Refresh</span><span class="p">();</span>
 <span class="w">      </span><span class="p">}</span>
@@ -9828,7 +9828,7 @@
 <span class="w">               </span><span class="c1">// Claim() fails if there is nothing to be claimed</span>
 <span class="w">               </span><span class="k">try</span>
 <span class="w">               </span><span class="p">{</span>
-<span class="w">                  </span><span class="n">EventClaimResponse</span><span class="w"> </span><span class="n">eventClaimResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span>
+<span class="w">                  </span><span class="n">EventClaimResponse</span><span class="w"> </span><span class="n">eventClaimResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span>
 <span class="w">                      </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">EventsService</span><span class="p">.</span><span class="n">Claim</span><span class="p">(</span><span class="n">eventView</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
 
 <span class="w">                  </span><span class="c1">// Get value, or default</span>
