@@ -24,13 +24,13 @@ There are a couple different ways to forget user info:
 
 • **Self-Service**: The [`object/accounts/{objectId}/admin/forget`](https://docs.beamable.com/reference/delete_object-accounts-objectid-admin-forget) API can be called from a microservice to allow users to initiate their own account info deletion.
 
-In addition to deleting PII, your app must meet certain requirements around the user interface and experience. Although Beamable provides an API, as well as a portal flow for deleting PII for a user, the game must still implement its own user flow that conforms to [Apple's Guidelines](https://developer.apple.com/support/offering-account-deletion-in-your-app).
+In addition to deleting PII, your app must meet certain requirements around the user interface and experience. Although Beamable provides an API, as well as a Portal flow for deleting PII for a user, the game must still implement its own user flow that conforms to [Apple's Guidelines](https://developer.apple.com/support/offering-account-deletion-in-your-app).
 
 Methods of account deletion are covered in more detail below.
 
 ## Option 1. Forget User via Portal
 
-User deletion can be done from the Beamable portal by an admin. This can be found on a player's profile page, at the top right under the "Actions" dropdown. This calls the same admin/forget API as the code example in this guide.
+User deletion can be done from the Beamable Portal by an admin. This can be found on a player's profile page, at the top right under the "Actions" dropdown. This calls the same admin/forget API as the code example in this guide.
 
 Based on guidelines for user account deletion, this method should be paired with an easy-to-find option in your app that allows your user to submit a request for deletion.
 

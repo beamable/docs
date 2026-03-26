@@ -179,7 +179,7 @@ Game Makers set up tournaments by defining their content. This content includes 
 
 ### Protips
 
-- While both leaderboards and tournament content are viewable within the Beamable portal, direct management of Tournaments currently requires API calls.
+- While both leaderboards and tournament content are viewable within the Beamable Portal, direct management of Tournaments currently requires API calls.
 - Player scores persist for the duration of the tournament cycle; when players enter the next cycle their scores begin at 0, but within the new tier and stage dictated by promotion or demotion.
 - From cycle to cycle, player scores are reset to 0 but tiers persist. If you, the Game Maker, wish to carry over previous Tournament scores, a separate microservice will be required to pre-seed this information when each new cycle starts.
 - Tournaments differ from Events by featuring a recurring time cycle. Events each have a beginning and end, and potentially multiple phases. Events can have one-off occurrences or be scheduled to recur, but Tournaments always require a cadence.

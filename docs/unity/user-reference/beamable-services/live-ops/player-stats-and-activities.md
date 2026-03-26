@@ -1,10 +1,10 @@
 # Player Stats and Activities
 
-Stats are a way for the Game Makers to create variables that can be used to determine players to receive campaigns [documentation](doc:campaigns) and other live ops events. These can be created in the portal page and you can use this [documentation](doc:stats) to check how it is done.
+Stats are a way for the Game Makers to create variables that can be used to determine players to receive campaigns [documentation](doc:campaigns) and other live ops events. These can be created in Portal page and you can use this [documentation](doc:stats) to check how it is done.
 
 ## Creating a Player Stat
 
-A Player Stat can be created through the portal going for a specific player and creating it through the following popup:
+A Player Stat can be created through Portal going for a specific player and creating it through the following popup:
 
 ![Player Stats Create Popup](../../../../media/imgs/player-stats-create-popup.png){: style="height:auto;width:400px"}
 
@@ -30,7 +30,7 @@ Values for stats are always strings, and you can do simple operations with them 
 
 ## Campaign with Stats
 
-You can use Player Stats to define which players are going to receive a campaign. That can be done while creating a new campaign in the portal. In the following image you can see the stage in which this can be done.
+You can use Player Stats to define which players are going to receive a campaign. That can be done while creating a new campaign in Portal. In the following image you can see the stage in which this can be done.
 
 ![Campaign Stats Configuration](../../../../media/imgs/campaign-stats-configuration.png){: style="height:auto;width:600px"}
 

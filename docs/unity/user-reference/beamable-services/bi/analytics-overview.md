@@ -57,7 +57,7 @@ These KPI's, defined below, are meant to help you in the following ways:
 
 ## Game Maker User Experience
 
-The Portal allows the game maker to view and download player analytics. Individual player analytics can be found within the player profile page.
+The Beamable Portal allows the game maker to view and download player analytics. Individual player analytics can be found within the player profile page.
 
 ![Portal Players Analytics](../../../../media/imgs/Portal-Players_Analytics-2_events.png){width="600px"}
 
@@ -257,7 +257,7 @@ _Note: PopSQL settings interface image not available_
 1. Navigate to your accounts menu and click **manage connections**
 2. Click **Add new Connection** button. It is located in the top right corner.
 3. Select **Amazon Athena**
-4. The database value is a lowercase version of the project ID (PID) of your title. You can find this in the Beamable portal and generally looks like **DE_1418422019508251**. Note that when you populate it here in the database that the **de_** needs to be lower case.
+4. The database value is a lowercase version of the project ID (PID) of your title. You can find this in the Beamable Portal and generally looks like **DE_1418422019508251**. Note that when you populate it here in the database that the **de_** needs to be lower case.
 5. Put the provided S3 Output Location, AWS Access Key ID & AWS Secret Access Key. You can leave everything else blank or default. ( for example, AWS Session Token is not needed for this type of connection )
 6. Click Save and Connect
 

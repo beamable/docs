@@ -1,6 +1,6 @@
 # Leaderboards
 
-The Leaderboards feature can be managed from the Portal.
+The Leaderboards feature can be managed from Portal.
 
 ## Getting Started
 
@@ -8,7 +8,7 @@ Follow these steps to manage leaderboards:
 
 | Step                                      | Detail                                   |
 | :---------------------------------------- | :--------------------------------------- |
-| 1. Open the Portal                        | • See [Portal](doc:portal) for more info |
+| 1. Open Portal                        | • See [Portal](doc:portal) for more info |
 | 2. Expand "Engage" section on the sidebar | • Click "Leaderboards"                   |
 | 3. Configure the settings                 | • Enjoy!                                 |
 

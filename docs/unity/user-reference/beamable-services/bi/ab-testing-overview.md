@@ -148,7 +148,7 @@ Here the data will be created. This represents the **default** data which all us
 
 | Step | Detail |
 |------|--------|
-| 1. Open the Portal | • See [portal.beamable.com](https://portal.beamable.com/) |
+| 1. Open Portal | • See [portal.beamable.com](https://portal.beamable.com/) |
 | 2. Open "Game Based Cloud Data" | ![Portal Cloud Data](../../../../media/imgs/Portal-Cloud%20Data.png){width="400px"} |
 | 3. Upload Data | ![Portal Cloud Data YAML](../../../../media/imgs/Portal-Cloud%20Data-2_YAML.png){width="400px"}<br>• Click "Upload"<br>• Populate all data fields<br>• Optional, choose the appropriate file from Data Files below<br>• Click "Upload"<br>*Note: At present the only data format supported for "Cloud Data" governed by Trials is [YAML](https://en.wikipedia.org/wiki/YAML)* |
 
@@ -162,7 +162,7 @@ Here the Trial will be created. This represents the rules for if/when the **defa
 
 | Step | Detail |
 |------|--------|
-| 1. Open the Portal | • See [portal.beamable.com](https://portal.beamable.com/) |
+| 1. Open Portal | • See [portal.beamable.com](https://portal.beamable.com/) |
 | 2. Open "Trials" | _Note: Trial creation interface - image not available_ |
 | 3. Create the Trial | _Note: Trial configuration interface - image not available_<br>• Choose "Allocation" of "Custom" and add 2 cohorts<br>• Populate all data fields<br>• Click "Create"<br>_Note: See A/B Testing - Code (Glossary) for more info_ |
 | 4. Assign the Data | • Assign the override data that will be loaded instead of the **default** data from **Step 1** above<br>• Optional, choose the appropriate files from Data Files below |
@@ -280,7 +280,7 @@ namespace Beamable.Examples.Services.TrialDataService
                       " * Run The Scene\n" +
                       " * See onscreen UI for results.\n" +
                       " * If IsInABTest is false, something is incorrect. Repeat these steps.\n" +
-                      " * If IsInABTest is true, everything is correct. Visit the portal to change " +
+                      " * If IsInABTest is true, everything is correct. Visit Portal to change " +
                       "the `PLAYER_LEVEL` stat value, then repeat these steps see load other data.\n");
 
             SetupBeamable();
@@ -352,7 +352,7 @@ namespace Beamable.Examples.Services.TrialDataService
 
 After running the scene containing the `TrialDataServiceExample.cs` per above, you can further verify success.
 
-Visit the Portal and change the value of any stat related to the trial for the currently logged-in PlayerId. See the Unity console window for the PlayerId.
+Visit Portal and change the value of any stat related to the trial for the currently logged-in PlayerId. See the Unity console window for the PlayerId.
 
 Steps
 

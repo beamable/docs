@@ -40,7 +40,7 @@ There are three realm config settings that need to be added in order
 to use your own PubNub keys with Beamable: `notification|publisher`,
 `pubnub|publishKey`, and `pubnub|subscribeKey`.
 
-To add realm config values, go to the Beamable admin portal at
+To add realm config values, go to the Beamable Portal at
 https://portal.beamable.com/ and, after choosing the desired
 realm, use Operate > Config to navigate to Realm Config. From there,
 you can add or modify configuration values in the `notification` and

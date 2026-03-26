@@ -40,7 +40,7 @@ There are no compile time breaking changes between 5.x and 6.0. However, there a
 #### Microservice Logging Changes
 The 6.0 release completely changes the way that Microservices send and store log information. Previously, Microservices sent logs in a proprietary format to Amazon Cloud Watch. In the new release, logs are formatted as standard [open telemetry](https://opentelemetry.io/docs/specs/otel/logs/) data, and sent to a log warehouse via an [otel collector](https://opentelemetry.io/docs/collector/). The change is transparent to the Microservice layer, and you do not need to make any changes to enable the new logs.
 
-When you upgrade your service to 6.0, you will begin to see a new log workflow in the Portal. **Your old logs will not be available**. Only the new logs are available. Beamable only retains log data for 2 weeks anyway, but if you _must_ have access to your existing 2 weeks of log information, you will need Pro Support, and you must reach out directly to Beamable Support.
+When you upgrade your service to 6.0, you will begin to see a new log workflow in Portal. **Your old logs will not be available**. Only the new logs are available. Beamable only retains log data for 2 weeks anyway, but if you _must_ have access to your existing 2 weeks of log information, you will need Pro Support, and you must reach out directly to Beamable Support.
 
 #### Telemetry Warning
 The 6.0 CLI will collect usage data and send it back to Beamable. By default, the CLI will ask you to opt into sending the usage information. The result of your selection is stored in the `.beamable/otel-config.json` file. You can change the `BeamCliAllowTelemetry` property to opt in or out of the usage collection.

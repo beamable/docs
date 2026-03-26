@@ -16,7 +16,7 @@ The currencies for a given player can be managed in several ways, depending on y
 
 **Server-Authoritative (Microservice):** A much more secure way to handle currency modifications is via a Microservice. In this scenario, the client is not able to modify their currencies directly, because it is handled on the server. You can check the [Microservices](../../cloud-services/microservices/microservice-framework.md) section for more information.
 
-**Portal (Development):** Player currencies can also be modified through the Portal; Note that this should only be used during development or to make corrections to a player account.
+**Portal (Development):** Player currencies can also be modified through Portal; Note that this should only be used during development or to make corrections to a player account.
 
 ## Virtual Currency API
 

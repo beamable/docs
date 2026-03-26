@@ -1,7 +1,7 @@
 # Cloud Data
 
 
-The Cloud Save feature allows you to manage and configure cloud data storage for your game through the Portal.
+The Cloud Save feature allows you to manage and configure cloud data storage for your game through Portal.
 
 ## Getting Started
 
@@ -9,7 +9,7 @@ Follow these steps to configure cloud data settings:
 
 | Step                                       | Detail                                   |
 | :----------------------------------------- | :--------------------------------------- |
-| 1. Open the Portal                         | • See Portal documentation for more info |
+| 1. Open Portal                         | • See Portal documentation for more info |
 | 2. Expand "Operate" section on the sidebar | • Click "Game Base Cloud Data"           |
 | 3. Configure the settings                  | • Enjoy!                                 |
 

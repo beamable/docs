@@ -157,7 +157,7 @@ There is a limit of 5MB per cloud save file.
 
 ## Data Management Via Portal
 
-The Portal allows the game maker to manage player data as well. Search for a player, select the CloudData tab, and navigate to the player data.
+The Beamable Portal allows the game maker to manage player data as well. Search for a player, select the CloudData tab, and navigate to the player data.
 
 Some common use-cases for game makers include;
 
@@ -178,7 +178,7 @@ Here are the major operations that can be performed against the player data.
 
     Here are some common issues and solutions:
 
-    • While Beamable supports _minor_ edits to the player data from the portal, restoring the a customer's player data completely to a historic backup state is **not supported**.
+    • While Beamable supports _minor_ edits to the player data from Portal, restoring the a customer's player data completely to a historic backup state is **not supported**.
     • The CloudSavingService **does not support** _multiple game sessions using the same user. If there are multiple sessions for the same user, for the same game, this will create an infinite ping/pong effect. E.g. Device A will send updates that Device B will fetch, which will send updates that Device A will fetch, etc..._
     • Manually deleting content from the `LocalCloudDataFullPath` is **not supported**
     • [Old Cloud Save Service](doc:cloud-save-code) **doesn't support** multiple files with the **same content**. If you want files with the same content (for example a backup file), please add a tag to **differentiate** them or use the [New Cloud Save Service](doc:player-cloud-save-code).

@@ -1,6 +1,6 @@
 # Inventory
 
-The Inventory feature can be managed from the Portal.
+The Inventory feature can be managed from Portal.
 
 ## Getting Started
 
@@ -8,7 +8,7 @@ Follow these steps to manage player inventory:
 
 | Step                                      | Detail                                                |
 | :---------------------------------------- | :---------------------------------------------------- |
-| 1. Open the Portal                        | • See [Portal](doc:portal) for more info              |
+| 1. Open Portal                        | • See [Portal](doc:portal) for more info              |
 | 2. Expand "Engage" section on the sidebar | • Click "Players"                                     |
 | 3. Navigate to a player's profile page    | • Scroll the list or search by playerId, device, etc. |
 | 4. Open the player's Inventory page       | • Click "Inventory" on the navigation panel           |

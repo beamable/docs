@@ -8,7 +8,7 @@ Follow these steps to access and configure Announcements:
 
 | Step                      | Detail                                   |
 | :------------------------ | :--------------------------------------- |
-| 1. Open the Portal        | • See Portal documentation for more info |
+| 1. Open Portal        | • See Portal documentation for more info |
 | 2. Navigate via sidebar   | • Click "Announcements"                  |
 | 3. Configure the settings | • Enjoy!                                 |
 

@@ -90,7 +90,7 @@ This sample uses Beamable Stats to track player progress. While not strictly nec
 
 ### Managing Leaderboards via Portal
 
-The Portal allows game makers to manage leaderboards, view player scores, and configure leaderboard settings.
+The Beamable Portal allows game makers to manage leaderboards, view player scores, and configure leaderboard settings.
 
 !!! warning "Configuration Note"
 

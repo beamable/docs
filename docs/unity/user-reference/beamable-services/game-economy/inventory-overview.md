@@ -16,7 +16,7 @@ The [`InventoryService`](https://csharp.cdocs.beamable.com/latest/classBeamable_
 
 ## Portal
 
-Player inventories can be viewed/edited on the Portal. More information can be found in the [Portal - Inventory](https://docs.beamable.com/docs/portal-inventory) guide.
+Player inventories can be viewed/edited on Portal. More information can be found in the [Portal - Inventory](https://docs.beamable.com/docs/portal-inventory) guide.
 
 ![Portal Inventory Overview](../../../../media/imgs/portal-inventory-overview.png){: style="height:auto;width:500px"}
 

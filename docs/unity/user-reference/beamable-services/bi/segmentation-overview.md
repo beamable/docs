@@ -13,7 +13,7 @@ You will find the following topics here:
 
 ## Getting Started
 
-In this guide we will walk you through segmenting players into cohorts. We'll show you a couple of ways to do that including using the Portal to define rules.
+In this guide we will walk you through segmenting players into cohorts. We'll show you a couple of ways to do that including using Portal to define rules.
 
 ### Creating a Cohort by Stats
 
@@ -41,7 +41,7 @@ This is interesting in a couple of ways. Firstly, it allows you the developer to
 
 ![Tagging](../../../../media/imgs/tagging.png)
 
-Navigating in the Portal to **Operate → Tagging** will take you to the above screen.
+Navigating in Portal to **Operate → Tagging** will take you to the above screen.
 
 ```text
 1437311035933697, LEVEL, 123

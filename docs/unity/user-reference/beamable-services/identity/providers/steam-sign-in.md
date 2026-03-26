@@ -27,7 +27,7 @@ You then need to place this AppID in a file that was installed in the root of yo
 
 ## Setup In Portal
 
-There are some additional steps in order to configure Beamable for Steam Integration. You'll need to register your Web API key and AppID in the Beamable portal at <https://portal.beamable.com/>
+There are some additional steps in order to configure Beamable for Steam Integration. You'll need to register your Web API key and AppID in the Beamable Portal at <https://portal.beamable.com/>
 
 Once you have done this, you can verify that the Steamworks SDK is working by creating any MonoBehaviour and outputting the Steam User ID to the console.
 

@@ -84,7 +84,7 @@ On device, use a three-finger swipe gesture to open the in-game console. This on
 
 The in-game console, on-device, will **only** appear if the force-enabled checkbox is true, or if the current player's account has tester, developer, or admin privileges.
 
-The Portal allows game makers to grant player privileges. This privilege-requirement only applies to device, not the Unity Editor.
+The Beamable Portal allows game makers to grant player privileges. This privilege-requirement only applies to device, not the Unity Editor.
 
 
 ### AdminFlow API
