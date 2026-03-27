@@ -153,7 +153,7 @@ If you want to change its behavior, you will need to add or update the Custom de
 
 ## Data Limitations
 
-There is a limit of 5MB per cloud save file.
+There is a limit of 5MB per Cloud Save file.
 
 ## Data Management Via Portal
 
