@@ -14,23 +14,30 @@ The Beamable Unreal SDK provides all of the functionality to integrate Beamable'
 ## Platform Support Roadmap
 The Beamable Unreal SDK is designed to work across multiple platforms. Below is a table outlining the current support status and estimated time of arrival (ETA) for each platform.
 
-| Platform | Client Support | Dedicated Server Support | ETA        |
-|----------|----------------|--------------------------|------------|
-| Windows  | ✅ | — | Released   |
-| Android  | ✅ | — | Released          |
-| Linux    | — | ✅ | Released         |
-| iOS      | 🚧 Planned | — | Q4 2025    |
-| Consoles | 🚧 Planned | — | Q1/Q2 2026 |
+| Platform | Client Support | Dedicated Server Support | ETA            |
+|----------|----------------|--------------------------|----------------|
+| Windows  | ✅ | —                        | Released       |
+| Android  | ✅ | —                        | Released       |
+| iOS      | ✅| -                        | Released       |
+| Linux    | — | ✅                        | Released   |
+
+PS: Currently we don't provide support for Consoles. If you need Console support, get in touch with us.
 
 ## Beamable CLI 
-Most Beamable workflows are enabled through the Beamable CLI, our editor integrations making use of it to create Engine-specific workflows.
+Most Beamable workflows are enabled through the Beamable CLI, our editor integrations making use of it to create Engine-specific workflows. In general the Beamable CLI is invisible where it needs to be and explicit where needed.
 
 The SDK is tightly integrated with the CLI, in some ways more than others. For example:
 
 - [Content](unreal/user-reference/beamable-services/content.md), being designer-focused, has its own UE-familiar content editing UI so you can edit the various JSON blobs that define your game's content.
 - [Microservices](unreal/user-reference/microservices/microservices.md), more engineer focused, leans more directly on the CLI.
 
-**The Beamable CLI is invisible where it needs to be and explicit where needed.**
+Required Versions for the CLI will be noted in the documentation where relevant, but here is a quick reference for the latest versions:
+
+| SDK Version | CLI  |
+|-------------|------|
+| v 2.3       | v7.1 |
+| v 2.2       | v6.2 |
+
 
 ## Where to start? 
 We recommend for all new users to explore these starting points:
