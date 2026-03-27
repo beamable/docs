@@ -34,7 +34,7 @@ Learning Resources:
 4. Arrow: Shoot an arrow
 
 - Commit your turn before the turn times out!
-- If you get hit by a fireball, an arrow or get in touch with lava, you die.
+- If you get hit by a fireball or an arrow, or get in touch with lava, you die.
 - Last player alive wins.
 
 _Lava expands! Pay attention to grid cells that are starting to crumble._
@@ -244,7 +244,7 @@ Did you complete all the experiments with success? We'd love to hear about it. [
 |------------|-------|------|--------|
 | Beginner | - | Give yourself gems without winning even a single game | _Hint: There is one default [Currency](../user-reference/beamable-services/game-economy/virtual-currency-overview.md) type_ |
 | Beginner | All Scenes | Change game asset to create a new theme (SciFi, Fantasy, ...) | • Replace (or add) all visible textures and sprites in UI and the game itself<br/>• If you add assets, update all image references accordingly |
-| Intermediate | All Scenes | Add more characters, hats or tile types | • Find the birthday hat and offer a normal and a drunk version<br/>• To add a new character, both Prefab and Content need to be updated. Start with duplicating and adapting an existing character Prefab.<br/>• Tile types: Have a look at BattleGrid.<br/><br/>_Hint: All of that requires [Content](../user-reference/beamable-services/profile-storage/content/content-overview.md) changes_ |
+| Intermediate | All Scenes | Add more characters, hats, or tile types | • Find the birthday hat and offer a normal and a drunk version<br/>• To add a new character, both Prefab and Content need to be updated. Start with duplicating and adapting an existing character Prefab.<br/>• Tile types: Have a look at BattleGrid.<br/><br/>_Hint: All of that requires [Content](../user-reference/beamable-services/profile-storage/content/content-overview.md) changes_ |
 | Intermediate | Scene02Game | Make a surrendered player carry a white flag | • A player can be dead in two ways now<br/>• Adapt the way that players are rendered accordingly |
 | Advanced | Scene02Game | Add arrow frenzy | • Add a powerup that shoots arrows in all directions at once. It should only last one turn.<br/>• Little Twist: Shoot arrows sequentially, in clockwise order |
 | Advanced | All Scenes | Make the game 3D | • For starters, leave GameSimulation alone and work your way through BattleGrid first |

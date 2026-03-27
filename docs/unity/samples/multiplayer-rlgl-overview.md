@@ -28,7 +28,7 @@ This document and the sample project allow game makers to understand and apply t
 
 ![Photon Logo](../../media/imgs/photon-logo.png)
 
-_Fusion is a new high performance state synchronization networking library for Unity. With a single API, it supports many network architectures such as dedicated server, client hosted and shared/distributed authority._
+_Fusion is a new high performance state synchronization networking library for Unity. With a single API, it supports many network architectures such as dedicated server, client hosted, and shared/distributed authority._
 
 This sample project showcases how Beamable and Photon can work together to provide a sophisticated networking solution. In general, Beamable handles the social and economy features, while Photon handles the gameplay. The Matchmaking feature bridges the gap between these two technologies.
 

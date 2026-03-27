@@ -289,7 +289,7 @@ As you can see you already get some very interesting data about your player. Let
 SELECT * FROM information_schema.columns WHERE table_schema = '[your de_ID goes here]' and table_name = 'platform_session_session'
 ```
 
-The above query will yield the following results. And as you can see the information provided in this table is immensely valuable. Beamable by default calculates a bunch of information for you making it easy to extract MAU, DAU, Session Length, Spending habits and more.
+The above query will yield the following results. And as you can see the information provided in this table is immensely valuable. Beamable by default calculates a bunch of information for you making it easy to extract MAU, DAU, Session Length, Spending habits, and more.
 
 | Column Name                    | Data Type    | Detail                                                                                |
 | :----------------------------- | :----------- | :------------------------------------------------------------------------------------ |

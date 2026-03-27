@@ -32,7 +32,7 @@ This guide assumes the following prerequisites have been completed:
 In orther to setup the Unity Project you need to Set the GPS Secret to Beamable Platform
 
 - See [Google's tutorial](https://developers.google.com/games/services/v1/android/offline-access#create_an_associated_server-side_web_application_for_your_game) for how get client_secret.json and obtain Web client values.
-- Go to Portal → Operate → Config and press Add Config and add config with namespace auth, key gps_secret and value that is encoded to base64 content of client_secret.json.
+- Go to Portal → Operate → Config and press Add Config and add config with namespace auth, key gps_secret, and value that is encoded to base64 content of client_secret.json.
 
 ![f12a299-portalScreen.png](../../../../../media/imgs/f12a299-portalScreen.png)
 

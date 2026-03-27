@@ -2,9 +2,9 @@
 
 The Beamable **Game Content Designer** feature allows game makers to create and manage data structures without having to write code.
 
-Live games often have frequent changes to their structured and unstructured data: the definition of items and merchandise, virtual goods, currencies, inventory, items, world data and stories are just a few examples.
+Live games often have frequent changes to their structured and unstructured data: the definition of items and merchandise, virtual goods, currencies, inventory, items, world data, and stories are just a few examples.
 
-Managing these data structures is usually a pain, requiring special forms or processes or direct-editing of source code files that contain data definitions.
+Managing these data structures is usually a pain, requiring special forms, processes, or direct-editing of source code files that contain data definitions.
 
 Game makers know that these problems only get worse when the game goes live -- because the desire is to change this data on the fly, without interfering with update, deployment, or live operations -- or requiring engineering intervention. **That's why we created the Game Content Designer (GCD). This Google Sheets Add-On allows game makers to manage all of the game's live data with the simplicity of a Google Sheet.**
 

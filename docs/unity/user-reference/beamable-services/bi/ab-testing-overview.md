@@ -2,7 +2,7 @@
 
 A/B Testing can be a great tool to help improve how your users interact with your game. And it can be used across the three main metric pillars: Engagement, Retention & Monetization.
 
-The concept of A/B Testing is to run experiments across a cohort, segmented set, of players and compare feedback. You can measure the results of these tests to create opportunities for improved engagement, retention and monetization.
+The concept of A/B Testing is to run experiments across a cohort (segmented set) of players and compare feedback. You can measure the results of these tests to create opportunities for improved engagement, retention, and monetization.
 
 ![Metric Pillars](../../../../media/imgs/METRIC_PILLARS.png){width="600px"}
 
