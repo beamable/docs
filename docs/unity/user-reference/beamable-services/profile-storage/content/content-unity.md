@@ -85,7 +85,7 @@ Then, the Revert Contents validation window gets all local changes and splits th
 
 ![The Revert Summary Window](../../../../../media/imgs/content-revert-summary.png){: style="height:auto;width:400px"}
 
-After validating which contents will be reverted, the content manager will start the process of reverting your local data to match the target Realm.
+After validating which contents will be reverted, the Content Manager will start the process of reverting your local data to match the target Realm.
 
 ### Publish
 
