@@ -8911,7 +8911,7 @@
 <li><strong>Main Boot Level</strong>: Refers to the Level in which your Client applications start. This usually maps to your title/main menu screens.</li>
 <li><strong>Waiting Room Level</strong>: Some games will boot the server in a "Waiting Room Level" while players connect before performing a <strong>Server Travel</strong> to take all the clients to the actual gameplay map. We'll call this the Waiting Room Level.</li>
 <li><strong>Gameplay Level</strong>: This is the Level in which gameplay happens. During development, your designers and gameplay engineers need to enter this level directly using PIE.  </li>
-<li><strong>Game Server Orchestrator</strong> or just <strong>Orchestrator</strong>: whatever tech is running your actual Game Servers; Hathora, Agones, GameLyft and others exist in this space.</li>
+<li><strong>Game Server Orchestrator</strong> or just <strong>Orchestrator</strong>: whatever tech is running your actual Game Servers; Edgegap, Agones, GameLyft and others exist in this space.</li>
 </ul>
 <p>There <em><strong>are</strong></em> other ways to arrange and organize server-authoritative games but most games do something at least similar to this, and, Unreal helps you more if you are close to this. </p>
 <h2 id="getting-started-setting-up-gameplay-levels-and-a-pie-setting">Getting Started - Setting up Gameplay Levels and a PIE Setting<a class="headerlink" href="#getting-started-setting-up-gameplay-levels-and-a-pie-setting" title="Permanent link">¶</a></h2>
@@ -8998,7 +8998,7 @@
 </div>
 <p>If you'd like to see an example of this, take a look at our <a href="../../../samples/beamball/beamball-demo/">Beamball Demo</a>.</p>
 <h2 id="preparing-a-build-for-your-game-server-orchestrator">Preparing a Build for your Game Server Orchestrator<a class="headerlink" href="#preparing-a-build-for-your-game-server-orchestrator" title="Permanent link">¶</a></h2>
-<p>This section explains what you need to do before you generate a build to upload to any Game Server Orchestrator such as Hathora, GameLyft or Agones. This explanation is Blueprint-based, an equivalent C++ explanation is described in our <a href="../code-multiplayer/">C++ Real-Time Multiplayer Guide</a>.</p>
+<p>This section explains what you need to do before you generate a build to upload to any Game Server Orchestrator such as Edgegap, GameLyft or Agones. This explanation is Blueprint-based, an equivalent C++ explanation is described in our <a href="../code-multiplayer/">C++ Real-Time Multiplayer Guide</a>.</p>
 <h3 id="setting-up-your-gameplay-levels-level-blueprint">Setting Up your Gameplay Level's Level Blueprint<a class="headerlink" href="#setting-up-your-gameplay-levels-level-blueprint" title="Permanent link">¶</a></h3>
 <h4 id="step-1-turn-on-init-on-server-build"><strong>Step 1 - Turn on Init on Server Build</strong><a class="headerlink" href="#step-1-turn-on-init-on-server-build" title="Permanent link">¶</a></h4>
 <p>Beamable provides you with an option in its <code>Local State - PIE - Easy Enable - Gameplay</code> node called <code>Init when Server Build</code>:</p>
@@ -9036,9 +9036,9 @@
 <p>We can't tell you how to do this exactly, but for every Orchestrator we know how, you'll be able to see it in our <strong><a href="../../../samples/beamball/beamball-demo/">Beamball Demo</a></strong>.</p>
 <p>In addition to this, inside the Game Server initialization logic, you'll need to do some things to map the Beamable Lobby to this running instance of the game server. There are two strategies to do this:</p>
 <h5 id="one-lobby-per-process"><strong>One Lobby Per Process</strong><a class="headerlink" href="#one-lobby-per-process" title="Permanent link">¶</a></h5>
-<p>The most common way Orchestrators such as Hathora, GameLyft or Agones pass information to the running process is via Command Line Arguments or Environment Variables. If you are only ever running one Lobby per-game-server-process, we recommend passing in the lobby id this way.</p>
+<p>The most common way Orchestrators such as Edgegap, GameLyft or Agones pass information to the running process is via Command Line Arguments or Environment Variables. If you are only ever running one Lobby per-game-server-process, we recommend passing in the lobby id this way.</p>
 <p>For this case, the Beamable SDK expects either the <code>CLArg: BeamableDedicatedServerInstanceLobbyId</code> or the <code>EnvVar: BEAMABLE_DEDICATED_SERVER_INSTANCE_LOBBY_ID</code> to be set and contain the Lobby Id for the match. If they do, you can use <code>Local State - Lobby - Get Lobby Id From CLArgs</code> to get this value.</p>
-<p>Each orchestrator has their own way of allowing you to define CLArgs and EnvVars that it'll pass into the running game-server process --- please refer to your chosen orchestrator's documentation about how to pass these along; you can also refer to our <a href="../../../samples/beamball/beamball-demo/">Beamball Demo</a> to see how we do this with Hathora (as per Hathora docs, involves a <code>Dockerfile</code> and a <code>sh</code> script).</p>
+<p>Each orchestrator has their own way of allowing you to define CLArgs and EnvVars that it'll pass into the running game-server process --- please refer to your chosen orchestrator's documentation about how to pass these along; you can also refer to our <a href="../../../samples/beamball/beamball-demo/">Beamball Demo</a> to see how we do this with Edgegap (as per Edgegap docs, involves a <code>Dockerfile</code> and a <code>sh</code> script).</p>
 <h5 id="multiple-lobby-per-process"><strong>Multiple Lobby Per Process</strong><a class="headerlink" href="#multiple-lobby-per-process" title="Permanent link">¶</a></h5>
 <p>If you are planning on having multiple lobbies per-game-server-process, your orchestrator will either:</p>
 <ul>

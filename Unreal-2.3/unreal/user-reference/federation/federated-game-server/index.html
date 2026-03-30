@@ -8616,7 +8616,7 @@
 
 
 <h1 id="federated-game-server">Federated Game Server<a class="headerlink" href="#federated-game-server" title="Permanent link">¶</a></h1>
-<p>Game Server Federation allows you to integrate with Third-Party Game Server Orchestrators (such as Hathora or Agones) as well as running arbitrary server-authoritative code before a "found match" notifies its players.</p>
+<p>Game Server Federation allows you to integrate with Third-Party Game Server Orchestrators (such as Edgegap or Agones) as well as running arbitrary server-authoritative code before a "found match" notifies its players.</p>
 <p>The interface you implement looks like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">ServerInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateGameServer</span><span class="p">(</span><span class="n">Lobby</span><span class="w"> </span><span class="n">lobby</span><span class="p">);</span>
 </code></pre></div>
@@ -8686,7 +8686,7 @@
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>federation<span class="w"> </span>local-settings<span class="w"> </span>get<span class="w"> </span>IFederatedGameServer<span class="w"> </span>--beamo-id<span class="w"> </span>MyService<span class="w"> </span>--fed-id<span class="w"> </span>myid
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Sets the content ids filter for the IFederatedGameServer</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>federation<span class="w"> </span>local-settings<span class="w"> </span><span class="nb">set</span><span class="w"> </span>IFederatedGameServer<span class="w"> </span>--beamo-id<span class="w"> </span>HathoraDemo<span class="w"> </span>--fed-id<span class="w"> </span>hathora<span class="w"> </span>--content-ids<span class="w"> </span>game_types.my_queue
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>federation<span class="w"> </span>local-settings<span class="w"> </span><span class="nb">set</span><span class="w"> </span>IFederatedGameServer<span class="w"> </span>--beamo-id<span class="w"> </span>BeamballMs<span class="w"> </span>--fed-id<span class="w"> </span>beamball<span class="w"> </span>--content-ids<span class="w"> </span>game_types.my_queue
 </code></pre></div><p></p>
 <h2 id="provision-game-server-for-custom-lobby-non-matchmaking">Provision Game Server for Custom Lobby (non-Matchmaking)<a class="headerlink" href="#provision-game-server-for-custom-lobby-non-matchmaking" title="Permanent link">¶</a></h2>
 <p>Certain games allow players to <a href="../../beamable-services/lobbies/">create custom lobbies</a> manually. If those games also require invoking the federation endpoint to provision a server or run some arbitrary code, they can do so via the following steps:</p>
