@@ -264,7 +264,7 @@ In some cases, it may be useful to not start the actual process and instead use 
 ENTRYPOINT ["tail", "-f", "/dev/null"]
 ```
 
-When you do that, the service will not start --- but the container will look exactly like it does just before the service runs, except it won't be cleaned up by the health-check failing. This means you can easily inspect its file structure via Docker for Windows/Mac's UI or other tools.
+When you do that, the service will not start — but the container will look exactly like it does just before the service runs, except it won't be cleaned up by the health-check failing. This means you can easily inspect its file structure via Docker for Windows/Mac's UI or other tools.
 
 !!! info "Troubleshoot"
 

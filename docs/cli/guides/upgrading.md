@@ -226,7 +226,7 @@ Starting with CLI 3.0.1, you should start by updating the CLI's file structure. 
 1. Install [dotnet 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) in your machine (it is the new recommended version). The old `net6.0` framework's end-of-life arrived on November 12, 2024.
 2. Delete the `.beamable/local-services-manifest.json` file. (It is no longer necessary)
 
-Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install & re-install specific versions when switching projects, but that is a bad workflow --- so... we changed it.
+Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install & re-install specific versions when switching projects, but that is a bad workflow — so... we changed it.
 
 In 3.0.0, the CLI should be installed as a _local dotnet tool_.
 
@@ -362,7 +362,7 @@ With the introduction of the `Beamable.Microservice.SourceGen` library, all Micr
 If you use any Federated endpoints as part of your Microservices, there a few code-changes you'll have to make:
 
 - Replace all `IThirdPartyCloudIdentity` with `IFederationId`.
-- Add a `FederationId` attribute to the class `IFederationId` --- the `UniqueName` is the property.
+- Add a `FederationId` attribute to the class `IFederationId` — the `UniqueName` is the property.
 - If you were ever accessing the `UniqueName` property as part of your code, you'll need to replace those calls with `GetUniqueName()`.
 
 Once these are in, try to compile your services. The newly referenced Roslyn Static Analyzer should tell you if you made any mistakes.

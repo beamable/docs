@@ -145,7 +145,7 @@ To keep things a bit simpler, here are general rules of thumb:
 - Keep payloads as small as you can. While we support larger payloads, it'll end up causing the C#MS to have to scale sooner. Try to keep these well below 10kb.
 - Code organization should not factor into this decision if you want the maximum bang for your buck while using Beamable C# Microservices.
 
-If the above is true and you still wish to share code between two different microservices, architect your code and functions so that the parts that are worth sharing can be pulled into a separate AssemblyDefinition which both services reference. Keep in mind that you should only do this if the complexity is worth the code reuse --- over-using AssemblyDefinitions can increase overall project complexity for not that much gain.
+If the above is true and you still wish to share code between two different microservices, architect your code and functions so that the parts that are worth sharing can be pulled into a separate AssemblyDefinition which both services reference. Keep in mind that you should only do this if the complexity is worth the code reuse — over-using AssemblyDefinitions can increase overall project complexity for not that much gain.
 
 All-in-all, this is a very game-specific decision. As such, our goal is to provide guidelines and tools to help you make that decision. Currently, you can see CPU/Memory utilization metrics via the Beamable Dev Portal's C#MS section and, in the future, we may track more specific metrics to allow you to make better decisions.
 

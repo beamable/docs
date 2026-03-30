@@ -9,7 +9,7 @@ The **Content** feature allows game maker to store project-specific data objects
 The content ID is assigned at creation of a new content, and is composed of content `type` and content `id`. A content ID always starts with the content type. For example, a currency content for dollars would be:
 `currency.dollars`.
 
-One important concept of the Content ID is the "Nesting". Content IDs can be nested, and the resulting hierarchy will be baked in to the name. For example, to group "weekend" events under a common folder -- the content ID would be:
+One important concept of the Content ID is the "Nesting". Content IDs can be nested, and the resulting hierarchy will be baked in to the name. For example, to group "weekend" events under a common folder — the content ID would be:
 `events.weekend.<user-defined-id>`.
 
 ## Content Namespaces
@@ -332,7 +332,7 @@ See source code of `Runtime/DisruptorEngine/Content/ContentCache.cs` for more in
 
 ## Remote Configuration Workflows
 
-A fundamental pattern for using Beamable Content is **Remote Configuration**. With modest planning, game makers can maximize the user experience while minimizing the number of game updates shipped. This workflow allows game makers to update game content remotely and do so in real-time. Games can tweak existing features, launch new features, test out functionality -- all without necessarily shipping app updates or code changes.This can be especially useful for live-ops, seasonal events, and limited-time offers.
+A fundamental pattern for using Beamable Content is **Remote Configuration**. With modest planning, game makers can maximize the user experience while minimizing the number of game updates shipped. This workflow allows game makers to update game content remotely and do so in real-time. Games can tweak existing features, launch new features, test out functionality — all without necessarily shipping app updates or code changes.This can be especially useful for live-ops, seasonal events, and limited-time offers.
 
 This table summarizes the types of game changes that can be made remotely versus those that require a game update. So you can plan accordingly.
 

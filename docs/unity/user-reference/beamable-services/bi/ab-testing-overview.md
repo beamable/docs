@@ -123,7 +123,7 @@ For debugging the manifests, game players can use the Admin Flow to enter comman
 
 | Name | Detail |
 |------|--------|
-| `CLOUD-MANIFEST` | Retrieve and output to the console log the **game** manifest, which includes the entire cloud data domain.<br>_Note: This is invokable only by a privileged user (i.e. C# Microservice OR admin user). So if privileged user invoking in Unity, be sure your runtime user is an admin of the realm – you can login to such a user using the Account Management Flow prefab_ |
+| `CLOUD-MANIFEST` | Retrieve and output to the console log the **game** manifest, which includes the entire cloud data domain.<br>_Note: This is invokable only by a privileged user (i.e. C# Microservice OR admin user). So if privileged user invoking in Unity, be sure your runtime user is an admin of the realm — you can login to such a user using the Account Management Flow prefab_ |
 | `CLOUD-PLAYER` | Retrieve and output to the console log the **player** manifest, which includes the entire cloud data domain. |
 
 !!! info "Best Practices"

@@ -8,8 +8,8 @@ Events provide a powerful way to drive player engagement through time-limited ch
 
 Beamable offers two main types of live events to engage your player community:
 
-- **1. Tournaments** – Competitive events with structured phases and rankings. See [Tournament Flow](doc:tournaments-prefab) for more info.
-- **2. Events** – Flexible time-limited activities and challenges. Continue reading below for more info.
+- **1. Tournaments** - Competitive events with structured phases and rankings. See [Tournament Flow](doc:tournaments-prefab) for more info.
+- **2. Events** - Flexible time-limited activities and challenges. Continue reading below for more info.
 
 Events provide an engaging user experience through time-limited activities that encourage regular gameplay and community participation.
 
