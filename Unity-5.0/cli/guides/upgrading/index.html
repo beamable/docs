@@ -10277,7 +10277,7 @@ SomeDrive
 <li>Install <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">dotnet 8 SDK</a> in your machine (it is the new recommended version). The old <code>net6.0</code> framework's end-of-life arrived on November 12, 2024.</li>
 <li>Delete the <code>.beamable/local-services-manifest.json</code> file. (It is no longer necessary)</li>
 </ol>
-<p>Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install &amp; re-install specific versions when switching projects, but that is a bad workflow --- so... we changed it.</p>
+<p>Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install &amp; re-install specific versions when switching projects, but that is a bad workflow — so... we changed it.</p>
 <p>In 3.0.0, the CLI should be installed as a <em>local dotnet tool</em>.</p>
 <p>The steps to change your project from using the global CLI tool to a <em>local dotnet tool</em> are defined below.</p>
 <p>Start by verifying you are in the correct location by running the following command.
@@ -10425,7 +10425,7 @@ binaries are not compatible with Unity.</p>
 <p>If you use any Federated endpoints as part of your Microservices, there a few code-changes you'll have to make:</p>
 <ul>
 <li>Replace all <code>IThirdPartyCloudIdentity</code> with <code>IFederationId</code>.</li>
-<li>Add a <code>FederationId</code> attribute to the class <code>IFederationId</code> --- the <code>UniqueName</code> is the property.</li>
+<li>Add a <code>FederationId</code> attribute to the class <code>IFederationId</code> — the <code>UniqueName</code> is the property.</li>
 <li>If you were ever accessing the <code>UniqueName</code> property as part of your code, you'll need to replace those calls with <code>GetUniqueName()</code>.</li>
 </ul>
 <p>Once these are in, try to compile your services. The newly referenced Roslyn Static Analyzer should tell you if you made any mistakes.</p>

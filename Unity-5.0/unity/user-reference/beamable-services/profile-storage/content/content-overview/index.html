@@ -9595,7 +9595,7 @@
 <h2 id="content-id">Content ID<a class="headerlink" href="#content-id" title="Permanent link">¶</a></h2>
 <p>The content ID is assigned at creation of a new content, and is composed of content <code>type</code> and content <code>id</code>. A content ID always starts with the content type. For example, a currency content for dollars would be:
 <code>currency.dollars</code>.</p>
-<p>One important concept of the Content ID is the "Nesting". Content IDs can be nested, and the resulting hierarchy will be baked in to the name. For example, to group "weekend" events under a common folder -- the content ID would be:
+<p>One important concept of the Content ID is the "Nesting". Content IDs can be nested, and the resulting hierarchy will be baked in to the name. For example, to group "weekend" events under a common folder — the content ID would be:
 <code>events.weekend.&lt;user-defined-id&gt;</code>.</p>
 <h2 id="content-namespaces">Content Namespaces<a class="headerlink" href="#content-namespaces" title="Permanent link">¶</a></h2>
 <p>Content is validated as a manifest which allows items to be validated against each other. This prevents validation errors when publishing; however, individual changes could cause validation errors after uploading; e.g., a store references a currency that no longer exists.</p>
@@ -10079,7 +10079,7 @@
 <p>Content is cached by the client and stored both in memory and persisted to disk. When content is updated on our backend, Beamable updates a client manifest and push it to all clients to invalidate and update the cache.</p>
 <p>See source code of <code>Runtime/DisruptorEngine/Content/ContentCache.cs</code> for more info.</p>
 <h2 id="remote-configuration-workflows">Remote Configuration Workflows<a class="headerlink" href="#remote-configuration-workflows" title="Permanent link">¶</a></h2>
-<p>A fundamental pattern for using Beamable Content is <strong>Remote Configuration</strong>. With modest planning, game makers can maximize the user experience while minimizing the number of game updates shipped. This workflow allows game makers to update game content remotely and do so in real-time. Games can tweak existing features, launch new features, test out functionality -- all without necessarily shipping app updates or code changes.This can be especially useful for live-ops, seasonal events, and limited-time offers.</p>
+<p>A fundamental pattern for using Beamable Content is <strong>Remote Configuration</strong>. With modest planning, game makers can maximize the user experience while minimizing the number of game updates shipped. This workflow allows game makers to update game content remotely and do so in real-time. Games can tweak existing features, launch new features, test out functionality — all without necessarily shipping app updates or code changes.This can be especially useful for live-ops, seasonal events, and limited-time offers.</p>
 <p>This table summarizes the types of game changes that can be made remotely versus those that require a game update. So you can plan accordingly.</p>
 <table>
 <thead>
