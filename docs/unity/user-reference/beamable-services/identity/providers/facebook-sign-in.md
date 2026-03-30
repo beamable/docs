@@ -71,7 +71,7 @@ var aToken = Facebook.Unity.AccessToken.CurrentAccessToken;
 var tokenString = aToken.TokenString;
 ```
 
-You will want a reference to the actual TokenString to pass to the Beamable 3rd Party Login Service.
+You will want a reference to the actual TokenString to pass to the Beamable third-party login service.
 
 ### IsThirdPartyAvailable
 
@@ -88,7 +88,7 @@ Now that we have the Facebook token, we need to account for 3 different scenario
 
 - Switch Player - Player wants to switch credentials to a new Player
 - Create New Player - Player wants to Create a new Player account
-- Attach To Current Player - Player wants to Attach this 3rd Party Login to an already authenticated Player.
+- Attach To Current Player - Player wants to attach this third-party login to an already authenticated Player.
 
 ```csharp
 //Specify the third party auth provider

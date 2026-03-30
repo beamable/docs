@@ -4,7 +4,7 @@ The **Chat** feature allows players to communicate together in-game with text ch
 
 !!! danger "Deprecated API"
 
-    As of December 2025, the Beamable Chat API described in this document is deprecated. Alternatives for real-time player communication include 3rd party solutions or implementing custom, game-specific chat using Beamable C# Microservices and the Beamable Notification service.
+    As of December 2025, the Beamable Chat API described in this document is deprecated. Alternatives for real-time player communication include third-party solutions or implementing custom, game-specific chat using Beamable C# Microservices and the Beamable Notification service.
 
 The deprecation of the Chat service is due to its reliance on PubNub, a
 third party service for publish/subscribe workflows including real-time

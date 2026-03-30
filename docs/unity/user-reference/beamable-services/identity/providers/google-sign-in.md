@@ -220,7 +220,7 @@ We can account for this by determining if we need to:
 
 - **Switch Player** - Player wants to switch credentials to a new Player
 - **Create New Player** - Player wants to create a new Player account
-- **Attach To Current Player** - Player wants to Attach this 3rd Party Login to an already authenticated Player
+- **Attach To Current Player** - Player wants to attach this third-party login to an already authenticated Player
 
 !!! info "Beamable SDK Initialization"
     The following assumes that you have initialized the Beamable SDK and it is stored in _beamContext variable.

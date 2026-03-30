@@ -1,6 +1,6 @@
 # Identity Overview
 
-Beamable provides a robust identity solution that integrates with 3rd party solutions. This set of features gives you ultimate flexibility about how to authenticate users into your game. Beamable knows that authentication varies from game to game. This is exactly why we provide you with multiple authentication features to suit your needs.
+Beamable provides a robust identity solution that integrates with third-party solutions. This set of features gives you ultimate flexibility about how to authenticate users into your game. Beamable knows that authentication varies from game to game. This is exactly why we provide you with multiple authentication features to suit your needs.
 
 Authentication is often tricky and has more edge cases than one normally thinks about, you have to factor in what happens when errors occur and how to handle those errors. Below is a diagram of authentication flow that exposes how you can potentially handle these types of scenarios.
 

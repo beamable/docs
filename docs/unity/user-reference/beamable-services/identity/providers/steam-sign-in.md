@@ -136,9 +136,9 @@ You can call this promise using async/await:
 var isSteamTicketValid = await BeamableValidateSteamTicket(ticket);
 ```
 
-## Login to Beamable with 3rd Party (Steam)
+## Login to Beamable with Third-Party (Steam)
 
-Much like our other 3rd Party authentication methods, you will use the three main functions in the Beamable SDK: `LoginThirdParty`, `RegisterThirdPartyCredentials`, `CreateUser`.
+Much like our other third-party authentication methods, you will use the three main functions in the Beamable SDK: `LoginThirdParty`, `RegisterThirdPartyCredentials`, `CreateUser`.
 
 To use these services, you must convert the Steam Auth Ticket to the proper format in order for Beamable to recognize it.
 
@@ -159,7 +159,7 @@ New Player
 Returning Player already linked to Steam
 Returning Player linking their account with Steam
 
-We can tell which of these scenarios to follow by checking two pieces of information: whether the Steam ID is already attached to a Beamable account and whether the current, local account has a Steam 3rd party association.
+We can tell which of these scenarios to follow by checking two pieces of information: whether the Steam ID is already attached to a Beamable account and whether the current, local account has a Steam third-party association.
 
 - If the Steam ID is already associated with a Beamable account, the game should log into that account (which may or may not be the current Beamable account).
 - Otherwise, if the Steam ID has never been used with Beamable before, there are two possibilities:
