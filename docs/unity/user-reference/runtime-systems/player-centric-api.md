@@ -79,7 +79,7 @@ The Lifecycle of the `BeamContext` instance is very straightforward. You can see
 | BeamContext.ClearPlayerAndStop()                  | Logs the player out and does the same thing as `Stop()`. Erases the PlayerId and access token. Calling `Start()` after this will grab a brand new player and fill it into the Context variable you were already using.                                                                         |
 | BeamContext.ChangeAuthorizedPlayer(TokenResponse) | Switches the PlayerId of the context to the given player.                                                                                                                                                                                                                                      |
 
-_Note: `BeamContext` API calls will fail if it is stopped in the middle of an async method and will throw an exception. It must be started for these calls to work._
+_Note_: `BeamContext` API calls will fail if it is stopped in the middle of an async method and will throw an exception. It must be started for these calls to work.
 
 ## Attaching Service Callbacks
 

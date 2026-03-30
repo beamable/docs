@@ -264,4 +264,4 @@ namespace Beamable.Examples.Services.StatsService
 
 Beamable offers both analytics events and stats. See [Analytics » Code (Analytics Events vs Stats)](doc:analytics-code#analytics-events-vs-stats) for more info. While the use cases for analytics events and stats are often different, there are indeed common workflows where both are used in concert. For example. Beamable automatically tracks an analytics event (deep history) every time a Stat is changed (fast speed). This is the best of both worlds!
 
-Note that The `source` value is set automatically with each Analytics event and stats
+_Note_: The `source` value is set automatically with each Analytics event and stats

@@ -338,7 +338,7 @@ Call Microservice Method #1
 
 The `Boss` data is passed along via `ContentRef` to set the initial `BossHealth` Stat value (e.g. 100). The `heroWeaponIndexMax` (e.g. 2) is passed and used as a random value is rolled (e.g. 1) for which weapon the Hero will use for the duration of the battle. This is stored in the `HeroWeaponIndex` Stat for subsequent use.
 
-_Note: The use of randomization for the `HeroWeaponIndex` is a simplified solution fit for this sample project. However, its likely a production game would feature deeper game play and allow the player to select the Hero's weapon, instead of using a random._
+_Note_: The use of randomization for the `HeroWeaponIndex` is a simplified solution fit for this sample project. However, its likely a production game would feature deeper game play and allow the player to select the Hero's weapon, instead of using a random.
 
 Call Microservice Method #2
 

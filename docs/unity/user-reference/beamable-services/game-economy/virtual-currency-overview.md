@@ -24,7 +24,7 @@ The Beamable API provides helper functions to subscribe to changes in the curren
 
 The main API components are [`InventoryUpdateBuilder`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Api_1_1Inventory_1_1InventoryUpdateBuilder.html#details) which builds a list of one or more currency operations to execute, and [`InventoryService`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Inventory_1_1InventoryService.html#details) which executes the currency operations.
 
-_Note: This Beamable system handles player inventory of items **and also** currency._
+_Note_: This Beamable system handles player inventory of items **and also** currency.
 
 ### Adding Currency
 

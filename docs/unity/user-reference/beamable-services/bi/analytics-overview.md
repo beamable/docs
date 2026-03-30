@@ -246,13 +246,13 @@ In order to access the Athena Database you will need 3 key pieces of information
 - AWS Region ( in most cases `us-west-2` )
 - S3 Output Location ( should look like s3://myBucket )
 
-_Note: AWS configuration image not available_
+_Note_: AWS configuration image not available
 
 ### Configure PopSQL
 
 Once you have downloaded PopSQL or have signed up and are using the web interface, and you have received your credentials from the Beamable team you are ready to configure PopSQL.
 
-_Note: PopSQL settings interface image not available_
+_Note_: PopSQL settings interface image not available
 
 1. Navigate to your accounts menu and click **manage connections**
 2. Click **Add new Connection** button. It is located in the top right corner.
@@ -273,7 +273,7 @@ Be sure to set your connection if it is not already set. Do not pick a database 
 
 The schemas and tables in PopSQL should show (0). You can query them, but you cannot browse them for permission reasons.
 
-_Note: PopSQL connection setup image not available_
+_Note_: PopSQL connection setup image not available
 
 Here we are going to get the last 10 events from the **platform_session_session** table.
 

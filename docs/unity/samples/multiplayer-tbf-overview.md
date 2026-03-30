@@ -59,13 +59,13 @@ The player navigates from the Intro Scene to the Game Scene, where all the actio
 
 The following flowchart shows the player experience through the game:
 
-*Note: Interactive flowchart content from LucidChart is not directly convertible to static markdown. Please refer to the original documentation or recreate as a static diagram.*
+_Note_: Interactive flowchart content from LucidChart is not directly convertible to static markdown. Please refer to the original documentation or recreate as a static diagram.
 
 ## Game Maker User Experience
 
 Game makers follow a structured process to create multiplayer experiences. There are several major parts to this game creation process.
 
-*Note: Interactive flowchart content from LucidChart is not directly convertible to static markdown. Please refer to the original documentation or recreate as a static diagram.*
+_Note_: Interactive flowchart content from LucidChart is not directly convertible to static markdown. Please refer to the original documentation or recreate as a static diagram.
 
 ## Steps
 

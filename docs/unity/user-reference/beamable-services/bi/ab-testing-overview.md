@@ -158,7 +158,7 @@ Here the Trial will be created. This represents the rules for if/when the **defa
 
 !!! warning "Private Stats"
 
-    Note that Trials only work with private game stats. These are categorized under the `game.private.player` namespace.
+    _Note_: Trials only work with private game stats. These are categorized under the `game.private.player` namespace.
 
 | Step | Detail |
 |------|--------|

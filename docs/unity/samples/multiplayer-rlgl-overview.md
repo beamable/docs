@@ -137,7 +137,7 @@ Here are instructions to setup the Game Type content.
 
 ![Game Type Configuration](../../media/imgs/rlgl-gametype-config.png)
 
-*Note that since there are no "team" divisions, all the players are placed on the same team. Additionally, the maximum player count (200) is derived from Photon Fusion's maximum supported players.*
+_Note_: Since there are no "team" divisions, all the players are placed on the same team. Additionally, the maximum player count (200) is derived from Photon Fusion's maximum supported players.
 
 | Step | Detail |
 |------|--------|
