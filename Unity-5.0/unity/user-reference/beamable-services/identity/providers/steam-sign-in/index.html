@@ -1635,10 +1635,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#login-to-beamable-with-3rd-party-steam" class="md-nav__link">
+  <a href="#login-to-beamable-with-third-party-steam" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Login to Beamable with 3rd Party (Steam)
+        Login to Beamable with Third-Party (Steam)
       
     </span>
   </a>
@@ -9339,10 +9339,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#login-to-beamable-with-3rd-party-steam" class="md-nav__link">
+  <a href="#login-to-beamable-with-third-party-steam" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Login to Beamable with 3rd Party (Steam)
+        Login to Beamable with Third-Party (Steam)
       
     </span>
   </a>
@@ -9577,8 +9577,8 @@
 <p>You can call this promise using async/await:</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">isSteamTicketValid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">BeamableValidateSteamTicket</span><span class="p">(</span><span class="n">ticket</span><span class="p">);</span>
 </code></pre></div></td></tr></tbody></table></div>
-<h2 id="login-to-beamable-with-3rd-party-steam">Login to Beamable with 3rd Party (Steam)<a class="headerlink" href="#login-to-beamable-with-3rd-party-steam" title="Permanent link">¶</a></h2>
-<p>Much like our other 3rd Party authentication methods, you will use the three main functions in the Beamable SDK: <code>LoginThirdParty</code>, <code>RegisterThirdPartyCredentials</code>, <code>CreateUser</code>.</p>
+<h2 id="login-to-beamable-with-third-party-steam">Login to Beamable with Third-Party (Steam)<a class="headerlink" href="#login-to-beamable-with-third-party-steam" title="Permanent link">¶</a></h2>
+<p>Much like our other third-party authentication methods, you will use the three main functions in the Beamable SDK: <code>LoginThirdParty</code>, <code>RegisterThirdPartyCredentials</code>, <code>CreateUser</code>.</p>
 <p>To use these services, you must convert the Steam Auth Ticket to the proper format in order for Beamable to recognize it.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -9594,7 +9594,7 @@
 <p>New Player
 Returning Player already linked to Steam
 Returning Player linking their account with Steam</p>
-<p>We can tell which of these scenarios to follow by checking two pieces of information: whether the Steam ID is already attached to a Beamable account and whether the current, local account has a Steam 3rd party association.</p>
+<p>We can tell which of these scenarios to follow by checking two pieces of information: whether the Steam ID is already attached to a Beamable account and whether the current, local account has a Steam third-party association.</p>
 <ul>
 <li>If the Steam ID is already associated with a Beamable account, the game should log into that account (which may or may not be the current Beamable account).</li>
 <li>Otherwise, if the Steam ID has never been used with Beamable before, there are two possibilities:<ul>
