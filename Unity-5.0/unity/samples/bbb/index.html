@@ -10011,7 +10011,7 @@
 <p>Read these method diagrams along with the following code snippet for a full understanding of the client-server data exchange.</p>
 <p>Call Microservice Method #1</p>
 <p>The <code>Boss</code> data is passed along via <code>ContentRef</code> to set the initial <code>BossHealth</code> Stat value (e.g. 100). The <code>heroWeaponIndexMax</code> (e.g. 2) is passed and used as a random value is rolled (e.g. 1) for which weapon the Hero will use for the duration of the battle. This is stored in the <code>HeroWeaponIndex</code> Stat for subsequent use.</p>
-<p><em>Note: The use of randomization for the <code>HeroWeaponIndex</code> is a simplified solution fit for this sample project. However, its likely a production game would feature deeper game play and allow the player to select the Hero's weapon, instead of using a random.</em></p>
+<p><em>Note</em>: The use of randomization for the <code>HeroWeaponIndex</code> is a simplified solution fit for this sample project. However, its likely a production game would feature deeper game play and allow the player to select the Hero's weapon, instead of using a random.</p>
 <p>Call Microservice Method #2</p>
 <p>A list of <code>Weapon</code> data is passed along via <code>ContentRef</code>. The Microservice uses only one index in the list (via <code>HeroWeaponIndex</code> Stat), calculates the damage done to the Boss and returns data to the client used for rendering of animations and UI text.</p>
 <p><strong>Code</strong></p>

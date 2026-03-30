@@ -9968,10 +9968,10 @@
 <li>AWS Region ( in most cases <code>us-west-2</code> )</li>
 <li>S3 Output Location ( should look like s3://myBucket )</li>
 </ul>
-<p><em>Note: AWS configuration image not available</em></p>
+<p><em>Note</em>: AWS configuration image not available</p>
 <h3 id="configure-popsql">Configure PopSQL<a class="headerlink" href="#configure-popsql" title="Permanent link">¶</a></h3>
 <p>Once you have downloaded PopSQL or have signed up and are using the web interface, and you have received your credentials from the Beamable team you are ready to configure PopSQL.</p>
-<p><em>Note: PopSQL settings interface image not available</em></p>
+<p><em>Note</em>: PopSQL settings interface image not available</p>
 <ol>
 <li>Navigate to your accounts menu and click <strong>manage connections</strong></li>
 <li>Click <strong>Add new Connection</strong> button. It is located in the top right corner.</li>
@@ -9988,7 +9988,7 @@
 <p>I like to start off fairly simple and just get a general list of events to see that things are working properly.</p>
 <p>Be sure to set your connection if it is not already set. Do not pick a database if any are available. Those would be test databases and do not have your data in them.</p>
 <p>The schemas and tables in PopSQL should show (0). You can query them, but you cannot browse them for permission reasons.</p>
-<p><em>Note: PopSQL connection setup image not available</em></p>
+<p><em>Note</em>: PopSQL connection setup image not available</p>
 <p>Here we are going to get the last 10 events from the <strong>platform_session_session</strong> table.</p>
 <div class="language-sql highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">platform_session_session</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </code></pre></div></td></tr></tbody></table></div>
