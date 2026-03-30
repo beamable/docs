@@ -1,5 +1,5 @@
 # Federated Game Server
-Game Server Federation allows you to integrate with Third-Party Game Server Orchestrators (such as Hathora or Agones) as well as running arbitrary server-authoritative code before a "found match" notifies its players.
+Game Server Federation allows you to integrate with Third-Party Game Server Orchestrators (such as Edgegap or Agones) as well as running arbitrary server-authoritative code before a "found match" notifies its players.
 
 The interface you implement looks like this:
 
@@ -80,7 +80,7 @@ You can do this via the [Federation tab of the Microservice](federation.md#workf
 dotnet beam federation local-settings get IFederatedGameServer --beamo-id MyService --fed-id myid
 
 # Sets the content ids filter for the IFederatedGameServer
-dotnet beam federation local-settings set IFederatedGameServer --beamo-id HathoraDemo --fed-id hathora --content-ids game_types.my_queue
+dotnet beam federation local-settings set IFederatedGameServer --beamo-id BeamballMs --fed-id beamball --content-ids game_types.my_queue
 ```
 
 ## Provision Game Server for Custom Lobby (non-Matchmaking)

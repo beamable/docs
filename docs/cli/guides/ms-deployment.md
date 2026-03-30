@@ -57,7 +57,6 @@ $ dotnet beam deploy plan
 
       fetching latest ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
 build DiscordSampleMs ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
-    build HathoraDemo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
   build LiveOpsDemoMS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
    build MSPlayground ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
       build SteamDemo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
@@ -65,7 +64,6 @@ build DiscordSampleMs ━━━━━━━━━━━━━━━━━━━�
 
 Adding 5 services
  - DiscordSampleMs
- - HathoraDemo
  - LiveOpsDemoMS
  - MSPlayground
  - SteamDemo
@@ -73,7 +71,6 @@ Adding 5 services
 
 Enabling 3 federations
  - DiscordSampleMs [IFederatedLogin/discord]
- - HathoraDemo [IFederatedGameServer/hathora]
  - SteamDemo [IFederatedLogin/steam]
 
 
@@ -82,7 +79,6 @@ Adding 1 storage
 
 
 Uploading 5 services
- - HathoraDemo
  - MSPlayground
  - LiveOpsDemoMS
  - SteamDemo

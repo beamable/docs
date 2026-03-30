@@ -29,7 +29,7 @@ This documentation uses a few terms to refer to common parts of the architecture
 - **Main Boot Level**: Refers to the Level in which your Client applications start. This usually maps to your title/main menu screens.
 - **Waiting Room Level**: Some games will boot the server in a "Waiting Room Level" while players connect before performing a **Server Travel** to take all the clients to the actual gameplay map. We'll call this the Waiting Room Level.
 - **Gameplay Level**: This is the Level in which gameplay happens. During development, your designers and gameplay engineers need to enter this level directly using PIE.  
-- **Game Server Orchestrator** or just **Orchestrator**: whatever tech is running your actual Game Servers; Hathora, Agones, GameLyft and others exist in this space.
+- **Game Server Orchestrator** or just **Orchestrator**: whatever tech is running your actual Game Servers; Edgegap, Agones, GameLyft and others exist in this space.
 
 There _**are**_ other ways to arrange and organize server-authoritative games but most games do something at least similar to this, and, Unreal helps you more if you are close to this. 
 
@@ -115,7 +115,7 @@ This is because initializing the SDK is an Asynchronous Process and takes time -
 If you'd like to see an example of this, take a look at our [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
 ## Preparing a Build for your Game Server Orchestrator
-This section explains what you need to do before you generate a build to upload to any Game Server Orchestrator such as Hathora, GameLyft or Agones. This explanation is Blueprint-based, an equivalent C++ explanation is described in our [C++ Real-Time Multiplayer Guide](code-multiplayer.md).
+This section explains what you need to do before you generate a build to upload to any Game Server Orchestrator such as Edgegap, GameLyft or Agones. This explanation is Blueprint-based, an equivalent C++ explanation is described in our [C++ Real-Time Multiplayer Guide](code-multiplayer.md).
 
 ### Setting Up your Gameplay Level's Level Blueprint
 
@@ -144,11 +144,11 @@ We can't tell you how to do this exactly, but for every Orchestrator we know how
 In addition to this, inside the Game Server initialization logic, you'll need to do some things to map the Beamable Lobby to this running instance of the game server. There are two strategies to do this:
 
 ##### **One Lobby Per Process**
-The most common way Orchestrators such as Hathora, GameLyft or Agones pass information to the running process is via Command Line Arguments or Environment Variables. If you are only ever running one Lobby per-game-server-process, we recommend passing in the lobby id this way.
+The most common way Orchestrators such as Edgegap, GameLyft or Agones pass information to the running process is via Command Line Arguments or Environment Variables. If you are only ever running one Lobby per-game-server-process, we recommend passing in the lobby id this way.
 
 For this case, the Beamable SDK expects either the `CLArg: BeamableDedicatedServerInstanceLobbyId` or the `EnvVar: BEAMABLE_DEDICATED_SERVER_INSTANCE_LOBBY_ID` to be set and contain the Lobby Id for the match. If they do, you can use `Local State - Lobby - Get Lobby Id From CLArgs` to get this value.
 
-Each orchestrator has their own way of allowing you to define CLArgs and EnvVars that it'll pass into the running game-server process --- please refer to your chosen orchestrator's documentation about how to pass these along; you can also refer to our [Beamball Demo](../../samples/beamball/beamball-demo.md) to see how we do this with Hathora (as per Hathora docs, involves a `Dockerfile` and a `sh` script).
+Each orchestrator has their own way of allowing you to define CLArgs and EnvVars that it'll pass into the running game-server process --- please refer to your chosen orchestrator's documentation about how to pass these along; you can also refer to our [Beamball Demo](../../samples/beamball/beamball-demo.md) to see how we do this with Edgegap (as per Edgegap docs, involves a `Dockerfile` and a `sh` script).
 
 ##### **Multiple Lobby Per Process**
 If you are planning on having multiple lobbies per-game-server-process, your orchestrator will either:

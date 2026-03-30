@@ -7,7 +7,7 @@ Here are a few example use cases that Federations as a concept means to solve:
 - Implementing 3rd Party Auth Integrations with other Identity Providers
 - Customizing Initial Player Account States
 - Integrating Beamable Inventory with Steam Inventory or Web3 Wallets.
-- Integrating with Game Server Orchestrators such as Hathora, Agones or even a custom stack.
+- Integrating with Game Server Orchestrators such as Edgegap, Agones or even a custom stack.
 - Etc...
 
 Most implementations of Server-Side Callbacks are fire-and-forget (similar to a webhook). **Federations**, however, don't need to be fire-and-forget. Most **Federations** are calls made to your microservice happen as part of a particular flow, often having things happening ***before*** and/or ***after the Federated call finishes***.
@@ -54,13 +54,13 @@ Federations are tied to interfaces implemented in your `Microservice` inherited 
 [FederationId("cool")]
 public class CoolId : IFederationId;
 
-[FederationId("hathora")]
-public class HathoraId : IFederationId;
+[FederationId("edgegap")]
+public class EdgegapId : IFederationId;
 
 // MyMicroservice.cool.cs
 public partial class MyMicroservice : IFederatedLogin<CoolId> { }
-// MyMicroservice.hathora.cs
-public partial class MyMicroservice : IFederatedGameServer<HathoraId> { }
+// MyMicroservice.edgegap.cs
+public partial class MyMicroservice : IFederatedGameServer<EdgegapId> { }
 ```
 
 After adding any federation, your IDE will likely complain that you are not implementing the functions of the interfaces above; most IDEs will then offer you the option of generating the function signatures for those interfaces. After that, all you have to do is write the code for it.

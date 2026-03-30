@@ -1,6 +1,6 @@
 ﻿# Beamball – Matchmaking and Lobby System
 
-In the **Beamball** sample we demonstrate a basic implementation of the Beamable SDK's **Matchmaking** and **Lobby** services and Hathora Orchestrators.
+In the **Beamball** sample we demonstrate a basic implementation of the Beamable SDK's **Matchmaking** and **Lobby** services and Edgegap Orchestrators.
 
 ## Starting a Matchmaking Queue
 
@@ -22,7 +22,7 @@ The matchmaking process is asynchronous, and the player is kept informed through
 ## Starting a Match
 ![beamball-matchmaking2.png](../../../media/imgs/beamball-matchmaking2.png)
 
-Once the matchmaking system has formed a lobby, the player is notified and can start. The **`Operation - Lobby - Load Level`** operator is called, which signals Beamable's backend to initiate the match using the configured Lobby Data. In this sample the Hathora Orchestrator handles the server alocation and returns a call to Beamable to start the match, allowing players to seamlessly transition into the game.
+Once the matchmaking system has formed a lobby, the player is notified and can start. The **`Operation - Lobby - Load Level`** operator is called, which signals Beamable's backend to initiate the match using the configured Lobby Data. In this sample the Edgegap Orchestrator handles the server alocation and returns a call to Beamable to start the match, allowing players to seamlessly transition into the game.
 
 ## Summary
 
