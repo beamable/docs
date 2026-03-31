@@ -93,7 +93,7 @@ The `<BeamLogProvider>` determines which log provider the microservice will use.
 
 #### BeamEnabled
 
-The `<BeamEnabled>` is a boolean property. When `false`, when services are [deployed](ms-deployment.md) , the service will not be enabled, and will not cost Beamable Cloud resources.
+The `<BeamEnabled>` is a boolean property. If set to `false`, the service will not be enabled when [deployed](ms-deployment.md), and will not cost Beamable Cloud resources.
 This option can be set using the project enable or the project disable commands.
 
 | Property Name   | Default Value |

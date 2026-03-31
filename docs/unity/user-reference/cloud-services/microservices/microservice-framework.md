@@ -128,7 +128,7 @@ public partial class MyPartialMs {
 }
 ```
 
-The end result here is that you have two `ClientCallables` in the same `MyPartialMs` but in separate files. The same thing works for utility functions and other similar things.
+The result is that you have two `ClientCallables` in the same `MyPartialMs` but in separate files. The same thing works for utility functions and other similar things.
 
 #### What should I use different C#MSs for?
 

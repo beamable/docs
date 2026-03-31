@@ -71,7 +71,7 @@ The manifest tracks the MD5 checksum (etag) of the file and the common name (key
 
 ### Changing Service Configuration
 
-It is possible to override and adapt the service to best adapt to your application, the possible configurations are available in the `PlayerCloudSavingConfiguration` class. By default, the system will use a new instance of it if it has default values. To change their values you need to modify dependency to the Beamable Dependency Injection. The final result should look like this:
+You can override the service to fit your application using `PlayerCloudSavingConfiguration`. By default, the SDK creates a new instance with default values, but you can change these values using Beamable's Dependency Injection system as illustrated below.
 
 CustomRegisterExample.cs
 
@@ -85,7 +85,7 @@ public class PlayerCloudSaveCustomRegister
 		// Replace the old PlayerCloudSavingConfiguration with the new instance
 		builder.ReplaceSingleton<PlayerCloudSavingConfiguration>(new PlayerCloudSavingConfiguration
 		{
-			// UseAutoCloud = true, // Uncomment to enable AutoCloud. Check UseAutoCloud summary for more information
+			//UseAutoCloud = true, // Uncomment to enable AutoCloud. Check UseAutoCloud summary for more information
 			//CustomSerializer = CustomSerializer, // Uncomment to apply a CustomSerializer, the example method is returning an empty string
 			//CustomDeserializer = CustomDeserializer, // Uncomment to apply a CustomDeserializer, the example method is returning a null ref
 			//HandleConflicts = ResolveUsingLargerFile, // Uncomment to apply a Custom Handle Conflict, the example method is resolving the conflicts using the larget file
