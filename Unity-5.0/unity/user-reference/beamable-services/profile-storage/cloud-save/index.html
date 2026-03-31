@@ -9572,7 +9572,7 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="changing-service-configuration">Changing Service Configuration<a class="headerlink" href="#changing-service-configuration" title="Permanent link">¶</a></h3>
-<p>It is possible to override and adapt the service to best adapt to your application, the possible configurations are available in the <code>PlayerCloudSavingConfiguration</code> class. By default, the system will use a new instance of it if it has default values. To change their values you need to modify dependency to the Beamable Dependency Injection. The final result should look like this:</p>
+<p>You can override the service to fit your application using <code>PlayerCloudSavingConfiguration</code>. By default, the SDK creates a new instance with default values, but you can change these values using Beamable's Dependency Injection system as illustrated below.</p>
 <p>CustomRegisterExample.cs</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -9627,7 +9627,7 @@
 <span class="w">        </span><span class="c1">// Replace the old PlayerCloudSavingConfiguration with the new instance</span>
 <span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="n">ReplaceSingleton</span><span class="o">&lt;</span><span class="n">PlayerCloudSavingConfiguration</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">PlayerCloudSavingConfiguration</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// UseAutoCloud = true, // Uncomment to enable AutoCloud. Check UseAutoCloud summary for more information</span>
+<span class="w">            </span><span class="c1">//UseAutoCloud = true, // Uncomment to enable AutoCloud. Check UseAutoCloud summary for more information</span>
 <span class="w">            </span><span class="c1">//CustomSerializer = CustomSerializer, // Uncomment to apply a CustomSerializer, the example method is returning an empty string</span>
 <span class="w">            </span><span class="c1">//CustomDeserializer = CustomDeserializer, // Uncomment to apply a CustomDeserializer, the example method is returning a null ref</span>
 <span class="w">            </span><span class="c1">//HandleConflicts = ResolveUsingLargerFile, // Uncomment to apply a Custom Handle Conflict, the example method is resolving the conflicts using the larget file</span>
