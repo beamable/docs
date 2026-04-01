@@ -42,6 +42,27 @@ public void SampleLog()
 }
 ```
 
+ ## Setting a custom logger
+
+To set a custom logger, you can pass a delegate to `config.AddLoggerProvider` inside an `OverrideConfig` call on `BeamServiceConfigBuilder`:
+
+```csharp
+	await BeamServer
+		.Create()
+		.IncludeRoutes<BeamService>()
+		.OverrideConfig(config => 
+		{
+			config.AddLoggerProvider = builder =>
+			{
+				builder.ClearProviders(); // remove any other providers added before this callback
+				builder.AddProvider(new MyCustomLogProvider()); // Add your own provider. This is a class that implements ILoggerProvider
+			}
+		})
+		.RunForever();
+```
+
+Please check the official dotnet documentation for more details on how to create a custom [LogProvider](https://learn.microsoft.com/pt-br/dotnet/api/microsoft.extensions.logging.iloggerprovider?view=net-10.0-pp&viewFallbackFrom=net-9.0-pp)
+
 !!! info
 
 	Local microservice logs will not appear in Portal unless the `BEAM_LOCAL_OTEL` environment variable is set.
