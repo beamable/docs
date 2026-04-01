@@ -211,7 +211,7 @@ This is useful for a couple of workflows:
 Content snapshots can be local or shared between users. The local ones are kept in the `.bleamable\contentSnapshots` folder and the shared ones in the .beamable\shared\contentSnapshot folder of the project, so it can be versionated on git.
 
 ### Creating Content Snapshots
-To create a content snapshot, simply click on the button in the top right corner of the content window. This will create a snapshot of your current local content state. It then will be added to the list of snapshots in the Snapshots Window.
+To create a content snapshot, simply click on the button in the top right corner of the Workspace window. This will create a snapshot of your current local content state. It then will be added to the list of snapshots in the Snapshots Window.
 
 ![content_snapshot_create.png](../../../media/imgs/content_snapshot_create.png)
 
@@ -233,6 +233,14 @@ The Shared Snapshots are identified in the list with a different (ornge) icon.
 ![content-shared-snapshot.png](../../../media/imgs/content-shared-snapshot.png)
 
 Notice that everytime you publish content to the realm it will automatically update the shared snapshot called `LatestPublished` to match the content that was just published. This means that you can always share with your teammates the latest published content by sharing that snapshot.
+
+## Content History
+The content history system allows you to see the history of your content publishing and revert to any previous version of your content.
+
+![content-history.png](../../../media/imgs/content-history.png)
+
+You can revert the whole content state to a previous version by clicking on the `Revert All` button. This will replace your local content state with the content state of that version or revert individual content objects to a previous version by clicking on the `Revert Item` button in the content details. This will replace your local version of that content object with the version of that content object in that version.
+
 
 ## Baking Content
 In a couple of cases, you might want to bake content to distribute it with your build:
