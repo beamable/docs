@@ -10026,7 +10026,7 @@
      Beamable also makes regular heartbeat calls which may also fall into this class</li>
 <li>When a NoConnectivityException is encountered, the <strong>ConnectivityService</strong> is notified that the internet connection has been lost, and the <strong>ConnectivityService</strong> then invokes any relevant hooks for reconnecting when the service is restored.</li>
 </ol>
-<p>As such, this can result in false negatives (the <strong>ConnectivityService</strong> erroneously reports that connectivity has been lost if a single request, which may not be critical to the game, results in a timeout).</p>
+<p>This can result in spurious disconnection reports — the <strong>ConnectivityService</strong> may report that connectivity has been lost if a single non-critical request times out.</p>
 <p>The below changes (dependency registration and connectivity service override) alter this behavior:</p>
 <ul>
 <li><strong>ConnectivityChecker</strong> has been stubbed to always report that internet connectivity is available</li>

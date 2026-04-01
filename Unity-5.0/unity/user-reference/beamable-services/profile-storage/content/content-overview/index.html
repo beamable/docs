@@ -9812,7 +9812,7 @@
 <p>Beamable supports two methodologies for referencing a content object; <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1ContentLink.html"><code>ContentLink</code></a> and <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1ContentRef.html"><code>ContentRef</code></a>. While they are both very similar syntactically and need to be resolved before using, they perform differently and have different use-cases.</p>
 <ul>
 <li><code>ContentLink</code> - Beamable will perform a first frame load to resolve the reference. <code>ContentLink</code>s must be present and resolvable (that is, they cannot be <code>null</code>)</li>
-<li><code>ContentRef</code> - Beamable will perform a lazy load to resolve the reference. As such, it is okay for a <code>ContentRef</code> to be <code>null</code> as long as it is never resolved</li>
+<li><code>ContentRef</code> - Beamable will perform a lazy load to resolve the reference, so a <code>ContentRef</code> can safely be <code>null</code> as long as it is never resolved</li>
 </ul>
 <p>In short, <code>ContentLink</code>s are strict "hard" connections whereas <code>ContentRef</code>s are "soft" or "loose" connections.</p>
 <p>ContentServiceExistingExample.cs
