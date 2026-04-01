@@ -17,7 +17,7 @@ Beamable offers various APIs to allow the game maker to set up purchasing with v
 
 ### Making a Purchase
 
-The function to purchase an item is in the CommerceService. The function call requires a Store ID and an Item ID. For ease of use, it is recommended to create a `StoreRef` and `ListingRef`, which will create a drop-down in the Inspector to select a valid store and item.
+Use `CommerceService.Purchase()`, which takes a Store ID and an Item ID. For ease of use, it is recommended to create a `StoreRef` and `ListingRef`, which will create a drop-down in the Inspector to select a valid store and item.
 
 StoreTest.cs
 ```csharp

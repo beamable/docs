@@ -35,9 +35,10 @@ What this is doing is creating a trial that can be joined by a cohort. As you wi
 
 ### Upload CSV to Create a Cohort
 
-Since we now know that you can create a cohort from stats, Beamable provides you with a built in tool to get players into a cohort by creating stat attribution.
+Since we now know that you can create a cohort from stats, Beamable provides you with a tool to get players into a cohort by creating stat attribution: **Tagging**.
 
-This is interesting in a couple of ways. Firstly, it allows you the developer to write queries against your own telemetry and create stats where you can segment your players and create cohorts. This is known in Beamable as **Tagging**. Secondly, it allows you to very granular with your data and find those cohorts of players that you really want to target.
+Tagging players with stats in CSV form allows you granular, flexible control over player segmentation.
+You can use data from tools and queries outside of Beamable to inform player segmentation into cohorts.
 
 ![Tagging](../../../../media/imgs/tagging.png)
 
