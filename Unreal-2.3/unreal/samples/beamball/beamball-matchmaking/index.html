@@ -7866,7 +7866,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -7882,39 +7882,11 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../steam-demo.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Steam
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -7989,10 +7961,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_4" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_3" checked="">
         
           
-          <label class="md-nav__link" for="__nav_7_2_4" id="__nav_7_2_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_2_3" id="__nav_7_2_3_label" tabindex="0">
             
   
   
@@ -8010,8 +7982,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_7_2_4">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_2_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8275,10 +8247,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_4">
         
           
-          <label class="md-nav__link" for="__nav_7_2_5" id="__nav_7_2_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_2_4" id="__nav_7_2_4_label" tabindex="0">
             
   
   
@@ -8296,8 +8268,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_2_5">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8641,6 +8613,11 @@
 
 <h1 id="beamball-matchmaking-and-lobby-system">Beamball – Matchmaking and Lobby System<a class="headerlink" href="#beamball-matchmaking-and-lobby-system" title="Permanent link">¶</a></h1>
 <p>In the <strong>Beamball</strong> sample we demonstrate a basic implementation of the Beamable SDK's <strong>Matchmaking</strong> and <strong>Lobby</strong> services and Edgegap Orchestrators.</p>
+<video controls="" preload="metadata" playsinline="" style="display:block; width:80%; margin:0 auto;">
+  <source src="../../../../media/vids/beamball-team.mp4" type="video/mp4">
+</video>
+<center> Beamball Team Match</center>
+
 <h2 id="starting-a-matchmaking-queue">Starting a Matchmaking Queue<a class="headerlink" href="#starting-a-matchmaking-queue" title="Permanent link">¶</a></h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-matchmaking.png" data-desc-position="bottom"><img alt="beamball-matchmaking.png" src="../../../../media/imgs/beamball-matchmaking.png"></a></p>
 <p>The Player selects <strong>Play</strong> in the main menu then the <strong><code>Refresh Hatchora Ping Stat Operation</code></strong> updates ping in the player's stats allowing the server to choose the best lobby to this player. The local state is checked with <strong><code>Local State - Matchmaking - IsUserInQueue</code></strong>, leaving the queue if already in. The  <strong><code>Local State - Lobby - TryGetCurrentLobby</code></strong> checks if the player is in a lobby, leaving if so. Finally, if there's impediment the player joins the matchmaking queue with <strong><code>Operation - Matchmaking - Join Queue</code></strong>. Beamable services handle the rest of the matchmaking process, forming balanced lobbies and starting the match.</p>
