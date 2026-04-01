@@ -37,7 +37,7 @@ Debug.Log($"Player Id: {_beamContext.PlayerId}");
 
 By default, Beamable’s SDK always ensures there is a player token loaded, which means you will always have a unique user account that is anonymous. From here you can then use other forms of account linking/account creation such as Username & Password or Social Logins like Facebook (aka LoginThirdParty).
 
-Not all games require authentication to be visible to get into the game. As such it is common practice to have frictionless login and the above shows you just how to do that.
+Not all games require authentication to enter. Frictionless login is common practice, especially in mobile games. The example above illustrates how to achieve this with Beamable guest logins.
 
 Observe the classic flow of frictionless authentication.
 

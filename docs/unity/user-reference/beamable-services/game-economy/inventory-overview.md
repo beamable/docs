@@ -43,7 +43,7 @@ To enable inventory pruning, go to the _Operate_ > _Config_ section of the Beama
 
 ![Inventory Pruning Configuration 2](../../../../media/imgs/inventory-pruning-config-2.png){: style="height:auto;width:400px"}
 
-_Note_: Pruning is "lazy": the criteria for inventory pruning will only be evaluated by Beamable services when the player's inventory is loaded into memory. As such, pruning will _NOT_ occur for players who have not played recently.
+_Note_: Pruning is "lazy": the criteria for inventory pruning will only be evaluated by Beamable services when the player's inventory is loaded into memory. Thus, pruning will _NOT_ occur for players who have not played recently.
 
 ## Federated Inventory
 

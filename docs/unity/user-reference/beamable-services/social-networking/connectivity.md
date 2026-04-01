@@ -367,7 +367,7 @@ A few noteworthy clarifications:
      Beamable also makes regular heartbeat calls which may also fall into this class
 3. When a NoConnectivityException is encountered, the **ConnectivityService** is notified that the internet connection has been lost, and the **ConnectivityService** then invokes any relevant hooks for reconnecting when the service is restored.
 
-As such, this can result in false negatives (the **ConnectivityService** erroneously reports that connectivity has been lost if a single request, which may not be critical to the game, results in a timeout).
+This can result in spurious disconnection reports — the **ConnectivityService** may report that connectivity has been lost if a single non-critical request times out.
 
 The below changes (dependency registration and connectivity service override) alter this behavior:
 

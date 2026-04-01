@@ -133,7 +133,7 @@ Subscriptions use a PlatformSubscription to dynamically read the data on the ser
 Beamable supports two methodologies for referencing a content object; [`ContentLink`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1ContentLink.html) and [`ContentRef`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1ContentRef.html). While they are both very similar syntactically and need to be resolved before using, they perform differently and have different use-cases.
 
 - `ContentLink` - Beamable will perform a first frame load to resolve the reference. `ContentLink`s must be present and resolvable (that is, they cannot be `null`)
-- `ContentRef` - Beamable will perform a lazy load to resolve the reference. As such, it is okay for a `ContentRef` to be `null` as long as it is never resolved
+- `ContentRef` - Beamable will perform a lazy load to resolve the reference, so a `ContentRef` can safely be `null` as long as it is never resolved
 
 In short, `ContentLink`s are strict "hard" connections whereas `ContentRef`s are "soft" or "loose" connections.
 
