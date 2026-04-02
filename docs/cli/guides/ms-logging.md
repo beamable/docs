@@ -56,7 +56,7 @@ Each log has a _level_, or an _importance_ rating. Logs are one of the following
 - _Debug_
 - _Verbose_
 
-When you run a Microservice locally, you will see log messages at the _Debug_ level and above. However, in a deployed Microservice, you will only see **Information** and above. This is called the _Log Level_. It is considered best practice to avoid logging _Debug_ and _Verbose_ logs in production, because they negatively impact performance.
+When you run a Microservice locally, you will see log messages at the _Debug_ level and above. However, in a deployed Microservice, you will only see **Information** and above. This is called the _Log Level_. Best practice is to avoid logging _Debug_ and _Verbose_ logs in production, as they negatively impact performance.
 
 The `Log` type has methods for each type of log level.
 
