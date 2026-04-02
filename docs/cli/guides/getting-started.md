@@ -30,9 +30,9 @@ The following command will install the latest CLI. The "latest" string can be an
 beam version install latest
 ```
 
-!!! info "Check Versions on Nuget"
+!!! info "Check Versions on NuGet"
 
-    Remember, Beamable.Tools is a dotnet tool available through Nuget. As such, you can find all available versions at [nuget.org](https://www.nuget.org/packages/Beamable.Tools)
+    Remember, Beamable.Tools is a dotnet tool available through NuGet. You can find all available versions at [nuget.org](https://www.nuget.org/packages/Beamable.Tools)
 
 There may be updates you are required to do, so please check the [migration guide](upgrading.md).
 

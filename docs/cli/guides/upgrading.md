@@ -162,9 +162,7 @@ releases.
 
 #### Removed `net6.0` and `net7.0` support
 Unfortunately, `net6.0` and `net7.0` have reached their [End-Of-Life phases](https://devblogs.microsoft.com/dotnet/dotnet-6-end-of-support/). 
-The CLI 4.0 release officially drops Beamable support for these EOL dotnet 
-versions. As such, when you update your projects, you must update your
-`.csproj` files to use `net8.0`. 
+The CLI 4.0 release officially drops Beamable support for these EOL .NET versions; when you update your projects, you must update your `.csproj` files to use `net8.0`. 
 
 In all your `.csproj` files, find the line with the `<TargetFramework>` 
 declaration, 
