@@ -96,7 +96,7 @@ dotnet beam config | jq '.data.cid'
 "123"
 ```
 
-Sometimes it is important to get the unescaped JSON, so the `fromjson` component of JQ can be used. For example, if we wanted the `cid` value, but without quotes,
+Sometimes you need the unescaped JSON; the `fromjson` component of JQ can be used. For example, if we wanted the `cid` value, but without quotes, 
 
 ```sh
 dotnet beam config | jq '.data.cid | fromjson'

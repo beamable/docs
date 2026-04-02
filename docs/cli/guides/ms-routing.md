@@ -73,7 +73,7 @@ var scope = cid + '.' + pid;
 ```
 #### Authorization
 
-Finally, while not required, it is important to send an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from Portal, or you can use the following command to view the token information from a local beamable CLI project.
+Finally, while not required, we recommend sending an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project. 
 
 ```sh
 cat .beamable/temp/auth.beam.json
@@ -132,7 +132,7 @@ The automatic client code generation can be disabled when a project builds by mo
 
 ### Open API
 
-It is possible to use the project oapi command to generate an Open API document and then use open source tools to transpile the document into a client in some other programming language.
+You can use the project oapi command to generate an Open API document and then use open source tools to transpile the document into a client in some other programming language.
 
 ```sh
 dotnet beam project oapi --output example.json --ids MyService
