@@ -95,7 +95,7 @@ public int Example();
 
 ### Organizing Microservices Code
 
-As your project grows, you will have a larger amount of C#MS code and, as such, you might want to split this code into multiple C#MSs in order to organize it.
+As your project grows, you may want to split your C#MS code across multiple C#MSs to keep it organized.
 
 However, doing so has implications you should take into consideration when deciding things for your project. In many cases, it is possible to simplify C#MS and reduce the quantity without sacrificing functionality.
 
@@ -147,7 +147,7 @@ To keep things a bit simpler, here are general rules of thumb:
 
 If the above is true and you still wish to share code between two different microservices, architect your code and functions so that the parts that are worth sharing can be pulled into a separate AssemblyDefinition which both services reference. Keep in mind that you should only do this if the complexity is worth the code reuse — over-using AssemblyDefinitions can increase overall project complexity for not that much gain.
 
-All-in-all, this is a very game-specific decision. As such, our goal is to provide guidelines and tools to help you make that decision. Currently, you can see CPU/Memory utilization metrics via the Beamable Dev Portal's C#MS section and, in the future, we may track more specific metrics to allow you to make better decisions.
+All-in-all, this is a very game-specific decision. Our goal is to provide guidelines and tools to help you make it. Currently, you can see CPU/Memory utilization metrics in the Dev Portal's C#MS section; in the future, we may track more specific metrics to support better decision-making.
 
 ### Designing Microservice Methods
 

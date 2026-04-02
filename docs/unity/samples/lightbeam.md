@@ -1,4 +1,4 @@
-# LightBeam Overview
+# Lightbeam Overview
 
 The _Beam Library_ window in the Unity Editor has a list of Lightbeams. Lightbeams are Unity Package Samples designed to teach you various parts of the Beamable SDK. The Lightbeams share a common architectural design pattern. Unity Package Samples are copied into your `/Assets` folder and you have complete control over their source code. This means you can fork these samples into your project, or just delete them when you're done. The Lightbeams are versioned with each release of the Beamable SDK, which means you can have multiple versions of the Lightbeam installed in your `/Assets` folder.
 
@@ -112,9 +112,9 @@ await lightBeam.Scope.Start<HomePage>();
 ```
 
 
-This line of code bootstraps the `LightBeam` and builds a `IDependencyProvider` . It will open the UI to the `ILightComponent` specified by the generic parameter. However, the function will check for custom parameters, including a custom start page. Lightbeams are designed to be shared via webGL builds, and as such, they can accept these custom parameters through query args in the url. The custom url query arg, `pageType` can be used to specify the class name of the class that should be instantiated first when the Lightbeam initializes. If the given initial page requires a data model, then additional query args can be passed using a custom format that configure the fields in the model type.
+This line of code bootstraps the `LightBeam` and builds a `IDependencyProvider` . It will open the UI to the `ILightComponent` specified by the generic parameter. However, the function will check for custom parameters, including a custom start page. Lightbeams are designed to be shared via WebGL builds and support customization via query parameters in the URL. The `pageType` query parameter can be used to specify the class name of the class that should be instantiated first when the Lightbeam initializes. If the given initial page requires a data model, then additional query parameters can be passed using a custom format that configure the fields in the model type.
 
-For example, if the model type had a field called `tuna`, then a query arg of `d_tuna` would set the field on the instance passed to the instantiated UI.
+For example, if the model type had a field called `tuna`, then a query parameter of `d_tuna` would set the field on the instance passed to the instantiated UI.
 
 
 ### Utility Functions
