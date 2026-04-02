@@ -134,7 +134,7 @@ generated when the Microservices were built. However, in CLI 5+, the engine inte
 are responsible for generating the client code, and the default behaviour is that a standalone
 Microservice project will _no longer generate client code automatically_.
 
-It is possible to generate a unity client by hand using the following command,
+You can generate a Unity client by hand using the following command,
 ```sh
 dotnet beam project generate-client-oapi --output-dir ./Path/To/Your/Unity/Folder/To/Put/Clients/In
 ```
