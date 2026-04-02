@@ -56,7 +56,7 @@ Each log has a _level_, or an _importance_ rating. Logs are one of the following
 - _Debug_
 - _Verbose_
 
-When you run a Microservice locally, you will see log messages at the _Debug_ level and above. However, in a deployed Microservice, you will only see **Information** and above. This is called the _Log Level_. It is considered best practice to avoid logging _Debug_ and _Verbose_ logs in production, because they negatively impact performance. 
+When you run a Microservice locally, you will see log messages at the _Debug_ level and above. However, in a deployed Microservice, you will only see **Information** and above. This is called the _Log Level_. Best practice is to avoid logging _Debug_ and _Verbose_ logs in production, as they negatively impact performance. 
 
 The `Log` type has methods for each type of log level.
 
@@ -93,7 +93,7 @@ However, the attribute, `a`, is available for querying in Portal. Use a custom s
 
 #### Scoped Custom Attributes
 
-It is possible to automatically add attributes to an entire sequence of logs. For example, imagine you wanted to tag a series of log lines as being part of an algorithm.
+You can automatically add attributes to an entire sequence of logs. For example, imagine you wanted to tag a series of log lines as being part of an algorithm.
 
 ```csharp
 [ClientCallable]
@@ -214,7 +214,7 @@ There are several standard log attributes that will be included automatically. S
 
 ### Third Party Log Hosting
 
-Starting with version 6.0, it is possible to send Microservice logs to a third parties. In this example, we will use  BetterStack.
+Starting with version 6.0, you can send Microservice logs to third-party log hosting services. In this example, we will use BetterStack.
 
 This section will assume you have set up a BetterStack account, and created a _Source_ such that you have a _source token_ and an _ingesting host_. 
 
