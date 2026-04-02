@@ -10223,9 +10223,7 @@ commands from the CLI, please reach out to Beamable for guidance.</p>
 releases.</p>
 <h4 id="removed-net60-and-net70-support">Removed <code>net6.0</code> and <code>net7.0</code> support<a class="headerlink" href="#removed-net60-and-net70-support" title="Permanent link">¶</a></h4>
 <p>Unfortunately, <code>net6.0</code> and <code>net7.0</code> have reached their <a href="https://devblogs.microsoft.com/dotnet/dotnet-6-end-of-support/">End-Of-Life phases</a>.
-The CLI 4.0 release officially drops Beamable support for these EOL dotnet
-versions. As such, when you update your projects, you must update your
-<code>.csproj</code> files to use <code>net8.0</code>.</p>
+The CLI 4.0 release officially drops Beamable support for these EOL .NET versions; when you update your projects, you must update your <code>.csproj</code> files to use <code>net8.0</code>.</p>
 <p>In all your <code>.csproj</code> files, find the line with the <code>&lt;TargetFramework&gt;</code>
 declaration,</p>
 <div class="language-xml highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;TargetFramework&gt;</span>net6.0<span class="nt">&lt;/TargetFramework&gt;</span>
