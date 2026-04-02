@@ -9506,11 +9506,11 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 - <em>Information</em>
 - <em>Debug</em>
 - <em>Verbose</em></p>
-<p>When you run a Microservice locally, you will see log messages at the <em>Debug</em> level and above. However, in a deployed Microservice, you will only see <strong>Information</strong> and above. This is called the <em>Log Level</em>. Best practice is to avoid logging <em>Debug</em> and <em>Verbose</em> logs in production, as they negatively impact performance.</p>
+<p>When you run a Microservice locally, you will see log messages at the <em>Debug</em> level and above. However, in a deployed Microservice, you will only see <strong>Information</strong> and above. This is called the <em>Log Level</em>. Best practice is to avoid logging <em>Debug</em> and <em>Verbose</em> logs in production, as they negatively impact performance. </p>
 <p>The <code>Log</code> type has methods for each type of log level.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The default log level is <code>DEBUG</code> when you are running a service locally in development. However, deployed services use the <code>INFO</code> level by default.</p>
+<p>The default log level is <code>DEBUG</code> when you are running a service locally in development. However, deployed services use the <code>INFO</code> level by default. </p>
 </div>
 <h4 id="request-dynamic-log-levels">Request Dynamic Log Levels<a class="headerlink" href="#request-dynamic-log-levels" title="Permanent link">¶</a></h4>
 <p>In version 6.0+, you can override the log level per request based on the player calling your Microservice, or the path being invoked on the service. By default, the log level for the entire service is <em>Information</em>, but if there was an error-prone route, or a specific user was experiencing issues, you could set the log level to <em>Debug</em> for that use case, without affecting the log level for anything else.</p>
@@ -9534,7 +9534,7 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>However, the attribute, <code>a</code>, is available for querying in Portal. Use a custom search expression for <code>a:42</code> to find any log messages with the <code>a</code> attribute value of <code>42</code>.</p>
 <h4 id="scoped-custom-attributes">Scoped Custom Attributes<a class="headerlink" href="#scoped-custom-attributes" title="Permanent link">¶</a></h4>
-<p>It is possible to automatically add attributes to an entire sequence of logs. For example, imagine you wanted to tag a series of log lines as being part of an algorithm.</p>
+<p>You can automatically add attributes to an entire sequence of logs. For example, imagine you wanted to tag a series of log lines as being part of an algorithm.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -9808,7 +9808,7 @@ number is even!
 </tbody>
 </table>
 <h3 id="third-party-log-hosting">Third Party Log Hosting<a class="headerlink" href="#third-party-log-hosting" title="Permanent link">¶</a></h3>
-<p>Starting with version 6.0, it is possible to send Microservice logs to a third parties. In this example, we will use  BetterStack.</p>
+<p>Starting with version 6.0, you can send Microservice logs to third-party log hosting services. In this example, we will use BetterStack.</p>
 <p>This section will assume you have set up a BetterStack account, and created a <em>Source</em> such that you have a <em>source token</em> and an <em>ingesting host</em>.</p>
 <p>To start, we will configure locally running Microservices to send data to BetterStack. To start, create this file called <code>config.yaml</code> next to your <code>BeamableServices.sln</code> file.</p>
 <div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>

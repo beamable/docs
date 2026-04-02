@@ -9422,7 +9422,7 @@ stopped<span class="w"> </span>HelloWorld.
 <div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[Info] Stopping service through debug-server due to reason=[cli-request]
 </code></pre></div></td></tr></tbody></table></div>
 <h2 id="observing-logs">Observing Logs<a class="headerlink" href="#observing-logs" title="Permanent link">¶</a></h2>
-<p>When a service is run, the process that starts the service should receive the log outputs. For example, if the service is run through the IDE, then the IDE should receive the logs from the service. However, it is possible to attach to the logs of a running service from a separate process.</p>
+<p>When a service is run, the process that starts the service should receive the log outputs. For example, if the service is run through the IDE, then the IDE should receive the logs from the service. However, you can attach to the logs of a running service from a separate process. </p>
 <p>For example, imagine that a service is run through <code>dotnet</code> directly,</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>dotnet<span class="w"> </span>run<span class="w"> </span>--project<span class="w"> </span>services/HelloWorld
 </code></pre></div></td></tr></tbody></table></div>

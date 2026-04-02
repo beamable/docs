@@ -10198,7 +10198,7 @@ parameter with the new namespace, and then use a conversion tool to get back the
 generated when the Microservices were built. However, in CLI 5+, the engine integrations themselves
 are responsible for generating the client code, and the default behaviour is that a standalone
 Microservice project will <em>no longer generate client code automatically</em>.</p>
-<p>It is possible to generate a unity client by hand using the following command,
+<p>You can generate a Unity client by hand using the following command,
 </p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>generate-client-oapi<span class="w"> </span>--output-dir<span class="w"> </span>./Path/To/Your/Unity/Folder/To/Put/Clients/In
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>If you want to revert to the old method of producing client-code, you'll need to copy/paste the old target
@@ -10222,8 +10222,8 @@ commands from the CLI, please reach out to Beamable for guidance.</p>
 <p>The upgrade from 3.0.x to 4.0.0 is relatively simple compared to other major
 releases.</p>
 <h4 id="removed-net60-and-net70-support">Removed <code>net6.0</code> and <code>net7.0</code> support<a class="headerlink" href="#removed-net60-and-net70-support" title="Permanent link">¶</a></h4>
-<p>Unfortunately, <code>net6.0</code> and <code>net7.0</code> have reached their <a href="https://devblogs.microsoft.com/dotnet/dotnet-6-end-of-support/">End-Of-Life phases</a>.
-The CLI 4.0 release officially drops Beamable support for these EOL .NET versions; when you update your projects, you must update your <code>.csproj</code> files to use <code>net8.0</code>.</p>
+<p>Unfortunately, <code>net6.0</code> and <code>net7.0</code> have reached their <a href="https://devblogs.microsoft.com/dotnet/dotnet-6-end-of-support/">End-Of-Life phases</a>. 
+The CLI 4.0 release officially drops Beamable support for these EOL .NET versions; when you update your projects, you must update your <code>.csproj</code> files to use <code>net8.0</code>. </p>
 <p>In all your <code>.csproj</code> files, find the line with the <code>&lt;TargetFramework&gt;</code>
 declaration,</p>
 <div class="language-xml highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;TargetFramework&gt;</span>net6.0<span class="nt">&lt;/TargetFramework&gt;</span>
