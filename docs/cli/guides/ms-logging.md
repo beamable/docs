@@ -42,26 +42,39 @@ public void SampleLog()
 }
 ```
 
- ## Setting a custom logger
+# Setting a custom logger
 
-To set a custom logger, you can pass a delegate to `config.AddLoggerProvider` inside an `OverrideConfig` call on `BeamServiceConfigBuilder`:
+To set a custom logger, you can assign a delegate to `config.AddLoggerProvider` inside an `OverrideConfig` call on `BeamServiceConfigBuilder`.
 
+The delegate has the signature `Func<ILoggingBuilder, DebugLogProcessor, DebugLogProcessor>`:
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `builder` | `ILoggingBuilder` | The Microsoft logging builder, used to add or clear log providers |
+| `defaultProcessor` | `DebugLogProcessor` | The default ZLogger async log processor that Beamable has already set up |
+| **returns** | `DebugLogProcessor` | The processor that should actually be used — return `defaultProcessor` or `null` to keep the default, return a new instance to replace it |
+
+## Example:
 ```csharp
-	await BeamServer
-		.Create()
-		.IncludeRoutes<BeamService>()
-		.OverrideConfig(config => 
-		{
-			config.AddLoggerProvider = builder =>
-			{
-				builder.ClearProviders(); // remove any other providers added before this callback
-				builder.AddProvider(new MyCustomLogProvider()); // Add your own provider. This is a class that implements ILoggerProvider
-			}
-		})
-		.RunForever();
+await BeamServer
+    .Create()
+    .IncludeRoutes<BeamService>()
+    .OverrideConfig(config =>
+    {
+        config.AddLoggerProvider = (builder, defaultProcessor) =>
+        {
+        		builder.ClearProviders(); // Remove all previously registered providers
+            builder.AddProvider(new MyCustomLogProvider()); // Add your own ILoggerProvider
+            return defaultProcessor; // Keep Beamable's default DebugLogProcessor
+        };
+    })
+    .RunForever();
 ```
 
-Please check the official dotnet documentation for more details on how to create a custom [LogProvider](https://learn.microsoft.com/pt-br/dotnet/api/microsoft.extensions.logging.iloggerprovider?view=net-10.0-pp&viewFallbackFrom=net-9.0-pp)
+Please check the official .NET documentation for more details on how to create a custom
+[ILoggerProvider](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.iloggerprovider?view=net-10.0).
+For more information on ZLogger's `DebugLogProcessor` and async log processing, see the
+[ZLogger LogProcessor documentation](https://github.com/Cysharp/ZLogger?tab=readme-ov-file#logprocessor).
 
 !!! info
 
