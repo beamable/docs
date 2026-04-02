@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -6239,7 +6239,7 @@
 - <em>Information</em>
 - <em>Debug</em>
 - <em>Verbose</em></p>
-<p>When you run a Microservice locally, you will see log messages at the <em>Debug</em> level and above. However, in a deployed Microservice, you will only see <strong>Information</strong> and above. This is called the <em>Log Level</em>. It is considered best practice to avoid logging <em>Debug</em> and <em>Verbose</em> logs in production, because they negatively impact performance. </p>
+<p>When you run a Microservice locally, you will see log messages at the <em>Debug</em> level and above. However, in a deployed Microservice, you will only see <strong>Information</strong> and above. This is called the <em>Log Level</em>. Best practice is to avoid logging <em>Debug</em> and <em>Verbose</em> logs in production, as they negatively impact performance. </p>
 <p>The <code>Log</code> type has methods for each type of log level.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -6263,7 +6263,7 @@
 </code></pre></div><p></p>
 <p>However, the attribute, <code>a</code>, is available for querying in Portal. Use a custom search expression for <code>a:42</code> to find any log messages with the <code>a</code> attribute value of <code>42</code>. </p>
 <h4 id="scoped-custom-attributes">Scoped Custom Attributes<a class="headerlink" href="#scoped-custom-attributes" title="Permanent link">¶</a></h4>
-<p>It is possible to automatically add attributes to an entire sequence of logs. For example, imagine you wanted to tag a series of log lines as being part of an algorithm.</p>
+<p>You can automatically add attributes to an entire sequence of logs. For example, imagine you wanted to tag a series of log lines as being part of an algorithm.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">[ClientCallable]</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CustomAttribute</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">{</span>
@@ -6477,7 +6477,7 @@
 </tbody>
 </table>
 <h3 id="third-party-log-hosting">Third Party Log Hosting<a class="headerlink" href="#third-party-log-hosting" title="Permanent link">¶</a></h3>
-<p>Starting with version 6.0, it is possible to send Microservice logs to a third parties. In this example, we will use  BetterStack.</p>
+<p>Starting with version 6.0, you can send Microservice logs to third-party log hosting services. In this example, we will use BetterStack.</p>
 <p>This section will assume you have set up a BetterStack account, and created a <em>Source</em> such that you have a <em>source token</em> and an <em>ingesting host</em>. </p>
 <p>To start, we will configure locally running Microservices to send data to BetterStack. To start, create this file called <code>config.yaml</code> next to your <code>BeamableServices.sln</code> file.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>receivers:  

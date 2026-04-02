@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -6180,7 +6180,7 @@
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.data.cid'</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s2">"123"</span>
 </code></pre></div><p></p>
-<p>Sometimes it is important to get the unescaped JSON, so the <code>fromjson</code> component of JQ can be used. For example, if we wanted the <code>cid</code> value, but without quotes, </p>
+<p>Sometimes you need the unescaped JSON; the <code>fromjson</code> component of JQ can be used. For example, if we wanted the <code>cid</code> value, but without quotes, </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.data.cid | fromjson'</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="m">123</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>

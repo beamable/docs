@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -6112,7 +6112,7 @@ Every time you execute a <code>beam</code> command, it searches for the nearest 
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="s2">"configPath"</span>:<span class="w"> </span><span class="s2">"/Users/examples/mainFolder/.beamable"</span><span class="w"> </span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w"> </span><span class="o">}</span><span class="w"> </span>
 </code></pre></div><p></p>
-<p>However, if the <code>beam config</code> command was invoked from the <code>someOtherFolder</code> path, you should expect to see an error, because there is no <code>.beamable</code> folder within the parent linear. </p>
+<p>However, if the <code>beam config</code> command was invoked from the <code>someOtherFolder</code> path, you should expect to see an error, because there is no <code>.beamable</code> folder within the parent lineage. </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>someOtherFolder<span class="w"> </span>%<span class="w"> </span>dotnet<span class="w"> </span>beam<span class="w"> </span>config
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>**Error**<span class="w"> </span><span class="o">[</span><span class="m">0404</span><span class="o">]</span>:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>any<span class="w"> </span>.beamable<span class="w"> </span>config<span class="w"> </span>folder<span class="w"> </span>which<span class="w"> </span>is<span class="w"> </span>required<span class="w"> </span><span class="k">for</span><span class="w"> </span>this<span class="w"> </span>command.
