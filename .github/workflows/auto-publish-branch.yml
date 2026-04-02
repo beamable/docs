@@ -35,10 +35,10 @@ jobs:
         id: version
         run: |
           BRANCH="${{ github.ref_name }}"
-
+              
               # Extract the product prefix (before the first /)
               PRODUCT_PREFIX="${BRANCH%%/*}"
-
+              
               # Map branch prefix to product name
               case "$PRODUCT_PREFIX" in
                 unity)
@@ -111,7 +111,7 @@ jobs:
         if: steps.check.outputs.published == 'false'
         run: echo "Skipping — ${{ steps.version.outputs.mike_alias }} has not been manually published yet."
 
-
+ 
 
       # Confirm mkdocs.yml is present before attempting a deploy
       - name: Verify mkdocs.yml exists
@@ -135,7 +135,7 @@ jobs:
         run: mike deploy "${{ steps.version.outputs.mike_alias }}" --branch gh-pages --push
 
       - name: Notify Slack
-        # if: steps.check.outputs.published == 'true'
+        # if: steps.check.outputs.published == 'true' 
         if: false
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_DOCS_CHANNEL_URL }}
