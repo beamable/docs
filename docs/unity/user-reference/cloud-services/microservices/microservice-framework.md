@@ -99,7 +99,7 @@ As your project grows, you may want to split your C#MS code across multiple C#MS
 
 However, doing so has implications you should take into consideration when deciding things for your project. In many cases, it is possible to simplify C#MS and reduce the quantity without sacrificing functionality.
 
-- Having multiple deployed C#MSs incurs costs as each of them is a separate instance.
+- Having multiple deployed C#MSs incurs costs as each is a separate instance.
 
 - While you can call C#MSs from other C#MSs to reuse code, this also turns your system into a distributed system. This adds complexity.
 

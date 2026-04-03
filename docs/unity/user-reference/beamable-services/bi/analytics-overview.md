@@ -2,7 +2,7 @@
 
 ## Why Analytics?
 
-Beamable's Analytics solution provides the most control and access to your data. There are important reports that are needed in order to measure the success of your game and, as a game maker, you want to know:
+Beamable's Analytics solution provides the most control and access to your data. There are important reports that are needed to measure the success of your game and, as a game maker, you want to know:
 
 - How many unique total players you have per month (MAU)
 - How many active players you have per day (DAU)
@@ -337,4 +337,4 @@ SELECT distinct table_name FROM information_schema.columns WHERE table_schema = 
 
 ### Conclusion
 
-Now you have the basics you need in order to query your Athena database, see what tables are available and see which fields are available within those tables. The power is now in your hands to ask the questions you want to know about your players and query your data to find out the answers!
+Now you have the basics you need to query your Athena database, see what tables are available and see which fields are available within those tables. The power is now in your hands to ask the questions you want to know about your players and query your data to find out the answers!

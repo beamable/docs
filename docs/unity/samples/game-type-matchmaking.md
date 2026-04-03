@@ -74,7 +74,7 @@ The "Geo" scene in the project is partially configured to test this functionalit
 
 ## Step 4. Run & Test
 
-You will need 2 instances of the project running in order to test. This can be accomplished in 2 ways:
+You will need 2 instances of the project running to test. This can be accomplished in 2 ways:
 
 • Create a build for your target platform, and run 2 instances of it, or
 • Run 2 instances of the project in the Unity Editor, which may require 2 machines

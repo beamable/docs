@@ -476,7 +476,7 @@ In addition, different project types have the following upgrade requirements...
 
 ###### Services
 
-For services, the `csproj` file has been simplified between major versions 1 and 2. You can remove all of the tasks and extraneous nuget references.
+For services, the `csproj` file has been simplified between major versions 1 and 2. You can remove all the tasks and extraneous nuget references.
 
 This snippet can (and should) be removed from a 1.19.22 service's `csproj` file.
 ```xml

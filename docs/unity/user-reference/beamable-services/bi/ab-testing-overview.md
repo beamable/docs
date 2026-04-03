@@ -367,4 +367,4 @@ Here are some areas to double check if your testing is not working as intended.
 
 - Ensure the stats used for segmentation are game private (`game.private.player` namespace).
 - Some values from your trials may need to be tweaked to affect the intended player population. See the A/B Testing - Code (Glossary) for more info on these parameters.
-- Ensure the files uploaded to Game Base Cloud Data are able to be deserialized properly in the file format your game is expecting.
+- Ensure the files uploaded to Game Base Cloud Data can be deserialized properly in the file format your game is expecting.

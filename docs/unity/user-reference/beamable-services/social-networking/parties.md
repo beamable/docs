@@ -123,7 +123,7 @@ There is no such storage. All the data related to parties is stored in `_beamCon
 
 > Is there any method / way to disband the party?
 
-The party is disbanded automatically when all of the members leave. When a leader leaves the party a new one is chosen automatically.
+The party is disbanded automatically when all members leave. When a leader leaves the party a new one is chosen automatically.
 
 > What is the difference between `Party.State` vs `Party.Value` ?
 

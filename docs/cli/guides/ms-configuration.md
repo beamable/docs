@@ -123,7 +123,7 @@ In version 6.0+, the Microservice uses an open telemetry collector process to se
 
 #### BeamPreventBuildCacheInvalidation
 
-The `<BeamPreventBuildCacheInvalidation>` property is a boolean, only valid on Microservice projects. In version 6+, anytime you build the service, there is a custom build step that will invalidate the file timestamp on the `.csproj` file, in order to break aggressive IDE cache optimizations. Specifically, the Rider IDE, has a cache that will prevent `msbuild` from running if it thinks your service has not changed.
+The `<BeamPreventBuildCacheInvalidation>` property is a boolean, only valid on Microservice projects. In version 6+, anytime you build the service, there is a custom build step that will invalidate the file timestamp on the `.csproj` file, to break aggressive IDE cache optimizations. Specifically, the Rider IDE, has a cache that will prevent `msbuild` from running if it thinks your service has not changed.
 
 You can disable the cache invalidation by setting this property to `true`.
 

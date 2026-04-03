@@ -17,7 +17,7 @@ Unlike many Beamable features, Mail does not have a dedicated feature prefab. Th
 If you would like to allow players to send messages without granting players Admin privileges, consider using [Microservices](../../cloud-services/microservices/microservice-framework.md). Sending a message via a microservice allows the game maker to validate the message's contents before the final sendoff.
 
 ## Mobile Notifications
-Mobile Notifications are a native part of mobile platforms including iOS and Android. These messages show up as a banner of text, regardless of whether or not your game is running. See [Notifications](notifications-overview.md) for more info.
+Mobile Notifications are a native part of mobile platforms including iOS and Android. These messages show up as a banner of text, regardless of whether your game is running. See [Notifications](notifications-overview.md) for more info.
 
 ## Mail API
 

@@ -2,7 +2,7 @@
 
 Telemetry is a critical piece needed to write analytic data about your game. Beamable provides you with API's that allow you to write data about what is taking place in your game that can be queried and reported on.
 
-If you wanted to know how many players use a specific weapon in your game in comparison to other weapons, how would you accomplish this? The answer is to write bits of data whenever each weapon is used in order to understand which weapon is used more. This is what we call Telemetry Data.
+If you wanted to know how many players use a specific weapon in your game in comparison to other weapons, how would you accomplish this? The answer is to write bits of data whenever each weapon is used to understand which weapon is used more. This is what we call Telemetry Data.
 
 Telemetry Data by definition are measurements and data that are collected at remote or inaccessible points.
 

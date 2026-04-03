@@ -80,7 +80,7 @@ You will need a unique Photon App ID for each of your Beamable games.
 
 The game starts with the players in a waiting area, with a wall blocking them from proceeding until all players are ready. After all players ready up, the wall will disappear and the players can proceed.
 
-Throughout the match, the ball of light at the end will change colors from green, to yellow, then red (like a traffic light). While the light is green, players are free to move around. While the light is red, the players cannot move if they are able to be seen by the ball of light. Doing so will result in the players being zapped by the light.
+Throughout the match, the ball of light at the end will change colors from green, to yellow, then red (like a traffic light). While the light is green, players are free to move around. While the light is red, the players cannot move if they can be seen by the ball of light. Doing so will result in the players being zapped by the light.
 
 Players can pick up various weapons on the field and deal damage to other players. Unarmed players can shove other players, potentially causing them to be seen moving while the light is red and getting zapped.
 

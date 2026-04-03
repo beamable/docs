@@ -129,7 +129,7 @@ public void CommitMove()
 
 _Keep in mind that **all** messages are broadcast to **every** client, including the one that sent the message in the first place._
 
-The `GameProcessor` spins up the game simulation (`GameSimulation`) and the network layer (`MultiplayerGameDriver`), connecting both with each other:
+The `GameProcessor` spins up the game simulation (`GameSimulation`) and the network layer (`MultiplayerGameDriver`), wiring them together:
 
 GameProcessor.cs
 ```csharp

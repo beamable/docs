@@ -6,7 +6,7 @@ Live games often have frequent changes to their structured and unstructured data
 
 Managing these data structures is usually a pain, requiring special forms, processes, or direct-editing of source code files that contain data definitions.
 
-Game makers know that these problems only get worse when the game goes live -- because the desire is to change this data on the fly, without interfering with update, deployment, or live operations — or requiring engineering intervention. **That's why we created the Game Content Designer (GCD). This Google Sheets Add-On allows game makers to manage all of the game's live data with the simplicity of a Google Sheet.**
+Game makers know that these problems only get worse when the game goes live -- because the desire is to change this data on the fly, without interfering with update, deployment, or live operations — or requiring engineering intervention. **That's why we created the Game Content Designer (GCD). This Google Sheets Add-On allows game makers to manage all the game's live data with the simplicity of a Google Sheet.**
 
 ![content-designer-experience.png](../../../../../media/imgs/content-designer-experience.png)
 
@@ -82,7 +82,7 @@ Storing this information in the sheet itself means that copying a Spreadsheet, o
 - **Column** - Each column represents a different field in the data structure. (Breadth of Data)
 - **Row** - Each row represents another entry in the array. (Depth of Data)
 
-For all of the following examples, we assume that the export type is set as **List**. This represents the typical common setup.
+For all the following examples, we assume that the export type is set as **List**. This represents the typical common setup.
 
 **Basic Object**
 

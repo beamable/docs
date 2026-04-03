@@ -123,7 +123,7 @@ namespace Beamable.Examples.Services.TournamentService
 
             Debug.Log($"beamContext.PlayerId = {userId}");
 
-            // Need to fetch the status for the current tournament cycle in order to set the score.
+            // Need to fetch the status for the current tournament cycle to set the score.
             var current = await beamContext.Api.TournamentsService.GetTournamentInfo(id);
 
             // This allows the currently logged in user to join the tournament by its content id.
@@ -167,8 +167,8 @@ Game Makers set up tournaments by defining their content. This content includes 
 | **Cycle Duration** | Tournaments recur on a fixed period. You define this cycle's cadence using a period string (e.g., P1D for 1 day, P14D for 14 days). While you can end a specific Tournament cycle early, the subsequent cycle resumes according to the preset cadence. When changing a Tournament's cadence, it is best to delete the existing Tournament and set up a new one, with a different ID, with the desired cadence cycle. |
 | **Tiers and Stages per Tier** | Tournaments incorporate tiers, which represent players ranked with each other like bronze, silver, or gold levels. Players only compete against others within their assigned tier and stage. Beamable supports tiers with standardized stages; you can set stage rules for promoting or demoting players sequentially. All tiers must contain the same number of stages. |
 | **Stage Changes** | These parameters define the Promotion/Demotion rules for the Tournament. For a given rank range, you can specify a delta indicating how many stages a player gains or loses. These changes are evaluated at the end of each tournament cycle. |
-| **Rank Rewards** | These rewards reference the Beamable Inventory for fulfillment. The system evaluates and grants these rewards at the end of each Tournament cycle. Rewards must be explicitly claimed via Tournament API call in order to be fulfilled. |
-| **Score Rewards** | These rewards also reference the Beamable Inventory for fulfillment. The system evaluates and grants these rewards at the end of each Tournament cycle. Rewards must be explicitly claimed via Tournament API call in order to be fulfilled. |
+| **Rank Rewards** | These rewards reference the Beamable Inventory for fulfillment. The system evaluates and grants these rewards at the end of each Tournament cycle. Rewards must be explicitly claimed via Tournament API call to be fulfilled. |
+| **Score Rewards** | These rewards also reference the Beamable Inventory for fulfillment. The system evaluates and grants these rewards at the end of each Tournament cycle. Rewards must be explicitly claimed via Tournament API call to be fulfilled. |
 | **Group Rewards** | These rewards pertain to players who are enrolled in a group, within the Beamable Groups System. They are fulfilled the same way as other rewards, through Beamable Inventory. Group reward eligibility is specified similar to individual Rank Rewards: the reward specifies which tier the reward belongs to, as well as a range of stages and rankings within which players are eligible for the reward. Rankings for group rewards are tracked separately from individual player rankings: the score for a group is the sum of the scores of that group's members, and the rankings are calculated accordingly. |
 
 ### Testing Notes

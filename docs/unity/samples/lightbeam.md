@@ -9,7 +9,7 @@ Most of the Lightbeams are full `.unity`scene files that offer a greybox UI to e
 
 When you open a Lightbeam scene, there may be additional configuration to perform before entering Playmode. Check the documentation for each Lightbeam.
 
-Almost all of the Lightbeam samples follow a similar structure and layout.
+Almost all Lightbeam samples follow a similar structure and layout.
 
 ```shell
 /Sample

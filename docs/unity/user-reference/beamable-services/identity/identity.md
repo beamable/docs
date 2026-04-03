@@ -10,7 +10,7 @@ Authentication is often tricky and has more edge cases than one normally thinks 
 
 ## Login Functions
 
-The aspects at the core of Identity in Beamable are the RecoverAccount functions, often referred to as Login functions. These are used throughout all of the various sign-in methods. `RecoverAccountWithEmail()` is used for email and password verification, and `RecoverAccountWithThirdParty()` is used for third-party authentication providers.
+The aspects at the core of Identity in Beamable are the RecoverAccount functions, often called Login functions. These are used throughout all the various sign-in methods. `RecoverAccountWithEmail()` is used for email and password verification, and `RecoverAccountWithThirdParty()` is used for third-party authentication providers.
 
 !!! info "Beamable API Access"
     The AuthService can be accessed via BeamContext. For more information on how to access services, see the documentation on the [Player-Centric API](doc:beamable-player-centric-api).

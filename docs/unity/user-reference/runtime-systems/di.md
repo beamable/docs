@@ -52,7 +52,7 @@ public class ExampleService : IBeamableDisposable
 
 ### Hierarchical Scopes
 
-A dependency scope represents a group of related services that use each other as internal dependencies. A scope can spawn a new child scope; a process referred to as "scope forking". A child scope inherits all previously configured service registrations. Additionally, all singleton instances from the parent scope are used in the child scope. However, any service registered as a scoped service will instantiate new instances for the child scope. Transient services (as always), result in new instances.
+A dependency scope represents a group of related services that use each other as internal dependencies. A scope can spawn a new child scope; a process known as "scope forking". A child scope inherits all previously configured service registrations. Additionally, all singleton instances from the parent scope are used in the child scope. However, any service registered as a scoped service will instantiate new instances for the child scope. Transient services (as always), result in new instances.
 
 If a parent dependency scope is disposed, then all child scopes will be disposed as well.
 

@@ -16,7 +16,7 @@ One important concept of the Content ID is the "Nesting". Content IDs can be nes
 
 Content is validated as a manifest which allows items to be validated against each other. This prevents validation errors when publishing; however, individual changes could cause validation errors after uploading; e.g., a store references a currency that no longer exists.
 
-Namespaces are locations for content to be published so that the content does not impact content in other namespaces. Content namespaces can also be used for versioning in order to ensure older versions of the game using the same or similar content do not break.
+Namespaces are locations for content to be published so that the content does not impact content in other namespaces. Content namespaces can also be used for versioning to ensure older versions of the game using the same or similar content do not break.
 
 !!! warning Global Namespace
 
@@ -309,7 +309,7 @@ Then, once you have tested that the new content in your environment looks correc
 
 ### Storage Location of Content Types and Content Live Refresh
 
-One of the main benefits of our content system is that, when you hit publish and the content updates, we will automatically refresh that content on each of the game clients via a server-to-client message. This allows for the system to be incredibly interactive at development time as well as allowing for over the air updates to players who are playing in "Production" after a content promotion.
+One of the main benefits of our content system is that, when you hit publish and the content updates, we will automatically refresh that content on each game client via a server-to-client message. This allows for the system to be incredibly interactive at development time as well as allowing for over the air updates to players who are playing in "Production" after a content promotion.
 
 While using the Content Manager Editor (Unity Editor) it will be saved locally to your project in the following location:
 

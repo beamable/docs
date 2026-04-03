@@ -1,5 +1,5 @@
 # Campaigns
-Beamable's **Campaigns** feature encompasses several ways of sending mass communication to your players. This page aims to describe each of the available campaign types and give a basic understanding of how to send messages to players using each of them.
+Beamable's **Campaigns** feature encompasses several ways of sending mass communication to your players. This page aims to describe each available campaign type and give a basic understanding of how to send messages to players using each.
 
 In brief, the campaign types available are:
 

@@ -121,7 +121,7 @@ So far, your folder structure should at least have these files.
 
 ### Preparing the Unity Project
 
-Now that the Microservice is ready, in order to import it into a Unity
+Now that the Microservice is ready, to import it into a Unity
 project as a UPM package, follow these steps.
 
 1. Ensure that the Unity project is referencing Beamable's packages.
