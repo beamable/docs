@@ -136,7 +136,7 @@ dotnet beam deploy release --from-manifest-id "id from the other command"
 ```
 
 ## Enabling/Disabling Services
-After a Standalone Microservice has been deployed, it will continue to be available on the Beamable Cloud until it is disabled. A service can be temporarily disabled through Portal, but they will be re-activated after a fresh `deploy release` command occurs. 
+After a Standalone Microservice has been deployed, it will continue to be available on the Beamable Cloud until it is disabled. A service can be temporarily disabled through the Portal, but they will be re-activated after a fresh `deploy release` command occurs. 
 
 To disable a service, you need to modify the configuration of the Microservice source code itself. In the `.csproj` file of your service, set the `<BeamEnabled>` property to `false`. Then, re-run the `deploy plan` command. You will see that the service would become disabled if you were to `deploy release` that plan.
 
