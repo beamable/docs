@@ -425,7 +425,7 @@ namespace Beamable.Examples.Services.CommerceService
 ```
 ## Custom Purchase Reporting
 
-As a game maker you will find that in some cases you need to be able to report purchases from outside the Beamable store flow. Beamable provides you with a way to do this through a small configuration change in Portal and some client side tracking code.
+As a game maker you will find that in some cases you need to be able to report purchases from outside the Beamable store flow. Beamable provides you with a way to do this through a small configuration change in the Portal and some client-side tracking code.
 
 ![Payment Audits Realm Config](../../../../media/imgs/payment-audits-realm-config.png)
 

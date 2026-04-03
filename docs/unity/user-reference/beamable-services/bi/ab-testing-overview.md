@@ -276,7 +276,7 @@ namespace Beamable.Examples.Services.TrialDataService
         protected void Start()
         {
             Debug.Log($"Start() Instructions...\n" +
-                      " * Setup AB Testing in Portal per https://docs.beamable.com/docs/abtesting-code\n" +
+                      " * Setup AB Testing in the Portal per https://docs.beamable.com/docs/abtesting-code\n" +
                       " * Run The Scene\n" +
                       " * See onscreen UI for results.\n" +
                       " * If IsInABTest is false, something is incorrect. Repeat these steps.\n" +

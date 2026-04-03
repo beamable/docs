@@ -313,7 +313,7 @@ By default, Microservices use an INFO log level when published.
 !!! tip
     However, Microservices use a DEBUG log level when running locally.
 
-If you need to change the log level, consider first using request based log level controls. Navigate to the microservice section of Portal, and create a Log Config Rule for your desired service. You can change the log level dynamically per request based on what player is requesting the service, or which route is being invoked.
+If you need to change the log level, consider first using request based log level controls. Navigate to the microservice section of the Portal, and create a Log Config Rule for your desired service. You can change the log level dynamically per request based on what player is requesting the service, or which route is being invoked.
 
 For example, you could enable DEBUG logging for a player that called into your customer support line, or enable DEBUG logs for a particularly sensitive route.
 

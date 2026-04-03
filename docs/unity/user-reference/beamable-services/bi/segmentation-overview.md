@@ -42,7 +42,7 @@ You can use data from tools and queries outside of Beamable to inform player seg
 
 ![Tagging](../../../../media/imgs/tagging.png)
 
-Navigating in Portal to **Operate → Tagging** will take you to the above screen.
+Navigating in the Portal to **Operate → Tagging** will take you to the above screen.
 
 ```text
 1437311035933697, LEVEL, 123

@@ -25,7 +25,7 @@ You'll need an AppID, which you can acquire from Steam. If you do not have one, 
 
 You then need to place this AppID in a file that was installed in the root of your project folder. This file is called **steam_appid.txt**. The root of your project is located in the folder above your _Assets_ folder. It should look like the following, with only the AppID present in the file steam_appid.txt: `1234567`
 
-## Setup In Portal
+## Setup in the Portal
 
 There are some additional steps in order to configure Beamable for Steam Integration. You'll need to register your Web API key and AppID in the Beamable Portal at <https://portal.beamable.com/>
 
