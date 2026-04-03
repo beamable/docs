@@ -1,6 +1,6 @@
 # In-App Purchases
 
-The Store feature's In-App Purchases can be managed and configured through Portal.
+The Store feature's In-App Purchases can be managed and configured through the Portal.
 
 ## Getting Started
 

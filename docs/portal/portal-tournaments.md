@@ -1,6 +1,6 @@
 # Tournaments
 
-The Tournaments feature can be managed from Portal.
+The Tournaments feature can be managed from the Portal.
 
 ## Getting Started
 

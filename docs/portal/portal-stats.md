@@ -1,6 +1,6 @@
 # Stats
 
-The Analytics feature's **Stats** section can be managed from Portal.
+The Analytics feature's **Stats** section can be managed from the Portal.
 
 ## Getting Started
 

@@ -1,6 +1,6 @@
 # Players
 
-The Admin feature's **Players** section can be managed from Portal.
+The Admin feature's **Players** section can be managed from the Portal.
 
 ## Getting Started
 

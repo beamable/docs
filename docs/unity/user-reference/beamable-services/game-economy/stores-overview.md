@@ -491,7 +491,7 @@ private async Task TrackSomePurchase()
 }
 ```
 
-Once you do the above tracking, you can view the results by going to Portal and clicking on _Real Money Transactions_ under the Monetization section. Within a few minutes at most, the tracking that was posted should appear there and you can view the details of your transactions.
+Once you do the above tracking, you can view the results by going to the Portal and clicking on _Real Money Transactions_ under the Monetization section. Within a few minutes at most, the tracking that was posted should appear there and you can view the details of your transactions.
 
 ![Portal Purchase Results](../../../../media/imgs/portal-purchase-results.png){: style="height:auto;width:500px"}
 

@@ -324,7 +324,7 @@ It is also possible to change the default log level for a service by using Realm
 !!! tip
     The _request_ level will set the log level for all requests made to your service, but internal background Beamable framework logs will still be set to a default level of INFO (which means very few system logs).
 
-If you need to change the default log level, then go to the Realm Config page of Portal, create a new namespace called "service_logs". Then, create an entry in the "service_logs" namespace for each service you want to change the log level for. The entry should be the name of the Microservice. The value should be one of the following, "verbose", "debug", "info", "warn", "error", or "fatal".
+If you need to change the default log level, then go to the Realm Config page of the Portal, create a new namespace called "service_logs". Then, create an entry in the "service_logs" namespace for each service you want to change the log level for. The entry should be the name of the Microservice. The value should be one of the following, "verbose", "debug", "info", "warn", "error", or "fatal".
 
 ![Service Logs Realm Config](../../../../media/imgs/service-logs-realm-config.png)
 

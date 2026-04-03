@@ -44,7 +44,7 @@ public void SampleLog()
 
 !!! info
 
-	Local microservice logs will not appear in Portal unless the `BEAM_LOCAL_OTEL` environment variable is set.
+	Local microservice logs will not appear in the Portal unless the `BEAM_LOCAL_OTEL` environment variable is set.
 
 ### Log Level
 
@@ -68,11 +68,11 @@ The `Log` type has methods for each type of log level.
 
 In version 6.0+, you can override the log level per request based on the player calling your Microservice, or the path being invoked on the service. By default, the log level for the entire service is _Information_, but if there was an error-prone route, or a specific user was experiencing issues, you could set the log level to _Debug_ for that use case, without affecting the log level for anything else.
 
-To set a dynamic log level, go to Portal's microservice page, and create a new _Log Config Rule_. Once you create a rule, the Microservice will automatically update to emit logs at the new level. It may take a few seconds for the log level to change.
+To set a dynamic log level, go to the Portal's microservice page, and create a new _Log Config Rule_. Once you create a rule, the Microservice will automatically update to emit logs at the new level. It may take a few seconds for the log level to change.
 
 ### Attributes
 
-In version 6.0+, Microservice logs include attributes that can be explored in Portal.
+In version 6.0+, Microservice logs include attributes that can be explored in the Portal.
 #### Single Custom Attributes
 
 You can add custom attributes per log message by using the standard string formatting approach:
@@ -89,7 +89,7 @@ If the method was invoked with `a` equal to `42`, then the rendered log message 
 attribute 42
 ```
 
-However, the attribute, `a`, is available for querying in Portal. Use a custom search expression for `a:42` to find any log messages with the `a` attribute value of `42`.
+However, the attribute, `a`, is available for querying in the Portal. Use a custom search expression for `a:42` to find any log messages with the `a` attribute value of `42`.
 
 #### Scoped Custom Attributes
 
@@ -139,7 +139,7 @@ However, the _attributes_ available on the log lines will include the `operation
 
 #### Defined Custom Attributes
 
-In the previous section, the custom log attributes are localized to specific log events. The attributes are searchable in Portal, but they will not appear as _known_ attributes, because they are not declared at any top level location. In order to define known attributes, you need to use a custom `ITelemetryAttributeProvider`.
+In the previous section, the custom log attributes are localized to specific log events. The attributes are searchable in the Portal, but they will not appear as _known_ attributes, because they are not declared at any top level location. In order to define known attributes, you need to use a custom `ITelemetryAttributeProvider`.
 
 ```csharp
 public class CustomAttributes : ITelemetryAttributeProvider
@@ -186,7 +186,7 @@ The various _CreateAttribute_ functions should add attributes to the current con
 - `ConnectionAttributes` allow you to add an attribute to every log line that is part of a specific _connection_ to Beamable. When a Microservice runs locally, there is only a single connection, but in a deployed environment, there are _10_ connections.
 - `RequestAttributes` allow you add attributes to every log line per _request_.
 
-The `GetDescriptors()` function must return a description for all attributes you want to be defined. When an attribute is described from the return value, the title and description will appear in Portal.
+The `GetDescriptors()` function must return a description for all attributes you want to be defined. When an attribute is described from the return value, the title and description will appear in the Portal.
 
 ### Standard Log Attributes
 

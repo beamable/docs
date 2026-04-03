@@ -245,7 +245,7 @@ namespace Beamable.Examples.Services.MailService
          {
             Debug.LogError(e.Message + "\n\n");
             Debug.LogWarning($"Solution To Error: Add the beamContext.UserId of {playerId} with the role
-                of 'Admin' via Portal → Teams and retry this operation.\n\n");
+                of 'Admin' via the Portal → Teams and retry this operation.\n\n");
             isSuccess = false;
          }
 

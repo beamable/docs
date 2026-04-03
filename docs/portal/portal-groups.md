@@ -1,6 +1,6 @@
 # Groups
 
-The Groups feature allows you to organize and manage player groups through Portal.
+The Groups feature allows you to organize and manage player groups through the Portal.
 
 ## Getting Started
 

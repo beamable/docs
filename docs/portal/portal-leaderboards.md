@@ -1,6 +1,6 @@
 # Leaderboards
 
-The Leaderboards feature can be managed from Portal.
+The Leaderboards feature can be managed from the Portal.
 
 ## Getting Started
 

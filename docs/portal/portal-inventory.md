@@ -1,6 +1,6 @@
 # Inventory
 
-The Inventory feature can be managed from Portal.
+The Inventory feature can be managed from the Portal.
 
 ## Getting Started
 

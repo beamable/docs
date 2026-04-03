@@ -30,7 +30,7 @@ Values for stats are always strings, and you can do simple operations with them 
 
 ## Campaign with Stats
 
-You can use Player Stats to define which players are going to receive a campaign. That can be done while creating a new campaign in Portal. In the following image you can see the stage in which this can be done.
+You can use Player Stats to define which players are going to receive a campaign. That can be done while creating a new campaign in the Portal. In the following image you can see the stage in which this can be done.
 
 ![Campaign Stats Configuration](../../../../media/imgs/campaign-stats-configuration.png){: style="height:auto;width:600px"}
 

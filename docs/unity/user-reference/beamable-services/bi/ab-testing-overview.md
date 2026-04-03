@@ -280,7 +280,7 @@ namespace Beamable.Examples.Services.TrialDataService
                       " * Run The Scene\n" +
                       " * See onscreen UI for results.\n" +
                       " * If IsInABTest is false, something is incorrect. Repeat these steps.\n" +
-                      " * If IsInABTest is true, everything is correct. Visit Portal to change " +
+                      " * If IsInABTest is true, everything is correct. Visit the Portal to change" +
                       "the `PLAYER_LEVEL` stat value, then repeat these steps see load other data.\n");
 
             SetupBeamable();
@@ -352,7 +352,7 @@ namespace Beamable.Examples.Services.TrialDataService
 
 After running the scene containing the `TrialDataServiceExample.cs` per above, you can further verify success.
 
-Visit Portal and change the value of any stat related to the trial for the currently logged-in PlayerId. See the Unity console window for the PlayerId.
+Visit the Portal and change the value of any stat related to the trial for the currently logged-in PlayerId. See the Unity console window for the PlayerId.
 
 Steps
 

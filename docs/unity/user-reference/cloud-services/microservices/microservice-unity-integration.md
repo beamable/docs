@@ -31,7 +31,7 @@ The lower bar has a row of function buttons for the selected Service. These butt
 | :------------------- | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Service Icon         | Left   | A simple icon denoting this is a MIcroservice. If a Microstorage were selected, this icon would show a Storage symbol.                                                    |
 | Run Button           | Center | This button will highlight blue when the service is running. The first time you click it, it will start the service. If you click it again, it will turn off the service. |
-| Documentation Button | Right  | Opens the auto-generated OpenAPI documentation page in Portal.                                                                                                            |
+| Documentation Button | Right  | Opens the auto-generated OpenAPI documentation page in the Portal.                                                                                                            |
 | Open Code Button     | Right  | Opens the shared dotnet solution file for all services and storages.                                                                                                      |
 | More Options Button  | Right  | Opens a dropdown showing more options for each service card.                                                                                                              |
 
