@@ -6229,7 +6229,7 @@
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Local microservice logs will not appear in Portal unless the <code>BEAM_LOCAL_OTEL</code> environment variable is set.</p>
+<p>Local microservice logs will not appear in the Portal unless the <code>BEAM_LOCAL_OTEL</code> environment variable is set.</p>
 </div>
 <h3 id="log-level">Log Level<a class="headerlink" href="#log-level" title="Permanent link">¶</a></h3>
 <p>Each log has a <em>level</em>, or an <em>importance</em> rating. Logs are one of the following, 
@@ -6249,7 +6249,7 @@
 <p>In version 6.0+, you can override the log level per request based on the player calling your Microservice, or the path being invoked on the service. By default, the log level for the entire service is <em>Information</em>, but if there was an error-prone route, or a specific user was experiencing issues, you could set the log level to <em>Debug</em> for that use case, without affecting the log level for anything else. </p>
 <p>To set a dynamic log level, go to the Portal's microservice page, and create a new <em>Log Config Rule</em>. Once you create a rule, the Microservice will automatically update to emit logs at the new level. It may take a few seconds for the log level to change. </p>
 <h3 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">¶</a></h3>
-<p>In version 6.0+, Microservice logs include attributes that can be explored in Portal. </p>
+<p>In version 6.0+, Microservice logs include attributes that can be explored in the Portal.</p>
 <h4 id="single-custom-attributes">Single Custom Attributes<a class="headerlink" href="#single-custom-attributes" title="Permanent link">¶</a></h4>
 <p>You can add custom attributes per log message by using the standard string formatting approach: 
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">[ClientCallable]</span><span class="w">  </span>
@@ -6261,7 +6261,7 @@
 <p>If the method was invoked with <code>a</code> equal to <code>42</code>, then the rendered log message would appear as:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>attribute 42
 </code></pre></div><p></p>
-<p>However, the attribute, <code>a</code>, is available for querying in Portal. Use a custom search expression for <code>a:42</code> to find any log messages with the <code>a</code> attribute value of <code>42</code>. </p>
+<p>However, the attribute, <code>a</code>, is available for querying in the Portal. Use a custom search expression for <code>a:42</code> to find any log messages with the <code>a</code> attribute value of <code>42</code>. </p>
 <h4 id="scoped-custom-attributes">Scoped Custom Attributes<a class="headerlink" href="#scoped-custom-attributes" title="Permanent link">¶</a></h4>
 <p>You can automatically add attributes to an entire sequence of logs. For example, imagine you wanted to tag a series of log lines as being part of an algorithm.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">[ClientCallable]</span>
@@ -6301,7 +6301,7 @@
 </code></pre></div>
 <p>However, the <em>attributes</em> available on the log lines will include the <code>operation</code> and <code>number</code>, while the attributes on the last log will not. </p>
 <h4 id="defined-custom-attributes">Defined Custom Attributes<a class="headerlink" href="#defined-custom-attributes" title="Permanent link">¶</a></h4>
-<p>In the previous section, the custom log attributes are localized to specific log events. The attributes are searchable in Portal, but they will not appear as <em>known</em> attributes, because they are not declared at any top level location. In order to define known attributes, you need to use a custom <code>ITelemetryAttributeProvider</code>. </p>
+<p>In the previous section, the custom log attributes are localized to specific log events. The attributes are searchable in the Portal, but they will not appear as <em>known</em> attributes, because they are not declared at any top level location. In order to define known attributes, you need to use a custom <code>ITelemetryAttributeProvider</code>. </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomAttributes</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ITelemetryAttributeProvider</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">{</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">TelemetryAttributeDescriptor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetDescriptors</span><span class="p">()</span>
@@ -6341,7 +6341,7 @@
 - <code>DefaultAttributes</code> allow you to add an attribute to <em>every</em> log line.
 - <code>ConnectionAttributes</code> allow you to add an attribute to every log line that is part of a specific <em>connection</em> to Beamable. When a Microservice runs locally, there is only a single connection, but in a deployed environment, there are <em>10</em> connections. 
 - <code>RequestAttributes</code> allow you add attributes to every log line per <em>request</em>. </p>
-<p>The <code>GetDescriptors()</code> function must return a description for all attributes you want to be defined. When an attribute is described from the return value, the title and description will appear in Portal. </p>
+<p>The <code>GetDescriptors()</code> function must return a description for all attributes you want to be defined. When an attribute is described from the return value, the title and description will appear in the Portal.</p>
 <h3 id="standard-log-attributes">Standard Log Attributes<a class="headerlink" href="#standard-log-attributes" title="Permanent link">¶</a></h3>
 <p>There are several standard log attributes that will be included automatically. Some of these are from the Open Telemetry (OTEL) standard, and others are from Beamable's logging middleware. </p>
 <table>
