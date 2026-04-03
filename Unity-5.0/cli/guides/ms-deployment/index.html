@@ -9642,7 +9642,7 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w">
 dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>release<span class="w"> </span>--from-manifest-id<span class="w"> </span><span class="s2">"id from the other command"</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <h2 id="enablingdisabling-services">Enabling/Disabling Services<a class="headerlink" href="#enablingdisabling-services" title="Permanent link">¶</a></h2>
-<p>After a Standalone Microservice has been deployed, it will continue to be available on the Beamable Cloud until it is disabled. A service can be temporarily disabled through Portal, but they will be re-activated after a fresh <code>deploy release</code> command occurs.</p>
+<p>After a Standalone Microservice has been deployed, it will continue to be available on the Beamable Cloud until it is disabled. A service can be temporarily disabled through the Portal, but they will be re-activated after a fresh <code>deploy release</code> command occurs.</p>
 <p>To disable a service, you need to modify the configuration of the Microservice source code itself. In the <code>.csproj</code> file of your service, set the <code>&lt;BeamEnabled&gt;</code> property to <code>false</code>. Then, re-run the <code>deploy plan</code> command. You will see that the service would become disabled if you were to <code>deploy release</code> that plan.</p>
 <p>Alternatively, you can use the following commands to enable/disable services:
 </p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>

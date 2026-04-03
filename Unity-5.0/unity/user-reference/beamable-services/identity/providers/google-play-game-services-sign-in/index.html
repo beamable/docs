@@ -9409,13 +9409,13 @@
 <p>In orther to setup the Unity Project you need to Set the GPS Secret to Beamable Platform</p>
 <ul>
 <li>See <a href="https://developers.google.com/games/services/v1/android/offline-access#create_an_associated_server-side_web_application_for_your_game">Google's tutorial</a> for how get client_secret.json and obtain Web client values.</li>
-<li>Go to Portal → Operate → Config and press Add Config and add config with namespace auth, key gps_secret, and value that is encoded to base64 content of client_secret.json.</li>
+<li>Go to the Portal → Operate → Config and press Add Config and add config with namespace auth, key gps_secret, and value that is encoded to base64 content of client_secret.json.</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/f12a299-portalScreen.png" data-desc-position="bottom"><img alt="f12a299-portalScreen.png" src="../../../../../../media/imgs/f12a299-portalScreen.png"></a></p>
 <h3 id="additional-ios-setup">Additional iOS Setup<a class="headerlink" href="#additional-ios-setup" title="Permanent link">¶</a></h3>
 <p>Make sure that your game flow takes into account the fact that iOS is not a supported platform by Google Play Game Services.</p>
 <h2 id="google-play-game-services-integration">Google Play Game Services Integration<a class="headerlink" href="#google-play-game-services-integration" title="Permanent link">¶</a></h2>
-<p>The Beamable SDK contains a wrapper for GPGS behavior on Android (iOS is not supported). The provided class is called SignInWithGPG, which can be initialized after following steps from <a href="https://developers.google.com/games/services/console/enabling">Google documentation</a>. It does contain two Actions that developer can subscribe to: <code>OnLoginResult</code> and <code>OnRequestServerSideAccessResult</code>. In order to perform login as third party to Beamable both of them must return successfully. The first returns info about local login, and the second about getting the server side access token that is required for the Beamable backend.</p>
+<p>The Beamable SDK contains a wrapper for GPGS behavior on Android (iOS is not supported). The provided class is called SignInWithGPG, which can be initialized after following steps from <a href="https://developers.google.com/games/services/console/enabling">Google documentation</a>. It does contain two Actions that developer can subscribe to: <code>OnLoginResult</code> and <code>OnRequestServerSideAccessResult</code>. To perform login as third party to Beamable, both must return successfully. The first returns info about local login, and the second about getting the server-side access token that is required for the Beamable backend.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>

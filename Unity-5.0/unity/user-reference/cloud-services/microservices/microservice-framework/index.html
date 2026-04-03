@@ -9783,7 +9783,7 @@
 <p>However, doing so has implications you should take into consideration when deciding things for your project. In many cases, it is possible to simplify C#MS and reduce the quantity without sacrificing functionality.</p>
 <ul>
 <li>
-<p>Having multiple deployed C#MSs incurs costs as each of them is a separate instance.</p>
+<p>Having multiple deployed C#MSs incurs costs as each is a separate instance.</p>
 </li>
 <li>
 <p>While you can call C#MSs from other C#MSs to reuse code, this also turns your system into a distributed system. This adds complexity.</p>
@@ -9922,7 +9922,7 @@
 <p><strong>Example</strong></p>
 <p>Below are two versions of the same method call with varied implementations. Notice that #2 handles more functionality on the Microservice-side and is thus more secure.</p>
 <p><strong>#1. Method Without Beamable Services</strong></p>
-<p>Here the eligibility of reward is evaluated and the amount is calculated. This assumes the client side will handle the rewarding of the currency.</p>
+<p>Here the eligibility of reward is evaluated and the amount is calculated. This assumes the client will handle the rewarding of the currency.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -10064,7 +10064,7 @@
 <p class="admonition-title">Tip</p>
 <p>However, Microservices use a DEBUG log level when running locally.</p>
 </div>
-<p>If you need to change the log level, consider first using request based log level controls. Navigate to the microservice section of Portal, and create a Log Config Rule for your desired service. You can change the log level dynamically per request based on what player is requesting the service, or which route is being invoked.</p>
+<p>If you need to change the log level, consider first using request based log level controls. Navigate to the microservice section of the Portal, and create a Log Config Rule for your desired service. You can change the log level dynamically per request based on what player is requesting the service, or which route is being invoked.</p>
 <p>For example, you could enable DEBUG logging for a player that called into your customer support line, or enable DEBUG logs for a particularly sensitive route.</p>
 <p>You can also use the Log Config section to change the default request level.</p>
 <p>It is also possible to change the default log level for a service by using Realm Config.</p>
@@ -10072,7 +10072,7 @@
 <p class="admonition-title">Tip</p>
 <p>The <em>request</em> level will set the log level for all requests made to your service, but internal background Beamable framework logs will still be set to a default level of INFO (which means very few system logs).</p>
 </div>
-<p>If you need to change the default log level, then go to the Realm Config page of Portal, create a new namespace called "service_logs". Then, create an entry in the "service_logs" namespace for each service you want to change the log level for. The entry should be the name of the Microservice. The value should be one of the following, "verbose", "debug", "info", "warn", "error", or "fatal".</p>
+<p>If you need to change the default log level, then go to the Realm Config page of the Portal, create a new namespace called "service_logs". Then, create an entry in the "service_logs" namespace for each service you want to change the log level for. The entry should be the name of the Microservice. The value should be one of the following, "verbose", "debug", "info", "warn", "error", or "fatal".</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/service-logs-realm-config.png" data-desc-position="bottom"><img alt="Service Logs Realm Config" src="../../../../../media/imgs/service-logs-realm-config.png"></a></p>
 <p>If you configure the service with "fatal", then only log messages at the "fatal" level will be shown. However, if you configure the service with "debug", then all log messages with a log level of "debug" or greater will be shown, including "debug", "info", "warn", "error", and "fatal".</p>
 <h2 id="deleting-a-service">Deleting a Service<a class="headerlink" href="#deleting-a-service" title="Permanent link">¶</a></h2>

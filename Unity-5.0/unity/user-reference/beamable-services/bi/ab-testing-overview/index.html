@@ -10022,11 +10022,11 @@
 <span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start() Instructions...\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                      </span><span class="s">" * Setup AB Testing in Portal per https://docs.beamable.com/docs/abtesting-code\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                      </span><span class="s">" * Setup AB Testing in the Portal per https://docs.beamable.com/docs/abtesting-code\n"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                      </span><span class="s">" * Run The Scene\n"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                      </span><span class="s">" * See onscreen UI for results.\n"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                      </span><span class="s">" * If IsInABTest is false, something is incorrect. Repeat these steps.\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                      </span><span class="s">" * If IsInABTest is true, everything is correct. Visit Portal to change "</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                      </span><span class="s">" * If IsInABTest is true, everything is correct. Visit the Portal to change"</span><span class="w"> </span><span class="o">+</span>
 <span class="w">                      </span><span class="s">"the `PLAYER_LEVEL` stat value, then repeat these steps see load other data.\n"</span><span class="p">);</span>
 
 <span class="w">            </span><span class="n">SetupBeamable</span><span class="p">();</span>
@@ -10095,7 +10095,7 @@
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Verify Success</strong></p>
 <p>After running the scene containing the <code>TrialDataServiceExample.cs</code> per above, you can further verify success.</p>
-<p>Visit Portal and change the value of any stat related to the trial for the currently logged-in PlayerId. See the Unity console window for the PlayerId.</p>
+<p>Visit the Portal and change the value of any stat related to the trial for the currently logged-in PlayerId. See the Unity console window for the PlayerId.</p>
 <p>Steps</p>
 <ul>
 <li>Change the value of the <code>PLAYER_LEVEL</code> stat to 1. Run the scene and see the result.</li>
@@ -10107,7 +10107,7 @@
 <ul>
 <li>Ensure the stats used for segmentation are game private (<code>game.private.player</code> namespace).</li>
 <li>Some values from your trials may need to be tweaked to affect the intended player population. See the A/B Testing - Code (Glossary) for more info on these parameters.</li>
-<li>Ensure the files uploaded to Game Base Cloud Data are able to be deserialized properly in the file format your game is expecting.</li>
+<li>Ensure the files uploaded to Game Base Cloud Data can be deserialized properly in the file format your game is expecting.</li>
 </ul>
 
 

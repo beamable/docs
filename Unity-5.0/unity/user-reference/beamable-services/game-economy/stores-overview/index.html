@@ -10209,13 +10209,13 @@ The following code examples demonstrate how to implement a custom store experien
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <h2 id="custom-purchase-reporting">Custom Purchase Reporting<a class="headerlink" href="#custom-purchase-reporting" title="Permanent link">¶</a></h2>
-<p>As a game maker you will find that in some cases you need to be able to report purchases from outside the Beamable store flow. Beamable provides you with a way to do this through a small configuration change in Portal and some client side tracking code.</p>
+<p>As a game maker you will find that in some cases you need to be able to report purchases from outside the Beamable store flow. Beamable provides you with a way to do this through a small configuration change in the Portal and some client-side tracking code.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/payment-audits-realm-config.png" data-desc-position="bottom"><img alt="Payment Audits Realm Config" src="../../../../../media/imgs/payment-audits-realm-config.png"></a></p>
 <p>As shown in the above example, you will need to set a key in your Realm configuration to override purchase reporting to enable this functionality. Without this configuration change the API will error and not report anything.</p>
 <p>Here we are setting the namespace to <strong>payments</strong> and then the key is <strong>client_audits</strong> and we will set the value to <strong>true</strong>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Security Warning</p>
-<p>This feature is not secure unless you track this from within a MicroService and validate the purchase. It is highly advisable to do so in order to not allow a customer to spoof or falsely track a purchase.</p>
+<p>This feature is not secure unless you track this from within a MicroService and validate the purchase. It is highly advisable to do so to prevent a customer from spoofing or falsely tracking a purchase.</p>
 </div>
 <p>Once your configuration has been setup to allow this API to function, then you can use the <code>.Api.PaymentService.Track</code> API to track the purchase. The various fields of the tracking request may be arbitrary strings of your choice, but for the sake of consistency you may want to match the patterns used by the Beamable Commerce Service.</p>
 <table>
@@ -10333,7 +10333,7 @@ The following code examples demonstrate how to implement a custom store experien
 <span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Request tracked."</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>Once you do the above tracking, you can view the results by going to Portal and clicking on <em>Real Money Transactions</em> under the Monetization section. Within a few minutes at most, the tracking that was posted should appear there and you can view the details of your transactions.</p>
+<p>Once you do the above tracking, you can view the results by going to the Portal and clicking on <em>Real Money Transactions</em> under the Monetization section. Within a few minutes at most, the tracking that was posted should appear there and you can view the details of your transactions.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/portal-purchase-results.png" data-desc-position="bottom"><img alt="Portal Purchase Results" src="../../../../../media/imgs/portal-purchase-results.png" style="height:auto;width:500px"></a></p>
 <p>In addition, the dashboards on the Realm should reflect the purchase as well.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/dashboard-purchase-tracking.png" data-desc-position="bottom"><img alt="Dashboard Purchase Tracking" src="../../../../../media/imgs/dashboard-purchase-tracking.png" style="height:auto;width:500px"></a></p>

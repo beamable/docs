@@ -9844,7 +9844,7 @@ This option can be set using the project enable or the project disable commands.
 </tbody>
 </table>
 <h4 id="beampreventbuildcacheinvalidation">BeamPreventBuildCacheInvalidation<a class="headerlink" href="#beampreventbuildcacheinvalidation" title="Permanent link">¶</a></h4>
-<p>The <code>&lt;BeamPreventBuildCacheInvalidation&gt;</code> property is a boolean, only valid on Microservice projects. In version 6+, anytime you build the service, there is a custom build step that will invalidate the file timestamp on the <code>.csproj</code> file, in order to break aggressive IDE cache optimizations. Specifically, the Rider IDE, has a cache that will prevent <code>msbuild</code> from running if it thinks your service has not changed.</p>
+<p>The <code>&lt;BeamPreventBuildCacheInvalidation&gt;</code> property is a boolean, only valid on Microservice projects. In version 6+, anytime you build the service, there is a custom build step that will invalidate the file timestamp on the <code>.csproj</code> file, to break aggressive IDE cache optimizations. Specifically, the Rider IDE, has a cache that will prevent <code>msbuild</code> from running if it thinks your service has not changed.</p>
 <p>You can disable the cache invalidation by setting this property to <code>true</code>.</p>
 <table>
 <thead>

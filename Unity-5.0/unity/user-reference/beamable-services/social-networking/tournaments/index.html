@@ -9713,7 +9713,7 @@ TournamentServiceExample.cs
 
 <span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"beamContext.PlayerId = {userId}"</span><span class="p">);</span>
 
-<span class="w">            </span><span class="c1">// Need to fetch the status for the current tournament cycle in order to set the score.</span>
+<span class="w">            </span><span class="c1">// Need to fetch the status for the current tournament cycle to set the score.</span>
 <span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">TournamentsService</span><span class="p">.</span><span class="n">GetTournamentInfo</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
 
 <span class="w">            </span><span class="c1">// This allows the currently logged in user to join the tournament by its content id.</span>
@@ -9776,11 +9776,11 @@ TournamentServiceExample.cs
 </tr>
 <tr>
 <td><strong>Rank Rewards</strong></td>
-<td>These rewards reference the Beamable Inventory for fulfillment. The system evaluates and grants these rewards at the end of each Tournament cycle. Rewards must be explicitly claimed via Tournament API call in order to be fulfilled.</td>
+<td>These rewards reference the Beamable Inventory for fulfillment. The system evaluates and grants these rewards at the end of each Tournament cycle. Rewards must be explicitly claimed via Tournament API call to be fulfilled.</td>
 </tr>
 <tr>
 <td><strong>Score Rewards</strong></td>
-<td>These rewards also reference the Beamable Inventory for fulfillment. The system evaluates and grants these rewards at the end of each Tournament cycle. Rewards must be explicitly claimed via Tournament API call in order to be fulfilled.</td>
+<td>These rewards also reference the Beamable Inventory for fulfillment. The system evaluates and grants these rewards at the end of each Tournament cycle. Rewards must be explicitly claimed via Tournament API call to be fulfilled.</td>
 </tr>
 <tr>
 <td><strong>Group Rewards</strong></td>

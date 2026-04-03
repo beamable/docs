@@ -9508,7 +9508,7 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><em>Keep in mind that <strong>all</strong> messages are broadcast to <strong>every</strong> client, including the one that sent the message in the first place.</em></p>
-<p>The <code>GameProcessor</code> spins up the game simulation (<code>GameSimulation</code>) and the network layer (<code>MultiplayerGameDriver</code>), connecting both with each other:</p>
+<p>The <code>GameProcessor</code> spins up the game simulation (<code>GameSimulation</code>) and the network layer (<code>MultiplayerGameDriver</code>), wiring them together:</p>
 <p>GameProcessor.cs
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
