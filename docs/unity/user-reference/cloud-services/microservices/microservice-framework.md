@@ -192,7 +192,7 @@ Below are two versions of the same method call with varied implementations. Noti
 
 **#1. Method Without Beamable Services**
 
-Here the eligibility of reward is evaluated and the amount is calculated. This assumes the client side will handle the rewarding of the currency.
+Here the eligibility of reward is evaluated and the amount is calculated. This assumes the client will handle the rewarding of the currency.
 
 ```csharp
 [ClientCallable]

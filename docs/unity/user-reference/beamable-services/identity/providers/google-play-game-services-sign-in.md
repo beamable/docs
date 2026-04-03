@@ -44,7 +44,7 @@ Make sure that your game flow takes into account the fact that iOS is not a supp
 
 ## Google Play Game Services Integration
 
-The Beamable SDK contains a wrapper for GPGS behavior on Android (iOS is not supported). The provided class is called SignInWithGPG, which can be initialized after following steps from [Google documentation](https://developers.google.com/games/services/console/enabling). It does contain two Actions that developer can subscribe to: `OnLoginResult` and `OnRequestServerSideAccessResult`. In order to perform login as third party to Beamable both of them must return successfully. The first returns info about local login, and the second about getting the server side access token that is required for the Beamable backend.
+The Beamable SDK contains a wrapper for GPGS behavior on Android (iOS is not supported). The provided class is called SignInWithGPG, which can be initialized after following steps from [Google documentation](https://developers.google.com/games/services/console/enabling). It does contain two Actions that developer can subscribe to: `OnLoginResult` and `OnRequestServerSideAccessResult`. In order to perform login as third party to Beamable both of them must return successfully. The first returns info about local login, and the second about getting the server-side access token that is required for the Beamable backend.
 
 ```csharp
 SignInWithGPG _gpg;

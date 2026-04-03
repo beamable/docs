@@ -303,7 +303,7 @@ In this image and tables are **example** name/value pairs to demonstrate how to 
 
 ### Adding Rules
 
-Event rules are optional and are not parsed by the client side. However, they are a powerful tool to use to create and maintain server-authoritative logic.
+Event rules are optional and are not parsed by the client. However, they are a powerful tool to use to create and maintain server-authoritative logic.
 
 | Name           | Value               | Detail                                                                                                                                                                                                     |
 |----------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

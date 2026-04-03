@@ -120,7 +120,7 @@ Deciding which user interactions require events and how to design the event payl
 
 !!! info "Expert Advice"
 
-    "Determinism of the game simulation is important due to the nature of our server implementation. Because Beamable's relay servers are game state agnostic, any sort of state checkpointing or CPU architectural differences are not corrected on the server side so in order to keep the game state in sync on all clients, it is imperative that the game be made deterministic."
+    "Determinism of the game simulation is important due to the nature of our server implementation. Because Beamable's relay servers are game state agnostic, any sort of state checkpointing or CPU architectural differences are not corrected on the server so in order to keep the game state in sync on all clients, it is imperative that the game be made deterministic."
 
     • See Ruoyu Sun's [Game Networking Article](https://ruoyusun.com/2019/03/29/game-networking-2.html) for more info
 
