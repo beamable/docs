@@ -24,7 +24,7 @@ Once downloaded, follow these steps to install the Beamable SDK into your Unity 
 | 2. Verify the import | ![Verify Import](../../media/imgs/step-2-verify-import.png)<br>• Press the "Import" button |
 | 3. Install the **Beamable SDK** | ![Install SDK](./installation-01.png)<br>• Click to continue |
 | 4. Remove the **Beamable SDK Installer Package** | • Now that the installation process is complete, the installer package is no longer needed. You can remove it. |
-| 5. **Install Dotnet (if required)** | Starting with the Unity 5.0.0 SDK, Beamable requires that you have dotnet 10.0.100 or 8.0.302 installed on your machine. If you don't, the Beamable SDK will offer a download option for you, and once you've finished installing it, you can continue through the dialog. |
+| 5. **Install .NET (if required)** | Starting with the Unity 5.0.0 SDK, Beamable requires that you have .NET 10.0.100 or 8.0.302 installed on your machine. If you don't, the Beamable SDK will offer a download option for you, and once you've finished installing it, you can continue through the dialog. |
 
 Congratulations, the Beamable SDK is now installed!
 

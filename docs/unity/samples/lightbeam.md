@@ -136,4 +136,4 @@ The `HandleClicked()` method is an extension on the `Button` type that attaches 
 
 #### ShowLoading
 
-The `ShowLoading()` method is an extension of a variety of types, and it acts as a way to show a loading visualization to the user while a `Promise` executes in the background. A `Promise` is a representation of asynchronous work, similar to the dotnet `Task` type.
+The `ShowLoading()` method is an extension of a variety of types, and it acts as a way to show a loading visualization to the user while a `Promise` executes in the background. A `Promise` is a representation of asynchronous work, similar to the .NET `Task` type.

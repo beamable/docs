@@ -58,9 +58,9 @@ Logs at
   /var/folders/ys/949qmfy15r7bl8x36s6wmm000000gn/T/beamCliLog.txt
 ```
 
-## Dotnet Tool Folder
+## .NET Tool Folder
 
-The Beamable CLI executes as a local dotnet tool installation. That means that there should be a `.config/` folder in your project. There should be a file called `dotnet-tools.json` in the folder, declaring the version of the CLI you are using.
+The Beamable CLI executes as a local .NET tool installation. That means that there should be a `.config/` folder in your project. There should be a file called `dotnet-tools.json` in the folder, declaring the version of the CLI you are using.
 
 ```json
 {
@@ -79,7 +79,7 @@ The Beamable CLI executes as a local dotnet tool installation. That means that t
 
 !!! info "The folder can exist in a higher folder."
 
-    Normally the `.config/` folder exists as a sibling of the `.beamable/` folder. However, the `.config/` folder _may_ exist in a parent folder. The closest `.config/` folder will be used. See the [dotnet tool documentation](https://learn.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use) for more information. 
+    Normally the `.config/` folder exists as a sibling of the `.beamable/` folder. However, the `.config/` folder _may_ exist in a parent folder. The closest `.config/` folder will be used. See the [.NET tool documentation](https://learn.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use) for more information. 
 
 
 ## Workspace Overview

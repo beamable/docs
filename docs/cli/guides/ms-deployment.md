@@ -4,7 +4,7 @@ Deploy Standalone Microservices to the Beamable Cloud
 
 ## Dependencies
 
-Before you can deploy Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can deploy Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -28,7 +28,7 @@ dotnet beam project new service HelloWorld
 
 ## Deployment
 
-Beamable Standalone Microservices use Dotnet as the core technology to run locally on your development machine. However, when it is time to release your Microservice to production, the service will be built into an OCI compliant image using [Docker](https://www.docker.com/products/docker-desktop/), and uploaded to the Beamable Cloud. Beamable's internal orchestration platform (sometimes called _BeamO_ ) will deploy containerized instances of the service.
+Beamable Standalone Microservices use .NET as the core technology to run locally on your development machine. However, when it is time to release your Microservice to production, the service will be built into an OCI compliant image using [Docker](https://www.docker.com/products/docker-desktop/), and uploaded to the Beamable Cloud. Beamable's internal orchestration platform (sometimes called _BeamO_ ) will deploy containerized instances of the service.
 
 Deploying services is a two-step process. First, you must build the images and generate a **plan file**. Then, you use the CLI to deploy a plan.
 
@@ -168,7 +168,7 @@ Standalone Microservices build custom Docker images that are run on the Beamable
 
 You may modify this file to extend the capabilities of your resulting docker image. However, there are a few restrictions about how you may modify the file. Do not edit or remove anything between the `<beamReserved>` tags. This is a special tag that should allow us to programmatically add things to the `Dockerfile` should the need arise.
 
-Beamable has validated that dotnet 8 is stable for all supported platforms. You may change the dotnet framework version at your own peril.
+Beamable has validated that .NET 8 is stable for all supported platforms. You may change the .NET framework version at your own peril.
 
 !!! info "Docker CPU Architecture"
 

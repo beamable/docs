@@ -1,10 +1,10 @@
 # Microservices Overview
 
-Beamable Microservices are small C# projects that can handle web traffic for your Unity game, Unreal game, or custom engine game. The C# project is written with the modern dotnet library which means you have full access to the vast majority of dotnet features, including Nuget, Msbuild, and the myriad of performance improvements available in recent .NET updates.
+Beamable Microservices are small C# projects that can handle web traffic for your Unity game, Unreal game, or custom engine game. The C# project is written with the modern .NET library which means you have full access to the vast majority of .NET features, including Nuget, Msbuild, and the myriad of performance improvements available in recent .NET updates.
 
-!!! warning "Dotnet and Docker Dependency!"
+!!! warning ".NET and Docker Dependency!"
 
-    To use Microservices, you will need to install [dotnet 8](https://dotnet.microsoft.com/en-us/download) onto your machine. In order to publish services, you will need to install [Docker](https://www.docker.com/products/docker-desktop/). (You _do not_ need to create a Docker account). These are only development dependencies.
+    To use Microservices, you will need to install [.NET 8](https://dotnet.microsoft.com/en-us/download) onto your machine. In order to publish services, you will need to install [Docker](https://www.docker.com/products/docker-desktop/). (You _do not_ need to create a Docker account). These are only development dependencies.
 
 The basic gist of a Beamable Microservice is a simple class like the one below,
 

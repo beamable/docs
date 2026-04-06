@@ -1,14 +1,14 @@
 # Get up and running with the Beamable CLI
 
-The Beamable CLI is a dotnet tool that allows developers to interact with Beamable. It can manage a variety of Beamable technologies, including Microservices, Content, and other services.
+The Beamable CLI is a .NET tool that allows developers to interact with Beamable. It can manage a variety of Beamable technologies, including Microservices, Content, and other services.
 
 ## Dependencies
-You'll need to install [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) before you can get started.
+You'll need to install [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) before you can get started.
 Verify it is installed by running `dotnet --version` from a terminal.
 
-!!! info "We support Dotnet 8 as well."
+!!! info "We support .NET 8 as well."
 
-    If you are using the Beamable CLI before version 7.0, then you should be using [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). Starting with CLI 7.0 and beyond, we support both versions of dotnet, but we recommend you use `net10.0`. 
+    If you are using the Beamable CLI before version 7.0, then you should be using [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). Starting with CLI 7.0 and beyond, we support both versions of .NET, but we recommend you use `net10.0`.
 
 ## Installing
 To install the Beamable CLI, run the following command in a shell.
@@ -32,7 +32,7 @@ beam version install latest
 
 !!! info "Check Versions on NuGet"
 
-    Remember, Beamable.Tools is a dotnet tool available through NuGet. You can find all available versions at [nuget.org](https://www.nuget.org/packages/Beamable.Tools)
+    Remember, Beamable.Tools is a .NET tool available through NuGet. You can find all available versions at [nuget.org](https://www.nuget.org/packages/Beamable.Tools)
 
 There may be updates you are required to do, so please check the [migration guide](upgrading.md).
 
