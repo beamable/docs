@@ -141,9 +141,9 @@ After you have made a custom Unity project, follow these steps to add a Microser
 
 As you develop your Microservice in the /Packages folder, it will act like any Microservice in your /Assets folder. However, when a downstream project imports the custom Unity package, it will appear as "Read Only".
 
-### Nuget
+### NuGet
 
-An alternative approach to sharing Microservice capabilities is to package and distribute your server code as a composable _Nuget_ package. Multiple Unity projects will need to create their own Microservice projects in the project's /Assets folder; and simply use Nuget to reference the custom code from within the Microservice itself.
+An alternative approach to sharing Microservice capabilities is to package and distribute your server code as a composable _NuGet_ package. Multiple Unity projects will need to create their own Microservice projects in the project's /Assets folder; and simply use NuGet to reference the custom code from within the Microservice itself.
 
 An advantage to this approach is that the downstream projects can modify the Microservice code to extend or modify the code as need be.
 

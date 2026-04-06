@@ -183,7 +183,7 @@ And update it to
 
 #### `MongoDb.Driver` package vulnerability
 Previous versions of Beamable relied on version 2.15.1 of the `MongoDb.
-Driver` nuget package. If your project does not include any storage objects,
+Driver` NuGet package. If your project does not include any storage objects,
 you can ignore this step. However, if you do have storage objects, then
 those projects likely include this reference in the `.csproj` files,
 
@@ -450,7 +450,7 @@ Instead, you should expect to see (at least),
 
 ##### SDK Version
 
-Unfortunately, the upgrade flow between major version 1 and 2 does not automatically upgrade the nuget dependency on Beamable. All of the `.csproj` files you may have will need to be manually upgraded to Beamable 2.0.1. Remember, every service, common library, and storage have their own `.csproj` files.
+Unfortunately, the upgrade flow between major version 1 and 2 does not automatically upgrade the NuGet dependency on Beamable. All of the `.csproj` files you may have will need to be manually upgraded to Beamable 2.0.1. Remember, every service, common library, and storage have their own `.csproj` files.
 
 Open each `csproj` file, and find the `<PackageReference>` for Beamable.
 For a service, it will likely look like this,
@@ -476,7 +476,7 @@ In addition, different project types have the following upgrade requirements...
 
 ###### Services
 
-For services, the `csproj` file has been simplified between major versions 1 and 2. You can remove all the tasks and extraneous nuget references.
+For services, the `csproj` file has been simplified between major versions 1 and 2. You can remove all the tasks and extraneous NuGet references.
 
 This snippet can (and should) be removed from a 1.19.22 service's `csproj` file.
 ```xml
@@ -592,7 +592,7 @@ After all the edits, you should have a `csproj` file that looks similar to the f
         <!-- net8.0 is the LTS version until 2026. To update your net version, update the <TargetFramework> when Beamable announces support. -->
         <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
-    <ItemGroup Label="Nuget References">
+    <ItemGroup Label="NuGet References">
         <PackageReference Include="Beamable.Microservice.Runtime" Version="2.0.1" />
     </ItemGroup>
 </Project>

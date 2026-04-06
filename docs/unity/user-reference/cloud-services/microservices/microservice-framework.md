@@ -1,6 +1,6 @@
 # Microservices Overview
 
-Beamable Microservices are small C# projects that can handle web traffic for your Unity game, Unreal game, or custom engine game. The C# project is written with the modern .NET library which means you have full access to the vast majority of .NET features, including Nuget, Msbuild, and the myriad of performance improvements available in recent .NET updates.
+Beamable Microservices are small C# projects that can handle web traffic for your Unity game, Unreal game, or custom engine game. The C# project is written with the modern .NET library which means you have full access to the vast majority of .NET features, including NuGet, MSBuild, and the myriad of performance improvements available in recent .NET updates.
 
 !!! warning ".NET and Docker Dependency!"
 
