@@ -4,7 +4,7 @@ Federate Standalone Microservices with external services
 
 ## Dependencies
 
-Before you can federate using Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
+Before you can federate using Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -22,10 +22,10 @@ dotnet beam project new service HelloWorld
 
 ## Federation
 
-Microservice _Federation_ is the ability to inject custom server logic in the middle of existing Beamable server functionality. Federation can be used to add custom behaviour to your game like supporting external identity auth providers, using a block chain as the backing data provider for player inventory, managing how match making works, and more. 
+Microservice _Federation_ is the ability to inject custom server logic in the middle of existing Beamable server functionality. Federation can be used to add custom behaviour to your game like supporting external identity auth providers, using a block chain as the backing data provider for player inventory, managing how match making works, and more.
 
-There are 4 types of federation. All of these federations have C# interfaces 
-that define the types of functions that they require. 
+There are 4 types of federation. All of these federations have C# interfaces
+that define the types of functions that they require.
 1. `IFederatedLogin`
 2. `IFederatedInventory`
 3. `IFederatedGameServer`
@@ -37,7 +37,7 @@ A Microservice supports these federations when The `Microservice` class includes
 A service that federates login functionality may have a class signature like the following.
 
 ```csharp
-public partial class ExampleService : IFederatedLogin<MySample> 
+public partial class ExampleService : IFederatedLogin<MySample>
 {
 	// implementation
 }
@@ -53,25 +53,25 @@ public class MySample : IFederationId { }
 
 ## CLI Commands
 
-The CLI offers a few commands to enable and disable federations for a service. The `beam fed` command suite allows you to read and write federation data. None of the commands will modify your C# source files. 
+The CLI offers a few commands to enable and disable federations for a service. The `beam fed` command suite allows you to read and write federation data. None of the commands will modify your C# source files.
 
-The `beam fed list` command will show all federations for all services. 
+The `beam fed list` command will show all federations for all services.
 ```sh
 dotnet beam fed list
- {                                                                               
-    "cid": "1338004997867618",                                                   
-    "pid": "DE_1754280032981028",                                                
-    "services": [                                                                
-       {                                                                         
-          "beamoName": "ExampleService",                                         
-          "routingKey": "chriss-macbook-pro-2_59e8e38ad189aefe093dfa7d74e18841", 
-          "federations": {                                                       
-             "myId": [                                                           
-                {                                                                
-                   "interface": "IFederatedLogin"                                
-                }                                                                
-             ]    
-            
+ {
+    "cid": "1338004997867618",
+    "pid": "DE_1754280032981028",
+    "services": [
+       {
+          "beamoName": "ExampleService",
+          "routingKey": "chriss-macbook-pro-2_59e8e38ad189aefe093dfa7d74e18841",
+          "federations": {
+             "myId": [
+                {
+                   "interface": "IFederatedLogin"
+                }
+             ]
+
 ```
 
 ---
