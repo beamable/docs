@@ -6076,14 +6076,14 @@
 <h1 id="command-line-output">Command-Line Output<a class="headerlink" href="#command-line-output" title="Permanent link">¶</a></h1>
 <p>Passing output from the CLI to other processes</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>Before you can use the Beamable CLI, you need to complete the <a href="doc:cli-guide-getting-started">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">Dotnet 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>. </p>
+<p>Before you can use the Beamable CLI, you need to complete the <a href="doc:cli-guide-getting-started">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
 </code></pre></div><p></p>
 <h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">¶</a></h2>
-<p>By default, the Beam CLI uses an informational level of logging. Usually, only the final output of a command will be printed to the console. However, for diagnostic purposes, you can change the log level of the CLI using the <code>--log</code> switch. </p>
-<p>The log levels are as follows, </p>
+<p>By default, the Beam CLI uses an informational level of logging. Usually, only the final output of a command will be printed to the console. However, for diagnostic purposes, you can change the log level of the CLI using the <code>--log</code> switch.</p>
+<p>The log levels are as follows,</p>
 <table>
 <thead>
 <tr>
@@ -6118,21 +6118,21 @@
 </tr>
 </tbody>
 </table>
-<p>In order to set the log level, the full level name may be used (case insensitive), or simply the first letter of the level. For example, to use verbose logs, the following expression may be used. </p>
+<p>In order to set the log level, the full level name may be used (case insensitive), or simply the first letter of the level. For example, to use verbose logs, the following expression may be used.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span>--logs<span class="w"> </span>v
 </code></pre></div>
 <h2 id="raw-output-mode">Raw Output Mode<a class="headerlink" href="#raw-output-mode" title="Permanent link">¶</a></h2>
-<p>By default, the Beam CLI prints output in a variety of ways. Some commands will print JSON to the Standard Output Buffer (StdOut), and other commands will print conversational messages. However, all commands can be forced to print in a structured JSON format. </p>
-<p>The <code>--raw</code> flag will always print messages in JSON. The <code>--raw</code> message contains additional information than what may be printed for commands that already use JSON. For example, the <code>beam config</code> command prints JSON, </p>
+<p>By default, the Beam CLI prints output in a variety of ways. Some commands will print JSON to the Standard Output Buffer (StdOut), and other commands will print conversational messages. However, all commands can be forced to print in a structured JSON format.</p>
+<p>The <code>--raw</code> flag will always print messages in JSON. The <code>--raw</code> message contains additional information than what may be printed for commands that already use JSON. For example, the <code>beam config</code> command prints JSON,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w"> </span><span class="o">{</span><span class="w">                                                                 </span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="s2">"host"</span>:<span class="w"> </span><span class="s2">"https://api.beamable.com"</span>,<span class="w">                            </span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="s2">"cid"</span>:<span class="w"> </span><span class="s2">"123"</span>,<span class="w">                                     </span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="s2">"pid"</span>:<span class="w"> </span><span class="s2">"DE_123"</span>,<span class="w">                                  </span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="s2">"configPath"</span>:<span class="w"> </span><span class="s2">"/Users/Test/MyProject/.beamable"</span><span class="w"> </span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w"> </span><span class="o">}</span><span class="w"> </span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="s2">"host"</span>:<span class="w"> </span><span class="s2">"https://api.beamable.com"</span>,
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="s2">"cid"</span>:<span class="w"> </span><span class="s2">"123"</span>,
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="s2">"pid"</span>:<span class="w"> </span><span class="s2">"DE_123"</span>,
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="s2">"configPath"</span>:<span class="w"> </span><span class="s2">"/Users/Test/MyProject/.beamable"</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w"> </span><span class="o">}</span>
 </code></pre></div>
-<p>However, when the <code>--raw</code> flag is given, the output becomes, </p>
+<p>However, when the <code>--raw</code> flag is given, the output becomes,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span>--raw
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="o">{</span><span class="s2">"ts"</span>:1716908373832,<span class="s2">"type"</span>:<span class="s2">"stream"</span>,<span class="s2">"data"</span>:<span class="o">{</span><span class="s2">"host"</span>:<span class="s2">"https://api.beamable.com"</span>,<span class="s2">"cid"</span>:<span class="s2">"123"</span>,<span class="s2">"pid"</span>:<span class="s2">"DE_123"</span>,<span class="s2">"configPath"</span>:<span class="s2">"/Users/Test/MyProject/.beamable"</span><span class="o">}}</span>
 </code></pre></div>
@@ -6162,13 +6162,13 @@
 <h2 id="piping">Piping<a class="headerlink" href="#piping" title="Permanent link">¶</a></h2>
 <p>When a Beam CLI command is piped into another process, the <code>--raw</code> flag is force enabled. For example, if <code>beam config</code> is piped into a file, then the contents of the file will be the <code>--raw</code> output.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span>&gt;<span class="w"> </span>output.txt
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cat<span class="w"> </span>output.txt<span class="w"> </span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cat<span class="w"> </span>output.txt
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="o">{</span><span class="s2">"ts"</span>:1716908709811,<span class="s2">"type"</span>:<span class="s2">"stream"</span>,<span class="s2">"data"</span>:<span class="o">{</span><span class="s2">"host"</span>:<span class="s2">"https://api.beamable.com"</span>,<span class="s2">"cid"</span>:<span class="s2">"123"</span>,<span class="s2">"pid"</span>:<span class="s2">"DE_123"</span>,<span class="s2">"configPath"</span>:<span class="s2">"/Users/Test/MyProject/.beamable"</span><span class="o">}}</span>
 </code></pre></div>
 <p>A common workflow is to use the <a href="https://jqlang.github.io/jq/download/">JQ</a> tool to navigate the piped <code>--raw</code> output. Below are some common examples.</p>
-<p>In order to pipe the <code>data</code> to a file, we could write, 
+<p>In order to pipe the <code>data</code> to a file, we could write,
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.data'</span><span class="w"> </span>&gt;<span class="w"> </span>output.txt
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cat<span class="w"> </span>output.txt<span class="w"> </span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cat<span class="w"> </span>output.txt
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="o">{</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="s2">"host"</span>:<span class="w"> </span><span class="s2">"https://api.beamable.com"</span>,
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="s2">"cid"</span>:<span class="w"> </span><span class="s2">"123"</span>,
@@ -6180,7 +6180,7 @@
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.data.cid'</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s2">"123"</span>
 </code></pre></div><p></p>
-<p>Sometimes you need the unescaped JSON; the <code>fromjson</code> component of JQ can be used. For example, if we wanted the <code>cid</code> value, but without quotes, </p>
+<p>Sometimes you need the unescaped JSON; the <code>fromjson</code> component of JQ can be used. For example, if we wanted the <code>cid</code> value, but without quotes,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.data.cid | fromjson'</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="m">123</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
@@ -6189,12 +6189,12 @@
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="m">123</span>
 </code></pre></div>
 <h2 id="piping-and-logging">Piping and Logging<a class="headerlink" href="#piping-and-logging" title="Permanent link">¶</a></h2>
-<p>When the <code>--raw</code> flag is used, or a command is piped to a file, then the Standard Output Buffer will only receive the <code>--raw</code> output data. If the <code>--logs</code> flag is set, then logs will be sent to the Standard Error Buffer, such that will appear in the console. However, it can be tricky to emit the process logs to a file. </p>
-<p>In order to do so, the Standard Error Buffer must be piped to a file. For example, the following expression will put the process logs into a file. </p>
+<p>When the <code>--raw</code> flag is used, or a command is piped to a file, then the Standard Output Buffer will only receive the <code>--raw</code> output data. If the <code>--logs</code> flag is set, then logs will be sent to the Standard Error Buffer, such that will appear in the console. However, it can be tricky to emit the process logs to a file.</p>
+<p>In order to do so, the Standard Error Buffer must be piped to a file. For example, the following expression will put the process logs into a file.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span>--logs<span class="w"> </span>v<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>test.txt
 </code></pre></div>
 <p>The contents of the <code>test.txt</code> file contain the process logs, not the <code>--raw</code> output.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cat<span class="w"> </span>test.txt<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cat<span class="w"> </span>test.txt
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Trying<span class="w"> </span>to<span class="w"> </span>get<span class="w"> </span><span class="nv">option</span><span class="o">=</span>ConfigDirOption<span class="w"> </span>from<span class="w"> </span>Env<span class="w"> </span>Vars!<span class="w"> </span>Value<span class="w"> </span><span class="nv">Found</span><span class="o">=</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Using<span class="w"> </span>standard<span class="w"> </span>unix<span class="w"> </span>docker<span class="w"> </span><span class="nv">uri</span><span class="o">=[</span>unix:/var/run/docker.sock<span class="o">]</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>GET<span class="w"> </span>call:<span class="w"> </span>/basic/beamo/manifest/current

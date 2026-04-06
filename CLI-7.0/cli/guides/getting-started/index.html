@@ -6074,13 +6074,13 @@
 
 
 <h1 id="get-up-and-running-with-the-beamable-cli">Get up and running with the Beamable CLI<a class="headerlink" href="#get-up-and-running-with-the-beamable-cli" title="Permanent link">¶</a></h1>
-<p>The Beamable CLI is a dotnet tool that allows developers to interact with Beamable. It can manage a variety of Beamable technologies, including Microservices, Content, and other services. </p>
+<p>The Beamable CLI is a .NET tool that allows developers to interact with Beamable. It can manage a variety of Beamable technologies, including Microservices, Content, and other services.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>You'll need to install <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">Dotnet 10</a> before you can get started. 
+<p>You'll need to install <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> before you can get started.
 Verify it is installed by running <code>dotnet --version</code> from a terminal.</p>
 <div class="admonition info">
-<p class="admonition-title">We support Dotnet 8 as well.</p>
-<p>If you are using the Beamable CLI before version 7.0, then you should be using <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">Dotnet 8</a>. Starting with CLI 7.0 and beyond, we support both versions of dotnet, but we recommend you use <code>net10.0</code>. </p>
+<p class="admonition-title">We support .NET 8 as well.</p>
+<p>If you are using the Beamable CLI before version 7.0, then you should be using <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">.NET 8</a>. Starting with CLI 7.0 and beyond, we support both versions of .NET, but we recommend you use <code>net10.0</code>.</p>
 </div>
 <h2 id="installing">Installing<a class="headerlink" href="#installing" title="Permanent link">¶</a></h2>
 <p>To install the Beamable CLI, run the following command in a shell.
@@ -6098,21 +6098,21 @@ And verify your installation with <code>beam version</code>.<p></p>
 </code></pre></div><p></p>
 <div class="admonition info">
 <p class="admonition-title">Check Versions on NuGet</p>
-<p>Remember, Beamable.Tools is a dotnet tool available through NuGet. You can find all available versions at <a href="https://www.nuget.org/packages/Beamable.Tools">nuget.org</a></p>
+<p>Remember, Beamable.Tools is a .NET tool available through NuGet. You can find all available versions at <a href="https://www.nuget.org/packages/Beamable.Tools">nuget.org</a></p>
 </div>
 <p>There may be updates you are required to do, so please check the <a href="../upgrading/">migration guide</a>.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
-<p>Now that Beamable is installed, you can connect to an existing Beamable organization. If you haven't setup an organization yet, <a href="https://portal.beamable.com/signup/registration/">create a Beamable organization</a> first. </p>
-<p>You can connect the CLI to your Beamable organization with the <a href="../../commands/cli-command-reference/init/">beam init</a> command. </p>
+<p>Now that Beamable is installed, you can connect to an existing Beamable organization. If you haven't setup an organization yet, <a href="https://portal.beamable.com/signup/registration/">create a Beamable organization</a> first.</p>
+<p>You can connect the CLI to your Beamable organization with the <a href="../../commands/cli-command-reference/init/">beam init</a> command.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mkdir<span class="w"> </span>MyProject
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>beam<span class="w"> </span>init
 </code></pre></div>
 <p>This command will prompt you for your organization's alias, your credentials, and which realm to use. When it is complete, you should see a <code>./beamable</code> folder in the current directory. See the <a href="../configuration/">Configuration</a> for details about this folder. Now, you can run a <a href="../../commands/cli-command-reference/config/config/">beam config</a> command to verify your project is set up.</p>
 <p></p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config
 </code></pre></div>
-You should expect to see your CID/PID printed out. <p></p>
-<p>As of CLI 3.0.0, anytime you create a Beamable workspace, the CLI will be installed as a local tool next to the workspace's <code>.beamable</code> folder. This means that you can run the local tool with <code>dotnet beam</code>. If you continue to use <code>beam</code> in the workspace, the global installation will automatically forward your command to the local tool. This will be inefficient and lead to poor performance. We recommend you use <code>dotnet beam</code> wherever possible. </p>
-<p>To check that everything is working correctly, you can use the beam me command. Now you have a configured CLI project! </p>
+You should expect to see your CID/PID printed out.<p></p>
+<p>As of CLI 3.0.0, anytime you create a Beamable workspace, the CLI will be installed as a local tool next to the workspace's <code>.beamable</code> folder. This means that you can run the local tool with <code>dotnet beam</code>. If you continue to use <code>beam</code> in the workspace, the global installation will automatically forward your command to the local tool. This will be inefficient and lead to poor performance. We recommend you use <code>dotnet beam</code> wherever possible.</p>
+<p>To check that everything is working correctly, you can use the beam me command. Now you have a configured CLI project!</p>
 <div class="admonition info">
 <p class="admonition-title">Finding Help</p>
 <p>You can pass the <code>--help</code> flag to any command to print out detailed information about the arguments and options for the given command. Also, the <code>--help-all</code> flag will include additional information used by internal Beamable developers. You are welcome to use the internal facing commands, but they are not officially supported.</p>
