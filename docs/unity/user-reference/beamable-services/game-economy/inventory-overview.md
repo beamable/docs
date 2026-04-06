@@ -23,7 +23,7 @@ Player inventories can be viewed/edited on the Portal. More information can be f
 
 ### Pruning Deprecated Items
 
-Normally inventory item types are meant to be long-lasting, and the corresponding items may be owned by players indefinitely. However, in some styles of game, there are item types that are only meaningful for a limited time period, and it makes sense to remove the content definitions when the relevant time period ends. This can lead to **Deprecated Items**, described below. To prevent deprecated items from building up, you can enable **Inventory Pruning** on your realm.
+Normally inventory item types are meant to be long-lasting, and the corresponding items may be owned by players indefinitely. However, in some styles of game, there are item types that are only meaningful for a limited time, and it makes sense to remove the content definitions when the relevant period ends. This can lead to **Deprecated Items**, described below. To prevent deprecated items from building up, you can enable **Inventory Pruning** on your realm.
 
 #### Deprecated Items
 

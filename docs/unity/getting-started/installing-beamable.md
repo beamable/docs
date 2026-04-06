@@ -58,9 +58,9 @@ Enter play-mode, and hit the `~` character (the same key as `` ` ``). This shoul
 
 The Beamable plugin will automatically install the Beam CLI into your Unity project. The Beam CLI is a developer tool for managing Beamable resources like Microservices, Content, and more. The Beamable Unity plugin relies on the CLI for interacting with Beamable. Your Unity project is a valid Beamable CLI project, which means you can also use the CLI directly if required.
 
-You should expect to see a `.beamable` folder and a `.config`folder in your Unity project's file structure. The `.beamable` folder contains Beamable-specific information about your project, and the `.config` folder is a special `dotnet` folder that defines the version of the Beam CLI. If you are using source-control, you should include both of these folders in source control.
+You should expect to see a `.beamable/` folder and a `.config/` folder in your Unity project's file structure. The `.beamable/` folder contains Beamable-specific information about your project, and the `.config/` folder is a special `dotnet` folder that defines the version of the Beam CLI. If you are using source control, you should include both folders. The `.beamable/` folder includes its own `.gitignore` that excludes files containing individual authentication data, as well as temporary files and folders that only pertain to local state.
 
-The `.config` folder has a file called `dotnet-tools.json` which specifies the version of the Beam CLI being used by the Beamable Unity SDK. By default, the Beamable SDK will maintain this number, and you should not edit it by hand.
+The `.config/` folder has a file called `dotnet-tools.json` which specifies the version of the Beam CLI being used by the Beamable Unity SDK. By default, the Beamable SDK will maintain this number, and you should not edit it by hand.
 
 New versions of the Beamable SDK may depend on different versions of the Beam CLI. This table shows which versions of the Beamable SDK depend on what CLI versions.
 
