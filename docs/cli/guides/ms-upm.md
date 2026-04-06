@@ -4,8 +4,8 @@ Sharing a Microservice with Unity via UPM
 
 ## Dependencies
 
-Before you can use Distribute a Microservice with UPM, you need to complete the 
-[Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can use Distribute a Microservice with UPM, you need to complete the
+[Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -13,7 +13,7 @@ dotnet --version
 dotnet beam version # beam --version also works.
 ```
 
-You also need to have a local `.beamable` workspace with a Beamable 
+You also need to have a local `.beamable` workspace with a Beamable
 Standalone Microservice. As a reminder, you can create one quickly using the commands below.
 ```sh
 beam init Project
@@ -23,20 +23,20 @@ dotnet beam project new service Service
 
 ## Steps
 
-Standalone Microservice projects can be distributed as Unity Package Manager 
-(UPM) packages, which allows downstream Unity projects to re-use an existing 
-Microservice. 
+Standalone Microservice projects can be distributed as Unity Package Manager
+(UPM) packages, which allows downstream Unity projects to re-use an existing
+Microservice.
 
-However, there are several configuration steps required in the Standalone 
-Microservice project. 
+However, there are several configuration steps required in the Standalone
+Microservice project.
 
 ### Preparing the Microservice
 
-Follow these steps to convert an existing Standalone Microservice into a UPM 
-compatible Microservice. 
+Follow these steps to convert an existing Standalone Microservice into a UPM
+compatible Microservice.
 
 1. Rename "services" folder to "services~"
-2. Modify the `.sln` file to mirror the folder name change. 
+2. Modify the `.sln` file to mirror the folder name change.
 3. Create a local `Assets` folder next to the `.beamable` folder
 4. Create a `Runtime` folder and a `Runtime/Client` folder next to the `.beamable` folder
 5. Create a file in the `.beamable` folder called `linked-projects.json`,
@@ -47,8 +47,8 @@ compatible Microservice.
         ]
     }
     ```
-   
-   So far, your folder structure should at least have these files. 
+
+   So far, your folder structure should at least have these files.
    ```
    /Project
      /.beamable
@@ -82,14 +82,14 @@ asmdef` (replace `"Service"` with your service name), and paste the following,
    ```
    Make sure to replace `"Service"` in the `"name"` field with your service
    name.
-7. Now you are ready to generate the client code. To do this, run the 
-   following command **AFTER** building your Microservice. This command 
-   should be run from the `/services~/Service` folder. 
+7. Now you are ready to generate the client code. To do this, run the
+   following command **AFTER** building your Microservice. This command
+   should be run from the `/services~/Service` folder.
    ```sh
    dotnet beam project generate-client ./bin/Debug/net8.0/Service.dll --output-links --output-path-hints "Service=Runtime/Client/ServiceClient.cs" --logs v
    ```
-8. You need to create a `package.json` file. Place it next to the `/Assets` 
-   folder in the Microservice project. 
+8. You need to create a `package.json` file. Place it next to the `/Assets`
+   folder in the Microservice project.
    ```json
       {
         "name": "com.service",
@@ -97,8 +97,8 @@ asmdef` (replace `"Service"` with your service name), and paste the following,
         "displayName": "Demo"
       }
    ```
-   
-Finally, your project structure should look similar to this, 
+
+Finally, your project structure should look similar to this,
 
 So far, your folder structure should at least have these files.
    ```
@@ -121,16 +121,16 @@ So far, your folder structure should at least have these files.
 
 ### Preparing the Unity Project
 
-Now that the Microservice is ready, in order to import it into a Unity 
-project as a UPM package, follow these steps. 
+Now that the Microservice is ready, to import it into a Unity
+project as a UPM package, follow these steps.
 
-1. Ensure that the Unity project is referencing Beamable's packages. 
-   At least Beamable version `com.beamable` and `com.beamable.server` 2.1.3 is 
-   required. 
-2. In Unity Package Manager, add a package from disk, and select the path to 
-   your created `package.json` from the previous steps. 
-3. Modify the `.beamable/additional-project-paths.json` file in the Unity 
-   project and add the path to the UPM project folder. 
+1. Ensure that the Unity project is referencing Beamable's packages.
+   At least Beamable version `com.beamable` and `com.beamable.server` 2.1.3 is
+   required.
+2. In Unity Package Manager, add a package from disk, and select the path to
+   your created `package.json` from the previous steps.
+3. Modify the `.beamable/additional-project-paths.json` file in the Unity
+   project and add the path to the UPM project folder.
    ```json
    ["/path/to/Project"]
    ```
