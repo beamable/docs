@@ -129,7 +129,7 @@ where
 
 ### 30 Day Retention Cohort
 
-Now that you have engaged players, you will want to ensure they they are sticky. This means that they will come back and play your game and this report data shows you how often they come back. This also shows you if players are churning out from your game. Churn is when a player stops playing your game and you've likely lost them for good. Churn is bad, and if you want to prevent it you need to understand how well you are retaining your players.
+Now that you have engaged players, it is worth ensuring they are sticky — that is, that they return to play regularly. This report shows how often players come back, and whether retention is declining. High churn (players who stop playing and don't return) is a signal to investigate your retention metrics more closely.
 
 !!! info "Query Notes"
 

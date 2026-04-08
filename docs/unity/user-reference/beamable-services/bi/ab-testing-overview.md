@@ -13,7 +13,7 @@ The concept of A/B Testing is to run experiments across a cohort (segmented set)
 - **Decrease Costs** - Game makers can focus on a leaner feature-set which is proven to matter to players
 - **Decrease Risks** - Roll out new gameplay features more frequently to a subset of the players. Ensure it is ready before releasing to everyone
 
-Generally you will want to follow a process:
+Generally, follow this process:
 
 - Write Telemetry in your game so you have metrics you can measure against
 - Run analytics and create reports that allow you to visualize your players behaviors
