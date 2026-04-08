@@ -294,7 +294,7 @@ In a few moments, you should see log data appear in BetterStack.
 
 To configure a deployed Microservice to report log data to BetterStack, we need to start the collector in the deployed environment. The easiest way to do this is to run the collector as a local process.
 
-The `Dockerfile` needs to be modified to include the collector in the built image. Add these lines right below the `WORKDIR /beamApp` line,
+Modify the `Dockerfile` to include the collector in the built image. Add these lines right below the `WORKDIR /beamApp` line,
 
 ```dockerfile
 # Install utilities

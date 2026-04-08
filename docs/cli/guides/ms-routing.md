@@ -97,13 +97,13 @@ The account information is accessible via the `Context.UserId` property when exe
 
     You should be using the Beamable SDK in your Unity projects that use Standalone Microservices. Otherwise, there will be many compile errors as the Beamable SDK is not available.
 
-Microservices can automatically generate client code for the Unity game engine. First, a Unity project needs to be linked to the `.beamable/` workspace. To do this, use the project add-unity-project command.
+Microservices can automatically generate client code for the Unity game engine. First, link a Unity project to the `.beamable/` workspace using the project add-unity-project command.
 
 ```sh
 dotnet beam project add-unity-project <relative-path-to-unity-project>
 ```
 
-The given path should be the relative path to the Unity project. If it isn't right, the CLI will offer an explorative search flow to identify a valid Unity project.
+Provide the relative path to the Unity project. If it isn't right, the CLI will offer an explorative search flow to identify a valid Unity project.
 
 After the command has run, there will be a `.beamable/linked-projects.json` file. You can review it to double check your project has been added correctly.
 

@@ -5,7 +5,7 @@ The purpose of this guide is for game makers to use Apple Sign-In with the Beama
 Beamable integrates with Apple Sign-In to make it easy for users to sign in to your apps and websites using their Apple ID. Instead of filling out forms, verifying email addresses, and choosing new passwords, they can use Sign in with Apple to set up an account and start using your app right away. All accounts are protected with two-factor authentication for superior security, and Apple will not track users' activity in your app or website.
 
 !!! info "Prerequisites"
-    Before Apple Sign-In will work properly, the Unity project must be configured to support Apple as a third-party authentication provider.
+    Before Apple Sign-In will work properly, configure your Unity project to support Apple as a third-party authentication provider.
 
 ## Apple Sign-In Integration
 
@@ -25,7 +25,7 @@ private void Start()
 }
 ```
 
-The next function should be called from a UI button or interface, where the user intends to start the sign-in process. Similar to the other third party login code, we just need to retrieve the token for the user then add a third party credential to a new or existing user.
+Call the next function from a UI button or interface where the user intends to start the sign-in process. Similar to the other third party login code, we just need to retrieve the token for the user then add a third party credential to a new or existing user.
 
 ```csharp
 public void StartAppleLogin()

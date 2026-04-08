@@ -43,7 +43,7 @@ public partial class ExampleService : IFederatedLogin<MySample>
 }
 ```
 
-The `MySample` class included as the generic type in the `IFederatedLogin` interface specifies the id for the federated login. The class signature for these types must implement the `IFederationId` type, and be annotated with a `FederationId` attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.
+The `MySample` class included as the generic type in the `IFederatedLogin` interface specifies the id for the federated login. The class signature for these types must implement the `IFederationId` type and include a `FederationId` attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.
 
 ```csharp
 [FederationId("myId")]
