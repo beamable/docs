@@ -437,7 +437,7 @@ Consider changing property 'X' to a field to include it in client-generated code
 ## Nullable Field in Serializable Type
 
 **Explanation**:
-Fields with nullable types (e.g., `int?`, `string?`) are not supported in types used in Microservice method signatures or marked with `[BeamGenerateSchema]`. Use `Optional<T>` instead to ensure predictable behavior.
+Fields with nullable types (for example, `int?`, `string?`) are not supported in types used in Microservice method signatures or marked with `[BeamGenerateSchema]`. Use `Optional<T>` instead to ensure predictable behavior.
 
 **Example Code Triggering the Error**:
 ```csharp

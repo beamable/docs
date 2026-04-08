@@ -36,7 +36,7 @@ Beamable automatically creates a specific set of _game private_ stats for each n
 | Stat Name | Detail |
 |-----------|--------|
 | `ADVERTISING_ID` | The GAID or IDFA of the device that started the session (If provided) |
-| `CLIENT_VERSION` | Version of the client/app which started the session (e.g. 1.0.0) |
+| `CLIENT_VERSION` | Version of the client/app which started the session (e.g., 1.0.0) |
 | `DATE_INSTALL` | Timestamp of the player install (first session) expressed as unix time (milliseconds since epoch) |
 | `DATE_SESSION` | Timestamp of the player's most recent session start expressed as unix time (millisecond since epoch) |
 | `DAYS_SINCE_INSTALL` | Total number of days that have passed since the player installed. Or in other words, total number of days between the player's first session and most recent session |
@@ -45,14 +45,14 @@ Beamable automatically creates a specific set of _game private_ stats for each n
 | `PURCHASES_TOTAL` | Total number of in-app purchases, irrespective of the value of the purchases |
 | `SESSIONS_3D`<br>`SESSIONS_7D`<br>`SESSIONS_14D`<br>`SESSIONS_28D` | Total number of sessions in the last X days<br><br>_Note: Specifically this refers to X days preceding the most recent player session since stats are not updated when the player doesn't play_ |
 | `SESSIONS_TOTAL` | Total number of sessions this player has started |
-| `SESSION_DAYS` | The total number of days the player has played (i.e. started at least one session) |
+| `SESSION_DAYS` | The total number of days the player has played (i.e., started at least one session) |
 | `SPEND_3D`<br>`SPEND_7D`<br>`SPEND_14D`<br>`SPEND_28D` | Total player spend (USD) in the last X days<br><br>_Note: Specifically this refers to X days preceding the most recent player session since stats are not updated when the player doesn't play_ |
 | `SPEND_TOTAL` | Total player spend (USD) expressed in cents |
 | `THORIUM_GAME_DEVICE` | Type of device if provided |
-| `THORIUM_GAME_PLATFORM` | Platform the player is playing on (e.g. Facebook, iOS)<br><br>_Note: Unity reports all iOS devices as "iPhonePlayer" regardless of device type._ |
-| `THORIUM_GAME_SOURCE` | Source of the session (If provided, e.g. "web") |
-| `TRIALS` | Total list of A/B Testing trials the player is actively associated with (comma delimited list)<br>locale language ISO code of the player (If provided, e.g. "en") |
-| `trialmember:<trial name>` | Specific trial the player is a part of, with the value being the specific cohort/group the player is associated with (e.g. `trialmember:button_trial` = `blue_button_group`) |
+| `THORIUM_GAME_PLATFORM` | Platform the player is playing on (e.g., Facebook, iOS)<br><br>_Note: Unity reports all iOS devices as "iPhonePlayer" regardless of device type._ |
+| `THORIUM_GAME_SOURCE` | Source of the session (If provided, e.g., "web") |
+| `TRIALS` | Total list of A/B Testing trials the player is actively associated with (comma delimited list)<br>locale language ISO code of the player (If provided, e.g., "en") |
+| `trialmember:<trial name>` | Specific trial the player is a part of, with the value being the specific cohort/group the player is associated with (e.g., `trialmember:button_trial` = `blue_button_group`) |
 
 ## StatsService API
 
@@ -204,7 +204,7 @@ The SetStats and GetStats methods require additional parameters.
 |----------------|--------|
 | `access` | Possible values include "public" or "private"<br><br>Public client stats can be retrieved by anyone who knows your ID. Private client stats can only be retrieved for yourself. The distinction is not meaningful in backend, but in practice "game" stats are usually also "private" |
 | `domain` | Possible values include "game" (backend) or "client" (Unity)<br><br>Domain is one of "game" (backend) or "client" (Unity). Game stats can only be retrieved from microservices, but client stats can be retrieved both in microservices and in Unity code |
-| `id` | The numeric user ID of the player who owns the stats<br><br>_Note: For client private stats this must match the ID of your login (e.g. `beamContext.PlayerId`)_ |
+| `id` | The numeric user ID of the player who owns the stats<br><br>_Note: For client private stats this must match the ID of your login (e.g., `beamContext.PlayerId`)_ |
 | `type` | Possible values include only "player"<br><br>_Note: This parameter exists for legacy purposes only_ |
 
 StatCodingExample.cs

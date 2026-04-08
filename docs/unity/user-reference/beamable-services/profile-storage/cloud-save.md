@@ -179,7 +179,7 @@ Here are the major operations that can be performed against the player data.
     Here are some common issues and solutions:
 
     • While Beamable supports _minor_ edits to the player data from the Portal, restoring a customer's player data completely to a historic backup state is **not supported**.
-    • The CloudSavingService **does not support** _multiple game sessions using the same user. If there are multiple sessions for the same user, for the same game, this will create an infinite ping/pong effect. E.g. Device A will send updates that Device B will fetch, which will send updates that Device A will fetch, etc..._
+    • The CloudSavingService **does not support** _multiple game sessions using the same user. If there are multiple sessions for the same user, for the same game, this will create an infinite ping/pong effect. For example, Device A will send updates that Device B will fetch, which will send updates that Device A will fetch, etc..._
     • Manually deleting content from the `LocalCloudDataFullPath` is **not supported**
     • [Old Cloud Save Service](doc:cloud-save-code) **doesn't support** multiple files with the **same content**. If you want files with the same content (for example a backup file), please add a tag to **differentiate** them or use the [New Cloud Save Service](doc:player-cloud-save-code).
 

@@ -47,7 +47,7 @@ void CallbackAction(object callbackObject)
 
 #### Subscribe/Unsubscribe
 
-Subscriptions are PlayerId based, so an event published by the server (e.g., a microservice) must specify your PlayerId in order for your client to receive the event.
+Subscriptions are PlayerId based, so an event published by the server (for example, a microservice) must specify your PlayerId in order for your client to receive the event.
 
 ```csharp
 var beamable = BeamContext.Default;

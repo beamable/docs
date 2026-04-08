@@ -58,7 +58,7 @@ This is the format your CSV should be in. The first column is a **Gamer_Tag** or
 
 ### Custom Segmentation Cohort
 
-Sometimes you might want to create a cohort from custom telemetry in your game. You will want to run a query against your Athena Database (See [Analytics - Overview](analytics-overview.md)) and then create a CSV from that data to where you can put those users into a cohort.
+To create a cohort from custom telemetry, run a query against your Athena Database (see [Analytics - Overview](analytics-overview.md)) and export the results as a CSV. Import the CSV to populate the cohort.
 
 ```sql
 select distinct gamer_tag, stat_name, stat_value from (

@@ -13,7 +13,7 @@ The concept of A/B Testing is to run experiments across a cohort (segmented set)
 - **Decrease Costs** - Game makers can focus on a leaner feature-set which is proven to matter to players
 - **Decrease Risks** - Roll out new gameplay features more frequently to a subset of the players. Ensure it is ready before releasing to everyone
 
-Generally you will want to follow a process:
+Generally, follow this process:
 
 - Write Telemetry in your game so you have metrics you can measure against
 - Run analytics and create reports that allow you to visualize your players behaviors
@@ -33,9 +33,9 @@ The game front-end loads the player manifest from the `TrialDataService`. The `P
 | Name | Detail |
 |------|--------|
 | Acceptance Strategy | Determines how players qualify for a trial. Values:<br>• **GLOBALLY_OPEN** - Indicates that once a player qualifies for this trial, they will be part of it until the trial is (even if ejected they cease to meet the qualifying criteria in the future)<br>• **GLOBALLY_OPEN_WITH_FLOW** - Behaves like a GLOBALLY_OPEN trial, except that a player will be removed from the Trial if they no longer qualify for it<br>• **MUTUAL_EXCLUSIVE** - Indicates that even if a player qualifies for this trial, they will only join it if they are not already part of another trial that is `MUTUAL_EXCLUSIVE` or `MUTUAL_EXCLUSIVE_WITH_FLOW`. Once a player joins this trial, they are a part of it until it is (even if they ejected cease to meet the qualifying criteria in the future)<br>• **MUTUAL_EXCLUSIVE_WITH_FLOW** - Behaves like a MUTUAL_EXCLUSIVE trial, except that a player will be removed from the Trial if they no longer qualify for it |
-| Allocation | Determines how players qualify for a specific cohort within a trial. Values:<br>• **% Distribution** - Specify a percentage of the total player population for each cohort<br>• **Custom** - Specify any player stat and a relational operator. This determines the cohort (e.g. stat of `PLAYER_LEVEL` > 1) |
+| Allocation | Determines how players qualify for a specific cohort within a trial. Values:<br>• **% Distribution** - Specify a percentage of the total player population for each cohort<br>• **Custom** - Specify any player stat and a relational operator. This determines the cohort (e.g., stat of `PLAYER_LEVEL` > 1) |
 | Cohorts | A grouping of members |
-| Cohort Data Overrides | Specifies the Game Base Cloud Data references that is overridden (i.e. changed) for a given cohort<br>_Note: Any text/binary format is compatible with Game Base Cloud Data. Many game makers choose YAML. See Wikipedia's [YAML](https://en.wikipedia.org/wiki/YAML) for more info_ |
+| Cohort Data Overrides | Specifies the Game Base Cloud Data references that is overridden (i.e., changed) for a given cohort<br>_Note: Any text/binary format is compatible with Game Base Cloud Data. Many game makers choose YAML. See Wikipedia's [YAML](https://en.wikipedia.org/wiki/YAML) for more info_ |
 | Lifecycle | Determines the current lifecycle status of the trial. Values:<br>• **Running** - Members receive data overrides. Players can join/leave the trial<br>• **Paused** - Members receive data overrides. Players **cannot** join/leave the trial<br>• **Ejected** - Members receive **no** data overrides. Players **cannot** join/leave the trial |
 | Member | Refers to a player _within_ a trial |
 | Member Count | How many members are in a given cohort |
@@ -111,7 +111,7 @@ These values can be accessed programmatically via **set** as `game.private.playe
 
 **2. Criteria Stats**
 
-For any A/B Testing Trial with an "Allocation" of type "Custom", the game maker specifies any player Stat and a relational operator. This determines the cohort (e.g. stat of `PLAYER_LEVEL` > 1).
+For any A/B Testing Trial with an "Allocation" of type "Custom", the game maker specifies any player Stat and a relational operator. This determines the cohort (for example, stat of `PLAYER_LEVEL` > 1).
 
 These values can be accessed programmatically via **get** as `game.private.player`.
 
@@ -123,7 +123,7 @@ For debugging the manifests, game players can use the Admin Flow to enter comman
 
 | Name | Detail |
 |------|--------|
-| `CLOUD-MANIFEST` | Retrieve and output to the console log the **game** manifest, which includes the entire cloud data domain.<br>_Note: This is invokable only by a privileged user (i.e. C# Microservice OR admin user). So if privileged user invoking in Unity, be sure your runtime user is an admin of the realm — you can login to such a user using the Account Management Flow prefab_ |
+| `CLOUD-MANIFEST` | Retrieve and output to the console log the **game** manifest, which includes the entire cloud data domain.<br>_Note: This is invokable only by a privileged user (i.e., C# Microservice OR admin user). So if privileged user invoking in Unity, be sure your runtime user is an admin of the realm — you can login to such a user using the Account Management Flow prefab_ |
 | `CLOUD-PLAYER` | Retrieve and output to the console log the **player** manifest, which includes the entire cloud data domain. |
 
 !!! info "Best Practices"

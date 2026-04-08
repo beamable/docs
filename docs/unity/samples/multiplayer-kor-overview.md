@@ -547,7 +547,7 @@ Did you complete all the experiments with success? we'd love to hear about it. [
 
 ## Matchmaking
 
-In multiplayer gaming, matchmaking is the process of choosing a room based on criteria (e.g. "Give me a room to play in with 2 total players of any skill level"). Beamable supports matchmaking through its matchmaking service.
+In multiplayer gaming, matchmaking is the process of choosing a room based on criteria (for example, "Give me a room to play in with 2 total players of any skill level"). Beamable supports matchmaking through its matchmaking service.
 
 See [Matchmaking](../user-reference/beamable-services/social-networking/matchmaking.md) for more info.
 

@@ -4,7 +4,7 @@ Welcome to "Red Light, Green Light" (RLGL). In this game, **Race other players t
 
 !!! info "Related Features"
 
-    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a match (i.e. a multiplayer "room")
+    • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a match (i.e., a multiplayer "room")
     • [Leaderboards](../user-reference/beamable-services/live-ops/player-stats-and-activities.md) - Track and display player rankings and scores
     • [Microservices](../user-reference/cloud-services/microservices/microservice-framework.md) - Custom server-side logic and game rules
 
