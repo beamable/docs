@@ -111,7 +111,7 @@ dotnet beam config | jq -r .data.cid
 
 When the `--raw` flag is used, or a command is piped to a file, then the Standard Output Buffer will only receive the `--raw` output data. If the `--logs` flag is set, then logs will be sent to the Standard Error Buffer, such that will appear in the console. However, it can be tricky to emit the process logs to a file.
 
-In order to do so, the Standard Error Buffer must be piped to a file. For example, the following expression will put the process logs into a file.
+To do so, pipe the Standard Error Buffer to a file. For example, the following expression will put the process logs into a file.
 
 ```sh
 dotnet beam config --logs v 2> test.txt

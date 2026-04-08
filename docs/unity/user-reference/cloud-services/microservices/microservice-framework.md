@@ -78,7 +78,7 @@ public int Example();
 }
 ```
 
-However, despite the request timing out and the client receiving an HTTP 504 error, the Microservice will _still be processing the loop_. This is a major performance problem, because the CPU will never yield control to other request executions. Essentially, anytime a request is caught in a non terminating loop, the entire Microservice performance profile suffers dramatically. It is a best practice to ensure loops will always terminate. In Beamable 1.9, the `Context` variable has a property, `Context.IsCancelled`, that returns `true` if the request has timed out. There is also a `Context.ThrowIfCancelled()` method that will throw a task cancellation exception. It is a best practice to _always_ include the `ThrowIfCancelled()` method in long running loops, as exemplified below.
+However, despite the request timing out and the client receiving an HTTP 504 error, the Microservice will _still be processing the loop_. This is a major performance problem, because the CPU will never yield control to other request executions. Essentially, anytime a request is caught in a non terminating loop, the entire Microservice performance profile suffers dramatically. Ensure loops always terminate. In Beamable 1.9, the `Context` variable has a property, `Context.IsCancelled`, that returns `true` if the request has timed out. There is also a `Context.ThrowIfCancelled()` method that will throw a task cancellation exception. Always include the `ThrowIfCancelled()` method in long-running loops, as shown below.
 
 ```csharp
 [ClientCallable]
