@@ -214,7 +214,7 @@ The default implementation of the `ISimFaultHandler` is the `DefaultSimFaultHand
     ```
 
 ### Sample Code
-Here is a complete Beamable Multiplayer example which creates a game session and sends/receives game events.
+Here is a complete Beamable Multiplayer example that creates a game session and sends/receives game events.
 
 MultiplayerExample.cs
 ```csharp

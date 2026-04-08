@@ -24,7 +24,7 @@ dotnet beam project new service Service
 ## Steps
 
 Standalone Microservice projects can be distributed as Unity Package Manager
-(UPM) packages, which allows downstream Unity projects to re-use an existing
+(UPM) packages, letting downstream Unity projects reuse an existing
 Microservice.
 
 However, there are several configuration steps required in the Standalone

@@ -30,7 +30,7 @@ The following example example shows how to write custom telemetry data into the 
 
     See the [Analytics - Guide](analytics-overview.md) to learn more about how to query your custom telemetry data.
 
-Start off by creating a custom event data structure. This holds the **payload** for your event which you will send to Beamable.
+Start off by creating a custom event data structure. This holds the **payload** to be sent to Beamable.
 
 ```csharp
 public class MyExampleEvent : CoreEvent

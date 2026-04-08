@@ -144,7 +144,7 @@ The **A/B Testing** feature allows game makers to deploy new functionality to su
 
 ### Creating Data
 
-Here the data will be created. This represents the **default** data which all users will receive (unless overridden by the Trial created per Step 2).
+Here the data will be created. This represents the **default** data that all users will receive (unless overridden by the Trial created per Step 2).
 
 | Step | Detail |
 |------|--------|

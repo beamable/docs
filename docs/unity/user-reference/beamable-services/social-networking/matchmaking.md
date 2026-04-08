@@ -17,7 +17,7 @@ The basic flow for matchmaking is described below:
 | Start Matchmaking | The player is entered into a matchmaking search, where they will be matched up with other similarly skilled players.                                                                                                      |
 | Wait For Search   | The player waits for other players to also enter matchmaking. This is a good place to display matchmaking callbacks to the user (how many players have been found so far, how long the search has taken in seconds, etc). |
 | Report Timeout    | If a duration of time has passed and a suitable match has not been found, the search is ended, at which point the player will need to restart searching.                                                                  |
-| Join Match        | A suitable match has been found, the participating clients are now supplied with a match ID which they can use to join the "room".                                                                                        |
+| Join Match        | A suitable match has been found, the participating clients are now supplied with a match ID they can use to join the "room".                                                                                        |
 
 ## Matchmaking API
 
@@ -33,7 +33,7 @@ The main API is the [`MatchmakingService`](https://csharp.cdocs.beamable.com/lat
 | CancelMatchmaking | Stops the matchmaking process |
 | MatchmakingHandle | Handles events from the matchmaking process<br><br>• `OnUpdate` - Process is in progress, with success<br>• `OnMatchReady` - Process complete with success<br>• `OnMatchTimeout` - Process complete with failure |
 
-Here is a custom, game-specific implementation which matches any 2 players without filtering. Depending on game design needs, the service can be extended to filter and match players with similar attributes; for example, game skill level, network latency, spoken language, or geographic location.
+Here is a custom, game-specific implementation that matches any 2 players without filtering. Depending on game design needs, the service can be extended to filter and match players with similar attributes; for example, game skill level, network latency, spoken language, or geographic location.
 
 The following shows partial sample code snippets:
 

@@ -36,7 +36,7 @@ Beamable automatically creates a specific set of _game private_ stats for each n
 | Stat Name | Detail |
 |-----------|--------|
 | `ADVERTISING_ID` | The GAID or IDFA of the device that started the session (If provided) |
-| `CLIENT_VERSION` | Version of the client/app which started the session (e.g., 1.0.0) |
+| `CLIENT_VERSION` | Version of the client/app that started the session (e.g., 1.0.0) |
 | `DATE_INSTALL` | Timestamp of the player install (first session) expressed as unix time (milliseconds since epoch) |
 | `DATE_SESSION` | Timestamp of the player's most recent session start expressed as unix time (millisecond since epoch) |
 | `DAYS_SINCE_INSTALL` | Total number of days that have passed since the player installed. Or in other words, total number of days between the player's first session and most recent session |
