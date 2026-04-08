@@ -1,6 +1,6 @@
-﻿# Player Account Manager
+﻿# Cloud Save Sample
 
-The Player Account Management Lightbeam Sample can be opened through the Beam Samples window.
+The Cloud Save Sample Lightbeam can be opened through the Beam Samples window.
 
 There are no prerequisites to use this Lightbeam. This sample will allow you create multiple accounts, optionally attach email & password credentials, and configure the accounts' aliases and avatars.
 

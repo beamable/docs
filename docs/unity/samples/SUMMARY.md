@@ -1,6 +1,11 @@
 ﻿- Lightbeam
     - [LightBeam Overview](lightbeam.md)
-    - [Account Manager](lightbeam-account.md)
+    - [Player Account Manager](lightbeam-account.md)
+    - [Inventory Management](lightbeam-inventory.md)
+    - [Friend Mangement](lightbeam-friends.md)
+    - [Lobby Management](lightbeam-lobby.md)
+    - [Loot Boxes](lightbeam-loot.md)
+    - [Cloud Save](lightbeam-cloud.md)
 - SDK Samples
     - [Game Type Matchmaking](game-type-matchmaking.md)
     - [Android IAP](stores-android-iap.md)
