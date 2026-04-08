@@ -9910,7 +9910,7 @@ Learn more about this file by reading the <a href="https://opentelemetry.io/docs
 <p>In a few moments, you should see log data appear in BetterStack.</p>
 <hr>
 <p>To configure a deployed Microservice to report log data to BetterStack, we need to start the collector in the deployed environment. The easiest way to do this is to run the collector as a local process.</p>
-<p>The <code>Dockerfile</code> needs to be modified to include the collector in the built image. Add these lines right below the <code>WORKDIR /beamApp</code> line,</p>
+<p>Modify the <code>Dockerfile</code> to include the collector in the built image. Add these lines right below the <code>WORKDIR /beamApp</code> line,</p>
 <div class="language-dockerfile highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>

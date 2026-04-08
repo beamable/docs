@@ -9419,7 +9419,7 @@ that define the types of functions that they require.
 <span class="w">    </span><span class="c1">// implementation</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>The <code>MySample</code> class included as the generic type in the <code>IFederatedLogin</code> interface specifies the id for the federated login. The class signature for these types must implement the <code>IFederationId</code> type, and be annotated with a <code>FederationId</code> attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.</p>
+<p>The <code>MySample</code> class included as the generic type in the <code>IFederatedLogin</code> interface specifies the id for the federated login. The class signature for these types must implement the <code>IFederationId</code> type and include a <code>FederationId</code> attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.</p>
 <h2 id="1-2federationidmyid-public-class-mysample-ifederationid"><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[FederationId("myId")]</span>
 <span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MySample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
