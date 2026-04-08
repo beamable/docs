@@ -9484,11 +9484,11 @@
 <tbody>
 <tr>
 <td>Init</td>
-<td>Initializes the CloudService using the configurations from PlayerCloudSavingConfiguration. Starts resolving the save storages and downloading cloud data to local device.<br><br>By default, it uses a default instance of PlayerCloudSavingConfiguration. See this link to see how to override it.<br><br><em>Note: This accepts an optional <code>pollingIntervalSecs</code> parameter which determines how often the service will scan for local file changes</em></td>
+<td>Initializes the CloudService using the configurations from PlayerCloudSavingConfiguration. Starts resolving the save storages and downloading cloud data to local device.<br><br>By default, it uses a default instance of PlayerCloudSavingConfiguration. See this link to see how to override it.<br><br><em>Note: This accepts an optional <code>pollingIntervalSecs</code> parameter that determines how often the service will scan for local file changes</em></td>
 </tr>
 <tr>
 <td>ReInit</td>
-<td>Re-initializes the CloudService. Stopping all routines, upload, and download requests to restart the system.<br><br><em>Note: This accepts an optional <code>pollingIntervalSecs</code> parameter which determines how often the service will scan for local file changes</em></td>
+<td>Re-initializes the CloudService. Stopping all routines, upload, and download requests to restart the system.<br><br><em>Note: This accepts an optional <code>pollingIntervalSecs</code> parameter that determines how often the service will scan for local file changes</em></td>
 </tr>
 <tr>
 <td>ServiceStatus</td>
@@ -9524,7 +9524,7 @@
 </tr>
 <tr>
 <td>SaveData</td>
-<td>It allows you to save your data using the Service, allowing you to properly save the file without needing to get the full file path or handle file name sanitization. This function has 3 overrides which you can save the data as byte, string, or serialize a class/struct to the file.<br><br><em>Note: The serialize save by default uses JsonUtility to serialize, but you can override it by changing the PlayerCloudSavingConfiguration.CustomSerializer.</em></td>
+<td>It allows you to save your data using the Service, allowing you to properly save the file without needing to get the full file path or handle file name sanitization. This function has 3 overrides for saving data as bytes, as a string, or as a serialized class/struct.<br><br><em>Note: The serialize save by default uses JsonUtility to serialize, but you can override it by changing the PlayerCloudSavingConfiguration.CustomSerializer.</em></td>
 </tr>
 <tr>
 <td>LoadDataString<br>LoadDataByte<br>LoadData<t></t></td>
@@ -9536,7 +9536,7 @@
 </tr>
 <tr>
 <td>SetConflictResolverOverride</td>
-<td>This function allows you to Override the ConflictResolver by another ConflictResolver delegate. This function is another option than the PlayerCloudSavingConfiguration.HandleConflicts which allows you to change the Conflict resolution depending on the current application scope.</td>
+<td>This function allows you to Override the ConflictResolver by another ConflictResolver delegate. This function is another option than the PlayerCloudSavingConfiguration.HandleConflicts that allows you to change the Conflict resolution depending on the current application scope.</td>
 </tr>
 </tbody>
 </table>

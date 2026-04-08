@@ -9598,7 +9598,7 @@
 <p>One important concept of the Content ID is the "Nesting". Content IDs can be nested, and the resulting hierarchy will be baked in to the name. For example, to group "weekend" events under a common folder — the content ID would be:
 <code>events.weekend.&lt;user-defined-id&gt;</code>.</p>
 <h2 id="content-namespaces">Content Namespaces<a class="headerlink" href="#content-namespaces" title="Permanent link">¶</a></h2>
-<p>Content is validated as a manifest which allows items to be validated against each other. This prevents validation errors when publishing; however, individual changes could cause validation errors after uploading; for example, a store references a currency that no longer exists.</p>
+<p>Content is validated as a manifest, letting items be checked against each other. This prevents validation errors when publishing; however, individual changes could cause validation errors after uploading; for example, a store references a currency that no longer exists.</p>
 <p>Namespaces are locations for content to be published so that the content does not impact content in other namespaces. Content namespaces can also be used for versioning to ensure older versions of the game using the same or similar content do not break.</p>
 <div class="admonition warning global namespace">
 <p class="admonition-title">Warning</p>
@@ -9949,7 +9949,7 @@
 <ul>
 <li>If the content that your game is using is known ahead of time (for example, there will only be subtle differences in existing pieces of content), a content reference (such as ContentLink or ContentRef) should be used.</li>
 <li>However, if the content in your game needs to be more dynamic (for example, the Game Maker will be pushing entirely new pieces of content, unknown to the game client), a content subscription should be used.</li>
-<li><strong>DO</strong>: Use <code>ContentLink</code> in any member variable in your <em>custom</em> content type which references another content type. ContentLink is useful for data that needs to be loaded quickly at runtime, since it is preloaded in very early stages of the application's lifecycle.</li>
+<li><strong>DO</strong>: Use <code>ContentLink</code> in any member variable in your <em>custom</em> content type that references another content type. ContentLink is useful for data that needs to be loaded quickly at runtime, since it is preloaded in very early stages of the application's lifecycle.</li>
 <li><strong>DON'T</strong>: Use <code>ContentRef</code> by default <em>everywhere</em> in your project. This is supported but is considered overkill. ContentRef is useful for data that the application can afford to load on-demand (especially data that might not get loaded at all).</li>
 </ul>
 </div>
