@@ -4,7 +4,7 @@ The Beamable **Mail** feature allows game makers to create and manage in-game ma
 
 The purpose of this feature is to allow players to manage in-game mail messages. Let's say your users have an inbox in their player profile, and they can receive messages whenever something significant happens. This is a good fit for Mail.
 
-Mail provides a robust messaging system that enables players to send and receive persistent messages with attachments and rewards, creating engagement through communication and item distribution.
+Mail provides a messaging system that enables players to send and receive persistent messages with attachments and rewards, creating engagement through communication and item distribution.
 
 Unlike many Beamable features, Mail does not have a dedicated feature prefab. The main usages of this feature are listed below.
 
