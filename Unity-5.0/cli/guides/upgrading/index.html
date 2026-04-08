@@ -10238,7 +10238,7 @@ machines, instead of the dotnet6 SDK.</p>
 </blockquote>
 <h4 id="mongodbdriver-package-vulnerability"><code>MongoDb.Driver</code> package vulnerability<a class="headerlink" href="#mongodbdriver-package-vulnerability" title="Permanent link">¶</a></h4>
 <p>Previous versions of Beamable relied on version 2.15.1 of the <code>MongoDb.
-Driver</code> nuget package. If your project does not include any storage objects,
+Driver</code> NuGet package. If your project does not include any storage objects,
 you can ignore this step. However, if you do have storage objects, then
 those projects likely include this reference in the <code>.csproj</code> files,</p>
 <div class="language-xml highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"MongoDB.Driver"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.15.1"</span><span class="nt">/&gt;</span>
@@ -10534,7 +10534,7 @@ After you upgrade your global CLI to 2.0.1, run the following command in your pr
 - <code>.beamable/temp/connection-auth.json</code> <em>(this replaces the old <code>user-token</code> file)</em></p>
 <h4 id="csproj-files"><code>.csproj</code> Files<a class="headerlink" href="#csproj-files" title="Permanent link">¶</a></h4>
 <h5 id="sdk-version">SDK Version<a class="headerlink" href="#sdk-version" title="Permanent link">¶</a></h5>
-<p>Unfortunately, the upgrade flow between major version 1 and 2 does not automatically upgrade the nuget dependency on Beamable. All of the <code>.csproj</code> files you may have will need to be manually upgraded to Beamable 2.0.1. Remember, every service, common library, and storage have their own <code>.csproj</code> files.</p>
+<p>Unfortunately, the upgrade flow between major version 1 and 2 does not automatically upgrade the NuGet dependency on Beamable. All of the <code>.csproj</code> files you may have will need to be manually upgraded to Beamable 2.0.1. Remember, every service, common library, and storage have their own <code>.csproj</code> files.</p>
 <p>Open each <code>csproj</code> file, and find the <code>&lt;PackageReference&gt;</code> for Beamable.
 For a service, it will likely look like this,
 </p><div class="language-xml highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"1.19.22"</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -10549,7 +10549,7 @@ For a service, it will likely look like this,
 <h5 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">¶</a></h5>
 <p>In addition, different project types have the following upgrade requirements...</p>
 <h6 id="services">Services<a class="headerlink" href="#services" title="Permanent link">¶</a></h6>
-<p>For services, the <code>csproj</code> file has been simplified between major versions 1 and 2. You can remove all the tasks and extraneous nuget references.</p>
+<p>For services, the <code>csproj</code> file has been simplified between major versions 1 and 2. You can remove all the tasks and extraneous NuGet references.</p>
 <p>This snippet can (and should) be removed from a 1.19.22 service's <code>csproj</code> file.
 </p><div class="language-xml highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -10742,7 +10742,7 @@ For a service, it will likely look like this,
 <span class="w">        </span><span class="cm">&lt;!-- net8.0 is the LTS version until 2026. To update your net version, update the &lt;TargetFramework&gt; when Beamable announces support. --&gt;</span>
 <span class="w">        </span><span class="nt">&lt;TargetFramework&gt;</span>net6.0<span class="nt">&lt;/TargetFramework&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span>
-<span class="w">    </span><span class="nt">&lt;ItemGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Nuget References"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ItemGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"NuGet References"</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.0.1"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <span class="nt">&lt;/Project&gt;</span>
