@@ -67,4 +67,4 @@ public async Promise Login(string email, string password)
 ```
 
 !!! warning "Error Handling"
-    If login fails, you will get an error which you must handle appropriately. This can happen if the username and/or password are incorrect. More than likely, you would want to surface this error to the player via the UI.
+    If login fails, you will get an error that you must handle appropriately. This can happen if the username and/or password are incorrect. More than likely, you would want to surface this error to the player via the UI.

@@ -252,7 +252,7 @@ You have full control over the docker-compose file, so if you want to set up per
 #### Useful Debugging Practices
 **Running the Docker Container Manually**: If you have a customized Dockerfile or encounter some problems when building/running the image/container, it can be sometimes useful to run the container via docker's CLI directly.
 
-You can do that by running: `dotnet beam deploy plan --logs v` which prints out all docker commands its using under the hood. You can then use the printed commands as a starting point for your investigation into whatever problem you're solving.
+You can do that by running `dotnet beam deploy plan --logs v`, which prints out all docker commands it is using under the hood. You can then use the printed commands as a starting point for your investigation into whatever problem you're solving.
 
 **Debugging Container Structure**: In some cases of customized `Dockerfiles`, the image may fail to build or the container fail to run due to aspects of the container's file structure. Docker will not allow you to easily inspect a container's file structure unless its running; and we cleanup the container once its `ENTRYPOINT` process is killed.
 
