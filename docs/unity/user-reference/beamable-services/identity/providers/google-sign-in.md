@@ -2,7 +2,7 @@
 
 The purpose of this guide is to help game makers use Google Sign-In with the Beamable Accounts feature.
 
-Beamable integrates with Google's Sign-In service to provide seamless authentication for your game. Google's [Sign-In](https://developers.google.com/identity/sign-in/web/sign-in) manages the OAuth 2.0 flow and token lifecycle, simplifying your integration with Google APIs. A user always has the option to revoke access to an application at any time.
+Beamable integrates with Google's Sign-In service to provide authentication for your game. Google's [Sign-In](https://developers.google.com/identity/sign-in/web/sign-in) manages the OAuth 2.0 flow and token lifecycle, simplifying your integration with Google APIs. A user always has the option to revoke access to an application at any time.
 
 ## Getting Started
 

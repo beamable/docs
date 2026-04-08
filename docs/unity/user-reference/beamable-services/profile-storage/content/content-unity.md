@@ -38,7 +38,7 @@ The level of the status bar indicates the overall state of local content:
 
 The Content Manager now supports **Auto-Sync**, which automatically detects remote content changes and downloads them to your local environment. No manual syncing required.
 
-**Automatic Updates:** Whenever content is modified or created remotely, the changes are seamlessly pulled to your local workspace.
+**Automatic Updates:** Whenever content is modified or created remotely, the changes are pulled automatically to your local workspace.
 
 **Conflict Handling:**
 A file is marked as **Conflicted** only when:

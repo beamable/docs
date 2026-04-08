@@ -2,7 +2,7 @@
 
 The Beamable **Notifications** feature allows game makers to message players, regardless if the game is running.
 
-Notifications provide a robust messaging system that enables communication between different parts of your game through a publish/subscribe pattern. Objects can listen for updates (subscribe) with a certain tag. Other objects can then notify the subscribers (publish) with some context-relevant data.
+Notifications provide a messaging system that enables communication between different parts of your game through a publish/subscribe pattern. Objects can listen for updates (subscribe) with a certain tag. Other objects can then notify the subscribers (publish) with some context-relevant data.
 
 The Notification feature's functionality is actually used by many other features, providing a foundation for a publish/subscribe pattern. For example, `Inventory.Subscribe()` uses the NotificationService's `Subscribe()` function under the hood.
 

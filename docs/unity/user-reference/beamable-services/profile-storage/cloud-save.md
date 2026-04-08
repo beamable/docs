@@ -1,6 +1,6 @@
 # Cloud Save - Overview
 
-Beamable's **Cloud Save** feature provides secure, cross-platform storage for player game data. It enables players to seamlessly save their progress and access it across multiple devices, ensuring data persistence and continuity throughout their gaming experience.
+Beamable's **Cloud Save** feature provides secure, cross-platform storage for player game data. It enables players to save their progress and access it across multiple devices, ensuring data persistence and continuity throughout their gaming experience.
 
 **Key Benefits:**
 - **Cross-Device Sync**: Players can switch between devices without losing progress
