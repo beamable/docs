@@ -10152,7 +10152,7 @@ Properties in types used in Microservice method signatures or marked with <code>
 <hr>
 <h2 id="nullable-field-in-serializable-type">Nullable Field in Serializable Type<a class="headerlink" href="#nullable-field-in-serializable-type" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
-Fields with nullable types (e.g., <code>int?</code>, <code>string?</code>) are not supported in types used in Microservice method signatures or marked with <code>[BeamGenerateSchema]</code>. Use <code>Optional&lt;T&gt;</code> instead to ensure predictable behavior.</p>
+Fields with nullable types (for example, <code>int?</code>, <code>string?</code>) are not supported in types used in Microservice method signatures or marked with <code>[BeamGenerateSchema]</code>. Use <code>Optional&lt;T&gt;</code> instead to ensure predictable behavior.</p>
 <p><strong>Example Code Triggering the Error</strong>:
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>

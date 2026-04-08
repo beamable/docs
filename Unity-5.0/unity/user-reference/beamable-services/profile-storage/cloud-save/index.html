@@ -9454,7 +9454,7 @@
 
 
 <h1 id="cloud-save-overview">Cloud Save - Overview<a class="headerlink" href="#cloud-save-overview" title="Permanent link">¶</a></h1>
-<p>Beamable's <strong>Cloud Save</strong> feature provides secure, cross-platform storage for player game data. It enables players to seamlessly save their progress and access it across multiple devices, ensuring data persistence and continuity throughout their gaming experience.</p>
+<p>Beamable's <strong>Cloud Save</strong> feature provides secure, cross-platform storage for player game data. It enables players to save their progress and access it across multiple devices, ensuring data persistence and continuity throughout their gaming experience.</p>
 <p><strong>Key Benefits:</strong>
 - <strong>Cross-Device Sync</strong>: Players can switch between devices without losing progress
 - <strong>Automatic Conflict Resolution</strong>: Handles data conflicts when multiple saves exist
@@ -9715,7 +9715,7 @@
 <p class="admonition-title">Gotchas</p>
 <p>Here are some common issues and solutions:</p>
 <p>• While Beamable supports <em>minor</em> edits to the player data from the Portal, restoring a customer's player data completely to a historic backup state is <strong>not supported</strong>.
-• The CloudSavingService <strong>does not support</strong> <em>multiple game sessions using the same user. If there are multiple sessions for the same user, for the same game, this will create an infinite ping/pong effect. E.g. Device A will send updates that Device B will fetch, which will send updates that Device A will fetch, etc...</em>
+• The CloudSavingService <strong>does not support</strong> <em>multiple game sessions using the same user. If there are multiple sessions for the same user, for the same game, this will create an infinite ping/pong effect. For example, Device A will send updates that Device B will fetch, which will send updates that Device A will fetch, etc...</em>
 • Manually deleting content from the <code>LocalCloudDataFullPath</code> is <strong>not supported</strong>
 • <a href="doc:cloud-save-code">Old Cloud Save Service</a> <strong>doesn't support</strong> multiple files with the <strong>same content</strong>. If you want files with the same content (for example a backup file), please add a tag to <strong>differentiate</strong> them or use the <a href="doc:player-cloud-save-code">New Cloud Save Service</a>.</p>
 </div>

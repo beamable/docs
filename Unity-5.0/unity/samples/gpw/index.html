@@ -9474,17 +9474,17 @@
 
 <h3 id="design-of-data">Design of Data<a class="headerlink" href="#design-of-data" title="Permanent link">¶</a></h3>
 <p>The data within the <code>RuntimeDataStorage</code> is vital for the core game loop.</p>
-<p>The game design requires that all users in the same game (e.g. same chat session) to see a shared world of consistent pricing. This is accomplished using the data structure and data factory below.</p>
+<p>The game design requires that all users in the same game (for example, the same chat session) to see a shared world of consistent pricing. This is accomplished using the data structure and data factory below.</p>
 <p><strong>Data Structure</strong>
 The structure contains all the locations of the game. Within each location is information about each product; including its price and quantity.</p>
 <ul>
 <li>List &lt; LocationContentView &gt;</li>
-<li>LocationData (e.g. "Africa")</li>
+<li>LocationData (e.g., "Africa")</li>
 <li>List &lt; ProductContentViews &gt;<ul>
-<li>ProductData (e.g. "Chocolate")</li>
+<li>ProductData (e.g., "Chocolate")</li>
 <li>MarketGoods</li>
-<li>Price (e.g. "10")</li>
-<li>Quantity (e.g. "3")</li>
+<li>Price (e.g., "10")</li>
+<li>Quantity (e.g., "3")</li>
 </ul>
 </li>
 </ul>

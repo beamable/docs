@@ -9301,7 +9301,7 @@
 
 <h1 id="notifications-overview">Notifications - Overview<a class="headerlink" href="#notifications-overview" title="Permanent link">¶</a></h1>
 <p>The Beamable <strong>Notifications</strong> feature allows game makers to message players, regardless if the game is running.</p>
-<p>Notifications provide a robust messaging system that enables communication between different parts of your game through a publish/subscribe pattern. Objects can listen for updates (subscribe) with a certain tag. Other objects can then notify the subscribers (publish) with some context-relevant data.</p>
+<p>Notifications provide a messaging system that enables communication between different parts of your game through a publish/subscribe pattern. Objects can listen for updates (subscribe) with a certain tag. Other objects can then notify the subscribers (publish) with some context-relevant data.</p>
 <p>The Notification feature's functionality is actually used by many other features, providing a foundation for a publish/subscribe pattern. For example, <code>Inventory.Subscribe()</code> uses the NotificationService's <code>Subscribe()</code> function under the hood.</p>
 <p>Through the Notification API, the game maker can use this same messaging system for other parts of their game. This means that the purpose of the Notification feature is to expose a feature that Beamable already uses internally in the SDK.</p>
 <p>There are two main types of notifications:</p>
@@ -9360,7 +9360,7 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h4 id="subscribeunsubscribe">Subscribe/Unsubscribe<a class="headerlink" href="#subscribeunsubscribe" title="Permanent link">¶</a></h4>
-<p>Subscriptions are PlayerId based, so an event published by the server (e.g., a microservice) must specify your PlayerId in order for your client to receive the event.</p>
+<p>Subscriptions are PlayerId based, so an event published by the server (for example, a microservice) must specify your PlayerId in order for your client to receive the event.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>

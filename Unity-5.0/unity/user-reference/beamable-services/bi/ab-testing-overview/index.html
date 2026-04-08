@@ -9520,7 +9520,7 @@
 <li><strong>Decrease Costs</strong> - Game makers can focus on a leaner feature-set which is proven to matter to players</li>
 <li><strong>Decrease Risks</strong> - Roll out new gameplay features more frequently to a subset of the players. Ensure it is ready before releasing to everyone</li>
 </ul>
-<p>Generally you will want to follow a process:</p>
+<p>Generally, follow this process:</p>
 <ul>
 <li>Write Telemetry in your game so you have metrics you can measure against</li>
 <li>Run analytics and create reports that allow you to visualize your players behaviors</li>
@@ -9546,7 +9546,7 @@
 </tr>
 <tr>
 <td>Allocation</td>
-<td>Determines how players qualify for a specific cohort within a trial. Values:<br>• <strong>% Distribution</strong> - Specify a percentage of the total player population for each cohort<br>• <strong>Custom</strong> - Specify any player stat and a relational operator. This determines the cohort (e.g. stat of <code>PLAYER_LEVEL</code> &gt; 1)</td>
+<td>Determines how players qualify for a specific cohort within a trial. Values:<br>• <strong>% Distribution</strong> - Specify a percentage of the total player population for each cohort<br>• <strong>Custom</strong> - Specify any player stat and a relational operator. This determines the cohort (e.g., stat of <code>PLAYER_LEVEL</code> &gt; 1)</td>
 </tr>
 <tr>
 <td>Cohorts</td>
@@ -9554,7 +9554,7 @@
 </tr>
 <tr>
 <td>Cohort Data Overrides</td>
-<td>Specifies the Game Base Cloud Data references that is overridden (i.e. changed) for a given cohort<br><em>Note: Any text/binary format is compatible with Game Base Cloud Data. Many game makers choose YAML. See Wikipedia's <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> for more info</em></td>
+<td>Specifies the Game Base Cloud Data references that is overridden (i.e., changed) for a given cohort<br><em>Note: Any text/binary format is compatible with Game Base Cloud Data. Many game makers choose YAML. See Wikipedia's <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> for more info</em></td>
 </tr>
 <tr>
 <td>Lifecycle</td>
@@ -9682,7 +9682,7 @@
 </tbody>
 </table>
 <p><strong>2. Criteria Stats</strong></p>
-<p>For any A/B Testing Trial with an "Allocation" of type "Custom", the game maker specifies any player Stat and a relational operator. This determines the cohort (e.g. stat of <code>PLAYER_LEVEL</code> &gt; 1).</p>
+<p>For any A/B Testing Trial with an "Allocation" of type "Custom", the game maker specifies any player Stat and a relational operator. This determines the cohort (for example, stat of <code>PLAYER_LEVEL</code> &gt; 1).</p>
 <p>These values can be accessed programmatically via <strong>get</strong> as <code>game.private.player</code>.</p>
 <h3 id="debugging-manifests">Debugging Manifests<a class="headerlink" href="#debugging-manifests" title="Permanent link">¶</a></h3>
 <p>For debugging the manifests, game players can use the Admin Flow to enter commands.</p>
@@ -9697,7 +9697,7 @@
 <tbody>
 <tr>
 <td><code>CLOUD-MANIFEST</code></td>
-<td>Retrieve and output to the console log the <strong>game</strong> manifest, which includes the entire cloud data domain.<br><em>Note: This is invokable only by a privileged user (i.e. C# Microservice OR admin user). So if privileged user invoking in Unity, be sure your runtime user is an admin of the realm — you can login to such a user using the Account Management Flow prefab</em></td>
+<td>Retrieve and output to the console log the <strong>game</strong> manifest, which includes the entire cloud data domain.<br><em>Note: This is invokable only by a privileged user (i.e., C# Microservice OR admin user). So if privileged user invoking in Unity, be sure your runtime user is an admin of the realm — you can login to such a user using the Account Management Flow prefab</em></td>
 </tr>
 <tr>
 <td><code>CLOUD-PLAYER</code></td>

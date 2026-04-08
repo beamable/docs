@@ -9686,7 +9686,7 @@
 <tbody>
 <tr>
 <td>Client</td>
-<td>This refers to the instance of the game code that is running on each player's local device (e.g. Mobile Phone)</td>
+<td>This refers to the instance of the game code that is running on each player's local device (e.g., Mobile Phone)</td>
 </tr>
 <tr>
 <td>Event</td>
@@ -9694,11 +9694,11 @@
 </tr>
 <tr>
 <td>Latency</td>
-<td>This measurement indicates the average total time needed for the game <strong>client</strong> to send an event to the Multiplayer <strong>server</strong> and receive the reply. Latency is measured in milliseconds (e.g. 200ms)</td>
+<td>This measurement indicates the average total time needed for the game <strong>client</strong> to send an event to the Multiplayer <strong>server</strong> and receive the reply. Latency is measured in milliseconds (e.g., 200ms)</td>
 </tr>
 <tr>
 <td>Matchmaking</td>
-<td>This is the process of choosing a <code>MatchId</code> based on criteria. E.g. "Give me a match to play in with 3 total players with beginner skill level". Beamable includes an optional, light-weight Matchmaking service.<br><br><em>Note: See <a href="../matchmaking/">Matchmaking</a> for more info</em></td>
+<td>This is the process of choosing a <code>MatchId</code> based on criteria. E.g., "Give me a match to play in with 3 total players with beginner skill level". Beamable includes an optional, light-weight Matchmaking service.<br><br><em>Note: See <a href="../matchmaking/">Matchmaking</a> for more info</em></td>
 </tr>
 <tr>
 <td>SimClient</td>
@@ -9706,7 +9706,7 @@
 </tr>
 <tr>
 <td>SimClient's TargetNetworkLead</td>
-<td>This is network buffer. It represents how long the Multiplayer <strong>server</strong> holds game <strong>events</strong> before sending them back to clients. E.g. With a value of 5, the Multiplayer <strong>server</strong> will hold 5 events before sending those 5 to the game client's. A higher value provides more consistency to the <strong>clients'</strong> rendering experience, but at the cost of higher latency.</td>
+<td>This is network buffer. It represents how long the Multiplayer <strong>server</strong> holds game <strong>events</strong> before sending them back to clients. E.g., With a value of 5, the Multiplayer <strong>server</strong> will hold 5 events before sending those 5 to the game client's. A higher value provides more consistency to the <strong>clients'</strong> rendering experience, but at the cost of higher latency.</td>
 </tr>
 <tr>
 <td>SimClient's Match</td>
@@ -9724,10 +9724,10 @@
 </table>
 <h3 id="game-security">Game Security<a class="headerlink" href="#game-security" title="Permanent link">¶</a></h3>
 <p>To be more secure against any malicious hackers in your multiplayer game's community, consider never sending any game object state (player's heath, power of weapon, etc) as part of the messages to be synchronized over the network.</p>
-<p>Any enterprising hacker can "easily" hack a game client to send inflated values which will only make the game worse for everyone. If all a player can do is send an "action". i.e. "What I did" ("I fired my equipped gun" rather than "I hit player 2 for 100 damage"), it becomes quite a bit harder for someone to cheat.</p>
+<p>Any enterprising hacker can "easily" hack a game client to send inflated values which will only make the game worse for everyone. If all a player can do is send an "action" — that is, "What I did" ("I fired my equipped gun" rather than "I hit player 2 for 100 damage"), it becomes quite a bit harder for someone to cheat.</p>
 <p>A hacker may also attempt to replay actions AGAIN for a particular turn or to send malformed game event object messages that can lead to a worst experience for other players.</p>
 <h3 id="matchmaking">Matchmaking<a class="headerlink" href="#matchmaking" title="Permanent link">¶</a></h3>
-<p>In multiplayer gaming, matchmaking is the process of choosing a <code>MatchId</code> based on criteria (e.g. "Give me a match to play in with 2 total players of any skill level"). Beamable supports matchmaking through its matchmaking service.</p>
+<p>In multiplayer gaming, matchmaking is the process of choosing a <code>MatchId</code> based on criteria (for example, "Give me a match to play in with 2 total players of any skill level"). Beamable supports matchmaking through its matchmaking service.</p>
 <p>See <a href="../matchmaking/">Matchmaking</a> for more info.</p>
 <h3 id="playing-against-yourself">Playing "Against Yourself"<a class="headerlink" href="#playing-against-yourself" title="Permanent link">¶</a></h3>
 <p>One of the challenges of developing a multiplayer game is testing it frequently as an individual developer. Finding a friend to play against you <strong>every</strong> time you run the game in development is prohibitive.</p>
@@ -9737,7 +9737,7 @@
 <h4 id="playing-against-yourself_1">Playing Against Yourself<a class="headerlink" href="#playing-against-yourself_1" title="Permanent link">¶</a></h4>
 <p>The sample game allows a workflow to test the full 2 player experience with relative ease. Build the Unity sample project as a standalone game for either Mac or PC. Then run the game in the Unity Editor <strong>also</strong>. Simply click "Start Game: Human vs Human" from the Menu Scene in <strong>both</strong> game clients to activate it.</p>
 <p>Doing a build takes a few minutes. Depending on the specifics of your game, it may not be required to rebuild the standalone after <strong>every</strong> code change.</p>
-<p>This is the process of choosing a <code>MatchId</code> based on criteria. E.g. "Give me a match to play in with 3 total players with beginner skill level". Beamable includes an optional, light-weight Matchmaking service.</p>
+<p>This is the process of choosing a <code>MatchId</code> based on criteria — for example, "Give me a match to play in with 3 total players with beginner skill level". Beamable includes an optional, light-weight Matchmaking service.</p>
 <h3 id="randomization-and-determinism">Randomization and Determinism<a class="headerlink" href="#randomization-and-determinism" title="Permanent link">¶</a></h3>
 <p>In single-player game design, game makers may freely use randomization libraries to add variety to game play. The environment may be randomized, the enemy amount and variety can change every game session. This adds richness and replayability to the game.</p>
 <p>In a multiplayer game its important that all players in a given game session have the SAME "random" experience. But how?</p>
