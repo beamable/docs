@@ -94,7 +94,7 @@ The following IFederationId is invalid. They must: Start with a letter. Contain 
 ```
 
 **Solutions**:
-- Rename the federation ID to follow the format, e.g. `MyFederation`.
+- Rename the federation ID to follow the format, e.g., `MyFederation`.
 
 ---
 

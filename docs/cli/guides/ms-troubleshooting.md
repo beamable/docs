@@ -93,7 +93,7 @@ Methods marked as `[Callable]`, `[ClientCallable]`, `[ServerCallable]` should no
 **Example Code Triggering the Error**:
 ```csharp
 [Microservice("MyMicroservice")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
     [Callable]
     public async void CallMicroservice() {}
@@ -111,7 +111,7 @@ Microservice Callable methods cannot be async voids. Ex: CallMicroservice.
 **Example of Solved Code**:
 ```csharp
 [Microservice("MyMicroservice")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
     [Callable]
     public async Task CallMicroservice() {}
@@ -125,7 +125,7 @@ Types used in `[ClientCallable]` methods must be available to both server and cl
 **Example Code Triggering the Error**:
 ```csharp
 [Microservice("MyMicroservice")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
         [ClientCallable]
     public async Task<DTO> CallServiceAsync() => new DTO { x = 1 };
@@ -152,7 +152,7 @@ Microservice Callable method `CallServiceAsync` uses a Type that cannot be insid
 **Example of Solved Code** (Microservice):
 ```csharp
 [Microservice("MyMicroservice")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
     [ClientCallable]
     public async Task<DTO> CallServiceAsync() => new DTO { x = 1 };
@@ -180,7 +180,7 @@ Types used in `[ClientCallable]` methods must be declared in outer scope so the 
 **Example Code Triggering the Error**:
 ```csharp
 [Microservice("MyMicroservice")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
     public class DTO
     {
@@ -203,7 +203,7 @@ public partial class MyMicroservice : Microservice
 **Example of Solved Code**:
 ```csharp
 [Microservice("MyMicroservice")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
     [ClientCallable]
     public void CallService(DTO data) {}
@@ -225,7 +225,7 @@ Classes that uses the attribute `[BeamGenerateSchema]` cannot be declared as nes
 **Example Code Triggering the Error**:
 ```csharp
 [Microservice("MyMicroservice")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
     [BeamGenerateSchema]
     public class DTO
@@ -291,7 +291,7 @@ Microservice ID: `MyMicroservice` is invalid, it needs to be the same as <BeamId
     ```csharp
     [Microservice("OtherBeamId")]
     public partial class MyMicroservice : Microservice { }
-    
+
     [BeamGenerateSchema]
     public class DTO
     {
@@ -332,7 +332,7 @@ Consider making 'ContentId' a readonly field. Otherwise the value may be inconsi
 ```
 
 **Solutions**:
-- Make the static field `readonly` if it's intended to be constant after initialization.
+- Make the static field `readonly` if it is intended to be constant after initialization.
   **Example of Solved Code**:
     ```csharp
     public partial class MyMicroservice : Microservice
@@ -362,7 +362,7 @@ public class MyOtherDto
     public int x;
 }
 [Microservice("OtherBeamId")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
     [ClientCallable]
     public void CallService(MyOtherDto data) {}
@@ -437,7 +437,7 @@ Consider changing property 'X' to a field to include it in client-generated code
 ## Nullable Field in Serializable Type
 
 **Explanation**:
-Fields with nullable types (e.g., `int?`, `string?`) are not supported in types used in Microservice method signatures or marked with `[BeamGenerateSchema]`. Use `Optional<T>` instead to ensure predictable behavior.
+Fields with nullable types (for example, `int?`, `string?`) are not supported in types used in Microservice method signatures or marked with `[BeamGenerateSchema]`. Use `Optional<T>` instead to ensure predictable behavior.
 
 **Example Code Triggering the Error**:
 ```csharp
@@ -477,7 +477,7 @@ Using `ContentObject` or its subtypes directly in serializable fields or paramet
 [BeamGenerateSchema]
 public class MyDTO
 {
-    public MyItem item; 
+    public MyItem item;
 }
 
 public class MyItem : ContentObject {}
@@ -634,7 +634,7 @@ public class MyList : List<string> {}
 [BeamGenerateSchema]
 public class MyDTO
 {
-    public MyList customList; 
+    public MyList customList;
 }
 ```
 
@@ -889,7 +889,7 @@ public partial class MyMicroservice : Microservice
     {
         return Task.FromResult(new IntContainer());
     }
-    
+
     [ClientCallable]
     public Task<List<string>> GetStrings() // Allowed: List<T> is permitted
     {
