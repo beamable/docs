@@ -15,7 +15,7 @@ Here is the glossary of group-related terms.
 
 | Name              | Detail                                                                                       |
 | :---------------- | :------------------------------------------------------------------------------------------- |
-| Group             | A collection of game players (e.g. a guild)                                                  |
+| Group             | A collection of game players (e.g., a guild)                                                  |
 | Group Member      | A game player within the group                                                               |
 | Group Member Role | Players within a group may have distinct roles to dictate gameplay limits and responsibilities |
 

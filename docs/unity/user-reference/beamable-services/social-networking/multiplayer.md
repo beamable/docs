@@ -48,12 +48,12 @@ here is a high-level diagram of the Beamable Multiplayer terms
 
 | Name | Detail |
 |------|--------|
-| Client | This refers to the instance of the game code that is running on each player's local device (e.g. Mobile Phone) |
+| Client | This refers to the instance of the game code that is running on each player's local device (e.g., Mobile Phone) |
 | Event | The data packet that represents a player's turn in the game. This may be any serializable C# structure. |
-| Latency | This measurement indicates the average total time needed for the game **client** to send an event to the Multiplayer **server** and receive the reply. Latency is measured in milliseconds (e.g. 200ms) |
-| Matchmaking | This is the process of choosing a `MatchId` based on criteria. E.g. "Give me a match to play in with 3 total players with beginner skill level". Beamable includes an optional, light-weight Matchmaking service.<br><br>_Note: See [Matchmaking](matchmaking.md) for more info_ |
+| Latency | This measurement indicates the average total time needed for the game **client** to send an event to the Multiplayer **server** and receive the reply. Latency is measured in milliseconds (e.g., 200ms) |
+| Matchmaking | This is the process of choosing a `MatchId` based on criteria. E.g., "Give me a match to play in with 3 total players with beginner skill level". Beamable includes an optional, light-weight Matchmaking service.<br><br>_Note: See [Matchmaking](matchmaking.md) for more info_ |
 | SimClient | This class is the main entry point for Beamable's Multiplayer feature. |
-| SimClient's TargetNetworkLead | This is network buffer. It represents how long the Multiplayer **server** holds game **events** before sending them back to clients. E.g. With a value of 5, the Multiplayer **server** will hold 5 events before sending those 5 to the game client's. A higher value provides more consistency to the **clients'** rendering experience, but at the cost of higher latency. |
+| SimClient's TargetNetworkLead | This is network buffer. It represents how long the Multiplayer **server** holds game **events** before sending them back to clients. E.g., With a value of 5, the Multiplayer **server** will hold 5 events before sending those 5 to the game client's. A higher value provides more consistency to the **clients'** rendering experience, but at the cost of higher latency. |
 | SimClient's Match | This represents a set of players playing a specific instance of the game together. Only players in the **same** match may collaborate, compete, and communicate. |
 | SimClient's FramesPerSecond | This is the rate (in times per second) at which the **client** receives event updates from the Multiplayer **server**. As a data optimization, typically this is set lower than the rendering frame rate of Unity. |
 | Server | This refers to the instance of the server code that sits between the game's **clients** and manages distribution of the game events. |
@@ -62,13 +62,13 @@ here is a high-level diagram of the Beamable Multiplayer terms
 
 To be more secure against any malicious hackers in your multiplayer game's community, consider never sending any game object state (player's heath, power of weapon, etc) as part of the messages to be synchronized over the network.
 
-Any enterprising hacker can "easily" hack a game client to send inflated values which will only make the game worse for everyone. If all a player can do is send an "action". i.e. "What I did" ("I fired my equipped gun" rather than "I hit player 2 for 100 damage"), it becomes quite a bit harder for someone to cheat.
+Any enterprising hacker can "easily" hack a game client to send inflated values which will only make the game worse for everyone. If all a player can do is send an "action" — that is, "What I did" ("I fired my equipped gun" rather than "I hit player 2 for 100 damage"), it becomes quite a bit harder for someone to cheat.
 
 A hacker may also attempt to replay actions AGAIN for a particular turn or to send malformed game event object messages that can lead to a worst experience for other players.
 
 ### Matchmaking
 
-In multiplayer gaming, matchmaking is the process of choosing a `MatchId` based on criteria (e.g. "Give me a match to play in with 2 total players of any skill level"). Beamable supports matchmaking through its matchmaking service.
+In multiplayer gaming, matchmaking is the process of choosing a `MatchId` based on criteria (for example, "Give me a match to play in with 2 total players of any skill level"). Beamable supports matchmaking through its matchmaking service.
 
 See [Matchmaking](matchmaking.md) for more info.
 
@@ -88,7 +88,7 @@ The sample game allows a workflow to test the full 2 player experience with rela
 
 Doing a build takes a few minutes. Depending on the specifics of your game, it may not be required to rebuild the standalone after **every** code change.
 
-This is the process of choosing a `MatchId` based on criteria. E.g. "Give me a match to play in with 3 total players with beginner skill level". Beamable includes an optional, light-weight Matchmaking service.
+This is the process of choosing a `MatchId` based on criteria — for example, "Give me a match to play in with 3 total players with beginner skill level". Beamable includes an optional, light-weight Matchmaking service.
 
 ### Randomization and Determinism
 

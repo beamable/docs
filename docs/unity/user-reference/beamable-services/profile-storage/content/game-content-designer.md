@@ -61,14 +61,14 @@ For **existing** Google Sheets with GCD already installed, the following step ma
 |------|--------|
 | 1. Locate the GCD Add-On | • Open [Game Content Designer (GCD)](https://workspace.google.com/marketplace/app/game_content_designer/521598789987) on the Google Workspace Marketplace |
 | 2. Install the GCD Add-On | _Note: GCD supports both `Domain` and `Individual` install types_ |
-| 3. Open any Google Sheet | • E.g. The file created in "Step 1. Create the Sheet" above |
+| 3. Open any Google Sheet | • E.g., The file created in "Step 1. Create the Sheet" above |
 | 4. Enable "Game Content Designer" Add-On | • (Google Sheet → Add-Ons → Game Content Designer) |
 
 ### Managing the Data
 
 | Step | Detail |
 |------|--------|
-| 1. Edit the Google Sheet | • Add cells<br/>• Edit cells<br/>• Delete cells<br/><br/>_Note: Google Sheets support styling of fonts and colors to aid readability, validation to correct newly inputted values, formulas for math operations (e.g. add cells, average cells, etc...), and more..._ |
+| 1. Edit the Google Sheet | • Add cells<br/>• Edit cells<br/>• Delete cells<br/><br/>_Note: Google Sheets support styling of fonts and colors to aid readability, validation to correct newly inputted values, formulas for math operations (e.g., add cells, average cells, etc...), and more..._ |
 | 2. Save the Google Sheet | _Note: Google Sheets save automatically. The format is versioned, backed-up, and easily shared for collaboration_ |
 
 ## Adding Data
@@ -275,7 +275,7 @@ The game maker exports the data to flat files, adds them to the Unity project, a
 
 | Step | Detail |
 |------|--------|
-| 1. Prepare the JSON | • Open a Google Sheet with GCD<br/>• Export as JSON (Google Sheet → Add-Ons → Game Content Designer → Import / Export → Export)<br/>• Store the JSON **locally** within the Unity Project. E.g. `Assets/Resources/` |
+| 1. Prepare the JSON | • Open a Google Sheet with GCD<br/>• Export as JSON (Google Sheet → Add-Ons → Game Content Designer → Import / Export → Export)<br/>• Store the JSON **locally** within the Unity Project. E.g., `Assets/Resources/` |
 | 2. Load the JSON | • See `GameContentDesignerDemo_Json.cs` below |
 | 3. Convert the JSON to C# objects | • See `GameContentDesignerDemo_Json.cs` below |
 | 4. Use the C# objects | • See `GameContentDesignerDemo_Json.cs` below |
@@ -428,9 +428,9 @@ namespace Beamable.Examples.Labs.GameContentDesignerDemo.Content
 
 Mouse over a schema header to reveal the **cell notes**. Notes store the column metadata.
 
-- **Sheet Settings** - Store the export settings for an entire sheet. (e.g. Export format and export key)
-- **Column Settings** - Stores the export settings for a given column (e.g. Handling empty cells)
-- **Validation Settings** - Store the validation settings (e.g. Number vs string) for a given sheet's column's
+- **Sheet Settings** - Store the export settings for an entire sheet. (e.g., Export format and export key)
+- **Column Settings** - Stores the export settings for a given column (e.g., Handling empty cells)
+- **Validation Settings** - Store the validation settings (e.g., Number vs string) for a given sheet's column's
 
 !!! info "Best Practice"
 

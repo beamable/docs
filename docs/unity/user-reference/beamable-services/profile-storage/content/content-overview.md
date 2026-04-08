@@ -14,7 +14,7 @@ One important concept of the Content ID is the "Nesting". Content IDs can be nes
 
 ## Content Namespaces
 
-Content is validated as a manifest which allows items to be validated against each other. This prevents validation errors when publishing; however, individual changes could cause validation errors after uploading; e.g., a store references a currency that no longer exists.
+Content is validated as a manifest which allows items to be validated against each other. This prevents validation errors when publishing; however, individual changes could cause validation errors after uploading; for example, a store references a currency that no longer exists.
 
 Namespaces are locations for content to be published so that the content does not impact content in other namespaces. Content namespaces can also be used for versioning to ensure older versions of the game using the same or similar content do not break.
 
@@ -207,8 +207,8 @@ namespace Beamable.Examples.Services.ContentService
 
 !!! info "Best Practices"
 
-    - If the content that your game is using is known ahead of time (e.g. there will only be subtle differences in existing pieces of content), a content reference (such as ContentLink or ContentRef) should be used.
-    - However, if the content in your game needs to be more dynamic (e.g. the Game Maker will be pushing entirely new pieces of content, unknown to the game client), a content subscription should be used.
+    - If the content that your game is using is known ahead of time (for example, there will only be subtle differences in existing pieces of content), a content reference (such as ContentLink or ContentRef) should be used.
+    - However, if the content in your game needs to be more dynamic (for example, the Game Maker will be pushing entirely new pieces of content, unknown to the game client), a content subscription should be used.
     - **DO**: Use `ContentLink` in any member variable in your _custom_ content type which references another content type. ContentLink is useful for data that needs to be loaded quickly at runtime, since it is preloaded in very early stages of the application's lifecycle.
     - **DON'T**: Use `ContentRef` by default _everywhere_ in your project. This is supported but is considered overkill. ContentRef is useful for data that the application can afford to load on-demand (especially data that might not get loaded at all).
 

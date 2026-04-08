@@ -17,14 +17,14 @@ Here is the glossary of Tournament terms.
 
 | Name | Detail |
 |------|--------|
-| Cycle | The duration of time between each tournament reward phase (e.g. 24 Hrs)<br><br>_Note: Cycles are written in [ISO 8601 Format](https://en.wikipedia.org/wiki/ISO_8601)._ |
+| Cycle | The duration of time between each tournament reward phase (e.g., 24 Hrs)<br><br>_Note: Cycles are written in [ISO 8601 Format](https://en.wikipedia.org/wiki/ISO_8601)._ |
 | Rank | The position of a player's score, relative to the game's community |
 | Reward | The extrinsic payoff to the player, calculated by rank, stage, & tier<br><br>_Note: Only Currency Content may be rewarded. Support for other reward types is not yet available_ |
-| Score | The in-game performance of a player, often represented as a number (e.g. "100" points) |
+| Score | The in-game performance of a player, often represented as a number (e.g., "100" points) |
 | Stage | An ordered grouping of **ranks**, relative to the game's community |
 | Tournament | A recurring competition between all players within a game's community, based on score ranking, stage, and tier |
 | Tournament Player | The unique identity of the person playing the game |
-| Tournament Player Limit | The maximum number of tournament players **per** stage (e.g. 50) |
+| Tournament Player Limit | The maximum number of tournament players **per** stage (e.g., 50) |
 | Tier | An ordered grouping of **stages**, relative to the game's community |
 
 ### Tournament vs Leaderboards

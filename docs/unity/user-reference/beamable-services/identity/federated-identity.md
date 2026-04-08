@@ -58,7 +58,7 @@ public class AuthenticationMicroservice : IFederatedLogin<TunaCloudIdentity>, IF
 
 !!! info "User Id generation"
 
-  Ensure that User IDs are generated deterministically. For a given input from the provider, the resulting User ID must always be the same. Avoid using `Guid.NewGuid().ToString()`, as this creates a new account for every login attempt. Instead, use a unique identifier provided by the external auth provider (e.g., a subject ID or public key).
+  Ensure that User IDs are generated deterministically. For a given input from the provider, the resulting User ID must always be the same. Avoid using `Guid.NewGuid().ToString()`, as this creates a new account for every login attempt. Instead, use a unique identifier provided by the external auth provider (for example, a subject ID or public key).
 
 
 In this example, we didn't use the "challenge" and "solution" arguments. The standard use case for challenges is wallet authentication. If a client sends us a wallet address as a token, the only way to verify the ownership of that wallet is to issue a challenge, and require a user to sign that challenge using their private key. [Solana/Phantom wallet authentication](https://github.com/beamable/solana-example) is an example that uses a challenge.

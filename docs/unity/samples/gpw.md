@@ -74,18 +74,18 @@ Here is a high-level chart showing the _partial_ structure.
 
 The data within the `RuntimeDataStorage` is vital for the core game loop.
 
-The game design requires that all users in the same game (e.g. same chat session) to see a shared world of consistent pricing. This is accomplished using the data structure and data factory below.
+The game design requires that all users in the same game (for example, the same chat session) to see a shared world of consistent pricing. This is accomplished using the data structure and data factory below.
 
 **Data Structure**
 The structure contains all the locations of the game. Within each location is information about each product; including its price and quantity.
 
 - List < LocationContentView >
-  - LocationData (e.g. "Africa")
+  - LocationData (e.g., "Africa")
   - List < ProductContentViews >
-    - ProductData (e.g. "Chocolate")
+    - ProductData (e.g., "Chocolate")
     - MarketGoods
-      - Price (e.g. "10")
-      - Quantity (e.g. "3")
+      - Price (e.g., "10")
+      - Quantity (e.g., "3")
 
 **Data Factory**
 The `IDataFactory` gets data as shown in the diagram below.
