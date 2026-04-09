@@ -7,7 +7,7 @@ beam project storage snapshot <beamoId> [options]
 ## About
 Create a snapshot of a local Storage Object
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |beamoId|String|The beamoId for the storage object|

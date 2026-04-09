@@ -7,7 +7,7 @@ beam content tag rm <tag> [options]
 ## About
 Removes tag from content
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |tag|String|List of tags for us to affect|

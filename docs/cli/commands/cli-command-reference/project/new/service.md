@@ -7,7 +7,7 @@ beam project new service <name> [options]
 ## About
 Create a new microservice project
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |name|ServiceName|Name of the new project|

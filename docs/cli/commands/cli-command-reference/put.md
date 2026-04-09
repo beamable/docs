@@ -7,7 +7,7 @@ beam put <uri> [options]
 ## About
 [INTERNAL] Base PUT request command
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |uri|String||

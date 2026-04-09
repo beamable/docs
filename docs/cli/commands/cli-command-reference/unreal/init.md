@@ -7,7 +7,7 @@ beam unreal init <unrealSdkRepoPath> <uprojectFilePath> <installOss> [options]
 ## About
 [INTERNAL] Ran by `beam_init_game_maker.sh` in order to do a bunch of set up in an Unreal project automatically
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |unrealSdkRepoPath|String|Path to your clone of Beamable's UnrealSDK repo in your machine|

@@ -7,7 +7,7 @@ beam project update-unity-beam-package <path> [options]
 ## About
 Updates or adds Beamable packages to Unity project
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |path|String|Relative path to the Unity project|

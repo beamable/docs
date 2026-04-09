@@ -7,7 +7,7 @@ beam content archive-manifest <manifest-id> [options]
 ## About
 Archive an existing content manifest
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |manifest-id|String|The manifest id to archive|

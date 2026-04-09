@@ -7,7 +7,7 @@ beam project share-code <source> [options]
 ## About
 Given a dll, copy the dll to the associated unity projects
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |source|String|The .dll filepath for the built code|

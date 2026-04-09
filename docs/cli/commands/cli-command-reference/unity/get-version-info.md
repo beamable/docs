@@ -7,7 +7,7 @@ beam unity get-version-info <unityPath> [options]
 ## About
 [INTERNAL] get information about a beamable unity sdk project's version dependencies
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |unityPath|String|the path to the root of the unity project|

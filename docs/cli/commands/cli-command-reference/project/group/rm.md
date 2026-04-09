@@ -7,7 +7,7 @@ beam project group rm <name> <groups> [options]
 ## About
 Remove a group from a project
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |name|ServiceName|Name of the service|
