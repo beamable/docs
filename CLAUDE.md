@@ -76,3 +76,12 @@ The workflow runs `mike deploy "{sdk}-{version}" --push`, which publishes to `gh
 ## Navigation
 
 Documentation navigation is defined by `SUMMARY.md` files (using `mkdocs-literate-nav` plugin) in each content branch.
+
+## Style Guide
+
+- **Bullet lists and table entries:** no terminal periods, regardless of whether items are sentences or fragments
+- **Relative clauses:** use "that" for restrictive clauses; use ", which" (with comma) for non-restrictive clauses; omit the pronoun entirely where the sentence allows
+- **"which allows/enables" constructions:** rewrite as active alternatives (e.g., "letting downstream projects reuse...")
+- **Passive voice:** prefer active/imperative in setup and configuration instructions where "you" is the actor; passive is acceptable when the actor is the system or a type constraint
+- **Product term capitalization:** Portal, Cloud Save, Content Manager, Admin Console, Beam Library (capitalized); see commit history for resolved cases
+- **Reference style guides:** Google Developer Documentation Style Guide and Microsoft Writing Style Guide
