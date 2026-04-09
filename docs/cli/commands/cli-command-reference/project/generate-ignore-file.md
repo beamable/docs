@@ -7,7 +7,7 @@ beam project generate-ignore-file <type> [options]
 ## About
 Generate an ignore file in .beamable folder for given VCS
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |type|Vcs|Which VCS to generate the ignore file for|

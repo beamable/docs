@@ -7,7 +7,7 @@ beam content tag add <tag> [options]
 ## About
 Adds tag to content
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |tag|String|List of tags for us to affect|

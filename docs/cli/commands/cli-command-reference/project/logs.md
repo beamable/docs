@@ -7,7 +7,7 @@ beam project logs <service> [options]
 ## About
 Tail the logs of a microservice
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |service|ServiceName|The name of the service to view logs for|

@@ -7,7 +7,7 @@ beam project new portal-extension <name> [options]
 ## About
 Creates a new Portal Extension App
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |name|ServiceName|Name of the new project|

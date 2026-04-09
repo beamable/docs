@@ -7,7 +7,7 @@ beam project group add <name> <groups> [options]
 ## About
 Add a group to a project
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |name|ServiceName|Name of the service|

@@ -11,7 +11,7 @@ authorization information that can be used later.
 
 This command can also be used to change the CID/PID of an existing `.beamable` folder.
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |path|String|the folder that will be initialized as a beamable project. . By default, the init command creates a `.beamable` folder in the current directory.  However, the `path` argument configures where the `.beamable` folder is created.|

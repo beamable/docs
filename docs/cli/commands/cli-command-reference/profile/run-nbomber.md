@@ -7,7 +7,7 @@ beam profile run-nbomber <service> <method> [options]
 ## About
 [INTERNAL] Runs an n-bomber stress test for a given microservice method
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |service|String|The name of the microservice to stress test|

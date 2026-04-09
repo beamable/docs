@@ -4,7 +4,7 @@ Configure Standalone Microservice routing and client generation
 
 ## Dependencies
 
-Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
+Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -22,12 +22,12 @@ dotnet beam project new service HelloWorld
 ## Microservice Routing
 
 
-Beamable Microservices use a privileged web socket to communicate with Beamable's existing APIs and services. There is a custom Beamable application level protocol, _Thorium_, that allows a Microservice to receive HTTPS traffic sent to `https://api.beamable.com`. However, for the Microservice to receive the traffic, the HTTP request needs to meet the following requirements, 
+Beamable Microservices use a privileged web socket to communicate with Beamable's existing APIs and services. There is a custom Beamable application level protocol, _Thorium_, that allows a Microservice to receive HTTPS traffic sent to `https://api.beamable.com`. However, for the Microservice to receive the traffic, the HTTP request needs to meet the following requirements,
 
-1. The `uri` of the HTTP request must have a `path` that maps to the desired Microservice. 
-2. The HTTP request must have an `X-DE-SCOPE` header, and 
+1. The `uri` of the HTTP request must have a `path` that maps to the desired Microservice.
+2. The HTTP request must have an `X-DE-SCOPE` header, and
 3. _Optionally_, the HTTP request should have a `X-BEAM-SERVICE-ROUTING-KEY` header that carries a map of service routing keys, and
-4. _Optionally_, the HTTP request should have an `Authorization` header that carries a Bearer Token. 
+4. _Optionally_, the HTTP request should have an `Authorization` header that carries a Bearer Token.
 
 #### Path Routing
 
@@ -48,17 +48,17 @@ The variables are described in the following table.
 | `serviceName` | yes      | `HelloWorld`          | The name of your service. This maps to the Beam Id of your service.                                                                                                                                                                                                                                                                                             |
 | `method`      | yes      | `Add`                 | The name of the Method you want to invoke.                                                                                                                                                                                                                                                                                                                      |
 
-When the `host` (`api.beamable.com`) receives an HTTP request with the following `uri` format, the request will be deconstructed into the variable components, and the contents of the HTTP request will be forwarded to your Microservice via the _Thorium_ web socket protocol. The Microservice receives the request, and uses the `method` component of the original request to invoke the right `[Callable]` method.  
+When the `host` (`api.beamable.com`) receives an HTTP request with the following `uri` format, the request will be deconstructed into the variable components, and the contents of the HTTP request will be forwarded to your Microservice via the _Thorium_ web socket protocol. The Microservice receives the request, and uses the `method` component of the original request to invoke the right `[Callable]` method.
 
 #### X-BEAM-SERVICE-ROUTING-KEY Header
 
-When a Microservice is started locally, it may share the same name with a Microservice running in the Beamable cloud. When this happens, and your local development machine is generating traffic for the named service, the _routing key_ defines _which_ Microservice instance (the local or remote) receives the traffic. 
+When a Microservice is started locally, it may share the same name with a Microservice running in the Beamable cloud. When this happens, and your local development machine is generating traffic for the named service, the _routing key_ defines _which_ Microservice instance (the local or remote) receives the traffic.
 
-A Microservice instance may optionally register a routing key, and if they do, then they will only receive traffic that includes the routing key in a custom `X-BEAM-SERVICE-ROUTING-KEY` header. 
+A Microservice instance may optionally register a routing key, and if they do, then they will only receive traffic that includes the routing key in a custom `X-BEAM-SERVICE-ROUTING-KEY` header.
 
-All microservice instances running on the Beamable cloud _do not_ register any routing keys, so they receive traffic that does not include any `X-BEAM-SERVICE-ROUTING-KEY` value. 
+All microservice instances running on the Beamable cloud _do not_ register any routing keys, so they receive traffic that does not include any `X-BEAM-SERVICE-ROUTING-KEY` value.
 
-The format of the `X-BEAM-SERVICE-ROUTING-KEY` value should be a series of `<service>:<routingKey>` pairs, separated by commas. Here is an example of a routing key header value that routes two services, 
+The format of the `X-BEAM-SERVICE-ROUTING-KEY` value should be a series of `<service>:<routingKey>` pairs, separated by commas. Here is an example of a routing key header value that routes two services,
 
 ```
 serviceA:routingKeyA,serviceB:routingKeyB
@@ -66,23 +66,23 @@ serviceA:routingKeyA,serviceB:routingKeyB
 
 #### X-DE-SCOPE Header
 
-In addition to specifying the `cid` and `pid` in the `uri` of the HTTP request, those values must also be sent in a special HTTP header, `X-DE-SCOPE`. The value for this header should take the format, 
+In addition to specifying the `cid` and `pid` in the `uri` of the HTTP request, those values must also be sent in a special HTTP header, `X-DE-SCOPE`. The value for this header should take the format,
 
 ```javascript
 var scope = cid + '.' + pid;
 ```
-#### Authorization 
+#### Authorization
 
-Finally, while not required, it is important to send an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project. 
+Finally, while not required, it is important to send an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project.
 
 ```sh
 cat .beamable/temp/auth.beam.json
 ```
 
 
-Beamable does not require that any access token be provided via an authorization header. However, if an authorization header is provided, then Beamable will decorate the request with account information before the request is forwarded to the Microservice. The Microservice itself may enforce the account details to have minimal access permissions. These constraints vary based on the type of `[Callable]` attribute you use. 
+Beamable does not require that any access token be provided via an authorization header. However, if an authorization header is provided, then Beamable will decorate the request with account information before the request is forwarded to the Microservice. The Microservice itself may enforce the account details to have minimal access permissions. These constraints vary based on the type of `[Callable]` attribute you use.
 
-The account information is accessible via the `Context.UserId` property when executing the `[Callable]` method. 
+The account information is accessible via the `Context.UserId` property when executing the `[Callable]` method.
 
 | Attribute             | Authorization Requirements                                                                                   |
 | --------------------- | ------------------------------------------------------------------------------------------------------------ |
@@ -108,22 +108,22 @@ Provide the relative path to the Unity project. If it isn't right, the CLI will 
 After the command has run, there will be a `.beamable/linked-projects.json` file. You can review it to double check your project has been added correctly.
 
 ```sh
-MyProject % cat .beamable/linked-projects.json 
+MyProject % cat .beamable/linked-projects.json
 {
   "unityProjectsPaths": [
     "../UnityProject"
   ],
   "unrealProjectsPaths": []
-}%  
+}%
 ```
 
 
-When there is a linked project, anytime a Microservice _builds_, it will automatically generate client code for the Unity project to use. This can be accessed via the `BeamContext`. 
+When there is a linked project, anytime a Microservice _builds_, it will automatically generate client code for the Unity project to use. This can be accessed via the `BeamContext`.
 
 ```csharp
 public async Promise TalkToMicroservice(){
-	var ctx = await BeamContext.Default.Instance;  
-	var client = ctx.Microservices().HelloWorld();  
+	var ctx = await BeamContext.Default.Instance;
+	var client = ctx.Microservices().HelloWorld();
 	var sum = await client.Add(1, 2);
 }
 ```
@@ -138,14 +138,14 @@ It is possible to use the project oapi command to generate an Open API document 
 dotnet beam project oapi --output example.json --ids MyService
 ```
 
-In fact, that command can baked into the Microservice's `.csproj` file with a custom build target. This requires that the `<SolutionDir>` property is set, which only happens when you run the project from the IDE. See the generate-props command to extend the `<SolutionDir>` property outside of IDE use cases. 
+In fact, that command can baked into the Microservice's `.csproj` file with a custom build target. This requires that the `<SolutionDir>` property is set, which only happens when you run the project from the IDE. See the generate-props command to extend the `<SolutionDir>` property outside of IDE use cases.
 ```xml
-<Target Name="Build Local OpenAPI File" AfterTargets="Build">  
-    <Exec Command="$(BeamableTool) project oapi --ids HelloWorld | jq '.data.openApi | fromjson' > $(SolutionDir)local/doc.json"/>  
+<Target Name="Build Local OpenAPI File" AfterTargets="Build">
+    <Exec Command="$(BeamableTool) project oapi --ids HelloWorld | jq '.data.openApi | fromjson' > $(SolutionDir)local/doc.json"/>
 </Target>
 ```
 
-Then, you can use the open source [Open API Generator](https://openapi-generator.tech/docs/generators/javascript/) to build a local javascript client. This snippet uses docker to interact with the generator tool, but you can also use `npm`. 
+Then, you can use the open source [Open API Generator](https://openapi-generator.tech/docs/generators/javascript/) to build a local javascript client. This snippet uses docker to interact with the generator tool, but you can also use `npm`.
 
 ```sh
 docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate \
@@ -159,7 +159,7 @@ docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate \
 In this example, we need to use `browserify` to convert the generated client code into a valid browser script.
 ```sh
 npm install -g browserify
-browserify ./dist/index.js --standalone helloWorld > ../../app/bundle.js 
+browserify ./dist/index.js --standalone helloWorld > ../../app/bundle.js
 ```
 
 Then, a sample web page might use a similar script to interact with the Microservice.
@@ -179,7 +179,7 @@ Then, a sample web page might use a similar script to interact with the Microser
             var client = new helloWorld.ApiClient(host);
             client.authentications['scope'].apiKey = cid + '.' + pid;
             client.authentications['user'].accessToken = refreshToken
-            
+
             var api = new helloWorld.UncategorizedApi(client);
             var args = new helloWorld.AddRequestArgs();
             args.a = 2;

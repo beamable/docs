@@ -7,7 +7,7 @@ beam version construct <major> <minor> <patch> [options]
 ## About
 [INTERNAL] constructs a beamable version string with the given configuration
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |major|Int32|The major semantic version number|

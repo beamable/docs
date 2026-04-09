@@ -7,7 +7,7 @@ beam project new common-lib <name> [options]
 ## About
 Create common library project that later can be connected to the services
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |name|ServiceName|The name of the new library project|

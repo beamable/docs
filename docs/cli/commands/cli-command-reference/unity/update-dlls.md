@@ -7,7 +7,7 @@ beam unity update-dlls <service> [options]
 ## About
 [INTERNAL] Update all DLLs references of the service
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |service|String|The name of the service to update the dlls|
