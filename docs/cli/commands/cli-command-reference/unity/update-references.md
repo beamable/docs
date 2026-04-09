@@ -7,7 +7,7 @@ beam unity update-references <service> [options]
 ## About
 [INTERNAL] Updates all Unity Assembly Definition references of the specified service
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |service|String|The name of the service to update the references|

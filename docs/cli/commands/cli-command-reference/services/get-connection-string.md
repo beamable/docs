@@ -7,7 +7,7 @@ beam services get-connection-string <storage-name> [options]
 ## About
 Gets the Microstorage connection string
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |storage-name|String|The name of the Microstorage|

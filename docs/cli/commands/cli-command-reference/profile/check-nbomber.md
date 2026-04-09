@@ -7,7 +7,7 @@ beam profile check-nbomber <nbomber-file-path> [options]
 ## About
 [INTERNAL] Read the results of a n-bomber .csv file and determine if there are errors
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |nbomber-file-path|String|The path to the nbomber output csv file|

@@ -14,7 +14,7 @@ Follow these steps to configure In-App Purchases settings:
 
 ## Game Maker User Experience
 
-The following screenshot shows the In-App Purchases management interface: 
+The following screenshot shows the In-App Purchases management interface:
 
 ![Portal In-App Purchases Interface](../media/imgs/portal-in-app-purchases-interface.png)
 

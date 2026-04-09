@@ -7,7 +7,7 @@ beam project open-swagger [<service-name>] [options]
 ## About
 Opens the swagger page for a given service
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |service-name|ServiceName|Name of the service to open swagger to|

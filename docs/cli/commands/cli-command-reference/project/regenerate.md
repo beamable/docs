@@ -7,7 +7,7 @@ beam project regenerate <name> [<output>] [<copy-path>] [options]
 ## About
 Regenerate the solution csproj, Dockerfile and Program.cs files
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |name|ServiceName|Name of the new project|

@@ -7,7 +7,7 @@ beam federation enable <service> [options]
 ## About
 Enable an active federation without stopping a service
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |service|String|The service to disable federation|

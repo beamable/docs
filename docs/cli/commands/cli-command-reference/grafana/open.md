@@ -5,7 +5,7 @@ beam grafana open [options]
 ```
 
 ## About
-Opens a local Grafana installation to inspect telemetry data 
+Opens a local Grafana installation to inspect telemetry data
 
 
 

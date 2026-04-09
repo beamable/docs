@@ -14,7 +14,7 @@ Follow these steps to configure Groups settings:
 
 ## Game Maker User Experience
 
-The following screenshot shows the Groups management interface: 
+The following screenshot shows the Groups management interface:
 
 ![Portal Groups Realm Interface](../media/imgs/portal-groups-realm-interface.png)
 

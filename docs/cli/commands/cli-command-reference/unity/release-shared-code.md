@@ -7,7 +7,7 @@ beam unity release-shared-code <csprojPath> <unityPath> <packageId> <packageRela
 ## About
 [INTERNAL] Copy the various shared code projects into the Beamable Unity SDK
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |csprojPath|String|path to csproj project|

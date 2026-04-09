@@ -7,13 +7,13 @@ beam project generate-properties <output> <beam-path> <solution-dir> [options]
 ## About
 Generates a Directory.Build.props file with the beam path and solution dir
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |output|String|Where the file will be created|
 |beam-path|String|Beam path to be used. Use BEAM_SOLUTION_DIR to template in $(SolutionDir)|
-|solution-dir|String|The solution path to be used. 
-The following values have special meaning and are not treated as paths... 
+|solution-dir|String|The solution path to be used.
+The following values have special meaning and are not treated as paths...
 - "DIR.PROPS" = $([System.IO.Path]::GetDirectoryName(`$(DirectoryBuildPropsPath)`)) |
 
 

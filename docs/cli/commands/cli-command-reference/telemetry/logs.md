@@ -7,7 +7,7 @@ beam telemetry logs [<filter>] [options]
 ## About
 Fetch logs from Clickhouse
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |filter|String|Value to be matched with the log message body|

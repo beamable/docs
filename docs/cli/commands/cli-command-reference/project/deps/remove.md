@@ -7,7 +7,7 @@ beam project deps remove <microservice> <dependency> [options]
 ## About
 Remove the dependency between the given microservice and storage
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |microservice|String|The microservice name that the dependency will be removed from|

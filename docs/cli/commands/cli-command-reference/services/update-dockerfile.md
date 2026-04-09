@@ -7,7 +7,7 @@ beam services update-dockerfile <ServiceName> [options]
 ## About
 [INTERNAL] [REMOVED] Updates the Dockerfile for the specified service
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |ServiceName|String|The name of the microservice to udpate the Dockerfile|
