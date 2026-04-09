@@ -281,11 +281,11 @@ You tried using a Beamable CLI version=[3.0.1] which is different than the one c
 #### Updating the `.csproj` Files
 The next step in this migration is to fix up the `.csproj` files for your microservices. The new `.csproj` file structure comes with a few new things:
 
-- It will version-lock the package versions to the currently local CLI version (the one inside `.config/dotnet-tools.json`).
-	- This means updating the CLI is just changing that version number.
-	- You can manually edit this to dodge the version-lock if you want to risk it.
-- It includes a Roslyn Static Analyser to help you out with microservices and federation implementations.
-- It'll target `.net8`.
+- It will version-lock the package versions to the currently local CLI version (the one inside `.config/dotnet-tools.json`)
+	- This means updating the CLI is just changing that version number
+	- You can manually edit this to dodge the version-lock if you want to risk it
+- It includes a Roslyn Static Analyser to help you out with microservices and federation implementations
+- It'll target `.net8`
 
 In every `csproj` file for **Microservices**, **MicroStorages**, and **Common Libraries**, follow the steps below:
 
@@ -359,9 +359,9 @@ With the introduction of the `Beamable.Microservice.SourceGen` library, all Micr
 
 If you use any Federated endpoints as part of your Microservices, there a few code-changes you'll have to make:
 
-- Replace all `IThirdPartyCloudIdentity` with `IFederationId`.
-- Add a `FederationId` attribute to the class `IFederationId` — the `UniqueName` is the property.
-- If you were ever accessing the `UniqueName` property as part of your code, you'll need to replace those calls with `GetUniqueName()`.
+- Replace all `IThirdPartyCloudIdentity` with `IFederationId`
+- Add a `FederationId` attribute to the class `IFederationId` — the `UniqueName` is the property
+- If you were ever accessing the `UniqueName` property as part of your code, you'll need to replace those calls with `GetUniqueName()`
 
 Once these are in, try to compile your services. The newly referenced Roslyn Static Analyzer should tell you if you made any mistakes.
 
@@ -437,10 +437,10 @@ beam config
 
 If you forgot to the run the command, or would like to verify that the upgrade happened correctly, follow the bullets below.
 
-- The `.beamable/beamoLocalManifest.json` file should no longer exist.
-- The `.beamable/beamoLocalRuntime.json` file should no longer exist.
-- The `.beamable/config-defaults.json` file should no longer exist.
-- The `.beamable/user-token.json` file should no longer exist.
+- The `.beamable/beamoLocalManifest.json` file should no longer exist
+- The `.beamable/beamoLocalRuntime.json` file should no longer exist
+- The `.beamable/config-defaults.json` file should no longer exist
+- The `.beamable/user-token.json` file should no longer exist
 
 Instead, you should expect to see (at least),
 - `.beamable/connection-configuration.json` _(this replaces the old `config-defaults` file. )_

@@ -91,7 +91,7 @@ The structure contains all the locations of the game. Within each location is in
 The `IDataFactory` gets data as shown in the diagram below.
 
 - A. The `RuntimeDataStorage` calls to `GetLocationContentViews()` at the start of each game session
-- B. Here in the GPW game the `GPWBasicDataFactory` creates pseudorandom price/quantity for all products. A random-seed value is shared across all game clients for consistent pricing. This solution is easier to understand, but likely not robust enough for a production game.
+- B. Here in the GPW game the `GPWBasicDataFactory` creates pseudorandom price/quantity for all products. A random-seed value is shared across all game clients for consistent pricing. This solution is easier to understand, but likely not robust enough for a production game
 
 <!-- Data factory diagram would go here -->
 

@@ -17,8 +17,8 @@ The "Display Name" and "Avatar" portion of things uses `client.public` stats, wh
 
 As shipped in this repository, the example code is hardcoded to use a Beamable staff CID and PID (1418422019508250 and DE_1719820960373762, respectively). You may freely try out the code in this realm, but if you want to make significant changes, such as modifying the C# microservice, you should switch to a realm that you control. The CID and PID are encoded in two places; you should change them in both.
 
-- In `Assets/Beamable/Resources/config-defaults.txt` you should modify three fields: `"cid"`, `"alias"`, and `"pid"`. You can find the proper values for these in the config-defaults.txt of any other Beamable project that you have created on your own.
-- In `web/index.html` you should modify the constants `beam_cid` and `beam_pid` to match your own realm.
+- In `Assets/Beamable/Resources/config-defaults.txt` you should modify three fields: `"cid"`, `"alias"`, and `"pid"`. You can find the proper values for these in the config-defaults.txt of any other Beamable project that you have created on your own
+- In `web/index.html` you should modify the constants `beam_cid` and `beam_pid` to match your own realm
 
 !!! info "BeamWebAccess Unity project is a Stub"
 

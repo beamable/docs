@@ -444,5 +444,5 @@ Mouse over a schema header to reveal the **cell notes**. Notes store the column 
 
 A **delimiter** is a sequence of one or more characters used to specify the boundary between separate, independent regions in plain text or other data streams. See Wikipedia's [Delimiter Overview](https://en.wikipedia.org/wiki/Delimiter) for more info.
 
-- Delimiters are how GCD distinguished where an array entry begins. Bottom level arrays don't need one, but everything else does. These columns can be any text, importing will make them the array's index they are delimiting. These columns are not actually exported.
-- The first column is always treated like a delimiter when exporting lists. You can make the first column unexported by giving it an underscore prefix. Note that to do this you will need to export as one sheet instead of splitting into individual files.
+- Delimiters are how GCD distinguished where an array entry begins. Bottom level arrays don't need one, but everything else does. These columns can be any text, importing will make them the array's index they are delimiting. These columns are not actually exported
+- The first column is always treated like a delimiter when exporting lists. You can make the first column unexported by giving it an underscore prefix. Note that to do this you will need to export as one sheet instead of splitting into individual files

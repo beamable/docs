@@ -47,7 +47,7 @@ Learning Resources:
 - 2-6 players enter the battle "ring"
 - Tap and hold anywhere in the ring to move your player
 - Collide with other players to bump them
-- An player who falls out of the ring, loses shield points and ranking.
+- An player who falls out of the ring, loses shield points and ranking
 - The last player alive, wins!
 
 _Pro Tip: Earn coins by playing the game. Spend coins in the store to improve your avatar._

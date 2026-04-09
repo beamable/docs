@@ -9,8 +9,8 @@ The **Stats** feature allows game makers to store and track pieces of data about
 
 The Stats feature offers two main entry points:
 
-- **StatsService API** - This has high flexibility.
-- **StatsBehaviour Component** - This has high ease-of-use.
+- **StatsService API** - This has high flexibility
+- **StatsBehaviour Component** - This has high ease-of-use
 
 ## Custom Stats
 Beamable allows game makers to create custom status for the specific needs of the game design. Mind the following rules when creating defining those:
@@ -25,7 +25,7 @@ Beamable allows game makers to create custom status for the specific needs of th
 
 !!! warning "Important Notes"
 
-    - Custom stats are created on-demand the first time they are written to. There is no need to pre-define stats in the Beamable Portal.
+    - Custom stats are created on-demand the first time they are written to. There is no need to pre-define stats in the Beamable Portal
     - Each stat's visibility (public/private) is defined when first written to and cannot be changed after creation
     - Beamable does not support storing complex data types in stats
 
@@ -136,7 +136,7 @@ Custom stats are created on-demand the first time they are written to. However, 
 There are two main methods for interacting with Stats:
 
 - Using the [`StatBehaviour`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Stats_1_1StatBehaviour.html) Component
-- Raw C# coding using the StatsService.
+- Raw C# coding using the StatsService
 
 Game makers can use either/both methods to meet the needs of the game project.
 

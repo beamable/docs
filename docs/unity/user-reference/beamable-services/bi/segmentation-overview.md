@@ -19,11 +19,11 @@ In this guide we will walk you through segmenting players into cohorts. We'll sh
 
 Most of the segmentation in Beamable is to create a cohort by a _stat_. You can learn more about stats in the [Stats](../profile-storage/stats.md) page. However, in this guide we are going to show you how to use a default stat `DAYS_SINCE_INSTALL` to create a cohort that is going to be used in a trial. Trials are [A/B testing](ab-testing-overview.md), which you will learn more about in that section. But this guide will just focus on the part where we create a cohort.
 
-- Navigate to the [Portal](https://portal.beamable.com) and login.
+- Navigate to the [Portal](https://portal.beamable.com) and login
 - Go To **Operate → Trials**
 - Create a new Trial by clicking on the **+ Add Trial** button
-- Select **Custom**, and give your cohort a name — we used **7thDayReturningPlayers** as our example cohort name.
-- Specify `DAYS_SINCE_INSTALL` as the stat and set it _Equal To_ the value of 7.
+- Select **Custom**, and give your cohort a name — we used **7thDayReturningPlayers** as our example cohort name
+- Specify `DAYS_SINCE_INSTALL` as the stat and set it _Equal To_ the value of 7
 
 ![Create Cohort via Stat](../../../../media/imgs/create_cohort_via_stat.png)
 

@@ -13,7 +13,7 @@ Below is a typical Facebook usage pattern. You initiate from your UI that you wa
 
 In order to setup the Unity Project you need to configure the Facebook Dashboard:
 
-- Connect the app to a Facebook-verified business.
+- Connect the app to a Facebook-verified business
 - Since we are using email you need to add its permissions: Dashboard / Use Cases / Customize the `Authenticate and request data from users with Facebook Login / Permissions and Features => add email
 
 ![facebook-app.png](../../../../../media/imgs/facebook-app.png)
@@ -88,7 +88,7 @@ Now that we have the Facebook token, we need to account for 3 different scenario
 
 - Switch Player - Player wants to switch credentials to a new Player
 - Create New Player - Player wants to Create a new Player account
-- Attach To Current Player - Player wants to attach this third-party login to an already authenticated Player.
+- Attach To Current Player - Player wants to attach this third-party login to an already authenticated Player
 
 ```csharp
 //Specify the third party auth provider

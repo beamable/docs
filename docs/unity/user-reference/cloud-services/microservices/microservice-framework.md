@@ -99,11 +99,11 @@ As your project grows, you may want to split your C#MS code across multiple C#MS
 
 However, doing so has implications you should take into consideration when deciding things for your project. In many cases, it is possible to simplify C#MS and reduce the quantity without sacrificing functionality.
 
-- Having multiple deployed C#MSs incurs costs as each is a separate instance.
+- Having multiple deployed C#MSs incurs costs as each is a separate instance
 
-- While you can call C#MSs from other C#MSs to reuse code, this also turns your system into a distributed system. This adds complexity.
+- While you can call C#MSs from other C#MSs to reuse code, this also turns your system into a distributed system. This adds complexity
 
-- Having multiple C#MSs also increases C#MS build/deploy times which can be a concern when developers want to iterate quickly.
+- Having multiple C#MSs also increases C#MS build/deploy times which can be a concern when developers want to iterate quickly
 
 So, what can you do to share and organize code without incurring costs or adding complexity to your C#MS?
 
@@ -134,16 +134,16 @@ The result is that you have two `ClientCallables` in the same `MyPartialMs` but 
 
 Basically, the decision for this has to do with expected traffic hitting that feature/service and how its resources are expected to scale. When reasoning about this, here are a couple of things to keep in mind:
 
-- Requests Per Second that a feature can be expected to have. You can calculate this in a "back-of-the-napkin" way by estimating the number of non-locally cached requests the features make per-player every second and then multiply that by the expected number of concurrent players utilizing the feature.
+- Requests Per Second that a feature can be expected to have. You can calculate this in a "back-of-the-napkin" way by estimating the number of non-locally cached requests the features make per-player every second and then multiply that by the expected number of concurrent players utilizing the feature
 
-- You should also think about how spikes in feature activity happen. A feature that spikes really fast to really high numbers might be a good canditate for being a stand-alone C#MS as its spikes may cause longer response times for features shared in it as the servers scale up. If a feature is expected to have a slow increase in requests-per-second, it should be able to scale without affecting other features even if they are in the same C#MS.
+- You should also think about how spikes in feature activity happen. A feature that spikes really fast to really high numbers might be a good canditate for being a stand-alone C#MS as its spikes may cause longer response times for features shared in it as the servers scale up. If a feature is expected to have a slow increase in requests-per-second, it should be able to scale without affecting other features even if they are in the same C#MS
 
 To keep things a bit simpler, here are general rules of thumb:
 
-- Group as many features with low request-per-second profiles as you can in a single service. This simplifies your development process and make auto-scaling of the service more efficient. Especially if they don't spike quickly.
-- Split out features that are expected to have heavy request-per-second profiles and want a lot of server resources (CPU/Memory) into their own C#MSs. Especially, if their usage spikes in a short amount of time.
-- Keep payloads as small as you can. While we support larger payloads, it'll end up causing the C#MS to have to scale sooner. Try to keep these well below 10kb.
-- Code organization should not factor into this decision if you want the maximum bang for your buck while using Beamable C# Microservices.
+- Group as many features with low request-per-second profiles as you can in a single service. This simplifies your development process and make auto-scaling of the service more efficient. Especially if they don't spike quickly
+- Split out features that are expected to have heavy request-per-second profiles and want a lot of server resources (CPU/Memory) into their own C#MSs. Especially, if their usage spikes in a short amount of time
+- Keep payloads as small as you can. While we support larger payloads, it'll end up causing the C#MS to have to scale sooner. Try to keep these well below 10kb
+- Code organization should not factor into this decision if you want the maximum bang for your buck while using Beamable C# Microservices
 
 If the above is true and you still wish to share code between two different microservices, architect your code and functions so that the parts that are worth sharing can be pulled into a separate AssemblyDefinition both services reference. Keep in mind that you should only do this if the complexity is worth the code reuse — over-using AssemblyDefinitions can increase overall project complexity for not that much gain.
 

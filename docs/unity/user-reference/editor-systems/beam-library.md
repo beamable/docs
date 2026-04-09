@@ -80,7 +80,7 @@ On device, use a three-finger swipe gesture to open the in-game console. This on
 
 !!! info "Best Practice"
 
-    - For security reasons, it is not recommended to allow a players to access the in-game console. Beamable has precautions in place to prevent this.
+    - For security reasons, it is not recommended to allow a players to access the in-game console. Beamable has precautions in place to prevent this
 
 The in-game console, on-device, will **only** appear if the force-enabled checkbox is true, or if the current player's account has tester, developer, or admin privileges.
 

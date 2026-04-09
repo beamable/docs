@@ -115,8 +115,8 @@ These user interactions are relayed as event objects to all connected clients. E
 
 Deciding which user interactions require events and how to design the event payloads, striking a balance is recommended.
 
-- **Too Few Events**: Each game requires a certain amount of events to faithfully and deterministically keep all players in sync. Sending too few will cause the game to fall out of sync or lack the polish expected by the game community. The same is true if each event contain too little data to represent the needs of the game design.
-- **Too Many Events**: Each event requires reasonable overhead for serializing, sending, receiving, and processing data. Sending too many can cause latency and the players will notice lag in the user experience. The same is true if the events contain unnecessarily heavy data within each event.
+- **Too Few Events**: Each game requires a certain amount of events to faithfully and deterministically keep all players in sync. Sending too few will cause the game to fall out of sync or lack the polish expected by the game community. The same is true if each event contain too little data to represent the needs of the game design
+- **Too Many Events**: Each event requires reasonable overhead for serializing, sending, receiving, and processing data. Sending too many can cause latency and the players will notice lag in the user experience. The same is true if the events contain unnecessarily heavy data within each event
 
 !!! info "Expert Advice"
 

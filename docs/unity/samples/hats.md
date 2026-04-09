@@ -34,8 +34,8 @@ Learning Resources:
 4. Arrow: Shoot an arrow
 
 - Commit your turn before the turn times out!
-- If you get hit by a fireball or an arrow, or get in touch with lava, you die.
-- Last player alive wins.
+- If you get hit by a fireball or an arrow, or get in touch with lava, you die
+- Last player alive wins
 
 _Lava expands! Pay attention to grid cells that are starting to crumble._
 

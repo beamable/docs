@@ -31,8 +31,8 @@ This guide assumes the following prerequisites have been completed:
 
 In orther to setup the Unity Project you need to Set the GPS Secret to Beamable Platform
 
-- See [Google's tutorial](https://developers.google.com/games/services/v1/android/offline-access#create_an_associated_server-side_web_application_for_your_game) for how get client_secret.json and obtain Web client values.
-- Go to the Portal → Operate → Config and press Add Config and add config with namespace auth, key gps_secret, and value that is encoded to base64 content of client_secret.json.
+- See [Google's tutorial](https://developers.google.com/games/services/v1/android/offline-access#create_an_associated_server-side_web_application_for_your_game) for how get client_secret.json and obtain Web client values
+- Go to the Portal → Operate → Config and press Add Config and add config with namespace auth, key gps_secret, and value that is encoded to base64 content of client_secret.json
 
 ![f12a299-portalScreen.png](../../../../../media/imgs/f12a299-portalScreen.png)
 
@@ -101,7 +101,7 @@ We can account for this by determining if we need to:
 
 - Switch Player - Player wants to switch credentials to a new Player
 - Create New Player - Player wants to Create a new Player account
-- Attach To Current Player - Player wants to attach this third-party login to an already authenticated Player.
+- Attach To Current Player - Player wants to attach this third-party login to an already authenticated Player
 
 !!! info "Beamable SDK Initialization"
     The following assumes that you have initialized the Beamable SDK and it is stored in _beamContext variable.
@@ -131,5 +131,5 @@ var shouldAttachToCurrentUser = available && !userHasCredentials;
 
 ## Next Steps
 
-* Players can edit account details (name, avatar).
-* Players can switch accounts or sign in with various methods. See the [Identity](../identity.md) feature page for more info.
+* Players can edit account details (name, avatar)
+* Players can switch accounts or sign in with various methods. See the [Identity](../identity.md) feature page for more info

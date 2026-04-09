@@ -44,13 +44,13 @@ The Content Manager now supports **Auto-Sync**, which automatically detects remo
 A file is marked as **Conflicted** only when:
 
 - Both local and remote versions have been modified, **and**
-- The changes are incompatible (that is, they don't match).
+- The changes are incompatible (that is, they don't match)
 
 **No conflict is triggered if:**
 
-- Both sides made identical changes (for example, the same field updated to the same value).
-- The file is deleted on both sides.
-- Only one side has changes (remote-only or local-only modifications sync normally).
+- Both sides made identical changes (for example, the same field updated to the same value)
+- The file is deleted on both sides
+- Only one side has changes (remote-only or local-only modifications sync normally)
 
 This feature streamlines collaboration by keeping content in sync while safeguarding local edits.
 
@@ -139,12 +139,12 @@ When a content conflict is detected in a file, it is marked as **Conflicted** in
 
 **Publishing Blocked**
 
-- The system prevents publishing while any files remain in the **Conflicted** state.
-- This ensures conflicting changes are resolved before they affect live content.
+- The system prevents publishing while any files remain in the **Conflicted** state
+- This ensures conflicting changes are resolved before they affect live content
 
 **Conflict Resolution**
 
-- In the **Content Inspector Editor**, a new **"Solve Conflict"** button appears for conflicted files.
+- In the **Content Inspector Editor**, a new **"Solve Conflict"** button appears for conflicted files
 
 ![A conflicted content](../../../../../media/imgs/content-conflict-resolution.png)
 
@@ -174,7 +174,7 @@ This approach gives teams explicit control over version resolution while maintai
     When collaborating on a team of game makers, here are some suggestions for a safe process to try to lower potential content conflicts.
 
     - Carefully review which content items you publish,
-    - Only commit contents that have properties or tags changes, don't need to keep track of all `referenceManifestId` updates.
+    - Only commit contents that have properties or tags changes, don't need to keep track of all `referenceManifestId` updates
 
 ## Content Filtering
 
