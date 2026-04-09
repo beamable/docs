@@ -7,7 +7,7 @@ beam delete <uri> [options]
 ## About
 [INTERNAL] Base DELETE request command
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |uri|String||

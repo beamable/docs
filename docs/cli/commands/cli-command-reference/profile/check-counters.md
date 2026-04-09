@@ -7,7 +7,7 @@ beam profile check-counters <counters-file-path> [options]
 ## About
 [INTERNAL] Read the results of a dotnet-counters json file and determine if there are errors
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |counters-file-path|String|The path to the dotnet-counters output json file|

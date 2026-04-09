@@ -7,7 +7,7 @@ beam get <uri> [options]
 ## About
 [INTERNAL] Base GET request command
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |uri|String||

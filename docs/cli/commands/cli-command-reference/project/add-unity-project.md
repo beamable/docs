@@ -7,7 +7,7 @@ beam project add-unity-project <path> [options]
 ## About
 Add a unity project to this beamable cli project
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |path|String|Relative path to the Unity project|

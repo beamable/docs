@@ -7,7 +7,7 @@ beam post <uri> [options]
 ## About
 [INTERNAL] Base POST request command
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |uri|String||

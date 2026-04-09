@@ -7,7 +7,7 @@ beam project remote-logs <service-id> [options]
 ## About
 [INTERNAL] get remote logs for a service
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |service-id|String|The beamo id for the service to get logs for|

@@ -7,7 +7,7 @@ beam project generate-client <source> [options]
 ## About
 [INTERNAL] Obsolete command, please use generate-client-oapi that used the OpenAPI specifications to generate the C# client code. The generate-client command will Generate a C# client file based on a built C# microservice dll directory using refactor
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |source|String|The .dll filepath for the built microservice|

@@ -7,7 +7,7 @@ beam project dependencies <name> [options]
 ## About
 List project dependencies
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |name|ServiceName|Name of the service|

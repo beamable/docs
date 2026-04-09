@@ -5,7 +5,7 @@ beam content replace-local [options]
 ```
 
 ## About
-Replaces the local content from a specific realm cached folder to another realm cached folder | You will lose all the content in the target realm 
+Replaces the local content from a specific realm cached folder to another realm cached folder | You will lose all the content in the target realm
 
 
 

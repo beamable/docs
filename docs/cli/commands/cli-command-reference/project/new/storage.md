@@ -7,7 +7,7 @@ beam project new storage <name> [options]
 ## About
 Create and add a new Microstorage
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |name|ServiceName|Name of the new project|

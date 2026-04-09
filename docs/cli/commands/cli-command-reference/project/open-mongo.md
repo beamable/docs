@@ -7,7 +7,7 @@ beam project open-mongo [<service-name>] [options]
 ## About
 Opens a Mongo-Express web page for the given mongo storage object
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |service-name|ServiceName|Name of the storage to open mongo-express to|

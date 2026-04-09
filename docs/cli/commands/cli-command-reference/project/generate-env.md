@@ -7,7 +7,7 @@ beam project generate-env <service> <output> [options]
 ## About
 [INTERNAL] Get the connection strings required to start a Microservice. This is used when running Standalone Microservices locally without Docker
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |service|ServiceName|Which service to generate the .env file for|
