@@ -74,6 +74,8 @@ New versions of the Beamable SDK may depend on different versions of the Beam CL
 | 3.1.1       | 5.4.1 |
 | 3.1.0       | 5.4.0 |
 | 3.0.0       | 5.3.0 |
+| 2.4.5       | 4.3.6 |
+| 2.4.4       | 4.3.5 |
 | 2.4.3       | 4.3.4 |
 
 
