@@ -13,7 +13,7 @@ dotnet --version
 dotnet beam version # beam --version also works.
 ```
 
-You also need to have a local `.beamable` workspace with a Beamable
+You also need to have a local `.beamable/` workspace with a Beamable
 Standalone Microservice. As a reminder, you can create one quickly using the commands below.
 ```sh
 beam init Project
@@ -37,9 +37,9 @@ compatible Microservice.
 
 1. Rename "services" folder to "services~"
 2. Modify the `.sln` file to mirror the folder name change.
-3. Create a local `Assets` folder next to the `.beamable` folder
-4. Create a `Runtime` folder and a `Runtime/Client` folder next to the `.beamable` folder
-5. Create a file in the `.beamable` folder called `linked-projects.json`,
+3. Create a local `Assets` folder next to the `.beamable/` folder
+4. Create a `Runtime` folder and a `Runtime/Client` folder next to the `.beamable/` folder
+5. Create a file in the `.beamable/` folder called `linked-projects.json`,
     ```json
     {
         "unityProjectsPaths": [

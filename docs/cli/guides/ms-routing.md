@@ -12,7 +12,7 @@ dotnet --version
 dotnet beam version # dotnet beam --version also works.
 ```
 
-In order to configure a Microservice, you also need to have a local `.beamable` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
+In order to configure a Microservice, you also need to have a local `.beamable/` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
 ```sh
 beam init MyProject
 cd MyProject
@@ -97,7 +97,7 @@ The account information is accessible via the `Context.UserId` property when exe
 
     You should be using the Beamable SDK in your Unity projects that use Standalone Microservices. Otherwise, there will be many compile errors as the Beamable SDK is not available.
 
-Microservices can automatically generate client code for the Unity game engine. First, link a Unity project to the `.beamable` workspace using the project add-unity-project command.
+Microservices can automatically generate client code for the Unity game engine. First, link a Unity project to the `.beamable/` workspace using the project add-unity-project command.
 
 ```sh
 dotnet beam project add-unity-project <relative-path-to-unity-project>

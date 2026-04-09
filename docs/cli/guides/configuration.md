@@ -21,9 +21,9 @@ someOtherFolder
 
 | call directory     | which config would be used         |
 | ------------------ | ---------------------------------- |
-| `mainFolder`       | `mainFolder/.beamable`             |
-| `childFolder`      | `mainFolder/childFolder/.beamable` |
-| `yetAnotherFolder` | `mainFolder/childFolder/.beamable` |
+| `mainFolder`       | `mainFolder/.beamable/`             |
+| `childFolder`      | `mainFolder/childFolder/.beamable/` |
+| `yetAnotherFolder` | `mainFolder/childFolder/.beamable/` |
 | `someOtherFolder`  | no config is available             |
 
 
@@ -31,7 +31,7 @@ someOtherFolder
 
 From any folder, you can run the [beam config](../commands/cli-command-reference/config/config.md) command to print information about your current Beamable folder.
 
-In the example directory structure above, if the `beam config` command was invoked from the `mainFolder`, it would log information about the `mainFolder/.beamable` folder.
+In the example directory structure above, if the `beam config` command was invoked from the `mainFolder`, it would log information about the `mainFolder/.beamable/` folder.
 ```sh
 mainFolder % dotnet beam config
  {
@@ -42,7 +42,7 @@ mainFolder % dotnet beam config
  }
 ```
 
-However, if the `beam config` command was invoked from the `someOtherFolder` path, you should expect to see an error, because there is no `.beamable` folder within the parent lineage. 
+However, if the `beam config` command was invoked from the `someOtherFolder` path, you should expect to see an error, because there is no `.beamable/` folder within the parent lineage. 
 
 ```sh
 someOtherFolder % dotnet beam config
