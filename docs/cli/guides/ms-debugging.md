@@ -12,7 +12,7 @@ dotnet --version
 dotnet beam version # dotnet beam --version also works.
 ```
 
-In order to debug a Microservice, you also need to have a local `.beamable` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
+In order to debug a Microservice, you also need to have a local `.beamable/` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
 ```sh
 dotnet beam init MyProject
 cd MyProject

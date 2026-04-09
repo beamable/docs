@@ -17,14 +17,14 @@ dotnet beam version # dotnet beam --version also works.
 ---
 ## Quick Start
 
-Standalone Microservices require a `.beamable` workspace, so you either need to create one with [beam init](../commands/cli-command-reference/init.md), or use an existing one.
+Standalone Microservices require a `.beamable/` workspace, so you either need to create one with [beam init](../commands/cli-command-reference/init.md), or use an existing one.
 
 ```sh
 dotnet beam init MyProject
 cd MyProject
 ```
 
-Once you have a `.beamable` workspace, you can create a new Standalone Microservice using the [project new](ms-workflow.md#creating-new-projects) command. 
+Once you have a `.beamable/` workspace, you can create a new Standalone Microservice using the [project new](ms-workflow.md#creating-new-projects) command.
 
 ```sh
 # run this inside your .beamable workspace

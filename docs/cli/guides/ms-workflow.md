@@ -14,7 +14,7 @@ dotnet beam version   # dotnet beam --version also works.
 
 ## Creating New Projects {#creating-new-projects}
 
-New Microservices, Storages, and Common projects can be created within an existing `.beamable` folder workspace. 
+New Microservices, Storages, and Common projects can be created within an existing `.beamable/` workspace.
 
 Use the `beam project new` commands to create new projects. 
 
@@ -24,13 +24,13 @@ dotnet beam project new storage <name> # create a new Storage
 dotnet beam project new common-lib <name> # create a new Common Library
 ```
 
-All of these commands will create a new `.csproj` project and configure it to work with Beamable. The new `.csproj` will be referenced in the `.sln` file. If there is already a `.sln` file, then the first `.sln` file detected in the `.beamable` workspace will be modified to include the `.csproj` reference. If there is no `.sln`, then a file called `BeamableServices.sln` will be created. However, the `--sln` option may be given to override this behavior and specify a .`sln` file to use.
+All of these commands will create a new `.csproj` project and configure it to work with Beamable. The new `.csproj` will be referenced in the `.sln` file. If there is already a `.sln` file, then the first `.sln` file detected in the `.beamable/` workspace will be modified to include the `.csproj` reference. If there is no `.sln`, then a file called `BeamableServices.sln` will be created. However, the `--sln` option may be given to override this behavior and specify a .`sln` file to use.
 
 Projects will be created in the `BeamableServices/services/` directory by default. 
 
 ## Finding Microservices
 
-Once there is a Microservice in your `.beamable` workspace, you can check for its existence by running the project list command. It will return services detected in your workspace.
+Once there is a Microservice in your `.beamable/` workspace, you can check for its existence by running the project list command. It will return services detected in your workspace.
 
 ```sh
 MyProject % dotnet beam project list

@@ -19,7 +19,7 @@ To deploy, you also need to have [Docker](https://www.docker.com/products/docker
 docker --version
 ```
 
-In order to deploy a Microservice, you also need to have a local `.beamable` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below (Unity/Unreal engine integrations will do this for you).
+In order to deploy a Microservice, you also need to have a local `.beamable/` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below (Unity/Unreal engine integrations will do this for you).
 ```sh
 dotnet beam init MyProject
 cd MyProject
