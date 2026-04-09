@@ -27,7 +27,7 @@ These are ordered with the latest versions towards the top, and the older versio
 There is one large change between CLI 6 and CLI 7, but there is an automatic upgrade path.
 
 #### Configuration Refactor
-The 7.0 release restructures the `.beamable` folder in your project. Previously, there were several single-use files in the folder. Now, those files have been merged into a single `config.beam.json`.
+The 7.0 release restructures the `.beamable/` folder in your project. Previously, there were several single-use files in the folder. Now, those files have been merged into a single `config.beam.json`.
 
 The first time you run any command with CLI 7.0, your config files will be automatically merged into the new format.
 
@@ -206,7 +206,7 @@ following line to the end of the file.
 ### From 2.0.2 to 3.0.1
 The upgrade from 2.0.x to 3.0.1 brings a few critical updates to the `csproj` file, how the Beam CLI tool is managed, and the version of `dotnet`.
 
-**To start this process, let's open a terminal and navigate to the directory containing your `.beamable` folder. All commands are written as though invoked from this directory.**
+**To start this process, let's open a terminal and navigate to the directory containing your `.beamable/` folder. All commands are written as though invoked from this directory.**
 
 ```shell
 # In this file structure...
@@ -428,7 +428,7 @@ ENTRYPOINT "dotnet" $BEAM_APP
 
 #### CLI File Structure
 
-The `.beamable` folder structure changes between the major versions 1, and 2.
+The `.beamable/` folder structure changes between the major versions 1, and 2.
 After you upgrade your global CLI to 2.0.1, run the following command in your project. This command should automatically perform some of the required upgrade steps.
 
 ```sh

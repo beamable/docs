@@ -47,14 +47,14 @@ mkdir MyProject
 beam init
 ```
 
-This command will prompt you for your organization's alias, your credentials, and which realm to use. When it is complete, you should see a `./beamable` folder in the current directory. See the [Configuration](configuration.md) for details about this folder. Now, you can run a [beam config](../commands/cli-command-reference/config/config.md) command to verify your project is set up.
+This command will prompt you for your organization's alias, your credentials, and which realm to use. When it is complete, you should see a `.beamable/` folder in the current directory. See the [Configuration](configuration.md) for details about this folder. Now, you can run a [beam config](../commands/cli-command-reference/config/config.md) command to verify your project is set up.
 
 ```shell
 dotnet beam config
 ```
 You should expect to see your CID/PID printed out.
 
-As of CLI 3.0.0, anytime you create a Beamable workspace, the CLI will be installed as a local tool next to the workspace's `.beamable` folder. This means that you can run the local tool with `dotnet beam`. If you continue to use `beam` in the workspace, the global installation will automatically forward your command to the local tool. This will be inefficient and lead to poor performance. We recommend you use `dotnet beam` wherever possible.
+As of CLI 3.0.0, anytime you create a Beamable workspace, the CLI will be installed as a local tool next to the workspace's `.beamable/` folder. This means that you can run the local tool with `dotnet beam`. If you continue to use `beam` in the workspace, the global installation will automatically forward your command to the local tool. This will be inefficient and lead to poor performance. We recommend you use `dotnet beam` wherever possible.
 
 To check that everything is working correctly, you can use the beam me command. Now you have a configured CLI project!
 
