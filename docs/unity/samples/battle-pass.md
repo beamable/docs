@@ -41,12 +41,12 @@ Content Manager:
 - **Step 1: Open the Content Manager:**
   - Unity → Window → Beamable → Open Beam Content
 - **Step 2: Create a new content object of type Battlepass:**
-  - Select "Battlepass" from the content type list.
-  - Press the "Create" button.
-  - Provide a name for the Battle Pass content.
+  - Select "Battlepass" from the content type list
+  - Press the "Create" button
+  - Provide a name for the Battle Pass content
 - **Step 3: Populate the fields in the Unity Inspector:**
   - Name the Battle Pass
-  - Set the `EndDate` using the ISO 8601 format (e.g., `2024-12-31T23:59:59Z`).
+  - Set the `EndDate` using the ISO 8601 format (e.g., `2024-12-31T23:59:59Z`)
   - Define the tiers and rewards (Example in screenshot)
 
 ![Battle Pass Content](../../media/imgs/battlepass-content.jpg)

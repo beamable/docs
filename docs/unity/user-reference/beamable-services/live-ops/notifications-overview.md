@@ -10,8 +10,8 @@ Through the Notification API, the game maker can use this same messaging system 
 
 There are two main types of notifications:
 
-- **Local Notifications** - Received on the **client-side** while the game is running.
-- **Push Notifications** - Scheduled at any time from the **server-side**, regardless if the game is running. Typically it is received moments after it is scheduled.
+- **Local Notifications** - Received on the **client-side** while the game is running
+- **Push Notifications** - Scheduled at any time from the **server-side**, regardless if the game is running. Typically it is received moments after it is scheduled
 
 Push Notifications are a native part of mobile platforms including iOS and Android. These messages show up as a banner of text, regardless if your game is running. A common use-case is notifying the user when a time-sensitive event is about to occur.
 

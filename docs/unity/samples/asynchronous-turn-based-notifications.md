@@ -14,30 +14,30 @@ The server maintains the turn state in a shared `TurnData` document and provides
 
 The `TurnSystem` class handles the following responsibilities:
 
-- Initializes the player's context and subscribes to ping notifications.
-- Sends a ping to the opponent using the server's microservices.
-- Listens for notifications to know when it is the player's turn.
-- Updates the UI to display whether it is the player's turn or the opponent's turn.
+- Initializes the player's context and subscribes to ping notifications
+- Sends a ping to the opponent using the server's microservices
+- Listens for notifications to know when it is the player's turn
+- Updates the UI to display whether it is the player's turn or the opponent's turn
 
 #### Key functionality in the client:
 
-- **`SendPingButton`**: When the player presses a button, this function sends a ping to the opponent using the server's microservices.
-- **`HandlePingNotification`**: When a notification is received indicating the opponent's turn, this function processes the notification and updates the player's UI accordingly.
-- **`UpdateTurnStatus`**: Queries the server to check if it is the player's turn and updates the turn indicator UI.
+- **`SendPingButton`**: When the player presses a button, this function sends a ping to the opponent using the server's microservices
+- **`HandlePingNotification`**: When a notification is received indicating the opponent's turn, this function processes the notification and updates the player's UI accordingly
+- **`UpdateTurnStatus`**: Queries the server to check if it is the player's turn and updates the turn indicator UI
 
 ### 2. Service (Server)
 
 The `Service` microservice is responsible for:
 
-- Managing the `TurnData` (which stores the current turn and the two players involved).
-- Sending notifications to players when their turn comes up.
-- Providing endpoints for the client to ping the opponent and check the current turn.
+- Managing the `TurnData` (which stores the current turn and the two players involved)
+- Sending notifications to players when their turn comes up
+- Providing endpoints for the client to ping the opponent and check the current turn
 
 #### Key server functionality:
 
-- **`Ping`**: Switches the turn to the opponent, updates the `TurnData`, and sends a notification to the opponent.
-- **`IsPlayerTurn`**: Checks if it is the player's turn by comparing the player's ID with the current turn in `TurnData`.
-- **`GetFromPlayer`**: Fetches the `FromPlayer` field from the `TurnData`, allowing the client to set the opponent player on initialization.
+- **`Ping`**: Switches the turn to the opponent, updates the `TurnData`, and sends a notification to the opponent
+- **`IsPlayerTurn`**: Checks if it is the player's turn by comparing the player's ID with the current turn in `TurnData`
+- **`GetFromPlayer`**: Fetches the `FromPlayer` field from the `TurnData`, allowing the client to set the opponent player on initialization
 - The data is stored in a Microstorage
 
 ## Beamable Features Used

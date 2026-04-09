@@ -161,10 +161,10 @@ Returning Player linking their account with Steam
 
 We can tell which of these scenarios to follow by checking two pieces of information: whether the Steam ID is already attached to a Beamable account and whether the current, local account has a Steam third-party association.
 
-- If the Steam ID is already associated with a Beamable account, the game should log into that account (which may or may not be the current Beamable account).
+- If the Steam ID is already associated with a Beamable account, the game should log into that account (which may or may not be the current Beamable account)
 - Otherwise, if the Steam ID has never been used with Beamable before, there are two possibilities:
-    - If the local account has a Steam association, then the current Steam ID must be different and thus a new Beamable account should be made.
-    - If the local account has no Steam association, this must be their first time logging in with Steam; the Steam ID should be associated with the current Beamable account.
+    - If the local account has a Steam association, then the current Steam ID must be different and thus a new Beamable account should be made
+    - If the local account has no Steam association, this must be their first time logging in with Steam; the Steam ID should be associated with the current Beamable account
 
 ```csharp
 /// <summary>

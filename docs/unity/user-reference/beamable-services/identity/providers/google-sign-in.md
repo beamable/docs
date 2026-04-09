@@ -287,5 +287,5 @@ if(shouldAttachToCurrentUser)
 
 ## Next Steps
 
-- Players can edit account details (name, avatar).
-- Players can switch accounts or sign in with various methods. See the [Identity](../identity.md) feature page for more info.
+- Players can edit account details (name, avatar)
+- Players can switch accounts or sign in with various methods. See the [Identity](../identity.md) feature page for more info

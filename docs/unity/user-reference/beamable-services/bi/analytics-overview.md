@@ -16,8 +16,8 @@ These examples are among a select few necessities to measure the success of your
 
     **Options**
 
-    - Direct access to Beamable's Athena database.
-    - Forwarding from Beamable's Pipeline Service. Support includes Amazon S3, Amplitude, MixPanel, & Swrve.com.
+    - Direct access to Beamable's Athena database
+    - Forwarding from Beamable's Pipeline Service. Support includes Amazon S3, Amplitude, MixPanel, & Swrve.com
 
     If you change technology along the way, Beamable will be able to back-fill the data.
 

@@ -376,12 +376,12 @@ The below changes (dependency registration and connectivity service override) al
 - You can also update the Project Settings to:
   - Disable offline cache
   - Disable sending heartbeat
-    - If you're using Beamable matchmaking, you want to keep this on.
+    - If you're using Beamable matchmaking, you want to keep this on
   - Disable optimistic inventory updates
 
 The result of this is as follows:
 
-- When a request times out or results in a status code 0 -- it will not cause the **ConnectivityService** to declare that the internet connectivity is unavailable. That specific request will still result in a NoConnectivityException , so you can retry it if you choose, but it will not cascade into other requests.
+- When a request times out or results in a status code 0 -- it will not cause the **ConnectivityService** to declare that the internet connectivity is unavailable. That specific request will still result in a NoConnectivityException , so you can retry it if you choose, but it will not cascade into other requests
 - Beamable will no longer phone home frequently (heartbeat), resulting in noisy numbers of errors in case of a dropped connection
 
 Overall, users with bad connections will see an error, as they should, but people with fine connections should experience markedly fewer false negatives.

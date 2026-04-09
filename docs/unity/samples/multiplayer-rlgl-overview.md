@@ -10,10 +10,10 @@ Welcome to "Red Light, Green Light" (RLGL). In this game, **Race other players t
 
 ## Screenshots
 
-- The game is loaded from the Login scene, in which the player goes through the authentication flow, and logs into their account.
-- The player is then loaded into the MainMenu scene, where they can customize their character, view their profile, and enter matchmaking.
-- After finding a match, the player is loaded into the FusionInitializer scene, then Level_RedLight is loaded additively, where the gameplay takes place.
-- After completing a match (either by winning or being eliminated), the player is returned to the MainMenu.
+- The game is loaded from the Login scene, in which the player goes through the authentication flow, and logs into their account
+- The player is then loaded into the MainMenu scene, where they can customize their character, view their profile, and enter matchmaking
+- After finding a match, the player is loaded into the FusionInitializer scene, then Level_RedLight is loaded additively, where the gameplay takes place
+- After completing a match (either by winning or being eliminated), the player is returned to the MainMenu
 
 |   |   |
 |---|---|

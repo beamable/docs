@@ -10,17 +10,17 @@ Here are the leading options;
 
 **Dedicated Server**
 
-- The server processes game-specific logic. The server **is** the game.
-- Ideal For: Persistent world games, MMOs, and first-person shooters.
+- The server processes game-specific logic. The server **is** the game
+- Ideal For: Persistent world games, MMOs, and first-person shooters
 
 **Peer-To-Peer Server**
 
-- The server introduces client to client. Key communication passes directly from client to client.
-- Ideal For: First-person shooters and games that can tolerate cheating.
+- The server introduces client to client. Key communication passes directly from client to client
+- Ideal For: First-person shooters and games that can tolerate cheating
 
 **Relay Server**
 
-- The server sends and receives events _between_ all clients in a match. The match is the "Room" in which all the game players interact. Each client **is** the game.
+- The server sends and receives events _between_ all clients in a match. The match is the "Room" in which all the game players interact. Each client **is** the game
 - Ideal For: Real-time strategy, tower defense, MOBAs, card battlers, auto chess, and more...
 
 _Here is a comparison of various game servers;_

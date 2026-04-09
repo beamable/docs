@@ -182,9 +182,9 @@ public static async Task Main()
 ```
 
 The various _CreateAttribute_ functions should add attributes to the current context of a request.
-- `DefaultAttributes` allow you to add an attribute to _every_ log line.
-- `ConnectionAttributes` allow you to add an attribute to every log line that is part of a specific _connection_ to Beamable. When a Microservice runs locally, there is only a single connection, but in a deployed environment, there are _10_ connections.
-- `RequestAttributes` allow you add attributes to every log line per _request_.
+- `DefaultAttributes` allow you to add an attribute to _every_ log line
+- `ConnectionAttributes` allow you to add an attribute to every log line that is part of a specific _connection_ to Beamable. When a Microservice runs locally, there is only a single connection, but in a deployed environment, there are _10_ connections
+- `RequestAttributes` allow you add attributes to every log line per _request_
 
 The `GetDescriptors()` function must return a description for all attributes you want to be defined. When an attribute is described from the return value, the title and description will appear in the Portal.
 
