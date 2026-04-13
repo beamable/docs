@@ -9,6 +9,7 @@
           - [Matchmaking and Lobby](beamball/beamball-matchmaking.md)
           - [Steam Integration](beamball/steam-integration.md)
           - [EOS Integration](beamball/eos-integration.md)
+          - [Edgegap Integration](beamball/edgegap-integration.md)
      - BeamFarm
           - [Overview](beamfarm/beamfarm-demo.md)
           - [Google Integration](beamfarm/google-integration.md)
