@@ -1,6 +1,5 @@
 ﻿- [Setup Sample Projects](intro.md)
-- Sample Projects      
-      - [Steam](steam-demo.md)
+- Sample Projects
       - [LiveOps](live-ops-demo.md)
       - [Discord](discord-demo.md)
       - Beamball
