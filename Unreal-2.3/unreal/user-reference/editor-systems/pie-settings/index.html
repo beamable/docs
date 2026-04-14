@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -886,6 +886,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="User Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#teams-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teams Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -8407,6 +8424,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../samples/beamball/edgegap-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Edgegap Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -8815,6 +8860,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="User Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#teams-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teams Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -8911,6 +8973,13 @@ You can also add descriptions and tags to profiles to provide extra context for 
 <li><strong>Users from realms other than your current one</strong> will also always <code>Copy on PIE</code>. This is because BeamPIE cannot sign in with a user from another realm into a different one. So we copy it instead.</li>
 </ul>
 <p>When Fake Lobbies are enabled, the Add Lobby Data will be available to add custom Key-Value pairs that will be used to initialize the per-player key-value store lobby itself. This data is accessible in the Gameplay Level and can be used to simulate various scenarios such as the selection of which skin the player chose or many other parameters that would get put into the lobby either via Federation or Matchmaking/Lobby systems themselves.</p>
+<h4 id="teams-configuration">Teams Configuration<a class="headerlink" href="#teams-configuration" title="Permanent link">¶</a></h4>
+<p>User Settings also includes a <strong>Teams</strong> configuration that lets you define party and team assignments directly for each player in the session. This means you can set up a full party with team assignments before PIE starts, and the system will initialize everything automatically when the session begins.</p>
+<p>This gives you a fully integrated way to test the <strong>party system</strong> and <strong>team logic</strong> end-to-end without needing to manually trigger party invites or team assignments at runtime:</p>
+<ul>
+<li><strong>Party</strong>: group the configured players into a party so they are already associated when the Gameplay Level starts.</li>
+<li><strong>Teams</strong>: assign each player to a specific team within that party, allowing you to test team-based gameplay scenarios (e.g., two players on Team A vs. two players on Team B) directly in PIE.</li>
+</ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie_play_users.png" data-desc-position="bottom"><img alt="pie_play_users.png" src="../../../../media/imgs/pie_play_users.png"></a></p>
 <div class="admonition warning">
 <p class="admonition-title">Player Profiles</p>

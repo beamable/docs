@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -8269,6 +8269,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beamball/edgegap-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Edgegap Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -8662,6 +8690,45 @@
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#required-files-for-game-center-on-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Files for Game Center on iOS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Required Files for Game Center on iOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssl-certificate-cacertpem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSL Certificate (cacert.pem)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#game-center-entitlements-gamecenterentitlements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Game Center Entitlements (GameCenter.entitlements)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -9078,6 +9145,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#required-files-for-game-center-on-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Files for Game Center on iOS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Required Files for Game Center on iOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssl-certificate-cacertpem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSL Certificate (cacert.pem)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#game-center-entitlements-gamecenterentitlements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Game Center Entitlements (GameCenter.entitlements)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -9165,14 +9271,14 @@
 <hr>
 <h2 id="apple-federation-microservice">Apple Federation Microservice<a class="headerlink" href="#apple-federation-microservice" title="Permanent link">¶</a></h2>
 <h3 id="federation-identifier">Federation Identifier<a class="headerlink" href="#federation-identifier" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">[FederationId("apple")]</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AppleFederation</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">[FederationId("gamecenter")]</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GameCenterFederation</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">{</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
 </code></pre></div>
 <h3 id="federated-login-implementation">Federated Login Implementation<a class="headerlink" href="#federated-login-implementation" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedAuthenticationResponse</span><span class="o">&gt;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">IFederatedLogin</span><span class="o">&lt;</span><span class="n">AppleFederation</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Authenticate</span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">IFederatedLogin</span><span class="o">&lt;</span><span class="n">GameCenterFederation</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Authenticate</span><span class="p">(</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">,</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">_</span><span class="p">,</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">__</span><span class="p">)</span>
@@ -9189,8 +9295,8 @@
 <p><strong>Purpose:</strong> Authenticate a player who has already linked Apple.</p>
 <p><strong>Client:</strong></p>
 <ol>
-<li>Apple Login</li>
-<li>Retrieve Apple UserId</li>
+<li>Game Center Login</li>
+<li>Retrieve Game Center UserId</li>
 <li>Call Federated Login</li>
 </ol>
 <p><strong>Server:</strong></p>
@@ -9229,6 +9335,30 @@
 <li>Handle success or failure</li>
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/apple-signing-blueprint.png" data-desc-position="bottom"><img alt="Apple Signing Blueprint" src="../../../../media/imgs/apple-signing-blueprint.png"></a></p>
+<hr>
+<h2 id="required-files-for-game-center-on-ios">Required Files for Game Center on iOS<a class="headerlink" href="#required-files-for-game-center-on-ios" title="Permanent link">¶</a></h2>
+<p>Two additional files must be present in the project for Game Center to work correctly on iOS.</p>
+<h3 id="ssl-certificate-cacertpem">SSL Certificate (<code>cacert.pem</code>)<a class="headerlink" href="#ssl-certificate-cacertpem" title="Permanent link">¶</a></h3>
+<p>Beamable uses secure socket connections on iOS, and the OS requires a trusted CA certificate bundle to validate them. Without this file, Beamable network calls will fail silently on device.</p>
+<ol>
+<li>
+<p>Locate the certificate file bundled with the engine:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>\Epic Games\UE_5.6\Engine\Content\Certificates\ThirdParty\cacert.pem
+</code></pre></div>
+</li>
+<li>
+<p>Copy it into a folder named <code>Certificates</code> inside your project's <strong>Source</strong> folder:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&lt;ProjectRoot&gt;/Source/Certificates/cacert.pem
+</code></pre></div>
+</li>
+</ol>
+<p>Unreal will include this file in the iOS bundle, allowing Beamable to establish trusted connections at runtime.</p>
+<h3 id="game-center-entitlements-gamecenterentitlements">Game Center Entitlements (<code>GameCenter.entitlements</code>)<a class="headerlink" href="#game-center-entitlements-gamecenterentitlements" title="Permanent link">¶</a></h3>
+<p>Unreal must be told about the entitlements file so it can embed the correct Apple capabilities (Game Center and Sign in with Apple) during the build and signing process.</p>
+<p>In your project's <strong>iOS build settings</strong>, verify that the <strong>Additional Plist Data</strong> or equivalent entitlements path is pointing to a file named <code>GameCenter.entitlements</code> located at the <strong>root of the project</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&lt;ProjectRoot&gt;/GameCenter.entitlements
+</code></pre></div>
+<p>This file must be referenced in the project settings so that Unreal includes it during code signing. Without it, Apple capabilities such as Game Center will not be active in the signed build, and authentication will fail.</p>
 
 
 
