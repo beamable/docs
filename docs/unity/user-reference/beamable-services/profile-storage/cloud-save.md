@@ -1,6 +1,6 @@
 # Cloud Save - Overview
 
-Beamable's **Cloud Save** feature provides secure, cross-platform storage for player game data. It enables players to save their progress and access it across multiple devices, ensuring data persistence and continuity throughout their gaming experience.
+Beamable's **Cloud Save** service provides secure, cross-platform storage for player game data. It enables players to save their progress and access it across multiple devices, ensuring data persistence and continuity throughout their gaming experience.
 
 **Key Benefits:**
 - **Cross-Device Sync**: Players can switch between devices without losing progress
@@ -16,7 +16,7 @@ Beamable's **Cloud Save** feature provides secure, cross-platform storage for pl
 
 ### Cloud Save API
 
-Unlike many Beamable Features, Cloud Save does not require the usage of a specific Beamable Feature Prefab. The main entry point to this feature is C# programming.
+Unlike many Beamable services, Cloud Save does not require the usage of a specific Beamable Feature Prefab. The main entry point to this service is C# programming.
 
 !!! info "Learning Fundamentals"
 

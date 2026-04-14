@@ -1,10 +1,10 @@
 # Friends
 
-The Beamable **Friends** feature allows players to connect with other players and manage friendships through various social interactions. Players can send friend invites, view pending invites, cancel invites, reject invites, accept invites, view friends, remove friends, block players, and unblock players.
+The Beamable **Friends** service allows players to connect with other players and manage friendships through various social interactions. Players can send friend invites, view pending invites, cancel invites, reject invites, accept invites, view friends, remove friends, block players, and unblock players.
 
-The Friends feature is accessible via the `BeamContext` object, and is a code-first solution.
+The Friends service is accessible via the `BeamContext` object, and is a code-first solution.
 
-this is a list of the main concepts used in the Friends feature:
+this is a list of the main concepts used in the Friends service:
 
 | Term            | Description                                                                                                                        |
 | :-------------- | :--------------------------------------------------------------------------------------------------------------------------------- |

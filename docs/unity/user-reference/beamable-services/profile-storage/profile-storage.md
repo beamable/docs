@@ -11,9 +11,9 @@ Beamable offers powerful and flexible solutions for in-game storage and content 
 | [Stats](stats.md)                                                 | Player statistics tracking. Monitor and analyze player behavior and progress.               |
 
 
-Game makers can mix and match features to create the custom solution to meet the needs of the game design.
+Game makers can mix and match services to create the custom solution to meet the needs of the game design.
 
-Each feature has read/write access from the game client itself and via the Portal. Some features store information game-specifically and some store information player-specifically.
+Each service has read/write access from the game client itself and via the Portal. Some services store information game-specifically and some store information player-specifically.
 
 | Default Benefits     | Client Can (Read/Write) | Portal Can (Read/Write) | Describes "Game" | Describes "Player" |
 | :------------------- | :---------------------- | :---------------------- | :--------------- | :----------------- |

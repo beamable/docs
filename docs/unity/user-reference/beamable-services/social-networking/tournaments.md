@@ -1,8 +1,8 @@
 # Tournaments
 
-The purpose of this feature is to allow the game maker to set up a recurring Tournament for players.
+The purpose of this service is to allow the game maker to set up a recurring Tournament for players.
 
-The **Tournament** feature provides a comprehensive system for competitive gameplay.
+The **Tournament** service provides a comprehensive system for competitive gameplay.
 
 Tournaments offer deep engagement and social competition features for your game.
 
@@ -29,7 +29,7 @@ Here is the glossary of Tournament terms.
 
 ### Tournament vs Leaderboards
 
-Beamable supports many social features including Tournaments and Leaderboards. A game can incorporate either, none, or both. Both features help to build game community, encourage player competition, and increase player retention.
+Beamable supports many social services including Tournaments and Leaderboards. A game can incorporate either, none, or both. Both services help to build game community, encourage player competition, and increase player retention.
 
 - Leaderboards - Simpler integration. Simpler user experience. No player rewards are given
 - Tournaments - Deeper user experience. Player rewards are given
@@ -139,7 +139,7 @@ namespace Beamable.Examples.Services.TournamentService
 ```
 
 ## Getting Started
-The **Beamable Tournaments** feature provides a system for recurring social competitions where players get promoted and demoted between competitive tiers (for example: Bronze, Silver, and Gold). Players begin in the lowest tier by submitting scores, leveraging the existing Beamable Leaderboard system. Tournaments have recurring cycles on a fixed period of your choice (such as daily or weekly).
+The **Beamable Tournaments** service provides a system for recurring social competitions where players get promoted and demoted between competitive tiers (for example: Bronze, Silver, and Gold). Players begin in the lowest tier by submitting scores, leveraging the existing Beamable Leaderboard system. Tournaments have recurring cycles on a fixed period of your choice (such as daily or weekly).
 
 Tournaments become active after publishing the content to a realm. Once published, the tournament runs on its defined cycle schedule. Players participate by submitting scores, and all players initially start in the bottom stage of the bottom tier.
 

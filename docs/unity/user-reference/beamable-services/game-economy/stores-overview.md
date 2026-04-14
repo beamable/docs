@@ -1,8 +1,8 @@
 # Stores - Overview
 
-Beamable's Store feature allows the game maker to create a storefront in their application. Users can purchase items with real money or virtual currency. These can be attached to third-party purchasing methods (Apple, Google, etc.), or Unity's built-in IAP system.
+Beamable's Store service allows the game maker to create a storefront in their application. Users can purchase items with real money or virtual currency. These can be attached to third-party purchasing methods (Apple, Google, etc.), or Unity's built-in IAP system.
 
-The setup for Stores uses the [Content Manager](../profile-storage/content/content-overview.md#content-management), and relies on at least one valid [Virtual Currency](virtual-currency-overview.md), so it is recommended to review those features before implementation.
+The setup for Stores uses the [Content Manager](../profile-storage/content/content-overview.md#content-management), and relies on at least one valid [Virtual Currency](virtual-currency-overview.md), so it is recommended to review those services before implementation.
 
 Beamable supports purchasing using both virtual currency and real money (IAP) to purchase in-game items.
 
@@ -41,7 +41,7 @@ private async Task<bool> MakePurchase()
 }
 ```
 
-To validate if the purchase was successful, we can also use the InventoryService to print out the inventory before and after the purchase. See the [Inventory](inventory-overview.md) feature for more details.
+To validate if the purchase was successful, we can also use the InventoryService to print out the inventory before and after the purchase. See the [Inventory](inventory-overview.md) service for more details.
 
 StoreTest.cs
 ```csharp
@@ -86,7 +86,7 @@ public class Registrations
 
 ### Custom Purchaser
 
-The Beamable **Custom Purchaser** feature allows game makers to implement custom purchasing solutions for in-app purchases, bypassing Unity's built-in IAP system for complete control over the payment flow.
+The Beamable **Custom Purchaser** service allows game makers to implement custom purchasing solutions for in-app purchases, bypassing Unity's built-in IAP system for complete control over the payment flow.
 
 Consider implementing a custom purchaser when you need:
 
@@ -216,7 +216,7 @@ public class Registrations
 ```
 
 ### Custom Stores
-The Beamable **CommerceService** feature allows game makers to create custom storefronts with flexible purchasing options.
+The Beamable **CommerceService** service allows game makers to create custom storefronts with flexible purchasing options.
 
 ```csharp
 await _beamContext.Api.CommerceService.Purchase(storeSymbol, listingSymbol);
@@ -435,7 +435,7 @@ Here we are setting the namespace to **payments** and then the key is **client_a
 
 !!! danger "Security Warning"
 
-    This feature is not secure unless you track this from within a MicroService and validate the purchase. It is highly advisable to do so to prevent a customer from spoofing or falsely tracking a purchase.
+    This service is not secure unless you track this from within a MicroService and validate the purchase. It is highly advisable to do so to prevent a customer from spoofing or falsely tracking a purchase.
 
 Once your configuration has been setup to allow this API to function, then you can use the `.Api.PaymentService.Track` API to track the purchase. The various fields of the tracking request may be arbitrary strings of your choice, but for the sake of consistency you may want to match the patterns used by the Beamable Commerce Service.
 

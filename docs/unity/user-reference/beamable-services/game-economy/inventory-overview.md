@@ -1,8 +1,8 @@
 # Inventory - Overview
 
-The Beamable **Inventory** feature allows game makers to manage owned items per player within the game.
+The Beamable **Inventory** service allows game makers to manage owned items per player within the game.
 
-Beamable's Inventory system is built on the Content feature. This means that content can be created and published via the [Content Manager](../profile-storage/content/content-unity.md#content-manager-editor), then granted to players through various workflows:
+Beamable's Inventory system is built on the Content service. This means that content can be created and published via the [Content Manager](../profile-storage/content/content-unity.md#content-manager-editor), then granted to players through various workflows:
 
 - Add/Remove inventory items to the active player during the course of gameplay. Ex. the player earns a new "Sword" inventory item based on in-game progress
 - Add inventory items to the active player via the Beamable [Store](stores-overview.md). Ex. the player pays real-world currency to buy a new "Sword" inventory item
@@ -47,7 +47,7 @@ _Note_: Pruning is "lazy": the criteria for inventory pruning will only be evalu
 
 ## Federated Inventory
 
-Beamable supports custom inventory federation using managed [microservices](../../cloud-services/microservices/microservice-framework.md). You can use this feature to extend the Inventory system with items that are managed externally.
+Beamable supports custom inventory federation using managed [microservices](../../cloud-services/microservices/microservice-framework.md). You can use this service to extend the Inventory system with items that are managed externally.
 
 Some use cases:
 

@@ -6,7 +6,7 @@ The system monitors internet connectivity and updates automatically if any chang
 
 ## Connectivity API
 
-Unlike many Beamable Features, Connectivity does not require a specific Beamable Feature Prefab to be used. The main entry point to this feature is C# programming.
+Unlike many Beamable services, Connectivity does not require a specific Beamable Feature Prefab to be used. The main entry point to this service is C# programming.
 
 The main API highlights include [`ConnectivityService`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Connectivity_1_1ConnectivityService.html#details).
 

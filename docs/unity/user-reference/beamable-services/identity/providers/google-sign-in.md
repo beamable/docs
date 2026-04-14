@@ -1,12 +1,12 @@
 # Google Sign-In
 
-The purpose of this guide is to help game makers use Google Sign-In with the Beamable Accounts feature.
+The purpose of this guide is to help game makers use Google Sign-In with the Beamable Accounts service.
 
 Beamable integrates with Google's Sign-In service to provide authentication for your game. Google's [Sign-In](https://developers.google.com/identity/sign-in/web/sign-in) manages the OAuth 2.0 flow and token lifecycle, simplifying your integration with Google APIs. A user always has the option to revoke access to an application at any time.
 
 ## Getting Started
 
-This guide provides step-by-step instructions to set up Google Sign-In with Beamable's Accounts feature in a Unity project.
+This guide provides step-by-step instructions to set up Google Sign-In with Beamable's Accounts service in a Unity project.
 
 !!! note "Google Play Game Services"
     This guide covers Google Sign-In using OAuth. It does not apply to Google Play Game Services (GPGS), which uses a different authentication flow.
@@ -288,4 +288,4 @@ if(shouldAttachToCurrentUser)
 ## Next Steps
 
 - Players can edit account details (name, avatar)
-- Players can switch accounts or sign in with various methods. See the [Identity](../identity.md) feature page for more info
+- Players can switch accounts or sign in with various methods. See the [Identity](../identity.md) service page for more info

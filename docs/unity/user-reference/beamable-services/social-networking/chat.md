@@ -1,6 +1,6 @@
 # Chat
 
-The **Chat** feature allows players to communicate together in-game with text chat.
+The **Chat** service allows players to communicate together in-game with text chat.
 
 !!! danger "Deprecated API"
 
