@@ -83,6 +83,16 @@ When selecting players, a few things are relevant:
 
 When Fake Lobbies are enabled, the Add Lobby Data will be available to add custom Key-Value pairs that will be used to initialize the per-player key-value store lobby itself. This data is accessible in the Gameplay Level and can be used to simulate various scenarios such as the selection of which skin the player chose or many other parameters that would get put into the lobby either via Federation or Matchmaking/Lobby systems themselves.
 
+
+#### Teams Configuration
+
+User Settings also includes a **Teams** configuration that lets you define party and team assignments directly for each player in the session. This means you can set up a full party with team assignments before PIE starts, and the system will initialize everything automatically when the session begins.
+
+This gives you a fully integrated way to test the **party system** and **team logic** end-to-end without needing to manually trigger party invites or team assignments at runtime:
+
+- **Party**: group the configured players into a party so they are already associated when the Gameplay Level starts.
+- **Teams**: assign each player to a specific team within that party, allowing you to test team-based gameplay scenarios (e.g., two players on Team A vs. two players on Team B) directly in PIE.
+
 ![pie_play_users.png](../../../media/imgs/pie_play_users.png)
 
 !!! warning "Player Profiles"
