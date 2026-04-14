@@ -74,7 +74,7 @@ Let's Check that everything is set up correctly be sure you can compile your pro
 
 === "MacOS"
     1. Regenerate project files.
-        1. From a terminal, run `sh "/Users/Shared/Epic Games/UE_5.5/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh" "/Users/Path/To/Your/Project/YourProject.uproject" -game`.
+        1. From a terminal, run `sh "/Users/Shared/Epic Games/UE_5.6/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh" "/Users/Path/To/Your/Project/YourProject.uproject" -game`.
     2. Verify that your project is set up correctly by going to your project's root directory:
         1. Check there is a `.beamable` folder there.
         2. Check there is a `.config/dotnet-tools.json` file.

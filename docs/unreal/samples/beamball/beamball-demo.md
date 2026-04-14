@@ -8,7 +8,12 @@ This demo showcases how you can use the **Beamable Unreal SDK** in a full game p
 
 Aside from our `BeamableCore` Plugin, here's what the sample contains:
 
-- **`BEAMPROJ_Beamball` Unreal Plugin.**: Contains the UE implementation for the sample's client. The core code is inside `LiveOpsDemoMainMenu.h` and part of the implementation is done through BPs inside the folder `UI_BPs` folder of the `BEAMPROJ_Beamball` project.
+- **`BEAMPROJ_Beamball` Unreal Plugin.**: Contains the UE implementation for the sample client. Key locations in the project are:
+      - `Plugins/BEAMPROJ_Beamball/Source/BEAMPROJ_Beamball/Public`: Public headers for gameplay/runtime systems.
+      - `Plugins/BEAMPROJ_Beamball/Source/BEAMPROJ_Beamball/Private`: C++ implementations for gameplay/runtime systems.
+      - `Plugins/BEAMPROJ_Beamball/Source/BEAMPROJ_Beamball/Public/PlatformIntegrations` and `Private/PlatformIntegrations`: Platform-specific integrations (Edgegap, EOS, Steam).
+      - `Plugins/BEAMPROJ_Beamball/Source/BEAMPROJ_BeamballBlueprintNodes`: Blueprint node module (`Public` headers and `Private` implementations).
+      - `Plugins/BEAMPROJ_Beamball/Content/UI_BPs`: Blueprint assets used by the sample UI flow.
 - **`Microservice/BeamballMs` Microservice**: Microservice containing code that's used by the sample for various matchmaking and stats stuff.
 
 To set up this sample you'll need a a Beamable Account and a Realm. To configure the repo for the sample run `dotnet beam unreal select-sample BEAMPROJ_Beamball`.
@@ -20,16 +25,13 @@ To set up an organization and realm to run this sample, follow the steps below.
 2. Compile and open the `BeamableUnreal` editor project.
 3. Sign into your Beamable account and go to the `Beamball` realm.
       1. Optionally you can hit `Apply to Build` after the realm change is done.
-5. Let's Setup the Content
-      1. First you will need to run the command `dotnet beam content restore --pid DE_1885450253346843 --name LastPublished-global` to bring all the content from the sample to your current realm.
-      2. Open the `Content` window.
-      3. Ensure there's a `game_types` content with the name `default`
-      3. Ensure there's a `currency` content with the name `coins`
-      3. Ensure there are 4 `itemskin` content with the names `skin1`, `skin2`, `skin3`, `skin4`
-      3. Ensure there's a `leaderboard` content with the name `global`
-      3. Ensure there are 3 `listings` content with the names `skin1`, `skin2`, `skin3`
-      5. Select `Publish` to publish those new contents to the realm.
-      6. You can read more about the content system [Here](../../user-reference/beamable-services/content.md)
+4. Set up the content using snapshots.
+      1. Open `Beamable -> Content -> Snapshots`.
+      2. Select the `Beamball` snapshot.
+      3. Click `Apply Snapshot`.
+      4. Publish the applied snapshot content to your realm.
+
+![Applying the Beamball snapshot](../../../media/imgs/beamball-apply-snapshot.png)
 
 ## Running the Sample in Editor
 

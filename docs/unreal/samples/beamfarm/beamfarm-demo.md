@@ -6,7 +6,12 @@ This demo showcases how you can use the **Beamable Unreal SDK** in a mobile game
 
 Aside from our `BeamableCore` Plugin, here's what the sample contains:
 
-- **`BEAMPROJ_BeamFarm` Unreal Plugin.**: Contains the UE implementation for the sample's client. The core code is inside `LiveOpsDemoMainMenu.h` and part of the implementation is done through BPs inside the folder `UI_BPs` folder of the `BEAMPROJ_Beamfarm` project.
+- **`BEAMPROJ_BeamFarm` Unreal Plugin.**: Contains the UE implementation for the sample client. Key locations in the project are:
+    - `Plugins/BEAMPROJ_BeamFarm/Source/BEAMPROJ_BeamFarm/Public`: Public headers for runtime systems, including sign-in interfaces.
+    - `Plugins/BEAMPROJ_BeamFarm/Source/BEAMPROJ_BeamFarm/Private`: C++ implementations for runtime systems.
+    - `Plugins/BEAMPROJ_BeamFarm/Source/BEAMPROJ_BeamFarm/Public/GameCenterSignIn.h` and `Private/GameCenterSignIn.cpp`: Apple Game Center sign-in flow.
+    - `Plugins/BEAMPROJ_BeamFarm/Source/BEAMPROJ_BeamFarm/Public/GoogleSignIn.h` and `Private/GoogleSignIn.cpp`: Google sign-in flow.
+    - `Plugins/BEAMPROJ_BeamFarm/Content/UI_BPs`: Blueprint assets used by the sample UI flow.
 - **`Microservice/BeamfarmMs` Microservice**: Microservice containing code that's used by the sample for various matchmaking and stats stuff.
 
 To set up this sample you'll need a Beamable Account and a Realm. To configure the repo for the sample run `dotnet beam unreal select-sample BEAMPROJ_Beamfarm`.
