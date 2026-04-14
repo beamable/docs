@@ -8806,7 +8806,14 @@
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
 <p>Aside from our <code>BeamableCore</code> Plugin, here's what the sample contains:</p>
 <ul>
-<li><strong><code>BEAMPROJ_BeamFarm</code> Unreal Plugin.</strong>: Contains the UE implementation for the sample's client. The core code is inside <code>LiveOpsDemoMainMenu.h</code> and part of the implementation is done through BPs inside the folder <code>UI_BPs</code> folder of the <code>BEAMPROJ_Beamfarm</code> project.</li>
+<li><strong><code>BEAMPROJ_BeamFarm</code> Unreal Plugin.</strong>: Contains the UE implementation for the sample client. Key locations in the project are:<ul>
+<li><code>Plugins/BEAMPROJ_BeamFarm/Source/BEAMPROJ_BeamFarm/Public</code>: Public headers for runtime systems, including sign-in interfaces.</li>
+<li><code>Plugins/BEAMPROJ_BeamFarm/Source/BEAMPROJ_BeamFarm/Private</code>: C++ implementations for runtime systems.</li>
+<li><code>Plugins/BEAMPROJ_BeamFarm/Source/BEAMPROJ_BeamFarm/Public/GameCenterSignIn.h</code> and <code>Private/GameCenterSignIn.cpp</code>: Apple Game Center sign-in flow.</li>
+<li><code>Plugins/BEAMPROJ_BeamFarm/Source/BEAMPROJ_BeamFarm/Public/GoogleSignIn.h</code> and <code>Private/GoogleSignIn.cpp</code>: Google sign-in flow.</li>
+<li><code>Plugins/BEAMPROJ_BeamFarm/Content/UI_BPs</code>: Blueprint assets used by the sample UI flow.</li>
+</ul>
+</li>
 <li><strong><code>Microservice/BeamfarmMs</code> Microservice</strong>: Microservice containing code that's used by the sample for various matchmaking and stats stuff.</li>
 </ul>
 <p>To set up this sample you'll need a Beamable Account and a Realm. To configure the repo for the sample run <code>dotnet beam unreal select-sample BEAMPROJ_Beamfarm</code>.</p>
