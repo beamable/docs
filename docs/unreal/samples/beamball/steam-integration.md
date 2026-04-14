@@ -88,3 +88,58 @@ This sample is NOT a template you can start your own repository from. However, i
 
 ## Why don't we provide a client build?
 Because clients must be pointed at your `steam-demo` realm. As such, you'd need to generate the build yourself, which you can do by packaging it normally for any of our supported platforms.
+
+---
+
+## Required Files for Steam on Desktop Platforms
+
+### SSL Certificate (`cacert.pem`)
+
+Beamable uses secure socket connections, and on some platforms the OS requires a trusted CA certificate bundle to validate them. Without this file, Beamable network calls may fail silently at runtime.
+
+1. Locate the certificate file bundled with the engine:
+
+    ```
+    \Epic Games\UE_5.6\Engine\Content\Certificates\ThirdParty\cacert.pem
+    ```
+
+2. Copy it into a folder named `Certificates` inside your project's **Source** folder:
+
+    ```
+    <ProjectRoot>/Source/Certificates/cacert.pem
+    ```
+
+3. In your project settings, add this folder to the **Additional Non-Asset Directories to Copy** list (under **Packaging**) so Unreal includes it in the packaged build:
+
+    ```
+    Source/Certificates
+    ```
+
+Unreal will then bundle the certificate with the build, allowing Beamable to establish trusted connections at runtime.
+
+---
+
+## macOS Development: Disabling App Sandbox
+
+When developing on macOS, the App Sandbox may block Steam network calls and Beamable connections. If you are working in a **development build**, you should disable the sandbox by editing the entitlements file.
+
+Open the following file in your project:
+
+```
+Build/Mac/Resources/Sandbox.Server.entitlements
+```
+
+Set the `com.apple.security.app-sandbox` key to `false`:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>com.apple.security.app-sandbox</key>
+    <false/>
+</dict>
+</plist>
+```
+
+> **Warning:** Only set `APP_SANDBOX` to `No` in development builds. Re-enable it before submitting to production or the Mac App Store.
