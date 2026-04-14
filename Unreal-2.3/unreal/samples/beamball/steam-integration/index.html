@@ -8360,6 +8360,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#required-files-for-steam-on-desktop-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Files for Steam on Desktop Platforms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Required Files for Steam on Desktop Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssl-certificate-cacertpem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSL Certificate (cacert.pem)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macos-development-disabling-app-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        macOS Development: Disabling App Sandbox
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -8828,6 +8867,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#required-files-for-steam-on-desktop-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Files for Steam on Desktop Platforms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Required Files for Steam on Desktop Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssl-certificate-cacertpem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSL Certificate (cacert.pem)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macos-development-disabling-app-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        macOS Development: Disabling App Sandbox
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -8930,6 +9008,47 @@
 </ul>
 <h2 id="why-dont-we-provide-a-client-build">Why don't we provide a client build?<a class="headerlink" href="#why-dont-we-provide-a-client-build" title="Permanent link">¶</a></h2>
 <p>Because clients must be pointed at your <code>steam-demo</code> realm. As such, you'd need to generate the build yourself, which you can do by packaging it normally for any of our supported platforms.</p>
+<hr>
+<h2 id="required-files-for-steam-on-desktop-platforms">Required Files for Steam on Desktop Platforms<a class="headerlink" href="#required-files-for-steam-on-desktop-platforms" title="Permanent link">¶</a></h2>
+<h3 id="ssl-certificate-cacertpem">SSL Certificate (<code>cacert.pem</code>)<a class="headerlink" href="#ssl-certificate-cacertpem" title="Permanent link">¶</a></h3>
+<p>Beamable uses secure socket connections, and on some platforms the OS requires a trusted CA certificate bundle to validate them. Without this file, Beamable network calls may fail silently at runtime.</p>
+<ol>
+<li>
+<p>Locate the certificate file bundled with the engine:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>\Epic Games\UE_5.6\Engine\Content\Certificates\ThirdParty\cacert.pem
+</code></pre></div>
+</li>
+<li>
+<p>Copy it into a folder named <code>Certificates</code> inside your project's <strong>Source</strong> folder:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;ProjectRoot&gt;/Source/Certificates/cacert.pem
+</code></pre></div>
+</li>
+<li>
+<p>In your project settings, add this folder to the <strong>Additional Non-Asset Directories to Copy</strong> list (under <strong>Packaging</strong>) so Unreal includes it in the packaged build:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Source/Certificates
+</code></pre></div>
+</li>
+</ol>
+<p>Unreal will then bundle the certificate with the build, allowing Beamable to establish trusted connections at runtime.</p>
+<hr>
+<h2 id="macos-development-disabling-app-sandbox">macOS Development: Disabling App Sandbox<a class="headerlink" href="#macos-development-disabling-app-sandbox" title="Permanent link">¶</a></h2>
+<p>When developing on macOS, the App Sandbox may block Steam network calls and Beamable connections. If you are working in a <strong>development build</strong>, you should disable the sandbox by editing the entitlements file.</p>
+<p>Open the following file in your project:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Build/Mac/Resources/Sandbox.Server.entitlements
+</code></pre></div>
+<p>Set the <code>com.apple.security.app-sandbox</code> key to <code>false</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nt">&lt;plist</span><span class="w"> </span><span class="na">version=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nt">&lt;dict&gt;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nt">&lt;key&gt;</span>com.apple.security.app-sandbox<span class="nt">&lt;/key&gt;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nt">&lt;false/&gt;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nt">&lt;/dict&gt;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nt">&lt;/plist&gt;</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Warning:</strong> Only set <code>APP_SANDBOX</code> to <code>No</code> in development builds. Re-enable it before submitting to production or the Mac App Store.</p>
+</blockquote>
 
 
 
