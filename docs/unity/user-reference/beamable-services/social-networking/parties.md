@@ -1,6 +1,6 @@
 # Parties
 
-The Beamable **Parties** feature allows players to form parties for short-lived multiplayer sessions.
+The Beamable **Parties** service allows players to form parties for short-lived multiplayer sessions.
 
 ## Parties API
 

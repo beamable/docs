@@ -1,13 +1,13 @@
 # Stats - Overview
 
-The **Stats** feature allows game makers to store and track pieces of data about players. You can use stats to track anything you want about your players, such as how many characters they own, their highest score, or their favorite color. Stats are simple key/value pairs that can be read and written both from the game client and from the Beamable Portal.
+The **Stats** service allows game makers to store and track pieces of data about players. You can use stats to track anything you want about your players, such as how many characters they own, their highest score, or their favorite color. Stats are simple key/value pairs that can be read and written both from the game client and from the Beamable Portal.
 
 **Example Use Cases**
 
 - Data Store - A simple place to read/write info (Ex. How many characters does the player own?)
 - Targeting - Stats are the vector for player segmentation (Ex. A/B testing, targeted offer, focused message campaign, announcement for subset of player-base)
 
-The Stats feature offers two main entry points:
+The Stats service offers two main entry points:
 
 - **StatsService API** - This has high flexibility
 - **StatsBehaviour Component** - This has high ease-of-use
