@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -9947,10 +9947,10 @@
 <div class="admonition info">
 <p class="admonition-title">Best Practices</p>
 <ul>
-<li>If the content that your game is using is known ahead of time (for example, there will only be subtle differences in existing pieces of content), a content reference (such as ContentLink or ContentRef) should be used.</li>
-<li>However, if the content in your game needs to be more dynamic (for example, the Game Maker will be pushing entirely new pieces of content, unknown to the game client), a content subscription should be used.</li>
-<li><strong>DO</strong>: Use <code>ContentLink</code> in any member variable in your <em>custom</em> content type that references another content type. ContentLink is useful for data that needs to be loaded quickly at runtime, since it is preloaded in very early stages of the application's lifecycle.</li>
-<li><strong>DON'T</strong>: Use <code>ContentRef</code> by default <em>everywhere</em> in your project. This is supported but is considered overkill. ContentRef is useful for data that the application can afford to load on-demand (especially data that might not get loaded at all).</li>
+<li>If the content that your game is using is known ahead of time (for example, there will only be subtle differences in existing pieces of content), a content reference (such as ContentLink or ContentRef) should be used</li>
+<li>However, if the content in your game needs to be more dynamic (for example, the Game Maker will be pushing entirely new pieces of content, unknown to the game client), a content subscription should be used</li>
+<li><strong>DO</strong>: Use <code>ContentLink</code> in any member variable in your <em>custom</em> content type that references another content type. ContentLink is useful for data that needs to be loaded quickly at runtime, since it is preloaded in very early stages of the application's lifecycle</li>
+<li><strong>DON'T</strong>: Use <code>ContentRef</code> by default <em>everywhere</em> in your project. This is supported but is considered overkill. ContentRef is useful for data that the application can afford to load on-demand (especially data that might not get loaded at all)</li>
 </ul>
 </div>
 <h3 id="getmanifest-method">GetManifest Method<a class="headerlink" href="#getmanifest-method" title="Permanent link">¶</a></h3>

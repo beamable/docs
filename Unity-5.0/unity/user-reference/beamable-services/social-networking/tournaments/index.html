@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -9527,8 +9527,8 @@
 <p>Tournaments offer deep engagement and social competition features for your game.</p>
 <p>Beamable offers two types of recurring live events to increase player engagement and retention:</p>
 <ul>
-<li><strong>1. Events</strong> - Scheduled competitions with specific start and end times. See <a href="../../live-ops/events-overview/">Events</a> for more info.</li>
-<li><strong>2. Tournaments</strong> - Recurring competitions with automatic tier-based progression. Continue reading below for more info.</li>
+<li><strong>1. Events</strong> - Scheduled competitions with specific start and end times. See <a href="../../live-ops/events-overview/">Events</a> for more info</li>
+<li><strong>2. Tournaments</strong> - Recurring competitions with automatic tier-based progression. Continue reading below for more info</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/tournments-experience.png" data-desc-position="bottom"><img alt="tournments-experience.png" height="auto" src="../../../../../media/imgs/tournments-experience.png" width="600px"></a></p>
 <p>Here is the glossary of Tournament terms.</p>
@@ -9790,16 +9790,16 @@ TournamentServiceExample.cs
 </table>
 <h3 id="testing-notes">Testing Notes<a class="headerlink" href="#testing-notes" title="Permanent link">¶</a></h3>
 <ul>
-<li><strong>Manage Test Tournaments</strong>. Tournaments set to cycle frequently (for example, hourly) for testing purposes can cause issues if left active. It is best practice to delete these test tournaments after completing your testing.</li>
-<li><strong>Early Cycle Termination</strong>. Game makers can end a tournament cycle early. However, this action only affects the current cycle. Subsequent tournaments remain scheduled and operate under their original time cycle parameters.</li>
-<li><strong>Avoid Cadence Changes on Existing Tournaments</strong>. Changing the cadence (for example, from daily to weekly) for a tournament that already exists with a specific Tournament ID can lead to errors during testing. To avoid issues, create a new tournament (with new Tournament ID) when a different cadence is desired.</li>
+<li><strong>Manage Test Tournaments</strong>. Tournaments set to cycle frequently (for example, hourly) for testing purposes can cause issues if left active. It is best practice to delete these test tournaments after completing your testing</li>
+<li><strong>Early Cycle Termination</strong>. Game makers can end a tournament cycle early. However, this action only affects the current cycle. Subsequent tournaments remain scheduled and operate under their original time cycle parameters</li>
+<li><strong>Avoid Cadence Changes on Existing Tournaments</strong>. Changing the cadence (for example, from daily to weekly) for a tournament that already exists with a specific Tournament ID can lead to errors during testing. To avoid issues, create a new tournament (with new Tournament ID) when a different cadence is desired</li>
 </ul>
 <h3 id="protips">Protips<a class="headerlink" href="#protips" title="Permanent link">¶</a></h3>
 <ul>
-<li>While both leaderboards and tournament content are viewable within the Beamable Portal, direct management of Tournaments currently requires API calls.</li>
-<li>Player scores persist for the duration of the tournament cycle; when players enter the next cycle their scores begin at 0, but within the new tier and stage dictated by promotion or demotion.</li>
-<li>From cycle to cycle, player scores are reset to 0 but tiers persist. If you, the Game Maker, wish to carry over previous Tournament scores, a separate microservice will be required to pre-seed this information when each new cycle starts.</li>
-<li>Tournaments differ from Events by featuring a recurring time cycle. Events each have a beginning and end, and potentially multiple phases. Events can have one-off occurrences or be scheduled to recur, but Tournaments always require a cadence.</li>
+<li>While both leaderboards and tournament content are viewable within the Beamable Portal, direct management of Tournaments currently requires API calls</li>
+<li>Player scores persist for the duration of the tournament cycle; when players enter the next cycle their scores begin at 0, but within the new tier and stage dictated by promotion or demotion</li>
+<li>From cycle to cycle, player scores are reset to 0 but tiers persist. If you, the Game Maker, wish to carry over previous Tournament scores, a separate microservice will be required to pre-seed this information when each new cycle starts</li>
+<li>Tournaments differ from Events by featuring a recurring time cycle. Events each have a beginning and end, and potentially multiple phases. Events can have one-off occurrences or be scheduled to recur, but Tournaments always require a cadence</li>
 </ul>
 
 

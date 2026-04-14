@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -9274,29 +9274,29 @@
 <h3 id="1-turnsystem-client">1. TurnSystem (Client)<a class="headerlink" href="#1-turnsystem-client" title="Permanent link">¶</a></h3>
 <p>The <code>TurnSystem</code> class handles the following responsibilities:</p>
 <ul>
-<li>Initializes the player's context and subscribes to ping notifications.</li>
-<li>Sends a ping to the opponent using the server's microservices.</li>
-<li>Listens for notifications to know when it is the player's turn.</li>
-<li>Updates the UI to display whether it is the player's turn or the opponent's turn.</li>
+<li>Initializes the player's context and subscribes to ping notifications</li>
+<li>Sends a ping to the opponent using the server's microservices</li>
+<li>Listens for notifications to know when it is the player's turn</li>
+<li>Updates the UI to display whether it is the player's turn or the opponent's turn</li>
 </ul>
 <h4 id="key-functionality-in-the-client">Key functionality in the client:<a class="headerlink" href="#key-functionality-in-the-client" title="Permanent link">¶</a></h4>
 <ul>
-<li><strong><code>SendPingButton</code></strong>: When the player presses a button, this function sends a ping to the opponent using the server's microservices.</li>
-<li><strong><code>HandlePingNotification</code></strong>: When a notification is received indicating the opponent's turn, this function processes the notification and updates the player's UI accordingly.</li>
-<li><strong><code>UpdateTurnStatus</code></strong>: Queries the server to check if it is the player's turn and updates the turn indicator UI.</li>
+<li><strong><code>SendPingButton</code></strong>: When the player presses a button, this function sends a ping to the opponent using the server's microservices</li>
+<li><strong><code>HandlePingNotification</code></strong>: When a notification is received indicating the opponent's turn, this function processes the notification and updates the player's UI accordingly</li>
+<li><strong><code>UpdateTurnStatus</code></strong>: Queries the server to check if it is the player's turn and updates the turn indicator UI</li>
 </ul>
 <h3 id="2-service-server">2. Service (Server)<a class="headerlink" href="#2-service-server" title="Permanent link">¶</a></h3>
 <p>The <code>Service</code> microservice is responsible for:</p>
 <ul>
-<li>Managing the <code>TurnData</code> (which stores the current turn and the two players involved).</li>
-<li>Sending notifications to players when their turn comes up.</li>
-<li>Providing endpoints for the client to ping the opponent and check the current turn.</li>
+<li>Managing the <code>TurnData</code> (which stores the current turn and the two players involved)</li>
+<li>Sending notifications to players when their turn comes up</li>
+<li>Providing endpoints for the client to ping the opponent and check the current turn</li>
 </ul>
 <h4 id="key-server-functionality">Key server functionality:<a class="headerlink" href="#key-server-functionality" title="Permanent link">¶</a></h4>
 <ul>
-<li><strong><code>Ping</code></strong>: Switches the turn to the opponent, updates the <code>TurnData</code>, and sends a notification to the opponent.</li>
-<li><strong><code>IsPlayerTurn</code></strong>: Checks if it is the player's turn by comparing the player's ID with the current turn in <code>TurnData</code>.</li>
-<li><strong><code>GetFromPlayer</code></strong>: Fetches the <code>FromPlayer</code> field from the <code>TurnData</code>, allowing the client to set the opponent player on initialization.</li>
+<li><strong><code>Ping</code></strong>: Switches the turn to the opponent, updates the <code>TurnData</code>, and sends a notification to the opponent</li>
+<li><strong><code>IsPlayerTurn</code></strong>: Checks if it is the player's turn by comparing the player's ID with the current turn in <code>TurnData</code></li>
+<li><strong><code>GetFromPlayer</code></strong>: Fetches the <code>FromPlayer</code> field from the <code>TurnData</code>, allowing the client to set the opponent player on initialization</li>
 <li>The data is stored in a Microstorage</li>
 </ul>
 <h2 id="beamable-features-used">Beamable Features Used<a class="headerlink" href="#beamable-features-used" title="Permanent link">¶</a></h2>

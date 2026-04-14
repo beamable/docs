@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -9361,7 +9361,7 @@
 dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w">   </span><span class="c1"># dotnet beam --version also works.</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <h2 id="creating-new-projects">Creating New Projects<a class="headerlink" href="#creating-new-projects" title="Permanent link">¶</a></h2>
-<p>New Microservices, Storages, and Common projects can be created within an existing <code>.beamable</code> folder workspace.</p>
+<p>New Microservices, Storages, and Common projects can be created within an existing <code>.beamable/</code> workspace.</p>
 <p>Use the <code>beam project new</code> commands to create new projects.</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -9369,10 +9369,10 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"
 dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>storage<span class="w"> </span>&lt;name&gt;<span class="w"> </span><span class="c1"># create a new Storage</span>
 dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>common-lib<span class="w"> </span>&lt;name&gt;<span class="w"> </span><span class="c1"># create a new Common Library</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>All of these commands will create a new <code>.csproj</code> project and configure it to work with Beamable. The new <code>.csproj</code> will be referenced in the <code>.sln</code> file. If there is already a <code>.sln</code> file, then the first <code>.sln</code> file detected in the <code>.beamable</code> workspace will be modified to include the <code>.csproj</code> reference. If there is no <code>.sln</code>, then a file called <code>BeamableServices.sln</code> will be created. However, the <code>--sln</code> option may be given to override this behavior and specify a .<code>sln</code> file to use.</p>
+<p>All of these commands will create a new <code>.csproj</code> project and configure it to work with Beamable. The new <code>.csproj</code> will be referenced in the <code>.sln</code> file. If there is already a <code>.sln</code> file, then the first <code>.sln</code> file detected in the <code>.beamable/</code> workspace will be modified to include the <code>.csproj</code> reference. If there is no <code>.sln</code>, then a file called <code>BeamableServices.sln</code> will be created. However, the <code>--sln</code> option may be given to override this behavior and specify a .<code>sln</code> file to use.</p>
 <p>Projects will be created in the <code>BeamableServices/services/</code> directory by default.</p>
 <h2 id="finding-microservices">Finding Microservices<a class="headerlink" href="#finding-microservices" title="Permanent link">¶</a></h2>
-<p>Once there is a Microservice in your <code>.beamable</code> workspace, you can check for its existence by running the project list command. It will return services detected in your workspace.</p>
+<p>Once there is a Microservice in your <code>.beamable/</code> workspace, you can check for its existence by running the project list command. It will return services detected in your workspace.</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>

@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -9535,8 +9535,8 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 <p>Game makers with existing Beamable projects which are using the legacy Beamable API are encouraged to migrate to the Beamable Player-Centric API</p>
 <p>For the simplest migration instructions;</p>
 <ul>
-<li>Replace <code>var beamableAPI = await Beamable.API.Instance;</code> with <code>var beamContext = BeamContext.Default;</code>.</li>
-<li>APIs and services are accessed very similarly as well, since a BeamContext instance has an <code>Api</code> variable, with access to all the same services as Beamable.API. This is documented further in the <a href="doc:player-centric-api-dependency-injection">Player Centric API - Dependency Injection</a> documentation.</li>
+<li>Replace <code>var beamableAPI = await Beamable.API.Instance;</code> with <code>var beamContext = BeamContext.Default;</code></li>
+<li>APIs and services are accessed very similarly as well, since a BeamContext instance has an <code>Api</code> variable, with access to all the same services as Beamable.API. This is documented further in the <a href="doc:player-centric-api-dependency-injection">Player Centric API - Dependency Injection</a> documentation</li>
 </ul>
 
 

@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -9530,8 +9530,8 @@
 <p>Before proceeding, create a backup of your Microservices and Storages. You can use Git or any other backup solution that works best for you. Refer to [documentation link] for an overview of the updated Microservices.</p>
 <p>During the migration:</p>
 <ul>
-<li>New standalone C# Microservices (C#MS) and Storages will be created.</li>
-<li>Old services will be deleted, but their content will be copied to the newly created services.</li>
+<li>New standalone C# Microservices (C#MS) and Storages will be created</li>
+<li>Old services will be deleted, but their content will be copied to the newly created services</li>
 </ul>
 <h4 id="steps-in-the-planning-stage">Steps in the Planning Stage<a class="headerlink" href="#steps-in-the-planning-stage" title="Permanent link">¶</a></h4>
 <ol>
@@ -9549,16 +9549,16 @@
 <p><strong>Previous Folder Structure (Beamable SDK 1.x)</strong></p>
 <ul>
 <li>Microservices:</li>
-<li>Located under <code>Assets/Beamable/Microservices</code>.</li>
-<li>Contain a folder with the same name as the service, a C# script, and an assembly definition with default references.</li>
+<li>Located under <code>Assets/Beamable/Microservices</code></li>
+<li>Contain a folder with the same name as the service, a C# script, and an assembly definition with default references</li>
 <li>Storages:</li>
 <li>Located under <code>Assets/Beamable/StorageObjects</code></li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://files.readme.io/fdda2acb0f2f27cc0e7395f20993d9618d0837f1f7d970a859d8d4864ad9b8b9-image.png" data-desc-position="bottom"><img border="{false}" src="https://files.readme.io/fdda2acb0f2f27cc0e7395f20993d9618d0837f1f7d970a859d8d4864ad9b8b9-image.png"></a></p>
 <p><strong>New Folder Structure (Beamable SDK 2.0)</strong></p>
 <ul>
-<li>Microservices and Storages are treated as <strong>separate projects</strong> inside a different solution then the one Unity is in.</li>
-<li>They are all stored under a <strong>hidden folder</strong> outside Unity's <code>Assets/</code> folder, in a new folder named <code>BeamableServices</code>.</li>
+<li>Microservices and Storages are treated as <strong>separate projects</strong> inside a different solution then the one Unity is in</li>
+<li>They are all stored under a <strong>hidden folder</strong> outside Unity's <code>Assets/</code> folder, in a new folder named <code>BeamableServices</code></li>
 <li>Services can be executed independently using:</li>
 <li>Beamable CLI</li>
 <li>Your preferred IDE</li>
@@ -9582,16 +9582,16 @@
 <p>Microservices follow the same steps as storages with an additional step:</p>
 <ul>
 <li><strong>Federated Implementations</strong>: Update code for federated services manually. Changes include:</li>
-<li>Replace <code>IThirdPartyIdentity</code> with <code>IFederationId</code>.</li>
-<li>Remove the <code>UniqueName</code> property and use <code>[FederationId("old unique name here")]</code> instead.</li>
-<li>Replace <code>.UniqueName</code> accesses through out the project with <code>.GetUniqueName()</code>.</li>
+<li>Replace <code>IThirdPartyIdentity</code> with <code>IFederationId</code></li>
+<li>Remove the <code>UniqueName</code> property and use <code>[FederationId("old unique name here")]</code> instead</li>
+<li>Replace <code>.UniqueName</code> accesses through out the project with <code>.GetUniqueName()</code></li>
 </ul>
 <p><br></p>
 <h3 id="4-final-steps">4 - Final Steps<a class="headerlink" href="#4-final-steps" title="Permanent link">¶</a></h3>
 <p>After completing the migration:</p>
 <ul>
-<li><strong>Test your services and storages</strong>: Run all services to ensure they function as expected.</li>
-<li>If issues arise, consult the error guide below.</li>
+<li><strong>Test your services and storages</strong>: Run all services to ensure they function as expected</li>
+<li>If issues arise, consult the error guide below</li>
 </ul>
 <p><br></p>
 <h3 id="error-troubleshooting">Error Troubleshooting<a class="headerlink" href="#error-troubleshooting" title="Permanent link">¶</a></h3>

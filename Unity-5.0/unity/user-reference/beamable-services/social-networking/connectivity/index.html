@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -10034,14 +10034,14 @@
 <li>You can also update the Project Settings to:</li>
 <li>Disable offline cache</li>
 <li>Disable sending heartbeat<ul>
-<li>If you're using Beamable matchmaking, you want to keep this on.</li>
+<li>If you're using Beamable matchmaking, you want to keep this on</li>
 </ul>
 </li>
 <li>Disable optimistic inventory updates</li>
 </ul>
 <p>The result of this is as follows:</p>
 <ul>
-<li>When a request times out or results in a status code 0 -- it will not cause the <strong>ConnectivityService</strong> to declare that the internet connectivity is unavailable. That specific request will still result in a NoConnectivityException , so you can retry it if you choose, but it will not cascade into other requests.</li>
+<li>When a request times out or results in a status code 0 -- it will not cause the <strong>ConnectivityService</strong> to declare that the internet connectivity is unavailable. That specific request will still result in a NoConnectivityException , so you can retry it if you choose, but it will not cascade into other requests</li>
 <li>Beamable will no longer phone home frequently (heartbeat), resulting in noisy numbers of errors in case of a dropped connection</li>
 </ul>
 <p>Overall, users with bad connections will see an error, as they should, but people with fine connections should experience markedly fewer false negatives.</p>

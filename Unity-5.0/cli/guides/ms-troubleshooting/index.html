@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -9701,7 +9701,7 @@ Only one <code>Microservice</code> class should exist per microservice project. 
 </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Multiple Microservice classes detected. Make sure only a single class implementing Microservice exists in each service project. ClassNames=MyMicroservice, MyOtherMicroservice.
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solutions</strong>:
-- Ensure only one class is marked as a <code>Microservice</code> in your project.</p>
+- Ensure only one class is marked as a <code>Microservice</code> in your project</p>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
@@ -9720,7 +9720,7 @@ Microservice classes must be marked as <code>partial</code> to allow code genera
 </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Non-Partial Microservice class detected. Make sure your Microservice class is marked as partial.
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solutions</strong>:
-- Add the <code>partial</code> modifier to the class.</p>
+- Add the <code>partial</code> modifier to the class</p>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
@@ -9737,7 +9737,7 @@ The <code>Microservice</code> class must include the <code>[Microservice("Id")]<
 </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Microservice class is missing the microservice id
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solutions</strong>:
-- Add the <code>[Microservice("Id")]</code> attribute to the class.</p>
+- Add the <code>[Microservice("Id")]</code> attribute to the class</p>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
@@ -9764,7 +9764,7 @@ Methods marked as <code>[Callable]</code>, <code>[ClientCallable]</code>, <code>
 </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Microservice Callable methods cannot be async voids. Ex: CallMicroservice.
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solutions</strong>:
-- Change the return type to <code>Task</code>.</p>
+- Change the return type to <code>Task</code></p>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -9814,7 +9814,7 @@ Types used in <code>[ClientCallable]</code> methods must be available to both se
 </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Microservice Callable method `CallServiceAsync` uses a Type that cannot be inside microservice scope. Type: `DTO`.
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solutions</strong>:
-- Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server.</p>
+- Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server</p>
 <p><strong>Example of Solved Code</strong> (Microservice):
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -9874,7 +9874,7 @@ Types used in <code>[ClientCallable]</code> methods must be declared in outer sc
 </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>{nameof(Server.Microservice)} Callable method CallService uses a Type that is Nested, which is not supported by the Source Code Generator. Please move DTO to outer scope.
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solutions</strong>:
-- Move named types used by <code>Callable</code> methods to a non-nested scope.</p>
+- Move named types used by <code>Callable</code> methods to a non-nested scope</p>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -9925,7 +9925,7 @@ Classes that uses the attribute <code>[BeamGenerateSchema]</code> cannot be decl
 </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Type DTO contains [BeamGenerateSchema] attribute and is a Nested type, which is not supported by the Source Generator. Please move DTO to outer scope.
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solutions</strong>:
-- Move classes that contains <code>[BeamGenerateSchema]</code> attribute to a non-nested scope.</p>
+- Move classes that contains <code>[BeamGenerateSchema]</code> attribute to a non-nested scope</p>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -10030,7 +10030,7 @@ Non-readonly static fields in Microservices are discouraged because they do not 
 </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Consider making 'ContentId' a readonly field. Otherwise the value may be inconsistent in production environments.
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solutions</strong>:
-- Make the static field <code>readonly</code> if it is intended to be constant after initialization.
+- Make the static field <code>readonly</code> if it is intended to be constant after initialization
   <strong>Example of Solved Code</strong>:
     </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -10040,7 +10040,7 @@ Non-readonly static fields in Microservices are discouraged because they do not 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">ContentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"coins.gems"</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
-- Or convert it to a non-static field if it should be instance-bound.<p></p>
+- Or convert it to a non-static field if it should be instance-bound<p></p>
 <hr>
 <h2 id="missing-serializable-attribute-on-type">Missing Serializable Attribute on Type<a class="headerlink" href="#missing-serializable-attribute-on-type" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
@@ -10082,7 +10082,7 @@ All types used in Microservice method signatures or marked with <code>[BeamGener
 <div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Add the [Serializable] attribute to type 'MyOtherDto'
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solution</strong>:
-- Add the <code>[Serializable]</code> attribute.
+- Add the <code>[Serializable]</code> attribute
   <strong>Example of Solved Code</strong>:
     </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -10137,7 +10137,7 @@ Properties in types used in Microservice method signatures or marked with <code>
 </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Consider changing property 'X' to a field to include it in client-generated code
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solution</strong>:
-- Use fields instead of properties.
+- Use fields instead of properties
   <strong>Example of Solved Code</strong>:
     </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -10168,7 +10168,7 @@ Fields with nullable types (for example, <code>int?</code>, <code>string?</code>
 </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Change field 'Score' to use Optional&lt;T&gt; instead of a nullable type
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solution</strong>:
-- Use <code>Optional&lt;T&gt;</code> instead of nullable types.
+- Use <code>Optional&lt;T&gt;</code> instead of nullable types
   <strong>Example of Solved Code</strong>:
     </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -10204,7 +10204,7 @@ Using <code>ContentObject</code> or its subtypes directly in serializable fields
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Replace the direct <code>ContentObject</code> usage with <code>ContentRef&lt;T&gt;</code>.</li>
+<li>Replace the direct <code>ContentObject</code> usage with <code>ContentRef&lt;T&gt;</code></li>
 </ul>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -10247,7 +10247,7 @@ When a class is marked with <code>[BeamGenerateSchema]</code>, all custom types 
 </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Add the [BeamGenerateSchema] attribute to type 'MyOtherDTO'
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solution</strong>:
-- Add <code>[BeamGenerateSchema]</code> to all nested field types.
+- Add <code>[BeamGenerateSchema]</code> to all nested field types
   <strong>Example of Solved Code</strong>:
     </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -10289,7 +10289,7 @@ When using a <code>Dictionary</code> field in a type marked with <code>[BeamGene
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Change the dictionary key type to <code>string</code>.</li>
+<li>Change the dictionary key type to <code>string</code></li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -10326,7 +10326,7 @@ Types that subclass <code>Dictionary</code> are not supported as field types in 
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Use <code>Dictionary&lt;string, T&gt;</code> directly instead of a subclass.</li>
+<li>Use <code>Dictionary&lt;string, T&gt;</code> directly instead of a subclass</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -10363,7 +10363,7 @@ Types that subclass <code>List&lt;T&gt;</code> are not supported as field types 
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Use <code>List&lt;T&gt;</code> directly instead of a subclass.</li>
+<li>Use <code>List&lt;T&gt;</code> directly instead of a subclass</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -10400,7 +10400,7 @@ Types used in <code>Callable</code> methods cannot inherit from <code>ContentObj
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Use <code>ContentObject</code> instead of a derived type.</li>
+<li>Use <code>ContentObject</code> instead of a derived type</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -10433,7 +10433,7 @@ Dictionaries in <code>[Callable]</code> method parameters are only valid if thei
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Change dictionary key to <code>string</code>.</li>
+<li>Change dictionary key to <code>string</code></li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -10470,7 +10470,7 @@ Types used in <code>[Callable]</code> methods that subclass <code>Dictionary</co
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Use <code>Dictionary&lt;string, T&gt;</code> directly.</li>
+<li>Use <code>Dictionary&lt;string, T&gt;</code> directly</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -10507,7 +10507,7 @@ Types used in <code>[Callable]</code> methods that subclass <code>List&lt;T&gt;<
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Use <code>List&lt;T&gt;</code> directly.</li>
+<li>Use <code>List&lt;T&gt;</code> directly</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -10572,8 +10572,8 @@ Generic types are not supported in Microservice <code>[Callable]</code> methods 
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>Solutions</strong>:</p>
 <ul>
-<li>Replace custom generic types with concrete types.</li>
-<li>Use one of the allowed generic types (<code>List&lt;T&gt;</code>, <code>Dictionary&lt;string,T&gt;</code>, <code>Optional&lt;T&gt;</code>, <code>ContentRef&lt;T&gt;</code>) if they fit your use case.</li>
+<li>Replace custom generic types with concrete types</li>
+<li>Use one of the allowed generic types (<code>List&lt;T&gt;</code>, <code>Dictionary&lt;string,T&gt;</code>, <code>Optional&lt;T&gt;</code>, <code>ContentRef&lt;T&gt;</code>) if they fit your use case</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>

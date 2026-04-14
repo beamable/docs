@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -9347,15 +9347,15 @@ someOtherFolder
 <tbody>
 <tr>
 <td><code>mainFolder</code></td>
-<td><code>mainFolder/.beamable</code></td>
+<td><code>mainFolder/.beamable/</code></td>
 </tr>
 <tr>
 <td><code>childFolder</code></td>
-<td><code>mainFolder/childFolder/.beamable</code></td>
+<td><code>mainFolder/childFolder/.beamable/</code></td>
 </tr>
 <tr>
 <td><code>yetAnotherFolder</code></td>
-<td><code>mainFolder/childFolder/.beamable</code></td>
+<td><code>mainFolder/childFolder/.beamable/</code></td>
 </tr>
 <tr>
 <td><code>someOtherFolder</code></td>
@@ -9365,7 +9365,7 @@ someOtherFolder
 </table>
 <h2 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">¶</a></h2>
 <p>From any folder, you can run the <a href="../../commands/cli-command-reference/config/config/">beam config</a> command to print information about your current Beamable folder.</p>
-<p>In the example directory structure above, if the <code>beam config</code> command was invoked from the <code>mainFolder</code>, it would log information about the <code>mainFolder/.beamable</code> folder.
+<p>In the example directory structure above, if the <code>beam config</code> command was invoked from the <code>mainFolder</code>, it would log information about the <code>mainFolder/.beamable/</code> folder.
 </p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -9380,7 +9380,7 @@ someOtherFolder
 <span class="w">    </span><span class="s2">"configPath"</span>:<span class="w"> </span><span class="s2">"/Users/examples/mainFolder/.beamable"</span>
 <span class="w"> </span><span class="o">}</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
-<p>However, if the <code>beam config</code> command was invoked from the <code>someOtherFolder</code> path, you should expect to see an error, because there is no <code>.beamable</code> folder within the parent lineage. </p>
+<p>However, if the <code>beam config</code> command was invoked from the <code>someOtherFolder</code> path, you should expect to see an error, because there is no <code>.beamable/</code> folder within the parent lineage.</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -9431,7 +9431,7 @@ Logs<span class="w"> </span>at
 </code></pre></div></td></tr></tbody></table></div>
 <div class="admonition info">
 <p class="admonition-title">The folder can exist in a higher folder.</p>
-<p>Normally the <code>.config/</code> folder exists as a sibling of the <code>.beamable/</code> folder. However, the <code>.config/</code> folder <em>may</em> exist in a parent folder. The closest <code>.config/</code> folder will be used. See the <a href="https://learn.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use">.NET tool documentation</a> for more information. </p>
+<p>Normally the <code>.config/</code> folder exists as a sibling of the <code>.beamable/</code> folder. However, the <code>.config/</code> folder <em>may</em> exist in a parent folder. The closest <code>.config/</code> folder will be used. See the <a href="https://learn.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use">.NET tool documentation</a> for more information.</p>
 </div>
 <h2 id="workspace-overview">Workspace Overview<a class="headerlink" href="#workspace-overview" title="Permanent link">¶</a></h2>
 <p>A Beamable workspace is defined by the existence of a <code>.beamable/</code> folder.</p>

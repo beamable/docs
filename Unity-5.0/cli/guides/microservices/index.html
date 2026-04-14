@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -9297,12 +9297,12 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <hr>
 <h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">¶</a></h2>
-<p>Standalone Microservices require a <code>.beamable</code> workspace, so you either need to create one with <a href="../../commands/cli-command-reference/init/">beam init</a>, or use an existing one.</p>
+<p>Standalone Microservices require a <code>.beamable/</code> workspace, so you either need to create one with <a href="../../commands/cli-command-reference/init/">beam init</a>, or use an existing one.</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>init<span class="w"> </span>MyProject
 <span class="nb">cd</span><span class="w"> </span>MyProject
 </code></pre></div></td></tr></tbody></table></div>
-<p>Once you have a <code>.beamable</code> workspace, you can create a new Standalone Microservice using the <a href="../ms-workflow/#creating-new-projects">project new</a> command.</p>
+<p>Once you have a <code>.beamable/</code> workspace, you can create a new Standalone Microservice using the <a href="../ms-workflow/#creating-new-projects">project new</a> command.</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># run this inside your .beamable workspace</span>
 dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
