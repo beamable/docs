@@ -13,7 +13,7 @@ Beamable provides sample projects for Unreal as part of the Unreal SDK repositor
 ## Select the Sample to Run
 
 1. Use `dotnet beam unreal select-sample BEAMPROJ_<PluginName>` to switch to the plugin (and thus the sample) you want. During this process all of the content in their `Override` folder will be copied to the `BeamableUnreal` project replacing any previous configuration. This allows us to replace the whole "Context" in which the project will be configured, thus allowing us to have multiple samples in the same project.
-2. For example, `dotnet beam unreal select-sample BEAMPROJ_HathoraDemo` switches the repo to the Hathora Demo sample
+2. For example, `dotnet beam unreal select-sample BEAMPROJ_Beamball` switches the repo to the Beamball sample
 3. If using Rider as IDE and already in the BeamableUnreal.sln project you can alternatively select and run the `SET BEAMPROJ - <PluginName>` in the Configuration Drop Down (Top Right Corner)
 
 ## Build and Run in Editor

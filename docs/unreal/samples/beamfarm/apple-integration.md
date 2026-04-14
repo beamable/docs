@@ -99,8 +99,8 @@ Federation reference:
 ### Federation Identifier
 
 ```csharp
-[FederationId("apple")]
-public class AppleFederation : IFederationId
+[FederationId("gamecenter")]
+public class GameCenterFederation : IFederationId
 {
 }
 ```
@@ -109,7 +109,7 @@ public class AppleFederation : IFederationId
 
 ```csharp
 async Promise<FederatedAuthenticationResponse>
-    IFederatedLogin<AppleFederation>.Authenticate(
+    IFederatedLogin<GameCenterFederation>.Authenticate(
         string token,
         string _,
         string __)
@@ -131,8 +131,8 @@ async Promise<FederatedAuthenticationResponse>
 
 **Client:**
 
-1. Apple Login
-2. Retrieve Apple UserId
+1. Game Center Login
+2. Retrieve Game Center UserId
 3. Call Federated Login
 
 **Server:**
@@ -175,3 +175,39 @@ async Promise<FederatedAuthenticationResponse>
 4. Handle success or failure
 
 ![Apple Signing Blueprint](../../../media/imgs/apple-signing-blueprint.png)
+
+---
+
+## Required Files for Game Center on iOS
+
+Two additional files must be present in the project for Game Center to work correctly on iOS.
+
+### SSL Certificate (`cacert.pem`)
+
+Beamable uses secure socket connections on iOS, and the OS requires a trusted CA certificate bundle to validate them. Without this file, Beamable network calls will fail silently on device.
+
+1. Locate the certificate file bundled with the engine:
+
+    ```
+    \Epic Games\UE_5.6\Engine\Content\Certificates\ThirdParty\cacert.pem
+    ```
+
+2. Copy it into a folder named `Certificates` inside your project's **Source** folder:
+
+    ```
+    <ProjectRoot>/Source/Certificates/cacert.pem
+    ```
+
+Unreal will include this file in the iOS bundle, allowing Beamable to establish trusted connections at runtime.
+
+### Game Center Entitlements (`GameCenter.entitlements`)
+
+Unreal must be told about the entitlements file so it can embed the correct Apple capabilities (Game Center and Sign in with Apple) during the build and signing process.
+
+In your project's **iOS build settings**, verify that the **Additional Plist Data** or equivalent entitlements path is pointing to a file named `GameCenter.entitlements` located at the **root of the project**:
+
+```
+<ProjectRoot>/GameCenter.entitlements
+```
+
+This file must be referenced in the project settings so that Unreal includes it during code signing. Without it, Apple capabilities such as Game Center will not be active in the signed build, and authentication will fail.
