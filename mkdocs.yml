@@ -23,7 +23,10 @@ markdown_extensions:
       pygments_lang_class: true
       linenums: true
   - pymdownx.superfences
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      auto_append:
+        - docs/includes/abbreviations.md
+  - abbr
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
