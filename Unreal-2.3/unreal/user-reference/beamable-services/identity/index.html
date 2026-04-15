@@ -8836,7 +8836,7 @@
 <h1 id="identity">Identity<a class="headerlink" href="#identity" title="Permanent link">¶</a></h1>
 <p>Identity provides authentication and account management functionality for your game. Through the Identity
 system, players can create accounts, sign in, and manage their credentials across different platforms and devices.</p>
-<p>The Beamable SDK includes a comprehensive set of pre-implemented operations that handle common authentication scenarios:</p>
+<p>The Beamable <abbr title="software development kit">SDK</abbr> includes a comprehensive set of pre-implemented operations that handle common authentication scenarios:</p>
 <ul>
 <li>Email/password authentication</li>
 <li>Guest account creation and management</li>
@@ -8846,7 +8846,7 @@ system, players can create accounts, sign in, and manage their credentials acros
 <p>These operations are designed to be easily integrated into your game's login and signup flows while maintaining security
 best practices.</p>
 <h2 id="login-semantics">Login Semantics<a class="headerlink" href="#login-semantics" title="Permanent link">¶</a></h2>
-<p>Logging in with the Unreal SDK means:</p>
+<p>Logging in with the Unreal <abbr title="software development kit">SDK</abbr> means:</p>
 <blockquote>
 <p>Authenticating the user, fetching all relevant data from the backend into the <code>UBeamRuntimeSubsystem</code>'s in-memory state and then completes the operation.</p>
 </blockquote>
@@ -8859,10 +8859,10 @@ best practices.</p>
 <p>If you want to add calls to Microservices to be made as part of the login flow (such that every time your game opens you make those calls), you can see how you can implement your own <a href="../../runtime-systems/lower-level/"><code>UBeamRuntimeSubsystem</code></a> and call your custom Microservice from there.</p>
 </div>
 <p>This approach, coupled with <a href="../../federation/federated-player-init/">Federated Player Initialization</a> greatly simplifies how you can design your game's boot-up flow and UI implementations.</p>
-<p>The following sections explain how to leverage our SDK to implement common authentication flows for different games and platforms.</p>
+<p>The following sections explain how to leverage our <abbr title="software development kit">SDK</abbr> to implement common authentication flows for different games and platforms.</p>
 <h2 id="mobile-games-style-authentication">"Mobile Games" Style Authentication<a class="headerlink" href="#mobile-games-style-authentication" title="Permanent link">¶</a></h2>
 <p>Mobile games often want to create a <strong>Guest Account</strong> for the player so they can start playing quickly and later decide if they want to <code>Attach</code> one or more permanent identities to that guest account.</p>
-<p>The SDK supports this flow via the <code>Login - Frictionless</code> operation.</p>
+<p>The <abbr title="software development kit">SDK</abbr> supports this flow via the <code>Login - Frictionless</code> operation.</p>
 <p>If an account is already locally cached at that <code>FUserSlot</code>, we'll log in to that one automatically without making a request to Beamable.</p>
 <p><strong>Guest Accounts are lost if signed out (or locally cached data is lost for any reason)</strong>. 
 To avoid that, players can "attach" some persistent identity information to that guest account. <code>Operation - Attach</code> nodes do so.</p>
@@ -8913,11 +8913,11 @@ Handling of this is game specific, but most games will either:</p>
 </ul>
 <p>Here's how that looks in the client side:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/identity-cache-plus-platform.png" data-desc-position="bottom"><img alt="Local Cache + Federated Identity" src="../../../../media/imgs/identity-cache-plus-platform.png"></a></p>
-<p>Each different platform (Steam, EOS, PSN, etc...) requires a different Microservice implementation. At the moment, we only have a sample for Steam --- but we plan to add samples for all major platforms (Steam, EOS, Console and Mobile platforms) as time passes and the SDK evolves to support each target.</p>
+<p>Each different platform (Steam, EOS, PSN, etc...) requires a different Microservice implementation. At the moment, we only have a sample for Steam --- but we plan to add samples for all major platforms (Steam, EOS, Console and Mobile platforms) as time passes and the <abbr title="software development kit">SDK</abbr> evolves to support each target.</p>
 <div class="admonition note">
 <p class="admonition-title">Why do platform integrations this way?</p>
-<p>The problem with Beamable supporting each platform directly in the SDK is that it ties Beamable SDK versions to each individual platform's SDK versions. This denies game makers the ability to independently select the feature-set they want to support from each individual platform.</p>
-<p>It also causes breaking changes from these platforms to sometimes force the Beamable SDK to propagate them out. This creates scenarios where a game-maker wanting a new Beamable feature might need to update their Platform's SDK version even if they won't take advantage of the new Platform's SDK.</p>
+<p>The problem with Beamable supporting each platform directly in the <abbr title="software development kit">SDK</abbr> is that it ties Beamable <abbr title="software development kit">SDK</abbr> versions to each individual platform's <abbr title="software development kit">SDK</abbr> versions. This denies game makers the ability to independently select the feature-set they want to support from each individual platform.</p>
+<p>It also causes breaking changes from these platforms to sometimes force the Beamable <abbr title="software development kit">SDK</abbr> to propagate them out. This creates scenarios where a game-maker wanting a new Beamable feature might need to update their Platform's <abbr title="software development kit">SDK</abbr> version even if they won't take advantage of the new Platform's <abbr title="software development kit">SDK</abbr>.</p>
 <p>The advantages of the Federation approach is that the game-maker retains control of how they want to interact with the feature-set of each platform and gives them better control of upgrade timings.</p>
 </div>
 <h2 id="identity-in-dedicated-servers">Identity in Dedicated Servers<a class="headerlink" href="#identity-in-dedicated-servers" title="Permanent link">¶</a></h2>

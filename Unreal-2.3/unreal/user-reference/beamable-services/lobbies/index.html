@@ -8911,7 +8911,7 @@
 <p>To read from a specific player's data, you can use any of these nodes:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-read-player-data.png" data-desc-position="bottom"><img alt="lobbies-read-player-data.png" src="../../../../media/imgs/lobbies-read-player-data.png"></a></p>
 <h2 id="synchronizing-across-clients">Synchronizing Across Clients<a class="headerlink" href="#synchronizing-across-clients" title="Permanent link">¶</a></h2>
-<p>Beamable's Lobby system will automatically notify every player inside a lobby of relevant events. Once you're in a lobby, the SDK keeps track of your local state inside <code>UBeamLobbyState</code> (one per-<code>UserSlot</code>).</p>
+<p>Beamable's Lobby system will automatically notify every player inside a lobby of relevant events. Once you're in a lobby, the <abbr title="software development kit">SDK</abbr> keeps track of your local state inside <code>UBeamLobbyState</code> (one per-<code>UserSlot</code>).</p>
 <p>You can use <code>GetCurrentSlotLobbyState</code> to get the <code>UBeamLobbyState</code> and setup various <strong>Delegates</strong> in this object to respond to these events, normally updating your UI or custom system built on top of this subsystem.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-notification-binding.png" data-desc-position="bottom"><img alt="lobbies-notification-binding.png" src="../../../../media/imgs/lobbies-notification-binding.png"></a></p>
 <p>Here's the list of events we expose:</p>

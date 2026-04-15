@@ -8924,7 +8924,7 @@
 
 
 <h1 id="steam-integration-sample">Steam Integration Sample<a class="headerlink" href="#steam-integration-sample" title="Permanent link">¶</a></h1>
-<p>This demo showcases how you can use the <strong>Unreal SDK</strong> and <strong>Beamable Microservices</strong> to integrate with Steam.</p>
+<p>This demo showcases how you can use the <strong>Unreal <abbr title="software development kit">SDK</abbr></strong> and <strong>Beamable Microservices</strong> to integrate with Steam.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
 <p>Aside from our <code>BeamableCore</code> Plugin, here's what the sample contains:</p>
 <ul>
@@ -8946,7 +8946,7 @@
 <ol>
 <li>Log into your <a href="https://partner.steamgames.com/apps">Steam</a> developer account.</li>
 <li>Go to your App and set aside its <code>AppId</code>.</li>
-<li>Create a Publisher Web API key using <a href="https://partner.steamgames.com/doc/webapi_overview/auth#publisher-keys">this tutorial</a>. Set it aside in a notepad for future use.</li>
+<li>Create a Publisher Web <abbr title="application programming interface">API</abbr> key using <a href="https://partner.steamgames.com/doc/webapi_overview/auth#publisher-keys">this tutorial</a>. Set it aside in a notepad for future use.</li>
 <li>Make sure that the game is added to the user that you want to use to log in. To do that:<ol>
 <li>Generate a Steam Key.</li>
 <li>Add it to your Steam account so you can access the game.</li>
@@ -8957,8 +8957,8 @@
 <p>Now, you'll need to configure a Beamable realm so you can use it:</p>
 <ol>
 <li>Go to the Beamable Portal and create a new Beamable realm called <code>steam-demo</code>.</li>
-<li>Go to the Portal (<code>Account</code>) and set aside your Customer Id (CID).</li>
-<li>Go to the Portal and set aside your realm's PID and Realm Secret (<code>Games -&gt; YourGame -&gt; steam-demo</code>).</li>
+<li>Go to the Portal (<code>Account</code>) and set aside your Customer Id (<abbr title="customer ID">CID</abbr>).</li>
+<li>Go to the Portal and set aside your realm's <abbr title="realm identifier">PID</abbr> and Realm Secret (<code>Games -&gt; YourGame -&gt; steam-demo</code>).</li>
 <li>On the Portal open the Realm Config page of the <code>steam-demo</code> realm (<code>Operate -&gt; Config</code>).</li>
 <li>Hit the <code>Add Config</code> button.</li>
 <li>Set the following key-value pairs for the namespace <code>steam</code>:</li>
@@ -8997,7 +8997,7 @@
 <li>You should see your "Steam" status change to playing.</li>
 </ul>
 <h2 id="sample-highlights">Sample Highlights<a class="headerlink" href="#sample-highlights" title="Permanent link">¶</a></h2>
-<p>This is how we initialize the SDK and sign in a user with their Steam account.</p>
+<p>This is how we initialize the <abbr title="software development kit">SDK</abbr> and sign in a user with their Steam account.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../media/imgs/steam-demo-login.png" data-desc-position="bottom"><img alt="steam-demo-login.png" src="../../media/imgs/steam-demo-login.png"></a></p>
 <h2 id="can-i-use-it-as-a-template">Can I use it as a Template?<a class="headerlink" href="#can-i-use-it-as-a-template" title="Permanent link">¶</a></h2>
 <p>This sample is NOT a template you can start your own repository from. However, its Beamable code components are free for you to copy and use in your own project. Here's what these are:</p>

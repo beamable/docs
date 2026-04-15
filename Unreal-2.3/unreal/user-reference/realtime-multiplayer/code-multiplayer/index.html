@@ -8841,7 +8841,7 @@
 <li><strong>AGameMode::BeginPlay</strong>: In most C++-based implementations, this is your server's "entry point". </li>
 <li><strong>AGameMode::PreLoginAsync</strong>: This is what UE calls whenever a client attempts to connect to a game server --- once you invoke a callback it provides, the user is either accepted or rejected. This will be invoked on the server once per-player (if you have multiple players per-client, this is an important distinction).</li>
 <li><strong>ULocalPlayer::GetGameLoginOptions</strong>: This appends a string of Options to each <code>ULocalPlayer</code>'s connection string.</li>
-<li><strong>FUniqueNetIdRepl</strong>: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework.</li>
+<li><strong>FUniqueNetIdRepl</strong>: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's <abbr title="software development kit">SDK</abbr> integration with UE Gameplay Framework.</li>
 </ul>
 <h3 id="setting-up-your-gameplay-levels-level-blueprint">Setting Up your Gameplay Level's Level Blueprint<a class="headerlink" href="#setting-up-your-gameplay-levels-level-blueprint" title="Permanent link">¶</a></h3>
 <p>This section is the C++ version of <a href="../realtime-multiplayer-overview/#setting-up-your-gameplay-levels-level-blueprint">what is done in the Level Blueprint here</a>.</p>
@@ -8903,7 +8903,7 @@
 </code></pre></div>
 <p><strong>The code above still expects you to have the <code>Easy Enable</code> node in your level blueprint marked with <code>Init when Server Build</code>.</strong></p>
 <h2 id="implementing-game-server-authentication">Implementing Game Server Authentication<a class="headerlink" href="#implementing-game-server-authentication" title="Permanent link">¶</a></h2>
-<p>When using the Beamable SDK, in order to validate that the user should be allowed to connect to this game server, we need to know a few things:</p>
+<p>When using the Beamable <abbr title="software development kit">SDK</abbr>, in order to validate that the user should be allowed to connect to this game server, we need to know a few things:</p>
 <ul>
 <li>The User's Auth Token and GamerTag... so that the server can verify the user is who they say they are.</li>
 <li>Optionally, the Lobby Id for the lobby the user is in... so we can verify that the user is in a lobby registered with this Game Server.</li>
@@ -8957,21 +8957,21 @@
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">};</span>
 </code></pre></div>
 <h2 id="understanding-funiquenetid-and-beamable">Understanding <code>FUniqueNetId</code> and Beamable<a class="headerlink" href="#understanding-funiquenetid-and-beamable" title="Permanent link">¶</a></h2>
-<p><code>FUniqueNetId</code> is how UE identifies each player in the network. By default, when you sign in with Beamable, we set your <code>ULocalPlayer</code>'s preferred <code>FUniqueNetId</code> to be the user's <code>GamerTag</code>. This is how the Beamable SDK maps each Player in its <code>ULobby</code> objects to each <strong>UE Player</strong> objects. The <code>UBeamLobbySubsystem</code> has utility functions that help you get a <code>GamerTag</code> from a <strong>Player Controller/State</strong> object --- these rely on this mapping to work.</p>
+<p><code>FUniqueNetId</code> is how UE identifies each player in the network. By default, when you sign in with Beamable, we set your <code>ULocalPlayer</code>'s preferred <code>FUniqueNetId</code> to be the user's <code>GamerTag</code>. This is how the Beamable <abbr title="software development kit">SDK</abbr> maps each Player in its <code>ULobby</code> objects to each <strong>UE Player</strong> objects. The <code>UBeamLobbySubsystem</code> has utility functions that help you get a <code>GamerTag</code> from a <strong>Player Controller/State</strong> object --- these rely on this mapping to work.</p>
 <p>As long as you are using the <code>Project Settings &gt; Game &gt; Beamable Runtime &gt; Enable Gameplay Framework Integration</code>, this is all handled automatically for you (in various ways). If, for whatever reason, you want the <code>FUniqueNetId</code> to be something other than the Beamable GamerTag, you <strong><em>MUST</em></strong> also implement Game Server Authentication for these utility functions to work.</p>
 <p>This constraint exists because, for now, the logic in our <code>BeamMultiplayer::Authentication::PreLoginAsync</code> is the only place where we'll have both the <code>GamerTag</code> (from the <code>Options</code>) AND the <code>UniqueId</code> in order to map each player correctly.</p>
-<p><strong><em>Keep in mind that the default SDK behavior does not need you to care about any of this.</em></strong></p>
-<h2 id="user-slots-in-the-game-server-sdk">User Slots in the Game Server SDK<a class="headerlink" href="#user-slots-in-the-game-server-sdk" title="Permanent link">¶</a></h2>
-<p>User Slots are a big part of the regular workflow when working with Beamable SDK in game clients. For dedicated servers though they are not used. Any functions containing the <code>UserSlot</code> parameter, that parameter can be ignored. </p>
+<p><strong><em>Keep in mind that the default <abbr title="software development kit">SDK</abbr> behavior does not need you to care about any of this.</em></strong></p>
+<h2 id="user-slots-in-the-game-server-sdk">User Slots in the Game Server <abbr title="software development kit">SDK</abbr><a class="headerlink" href="#user-slots-in-the-game-server-sdk" title="Permanent link">¶</a></h2>
+<p>User Slots are a big part of the regular workflow when working with Beamable <abbr title="software development kit">SDK</abbr> in game clients. For dedicated servers though they are not used. Any functions containing the <code>UserSlot</code> parameter, that parameter can be ignored. </p>
 <p>This means a few things:</p>
 <ul>
 <li>There is no need to <code>SignUp</code>/<code>Login</code>; just to <code>InitSDK</code>.</li>
 <li>Calling APIs that simply read data from users via their <code>GamerTag</code> or other Ids will work fine.</li>
-<li>Calling APIs that write to user data is not recommended via regular SDK functions (see below for the alternative).</li>
+<li>Calling APIs that write to user data is not recommended via regular <abbr title="software development kit">SDK</abbr> functions (see below for the alternative).</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Server Mapping Slots - Experimental</p>
-<p>By default, if you are implementing the <strong>Game Server Authentication</strong> described here. The server stores the AuthToken for each user inside server mapping slots --- this means the Game Server <em>can</em> make requests "as though they were the user itself" but with the Server's admin permissions. This can be useful due to certain legacy API limitations.</p>
+<p>By default, if you are implementing the <strong>Game Server Authentication</strong> described here. The server stores the AuthToken for each user inside server mapping slots --- this means the Game Server <em>can</em> make requests "as though they were the user itself" but with the Server's admin permissions. This can be useful due to certain legacy <abbr title="application programming interface">API</abbr> limitations.</p>
 </div>
 <h3 id="writing-to-a-users-statsinventory">Writing to a User's Stats/Inventory<a class="headerlink" href="#writing-to-a-users-statsinventory" title="Permanent link">¶</a></h3>
 <p>When writing your Game Server code, you generally don't want to be making requests for individual players one at a time (batching is generally better). Sometimes that is fine, but there are cases where you'll want to write several things to several players' Stats/Inventory (processing a match's results, for example). In cases like this, you should write <code>ServerCallable</code> functions in Microservices and call those from the Microservice. See <a href="../../microservices/microservices/">Microservices</a> for more information about the various types of <code>Callable</code>.</p>
@@ -9033,7 +9033,7 @@
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Why do I have to write this code instead of inheriting from a class you give us?</p>
-<p>The SDK's philosophy is one that tries <strong><em>not</em></strong> to force you into situations where you cannot combine its utilities and your own project-specific ones. A common mistake in SDK design is to provide a base-class that users <em>must inherit</em>; while it does make the simplest case a little easier, it tends to make complex cases <em>significantly harder</em> than they need to be.</p>
+<p>The <abbr title="software development kit">SDK</abbr>'s philosophy is one that tries <strong><em>not</em></strong> to force you into situations where you cannot combine its utilities and your own project-specific ones. A common mistake in <abbr title="software development kit">SDK</abbr> design is to provide a base-class that users <em>must inherit</em>; while it does make the simplest case a little easier, it tends to make complex cases <em>significantly harder</em> than they need to be.</p>
 <p>As such, we evaluate this cost is worth the flexibility.</p>
 </div>
 <p><strong>PLEASE REMEMBER: <em>In builds, all functions from the <code>BeamPIE</code> namespace are no-ops.</em></strong></p>

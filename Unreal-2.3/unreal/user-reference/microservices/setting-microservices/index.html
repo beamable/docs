@@ -8807,7 +8807,7 @@
 <p>Most Unreal <code>.[vcs]ignore</code> file templates you can find online ignore all <code>*.sln</code> files. Instead of doing that, make sure to only ignore in the root directory with this  <code>/*.sln</code> instead of <code>*.sln</code>. In Git, you can also ensure your Microservice <code>.sln</code> is not ignored explicitly via <code>!/ProjectNameBeamable/ProjectNameBeamable.sln</code>.</p>
 </div>
 <h3 id="create-the-microservice-solution-and-project">Create the Microservice Solution and Project<a class="headerlink" href="#create-the-microservice-solution-and-project" title="Permanent link">¶</a></h3>
-<p><strong>Make sure that you've completed the <a href="../../../getting-started/setup/">Setup</a> process for the SDK and that the editor is not running before starting this guide.</strong></p>
+<p><strong>Make sure that you've completed the <a href="../../../getting-started/setup/">Setup</a> process for the <abbr title="software development kit">SDK</abbr> and that the editor is not running before starting this guide.</strong></p>
 <p>Open a terminal/shell (in Windows, we recommend <code>GitBash</code>) at your project's root and run the following command to create a new project and add a new microservice.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet beam project new service MicroserviceName --sln ProjectNameBeamable/ProjectNameBeamable.sln
 </code></pre></div>
@@ -8840,7 +8840,7 @@
 </li>
 <li>Add <code>ProjectNameMicroserviceClients.AddMicroserviceClients(this)</code> line to your game module's <code>Build.cs</code> files.</li>
 </ul>
-<p>The generated microservice clients are implementations of <code>UBeamMicroserviceClientSubsystem</code> which are <code>UEngineSubsystem</code>. The client exposes functions for each microservice request that are essentially the same as the <a href="../../runtime-systems/lower-level/">UBeam_____Api</a> Lower Level API. </p>
+<p>The generated microservice clients are implementations of <code>UBeamMicroserviceClientSubsystem</code> which are <code>UEngineSubsystem</code>. The client exposes functions for each microservice request that are essentially the same as the <a href="../../runtime-systems/lower-level/">UBeam_____Api</a> Lower Level <abbr title="application programming interface">API</abbr>. </p>
 <p>To call microservices in Blueprints, you use <code>Low Level - Microservice Name</code> nodes.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-example-blueprint-node.png" data-desc-position="bottom"><img alt="microservices-example-blueprint-node.png" src="../../../../media/imgs/microservices-example-blueprint-node.png"></a></p>
 <p>In C++ this is what calling a microservice looks like:</p>

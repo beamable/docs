@@ -9089,7 +9089,7 @@
 
 <h1 id="version-20x-release-notes">Version 2.0.x Release Notes<a class="headerlink" href="#version-20x-release-notes" title="Permanent link">¶</a></h1>
 <h2 id="version-201">Version 2.0.1<a class="headerlink" href="#version-201" title="Permanent link">¶</a></h2>
-<p>This is the release notes for the Unreal SDK version 2.0.1.</p>
+<p>This is the release notes for the Unreal <abbr title="software development kit">SDK</abbr> version 2.0.1.</p>
 <p>This release has several fixes w.r.t increasing support for MacOS as a development platform, fixing certain dedicated server (linux) issues as well as updating the backing CLI version for additional fixes within the microservice code-generation pipeline.</p>
 <p><strong>Follow the instructions to upgrade from <a href="../../getting-started/setup/#upgrading-the-sdk">here</a></strong>. </p>
 <p>Then do the following:</p>
@@ -9119,8 +9119,8 @@
 <li>Updated Auto Generated <code>UBeam___Api</code> classes code to fix a problem that would cause multiple PIE instances to behave incorrectly when running in non-standalone process mode.</li>
 </ul>
 <h2 id="version-200">Version 2.0.0<a class="headerlink" href="#version-200" title="Permanent link">¶</a></h2>
-<p>This is the release notes for the The Unreal SDK version 2.0.0</p>
-<p>This is a major release in our release cycle, it brings a lot of new features and improvements to the Beamable Unreal SDK support and user experience in general including a new Content Editor, a complete overhaull of our blueprint nodes, support to Friends and Parries, new support to Android and many others.</p>
+<p>This is the release notes for the The Unreal <abbr title="software development kit">SDK</abbr> version 2.0.0</p>
+<p>This is a major release in our release cycle, it brings a lot of new features and improvements to the Beamable Unreal <abbr title="software development kit">SDK</abbr> support and user experience in general including a new Content Editor, a complete overhaull of our blueprint nodes, support to Friends and Parries, new support to Android and many others.</p>
 <p>Follow the instructions to upgrade from <a href="../../getting-started/setup/#upgrading-the-sdk">here</a>. Then do the following:</p>
 <ul>
 <li>Go into your <code>Saved/Config/WindowsEditor/EditorPerProjectUserSettings</code> and remove any setting referencing a <code>BeamEditorBootstrapper</code> (or <code>UBeamEditorBootstrapper</code>).</li>
@@ -9128,10 +9128,10 @@
 </ul>
 <h3 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">¶</a></h3>
 <h4 id="unreal-engine-55x-support">Unreal Engine 5.5.x Support<a class="headerlink" href="#unreal-engine-55x-support" title="Permanent link">¶</a></h4>
-<p>The Unreal SDK now supports Unreal Engine 5.5.x as it minimum version. Older versions of Unreal Engine are no longer officially supported. If you are using an older version of Unreal Engine, we recommend you upgrade to 5.5.x to take advantage of the latest features and improvements os stay in the 1.x versions of the Unreal SDK.</p>
+<p>The Unreal <abbr title="software development kit">SDK</abbr> now supports Unreal Engine 5.5.x as it minimum version. Older versions of Unreal Engine are no longer officially supported. If you are using an older version of Unreal Engine, we recommend you upgrade to 5.5.x to take advantage of the latest features and improvements os stay in the 1.x versions of the Unreal <abbr title="software development kit">SDK</abbr>.</p>
 <h4 id="android-support">Android Support<a class="headerlink" href="#android-support" title="Permanent link">¶</a></h4>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/android.png" data-desc-position="bottom"><img alt="android.png" src="../../../media/imgs/android.png"></a></p>
-<p>The Unreal SDK now supports Android builds officially, allowing you to build and deploy your games on Android devices. This includes support for the Beamable services, as well as the ability to use the Unreal Engine's native Beamable features.</p>
+<p>The Unreal <abbr title="software development kit">SDK</abbr> now supports Android builds officially, allowing you to build and deploy your games on Android devices. This includes support for the Beamable services, as well as the ability to use the Unreal Engine's native Beamable features.</p>
 <h4 id="new-content-editor-system">New Content Editor System<a class="headerlink" href="#new-content-editor-system" title="Permanent link">¶</a></h4>
 <p>The Content Editor received yet another rework based your feedback with additional filtering capabilities and an improved CLI-based backend that is faster, handles file-system operations better and enforces less blocking operations.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/contentv2-window.png" data-desc-position="bottom"><img alt="contentv2-window.png" src="../../../media/imgs/contentv2-window.png"></a></p>
@@ -9141,20 +9141,20 @@
 <p>Until you publish content to the realm the first time after the update, the content will show up as modified. This has to do with us standardizing the underlying hashing to solve problems that would cause content to be accused as modified with no changes done.</p>
 </div>
 <h4 id="support-to-friends-and-parties">Support to Friends and Parties<a class="headerlink" href="#support-to-friends-and-parties" title="Permanent link">¶</a></h4>
-<p>The Unreal SDK now supports the <a href="../../user-reference/beamable-services/friends/">Friends</a> and <a href="../../user-reference/beamable-services/parties/">Parties</a> features of Beamable. This includes the ability to send and receive friend requests, manage your friends list, and create and join parties.</p>
+<p>The Unreal <abbr title="software development kit">SDK</abbr> now supports the <a href="../../user-reference/beamable-services/friends/">Friends</a> and <a href="../../user-reference/beamable-services/parties/">Parties</a> features of Beamable. This includes the ability to send and receive friend requests, manage your friends list, and create and join parties.</p>
 <h4 id="blueprint-nodes-rework">Blueprint Nodes Rework<a class="headerlink" href="#blueprint-nodes-rework" title="Permanent link">¶</a></h4>
-<p>The Blueprint nodes have undergone a comprehensive overhaul to enhance consistency and ease of use. Updates include clearer node naming, refined input and output types, and significant improvements to overall usability. Additionally, we've introduced a <a href="../../user-reference/runtime-systems/blueprints/">dedicated section</a> to help users better understand how to effectively utilize Blueprints with the Unreal SDK.</p>
+<p>The Blueprint nodes have undergone a comprehensive overhaul to enhance consistency and ease of use. Updates include clearer node naming, refined input and output types, and significant improvements to overall usability. Additionally, we've introduced a <a href="../../user-reference/runtime-systems/blueprints/">dedicated section</a> to help users better understand how to effectively utilize Blueprints with the Unreal <abbr title="software development kit">SDK</abbr>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/blueprint-operators.png" data-desc-position="bottom"><img alt="blueprint-operators.png" src="../../../media/imgs/blueprint-operators.png"></a></p>
-<p>As part of this overhaul, a lot of <code>Operations</code> had to be slightly renamed to aid with discoverability and API consistency. We highly recommend a few things:</p>
+<p>As part of this overhaul, a lot of <code>Operations</code> had to be slightly renamed to aid with discoverability and <abbr title="application programming interface">API</abbr> consistency. We highly recommend a few things:</p>
 <ul>
 <li>In Blueprints, replace all direct calls to <code>UBeamRuntimeSubsystems</code> with the new custom nodes that affect those systems.</li>
 <li>For C++, since semantics remain un-changed, the compiler is your friend. It is a simple matter of changing the function being called to the appropriate one.</li>
 </ul>
 <h4 id="player-initialization-federations">Player Initialization Federations<a class="headerlink" href="#player-initialization-federations" title="Permanent link">¶</a></h4>
 <p>A common use-case for live-services game is to define a starting state for user accounts. The way to do that within Beamable is via the <a href="../../user-reference/federation/federated-player-init/">Player Init Federation</a> interface in your microservice.</p>
-<p>This federation is guaranteed to run only once per player, whenever the player is created in the realm. At the Unreal SDK side, all SignUp functions expose the <code>InitProperties</code> parameter which is a map that will be passed along to the <code>IFederatedPlayerInit</code> in the microservice. This can be leveraged to implement custom sign-up flows and even special sign-up cases that provide players a better starting state should your game benefit from such a design.</p>
+<p>This federation is guaranteed to run only once per player, whenever the player is created in the realm. At the Unreal <abbr title="software development kit">SDK</abbr> side, all SignUp functions expose the <code>InitProperties</code> parameter which is a map that will be passed along to the <code>IFederatedPlayerInit</code> in the microservice. This can be leveraged to implement custom sign-up flows and even special sign-up cases that provide players a better starting state should your game benefit from such a design.</p>
 <h4 id="microservice-client-code-generation">Microservice Client-Code Generation<a class="headerlink" href="#microservice-client-code-generation" title="Permanent link">¶</a></h4>
-<p>In the previous versions of the SDK, you could set <code>&lt;GenerateClientCode&gt;true&lt;/GenerateClientCode&gt;</code> in the <code>.csproj</code> of your Microservices in order to generate the client code for them on every rebuild. </p>
+<p>In the previous versions of the <abbr title="software development kit">SDK</abbr>, you could set <code>&lt;GenerateClientCode&gt;true&lt;/GenerateClientCode&gt;</code> in the <code>.csproj</code> of your Microservices in order to generate the client code for them on every rebuild. </p>
 <p>This is no longer possible.</p>
 <p>We made this change for a few reasons:</p>
 <ul>
@@ -9162,7 +9162,7 @@
 <li>It would trigger at inconvenient times (ie: with the UE editor open) which could sometimes cause UE-related issues.</li>
 </ul>
 <p>Keep in mind that if you and your team like the old automatic post-build process, you can achieve that for your team by using IDE run configurations that run this command as a post-build/run process.</p>
-<p>In this version of the SDK, this is a manual process. Just run the following command line from inside your Unreal project's directory whenever you wish to generate your latest client code. You can also add a run configuration in your IDE if you prefer to just press a button to trigger the regeneration.</p>
+<p>In this version of the <abbr title="software development kit">SDK</abbr>, this is a manual process. Just run the following command line from inside your Unreal project's directory whenever you wish to generate your latest client code. You can also add a run configuration in your IDE if you prefer to just press a button to trigger the regeneration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>generate-client<span class="w"> </span><span class="s2">"."</span>
 </code></pre></div>
 <h3 id="other-changes">Other Changes<a class="headerlink" href="#other-changes" title="Permanent link">¶</a></h3>

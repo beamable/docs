@@ -8768,13 +8768,13 @@
 
 
 <h1 id="connectivity-management">Connectivity Management<a class="headerlink" href="#connectivity-management" title="Permanent link">¶</a></h1>
-<p>Games with live services require access to the internet and an open connection to the backend. In the Beamable SDK, an <code>FUserSlot</code> is considered <strong><em>connected</em></strong>:</p>
+<p>Games with live services require access to the internet and an open connection to the backend. In the Beamable <abbr title="software development kit">SDK</abbr>, an <code>FUserSlot</code> is considered <strong><em>connected</em></strong>:</p>
 <blockquote>
 <p>When there's a signed-in user and the WebSocket connection (see <code>UBeamNotifications</code> and <code>UBeamRuntime</code>) for that user is alive.</p>
 </blockquote>
 <p>The semantics above are also what our servers use to keep track of any user's online status (relevant to our real-time services like <a href="../../beamable-services/matchmaking/">Matchmaking</a> and <a href="../../beamable-services/lobbies/">Lobbies</a>).</p>
 <h2 id="thinking-about-connectivity">Thinking about Connectivity<a class="headerlink" href="#thinking-about-connectivity" title="Permanent link">¶</a></h2>
-<p>The Beamable SDK provides a <code>UBeamConnectivityManager</code> class that keeps the connectivity state for any logged-in <code>FUserSlot</code>. 
+<p>The Beamable <abbr title="software development kit">SDK</abbr> provides a <code>UBeamConnectivityManager</code> class that keeps the connectivity state for any logged-in <code>FUserSlot</code>. 
 - For games that have only a single <em>local</em> player, you can use <code>UBeamRuntime::GetOwnerSlotConnectivity</code> to access the correct manager by default. </p>
 <ul>
 <li>For games with multiple <em>local</em> players, you can get the managers from <code>UBeamRuntime::GetSlotConnectivity</code> for each user (for the most part, they shouldn't differ in status).</li>
