@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -6239,11 +6239,11 @@
 - <em>Information</em>
 - <em>Debug</em>
 - <em>Verbose</em></p>
-<p>When you run a Microservice locally, you will see log messages at the <em>Debug</em> level and above. However, in a deployed Microservice, you will only see <strong>Information</strong> and above. This is called the <em>Log Level</em>. Best practice is to avoid logging <em>Debug</em> and <em>Verbose</em> logs in production, as they negatively impact performance. </p>
+<p>When you run a Microservice locally, you will see log messages at the <em>Debug</em> level and above. However, in a deployed Microservice, you will only see <strong>Information</strong> and above. This is called the <em>Log Level</em>. Best practice is to avoid logging <em>Debug</em> and <em>Verbose</em> logs in production, as they negatively impact performance.</p>
 <p>The <code>Log</code> type has methods for each type of log level.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The default log level is <code>DEBUG</code> when you are running a service locally in development. However, deployed services use the <code>INFO</code> level by default. </p>
+<p>The default log level is <code>DEBUG</code> when you are running a service locally in development. However, deployed services use the <code>INFO</code> level by default.</p>
 </div>
 <h4 id="request-dynamic-log-levels">Request Dynamic Log Levels<a class="headerlink" href="#request-dynamic-log-levels" title="Permanent link">¶</a></h4>
 <p>In version 6.0+, you can override the log level per request based on the player calling your Microservice, or the path being invoked on the service. By default, the log level for the entire service is <em>Information</em>, but if there was an error-prone route, or a specific user was experiencing issues, you could set the log level to <em>Debug</em> for that use case, without affecting the log level for anything else.</p>
@@ -6420,7 +6420,7 @@
 </tr>
 <tr>
 <td>beam.sdk_version</td>
-<td>The semantic SDK version of the beamable SDK reporting data</td>
+<td>The semantic <abbr title="software development kit">SDK</abbr> version of the beamable <abbr title="software development kit">SDK</abbr> reporting data</td>
 <td></td>
 <td>BEAM</td>
 <td></td>
