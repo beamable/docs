@@ -6284,23 +6284,23 @@
 <h1 id="microservice-routing">Microservice Routing<a class="headerlink" href="#microservice-routing" title="Permanent link">¶</a></h1>
 <p>Configure Standalone Microservice routing and client generation</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>Before you can configure Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">Dotnet 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>. </p>
+<p>Before you can configure Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">Dotnet 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
 </code></pre></div><p></p>
-<p>In order to configure a Microservice, you also need to have a local <code>.beamable</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
+<p>In order to configure a Microservice, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>beam<span class="w"> </span>init<span class="w"> </span>MyProject
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>MyProject
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
 </code></pre></div><p></p>
 <h2 id="microservice-routing_1">Microservice Routing<a class="headerlink" href="#microservice-routing_1" title="Permanent link">¶</a></h2>
-<p>Beamable Microservices use a privileged web socket to communicate with Beamable's existing APIs and services. There is a custom Beamable application level protocol, <em>Thorium</em>, that allows a Microservice to receive HTTPS traffic sent to <code>https://api.beamable.com</code>. However, for the Microservice to receive the traffic, the HTTP request needs to meet the following requirements, </p>
+<p>Beamable Microservices use a privileged web socket to communicate with Beamable's existing APIs and services. There is a custom Beamable application level protocol, <em>Thorium</em>, that allows a Microservice to receive HTTPS traffic sent to <code>https://api.beamable.com</code>. However, for the Microservice to receive the traffic, the HTTP request needs to meet the following requirements,</p>
 <ol>
-<li>The <code>uri</code> of the HTTP request must have a <code>path</code> that maps to the desired Microservice. </li>
-<li>The HTTP request must have an <code>X-DE-SCOPE</code> header, and </li>
+<li>The <code>uri</code> of the HTTP request must have a <code>path</code> that maps to the desired Microservice.</li>
+<li>The HTTP request must have an <code>X-DE-SCOPE</code> header, and</li>
 <li><em>Optionally</em>, the HTTP request should have a <code>X-BEAM-SERVICE-ROUTING-KEY</code> header that carries a map of service routing keys, and</li>
-<li><em>Optionally</em>, the HTTP request should have an <code>Authorization</code> header that carries a Bearer Token. </li>
+<li><em>Optionally</em>, the HTTP request should have an <code>Authorization</code> header that carries a Bearer Token.</li>
 </ol>
 <h4 id="path-routing">Path Routing<a class="headerlink" href="#path-routing" title="Permanent link">¶</a></h4>
 <p>The <code>uri</code> of the HTTP request destined for a Microservice must follow a strict format. The format is given by the code snippet below.</p>
@@ -6327,13 +6327,13 @@
 <td><code>cid</code></td>
 <td>yes</td>
 <td><code>1338004997867618</code></td>
-<td>The Customer Id, or CID, is the ID that defines your organization apart from other Beamable developers.</td>
+<td>The Customer Id, or <abbr title="customer ID">CID</abbr>, is the ID that defines your organization apart from other Beamable developers.</td>
 </tr>
 <tr>
 <td><code>pid</code></td>
 <td>yes</td>
 <td><code>DE_1752011665993728</code></td>
-<td>The Project Id, or PID, is the ID that defines your Realm.</td>
+<td>The Project Id, or <abbr title="realm identifier">PID</abbr>, is the ID that defines your Realm.</td>
 </tr>
 <tr>
 <td><code>localPrefix</code></td>
@@ -6355,24 +6355,24 @@
 </tr>
 </tbody>
 </table>
-<p>When the <code>host</code> (<code>api.beamable.com</code>) receives an HTTP request with the following <code>uri</code> format, the request will be deconstructed into the variable components, and the contents of the HTTP request will be forwarded to your Microservice via the <em>Thorium</em> web socket protocol. The Microservice receives the request, and uses the <code>method</code> component of the original request to invoke the right <code>[Callable]</code> method.  </p>
+<p>When the <code>host</code> (<code>api.beamable.com</code>) receives an HTTP request with the following <code>uri</code> format, the request will be deconstructed into the variable components, and the contents of the HTTP request will be forwarded to your Microservice via the <em>Thorium</em> web socket protocol. The Microservice receives the request, and uses the <code>method</code> component of the original request to invoke the right <code>[Callable]</code> method.</p>
 <h4 id="x-beam-service-routing-key-header">X-BEAM-SERVICE-ROUTING-KEY Header<a class="headerlink" href="#x-beam-service-routing-key-header" title="Permanent link">¶</a></h4>
-<p>When a Microservice is started locally, it may share the same name with a Microservice running in the Beamable cloud. When this happens, and your local development machine is generating traffic for the named service, the <em>routing key</em> defines <em>which</em> Microservice instance (the local or remote) receives the traffic. </p>
-<p>A Microservice instance may optionally register a routing key, and if they do, then they will only receive traffic that includes the routing key in a custom <code>X-BEAM-SERVICE-ROUTING-KEY</code> header. </p>
-<p>All microservice instances running on the Beamable cloud <em>do not</em> register any routing keys, so they receive traffic that does not include any <code>X-BEAM-SERVICE-ROUTING-KEY</code> value. </p>
-<p>The format of the <code>X-BEAM-SERVICE-ROUTING-KEY</code> value should be a series of <code>&lt;service&gt;:&lt;routingKey&gt;</code> pairs, separated by commas. Here is an example of a routing key header value that routes two services, </p>
+<p>When a Microservice is started locally, it may share the same name with a Microservice running in the Beamable cloud. When this happens, and your local development machine is generating traffic for the named service, the <em>routing key</em> defines <em>which</em> Microservice instance (the local or remote) receives the traffic.</p>
+<p>A Microservice instance may optionally register a routing key, and if they do, then they will only receive traffic that includes the routing key in a custom <code>X-BEAM-SERVICE-ROUTING-KEY</code> header.</p>
+<p>All microservice instances running on the Beamable cloud <em>do not</em> register any routing keys, so they receive traffic that does not include any <code>X-BEAM-SERVICE-ROUTING-KEY</code> value.</p>
+<p>The format of the <code>X-BEAM-SERVICE-ROUTING-KEY</code> value should be a series of <code>&lt;service&gt;:&lt;routingKey&gt;</code> pairs, separated by commas. Here is an example of a routing key header value that routes two services,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>serviceA:routingKeyA,serviceB:routingKeyB
 </code></pre></div>
 <h4 id="x-de-scope-header">X-DE-SCOPE Header<a class="headerlink" href="#x-de-scope-header" title="Permanent link">¶</a></h4>
-<p>In addition to specifying the <code>cid</code> and <code>pid</code> in the <code>uri</code> of the HTTP request, those values must also be sent in a special HTTP header, <code>X-DE-SCOPE</code>. The value for this header should take the format, </p>
+<p>In addition to specifying the <code>cid</code> and <code>pid</code> in the <code>uri</code> of the HTTP request, those values must also be sent in a special HTTP header, <code>X-DE-SCOPE</code>. The value for this header should take the format,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">var</span><span class="w"> </span><span class="nx">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'.'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">pid</span><span class="p">;</span>
 </code></pre></div>
 <h4 id="authorization">Authorization<a class="headerlink" href="#authorization" title="Permanent link">¶</a></h4>
-<p>Finally, while not required, it is important to send an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project. </p>
+<p>Finally, while not required, it is important to send an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cat<span class="w"> </span>.beamable/temp/auth.beam.json
 </code></pre></div>
-<p>Beamable does not require that any access token be provided via an authorization header. However, if an authorization header is provided, then Beamable will decorate the request with account information before the request is forwarded to the Microservice. The Microservice itself may enforce the account details to have minimal access permissions. These constraints vary based on the type of <code>[Callable]</code> attribute you use. </p>
-<p>The account information is accessible via the <code>Context.UserId</code> property when executing the <code>[Callable]</code> method. </p>
+<p>Beamable does not require that any access token be provided via an authorization header. However, if an authorization header is provided, then Beamable will decorate the request with account information before the request is forwarded to the Microservice. The Microservice itself may enforce the account details to have minimal access permissions. These constraints vary based on the type of <code>[Callable]</code> attribute you use.</p>
+<p>The account information is accessible via the <code>Context.UserId</code> property when executing the <code>[Callable]</code> method.</p>
 <table>
 <thead>
 <tr>
@@ -6401,40 +6401,40 @@
 </table>
 <h2 id="calling-microservice-code-from-unity">Calling Microservice Code From Unity<a class="headerlink" href="#calling-microservice-code-from-unity" title="Permanent link">¶</a></h2>
 <div class="admonition info">
-<p class="admonition-title">Use the Unity SDK</p>
-<p>You should be using the Beamable SDK in your Unity projects that use Standalone Microservices. Otherwise, there will be many compile errors as the Beamable SDK is not available.</p>
+<p class="admonition-title">Use the Unity <abbr title="software development kit">SDK</abbr></p>
+<p>You should be using the Beamable <abbr title="software development kit">SDK</abbr> in your Unity projects that use Standalone Microservices. Otherwise, there will be many compile errors as the Beamable <abbr title="software development kit">SDK</abbr> is not available.</p>
 </div>
-<p>Microservices can automatically generate client code for the Unity game engine. First, a Unity project needs to be linked to the <code>.beamable</code> workspace. To do this, use the project add-unity-project command. </p>
+<p>Microservices can automatically generate client code for the Unity game engine. First, a Unity project needs to be linked to the <code>.beamable/</code> workspace. To do this, use the project add-unity-project command.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>add-unity-project<span class="w"> </span>&lt;relative-path-to-unity-project&gt;
 </code></pre></div>
-<p>The given path should be the relative path to the Unity project. If it isn't right, the CLI will offer an explorative search flow to identify a valid Unity project. </p>
+<p>Provide the relative path to the Unity project. If it isn't right, the CLI will offer an explorative search flow to identify a valid Unity project.</p>
 <p>After the command has run, there will be a <code>.beamable/linked-projects.json</code> file. You can review it to double check your project has been added correctly.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>MyProject<span class="w"> </span>%<span class="w"> </span>cat<span class="w"> </span>.beamable/linked-projects.json<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>MyProject<span class="w"> </span>%<span class="w"> </span>cat<span class="w"> </span>.beamable/linked-projects.json
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="o">{</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="s2">"unityProjectsPaths"</span>:<span class="w"> </span><span class="o">[</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="s2">"../UnityProject"</span>
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="o">]</span>,
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="s2">"unrealProjectsPaths"</span>:<span class="w"> </span><span class="o">[]</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="o">}</span>%<span class="w">  </span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="o">}</span>%
 </code></pre></div>
-<p>When there is a linked project, anytime a Microservice <em>builds</em>, it will automatically generate client code for the Unity project to use. This can be accessed via the <code>BeamContext</code>. </p>
+<p>When there is a linked project, anytime a Microservice <em>builds</em>, it will automatically generate client code for the Unity project to use. This can be accessed via the <code>BeamContext</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="w"> </span><span class="nf">TalkToMicroservice</span><span class="p">(){</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span><span class="w">  </span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Microservices</span><span class="p">().</span><span class="n">HelloWorld</span><span class="p">();</span><span class="w">  </span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Microservices</span><span class="p">().</span><span class="n">HelloWorld</span><span class="p">();</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
 </code></pre></div>
 <p>The automatic client code generation can be disabled when a project builds by modifying the <code>&lt;GenerateClientCode&gt;</code> option. Learn more in the <a href="../ms-configuration/#GenerateClientCode">configuration guide</a>.</p>
-<h3 id="open-api">Open API<a class="headerlink" href="#open-api" title="Permanent link">¶</a></h3>
-<p>It is possible to use the project oapi command to generate an Open API document and then use open source tools to transpile the document into a client in some other programming language.</p>
+<h3 id="open-api">Open <abbr title="application programming interface">API</abbr><a class="headerlink" href="#open-api" title="Permanent link">¶</a></h3>
+<p>It is possible to use the project oapi command to generate an Open <abbr title="application programming interface">API</abbr> document and then use open source tools to transpile the document into a client in some other programming language.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>oapi<span class="w"> </span>--output<span class="w"> </span>example.json<span class="w"> </span>--ids<span class="w"> </span>MyService
 </code></pre></div>
-<p>In fact, that command can baked into the Microservice's <code>.csproj</code> file with a custom build target. This requires that the <code>&lt;SolutionDir&gt;</code> property is set, which only happens when you run the project from the IDE. See the generate-props command to extend the <code>&lt;SolutionDir&gt;</code> property outside of IDE use cases. 
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">&lt;Target</span><span class="w"> </span><span class="na">Name=</span><span class="s">"Build Local OpenAPI File"</span><span class="w"> </span><span class="na">AfterTargets=</span><span class="s">"Build"</span><span class="nt">&gt;</span><span class="w">  </span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="nt">&lt;Exec</span><span class="w"> </span><span class="na">Command=</span><span class="s">"$(BeamableTool) project oapi --ids HelloWorld | jq '.data.openApi | fromjson' &gt; $(SolutionDir)local/doc.json"</span><span class="nt">/&gt;</span><span class="w">  </span>
+<p>In fact, that command can baked into the Microservice's <code>.csproj</code> file with a custom build target. This requires that the <code>&lt;SolutionDir&gt;</code> property is set, which only happens when you run the project from the IDE. See the generate-props command to extend the <code>&lt;SolutionDir&gt;</code> property outside of IDE use cases.
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">&lt;Target</span><span class="w"> </span><span class="na">Name=</span><span class="s">"Build Local OpenAPI File"</span><span class="w"> </span><span class="na">AfterTargets=</span><span class="s">"Build"</span><span class="nt">&gt;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="nt">&lt;Exec</span><span class="w"> </span><span class="na">Command=</span><span class="s">"$(BeamableTool) project oapi --ids HelloWorld | jq '.data.openApi | fromjson' &gt; $(SolutionDir)local/doc.json"</span><span class="nt">/&gt;</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nt">&lt;/Target&gt;</span>
 </code></pre></div><p></p>
-<p>Then, you can use the open source <a href="https://openapi-generator.tech/docs/generators/javascript/">Open API Generator</a> to build a local javascript client. This snippet uses docker to interact with the generator tool, but you can also use <code>npm</code>. </p>
+<p>Then, you can use the open source <a href="https://openapi-generator.tech/docs/generators/javascript/">Open <abbr title="application programming interface">API</abbr> Generator</a> to build a local javascript client. This snippet uses docker to interact with the generator tool, but you can also use <code>npm</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">:/local"</span><span class="w"> </span>openapitools/openapi-generator-cli<span class="w"> </span>generate<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span>-i<span class="w"> </span>/local/doc.json<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span>-g<span class="w"> </span>javascript<span class="w"> </span><span class="se">\</span>
@@ -6443,7 +6443,7 @@
 </code></pre></div>
 <p>In this example, we need to use <code>browserify</code> to convert the generated client code into a valid browser script.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>browserify
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>browserify<span class="w"> </span>./dist/index.js<span class="w"> </span>--standalone<span class="w"> </span>helloWorld<span class="w"> </span>&gt;<span class="w"> </span>../../app/bundle.js<span class="w"> </span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>browserify<span class="w"> </span>./dist/index.js<span class="w"> </span>--standalone<span class="w"> </span>helloWorld<span class="w"> </span>&gt;<span class="w"> </span>../../app/bundle.js
 </code></pre></div><p></p>
 <p>Then, a sample web page might use a similar script to interact with the Microservice.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>

@@ -6526,50 +6526,50 @@
 <h1 id="microservice-configuration">Microservice Configuration<a class="headerlink" href="#microservice-configuration" title="Permanent link">¶</a></h1>
 <p>Configure Standalone Microservices</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>Before you can configure Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">Dotnet 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>. </p>
+<p>Before you can configure Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">Dotnet 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
 </code></pre></div><p></p>
-<p>In order to configure a Microservice, you also need to have a local <code>.beamable</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
+<p>In order to configure a Microservice, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>init<span class="w"> </span>MyProject
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>MyProject
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
 </code></pre></div><p></p>
 <h2 id="project-configuration">Project Configuration<a class="headerlink" href="#project-configuration" title="Permanent link">¶</a></h2>
-<p>Each Standalone Microservice is a dotnet project, and can be configured through the dotnet <code>.csproj</code>. In most IDEs, the <code>.csproj</code> file will be hidden automatically, but you can open it by right-clicking on the project in the IDE and opening the <code>.csproj</code> file. As of Beam CLI 3.0.0, the starting <code>.csproj</code> has the following structure. </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Beamable Settings"</span><span class="nt">&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="cm">&lt;!-- All Microservices must have the value, "service" --&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="nt">&lt;BeamProjectType&gt;</span>service<span class="nt">&lt;/BeamProjectType&gt;</span><span class="w">  </span>
+<p>Each Standalone Microservice is a dotnet project, and can be configured through the dotnet <code>.csproj</code>. In most IDEs, the <code>.csproj</code> file will be hidden automatically, but you can open it by right-clicking on the project in the IDE and opening the <code>.csproj</code> file. As of Beam CLI 3.0.0, the starting <code>.csproj</code> has the following structure.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Beamable Settings"</span><span class="nt">&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="cm">&lt;!-- All Microservices must have the value, "service" --&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="nt">&lt;BeamProjectType&gt;</span>service<span class="nt">&lt;/BeamProjectType&gt;</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="cm">&lt;!-- When "true", this will auto-generate client code to any linked unity projects --&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="nt">&lt;GenerateClientCode&gt;</span>true<span class="nt">&lt;/GenerateClientCode&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="cm">&lt;!-- These are special Beamable parameters that we use to keep the beamable packages in-sync to the CLI version your project is using. --&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="cm">&lt;!-- This makes it so your microservices are auto-updated whenever you update the CLI installed in your project. --&gt;</span><span class="w">    </span><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Beamable Version"</span><span class="w"> </span><span class="na">Condition=</span><span class="s">"$(DOTNET_RUNNING_IN_CONTAINER)!=true"</span><span class="nt">&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="nt">&lt;DotNetConfigPath</span><span class="w"> </span><span class="na">Condition=</span><span class="s">"'$(DotNetConfigPath)' == ''"</span><span class="nt">&gt;</span>$([MSBuild]::GetDirectoryNameOfFileAbove("$(MSBuildProjectDirectory)/..",<span class="w"> </span>".config/dotnet-tools.json"))<span class="nt">&lt;/DotNetConfigPath&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="nt">&lt;DotNetConfig</span><span class="w"> </span><span class="na">Condition=</span><span class="s">"'$(DotNetConfig)' == ''"</span><span class="nt">&gt;</span>$([System.IO.File]::ReadAllText("$(DotNetConfigPath)/.config/dotnet-tools.json"))<span class="nt">&lt;/DotNetConfig&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="cm">&lt;!-- Extracts the version number from the first tool defined in 'dotnet-tools.json' that starts with "beamable". --&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="nt">&lt;BeamableVersion</span><span class="w"> </span><span class="na">Condition=</span><span class="s">"'$(BeamableVersion)' == ''"</span><span class="nt">&gt;</span>$([System.Text.RegularExpressions.Regex]::Match("$(DotNetConfig)",<span class="w"> </span>"beamable.*?\"([0-9]+\.[0-9]+\.[0-9]+.*?)\",",<span class="w"> </span>RegexOptions.Singleline<span class="w"> </span>|<span class="w"> </span>RegexOptions.IgnorePatternWhitespace).Groups[1].Value)<span class="nt">&lt;/BeamableVersion&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="cm">&lt;!-- When running from inside docker, this gets injected via the Dockerfile at build-time. --&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Dotnet Settings"</span><span class="nt">&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="cm">&lt;!-- net8.0 is the LTS version until 2026. To update your net version, update the &lt;TargetFramework&gt; when Beamable announces support. --&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="nt">&lt;TargetFramework&gt;</span>net8.0<span class="nt">&lt;/TargetFramework&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span><span class="w">  </span>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="nt">&lt;ItemGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Nuget References"</span><span class="nt">&gt;</span><span class="w">  </span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="cm">&lt;!-- When "true", this will auto-generate client code to any linked unity projects --&gt;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="nt">&lt;GenerateClientCode&gt;</span>true<span class="nt">&lt;/GenerateClientCode&gt;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="cm">&lt;!-- These are special Beamable parameters that we use to keep the beamable packages in-sync to the CLI version your project is using. --&gt;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="cm">&lt;!-- This makes it so your microservices are auto-updated whenever you update the CLI installed in your project. --&gt;</span><span class="w">    </span><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Beamable Version"</span><span class="w"> </span><span class="na">Condition=</span><span class="s">"$(DOTNET_RUNNING_IN_CONTAINER)!=true"</span><span class="nt">&gt;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="nt">&lt;DotNetConfigPath</span><span class="w"> </span><span class="na">Condition=</span><span class="s">"'$(DotNetConfigPath)' == ''"</span><span class="nt">&gt;</span>$([MSBuild]::GetDirectoryNameOfFileAbove("$(MSBuildProjectDirectory)/..",<span class="w"> </span>".config/dotnet-tools.json"))<span class="nt">&lt;/DotNetConfigPath&gt;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="nt">&lt;DotNetConfig</span><span class="w"> </span><span class="na">Condition=</span><span class="s">"'$(DotNetConfig)' == ''"</span><span class="nt">&gt;</span>$([System.IO.File]::ReadAllText("$(DotNetConfigPath)/.config/dotnet-tools.json"))<span class="nt">&lt;/DotNetConfig&gt;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="cm">&lt;!-- Extracts the version number from the first tool defined in 'dotnet-tools.json' that starts with "beamable". --&gt;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="nt">&lt;BeamableVersion</span><span class="w"> </span><span class="na">Condition=</span><span class="s">"'$(BeamableVersion)' == ''"</span><span class="nt">&gt;</span>$([System.Text.RegularExpressions.Regex]::Match("$(DotNetConfig)",<span class="w"> </span>"beamable.*?\"([0-9]+\.[0-9]+\.[0-9]+.*?)\",",<span class="w"> </span>RegexOptions.Singleline<span class="w"> </span>|<span class="w"> </span>RegexOptions.IgnorePatternWhitespace).Groups[1].Value)<span class="nt">&lt;/BeamableVersion&gt;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="cm">&lt;!-- When running from inside docker, this gets injected via the Dockerfile at build-time. --&gt;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Dotnet Settings"</span><span class="nt">&gt;</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="cm">&lt;!-- net8.0 is the LTS version until 2026. To update your net version, update the &lt;TargetFramework&gt; when Beamable announces support. --&gt;</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="nt">&lt;TargetFramework&gt;</span>net8.0<span class="nt">&lt;/TargetFramework&gt;</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="nt">&lt;ItemGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Nuget References"</span><span class="nt">&gt;</span>
 <a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">        </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"$(BeamableVersion)"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.SourceGen"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"$(BeamableVersion)"</span><span class="w"> </span><span class="na">OutputItemType=</span><span class="s">"Analyzer"</span><span class="w"> </span><span class="nt">/&gt;</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="nt">&lt;/ItemGroup&gt;</span><span class="w">  </span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="nt">&lt;/Project&gt;</span>
 </code></pre></div>
 <h3 id="code-dependencies">Code Dependencies<a class="headerlink" href="#code-dependencies" title="Permanent link">¶</a></h3>
-<p>Dotnet projects use a tool called <em>Nuget</em> to manage dependencies on other code libraries. Each <code>&lt;PackageReference&gt;</code> node within an <code>&lt;ItemGroup&gt;</code> element declares a Nuget dependency. By default, every Standalone Microservice requires the <a href="https://www.nuget.org/packages/Beamable.Microservice.Runtime">Beamable Microservice Nuget Package</a>. However, you can add whatever packages you require as well. </p>
+<p>Dotnet projects use a tool called <em>Nuget</em> to manage dependencies on other code libraries. Each <code>&lt;PackageReference&gt;</code> node within an <code>&lt;ItemGroup&gt;</code> element declares a Nuget dependency. By default, every Standalone Microservice requires the <a href="https://www.nuget.org/packages/Beamable.Microservice.Runtime">Beamable Microservice Nuget Package</a>. However, you can add whatever packages you require as well.</p>
 <h3 id="beamable-properties">Beamable Properties<a class="headerlink" href="#beamable-properties" title="Permanent link">¶</a></h3>
-<p>Dotnet uses a tool called <code>msbuild</code> to compile your code into executable files. When the build happens, <code>msbuild</code> accesses various XML based properties within the <code>&lt;PropertyGroup&gt;</code> elements of the <code>.csproj</code> file. </p>
+<p>Dotnet uses a tool called <code>msbuild</code> to compile your code into executable files. When the build happens, <code>msbuild</code> accesses various XML based properties within the <code>&lt;PropertyGroup&gt;</code> elements of the <code>.csproj</code> file.</p>
 <h4 id="beamprojecttype">BeamProjectType<a class="headerlink" href="#beamprojecttype" title="Permanent link">¶</a></h4>
-<p>The <code>&lt;BeamProjectType&gt;</code> is an enum string that declares the containing <code>.csproj</code> to be either a Microservice, or a Storage object. If a <code>.csproj</code> does not declare the <code>&lt;BeamProjectType&gt;</code> property, then it will not be detected by the beam CLI as a valid Microservice or Storage object. </p>
+<p>The <code>&lt;BeamProjectType&gt;</code> is an enum string that declares the containing <code>.csproj</code> to be either a Microservice, or a Storage object. If a <code>.csproj</code> does not declare the <code>&lt;BeamProjectType&gt;</code> property, then it will not be detected by the beam CLI as a valid Microservice or Storage object.</p>
 <table>
 <thead>
 <tr>
@@ -6584,7 +6584,7 @@
 </tr>
 </tbody>
 </table>
-<p>Valid values include, </p>
+<p>Valid values include,</p>
 <table>
 <thead>
 <tr>
@@ -6604,7 +6604,7 @@
 </tbody>
 </table>
 <h4 id="beamid">BeamId<a class="headerlink" href="#beamid" title="Permanent link">¶</a></h4>
-<p>The <code>&lt;BeamId&gt;</code> controls the name of the Beamable project. </p>
+<p>The <code>&lt;BeamId&gt;</code> controls the name of the Beamable project.</p>
 <table>
 <thead>
 <tr>
@@ -6637,7 +6637,7 @@
 </table>
 <h4 id="beamenabled">BeamEnabled<a class="headerlink" href="#beamenabled" title="Permanent link">¶</a></h4>
 <p>The <code>&lt;BeamEnabled&gt;</code> is a boolean property. When <code>false</code>, when services are <a href="../ms-deployment/">deployed</a> , the service will not be enabled, and will not cost Beamable Cloud resources.
-This option can be set using the project enable or the project disable commands.</p>
+Set this option using the project enable or the project disable commands.</p>
 <table>
 <thead>
 <tr>
@@ -6653,7 +6653,7 @@ This option can be set using the project enable or the project disable commands.
 </tbody>
 </table>
 <h4 id="beampreventoapigen">BeamPreventOapiGen<a class="headerlink" href="#beampreventoapigen" title="Permanent link">¶</a></h4>
-<p>The <code>&lt;BeamPreventOapiGen&gt;</code> property is a boolean property, only valid on Microservice projects. When false, when the project is built, an open API document will be generated and placed in the <code>/bin</code> directory of the project. </p>
+<p>The <code>&lt;BeamPreventOapiGen&gt;</code> property is a boolean property, only valid on Microservice projects. When false, when the project is built, an open <abbr title="application programming interface">API</abbr> document will be generated and placed in the <code>/bin</code> directory of the project.</p>
 <table>
 <thead>
 <tr>
@@ -6669,7 +6669,7 @@ This option can be set using the project enable or the project disable commands.
 </tbody>
 </table>
 <h4 id="beamcollectorversion">BeamCollectorVersion<a class="headerlink" href="#beamcollectorversion" title="Permanent link">¶</a></h4>
-<p>In version 6.0+, the Microservice uses an open telemetry collector process to send logs from the service to Beamable's log warehouse. The collector is versioned separately from the CLI and Microservice nuget packages. The version of the collector is embedded into the <code>BeamCollectorVersion</code> property, but it can be configured by hand. </p>
+<p>In version 6.0+, the Microservice uses an open telemetry collector process to send logs from the service to Beamable's log warehouse. The collector is versioned separately from the CLI and Microservice nuget packages. The version of the collector is embedded into the <code>BeamCollectorVersion</code> property, but it can be configured by hand.</p>
 <table>
 <thead>
 <tr>
@@ -6685,7 +6685,7 @@ This option can be set using the project enable or the project disable commands.
 </tbody>
 </table>
 <h4 id="beamdisablecollectorresolution">BeamDisableCollectorResolution<a class="headerlink" href="#beamdisablecollectorresolution" title="Permanent link">¶</a></h4>
-<p>In version 6.0+, the Microservice uses an open telemetry collector process to send logs from the service to Beamable's log warehouse. When the Microservice is built, the collector is automatically downloaded. This can be disabled by setting the property to <code>true</code>. </p>
+<p>In version 6.0+, the Microservice uses an open telemetry collector process to send logs from the service to Beamable's log warehouse. When the Microservice is built, the collector is automatically downloaded. This can be disabled by setting the property to <code>true</code>.</p>
 <table>
 <thead>
 <tr>
@@ -6701,8 +6701,8 @@ This option can be set using the project enable or the project disable commands.
 </tbody>
 </table>
 <h4 id="beampreventbuildcacheinvalidation">BeamPreventBuildCacheInvalidation<a class="headerlink" href="#beampreventbuildcacheinvalidation" title="Permanent link">¶</a></h4>
-<p>The <code>&lt;BeamPreventBuildCacheInvalidation&gt;</code> property is a boolean, only valid on Microservice projects. In version 6+, anytime you build the service, there is a custom build step that will invalidate the file timestamp on the <code>.csproj</code> file, in order to break aggressive IDE cache optimizations. Specifically, the Rider IDE, has a cache that will prevent <code>msbuild</code> from running if it thinks your service has not changed. </p>
-<p>You can disable the cache invalidation by setting this property to <code>true</code>. </p>
+<p>The <code>&lt;BeamPreventBuildCacheInvalidation&gt;</code> property is a boolean, only valid on Microservice projects. In version 6+, anytime you build the service, there is a custom build step that will invalidate the file timestamp on the <code>.csproj</code> file, in order to break aggressive IDE cache optimizations. Specifically, the Rider IDE, has a cache that will prevent <code>msbuild</code> from running if it thinks your service has not changed.</p>
+<p>You can disable the cache invalidation by setting this property to <code>true</code>.</p>
 <table>
 <thead>
 <tr>
@@ -6718,7 +6718,7 @@ This option can be set using the project enable or the project disable commands.
 </tbody>
 </table>
 <h4 id="generateclientcode">GenerateClientCode<a class="headerlink" href="#generateclientcode" title="Permanent link">¶</a></h4>
-<p>The <code>&lt;GenerateClientCode&gt;</code> property is boolean property, only valid on Standalone Microservice projects. When the project is built, if there are any linked Unity or Unreal projects, client code may be generated for the engine client and placed in the linked project folders. In order to link a project, use the add-unity-project command, or the add-unreal-project command. </p>
+<p>The <code>&lt;GenerateClientCode&gt;</code> property is boolean property, only valid on Standalone Microservice projects. When the project is built, if there are any linked Unity or Unreal projects, client code may be generated for the engine client and placed in the linked project folders. In order to link a project, use the add-unity-project command, or the add-unreal-project command.</p>
 <table>
 <thead>
 <tr>
@@ -6736,7 +6736,7 @@ This option can be set using the project enable or the project disable commands.
 </tbody>
 </table>
 <h4 id="enableunrealblueprintcompatibility">EnableUnrealBlueprintCompatibility<a class="headerlink" href="#enableunrealblueprintcompatibility" title="Permanent link">¶</a></h4>
-<p>The <code>&lt;EnableUnrealBlueprintCompatibility&gt;</code> property is a boolean property, only valid on Microservice projects. When it is enabled, the source generator will include validations on Microservice client generation that make Unreal Blueprint compatibility easier to maintain. </p>
+<p>The <code>&lt;EnableUnrealBlueprintCompatibility&gt;</code> property is a boolean property, only valid on Microservice projects. When it is enabled, the source generator will include validations on Microservice client generation that make Unreal Blueprint compatibility easier to maintain.</p>
 <table>
 <thead>
 <tr>
@@ -6752,13 +6752,13 @@ This option can be set using the project enable or the project disable commands.
 </tbody>
 </table>
 <h4 id="beamvalidatecallabletypesexistinsharedlibraries">BeamValidateCallableTypesExistInSharedLibraries<a class="headerlink" href="#beamvalidatecallabletypesexistinsharedlibraries" title="Permanent link">¶</a></h4>
-<p>The <code>&lt;BeamValidateCallableTypesExistInSharedLibraries&gt;</code> property is a boolean property, only valid on Microservice projects. 
+<p>The <code>&lt;BeamValidateCallableTypesExistInSharedLibraries&gt;</code> property is a boolean property, only valid on Microservice projects.
 When it is enabled, and the <code>Beamable.Microservice.SourceGen</code> nuget package is referenced, the static analyzer will
-disallow type references on <code>[Callable]</code> methods that are defined <em>within</em> the Microservice assembly. 
+disallow type references on <code>[Callable]</code> methods that are defined <em>within</em> the Microservice assembly.
 The goal is to prevent developers from building <code>[Callable]</code> methods that rely on data types inaccessible outside
-of the Microservice assembly. </p>
+of the Microservice assembly.</p>
 <p>This is disabled by default, because Microservices being developed outside an engine integration likely
-do not need to worry about type accessibility. </p>
+do not need to worry about type accessibility.</p>
 <table>
 <thead>
 <tr>
@@ -6774,9 +6774,9 @@ do not need to worry about type accessibility. </p>
 </tbody>
 </table>
 <h4 id="beamabletool">BeamableTool<a class="headerlink" href="#beamabletool" title="Permanent link">¶</a></h4>
-<p>The <code>&lt;BeamableTool&gt;</code> property is the path to the Beam CLI program that the Standalone Microservice will use to do various tasking. For most cases, this is configured to be the globally installed <code>beam</code> tool. However, if any dotnet build tasks run with a <code>BEAM_PATH</code> environment variable, then the <code>BEAM_PATH</code> environment variable will set the <code>&lt;BeamableTool&gt;</code> value. </p>
-<p>Generally, it is not advised to overwrite this setting. However, it you install the beam CLI as a local dotnet tool in the project, it would be valid to overwrite the <code>&lt;BeamableTool&gt;</code> property as <code>dotnet beam</code>. </p>
-<p>This property is accessible to the dotnet build targets, including any custom targets you create. </p>
+<p>The <code>&lt;BeamableTool&gt;</code> property is the path to the Beam CLI program that the Standalone Microservice will use to do various tasking. For most cases, this is configured to be the globally installed <code>beam</code> tool. However, if any dotnet build tasks run with a <code>BEAM_PATH</code> environment variable, then the <code>BEAM_PATH</code> environment variable will set the <code>&lt;BeamableTool&gt;</code> value.</p>
+<p>Generally, it is not advised to overwrite this setting. However, it you install the beam CLI as a local dotnet tool in the project, it would be valid to overwrite the <code>&lt;BeamableTool&gt;</code> property as <code>dotnet beam</code>.</p>
+<p>This property is accessible to the dotnet build targets, including any custom targets you create.</p>
 <table>
 <thead>
 <tr>
@@ -6792,7 +6792,7 @@ do not need to worry about type accessibility. </p>
 </tbody>
 </table>
 <h4 id="beamservicegroup">BeamServiceGroup<a class="headerlink" href="#beamservicegroup" title="Permanent link">¶</a></h4>
-<p>The <code>&lt;BeamServiceGroup&gt;</code> property is a comma or semi-colon separated list of tags that logically group services together. 
+<p>The <code>&lt;BeamServiceGroup&gt;</code> property is a comma or semi-colon separated list of tags that logically group services together.
 If you need to specify multiple values, use a <code>,</code> or a <code>;</code> to separate values. You can also redefine the property in terms of itself.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;BeamServiceGroup&gt;</span>firstTag<span class="nt">&lt;/BeamServiceGroup&gt;</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">&lt;BeamServiceGroup&gt;</span>$(BeamServiceGroup);secondTag<span class="nt">&lt;/BeamServiceGroup&gt;</span>
@@ -6812,16 +6812,16 @@ If you need to specify multiple values, use a <code>,</code> or a <code>;</code>
 </tbody>
 </table>
 <h3 id="telemetry-properties">Telemetry Properties<a class="headerlink" href="#telemetry-properties" title="Permanent link">¶</a></h3>
-<p>In CLI 6.0, the CLI will try to collect usage data and send it to Beamable. You can opt out of this by changing the <code>BeamCliAllowTelemetry</code> property to false in the <code>.beamable/otel-config.json</code> file. </p>
-<p>Additionally, you can completely opt out of usage reporting by setting the <code>BEAM_NO_TELEMETRY</code> environment variable.  </p>
+<p>In CLI 6.0, the CLI will try to collect usage data and send it to Beamable. You can opt out of this by changing the <code>BeamCliAllowTelemetry</code> property to false in the <code>.beamable/otel-config.json</code> file.</p>
+<p>Additionally, you can completely opt out of usage reporting by setting the <code>BEAM_NO_TELEMETRY</code> environment variable.</p>
 <h3 id="dotnet-properties">Dotnet Properties<a class="headerlink" href="#dotnet-properties" title="Permanent link">¶</a></h3>
-<p>Common Dotnet properties may be explored through <a href="https://learn.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2022">Dotnet's Documentation</a> . However, there are a few properties that are set automatically through the usage of the <a href="https://www.nuget.org/packages/Beamable.Microservice.Runtime">Beamable Microservice Nuget Package</a>. To view these default settings, you should view the package source code's <code>.props</code> file, located here, </p>
+<p>Common Dotnet properties may be explored through <a href="https://learn.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2022">Dotnet's Documentation</a> . However, there are a few properties that are set automatically through the usage of the <a href="https://www.nuget.org/packages/Beamable.Microservice.Runtime">Beamable Microservice Nuget Package</a>. To view these default settings, you should view the package source code's <code>.props</code> file, located here,</p>
 <p><a href="https://github.com/beamable/BeamableProduct/blob/cli-2.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props">https://github.com/beamable/BeamableProduct/blob/cli-6.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props</a></p>
 <div class="admonition info">
 <p class="admonition-title">Make sure to reference the right version!</p>
 <p>The link above points to the cli-6.0.0 release tag version of the source code. Make sure that you are looking the same version as your <code>Beamable.Microservice.Runtime</code> nuget version is using in the <code>.csproj</code>.</p>
 </div>
-<p>Other than the default properties set in the <code>.props</code> file, a major requirement of Beamable Standalone Microservices the <code>TargetFramework</code> property. If you are using CLI 3.0.0 and above, you may target <code>net8.0</code> . </p>
+<p>Other than the default properties set in the <code>.props</code> file, a major requirement of Beamable Standalone Microservices the <code>TargetFramework</code> property. If you are using CLI 3.0.0 and above, you may target <code>net8.0</code> .</p>
 <p>If you are using CLI 2.0.1 or below, you must target <code>net6.0</code>.</p>
 
 

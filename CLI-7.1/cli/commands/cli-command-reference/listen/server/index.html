@@ -6068,15 +6068,15 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>beam<span class="w"> </span>listen<span class="w"> </span>server<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
 </code></pre></div>
 <h2 id="about">About<a class="headerlink" href="#about" title="Permanent link">¶</a></h2>
-<p>The listen server command will monitor realm events, such as content publications 
+<p>The listen server command will monitor realm events, such as content publications
 or changes to realm configuration. Realm events are sent through a websocket
-connection, and require admin level privileges. </p>
+connection, and require admin level privileges.</p>
 <p>This command is meant only as a diagnostic tool, and does not have robust
-connection recovery logic. </p>
+connection recovery logic.</p>
 <p>To get started with the command, make sure you have the <a href="../../../../guides/getting-started/">CLI configured</a>,
 and an available player.</p>
 <ol>
-<li>Run <code>beam listen server</code>, and leave the process running. </li>
+<li>Run <code>beam listen server</code>, and leave the process running.</li>
 <li>Open portal, and navigate to the realm config page. Add a new configuration setting.</li>
 <li>On the console, notice that the new configuration has been received.</li>
 </ol>
@@ -6103,7 +6103,7 @@ and an available player.</p>
 <tr>
 <td>--cid</td>
 <td>String</td>
-<td>CID (CustomerId) to use (found in Portal-&gt;Account); defaults to whatever is in '.beamable/config.beam.json'</td>
+<td><abbr title="customer ID">CID</abbr> (CustomerId) to use (found in Portal-&gt;Account); defaults to whatever is in '.beamable/config.beam.json'</td>
 </tr>
 <tr>
 <td>--engine</td>
@@ -6113,7 +6113,7 @@ and an available player.</p>
 <tr>
 <td>--engine-sdk-version</td>
 <td>String</td>
-<td>The version of the Beamable's SDK running in that Engine</td>
+<td>The version of the Beamable's <abbr title="software development kit">SDK</abbr> running in that Engine</td>
 </tr>
 <tr>
 <td>--engine-version</td>
@@ -6123,7 +6123,7 @@ and an available player.</p>
 <tr>
 <td>--pid</td>
 <td>String</td>
-<td>PID (Realm ID) to use (found in Portal -&gt; Games -&gt; Any Realm's details); defaults to whatever is in '.beamable/config.beam.json'</td>
+<td><abbr title="realm identifier">PID</abbr> (Realm ID) to use (found in Portal -&gt; Games -&gt; Any Realm's details); defaults to whatever is in '.beamable/config.beam.json'</td>
 </tr>
 <tr>
 <td>--quiet</td>
