@@ -42,7 +42,7 @@ public void SampleLog()
 }
 ```
 
-# Setting a custom logger
+## Setting a custom logger
 
 To set a custom logger, you can assign a delegate to `config.AddLoggerProvider` inside an `OverrideConfig` call on `BeamServiceConfigBuilder`.
 
@@ -54,7 +54,7 @@ The delegate has the signature `Func<ILoggingBuilder, DebugLogProcessor, DebugLo
 | `defaultProcessor` | `DebugLogProcessor` | The default ZLogger async log processor that Beamable has already set up |
 | **returns** | `DebugLogProcessor` | The processor that should actually be used — return `defaultProcessor` or `null` to keep the default, return a new instance to replace it |
 
-## Example:
+### Example:
 ```csharp
 await BeamServer
     .Create()
