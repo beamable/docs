@@ -46,7 +46,7 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
       1. You should see the `BeamballMS` service there. Select it.
       2. Click `Run` and wait until you see the `Service ready for traffic` log line (and the running icon in the Microservice's card to change).
       3. After you're done with the sample, don't forget to come here and stop the service.
-4. You don't need select any Play Preset, as the `Beamball_MainScreen` level is the common entry point for the sample. So leave the Play Preset selector to `None`.
+4. You don't need to select any Play Preset, as the `Beamball_MainScreen` level is the common entry point for the sample. So leave the Play Preset selector to `None`.
 5. Play the `L_Beamball_MainScreen` in the Editor.
 
 ### Running from the Gameplay Scene
