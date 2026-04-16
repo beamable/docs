@@ -1,7 +1,7 @@
 # Federated Login
-Login Federation is Beamable's approach to integrating third-party Authentication with various platforms. You can find working examples of this federation in both [Steam](../../samples/steam-demo.md) and [Discord](../../samples/discord-demo.md) Samples.
+Login Federation is Beamable's approach to integrating third-party Authentication with various platforms. You can find working examples of this federation in both [Beamball - Steam Integration](../../samples/beamball/steam-integration.md) and [Discord](../../samples/discord-demo.md) Samples.
 
-This Federation is always [invoked in-band](federation.md#federation-calls) and via the `Login_____`, `SignUp____`, and `Attach____` functions of the `UBeamRuntime` subsystem class.
+This Federation is invoked via the `Login_____`, `SignUp____`, and `Attach____` functions of the `UBeamRuntime` subsystem class.
 
 Its interface has a single function called **Authenticate** with the following signature:
 
@@ -15,7 +15,7 @@ The purpose of this function is:
 Most of the time, you achieve this by doing the following:
 
 1. \[**Game Client**]: Use the 3rd Party Client SDK to get a token of sorts.
-	1. See our [Steam](../../samples/steam-demo.md) and [Discord](../../samples/discord-demo.md) Samples for examples of this.
+	1. See our [Steam](../../samples/beamball/steam-integration.md) and [Discord](../../samples/discord-demo.md) Samples for examples of this.
 2. \[**Game Client**]: Invoke a `Login`/`SignUp`/`Attach` **Operation** and pass the following parameters:
 	1. **MicroserviceName**: this is the name of the Microservice (the **csproj** file name, in the default case).
 	2. **IdentityNamespace**: this is the Federation's **[Federation Id](federation.md#federation-id)**. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.
@@ -59,7 +59,7 @@ The main difference:
 - **Account Creation Time**: `Context.UserId` is `0`; as at this time, no account exists.
 - **Account Attach Time**: `Context.UserId` is a valid `GamerTag`; as you are adding an identity to an existing account.
 
-For non-MFA flows (which are most of the Store and Console login flows) this is all that is needed. Here's an example from our [Steam Demo](../../samples/steam-demo.md).
+For non-MFA flows (which are most of the Store and Console login flows) this is all that is needed. Here's an example from our [Steam Demo](../../samples/beamball/steam-integration.md).
 
 ```csharp
 public async Promise<FederatedAuthenticationResponse> Authenticate(string token, string challenge, string solution)

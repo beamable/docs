@@ -20,7 +20,10 @@ markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      auto_append:
+        - docs/includes/abbreviations.md
+  - abbr
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys

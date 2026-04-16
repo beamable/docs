@@ -18,7 +18,7 @@ The Beamable Unreal SDK is designed to work across multiple platforms. Below is 
 |----------|----------------|--------------------------|----------------|
 | Windows  | ✅ | —                        | Released       |
 | Android  | ✅ | —                        | Released       |
-| iOS      | ✅| -                        | Released       |
+| iOS      | ✅| —                        | Released       |
 | Linux    | — | ✅                        | Released   |
 
 PS: Currently we don't provide support for Consoles. If you need Console support, get in touch with us.

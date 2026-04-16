@@ -17,15 +17,15 @@ A couple of examples:
 
 !!! warning
 	While possible, we don't recommend creating the actual operations as blueprints. It's OK to do so for a quick experimentation session; but shipping with it is *not recommended*. 
-	**Calling *Operations* that are written in C++ is the primary way we recommend Blueprints to interact with the Beamable SDK. We even have [special nodes](blueprints.md) for it.**
+	**Calling *Operations* that are written in C++ is the primary way we recommend Blueprints to interact with the Beamable SDK. We even have [special nodes](../blueprints.md) for it.**
 
 ## Operation Lifecycle
 
-Every Operation has an `int64` id called the `FBeamOperationHandle` managed by the `UBeamRequestTracker`, a `UEngineSubsystem`. We use it to track the operation's state, its emitted events, its current status and which of Beamable's requests are part of it.
+Every Operation has an `int64` id called the `FBeamOperationHandle` managed by the `UBeamRequestTracker`, a `UEngineSubsystem`. We use it to track the operation's state, its emitted events, its current status, and which of Beamable's requests are part of it.
 
 The lifecycle of an operation goes as follows:
 
-![operations-and-waits-lifecycle.png](../../../media/imgs/operations-and-waits-lifecycle.png)
+![operations-and-waits-lifecycle.png](../../../../media/imgs/operations-and-waits-lifecycle.png)
 
 **When writing Operations, there are two ways of thinking about them:**
 
@@ -123,13 +123,13 @@ There are tons of examples of operations in our SDK. For some guidance, you can 
 Feel free to copy-paste them as a template of how to implement and reason about `Operations`.
 
 ### Beam Flow Nodes - Operations
-As part of our [Blueprint integration](blueprints.md), we have created a few custom nodes that make invoking operations from blueprints much simpler. These look like this:
+As part of our [Blueprint integration](../blueprints.md), we have created a few custom nodes that make invoking operations from blueprints much simpler. These look like this:
 
-![beam-flow-node](../../../media/imgs/operation-and-waits-beam-flow-nodes.png)
+![beam-flow-node](../../../../media/imgs/operation-and-waits-beam-flow-nodes.png)
 
 **Beamable Operation Flow Nodes assume a few things:**
 
-- One or more participating `UserSlots` (see [User Slots](user-slots.md) for more information).
+- One or more participating `UserSlots` (see [User Slots](../user-slots.md) for more information).
 - An event handler for handling any of the events.
 - Events can be: `OET_SUCCESS`, `OET_ERROR` and `OET_CANCELLED` plus a `FName EventId`.    
 - Events can contain some arbitrary data associated with them (implementations of `IBeamOperationEventData`).
@@ -174,7 +174,7 @@ class UK2BeamNode_Operation_CommitInventoryUpdate : public UK2BeamNode_Operation
 
 As long as you have one of these in an `UncookedOnly` module of your game, you'll be able to expose your own custom operations as BP nodes (this is compatible with Multiplayer PIE mode).
 
-This is very useful when designing unique features leveraging [MicroServices and MicroStorages](../microservices/microservices.md) and other `FBeamOperationHandle` returning functions.
+This is very useful when designing unique features leveraging [MicroServices and MicroStorages](../../microservices/microservices.md) and other `FBeamOperationHandle` returning functions.
 
 ## Writing Hooks
 
@@ -286,7 +286,7 @@ You can find examples of these in our SDKs so you can learn how to use this your
 
 ---
 
-Understanding these concepts and how to leverage them can unlock the maximum potential uses and customizability of the SDK, but superficial knowledge is sufficient for the most basic use-cases. 
+Understanding these concepts and how to leverage them can unlock the maximum potential uses and customizability of the SDK, but superficial knowledge is enough for the most basic use-cases. 
 
 
 Take your time, read the source, and refer back to this page as you need!

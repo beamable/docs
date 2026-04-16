@@ -208,10 +208,10 @@ This is useful for a couple of workflows:
 - You can save the current state of your local content and share it with your teammates so they can load it in their machines and have the same local content state as you.
 - You can save the content state of your current realm and apply it to another realm.
 
-Content snapshots can be local or shared between users. The local ones are kept in the `.bleamable\contentSnapshots` folder and the shared ones in the .beamable\shared\contentSnapshot folder of the project, so it can be versionated on git.
+Content snapshots can be local or shared between users. The local ones are kept in the `.beamable\contentSnapshots` folder and the shared ones in the .beamable\shared\contentSnapshot folder of the project, so it can be versionated on git.
 
 ### Creating Content Snapshots
-To create a content snapshot, simply click on the button in the top right corner of the Workspace window. This will create a snapshot of your current local content state. It then will be added to the list of snapshots in the Snapshots Window.
+To create a content snapshot, click on the button in the top right corner of the Workspace window. This will create a snapshot of your current local content state. It then will be added to the list of snapshots in the Snapshots Window.
 
 ![content_snapshot_create.png](../../../media/imgs/content_snapshot_create.png)
 

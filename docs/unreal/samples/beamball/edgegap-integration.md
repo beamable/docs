@@ -7,16 +7,19 @@
 
 ### Edgegap Environment Variables Required
 
-Once you setup your version, you will need to add the following environment variables to the version. 
+Once you set up your version, you will need to add the following environment variables to the version. 
 
  ![Edgegap Env Variables](../../../media/imgs/edgegap-env-vars.png)
 
 - BEAMABLE_CUSTOMER_OVERRIDE: The CID found in your Beamable portal.
 
-     ![Portal CID](../../../media/imgs/beamball-costumer-id.png)
+![Portal CID](../../../media/imgs/beamball-costumer-id.png)
+
 - BEAMABLE_REALM_OVERRIDE: The Realm found in your Beamable portal.
+  
 - BEAMABLE_REALM_SECRET: The Realm Secret.
-      ![Portal PID and Secret](../../../media/imgs/beamball-realm-secret.png)
+
+![Portal PID and Secret](../../../media/imgs/beamball-realm-secret.png)
 
 ### Storing EdgeGap Credentials in Realm Config
 
@@ -39,12 +42,12 @@ Your microservices can access the EdgeGap configuration from the Realm Config at
 2. Make requests to the EdgeGap API with these credentials
 3. Store the resulting server connection details in the lobby's global data
 
-You can check the example of this in our [github page](https://github.com/beamable/UnrealSDK/blob/main/Microservices/services/BeamballMs/BeamballMs.cs) for that sample.
+You can check the example of this in our [GitHub page](https://github.com/beamable/UnrealSDK/blob/main/Microservices/services/BeamballMs/BeamballMs.cs) for that sample.
 
 
 ## Additional Resources
 
 - [EdgeGap Official Documentation](https://docs.edgegap.com/unreal-engine)
 - [EdgeGap API Reference](https://docs.edgegap.com/api)
-- [Beamable Microservices Documentation](../../guides/microservices.md)
-- [Beamable Realm Configuration Guide](../../guides/configuration.md)
+- [Beamable Microservices Documentation](../../user-reference/microservices/microservices.md)
+- [Beamable Realm Configuration Guide](../../../cli/guides/configuration.md)
