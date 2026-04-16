@@ -2,6 +2,16 @@
 
 > **Reference Documentation**: For comprehensive information about EdgeGap integration with Unreal Engine, see the [official EdgeGap documentation](https://docs.edgegap.com/unreal-engine).
 
+## Building Beamball with the Edgegap Plugin
+
+To generate a Beamball server build with the Edgegap plugin, Docker is required. The plugin uses Docker to package the dedicated server into a container image that can then be published to Edgegap directly from the plugin.
+
+Overview:
+
+- The Edgegap plugin relies on Docker to create the container image for the Beamball dedicated server build.
+- Verify that your Beamball server build target is configured correctly before running the Edgegap build workflow.
+- After the Docker image is generated, use the plugin's Publish button to send the build to your Edgegap application version.
+
 
 ## Configuration
 
