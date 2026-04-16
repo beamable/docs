@@ -34,7 +34,7 @@ Transient service instances are never cached. Every time a transient service is 
 
 A dependency scope can be in one of two states, active, or disposed. A scope is active the moment it is built. However, a scope can be disposed through the `IDependencyProviderScope.Dispose()` method. When a `BeamContext` is stopped, the associated `IDependencyProvider` will be disposed. When a scope is disposed, no calls to `GetService<T>()` are allowed.
 
-The `IBeamableDisposable` interface informs the dependency scope that a service requires some sort of disposal logic before the scope is finished transitioning to the disposed state. In the example code below, the `ExampleService` will print a log message when the service scope is disposed. If you are implementing custom services that require stateful operation, consider using the `IBeamableDisposable` interface. However, the Beamable SDK does not guarantee that a `BeamContext` will be stopped when the game is quit, and therefor, does not guarantee that the service scope will be disposed.
+The `IBeamableDisposable` interface informs the dependency scope that a service requires some sort of disposal logic before the scope is finished transitioning to the disposed state. In the example code below, the `ExampleService` will print a log message when the service scope is disposed. If you are implementing custom services that require stateful operation, consider using the `IBeamableDisposable` interface. However, the Beamable SDK does not guarantee that a `BeamContext` will be stopped when the game is quit, and therefore, does not guarantee that the service scope will be disposed.
 
 ```csharp
 public class ExampleService : IBeamableDisposable
@@ -77,7 +77,7 @@ The Beamable SDK has a global `IDependencyBuilder` available via `Beam.Dependenc
 2. Is a method marked with the `RegisterBeamableDependencies` attribute,
 3. takes 1 input parameter of type, `IDependencyBuilder`
 
-The example below will receive the `IDependencyBuilder`and add a singleton `ExampleService`.
+The example below will receive the `IDependencyBuilder` and add a singleton `ExampleService`.
 
 ```csharp
 [BeamContextSystem]

@@ -27,7 +27,7 @@ Additionally The Beamable Player-Centric API has multiple ways to return the ref
 | `var beamContext = BeamContext.ForContext("MyPlayer01");` | Ideal for games with 2+ local players                                            |
 | `var beamContext = BeamContext.ForContext(this);`         | Traverses the hierarchy for relevant configuration data. **Advanced Users Only** |
 
-You can see more samples of it usage below:
+You can see more samples of its usage below:
 
 **One Local Player Sync**
 Here the game maker references the context _synchronously_. Note that the `PlayerId` may be null during the initialization of the Beamable system.
@@ -71,13 +71,13 @@ private void MyMethodViaSynchronous()
 
 The Lifecycle of the `BeamContext` instance is very straightforward. You can see the complete list of functions below:
 
-| API                                               | Definition                                                                                                                                                                                                                                                                                     |
-| :------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| BeamContext.OnReady()                             | Confirms `BeamContext` is running and the player has finished logging in.                                                                                                                                                                                                                      |
-| BeamContext.Start()                               | Starts tracking changes to the user state. Does nothing if the context has already been started.                                                                                                                                                                                               |
-| BeamContext.Stop()                                | Coroutines stop, subscriptions stop, deletes `GameObject` linked to context. Since it is a promise, it should be awaited, but it will still function in a synchronous context if there is no need to detect when it finishes. `OnDispose` will be called for all services when Stop is called. |
-| BeamContext.ClearPlayerAndStop()                  | Logs the player out and does the same thing as `Stop()`. Erases the PlayerId and access token. Calling `Start()` after this will grab a brand new player and fill it into the Context variable you were already using.                                                                         |
-| BeamContext.ChangeAuthorizedPlayer(TokenResponse) | Switches the PlayerId of the context to the given player.                                                                                                                                                                                                                                      |
+| API                                                 | Definition                                                                                                                                                                                                                                                                                     |
+| :-------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `BeamContext.OnReady()`                             | Confirms `BeamContext` is running and the player has finished logging in.                                                                                                                                                                                                                      |
+| `BeamContext.Start()`                               | Starts tracking changes to the user state. Does nothing if the context has already been started.                                                                                                                                                                                               |
+| `BeamContext.Stop()`                                | Coroutines stop, subscriptions stop, deletes `GameObject` linked to context. Since it is a promise, it should be awaited, but it will still function in a synchronous context if there is no need to detect when it finishes. `OnDispose` will be called for all services when Stop is called. |
+| `BeamContext.ClearPlayerAndStop()`                  | Logs the player out and does the same thing as `Stop()`. Erases the PlayerId and access token. Calling `Start()` after this will grab a brand new player and fill it into the Context variable you were already using.                                                                         |
+| `BeamContext.ChangeAuthorizedPlayer(TokenResponse)` | Switches the PlayerId of the context to the given player.                                                                                                                                                                                                                                      |
 
 _Note_: `BeamContext` API calls will fail if it is stopped in the middle of an async method and will throw an exception. It must be started for these calls to work.
 
@@ -102,15 +102,15 @@ private async void MyMethodForCurrencyCallback()
 
 | Name | Detail |
 |------|--------|
-| OnLoadingStarted | Invoked when the service starts loading.<br><br>_Note: between the loading start and loading finish, a data update may occur, however that does not mean the service is fully finished loading._ |
-| OnLoadingFinished | Invoked when the service finishes loading.<br><br>_Example:_<br>`beamContext.Inventory.Currencies.OnLoadingFinished` |
-| OnUpdated | Invoked when some change is detected in the data contained in the service. This event has no arguments, so it is only a notification with no data.<br><br>_Example:_<br>`beamContext.Inventory.Currencies.OnUpdated` |
-| OnDataUpdated | Invoked directly after OnUpdated, but contains a list of the internal data. The event argument is of type `List<T>`.<br><br>_Example:_<br>`beamContext.Inventory.Currencies.OnDataUpdated`, which passes type `List<PlayerCurrency>` |
+| `OnLoadingStarted` | Invoked when the service starts loading.<br><br>_Note: between the loading start and loading finish, a data update may occur, however that does not mean the service is fully finished loading._ |
+| `OnLoadingFinished` | Invoked when the service finishes loading.<br><br>_Example:_<br>`beamContext.Inventory.Currencies.OnLoadingFinished` |
+| `OnUpdated` | Invoked when some change is detected in the data contained in the service. This event has no arguments, so it is only a notification with no data.<br><br>_Example:_<br>`beamContext.Inventory.Currencies.OnUpdated` |
+| `OnDataUpdated` | Invoked directly after `OnUpdated`, but contains a list of the internal data. The event argument is of type `List<T>`.<br><br>_Example:_<br>`beamContext.Inventory.Currencies.OnDataUpdated`, which passes type `List<PlayerCurrency>` |
 
 
 ## In the Unity Editor
 
-When a BeamContext instance is initialized, a GameObject will be instantiated under Unity's "DontDestroyOnLoad" folder in the scene hierarchy. This GameObject will be named "Beamable" and contains information and behaviours for the currently running context, including:
+When a `BeamContext` instance is initialized, a `GameObject` will be instantiated under Unity's "DontDestroyOnLoad" folder in the scene hierarchy. This `GameObject` will be named "Beamable" and contains information and behaviours for the currently running context, including:
 
 • The current Authorized User
 • Player Stats
@@ -151,4 +151,4 @@ Game makers with existing Beamable projects which are using the legacy Beamable 
 For the simplest migration instructions;
 
 - Replace `var beamableAPI = await Beamable.API.Instance;` with `var beamContext = BeamContext.Default;`
-- APIs and services are accessed very similarly as well, since a BeamContext instance has an `Api` variable, with access to all the same services as Beamable.API. This is documented further in the [Player Centric API - Dependency Injection](doc:player-centric-api-dependency-injection) documentation
+- APIs and services are accessed very similarly as well, since a `BeamContext` instance has an `Api` variable, with access to all the same services as Beamable.API. This is documented further in the [Player Centric API - Dependency Injection](doc:player-centric-api-dependency-injection) documentation
