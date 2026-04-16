@@ -91,7 +91,7 @@ Because clients must be pointed at your `steam-demo` realm. As such, you'd need 
 
 ---
 
-## Required Files for Steam on Desktop Platforms
+## Required Files for Steam on Mac
 
 ### SSL Certificate (`cacert.pem`)
 
@@ -112,7 +112,7 @@ Beamable uses secure socket connections, and on some platforms the OS requires a
 3. In your project settings, add this folder to the **Additional Non-Asset Directories to Copy** list (under **Packaging**) so Unreal includes it in the packaged build:
 
     ```
-    Source/Certificates
+    Certificates
     ```
 
 Unreal will then bundle the certificate with the build, allowing Beamable to establish trusted connections at runtime.
@@ -141,5 +141,3 @@ Set the `com.apple.security.app-sandbox` key to `false`:
 </dict>
 </plist>
 ```
-
-> **Warning:** Only set `APP_SANDBOX` to `No` in development builds. Re-enable it before submitting to production or the Mac App Store.
