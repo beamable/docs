@@ -22,7 +22,7 @@ The lowest layer of systems is shared between the SDK's UE Editor integration an
     - These are integrated with our `UBeam____Api` subsystems.
     - `BeginOperation` is effectively the same a creating a new promise.
     - `TriggerOperationSuccess`, `TriggerOperationError` and `TriggerOperationCancelled` should be called when you want to complete the Operation.
-    - This is a somewhat complex subsystem so we recommend you read [Operations and Waits](operations-and-waits.md) for more details.<br><br>
+    - This is a somewhat complex subsystem so we recommend you read [Operations and Waits](operations/operations-and-waits.md) for more details.<br><br>
 
 - `UBeam_____Api`:  Code-Generated Subsystems from our Backend OpenAPI spec.
     - These are stateless `UEngineSubsystem` implementations.

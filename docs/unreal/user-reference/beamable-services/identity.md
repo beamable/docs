@@ -83,7 +83,7 @@ If your login/signup flows are the same (which is sometimes useful in early deve
 ### Local Cache + Platform-specific
 Beamable has a different approach for supporting 3rd-Party Platforms such as Steam. Instead of us trying to maintain a small subset of ALL existing 3rd-Party Platforms, we leverage our [Microservice Federation](../federation/federation.md) capabilities to allow you to implement whichever Platform-specific features you need for your game.
 
-Platform login flows are usually very simple. You can see that in our working [Steam Demo](../../samples/steam-demo.md).
+Platform login flows are usually very simple. You can see that in our working [Beamball - Steam Integration](../../samples/beamball/steam-integration.md).
 
 In builds for specific stores and platforms, what you'll want to do is:
 

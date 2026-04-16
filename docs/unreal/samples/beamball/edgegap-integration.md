@@ -13,10 +13,13 @@ Once you setup your version, you will need to add the following environment vari
 
 - BEAMABLE_CUSTOMER_OVERRIDE: The CID found in your Beamable portal.
 
-     ![Portal CID](../../../media/imgs/beamball-costumer-id.png)
+![Portal CID](../../../media/imgs/beamball-costumer-id.png)
+
 - BEAMABLE_REALM_OVERRIDE: The Realm found in your Beamable portal.
+  
 - BEAMABLE_REALM_SECRET: The Realm Secret.
-      ![Portal PID and Secret](../../../media/imgs/beamball-realm-secret.png)
+
+![Portal PID and Secret](../../../media/imgs/beamball-realm-secret.png)
 
 ### Storing EdgeGap Credentials in Realm Config
 
@@ -46,5 +49,5 @@ You can check the example of this in our [github page](https://github.com/beamab
 
 - [EdgeGap Official Documentation](https://docs.edgegap.com/unreal-engine)
 - [EdgeGap API Reference](https://docs.edgegap.com/api)
-- [Beamable Microservices Documentation](../../guides/microservices.md)
-- [Beamable Realm Configuration Guide](../../guides/configuration.md)
+- [Beamable Microservices Documentation](../../user-reference/microservices/microservices.md)
+- [Beamable Realm Configuration Guide](../../../cli/guides/configuration.md)

@@ -9,11 +9,11 @@ To start using Beamable in your project you need to have a valid Account in the 
 ## Project Requirements
 Important notes and dependencies:
 
-| Requirement | Version | Notes |
-|-------------|---------|-------|
-| [Unreal Engine](https://www.unrealengine.com/) | **5.6.X** | The project must be C++ (though there is extensive [Blueprint](../user-reference/runtime-systems/blueprints.md) support for most functionality). |
-| [Docker Desktop](https://www.docker.com/products/docker-desktop/) | Latest stable version | Required for **building and deploying Microservices** and for running Microservices locally with MicroStorages without opening the service project. |
-| [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) | **8.0** | Needed for installing and running Beamable tooling and for running **C# Microservices** through the CLI. |
+| Requirement | Version               | Notes                                                                                                                                                                                                     |
+|-------------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Unreal Engine](https://www.unrealengine.com/) | **5.6.X**             | The project must be C++ (though there is extensive [Blueprint](../user-reference/runtime-systems/blueprints.md) support for most functionality).                                                          |
+| [Docker Desktop](https://www.docker.com/products/docker-desktop/) | Latest stable version | Required for **building and deploying Microservices** and for running Microservices locally with MicroStorages without opening the service project.                                                       |
+| [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) | **8.0.302+**          | Needed for installing and running Beamable tooling and for running **C# Microservices** through the CLI. Any minor version above the version here should work (barring unintended .NET breaking changes). |
 
 
 ## Downloading and Installing the SDK

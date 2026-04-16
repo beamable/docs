@@ -61,7 +61,7 @@ These systems make use of the various `UBeamRuntimeSubsystem` callbacks to keep 
 
 All of our [Blueprint](runtime-systems/blueprints.md) nodes, except our **Low-Level** ones, are backed by these sub-system implementations.
 
-If the exposed hooks on these are not enough for your use case and constraints, you can create your own `UBeamRuntimeSubsystem`. The SDK does not obfuscate its inner-workings from you so you can use the existing `UBeamRuntimeSubsystems` as a reference to understand how to create your own. The documentation on [Lower Level SDK](runtime-systems/lower-level.md) and [Operations & Waits](runtime-systems/operations-and-waits.md) can also be useful when implementing your own `UBeamRuntimeSubsystems`. 
+If the exposed hooks on these are not enough for your use case and constraints, you can create your own `UBeamRuntimeSubsystem`. The SDK does not obfuscate its inner-workings from you so you can use the existing `UBeamRuntimeSubsystems` as a reference to understand how to create your own. The documentation on [Lower Level SDK](runtime-systems/lower-level.md) and [Operations & Waits](runtime-systems/operations/operations-and-waits.md) can also be useful when implementing your own `UBeamRuntimeSubsystems`. 
 
 #### Advanced - Disabling Runtime Subsystems
 
