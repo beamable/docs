@@ -15,10 +15,37 @@ Each SDK version is maintained on its own branch with its own `mkdocs.yml`:
 - `unreal/v*` — Unreal SDK docs
 - `websdk/v*` — WebSDK docs
 - `api/v*`, `typescript/v*` — API and TypeScript docs
-- `internal` — Internal Beamable guides
+- `internal` — Internal Beamable staff guides (published but not publicly advertised; only accessible via direct URL)
 - `gh-pages` — GitHub Pages deployment target (do not edit directly)
 
+Two branches have no version component: `main` (shared tooling and CI/CD; the starting point for new contributors) and `internal`. All other content branches carry a version suffix.
+
 To edit documentation, switch to the appropriate versioned branch before making changes.
+
+## Working with Worktrees
+
+Because content lives on many branches simultaneously, `git worktree` is the recommended workflow. Check out each branch into a sibling directory of the main `docs/` clone, embedding the SDK name and version in the path so multiple versions can coexist on disk at once.
+
+Suggested naming convention (siblings of `docs/` under `~/src/beamable/`, or wherever you clone it):
+
+```
+beamable-docs-unity-5.0    → unity/v5.0
+beamable-docs-unity-5.1    → unity/v5.1
+beamable-docs-core-7.0     → core/v7.0
+beamable-docs-core-7.1     → core/v7.1
+beamable-docs-unreal-2.3   → unreal/v2.3
+beamable-docs-websdk-1.0   → websdk/v1.0
+beamable-docs-api-1.0      → api/v1.0
+beamable-docs-internal     → internal
+```
+
+Add a worktree:
+
+```sh
+git worktree add ../beamable-docs-unity-5.0 unity/v5.0
+```
+
+Adjacent minor versions (e.g. `v5.0` and `v5.1`) typically have little divergence, so the same copyediting change usually applies cleanly to both.
 
 ## Setup
 
