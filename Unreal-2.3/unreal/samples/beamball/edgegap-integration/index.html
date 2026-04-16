@@ -8340,6 +8340,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#building-beamball-with-the-edgegap-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building Beamball with the Edgegap Plugin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -8736,6 +8747,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#building-beamball-with-the-edgegap-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building Beamball with the Edgegap Plugin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -8817,6 +8839,14 @@
 <blockquote>
 <p><strong>Reference Documentation</strong>: For comprehensive information about EdgeGap integration with Unreal Engine, see the <a href="https://docs.edgegap.com/unreal-engine">official EdgeGap documentation</a>.</p>
 </blockquote>
+<h2 id="building-beamball-with-the-edgegap-plugin">Building Beamball with the Edgegap Plugin<a class="headerlink" href="#building-beamball-with-the-edgegap-plugin" title="Permanent link">¶</a></h2>
+<p>To generate a Beamball server build with the Edgegap plugin, Docker is required. The plugin uses Docker to package the dedicated server into a container image that can then be published to Edgegap directly from the plugin.</p>
+<p>Overview:</p>
+<ul>
+<li>The Edgegap plugin relies on Docker to create the container image for the Beamball dedicated server build.</li>
+<li>Verify that your Beamball server build target is configured correctly before running the Edgegap build workflow.</li>
+<li>After the Docker image is generated, use the plugin's Publish button to send the build to your Edgegap application version.</li>
+</ul>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
 <h3 id="edgegap-environment-variables-required">Edgegap Environment Variables Required<a class="headerlink" href="#edgegap-environment-variables-required" title="Permanent link">¶</a></h3>
 <p>Once you set up your version, you will need to add the following environment variables to the version. </p>

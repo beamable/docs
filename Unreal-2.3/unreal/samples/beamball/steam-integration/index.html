@@ -8395,15 +8395,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#required-files-for-steam-on-desktop-platforms" class="md-nav__link">
+  <a href="#required-files-for-steam-on-mac" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Required Files for Steam on Desktop Platforms
+        Required Files for Steam on Mac
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Required Files for Steam on Desktop Platforms">
+    <nav class="md-nav" aria-label="Required Files for Steam on Mac">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -8936,15 +8936,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#required-files-for-steam-on-desktop-platforms" class="md-nav__link">
+  <a href="#required-files-for-steam-on-mac" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Required Files for Steam on Desktop Platforms
+        Required Files for Steam on Mac
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Required Files for Steam on Desktop Platforms">
+    <nav class="md-nav" aria-label="Required Files for Steam on Mac">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -9100,7 +9100,7 @@ you to copy and use in your own project. Here's what these are:</p>
 <h2 id="why-dont-we-provide-a-client-build">Why don't we provide a client build?<a class="headerlink" href="#why-dont-we-provide-a-client-build" title="Permanent link">¶</a></h2>
 <p>Because clients must be pointed at your <code>steam-demo</code> realm. As such, you'd need to generate the build yourself, which you can do by packaging it normally for any of our supported platforms.</p>
 <hr>
-<h2 id="required-files-for-steam-on-desktop-platforms">Required Files for Steam on Desktop Platforms<a class="headerlink" href="#required-files-for-steam-on-desktop-platforms" title="Permanent link">¶</a></h2>
+<h2 id="required-files-for-steam-on-mac">Required Files for Steam on Mac<a class="headerlink" href="#required-files-for-steam-on-mac" title="Permanent link">¶</a></h2>
 <h3 id="ssl-certificate-cacertpem">SSL Certificate (<code>cacert.pem</code>)<a class="headerlink" href="#ssl-certificate-cacertpem" title="Permanent link">¶</a></h3>
 <p>Beamable uses secure socket connections, and on some platforms the OS requires a trusted CA certificate bundle to validate them. Without this file, Beamable network calls may fail silently at runtime.</p>
 <ol>
@@ -9116,7 +9116,7 @@ you to copy and use in your own project. Here's what these are:</p>
 </li>
 <li>
 <p>In your project settings, add this folder to the <strong>Additional Non-Asset Directories to Copy</strong> list (under <strong>Packaging</strong>) so Unreal includes it in the packaged build:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Source/Certificates
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Certificates
 </code></pre></div>
 </li>
 </ol>
