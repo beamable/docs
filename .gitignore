@@ -1,0 +1,4 @@
+# Claude Code stores per-user local settings (hooks, permissions) in .claude/settings.local.json.
+# This file is machine-specific and should never be committed; each contributor manages their own.
+# .claude/CLAUDE.md (shared project instructions for Claude) is intentionally not ignored here.
+.claude/settings.local.json
