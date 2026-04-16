@@ -8846,8 +8846,8 @@
 
 
 <h1 id="federated-login">Federated Login<a class="headerlink" href="#federated-login" title="Permanent link">¶</a></h1>
-<p>Login Federation is Beamable's approach to integrating third-party Authentication with various platforms. You can find working examples of this federation in both <a href="../../samples/steam-demo.md">Steam</a> and <a href="../../../samples/discord-demo/">Discord</a> Samples.</p>
-<p>This Federation is always <a href="../federation/#federation-calls">invoked in-band</a> and via the <code>Login_____</code>, <code>SignUp____</code>, and <code>Attach____</code> functions of the <code>UBeamRuntime</code> subsystem class.</p>
+<p>Login Federation is Beamable's approach to integrating third-party Authentication with various platforms. You can find working examples of this federation in both <a href="../../../samples/beamball/steam-integration/">Beamball - Steam Integration</a> and <a href="../../../samples/discord-demo/">Discord</a> Samples.</p>
+<p>This Federation is invoked via the <code>Login_____</code>, <code>SignUp____</code>, and <code>Attach____</code> functions of the <code>UBeamRuntime</code> subsystem class.</p>
 <p>Its interface has a single function called <strong>Authenticate</strong> with the following signature:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedAuthenticationResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Authenticate</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">challenge</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">solution</span><span class="p">);</span>
 </code></pre></div>
@@ -8858,7 +8858,7 @@
 <p>Most of the time, you achieve this by doing the following:</p>
 <ol>
 <li>[<strong>Game Client</strong>]: Use the 3rd Party Client <abbr title="software development kit">SDK</abbr> to get a token of sorts.<ol>
-<li>See our <a href="../../samples/steam-demo.md">Steam</a> and <a href="../../../samples/discord-demo/">Discord</a> Samples for examples of this.</li>
+<li>See our <a href="../../../samples/beamball/steam-integration/">Steam</a> and <a href="../../../samples/discord-demo/">Discord</a> Samples for examples of this.</li>
 </ol>
 </li>
 <li>[<strong>Game Client</strong>]: Invoke a <code>Login</code>/<code>SignUp</code>/<code>Attach</code> <strong>Operation</strong> and pass the following parameters:<ol>
@@ -8903,7 +8903,7 @@
 <li><strong>Account Creation Time</strong>: <code>Context.UserId</code> is <code>0</code>; as at this time, no account exists.</li>
 <li><strong>Account Attach Time</strong>: <code>Context.UserId</code> is a valid <code>GamerTag</code>; as you are adding an identity to an existing account.</li>
 </ul>
-<p>For non-MFA flows (which are most of the Store and Console login flows) this is all that is needed. Here's an example from our <a href="../../samples/steam-demo.md">Steam Demo</a>.</p>
+<p>For non-MFA flows (which are most of the Store and Console login flows) this is all that is needed. Here's an example from our <a href="../../../samples/beamball/steam-integration/">Steam Demo</a>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedAuthenticationResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Authenticate</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">challenge</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">solution</span><span class="p">)</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// No user made the request, which means we are trying to sign in.</span>

@@ -8907,12 +8907,12 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>While possible, we don't recommend creating the actual operations as blueprints. It's OK to do so for a quick experimentation session; but shipping with it is <em>not recommended</em>. 
-<strong>Calling <em>Operations</em> that are written in C++ is the primary way we recommend Blueprints to interact with the Beamable <abbr title="software development kit">SDK</abbr>. We even have <a href="blueprints.md">special nodes</a> for it.</strong></p>
+<strong>Calling <em>Operations</em> that are written in C++ is the primary way we recommend Blueprints to interact with the Beamable <abbr title="software development kit">SDK</abbr>. We even have <a href="../../blueprints/">special nodes</a> for it.</strong></p>
 </div>
 <h2 id="operation-lifecycle">Operation Lifecycle<a class="headerlink" href="#operation-lifecycle" title="Permanent link">¶</a></h2>
-<p>Every Operation has an <code>int64</code> id called the <code>FBeamOperationHandle</code> managed by the <code>UBeamRequestTracker</code>, a <code>UEngineSubsystem</code>. We use it to track the operation's state, its emitted events, its current status and which of Beamable's requests are part of it.</p>
+<p>Every Operation has an <code>int64</code> id called the <code>FBeamOperationHandle</code> managed by the <code>UBeamRequestTracker</code>, a <code>UEngineSubsystem</code>. We use it to track the operation's state, its emitted events, its current status, and which of Beamable's requests are part of it.</p>
 <p>The lifecycle of an operation goes as follows:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/operations-and-waits-lifecycle.png" data-desc-position="bottom"><img alt="operations-and-waits-lifecycle.png" src="../../../media/imgs/operations-and-waits-lifecycle.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/operations-and-waits-lifecycle.png" data-desc-position="bottom"><img alt="operations-and-waits-lifecycle.png" src="../../../../../media/imgs/operations-and-waits-lifecycle.png"></a></p>
 <p><strong>When writing Operations, there are two ways of thinking about them:</strong></p>
 <ul>
 <li><strong>Regular Operations</strong>: are just a "Promise".</li>
@@ -9005,11 +9005,11 @@
 </ul>
 <p>Feel free to copy-paste them as a template of how to implement and reason about <code>Operations</code>.</p>
 <h3 id="beam-flow-nodes-operations">Beam Flow Nodes - Operations<a class="headerlink" href="#beam-flow-nodes-operations" title="Permanent link">¶</a></h3>
-<p>As part of our <a href="blueprints.md">Blueprint integration</a>, we have created a few custom nodes that make invoking operations from blueprints much simpler. These look like this:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/operation-and-waits-beam-flow-nodes.png" data-desc-position="bottom"><img alt="beam-flow-node" src="../../../media/imgs/operation-and-waits-beam-flow-nodes.png"></a></p>
+<p>As part of our <a href="../../blueprints/">Blueprint integration</a>, we have created a few custom nodes that make invoking operations from blueprints much simpler. These look like this:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/operation-and-waits-beam-flow-nodes.png" data-desc-position="bottom"><img alt="beam-flow-node" src="../../../../../media/imgs/operation-and-waits-beam-flow-nodes.png"></a></p>
 <p><strong>Beamable Operation Flow Nodes assume a few things:</strong></p>
 <ul>
-<li>One or more participating <code>UserSlots</code> (see <a href="user-slots.md">User Slots</a> for more information).</li>
+<li>One or more participating <code>UserSlots</code> (see <a href="../../user-slots/">User Slots</a> for more information).</li>
 <li>An event handler for handling any of the events.</li>
 <li>Events can be: <code>OET_SUCCESS</code>, <code>OET_ERROR</code> and <code>OET_CANCELLED</code> plus a <code>FName EventId</code>.    </li>
 <li>Events can contain some arbitrary data associated with them (implementations of <code>IBeamOperationEventData</code>).</li>
@@ -9051,7 +9051,7 @@
 <a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="cp">#undef LOCTEXT_NAMESPACE</span>
 </code></pre></div>
 <p>As long as you have one of these in an <code>UncookedOnly</code> module of your game, you'll be able to expose your own custom operations as BP nodes (this is compatible with Multiplayer PIE mode).</p>
-<p>This is very useful when designing unique features leveraging <a href="../microservices/microservices.md">MicroServices and MicroStorages</a> and other <code>FBeamOperationHandle</code> returning functions.</p>
+<p>This is very useful when designing unique features leveraging <a href="../../../microservices/microservices/">MicroServices and MicroStorages</a> and other <code>FBeamOperationHandle</code> returning functions.</p>
 <h2 id="writing-hooks">Writing Hooks<a class="headerlink" href="#writing-hooks" title="Permanent link">¶</a></h2>
 <p>Writing Hooks are callback points that let you customize how the <abbr title="software development kit">SDK</abbr> behaves during long-running operations.</p>
 <p>If a Delegate or Virtual Function returns one or more <code>FBeamOperationHandle</code>, you need to create operations and return their handles. The <abbr title="software development kit">SDK</abbr> will wait on these operations before continuing its own execution. Conceptually, this lets you inject a promise into a larger long-running operation.</p>
@@ -9169,7 +9169,7 @@
 <li><code>UBeamContentSubsystem</code> also has an example around how we fetch content updates.</li>
 </ul>
 <hr>
-<p>Understanding these concepts and how to leverage them can unlock the maximum potential uses and customizability of the <abbr title="software development kit">SDK</abbr>, but superficial knowledge is sufficient for the most basic use-cases. </p>
+<p>Understanding these concepts and how to leverage them can unlock the maximum potential uses and customizability of the <abbr title="software development kit">SDK</abbr>, but superficial knowledge is enough for the most basic use-cases. </p>
 <p>Take your time, read the source, and refer back to this page as you need!</p>
 
 
