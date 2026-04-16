@@ -9605,7 +9605,7 @@
 <p>Transient service instances are never cached. Every time a transient service is requested, a new instance will be created.</p>
 <h3 id="disposing-services">Disposing Services<a class="headerlink" href="#disposing-services" title="Permanent link">¶</a></h3>
 <p>A dependency scope can be in one of two states, active, or disposed. A scope is active the moment it is built. However, a scope can be disposed through the <code>IDependencyProviderScope.Dispose()</code> method. When a <code>BeamContext</code> is stopped, the associated <code>IDependencyProvider</code> will be disposed. When a scope is disposed, no calls to <code>GetService&lt;T&gt;()</code> are allowed.</p>
-<p>The <code>IBeamableDisposable</code> interface informs the dependency scope that a service requires some sort of disposal logic before the scope is finished transitioning to the disposed state. In the example code below, the <code>ExampleService</code> will print a log message when the service scope is disposed. If you are implementing custom services that require stateful operation, consider using the <code>IBeamableDisposable</code> interface. However, the Beamable SDK does not guarantee that a <code>BeamContext</code> will be stopped when the game is quit, and therefor, does not guarantee that the service scope will be disposed.</p>
+<p>The <code>IBeamableDisposable</code> interface informs the dependency scope that a service requires some sort of disposal logic before the scope is finished transitioning to the disposed state. In the example code below, the <code>ExampleService</code> will print a log message when the service scope is disposed. If you are implementing custom services that require stateful operation, consider using the <code>IBeamableDisposable</code> interface. However, the Beamable SDK does not guarantee that a <code>BeamContext</code> will be stopped when the game is quit, and therefore, does not guarantee that the service scope will be disposed.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -9647,7 +9647,7 @@
 <li>Is a method marked with the <code>RegisterBeamableDependencies</code> attribute,</li>
 <li>takes 1 input parameter of type, <code>IDependencyBuilder</code></li>
 </ol>
-<p>The example below will receive the <code>IDependencyBuilder</code>and add a singleton <code>ExampleService</code>.</p>
+<p>The example below will receive the <code>IDependencyBuilder</code> and add a singleton <code>ExampleService</code>.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>

@@ -9351,7 +9351,7 @@
 </tr>
 </tbody>
 </table>
-<p>You can see more samples of it usage below:</p>
+<p>You can see more samples of its usage below:</p>
 <p><strong>One Local Player Sync</strong>
 Here the game maker references the context <em>synchronously</em>. Note that the <code>PlayerId</code> may be null during the initialization of the Beamable system.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -9407,23 +9407,23 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">BeamContext.OnReady()</td>
+<td style="text-align: left;"><code>BeamContext.OnReady()</code></td>
 <td style="text-align: left;">Confirms <code>BeamContext</code> is running and the player has finished logging in.</td>
 </tr>
 <tr>
-<td style="text-align: left;">BeamContext.Start()</td>
+<td style="text-align: left;"><code>BeamContext.Start()</code></td>
 <td style="text-align: left;">Starts tracking changes to the user state. Does nothing if the context has already been started.</td>
 </tr>
 <tr>
-<td style="text-align: left;">BeamContext.Stop()</td>
+<td style="text-align: left;"><code>BeamContext.Stop()</code></td>
 <td style="text-align: left;">Coroutines stop, subscriptions stop, deletes <code>GameObject</code> linked to context. Since it is a promise, it should be awaited, but it will still function in a synchronous context if there is no need to detect when it finishes. <code>OnDispose</code> will be called for all services when Stop is called.</td>
 </tr>
 <tr>
-<td style="text-align: left;">BeamContext.ClearPlayerAndStop()</td>
+<td style="text-align: left;"><code>BeamContext.ClearPlayerAndStop()</code></td>
 <td style="text-align: left;">Logs the player out and does the same thing as <code>Stop()</code>. Erases the PlayerId and access token. Calling <code>Start()</code> after this will grab a brand new player and fill it into the Context variable you were already using.</td>
 </tr>
 <tr>
-<td style="text-align: left;">BeamContext.ChangeAuthorizedPlayer(TokenResponse)</td>
+<td style="text-align: left;"><code>BeamContext.ChangeAuthorizedPlayer(TokenResponse)</code></td>
 <td style="text-align: left;">Switches the PlayerId of the context to the given player.</td>
 </tr>
 </tbody>
@@ -9458,25 +9458,25 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 </thead>
 <tbody>
 <tr>
-<td>OnLoadingStarted</td>
+<td><code>OnLoadingStarted</code></td>
 <td>Invoked when the service starts loading.<br><br><em>Note: between the loading start and loading finish, a data update may occur, however that does not mean the service is fully finished loading.</em></td>
 </tr>
 <tr>
-<td>OnLoadingFinished</td>
+<td><code>OnLoadingFinished</code></td>
 <td>Invoked when the service finishes loading.<br><br><em>Example:</em><br><code>beamContext.Inventory.Currencies.OnLoadingFinished</code></td>
 </tr>
 <tr>
-<td>OnUpdated</td>
+<td><code>OnUpdated</code></td>
 <td>Invoked when some change is detected in the data contained in the service. This event has no arguments, so it is only a notification with no data.<br><br><em>Example:</em><br><code>beamContext.Inventory.Currencies.OnUpdated</code></td>
 </tr>
 <tr>
-<td>OnDataUpdated</td>
-<td>Invoked directly after OnUpdated, but contains a list of the internal data. The event argument is of type <code>List&lt;T&gt;</code>.<br><br><em>Example:</em><br><code>beamContext.Inventory.Currencies.OnDataUpdated</code>, which passes type <code>List&lt;PlayerCurrency&gt;</code></td>
+<td><code>OnDataUpdated</code></td>
+<td>Invoked directly after <code>OnUpdated</code>, but contains a list of the internal data. The event argument is of type <code>List&lt;T&gt;</code>.<br><br><em>Example:</em><br><code>beamContext.Inventory.Currencies.OnDataUpdated</code>, which passes type <code>List&lt;PlayerCurrency&gt;</code></td>
 </tr>
 </tbody>
 </table>
 <h2 id="in-the-unity-editor">In the Unity Editor<a class="headerlink" href="#in-the-unity-editor" title="Permanent link">¶</a></h2>
-<p>When a BeamContext instance is initialized, a GameObject will be instantiated under Unity's "DontDestroyOnLoad" folder in the scene hierarchy. This GameObject will be named "Beamable" and contains information and behaviours for the currently running context, including:</p>
+<p>When a <code>BeamContext</code> instance is initialized, a <code>GameObject</code> will be instantiated under Unity's "DontDestroyOnLoad" folder in the scene hierarchy. This <code>GameObject</code> will be named "Beamable" and contains information and behaviours for the currently running context, including:</p>
 <p>• The current Authorized User
 • Player Stats
 • Subscription/Coroutine managers</p>
@@ -9536,7 +9536,7 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 <p>For the simplest migration instructions;</p>
 <ul>
 <li>Replace <code>var beamableAPI = await Beamable.API.Instance;</code> with <code>var beamContext = BeamContext.Default;</code></li>
-<li>APIs and services are accessed very similarly as well, since a BeamContext instance has an <code>Api</code> variable, with access to all the same services as Beamable.API. This is documented further in the <a href="doc:player-centric-api-dependency-injection">Player Centric API - Dependency Injection</a> documentation</li>
+<li>APIs and services are accessed very similarly as well, since a <code>BeamContext</code> instance has an <code>Api</code> variable, with access to all the same services as Beamable.API. This is documented further in the <a href="doc:player-centric-api-dependency-injection">Player Centric API - Dependency Injection</a> documentation</li>
 </ul>
 
 

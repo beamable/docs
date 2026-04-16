@@ -9483,60 +9483,60 @@
 </thead>
 <tbody>
 <tr>
-<td>Init</td>
-<td>Initializes the CloudService using the configurations from PlayerCloudSavingConfiguration. Starts resolving the save storages and downloading cloud data to local device.<br><br>By default, it uses a default instance of PlayerCloudSavingConfiguration. See this link to see how to override it.<br><br><em>Note: This accepts an optional <code>pollingIntervalSecs</code> parameter that determines how often the service will scan for local file changes</em></td>
+<td><code>Init</code></td>
+<td>Initializes the CloudService using the configurations from <code>PlayerCloudSavingConfiguration</code>. Starts resolving the save storages and downloading cloud data to local device.<br><br>By default, it uses a default instance of <code>PlayerCloudSavingConfiguration</code>. See this link to see how to override it.<br><br><em>Note: This accepts an optional <code>pollingIntervalSecs</code> parameter that determines how often the service will scan for local file changes</em></td>
 </tr>
 <tr>
-<td>ReInit</td>
+<td><code>ReInit</code></td>
 <td>Re-initializes the CloudService. Stopping all routines, upload, and download requests to restart the system.<br><br><em>Note: This accepts an optional <code>pollingIntervalSecs</code> parameter that determines how often the service will scan for local file changes</em></td>
 </tr>
 <tr>
-<td>ServiceStatus</td>
-<td>Returns a CloudSaveStatus enum with the current Cloud Saving Service Status (Inactive, Initialized, Initializing, and ConflictedData)</td>
+<td><code>ServiceStatus</code></td>
+<td>Returns a <code>CloudSaveStatus</code> enum with the current Cloud Saving Service Status (Inactive, Initialized, Initializing, and ConflictedData)</td>
 </tr>
 <tr>
-<td>LocalDataFullPath</td>
+<td><code>LocalDataFullPath</code></td>
 <td>Returns the Full Path where the Cloud Save Files are stored in the local device. This Property will return an exception if the CloudSaving is Inactive.</td>
 </tr>
 <tr>
-<td>OnManifestUpdated</td>
+<td><code>OnManifestUpdated</code></td>
 <td>This event is invoked any time that the Cloud Manifest is updated.</td>
 </tr>
 <tr>
-<td>OnCloudSavingError</td>
+<td><code>OnCloudSavingError</code></td>
 <td>This event is invoked any time that an Error Occurs to the Cloud Saving.</td>
 </tr>
 <tr>
-<td>ForceUploadLocalData</td>
+<td><code>ForceUploadLocalData</code></td>
 <td>Forces an Upload of Local Data to the Cloud, ignoring any conflicts that may have and using Local Save.</td>
 </tr>
 <tr>
-<td>ForceDownloadCloudData</td>
+<td><code>ForceDownloadCloudData</code></td>
 <td>Forces a Download of Cloud Data to Local Device, ignoring any conflicts that may have and using Cloud Save.</td>
 </tr>
 <tr>
-<td>GetDataConflictDetails</td>
+<td><code>GetDataConflictDetails</code></td>
 <td>If the Service was initialized and it wasn't possible to resolve the conflict between cloud and local. You can use this function to get the details about these conflicts.</td>
 </tr>
 <tr>
-<td>ResolveDataConflict</td>
+<td><code>ResolveDataConflict</code></td>
 <td>You need to use this function to solve a conflict that happened between a local or cloud file. This function takes the conflict detail and an enum of which data to use.<br><br><em>Note: If you need to merge data between local and cloud saves, you can manually save the local file and mark to use the local file as the conflict resolve type.</em></td>
 </tr>
 <tr>
-<td>SaveData</td>
-<td>It allows you to save your data using the Service, allowing you to properly save the file without needing to get the full file path or handle file name sanitization. This function has 3 overrides for saving data as bytes, as a string, or as a serialized class/struct.<br><br><em>Note: The serialize save by default uses JsonUtility to serialize, but you can override it by changing the PlayerCloudSavingConfiguration.CustomSerializer.</em></td>
+<td><code>SaveData</code></td>
+<td>It allows you to save your data using the Service, allowing you to properly save the file without needing to get the full file path or handle file name sanitization. This function has 3 overrides for saving data as bytes, as a string, or as a serialized class/struct.<br><br><em>Note: The serialize save by default uses <code>JsonUtility</code> to serialize, but you can override it by changing <code>PlayerCloudSavingConfiguration.CustomSerializer</code>.</em></td>
 </tr>
 <tr>
-<td>LoadDataString<br>LoadDataByte<br>LoadData<t></t></td>
-<td>Loads the Local Data using the Service, allowing you to properly load the file without needing to get the full file path or handle file name sanitization.<br><br>It returns the content of the file depending on which LoadData call is used.<br><br><em>Note: The LoadData<t> by default uses JsonUtility to deserialize the data, but you can override it by changing the PlayerCloudSavingConfiguration. CustomDeserializer.</t></em></td>
+<td><code>LoadDataString</code><br><code>LoadDataByte</code><br><code>LoadData&lt;T&gt;</code></td>
+<td>Loads the Local Data using the Service, allowing you to properly load the file without needing to get the full file path or handle file name sanitization.<br><br>It returns the content of the file depending on which <code>LoadData</code> call is used.<br><br><em>Note: <code>LoadData&lt;T&gt;</code> by default uses <code>JsonUtility</code> to deserialize the data, but you can override it by changing <code>PlayerCloudSavingConfiguration.CustomDeserializer</code>.</em></td>
 </tr>
 <tr>
-<td>Update</td>
-<td>This function allows you to do Update operations to the CloudSaveService and apply them only once, reducing API calls to the backend.<br><br>The possible operations for the CloudDataUpdateBuilder are:<br><br>- SaveData<br>- ArchiveSaveData<br>- RenameSaveData<br>- ForgetSaveData</td>
+<td><code>Update</code></td>
+<td>This function allows you to do Update operations to the <code>CloudSaveService</code> and apply them only once, reducing API calls to the backend.<br><br>The possible operations for the <code>CloudDataUpdateBuilder</code> are:<br><br>- <code>SaveData</code><br>- <code>ArchiveSaveData</code><br>- <code>RenameSaveData</code><br>- <code>ForgetSaveData</code></td>
 </tr>
 <tr>
-<td>SetConflictResolverOverride</td>
-<td>This function allows you to Override the ConflictResolver by another ConflictResolver delegate. This function is another option than the PlayerCloudSavingConfiguration.HandleConflicts that allows you to change the Conflict resolution depending on the current application scope.</td>
+<td><code>SetConflictResolverOverride</code></td>
+<td>This function allows you to Override the <code>ConflictResolver</code> by another <code>ConflictResolver</code> delegate. This function is another option than <code>PlayerCloudSavingConfiguration.HandleConflicts</code> that allows you to change the Conflict resolution depending on the current application scope.</td>
 </tr>
 </tbody>
 </table>
@@ -9676,7 +9676,7 @@
 <p>The AutoCloud feature will automatically check the <code>/data/</code> folder checking for changes every polling interval and automatically uploading any changes to the cloud service. It also updates the local manifest automatically. This is slightly more expensive than the first option as it needs to keep generating the checksum for the file every polling interval, but it allows you to write the file manually to the data folder.</p>
 <p>To enable this option, you will need to add or update the Custom dependency for <code>PlayerCloudSavingConfiguration</code> and set the property <code>UseAutoCloud</code> to true. Check the section <a href="#changing-service-configuration">Changing Service Configuration</a> to see how to properly add it.</p>
 <h3 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">¶</a></h3>
-<p>Is possible that some errors occur when trying to download a saved file. The system automatically will try to download the file 10 times, if the 10th retry fails, the system will return an error. Which can be anything from no connection to a file not found. By default, the service will use the DefaultRecover, which will not throw an exception if the file cannot be found in storage, ignoring its download and using the local reference as the new one. If there is any other error, it will throw the exception.</p>
+<p>Is possible that some errors occur when trying to download a saved file. The system automatically will try to download the file 10 times, if the 10th retry fails, the system will return an error. Which can be anything from no connection to a file not found. By default, the service will use the <code>DefaultRecover</code>, which will not throw an exception if the file cannot be found in storage, ignoring its download and using the local reference as the new one. If there is any other error, it will throw the exception.</p>
 <p>If you want to change its behavior, you will need to add or update the Custom dependency for <code>PlayerCloudSavingConfiguration</code> and set the property <code>HandleDownloadFileError</code>. Check the section <a href="#changing-service-configuration">Changing Service Configuration</a> to see how to properly add it.</p>
 <h2 id="data-limitations">Data Limitations<a class="headerlink" href="#data-limitations" title="Permanent link">¶</a></h2>
 <p>There is a limit of 5MB per Cloud Save file.</p>
