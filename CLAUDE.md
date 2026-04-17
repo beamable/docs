@@ -109,6 +109,6 @@ Documentation navigation is defined by `SUMMARY.md` files (using `mkdocs-literat
 - **Bullet lists and table entries:** no terminal periods, regardless of whether items are sentences or fragments
 - **Relative clauses:** use "that" for restrictive clauses; use ", which" (with comma) for non-restrictive clauses; omit the pronoun entirely where the sentence allows
 - **"which allows/enables" constructions:** rewrite as active alternatives (e.g., "letting downstream projects reuse...")
-- **Passive voice:** prefer active/imperative in setup and configuration instructions where "you" is the actor; passive is acceptable when the actor is the system or a type constraint
+- **Passive voice:** prefer active/imperative in setup and configuration instructions where "you" is the actor; passive is acceptable when the actor is the system or a type constraint. Within active voice, use bare imperative for direct instructions and sequential steps; use "you can" when the sentence announces a capability or sits in the consequent of a conditional ("if your game does X, you can do Y")
 - **Product term capitalization:** Portal, Cloud Save, Content Manager, Admin Console, Beam Library (capitalized); see commit history for resolved cases
 - **Reference style guides:** Google Developer Documentation Style Guide and Microsoft Writing Style Guide
