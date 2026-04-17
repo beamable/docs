@@ -9471,10 +9471,10 @@
 <p class="admonition-title">Design Considerations</p>
 <p>Here are some additional things to consider when designing a lobby for matchmaking:</p>
 <ul>
-<li>The lobby should be designed to be visually appealing and user-friendly</li>
-<li>The lobby should provide players with information about the status of their matchmaking queue, such as how many players are currently in the lobby and how long it is expected to take to find a match</li>
-<li>The lobby should allow players to communicate with each other before the game starts. This can help to improve the overall experience for players</li>
-<li>The lobby should be secure and prevent players from cheating or exploiting the system</li>
+<li>Design the lobby to be visually appealing and user-friendly</li>
+<li>Provide players with matchmaking queue status, such as how many players are currently in the lobby and the estimated wait time</li>
+<li>Allow players to communicate with each other before the game starts to improve the overall experience</li>
+<li>Make the lobby secure to prevent players from cheating or exploiting the system</li>
 </ul>
 </div>
 <h2 id="lobbies-api">Lobbies API<a class="headerlink" href="#lobbies-api" title="Permanent link">¶</a></h2>
@@ -9484,7 +9484,7 @@
 </div>
 <p>These examples cover common use cases for Lobbies. The <code>_beamContext</code> variable used below is an instance of the <code>BeamContext</code> class and may be obtained by <code>BeamContext.Default</code>:</p>
 <h3 id="creating-a-lobby">Creating a Lobby<a class="headerlink" href="#creating-a-lobby" title="Permanent link">¶</a></h3>
-<p>The <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Lobbies_1_1LobbyService.html#a0e8f956a954c74e55f5a26db755e5499">Create</a> method will create a lobby with specified parameters which can be accessed through <code>_beamContext.Lobby.Value</code>.</p>
+<p>The <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Lobbies_1_1LobbyService.html#a0e8f956a954c74e55f5a26db755e5499">Create</a> method will create a lobby with specified parameters which you can access through <code>_beamContext.Lobby.Value</code>.</p>
 <p>The <code>Create</code> method requires:</p>
 <ul>
 <li><code>name</code> the name of the lobby</li>
@@ -9511,7 +9511,7 @@
 <span class="w">            </span><span class="n">lobbyRecord</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span><span class="w"> </span><span class="n">lobbyRecord</span><span class="p">.</span><span class="n">PlayerTags</span><span class="p">,</span><span class="w"> </span><span class="n">lobbyRecord</span><span class="p">.</span><span class="n">MaxPlayers</span><span class="p">,</span><span class="w"> </span><span class="n">lobbyRecord</span><span class="p">.</span><span class="n">PasscodeLength</span><span class="p">);</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="updating-a-lobby">Updating a Lobby<a class="headerlink" href="#updating-a-lobby" title="Permanent link">¶</a></h3>
-<p>The <code>Update</code> method will update details about an existing lobby which can be accessed through <code>_beamContext.Lobby.Value</code>.</p>
+<p>The <code>Update</code> method will update details about an existing lobby which you can access through <code>_beamContext.Lobby.Value</code>.</p>
 <p>The <code>Update</code> method requires:</p>
 <ul>
 <li><code>lobbyId</code> a unique identifier for the existing lobby</li>

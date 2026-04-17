@@ -9709,9 +9709,9 @@
 <h2 id="microservices">Microservices<a class="headerlink" href="#microservices" title="Permanent link">¶</a></h2>
 <p>The Beamable Unity SDK uses <code>IDependencyBuilder</code> and <code>IDependencyProvider</code> to manage dependencies. Beamable Microservices use the same structures to manage their dependencies as well. The same concepts from the SDK apply in the Microservices, but some minor details change.</p>
 <h3 id="life-cycle">Life Cycle<a class="headerlink" href="#life-cycle" title="Permanent link">¶</a></h3>
-<p>When a Microservice starts, there is one main <code>IDependencyBuilder</code> . In order to initialize and connect to Beamable, the <code>IDependencyBuilder</code> creates a main <code>IDependencyProvider</code>. However, every request sent to a Microservice will get a unique <code>IDependencyProvider</code>. The main scope is forked and modified with the <code>RequestContext</code> information for the request. When the request terminates, the child scope is disposed.</p>
+<p>When a <code>Microservice</code> starts, there is one main <code>IDependencyBuilder</code> . In order to initialize and connect to Beamable, the <code>IDependencyBuilder</code> creates a main <code>IDependencyProvider</code>. However, every request sent to a <code>Microservice</code> will get a unique <code>IDependencyProvider</code>. The main scope is forked and modified with the <code>RequestContext</code> information for the request. When the request terminates, the child scope is disposed.</p>
 <h4 id="scoped-vs-singleton">Scoped vs Singleton<a class="headerlink" href="#scoped-vs-singleton" title="Permanent link">¶</a></h4>
-<p>In a Microservice, a service registered as a singleton will be the only instance of that service between all requests. It can be used to store a limited amount of state between service requests.</p>
+<p>In a <code>Microservice</code>, a service registered as a singleton will be the only instance of that service between all requests. Use it to store a limited amount of state between service requests.</p>
 <div class="admonition warning">
 <p class="admonition-title">Do not store critical state in memory</p>
 </div>

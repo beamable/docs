@@ -9703,7 +9703,7 @@
 </tr>
 </tbody>
 </table>
-<p>The <code>[IgnoreContentFieldAttribute]</code> can be applied to any field that you wish to exclude from the Content Serialization process.</p>
+<p>Apply <code>[IgnoreContentField]</code> to any field you wish to exclude from the Content Serialization process.</p>
 <p>MyCustomContent.cs
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -9722,7 +9722,7 @@
 <span class="w">     </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">;</span>
 <span class="w">     </span><span class="k">public</span><span class="w"> </span><span class="n">AssetReferenceSprite</span><span class="w"> </span><span class="n">Icon</span><span class="p">;</span>
 
-<span class="w">     </span><span class="na">[IgnoreContentFieldAttribute]</span>
+<span class="w">     </span><span class="na">[IgnoreContentField]</span>
 <span class="w">     </span><span class="k">public</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">KeyValuePair</span><span class="p">;</span>
 
 <span class="p">}</span>
@@ -9947,8 +9947,8 @@
 <div class="admonition info">
 <p class="admonition-title">Best Practices</p>
 <ul>
-<li>If the content that your game is using is known ahead of time (for example, there will only be subtle differences in existing pieces of content), a content reference (such as ContentLink or ContentRef) should be used</li>
-<li>However, if the content in your game needs to be more dynamic (for example, the Game Maker will be pushing entirely new pieces of content, unknown to the game client), a content subscription should be used</li>
+<li>If the content your game uses is known ahead of time (for example, there will only be subtle differences in existing pieces of content), use a content reference (such as <code>ContentLink</code> or <code>ContentRef</code>)</li>
+<li>However, if the content in your game needs to be more dynamic (for example, the Game Maker will be pushing entirely new pieces of content, unknown to the game client), use a content subscription</li>
 <li><strong>DO</strong>: Use <code>ContentLink</code> in any member variable in your <em>custom</em> content type that references another content type. ContentLink is useful for data that needs to be loaded quickly at runtime, since it is preloaded in very early stages of the application's lifecycle</li>
 <li><strong>DON'T</strong>: Use <code>ContentRef</code> by default <em>everywhere</em> in your project. This is supported but is considered overkill. ContentRef is useful for data that the application can afford to load on-demand (especially data that might not get loaded at all)</li>
 </ul>

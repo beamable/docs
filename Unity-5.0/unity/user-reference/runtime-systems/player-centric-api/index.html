@@ -9416,15 +9416,15 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 </tr>
 <tr>
 <td style="text-align: left;"><code>BeamContext.Stop()</code></td>
-<td style="text-align: left;">Coroutines stop, subscriptions stop, deletes <code>GameObject</code> linked to context. Since it is a promise, it should be awaited, but it will still function in a synchronous context if there is no need to detect when it finishes. <code>OnDispose</code> will be called for all services when Stop is called.</td>
+<td style="text-align: left;">Coroutines stop, subscriptions stop, deletes <code>GameObject</code> linked to context. Since it is a promise, await it, but it will still function in a synchronous context if there is no need to detect when it finishes. <code>OnDispose</code> will be called for all services when Stop is called.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>BeamContext.ClearPlayerAndStop()</code></td>
-<td style="text-align: left;">Logs the player out and does the same thing as <code>Stop()</code>. Erases the PlayerId and access token. Calling <code>Start()</code> after this will grab a brand new player and fill it into the Context variable you were already using.</td>
+<td style="text-align: left;">Logs the player out and does the same thing as <code>Stop()</code>. Erases the <code>PlayerId</code> and access token. Calling <code>Start()</code> after this will grab a brand new player and fill it into the Context variable you were already using.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>BeamContext.ChangeAuthorizedPlayer(TokenResponse)</code></td>
-<td style="text-align: left;">Switches the PlayerId of the context to the given player.</td>
+<td style="text-align: left;">Switches the <code>PlayerId</code> of the context to the given player.</td>
 </tr>
 </tbody>
 </table>
@@ -9494,7 +9494,7 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 <span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"beamableAPI.User.id = {beamableAPI.User.id}"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>After that setup, game makers use the <code>beamableAPI</code> object as the main entry-point to Beamable functionality. Limitations of this API include that it relates to exactly <em>one</em> local player and most Beamable functionality within must be called <strong>asynchronously</strong>.</p>
+<p>After that setup, the <code>beamableAPI</code> object serves as the main entry-point to Beamable functionality. Limitations of this API include that it relates to exactly <em>one</em> local player and requires calling most Beamable functionality <strong>asynchronously</strong>.</p>
 <p>You can see the difference between the two APIs in the table below:</p>
 <table>
 <thead>

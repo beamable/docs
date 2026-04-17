@@ -9268,7 +9268,7 @@
 
 
 <h1 id="content-getting-started">Content - Getting Started<a class="headerlink" href="#content-getting-started" title="Permanent link">¶</a></h1>
-<p>Beamable's Content Service allows game makers to create, manage, and distribute game content. Content can be created in the Beamable Content Manager window in the Unity Editor, and then published to Beamable's servers. Once published, content can be pulled into a game at runtime via the ContentService API.</p>
+<p>Beamable's Content Service allows game makers to create, manage, and distribute game content. Create content in the Beamable Content Manager window in the Unity Editor, then publish it to Beamable's servers. Once published, pull it into your game at runtime via the <code>ContentService</code> API.</p>
 <h2 id="creating-custom-content-types">Creating Custom Content Types<a class="headerlink" href="#creating-custom-content-types" title="Permanent link">¶</a></h2>
 <p>In this snippet, the custom <code>ArmorItem</code> item type is created. Note that, as a subclass of <code>ItemContent</code>, whose content type is already <code>"items"</code>, Armor's resulting content type will be <code>"items.armor"</code>. In the Content Manager in Unity, this will appear as a nested category under the <code>items</code> type.</p>
 <p>Armor.cs
@@ -9462,7 +9462,7 @@
 </tbody>
 </table>
 <h2 id="downloading-content">Downloading Content<a class="headerlink" href="#downloading-content" title="Permanent link">¶</a></h2>
-<p>Content that has been published to the server can be pulled from Beamable's ContentService via a ContentLink or ContentRef. Both are shown in this example.</p>
+<p>Pull published content from Beamable's <code>ContentService</code> via a <code>ContentLink</code> or <code>ContentRef</code>. Both are shown in this example.</p>
 <p>ContentServiceExistingExample.cs
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
