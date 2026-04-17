@@ -164,7 +164,7 @@ Some common use-cases for game makers include;
 - **Debugging** - Play as a customer's player data to test and investigate reported issues
 - **Support** - Make _minor_ edits to a player data and hot-upload it for the customer
 
-Here are the major operations that can be performed against the player data.
+Here are the major operations you can perform against the player data.
 
 ![Portal Cloud Data Management](../../../../media/imgs/portal-cloud-data-management.png)
 

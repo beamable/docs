@@ -12,7 +12,7 @@ Beamable offers various APIs to allow the game maker to set up purchasing with v
 
 !!! info "Prerequisites"
 
-    Before items can be purchased be the user, you must set up at least one valid currency, a store item, and store listing.
+    Before users can purchase items, you must set up at least one valid currency, a store item, and store listing.
 
 
 ### Making a Purchase
