@@ -13,14 +13,14 @@ Authentication is often tricky and has more edge cases than one normally thinks 
 The aspects at the core of Identity in Beamable are the RecoverAccount functions, often called Login functions. These are used throughout all the various sign-in methods. `RecoverAccountWithEmail()` is used for email and password verification, and `RecoverAccountWithThirdParty()` is used for third-party authentication providers.
 
 !!! info "Beamable API Access"
-    The AuthService can be accessed via BeamContext. For more information on how to access services, see the documentation on the [Player-Centric API](doc:beamable-player-centric-api).
+    `BeamContext` exposes `AuthService`. For more information on how to access services, see the documentation on the [Player-Centric API](doc:beamable-player-centric-api).
 
 ```csharp
 BeamContext.Default.Accounts.RecoverAccountWithEmail(email, password)
 BeamContext.Default.Accounts.RecoverAccountWithThirdParty(thirdParty, accessToken)
 ```
 
-Both of these methods work similarly, returning a `PlayerRecoveryOperation`. The `PlayerRecoveryOperation` structure can be used to inspect the account that the user is trying to recover if the correct credentials were supplied. If incorrect credentials were given, the `PlayerRecoveryOperation` will contain an `error`, and its `isSuccess` field will be false.
+Both of these methods work similarly, returning a `PlayerRecoveryOperation` you can use to inspect the account the user is trying to recover, if the correct credentials were supplied. If incorrect credentials were given, the `PlayerRecoveryOperation` will contain an `error`, and its `isSuccess` field will be false.
 
 However, assuming that the credentials are correct, then the `PlayerRecoveryOperation.SwitchToAccount()` function can be invoked to save the account's access token to the user's device. The next time the user starts the app, the game can check if a token exists for that user, and skip the manual sign-in process (performing a "silent" login).
 

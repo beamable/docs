@@ -75,9 +75,9 @@ The Lifecycle of the `BeamContext` instance is very straightforward. You can see
 | :-------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `BeamContext.OnReady()`                             | Confirms `BeamContext` is running and the player has finished logging in.                                                                                                                                                                                                                      |
 | `BeamContext.Start()`                               | Starts tracking changes to the user state. Does nothing if the context has already been started.                                                                                                                                                                                               |
-| `BeamContext.Stop()`                                | Coroutines stop, subscriptions stop, deletes `GameObject` linked to context. Since it is a promise, it should be awaited, but it will still function in a synchronous context if there is no need to detect when it finishes. `OnDispose` will be called for all services when Stop is called. |
-| `BeamContext.ClearPlayerAndStop()`                  | Logs the player out and does the same thing as `Stop()`. Erases the PlayerId and access token. Calling `Start()` after this will grab a brand new player and fill it into the Context variable you were already using.                                                                         |
-| `BeamContext.ChangeAuthorizedPlayer(TokenResponse)` | Switches the PlayerId of the context to the given player.                                                                                                                                                                                                                                      |
+| `BeamContext.Stop()`                                | Coroutines stop, subscriptions stop, deletes `GameObject` linked to context. Since it is a promise, await it, but it will still function in a synchronous context if there is no need to detect when it finishes. `OnDispose` will be called for all services when Stop is called. |
+| `BeamContext.ClearPlayerAndStop()`                  | Logs the player out and does the same thing as `Stop()`. Erases the `PlayerId` and access token. Calling `Start()` after this will grab a brand new player and fill it into the Context variable you were already using.                                                                         |
+| `BeamContext.ChangeAuthorizedPlayer(TokenResponse)` | Switches the `PlayerId` of the context to the given player.                                                                                                                                                                                                                                      |
 
 _Note_: `BeamContext` API calls will fail if it is stopped in the middle of an async method and will throw an exception. It must be started for these calls to work.
 
@@ -133,7 +133,7 @@ private async void InitializeLegacyAPI()
 }
 ```
 
-After that setup, game makers use the `beamableAPI` object as the main entry-point to Beamable functionality. Limitations of this API include that it relates to exactly _one_ local player and most Beamable functionality within must be called **asynchronously**.
+After that setup, the `beamableAPI` object serves as the main entry-point to Beamable functionality. Limitations of this API include that it relates to exactly _one_ local player and requires calling most Beamable functionality **asynchronously**.
 
 You can see the difference between the two APIs in the table below:
 

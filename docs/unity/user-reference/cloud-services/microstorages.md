@@ -192,7 +192,7 @@ namespace Beamable.Server
 }
 ```
 
-Then, in a Microservice, the `TestDocument` can be created, read, updated, and deleted as shown below.
+Then, in a `Microservice`, you can create, read, update, and delete the `TestDocument` as shown below.
 
 TestMicroservice.cs
 ```csharp

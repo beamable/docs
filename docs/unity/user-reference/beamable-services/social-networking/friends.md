@@ -15,7 +15,7 @@ this is a list of the main concepts used in the Friends feature:
 
 ## Friends API
 
-Friends can be accessed directly through the `ISocialApi` interface, or conveniently through the `BeamContext.Social` accessor. The following samples illustrate how to achieve common use cases by using the `BeamContext`.
+Access friends directly through the `ISocialApi` interface, or conveniently through the `BeamContext.Social` accessor. The following samples illustrate how to achieve common use cases by using the `BeamContext`.
 
 #### Viewing Social Data
 

@@ -15,7 +15,7 @@ The metadata for a job includes a `name`, a `source`, and after it is saved, an 
 
 Commonly, the `source` represents the entity or process that creates a job. By default, the `source` will be the Microservice's name that schedules the job.
 
-The `name` can be anything, but should be used to uniquely describe the job. For example, before creating a job to award bonus currency to a player, your system can check for the existence of a job with the name, `$"award-{Context.UserId}"`, and only if the job does _not_ exist, will you create it.
+The `name` can be anything, but use it to uniquely describe the job. For example, before creating a job to award bonus currency to a player, your system can check for the existence of a job with the name, `$"award-{Context.UserId}"`, and only if the job does _not_ exist, will you create it.
 
 ## Job Actions
 
@@ -184,7 +184,7 @@ Each execution will have a list of events that describe the execution's current 
 
 ## Managing Jobs
 
-After a job has been created, it can be left to execute, modified, or canceled. Canceling or modifying a job will take effect on the next execution of the job. These operations identify jobs by their identifier, the `id` field of the `Job` data structure. If you need to find a job by name, the `GetJobs` method allows searching by name.
+After you create a job, you can let it execute, modify it, or cancel it. Canceling or modifying a job will take effect on the next execution of the job. These operations identify jobs by their identifier, the `id` field of the `Job` data structure. If you need to find a job by name, the `GetJobs` method allows searching by name.
 
 ### Canceling a Job
 
