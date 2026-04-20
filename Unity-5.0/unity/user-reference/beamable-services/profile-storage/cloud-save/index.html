@@ -9466,14 +9466,14 @@
 • You cannot initialize both Services at the same time, the first one initialized will lock the other to be used.
 • Both services share the same cloud storage, but the saved data are stored in different system paths. When you switch to the new one, it will automatically download your data.</p>
 </div>
-<h3 id="cloud-save-api">Cloud Save API<a class="headerlink" href="#cloud-save-api" title="Permanent link">¶</a></h3>
+<h3 id="cloud-save-api">Cloud Save <abbr title="application programming interface">API</abbr><a class="headerlink" href="#cloud-save-api" title="Permanent link">¶</a></h3>
 <p>Unlike many Beamable Features, Cloud Save does not require the usage of a specific Beamable Feature Prefab. The main entry point to this feature is C# programming.</p>
 <div class="admonition info">
 <p class="admonition-title">Learning Fundamentals</p>
 <p>For comprehensive learning about Beamable fundamentals, we recommend the following resources:</p>
 <p>• See <a href="https://docs.beamable.com/docs/guides-overview#asynchronous-programming">Beamable: Asynchronous Programming</a> for more info</p>
 </div>
-<p><em>Note</em>: This API is demonstrated in the <code>CloudSavingServiceExample.cs</code> below.</p>
+<p><em>Note</em>: This <abbr title="application programming interface">API</abbr> is demonstrated in the <code>CloudSavingServiceExample.cs</code> below.</p>
 <table>
 <thead>
 <tr>
@@ -9532,7 +9532,7 @@
 </tr>
 <tr>
 <td><code>Update</code></td>
-<td>This function allows you to do Update operations to the <code>CloudSaveService</code> and apply them only once, reducing API calls to the backend.<br><br>The possible operations for the <code>CloudDataUpdateBuilder</code> are:<br><br>- <code>SaveData</code><br>- <code>ArchiveSaveData</code><br>- <code>RenameSaveData</code><br>- <code>ForgetSaveData</code></td>
+<td>This function allows you to do Update operations to the <code>CloudSaveService</code> and apply them only once, reducing <abbr title="application programming interface">API</abbr> calls to the backend.<br><br>The possible operations for the <code>CloudDataUpdateBuilder</code> are:<br><br>- <code>SaveData</code><br>- <code>ArchiveSaveData</code><br>- <code>RenameSaveData</code><br>- <code>ForgetSaveData</code></td>
 </tr>
 <tr>
 <td><code>SetConflictResolverOverride</code></td>
@@ -9572,7 +9572,7 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="changing-service-configuration">Changing Service Configuration<a class="headerlink" href="#changing-service-configuration" title="Permanent link">¶</a></h3>
-<p>You can override the service to fit your application using <code>PlayerCloudSavingConfiguration</code>. By default, the SDK creates a new instance with default values, but you can change these values using Beamable's Dependency Injection system as illustrated below.</p>
+<p>You can override the service to fit your application using <code>PlayerCloudSavingConfiguration</code>. By default, the <abbr title="software development kit">SDK</abbr> creates a new instance with default values, but you can change these values using Beamable's Dependency Injection system as illustrated below.</p>
 <p>CustomRegisterExample.cs</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -9668,7 +9668,7 @@
 <p>The downloading operation uses Unity's <a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Networking.DownloadHandlerFile.html"><code>DownloadHandlerFile</code></a>. If the file is new, it will be saved directly to the <code>/data/</code> Folder. If the file has a conflict it will first be saved to the <code>/temp/</code> folder, if the resolver chooses to use the Cloud Save, it'll be moved to the <code>/data/</code> folder, if not, it will be archived.</p>
 <p><em>Note</em>: If the destination files are kept open by some unrelated system during the syncing process, the <code>CloudSavingService</code> will reattempt several times. Upon any ultimate failure, an <code>IOException</code> will be thrown.</p>
 <h3 id="storage-of-data">Storage Of Data<a class="headerlink" href="#storage-of-data" title="Permanent link">¶</a></h3>
-<p>Data is stored in within Unity's <a href="https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html"><code>Application.persistentDataPath</code></a> and prefixed with the Customer ID (CID), Project ID (PID), and Player ID (PlayerId). This is to ensure data is scoped to a game and a player. The full path is available at <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1CloudSaving_1_1CloudSavingService.html"><code>ICloudSavingService.LocalDataFullPath</code></a>.</p>
+<p>Data is stored in within Unity's <a href="https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html"><code>Application.persistentDataPath</code></a> and prefixed with the Customer ID (<abbr title="customer ID">CID</abbr>), Project ID (<abbr title="realm identifier">PID</abbr>), and Player ID (PlayerId). This is to ensure data is scoped to a game and a player. The full path is available at <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1CloudSaving_1_1CloudSavingService.html"><code>ICloudSavingService.LocalDataFullPath</code></a>.</p>
 <p>There are two options for detecting changes to the Local Save files, the first one, which is the Default, is to detect changes at runtime from the manifest and the other is to use the AutoCloud feature, which detects the folder path directly.</p>
 <h4 id="detecting-changes-from-local-manifest">Detecting Changes from Local Manifest<a class="headerlink" href="#detecting-changes-from-local-manifest" title="Permanent link">¶</a></h4>
 <p>For this option, whenever a File is Saved using the <code>SaveData</code> functions through the service, which could be from <code>ICloudSavingService</code> or from the <code>CloudDataUpdateBuilder</code> it will update the local manifest automatically. After the polling interval taken on the <code>Init</code> function, it will automatically upload any changes to the cloud service. If you write a file directly to the <code>/data/</code> folder, this option will not detect it automatically.</p>

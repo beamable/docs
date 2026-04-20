@@ -9669,7 +9669,7 @@
 </tbody>
 </table>
 <h2 id="beamable-multiplayer">Beamable Multiplayer<a class="headerlink" href="#beamable-multiplayer" title="Permanent link">¶</a></h2>
-<p>The Beamable Multiplayer API is lean and straightforward to setup. The pipeline and workflow for development are ready out-of-the-box on day 1 of development, allowing game makers to focus on game-specific client logic.</p>
+<p>The Beamable Multiplayer <abbr title="application programming interface">API</abbr> is lean and straightforward to setup. The pipeline and workflow for development are ready out-of-the-box on day 1 of development, allowing game makers to focus on game-specific client logic.</p>
 <blockquote>
 <p>Beamable Multiplayer uses relay server technology for rapid game development.</p>
 </blockquote>
@@ -9742,11 +9742,11 @@
 <p>In single-player game design, game makers may freely use randomization libraries to add variety to game play. The environment may be randomized, the enemy amount and variety can change every game session. This adds richness and replayability to the game.</p>
 <p>In a multiplayer game its important that all players in a given game session have the SAME "random" experience. But how?</p>
 <p>Randomization is supported by Beamable's Multiplayer with the following advice. During initialization the Beamable <code>SimClient</code> will pass along the same seed value to feed the random operations on each client. By using the same seed, each game client will be in-sync.</p>
-<h2 id="multiplayer-api">Multiplayer API<a class="headerlink" href="#multiplayer-api" title="Permanent link">¶</a></h2>
+<h2 id="multiplayer-api">Multiplayer <abbr title="application programming interface">API</abbr><a class="headerlink" href="#multiplayer-api" title="Permanent link">¶</a></h2>
 <p>Here is the <strong>High-level Sequence for Beamable Multiplayer</strong>.</p>
 <div class="admonition danger">
-<p class="admonition-title">Experimental API</p>
-<p>This API is experimental and may change in future versions.</p>
+<p class="admonition-title">Experimental <abbr title="application programming interface">API</abbr></p>
+<p>This <abbr title="application programming interface">API</abbr> is experimental and may change in future versions.</p>
 </div>
 <h3 id="creating-multiplayer-session">Creating Multiplayer Session<a class="headerlink" href="#creating-multiplayer-session" title="Permanent link">¶</a></h3>
 <p>Each game client connects this way. No one client has special status of 'host'. Depending on the needs of the game, the <code>SimClient</code> session may stay from the moment any one player joins until the moment the last player leaves.</p>

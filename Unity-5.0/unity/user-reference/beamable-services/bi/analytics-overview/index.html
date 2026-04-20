@@ -9819,7 +9819,7 @@
 <p>Now that you have engaged players, it is worth ensuring they are sticky — that is, that they return to play regularly. This report shows how often players come back, and whether retention is declining. High churn (players who stop playing and don't return) is a signal to investigate your retention metrics more closely.</p>
 <div class="admonition info">
 <p class="admonition-title">Query Notes</p>
-<p>When using PopSQL, you'll need the PID realm ID and a start and end date. If not using PopSQL, replace the {{pid}} field and the {{start_date}} and {{end_date}} fields with correct values.</p>
+<p>When using PopSQL, you'll need the <abbr title="realm identifier">PID</abbr> realm ID and a start and end date. If not using PopSQL, replace the {{pid}} field and the {{start_date}} and {{end_date}} fields with correct values.</p>
 </div>
 <div class="language-sql highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -9904,7 +9904,7 @@
 <span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="monthly-players-spending-total-revenue-per-month">Monthly Players Spending (Total Revenue Per Month)<a class="headerlink" href="#monthly-players-spending-total-revenue-per-month" title="Permanent link">¶</a></h3>
-<p>When you have an engaged &amp; retained player base and you offer any sort of IAP (in app purchases) then this report will be important for you to understand how much money players are spending and how much money you are making per month. This query will show you how much your players are spending each month as an aggregated total.</p>
+<p>When you have an engaged &amp; retained player base and you offer any sort of <abbr title="in-app purchases">IAP</abbr> (in app purchases) then this report will be important for you to understand how much money players are spending and how much money you are making per month. This query will show you how much your players are spending each month as an aggregated total.</p>
 <div class="admonition info">
 <p class="admonition-title">Query Notes</p>
 <p>This is a very simple way to get the total dollar amount spent across all players and all sessions during a 30 day period. When using PopSQL you can put <strong>-30</strong> in the variable field. If not using PopSQL you can replace {{days}} with <strong>-30</strong>.</p>
@@ -9921,7 +9921,7 @@
 <span class="w"> </span><span class="n">act_time</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">date_add</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="err">{{</span><span class="n">days</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">);</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <h3 id="30-day-daily-spending-report">30 Day - Daily Spending Report<a class="headerlink" href="#30-day-daily-spending-report" title="Permanent link">¶</a></h3>
-<p>Knowing how much money your game is making from IAP each day is highly valuable. If you monitor this over time and you start seeing a dip, this could be a sign that something is wrong in your game. It is also a great success metric to show that your game monetizes well.</p>
+<p>Knowing how much money your game is making from <abbr title="in-app purchases">IAP</abbr> each day is highly valuable. If you monitor this over time and you start seeing a dip, this could be a sign that something is wrong in your game. It is also a great success metric to show that your game monetizes well.</p>
 <div class="admonition info">
 <p class="admonition-title">Query Notes</p>
 <p>The below query will give you any spending that was done across all sessions on a particular date. If no spending was done and there were sessions there will be a record with 0. When using PopSQL you can put <strong>-30</strong> in the variable field. If not using PopSQL you can replace {{days}} with <strong>-30</strong>.</p>
@@ -9958,7 +9958,7 @@
 <li>50% off Premium or Business for Indie teams (less than 2 years old, and fewer than 10 employees) for up to 1 year</li>
 <li>25% off Premium or Business for everyone else for up to 1 year</li>
 </ul>
-<p>All you have to do is email <a href="mailto:support@popsql.com">support@popsql.com</a> or open up a ticket through our intercom chat widget and provide your Beamable CID.</p>
+<p>All you have to do is email <a href="mailto:support@popsql.com">support@popsql.com</a> or open up a ticket through our intercom chat widget and provide your Beamable <abbr title="customer ID">CID</abbr>.</p>
 </div>
 <h3 id="get-access">Get Access<a class="headerlink" href="#get-access" title="Permanent link">¶</a></h3>
 <p>In order to access the Athena Database you will need 3 key pieces of information. The following can only be provided to you from the Beamable team and we are eager to get you setup! NOTE: You must have a REPORT tier subscription to get access to custom analytics queries. You can find out more at <a href="https://beamable.com/pricing">https://beamable.com/pricing</a>. We will then provide you with the following:</p>
@@ -9976,7 +9976,7 @@
 <li>Navigate to your accounts menu and click <strong>manage connections</strong></li>
 <li>Click <strong>Add new Connection</strong> button. It is located in the top right corner.</li>
 <li>Select <strong>Amazon Athena</strong></li>
-<li>The database value is a lowercase version of the project ID (PID) of your title. You can find this in the Beamable Portal and generally looks like <strong>DE_1418422019508251</strong>. Note that when you populate it here in the database that the <strong>de_</strong> needs to be lower case.</li>
+<li>The database value is a lowercase version of the project ID (<abbr title="realm identifier">PID</abbr>) of your title. You can find this in the Beamable Portal and generally looks like <strong>DE_1418422019508251</strong>. Note that when you populate it here in the database that the <strong>de_</strong> needs to be lower case.</li>
 <li>Put the provided S3 Output Location, AWS Access Key ID &amp; AWS Secret Access Key. You can leave everything else blank or default. ( for example, AWS Session Token is not needed for this type of connection )</li>
 <li>Click Save and Connect</li>
 </ol>

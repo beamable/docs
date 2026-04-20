@@ -9307,9 +9307,9 @@
 
 
 
-<h1 id="player-centric-api">Player Centric API<a class="headerlink" href="#player-centric-api" title="Permanent link">¶</a></h1>
-<p>The "Beamable SDK for Unity" provides a main entry point to Beamable functions in your Unity Code and the Beamable Player-Centric API is the recommended way to access Beamable APIs.</p>
-<p>This class is designed to support multiple local players, flexible API reference syntax, testability, and lazy initialization. The Beamable Player-Centric API also continues to offer a flexible API reference syntax of Async / Await, Callbacks, Coroutines, as well as <strong>Synchronous</strong>.</p>
+<h1 id="player-centric-api">Player Centric <abbr title="application programming interface">API</abbr><a class="headerlink" href="#player-centric-api" title="Permanent link">¶</a></h1>
+<p>The "Beamable <abbr title="software development kit">SDK</abbr> for Unity" provides a main entry point to Beamable functions in your Unity Code and the Beamable Player-Centric <abbr title="application programming interface">API</abbr> is the recommended way to access Beamable APIs.</p>
+<p>This class is designed to support multiple local players, flexible <abbr title="application programming interface">API</abbr> reference syntax, testability, and lazy initialization. The Beamable Player-Centric <abbr title="application programming interface">API</abbr> also continues to offer a flexible <abbr title="application programming interface">API</abbr> reference syntax of Async / Await, Callbacks, Coroutines, as well as <strong>Synchronous</strong>.</p>
 <h2 id="beamcontext-overview">BeamContext Overview<a class="headerlink" href="#beamcontext-overview" title="Permanent link">¶</a></h2>
 <p>After that setup, game makers use the <code>BeamContext</code> object as the main entry-point to Beamable functionality. Here's a simple example of initializing the <code>BeamContext</code></p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -9328,7 +9328,7 @@
 <span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_context.PlayerId = {_context.PlayerId}"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>Additionally The Beamable Player-Centric API has multiple ways to return the reference to the API. Each one is suited for different use-cases:</p>
+<p>Additionally The Beamable Player-Centric <abbr title="application programming interface">API</abbr> has multiple ways to return the reference to the <abbr title="application programming interface">API</abbr>. Each one is suited for different use-cases:</p>
 <table>
 <thead>
 <tr>
@@ -9401,7 +9401,7 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">API</th>
+<th style="text-align: left;"><abbr title="application programming interface">API</abbr></th>
 <th style="text-align: left;">Definition</th>
 </tr>
 </thead>
@@ -9428,7 +9428,7 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 </tr>
 </tbody>
 </table>
-<p><em>Note</em>: <code>BeamContext</code> API calls will fail if it is stopped in the middle of an async method and will throw an exception. It must be started for these calls to work.</p>
+<p><em>Note</em>: <code>BeamContext</code> <abbr title="application programming interface">API</abbr> calls will fail if it is stopped in the middle of an async method and will throw an exception. It must be started for these calls to work.</p>
 <h2 id="attaching-service-callbacks">Attaching Service Callbacks<a class="headerlink" href="#attaching-service-callbacks" title="Permanent link">¶</a></h2>
 <p>Here the game maker references the context and subscribes to service changes via callback. The common Beamable services support various callbacks.</p>
 <p><strong>Currency OnUpdated Callback</strong></p>
@@ -9476,14 +9476,14 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 </tbody>
 </table>
 <h2 id="in-the-unity-editor">In the Unity Editor<a class="headerlink" href="#in-the-unity-editor" title="Permanent link">¶</a></h2>
-<p>When a <code>BeamContext</code> instance is initialized, a <code>GameObject</code> will be instantiated under Unity's "DontDestroyOnLoad" folder in the scene hierarchy. This <code>GameObject</code> will be named "Beamable" and contains information and behaviours for the currently running context, including:</p>
+<p>When a <code>BeamContext</code> instance is initialized, a <code>GameObject</code> will be instantiated under Unity's "DontDestroyOnLoad" folder in the scene hierarchy. This <code>GameObject</code> will be named "Beamable" and contains information and behaviors for the currently running context, including:</p>
 <p>• The current Authorized User
 • Player Stats
 • Subscription/Coroutine managers</p>
 <p>Since this object is linked to the associated Context, calling <code>Stop()</code> on the context will delete this object, and vice versa.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamable-context-gameobject.png" data-desc-position="bottom"><img alt="Beamable Context GameObject" src="../../../../media/imgs/beamable-context-gameobject.png"></a></p>
-<h2 id="legacy-beamable-api">Legacy Beamable API<a class="headerlink" href="#legacy-beamable-api" title="Permanent link">¶</a></h2>
-<p>The Legacy Beamable API is still available for use in the Beamable SDK for Unity, but it is no longer the recommended way to access Beamable APIs.</p>
+<h2 id="legacy-beamable-api">Legacy Beamable <abbr title="application programming interface">API</abbr><a class="headerlink" href="#legacy-beamable-api" title="Permanent link">¶</a></h2>
+<p>The Legacy Beamable <abbr title="application programming interface">API</abbr> is still available for use in the Beamable <abbr title="software development kit">SDK</abbr> for Unity, but it is no longer the recommended way to access Beamable APIs.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -9494,14 +9494,14 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 <span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"beamableAPI.User.id = {beamableAPI.User.id}"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>After that setup, the <code>beamableAPI</code> object serves as the main entry-point to Beamable functionality. Limitations of this API include that it relates to exactly <em>one</em> local player and requires calling most Beamable functionality <strong>asynchronously</strong>.</p>
+<p>After that setup, the <code>beamableAPI</code> object serves as the main entry-point to Beamable functionality. Limitations of this <abbr title="application programming interface">API</abbr> include that it relates to exactly <em>one</em> local player and requires calling most Beamable functionality <strong>asynchronously</strong>.</p>
 <p>You can see the difference between the two APIs in the table below:</p>
 <table>
 <thead>
 <tr>
 <th>Benefits</th>
-<th>Legacy API</th>
-<th>Player-Centric API</th>
+<th>Legacy <abbr title="application programming interface">API</abbr></th>
+<th>Player-Centric <abbr title="application programming interface">API</abbr></th>
 </tr>
 </thead>
 <tbody>
@@ -9532,11 +9532,11 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 </tr>
 </tbody>
 </table>
-<p>Game makers with existing Beamable projects which are using the legacy Beamable API are encouraged to migrate to the Beamable Player-Centric API</p>
+<p>Game makers with existing Beamable projects which are using the legacy Beamable <abbr title="application programming interface">API</abbr> are encouraged to migrate to the Beamable Player-Centric <abbr title="application programming interface">API</abbr></p>
 <p>For the simplest migration instructions;</p>
 <ul>
 <li>Replace <code>var beamableAPI = await Beamable.API.Instance;</code> with <code>var beamContext = BeamContext.Default;</code></li>
-<li>APIs and services are accessed very similarly as well, since a <code>BeamContext</code> instance has an <code>Api</code> variable, with access to all the same services as Beamable.API. This is documented further in the <a href="doc:player-centric-api-dependency-injection">Player Centric API - Dependency Injection</a> documentation</li>
+<li>APIs and services are accessed very similarly as well, since a <code>BeamContext</code> instance has an <code>Api</code> variable, with access to all the same services as Beamable.<abbr title="application programming interface">API</abbr>. This is documented further in the <a href="doc:player-centric-api-dependency-injection">Player Centric <abbr title="application programming interface">API</abbr> - Dependency Injection</a> documentation</li>
 </ul>
 
 

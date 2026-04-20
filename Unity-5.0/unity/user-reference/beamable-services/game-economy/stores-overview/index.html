@@ -9466,11 +9466,11 @@
 
 
 <h1 id="stores-overview">Stores - Overview<a class="headerlink" href="#stores-overview" title="Permanent link">¶</a></h1>
-<p>Beamable's Store feature allows the game maker to create a storefront in their application. Users can purchase items with real money or virtual currency. These can be attached to third-party purchasing methods (Apple, Google, etc.), or Unity's built-in IAP system.</p>
+<p>Beamable's Store feature allows the game maker to create a storefront in their application. Users can purchase items with real money or virtual currency. These can be attached to third-party purchasing methods (Apple, Google, etc.), or Unity's built-in <abbr title="in-app purchases">IAP</abbr> system.</p>
 <p>The setup for Stores uses the <a href="../../profile-storage/content/content-overview/#content-management">Content Manager</a>, and relies on at least one valid <a href="../virtual-currency-overview/">Virtual Currency</a>, so it is recommended to review those features before implementation.</p>
-<p>Beamable supports purchasing using both virtual currency and real money (IAP) to purchase in-game items.</p>
-<h2 id="stores-api">Stores API<a class="headerlink" href="#stores-api" title="Permanent link">¶</a></h2>
-<p>Beamable offers various APIs to allow the game maker to set up purchasing with various configurations. <a href="../virtual-currency-overview/">Virtual Currency</a> or real money can be used to purchase items, as well as support for Unity IAP or a variety of third-party or custom purchasers.</p>
+<p>Beamable supports purchasing using both virtual currency and real money (<abbr title="in-app purchases">IAP</abbr>) to purchase in-game items.</p>
+<h2 id="stores-api">Stores <abbr title="application programming interface">API</abbr><a class="headerlink" href="#stores-api" title="Permanent link">¶</a></h2>
+<p>Beamable offers various APIs to allow the game maker to set up purchasing with various configurations. <a href="../virtual-currency-overview/">Virtual Currency</a> or real money can be used to purchase items, as well as support for Unity <abbr title="in-app purchases">IAP</abbr> or a variety of third-party or custom purchasers.</p>
 <div class="admonition info">
 <p class="admonition-title">Prerequisites</p>
 <p>Before users can purchase items, you must set up at least one valid currency, a store item, and store listing.</p>
@@ -9558,8 +9558,8 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
-<h3 id="unity-iap">Unity IAP<a class="headerlink" href="#unity-iap" title="Permanent link">¶</a></h3>
-<p>If you want to leverage Unity IAP, you can use a <a href="./#custom-purchase-reporting">Custom Purchase Reporting</a> to integrate directly with Unity IAP. Beamable already has a custom purchaser to do this, and all you need to do is register it, like below.</p>
+<h3 id="unity-iap">Unity <abbr title="in-app purchases">IAP</abbr><a class="headerlink" href="#unity-iap" title="Permanent link">¶</a></h3>
+<p>If you want to leverage Unity <abbr title="in-app purchases">IAP</abbr>, you can use a <a href="./#custom-purchase-reporting">Custom Purchase Reporting</a> to integrate directly with Unity <abbr title="in-app purchases">IAP</abbr>. Beamable already has a custom purchaser to do this, and all you need to do is register it, like below.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -9579,11 +9579,11 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="custom-purchaser">Custom Purchaser<a class="headerlink" href="#custom-purchaser" title="Permanent link">¶</a></h3>
-<p>The Beamable <strong>Custom Purchaser</strong> feature allows game makers to implement custom purchasing solutions for in-app purchases, bypassing Unity's built-in IAP system for complete control over the payment flow.</p>
+<p>The Beamable <strong>Custom Purchaser</strong> feature allows game makers to implement custom purchasing solutions for in-app purchases, bypassing Unity's built-in <abbr title="in-app purchases">IAP</abbr> system for complete control over the payment flow.</p>
 <p>Consider implementing a custom purchaser when you need:</p>
 <ul>
 <li><strong>Third-party payment providers</strong> (Stripe, PayPal, custom billing systems)</li>
-<li><strong>Platform-specific integrations</strong> not supported by Unity IAP</li>
+<li><strong>Platform-specific integrations</strong> not supported by Unity <abbr title="in-app purchases">IAP</abbr></li>
 <li><strong>Custom receipt validation</strong> logic</li>
 <li><strong>Specialized purchase flows</strong> for enterprise or B2B applications</li>
 <li><strong>Integration with existing payment infrastructure</strong></li>
@@ -9614,7 +9614,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Initialize</td>
-<td style="text-align: left;">Setup your chosen IAP implementation and dependencies</td>
+<td style="text-align: left;">Setup your chosen <abbr title="in-app purchases">IAP</abbr> implementation and dependencies</td>
 <td style="text-align: left;">Once at startup</td>
 </tr>
 <tr>
@@ -9657,7 +9657,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">CancelPurchase</td>
-<td style="text-align: left;">Handle user-cancelled purchases</td>
+<td style="text-align: left;">Handle user-canceled purchases</td>
 <td style="text-align: left;">When user cancels</td>
 </tr>
 <tr>
@@ -9815,7 +9815,7 @@
 <p>The Beamable <strong>CommerceService</strong> feature allows game makers to create custom storefronts with flexible purchasing options.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">CommerceService</span><span class="p">.</span><span class="n">Purchase</span><span class="p">(</span><span class="n">storeSymbol</span><span class="p">,</span><span class="w"> </span><span class="n">listingSymbol</span><span class="p">);</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>There are 3 major parts to the Store setup process. The workflow involves configuring Unity IAP, setting up platform integrations, and creating Beamable content.
+<p>There are 3 major parts to the Store setup process. The workflow involves configuring Unity <abbr title="in-app purchases">IAP</abbr>, setting up platform integrations, and creating Beamable content.
 The following code examples demonstrate how to implement a custom store experience.</p>
 <p>CommerceServiceExample.cs
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
@@ -10211,13 +10211,13 @@ The following code examples demonstrate how to implement a custom store experien
 <h2 id="custom-purchase-reporting">Custom Purchase Reporting<a class="headerlink" href="#custom-purchase-reporting" title="Permanent link">¶</a></h2>
 <p>As a game maker you will find that in some cases you need to be able to report purchases from outside the Beamable store flow. Beamable provides you with a way to do this through a small configuration change in the Portal and some client-side tracking code.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/payment-audits-realm-config.png" data-desc-position="bottom"><img alt="Payment Audits Realm Config" src="../../../../../media/imgs/payment-audits-realm-config.png"></a></p>
-<p>As shown in the above example, you will need to set a key in your Realm configuration to override purchase reporting to enable this functionality. Without this configuration change the API will error and not report anything.</p>
+<p>As shown in the above example, you will need to set a key in your Realm configuration to override purchase reporting to enable this functionality. Without this configuration change the <abbr title="application programming interface">API</abbr> will error and not report anything.</p>
 <p>Here we are setting the namespace to <strong>payments</strong> and then the key is <strong>client_audits</strong> and we will set the value to <strong>true</strong>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Security Warning</p>
 <p>This feature is not secure unless you track this from within a MicroService and validate the purchase. It is highly advisable to do so to prevent a customer from spoofing or falsely tracking a purchase.</p>
 </div>
-<p>Once your configuration has been setup to allow this API to function, then you can use the <code>.Api.PaymentService.Track</code> API to track the purchase. The various fields of the tracking request may be arbitrary strings of your choice, but for the sake of consistency you may want to match the patterns used by the Beamable Commerce Service.</p>
+<p>Once your configuration has been setup to allow this <abbr title="application programming interface">API</abbr> to function, then you can use the <code>.Api.PaymentService.Track</code> <abbr title="application programming interface">API</abbr> to track the purchase. The various fields of the tracking request may be arbitrary strings of your choice, but for the sake of consistency you may want to match the patterns used by the Beamable Commerce Service.</p>
 <table>
 <thead>
 <tr>

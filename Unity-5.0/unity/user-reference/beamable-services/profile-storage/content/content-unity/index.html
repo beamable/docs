@@ -9612,7 +9612,7 @@
 
 
 <h1 id="unity-editor-integration-of-beamable-content-services">Unity Editor Integration of Beamable Content Services<a class="headerlink" href="#unity-editor-integration-of-beamable-content-services" title="Permanent link">¶</a></h1>
-<p>The Unity SDK has many features to support the Beamable Content Service within the Unity Editor.</p>
+<p>The Unity <abbr title="software development kit">SDK</abbr> has many features to support the Beamable Content Service within the Unity Editor.</p>
 <h2 id="content-manager-editor">Content Manager Editor<a class="headerlink" href="#content-manager-editor" title="Permanent link">¶</a></h2>
 <p>The new <strong>Content Manager in Unity</strong> now uses the <strong>Beamable CLI Content Manager</strong>, enabling content management even outside Unity.</p>
 <p>While the previous Unity implementation relied on saved on disk <strong>ScriptableObjects</strong>, this updated version reads and parses the <strong>JSON files</strong> (the CLI's format) into memory-only <strong>ScriptableObjects</strong>. This ensures full compatibility with CLI workflows while preserving all Unity-specific features.</p>
@@ -9770,8 +9770,8 @@ A file is marked as <strong>Conflicted</strong> only when:</p>
 </ul>
 </div>
 <h2 id="content-filtering">Content Filtering<a class="headerlink" href="#content-filtering" title="Permanent link">¶</a></h2>
-<p>Content can be filtered by tag, type, or id. The Content Manager Window can filter the viewable content. Content can be filtered from the SDK as well.</p>
-<p>Content filter strings can be entered into the Content Manager's search box, or into the <code>GetManifest</code> function in the SDK. Filter strings follow the same conventions that Unity search strings do. The type of the filter is specified first, followed by a <code>:</code> character, and the query for the filter is specified last.</p>
+<p>Content can be filtered by tag, type, or id. The Content Manager Window can filter the viewable content. Content can be filtered from the <abbr title="software development kit">SDK</abbr> as well.</p>
+<p>Content filter strings can be entered into the Content Manager's search box, or into the <code>GetManifest</code> function in the <abbr title="software development kit">SDK</abbr>. Filter strings follow the same conventions that Unity search strings do. The type of the filter is specified first, followed by a <code>:</code> character, and the query for the filter is specified last.</p>
 <p><strong>Type Filtering:</strong> To filter by content type, use the <code>t</code> filter constraint. The following table shows examples of type constraints.</p>
 <table>
 <thead>
@@ -10216,7 +10216,7 @@ This <code>MustBeStringLength.cs</code> snippet demonstrates the implementation 
 <li>Maintaining synchronization integrity</li>
 </ul>
 <h3 id="why-beamablelocal-is-gitignored">Why <code>.beamable/local/</code> Is Gitignored<a class="headerlink" href="#why-beamablelocal-is-gitignored" title="Permanent link">¶</a></h3>
-<p>The SDK adds the following entries to <code>.beamable/.gitignore</code>:</p>
+<p>The <abbr title="software development kit">SDK</abbr> adds the following entries to <code>.beamable/.gitignore</code>:</p>
 <div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>temp/**/*
 local/**/*

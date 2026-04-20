@@ -9539,7 +9539,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="friends-api">Friends API<a class="headerlink" href="#friends-api" title="Permanent link">¶</a></h2>
+<h2 id="friends-api">Friends <abbr title="application programming interface">API</abbr><a class="headerlink" href="#friends-api" title="Permanent link">¶</a></h2>
 <p>Access friends directly through the <code>ISocialApi</code> interface, or conveniently through the <code>BeamContext.Social</code> accessor. The following samples illustrate how to achieve common use cases by using the <code>BeamContext</code>.</p>
 <h4 id="viewing-social-data">Viewing Social Data<a class="headerlink" href="#viewing-social-data" title="Permanent link">¶</a></h4>
 <p>The <code>BeamContext.Social</code> returns an instance of <code>PlayerSocial</code> which is a serializable object you can view in the Unity inspector. The <code>PlayerSocial</code> object is an observable type, which means that Beamable will update it silently in the background as friendships are initiated, made, or broken.</p>
@@ -9792,7 +9792,7 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h4 id="presence">Presence<a class="headerlink" href="#presence" title="Permanent link">¶</a></h4>
-<p>A friend may have a presence object that describes the friend's online status. Friend presence is accessible directly from the <code>PlayerFriend</code> structure, or by using the <code>ctx.Presence</code> SDK.</p>
+<p>A friend may have a presence object that describes the friend's online status. Friend presence is accessible directly from the <code>PlayerFriend</code> structure, or by using the <code>ctx.Presence</code> <abbr title="software development kit">SDK</abbr>.</p>
 <h5 id="listening-for-friend-presence-changes">Listening for friend presence changes<a class="headerlink" href="#listening-for-friend-presence-changes" title="Permanent link">¶</a></h5>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -9812,7 +9812,7 @@
 <span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Presence</span><span class="p">.</span><span class="n">SetPlayerStatus</span><span class="p">(</span><span class="n">PresenceStatus</span><span class="p">.</span><span class="n">Away</span><span class="p">,</span><span class="w"> </span><span class="s">"away from the computer"</span><span class="p">);</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="direct-access">Direct Access<a class="headerlink" href="#direct-access" title="Permanent link">¶</a></h3>
-<p>While the previous section is the preferred way to interact with Beamable friends, you can also access the API layer directly. This approach requires much more effort to manage.</p>
+<p>While the previous section is the preferred way to interact with Beamable friends, you can also access the <abbr title="application programming interface">API</abbr> layer directly. This approach requires much more effort to manage.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
