@@ -197,7 +197,7 @@ private void GoogleAuthResponse(string message)
         {
             if (token == null)
             {
-                //Login failed or was cancelled
+                //Login failed or was canceled
             }
             else
             {

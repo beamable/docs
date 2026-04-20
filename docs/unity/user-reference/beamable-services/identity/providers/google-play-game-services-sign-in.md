@@ -72,7 +72,7 @@ private void HandleLoginResult(bool success)
 {
 	if(!success)
 	{
-        //Login failed or was cancelled
+        //Login failed or was canceled
 	}
 }
 

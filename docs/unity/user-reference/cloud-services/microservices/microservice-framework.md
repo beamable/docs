@@ -86,7 +86,7 @@ public int Example();
 {
   while (true)
   {
-     // if the request has not been cancelled, this is a no-op.
+     // if the request has not been canceled, this is a no-op.
      Context.ThrowIfCancelled();
   }
   return 1;
