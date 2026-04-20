@@ -12,7 +12,7 @@ dotnet --version
 dotnet beam version # dotnet beam --version also works.
 ```
 
-In order to federate using a Microservice, you also need to have a local `.beamable` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
+In order to federate using a Microservice, you also need to have a local `.beamable/` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
 
 ```sh
 dotnet beam init MyProject
@@ -43,7 +43,7 @@ public partial class ExampleService : IFederatedLogin<MySample>
 }
 ```
 
-The `MySample` class included as the generic type in the `IFederatedLogin` interface specifies the id for the federated login. The class signature for these types must implement the `IFederationId` type, and be annotated with a `FederationId` attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.
+The `MySample` class included as the generic type in the `IFederatedLogin` interface specifies the id for the federated login. The class signature for these types must implement the `IFederationId` type and include a `FederationId` attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.
 
 ```csharp
 [FederationId("myId")]
@@ -94,7 +94,7 @@ The following IFederationId is invalid. They must: Start with a letter. Contain 
 ```
 
 **Solutions**:
-- Rename the federation ID to follow the format, e.g., `MyFederation`.
+- Rename the federation ID to follow the format, e.g., `MyFederation`
 
 ---
 

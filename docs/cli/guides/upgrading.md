@@ -27,7 +27,7 @@ These are ordered with the latest versions towards the top, and the older versio
 There is one large change between CLI 6 and CLI 7, but there is an automatic upgrade path.
 
 #### Configuration Refactor
-The 7.0 release restructures the `.beamable` folder in your project. Previously, there were several single-use files in the folder. Now, those files have been merged into a single `config.beam.json`.
+The 7.0 release restructures the `.beamable/` folder in your project. Previously, there were several single-use files in the folder. Now, those files have been merged into a single `config.beam.json`.
 
 The first time you run any command with CLI 7.0, your config files will be automatically merged into the new format.
 
@@ -206,7 +206,7 @@ following line to the end of the file.
 ### From 2.0.2 to 3.0.1
 The upgrade from 2.0.x to 3.0.1 brings a few critical updates to the `csproj` file, how the Beam CLI tool is managed, and the version of `dotnet`.
 
-**To start this process, let's open a terminal and navigate to the directory containing your `.beamable` folder. All commands are written as though invoked from this directory.**
+**To start this process, let's open a terminal and navigate to the directory containing your `.beamable/` folder. All commands are written as though invoked from this directory.**
 
 ```shell
 # In this file structure...
@@ -281,11 +281,11 @@ You tried using a Beamable CLI version=[3.0.1] which is different than the one c
 #### Updating the `.csproj` Files
 The next step in this migration is to fix up the `.csproj` files for your microservices. The new `.csproj` file structure comes with a few new things:
 
-- It will version-lock the package versions to the currently local CLI version (the one inside `.config/dotnet-tools.json`).
-	- This means updating the CLI is just changing that version number.
-	- You can manually edit this to dodge the version-lock if you want to risk it.
-- It includes a Roslyn Static Analyser to help you out with microservices and federation implementations.
-- It'll target `.net8`.
+- It will version-lock the package versions to the currently local CLI version (the one inside `.config/dotnet-tools.json`)
+	- This means updating the CLI is just changing that version number
+	- You can manually edit this to dodge the version-lock if you want to risk it
+- It includes a Roslyn Static Analyser to help you out with microservices and federation implementations
+- It'll target `.net8`
 
 In every `csproj` file for **Microservices**, **MicroStorages**, and **Common Libraries**, follow the steps below:
 
@@ -359,9 +359,9 @@ With the introduction of the `Beamable.Microservice.SourceGen` library, all Micr
 
 If you use any Federated endpoints as part of your Microservices, there a few code-changes you'll have to make:
 
-- Replace all `IThirdPartyCloudIdentity` with `IFederationId`.
-- Add a `FederationId` attribute to the class `IFederationId` — the `UniqueName` is the property.
-- If you were ever accessing the `UniqueName` property as part of your code, you'll need to replace those calls with `GetUniqueName()`.
+- Replace all `IThirdPartyCloudIdentity` with `IFederationId`
+- Add a `FederationId` attribute to the class `IFederationId` — the `UniqueName` is the property
+- If you were ever accessing the `UniqueName` property as part of your code, you'll need to replace those calls with `GetUniqueName()`
 
 Once these are in, try to compile your services. The newly referenced Roslyn Static Analyzer should tell you if you made any mistakes.
 
@@ -428,7 +428,7 @@ ENTRYPOINT "dotnet" $BEAM_APP
 
 #### CLI File Structure
 
-The `.beamable` folder structure changes between the major versions 1, and 2.
+The `.beamable/` folder structure changes between the major versions 1, and 2.
 After you upgrade your global CLI to 2.0.1, run the following command in your project. This command should automatically perform some of the required upgrade steps.
 
 ```sh
@@ -437,10 +437,10 @@ beam config
 
 If you forgot to the run the command, or would like to verify that the upgrade happened correctly, follow the bullets below.
 
-- The `.beamable/beamoLocalManifest.json` file should no longer exist.
-- The `.beamable/beamoLocalRuntime.json` file should no longer exist.
-- The `.beamable/config-defaults.json` file should no longer exist.
-- The `.beamable/user-token.json` file should no longer exist.
+- The `.beamable/beamoLocalManifest.json` file should no longer exist
+- The `.beamable/beamoLocalRuntime.json` file should no longer exist
+- The `.beamable/config-defaults.json` file should no longer exist
+- The `.beamable/user-token.json` file should no longer exist
 
 Instead, you should expect to see (at least),
 - `.beamable/connection-configuration.json` _(this replaces the old `config-defaults` file. )_

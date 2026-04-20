@@ -16,7 +16,7 @@ Beamable Portal, under **Communicate > Campaigns > + Create Campaign.**
 
 After that, you can create campaigns setting some information through a few steps:
 
-- Meta information: This is going to be all the main information about your Campaign. You're going to select which Type the campaign will be, as well as its name and date.
+- Meta information: This covers the main information about your Campaign. Select the campaign Type, name, and date
 
 ![Campaign Meta Information](../media/imgs/campaigns-meta-information.png)
 
@@ -28,16 +28,16 @@ After that, you can create campaigns setting some information through a few step
 
 ![Campaign Content](../media/imgs/campaigns-content.png)
 
-- Segment: In this section you are going to set the conditions required from players to be able to receive your campaign. So if you want to target specific players, you can do it through the use of Players Activities and/or Player Stats.
+- Segment: In this section you are going to set the conditions required from players to be able to receive your campaign. So if you want to target specific players, you can do it through the use of Players Activities and/or Player Stats
 
 ![Campaign Segment](../media/imgs/campaigns-segment.png)
 
-- Summary: finally there will be a summary of your campaign so you can verify that every information is correct and ready to go.
+- Summary: finally there will be a summary of your campaign so you can verify that every information is correct and ready to go
 
 ## Client Implementation
 
 For the client implementation, it's going to depend on which type your campaign is for. All of the following types have  their own implementation and can be triggered by campaigns as well as other means like custom C# microservices.
 
-- **Email and In-game mail**: Follow the mail documentation for more information on how to implement this.
-- **Push Notifications**: Follow the Push Notifications documentation for information on how to implement.
-- **Announcements**: Follow the Announcements documentation for information on how to implement.
+- **Email and In-game mail**: Follow the mail documentation for more information on how to implement this
+- **Push Notifications**: Follow the Push Notifications documentation for information on how to implement
+- **Announcements**: Follow the Announcements documentation for information on how to implement

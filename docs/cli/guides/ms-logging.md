@@ -13,7 +13,7 @@ dotnet --version
 dotnet beam version # dotnet beam --version also works.
 ```
 
-In order to configure a Microservice, you also need to have a local `.beamable` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
+In order to configure a Microservice, you also need to have a local `.beamable/` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
 ```sh
 beam init MyProject
 cd MyProject
@@ -182,9 +182,9 @@ public static async Task Main()
 ```
 
 The various _CreateAttribute_ functions should add attributes to the current context of a request.
-- `DefaultAttributes` allow you to add an attribute to _every_ log line.
-- `ConnectionAttributes` allow you to add an attribute to every log line that is part of a specific _connection_ to Beamable. When a Microservice runs locally, there is only a single connection, but in a deployed environment, there are _10_ connections.
-- `RequestAttributes` allow you add attributes to every log line per _request_.
+- `DefaultAttributes` allow you to add an attribute to _every_ log line
+- `ConnectionAttributes` allow you to add an attribute to every log line that is part of a specific _connection_ to Beamable. When a Microservice runs locally, there is only a single connection, but in a deployed environment, there are _10_ connections
+- `RequestAttributes` allow you add attributes to every log line per _request_
 
 The `GetDescriptors()` function must return a description for all attributes you want to be defined. When an attribute is described from the return value, the title and description will appear in the Portal.
 
@@ -294,7 +294,7 @@ In a few moments, you should see log data appear in BetterStack.
 
 To configure a deployed Microservice to report log data to BetterStack, we need to start the collector in the deployed environment. The easiest way to do this is to run the collector as a local process.
 
-The `Dockerfile` needs to be modified to include the collector in the built image. Add these lines right below the `WORKDIR /beamApp` line,
+Modify the `Dockerfile` to include the collector in the built image. Add these lines right below the `WORKDIR /beamApp` line,
 
 ```dockerfile
 # Install utilities

@@ -12,7 +12,7 @@ dotnet --version
 dotnet beam version # dotnet beam --version also works.
 ```
 
-In order to configure a Microservice, you also need to have a local `.beamable` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
+In order to configure a Microservice, you also need to have a local `.beamable/` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
 ```sh
 dotnet beam init MyProject
 cd MyProject
@@ -94,7 +94,7 @@ The `<BeamLogProvider>` determines which log provider the microservice will use.
 #### BeamEnabled
 
 The `<BeamEnabled>` is a boolean property. If set to `false`, the service will not be enabled when [deployed](ms-deployment.md), and will not cost Beamable Cloud resources.
-This option can be set using the project enable or the project disable commands.
+Set this option using the project enable or project disable commands.
 
 | Property Name   | Default Value |
 | --------------- | ------------- |
