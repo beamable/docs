@@ -129,7 +129,7 @@ Your custom purchaser **must interact** with Beamable's [`PaymentService`](https
 | GetSKUs          | Retrieve available products from Beamable                | During initialization |
 | BeginPurchase    | Notify Beamable that a purchase is starting              | Before payment provider call |
 | CompletePurchase | Verify receipt and fulfill items after successful payment | After payment confirmed |
-| CancelPurchase   | Handle user-cancelled purchases                           | When user cancels |
+| CancelPurchase   | Handle user-canceled purchases                           | When user cancels |
 | FailPurchase     | Handle failed purchase attempts                           | When payment fails |
 
 #### Creating a Custom Purchaser Class

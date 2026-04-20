@@ -110,7 +110,7 @@ private async void MyMethodForCurrencyCallback()
 
 ## In the Unity Editor
 
-When a `BeamContext` instance is initialized, a `GameObject` will be instantiated under Unity's "DontDestroyOnLoad" folder in the scene hierarchy. This `GameObject` will be named "Beamable" and contains information and behaviours for the currently running context, including:
+When a `BeamContext` instance is initialized, a `GameObject` will be instantiated under Unity's "DontDestroyOnLoad" folder in the scene hierarchy. This `GameObject` will be named "Beamable" and contains information and behaviors for the currently running context, including:
 
 • The current Authorized User
 • Player Stats
