@@ -4,7 +4,7 @@ The Tournaments feature can be managed from the Portal.
 
 ## Getting Started
 
-Follow these steps to manage player tournaments: 
+Follow these steps to manage player tournaments:
 
 | Step                                      | Detail                                                |
 | :---------------------------------------- | :---------------------------------------------------- |

@@ -7,7 +7,7 @@ beam unity download-all-nuget-packages <unityProjectPath> [options]
 ## About
 [INTERNAL] Download all known beamable nuget deps for the Beamable SDK
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |unityProjectPath|String|the path to the Unity project|

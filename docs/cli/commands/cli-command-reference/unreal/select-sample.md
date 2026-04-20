@@ -7,7 +7,7 @@ beam unreal select-sample <sample-name> [options]
 ## About
 Run this ONLY when inside the root of the UnrealSDK repo to configure it as a particular sample
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |sample-name|String|The name of the sample with or without "BEAMPROJ_"|

@@ -7,7 +7,7 @@ beam project add-unreal-project <path> [options]
 ## About
 Add a unreal project to this beamable cli project
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |path|String|Relative path to the Unreal project|

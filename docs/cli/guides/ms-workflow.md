@@ -4,7 +4,7 @@ Managing Microservices from the CLI
 
 ## Dependencies
 
-Before you can manage Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
+Before you can manage Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -14,9 +14,9 @@ dotnet beam version   # dotnet beam --version also works.
 
 ## Creating New Projects {#creating-new-projects}
 
-New Microservices, Storages, and Common projects can be created within an existing `.beamable` folder workspace. 
+New Microservices, Storages, and Common projects can be created within an existing `.beamable/` workspace.
 
-Use the `beam project new` commands to create new projects. 
+Use the `beam project new` commands to create new projects.
 
 ```sh
 dotnet beam project new service <name> # create a new Microservice
@@ -24,34 +24,34 @@ dotnet beam project new storage <name> # create a new Storage
 dotnet beam project new common-lib <name> # create a new Common Library
 ```
 
-All of these commands will create a new `.csproj` project and configure it to work with Beamable. The new `.csproj` will be referenced in the `.sln` file. If there is already a `.sln` file, then the first `.sln` file detected in the `.beamable` workspace will be modified to include the `.csproj` reference. If there is no `.sln`, then a file called `BeamableServices.sln` will be created. However, the `--sln` option may be given to override this behavior and specify a .`sln` file to use.
+All of these commands will create a new `.csproj` project and configure it to work with Beamable. The new `.csproj` will be referenced in the `.sln` file. If there is already a `.sln` file, then the first `.sln` file detected in the `.beamable/` workspace will be modified to include the `.csproj` reference. If there is no `.sln`, then a file called `BeamableServices.sln` will be created. However, the `--sln` option may be given to override this behavior and specify a .`sln` file to use.
 
-Projects will be created in the `BeamableServices/services/` directory by default. 
+Projects will be created in the `BeamableServices/services/` directory by default.
 
 ## Finding Microservices
 
-Once there is a Microservice in your `.beamable` workspace, you can check for its existence by running the project list command. It will return services detected in your workspace.
+Once there is a Microservice in your `.beamable/` workspace, you can check for its existence by running the project list command. It will return services detected in your workspace.
 
 ```sh
 MyProject % dotnet beam project list
- {                                             
-    "localServices": [                         
-       {                                       
-          "name": "HelloWorld",                
-          "projectPath": "services/HelloWorld" 
-       }                                       
-    ],                                         
-    "localStorages": [                         
-    ]                                          
- } 
+ {
+    "localServices": [
+       {
+          "name": "HelloWorld",
+          "projectPath": "services/HelloWorld"
+       }
+    ],
+    "localStorages": [
+    ]
+ }
 ```
 
 ## Running Microservices
 
-Microservices can be run in several ways, 
+Microservices can be run in several ways,
 1. using the IDE,
 2. using `dotnet` commands directly, or
-3. using `beam` commands. 
+3. using `beam` commands.
 
 The project run command will turn on a service.
 
@@ -70,20 +70,20 @@ MyProject % dotnet beam project ps
 HelloWorld is available prefix=[Chriss-MacBook-Pro-2] docker=[False]
 ```
 
-The `prefix` in the log declares that the service is running locally, and the `docker` log declares that the service is running through dotnet, and not inside a docker container. 
+The `prefix` in the log declares that the service is running locally, and the `docker` log declares that the service is running through dotnet, and not inside a docker container.
 
-Optionally, you can pass the `-w` flag to watch for changes to running services. 
+Optionally, you can pass the `-w` flag to watch for changes to running services.
 
 ## Stopping Services
 
-If a service is running, then the project stop command may be used to stop the program. If the service is not running, then the command will have no output. However, if the service is running, it will log a stop message. 
+If a service is running, then the project stop command may be used to stop the program. If the service is not running, then the command will have no output. However, if the service is running, it will log a stop message.
 
 ```sh
 MyProject % dotnet beam project stop --ids HelloWorld
 stopped HelloWorld.
 ```
 
-When a service is stopped this way, you should expect to see a log in the Microservice itself, 
+When a service is stopped this way, you should expect to see a log in the Microservice itself,
 
 ```
 [Info] Stopping service through debug-server due to reason=[cli-request]
@@ -91,7 +91,7 @@ When a service is stopped this way, you should expect to see a log in the Micros
 
 ## Observing Logs
 
-When a service is run, the process that starts the service should receive the log outputs. For example, if the service is run through the IDE, then the IDE should receive the logs from the service. However, it is possible to attach to the logs of a running service from a separate process. 
+When a service is run, the process that starts the service should receive the log outputs. For example, if the service is run through the IDE, then the IDE should receive the logs from the service. However, it is possible to attach to the logs of a running service from a separate process.
 
 For example, imagine that a service is run through `dotnet` directly,
 

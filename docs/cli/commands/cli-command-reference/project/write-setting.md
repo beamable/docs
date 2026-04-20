@@ -7,7 +7,7 @@ beam project write-setting <beamoId> [options]
 ## About
 [INTERNAL] Write a group of project settings
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |beamoId|String|The BeamoId to write the settings for|

@@ -7,7 +7,7 @@ beam unity copy-dotnet-src <csprojPath> <unityPath> [options]
 ## About
 [INTERNAL] Copy the src from a dotnet csproj project into a Unity project
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |csprojPath|String|path to csproj project|
