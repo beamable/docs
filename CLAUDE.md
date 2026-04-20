@@ -100,6 +100,13 @@ The workflow runs `mike deploy "{sdk}-{version}" --push`, which publishes to `gh
 2. Create a feature branch from the relevant subject-specific branch (not `main`).
 3. Open a PR and always add Balbio as a reviewer.
 
+### Merge strategy
+
+- **Automated sync PRs** (`merge-core/vX.Y-into-unity/vA.B` and similar): use **merge commit**. These PRs propagate core branch changes onto product branches; the merge commit preserves the full branch topology and makes the sync boundary visible in history.
+- **Feature and fix PRs**: use **squash-and-merge**. Changes are typically by one person on one topic, so squashing produces a clean, readable log.
+
+Note: the automated sync PRs are not created by the GitHub Actions in this repo. The merge strategy is a convention enforced manually in the GitHub UI — choose "Create a merge commit" when landing them.
+
 ## Navigation
 
 Documentation navigation is defined by `SUMMARY.md` files (using `mkdocs-literate-nav` plugin) in each content branch.
