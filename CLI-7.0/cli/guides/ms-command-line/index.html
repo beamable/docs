@@ -6190,7 +6190,7 @@
 </code></pre></div>
 <h2 id="piping-and-logging">Piping and Logging<a class="headerlink" href="#piping-and-logging" title="Permanent link">¶</a></h2>
 <p>When the <code>--raw</code> flag is used, or a command is piped to a file, then the Standard Output Buffer will only receive the <code>--raw</code> output data. If the <code>--logs</code> flag is set, then logs will be sent to the Standard Error Buffer, such that will appear in the console. However, it can be tricky to emit the process logs to a file.</p>
-<p>In order to do so, the Standard Error Buffer must be piped to a file. For example, the following expression will put the process logs into a file.</p>
+<p>To do so, pipe the Standard Error Buffer to a file. For example, the following expression will put the process logs into a file.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span>--logs<span class="w"> </span>v<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>test.txt
 </code></pre></div>
 <p>The contents of the <code>test.txt</code> file contain the process logs, not the <code>--raw</code> output.</p>

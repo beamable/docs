@@ -6868,7 +6868,7 @@
 <h3 id="from-62x-to-700">From 6.2.x to 7.0.0<a class="headerlink" href="#from-62x-to-700" title="Permanent link">¶</a></h3>
 <p>There is one large change between CLI 6 and CLI 7, but there is an automatic upgrade path.</p>
 <h4 id="configuration-refactor">Configuration Refactor<a class="headerlink" href="#configuration-refactor" title="Permanent link">¶</a></h4>
-<p>The 7.0 release restructures the <code>.beamable</code> folder in your project. Previously, there were several single-use files in the folder. Now, those files have been merged into a single <code>config.beam.json</code>.</p>
+<p>The 7.0 release restructures the <code>.beamable/</code> folder in your project. Previously, there were several single-use files in the folder. Now, those files have been merged into a single <code>config.beam.json</code>.</p>
 <p>The first time you run any command with CLI 7.0, your config files will be automatically merged into the new format.</p>
 <h4 id="net10-support">Net10 Support<a class="headerlink" href="#net10-support" title="Permanent link">¶</a></h4>
 <p>While not a <em>breaking change</em>, it is worth noting that the CLI 7.x release multi-targets <code>net8.0</code>, and <code>net10.0</code>. We recommend you use <code>net10.0</code> whenever possible.</p>
@@ -6992,7 +6992,7 @@ following line to the end of the file.
 </code></pre></div><p></p>
 <h3 id="from-202-to-301">From 2.0.2 to 3.0.1<a class="headerlink" href="#from-202-to-301" title="Permanent link">¶</a></h3>
 <p>The upgrade from 2.0.x to 3.0.1 brings a few critical updates to the <code>csproj</code> file, how the Beam CLI tool is managed, and the version of <code>dotnet</code>.</p>
-<p><strong>To start this process, let's open a terminal and navigate to the directory containing your <code>.beamable</code> folder. All commands are written as though invoked from this directory.</strong></p>
+<p><strong>To start this process, let's open a terminal and navigate to the directory containing your <code>.beamable/</code> folder. All commands are written as though invoked from this directory.</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># In this file structure...</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>SomeDrive
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">|</span>---ProjectRoot
@@ -7050,13 +7050,13 @@ following line to the end of the file.
 <h4 id="updating-the-csproj-files">Updating the <code>.csproj</code> Files<a class="headerlink" href="#updating-the-csproj-files" title="Permanent link">¶</a></h4>
 <p>The next step in this migration is to fix up the <code>.csproj</code> files for your microservices. The new <code>.csproj</code> file structure comes with a few new things:</p>
 <ul>
-<li>It will version-lock the package versions to the currently local CLI version (the one inside <code>.config/dotnet-tools.json</code>).<ul>
-<li>This means updating the CLI is just changing that version number.</li>
-<li>You can manually edit this to dodge the version-lock if you want to risk it.</li>
+<li>It will version-lock the package versions to the currently local CLI version (the one inside <code>.config/dotnet-tools.json</code>)<ul>
+<li>This means updating the CLI is just changing that version number</li>
+<li>You can manually edit this to dodge the version-lock if you want to risk it</li>
 </ul>
 </li>
-<li>It includes a Roslyn Static Analyser to help you out with microservices and federation implementations.</li>
-<li>It'll target <code>.net8</code>.</li>
+<li>It includes a Roslyn Static Analyser to help you out with microservices and federation implementations</li>
+<li>It'll target <code>.net8</code></li>
 </ul>
 <p>In every <code>csproj</code> file for <strong>Microservices</strong>, <strong>MicroStorages</strong>, and <strong>Common Libraries</strong>, follow the steps below:</p>
 <p>First, add a <code>PropertyGroup</code> with a <code>Label</code> called <code>Beamable Version</code> that looks like this:
@@ -7113,9 +7113,9 @@ binaries are not compatible with Unity.</p>
 <p>With the introduction of the <code>Beamable.Microservice.SourceGen</code> library, all Microservice classes must be marked with the <code>partial</code> keyword. This will allow the source-generator to add custom implementations to Microservices in future releases.</p>
 <p>If you use any Federated endpoints as part of your Microservices, there a few code-changes you'll have to make:</p>
 <ul>
-<li>Replace all <code>IThirdPartyCloudIdentity</code> with <code>IFederationId</code>.</li>
-<li>Add a <code>FederationId</code> attribute to the class <code>IFederationId</code> — the <code>UniqueName</code> is the property.</li>
-<li>If you were ever accessing the <code>UniqueName</code> property as part of your code, you'll need to replace those calls with <code>GetUniqueName()</code>.</li>
+<li>Replace all <code>IThirdPartyCloudIdentity</code> with <code>IFederationId</code></li>
+<li>Add a <code>FederationId</code> attribute to the class <code>IFederationId</code> — the <code>UniqueName</code> is the property</li>
+<li>If you were ever accessing the <code>UniqueName</code> property as part of your code, you'll need to replace those calls with <code>GetUniqueName()</code></li>
 </ul>
 <p>Once these are in, try to compile your services. The newly referenced Roslyn Static Analyzer should tell you if you made any mistakes.</p>
 <p>Finally, the analyzer will inform you that the federations you have in code are not in the <code>federation.json</code> file. The error will look something like this:
@@ -7171,16 +7171,16 @@ binaries are not compatible with Unity.</p>
 </code></pre></div>
 <h3 id="from-11922-to-201">From 1.19.22 to 2.0.1<a class="headerlink" href="#from-11922-to-201" title="Permanent link">¶</a></h3>
 <h4 id="cli-file-structure_1">CLI File Structure<a class="headerlink" href="#cli-file-structure_1" title="Permanent link">¶</a></h4>
-<p>The <code>.beamable</code> folder structure changes between the major versions 1, and 2.
+<p>The <code>.beamable/</code> folder structure changes between the major versions 1, and 2.
 After you upgrade your global CLI to 2.0.1, run the following command in your project. This command should automatically perform some of the required upgrade steps.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>beam<span class="w"> </span>config
 </code></pre></div>
 <p>If you forgot to the run the command, or would like to verify that the upgrade happened correctly, follow the bullets below.</p>
 <ul>
-<li>The <code>.beamable/beamoLocalManifest.json</code> file should no longer exist.</li>
-<li>The <code>.beamable/beamoLocalRuntime.json</code> file should no longer exist.</li>
-<li>The <code>.beamable/config-defaults.json</code> file should no longer exist.</li>
-<li>The <code>.beamable/user-token.json</code> file should no longer exist.</li>
+<li>The <code>.beamable/beamoLocalManifest.json</code> file should no longer exist</li>
+<li>The <code>.beamable/beamoLocalRuntime.json</code> file should no longer exist</li>
+<li>The <code>.beamable/config-defaults.json</code> file should no longer exist</li>
+<li>The <code>.beamable/user-token.json</code> file should no longer exist</li>
 </ul>
 <p>Instead, you should expect to see (at least),
 - <code>.beamable/connection-configuration.json</code> <em>(this replaces the old <code>config-defaults</code> file. )</em>

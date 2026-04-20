@@ -6234,7 +6234,7 @@
 <p>To deploy, you also need to have <a href="https://www.docker.com/products/docker-desktop/">Docker</a> installed. You can verify it is installed correctly by using the <code>--version</code> command.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>--version
 </code></pre></div><p></p>
-<p>In order to deploy a Microservice, you also need to have a local <code>.beamable</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below (Unity/Unreal engine integrations will do this for you).
+<p>In order to deploy a Microservice, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below (Unity/Unreal engine integrations will do this for you).
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>init<span class="w"> </span>MyProject
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>MyProject
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
@@ -6415,7 +6415,7 @@
 <p>You have full control over the docker-compose file, so if you want to set up persistent storage objects via docker volumes, or set up mongo-express, please reference the Mongo <a href="https://hub.docker.com/_/mongo">documentation</a>.</p>
 <h4 id="useful-debugging-practices">Useful Debugging Practices<a class="headerlink" href="#useful-debugging-practices" title="Permanent link">¶</a></h4>
 <p><strong>Running the Docker Container Manually</strong>: If you have a customized Dockerfile or encounter some problems when building/running the image/container, it can be sometimes useful to run the container via docker's CLI directly.</p>
-<p>You can do that by running: <code>dotnet beam deploy plan --logs v</code> which prints out all docker commands its using under the hood. You can then use the printed commands as a starting point for your investigation into whatever problem you're solving.</p>
+<p>You can do that by running <code>dotnet beam deploy plan --logs v</code>, which prints out all docker commands it is using under the hood. You can then use the printed commands as a starting point for your investigation into whatever problem you're solving.</p>
 <p><strong>Debugging Container Structure</strong>: In some cases of customized <code>Dockerfiles</code>, the image may fail to build or the container fail to run due to aspects of the container's file structure. Docker will not allow you to easily inspect a container's file structure unless its running; and we cleanup the container once its <code>ENTRYPOINT</code> process is killed.</p>
 <p>This means that if SAMS code depends on local file structure (DLLs not existing where they should being the most common thing) and it fails because of a malformation of that structure you'll have a hard time debugging it.</p>
 <p>In some cases, it may be useful to not start the actual process and instead use this endpoint below:

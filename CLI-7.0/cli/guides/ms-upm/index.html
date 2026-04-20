@@ -6050,7 +6050,7 @@
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># beam --version also works.</span>
 </code></pre></div><p></p>
-<p>You also need to have a local <code>.beamable</code> workspace with a Beamable
+<p>You also need to have a local <code>.beamable/</code> workspace with a Beamable
 Standalone Microservice. As a reminder, you can create one quickly using the commands below.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>beam<span class="w"> </span>init<span class="w"> </span>Project
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>Project
@@ -6058,7 +6058,7 @@ Standalone Microservice. As a reminder, you can create one quickly using the com
 </code></pre></div><p></p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">¶</a></h2>
 <p>Standalone Microservice projects can be distributed as Unity Package Manager
-(UPM) packages, which allows downstream Unity projects to re-use an existing
+(UPM) packages, letting downstream Unity projects reuse an existing
 Microservice.</p>
 <p>However, there are several configuration steps required in the Standalone
 Microservice project.</p>
@@ -6068,9 +6068,9 @@ compatible Microservice.</p>
 <ol>
 <li>Rename "services" folder to "services~"</li>
 <li>Modify the <code>.sln</code> file to mirror the folder name change.</li>
-<li>Create a local <code>Assets</code> folder next to the <code>.beamable</code> folder</li>
-<li>Create a <code>Runtime</code> folder and a <code>Runtime/Client</code> folder next to the <code>.beamable</code> folder</li>
-<li>Create a file in the <code>.beamable</code> folder called <code>linked-projects.json</code>,
+<li>Create a local <code>Assets</code> folder next to the <code>.beamable/</code> folder</li>
+<li>Create a <code>Runtime</code> folder and a <code>Runtime/Client</code> folder next to the <code>.beamable/</code> folder</li>
+<li>Create a file in the <code>.beamable/</code> folder called <code>linked-projects.json</code>,
     <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">"unityProjectsPaths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="s2">"."</span>
