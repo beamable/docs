@@ -32,9 +32,9 @@ Transient service instances are never cached. Every time a transient service is 
 
 ### Disposing Services
 
-A dependency scope can be in one of two states, active, or disposed. A scope is active the moment it is built. However, a scope can be disposed through the `IDependencyProviderScope.Dispose()` method. When a `BeamContext` is stopped, the associated `IDependencyProvider` will be disposed. When a scope is disposed, no calls to `GetService<T>()` are allowed.
+A dependency scope can be in one of two states: active or disposed. A scope is active the moment it is built, and is disposed either by calling `IDependencyProviderScope.Dispose()` directly or by stopping the associated `BeamContext`. When a scope is disposed, no calls to `GetService<T>()` are allowed.
 
-The `IBeamableDisposable` interface informs the dependency scope that a service requires some sort of disposal logic before the scope is finished transitioning to the disposed state. In the example code below, the `ExampleService` will print a log message when the service scope is disposed. If you are implementing custom services that require stateful operation, consider using the `IBeamableDisposable` interface. However, the Beamable SDK does not guarantee that a `BeamContext` will be stopped when the game is quit, and therefore, does not guarantee that the service scope will be disposed.
+By implementing `IBeamableDisposable`, you signal to the dependency scope that your service demands extra logic to run before scope disposal. In the example below, `ExampleService` prints a log message when the scope is disposed. If you are implementing custom services that require stateful operation, consider using the `IBeamableDisposable` interface. However, the Beamable SDK does not guarantee that a `BeamContext` will be stopped when the game is quit, and therefore does not guarantee that the dependency scope will be disposed.
 
 ```csharp
 public class ExampleService : IBeamableDisposable
