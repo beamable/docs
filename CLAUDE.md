@@ -102,10 +102,13 @@ The workflow runs `mike deploy "{sdk}-{version}" --push`, which publishes to `gh
 
 ### Merge strategy
 
-- **Automated sync PRs** (`merge-core/vX.Y-into-unity/vA.B` and similar): use **merge commit**. These PRs propagate core branch changes onto product branches; the merge commit preserves the full branch topology and makes the sync boundary visible in history.
-- **Feature and fix PRs**: use **squash-and-merge**. Changes are typically by one person on one topic, so squashing produces a clean, readable log.
+**Automated core→unity sync** is handled by `auto-sync-core.yml` on the core branch. On a clean merge it squash-merges directly onto the target branch and pushes without opening a PR. It only opens a PR (e.g. `merge-core/v7.0-into-unity/v5.0`) when there are conflicts that need human review.
 
-Note: the automated sync PRs are not created by the GitHub Actions in this repo. The merge strategy is a convention enforced manually in the GitHub UI — choose "Create a merge commit" when landing them.
+When landing a **conflict-resolution sync PR**, prefer **merge commit** over squash. The merge commit preserves the sync boundary in history and makes it possible to see at a glance which commits originated on core and which were added to resolve conflicts. Squashing would fold that signal into a single anonymous commit.
+
+For **feature and fix PRs**, prefer **squash-and-merge**. These are typically single-author, single-topic changes; squashing produces a clean, readable log without noise from intermediate work-in-progress commits.
+
+Neither convention is enforced by tooling — both are de facto habits. When in doubt, ask: "does the history of *how* this landed matter?" If yes, merge commit; if no, squash.
 
 ## Navigation
 
