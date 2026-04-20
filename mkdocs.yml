@@ -18,11 +18,6 @@ theme:
 
 markdown_extensions:
   - pymdownx.inlinehilite
-  - pymdownx.highlight:
-      use_pygments: true
-      pygments_lang_class: true
-      linenums: true
-  - pymdownx.superfences
   - pymdownx.snippets:
       auto_append:
         - docs/includes/abbreviations.md
