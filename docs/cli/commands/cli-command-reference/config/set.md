@@ -7,7 +7,7 @@ beam config set <name> <value> [options]
 ## About
 Set a config value
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |name|String|The name of a config option to set. ex: cid, pid, etc.|

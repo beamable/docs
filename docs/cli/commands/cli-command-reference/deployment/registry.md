@@ -7,7 +7,7 @@ beam deployment registry <service-id> [options]
 ## About
 [INTERNAL] Find all docker image tags that exist for the given beamoId
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |service-id|String|The beamo id for the service to get images for|

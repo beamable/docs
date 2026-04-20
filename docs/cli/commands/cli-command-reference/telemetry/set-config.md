@@ -7,7 +7,7 @@ beam telemetry set-config <cli-log-level> <cli-telemetry-max-size> <cli-allow-te
 ## About
 Sets the Beam CLI otel configuration
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |cli-log-level|String|The minimum Open Telemetry LogLevel to be sent to Clickhouse, this needs to be a valid LogLevel converted to string value|

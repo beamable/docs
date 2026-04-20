@@ -7,7 +7,7 @@ beam portal extension add-microservice <extension> <microservice> [options]
 ## About
 [INTERNAL] Adds microservice as a dependency for the specified Portal Extension
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |extension|String|The Portal Extension name that the microservice will be added to|

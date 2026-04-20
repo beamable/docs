@@ -7,7 +7,7 @@ beam server serve [<owner>] [options]
 ## About
 [INTERNAL] Create a local server for the cli
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |owner|String|The owner of the server is used to identify the server later with the /info endpoint|

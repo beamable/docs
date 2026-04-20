@@ -7,7 +7,7 @@ beam content new-manifest <manifest-id> [options]
 ## About
 Create a local empty content manifest for the current realm
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |manifest-id|String|The manifest id to create locally|

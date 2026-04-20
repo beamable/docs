@@ -7,7 +7,7 @@ beam version install [<version>] [options]
 ## About
 Install a different version of the CLI
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |version|String|The version of the CLI to install|

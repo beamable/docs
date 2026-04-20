@@ -15,7 +15,7 @@ Follow these steps to configure cloud data settings:
 
 ## Game Maker User Experience
 
-The following screenshots show the cloud data configuration interface: 
+The following screenshots show the cloud data configuration interface:
 
 ![Portal Cloud Data Interface](../media/imgs/portal-cloud-data-interface.png)
 

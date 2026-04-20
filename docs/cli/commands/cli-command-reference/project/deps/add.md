@@ -7,7 +7,7 @@ beam project deps add <microservice> <dependency> [options]
 ## About
 Add a given storage as a dependency of a microservice
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |microservice|String|The microservice name that the dependency will be added to|

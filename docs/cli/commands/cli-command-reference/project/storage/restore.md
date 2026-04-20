@@ -7,7 +7,7 @@ beam project storage restore <beamoId> [options]
 ## About
 Restore a storage object from a snapshot folder
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |beamoId|String|The beamoId for the storage object|

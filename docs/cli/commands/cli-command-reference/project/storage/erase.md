@@ -7,7 +7,7 @@ beam project storage erase <beamoId> [options]
 ## About
 Clear the data for a storage object
 
-## Arguments 
+## Arguments
 |Name|Type|Description|
 |-|-|-|
 |beamoId|String|the beamoId for the storage object|
