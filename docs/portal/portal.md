@@ -16,7 +16,7 @@ The Portal provides access to manage all aspects of your game's data architectur
 
 ## Steps
 
-The Portal is available in your favorite web-browser at [https://beta-portal.beamable.com](https://beta-portal.beamable.com).{width="300px"}
+The Portal is available in your favorite web-browser at [https://portal.beamable.com](https://portal.beamable.com).{width="300px"}
 
 | Step                         | Detail                                              |
 | :--------------------------- | :-------------------------------------------------- |
