@@ -188,11 +188,15 @@ namespace Beamable.DemoService
 }
 ```
 
-Before you start the service, make sure to change your Realm to a non-production realm.
+Before you start the service, choose a non-production realm.
 
 !!! danger "Be careful running local Microservices on production realms!"
 
-    Beamable _Realms_ are environments for your game to use and usually there are at least three, one for development, one for staging, and one for production. If you run a local Microservice on the production realm, there is a _risk_ that the service could tamper with your production environment.  By default, Beamable will prevent the local service from receiving web traffic on a production Realm. To override this, see the Handling Requests page.
+    For safety, Beamable prevents locally running Microservices from receiving production realm traffic by default.
+
+!!! info "Production and non-production realms"
+
+    Realms are your game's individual environments, arranged in a parent/child hierarchy. The root realm is always production; all child realms are non-production.
 
 Back in Unity, in the _Beam Services_ window, press the play button to start the service. You can also run the service directly from your IDE using the IDE's play or debugging buttons. Log messages will appear in the _Beam Services_ window, and eventually when the service has successfully initialized, this log message will appear.
 
