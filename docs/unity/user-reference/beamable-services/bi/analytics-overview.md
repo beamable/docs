@@ -88,7 +88,7 @@ Beamable supports both analytics events and [Stats](../profile-storage/stats.md)
 
 ## Analytics - Code
 
-It will take some time to learn what queries to write for your game. You'll have to learn and understand the schema, and you'll have to get a firm understanding of what data is being stored and what it means to you and your reporting needs.
+Effective analytics queries are game-specific, and writing them well takes time. The key is fluency with the schema: knowing not just what data is stored, but what it means for your reporting needs.
 
 This section is designed to provide you with some **out-of-the-box** queries that you can write that will give you a head start. These queries are designed to give you the following.
 
