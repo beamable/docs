@@ -43,7 +43,7 @@ This guide provides step-by-step instructions to set up Google Sign-In with Beam
    keytool -list -v -keystore <your.keystore>
    ```
    - Look for the SHA-1 fingerprint in the output and save it
-   - If you don't have `keytool` installed, follow the instructions after installing Java on your machine: [Here](https://stackoverflow.com/questions/5488339/how-can-i-find-and-run-the-keytool)
+   - If you do not have `keytool` installed, follow [the instructions for finding and running keytool](https://stackoverflow.com/questions/5488339/how-can-i-find-and-run-the-keytool) after installing Java on your machine
 
 ### Create Google Cloud Console - OAuth 2.0 Credentials
 

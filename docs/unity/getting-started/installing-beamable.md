@@ -14,7 +14,7 @@ To start using Beamable in your project, you need to have a valid Beamable accou
 
 ## Downloading and Installing the Beamable SDK
 
-You can download the Beamable SDK Installer Package [Here](https://packages.beamable.com/com.beamable/Beamable_SDK_Installer.unitypackage).
+You can download the [Beamable SDK Installer Package](https://packages.beamable.com/com.beamable/Beamable_SDK_Installer.unitypackage).
 
 Once downloaded, follow these steps to install the Beamable SDK into your Unity project.
 
