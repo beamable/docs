@@ -1,0 +1,96 @@
+name: Update SDK/CLI Version Table
+
+on:
+  repository_dispatch:
+    types: [unity-sdk-released]
+  workflow_dispatch:
+
+jobs:
+  update:
+    name: Update table on ${{ matrix.branch }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    strategy:
+      matrix:
+        branch: [unity/v5.0, unity/v5.1]
+    concurrency:
+      group: update-version-table-${{ matrix.branch }}
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout ${{ matrix.branch }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}
+          token: ${{ secrets.DOCS_PAT }}
+
+      - name: Build version table from BeamableProduct tags
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Fetch all release tags (exclude PREVIEW and RC builds), newest first
+          gh api repos/beamable/BeamableProduct/tags \
+            --paginate \
+            --jq '.[].name' \
+            | grep -E '^unity-sdk-[0-9]+\.[0-9]+\.[0-9]+$' \
+            | sort -V -r \
+            > /tmp/release-tags.txt
+
+          echo "Release tags found:"
+          cat /tmp/release-tags.txt
+
+          # Fetch the CLI version pinned at each tag
+          > /tmp/table-rows.txt
+          while IFS= read -r tag; do
+            sdk_version="${tag#unity-sdk-}"
+            cli_version=$(gh api \
+              "repos/beamable/BeamableProduct/contents/client/Packages/com.beamable/Runtime/Environment/Resources/versions-default.json?ref=${tag}" \
+              --jq '.content' | base64 -d | jq -r '.nugetPackageVersion')
+            echo "| ${sdk_version} | ${cli_version} |" >> /tmp/table-rows.txt
+          done < /tmp/release-tags.txt
+
+          echo "Generated table rows:"
+          cat /tmp/table-rows.txt
+
+      - name: Update installing-beamable.md
+        run: |
+          python3 - <<'EOF'
+          import re, pathlib
+
+          md = pathlib.Path("docs/unity/getting-started/installing-beamable.md")
+          rows = pathlib.Path("/tmp/table-rows.txt").read_text().rstrip("\n")
+
+          new_table = (
+              "| SDK Version | CLI Version |\n"
+              "| :---------- | :---------- |\n"
+              + rows
+          )
+
+          text = md.read_text()
+          updated = re.sub(
+              r'\| SDK Version \| CLI Version \|.*?(?=\n\n)',
+              new_table,
+              text,
+              flags=re.DOTALL
+          )
+
+          if updated == text:
+              print("Table unchanged — no edit needed.")
+          else:
+              md.write_text(updated)
+              print("Table updated.")
+          EOF
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No changes to commit."
+          else
+            git add docs/unity/getting-started/installing-beamable.md
+            git commit -m "Update SDK/CLI version table"
+            git push
+          fi
