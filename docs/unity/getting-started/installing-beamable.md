@@ -62,7 +62,7 @@ You should expect to see a `.beamable/` folder and a `.config/` folder in your U
 
 The `.config/` folder has a file called `dotnet-tools.json` that specifies the version of the Beam CLI being used by the Beamable Unity SDK. By default, the Beamable SDK will maintain this number, and you should not edit it by hand.
 
-New versions of the Beamable SDK may depend on different versions of the Beam CLI. This table shows which versions of the Beamable SDK depend on what CLI versions.
+New versions of the Beamable SDK may depend on different versions of the Beam CLI. This table shows the latest version for each release line; for the complete patch-by-patch history, see [SDK/CLI Version History](./sdk-cli-version-history.md).
 
 | SDK Version | CLI Version |
 | :---------- | :---------- |
