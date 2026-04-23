@@ -1,9 +1,21 @@
+# This workflow is always run from main.
+# Automated trigger: beamable/BeamableProduct fires a repository_dispatch
+# event (type: unity-sdk-released) when a unity-sdk-X.Y.Z release tag is
+# pushed. Use workflow_dispatch below for manual runs and testing.
+
 name: Update SDK/CLI Version Table
 
 on:
   repository_dispatch:
     types: [unity-sdk-released]
   workflow_dispatch:
+    inputs:
+      _note:
+        description: >
+          Manual trigger. Normally fired automatically by beamable/BeamableProduct
+          on unity-sdk-X.Y.Z release tag pushes. Always run from main.
+        required: false
+        default: ''
 
 jobs:
   update:
