@@ -26,7 +26,13 @@ jobs:
           ref: ${{ matrix.branch }}
           token: ${{ secrets.DOCS_PAT }}
 
-      - name: Build version table from BeamableProduct tags
+      - name: Extract branch minor version
+        id: branch
+        run: |
+          BRANCH="${{ matrix.branch }}"
+          echo "minor=${BRANCH#unity/v}" >> $GITHUB_OUTPUT
+
+      - name: Build full version table from BeamableProduct tags
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -54,13 +60,40 @@ jobs:
           echo "Generated table rows:"
           cat /tmp/table-rows.txt
 
+      - name: Build condensed table
+        env:
+          CURRENT_MINOR: ${{ steps.branch.outputs.minor }}
+        run: |
+          python3 - <<'EOF'
+          import os, pathlib
+
+          current_minor = os.environ["CURRENT_MINOR"]
+          seen_minors = set()
+          condensed = []
+
+          for line in pathlib.Path("/tmp/table-rows.txt").read_text().splitlines(keepends=True):
+              parts = line.strip().split("|")
+              if len(parts) < 3:
+                  continue
+              sdk_version = parts[1].strip()
+              major_minor = ".".join(sdk_version.split(".")[:2])
+
+              if major_minor == current_minor:
+                  condensed.append(line)
+              elif major_minor not in seen_minors:
+                  seen_minors.add(major_minor)
+                  condensed.append(line)
+
+          pathlib.Path("/tmp/condensed-rows.txt").write_text("".join(condensed))
+          EOF
+
       - name: Update installing-beamable.md
         run: |
           python3 - <<'EOF'
           import re, pathlib
 
           md = pathlib.Path("docs/unity/getting-started/installing-beamable.md")
-          rows = pathlib.Path("/tmp/table-rows.txt").read_text().rstrip("\n")
+          rows = pathlib.Path("/tmp/condensed-rows.txt").read_text().rstrip("\n")
 
           new_table = (
               "| SDK Version | CLI Version |\n"
@@ -83,14 +116,47 @@ jobs:
               print("Table updated.")
           EOF
 
+      - name: Write sdk-cli-version-history.md
+        run: |
+          python3 - <<'EOF'
+          import pathlib
+
+          rows = pathlib.Path("/tmp/table-rows.txt").read_text().rstrip("\n")
+
+          full_table = (
+              "| SDK Version | CLI Version |\n"
+              "| :---------- | :---------- |\n"
+              + rows
+          )
+
+          content = (
+              "# SDK/CLI Version History\n"
+              "\n"
+              "Every Beamable Unity SDK release and the Beam CLI version it requires.\n"
+              "\n"
+              "For installation instructions and a summary of current versions,\n"
+              "see [Installing Beamable](./installing-beamable.md).\n"
+              "\n"
+              + full_table
+              + "\n"
+          )
+
+          pathlib.Path("docs/unity/getting-started/sdk-cli-version-history.md").write_text(content)
+          print("Version history page written.")
+          EOF
+
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet; then
+          if git diff --quiet && git ls-files --others --exclude-standard docs/unity/getting-started/sdk-cli-version-history.md | grep -q .; then
+            git add docs/unity/getting-started/sdk-cli-version-history.md
+          fi
+          git add docs/unity/getting-started/installing-beamable.md \
+                  docs/unity/getting-started/sdk-cli-version-history.md 2>/dev/null || true
+          if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git add docs/unity/getting-started/installing-beamable.md
-            git commit -m "Update SDK/CLI version table"
+            git commit -m "Update SDK/CLI version table and history page"
             git push
           fi
