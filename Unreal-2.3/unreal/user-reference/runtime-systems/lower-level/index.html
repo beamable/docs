@@ -8743,14 +8743,14 @@
 <p>We don't recommend writing your own unless you're confident you understand the topics below and are trying to solve one of the two problems listed above.</p>
 <div class="admonition warning">
 <p class="admonition-title">Low Level Usage</p>
-<p>The systems described here are used by various environments the Beamable <abbr title="software development kit">SDK</abbr> runs in: PIE, Editor, Dedicated Server Builds and regular game builds. Their code is pretty heavily commented, so feel free to read it and figure things out that way.</p>
+<p>The systems described here are used by various environments the Beamable <abbr title="software development kit">SDK</abbr> runs in: <abbr title="play in editor">PIE</abbr>, Editor, Dedicated Server Builds and regular game builds. Their code is pretty heavily commented, so feel free to read it and figure things out that way.</p>
 </div>
 <p>The lowest layer of systems is shared between the <abbr title="software development kit">SDK</abbr>'s UE Editor integration and the <abbr title="software development kit">SDK</abbr>'s Runtime integration:</p>
 <ul>
 <li>
 <p><code>UBeamUserSlots</code>: <a href="../user-slots/">User Slots</a> tracks multiple local signed-in users (for local co-op cases).</p>
 <ul>
-<li>This is basically a local user cache that is aware of the peculiarities of PIE.<br><br></li>
+<li>This is basically a local user cache that is aware of the peculiarities of <abbr title="play in editor">PIE</abbr>.<br><br></li>
 </ul>
 </li>
 <li>
@@ -8769,7 +8769,7 @@
 <li>These are stateless <code>UEngineSubsystem</code> implementations.</li>
 <li>These provide you low-level access to every end-point of our backend even if we don't have utilities in the <abbr title="software development kit">SDK</abbr> that do exactly what you want.</li>
 <li>As UE doesn't allow for namespaces AND BP-compatibility, this is <em>very</em> verbose. We recommend more liberal use of <code>auto</code> when dealing with Code-Gen <abbr title="application programming interface">API</abbr> Types.</li>
-<li>At runtime, don't forget to pass in the <code>UObject* CallingContext</code> parameter: any <code>UWorld</code>, <code>UGameInstanceSubsystem</code>, <code>UActorComponent</code> or <code>AActor</code> will do (this ensures proper behavior in all cases of PIE).<br><br></li>
+<li>At runtime, don't forget to pass in the <code>UObject* CallingContext</code> parameter: any <code>UWorld</code>, <code>UGameInstanceSubsystem</code>, <code>UActorComponent</code> or <code>AActor</code> will do (this ensures proper behavior in all cases of <abbr title="play in editor">PIE</abbr>).<br><br></li>
 </ul>
 </li>
 <li>

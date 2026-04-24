@@ -1497,10 +1497,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-to-use-the-system-state-to-update-the-view-invite-sample" class="md-nav__link">
+  <a href="#how-to-update-the-view-using-system-state-invite-sample" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How To Use The System State To Update The View (Invite Sample)
+        How to Update the View Using System State (Invite Sample)
       
     </span>
   </a>
@@ -1509,6 +1509,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
   
 </li>
       
@@ -8845,10 +8856,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-to-use-the-system-state-to-update-the-view-invite-sample" class="md-nav__link">
+  <a href="#how-to-update-the-view-using-system-state-invite-sample" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How To Use The System State To Update The View (Invite Sample)
+        How to Update the View Using System State (Invite Sample)
       
     </span>
   </a>
@@ -8857,6 +8868,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
   
 </li>
       
@@ -8878,7 +8900,7 @@
 
 
 <h1 id="friends">Friends<a class="headerlink" href="#friends" title="Permanent link">¶</a></h1>
-<p>The Beamable <strong>Friends</strong> feature allows game makers to connect players with each other and manage the status of the new friends.</p>
+<p>The Beamable <strong>Friends</strong> feature allows game makers to connect players with each other and manage the status of new friends.</p>
 <p>Beamable's Friend system allows the following game flows: </p>
 <ul>
 <li>Send friend invites to other players.</li>
@@ -8887,29 +8909,29 @@
 <li>Check the status of the player (Online, offline).</li>
 <li>Remove the player from the friend list.</li>
 </ul>
-<p>There's support for local and multiplayer usage for the friend system, in this document we will focus on multiplayer, as it is the most common usage case.</p>
+<p>There is support for both local and multiplayer usage. This document focuses on multiplayer, as it is the most common use case.</p>
 <p>A sample that demonstrates the friend subsystem is available in our <a href="https://github.com/beamable/UnrealSDK">GitHub</a>. For more details, check out the <a href="../../../samples/beamball/beamball-demo/">Beamball Demo</a>.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
-<p>To use the friend system, you will need to first set up your Unreal to PIE with multiple players. That will allow you to test everything due to multiple instances. </p>
+<p>To use the friend system, first configure an Unreal <abbr title="play in editor">PIE</abbr> session with multiple players.</p>
 <details class="warning" open="open">
 <summary>Observation</summary>
-<p>The friend subsystem allow you to use the friend system for local players with multiple accounts, you can do as we showing here setting up the UserSlot for the correct player.</p>
+<p>The friend subsystem lets you use the friend system for local players with multiple accounts. Set up the <code>UserSlot</code> for each player as shown here.</p>
 </details>
-<p>Once you have your environment setup to start, the following steps will show how to implement the basic functinalities in BP.</p>
+<p>Once your environment is set up, the following steps show how to implement the basic functionalities in BP.</p>
 <h3 id="binding-the-friends-events">Binding the Friends Events<a class="headerlink" href="#binding-the-friends-events" title="Permanent link">¶</a></h3>
-<p>In the <abbr title="software development kit">SDK</abbr> all the events can be bound using our custom node for bind from the subsystem. The image bellow shown a example how to do this.</p>
+<p>In the <abbr title="software development kit">SDK</abbr>, all events can be bound using the custom bind node on the subsystem. The image below shows an example.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-bind-all-events.png" data-desc-position="bottom"><img alt="friends-bind-events.png" src="../../../../media/imgs/friends-bind-all-events.png"></a></p>
 <h3 id="inviting-a-friend">Inviting a Friend<a class="headerlink" href="#inviting-a-friend" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call the <code>Operation - Friend - SendFriendInvite</code>. This will allow you to create a asynchronous chain to the after invite someone to be a friend.</li>
+<li>Call <code>Operation - Friend - SendFriendInvite</code> to send a friend invite asynchronously.</li>
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-send-invite.png" data-desc-position="bottom"><img alt="friends-send-invite.png" src="../../../../media/imgs/friends-send-invite.png"></a></p>
-<p>It's possible to listen to the changes for the invites received, being responsive to this showing to the player that a new friend invite has been received. You will need to bind to the event <code>OnInviteReceived</code> shown in the <a href="#how-to-bind-the-friends-events">How to Bind the Friends Events</a>.</p>
+<p>You can listen for received invite changes — for example, alerting the player that a new invite arrived. You will need to bind to the event <code>OnInviteReceived</code> shown in the <a href="#how-to-bind-the-friends-events">How to Bind the Friends Events</a>.</p>
 <h3 id="accepting-a-friend-invite">Accepting a Friend Invite<a class="headerlink" href="#accepting-a-friend-invite" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call the <code>Operation - Friend - AcceptFriendInvite</code>. This will allow you to create a asynchronos chain to the after accept a friend invite.</li>
+<li>Call <code>Operation - Friend - AcceptFriendInvite</code> to accept a friend invite asynchronously.</li>
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-accept-invite.png" data-desc-position="bottom"><img alt="friends-accept-invite.png" src="../../../../media/imgs/friends-accept-invite.png"></a></p>
 <p>When the player that received the invite accepts it, both receive the invite accepted event, it could be used for updates in the invite list or to start to show the new friend in the friend list.</p>
@@ -8921,7 +8943,7 @@
 <h3 id="declining-a-friend-invite">Declining a Friend Invite<a class="headerlink" href="#declining-a-friend-invite" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call the <code>Operation - Friend - DeclineFriendInvite</code>. This will allow you to create a asynchronos chain to the after decline a friend invite.</li>
+<li>Call <code>Operation - Friend - DeclineFriendInvite</code> to decline a friend invite asynchronously.</li>
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-decline-invite.png" data-desc-position="bottom"><img alt="friends-decline-invite.png" src="../../../../media/imgs/friends-decline-invite.png"></a></p>
 <p>When the player that received the invite decline it, both receive the <code>OnInviteDeclined</code> notification, that can help to update the visuals and the player list. The local state is already updated when the player receive this notification. As shown in the section above <a href="#how-to-bind-the-friends-events">How to Bind the Friends Events</a>.</p>
@@ -8933,10 +8955,10 @@
 <details class="warning" open="open">
 <summary>Observations</summary>
 <ul>
-<li>It's not necessary for the player to be your friend to block him.</li>
+<li>You can block any player — friend or not.</li>
 <li><strong>Blocked players can not be friends</strong>.</li>
-<li>If you already friend of a player and then block him, it will automatically remove the friend.</li>
-<li>If you block a friend and then unblock it, this action won't make you both friends again. It will require a new friend invite.</li>
+<li>If you are already friends with a player and block them, the friendship is removed automatically.</li>
+<li>If you block a friend and then unblock them, this does not restore the friendship — a new friend invite is required.</li>
 </ul>
 </details>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-block-player.png" data-desc-position="bottom"><img alt="friends-block-player.png" src="../../../../media/imgs/friends-block-player.png"></a></p>
@@ -8945,22 +8967,22 @@
 <summary>Removed Friend Event</summary>
 <p>The removed friend event will be triggered in both players if they were friends before.</p>
 </details>
-<p>For the unblock flow is very similar to the block, so there's a <code>OnPlayerUnblocked</code> event and a <code>OnPlayerBeenUnblocked</code>.</p>
-<p>For you to use the status presence as the common behavior of showing if your friend is online or offline we recommend to register in the <code>OnPresenceStatusUpdate</code> and handle the updates in the player status from this. As shown in the section above <a href="#how-to-bind-the-friends-events">How to Bind the Friends Events</a>.</p>
+<p>The unblock flow is very similar: <code>UBeamFriendsSubsystem</code> provides <code>OnPlayerUnblocked</code> (fires for the player who initiates the unblock) and <code>OnPlayerBeenUnblocked</code> (fires for the player who was unblocked).</p>
+<p>To show a friend's presence status, register on <code>OnFriendPresenceStatusUpdate</code>; the status is an <code>EBeamPresenceStatus</code> value — <code>Visible</code>, <code>Invisible</code>, <code>Dnd</code>, or <code>Away</code>. As shown in the section above <a href="#how-to-bind-the-friends-events">How to Bind the Friends Events</a>.</p>
 <h3 id="removing-a-friend">Removing a Friend<a class="headerlink" href="#removing-a-friend" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call the <code>Operation - Friend - RemoveFriend</code>. This will allow you to create a asynchronos chain to the after remove a friend.</li>
+<li>Call <code>Operation - Friend - RemoveFriend</code> to remove a friend asynchronously.</li>
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-remove-friend.png" data-desc-position="bottom"><img alt="friends-remove-friend.png" src="../../../../media/imgs/friends-remove-friend.png"></a></p>
 <p>When a player is removed from the friend list it will trigger this notification. You will be able to register on this to treat the behavior in your game.</p>
-<p>The event that will be trigger is the <code>OnFriendRemoved</code>. As shown in the section above <a href="#how-to-bind-the-friends-events">How to Bind the Friends Events</a>.
+<p>The event triggered is <code>OnFriendRemoved</code>. As shown in the section above <a href="#how-to-bind-the-friends-events">How to Bind the Friends Events</a>.
 When it triggers, the local state of the friend list will already have been updated. </p>
-<h3 id="how-to-use-the-system-state-to-update-the-view-invite-sample">How To Use The System State To Update The View (Invite Sample)<a class="headerlink" href="#how-to-use-the-system-state-to-update-the-view-invite-sample" title="Permanent link">¶</a></h3>
-<p>In the example below, we demonstrate how to retrieve the user's friend state and use it to update a view or another screen. In this case, the example simply sets a list of all invites in the friend state. There are other ways to handle this, such as adding or removing items based on events, rather than setting the entire list. For simplicity, we're showing this approach.</p>
+<h3 id="how-to-update-the-view-using-system-state-invite-sample">How to Update the View Using System State (Invite Sample)<a class="headerlink" href="#how-to-update-the-view-using-system-state-invite-sample" title="Permanent link">¶</a></h3>
+<p>In the example below, we demonstrate how to retrieve the user's friend state and use it to update a view or another screen. In this case, the example simply sets a list of all invites in the friend state. There are other ways to handle this, such as adding or removing items based on events, rather than setting the entire list. For simplicity, this example uses that approach.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-local-state-received-invite.png" data-desc-position="bottom"><img alt="friends-local-state-received-invite.png" src="../../../../media/imgs/friends-local-state-received-invite.png"></a></p>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h1>
-<p>This is a brief document that describes the basic usage of the Friend Subsystem, once you implement those features consider to test with multiple users or adding more complex interactions.</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h2>
+<p>This is a brief document that describes the basic usage of the Friend Subsystem, once you implement those features, consider testing with multiple users or adding more complex interactions.</p>
 
 
 

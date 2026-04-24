@@ -8954,14 +8954,14 @@
 
 
 <h1 id="version-210-release-notes">Version 2.1.0 Release Notes<a class="headerlink" href="#version-210-release-notes" title="Permanent link">¶</a></h1>
-<p>This is the release notes for the Unreal <abbr title="software development kit">SDK</abbr> version 2.1.0.</p>
-<p>Despite this being a minor version, it contains a lot of changes, improvements, and new features to the Unreal <abbr title="software development kit">SDK</abbr>. Including more <strong>improvements to the Content Editor</strong>, a <strong>Fully-Featured Game Sample</strong>, the new <strong>Beamable PIE Settings</strong> and brand-new <strong>Real-Time Multiplayer Workflows</strong>.</p>
+<p>This is the release notes for the Beamable Unreal <abbr title="software development kit">SDK</abbr> version 2.1.0.</p>
+<p>Despite this being a minor version, it contains a lot of changes, improvements, and new features to the Beamable Unreal <abbr title="software development kit">SDK</abbr>. Including more <strong>improvements to the Content Editor</strong>, a <strong>Fully-Featured Game Sample</strong>, the new <strong>Beamable <abbr title="play in editor">PIE</abbr> Settings</strong> and brand-new <strong>Real-Time Multiplayer Workflows</strong>.</p>
 <h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">¶</a></h2>
 <h3 id="beamball-full-featured-game-sample">Beamball - Full Featured Game Sample<a class="headerlink" href="#beamball-full-featured-game-sample" title="Permanent link">¶</a></h3>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/beamable-release.gif" data-desc-position="bottom"><img alt="beamable-release.gif" src="../../../media/imgs/beamable-release.gif"></a></p>
-<p>Beamball is a full featured 1x1 Multiplayer game sample that showcases the Beamable Unreal <abbr title="software development kit">SDK</abbr> and its features. It includes a complete game loop, from the main menu to the gameplay, with a fully functional multiplayer system, hatora integration, inventory, stores, and more. The Beamball game sample is designed to be a reference implementation of a game using the Beamable Unreal <abbr title="software development kit">SDK</abbr>, and it can be used as a starting point or reference material for your own games.</p>
-<h3 id="pie-settings-and-real-time-multiplayer-workflows">PIE Settings and Real-Time Multiplayer Workflows<a class="headerlink" href="#pie-settings-and-real-time-multiplayer-workflows" title="Permanent link">¶</a></h3>
-<p>The new Beamable PIE Settings provide a more flexible way to configure your game for Play In Editor (PIE). With this system, you can create, capture, and save player profiles for use at runtime, as well as define custom play presets directly within your Unreal projects.</p>
+<p>Beamball is a full-featured 1x1 Multiplayer game sample that showcases the Beamable Unreal <abbr title="software development kit">SDK</abbr> and its features. It includes a complete game loop, from the main menu to the gameplay, with a fully functional multiplayer system, hatora integration, inventory, stores, and more. The Beamball game sample is designed to be a reference implementation of a game using the Beamable Unreal <abbr title="software development kit">SDK</abbr>, and it can be used as a starting point or reference material for your own games.</p>
+<h3 id="pie-settings-and-real-time-multiplayer-workflows"><abbr title="play in editor">PIE</abbr> Settings and Real-Time Multiplayer Workflows<a class="headerlink" href="#pie-settings-and-real-time-multiplayer-workflows" title="Permanent link">¶</a></h3>
+<p>The new Beamable <abbr title="play in editor">PIE</abbr> Settings provide a more flexible way to configure your game for Play In Editor (<abbr title="play in editor">PIE</abbr>). With this system, you can create, capture, and save player profiles for use at runtime, as well as define custom play presets directly within your Unreal projects.</p>
 <video controls="" preload="metadata" playsinline="" style="width:100%">
   <source src="../../../media/vids/pie1.mp4" type="video/mp4">
 </video>
@@ -8973,11 +8973,11 @@
 </video>
 <center> PIE Multiplayer Lobby </center>
 
-<p>We made available two ways to implement this system in your project. In "Blueprint Mode", you can enable it by simply adding a single node to your Level Blueprint, making it quick and accessible. In C++ Mode, you gain access to the full power of Beamable PIE Settings, offering enhanced stability, performance, and advanced workflow options.</p>
-<p>This system is totally optional and marked as "Experimental" in the Beam Core Settings, You can still use the default Unreal workflows if you prefer. However, we recommend using the Beamable PIE Settings and Workflows to take advantage of the new features and improvements.</p>
-<p>The complete documentation for the Beamable PIE Settings can be found in the <a href="../../user-reference/editor-systems/pie-settings/">PIE Settings</a> page alongside the new <a href="../../user-reference/realtime-multiplayer/realtime-multiplayer-overview/">Beamble Realtime Mulplayer Systems</a> documentation.</p>
+<p>We made available two ways to implement this system in your project. In "Blueprint Mode", you can enable it by simply adding a single node to your Level Blueprint, making it quick and accessible. In C++ Mode, you gain access to the full power of Beamable <abbr title="play in editor">PIE</abbr> Settings, offering enhanced stability, performance, and advanced workflow options.</p>
+<p>This system is totally optional and marked as "Experimental" in the Beam Core Settings. You can still use the default Unreal workflows if you prefer. However, we recommend using the Beamable <abbr title="play in editor">PIE</abbr> Settings and Workflows to take advantage of the new features and improvements.</p>
+<p>The complete documentation for the Beamable <abbr title="play in editor">PIE</abbr> Settings can be found in the <a href="../../user-reference/editor-systems/pie-settings/"><abbr title="play in editor">PIE</abbr> Settings</a> page alongside the new <a href="../../user-reference/realtime-multiplayer/realtime-multiplayer-overview/">Beamable Real-Time Multiplayer Systems</a> documentation.</p>
 <h3 id="better-integration-with-ue-gameplay-framework-classes">Better Integration with UE Gameplay Framework Classes<a class="headerlink" href="#better-integration-with-ue-gameplay-framework-classes" title="Permanent link">¶</a></h3>
-<p>We also added an several mapping utilities that help, both clients and servers, map UE constructs like <code>Player Controllers</code>, <code>Player State</code> and <code>Local Player Index</code> to Beamable constructs such as <code>GamerTags</code> and <code>User Slots</code>.
+<p>We also added several mapping utilities that help, both clients and servers, map UE constructs like <code>Player Controllers</code>, <code>Player State</code> and <code>Local Player Index</code> to Beamable constructs such as <code>GamerTags</code> and <code>User Slots</code>.
 For non-RT-multiplayer games, these were added to the <code>UBeamRuntime</code> subsystem. Please refer to our <a href="../../user-reference/realtime-multiplayer/realtime-multiplayer-overview/">Beamble Realtime Mulplayer Systems</a> and our <a href="../../user-reference/beamable-services/lobbies/#utilities-for-dedicated-server-games">Lobby</a> for more information on how this works for RT Multiplayer games.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/lobbies-gameplay-helpers.png" data-desc-position="bottom"><img alt="lobbies-gameplay-helpers.png" src="../../../media/imgs/lobbies-gameplay-helpers.png"></a></p>
 <h3 id="content-editor-improvements">Content Editor Improvements<a class="headerlink" href="#content-editor-improvements" title="Permanent link">¶</a></h3>
@@ -8997,7 +8997,7 @@ For non-RT-multiplayer games, these were added to the <code>UBeamRuntime</code> 
 <p>If you are upgrading from version 2.0.1, the upgrade process is very simple:</p>
 <ul>
 <li>Follow the Upgrade Steps available <a href="../../getting-started/setup/#upgrading-the-sdk">Here</a></li>
-<li>In order to enable much better integration with PIE and Real-Time Multiplayer games, this release requires that you regenerate your microservice clients after rebuilding the microservice projects, if you have any. So you'll need to run: <code>dotnet beam project generate-client "."</code></li>
+<li>In order to enable much better integration with <abbr title="play in editor">PIE</abbr> and Real-Time Multiplayer games, this release requires that you regenerate your microservice clients after rebuilding the microservice projects, if you have any. So you'll need to run: <code>dotnet beam project generate-client "."</code></li>
 <li>Recompile your editor.</li>
 </ul>
 <p>If you're upgrading from any older version, please also look at the <strong>What's New</strong>/<strong>Upgrade Guide</strong> for the versions in between.</p>
@@ -9019,7 +9019,7 @@ For non-RT-multiplayer games, these were added to the <code>UBeamRuntime</code> 
 <li>Operation node's sub-event flow pins now appear BEFORE any of the final events in the list of pins.</li>
 <li><code>ENotificationMessageType</code> was missing the <code>BEAM_</code> prefix on its members which could cause naming conflicts --- added the <code>BEAM_</code> prefixes to prevent that.</li>
 <li>The content window now displays the content type list sorted alphabetically.</li>
-<li>(Editor) The CLI is now an semi-optional dependency to the Beamable <abbr title="software development kit">SDK</abbr>. Without the CLI, the <abbr title="software development kit">SDK</abbr> will ONLY work in PIE --- none of the Beamable Window features are accessible and you'll be locked into the target realm set in your <code>ini</code> file. Because of that, we strongly recommend you have the CLI installed for every developer doing work inside the Unreal Editor.</li>
+<li>(Editor) The CLI is now an semi-optional dependency to the Beamable <abbr title="software development kit">SDK</abbr>. Without the CLI, the <abbr title="software development kit">SDK</abbr> will ONLY work in <abbr title="play in editor">PIE</abbr> --- none of the Beamable Window features are accessible and you'll be locked into the target realm set in your <code>ini</code> file. Because of that, we strongly recommend you have the CLI installed for every developer doing work inside the Unreal Editor.</li>
 <li>We revamped the internals of how you log into the Editor (via the Beamable Window). Now, the Beamable Window provides better error messages during its initialization process and the current in-editor Target Realm is kept in-sync with the CLI automatically.</li>
 </ul>
 <h3 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">¶</a></h3>
@@ -9027,14 +9027,14 @@ For non-RT-multiplayer games, these were added to the <code>UBeamRuntime</code> 
 <li>Replaced <code>checkf</code> with <code>ensureAlwaysMsgf</code> in <code>UBeamStatsSubsystem</code>.</li>
 <li>Fixed issue that caused Operation nodes with sub-events to trigger the <code>Success</code> callback multiple times when the node was set in <code>Success_Error_Cancelled</code> mode.</li>
 <li>Fixed issue in <code>UBeamStatsTypeLibrary::BreakStatsType</code> that could cause the <code>GamerTag</code> to be incorrectly set.</li>
-<li>Fixed issue in <code>UBeamUserSlot::GetUserDataWithGamerTag</code> that would cause it to return incorrect Slots when running in PIE multiplayer.</li>
-<li>Fixed rare crash issue that could happen during a user's authentication flow during PIE.</li>
+<li>Fixed issue in <code>UBeamUserSlot::GetUserDataWithGamerTag</code> that would cause it to return incorrect Slots when running in <abbr title="play in editor">PIE</abbr> multiplayer.</li>
+<li>Fixed rare crash issue that could happen during a user's authentication flow during <abbr title="play in editor">PIE</abbr>.</li>
 <li>Fixed issue in notification deserialization that caused it to have no set OuterOwner field (which, in some cases, could lead to downstream crashes inside user-code).</li>
 <li>Fixed rare issue that could cause <code>UBeamConnectivityManager</code> to mistake a login attempt for a reconnection attempt which would result in a crash.</li>
 <li>(Editor) Deleted content items in the no longer show the Delete button (X) in the Content Window</li>
 <li>(Editor) Deleted content items no longer allow renaming (disables the name field)</li>
 <li>(Editor) Fixed very rare editor crash issue that was caused by the CLI emitting events a message during a GC pass.</li>
-<li>(Editor) Fixed issue that, when running PIE in separate processes, the RoutingKeyMap would not be accessible to those PIE instances consistently. This would prevent local microservices from being reached.</li>
+<li>(Editor) Fixed issue that, when running <abbr title="play in editor">PIE</abbr> in separate processes, the RoutingKeyMap would not be accessible to those <abbr title="play in editor">PIE</abbr> instances consistently. This would prevent local microservices from being reached.</li>
 <li>(Editor) Fixed issue that caused deleted content files not to be correctly re-downloaded whenever you reverted.</li>
 <li>(Editor) Fixed issue that caused errors that happened during a content publish not to be displayed in the error dialog.</li>
 <li>(Editor) Fixed issue that would cause "Goto Definition" on custom beam nodes to not link correctly to code.</li>
