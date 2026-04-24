@@ -1,6 +1,6 @@
 # Friends
 
-The Beamable **Friends** feature allows game makers to connect players with each other and manage the status of the new friends.
+The Beamable **Friends** feature allows game makers to connect players with each other and manage the status of new friends.
 
 Beamable's Friend system allows the following game flows: 
 
@@ -10,36 +10,36 @@ Beamable's Friend system allows the following game flows:
  - Check the status of the player (Online, offline).
  - Remove the player from the friend list.
 
- There's support for local and multiplayer usage for the friend system, in this document we will focus on multiplayer, as it is the most common usage case.
+There is support for both local and multiplayer usage. This document focuses on multiplayer, as it is the most common use case.
 
 A sample that demonstrates the friend subsystem is available in our [GitHub](https://github.com/beamable/UnrealSDK). For more details, check out the [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
 ## Getting Started
-To use the friend system, you will need to first set up your Unreal to PIE with multiple players. That will allow you to test everything due to multiple instances. 
+To use the friend system, first configure an Unreal PIE session with multiple players.
 
 ???+ Warning "Observation"
-    The friend subsystem allow you to use the friend system for local players with multiple accounts, you can do as we showing here setting up the UserSlot for the correct player.
+    The friend subsystem lets you use the friend system for local players with multiple accounts. Set up the `UserSlot` for each player as shown here.
 
-Once you have your environment setup to start, the following steps will show how to implement the basic functinalities in BP.
+Once your environment is set up, the following steps show how to implement the basic functionalities in BP.
 
 ### Binding the Friends Events
- In the SDK all the events can be bound using our custom node for bind from the subsystem. The image bellow shown a example how to do this.
+In the SDK, all events can be bound using the custom bind node on the subsystem. The image below shows an example.
 
  ![friends-bind-events.png](../../../media/imgs/friends-bind-all-events.png)
 
 ### Inviting a Friend
 
 1. Open your Level Blueprint (or some other BP)
-2. Call the `Operation - Friend - SendFriendInvite`. This will allow you to create a asynchronous chain to the after invite someone to be a friend.
+2. Call `Operation - Friend - SendFriendInvite` to send a friend invite asynchronously.
 
 ![friends-send-invite.png](../../../media/imgs/friends-send-invite.png)
 
-It's possible to listen to the changes for the invites received, being responsive to this showing to the player that a new friend invite has been received. You will need to bind to the event `OnInviteReceived` shown in the [How to Bind the Friends Events](#how-to-bind-the-friends-events).
+You can listen for received invite changes — for example, alerting the player that a new invite arrived. You will need to bind to the event `OnInviteReceived` shown in the [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
 ### Accepting a Friend Invite
 
 1. Open your Level Blueprint (or some other BP)
-2. Call the `Operation - Friend - AcceptFriendInvite`. This will allow you to create a asynchronos chain to the after accept a friend invite.
+2. Call `Operation - Friend - AcceptFriendInvite` to accept a friend invite asynchronously.
 
 ![friends-accept-invite.png](../../../media/imgs/friends-accept-invite.png)
 
@@ -53,7 +53,7 @@ To bind to this event you can use the `OnInviteAccepted` as shown in the section
 ### Declining a Friend Invite
 
 1. Open your Level Blueprint (or some other BP)
-2. Call the `Operation - Friend - DeclineFriendInvite`. This will allow you to create a asynchronos chain to the after decline a friend invite.
+2. Call `Operation - Friend - DeclineFriendInvite` to decline a friend invite asynchronously.
 
 ![friends-decline-invite.png](../../../media/imgs/friends-decline-invite.png)
 
@@ -65,10 +65,10 @@ When the player that received the invite decline it, both receive the `OnInviteD
 2. Call the `Operation - Friend - BlockPlayer`/`Operation - Friend - Unblock`. This will allow you to block/unblock a player using the gamer tag of this player.
 
 ???+ Warning "Observations"
-    - It's not necessary for the player to be your friend to block him.
+    - You can block any player — friend or not.
     - **Blocked players can not be friends**.
-    - If you already friend of a player and then block him, it will automatically remove the friend.
-    - If you block a friend and then unblock it, this action won't make you both friends again. It will require a new friend invite.
+    - If you are already friends with a player and block them, the friendship is removed automatically.
+    - If you block a friend and then unblock them, this does not restore the friendship — a new friend invite is required.
 
 ![friends-block-player.png](../../../media/imgs/friends-block-player.png)
 
@@ -77,28 +77,28 @@ There are two events related to blocking players: one for the player who initiat
 ???+ Warning "Removed Friend Event"
     The removed friend event will be triggered in both players if they were friends before.
 
-For the unblock flow is very similar to the block, so there's a `OnPlayerUnblocked` event and a `OnPlayerBeenUnblocked`.
+The unblock flow is very similar: `UBeamFriendsSubsystem` provides `OnPlayerUnblocked` (fires for the player who initiates the unblock) and `OnPlayerBeenUnblocked` (fires for the player who was unblocked).
 
-For you to use the status presence as the common behavior of showing if your friend is online or offline we recommend to register in the `OnPresenceStatusUpdate` and handle the updates in the player status from this. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
+To show a friend's presence status, register on `OnFriendPresenceStatusUpdate`; the status is an `EBeamPresenceStatus` value — `Visible`, `Invisible`, `Dnd`, or `Away`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
 ### Removing a Friend
 
 1. Open your Level Blueprint (or some other BP)
-2. Call the `Operation - Friend - RemoveFriend`. This will allow you to create a asynchronos chain to the after remove a friend.
+2. Call `Operation - Friend - RemoveFriend` to remove a friend asynchronously.
 
 ![friends-remove-friend.png](../../../media/imgs/friends-remove-friend.png)
 
 When a player is removed from the friend list it will trigger this notification. You will be able to register on this to treat the behavior in your game.
 
-The event that will be trigger is the `OnFriendRemoved`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
+The event triggered is `OnFriendRemoved`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 When it triggers, the local state of the friend list will already have been updated. 
 
-### How To Use The System State To Update The View (Invite Sample)
+### How to Update the View Using System State (Invite Sample)
 
-In the example below, we demonstrate how to retrieve the user's friend state and use it to update a view or another screen. In this case, the example simply sets a list of all invites in the friend state. There are other ways to handle this, such as adding or removing items based on events, rather than setting the entire list. For simplicity, we're showing this approach.
+In the example below, we demonstrate how to retrieve the user's friend state and use it to update a view or another screen. In this case, the example simply sets a list of all invites in the friend state. There are other ways to handle this, such as adding or removing items based on events, rather than setting the entire list. For simplicity, this example uses that approach.
 
 ![friends-local-state-received-invite.png](../../../media/imgs/friends-local-state-received-invite.png)
 
-# Conclusion
+## Conclusion
 
-This is a brief document that describes the basic usage of the Friend Subsystem, once you implement those features consider to test with multiple users or adding more complex interactions.
+This is a brief document that describes the basic usage of the Friend Subsystem, once you implement those features, consider testing with multiple users or adding more complex interactions.
