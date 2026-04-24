@@ -110,6 +110,18 @@ For **feature and fix PRs**, prefer **squash-and-merge**. These are typically si
 
 Neither convention is enforced by tooling — both are de facto habits. When in doubt, ask: "does the history of *how* this landed matter?" If yes, merge commit; if no, squash.
 
+## SDK Source References
+
+When verifying API names, event names, Blueprint node names, or
+other code-level details referenced in documentation, consult the
+appropriate SDK source repository:
+
+- **Unity SDK** — `beamable/BeamableProduct` on GitHub
+- **Unreal SDK** — `beamable/UnrealSDK` on GitHub
+
+Local checkout paths vary by machine; contributors should record
+their own paths in personal memory or shell config.
+
 ## Navigation
 
 Documentation navigation is defined by `SUMMARY.md` files (using `mkdocs-literate-nav` plugin) in each content branch.
