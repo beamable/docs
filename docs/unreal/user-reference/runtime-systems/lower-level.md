@@ -1,6 +1,6 @@
 ﻿# Lower-Level SDK
 
-This section talks about lower-level details of how requests to Beamable get made. ***You don't need to read this***, but... you might want to if you plan on implementing your own `UBeamRuntimeSubsystem`. 
+This section talks about lower-level details of how requests to Beamable get made. ***You don't need to read this***, but... you might want to if you plan on implementing your own `UBeamRuntimeSubsystem`.
 
 Here's why you'd want to do this:
 
@@ -16,7 +16,7 @@ The lowest layer of systems is shared between the SDK's UE Editor integration an
 
 - `UBeamUserSlots`: [User Slots](user-slots.md) tracks multiple local signed-in users (for local co-op cases).
     - This is basically a local user cache that is aware of the peculiarities of PIE.<br><br>
-   
+
 - `UBeamRequestTracker`: provides BP-compatible async operations that emit various events as they go along.
     - You can think of these as "BP-Compatible Promises".
     - These are integrated with our `UBeam____Api` subsystems.
@@ -33,7 +33,7 @@ The lowest layer of systems is shared between the SDK's UE Editor integration an
 - `UBeamBackend`, `UBeamNotifications` and `UBeam_____Notifications` are discussed in the sections below.
 
 ## UBeamBackend
-`UBeamBackend` is the most important `UEngineSubsystem` in the SDK. It leverages Unreal's `HTTP` module to make requests to the configured Beamable backend. It contains the implementations used by the `UBeam____Api` classes to make the actual requests. 
+`UBeamBackend` is the most important `UEngineSubsystem` in the SDK. It leverages Unreal's `HTTP` module to make requests to the configured Beamable backend. It contains the implementations used by the `UBeam____Api` classes to make the actual requests.
 
 These implementations handle:
 
@@ -44,11 +44,11 @@ These implementations handle:
 
 We have a few different types of requests and 4 implementations to handle them:
 
-- **CPP and BP Authenticated Requests**: require an `FUserSlot` with a logged-in user whose access token we'll use to make the request. 
+- **CPP and BP Authenticated Requests**: require an `FUserSlot` with a logged-in user whose access token we'll use to make the request.
 - **CPP and BP Non-Authenticated Requests**: does not require an `FUserSlot` with a logged-in user.
 - **`UBeamBackend::CreateGenericBeamRequest`**: for making requests to non-Beamable servers by `UBeamGenericApi`.
 
-In addition to these implementations, we also have a hierarchy of retry configurations. You can configure these in `UBeamCoreSettings` (`Project Settings -> Beamable Core`). Retries happen automatically on timeouts and a few other known cases. 
+In addition to these implementations, we also have a hierarchy of retry configurations. You can configure these in `UBeamCoreSettings` (`Project Settings -> Beamable Core`). Retries happen automatically on timeouts and a few other known cases.
 
 By default, these are if:
 
@@ -80,5 +80,5 @@ For example:
     - For example, `UBeamMatchmakingNotifications` subscribes to notifications for the matchmaking ticket while a `FUserSlot` is on a given queue.<br><br>
 
 - You can use Microservices to send out custom notifications --- those can be received in clients by creating your own subsystem modeled after these.
-    - Use `UBeamRuntime::SubscribeToCustomNotification` to subscribe to these easily at runtime. 
-  
+    - Use `UBeamRuntime::SubscribeToCustomNotification` to subscribe to these easily at runtime.
+

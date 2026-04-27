@@ -2,7 +2,7 @@
 
 The Beamable **Friends** feature allows game makers to connect players with each other and manage the status of new friends.
 
-Beamable's Friend system allows the following game flows: 
+Beamable's Friend system allows the following game flows:
 
  - Send friend invites to other players.
  - Accept/Decline invites received from other players.
@@ -91,7 +91,7 @@ To show a friend's presence status, register on `OnFriendPresenceStatusUpdate`; 
 When a player is removed from the friend list it will trigger this notification. You will be able to register on this to treat the behavior in your game.
 
 The event triggered is `OnFriendRemoved`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
-When it triggers, the local state of the friend list will already have been updated. 
+When it triggers, the local state of the friend list will already have been updated.
 
 ### How to Update the View Using System State (Invite Sample)
 

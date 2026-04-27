@@ -17,7 +17,7 @@ Overview:
 
 ### Edgegap Environment Variables Required
 
-Once you set up your version, you will need to add the following environment variables to the version. 
+Once you set up your version, you will need to add the following environment variables to the version.
 
  ![Edgegap Env Variables](../../../media/imgs/edgegap-env-vars.png)
 
@@ -26,7 +26,7 @@ Once you set up your version, you will need to add the following environment var
 ![Portal CID](../../../media/imgs/beamball-costumer-id.png)
 
 - BEAMABLE_REALM_OVERRIDE: The Realm found in your Beamable portal.
-  
+
 - BEAMABLE_REALM_SECRET: The Realm Secret.
 
 ![Portal PID and Secret](../../../media/imgs/beamball-realm-secret.png)

@@ -38,7 +38,7 @@ Since this sample requires several resources, we do not host it ourselves. So, i
 6. Now open the Discord application.
       1. Open `Settings->Advanced` and enable the `Developer Mode` so that we can copy various Ids by right-clicking things in the UI.
       2. Right click on the server icon and select the option `Copy server ID` and set it aside.
-      3. Right click on the server icon and select `Settings->Roles`. 
+      3. Right click on the server icon and select `Settings->Roles`.
       4. Create a `enabled-matchmaking` role.
       5. Right click on the role and select the option `Copy Role ID` and set it aside.
       6. Pick any text channel. Right click on the channel select the option `Copy Channel ID` and set it aside.
@@ -53,9 +53,9 @@ Now, you'll need to configure a Beamable realm so you can use it.
 4. Set the following key-value pairs for the namespace `discord_integration`:
       1. `matchmaking_roles_whitelist -> Your copied Role Id, can be multiple separated by comma`
       2. `bot_token -> Your Bot Token`
-      3. `guild_id -> Your Discord Server ID` 
-      4. `notify_channel -> Optional- Discord channel ID that bot will notify about status changes` 
-5. Open the `Plugins/BEAMPROJ_DiscordDemo/Overrides/Config/DefaultGame.ini`. 
+      3. `guild_id -> Your Discord Server ID`
+      4. `notify_channel -> Optional- Discord channel ID that bot will notify about status changes`
+5. Open the `Plugins/BEAMPROJ_DiscordDemo/Overrides/Config/DefaultGame.ini`.
       1. Replace the `DiscordAppId` in it with `Your App Id`.
       2. Regenerate project files.
 6. Compile and open the `BeamableUnreal` editor (it'll be configured as the `BEAMPROJ_DiscordDemo`) project.

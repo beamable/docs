@@ -21,7 +21,7 @@ To set up this sample you'll need a a Beamable Account and a Realm. To configure
 ## Setting up the Project
 To set up an organization and realm to run this sample, follow the steps below.
 
-1. Go to the Beamable Portal and create a new Beamable realm called `Beamball`    
+1. Go to the Beamable Portal and create a new Beamable realm called `Beamball`
 2. Compile and open the `BeamableUnreal` editor project.
 3. Sign into your Beamable account and go to the `Beamball` realm.
       1. Optionally you can hit `Apply to Build` after the realm change is done.

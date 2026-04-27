@@ -8,7 +8,7 @@ They wrap concurrent *operations* (mostly HTTP Requests) under a `FBeamOperation
 
 > When you want to expose a single function that makes a bunch of async operations and emits events in the Game Thread, ultimately handling success/failure of the entire sequence of operations, use an `Operation`.
 
-We provide a lot of Operations inside our `UBeamRuntimeSubsystem` implementations, covering most basic use-cases. However, understanding how to create your own operations enables you to add behavior to last-mile hooks we expose. 
+We provide a lot of Operations inside our `UBeamRuntimeSubsystem` implementations, covering most basic use-cases. However, understanding how to create your own operations enables you to add behavior to last-mile hooks we expose.
 
 A couple of examples:
 
@@ -16,7 +16,7 @@ A couple of examples:
 - "I want to go talk to a microservice to validate that you can actually join this matchmaking queue."
 
 !!! warning
-	While possible, we don't recommend creating the actual operations as blueprints. It's OK to do so for a quick experimentation session; but shipping with it is *not recommended*. 
+	While possible, we don't recommend creating the actual operations as blueprints. It's OK to do so for a quick experimentation session; but shipping with it is *not recommended*.
 	**Calling *Operations* that are written in C++ is the primary way we recommend Blueprints to interact with the Beamable SDK. We even have [special nodes](../blueprints.md) for it.**
 
 ## Operation Lifecycle
@@ -37,74 +37,74 @@ We expose all of our main SDK operations in both BP and CPP flavors. If you'd li
 
 **The primary trade-off:**
 
-- BP-Compatible versions do not allow for lambda binding and variable capturing. 
+- BP-Compatible versions do not allow for lambda binding and variable capturing.
 - The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, we decided on supporting both flavors.
 
-In order to easily support both flavors, the snippet below explains how you should write the actual operation logic such that it can be shared for both CPP and BP versions. 
+In order to easily support both flavors, the snippet below explains how you should write the actual operation logic such that it can be shared for both CPP and BP versions.
 
 ```c++
 // This is the BP-Compatible Function
-FBeamOperationHandle U________::__________Operation(FUserSlot UserSlot, (...OperationParams...), FBeamOperationEventHandler OnOperationEvent, UObject* CallingContext)  
-{  
+FBeamOperationHandle U________::__________Operation(FUserSlot UserSlot, (...OperationParams...), FBeamOperationEventHandler OnOperationEvent, UObject* CallingContext)
+{
 	// First, we start an operation using the BP-Compatible BeginOperation call
-	const auto Handle = Runtime->RequestTrackerSystem->BeginOperation({UserSlot}, GetClass()->GetFName().ToString(), OnOperationEvent);  
+	const auto Handle = Runtime->RequestTrackerSystem->BeginOperation({UserSlot}, GetClass()->GetFName().ToString(), OnOperationEvent);
 
 	// Then, we call a function that takes in the operation parameters and the Handle for the operation.
-	TheActualOperationLogic(UserSlot, (...OperationParams...), Handle);  
+	TheActualOperationLogic(UserSlot, (...OperationParams...), Handle);
 
-	// Operation functions usually return the handle so that callers can ask questions about the state of the operation if they want to.	
-	return Handle;  
-}  
+	// Operation functions usually return the handle so that callers can ask questions about the state of the operation if they want to.
+	return Handle;
+}
 
 // This is the CPP Function
-FBeamOperationHandle U__________::CPP_________Operation(FUserSlot UserSlot, (...OperationParams...), FBeamOperationEventHandlerCode OnOperationEvent, UObject* CallingContext)  
-{  
+FBeamOperationHandle U__________::CPP_________Operation(FUserSlot UserSlot, (...OperationParams...), FBeamOperationEventHandlerCode OnOperationEvent, UObject* CallingContext)
+{
 	// First, we start an operation using the BP-Compatible BeginOperation call
-	const auto Handle = Runtime->RequestTrackerSystem->CPP_BeginOperation({UserSlot}, GetClass()->GetFName().ToString(), OnOperationEvent);  
-	
-	// Then, we call a function that takes in the operation parameters and the Handle for the operation.
-	TheActualOperationLogic(UserSlot, Key, Value, Handle);  
+	const auto Handle = Runtime->RequestTrackerSystem->CPP_BeginOperation({UserSlot}, GetClass()->GetFName().ToString(), OnOperationEvent);
 
-	// Operation functions usually return the handle so that callers can ask questions to UBeamRequestTracker about the state of the operation if they want to.	
-	return Handle; 
+	// Then, we call a function that takes in the operation parameters and the Handle for the operation.
+	TheActualOperationLogic(UserSlot, Key, Value, Handle);
+
+	// Operation functions usually return the handle so that callers can ask questions to UBeamRequestTracker about the state of the operation if they want to.
+	return Handle;
 }
 
 
-void U__________::TheActualOperationLogic(FUserSlot Slot, (...OperationParams...), FBeamOperationHandle Op)  
-{  
+void U__________::TheActualOperationLogic(FUserSlot Slot, (...OperationParams...), FBeamOperationHandle Op)
+{
     // This is mostly an example snippet of things you can do...
 
     // We can check the local client state and fail operations without any request ever being made.
     // For example, check if a user is authenticated or not.
-    FBeamRealmUser RealmUser;  
-    if (!UserSlots->GetUserDataAtSlot(Slot, RealmUser, this))  
-    {       
-	RequestTracker->TriggerOperationError(Op, TEXT("NO_AUTHENTICATED_USER_AT_SLOT"));  
-	return;  
-    }  
-    
+    FBeamRealmUser RealmUser;
+    if (!UserSlots->GetUserDataAtSlot(Slot, RealmUser, this))
+    {
+	RequestTracker->TriggerOperationError(Op, TEXT("NO_AUTHENTICATED_USER_AT_SLOT"));
+	return;
+    }
+
     // We can also prepare a request handler, capturing the "Op" Handle
-    const auto SomeRequestHandler = FOn______::CreateLambda([this, Op](F______ Resp)  
-    {  
+    const auto SomeRequestHandler = FOn______::CreateLambda([this, Op](F______ Resp)
+    {
 
 		// If the request is being retried, we don't do anything.
 		// But... we could go update a UI here or something...
 		if (Resp.State == RS_Retrying) return;
-		
+
 		// If the request was successful, we can trigger the Operation as a success.
-		if (Resp.State == RS_Success)  
+		if (Resp.State == RS_Success)
 		{
-			// (...) change local system's state	        
-			RequestTracker->TriggerOperationSuccess(Op, {});  
+			// (...) change local system's state
+			RequestTracker->TriggerOperationSuccess(Op, {});
 		}
 		// If the request failed, we can trigger the Operation as a success.
-		else 
-		{ 
+		else
+		{
 			// (...) handle error and trigger the Operation as an error.
-			RequestTracker->TriggerOperationError(Op, Resp.ErrorData.error); 
+			RequestTracker->TriggerOperationError(Op, Resp.ErrorData.error);
 		}
-	});    
-	
+	});
+
 	// Make the request passing in the "Op" Handle (this tracks lets our UBeamBackend know not to clean up the request until the Operation has finished)
 	auto Ctx = Request____(Slot, (...ReqParams...), Op, SomeRequestHandler);
 }
@@ -131,10 +131,10 @@ As part of our [Blueprint integration](../blueprints.md), we have created a few 
 
 - One or more participating `UserSlots` (see [User Slots](../user-slots.md) for more information).
 - An event handler for handling any of the events.
-- Events can be: `OET_SUCCESS`, `OET_ERROR` and `OET_CANCELLED` plus a `FName EventId`.    
+- Events can be: `OET_SUCCESS`, `OET_ERROR` and `OET_CANCELLED` plus a `FName EventId`.
 - Events can contain some arbitrary data associated with them (implementations of `IBeamOperationEventData`).
 
-To create these nodes for your own operations, you can look at any of our own nodes (that live inside our `UncookedOnly` module: `BeamableCoreBlueprintNodes` ) and copy/paste one implementation changing the values accordingly. 
+To create these nodes for your own operations, you can look at any of our own nodes (that live inside our `UncookedOnly` module: `BeamableCoreBlueprintNodes` ) and copy/paste one implementation changing the values accordingly.
 
 **However, there are a few restrictions:**
 
@@ -148,27 +148,27 @@ To create these nodes for your own operations, you can look at any of our own no
 **Here's an example of what you need to declare one of these** (we recommend copying from your own SDK code instead of this snippet).
 
 ```c++
-#define LOCTEXT_NAMESPACE "K2BeamNode_Operation_CommitInventoryUpdate"  
-  
-UCLASS(meta=(BeamFlowNode))  
-class UK2BeamNode_Operation_CommitInventoryUpdate : public UK2BeamNode_Operation  
-{  
-    GENERATED_BODY()  
+#define LOCTEXT_NAMESPACE "K2BeamNode_Operation_CommitInventoryUpdate"
+
+UCLASS(meta=(BeamFlowNode))
+class UK2BeamNode_Operation_CommitInventoryUpdate : public UK2BeamNode_Operation
+{
+    GENERATED_BODY()
 
 	// This returns the title of the node.
-    virtual FText GetNodeTitle(ENodeTitleType::Type TitleType) const override { return LOCTEXT("Title", "Operation - Inventory - CommitInventoryUpdate"); }  
+    virtual FText GetNodeTitle(ENodeTitleType::Type TitleType) const override { return LOCTEXT("Title", "Operation - Inventory - CommitInventoryUpdate"); }
 
 	// This should get a static UFUNCTION that returns a valid instance of the UGameInstanceSubsystem containing the Operation function.
-    virtual FName GetSubsystemSelfFunctionName() const override { return GET_FUNCTION_NAME_CHECKED(UBeamInventorySubsystem, GetSelf); }  
+    virtual FName GetSubsystemSelfFunctionName() const override { return GET_FUNCTION_NAME_CHECKED(UBeamInventorySubsystem, GetSelf); }
 
 	// This should return the UFUNCTION Operation's name.
-    virtual FName GetOperationFunctionName() const override { return GET_FUNCTION_NAME_CHECKED(UBeamInventorySubsystem, CommitInventoryUpdateOperation); }  
+    virtual FName GetOperationFunctionName() const override { return GET_FUNCTION_NAME_CHECKED(UBeamInventorySubsystem, CommitInventoryUpdateOperation); }
 
 	// This should get the UGameInstanceSubsystem class
-    virtual UClass* GetRuntimeSubsystemClass() const override { return UBeamInventorySubsystem::StaticClass(); }  
-  
-};  
-  
+    virtual UClass* GetRuntimeSubsystemClass() const override { return UBeamInventorySubsystem::StaticClass(); }
+
+};
+
 #undef LOCTEXT_NAMESPACE
 ```
 
@@ -179,7 +179,7 @@ This is very useful when designing unique features leveraging [MicroServices and
 ## Writing Hooks
 
 Writing Hooks are callback points that let you customize how the SDK behaves during long-running operations.
- 
+
 If a Delegate or Virtual Function returns one or more `FBeamOperationHandle`, you need to create operations and return their handles. The SDK will wait on these operations before continuing its own execution. Conceptually, this lets you inject a promise into a larger long-running operation.
 
 
@@ -194,7 +194,7 @@ If a Delegate or Virtual Function returns one or more `FBeamOperationHandle`, yo
 
 3. **Hooks:** bind into delegates created via `DEFINE_BEAM_OPERATION_HOOK`.
 	1. We don't use Hooks ourselves IN ANY CIRCUMSTANCES and leave these as "game-maker-only extensions".
-	2. You can search for `DEFINE_BEAM_OPERATION_HOOK` and find some usages of the macro to better understand these. 
+	2. You can search for `DEFINE_BEAM_OPERATION_HOOK` and find some usages of the macro to better understand these.
 
 ### Beam Operation Hooks
 **Hooks** have some more context that you should know about how to use them:
@@ -205,7 +205,7 @@ If a Delegate or Virtual Function returns one or more `FBeamOperationHandle`, yo
 2. Whenever a set of hooks are triggered, what actually happens is:
 	1. The returned `FBeamOperationHandles` from the hooks are fed into a `UBeamRequestTracker::WaitAll` call.
 	2. Our operation will wait for all your hooks to complete; successfully or otherwise.
-	3. If registered operations fail, the errors that exist inside those operations are logged so that there is a clear trail of where the problem occurred. 
+	3. If registered operations fail, the errors that exist inside those operations are logged so that there is a clear trail of where the problem occurred.
 	4. If your operations succeeded, we'll continue with our own operation and eventually trigger that as a success.
 	5. The semantics of what happens in case of a failure change from hook to hook, but for the most part we'll fail our own operation if any hooks fail.
 
@@ -214,57 +214,57 @@ If a Delegate or Virtual Function returns one or more `FBeamOperationHandle`, yo
 ```C++
 // Let's say you want to run some synchronous code at a hook but don't really want to make any requests to anything.
 // In that case you can get the system and add a hook that:
-const U_____ SomeSystem;  
-SomeSystem->Hook.Add(F____::CreateLambda([this]()  
-{  
+const U_____ SomeSystem;
+SomeSystem->Hook.Add(F____::CreateLambda([this]()
+{
 	// (...) Does some synchronous code
 	// This means that your operation is completed at the end of this function
-	
+
 	// For cases like these, we provide the utility function below.
 	// This creates and immediately completes an operation and returns its handle.
-    return GEngine->GetEngineSubsystem<UBeamRequestTracker>()->CPP_BeginSuccessfulOperation({}, FString("MySystemName"), FString(""), FBeamOperationEventHandlerCode{});  
-}));  
+    return GEngine->GetEngineSubsystem<UBeamRequestTracker>()->CPP_BeginSuccessfulOperation({}, FString("MySystemName"), FString(""), FBeamOperationEventHandlerCode{});
+}));
 
 // Let's say you want to call some microservice you wrote as part of our operation
 // In that case you can add a hook that:
-SomeSystem->Hook.Add(F____::CreateLambda([this]()  
-{  
+SomeSystem->Hook.Add(F____::CreateLambda([this]()
+{
 	// Begins an operation
     const auto Op = GEngine->GetEngineSubsystem<UBeamRequestTracker>()->CPP_BeginOperation({}, FString("MySystemName"), {});
 
 	// Get Microservice Subsystem that exposes calls to it
-    const auto MyMsApi = GEngine->GetEngineSubsystem<UMyMsApi>();  
-    const auto MyMsReq = UMyMsRequest::Make(GetTransientPackage(), {});  
-	
+    const auto MyMsApi = GEngine->GetEngineSubsystem<UMyMsApi>();
+    const auto MyMsReq = UMyMsRequest::Make(GetTransientPackage(), {});
+
 	// Create the handler for the request capturing the "Op" it's a part of.
-    const auto MyMsHandler = FOnMyMsFullResponse::CreateLambda([this, Op](FMyMsFullResponse Resp)  
-    {       
+    const auto MyMsHandler = FOnMyMsFullResponse::CreateLambda([this, Op](FMyMsFullResponse Resp)
+    {
 		// If we timedout and are retrying the request, do nothing.
-		if(Resp.State == RS_Retrying)  
-			return;			
-		
-	    UE_LOG(LogTemp, Display, TEXT("Talked to a Microservice from a Hook!!!! Look at that, huh?"));  
-	
+		if(Resp.State == RS_Retrying)
+			return;
+
+	    UE_LOG(LogTemp, Display, TEXT("Talked to a Microservice from a Hook!!!! Look at that, huh?"));
+
 		// If the response from the Microservice was not a success, fail the operation.
-		if(Resp.State != RS_Success)  
-		{	
+		if(Resp.State != RS_Success)
+		{
 			// Trigger the operation as a success
-			GEngine->GetEngineSubsystem<UBeamRequestTracker>()->TriggerOperationError(Op, Resp.ErrorData.message);  
-			return;  
-		}  
-		
+			GEngine->GetEngineSubsystem<UBeamRequestTracker>()->TriggerOperationError(Op, Resp.ErrorData.message);
+			return;
+		}
+
 		// (...) Do stuff with the Microservice's response
-		
+
 		// Trigger the operation as a success
-       GEngine->GetEngineSubsystem<UBeamRequestTracker>()->TriggerOperationSuccess(Op, FString(""));  
-    });   
+       GEngine->GetEngineSubsystem<UBeamRequestTracker>()->TriggerOperationSuccess(Op, FString(""));
+    });
 
 	// Make the request
-	FBeamRequestContext Ctx;  
-    MyMsApi->CPP_MyMs(UserSlot, MyMsReq, MyMsHandler, Ctx, Op, GetGameInstance());  
+	FBeamRequestContext Ctx;
+    MyMsApi->CPP_MyMs(UserSlot, MyMsReq, MyMsHandler, Ctx, Op, GetGameInstance());
 
 	// Return the create Operation
-    return Op;  
+    return Op;
 }));
 ```
 
@@ -286,7 +286,7 @@ You can find examples of these in our SDKs so you can learn how to use this your
 
 ---
 
-Understanding these concepts and how to leverage them can unlock the maximum potential uses and customizability of the SDK, but superficial knowledge is enough for the most basic use-cases. 
+Understanding these concepts and how to leverage them can unlock the maximum potential uses and customizability of the SDK, but superficial knowledge is enough for the most basic use-cases.
 
 
 Take your time, read the source, and refer back to this page as you need!

@@ -28,15 +28,15 @@ dotnet beam project new service MicroserviceName --sln ProjectNameBeamable/Proje
 ```
 
 The created Microservice would look something like the example one below here.
- 
+
 ```csharp
 [Microservice("MicroserviceName")]
-public partial class MicroserviceName : Microservice  
-{  
-    [ClientCallable]  
-    public int Add(int a, int b)  
+public partial class MicroserviceName : Microservice
+{
+    [ClientCallable]
+    public int Add(int a, int b)
     {
-	    return a + b;  
+	    return a + b;
     }
 }
 ```
@@ -48,7 +48,7 @@ Afterward, you can run the command below from your project's root.
 ```
 dotnet beam project add-unreal-project .
 ```
- 
+
 Linking a project informs our CLI where it should put generated C++ files for communicating with the Microservice from UE code. **To generate the project files, run**:
 
 ```bash
@@ -64,7 +64,7 @@ After generating the client in your Unreal project, these are the next steps:
     - `MyProjectServer.Target.cs`, if you have a dedicated server build.
 - Add `ProjectNameMicroserviceClients.AddMicroserviceClients(this)` line to your game module's `Build.cs` files.
 
-The generated microservice clients are implementations of `UBeamMicroserviceClientSubsystem` which are `UEngineSubsystem`. The client exposes functions for each microservice request that are essentially the same as the [UBeam_____Api](../runtime-systems/lower-level.md) Lower Level API. 
+The generated microservice clients are implementations of `UBeamMicroserviceClientSubsystem` which are `UEngineSubsystem`. The client exposes functions for each microservice request that are essentially the same as the [UBeam_____Api](../runtime-systems/lower-level.md) Lower Level API.
 
 To call microservices in Blueprints, you use `Low Level - Microservice Name` nodes.
 
@@ -72,35 +72,35 @@ To call microservices in Blueprints, you use `Low Level - Microservice Name` nod
 
 In C++ this is what calling a microservice looks like:
 
-```cpp 
+```cpp
 // From inside any GameInstanceSubsystem, Actor or Component...
 
 // Get the Generated API subsystem
-const auto MsApi = GEngine->GetEngineSubsystem<UBeamMicroserviceNameApi>();  
+const auto MsApi = GEngine->GetEngineSubsystem<UBeamMicroserviceNameApi>();
 
 // Create an instance of the generated Request object.
-const auto Req = UMicroserviceNameAddRequest::Make(1, 2, GetTransientPackage(), {});  
+const auto Req = UMicroserviceNameAddRequest::Make(1, 2, GetTransientPackage(), {});
 
 // Declare the handler for the addition
-const auto Handler = FOnMicroserviceNameAddFullResponse::CreateLambda([this](FMicroserviceNameAddFullResponse Resp)  
-{  
-    // If the request failed or we are retrying, we do nothing  
-    if (Resp.State != RS_Success)  
-       return;  
-  
-    // Otherwise, print the value 
+const auto Handler = FOnMicroserviceNameAddFullResponse::CreateLambda([this](FMicroserviceNameAddFullResponse Resp)
+{
+    // If the request failed or we are retrying, we do nothing
+    if (Resp.State != RS_Success)
+       return;
+
+    // Otherwise, print the value
     UE_LOG(LogTemp, Display, TEXT("Microservice Add: %d"), Resp.SuccessData->Value);
-});  
+});
 
 // Make the request (the user slot will usually be the UBeamCoreSettings::GetOwnerPlayerSlot())
-FBeamRequestContext Ctx;  
+FBeamRequestContext Ctx;
 MsApi->CPP_Add(UserSlot, Req, Handler, Ctx, {}, this);
 ```
 
 Take a look at the [Microservices docs](microservices.md) for more information about where to go from here.
 
 ## Optional - Create a MicroStorage
-MicroStorages are a Beamable feature that allows you, the Game-Maker, access to a MongoDB you can use to define your own custom persisted data formats to go along with your own custom microservice logic. 
+MicroStorages are a Beamable feature that allows you, the Game-Maker, access to a MongoDB you can use to define your own custom persisted data formats to go along with your own custom microservice logic.
 
 This is a useful architectural alternative when making complex features that do not map well to the default cases of Beamable's own data-storing Managed Services ([Stats](../beamable-services/stats.md), [Inventory](../beamable-services/inventory.md), etc...).
 
@@ -129,11 +129,11 @@ While definitely not the common case, it is possible for projects to require mul
 
 - Create a `dll` project by running this command:
 	- `beam project new common-lib LibraryName --sln ProjectNameBeamable/ProjectNameBeamable.sln`
-- Adding a reference to it in any of your Microservice's `.csproj` files by adding this line to an **ItemGroup** block: 
+- Adding a reference to it in any of your Microservice's `.csproj` files by adding this line to an **ItemGroup** block:
 	- `<ProjectReference Include="..\LibraryName\LibraryName.csproj"/>`
 
 !!! warning "UE Code Generation Limitations"
 	You can write any code here and share types between microservices. Keep in mind that, if you use these types in method signatures of multiple microservices, due to Unreal's lack of namespacing, you'll end up with two different UE types for the same shared type.
-	
+
 	For that reason, we currently recommend you do not expose shared complex types inside `Callable` method signatures.
 

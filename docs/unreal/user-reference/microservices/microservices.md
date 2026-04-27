@@ -22,10 +22,10 @@ Under the hood, microservices are a wrapper around a custom WebSocket protocol a
 It solves or helps with all the listed items above and the amount of code you actually need to write to expose an Endpoint your game can call is:
 
 ```csharp
-[ClientCallable]  
-public int Add(int a, int b)  
-{  
-    return a + b;  
+[ClientCallable]
+public int Add(int a, int b)
+{
+    return a + b;
 }
 ```
 
@@ -38,9 +38,9 @@ The left side of the window provides you a list of all services in your project 
 
 !!! note "Service Groups"
 	In very rare cases, a project may require a non-trivial amount of services/storages. For Beamable's own internal development this is true (as we have microservices for each sample).
-	
-	In cases like these, a line can be added to the `csproj` file of each service to assign them to groups. These can then be used by the CLI's `project` pallet as filters while also being used as a filter in this window. The line to be added to the `BeamableSettings` **PropertyGroup** : `<BeamServiceGroup>SomeGroupId</BeamServiceGroup>`	
-	
+
+	In cases like these, a line can be added to the `csproj` file of each service to assign them to groups. These can then be used by the CLI's `project` pallet as filters while also being used as a filter in this window. The line to be added to the `BeamableSettings` **PropertyGroup** : `<BeamServiceGroup>SomeGroupId</BeamServiceGroup>`
+
 	There are no restrictions on group names other than that `BEAMPROJ_` is a reserved prefix.
 
 ### The Details Panel
@@ -79,9 +79,9 @@ Inside the method body, you can access properties inherited from the `Microservi
 [For more information on how to write microservice functions, you can take a look at these docs as well.](../../../cli/guides/microservices.md)
 
 ## Constraints on Callable Functions
-Our CLI is capable of generating Unreal bindings that will allow your Unreal code to call your microservice much like you would make an API call to Beamable. To generate these bindings, we have *some* restrictions on what types can and can't be on method signatures for `Callables`. 
+Our CLI is capable of generating Unreal bindings that will allow your Unreal code to call your microservice much like you would make an API call to Beamable. To generate these bindings, we have *some* restrictions on what types can and can't be on method signatures for `Callables`.
 
-Each `Callable` generates at least two `UObject` classes, one representing request's input parameters and another representing the response type. It also generates a function inside the generated `UBeamMicroserviceNameApi` subsystem (and accompanying Blueprint nodes). 
+Each `Callable` generates at least two `UObject` classes, one representing request's input parameters and another representing the response type. It also generates a function inside the generated `UBeamMicroserviceNameApi` subsystem (and accompanying Blueprint nodes).
 
 ### Signature Constraints
 When declaring `Callable` functions, you should be aware of a few limitations regarding its signatures.
@@ -89,13 +89,13 @@ When declaring `Callable` functions, you should be aware of a few limitations re
 - No `void` return.
 - Can be `async` or not.
 - Cannot return container types directly.
-	- `List<>` / `Dictionary<string,>` 
+	- `List<>` / `Dictionary<string,>`
 	- Wrap it in a struct/class instead.
 - No overloading of `Callables`.
 	- This is because each of these must map to a unique route so name things accordingly.
 	- Non-`Callable` functions can be overloaded just fine.
 - Avoid calling `Callable` functions from other `Callable` functions.
-	- For code-reuse in the Microservice, write non-`Callable` static functions and call them inside the `Callable` body. 
+	- For code-reuse in the Microservice, write non-`Callable` static functions and call them inside the `Callable` body.
 - Must be an instance method (no `static` keyword).
 	- Currently, every request is handled by a unique instance of the Microservice class.
 	- This also means that it is highly discouraged to put member fields in the instance itself
@@ -139,8 +139,8 @@ A few things to note:
 
 - Unreal's lack of Namespaces in Blueprint-Compatible-land makes auto-generated code pretty verbose.
 	- When using these APIs, we recommend liberal *but careful* use of `auto`.
-- The code for **all** microservices in the solution is generated at once. 
-	- This means that, if you have multiple Microservices, you cannot generate a single service's bindings. 
+- The code for **all** microservices in the solution is generated at once.
+	- This means that, if you have multiple Microservices, you cannot generate a single service's bindings.
 	- This is also a result of the Namespaces constraint.
 
 !!! note "Semantic Type Support"
@@ -162,7 +162,7 @@ To do that, we allow you to use the CLI to register replacement types so that th
 
 #### Adding a Replacement Type
 
-1. Write your replacement type inside your Unreal Project. 
+1. Write your replacement type inside your Unreal Project.
    1. This must exist inside the `______MicroserviceClients/CustomReplacementTypes` module.
    2. If you don't have the `____MicroserviceClients` yet, just generate the microservice client code once via `dotnet beam project generate-client "."`.
    3. When writing the replacement type, look at the other generated code to see how to leverage our `UBeamJsonUtils` library to write the serialization logic.
@@ -170,7 +170,7 @@ To do that, we allow you to use the CLI to register replacement types so that th
    1. The `reference-id` argument is the OpenAPI ReferenceId for the type you want to replace. You can find this inside the `beam_openApi.json` file that lives in your microservice's `bin` directory. `ReferenceIds` are any of the json property names under the `components.schemas.<ReferenceId>` sub-object of this JSON file.
    2. The `replacement-type` argument is the name of the replacement type you've written.
    3. The `engine-import` argument is the `"#include \"FileName.h\""` string for the type.
-   4. The `optional-replacement-type` argument is the name for the `FBeamOptional` wrapper for the replacement type you've written (this type is automatically generated – you don't need to write it). 
+   4. The `optional-replacement-type` argument is the name for the `FBeamOptional` wrapper for the replacement type you've written (this type is automatically generated – you don't need to write it).
    5. The project name is your UnrealProject's name (the `.uproject` file name).
 
 Here's an example:
@@ -180,7 +180,7 @@ dotnet beam project add-replacement-type \
    --reference-id=MyMicroservice.MyType \
    --replacement-type=FMyType \
    --optional-replacement-type=FOptionalMyType \
-   --engine-import="#include \"MyType.h\"" 
+   --engine-import="#include \"MyType.h\""
    --project-name=MyUnrealProject
 ```
 
@@ -223,7 +223,7 @@ This allows us to integrate microservices running in your local machine "as thou
 
 ![microservices-architecture-targets.png](../../../media/imgs/microservices-architecture-targets.png)
 
-Here's where you can change your **Microservice Target**. 
+Here's where you can change your **Microservice Target**.
 
 ![editor-ms.png](../../../media/imgs/editor-ms.png)
 
@@ -272,11 +272,11 @@ As such, you should publish the services to the appropriate realm.
 
 !!! info "Which realm?"
 	How you wish to manage realms is a team-specific decision as there are cost implications per-microservice instance running in any realm to consider against how your team likes to work.
-	
-	 At Beamable's UE team, we prefer the "team members are responsible not to break other team members environment"-approach so we recommend that you test things thoroughly and then publish to your `dev` realm (where everybody is). 
-	
+
+	 At Beamable's UE team, we prefer the "team members are responsible not to break other team members environment"-approach so we recommend that you test things thoroughly and then publish to your `dev` realm (where everybody is).
+
 	Another strategy might be to have a `designer-dev` that lives between `staging` and `dev` that should be more stable and then you push to `dev` first and eventually promote it to `designer-dev`. Again, this is for your lead and team to discuss and decide how you wish to work.
-	
+
 	Finally, you can also choose a `one realm per developer` approach though that introduces a lot of workflow overhead. Though, there are team-specific cases where that might be a valid approach.
 
 The way to deploy services for our UE integration is 100% CLI-based. The documentation for it can be found [here](../../../cli/guides/ms-deployment.md).
@@ -285,9 +285,9 @@ The way to deploy services for our UE integration is 100% CLI-based. The documen
 	If there's enough demand for it, we will consider adding it. However, deploying services is mostly done by engineers and CI/CD pipelines so we felt that compiling and opening the UE Editor just to do this didn't add enough value to the UE workflow.
 
 ## Collaborative Debugging
-This one is pretty unique to Beamable's Microservices. 
+This one is pretty unique to Beamable's Microservices.
 
-Imagine the following: 
+Imagine the following:
 
 - You have a service published in a realm with your designer working and testing against it.
 - The designer does something that reveals a bug in your service.
@@ -321,9 +321,9 @@ For those cases, Beamable offers a `MicroStorage`. This is a wrapper around a da
 
 !!! note "Relevancy for API Design and Client-Code Generation"
 	While there's no compilation problem in using types declared in the `MicroStorage` project as part of the signatures of `Callable` functions, we **DO NOT RECOMMEND** you expose these types in Callable functions.
-	
+
 	 While it can be simpler and faster to prototype this way, the post-release implications of doing that are all very bad. It makes it harder to modify your internal schema and makes it harder to introduce new behavior without doing data-migrations.
-	 
+
 	  **We recommend that `Callables` have unique request/response types for better long-term maintainability and flexibility**.
 
 ### Local Development Implications

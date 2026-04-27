@@ -7,7 +7,7 @@ Beamable's Lobby system can be used primarily for 2 cases:
 
 Lobbies are rooms containing only [online players](../runtime-systems/connectivity.md), a set of arbitrary room properties, and per-player properties. There are a few rules you should be aware of:
 
-- Each Non-Matchmaking Lobby has a **Host** and other Players. 
+- Each Non-Matchmaking Lobby has a **Host** and other Players.
 - Matchmaking Result Lobbies have no host; instead they disband once every player in them is offline. <br><br>
 
 - **The Host Player**:
@@ -17,7 +17,7 @@ Lobbies are rooms containing only [online players](../runtime-systems/connectivi
 
 - **Other Players**:
   	- Can **read** the entire lobby data but only **write** to their own state.
-    - Can leave the lobby.  
+    - Can leave the lobby.
 	- Will be removed from the lobby after becoming offline (after a small delay).
 
 ## Getting Started - Open/Closed Lobbies
@@ -40,12 +40,12 @@ Once in a Lobby, any player can leave it by using the `Lobby - Leave Lobby` oper
 
 ![lobbies-leave-kick.png](../../../media/imgs/lobbies-leave-kick.png)
 
-Optionally, the host can be forced to transfer ownership before leaving a lobby. 
+Optionally, the host can be forced to transfer ownership before leaving a lobby.
 
 ![lobbies-transfer-ownership.png](../../../media/imgs/lobbies-transfer-ownership.png)
 
 ### Dedicated Servers
-For games with dedicated servers, the `Lobby - Provision Game Server for Lobby` operation triggers [Game Server Federation](../federation/federated-game-server.md) to boot up a server instance for the game. If you need to differentiate between matchmaking lobbies and Open/Closed lobbies, you can verify whether the lobby has a host within the federation's logic to properly handle when and which game server to provision. 
+For games with dedicated servers, the `Lobby - Provision Game Server for Lobby` operation triggers [Game Server Federation](../federation/federated-game-server.md) to boot up a server instance for the game. If you need to differentiate between matchmaking lobbies and Open/Closed lobbies, you can verify whether the lobby has a host within the federation's logic to properly handle when and which game server to provision.
 
 ![lobbies-provision-federation.png](../../../media/imgs/lobbies-provision-federation.png)
 
@@ -56,7 +56,7 @@ Updating the Lobby's `Global Data` and any of its configurations can only be don
 
 ![lobbies-updating-lobby-data.png](../../../media/imgs/lobbies-updating-lobby-data.png)
 
-Updating individual player data in the lobby can be done by the Host (for any player). Non-Host players can only update their own properties but read ALL player's properties.  
+Updating individual player data in the lobby can be done by the Host (for any player). Non-Host players can only update their own properties but read ALL player's properties.
 
 ![lobbies-player-update.png](../../../media/imgs/lobbies-player-update.png)
 
@@ -91,7 +91,7 @@ Here's the list of events we expose:
 ## Lobby Types and Lobby Schema
 There are two types of lobbies:
 
-- **Open** lobbies can be queried via `RefreshLobbies` and joined without the use of any passcode. 
+- **Open** lobbies can be queried via `RefreshLobbies` and joined without the use of any passcode.
 - **Closed** lobbies are not visible to `RefreshLobbies` and expect to be joined via the generated passcode.
 
 Both lobby types have the same schema and are represented by the `ULobby` class. This class has several properties:
@@ -115,12 +115,12 @@ Both lobby types have the same schema and are represented by the `ULobby` class.
 - **Created**: a ISO-8601 date time string for when the Lobby was created.
 
 # Utilities for Dedicated Server Games
-The Lobby subsystem provides you with utilities that help you integrate Beamable into UE's Gameplay Framework. 
+The Lobby subsystem provides you with utilities that help you integrate Beamable into UE's Gameplay Framework.
 
 - **Local State - Lobby - Open Level**: can be used in Game Clients to connect to a Game Server by extracting connection information (URL and Port) from the Lobby's Global Data.
 - **Local State - Lobby - Client - Prepare Login Options**: can be used in Game Clients to add Beamable's required parameters to the `FString Options` you'll need to pass along to UE's default `Open Level` node.
 - **Local State - Lobby - Get Gamer Tag** and **Local State - Lobby - Get User Slot**: These nodes are meant to map UE constructs, such as `PlayerControllers` and `PlayerState` instances, to Beamable constructs like `GamerTag` and `UserSlots`; please refer to their tooltips for a better understanding of the mapping.
-- **Local State - Lobby - Get Lobby Id (by Gamer Tag)**: This returns the LobbyId containing the user of the given `GamerTag`. 
+- **Local State - Lobby - Get Lobby Id (by Gamer Tag)**: This returns the LobbyId containing the user of the given `GamerTag`.
 - **Local State - Lobby - Server - Get Lobby Id From CLArgs**: This is meant to help integrate with Game Server Orchestrators -- please refer to our [Real-Time Multiplayer Docs](../realtime-multiplayer/realtime-multiplayer-overview.md) for more information.
 
 ![lobbies-gameplay-helpers.png](../../../media/imgs/lobbies-gameplay-helpers.png)

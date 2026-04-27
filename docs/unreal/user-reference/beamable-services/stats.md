@@ -7,7 +7,7 @@ The Beamable SDK Stats feature allows players to track a variety of built-in and
 
 **There are two important specifiers of each stat: Visibility and Domain.**
 
-Visibility is represented in Unreal by enum `EBeamStatsVisibility`, and it describes stat visibility. 
+Visibility is represented in Unreal by enum `EBeamStatsVisibility`, and it describes stat visibility.
 
 - `private`: visible only to owning User and Backend.
 - `public`: visible to any User.
@@ -46,7 +46,7 @@ In this example, a new `UpdateCommand` is created and committed right away. For 
 When it is possible (and desirable) for your game, this flow reduces the overall latency your players experience and reduces the number of API calls you make to Beamable.
 
 ## Reading Other Players' Public Stats
-You might want to read public stats of some other player to display information about them in your UI. To do that, you can use the following `Operation` and `Local State` calls. 
+You might want to read public stats of some other player to display information about them in your UI. To do that, you can use the following `Operation` and `Local State` calls.
 
 ![stats-reading-other-player-stats.png](../../../media/imgs/stats-reading-other-player-stats.png)
 

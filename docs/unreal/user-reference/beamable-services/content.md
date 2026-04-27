@@ -2,7 +2,7 @@
 
 Beamable Content System is a read-only (at runtime) arbitrary data store that allows you to define arbitrary JSON-serialized _content objects_ for use at runtime. Several of Beamable's own managed features also use content in some way or another.
 
-The system is manifest-based. 
+The system is manifest-based.
 
 - A **manifest** is a list of published content objects in a realm indexed by their content ids.
 - **Publishing** a manifest means first uploading all the individual content objects to Beamable and, after that, uploading a manifest that knows where the content objects live.
@@ -61,17 +61,17 @@ Modifying content can be done by via the Details Editor in the **Content Window*
 ![content-revert.png](../../../media/imgs/content-revert.png)
 
 ## Publishing and Auto-Syncing
-**Publishing** tells the Beamable SDK that you want to send your entire local content state to the realm and make that the source of truth. The source of truth for content in a realm is always whatever manifest was last published to that realm. 
+**Publishing** tells the Beamable SDK that you want to send your entire local content state to the realm and make that the source of truth. The source of truth for content in a realm is always whatever manifest was last published to that realm.
 
 To publish content to a realm simply use the Publish button.
 
 !!! note "For Designers"
 	You can think of the realm's published content as a "Dropbox/Google Drive folder" that contains all content objects' serialized JSON files. The manifest is an index that tells the SDK which content exists and where to download their JSON files.
 
-	**Publishing** means deleting all the contents of the Dropbox folder and replacing them with your local files.  
+	**Publishing** means deleting all the contents of the Dropbox folder and replacing them with your local files.
 
 ### Understanding Content Auto-Sync Rules
-It is often desirable to have designers in a realm that is stable and allow them to work in `Blueprints`, `Beamable Content` and Unreal `Data Asset` in the same realm plus branch combination. 
+It is often desirable to have designers in a realm that is stable and allow them to work in `Blueprints`, `Beamable Content` and Unreal `Data Asset` in the same realm plus branch combination.
 
 In order to enable this workflow, the Beamable SDK:
 
@@ -103,7 +103,7 @@ This workflow can also be used for engineers that are developing non-Beamable re
 In addition to the workflow above, there are cases where you might want to create realms in order to have a more controlled environment for developing. Common examples are:
 
 - Large features that make use of new custom content definitions developed alongside Microservices.
-- Content schema modifications or equivalents that will require migrating existing content to a new schema. 
+- Content schema modifications or equivalents that will require migrating existing content to a new schema.
 
 To achieve this --- just create a new realm for the development of that feature.
 
@@ -129,14 +129,14 @@ public:
 	// Define the ContentTypeId for this type.
 	UFUNCTION()
 	void GetContentType_UBeamCurrencyContent(FString& Result){ Result = TEXT("currency"); }
-	
+
 	// Define the properties you wish
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FBeamClientPermission clientPermission;
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int64 startingAmount;
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, DisplayName="Federation")
 	FOptionalBeamFederation external;
 };
@@ -184,11 +184,11 @@ The SDK fetches the content manifest before the `OnBeamableStarted` callback is 
 The SDK also supports live content updates (if you publish content while the game client is running):
 
 - While the [`OwnerUserSlot`](../runtime-systems/user-slots.md) is signed in to Beamable, `UBeamContentSubsystem` listens for notifications that the realm's content manifest has been updated.
-- When that happens, we will re-download the manifest. 
+- When that happens, we will re-download the manifest.
 - If `bDownloadIndividualContentAtStart` is `true`:
     - We download and cache all the updated content objects relative to the last manifest we've downloaded in this client.
     - These updates are cached locally inside the `Saved` directory in binary form such that a user does not need to re-download content in subsequent runs of your game unless the published manifest changes.
-    - This cache is invalidated if your game-version changes, the SDK version changes or the UE version changes. 
+    - This cache is invalidated if your game-version changes, the SDK version changes or the UE version changes.
 - If `bDownloadIndividualContentAtStart` is `false`:
     - You are then responsible for downloading each individual content via the APIs: `FetchIndividualContentBatchOperation` and `FetchIndividualContentOperation`.
     - Caching will still occur automatically when manually downloading content.
@@ -226,7 +226,7 @@ Aditionally you can also select the following options:
 - Additive: if checked, the snapshot will be applied on top of your current local content state only adding the new and modified content. If unchecked, the snapshot will replace your current local content state.
 
 ### Sharing Content Snapshots
-Shared snapshots are stored in the `.beamable\shared\contentSnapshot` folder, so you can share them with your teammates by sharing that file through git or any other way you like. To save a Local Snapshot as Shared simply click on the `Save as Template` button. 
+Shared snapshots are stored in the `.beamable\shared\contentSnapshot` folder, so you can share them with your teammates by sharing that file through git or any other way you like. To save a Local Snapshot as Shared simply click on the `Save as Template` button.
 
 The Shared Snapshots are identified in the list with a different (ornge) icon.
 
@@ -248,7 +248,7 @@ In a couple of cases, you might want to bake content to distribute it with your 
 - If you plan to release a new build every time you want to update your game.
 - If you want to trade off some binary size for spending less time waiting for the individual content download at initialization time.
 
-To enable those cases, we provide an editor utility that will bake your local content into a `UBeamContentCache`. 
+To enable those cases, we provide an editor utility that will bake your local content into a `UBeamContentCache`.
 This is a special asset type that has the `UBeamContentObject` instances serialized using UE's binary serialization as opposed to JSON.
 
 **Keep in mind that this utility uses your local content, so make sure your content matches the realm's content before running it**.
@@ -267,8 +267,8 @@ Unreal's Binary serialization of `UObject` types works _mostly_ out of the box w
 - When referencing types inside content objects use `UClass*`.
 - When referencing non-asset `IBeamJsonSerializableUObject` inside content objects use `UMyObject*` directly and add `DefaultToInstanced, EditInlineNew` to the `UCLASS` macro of that type.
 
-Doing that will make the binary serialization of content for local caching work in each of these cases.   
+Doing that will make the binary serialization of content for local caching work in each of these cases.
 
-For serializing arbitrary data structures, prefer `FBeamJsonSerializableUStruct` subtypes `UBeamContentObject` as these are simpler to set up. It is only in cases where you need a recursive type that we recommend the use of inlined `IBeamJsonSerializableUObject`. 
+For serializing arbitrary data structures, prefer `FBeamJsonSerializableUStruct` subtypes `UBeamContentObject` as these are simpler to set up. It is only in cases where you need a recursive type that we recommend the use of inlined `IBeamJsonSerializableUObject`.
 
 For examples of handling this edge case, you can look at the `UBeamGameTypeContent` and `UBeamStatComparisonRule` types shipped with the SDK.

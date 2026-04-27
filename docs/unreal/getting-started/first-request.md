@@ -20,16 +20,16 @@ Here's a quick tour of Beamable Window's functions:
 
 <div class="grid cards" markdown>
 
-- **[Home](../user-reference/editor-systems/editor-systems-overview.md)**  
+- **[Home](../user-reference/editor-systems/editor-systems-overview.md)**
   Workspace overview, shortcuts to common Beamable Portal pages, and global utilities.
 
-- **[Content](../user-reference/beamable-services/content.md)**  
+- **[Content](../user-reference/beamable-services/content.md)**
   Manage your game's read-only content and configuration data.
 
-- **[Microservices](../user-reference/microservices/microservices.md)**  
+- **[Microservices](../user-reference/microservices/microservices.md)**
   Run, debug, and manage local Microservices.
 
-- **[Play-In-Editor (PIE)](../user-reference/editor-systems/pie-settings.md)**  
+- **[Play-In-Editor (PIE)](../user-reference/editor-systems/pie-settings.md)**
   Configure PIE settings and create or capture PIE users.
 
 </div>
@@ -43,7 +43,7 @@ To get started, open your Level Blueprint and add the following nodes:
 
 ![intro-init-sdk-with-login-frictionless](../../media/imgs/intro-init-sdk-with-login-frictionless.png)
 
-### What's going on Above: 
+### What's going on Above:
 
 The `BeamRuntime` is a `GameInstanceSubsystem` that is responsible for controlling the SDK's lifecycle and player authentication. Calling this function will initialize the SDK. You can find a deep explanation about the Beamable Runtime in our [Technical Overview](../user-reference/overview.md) page.
 

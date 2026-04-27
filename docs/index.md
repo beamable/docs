@@ -23,7 +23,7 @@ The Beamable Unreal SDK is designed to work across multiple platforms. Below is 
 
 PS: Currently we don't provide support for Consoles. If you need Console support, get in touch with us.
 
-## Beamable CLI 
+## Beamable CLI
 Most Beamable workflows are enabled through the Beamable CLI, our editor integrations making use of it to create Engine-specific workflows. In general the Beamable CLI is invisible where it needs to be and explicit where needed.
 
 The SDK is tightly integrated with the CLI, in some ways more than others. For example:
@@ -39,7 +39,7 @@ Required Versions for the CLI will be noted in the documentation where relevant,
 | v 2.2       | v6.2 |
 
 
-## Where to start? 
+## Where to start?
 We recommend for all new users to explore these starting points:
 
 - [Your First Request](unreal/getting-started/first-request.md)
@@ -51,8 +51,8 @@ After this, it depends on what your game is and what you are looking to do.
 
 - Our most utilized backend systems include: <!-- TODO(@drewbleam): This should lean further into showing off what the SDK can do (maybe Microservice cards like docs.beamable lander) -->
     - [Inventory](unreal/user-reference/beamable-services/inventory.md) for items and currency management
-    - [Stats](unreal/user-reference/beamable-services/stats.md) for player-scoped key-value stores. 
-- Custom features are explored in our [Content](unreal/user-reference/beamable-services/content.md) and [Microservices](unreal/user-reference/microservices/microservices.md) documentation with consideration to data structuring and writing custom code with Beamable. 
+    - [Stats](unreal/user-reference/beamable-services/stats.md) for player-scoped key-value stores.
+- Custom features are explored in our [Content](unreal/user-reference/beamable-services/content.md) and [Microservices](unreal/user-reference/microservices/microservices.md) documentation with consideration to data structuring and writing custom code with Beamable.
 
---- 
+---
 *If you have any questions, feel free to [Contact Us](https://beamable.com/support) through one of our Customer Success channels.*

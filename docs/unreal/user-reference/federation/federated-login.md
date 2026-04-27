@@ -45,8 +45,8 @@ It looks like this:
 ### Writing the Microservice
 Semantically, there are two ways the `Authenticate` function can be called:
 
-- **Account Creation Time**: When using **`Login - Federated Identity` or `Sign-Up - Federated Identity` operations**. 
-- **Account Attach Time**: When using **`Attach - Federated Identity` operation**. 
+- **Account Creation Time**: When using **`Login - Federated Identity` or `Sign-Up - Federated Identity` operations**.
+- **Account Attach Time**: When using **`Attach - Federated Identity` operation**.
 
 In both cases, what you want to do is:
 
@@ -66,12 +66,12 @@ public async Promise<FederatedAuthenticationResponse> Authenticate(string token,
 {
     // No user made the request, which means we are trying to sign in.
 	var isLogin = _requestContext.UserId == 0L;
-	
+
 	// A user made the request which means we are trying to attach the identity to the user.
-	var isAttach = _requestContext.UserId != 0L;	
-	
+	var isAttach = _requestContext.UserId != 0L;
+
 	// Get the token and use whatever 3rd Party SDK to fetch the user's id and return it
-	return new FederatedAuthenticationResponse { user_id = my3rdPartyId, };	
+	return new FederatedAuthenticationResponse { user_id = my3rdPartyId, };
 }
 
 ```
@@ -96,7 +96,7 @@ The `Login - Federated Identity` operation's Success/Error flows will run **_aft
 
 Semantically, there are an additional two ways that the Authenticate function can be called:
 
-- **Without a `challenge`/`solution`**: This is the first part of the flow. 
+- **Without a `challenge`/`solution`**: This is the first part of the flow.
 	- Here, your function should generate a `challenge` and return it in the `FederatedAuthenticationResponse`.
 	- The `UserId` in `FederatedAuthenticationResponse` should be empty in this first step.
 	- Third-party SDKs that support/require 2FA will typically provide you a function to generate said challenge.
@@ -113,11 +113,11 @@ public async Promise<FederatedAuthenticationResponse> Authenticate(string token,
 {
 	// No user made the request, which means we are trying to sign in.
 	var isLogin = _requestContext.UserId == 0L;
-	
+
 	// A user made the request which means we are trying to attach the identity to the user.
-	var isAttach = _requestContext.UserId != 0L;				
-	
-	// Handle the case where we are asking for a challenge to solve (`solution` is empty). 
+	var isAttach = _requestContext.UserId != 0L;
+
+	// Handle the case where we are asking for a challenge to solve (`solution` is empty).
 	if(string.IsNullOrEmpty(solution))
 	{
 		// Return some challenge the user is expected to solve.
@@ -132,13 +132,13 @@ public async Promise<FederatedAuthenticationResponse> Authenticate(string token,
 	// Handle the case where the user has provided the challenge AND the solution
 	if (!string.IsNullOrEmpty(challenge) && !string.IsNullOrEmpty(solution))
 	{
-		// My code that validates the provided solution against the challenge.		
+		// My code that validates the provided solution against the challenge.
 		return new FederatedAuthenticationResponse
 		{
-			user_id = UserIdInThirdParty 
+			user_id = UserIdInThirdParty
 		};
 	}
-	
+
 	// We should never get here in a Multi-Factor Flow
 	throw new Exception();
 }

@@ -19,14 +19,14 @@ Here's a high-level diagram of what federations are:
 As such, each of the **Federations** we provide have their own semantics, usage guidelines, performance characteristics and constraints described in their individual pages.
 
 ## Federation Id
-Federations can be thought of delegates called by our server in particular points of various flows. Federation Ids are a unique `string`-based identifier that identifies a particular implementation of a federation. 
+Federations can be thought of delegates called by our server in particular points of various flows. Federation Ids are a unique `string`-based identifier that identifies a particular implementation of a federation.
 
 The combination of the **Federation Id** and the **Federation Type** is comparable to a function name/pointer assigned to an Unreal delegate; in the sense that it is used by the Beamable backend to know which implementation of a federation in your microservice it should talk to, if any.
 
 Examples:
 
 - `IFederatedLogin` would have different implementations for Steam and Epic auth integration.
-- As such, `IFederatedLogin<SteamId>` and `IFederatedLogin<EpicId>` the two different interfaces you'll need to implement. 
+- As such, `IFederatedLogin<SteamId>` and `IFederatedLogin<EpicId>` the two different interfaces you'll need to implement.
 
 In other words, an id is just a unique `string` that you pass along in specific places depending on the federation to **choose between one or more federations if any should be used**.
 

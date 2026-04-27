@@ -29,7 +29,7 @@ Before implementing Google Sign-In, configure a Google Cloud project:
 - Create an **OAuth 2.0 Client ID**
 - Configure authorized bundle IDs / package names
 
-Google documentation:  
+Google documentation:
 [https://developers.google.com/identity/sign-in](https://developers.google.com/identity/sign-in)
 
 ---

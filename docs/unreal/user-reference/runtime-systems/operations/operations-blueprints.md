@@ -1,6 +1,6 @@
 ## Operations & Blueprints
 
-To improve Blueprint usability when working with **Operations**, we introduced a built-in way to manage **dependencies between multiple operations**.  
+To improve Blueprint usability when working with **Operations**, we introduced a built-in way to manage **dependencies between multiple operations**.
 This approach removes the need for extra “wait” nodes and simplifies execution flow.
 
 ---
