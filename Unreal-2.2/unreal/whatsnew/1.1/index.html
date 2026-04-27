@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -1814,7 +1814,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1830,7 +1830,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -2201,7 +2201,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -2217,7 +2217,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
@@ -10413,15 +10413,15 @@
 
 
 <h1 id="version-110-release-notes">Version 1.1.0 Release Notes<a class="headerlink" href="#version-110-release-notes" title="Permanent link">¶</a></h1>
-<p>This is the release notes for the The Unreal SDK version 1.1.0.</p>
-<p>While it's considered a minor release in our release cycle, it brings a lot of new features and improvements to the Beamable Unreal SDK and user experience in general including many UI/UX improvements on the build-in editor window, reworked LiveOps demo, new Documentation website and many improvements on the codebase including new <code>OnlineSubsystemBeamable</code> features, and many bug fixes. You can see the full list of changes below.</p>
+<p>This is the release notes for the Beamable Unreal SDK version 1.1.0.</p>
+<p>While it's considered a minor release in our release cycle, it brings a lot of new features and improvements to the Beamable Unreal SDK and user experience in general including many UI/UX improvements on the built-in editor window, reworked LiveOps demo, new Documentation website and many improvements on the codebase including new <code>OnlineSubsystemBeamable</code> features, and many bug fixes. You can see the full list of changes below.</p>
 <h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">¶</a></h2>
 <h3 id="new-beamable-editor-window">New Beamable Editor Window<a class="headerlink" href="#new-beamable-editor-window" title="Permanent link">¶</a></h3>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/intro-beamable-window-opened.png" data-desc-position="bottom"><img alt="intro-beamable-window-opened.png" src="../../../media/imgs/intro-beamable-window-opened.png"></a>
 The Beamable Editor Window was reworked making it easier to use the Beamable Systems in your project. Now you can easily access Home, Content and Microservices using fixed tabs on the top of the window without effort.</p>
 <h3 id="new-content-editor">New Content Editor<a class="headerlink" href="#new-content-editor" title="Permanent link">¶</a></h3>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/content-window.png" data-desc-position="bottom"><img alt="content-window.png" src="../../../media/imgs/content-window.png"></a>
-The Content Editor received a complete rework improving the usability and fixing many bugs. Now the content is presented in a list of itens improving the visualization of large amount of data; The filters were fixed on the top and the search is now a <code>Contains</code> search instead of a <code>StartsWith</code> search. Also, all changes in the data are now updated properly with realtime feedbacks without need to reload the window manually. You can check the new Content Editor Documentation <a href="../../user-reference/beamable-services/content/">here</a></p>
+The Content Editor received a complete rework improving the usability and fixing many bugs. Now the content is presented in a list of itens improving the visualization of large amount of data; The filters were fixed on the top and the search is now a <code>Contains</code> search instead of a <code>StartsWith</code> search. Also, all changes in the data are now updated properly with real-time feedback without need to reload the window manually. You can check the new Content Editor Documentation <a href="../../user-reference/beamable-services/content/">here</a></p>
 <h3 id="new-connectivity-management-utilities">New Connectivity Management Utilities<a class="headerlink" href="#new-connectivity-management-utilities" title="Permanent link">¶</a></h3>
 <p>In this version, the SDK now exposes utilities to assist you in dealing with loss of connectivity to the Beamable servers. These utilities allow you to gracefully respond to connection losses and instability.
 For more details, check out <a href="../../user-reference/runtime-systems/connectivity/">this page</a>.</p>
@@ -10434,14 +10434,14 @@ The LiveOps Sample was improved with new UI and information. You can check the n
 <h2 id="other-changes">Other Changes<a class="headerlink" href="#other-changes" title="Permanent link">¶</a></h2>
 <ul>
 <li><code>OnlineSubsystemBeamable</code> plugin now supports Frictionless Authentication and Identity Attaching.<ul>
-<li>This is the last feature update to this subsystem as it is now discontinued. </li>
+<li>This is the last feature update to this subsystem as it is now discontinued.</li>
 </ul>
 </li>
 <li>Samples are now selected by running <code>dotnet beam unreal select-sample BEAMPROJ_Name</code> instead of <code>BeamProjOverride.txt</code></li>
 <li><code>beam_init_game_maker.sh</code> will now try to remove any read-only flags of files inside the existing <code>Plugins/BeamableCore</code> folder.
   This is needed because UE's integrations with VCSs (Git, P4) will often lock binary files at the file system level; which then
   leads to our CLI being unable to replace the folder with newer versions (due to "access denied" problems). If you are using a VCS that
-  makes files read-only at the file-system level, and you run into "access denied" issues when running this script, please make them not read-only and try again.</li>
+  makes files read-only at the file-system level, and you run into "access denied" issues when running this script, make them not read-only and try again.</li>
 <li><code>UBeamNotifications::TrySubscribeForMessage</code> now also accepts any type implementing <code>IBeamJsonSerializableUObject</code> for its message type.
   This enables usage of the <code>BeamGenerateSchema</code> attribute in microservice code to keep custom notification payloads in-sync between Microservice and UE code.</li>
 <li>Added support for serializing <code>FColor</code>, <code>FLinearColor</code>, <code>FVector</code> and <code>FIntVector</code> inside <code>UBeamContentObject</code>types.</li>
@@ -10458,7 +10458,7 @@ The LiveOps Sample was improved with new UI and information. You can check the n
 <ul>
 <li>When creating a custom event by hand, adding a <code>FUserSlot</code> parameter pin to that event can sometimes crash the engine. This also seems to happen with <em>some</em> Unreal types that have custom pins (the same crash happens with <code>bool</code> pins, though less frequently).<ul>
 <li>This does NOT happen if you create the event using the functionality in the <code>CreateEvent</code> node OR by any other means of creating a custom event with all the pins it knows it should have.</li>
-<li>This crash also seems less likely to happen the longer the editor stays open. </li>
+<li>This crash also seems less likely to happen the longer the editor stays open.</li>
 </ul>
 </li>
 </ul>

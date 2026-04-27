@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -1733,7 +1733,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1749,7 +1749,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -2120,7 +2120,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -2136,7 +2136,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
@@ -10249,7 +10249,7 @@
 
 
 <h1 id="lower-level-sdk">Lower-Level SDK<a class="headerlink" href="#lower-level-sdk" title="Permanent link">¶</a></h1>
-<p>This section talks about lower-level details of how requests to Beamable get made. <strong><em>You don't need to read this</em></strong>, but... you might want to if you plan on implementing your own <code>UBeamRuntimeSubsystem</code>. </p>
+<p>This section talks about lower-level details of how requests to Beamable get made. <strong><em>You don't need to read this</em></strong>, but... you might want to if you plan on implementing your own <code>UBeamRuntimeSubsystem</code>.</p>
 <p>Here's why you'd want to do this:</p>
 <ul>
 <li>You want to replace one of our implementations with something custom and want to provide guarantees about your system's lifecycle that are similar to the ones we provide.</li>
@@ -10292,7 +10292,7 @@
 </li>
 </ul>
 <h2 id="ubeambackend">UBeamBackend<a class="headerlink" href="#ubeambackend" title="Permanent link">¶</a></h2>
-<p><code>UBeamBackend</code> is the most important <code>UEngineSubsystem</code> in the SDK. It leverages Unreal's <code>HTTP</code> module to make requests to the configured Beamable backend. It contains the implementations used by the <code>UBeam____Api</code> classes to make the actual requests. </p>
+<p><code>UBeamBackend</code> is the most important <code>UEngineSubsystem</code> in the SDK. It leverages Unreal's <code>HTTP</code> module to make requests to the configured Beamable backend. It contains the implementations used by the <code>UBeam____Api</code> classes to make the actual requests.</p>
 <p>These implementations handle:</p>
 <ul>
 <li>Request/Response serialization and deserialization.</li>
@@ -10302,11 +10302,11 @@
 </ul>
 <p>We have a few different types of requests and 4 implementations to handle them:</p>
 <ul>
-<li><strong>CPP and BP Authenticated Requests</strong>: require an <code>FUserSlot</code> with a logged-in user whose access token we'll use to make the request. </li>
+<li><strong>CPP and BP Authenticated Requests</strong>: require an <code>FUserSlot</code> with a logged-in user whose access token we'll use to make the request.</li>
 <li><strong>CPP and BP Non-Authenticated Requests</strong>: does not require an <code>FUserSlot</code> with a logged-in user.</li>
 <li><strong><code>UBeamBackend::CreateGenericBeamRequest</code></strong>: for making requests to non-Beamable servers by <code>UBeamGenericApi</code>.</li>
 </ul>
-<p>In addition to these implementations, we also have a hierarchy of retry configurations. You can configure these in <code>UBeamCoreSettings</code> (<code>Project Settings -&gt; Beamable Core</code>). Retries happen automatically on timeouts and a few other known cases. </p>
+<p>In addition to these implementations, we also have a hierarchy of retry configurations. You can configure these in <code>UBeamCoreSettings</code> (<code>Project Settings -&gt; Beamable Core</code>). Retries happen automatically on timeouts and a few other known cases.</p>
 <p>By default, these are if:</p>
 <ul>
 <li>
@@ -10329,7 +10329,7 @@
 </div>
 <h2 id="ubeamnotifications">UBeamNotifications<a class="headerlink" href="#ubeamnotifications" title="Permanent link">¶</a></h2>
 <p>Every connected Beamable player maintains a WebSocket connection to Beamable while they are logged-in. This system leverages UE's <code>WebSocket</code> module to open web-socket connections for each logged-in user (using <code>FUserSlot</code>).</p>
-<p>This WebSocket connection semantically represents the connectivity status for that particular user. This means the SDK (and the Beamable Servers) think that a user is online/offline based on whether this connection is alive and well. Which in turn means that, if you want to use any of our real-time services (<a href="../../beamable-services/matchmaking/">Matchmaking</a>, <a href="../../beamable-services/lobbies/">Lobbies</a>, etc...) this connection needs to be properly working. At runtime, <code>UBeamRuntime</code>, and <code>UBeamConnectivityManager</code> handle per-<code>FUserSlot</code> <a href="../connectivity/">Connectivity</a> statuses.</p>
+<p>This WebSocket connection semantically represents the connectivity status for that particular user. This means the SDK (and the Beamable Servers) think that a user is online/offline based on whether this connection is alive and well. Which in turn means that, if you want to use any of our real-time services (<a href="../../beamable-services/matchmaking/">Matchmaking</a>, <a href="../../beamable-services/lobbies/">Lobbies</a>, etc.) this connection needs to be properly working. At runtime, <code>UBeamRuntime</code>, and <code>UBeamConnectivityManager</code> handle per-<code>FUserSlot</code> <a href="../connectivity/">Connectivity</a> statuses.</p>
 <p>Aside from defining <a href="../connectivity/">Connectivity</a> semantics, this connection is also how the Beamable servers (or your own custom Microservices) send notifications to clients about certain events.</p>
 <p>For example:</p>
 <ul>
@@ -10348,7 +10348,7 @@
 <li>
 <p>You can use Microservices to send out custom notifications --- those can be received in clients by creating your own subsystem modeled after these.</p>
 <ul>
-<li>Use <code>UBeamRuntime::SubscribeToCustomNotification</code> to subscribe to these easily at runtime. </li>
+<li>Use <code>UBeamRuntime::SubscribeToCustomNotification</code> to subscribe to these easily at runtime.</li>
 </ul>
 </li>
 </ul>

@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -1722,7 +1722,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1738,7 +1738,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -2109,7 +2109,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -2125,7 +2125,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
@@ -10234,7 +10234,7 @@
 <p>These are defined in <code>UBeamCoreSettings::RuntimeUserSlots</code> (found in <code>Project Settings -&gt; Engine</code>). They are used to organize local data caches for a single Beamable user. These are stored in Unreal's default <code>Saved</code> folder.</p>
 <div class="admonition note">
 <p class="admonition-title">Unreal Local Player Index</p>
-<p>You can think of the <code>UBeamCoreSettings::RuntimeUserSlots</code> array as though it were indexed by Unreal's own <code>LocalPlayerIndex</code>. </p>
+<p>You can think of the <code>UBeamCoreSettings::RuntimeUserSlots</code> array as though it were indexed by Unreal's own <code>LocalPlayerIndex</code>.</p>
 </div>
 <p>Almost all of our APIs take in a <code>FUserSlot</code> struct representing the local user making the request. Only "public" APIs do not require them (APIs that you can call after the SDK has been initialized but before any <code>Login</code> has happened).</p>
 <p>If your game has <strong>no <em>local</em> multiplayer</strong> (just a single local player), you only need to know a few things about <strong>UserSlots</strong>:</p>
@@ -10245,7 +10245,7 @@
 </li>
 <li>In Blueprints, you'll only have to manually pass in user slots if you change the default slot from <code>"Player0"</code>.</li>
 <li>If you're using any of our lower-level APIs (<code>UBeam____Api</code> subsystems and <code>Low-Level</code> blueprint nodes), you might see functions that take in a <code>UObject* ContextObject</code>.<ul>
-<li>These are there to support Unreal's Multiplayer PIE mode (for the same reason a lot of UE's own APIs also need one of these).    </li>
+<li>These are there to support Unreal's Multiplayer PIE mode (for the same reason a lot of UE's own APIs also need one of these).</li>
 <li>If you're calling them from a <code>UGameInstanceSubsystem</code>, <code>UActorComponent</code> or <code>AActor</code> or <code>Blueprint</code>, you can pass itself (<code>this</code>/<code>Self</code>) to this parameter.</li>
 </ul>
 </li>
@@ -10254,7 +10254,7 @@
 <p class="admonition-title">Non-Local Multiplayer Games</p>
 <p>If your game is a normal one-player-per-client multiplayer game, you may want to take a look at our <a href="../../beamable-services/matchmaking/">Matchmaking</a> and <a href="../../beamable-services/lobbies/">Lobbies</a> systems.</p>
 </div>
-<p>For games that do want to support multiple local players (each with their own Beamable account), the next sections explain how this concept helps. </p>
+<p>For games that do want to support multiple local players (each with their own Beamable account), the next sections explain how this concept helps.</p>
 <h2 id="user-slots-at-runtime">User Slots At Runtime<a class="headerlink" href="#user-slots-at-runtime" title="Permanent link">¶</a></h2>
 <p>The <code>UBeamUserSlots</code> Engine Subsystem is responsible for:</p>
 <ul>
@@ -10263,7 +10263,7 @@
 </ul>
 </li>
 <li>Enabling local co-op games to have multiple players logged in at the same time.<ul>
-<li>For more on login flows, see the <a href="../../overview/">SDK Lifecycle</a> and various flavors described in <a href="../../beamable-services/identity/">Identity</a>. </li>
+<li>For more on login flows, see the <a href="../../overview/">SDK Lifecycle</a> and various flavors described in <a href="../../beamable-services/identity/">Identity</a>.</li>
 </ul>
 </li>
 <li>Handling support for Multiplayer PIE-mode by namespacing each Slot (UE's <code>FWorldContext::WorldType</code> and <code>FWorldContext::PIEInstance</code>).<ul>

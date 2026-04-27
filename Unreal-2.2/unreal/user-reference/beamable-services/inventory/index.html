@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -1794,7 +1794,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1810,7 +1810,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -2181,7 +2181,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -2197,7 +2197,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
@@ -10418,14 +10418,14 @@
 <h3 id="reading-local-state">Reading Local State<a class="headerlink" href="#reading-local-state" title="Permanent link">¶</a></h3>
 <p>In order to read the local state of the player's inventory, you can use the following operations:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-local-state.png" data-desc-position="bottom"><img alt="inventory-local-state.png" src="../../../../media/imgs/inventory-local-state.png"></a></p>
-<p>You can also use the <code>Local State - Inventory - TryGetAllItemsFilter</code> node to iterate over all the items of a particular subtype in the inventory. </p>
+<p>You can also use the <code>Local State - Inventory - TryGetAllItemsFilter</code> node to iterate over all the items of a particular subtype in the inventory.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-auto-casting.png" data-desc-position="bottom"><img alt="inventory-auto-casting.png" src="../../../../media/imgs/inventory-auto-casting.png"></a></p>
 <h2 id="currencies">Currencies<a class="headerlink" href="#currencies" title="Permanent link">¶</a></h2>
 <p>Currencies are used to buy items with our <a href="../stores/">Store system</a> (e.g. Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP) depending on the specifics of your game system.</p>
-<p>In the Unreal SDK, currencies are represented by the <code>UBeamCurrencyContent</code>. Each currency can specify a <code>startingAmount</code> that is used to pre-seed player accounts with that amount of currency for very simple cases. For more control over each player's starting state we recommend using <a href="../../federation/federated-player-init/">our Federated Player Init</a>.   </p>
+<p>In the Beamable Unreal SDK, currencies are represented by the <code>UBeamCurrencyContent</code>. Each currency can specify a <code>startingAmount</code> that is used to pre-seed player accounts with that amount of currency for very simple cases. For more control over each player's starting state we recommend using <a href="../../federation/federated-player-init/">our Federated Player Init</a>.</p>
 <p>You can <a href="../content/#defining-custom-content-types">subclass</a> this content type if you want to add more information to currency that is specific to your liking, such as UI related <code>ObjectPaths</code> and other references to assets that might be relevant to your game.</p>
 <h2 id="items">Items<a class="headerlink" href="#items" title="Permanent link">¶</a></h2>
-<p>The Items feature allows for the creation and management of various in-game objects, such as equipment, consumables, and resources. In the Unreal SDK, items are represented by the <code>UBeamItemContent</code> type. You can <a href="../content/#defining-custom-content-types">subclass</a> this content type to add game-specific information to item content which is then accessible via the <code>UBeamContentSubsystem</code> and in Microservices.</p>
+<p>The Items feature allows for the creation and management of various in-game objects, such as equipment, consumables, and resources. In the Beamable Unreal SDK, items are represented by the <code>UBeamItemContent</code> type. You can <a href="../content/#defining-custom-content-types">subclass</a> this content type to add game-specific information to item content which is then accessible via the <code>UBeamContentSubsystem</code> and in Microservices.</p>
 <p>In the <code>UBeamInventorySubsystem</code>, each item instance inside a player's inventory is represented by <code>FBeamItemState</code>. These instances have the following properties:</p>
 <ul>
 <li><strong>ContentId</strong>: the Id of <code>UBeamItemContent</code> that represents the type of this item instance.</li>
@@ -10452,7 +10452,7 @@
     - Bad: <code>ItemEnhancementName</code> and <code>ENH_Count</code>
     - Good: <code>ENHANCE_Name</code> and <code>ENHANCE_Count</code> OR <code>ItemEnhancementName</code> and <code>ItemEnhancementCount</code>.</p>
 <p><strong>For Values</strong>: Values should be no more than a few hundred characters long.</p>
-<p><strong>For larger, complex data structures</strong>: we recommend you use <a href="../../microservices/microservices/#micro-storages">Micro Storages</a> instead of this key-value store. </p>
+<p><strong>For larger, complex data structures</strong>: we recommend you use <a href="../../microservices/microservices/#micro-storages">Micro Storages</a> instead of this key-value store.</p>
 <p>This is especially true if you do NOT need to use the data in these properties at the same time as you need the list of items (for example, a list view which then opens some sort of details view). This reduces pressure on the inventory service and can help reduce latency of inventory query requests.</p>
 
 

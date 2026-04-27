@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -1660,7 +1660,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1676,7 +1676,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -2051,7 +2051,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -2067,7 +2067,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
@@ -10398,7 +10398,7 @@
 <li>Hit the <code>Add Config</code> button.</li>
 <li>Set the following key-value pairs for the namespace <code>steam</code>:</li>
 <li><code>appid -&gt; Your Steam application ID</code></li>
-<li><code>key -&gt; Your Steam Application Publisher Key</code> </li>
+<li><code>key -&gt; Your Steam Application Publisher Key</code></li>
 <li>Compile and open the <code>BeamableUnreal</code> editor (it'll be configured as the <code>BEAMPROJ_SteamDemo</code>) project.</li>
 <li>Sign into your Beamable account and go to the <code>steam-demo</code> realm.<ol>
 <li>Hit <code>Apply to Build</code>.</li>
@@ -10408,12 +10408,12 @@
 <li>Run <code>dotnet beam project enable --with-group BEAMPROJ_SteamDemo</code></li>
 <li>Run <code>dotnet beam project disable --without-group BEAMPROJ_SteamDemo</code></li>
 <li>Guarantee <code>Docker</code> is open and running.</li>
-<li>Run <code>dotnet beam deploy plan</code>. <ol>
+<li>Run <code>dotnet beam deploy plan</code>.<ol>
 <li>This tells you details about the services you would deploy given your project's local state.</li>
 </ol>
 </li>
-<li>Run <code>dotnet beam deploy release --latest-plan</code>. <ol>
-<li>This deploys the services outlined by the generated plan in the previous command. </li>
+<li>Run <code>dotnet beam deploy release --latest-plan</code>.<ol>
+<li>This deploys the services outlined by the generated plan in the previous command.</li>
 </ol>
 </li>
 <li>Go to the Portal (<code>Operate -&gt; Microservices</code>) to verify that the microservices have initialized.</li>

@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -1660,7 +1660,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1676,7 +1676,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -2047,7 +2047,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -2063,7 +2063,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
@@ -10361,39 +10361,39 @@
 <h1 id="microservice-cli-workflows">Microservice CLI Workflows<a class="headerlink" href="#microservice-cli-workflows" title="Permanent link">¶</a></h1>
 <p>Managing Microservices from the CLI</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>Before you can manage Beamable Standalone Microservices, you need to complete the <a href="../gettting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">Dotnet 8</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>. </p>
+<p>Before you can manage Beamable Standalone Microservices, you need to complete the <a href="../gettting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">Dotnet 8</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># beam --version also works.</span>
 </code></pre></div><p></p>
 <h2 id="creating-new-projects">Creating New Projects<a class="headerlink" href="#creating-new-projects" title="Permanent link">¶</a></h2>
-<p>New Microservices, Storages, and Common projects can be created within an existing <code>.beamable</code> folder workspace. </p>
-<p>Use the <code>beam project new</code> commands to create new projects. </p>
+<p>New Microservices, Storages, and Common projects can be created within an existing <code>.beamable</code> folder workspace.</p>
+<p>Use the <code>beam project new</code> commands to create new projects.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>&lt;name&gt;<span class="w"> </span><span class="c1"># create a new Microservice</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>storage<span class="w"> </span>&lt;name&gt;<span class="w"> </span><span class="c1"># create a new Storage</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>common-lib<span class="w"> </span>&lt;name&gt;<span class="w"> </span><span class="c1"># create a new Common Library</span>
 </code></pre></div>
 <p>All of these commands will create a new <code>.csproj</code> project and configure it to work with Beamable. The new <code>.csproj</code> will be referenced in the <code>.sln</code> file. If there is already a <code>.sln</code> file, then the first <code>.sln</code> file detected in the <code>.beamable</code> workspace will be modified to include the <code>.csproj</code> reference. If there is no <code>.sln</code>, then a file called <code>BeamableServices.sln</code> will be created. However, the <code>--sln</code> option may be given to override this behavior and specify a .<code>sln</code> file to use.</p>
-<p>Projects will be created in the <code>/services</code> directory by default. </p>
+<p>Projects will be created in the <code>/services</code> directory by default.</p>
 <h2 id="finding-microservices">Finding Microservices<a class="headerlink" href="#finding-microservices" title="Permanent link">¶</a></h2>
 <p>Once there is a Microservice in your <code>.beamable</code> workspace, you can check for its existence by running the project list command. It will return services detected in your workspace.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>MyProject<span class="w"> </span>%<span class="w"> </span>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>list
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w"> </span><span class="o">{</span><span class="w">                                             </span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="s2">"localServices"</span>:<span class="w"> </span><span class="o">[</span><span class="w">                         </span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">       </span><span class="o">{</span><span class="w">                                       </span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">          </span><span class="s2">"name"</span>:<span class="w"> </span><span class="s2">"HelloWorld"</span>,<span class="w">                </span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">          </span><span class="s2">"projectPath"</span>:<span class="w"> </span><span class="s2">"services/HelloWorld"</span><span class="w"> </span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">       </span><span class="o">}</span><span class="w">                                       </span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="o">]</span>,<span class="w">                                         </span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="s2">"localStorages"</span>:<span class="w"> </span><span class="o">[</span><span class="w">                         </span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="o">]</span><span class="w">                                          </span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w"> </span><span class="o">}</span><span class="w"> </span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="s2">"localServices"</span>:<span class="w"> </span><span class="o">[</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">       </span><span class="o">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">          </span><span class="s2">"name"</span>:<span class="w"> </span><span class="s2">"HelloWorld"</span>,
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">          </span><span class="s2">"projectPath"</span>:<span class="w"> </span><span class="s2">"services/HelloWorld"</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">       </span><span class="o">}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="o">]</span>,
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="s2">"localStorages"</span>:<span class="w"> </span><span class="o">[</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="o">]</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w"> </span><span class="o">}</span>
 </code></pre></div>
 <h2 id="running-microservices">Running Microservices<a class="headerlink" href="#running-microservices" title="Permanent link">¶</a></h2>
-<p>Microservices can be run in several ways, 
+<p>Microservices can be run in several ways,
 1. using the IDE,
 2. using <code>dotnet</code> commands directly, or
-3. using <code>beam</code> commands. </p>
+3. using <code>beam</code> commands.</p>
 <p>The project run command will turn on a service.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>run<span class="w"> </span>--ids<span class="w"> </span>HelloWorld
 </code></pre></div>
@@ -10403,18 +10403,18 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>MyProject<span class="w"> </span>%<span class="w"> </span>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>ps
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>HelloWorld<span class="w"> </span>is<span class="w"> </span>available<span class="w"> </span><span class="nv">prefix</span><span class="o">=[</span>Chriss-MacBook-Pro-2<span class="o">]</span><span class="w"> </span><span class="nv">docker</span><span class="o">=[</span>False<span class="o">]</span>
 </code></pre></div>
-<p>The <code>prefix</code> in the log declares that the service is running locally, and the <code>docker</code> log declares that the service is running through dotnet, and not inside a docker container. </p>
-<p>Optionally, you can pass the <code>-w</code> flag to watch for changes to running services. </p>
+<p>The <code>prefix</code> in the log declares that the service is running locally, and the <code>docker</code> log declares that the service is running through dotnet, and not inside a docker container.</p>
+<p>Optionally, you can pass the <code>-w</code> flag to watch for changes to running services.</p>
 <h2 id="stopping-services">Stopping Services<a class="headerlink" href="#stopping-services" title="Permanent link">¶</a></h2>
-<p>If a service is running, then the project stop command may be used to stop the program. If the service is not running, then the command will have no output. However, if the service is running, it will log a stop message. </p>
+<p>If a service is running, then the project stop command may be used to stop the program. If the service is not running, then the command will have no output. However, if the service is running, it will log a stop message.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>MyProject<span class="w"> </span>%<span class="w"> </span>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>stop<span class="w"> </span>--ids<span class="w"> </span>HelloWorld
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>stopped<span class="w"> </span>HelloWorld.
 </code></pre></div>
-<p>When a service is stopped this way, you should expect to see a log in the Microservice itself, </p>
+<p>When a service is stopped this way, you should expect to see a log in the Microservice itself,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[Info] Stopping service through debug-server due to reason=[cli-request]
 </code></pre></div>
 <h2 id="observing-logs">Observing Logs<a class="headerlink" href="#observing-logs" title="Permanent link">¶</a></h2>
-<p>When a service is run, the process that starts the service should receive the log outputs. For example, if the service is run through the IDE, then the IDE should receive the logs from the service. However, it is possible to attach to the logs of a running service from a separate process. </p>
+<p>When a service is run, the process that starts the service should receive the log outputs. For example, if the service is run through the IDE, then the IDE should receive the logs from the service. However, it is possible to attach to the logs of a running service from a separate process.</p>
 <p>For example, imagine that a service is run through <code>dotnet</code> directly,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dotnet<span class="w"> </span>dotnet<span class="w"> </span>run<span class="w"> </span>--project<span class="w"> </span>services/HelloWorld
 </code></pre></div>

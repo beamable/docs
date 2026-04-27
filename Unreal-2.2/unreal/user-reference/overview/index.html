@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -1787,7 +1787,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1803,7 +1803,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -2174,7 +2174,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -2190,7 +2190,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
@@ -10367,15 +10367,15 @@ If you are not familiar with Unreal Subsystems, you can take a look at their doc
 <ul>
 <li><strong>BeamableCore</strong> contains the <code>UEngineSubsystem</code> implementations shared between <code>Editor</code> and <code>Runtime</code> executing environments. It also contains the <code>UBeamContentObject</code> schema definitions for our <a href="../beamable-services/content/">content system</a>.</li>
 <li><strong>BeamableCoreRuntime</strong> contains the <code>UBeamRuntime</code> and <code>UBeamRuntimeSubsystem</code> implementations and manages the SDK lifecycle at runtime (during PIE and in packaged clients).</li>
-<li><strong>BeamableCoreEditor</strong> and <strong>BeamableCoreRuntimeEditor</strong> contains <code>UBeamEditor</code> and our editor integration code: custom BlueprintNodes, PropertyCustomizations, etc...</li>
+<li><strong>BeamableCoreEditor</strong> and <strong>BeamableCoreRuntimeEditor</strong> contains <code>UBeamEditor</code> and our editor integration code: custom BlueprintNodes, PropertyCustomizations, etc.</li>
 </ul>
 <h3 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">¶</a></h3>
-<p>For any technical lead making system-level decisions, effective use of Beamable and the Unreal SDK requires you to understand a few core concepts. So, after reading this document, you'll want to start here:</p>
+<p>For any technical lead making system-level decisions, effective use of Beamable and the Beamable Unreal SDK requires you to understand a few core concepts. So, after reading this document, you'll want to start here:</p>
 <ul>
 <li><a href="../beamable-services/content/"><strong>Content</strong></a>: how you define your game's configuration -- balancing data, currency and item definitions, etc. Most of our systems depend on Content, so its a good place to start.</li>
 <li><a href="../beamable-services/identity/"><strong>Identity</strong></a>: the various ways you can manage a player's account and login flows.</li>
 <li><a href="../microservices/microservices/"><strong>Microservices</strong></a>: our version of cloud-code -- but also much more.</li>
-<li><a href="../federation/federation/"><strong>Federation</strong></a>: effectively exposed hooks in our backend's various features that you can hook into with custom behavior. You can leverage this for integrating with third-party authentication, initial player state and a lot more. </li>
+<li><a href="../federation/federation/"><strong>Federation</strong></a>: effectively exposed hooks in our backend's various features that you can hook into with custom behavior. You can leverage this for integrating with third-party authentication, initial player state and a lot more.</li>
 </ul>
 <p>Aside from those core concepts, the links below explain some of our higher-level systems.</p>
 <ul>
@@ -10394,7 +10394,7 @@ If you are not familiar with Unreal Subsystems, you can take a look at their doc
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/overview-sdk-lifecycle.png" data-desc-position="bottom"><img alt="overview-sdk-lifecycle.png" src="../../../media/imgs/overview-sdk-lifecycle.png"></a></p>
 <p>The next image shows a high-level description of the authentication flows supported by the SDK:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/overview-sdk-auth-flow.png" data-desc-position="bottom"><img alt="overview-sdk-auth-flow.png" src="../../../media/imgs/overview-sdk-auth-flow.png"></a></p>
-<p><strong><em>We highly recommend that every engineer working with Beamable understand this lifecycle!</em></strong> It should enable them to make the best use and decisions when designing systems with or on top of Beamable. </p>
+<p><strong><em>We highly recommend that every engineer working with Beamable understand this lifecycle!</em></strong> It should enable them to make the best use and decisions when designing systems with or on top of Beamable.</p>
 <h3 id="beamable-runtime-subsystems">Beamable Runtime Subsystems<a class="headerlink" href="#beamable-runtime-subsystems" title="Permanent link">¶</a></h3>
 <p><code>BeamRuntimeSubsystems</code> are stateful subsystems that aim to provide an extendable baseline of some Beamable functionality. They are built on top of our auto-generated lower-level API (<code>UBeam____Api</code> classes) to make it simpler to leverage our APIs so that:</p>
 <ol>
@@ -10408,11 +10408,11 @@ If you are not familiar with Unreal Subsystems, you can take a look at their doc
 <li><code>UBeamInventorySubsystem</code>: provides builder functions around our Inventory APIs that allows you to combine what would be multiple API requests into a single batched inventory update. It also receives inventory notifications coming from the server and keeps in-memory player state in sync.</li>
 <li><code>UBeamMatchmakingSubsystem</code>: provides a stateful way of joining/canceling a matchmaking queue and receiving updates when a match is found.</li>
 </ul>
-<p>These systems make use of the various <code>UBeamRuntimeSubsystem</code> callbacks to keep their state correct and expose callbacks and configuration options for <strong>Game-Maker Code</strong> to run with semantically relevant guarantees. Coupled with <a href="../federation/federation/">Federations</a>, these guarantees can be leveraged to greatly simplify the complexity of client implementations -- usually reducing the complexity and cost of your game's systems implementation.   </p>
+<p>These systems make use of the various <code>UBeamRuntimeSubsystem</code> callbacks to keep their state correct and expose callbacks and configuration options for <strong>Game-Maker Code</strong> to run with semantically relevant guarantees. Coupled with <a href="../federation/federation/">Federations</a>, these guarantees can be leveraged to greatly simplify the complexity of client implementations -- usually reducing the complexity and cost of your game's systems implementation.</p>
 <p>All of our <a href="../runtime-systems/blueprints/">Blueprint</a> nodes, except our <strong>Low-Level</strong> ones, are backed by these sub-system implementations.</p>
-<p>If the exposed hooks on these are not enough for your use case and constraints, you can create your own <code>UBeamRuntimeSubsystem</code>. The SDK does not obfuscate its inner-workings from you so you can use the existing <code>UBeamRuntimeSubsystems</code> as a reference to understand how to create your own. The documentation on <a href="../runtime-systems/lower-level/">Lower Level SDK</a> and <a href="../runtime-systems/operations-and-waits/">Operations &amp; Waits</a> can also be useful when implementing your own <code>UBeamRuntimeSubsystems</code>. </p>
+<p>If the exposed hooks on these are not enough for your use case and constraints, you can create your own <code>UBeamRuntimeSubsystem</code>. The SDK does not obfuscate its inner-workings from you so you can use the existing <code>UBeamRuntimeSubsystems</code> as a reference to understand how to create your own. The documentation on <a href="../runtime-systems/lower-level/">Lower Level SDK</a> and <a href="../runtime-systems/operations-and-waits/">Operations &amp; Waits</a> can also be useful when implementing your own <code>UBeamRuntimeSubsystems</code>.</p>
 <h4 id="advanced-disabling-runtime-subsystems">Advanced - Disabling Runtime Subsystems<a class="headerlink" href="#advanced-disabling-runtime-subsystems" title="Permanent link">¶</a></h4>
-<p>You can also opt out of these entirely by adding them to <code>UBeamCoreSettings</code> 's property: <code>ManuallyInitializedRuntimeSubsystems</code>. All subsystems in this list, and any other subsystem that depends on it, are not automatically initialized by the SDK. For example, if <code>UBeamInventorySubsystem</code> is in this list, this system will not be usable until you manually initialize it. </p>
+<p>You can also opt out of these entirely by adding them to <code>UBeamCoreSettings</code> 's property: <code>ManuallyInitializedRuntimeSubsystems</code>. All subsystems in this list, and any other subsystem that depends on it, are not automatically initialized by the SDK. For example, if <code>UBeamInventorySubsystem</code> is in this list, this system will not be usable until you manually initialize it.</p>
 <p>You can leverage the above to:</p>
 <ul>
 <li>Delay initialization of subsystems to a later point to reduce startup times.</li>
@@ -10420,21 +10420,21 @@ If you are not familiar with Unreal Subsystems, you can take a look at their doc
 <li>Disable systems that you do not want to use to reduce the SDK's request overhead.</li>
 </ul>
 <p>Keep in mind that the simplest way is to build your features <em>on top of</em> these subsystems instead of replacing them.
-However, there are complex cases where it may be easier to make your own system <em>instead of</em> these subsystems. 
+However, there are complex cases where it may be easier to make your own system <em>instead of</em> these subsystems.
 That's why we allow you to enable/disable systems with this granularity.</p>
 <h4 id="advanced-beyond-hooks-and-sdk-modifications">Advanced - Beyond Hooks and SDK Modifications<a class="headerlink" href="#advanced-beyond-hooks-and-sdk-modifications" title="Permanent link">¶</a></h4>
-<p>In line with our philosophy that tools should enable you to do what you need, we distribute the SDK with the source code so that you can edit it if you need to do so. The code is kept organized and commented (as best we can) to try and make modifications feasible. We do this for a few different reasons: </p>
+<p>In line with our philosophy that tools should enable you to do what you need, we distribute the SDK with the source code so that you can edit it if you need to do so. The code is kept organized and commented (as best we can) to try and make modifications feasible. We do this for a few different reasons:</p>
 <ul>
 <li><strong>Owning Dependencies</strong>: It is the philosophy of the UE team here at Beamable that dependencies should be managed explicitly and, whenever possible, be included in your VCS. Since the Beamable SDK is a huge dependency of your project, we want you to have as much control over it as possible.</li>
-<li><strong>Visibility</strong>: We also believe that, while you shouldn't depend directly on internals of the SDK, having access to them can inform better system design choices. You shouldn't be afraid to take a look at the details of how we implement our <code>UBeamRuntimeSubsystem</code>s as it can be informative when designing custom systems on top of Beamable yourself.  </li>
-<li><strong>Debuggability</strong>: Having the source for the SDK means you can investigate it, find issues stemming from incorrect usage or bugs in the SDK, in which case you can report them to us but <strong><em>are not tied to our release schedule to get the fix for it</em></strong>. </li>
+<li><strong>Visibility</strong>: We also believe that, while you shouldn't depend directly on internals of the SDK, having access to them can inform better system design choices. You shouldn't be afraid to take a look at the details of how we implement our <code>UBeamRuntimeSubsystem</code>s as it can be informative when designing custom systems on top of Beamable yourself.</li>
+<li><strong>Debuggability</strong>: Having the source for the SDK means you can investigate it, find issues stemming from incorrect usage or bugs in the SDK, in which case you can report them to us but <strong><em>are not tied to our release schedule to get the fix for it</em></strong>.</li>
 </ul>
-<p>We are all for helping you get a head start in development, but if at any point our systems aren't helping you should be free to adjust them easily or replace them. </p>
+<p>We are all for helping you get a head start in development, but if at any point our systems aren't helping you should be free to adjust them easily or replace them.</p>
 <div class="admonition warning">
 <p class="admonition-title">Disclaimer</p>
-<p><strong><em>IF YOU MODIFY THE SDK, YOU ARE TAKING OWNERSHIP OF MAKING THAT MODIFICATION WORK WITH THE REST OF THE SDK</em></strong>. </p>
-<p>Our Pro-Support will gladly help you investigate, and in future versions of the SDK we might even ship a generalization of what you need based on data that stems from that process, but we CANNOT guarantee that any modification you make will work out of the box with itself or future versions of the SDK. </p>
-<p>Still, sometimes this risk and cost <em>can</em> be worth it. So, we trust tech-leads and senior engineers to evaluate that correctly and go for it when appropriate for their case. </p>
+<p><strong><em>IF YOU MODIFY THE SDK, YOU ARE TAKING OWNERSHIP OF MAKING THAT MODIFICATION WORK WITH THE REST OF THE SDK</em></strong>.</p>
+<p>Our Pro-Support will gladly help you investigate, and in future versions of the SDK we might even ship a generalization of what you need based on data that stems from that process, but we CANNOT guarantee that any modification you make will work out of the box with itself or future versions of the SDK.</p>
+<p>Still, sometimes this risk and cost <em>can</em> be worth it. So, we trust tech-leads and senior engineers to evaluate that correctly and go for it when appropriate for their case.</p>
 </div>
 
 

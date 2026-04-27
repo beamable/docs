@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -1761,7 +1761,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1777,7 +1777,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -2148,7 +2148,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -2164,7 +2164,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
@@ -10328,12 +10328,12 @@
 </code></pre></div>
 <p>The created Microservice would look something like the example one below here.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">[Microservice("MicroserviceName")]</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MicroserviceName</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w">  </span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="na">[ClientCallable]</span><span class="w">  </span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w">  </span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MicroserviceName</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="na">[ClientCallable]</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
 </code></pre></div>
@@ -10355,37 +10355,37 @@
 </li>
 <li>Add <code>ProjectNameMicroserviceClients.AddMicroserviceClients(this)</code> line to your game module's <code>Build.cs</code> files.</li>
 </ul>
-<p>The generated microservice clients are implementations of <code>UBeamMicroserviceClientSubsystem</code> which are <code>UEngineSubsystem</code>. The client exposes functions for each microservice request that are essentially the same as the <a href="../../runtime-systems/lower-level/">UBeam_____Api</a> Lower Level API. </p>
+<p>The generated microservice clients are implementations of <code>UBeamMicroserviceClientSubsystem</code> which are <code>UEngineSubsystem</code>. The client exposes functions for each microservice request that are essentially the same as the <a href="../../runtime-systems/lower-level/">UBeam_____Api</a> Lower Level API.</p>
 <p>To call microservices in Blueprints, you use <code>Low Level - Microservice Name</code> nodes.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-example-blueprint-node.png" data-desc-position="bottom"><img alt="microservices-example-blueprint-node.png" src="../../../../media/imgs/microservices-example-blueprint-node.png"></a></p>
 <p>In C++ this is what calling a microservice looks like:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// From inside any GameInstanceSubsystem, Actor or Component...</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">// Get the Generated API subsystem</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">MsApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">GetEngineSubsystem</span><span class="o">&lt;</span><span class="n">UBeamMicroserviceNameApi</span><span class="o">&gt;</span><span class="p">();</span><span class="w">  </span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">MsApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">GetEngineSubsystem</span><span class="o">&lt;</span><span class="n">UBeamMicroserviceNameApi</span><span class="o">&gt;</span><span class="p">();</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">// Create an instance of the generated Request object.</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">Req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UMicroserviceNameAddRequest</span><span class="o">::</span><span class="n">Make</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">GetTransientPackage</span><span class="p">(),</span><span class="w"> </span><span class="p">{});</span><span class="w">  </span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">Req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UMicroserviceNameAddRequest</span><span class="o">::</span><span class="n">Make</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">GetTransientPackage</span><span class="p">(),</span><span class="w"> </span><span class="p">{});</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1">// Declare the handler for the addition</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">Handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FOnMicroserviceNameAddFullResponse</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">([</span><span class="k">this</span><span class="p">](</span><span class="n">FMicroserviceNameAddFullResponse</span><span class="w"> </span><span class="n">Resp</span><span class="p">)</span><span class="w">  </span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="c1">// If the request failed or we are retrying, we do nothing  </span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Resp</span><span class="p">.</span><span class="n">State</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">RS_Success</span><span class="p">)</span><span class="w">  </span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">       </span><span class="k">return</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">Handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FOnMicroserviceNameAddFullResponse</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">([</span><span class="k">this</span><span class="p">](</span><span class="n">FMicroserviceNameAddFullResponse</span><span class="w"> </span><span class="n">Resp</span><span class="p">)</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">{</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="c1">// If the request failed or we are retrying, we do nothing</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Resp</span><span class="p">.</span><span class="n">State</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">RS_Success</span><span class="p">)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">       </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="c1">// Otherwise, print the value </span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="c1">// Otherwise, print the value</span>
 <a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="n">UE_LOG</span><span class="p">(</span><span class="n">LogTemp</span><span class="p">,</span><span class="w"> </span><span class="n">Display</span><span class="p">,</span><span class="w"> </span><span class="n">TEXT</span><span class="p">(</span><span class="s">"Microservice Add: %d"</span><span class="p">),</span><span class="w"> </span><span class="n">Resp</span><span class="p">.</span><span class="n">SuccessData</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">);</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">});</span><span class="w">  </span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">});</span>
 <a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
 <a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="c1">// Make the request (the user slot will usually be the UBeamCoreSettings::GetOwnerPlayerSlot())</span>
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="n">FBeamRequestContext</span><span class="w"> </span><span class="n">Ctx</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="n">FBeamRequestContext</span><span class="w"> </span><span class="n">Ctx</span><span class="p">;</span>
 <a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="n">MsApi</span><span class="o">-&gt;</span><span class="n">CPP_Add</span><span class="p">(</span><span class="n">UserSlot</span><span class="p">,</span><span class="w"> </span><span class="n">Req</span><span class="p">,</span><span class="w"> </span><span class="n">Handler</span><span class="p">,</span><span class="w"> </span><span class="n">Ctx</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="k">this</span><span class="p">);</span>
 </code></pre></div>
 <p>Take a look at the <a href="../microservices/">Microservices docs</a> for more information about where to go from here.</p>
 <h2 id="optional-create-a-microstorage">Optional - Create a MicroStorage<a class="headerlink" href="#optional-create-a-microstorage" title="Permanent link">¶</a></h2>
-<p>MicroStorages are a Beamable feature that allows you, the Game-Maker, access to a MongoDB you can use to define your own custom persisted data formats to go along with your own custom microservice logic. </p>
-<p>This is a useful architectural alternative when making complex features that do not map well to the default cases of Beamable's own data-storing Managed Services (<a href="../../beamable-services/stats/">Stats</a>, <a href="../../beamable-services/inventory/">Inventory</a>, etc...).</p>
+<p>MicroStorages are a Beamable feature that allows you, the Game-Maker, access to a MongoDB you can use to define your own custom persisted data formats to go along with your own custom microservice logic.</p>
+<p>This is a useful architectural alternative when making complex features that do not map well to the default cases of Beamable's own data-storing Managed Services (<a href="../../beamable-services/stats/">Stats</a>, <a href="../../beamable-services/inventory/">Inventory</a>, etc.).</p>
 <p>To create a <code>MicroStorage</code>, run the command below.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dotnet beam project new storage StorageName --sln ProjectNameBeamable/ProjectNameBeamable.sln \
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  --link-to MicroserviceName
@@ -10406,7 +10406,7 @@
 <li><code>beam project new common-lib LibraryName --sln ProjectNameBeamable/ProjectNameBeamable.sln</code></li>
 </ul>
 </li>
-<li>Adding a reference to it in any of your Microservice's <code>.csproj</code> files by adding this line to an <strong>ItemGroup</strong> block: <ul>
+<li>Adding a reference to it in any of your Microservice's <code>.csproj</code> files by adding this line to an <strong>ItemGroup</strong> block:<ul>
 <li><code>&lt;ProjectReference Include="..\LibraryName\LibraryName.csproj"/&gt;</code></li>
 </ul>
 </li>

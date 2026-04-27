@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -542,10 +542,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#support-to-unreal-engine-56" class="md-nav__link">
+  <a href="#support-for-unreal-engine-56" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Support to Unreal Engine 5.6
+        Support for Unreal Engine 5.6
       
     </span>
   </a>
@@ -1843,7 +1843,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1859,7 +1859,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -2230,7 +2230,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -2246,7 +2246,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
@@ -10383,10 +10383,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#support-to-unreal-engine-56" class="md-nav__link">
+  <a href="#support-for-unreal-engine-56" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Support to Unreal Engine 5.6
+        Support for Unreal Engine 5.6
       
     </span>
   </a>
@@ -10472,7 +10472,7 @@
 
 <h1 id="version-22x-release-notes">Version 2.2.X Release Notes<a class="headerlink" href="#version-22x-release-notes" title="Permanent link">¶</a></h1>
 <h2 id="version-221">Version 2.2.1<a class="headerlink" href="#version-221" title="Permanent link">¶</a></h2>
-<p>This is a patch release for the Unreal SDK version 2.2.1.</p>
+<p>This is a patch release for the Beamable Unreal SDK version 2.2.1.</p>
 <h3 id="other-changes">Other Changes:<a class="headerlink" href="#other-changes" title="Permanent link">¶</a></h3>
 <ul>
 <li>C# Microservices Code Gen - Fixed an issue in the <strong>code generation pipeline</strong> that affected both <strong>microservices</strong> and <strong>low-level services</strong> in the latest release.</li>
@@ -10485,14 +10485,14 @@
 <li>This release requires that you regenerate your microservice clients after rebuilding the microservice projects, if you have any. So you'll need to run: <code>dotnet beam project generate-client "."</code></li>
 <li>Recompile your editor.</li>
 </ul>
-<p>If you're upgrading from any older version, please also look at the <strong>What's New</strong>/<strong>Upgrade Guide</strong> for the versions in between.</p>
+<p>If you are upgrading from any older version, also see the <strong>What's New</strong>/<strong>Upgrade Guide</strong> for the versions in between.</p>
 <h2 id="version-220">Version 2.2.0<a class="headerlink" href="#version-220" title="Permanent link">¶</a></h2>
-<p>This is the release notes for the Unreal SDK version 2.2.0.</p>
+<p>This is the release notes for the Beamable Unreal SDK version 2.2.0.</p>
 <p>This is a minor release that includes support for Unreal Engine 5.6 and some other fixes and small improvements.</p>
 <h3 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">¶</a></h3>
-<h4 id="support-to-unreal-engine-56">Support to Unreal Engine 5.6<a class="headerlink" href="#support-to-unreal-engine-56" title="Permanent link">¶</a></h4>
+<h4 id="support-for-unreal-engine-56">Support for Unreal Engine 5.6<a class="headerlink" href="#support-for-unreal-engine-56" title="Permanent link">¶</a></h4>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/UELogo.png" data-desc-position="bottom"><img alt="UELogo.png" src="../../../media/imgs/UELogo.png"></a></p>
-<p>The Unreal SDK now supports Unreal Engine 5.6 officially, allowing you to take advantage of the latest features and improvements in the engine.</p>
+<p>The Beamable Unreal SDK now supports Unreal Engine 5.6 officially, allowing you to take advantage of the latest features and improvements in the engine.</p>
 <h3 id="other-changes_1">Other Changes<a class="headerlink" href="#other-changes_1" title="Permanent link">¶</a></h3>
 <ul>
 <li>Unreal Editor - Ignore Temporary Maps in the List of Available Maps and Server Override Map of the Play Preset.</li>
@@ -10508,7 +10508,7 @@
 <li>This release requires that you regenerate your microservice clients after rebuilding the microservice projects, if you have any. So you'll need to run: <code>dotnet beam project generate-client "."</code></li>
 <li>Recompile your editor.</li>
 </ul>
-<p>If you're upgrading from any older version, please also look at the <strong>What's New</strong>/<strong>Upgrade Guide</strong> for the versions in between.</p>
+<p>If you are upgrading from any older version, also see the <strong>What's New</strong>/<strong>Upgrade Guide</strong> for the versions in between.</p>
 <h4 id="fixing-android-packagingdeployment-issues-in-ue-56">Fixing Android Packaging/Deployment Issues in UE 5.6<a class="headerlink" href="#fixing-android-packagingdeployment-issues-in-ue-56" title="Permanent link">¶</a></h4>
 <p>In Unreal Engine 5.6, you can find Android packaging and deployment <a href="https://dev.epicgames.com/community/learning/tutorials/d6ne/how-to-fix-unreal-engine-5-6-1-error-undefined-symbol-std-__ndk1-__libcpp_verbose_abort-when-packaging-apk">issues</a> occuring due to a conflict between Unreal and certain internal Android NDK libraries. This problem affects projects using NDK versions 28 or above. The root cause is the mismatch introduced in how UE 5.6 interacts with the newer NDK libraries, and resolving it requires adjusting your setup following this steps:</p>
 <ol>
@@ -10524,7 +10524,7 @@
 </ol>
 </li>
 <li>
-<p>Reopen your project in Unreal Engine. </p>
+<p>Reopen your project in Unreal Engine.</p>
 <ol>
 <li>The Android functionality should now be restored.</li>
 </ol>
@@ -10533,7 +10533,7 @@
 <p>Now It would look like this in your project:
  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/what-is-new-android-sdk-state.png" data-desc-position="bottom"><img alt="android-state.png" src="../../../media/imgs/what-is-new-android-sdk-state.png"></a></p>
 <h4 id="changes-to-ini-files-in-the-new-unreal-version">Changes to <code>.ini</code> Files in the New Unreal Version<a class="headerlink" href="#changes-to-ini-files-in-the-new-unreal-version" title="Permanent link">¶</a></h4>
-<p>Previously, our custom configurations were included in Unreal’s default configuration files, Now, these settings have been moved into separate files with the <strong>"Beam"</strong> prefix, allowing for a clearer separation between base project settings and Beam-specific settings. </p>
+<p>Previously, our custom configurations were included in Unreal’s default configuration files, Now, these settings have been moved into separate files with the <strong>"Beam"</strong> prefix, allowing for a clearer separation between base project settings and Beam-specific settings.</p>
 <p>If you have made changes on the default beamable settings, you'll need to copy their beamable settings into the new files, Paste the custom content into the corresponding new files acording with the table below:</p>
 <table>
 <thead>

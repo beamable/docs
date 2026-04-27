@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -1783,7 +1783,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1799,7 +1799,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -2170,7 +2170,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -2186,7 +2186,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
@@ -10361,7 +10361,7 @@ system, players can create accounts, sign in, and manage their credentials acros
 <p>These operations are designed to be easily integrated into your game's login and signup flows while maintaining security
 best practices.</p>
 <h2 id="login-semantics">Login Semantics<a class="headerlink" href="#login-semantics" title="Permanent link">¶</a></h2>
-<p>Logging in with the Unreal SDK means:</p>
+<p>Logging in with the Beamable Unreal SDK means:</p>
 <blockquote>
 <p>Authenticating the user, fetching all relevant data from the backend into the <code>UBeamRuntimeSubsystem</code>'s in-memory state and then completes the operation.</p>
 </blockquote>
@@ -10379,18 +10379,18 @@ best practices.</p>
 <p>Mobile games often want to create a <strong>Guest Account</strong> for the player so they can start playing quickly and later decide if they want to <code>Attach</code> one or more permanent identities to that guest account.</p>
 <p>The SDK supports this flow via the <code>Login - Frictionless</code> operation.</p>
 <p>If an account is already locally cached at that <code>FUserSlot</code>, we'll log in to that one automatically without making a request to Beamable.</p>
-<p><strong>Guest Accounts are lost if signed out (or locally cached data is lost for any reason)</strong>. 
+<p><strong>Guest Accounts are lost if signed out (or locally cached data is lost for any reason)</strong>.
 To avoid that, players can "attach" some persistent identity information to that guest account. <code>Operation - Attach</code> nodes do so.</p>
 <p>Attaching an identity can succeed or fail:</p>
 <ul>
 <li>
-<p>After a successful <code>Attach</code> call, a player will be able to log in via the corresponding <code>Login</code> operation. </p>
+<p>After a successful <code>Attach</code> call, a player will be able to log in via the corresponding <code>Login</code> operation.</p>
 <ul>
 <li>For example, if you <code>Attach - EmailAndPassword</code> you'll be able to <code>Login - EmailAndPassword</code> to sign back into the account. <br><br></li>
 </ul>
 </li>
 <li>
-<p>If it fails with an <code>_IN_USE</code> error code, it means that the identity is already in use. 
+<p>If it fails with an <code>_IN_USE</code> error code, it means that the identity is already in use.
 Handling of this is game specific, but most games will either:</p>
 <ul>
 <li>Call the <code>Login</code> operation and log in with the in-use identity, discarding the guest account (this is the most common way to handle this).</li>
@@ -10428,7 +10428,7 @@ Handling of this is game specific, but most games will either:</p>
 </ul>
 <p>Here's how that looks in the client side:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/identity-cache-plus-platform.png" data-desc-position="bottom"><img alt="Local Cache + Federated Identity" src="../../../../media/imgs/identity-cache-plus-platform.png"></a></p>
-<p>Each different platform (Steam, EOS, PSN, etc...) requires a different Microservice implementation. At the moment, we only have a sample for Steam --- but we plan to add samples for all major platforms (Steam, EOS, Console and Mobile platforms) as time passes and the SDK evolves to support each target.</p>
+<p>Each different platform (Steam, EOS, PSN, etc.) requires a different Microservice implementation. At the moment, we only have a sample for Steam --- but we plan to add samples for all major platforms (Steam, EOS, Console and Mobile platforms) as time passes and the SDK evolves to support each target.</p>
 <div class="admonition note">
 <p class="admonition-title">Why do platform integrations this way?</p>
 <p>The problem with Beamable supporting each platform directly in the SDK is that it ties Beamable SDK versions to each individual platform's SDK versions. This denies game makers the ability to independently select the feature-set they want to support from each individual platform.</p>
@@ -10436,7 +10436,7 @@ Handling of this is game specific, but most games will either:</p>
 <p>The advantages of the Federation approach is that the game-maker retains control of how they want to interact with the feature-set of each platform and gives them better control of upgrade timings.</p>
 </div>
 <h2 id="identity-in-dedicated-servers">Identity in Dedicated Servers<a class="headerlink" href="#identity-in-dedicated-servers" title="Permanent link">¶</a></h2>
-<p>Dedicated Servers use a different authentication model (<a href="../../realtime-multiplayer/realtime-multiplayer-overview/">realtime multiplayer</a>) that is not <code>UserSlot</code>-based.</p>
+<p>Dedicated Servers use a different authentication model (<a href="../../realtime-multiplayer/realtime-multiplayer-overview/">real-time multiplayer</a>) that is not <code>UserSlot</code>-based.</p>
 <p>As such, none of these flows run in Dedicated Servers.</p>
 
 

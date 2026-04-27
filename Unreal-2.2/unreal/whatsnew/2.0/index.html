@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -631,10 +631,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#support-to-friends-and-parties" class="md-nav__link">
+  <a href="#support-for-friends-and-parties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Support to Friends and Parties
+        Support for Friends and Parties
       
     </span>
   </a>
@@ -1909,7 +1909,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1925,7 +1925,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -2296,7 +2296,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -2312,7 +2312,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
@@ -10482,10 +10482,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#support-to-friends-and-parties" class="md-nav__link">
+  <a href="#support-for-friends-and-parties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Support to Friends and Parties
+        Support for Friends and Parties
       
     </span>
   </a>
@@ -10604,12 +10604,12 @@
 
 <h1 id="version-20x-release-notes">Version 2.0.x Release Notes<a class="headerlink" href="#version-20x-release-notes" title="Permanent link">¶</a></h1>
 <h2 id="version-201">Version 2.0.1<a class="headerlink" href="#version-201" title="Permanent link">¶</a></h2>
-<p>This is the release notes for the Unreal SDK version 2.0.1.</p>
-<p>This release has several fixes w.r.t increasing support for MacOS as a development platform, fixing certain dedicated server (linux) issues as well as updating the backing CLI version for additional fixes within the microservice code-generation pipeline.</p>
-<p><strong>Follow the instructions to upgrade from <a href="../../getting-started/setup/#upgrading-the-sdk">here</a></strong>. </p>
+<p>This is the release notes for the Beamable Unreal SDK version 2.0.1.</p>
+<p>This release has several fixes w.r.t increasing support for macOS as a development platform, fixing certain dedicated server (linux) issues as well as updating the backing CLI version for additional fixes within the microservice code-generation pipeline.</p>
+<p><strong>Follow the instructions to upgrade from <a href="../../getting-started/setup/#upgrading-the-sdk">here</a></strong>.</p>
 <p>Then do the following:</p>
 <ul>
-<li>If you're upgrading from <code>1.X.X</code>, please follow any instructions in the <a href="#version-200">version 2.0.0 upgrade guide</a>.</li>
+<li>If you are upgrading from <code>1.X.X</code>, follow any instructions in the <a href="#version-200">version 2.0.0 upgrade guide</a>.</li>
 <li>In order to fix a bug, this hotfix requires that you regenerate your microservice clients after rebuilding the microservice projects, if you have any. So you'll need to run: <code>dotnet beam project generate-client "."</code></li>
 <li>Recompile your editor.</li>
 </ul>
@@ -10618,7 +10618,7 @@
 <li>Added an override to the path to <code>dotnet</code> (found in <code>Project Settings -&gt; Beam Editor</code>) so that non-default <code>dotnet</code> setups can be used.<ul>
 <li>In some dev's setups, <code>dotnet</code> might be installed in non-default locations --- you can now override where we look for the <code>dotnet</code> executable when invoking our CLI (from within the editor integration).</li>
 <li>This changes nothing about the runtime of your program; it only affects how we use the CLI (which is not used outside the Unreal Editor integration).</li>
-<li>After changing this setting, please re-open the editor.</li>
+<li>After changing this setting, restart the editor.</li>
 </ul>
 </li>
 <li>Added null guard to all <code>U[BeamJsonSerializableUObject]Library::Break</code> functions (change between ensure/silent-skip in <code>Project Settings -&gt; Beamable Core -&gt; bSilenceBreakGuardEnsures</code>).<ul>
@@ -10629,24 +10629,24 @@
 <h3 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">¶</a></h3>
 <ul>
 <li>Fixed linux compilation problem when compiling with stricter options.</li>
-<li>Fixed default <code>dotnet</code> path for MacOS.</li>
+<li>Fixed default <code>dotnet</code> path for macOS.</li>
 <li>Fixed issue where <code>CallingContext</code> wasn't being passed along in <code>Authenticate</code> calls in certain edge-cases</li>
 <li>Updated Auto Generated <code>UBeam___Api</code> classes code to fix a problem that would cause multiple PIE instances to behave incorrectly when running in non-standalone process mode.</li>
 </ul>
 <h2 id="version-200">Version 2.0.0<a class="headerlink" href="#version-200" title="Permanent link">¶</a></h2>
-<p>This is the release notes for the The Unreal SDK version 2.0.0</p>
-<p>This is a major release in our release cycle, it brings a lot of new features and improvements to the Beamable Unreal SDK support and user experience in general including a new Content Editor, a complete overhaull of our blueprint nodes, support to Friends and Parries, new support to Android and many others.</p>
+<p>This is the release notes for the Beamable Unreal SDK version 2.0.0</p>
+<p>This is a major release in our release cycle, it brings a lot of new features and improvements to the Beamable Unreal SDK support and user experience in general including a new Content Editor, a complete overhaull of our blueprint nodes, support for Friends and Parties, new support for Android and many others.</p>
 <p>Follow the instructions to upgrade from <a href="../../getting-started/setup/#upgrading-the-sdk">here</a>. Then do the following:</p>
 <ul>
 <li>Go into your <code>Saved/Config/WindowsEditor/EditorPerProjectUserSettings</code> and remove any setting referencing a <code>BeamEditorBootstrapper</code> (or <code>UBeamEditorBootstrapper</code>).</li>
-<li>We changed the way the Editor environment is initialized and having this here will cause the initialization to run twice which can lead to instability. </li>
+<li>We changed the way the Editor environment is initialized and having this here will cause the initialization to run twice which can lead to instability.</li>
 </ul>
 <h3 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">¶</a></h3>
 <h4 id="unreal-engine-55x-support">Unreal Engine 5.5.x Support<a class="headerlink" href="#unreal-engine-55x-support" title="Permanent link">¶</a></h4>
-<p>The Unreal SDK now supports Unreal Engine 5.5.x as it minimum version. Older versions of Unreal Engine are no longer officially supported. If you are using an older version of Unreal Engine, we recommend you upgrade to 5.5.x to take advantage of the latest features and improvements os stay in the 1.x versions of the Unreal SDK.</p>
+<p>The Beamable Unreal SDK now supports Unreal Engine 5.5.x as it minimum version. Older versions of Unreal Engine are no longer officially supported. If you are using an older version of Unreal Engine, we recommend you upgrade to 5.5.x to take advantage of the latest features and improvements os stay in the 1.x versions of the Beamable Unreal SDK.</p>
 <h4 id="android-support">Android Support<a class="headerlink" href="#android-support" title="Permanent link">¶</a></h4>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/android.png" data-desc-position="bottom"><img alt="android.png" src="../../../media/imgs/android.png"></a></p>
-<p>The Unreal SDK now supports Android builds officially, allowing you to build and deploy your games on Android devices. This includes support for the Beamable services, as well as the ability to use the Unreal Engine's native Beamable features.</p>
+<p>The Beamable Unreal SDK now supports Android builds officially, allowing you to build and deploy your games on Android devices. This includes support for the Beamable services, as well as the ability to use the Unreal Engine's native Beamable features.</p>
 <h4 id="new-content-editor-system">New Content Editor System<a class="headerlink" href="#new-content-editor-system" title="Permanent link">¶</a></h4>
 <p>The Content Editor received yet another rework based your feedback with additional filtering capabilities and an improved CLI-based backend that is faster, handles file-system operations better and enforces less blocking operations.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/contentv2-window.png" data-desc-position="bottom"><img alt="contentv2-window.png" src="../../../media/imgs/contentv2-window.png"></a></p>
@@ -10655,10 +10655,10 @@
 <p class="admonition-title">Detected Changes</p>
 <p>Until you publish content to the realm the first time after the update, the content will show up as modified. This has to do with us standardizing the underlying hashing to solve problems that would cause content to be accused as modified with no changes done.</p>
 </div>
-<h4 id="support-to-friends-and-parties">Support to Friends and Parties<a class="headerlink" href="#support-to-friends-and-parties" title="Permanent link">¶</a></h4>
-<p>The Unreal SDK now supports the <a href="../../user-reference/beamable-services/friends/">Friends</a> and <a href="../../user-reference/beamable-services/parties/">Parties</a> features of Beamable. This includes the ability to send and receive friend requests, manage your friends list, and create and join parties.</p>
+<h4 id="support-for-friends-and-parties">Support for Friends and Parties<a class="headerlink" href="#support-for-friends-and-parties" title="Permanent link">¶</a></h4>
+<p>The Beamable Unreal SDK now supports the <a href="../../user-reference/beamable-services/friends/">Friends</a> and <a href="../../user-reference/beamable-services/parties/">Parties</a> features of Beamable. This includes the ability to send and receive friend requests, manage your friends list, and create and join parties.</p>
 <h4 id="blueprint-nodes-rework">Blueprint Nodes Rework<a class="headerlink" href="#blueprint-nodes-rework" title="Permanent link">¶</a></h4>
-<p>The Blueprint nodes have undergone a comprehensive overhaul to enhance consistency and ease of use. Updates include clearer node naming, refined input and output types, and significant improvements to overall usability. Additionally, we've introduced a <a href="../../user-reference/runtime-systems/blueprints/">dedicated section</a> to help users better understand how to effectively utilize Blueprints with the Unreal SDK.</p>
+<p>The Blueprint nodes have undergone a comprehensive overhaul to enhance consistency and ease of use. Updates include clearer node naming, refined input and output types, and significant improvements to overall usability. Additionally, we've introduced a <a href="../../user-reference/runtime-systems/blueprints/">dedicated section</a> to help users better understand how to effectively utilize Blueprints with the Beamable Unreal SDK.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/blueprint-operators.png" data-desc-position="bottom"><img alt="blueprint-operators.png" src="../../../media/imgs/blueprint-operators.png"></a></p>
 <p>As part of this overhaul, a lot of <code>Operations</code> had to be slightly renamed to aid with discoverability and API consistency. We highly recommend a few things:</p>
 <ul>
@@ -10667,9 +10667,9 @@
 </ul>
 <h4 id="player-initialization-federations">Player Initialization Federations<a class="headerlink" href="#player-initialization-federations" title="Permanent link">¶</a></h4>
 <p>A common use-case for live-services game is to define a starting state for user accounts. The way to do that within Beamable is via the <a href="../../user-reference/federation/federated-player-init/">Player Init Federation</a> interface in your microservice.</p>
-<p>This federation is guaranteed to run only once per player, whenever the player is created in the realm. At the Unreal SDK side, all SignUp functions expose the <code>InitProperties</code> parameter which is a map that will be passed along to the <code>IFederatedPlayerInit</code> in the microservice. This can be leveraged to implement custom sign-up flows and even special sign-up cases that provide players a better starting state should your game benefit from such a design.</p>
+<p>This federation is guaranteed to run only once per player, whenever the player is created in the realm. At the Beamable Unreal SDK side, all SignUp functions expose the <code>InitProperties</code> parameter which is a map that will be passed along to the <code>IFederatedPlayerInit</code> in the microservice. This can be leveraged to implement custom sign-up flows and even special sign-up cases that provide players a better starting state should your game benefit from such a design.</p>
 <h4 id="microservice-client-code-generation">Microservice Client-Code Generation<a class="headerlink" href="#microservice-client-code-generation" title="Permanent link">¶</a></h4>
-<p>In the previous versions of the SDK, you could set <code>&lt;GenerateClientCode&gt;true&lt;/GenerateClientCode&gt;</code> in the <code>.csproj</code> of your Microservices in order to generate the client code for them on every rebuild. </p>
+<p>In the previous versions of the SDK, you could set <code>&lt;GenerateClientCode&gt;true&lt;/GenerateClientCode&gt;</code> in the <code>.csproj</code> of your Microservices in order to generate the client code for them on every rebuild.</p>
 <p>This is no longer possible.</p>
 <p>We made this change for a few reasons:</p>
 <ul>
@@ -10699,7 +10699,7 @@
 <h4 id="climicroservices-upgrade-instructions">CLI/Microservices - Upgrade Instructions<a class="headerlink" href="#climicroservices-upgrade-instructions" title="Permanent link">¶</a></h4>
 <p>If you were using the <code>FederatedGameServer</code> interface, you'll also have to do this.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// The type in the signature was changed to use our AutoGenerated lobby type.</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">// This change aims to make future updates simpler and automatic (since any new fields added to our </span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">// This change aims to make future updates simpler and automatic (since any new fields added to our</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">// backend's lobby structure will become immediately visible via our AutoGenerated API.</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">ServerInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateGameServer</span><span class="p">(</span><span class="n">Api</span><span class="p">.</span><span class="n">Autogenerated</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">Lobby</span><span class="w"> </span><span class="n">lobbyAutoGenerated</span><span class="p">)</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">{</span>
@@ -10719,7 +10719,7 @@
 <ul>
 <li>When creating a custom event by hand, adding a <code>FUserSlot</code> parameter pin to that event can sometimes crash the engine. This also seems to happen with <em>some</em> Unreal types that have custom pins (the same crash happens with <code>bool</code> pins, though less frequently).<ul>
 <li>This does NOT happen if you create the event using the functionality in the <code>CreateEvent</code> node OR by any other means of creating a custom event with all the pins it knows it should have.</li>
-<li>This crash also seems less likely to happen the longer the editor stays open. </li>
+<li>This crash also seems less likely to happen the longer the editor stays open.</li>
 </ul>
 </li>
 </ul>

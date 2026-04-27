@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -1844,7 +1844,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1860,7 +1860,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -2231,7 +2231,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -2247,7 +2247,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
@@ -10486,10 +10486,10 @@
 </ul>
 <p>Under the hood, microservices are a wrapper around a custom WebSocket protocol and Job Scheduler with a set of layered APIs you can use to easily write the simple cases and peel back to write the complex cases.</p>
 <p>It solves or helps with all the listed items above and the amount of code you actually need to write to expose an Endpoint your game can call is:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">[ClientCallable]</span><span class="w">  </span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w">  </span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">{</span><span class="w">  </span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">  </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">[ClientCallable]</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="microservice-window">Microservice Window<a class="headerlink" href="#microservice-window" title="Permanent link">¶</a></h2>
@@ -10499,7 +10499,7 @@
 <div class="admonition note">
 <p class="admonition-title">Service Groups</p>
 <p>In very rare cases, a project may require a non-trivial amount of services/storages. For Beamable's own internal development this is true (as we have microservices for each sample).</p>
-<p>In cases like these, a line can be added to the <code>csproj</code> file of each service to assign them to groups. These can then be used by the CLI's <code>project</code> pallet as filters while also being used as a filter in this window. The line to be added to the <code>BeamableSettings</code> <strong>PropertyGroup</strong> : <code>&lt;BeamServiceGroup&gt;SomeGroupId&lt;/BeamServiceGroup&gt;</code> </p>
+<p>In cases like these, a line can be added to the <code>csproj</code> file of each service to assign them to groups. These can then be used by the CLI's <code>project</code> pallet as filters while also being used as a filter in this window. The line to be added to the <code>BeamableSettings</code> <strong>PropertyGroup</strong> : <code>&lt;BeamServiceGroup&gt;SomeGroupId&lt;/BeamServiceGroup&gt;</code></p>
 <p>There are no restrictions on group names other than that <code>BEAMPROJ_</code> is a reserved prefix.</p>
 </div>
 <h3 id="the-details-panel">The Details Panel<a class="headerlink" href="#the-details-panel" title="Permanent link">¶</a></h3>
@@ -10544,15 +10544,15 @@
 </div>
 <p><a href="https://docs.beamable.com/docs/microservices-feature-overview">For more information on how to write microservice functions, you can take a look at these docs as well.</a></p>
 <h2 id="constraints-on-callable-functions">Constraints on Callable Functions<a class="headerlink" href="#constraints-on-callable-functions" title="Permanent link">¶</a></h2>
-<p>Our CLI is capable of generating Unreal bindings that will allow your Unreal code to call your microservice much like you would make an API call to Beamable. In order to generate these bindings, we have <em>some</em> restrictions on what types can and can't be on method signatures for <code>Callables</code>. </p>
-<p>Each <code>Callable</code> generates at least two <code>UObject</code> classes, one representing request's input parameters and another representing the response type. It also generates a function inside the generated <code>UBeamMicroserviceNameApi</code> subsystem (and accompanying Blueprint nodes). </p>
+<p>Our CLI is capable of generating Unreal bindings that will allow your Unreal code to call your microservice much like you would make an API call to Beamable. In order to generate these bindings, we have <em>some</em> restrictions on what types can and can't be on method signatures for <code>Callables</code>.</p>
+<p>Each <code>Callable</code> generates at least two <code>UObject</code> classes, one representing request's input parameters and another representing the response type. It also generates a function inside the generated <code>UBeamMicroserviceNameApi</code> subsystem (and accompanying Blueprint nodes).</p>
 <h3 id="signature-constraints">Signature Constraints<a class="headerlink" href="#signature-constraints" title="Permanent link">¶</a></h3>
 <p>When declaring <code>Callable</code> functions, you should be aware of a few limitations regarding its signatures.</p>
 <ul>
 <li>No <code>void</code> return.</li>
 <li>Can be <code>async</code> or not.</li>
 <li>Cannot return container types directly.<ul>
-<li><code>List&lt;&gt;</code> / <code>Dictionary&lt;string,&gt;</code> </li>
+<li><code>List&lt;&gt;</code> / <code>Dictionary&lt;string,&gt;</code></li>
 <li>Wrap it in a struct/class instead.</li>
 </ul>
 </li>
@@ -10562,7 +10562,7 @@
 </ul>
 </li>
 <li>Avoid calling <code>Callable</code> functions from other <code>Callable</code> functions.<ul>
-<li>For code-reuse in the Microservice, write non-<code>Callable</code> static functions and call them inside the <code>Callable</code> body. </li>
+<li>For code-reuse in the Microservice, write non-<code>Callable</code> static functions and call them inside the <code>Callable</code> body.</li>
 </ul>
 </li>
 <li>Must be an instance method (no <code>static</code> keyword).<ul>
@@ -10666,8 +10666,8 @@
 <li>When using these APIs, we recommend liberal <em>but careful</em> use of <code>auto</code>.</li>
 </ul>
 </li>
-<li>The code for <strong>all</strong> microservices in the solution is generated at once. <ul>
-<li>This means that, if you have multiple Microservices, you cannot generate a single service's bindings. </li>
+<li>The code for <strong>all</strong> microservices in the solution is generated at once.<ul>
+<li>This means that, if you have multiple Microservices, you cannot generate a single service's bindings.</li>
 <li>This is also a result of the Namespaces constraint.</li>
 </ul>
 </li>
@@ -10747,7 +10747,7 @@
 <div class="admonition info">
 <p class="admonition-title">Which realm?</p>
 <p>How you wish to manage realms is a team-specific decision as there are cost implications per-microservice instance running in any realm to consider against how your team likes to work.</p>
-<p>At Beamable's UE team, we prefer the "team members are responsible not to break other team members environment"-approach so we recommend that you test things thoroughly and then publish to your <code>dev</code> realm (where everybody is). </p>
+<p>At Beamable's UE team, we prefer the "team members are responsible not to break other team members environment"-approach so we recommend that you test things thoroughly and then publish to your <code>dev</code> realm (where everybody is).</p>
 <p>Another strategy might be to have a <code>designer-dev</code> that lives between <code>staging</code> and <code>dev</code> that should be more stable and then you push to <code>dev</code> first and eventually promote it to <code>designer-dev</code>. Again, this is for your lead and team to discuss and decide how you wish to work.</p>
 <p>Finally, you can also choose a <code>one realm per developer</code> approach though that introduces a lot of workflow overhead. Though, there are team-specific cases where that might be a valid approach.</p>
 </div>
@@ -10757,8 +10757,8 @@
 <p>If there's enough demand for it, we will consider adding it. However, deploying services is mostly done by engineers and CI/CD pipelines so we felt that compiling and opening the UE Editor just to do this didn't add enough value to the UE workflow.</p>
 </div>
 <h2 id="collaborative-debugging">Collaborative Debugging<a class="headerlink" href="#collaborative-debugging" title="Permanent link">¶</a></h2>
-<p>This one is pretty unique to Beamable's Microservices. </p>
-<p>Imagine the following: </p>
+<p>This one is pretty unique to Beamable's Microservices.</p>
+<p>Imagine the following:</p>
 <ul>
 <li>You have a service published in a realm with your designer working and testing against it.</li>
 <li>The designer does something that reveals a bug in your service.</li>

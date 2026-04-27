@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -1660,7 +1660,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1676,7 +1676,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -2047,7 +2047,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -2063,7 +2063,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
@@ -10691,7 +10691,7 @@
 <h1 id="possible-issues-and-solutions">Possible Issues and Solutions<a class="headerlink" href="#possible-issues-and-solutions" title="Permanent link">¶</a></h1>
 <p>This page lists possible issues and solutions for common errors that can occur when using the Beam SDK and how to fix them.</p>
 <h2 id="multiple-microservice-classes-detected">Multiple Microservice Classes Detected<a class="headerlink" href="#multiple-microservice-classes-detected" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:<br>
+<p><strong>Explanation</strong>:
 Only one <code>Microservice</code> class should exist per microservice project. Multiple classes marked with the <code>[Microservice]</code> attribute will cause conflicts in code generation and runtime behavior.</p>
 <p><strong>Example Code Triggering the Error</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
@@ -10711,7 +10711,7 @@ Only one <code>Microservice</code> class should exist per microservice project. 
 </code></pre></div><p></p>
 <hr>
 <h2 id="non-partial-microservice-class-detected">Non-Partial Microservice Class Detected<a class="headerlink" href="#non-partial-microservice-class-detected" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:<br>
+<p><strong>Explanation</strong>:
 Microservice classes must be marked as <code>partial</code> to allow code generation tools to extend them.</p>
 <p><strong>Example Code Triggering the Error</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
@@ -10728,7 +10728,7 @@ Microservice classes must be marked as <code>partial</code> to allow code genera
 </code></pre></div><p></p>
 <hr>
 <h2 id="microservice-class-missing-microservice-id">Microservice Class Missing Microservice Id<a class="headerlink" href="#microservice-class-missing-microservice-id" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:<br>
+<p><strong>Explanation</strong>:
 The <code>Microservice</code> class must include the <code>[Microservice("Id")]</code> attribute to define its identifier.</p>
 <p><strong>Example Code Triggering the Error</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{}</span>
@@ -10744,11 +10744,11 @@ The <code>Microservice</code> class must include the <code>[Microservice("Id")]<
 </code></pre></div><p></p>
 <hr>
 <h2 id="async-void-callable-methods">Async Void Callable Methods<a class="headerlink" href="#async-void-callable-methods" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:<br>
+<p><strong>Explanation</strong>:
 Methods marked as <code>[Callable]</code>, <code>[ClientCallable]</code>, <code>[ServerCallable]</code> should not be <code>async void</code>. Using <code>async void</code> makes it impossible to track errors or await completion.</p>
 <p><strong>Example Code Triggering the Error</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">{</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="na">[Callable]</span>
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CallMicroservice</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -10761,18 +10761,18 @@ Methods marked as <code>[Callable]</code>, <code>[ClientCallable]</code>, <code>
 - Change the return type to <code>Task</code>.</p>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">{</span>
 <a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="na">[Callable]</span>
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">CallMicroservice</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="p">}</span>
 </code></pre></div><p></p>
 <h2 id="invalid-type-usage-in-callable-method">Invalid Type Usage in Callable Method<a class="headerlink" href="#invalid-type-usage-in-callable-method" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:<br>
+<p><strong>Explanation</strong>:
 Types used in <code>[ClientCallable]</code> methods must be available to both server and client. Declaring types inside the microservice class makes them inaccessible to the Unity client as we're not regenerating DTO for Client.</p>
 <p><strong>Example Code Triggering the Error</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">{</span>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">        </span><span class="na">[ClientCallable]</span>
 <a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">DTO</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CallServiceAsync</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DTO</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">};</span>
@@ -10793,7 +10793,7 @@ Types used in <code>[ClientCallable]</code> methods must be available to both se
 - Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server.</p>
 <p><strong>Example of Solved Code</strong> (Microservice):
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">{</span>
 <a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="na">[ClientCallable]</span>
 <a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">DTO</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CallServiceAsync</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DTO</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">};</span>
@@ -10810,11 +10810,11 @@ Types used in <code>[ClientCallable]</code> methods must be available to both se
 </code></pre></div><p></p>
 <hr>
 <h2 id="callable-method-types-usage-are-nested">Callable Method Types usage are Nested<a class="headerlink" href="#callable-method-types-usage-are-nested" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:<br>
+<p><strong>Explanation</strong>:
 Types used in <code>[ClientCallable]</code> methods must be declared in outer scope so the Source Code Generator can handle it properly.</p>
 <p><strong>Example Code Triggering the Error</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">{</span>
 <a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DTO</span>
 <a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="p">{</span>
@@ -10832,7 +10832,7 @@ Types used in <code>[ClientCallable]</code> methods must be declared in outer sc
 - Move named types used by <code>Callable</code> methods to a non-nested scope.</p>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
 <a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="p">{</span>
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="na">[ClientCallable]</span>
 <a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CallService</span><span class="p">(</span><span class="n">DTO</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
@@ -10845,11 +10845,11 @@ Types used in <code>[ClientCallable]</code> methods must be declared in outer sc
 </code></pre></div><p></p>
 <hr>
 <h2 id="beam-generated-schema-class-is-a-nested-type">Beam Generated Schema Class is a Nested Type<a class="headerlink" href="#beam-generated-schema-class-is-a-nested-type" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:<br>
+<p><strong>Explanation</strong>:
 Classes that uses the attribute <code>[BeamGenerateSchema]</code> cannot be declared as nested type because the Source Generator Cannot handle it.</p>
 <p><strong>Example Code Triggering the Error</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
 <a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="p">{</span>
 <a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="na">[BeamGenerateSchema]</span>
 <a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DTO</span>
@@ -10875,7 +10875,7 @@ Classes that uses the attribute <code>[BeamGenerateSchema]</code> cannot be decl
 </code></pre></div><p></p>
 <hr>
 <h2 id="invalid-microservice-id">Invalid Microservice ID<a class="headerlink" href="#invalid-microservice-id" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:<br>
+<p><strong>Explanation</strong>:
 Microservices IDs must match the <code>&lt;BeamID&gt;</code> property on csproj. If there is none <code>&lt;BeamID&gt;</code> property it needs to match the project's name.</p>
 <p><strong>Example Code Triggering the Error</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
@@ -10921,7 +10921,7 @@ Microservices IDs must match the <code>&lt;BeamID&gt;</code> property on csproj.
 </code></pre></div><p></p>
 <hr>
 <h2 id="static-field-in-microservice">Static Field in Microservice<a class="headerlink" href="#static-field-in-microservice" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:<br>
+<p><strong>Explanation</strong>:
 Non-readonly static fields in Microservices are discouraged because they do not behave reliably in horizontally scaled environments. Their state is not shared across instances.</p>
 <p><strong>Example Code Triggering the Warning</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
@@ -10943,7 +10943,7 @@ Non-readonly static fields in Microservices are discouraged because they do not 
 - Or convert it to a non-static field if it should be instance-bound.<p></p>
 <hr>
 <h2 id="missing-serializable-attribute-on-type">Missing Serializable Attribute on Type<a class="headerlink" href="#missing-serializable-attribute-on-type" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:<br>
+<p><strong>Explanation</strong>:
 All types used in Microservice method signatures or marked with <code>[BeamGenerateSchema]</code> must be annotated with <code>[Serializable]</code> to ensure correct serialization and code generation.</p>
 <p><strong>Examples Code Triggering the Error</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="na">[BeamGenerateSchema]</span>
@@ -10956,7 +10956,7 @@ All types used in Microservice method signatures or marked with <code>[BeamGener
 <a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="p">}</span>
 <a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="na">[Microservice("OtherBeamId")]</span>
-<a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span>
+<a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
 <a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="p">{</span>
 <a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a><span class="w">    </span><span class="na">[ClientCallable]</span>
 <a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CallService</span><span class="p">(</span><span class="n">MyOtherDto</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
@@ -10990,7 +10990,7 @@ All types used in Microservice method signatures or marked with <code>[BeamGener
 </code></pre></div><p></p>
 <hr>
 <h2 id="property-found-in-serializable-type">Property Found in Serializable Type<a class="headerlink" href="#property-found-in-serializable-type" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:<br>
+<p><strong>Explanation</strong>:
 Properties in types used in Microservice method signatures or marked with <code>[BeamGenerateSchema]</code> are ignored by the client code generator. Fields should be used instead.</p>
 <p><strong>Example Code Triggering the Warning</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="na">[Serializable]</span>
@@ -11013,7 +11013,7 @@ Properties in types used in Microservice method signatures or marked with <code>
 </code></pre></div><p></p>
 <hr>
 <h2 id="nullable-field-in-serializable-type">Nullable Field in Serializable Type<a class="headerlink" href="#nullable-field-in-serializable-type" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:<br>
+<p><strong>Explanation</strong>:
 Fields with nullable types (e.g., <code>int?</code>, <code>string?</code>) are not supported in types used in Microservice method signatures or marked with <code>[BeamGenerateSchema]</code>. Use <code>Optional&lt;T&gt;</code> instead to ensure predictable behavior.</p>
 <p><strong>Example Code Triggering the Error</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="na">[Serializable]</span>
@@ -11042,7 +11042,7 @@ Using <code>ContentObject</code> or its subtypes directly in serializable fields
 <div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="na">[BeamGenerateSchema]</span>
 <a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
 <a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="p">{</span>
-<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">MyItem</span><span class="w"> </span><span class="n">item</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">MyItem</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
 <a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="p">}</span>
 <a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>
 <a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyItem</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w"> </span><span class="p">{}</span>
@@ -11064,7 +11064,7 @@ Using <code>ContentObject</code> or its subtypes directly in serializable fields
 <a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyItem</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div><p></p>
 <h2 id="type-used-in-beamgenerateschema-is-missing-attribute">Type Used in BeamGenerateSchema is Missing Attribute<a class="headerlink" href="#type-used-in-beamgenerateschema-is-missing-attribute" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:<br>
+<p><strong>Explanation</strong>:
 When a class is marked with <code>[BeamGenerateSchema]</code>, all custom types used in its fields must also be annotated with <code>[BeamGenerateSchema]</code>.</p>
 <p><strong>Example Code Triggering the Error</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="na">[BeamGenerateSchema]</span>
@@ -11156,7 +11156,7 @@ Types that subclass <code>List&lt;T&gt;</code> are not supported as field types 
 <a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="na">[BeamGenerateSchema]</span>
 <a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
 <a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a><span class="p">{</span>
-<a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">MyList</span><span class="w"> </span><span class="n">customList</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">MyList</span><span class="w"> </span><span class="n">customList</span><span class="p">;</span>
 <a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a><span class="p">}</span>
 </code></pre></div>
 <p><strong>Example Error Message</strong>:</p>
@@ -11281,7 +11281,7 @@ Types used in <code>[Callable]</code> methods that subclass <code>List&lt;T&gt;<
 </code></pre></div>
 <hr>
 <h2 id="invalid-generic-type-in-microservice">Invalid Generic Type in Microservice<a class="headerlink" href="#invalid-generic-type-in-microservice" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:<br>
+<p><strong>Explanation</strong>:
 Generic types are not supported in Microservice <code>[Callable]</code> methods or in classes marked with <code>[BeamGenerateSchema]</code>, except for a specific set of allowed generic types. The code generator cannot properly handle custom generic types for client-side code generation. The only permitted generic types are: <code>List&lt;T&gt;</code>, <code>Dictionary&lt;TKey, TValue&gt;</code>, <code>Optional&lt;T&gt;</code>, and <code>ContentRef&lt;T&gt;</code>.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="c1">// Custom generic class</span>

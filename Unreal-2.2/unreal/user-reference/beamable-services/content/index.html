@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/beamable-badge.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
@@ -1816,7 +1816,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1832,7 +1832,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -2203,7 +2203,7 @@
   <span class="md-ellipsis">
     
   
-    Sample Projects      
+    Sample Projects
   
 
     
@@ -2219,7 +2219,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Sample Projects      
+    Sample Projects
   
 
           </label>
@@ -10416,7 +10416,7 @@
 
 <h1 id="content-system">Content System<a class="headerlink" href="#content-system" title="Permanent link">¶</a></h1>
 <p>Beamable Content System is a read-only (at runtime) arbitrary data store that allows you to define arbitrary JSON-serialized <em>content objects</em> for use at runtime. Several of Beamable's own managed features also use content in some way or another.</p>
-<p>The system is manifest-based. </p>
+<p>The system is manifest-based.</p>
 <ul>
 <li>A <strong>manifest</strong> is a list of published content objects in a realm indexed by their content ids.</li>
 <li><strong>Publishing</strong> a manifest means first uploading all the individual content objects to Beamable and, after that, uploading a manifest that knows where the content objects live.</li>
@@ -10467,15 +10467,15 @@
 <p>Modifying content can be done by via the Details Editor in the <strong>Content Window</strong>. Modified content, relative to the latest published manifest, is shown with an <code>[M]</code> icon next to them. They can be reverted to their state at the realm by using the <code>Revert</code> button.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content-revert.png" data-desc-position="bottom"><img alt="content-revert.png" src="../../../../media/imgs/content-revert.png"></a></p>
 <h2 id="publishing-and-auto-syncing">Publishing and Auto-Syncing<a class="headerlink" href="#publishing-and-auto-syncing" title="Permanent link">¶</a></h2>
-<p><strong>Publishing</strong> tells the Beamable SDK that you want to send your entire local content state to the realm and make that the source of truth. The source of truth for content in a realm is always whatever manifest was last published to that realm. </p>
+<p><strong>Publishing</strong> tells the Beamable SDK that you want to send your entire local content state to the realm and make that the source of truth. The source of truth for content in a realm is always whatever manifest was last published to that realm.</p>
 <p>To publish content to a realm simply use the Publish button.</p>
 <div class="admonition note">
 <p class="admonition-title">For Designers</p>
 <p>You can think of the realm's published content as a "Dropbox/Google Drive folder" that contains all content objects' serialized JSON files. The manifest is an index that tells the SDK which content exists and where to download their JSON files.</p>
-<p><strong>Publishing</strong> means deleting all the contents of the Dropbox folder and replacing them with your local files.  </p>
+<p><strong>Publishing</strong> means deleting all the contents of the Dropbox folder and replacing them with your local files.</p>
 </div>
 <h3 id="understanding-content-auto-sync-rules">Understanding Content Auto-Sync Rules<a class="headerlink" href="#understanding-content-auto-sync-rules" title="Permanent link">¶</a></h3>
-<p>It is often desirable to have designers in a realm that is stable and allow them to work in <code>Blueprints</code>, <code>Beamable Content</code> and Unreal <code>Data Asset</code> in the same realm plus branch combination. </p>
+<p>It is often desirable to have designers in a realm that is stable and allow them to work in <code>Blueprints</code>, <code>Beamable Content</code> and Unreal <code>Data Asset</code> in the same realm plus branch combination.</p>
 <p>In order to enable this workflow, the Beamable SDK:</p>
 <ul>
 <li>Listens for whenever any developer publishes content to a realm and notifies other developers working on that same realm.<ul>
@@ -10514,7 +10514,7 @@
 <p>In addition to the workflow above, there are cases where you might want to create realms in order to have a more controlled environment for developing. Common examples are:</p>
 <ul>
 <li>Large features that make use of new custom content definitions developed alongside Microservices.</li>
-<li>Content schema modifications or equivalents that will require migrating existing content to a new schema. </li>
+<li>Content schema modifications or equivalents that will require migrating existing content to a new schema.</li>
 </ul>
 <p>To achieve this --- just create a new realm for the development of that feature.</p>
 <div class="admonition note">
@@ -10522,9 +10522,9 @@
 <p>If you like working with feature branches, we recommend pairing this realm for the feature branch. For reducing complexity, we recommend only doing this for large features that will take a lot of time in development.</p>
 <p>If you are a team that prefer to use feature flags over feature branches, you can still make the realm. Just write the code behind the feature flag to expect to be running in a realm whose Microservices, configuration and content match the feature realm's one.</p>
 </div>
-<p>Once your work is done, you can configure the stable realm with whatever new configuration is required and then use the CLI or the Portal to move the content over to the new realm. </p>
+<p>Once your work is done, you can configure the stable realm with whatever new configuration is required and then use the CLI or the Portal to move the content over to the new realm.</p>
 <h2 id="custom-content-types">Custom Content Types<a class="headerlink" href="#custom-content-types" title="Permanent link">¶</a></h2>
-<p>In Unreal, you define content schemas as sub-classes of <code>UBeamContentObject</code> or any of its subtypes available in the SDK ( <code>UBeamItemContent</code> , <code>UBeamGameTypeContent</code> , etc...). Every content type must define a unique string ID for that particular type and a function that returns it.</p>
+<p>In Unreal, you define content schemas as sub-classes of <code>UBeamContentObject</code> or any of its subtypes available in the SDK ( <code>UBeamItemContent</code> , <code>UBeamGameTypeContent</code> , etc.). Every content type must define a unique string ID for that particular type and a function that returns it.</p>
 <p>The following example of <code>UBeamCurrencyContent</code> shows how that can be done:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">UCLASS</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">BEAMABLECORE_API</span><span class="w"> </span><span class="n">UBeamCurrencyContent</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UBeamContentObject</span>
@@ -10546,14 +10546,14 @@
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="n">FOptionalBeamFederation</span><span class="w"> </span><span class="n">external</span><span class="p">;</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">};</span>
 </code></pre></div>
-<p>Please remember to annotate your <code>UPROPERTY</code> with <code>EditAnywhere</code> and either:</p>
+<p>Annotate your <code>UPROPERTY</code> with <code>EditAnywhere</code> and either:</p>
 <ul>
 <li><code>BlueprintReadOnly</code> if you are not writing utilities to create the objects for you.</li>
 <li><code>BlueprintReadWrite</code> if you are writing utilities to create the objects for you.</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Microservices</p>
-<p>In a lot of cases, you will want to access these content objects in Microservices.  For all of Beamable's own content-types ( <code>UBeamCurrencyContent</code> , etc...) you will find equivalents in the Microservice SDK. For your own custom types, you'll need to declare them in C#. To do so, use the serialization table below as reference to know how to map types from C++ to C#.</p>
+<p>In a lot of cases, you will want to access these content objects in Microservices.  For all of Beamable's own content-types ( <code>UBeamCurrencyContent</code> , etc.) you will find equivalents in the Microservice SDK. For your own custom types, you'll need to declare them in C#. To do so, use the serialization table below as reference to know how to map types from C++ to C#.</p>
 </div>
 <h2 id="supported-content-serialization">Supported Content Serialization<a class="headerlink" href="#supported-content-serialization" title="Permanent link">¶</a></h2>
 <table>
@@ -10664,11 +10664,11 @@
 <p>The SDK also supports live content updates (if you publish content while the game client is running):</p>
 <ul>
 <li>While the <a href="../../runtime-systems/user-slots/"><code>OwnerUserSlot</code></a> is signed in to Beamable, <code>UBeamContentSubsystem</code> listens for notifications that the realm's content manifest has been updated.</li>
-<li>When that happens, we will re-download the manifest. </li>
+<li>When that happens, we will re-download the manifest.</li>
 <li>If <code>bDownloadIndividualContentAtStart</code> is <code>true</code>:<ul>
 <li>We download and cache all the updated content objects relative to the last manifest we've downloaded in this client.</li>
 <li>These updates are cached locally inside the <code>Saved</code> directory in binary form such that a user does not need to re-download content in subsequent runs of your game unless the published manifest changes.</li>
-<li>This cache is invalidated if your game-version changes, the SDK version changes or the UE version changes. </li>
+<li>This cache is invalidated if your game-version changes, the SDK version changes or the UE version changes.</li>
 </ul>
 </li>
 <li>If <code>bDownloadIndividualContentAtStart</code> is <code>false</code>:<ul>
@@ -10685,7 +10685,7 @@
 <li>If you plan to release a new build every time you want to update your game.</li>
 <li>If you want to trade off some binary size for spending less time waiting for the individual content download at initialization time.</li>
 </ul>
-<p>To enable those cases, we provide an editor utility that will bake your local content into a <code>UBeamContentCache</code>. 
+<p>To enable those cases, we provide an editor utility that will bake your local content into a <code>UBeamContentCache</code>.
 This is a special asset type that has the <code>UBeamContentObject</code> instances serialized using UE's binary serialization as opposed to JSON.</p>
 <p><strong>Keep in mind that this utility uses your local content, so make sure your content matches the realm's content before running it</strong>.</p>
 <p>The utility is called <code>EBP_BakeContent</code> and can be found in Beamable Core's plugin folder under <code>/Editor/Utility/EBP_BakeContent.EBP_BakeContent</code>. Running this utility goes through your local content and bakes them into a <code>BCC_</code> assets ( <code>UBeamContentCache</code> ) stored in <code>/Game/Beamable/Content/Manifests/Cooked/</code> directory. This directory is configured, by default, to be included in packaged games.</p>
@@ -10701,8 +10701,8 @@ This is a special asset type that has the <code>UBeamContentObject</code> instan
 <li>When referencing types inside content objects use <code>UClass*</code>.</li>
 <li>When referencing non-asset <code>IBeamJsonSerializableUObject</code> inside content objects use <code>UMyObject*</code> directly and add <code>DefaultToInstanced, EditInlineNew</code> to the <code>UCLASS</code> macro of that type.</li>
 </ul>
-<p>Doing that will make the binary serialization of content for local caching work in each of these cases.   </p>
-<p>For serializing arbitrary data structures, prefer <code>FBeamJsonSerializableUStruct</code> subtypes <code>UBeamContentObject</code> as these are simpler to set up. It is only in cases where you need a recursive type that we recommend the use of inlined <code>IBeamJsonSerializableUObject</code>. </p>
+<p>Doing that will make the binary serialization of content for local caching work in each of these cases.</p>
+<p>For serializing arbitrary data structures, prefer <code>FBeamJsonSerializableUStruct</code> subtypes <code>UBeamContentObject</code> as these are simpler to set up. It is only in cases where you need a recursive type that we recommend the use of inlined <code>IBeamJsonSerializableUObject</code>.</p>
 <p>For examples of handling this edge case, you can look at the <code>UBeamGameTypeContent</code> and <code>UBeamStatComparisonRule</code> types shipped with the SDK.</p>
 
 
