@@ -11,7 +11,7 @@ There are 3 [Federation Calls](federation.md#federation-calls) to this function:
 
 - **Matchmaking Match Found**: This is an **Out-of-Band Call** where the Beamable Backend will call the **CreateGameServer** function for each match produced by its matchmaking tick. To have your local microservice process these requests, you need to configure a content type as a filter for the traffic (see [Federation tab of the Microservice](federation.md#workflows-for-developing-federations)).
 - **Provision Game Server for Lobby**: This is an In-Band call where [Lobby's Host Player](../beamable-services/lobbies.md) asks Beamable to provision a Game Server for their Lobby.
-- **Beam PIE's PIE Lobby**: This is an In-Band call made by [Beam PIE's PIE Lobby setup](../editor-systems/pie-settings.md). You can read more about this in our [Real Time Multiplayer Guides](../realtime-multiplayer/realtime-multiplayer-overview.md).
+- **Beam PIE's PIE Lobby**: This is an In-Band call made by [Beam PIE's PIE Lobby setup](../editor-systems/pie-settings.md). You can read more about this in our [Real-Time Multiplayer Guides](../realtime-multiplayer/realtime-multiplayer-overview.md).
 
 ## Configuring a Game Server Federation to be Called
 Beamable's Backend leverages a Content called `UBeamGameTypeContent` (`game_types`). A GameType is essentially a set of rules for how Beamable's Matchmaking should produce matches of this game type (including the federation).

@@ -102,7 +102,7 @@ Take a look at the [Microservices docs](microservices.md) for more information a
 ## Optional - Create a MicroStorage
 MicroStorages are a Beamable feature that allows you, the Game-Maker, access to a MongoDB you can use to define your own custom persisted data formats to go along with your own custom microservice logic.
 
-This is a useful architectural alternative when making complex features that do not map well to the default cases of Beamable's own data-storing Managed Services ([Stats](../beamable-services/stats.md), [Inventory](../beamable-services/inventory.md), etc...).
+This is a useful architectural alternative when making complex features that do not map well to the default cases of Beamable's own data-storing Managed Services ([Stats](../beamable-services/stats.md), [Inventory](../beamable-services/inventory.md), etc.).
 
 To create a `MicroStorage`, run the command below.
 

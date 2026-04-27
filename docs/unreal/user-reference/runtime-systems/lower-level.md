@@ -67,7 +67,7 @@ If you ever encounter issues with this system, `log LogBeamBackend Verbose` is a
 
 Every connected Beamable player maintains a WebSocket connection to Beamable while they are logged-in. This system leverages UE's `WebSocket` module to open web-socket connections for each logged-in user (using `FUserSlot`).
 
-This WebSocket connection semantically represents the connectivity status for that particular user. This means the SDK (and the Beamable Servers) think that a user is online/offline based on whether this connection is alive and well. Which in turn means that, if you want to use any of our real-time services ([Matchmaking](../beamable-services/matchmaking.md), [Lobbies](../beamable-services/lobbies.md), etc...) this connection needs to be properly working. At runtime, `UBeamRuntime`, and `UBeamConnectivityManager` handle per-`FUserSlot` [Connectivity](connectivity.md) statuses.
+This WebSocket connection semantically represents the connectivity status for that particular user. This means the SDK (and the Beamable Servers) think that a user is online/offline based on whether this connection is alive and well. Which in turn means that, if you want to use any of our real-time services ([Matchmaking](../beamable-services/matchmaking.md), [Lobbies](../beamable-services/lobbies.md), etc.) this connection needs to be properly working. At runtime, `UBeamRuntime`, and `UBeamConnectivityManager` handle per-`FUserSlot` [Connectivity](connectivity.md) statuses.
 
 Aside from defining [Connectivity](connectivity.md) semantics, this connection is also how the Beamable servers (or your own custom Microservices) send notifications to clients about certain events.
 

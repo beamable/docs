@@ -33,7 +33,7 @@ Run the `beam_init_game_maker.sh` script to set up the SDK in your project. The 
     2. From a terminal (on windows, **GitBash**) running in your project directory, run `beam_init_game_maker.sh` passing in the path to the **UnrealSDK** in your machine.
         1. `. beam_init_game_maker.sh "E:/Path/To/UnrealSDK"`
 
-=== "MacOS"
+=== "macOS"
     1. Copy the `beam_init_game_maker.sh` script into the root directory of your Unreal Project.
     2. From a terminal, running in your project directory, run `beam_init_game_maker.sh` passing in the path to the **UnrealSDK** in your machine.
         1. Run `chmod +x ./beam_init_game_maker.sh` before running the script.
@@ -72,7 +72,7 @@ Let's Check that everything is set up correctly be sure you can compile your pro
         3. Run `dotnet beam --version` from inside your project root directory and see that it outputs a valid `X.Y.Z` string.
     3. Open your IDE and compile your editor.
 
-=== "MacOS"
+=== "macOS"
     1. Regenerate project files.
         1. From a terminal, run `sh "/Users/Shared/Epic Games/UE_5.5/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh" "/Users/Path/To/Your/Project/YourProject.uproject" -game`.
     2. Verify that your project is set up correctly by going to your project's root directory:
