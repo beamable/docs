@@ -53,10 +53,10 @@ Play Presets can be configured to apply to specific maps or a list of maps which
 ![pie-map-settings.png](../../../media/imgs/pie-map-settings.png)
 
 ### Fake Lobbies
-Play Presets can be configured to initialize lobbies for PIE, allowing you to test multiplayer scenarios with real Beamable accounts **_directly in PIE from the Gameplay Level_**. This is especially useful when testing games that use the **Gameplay Level** as the entry point, since it ensures the initialization of Beamable systems and lobby setup. Normally, this initialization would occur in earlier Levels, such as the **Main Boot Level** (Main Menu/Title Screen/etc...).
+Play Presets can be configured to initialize lobbies for PIE, allowing you to test multiplayer scenarios with real Beamable accounts **_directly in PIE from the Gameplay Level_**. This is especially useful when testing games that use the **Gameplay Level** as the entry point, since it ensures the initialization of Beamable systems and lobby setup. Normally, this initialization would occur in earlier Levels, such as the **Main Boot Level** (Main Menu/Title Screen/etc.).
 
-!!! warning "Tight Integration with Beamable Realtime Multiplayer Systems"
-    Play Presets' PIE Lobby feature is tightly integrated with the Beamable Runtime Multiplayer Systems, having some requirements in your scenes to work properly. For more information, check the [Realtime Multiplayer Overview](../realtime-multiplayer/realtime-multiplayer-overview.md) page.
+!!! warning "Tight Integration with Beamable Real-Time Multiplayer Systems"
+    Play Presets' PIE Lobby feature is tightly integrated with the Beamable Runtime Multiplayer Systems, having some requirements in your scenes to work properly. For more information, check the [Real-Time Multiplayer Overview](../realtime-multiplayer/realtime-multiplayer-overview.md) page.
 
 In the PIE Lobby Settings you can configure:
 

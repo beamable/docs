@@ -22,7 +22,7 @@
       - [Federated Player Init](federation/federated-player-init.md)
       - [Federated Inventory](federation/federated-inventory.md)
       - [Federated Game Server](federation/federated-game-server.md)
-- [Realtime Multiplayer](realtime-multiplayer/)
+- [Real-Time Multiplayer](realtime-multiplayer/)
 - Servers & Builds
       - [Linux Buiilds](servers-and-builds/linux-builds.md)
 - Unreal Online Subsystem

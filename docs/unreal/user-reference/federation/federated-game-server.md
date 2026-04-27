@@ -11,7 +11,7 @@ There are 3 calls that eventually make calls to this function to this function:
 
 - **Matchmaking Match Found**: The Beamable Backend will call the **CreateGameServer** function for each match produced by its matchmaking tick.
 - **Provision Game Server for Lobby**: The [Lobby's Host Player](../beamable-services/lobbies.md) asks Beamable to provision a Game Server for their Lobby.
-- **Beam PIE's PIE Lobby**: Made by [Beam PIE's PIE Lobby setup](../editor-systems/pie-settings.md). You can read more about this in our [Real Time Multiplayer Guides](../realtime-multiplayer/realtime-multiplayer-overview.md).
+- **Beam PIE's PIE Lobby**: Made by [Beam PIE's PIE Lobby setup](../editor-systems/pie-settings.md). You can read more about this in our [Real-Time Multiplayer Guides](../realtime-multiplayer/realtime-multiplayer-overview.md).
 
 ## Configuring a Game Server Federation to be Called
 Beamable's Backend leverages a Content called `UBeamGameTypeContent` (`game_types`).

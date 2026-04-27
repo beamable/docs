@@ -116,7 +116,7 @@ Once your work is done, you can configure the stable realm with whatever new con
 
 ## Custom Content Types
 
-In Unreal, you define content schemas as sub-classes of `UBeamContentObject` or any of its subtypes available in the SDK ( `UBeamItemContent` , `UBeamGameTypeContent` , etc...). Every content type must define a unique string ID for that particular type and a function that returns it.
+In Unreal, you define content schemas as sub-classes of `UBeamContentObject` or any of its subtypes available in the SDK ( `UBeamItemContent` , `UBeamGameTypeContent` , etc.). Every content type must define a unique string ID for that particular type and a function that returns it.
 
 The following example of `UBeamCurrencyContent` shows how that can be done:
 
@@ -148,7 +148,7 @@ Please remember to annotate your `UPROPERTY` with `EditAnywhere` and either:
 - `BlueprintReadWrite` if you are writing utilities to create the objects for you.
 
 !!! note "Microservices"
-	In a lot of cases, you will want to access these content objects in Microservices.	For all of Beamable's own content-types ( `UBeamCurrencyContent` , etc...) you will find equivalents in the Microservice SDK. For your own custom types, you'll need to declare them in C#. To do so, use the serialization table below as reference to know how to map types from C++ to C#.
+	In a lot of cases, you will want to access these content objects in Microservices.	For all of Beamable's own content-types ( `UBeamCurrencyContent` , etc.) you will find equivalents in the Microservice SDK. For your own custom types, you'll need to declare them in C#. To do so, use the serialization table below as reference to know how to map types from C++ to C#.
 
 ## Supported Content Serialization
 

@@ -95,7 +95,7 @@ Here's how that looks in the client side:
 
 ![Local Cache + Federated Identity](../../../media/imgs/identity-cache-plus-platform.png)
 
-Each different platform (Steam, EOS, PSN, etc...) requires a different Microservice implementation. At the moment, we only have a sample for Steam --- but we plan to add samples for all major platforms (Steam, EOS, Console and Mobile platforms) as time passes and the SDK evolves to support each target.
+Each different platform (Steam, EOS, PSN, etc.) requires a different Microservice implementation. At the moment, we only have a sample for Steam --- but we plan to add samples for all major platforms (Steam, EOS, Console and Mobile platforms) as time passes and the SDK evolves to support each target.
 
 !!! note "Why do platform integrations this way?"
 	The problem with Beamable supporting each platform directly in the SDK is that it ties Beamable SDK versions to each individual platform's SDK versions. This denies game makers the ability to independently select the feature-set they want to support from each individual platform.
@@ -105,6 +105,6 @@ Each different platform (Steam, EOS, PSN, etc...) requires a different Microserv
     The advantages of the Federation approach is that the game-maker retains control of how they want to interact with the feature-set of each platform and gives them better control of upgrade timings.
 
 ## Identity in Dedicated Servers
-Dedicated Servers use a different authentication model ([realtime multiplayer](../realtime-multiplayer/realtime-multiplayer-overview.md)) that is not `UserSlot`-based.
+Dedicated Servers use a different authentication model ([real-time multiplayer](../realtime-multiplayer/realtime-multiplayer-overview.md)) that is not `UserSlot`-based.
 
 As such, none of these flows run in Dedicated Servers.

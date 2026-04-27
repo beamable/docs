@@ -49,7 +49,7 @@ The `deploy plan` command validates that your Standalone Microservice can be bui
 
 **The command WILL NOT validate the services are booting up correctly by default.** It assumes that you have tested your service locally before deploying it. However, you can pass in the `--health`  argument to make the command, run the built services locally and wait for the service to start responding to health check API calls. This takes longer, but guarantees that the services *at least starts up*. This is especially useful if you're using our `[ConfigureServices]` and/or `[InitializeServices]` attributes to modify the service boot process.
 
-After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local _service manifest_ is built implicitly from configurations inside your project. The built plan is there inform you about the changes you will be making (enabling/disabling existing services, adding new services, etc...) if you decide to `deploy release` it.
+After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local _service manifest_ is built implicitly from configurations inside your project. The built plan is there inform you about the changes you will be making (enabling/disabling existing services, adding new services, etc.) if you decide to `deploy release` it.
 
 As an example, here's the output from a `deploy plan` invocation from inside our `UnrealSDK` project.
 ```

@@ -55,7 +55,7 @@ Next, your teammate should follow these steps to proceed through the password re
 
 ### Finding your CID
 
-To get your customer ID (CID), look for _config-defaults.txt_ in your project. The shell snippet below illustrates how to get it from the command line if you are on MacOS.
+To get your customer ID (CID), look for _config-defaults.txt_ in your project. The shell snippet below illustrates how to get it from the command line if you are on macOS.
 
 ```text
    % find . -name config-defaults.txt

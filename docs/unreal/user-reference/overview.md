@@ -10,7 +10,7 @@ The SDK's Plugin is divided into several modules:
 
 - **BeamableCore** contains the `UEngineSubsystem` implementations shared between `Editor` and `Runtime` executing environments. It also contains the `UBeamContentObject` schema definitions for our [content system](beamable-services/content.md).
 - **BeamableCoreRuntime** contains the `UBeamRuntime` and `UBeamRuntimeSubsystem` implementations and manages the SDK lifecycle at runtime (during PIE and in packaged clients).
-- **BeamableCoreEditor** and **BeamableCoreRuntimeEditor** contains `UBeamEditor` and our editor integration code: custom BlueprintNodes, PropertyCustomizations, etc...
+- **BeamableCoreEditor** and **BeamableCoreRuntimeEditor** contains `UBeamEditor` and our editor integration code: custom BlueprintNodes, PropertyCustomizations, etc.
 
 ### Core Concepts
 

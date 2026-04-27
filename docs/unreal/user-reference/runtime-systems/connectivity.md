@@ -30,10 +30,10 @@ After a user is logged into a `FUserSlot`, losing the connection to the Beamable
 Once we go into `CONN_Offline`, two things happen:
 
 1. We trigger `UBeamConnectivityManager::OnConnectionLost` once (per-connection loss).
-    - Provides simplicity for games that want to handle connectivity loss in fire-and-forget ways such as doing a game reset, displaying a blocking pop-up, etc... <br><br>
+    - Provides simplicity for games that want to handle connectivity loss in fire-and-forget ways such as doing a game reset, displaying a blocking pop-up, etc. <br><br>
 
 2. We set up a Tick (`UBeamConnectivityManager::ReconnectionTick`) function to run while you are in `CONN_Offline` mode.
-    - Provides more flexibility for games that want to handle connectivity loss in complex ways such as waiting for X amount of time before booting the player out, reducing available feature set, etc...
+    - Provides more flexibility for games that want to handle connectivity loss in complex ways such as waiting for X amount of time before booting the player out, reducing available feature set, etc.
 
 While in `CONN_Offline` mode, we'll keep trying to reestablish the `FUserSlot`'s connection with Beamable. This happens automatically in the background and is a continuous process.
 
@@ -60,7 +60,7 @@ The `UBeamRuntimeSubsystem` implementations DO NOT attempt to refresh their loca
 
 - The `UBeamRuntimeSubsystem` implementations are stateful systems that expose delegates to which you, the game-maker, bind events and functions.
 
-- Connectivity can be lost and/or regained at _any time in your game's flow_. It can happen mid-cutscene, mid-gameplay, mid-pause menu, etc...
+- Connectivity can be lost and/or regained at _any time in your game's flow_. It can happen mid-cutscene, mid-gameplay, mid-pause menu, etc.
 
 - If we automatically refreshed the subsystem's state after a reconnection, the callbacks throughout the refresh process would trigger. This means that one of the below would have to be true:
     - Upon going offline, we could unbind all callbacks (which is overeager and makes your binding code more complex)
