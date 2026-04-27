@@ -50,5 +50,5 @@ Clean up docker related resources
 
 ### Sub Commands
 
-[services-reset-container](cli-services-reset-container.md)  
+[services-reset-container](cli-services-reset-container.md)
 [services-reset-image](cli-services-reset-image.md)

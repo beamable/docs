@@ -1,6 +1,6 @@
 # Portal - Overview
 
-The Beamable LiveOps Portal is where you conduct all tasks to orchestrate and operate your game, interact with game-level or player-level data, and perform DevOps tasks like content promotions, realm, and account creation. 
+The Beamable LiveOps Portal is where you conduct all tasks to orchestrate and operate your game, interact with game-level or player-level data, and perform DevOps tasks like content promotions, realm, and account creation.
 
 ## The User Interface
 

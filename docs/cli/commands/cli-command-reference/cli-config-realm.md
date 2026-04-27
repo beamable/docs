@@ -53,5 +53,5 @@ Get current realm config values
 
 ### Sub Commands
 
-[config-realm-remove](cli-config-realm-remove.md)  
+[config-realm-remove](cli-config-realm-remove.md)
 [config-realm-set](cli-config-realm-set.md)

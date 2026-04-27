@@ -40,15 +40,15 @@ The SDK supports this flow via the `Login - Frictionless` operation.
 
 If an account is already locally cached at that `FUserSlot`, we'll log in to that one automatically without making a request to Beamable.
 
-**Guest Accounts are lost if signed out (or locally cached data is lost for any reason)**. 
+**Guest Accounts are lost if signed out (or locally cached data is lost for any reason)**.
 To avoid that, players can "attach" some persistent identity information to that guest account. `Operation - Attach` nodes do so.
 
 Attaching an identity can succeed or fail:
 
-- After a successful `Attach` call, a player will be able to log in via the corresponding `Login` operation. 
+- After a successful `Attach` call, a player will be able to log in via the corresponding `Login` operation.
     - For example, if you `Attach - EmailAndPassword` you'll be able to `Login - EmailAndPassword` to sign back into the account. <br><br>
 
-- If it fails with an `_IN_USE` error code, it means that the identity is already in use. 
+- If it fails with an `_IN_USE` error code, it means that the identity is already in use.
 Handling of this is game specific, but most games will either:
     - Call the `Login` operation and log in with the in-use identity, discarding the guest account (this is the most common way to handle this).
     - Detect progress on the guest account and, if above a particular threshold, leverage microservices to try and do some progress merging should the user want it. This is non-trivial and not a lot of games do it since cost-benefit isn't there in most cases (but it is _possible_).
@@ -99,7 +99,7 @@ Each different platform (Steam, EOS, PSN, etc...) requires a different Microserv
 
 !!! note "Why do platform integrations this way?"
 	The problem with Beamable supporting each platform directly in the SDK is that it ties Beamable SDK versions to each individual platform's SDK versions. This denies game makers the ability to independently select the feature-set they want to support from each individual platform.
-    
+
     It also causes breaking changes from these platforms to sometimes force the Beamable SDK to propagate them out. This creates scenarios where a game-maker wanting a new Beamable feature might need to update their Platform's SDK version even if they won't take advantage of the new Platform's SDK.
 
     The advantages of the Federation approach is that the game-maker retains control of how they want to interact with the feature-set of each platform and gives them better control of upgrade timings.

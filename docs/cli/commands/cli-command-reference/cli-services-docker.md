@@ -50,5 +50,5 @@ Commands for managing docker
 
 ### Sub Commands
 
-[services-docker-start](cli-services-docker-start.md)  
+[services-docker-start](cli-services-docker-start.md)
 [services-docker-status](cli-services-docker-status.md)

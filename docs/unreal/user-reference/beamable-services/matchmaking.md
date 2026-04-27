@@ -8,7 +8,7 @@ Beamable Matchmaking is a flexible system for connecting players together in onl
 - Manage queue state and match found notifications.
 - Optionally integrate with game server provisioning.
 
-Once a match is found, the result is a [Lobby](lobbies.md) containing all of the players in the match that was found. 
+Once a match is found, the result is a [Lobby](lobbies.md) containing all of the players in the match that was found.
 
 **_If you are working on a game with dedicated servers, we highly recommend you review_**:
 
@@ -25,7 +25,7 @@ To use `UBeamMatchmakingSubsystem` via blueprints (or C++), you'll need to:
 ![matchmaking-content-creation.png](../../../media/imgs/matchmaking-content-creation.png)
 
 ### Joining a Queue
-To join a queue, use the `Matchmaking - Try Join Queue` operation. It takes in the `created Beam Game Type Content` content you set up. 
+To join a queue, use the `Matchmaking - Try Join Queue` operation. It takes in the `created Beam Game Type Content` content you set up.
 
 ![matchmaking-join.png](../../../media/imgs/matchmaking-join.png)
 
@@ -41,13 +41,13 @@ The semantics for each event are:
 
 ![matchmaking-events.png](../../../media/imgs/matchmaking-events.png)
 
-### Leaving a Queue 
+### Leaving a Queue
 Use the `Matchmaking - Try Leave Queue` Operation to leave the current queue. When using this, keep in mind that the ticket is only invalidated *after* the operation succeeds.
 
 ![matchmaking-leave.png](../../../media/imgs/matchmaking-leave.png)
 
 ## Matchmaking Queues
-Beamable's Matchmaking system depends on Beamable's [Content System](content.md) in order for you to define various matchmaking queues. Each Matchmaking queue is described by a `UBeamGameTypeContent`. 
+Beamable's Matchmaking system depends on Beamable's [Content System](content.md) in order for you to define various matchmaking queues. Each Matchmaking queue is described by a `UBeamGameTypeContent`.
 
 This content type defines a few things about a queue:
 
@@ -79,7 +79,7 @@ The Matchmaking Subsystem works with the [Lobby Subsystem](lobbies.md) by defaul
 - The `OnMatchReady` callback is ONLY invoked AFTER we've already fetched the match Lobby's data.
     - This means you can use the `Local State - Lobby` nodes to fetch information from the lobby directly on this event.
     - For example, when used with [Federated Game Server](../federation/federated-game-server.md), you just get the connection string from the global lobby property to proceed.
-- When joining a queue, you can optionally pass in a set of key/value pairs called `FBeamTag`. 
+- When joining a queue, you can optionally pass in a set of key/value pairs called `FBeamTag`.
     - When a match gets made with that particular user/party, these tags end up inside the [Lobby](lobbies.md)'s per-player data.
 
 ## Party Subsystem Integration
@@ -92,7 +92,7 @@ Every user in a party receives an `OnMatchRemoteSearchStarted` notification when
 When joining a queue as the party leader and passing in `FBeamTag`, those tags are only for the party leader. If you need to gather data for every user, we recommend using [Federated Game Server](../federation/federated-game-server.md) and [Stats](stats.md) to get that data into the [Lobby](lobbies.md) instead.
 
 ## Match Found and Tickets
-When you join a queue in Beamable's matchmaking, you get back a `FBeamMatchmakingTicket`. This ticket contains information about the entry onto the queue: 
+When you join a queue in Beamable's matchmaking, you get back a `FBeamMatchmakingTicket`. This ticket contains information about the entry onto the queue:
 
 - **GameType**: queue type.
 - **GamerTagsInTicket**: list of players that are in the ticket.

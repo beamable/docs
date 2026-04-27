@@ -6,7 +6,7 @@ This enables you to test your game across multiple configurations and entry poin
 
 !!! warning "PIE Settings are Experimental"
     PIE Settings are currently marked as Experimental under `Project Settings > Engine > Beamable Core` and are disabled by default.
-    To enable them, go to the Beamable Core section in the Unreal Engine editor settings. Once enabled, restart the editor and the PIE Settings UI will be available. 
+    To enable them, go to the Beamable Core section in the Unreal Engine editor settings. Once enabled, restart the editor and the PIE Settings UI will be available.
 
     ![pie-enable.png](../../../media/imgs/pie-enable.png)
 
@@ -53,7 +53,7 @@ Play Presets can be configured to apply to specific maps or a list of maps which
 ![pie-map-settings.png](../../../media/imgs/pie-map-settings.png)
 
 ### Fake Lobbies
-Play Presets can be configured to initialize lobbies for PIE, allowing you to test multiplayer scenarios with real Beamable accounts **_directly in PIE from the Gameplay Level_**. This is especially useful when testing games that use the **Gameplay Level** as the entry point, since it ensures the initialization of Beamable systems and lobby setup. Normally, this initialization would occur in earlier Levels, such as the **Main Boot Level** (Main Menu/Title Screen/etc...).  
+Play Presets can be configured to initialize lobbies for PIE, allowing you to test multiplayer scenarios with real Beamable accounts **_directly in PIE from the Gameplay Level_**. This is especially useful when testing games that use the **Gameplay Level** as the entry point, since it ensures the initialization of Beamable systems and lobby setup. Normally, this initialization would occur in earlier Levels, such as the **Main Boot Level** (Main Menu/Title Screen/etc...).
 
 !!! warning "Tight Integration with Beamable Realtime Multiplayer Systems"
     Play Presets' PIE Lobby feature is tightly integrated with the Beamable Runtime Multiplayer Systems, having some requirements in your scenes to work properly. For more information, check the [Realtime Multiplayer Overview](../realtime-multiplayer/realtime-multiplayer-overview.md) page.

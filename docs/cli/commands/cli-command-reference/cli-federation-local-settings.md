@@ -50,5 +50,5 @@ Get/Set the local settings for any particular federation
 
 ### Sub Commands
 
-[federation-local-settings-get](cli-federation-local-settings-get.md)  
+[federation-local-settings-get](cli-federation-local-settings-get.md)
 [federation-local-settings-set](cli-federation-local-settings-set.md)

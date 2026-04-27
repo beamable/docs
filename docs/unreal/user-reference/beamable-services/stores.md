@@ -8,7 +8,7 @@ Beamable's Store feature enables game-makers to create and manage dynamic in-gam
 - Customizable store layouts and content
 
 ## Content Types
-In Unreal, Stores are represented by `UBeamStoreContent` class, which includes a store title and a list of links to `UBeamListingContent` types. The `UBeamListingContent` class contains all of the details about the offer, such as player requirements, costs, and benefits. 
+In Unreal, Stores are represented by `UBeamStoreContent` class, which includes a store title and a list of links to `UBeamListingContent` types. The `UBeamListingContent` class contains all of the details about the offer, such as player requirements, costs, and benefits.
 
 The [Content System](content.md), as both `UBeamStoreContent` and `UBeamListingContent`, are subclasses of `UBeamContentObject`. <!-- TODO(@drewbleam): Review this sentence for accuracy. -->
 

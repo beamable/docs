@@ -12,8 +12,8 @@ beam config [options]
 
 ## About
 
-The config command shows information about the current Beamable connection  
-strings being used by the Beam CLI. The command will print the CID, PID, HOST, and  
+The config command shows information about the current Beamable connection
+strings being used by the Beam CLI. The command will print the CID, PID, HOST, and
 current location of the .beamable configuration file.
 
 ## Options
@@ -50,7 +50,7 @@ current location of the .beamable configuration file.
 
 ### Sub Commands
 
-[config-realm](cli-config-realm.md)  
-[config-routes](cli-config-routes.md)  
-[config-secret](cli-config-secret.md)  
+[config-realm](cli-config-realm.md)
+[config-routes](cli-config-routes.md)
+[config-secret](cli-config-secret.md)
 [config-set](cli-config-set.md)

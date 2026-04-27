@@ -46,6 +46,6 @@ beam grafana [options]
 
 ### Sub Commands
 
-[grafana-open](cli-grafana-open.md)  
-[grafana-ps](cli-grafana-ps.md)  
+[grafana-open](cli-grafana-open.md)
+[grafana-ps](cli-grafana-ps.md)
 [grafana-stop](cli-grafana-stop.md)

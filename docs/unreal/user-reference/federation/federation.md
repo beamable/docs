@@ -35,14 +35,14 @@ There are two types of **Federation Calls** our Backend makes:
 For more information about the workflow implications of the difference between both **Federation Call** types, see [below.](#workflows-for-developing-federations)
 
 ## Federation Id
-Federations can be thought of delegates called by our server in particular points of various flows. Federation Ids are a unique `string`-based identifier that uniquely identifies a particular implementation of a federation. 
+Federations can be thought of delegates called by our server in particular points of various flows. Federation Ids are a unique `string`-based identifier that uniquely identifies a particular implementation of a federation.
 
 The combination of the **Federation Id** and the **Federation Type** is comparable to a function name/pointer assigned to an Unreal delegate; in the sense that it is used by the Beamable backend to know which implementation of a federation in your microservice it should talk to, if any.
 
 Examples:
 
 - `IFederatedLogin` would have different implementations for Steam and Epic auth integration.
-- As such, `IFederatedLogin<SteamId>` and `IFederatedLogin<EpicId>` the two different interfaces you'll need to implement. 
+- As such, `IFederatedLogin<SteamId>` and `IFederatedLogin<EpicId>` the two different interfaces you'll need to implement.
 
 In other words, an id is just a unique `string` that you pass along in specific places depending on the federation to **choose between one or more federations if any should be used**.
 
@@ -72,7 +72,7 @@ Most federations are inside complex application paths. As such, you need a way t
 
 For **In-Band Calls** that reach a federated endpoint, the selected [Microservice Target](../microservices/microservices.md#microservice-routing-and-microservice-target) defines which running microservice instance will handle the federated call. In other words, you don't have to think about them. These get the same semantics as `Callables` routing.
 
-**Out-of-Band Calls** however do not originate in the client or gameplay server so we can't access PIE's selected [Microservice Target](../microservices/microservices.md#microservice-routing-and-microservice-target). In order to solve that problem, out-of-band calls use semantic filtering logic to "steal" traffic from the realm's service. 
+**Out-of-Band Calls** however do not originate in the client or gameplay server so we can't access PIE's selected [Microservice Target](../microservices/microservices.md#microservice-routing-and-microservice-target). In order to solve that problem, out-of-band calls use semantic filtering logic to "steal" traffic from the realm's service.
 
 !!! warning "What about PROD?!"
 	By default, production realm disallows ***any and all routing to microservices that are not the deployed ones***. In other words, if you run a local microservice while in a Prod realm it CANNOT steal any traffic from the service that is deployed; be it **in-band** or **out-of-band**.

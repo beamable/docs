@@ -50,6 +50,6 @@ Commands that allows creating new Beamable services
 
 ### Sub Commands
 
-[project-new-common-lib](cli-project-new-common-lib.md)  
-[project-new-service](cli-project-new-service.md)  
+[project-new-common-lib](cli-project-new-common-lib.md)
+[project-new-service](cli-project-new-service.md)
 [project-new-storage](cli-project-new-storage.md)

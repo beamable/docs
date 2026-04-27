@@ -24,7 +24,7 @@ public async Promise<PlayerInitResult> CreatePlayer(Account account, Dictionary<
 
     // Prepare to make requests on this user's behalf
     var user = AssumeNewUser(gamerTagInRealm);
-    
+
     // Make requests as this user to set their starting level
     await user.Services.Stats.SetStat(StatsDomainType.Client, StatsAccessType.Public, gamerTagInRealm, "MyStartingLevel", "1");
 
@@ -59,7 +59,7 @@ In Blueprints, all you need to do is create a new account using `Login - Frictio
 
 ![Player Init Federation](../../../media/imgs/federations-player-init-login-example.png)
 
-As you can see, defining the initial state of your players using custom logic in this federation makes this initial state transparent to client logic. 
+As you can see, defining the initial state of your players using custom logic in this federation makes this initial state transparent to client logic.
 
 A few ideas on how to leverage this:
 

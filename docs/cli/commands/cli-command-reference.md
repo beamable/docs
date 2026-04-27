@@ -3,7 +3,7 @@ title: "Beam CLI Commands"
 slug: "cli-command-reference"
 excerpt: "Command Index"
 hidden: false
-metadata: 
+metadata:
   image: []
   robots: "index"
 createdAt: "Wed Jun 14 2023 17:15:04 GMT+0000 (Coordinated Universal Time)"

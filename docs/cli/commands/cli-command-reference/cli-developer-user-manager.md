@@ -46,11 +46,11 @@ The command that manages the developer users
 
 ### Sub Commands
 
-[developer-user-manager-clean-captured-user-buffer](cli-developer-user-manager-clean-captured-user-buffer.md)  
-[developer-user-manager-copy-state](cli-developer-user-manager-copy-state.md)  
-[developer-user-manager-create-user](cli-developer-user-manager-create-user.md)  
-[developer-user-manager-create-user-batch](cli-developer-user-manager-create-user-batch.md)  
-[developer-user-manager-ps](cli-developer-user-manager-ps.md)  
-[developer-user-manager-remove-user](cli-developer-user-manager-remove-user.md)  
-[developer-user-manager-save-user](cli-developer-user-manager-save-user.md)  
+[developer-user-manager-clean-captured-user-buffer](cli-developer-user-manager-clean-captured-user-buffer.md)
+[developer-user-manager-copy-state](cli-developer-user-manager-copy-state.md)
+[developer-user-manager-create-user](cli-developer-user-manager-create-user.md)
+[developer-user-manager-create-user-batch](cli-developer-user-manager-create-user-batch.md)
+[developer-user-manager-ps](cli-developer-user-manager-ps.md)
+[developer-user-manager-remove-user](cli-developer-user-manager-remove-user.md)
+[developer-user-manager-save-user](cli-developer-user-manager-save-user.md)
 [developer-user-manager-update-info](cli-developer-user-manager-update-info.md)

@@ -50,6 +50,6 @@ Commands for adding/set/removing tags
 
 ### Sub Commands
 
-[content-tag-add](cli-content-tag-add.md)  
-[content-tag-rm](cli-content-tag-rm.md)  
+[content-tag-add](cli-content-tag-add.md)
+[content-tag-rm](cli-content-tag-rm.md)
 [content-tag-set](cli-content-tag-set.md)

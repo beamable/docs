@@ -2,7 +2,7 @@
 
 The Beamable **Friends** feature allows game makers to connect players with each other and manage the status of the new friends.
 
-Beamable's Friend system allows the following game flows: 
+Beamable's Friend system allows the following game flows:
 
  - Send friend invites to other players.
  - Accept/Decline invites received from other players.
@@ -15,7 +15,7 @@ Beamable's Friend system allows the following game flows:
 A sample that demonstrates the friend subsystem is available in our [GitHub](https://github.com/beamable/UnrealSDK). For more details, check out the [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
 ## Getting Started
-To use the friend system, you will need to first set up your Unreal to PIE with multiple players. That will allow you to test everything due to multiple instances. 
+To use the friend system, you will need to first set up your Unreal to PIE with multiple players. That will allow you to test everything due to multiple instances.
 
 ???+ Warning "Observation"
     The friend subsystem allow you to use the friend system for local players with multiple accounts, you can do as we showing here setting up the UserSlot for the correct player.
@@ -91,7 +91,7 @@ For you to use the status presence as the common behavior of showing if your fri
 When a player is removed from the friend list it will trigger this notification. You will be able to register on this to treat the behavior in your game.
 
 The event that will be trigger is the `OnFriendRemoved`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
-When it triggers, the local state of the friend list will already have been updated. 
+When it triggers, the local state of the friend list will already have been updated.
 
 ### How To Use The System State To Update The View (Invite Sample)
 

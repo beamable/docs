@@ -8,7 +8,7 @@ In brief, the campaign types available are:
 - Push Notifications
 - Announcements
 
-These options are available when you create a new campaign via the  
+These options are available when you create a new campaign via the
 Beamable Portal, under **Communicate > Campaigns > + Create Campaign.**
 
 ![Campaigns section](../media/imgs/campaigns-section.png){width="200px"}

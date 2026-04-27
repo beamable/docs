@@ -12,8 +12,8 @@ beam init [<path>] [options]
 
 ## About
 
-The init command is used for initializing a `.beamable` folder. A `.beamable` folder provides  
-contextual information to later invocations of the CLI. The folder has Beamable connection strings and  
+The init command is used for initializing a `.beamable` folder. A `.beamable` folder provides
+contextual information to later invocations of the CLI. The folder has Beamable connection strings and
 authorization information that can be used later.
 
 This command can also be used to change the CID/PID of an existing `.beamable` folder.

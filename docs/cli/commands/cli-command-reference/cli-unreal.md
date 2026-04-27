@@ -46,5 +46,5 @@ beam unreal [options]
 
 ### Sub Commands
 
-[unreal-select-sample](cli-unreal-select-sample.md)  
+[unreal-select-sample](cli-unreal-select-sample.md)
 [unreal-init](cli-unreal-init.md)

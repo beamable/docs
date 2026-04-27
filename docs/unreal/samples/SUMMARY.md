@@ -1,5 +1,5 @@
 ﻿- [Setup Sample Projects](intro.md)
-- Sample Projects      
+- Sample Projects
       - [Steam](steam-demo.md)
       - [LiveOps](live-ops-demo.md)
       - [Discord](discord-demo.md)

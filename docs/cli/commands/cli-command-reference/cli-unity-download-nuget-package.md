@@ -12,7 +12,7 @@ beam unity download-nuget-package <packageId> <packageVersion> <src> <dst> [opti
 
 ## About
 
-[INTERNAL] Download a beamable nuget package dep into Unity 
+[INTERNAL] Download a beamable nuget package dep into Unity
 
 ## Arguments
 

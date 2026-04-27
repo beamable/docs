@@ -57,14 +57,14 @@ In order to read the local state of the player's inventory, you can use the foll
 
 ![inventory-local-state.png](../../../media/imgs/inventory-local-state.png)
 
-You can also use the `Local State - Inventory - TryGetAllItemsFilter` node to iterate over all the items of a particular subtype in the inventory. 
+You can also use the `Local State - Inventory - TryGetAllItemsFilter` node to iterate over all the items of a particular subtype in the inventory.
 
 ![inventory-auto-casting.png](../../../media/imgs/inventory-auto-casting.png)
 
 ## Currencies
 Currencies are used to buy items with our [Store system](stores.md) (e.g. Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP) depending on the specifics of your game system.
 
-In the Unreal SDK, currencies are represented by the `UBeamCurrencyContent`. Each currency can specify a `startingAmount` that is used to pre-seed player accounts with that amount of currency for very simple cases. For more control over each player's starting state we recommend using [our Federated Player Init](../federation/federated-player-init.md).   
+In the Unreal SDK, currencies are represented by the `UBeamCurrencyContent`. Each currency can specify a `startingAmount` that is used to pre-seed player accounts with that amount of currency for very simple cases. For more control over each player's starting state we recommend using [our Federated Player Init](../federation/federated-player-init.md).
 
 You can [subclass](content.md#defining-custom-content-types) this content type if you want to add more information to currency that is specific to your liking, such as UI related `ObjectPaths` and other references to assets that might be relevant to your game.
 
@@ -103,7 +103,7 @@ As with most key-value pairs for arbitrary data, try to follow the guidelines be
 
 **For Values**: Values should be no more than a few hundred characters long.
 
-**For larger, complex data structures**: we recommend you use [Micro Storages](../microservices/microservices.md#micro-storages) instead of this key-value store. 
+**For larger, complex data structures**: we recommend you use [Micro Storages](../microservices/microservices.md#micro-storages) instead of this key-value store.
 
 This is especially true if you do NOT need to use the data in these properties at the same time as you need the list of items (for example, a list view which then opens some sort of details view). This reduces pressure on the inventory service and can help reduce latency of inventory query requests.
 

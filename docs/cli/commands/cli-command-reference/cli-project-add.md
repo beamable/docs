@@ -3,7 +3,7 @@ title: "Project Add"
 slug: "cli-project-add"
 excerpt: "Add new project to an existing solution in current working directory"
 hidden: false
-metadata: 
+metadata:
   image: []
   robots: "index"
 createdAt: "Wed Jun 14 2023 17:20:08 GMT+0000 (Coordinated Universal Time)"

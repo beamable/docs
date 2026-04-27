@@ -6,11 +6,11 @@ The Beamable **Leaderboards** allow the game makers to track player scores in so
  - Retrieve entries from specific ranges in the leaderboard.
  - Leaderboard pagination.
  - Retrieve a specific player rank.
- - Retrieve the friends ranks. 
+ - Retrieve the friends ranks.
 
 ## Getting Started
 
-In order to have a good overview for leaderboards we will present some common use cases and how to fully implement it. 
+In order to have a good overview for leaderboards we will present some common use cases and how to fully implement it.
 
 ### Creating the Leaderboards
 
@@ -37,7 +37,7 @@ Before publish it there's some configurations that can change the way your leade
 
 ![leaderboards-content-details.png](../../../media/imgs/leaderboards-content-details.png)
 
- - **Client Permission**: Allow the clients to update their score in the leaderboard. **OBS: This will be possible vulnerability in your game**  
+ - **Client Permission**: Allow the clients to update their score in the leaderboard. **OBS: This will be possible vulnerability in your game**
  - **Partitioned**: Determines whether this leaderboard automatically partitions into smaller leaderboards.
  - **Max Entries**: Determines the maximum number of entries in a given leaderboard partition.
  - **Cohort Settings**: Specifies criteria for grouping players together.
@@ -57,7 +57,7 @@ There are two ways to assign a player to a leaderboard:
 
 
 !!! warning "If you assign a player without a score"
-	If you assign a player without a score, it will be the first of the empty scores. So for example if you have 3 players, the first one with 10 of score the second one with 0 and the third one with 0, when you assign a new player to this leaderboard the new player will take the second place. 
+	If you assign a player without a score, it will be the first of the empty scores. So for example if you have 3 players, the first one with 10 of score the second one with 0 and the third one with 0, when you assign a new player to this leaderboard the new player will take the second place.
 	Basically the priority is same score, last assigned.
 
 !!! note "Non Partitioned Leaderboard"
@@ -69,7 +69,7 @@ It is possible to modify meta-data and score for leaderboard entries. But it is 
 
 ### Adding Score to a Player
 
-Here is a example about how to add score in the client for authoritative client. 
+Here is a example about how to add score in the client for authoritative client.
 
 ![leaderboards-blueprint-update-score.png](../../../media/imgs/leaderboards-blueprint-update-score.png)
 
@@ -83,7 +83,7 @@ The Stats in the leaderboard are mostly usage for keep cached a per entry inform
 
 ![leaderboards-blueprint-top10.png](../../../media/imgs/leaderboards-blueprint-top10.png)
 
-With our SDK it is possible to create leaderboards like in [Brawl Stars](https://supercell.com/en/games/brawlstars/) 
+With our SDK it is possible to create leaderboards like in [Brawl Stars](https://supercell.com/en/games/brawlstars/)
 
 ### Show the Player Rank
 

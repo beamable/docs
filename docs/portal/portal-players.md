@@ -4,7 +4,7 @@ The Admin feature's **Players** section can be managed from the Portal.
 
 ## Getting Started
 
-Follow these steps to manage players: 
+Follow these steps to manage players:
 
 | Step                                          | Detail                                   |
 | :-------------------------------------------- | :--------------------------------------- |

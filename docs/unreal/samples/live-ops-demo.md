@@ -16,7 +16,7 @@ To set up this sample you'll need a Beamable Account and a Realm. To configure t
 ## Setting up the Project
 To set up an organization and realm to run this sample, follow the steps below.
 
-1. Go to the Beamable Portal and create a new Beamable realm called `liveops-demo`    
+1. Go to the Beamable Portal and create a new Beamable realm called `liveops-demo`
 2. Compile and open the `BeamableUnreal` editor project.
 3. Sign into your Beamable account and go to the `liveops-demo` realm.
       1. Optionally you can hit `Apply to Build` after the realm change is done.
@@ -56,13 +56,13 @@ Now you're set up to run the sample.
 ## Tips and Tricks
 At runtime, the sample works in the following way:
 
-1. Every time you run the demo, it will initialize the player inventory with 3 sample items that have the an item property called `level` set to `1`.    
-1. It'll also initialize a Stat `sample_stat` with the value `1`. 
+1. Every time you run the demo, it will initialize the player inventory with 3 sample items that have the an item property called `level` set to `1`.
+1. It'll also initialize a Stat `sample_stat` with the value `1`.
       1. You can also click the button next to the `sample stat` stat to increment it.
-2. In the announcements page, you'll find all the announcements you configured via the portal (provided the schedule you put in makes it active). 
+2. In the announcements page, you'll find all the announcements you configured via the portal (provided the schedule you put in makes it active).
       1. You can click on any announcement.
       2. Doing so shows its content and all the rewards/gifts that could be claimed through this announcement (if any).
-      3. You can claim the gifts inside the announcement by clicking on the claim button.    
+      3. You can claim the gifts inside the announcement by clicking on the claim button.
 4. In the Inventory page, You can see each of the `sample_item` instances the player has and their level at the right portion of the screen.
       1. You should be able to upgrade the item level using the upgrade button.
 

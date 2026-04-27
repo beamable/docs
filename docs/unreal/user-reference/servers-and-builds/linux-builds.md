@@ -4,7 +4,7 @@ This guide will provide a way to get a working Linux build on Windows.
 
 !!! info "Building from Docker"
 	While it is possible to build a game using a Docker, we found that solution suboptimal compared to the one described in this guide.
-    
+
 ## Cross Compilation
 
 !!! warning "Windows only"
@@ -19,10 +19,10 @@ In order to get cross compilation to work, it requires:
 
 ## Testing the build
 
-In order to test Linux game builds, using another machine with Linux installed is recommended. 
+In order to test Linux game builds, using another machine with Linux installed is recommended.
 For the server ones it is easy to test them on Windows machine in two different ways.
 
-### WSL 
+### WSL
 
 [WSL](https://learn.microsoft.com/en-us/windows/wsl/about) is a feature of Windows for running a Linux environment on Windows machine, without Docker.
 
@@ -30,7 +30,7 @@ For the server ones it is easy to test them on Windows machine in two different 
     This part of tutorial is written with assumption that [WSL](https://learn.microsoft.com/en-us/windows/wsl/about) is installed and operational.
 
 1. Build Linux Server target build of the game.
-2. Open `Windows Subsystem for Linux` console in `LinuxServer` directory of the build. 
+2. Open `Windows Subsystem for Linux` console in `LinuxServer` directory of the build.
 	1. It should contain an `Engine` folder, a `ProjectName` folder and a script file with filename in format: `{ProjectName}Server.sh`.
 3. Run the script file: `./{ProjectName}Server.sh`.
 4. Server should be up and running.

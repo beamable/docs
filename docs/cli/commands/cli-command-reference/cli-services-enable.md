@@ -3,7 +3,7 @@ title: "Services Enable"
 slug: "cli-services-enable"
 excerpt: "Enables/Disables existing services"
 hidden: false
-metadata: 
+metadata:
   image: []
   robots: "index"
 createdAt: "Wed Jun 14 2023 17:20:08 GMT+0000 (Coordinated Universal Time)"

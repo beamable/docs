@@ -46,5 +46,5 @@ Commands that integrate the Beamable API and open API
 
 ### Sub Commands
 
-[oapi-download](cli-oapi-download.md)  
+[oapi-download](cli-oapi-download.md)
 [oapi-generate](cli-oapi-generate.md)

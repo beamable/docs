@@ -4,7 +4,7 @@ The Inventory feature can be managed from the Portal.
 
 ## Getting Started
 
-Follow these steps to manage player inventory: 
+Follow these steps to manage player inventory:
 
 | Step                                      | Detail                                                |
 | :---------------------------------------- | :---------------------------------------------------- |
@@ -22,7 +22,7 @@ The inventory management interface allows you to view and modify player inventor
 
 ## Modifying User Currency
 
-In the **Currency** section, you can configure how much currency a player has by using the _add currency_ button or by opening the "Edit Currency" menu from the vertical elipses at the end of a currency's row. 
+In the **Currency** section, you can configure how much currency a player has by using the _add currency_ button or by opening the "Edit Currency" menu from the vertical elipses at the end of a currency's row.
 
 ![Edit Currency Button](../media/imgs/Portal-Inventory-2-1-edit-currency.png)
 

@@ -46,12 +46,12 @@ beam unity [options]
 
 ### Sub Commands
 
-[unity-manifest](cli-unity-manifest.md)  
-[unity-restore](cli-unity-restore.md)  
-[unity-copy-dotnet-src](cli-unity-copy-dotnet-src.md)  
-[unity-download-all-nuget-packages](cli-unity-download-all-nuget-packages.md)  
-[unity-download-nuget-package](cli-unity-download-nuget-package.md)  
-[unity-get-version-info](cli-unity-get-version-info.md)  
-[unity-release-shared-code](cli-unity-release-shared-code.md)  
-[unity-update-dlls](cli-unity-update-dlls.md)  
+[unity-manifest](cli-unity-manifest.md)
+[unity-restore](cli-unity-restore.md)
+[unity-copy-dotnet-src](cli-unity-copy-dotnet-src.md)
+[unity-download-all-nuget-packages](cli-unity-download-all-nuget-packages.md)
+[unity-download-nuget-package](cli-unity-download-nuget-package.md)
+[unity-get-version-info](cli-unity-get-version-info.md)
+[unity-release-shared-code](cli-unity-release-shared-code.md)
+[unity-update-dlls](cli-unity-update-dlls.md)
 [unity-update-references](cli-unity-update-references.md)

@@ -46,5 +46,5 @@ Listen to events
 
 ### Sub Commands
 
-[listen-player](cli-listen-player.md)  
+[listen-player](cli-listen-player.md)
 [listen-server](cli-listen-server.md)

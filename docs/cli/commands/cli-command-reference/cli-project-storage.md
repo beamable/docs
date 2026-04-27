@@ -50,6 +50,6 @@ Commands for managing storage data
 
 ### Sub Commands
 
-[project-storage-erase](cli-project-storage-erase.md)  
-[project-storage-restore](cli-project-storage-restore.md)  
+[project-storage-erase](cli-project-storage-erase.md)
+[project-storage-restore](cli-project-storage-restore.md)
 [project-storage-snapshot](cli-project-storage-snapshot.md)

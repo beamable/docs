@@ -4,7 +4,7 @@ This page lists possible issues and solutions for common errors that can occur w
 
 ## Multiple Microservice Classes Detected
 
-**Explanation**:  
+**Explanation**:
 Only one `Microservice` class should exist per microservice project. Multiple classes marked with the `[Microservice]` attribute will cause conflicts in code generation and runtime behavior.
 
 **Example Code Triggering the Error**:
@@ -34,7 +34,7 @@ public partial class MyMicroservice : Microservice {}
 
 ## Non-Partial Microservice Class Detected
 
-**Explanation**:  
+**Explanation**:
 Microservice classes must be marked as `partial` to allow code generation tools to extend them.
 
 **Example Code Triggering the Error**:
@@ -61,7 +61,7 @@ public partial class MyMicroservice : Microservice {}
 
 ## Microservice Class Missing Microservice Id
 
-**Explanation**:  
+**Explanation**:
 The `Microservice` class must include the `[Microservice("Id")]` attribute to define its identifier.
 
 **Example Code Triggering the Error**:
@@ -87,13 +87,13 @@ public partial class MyMicroservice : Microservice {}
 
 ## Async Void Callable Methods
 
-**Explanation**:  
+**Explanation**:
 Methods marked as `[Callable]`, `[ClientCallable]`, `[ServerCallable]` should not be `async void`. Using `async void` makes it impossible to track errors or await completion.
 
 **Example Code Triggering the Error**:
 ```csharp
 [Microservice("MyMicroservice")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
     [Callable]
     public async void CallMicroservice() {}
@@ -111,7 +111,7 @@ Microservice Callable methods cannot be async voids. Ex: CallMicroservice.
 **Example of Solved Code**:
 ```csharp
 [Microservice("MyMicroservice")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
     [Callable]
     public async Task CallMicroservice() {}
@@ -119,13 +119,13 @@ public partial class MyMicroservice : Microservice
 ```
 ## Invalid Type Usage in Callable Method
 
-**Explanation**:  
+**Explanation**:
 Types used in `[ClientCallable]` methods must be available to both server and client. Declaring types inside the microservice class makes them inaccessible to the Unity client as we're not regenerating DTO for Client.
 
 **Example Code Triggering the Error**:
 ```csharp
 [Microservice("MyMicroservice")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
         [ClientCallable]
     public async Task<DTO> CallServiceAsync() => new DTO { x = 1 };
@@ -152,7 +152,7 @@ Microservice Callable method `CallServiceAsync` uses a Type that cannot be insid
 **Example of Solved Code** (Microservice):
 ```csharp
 [Microservice("MyMicroservice")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
     [ClientCallable]
     public async Task<DTO> CallServiceAsync() => new DTO { x = 1 };
@@ -174,13 +174,13 @@ public class DTO
 
 ## Callable Method Types usage are Nested
 
-**Explanation**:  
+**Explanation**:
 Types used in `[ClientCallable]` methods must be declared in outer scope so the Source Code Generator can handle it properly.
 
 **Example Code Triggering the Error**:
 ```csharp
 [Microservice("MyMicroservice")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
     public class DTO
     {
@@ -203,7 +203,7 @@ public partial class MyMicroservice : Microservice
 **Example of Solved Code**:
 ```csharp
 [Microservice("MyMicroservice")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
     [ClientCallable]
     public void CallService(DTO data) {}
@@ -219,13 +219,13 @@ public class DTO
 
 ## Beam Generated Schema Class is a Nested Type
 
-**Explanation**:  
+**Explanation**:
 Classes that uses the attribute `[BeamGenerateSchema]` cannot be declared as nested type because the Source Generator Cannot handle it.
 
 **Example Code Triggering the Error**:
 ```csharp
 [Microservice("MyMicroservice")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
     [BeamGenerateSchema]
     public class DTO
@@ -258,7 +258,7 @@ public class DTO
 
 ## Invalid Microservice ID
 
-**Explanation**:  
+**Explanation**:
 Microservices IDs must match the `<BeamID>` property on csproj. If there is none `<BeamID>` property it needs to match the project's name.
 
 **Example Code Triggering the Error**:
@@ -291,7 +291,7 @@ Microservice ID: `MyMicroservice` is invalid, it needs to be the same as <BeamId
     ```csharp
     [Microservice("OtherBeamId")]
     public partial class MyMicroservice : Microservice { }
-    
+
     [BeamGenerateSchema]
     public class DTO
     {
@@ -315,7 +315,7 @@ Microservice ID: `MyMicroservice` is invalid, it needs to be the same as <BeamId
 
 ## Static Field in Microservice
 
-**Explanation**:  
+**Explanation**:
 Non-readonly static fields in Microservices are discouraged because they do not behave reliably in horizontally scaled environments. Their state is not shared across instances.
 
 **Example Code Triggering the Warning**:
@@ -346,7 +346,7 @@ Consider making 'ContentId' a readonly field. Otherwise the value may be inconsi
 
 ## Missing Serializable Attribute on Type
 
-**Explanation**:  
+**Explanation**:
 All types used in Microservice method signatures or marked with `[BeamGenerateSchema]` must be annotated with `[Serializable]` to ensure correct serialization and code generation.
 
 **Examples Code Triggering the Error**:
@@ -362,7 +362,7 @@ public class MyOtherDto
     public int x;
 }
 [Microservice("OtherBeamId")]
-public partial class MyMicroservice : Microservice 
+public partial class MyMicroservice : Microservice
 {
     [ClientCallable]
     public void CallService(MyOtherDto data) {}
@@ -404,7 +404,7 @@ Add the [Serializable] attribute to type 'MyOtherDto'
 
 ## Property Found in Serializable Type
 
-**Explanation**:  
+**Explanation**:
 Properties in types used in Microservice method signatures or marked with `[BeamGenerateSchema]` are ignored by the client code generator. Fields should be used instead.
 
 **Example Code Triggering the Warning**:
@@ -436,7 +436,7 @@ Consider changing property 'X' to a field to include it in client-generated code
 
 ## Nullable Field in Serializable Type
 
-**Explanation**:  
+**Explanation**:
 Fields with nullable types (e.g., `int?`, `string?`) are not supported in types used in Microservice method signatures or marked with `[BeamGenerateSchema]`. Use `Optional<T>` instead to ensure predictable behavior.
 
 **Example Code Triggering the Error**:
@@ -477,7 +477,7 @@ Using `ContentObject` or its subtypes directly in serializable fields or paramet
 [BeamGenerateSchema]
 public class MyDTO
 {
-    public MyItem item; 
+    public MyItem item;
 }
 
 public class MyItem : ContentObject {}
@@ -507,7 +507,7 @@ public class MyItem : ContentObject {}
 
 ## Type Used in BeamGenerateSchema is Missing Attribute
 
-**Explanation**:  
+**Explanation**:
 When a class is marked with `[BeamGenerateSchema]`, all custom types used in its fields must also be annotated with `[BeamGenerateSchema]`.
 
 **Example Code Triggering the Error**:
@@ -634,7 +634,7 @@ public class MyList : List<string> {}
 [BeamGenerateSchema]
 public class MyDTO
 {
-    public MyList customList; 
+    public MyList customList;
 }
 ```
 
@@ -816,7 +816,7 @@ public class MyMicroservice : Microservice
 
 ## Invalid Generic Type in Microservice
 
-**Explanation**:  
+**Explanation**:
 Generic types are not supported in Microservice `[Callable]` methods or in classes marked with `[BeamGenerateSchema]`, except for a specific set of allowed generic types. The code generator cannot properly handle custom generic types for client-side code generation. The only permitted generic types are: `List<T>`, `Dictionary<TKey, TValue>`, `Optional<T>`, and `ContentRef<T>`.
 
 **Example Code Triggering the Error**:
@@ -889,7 +889,7 @@ public partial class MyMicroservice : Microservice
     {
         return Task.FromResult(new IntContainer());
     }
-    
+
     [ClientCallable]
     public Task<List<string>> GetStrings() // Allowed: List<T> is permitted
     {

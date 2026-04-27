@@ -50,6 +50,6 @@ Allow access to dependencies related commands
 
 ### Sub Commands
 
-[project-deps-add](cli-project-deps-add.md)  
-[project-deps-list](cli-project-deps-list.md)  
+[project-deps-add](cli-project-deps-add.md)
+[project-deps-list](cli-project-deps-list.md)
 [project-deps-remove](cli-project-deps-remove.md)

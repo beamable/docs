@@ -24,7 +24,7 @@ This utility enables you to access Beamable data from within the `PlayerState` c
 
 ## Server-Side Integration
 
-On the server side, you need to call `BeamMultiplayer::Authentication::PreLoginAsync` during the `PreLogin` phase in your custom `GameMode`. 
+On the server side, you need to call `BeamMultiplayer::Authentication::PreLoginAsync` during the `PreLogin` phase in your custom `GameMode`.
 
 This step is required to correctly map Beamable users to Unreal's gameplay framework, ensuring that player identity and session data are synchronized between Beamable and the server.
 
@@ -32,6 +32,6 @@ This step is required to correctly map Beamable users to Unreal's gameplay frame
 
 ## Enable/Disable the Feature
 
-If you would like to enable/disable the automatically created link between the Game Framework and Beamable, you can go to `Project Settings > Beamable Runtime > Enable Gameplay Framework Integration`. 
+If you would like to enable/disable the automatically created link between the Game Framework and Beamable, you can go to `Project Settings > Beamable Runtime > Enable Gameplay Framework Integration`.
 
 ![PlayerState Utility](../../../media/imgs/beamruntime-enable-gameplayframework.png)

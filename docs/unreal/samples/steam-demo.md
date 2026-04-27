@@ -41,7 +41,7 @@ Now, you'll need to configure a Beamable realm so you can use it:
 5. Hit the `Add Config` button.
 6. Set the following key-value pairs for the namespace `steam`:
    1. `appid -> Your Steam application ID`
-   2. `key -> Your Steam Application Publisher Key` 
+   2. `key -> Your Steam Application Publisher Key`
 7. Compile and open the `BeamableUnreal` editor (it'll be configured as the `BEAMPROJ_SteamDemo`) project.
 8. Sign into your Beamable account and go to the `steam-demo` realm.
 	1. Hit `Apply to Build`.
@@ -49,10 +49,10 @@ Now, you'll need to configure a Beamable realm so you can use it:
 10. Run `dotnet beam project enable --with-group BEAMPROJ_SteamDemo`
 11. Run `dotnet beam project disable --without-group BEAMPROJ_SteamDemo`
 12. Guarantee `Docker` is open and running.
-13. Run `dotnet beam deploy plan`. 
+13. Run `dotnet beam deploy plan`.
 	1. This tells you details about the services you would deploy given your project's local state.
-14. Run `dotnet beam deploy release --latest-plan`. 
-	1. This deploys the services outlined by the generated plan in the previous command. 
+14. Run `dotnet beam deploy release --latest-plan`.
+	1. This deploys the services outlined by the generated plan in the previous command.
 15. Go to the Portal (`Operate -> Microservices`) to verify that the microservices have initialized.
 17. In `DefaultEngine.ini` set the value of `SteamDevAppId` to your Steam Application ID. For more info, view the tutorial [here](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Online/Steam/).
 18. Package the project.

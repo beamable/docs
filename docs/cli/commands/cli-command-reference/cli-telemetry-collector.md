@@ -50,7 +50,7 @@ Allows access to Open Telemetry collector related commands
 
 ### Sub Commands
 
-[telemetry-collector-get](cli-telemetry-collector-get.md)  
-[telemetry-collector-ps](cli-telemetry-collector-ps.md)  
-[telemetry-collector-start](cli-telemetry-collector-start.md)  
+[telemetry-collector-get](cli-telemetry-collector-get.md)
+[telemetry-collector-ps](cli-telemetry-collector-ps.md)
+[telemetry-collector-start](cli-telemetry-collector-start.md)
 [telemetry-collector-stop](cli-telemetry-collector-stop.md)

@@ -46,9 +46,9 @@ Commands for interacting with microservice and microstorage deployments
 
 ### Sub Commands
 
-[deployment-get](cli-deployment-get.md)  
-[deployment-list](cli-deployment-list.md)  
-[deployment-plan](cli-deployment-plan.md)  
-[deployment-release](cli-deployment-release.md)  
-[deployment-status](cli-deployment-status.md)  
+[deployment-get](cli-deployment-get.md)
+[deployment-list](cli-deployment-list.md)
+[deployment-plan](cli-deployment-plan.md)
+[deployment-release](cli-deployment-release.md)
+[deployment-status](cli-deployment-status.md)
 [deployment-registry](cli-deployment-registry.md)

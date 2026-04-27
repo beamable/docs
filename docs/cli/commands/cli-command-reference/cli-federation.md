@@ -46,8 +46,8 @@ Commands to work with microservice federation
 
 ### Sub Commands
 
-[federation-disable](cli-federation-disable.md)  
-[federation-enable](cli-federation-enable.md)  
-[federation-list](cli-federation-list.md)  
-[federation-local-key](cli-federation-local-key.md)  
+[federation-disable](cli-federation-disable.md)
+[federation-enable](cli-federation-enable.md)
+[federation-list](cli-federation-list.md)
+[federation-local-key](cli-federation-local-key.md)
 [federation-local-settings](cli-federation-local-settings.md)

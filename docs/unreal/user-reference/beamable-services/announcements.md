@@ -30,4 +30,4 @@ Aside from the `Id` most other `FString` fields in the announcement can be used 
 - Passing in some custom string format such that your UI interprets it and changes its behavior accordingly.
 - Use `ClientDataList` to pass in key-value pairs of arbitrary string data based on your game's context.
 
-Our system itself and the SDK doesn't really care about the format or content of the `Title`, `Summary` or `Body` fields so feel free to use them as needed (they are merely semantic suggestions of what an announcement contains).  
+Our system itself and the SDK doesn't really care about the format or content of the `Title`, `Summary` or `Body` fields so feel free to use them as needed (they are merely semantic suggestions of what an announcement contains).

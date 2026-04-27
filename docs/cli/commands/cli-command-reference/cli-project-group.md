@@ -50,5 +50,5 @@ List Service Groups
 
 ### Sub Commands
 
-[project-group-add](cli-project-group-add.md)  
+[project-group-add](cli-project-group-add.md)
 [project-group-rm](cli-project-group-rm.md)

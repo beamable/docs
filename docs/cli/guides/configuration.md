@@ -28,22 +28,22 @@ someOtherFolder
 | `someOtherFolder`  | no config is available             |
 
 
-## Validation 
+## Validation
 
-From any folder, you can run the [beam config](../commands/cli-command-reference/cli-config.md)  command to print information about your current Beamable folder. 
+From any folder, you can run the [beam config](../commands/cli-command-reference/cli-config.md)  command to print information about your current Beamable folder.
 
-In the example directory structure above, if the `beam config` command was invoked from the `mainFolder`, it would log information about the `mainFolder/.beamable` folder. 
+In the example directory structure above, if the `beam config` command was invoked from the `mainFolder`, it would log information about the `mainFolder/.beamable` folder.
 ```sh
 mainFolder % dotnet beam config
- {                                                             
-    "host": "https://api.beamable.com",                        
-    "cid": "<redacted>",                                 
-    "pid": "<redacted>",                              
-    "configPath": "/Users/examples/mainFolder/.beamable" 
- } 
+ {
+    "host": "https://api.beamable.com",
+    "cid": "<redacted>",
+    "pid": "<redacted>",
+    "configPath": "/Users/examples/mainFolder/.beamable"
+ }
 ```
 
-However, if the `beam config` command was invoked from the `someOtherFolder` path, you should expect to see an error, because there is no `.beamable` folder within the parent linear. 
+However, if the `beam config` command was invoked from the `someOtherFolder` path, you should expect to see an error, because there is no `.beamable` folder within the parent linear.
 
 ```sh
 someOtherFolder % dotnet beam config
@@ -52,7 +52,7 @@ someOtherFolder % dotnet beam config
 
 NOTE: Consider calling `beam init` first.
 
-  
+
 
 Logs at
 

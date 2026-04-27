@@ -15,7 +15,7 @@ The Content system in Beamball acts as a bridge between:
 
 This design enables a flexible, dynamic, and content-driven inventory experience. New offers and items can be added without code changes, simply by publishing new Content and updating Store configurations.
 
-When the store screen is opened, the client first updates the player’s store state using the operator **`Operation - Store - Refresh Store`**. After the operation completes successfully, the store data is guaranteed to be up-to-date and available in the local State. Then we can retrieve it with **`Local State - Store - TryGetStoreView`**, ensuring that the UI always reflects the latest backend data.  
+When the store screen is opened, the client first updates the player’s store state using the operator **`Operation - Store - Refresh Store`**. After the operation completes successfully, the store data is guaranteed to be up-to-date and available in the local State. Then we can retrieve it with **`Local State - Store - TryGetStoreView`**, ensuring that the UI always reflects the latest backend data.
 
 The returned `Content Store View` contain the listings and their offers available to the player. Each listing represents a category of items, and contains references to one or more offers that can be purchased. In the Beamball sample, we have four listings, each representing a different skin for the player. Each listing contains a single offer that allows the player to purchase that skin.
 
@@ -25,7 +25,7 @@ Each listing is transformed into an **item widget**.  During initialization, the
 
 - The **Offer** from the Listing data (used to display price),
 - The **Beam Content Id** to link the UI with Beamable services,
-- The **DataAsset** that defines the item’s local presentation.  
+- The **DataAsset** that defines the item’s local presentation.
 
 Widgets are then placed dynamically into a **grid layout**, with positioning calculated from the number of items already added.
 

@@ -46,7 +46,7 @@ beam token [options]
 
 ### Sub Commands
 
-[token-from-refresh](cli-token-from-refresh.md)  
-[token-inspect](cli-token-inspect.md)  
-[token-list](cli-token-list.md)  
+[token-from-refresh](cli-token-from-refresh.md)
+[token-inspect](cli-token-inspect.md)
+[token-list](cli-token-list.md)
 [token-new-guest](cli-token-new-guest.md)

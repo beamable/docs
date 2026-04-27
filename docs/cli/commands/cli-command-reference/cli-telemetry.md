@@ -46,11 +46,11 @@ Allows access to Open Telemetry related commands
 
 ### Sub Commands
 
-[telemetry-collector](cli-telemetry-collector.md)  
-[telemetry-config](cli-telemetry-config.md)  
-[telemetry-logs](cli-telemetry-logs.md)  
-[telemetry-prune](cli-telemetry-prune.md)  
-[telemetry-push](cli-telemetry-push.md)  
-[telemetry-set-config](cli-telemetry-set-config.md)  
-[telemetry-get-creds](cli-telemetry-get-creds.md)  
+[telemetry-collector](cli-telemetry-collector.md)
+[telemetry-config](cli-telemetry-config.md)
+[telemetry-logs](cli-telemetry-logs.md)
+[telemetry-prune](cli-telemetry-prune.md)
+[telemetry-push](cli-telemetry-push.md)
+[telemetry-set-config](cli-telemetry-set-config.md)
+[telemetry-get-creds](cli-telemetry-get-creds.md)
 [telemetry-report](cli-telemetry-report.md)

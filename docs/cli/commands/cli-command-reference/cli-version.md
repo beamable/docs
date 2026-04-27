@@ -46,6 +46,6 @@ Commands for managing the CLI version
 
 ### Sub Commands
 
-[version-install](cli-version-install.md)  
-[version-list](cli-version-list.md)  
+[version-install](cli-version-install.md)
+[version-list](cli-version-list.md)
 [version-construct](cli-version-construct.md)

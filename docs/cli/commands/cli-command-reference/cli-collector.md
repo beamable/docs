@@ -43,7 +43,7 @@ Allows access to otel collector related commands
 
 ### Sub Commands
 
-[collector-get](cli-collector-get.md)  
-[collector-start](cli-collector-start.md)  
-[collector-status](cli-collector-status.md)  
+[collector-get](cli-collector-get.md)
+[collector-start](cli-collector-start.md)
+[collector-status](cli-collector-status.md)
 [collector-stop](cli-collector-stop.md)

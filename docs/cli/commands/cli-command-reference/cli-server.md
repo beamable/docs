@@ -46,7 +46,7 @@ beam server [options]
 
 ### Sub Commands
 
-[server-clear](cli-server-clear.md)  
-[server-ps](cli-server-ps.md)  
-[server-req](cli-server-req.md)  
+[server-clear](cli-server-clear.md)
+[server-ps](cli-server-ps.md)
+[server-req](cli-server-req.md)
 [server-serve](cli-server-serve.md)

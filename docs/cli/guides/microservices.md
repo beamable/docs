@@ -2,11 +2,11 @@
 
 Developing Standalone Microservices with the Beam CLI
 
-Beamable offers a rich microservice development workflow using the Beam CLI and Dotnet. Microservices deploy to the Beamable Cloud, and offer a secure way to handle server-side authoritative logic for your games. 
+Beamable offers a rich microservice development workflow using the Beam CLI and Dotnet. Microservices deploy to the Beamable Cloud, and offer a secure way to handle server-side authoritative logic for your games.
 
 ## Dependencies
 
-Before you can develop a Beamable Standalone Microservice, you need to complete the [Getting-Started Guide](gettting-started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools). 
+Before you can develop a Beamable Standalone Microservice, you need to complete the [Getting-Started Guide](gettting-started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -24,21 +24,21 @@ beam init MyProject
 cd MyProject
 ```
 
-Once you have a `.beamble` workspace, you can create a new Standalone Microservice using the [project new](ms-workflow.md#creating-new-projects) command. 
+Once you have a `.beamble` workspace, you can create a new Standalone Microservice using the [project new](ms-workflow.md#creating-new-projects) command.
 
 ```sh
 # run this inside your .beamable workspace
 dotnet beam project new service HelloWorld
 ```
 
-A new file, `BeamableServices.sln` has been created in `/MyProject`. Open it in your IDE of choice (Visual Studio Code, Rider, or Visual Studio). 
+A new file, `BeamableServices.sln` has been created in `/MyProject`. Open it in your IDE of choice (Visual Studio Code, Rider, or Visual Studio).
 
 ![Project Structure](https://files.readme.io/751b491-image.png)
 
 
-Congratulations, you have a local Beamable Standalone Microservice! To run it, you can use the IDE tooling to start the `HelloWorld` project, or you can use the project run command. If you're familiar with `dotnet`, you can also use the normal `dotnet run` command as well. 
+Congratulations, you have a local Beamable Standalone Microservice! To run it, you can use the IDE tooling to start the `HelloWorld` project, or you can use the project run command. If you're familiar with `dotnet`, you can also use the normal `dotnet run` command as well.
 
-However you decide to run the project, you should see a stream of logs similar to the snippet below, 
+However you decide to run the project, you should see a stream of logs similar to the snippet below,
 
 ```
 13:25:33.077 [DBUG] Service provider initialized
@@ -47,17 +47,17 @@ However you decide to run the project, you should see a stream of logs similar t
 
 ```
 
-The service is running! You can send requests to the service over HTTPS. To verify, you can open the local Open API documentation by using the project open-swagger command. 
+The service is running! You can send requests to the service over HTTPS. To verify, you can open the local Open API documentation by using the project open-swagger command.
 
 ```sh
 dotnet beam project open-swagger
 ```
 
-Your local web browser should open to the Beamable Portal, showing the local Open API documentation, 
+Your local web browser should open to the Beamable Portal, showing the local Open API documentation,
 ![local swagger docs](https://files.readme.io/6c000ac-image.png)
 
 
-Click on the last green button that says, "`POST` /Add", and then select the "Try It Out" button. In the Request Body, enter some sample JSON, 
+Click on the last green button that says, "`POST` /Add", and then select the "Try It Out" button. In the Request Body, enter some sample JSON,
 
 ```json
 {
@@ -65,37 +65,37 @@ Click on the last green button that says, "`POST` /Add", and then select the "Tr
   "b": 3
 }
 ```
-And then click the Execute button! In your Standalone Microservice project, you should see some logs appear indicating the service was invoked. 
+And then click the Execute button! In your Standalone Microservice project, you should see some logs appear indicating the service was invoked.
 
 ```
 13:30:18.945 [DBUG] Handling Add
 ```
 
-The `Add` function is defined in the `HelloWorld.cs` file. 
+The `Add` function is defined in the `HelloWorld.cs` file.
 
 ```csharp
-using Beamable.Server;  
-  
-namespace Beamable.HelloWorld  
-{  
-    [Microservice("HelloWorld")]  
-    public class HelloWorld : Microservice  
-    {  
-       [ClientCallable]  
-       public int Add(int a, int b)  
+using Beamable.Server;
+
+namespace Beamable.HelloWorld
+{
+    [Microservice("HelloWorld")]
+    public class HelloWorld : Microservice
+    {
+       [ClientCallable]
+       public int Add(int a, int b)
        {
-	       return a + b;  
-       }    
+	       return a + b;
+       }
     }
 }
 ```
 
-You can write new functions and tag them with `[ClientCallable]` to make them accessible on the Open API page. And now you know the basics of working with Beamable Standalone Microservices! 
+You can write new functions and tag them with `[ClientCallable]` to make them accessible on the Open API page. And now you know the basics of working with Beamable Standalone Microservices!
 
 ---
 ## Project Structure
 
-Each file in the Standalone Microservice has a valuable function that is important to understand. 
+Each file in the Standalone Microservice has a valuable function that is important to understand.
 
 | file                                   | function                                                                                                                                                                                                                                                       |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

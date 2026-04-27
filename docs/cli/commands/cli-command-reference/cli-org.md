@@ -46,6 +46,6 @@ Commands related to beamable organizations
 
 ### Sub Commands
 
-[org-realms](cli-org-realms.md)  
-[org-games](cli-org-games.md)  
+[org-realms](cli-org-realms.md)
+[org-games](cli-org-games.md)
 [org-new](cli-org-new.md)

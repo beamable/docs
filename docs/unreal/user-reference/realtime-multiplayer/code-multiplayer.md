@@ -5,7 +5,7 @@ By default, Beamable integrates with the Gameplay Framework to give you cross-pl
 
 There are a few components here that you need to know about before you implement this:
 
-- **AGameMode::BeginPlay**: In most C++-based implementations, this is your server's "entry point". 
+- **AGameMode::BeginPlay**: In most C++-based implementations, this is your server's "entry point".
 - **AGameMode::PreLoginAsync**: This is what UE calls whenever a client attempts to connect to a game server --- once you invoke a callback it provides, the user is either accepted or rejected. This will be invoked on the server once per-player (if you have multiple players per-client, this is an important distinction).
 - **ULocalPlayer::GetGameLoginOptions**: This appends a string of Options to each `ULocalPlayer`'s connection string.
 - **FUniqueNetIdRepl**: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework.
@@ -23,24 +23,24 @@ virtual void BeginPlay() override
     BeamRuntime->CPP_RegisterOnStarted(FBeamRuntimeHandlerCode::CreateLambda([this]()
     {
         UE_LOG(LogTemp, Warning, TEXT("Started!"));
-        // If we need to set up our orchestrator... 
+        // If we need to set up our orchestrator...
         if (BeamPIE::Orchestrator::ShouldRegisterOrchestrator(this))
-        {            
+        {
             UE_LOG(LogTemp, Warning, TEXT("Setting up my orchestrator!!!!"));
-	
+
 
             // Let's extract the Lobby Id from the CLArgs.
             const auto LobbyId = BeamMultiplayer::Orchestrator::GetLobbyIdFromCLArgs(this);
 
-            // Let's call RegisterLobbyWithServer so that the SDK running here becomes aware of this lobby.             
+            // Let's call RegisterLobbyWithServer so that the SDK running here becomes aware of this lobby.
             BeamMultiplayer::Orchestrator::RegisterLobbyWithServer(this, LobbyId, FBeamOperationEventHandlerCode::CreateLambda([this, LobbyId](FBeamOperationEvent Evt)
             {
                 // Failed to get lobby data from Beamable
-                // Game-Dependent: Handle error by telling Orchestrator to kill the room maybe? 
+                // Game-Dependent: Handle error by telling Orchestrator to kill the room maybe?
                 if (Evt.CompletedWithError()) return;
-	
+
                 // Got the lobby data from Beamable
-                // Game-Dependent: Handle success by doing preloading of data based on the lobby 
+                // Game-Dependent: Handle success by doing preloading of data based on the lobby
                 if (Evt.CompletedWithSuccess())
                 {
                     const auto Lobbies = GetGameInstance()->GetSubsystem<UBeamLobbySubsystem>();
@@ -48,7 +48,7 @@ virtual void BeginPlay() override
                     if (Lobbies->TryGetLobbyById(LobbyId, Lobby))
                     {
                         // Game-Dependent: Use data in the lobby to load things.
-                        
+
                         // Once you are done loading things and preparing the lobby, call this to let clients begin connecting to the server.
                         // Only after this call succeeds does the Federation notify users that the match was found --- this means that PreLoginAsync is guaranteed to have the lobby data at that point.
                         BeamMultiplayer::Orchestrator::NotifyLobbyReady(this, LobbyId, FBeamOperationEventHandlerCode::CreateLambda([](FBeamOperationEvent Evt)
@@ -56,7 +56,7 @@ virtual void BeginPlay() override
                             // Users will never receive the notification that a match was found, will timeout and get put back into the queue.
                             // Game-Dependent: Maybe kill the server so it doesn't linger?
                             if (Evt.CompletedWithError()) return;
-	
+
                             // Users will start trying to connect soon (PreLoginAsync flow)
                             if (Evt.CompletedWithSuccess()) return;
                         }));
@@ -80,21 +80,21 @@ When using the Beamable SDK, in order to validate that the user should be allowe
 - The User's Auth Token and GamerTag... so that the server can verify the user is who they say they are.
 - Optionally, the Lobby Id for the lobby the user is in... so we can verify that the user is in a lobby registered with this Game Server.
 
-We expect to receive these via the `Options` parameter. 
+We expect to receive these via the `Options` parameter.
 
 In clients builds', passing these options can be achieved using `UBeamLobbySubsystem::TryOpenLevelFromLobby`. You can also use `UBeamLobbySubsystem::PrepareLoginOptions` to append these to a string you'll pass to the regular `Open Level` calls used to connect to game servers.
 
 When implementing `PreLoginAsync`, you need to call two functions:
 
 - `BeamPIE::Authentication::GetExpectedClientPIEOptions` --- this enables our PIE integration to work with Game Server Authentication (it gets around UE limitations --- see further down for more information on this).
-- `BeamMultiplayer::Authentication::PreLoginAsync` --- this uses the `Options` to validate the user is in fact inside a lobby that has been registered with this server. 
+- `BeamMultiplayer::Authentication::PreLoginAsync` --- this uses the `Options` to validate the user is in fact inside a lobby that has been registered with this server.
 
 A simple implementation of that looks like this:
 
 ```c++
 virtual void PreLoginAsync(const FString& Options, const FString& Address, const FUniqueNetIdRepl& UniqueId, const FOnPreLoginCompleteDelegate& OnComplete) override
 {
-    // This enables us to test the Pre-Login in PIE correctly (it adds options in the expected deterministic order the PIE instances create and connect so that we can their users in order) 
+    // This enables us to test the Pre-Login in PIE correctly (it adds options in the expected deterministic order the PIE instances create and connect so that we can their users in order)
     const auto BeamOptions = BeamPIE::Authentication::GetExpectedClientPIEOptions(this, Options, Address, UniqueId);
 
     // Validate that the user coming in is really one that exists in a lobby that has been BeamMultiplayer::Orchestrator::RegisterLobbyWithServer.
@@ -102,7 +102,7 @@ virtual void PreLoginAsync(const FString& Options, const FString& Address, const
     BeamMultiplayer::Authentication::PreLoginAsync(this, BeamOptions, Address, UniqueId, FBeamOperationEventHandlerCode::CreateLambda([this, OnComplete, BeamOptions, Address, UniqueId](FBeamOperationEvent Evt)
     {
         if (Evt.CompletedWithSuccess())
-        {            
+        {
             Super::PreLoginAsync(BeamOptions, Address, UniqueId, OnComplete);
         }
 
@@ -122,7 +122,7 @@ If you have multiple players per-client, you should also implement a subclass of
 ```c++
 /**
  * If you're game doesn't have multiple local players, this shouldn't be needed --- it doesn't hurt though.
- * It'll ensure each of the local players traveling together to the game server will forward their associated Beamable information as part of the options. 
+ * It'll ensure each of the local players traveling together to the game server will forward their associated Beamable information as part of the options.
  */
 UCLASS()
 class UMyGameLocalPlayer : public ULocalPlayer
@@ -147,7 +147,7 @@ This constraint exists because, for now, the logic in our `BeamMultiplayer::Auth
 **_Keep in mind that the default SDK behavior does not need you to care about any of this._**
 
 ## User Slots in the Game Server SDK
-User Slots are a big part of the regular workflow when working with Beamable SDK in game clients. For dedicated servers though they are not used. Any functions containing the `UserSlot` parameter, that parameter can be ignored. 
+User Slots are a big part of the regular workflow when working with Beamable SDK in game clients. For dedicated servers though they are not used. Any functions containing the `UserSlot` parameter, that parameter can be ignored.
 
 
 This means a few things:
@@ -184,38 +184,38 @@ class UMyGameInstance : public UGameInstance
 public:
 
 	/**
-	    This function is what executes when you are running PIE as separate processes (Standalone Game or running the dedicated server in a separate process). 
-	*/    
+	    This function is what executes when you are running PIE as separate processes (Standalone Game or running the dedicated server in a separate process).
+	*/
 	virtual void StartGameInstance() override
 	{
 		// This must be called BEFORE `Super::StartGameInstance()`
 		BeamPIE::GameInstance::PreStartGameInstance(this);
-		
+
 		// Call the default GameInstance initialization
 		Super::StartGameInstance();
-		
+
 		// This must be called AFTER `Super::StartGameInstance()`
 		BeamPIE::GameInstance::StartGameInstance(this);
 	}
 
 #if WITH_EDITOR
 	/**
-	    This function is what executes when you are running PIE in the editor. 
-	*/      
+	    This function is what executes when you are running PIE in the editor.
+	*/
 	virtual FGameInstancePIEResult StartPlayInEditorGameInstance(ULocalPlayer* LocalPlayer, const FGameInstancePIEParameters& Params) override
 	{
-		// This must be called BEFORE Super::StartPlayInEditorGameInstance(...)	
+		// This must be called BEFORE Super::StartPlayInEditorGameInstance(...)
 		BeamPIE::GameInstance::StartPlayInEditorGameInstance(this, LocalPlayer, Params);
-		
-		// Call the default StartPlayInEditorGameInstance implementation 
+
+		// Call the default StartPlayInEditorGameInstance implementation
 		return Super::StartPlayInEditorGameInstance(LocalPlayer, Params);
 	}
 #endif
 
 	/**
-	    For as long as you return `true` in this function, PIE Clients will wait before connecting to the game server. 
-	    Our utility returns `true` until the Clients are fully initialized and inside BeamPIE's automatically created Lobby.   
-	*/      
+	    For as long as you return `true` in this function, PIE Clients will wait before connecting to the game server.
+	    Our utility returns `true` until the Clients are fully initialized and inside BeamPIE's automatically created Lobby.
+	*/
 	virtual bool DelayPendingNetGameTravel() override
 	{
 		return BeamPIE::GameInstance::DelayPendingNetGameTravel(this);

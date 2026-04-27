@@ -12,7 +12,7 @@ beam checks [options]
 
 ## About
 
-Check if your projects for known issues 
+Check if your projects for known issues
 
 ## Options
 

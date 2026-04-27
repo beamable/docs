@@ -8,8 +8,8 @@ The semantics above are also what our servers use to keep track of any user's on
 
 ## Thinking about Connectivity
 
-The Beamable SDK provides a `UBeamConnectivityManager` class that keeps the connectivity state for any logged-in `FUserSlot`. 
-- For games that have only a single _local_ player, you can use `UBeamRuntime::GetOwnerSlotConnectivity` to access the correct manager by default. 
+The Beamable SDK provides a `UBeamConnectivityManager` class that keeps the connectivity state for any logged-in `FUserSlot`.
+- For games that have only a single _local_ player, you can use `UBeamRuntime::GetOwnerSlotConnectivity` to access the correct manager by default.
 
 - For games with multiple _local_ players, you can get the managers from `UBeamRuntime::GetSlotConnectivity` for each user (for the most part, they shouldn't differ in status).
 
@@ -17,7 +17,7 @@ In Blueprints, we have a few [special nodes](blueprints.md) for accessing this d
 
 ![connectivity-local-state-nodes.png](../../../media/imgs/connectivity-local-state-nodes.png)
 
-After a user is logged into a `FUserSlot`, losing the connection to the Beamable backend (due to internet access loss or otherwise) will have the `UBeamConnectivityManager` go into the `CONN_Offline` state. 
+After a user is logged into a `FUserSlot`, losing the connection to the Beamable backend (due to internet access loss or otherwise) will have the `UBeamConnectivityManager` go into the `CONN_Offline` state.
 
 **The details of this process are:**
 
@@ -25,7 +25,7 @@ After a user is logged into a `FUserSlot`, losing the connection to the Beamable
 - We attempt to reconnect **X** times before going into `CONN_Offline` to avoid jittery short-lived instability.
   - See `Project Settings -> Beam Runtime -> ConnectivityRetryCountBeforeOffline` for **X**.
   - If all of these attempts fail, we go into `CONN_Offline`.
-  - If any of these attempts succeed, the game proceeds as normal without _any_ callbacks being triggered.  
+  - If any of these attempts succeed, the game proceeds as normal without _any_ callbacks being triggered.
 
 Once we go into `CONN_Offline`, two things happen:
 
@@ -34,7 +34,7 @@ Once we go into `CONN_Offline`, two things happen:
 
 2. We set up a Tick (`UBeamConnectivityManager::ReconnectionTick`) function to run while you are in `CONN_Offline` mode.
     - Provides more flexibility for games that want to handle connectivity loss in complex ways such as waiting for X amount of time before booting the player out, reducing available feature set, etc...
-    
+
 While in `CONN_Offline` mode, we'll keep trying to reestablish the `FUserSlot`'s connection with Beamable. This happens automatically in the background and is a continuous process.
 
 ### Reconnect behavior
@@ -63,15 +63,15 @@ The `UBeamRuntimeSubsystem` implementations DO NOT attempt to refresh their loca
 - Connectivity can be lost and/or regained at _any time in your game's flow_. It can happen mid-cutscene, mid-gameplay, mid-pause menu, etc...
 
 - If we automatically refreshed the subsystem's state after a reconnection, the callbacks throughout the refresh process would trigger. This means that one of the below would have to be true:
-    - Upon going offline, we could unbind all callbacks (which is overeager and makes your binding code more complex) 
+    - Upon going offline, we could unbind all callbacks (which is overeager and makes your binding code more complex)
     - You have to write code for those delegates assuming it could run at any time (which makes it a lot harder to write that code).
     - You have to respond by any loss of connection by restarting the game (thus unbinding all delegates).
   - Our previous experience with automatic refreshing has been that it is just not worth it.
     - For every game-maker for whom our refreshing worked out of the box, it caused significant problems for another.
-    
-For these reasons, we decided to **_NOT_** automatically refresh and instead to **_give you the tools to correctly set up your game state as you need it to be_**. 
 
-> You are responsible for calling the various `Refresh` operations from `UBeamRuntimeSubsystem` implementations you care about, either in the `CONN_Fixup` state's tick function OR in the `OnReconnected` callback. 
+For these reasons, we decided to **_NOT_** automatically refresh and instead to **_give you the tools to correctly set up your game state as you need it to be_**.
+
+> You are responsible for calling the various `Refresh` operations from `UBeamRuntimeSubsystem` implementations you care about, either in the `CONN_Fixup` state's tick function OR in the `OnReconnected` callback.
 
 !!! warning "Why not do Request-based Heuristics?"
     We have tried estimating internet connectivity via some amount of heuristics over failed requests.

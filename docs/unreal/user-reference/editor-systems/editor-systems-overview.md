@@ -18,7 +18,7 @@ To open the Beamable Editor Panel, select the **Beamable** icon on the right sid
 ![editor-home-opening.png](../../../media/imgs/editor-home-opening.png)
 
 ### Home Section
-The Home section allows you to select the current realm for your project and provides quick access to the Beamable Portal. Realm selection is located at the top of the panel, and you can switch between different realms as needed. By using the **Apply to Build** button, you can apply the selected realm to your current build configuration. 
+The Home section allows you to select the current realm for your project and provides quick access to the Beamable Portal. Realm selection is located at the top of the panel, and you can switch between different realms as needed. By using the **Apply to Build** button, you can apply the selected realm to your current build configuration.
 
 In the same section, you can also find the **Home Dashboard** button, which will open the Beamable Portal in your web browser, allowing you to manage your project settings and resources online. There's also other shortcuts to the Portal specific sections, such as the **Microservices** and **Content**.
 

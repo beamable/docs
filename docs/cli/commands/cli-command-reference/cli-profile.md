@@ -46,6 +46,6 @@ beam profile [options]
 
 ### Sub Commands
 
-[profile-check-counters](cli-profile-check-counters.md)  
-[profile-check-nbomber](cli-profile-check-nbomber.md)  
+[profile-check-counters](cli-profile-check-counters.md)
+[profile-check-nbomber](cli-profile-check-nbomber.md)
 [profile-run-nbomber](cli-profile-run-nbomber.md)

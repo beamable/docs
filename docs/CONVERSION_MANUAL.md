@@ -34,7 +34,7 @@ updatedAt: "Fri Nov 01 2024 17:14:03 GMT+0000 (Coordinated Universal Time)"
 ---
 ```
 
-**Action**: 
+**Action**:
 1. **Remove the entire YAML front matter block** (everything between the `---` markers)
 2. **Replace with a proper markdown H1 header** using the title from the metadata
 3. Ensure only ONE H1 header (`#`) exists per document** - all other sections should use H2 (`##`) or lower
@@ -80,7 +80,7 @@ title: "Player Centric API - Overview"
 Content here...
 
 ---
-title: "Player Centric API - Lifecycle Functions"  
+title: "Player Centric API - Lifecycle Functions"
 ---
 More content...
 
@@ -127,7 +127,7 @@ Even more content...
 **Before**:
 ```markdown
 > 📘 Compatibility
-> 
+>
 > • Beamable supports Unity versions 2021.3 to 2023.3
 > • Beamable supports Windows, Mac, iOS, Android platforms
 ```
