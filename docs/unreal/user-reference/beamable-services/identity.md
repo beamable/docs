@@ -15,7 +15,7 @@ best practices.
 
 ## Login Semantics
 
-Logging in with the Unreal SDK means:
+Logging in with the Beamable Unreal SDK means:
 
 > Authenticating the user, fetching all relevant data from the backend into the `UBeamRuntimeSubsystem`'s in-memory state and then completes the operation.
 

@@ -148,7 +148,7 @@ The most common way Orchestrators such as Hathora, GameLyft or Agones pass infor
 
 For this case, the Beamable SDK expects either the `CLArg: BeamableDedicatedServerInstanceLobbyId` or the `EnvVar: BEAMABLE_DEDICATED_SERVER_INSTANCE_LOBBY_ID` to be set and contain the Lobby Id for the match. If they do, you can use `Local State - Lobby - Get Lobby Id From CLArgs` to get this value.
 
-Each orchestrator has their own way of allowing you to define CLArgs and EnvVars that it'll pass into the running game-server process --- please refer to your chosen orchestrator's documentation about how to pass these along; you can also refer to our [Beamball Demo](../../samples/beamball/beamball-demo.md) to see how we do this with Hathora (as per Hathora docs, involves a `Dockerfile` and a `sh` script).
+Each orchestrator has their own way of allowing you to define CLArgs and EnvVars that it'll pass into the running game-server process — see your chosen orchestrator's documentation for how to pass these along; you can also refer to our [Beamball Demo](../../samples/beamball/beamball-demo.md) to see how we do this with Hathora (as per Hathora docs, involves a `Dockerfile` and a `sh` script).
 
 ##### **Multiple Lobby Per Process**
 If you are planning on having multiple lobbies per-game-server-process, your orchestrator will either:

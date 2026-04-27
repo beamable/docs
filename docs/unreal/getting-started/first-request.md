@@ -3,7 +3,7 @@
 **Here we will guide you through the process of loading the Beamable Window in your project and creating a simple request to retrieve user information.**
 
 !!! note Notice
-    This tutorial assumes you have already set up your Beamable account and integrated the Beamable SDK into your Unreal project. For instructions on doing so, please review the [Setup Guide](setup.md).
+    This tutorial assumes you have already set up your Beamable account and integrated the Beamable SDK into your Unreal project. For instructions on doing so, see the [Setup Guide](setup.md).
 
 ## Accessing the Beamable Window
 

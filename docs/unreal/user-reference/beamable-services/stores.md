@@ -35,4 +35,4 @@ Purchases are handled through the `UBeamStoreSubsystem`. This subsystem allows y
 You can fetch a particular player's view of a particular store, via the `RefreshStoresOperation` or `RefreshStoreOperation`. After the view is refreshed, you can access the view for that particular player through `TryGetStoreView`. To make purchases, you can use the `PerformPurchaseOperation`.
 
 ### Purchases IAP support
-Beamable supports purchasing listings using in-game IAPs, but for the Unreal SDK, this feature is not yet available. It will be added in future releases.
+Beamable supports purchasing listings using in-game IAPs, but for the Beamable Unreal SDK, this feature is not yet available. It will be added in future releases.

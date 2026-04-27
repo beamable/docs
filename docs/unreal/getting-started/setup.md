@@ -4,7 +4,7 @@ Here, we will guide you through the process of downloading and setting up the Be
 
 ## Signup Requirement
 
-To start using Beamable in your project you need to have a valid Account in the [Beamable Portal](https://portal.beamable.com/signup/registration). Please remember your **Alias** as it'll be used to log into the SDK in your editor or via the Beamable CLI.
+To start using Beamable in your project you need to have a valid Account in the [Beamable Portal](https://portal.beamable.com/signup/registration). Remember your **Alias** as it'll be used to log into the SDK in your editor or via the Beamable CLI.
 
 ## Project Requirements
 Important notes and dependencies:
@@ -17,7 +17,7 @@ Important notes and dependencies:
 
 
 ## Downloading and Installing the SDK
-- Download the Latest Version of the Unreal SDK from our [Github Repository](https://github.com/beamable/UnrealSDK/releases)
+- Download the Latest Version of the Beamable Unreal SDK from our [Github Repository](https://github.com/beamable/UnrealSDK/releases)
 - Unzip the contents of the downloaded file to a location where you can easily find it.
 
 Once you have our repo and dependencies set up, follow along with the next section to set up the SDK in your project.
