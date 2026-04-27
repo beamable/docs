@@ -79,7 +79,7 @@ There are two events related to blocking players: one for the player who initiat
 
 For the unblock flow is very similar to the block, so there's a `OnPlayerUnblocked` event and a `OnPlayerBeenUnblocked`.
 
-For you to use the status presence as the common behavior of showing if your friend is online or offline we recommend to register in the `OnPresenceStatusUpdate` and handle the updates in the player status from this. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
+For you to use the status presence as the common behavior of showing if your friend is online or offline we recommend registering in the `OnPresenceStatusUpdate` and handle the updates in the player status from this. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
 ### Removing a Friend
 
@@ -101,4 +101,4 @@ In the example below, we demonstrate how to retrieve the user's friend state and
 
 # Conclusion
 
-This is a brief document that describes the basic usage of the Friend Subsystem, once you implement those features consider to test with multiple users or adding more complex interactions.
+This is a brief document that describes the basic usage of the Friend Subsystem, once you implement those features consider testing with multiple users or adding more complex interactions.
