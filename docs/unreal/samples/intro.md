@@ -1,6 +1,6 @@
 # Setting Up The Sample Projects
 
-Beamable provides sample projects for Unreal as part of the Unreal SDK repository. Each sample is tied to a plugin named `BEAMPROJ_<PluginName>` of a shared `BeamableUnreal` project. The sample you see in the editor is determined by which `BEAMPROJ_` plugin is enabled in the BeamableUnreal.uproject file.
+Beamable provides sample projects for Unreal as part of the Beamable Unreal SDK repository. Each sample is tied to a plugin named `BEAMPROJ_<PluginName>` of a shared `BeamableUnreal` project. The sample you see in the editor is determined by which `BEAMPROJ_` plugin is enabled in the BeamableUnreal.uproject file.
 
 ## Preparing the Environment
 1. Install Dependencies

@@ -228,5 +228,5 @@ public:
 
     As such, we evaluate this cost is worth the flexibility.
 
-**PLEASE REMEMBER: _In builds, all functions from the `BeamPIE` namespace are no-ops._**
+**Note: _In builds, all functions from the `BeamPIE` namespace are no-ops._**
 

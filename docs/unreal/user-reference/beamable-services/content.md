@@ -142,7 +142,7 @@ public:
 };
 ```
 
-Please remember to annotate your `UPROPERTY` with `EditAnywhere` and either:
+Annotate your `UPROPERTY` with `EditAnywhere` and either:
 
 - `BlueprintReadOnly` if you are not writing utilities to create the objects for you.
 - `BlueprintReadWrite` if you are writing utilities to create the objects for you.
