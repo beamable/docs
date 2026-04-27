@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#realtime-multiplayer-overview" class="md-skip">
+        <a href="#real-time-multiplayer-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -1775,7 +1775,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1791,7 +1791,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -9023,10 +9023,10 @@
 
 
 
-<h1 id="realtime-multiplayer-overview">Realtime Multiplayer Overview<a class="headerlink" href="#realtime-multiplayer-overview" title="Permanent link">¶</a></h1>
+<h1 id="real-time-multiplayer-overview">Real-Time Multiplayer Overview<a class="headerlink" href="#real-time-multiplayer-overview" title="Permanent link">¶</a></h1>
 <p>There are multiple ways to design real-time multiplayer games: dedicated servers, listen servers in addition to deterministic approaches (such as lockstep or rollback based ones). Unreal has baked in workflows and utilities for the first two. The Beamable Unreal <abbr title="software development kit">SDK</abbr> currently only dedicated servers officially, though you can probably get listen servers to work too. <!-- TODO(@drewbleam): "listen servers"??? --></p>
 <h2 id="dedicated-servers-in-unreal-with-beamable">Dedicated Servers in Unreal with Beamable<a class="headerlink" href="#dedicated-servers-in-unreal-with-beamable" title="Permanent link">¶</a></h2>
-<p>Beamable integrates with Unreal's Gameplay Framework in a couple of different ways; none of those are via an <strong>OnlineSubsystem</strong>. </p>
+<p>Beamable integrates with Unreal's Gameplay Framework in a couple of different ways; none of those are via an <strong>OnlineSubsystem</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Why no Online Subsystem?</p>
 <p>Because Beamable's approach to Cloud Code (custom code to extend backend functionality) does not mesh well with those interfaces --- you'd end up either losing a lot of Beamable's most useful functionality OR gaining a non-trivial amount of complexity to use it. Therefore, the Beamable <abbr title="software development kit">SDK</abbr> provides you with utilities to make dedicated server games itself.</p>
@@ -9036,9 +9036,9 @@
 <li><strong><a href="../../beamable-services/matchmaking/">Matchmaking</a></strong>: Beamable provides you with a Matchmaking system out of the box that covers simple Matchmaking cases. It is useful during early development and also in production depending on your game's needs. <a href="../../microservices/microservices/">Beamable's Microservices</a> allow you to implement or integrate with more specialized Matchmaking solutions should your game need it.</li>
 <li><strong><a href="../../beamable-services/lobbies/">Lobbies</a></strong>: <a href="../../beamable-services/matchmaking/">Beamable's Matchmaking</a> generates, for each match found, a Lobby structure of players. Lobbies are closest to what Unreal's OnlineSubsystem calls a "<strong>Session</strong>". Lobbies can also be created by players themselves.</li>
 <li><strong><a href="../../federation/federated-game-server/">Server Provisioning</a></strong>: Beamable's approach to Cloud Code, <a href="../../microservices/microservices/">Microservices</a>, allows you to hook into certain processes that the Beamable Backend does; we call that <strong>Federation</strong>. For example, Game Server Federations can be used to run arbitrary code <strong>after the matchmaking has created the lobby</strong> but <strong>before the clients are notified the match was found</strong>. This allows you to fill the lobby with relevant data for your match, provision a server, wait for the server to spin up and then allow our Backend to notify the clients. This flow significantly simplifies client and server code around this connection flow.</li>
-<li><strong><a href="../code-multiplayer/">Game Server Authentication</a></strong>: It is pretty important that you implement Unreal's <strong>PreLoginAsync</strong> at some point before you ship a game. The Beamable <abbr title="software development kit">SDK</abbr>'s <strong>UBeamLobbySubsystem</strong> provides you with utilities to validate that the user trying to connect <em>is in fact in a lobby the game server is managing and is a valid player</em>. </li>
+<li><strong><a href="../code-multiplayer/">Game Server Authentication</a></strong>: It is pretty important that you implement Unreal's <strong>PreLoginAsync</strong> at some point before you ship a game. The Beamable <abbr title="software development kit">SDK</abbr>'s <strong>UBeamLobbySubsystem</strong> provides you with utilities to validate that the user trying to connect <em>is in fact in a lobby the game server is managing and is a valid player</em>.</li>
 <li><strong><a href="../../editor-systems/pie-settings/"><abbr title="play in editor">PIE</abbr> Support</a></strong>: Anyone that has worked in multiplayer games knows about the challenge of maintaining a good workflow in <abbr title="play in editor">PIE</abbr> --- this is because code written for the gameplay makes all sorts of assumptions about the game state: it usually assumes clients are already logged in and SDKs are initialized, it assumes that a Lobby (or Session) already exists, it'll read data from that Lobby/Session as part of its initialization and systems and so on... the Beamable <abbr title="software development kit">SDK</abbr>'s <strong>BeamPIE</strong> system gives you these guarantees in <abbr title="play in editor">PIE</abbr> with a single Blueprint node; among other things, this is an extremely useful tool throughout all stages of development.</li>
-<li><strong><a href="../../runtime-systems/user-slots/">Local and Remote Multiplayer</a></strong>: If your game needs BOTH multiple local players per-client AND remote play, the Beamable <abbr title="software development kit">SDK</abbr> also supports that via the User Slot system. Each Client has multiple <strong>Runtime User Slots</strong>: <strong>Player0</strong>, <strong>Player1</strong>, etc... In clients, these map to UE's own <strong>LocalPlayerIndex</strong>; this mapping is implicit and index-based. You can tell the Beamable <abbr title="software development kit">SDK</abbr> about your game's <strong>RuntimeUserSlots</strong> in <code>Project Settings &gt; Engine &gt;  Beamable Core</code>. If your game does NOT support local + remote multiplayer, then this is not relevant and the <abbr title="software development kit">SDK</abbr>'s defaults will work for you. </li>
+<li><strong><a href="../../runtime-systems/user-slots/">Local and Remote Multiplayer</a></strong>: If your game needs BOTH multiple local players per-client AND remote play, the Beamable <abbr title="software development kit">SDK</abbr> also supports that via the User Slot system. Each Client has multiple <strong>Runtime User Slots</strong>: <strong>Player0</strong>, <strong>Player1</strong>, etc. In clients, these map to UE's own <strong>LocalPlayerIndex</strong>; this mapping is implicit and index-based. You can tell the Beamable <abbr title="software development kit">SDK</abbr> about your game's <strong>RuntimeUserSlots</strong> in <code>Project Settings &gt; Engine &gt;  Beamable Core</code>. If your game does NOT support local + remote multiplayer, then this is not relevant and the <abbr title="software development kit">SDK</abbr>'s defaults will work for you.</li>
 </ul>
 <p>You can see an example of a working implementation of these in the <strong><a href="../../../samples/beamball/beamball-demo/">Beamball Sample</a></strong>.</p>
 <div class="admonition warning">
@@ -9050,10 +9050,10 @@
 <ul>
 <li><strong>Main Boot Level</strong>: Refers to the Level in which your Client applications start. This usually maps to your title/main menu screens.</li>
 <li><strong>Waiting Room Level</strong>: Some games will boot the server in a "Waiting Room Level" while players connect before performing a <strong>Server Travel</strong> to take all the clients to the actual gameplay map. We'll call this the Waiting Room Level.</li>
-<li><strong>Gameplay Level</strong>: This is the Level in which gameplay happens. During development, your designers and gameplay engineers need to enter this level directly using <abbr title="play in editor">PIE</abbr>.  </li>
+<li><strong>Gameplay Level</strong>: This is the Level in which gameplay happens. During development, your designers and gameplay engineers need to enter this level directly using <abbr title="play in editor">PIE</abbr>.</li>
 <li><strong>Game Server Orchestrator</strong> or just <strong>Orchestrator</strong>: whatever tech is running your actual Game Servers; Edgegap, Agones, GameLyft and others exist in this space.</li>
 </ul>
-<p>There <em><strong>are</strong></em> other ways to arrange and organize server-authoritative games but most games do something at least similar to this, and, Unreal helps you more if you are close to this. </p>
+<p>There <em><strong>are</strong></em> other ways to arrange and organize server-authoritative games but most games do something at least similar to this, and, Unreal helps you more if you are close to this.</p>
 <h2 id="getting-started-setting-up-gameplay-levels-and-a-pie-setting">Getting Started - Setting up Gameplay Levels and a <abbr title="play in editor">PIE</abbr> Setting<a class="headerlink" href="#getting-started-setting-up-gameplay-levels-and-a-pie-setting" title="Permanent link">¶</a></h2>
 <p>This guide explains how to leverage our <abbr title="software development kit">SDK</abbr>'s <strong><a href="../../editor-systems/pie-settings/"><abbr title="play in editor">PIE</abbr> Support</a></strong> to set up your Gameplay Level so you can start experimenting with Beamable immediately.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiplayer-scenes.png" data-desc-position="bottom"><img alt="multiplayer-scenes.png" src="../../../../media/imgs/multiplayer-scenes.png"></a></p>
@@ -9072,7 +9072,7 @@
 </li>
 <li>Toggle the <strong><abbr title="play in editor">PIE</abbr> Lobby Settings</strong> on.<ol>
 <li>Choose the <code>my_matchmaking_queue</code> game type from the dropdown.</li>
-<li>Add a <code>my_key</code> and <code>my_value</code> to the Global Lobby Data.  </li>
+<li>Add a <code>my_key</code> and <code>my_value</code> to the Global Lobby Data.</li>
 </ol>
 </li>
 <li>In <strong>User Settings</strong>:<ol>
@@ -9178,7 +9178,7 @@
 <h5 id="one-lobby-per-process"><strong>One Lobby Per Process</strong><a class="headerlink" href="#one-lobby-per-process" title="Permanent link">¶</a></h5>
 <p>The most common way Orchestrators such as Edgegap, GameLyft or Agones pass information to the running process is via Command Line Arguments or Environment Variables. If you are only ever running one Lobby per-game-server-process, we recommend passing in the lobby id this way.</p>
 <p>For this case, the Beamable <abbr title="software development kit">SDK</abbr> expects either the <code>CLArg: BeamableDedicatedServerInstanceLobbyId</code> or the <code>EnvVar: BEAMABLE_DEDICATED_SERVER_INSTANCE_LOBBY_ID</code> to be set and contain the Lobby Id for the match. If they do, you can use <code>Local State - Lobby - Get Lobby Id From CLArgs</code> to get this value.</p>
-<p>Each orchestrator has their own way of allowing you to define CLArgs and EnvVars that it'll pass into the running game-server process --- please refer to your chosen orchestrator's documentation about how to pass these along; you can also refer to our <a href="../../../samples/beamball/beamball-demo/">Beamball Demo</a> to see how we do this with Edgegap (as per Edgegap docs, involves a <code>Dockerfile</code> and a <code>sh</code> script).</p>
+<p>Each orchestrator has their own way of allowing you to define CLArgs and EnvVars that it'll pass into the running game-server process — see your chosen orchestrator's documentation for how to pass these along; you can also refer to our <a href="../../../samples/beamball/beamball-demo/">Beamball Demo</a> to see how we do this with Edgegap (as per Edgegap docs, involves a <code>Dockerfile</code> and a <code>sh</code> script).</p>
 <h5 id="multiple-lobby-per-process"><strong>Multiple Lobby Per Process</strong><a class="headerlink" href="#multiple-lobby-per-process" title="Permanent link">¶</a></h5>
 <p>If you are planning on having multiple lobbies per-game-server-process, your orchestrator will either:</p>
 <ul>
@@ -9193,13 +9193,13 @@
 <p>Once the lobby is registered, you can use <code>Local State - Lobby - TryGetLobbyById</code> (and <code>Local State - Lobby - TryGetLobbyPlayerDataById</code> and <code>Local State - Lobby - TryGetLobbyGlobalDataById</code>) to read data from the Lobby to initialize your game server.</p>
 <p>This initialization can be preloading assets, making requests to microservices and so on...</p>
 <p>Once this is done and you are ready to accept client connections, you should call <code>Operation - Lobby - Server - Notify Lobby Ready for Clients</code>. This signals your awaiting <strong>Game Server Federation's <code>CreateGameServer</code> implementation</strong> that the game server is ready to accept client connections --- allowing it to complete so that Beamable notifies all players in the Lobby forwarding the connection information to them.</p>
-<p>After these steps are completed, you'll begin receiving connections --- in UE, handling player connection and initialization is done in a Game Mode implementation (see <a href="#preparing-a-build-for-your-game-server-orchestrator">here</a>). </p>
+<p>After these steps are completed, you'll begin receiving connections --- in UE, handling player connection and initialization is done in a Game Mode implementation (see <a href="#preparing-a-build-for-your-game-server-orchestrator">here</a>).</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiplayer-build.png" data-desc-position="bottom"><img alt="multiplayer-build.png" src="../../../../media/imgs/multiplayer-build.png"></a></p>
 <center>Example of Level Blueprint for a Game Server Build</center>
 
 <h2 id="whats-next">What's next?<a class="headerlink" href="#whats-next" title="Permanent link">¶</a></h2>
-<p>With this, you are set up to begin experimenting with your gameplay systems in <abbr title="play in editor">PIE</abbr>. In early development, we recommend using this to figure out which Key-Value pairs you'll need in the Beamable Lobby structure. This should allow you to work on your gameplay development directly in <abbr title="play in editor">PIE</abbr> before doing the work to integrate with your <strong><a href="../../federation/federated-game-server/">Game Server Orchestrator using our Federation system</a></strong>. </p>
-<p>When you decide to implement <strong>Game Server Authentication</strong>, take a look at our <strong><a href="../code-multiplayer/">C++ Real-Time Multiplayer docs</a></strong> --- Unreal does not allow for a BP-only authentication flow (it needs <strong>PreLoginAsync</strong> which is a C++ only callback in the Game Mode). </p>
+<p>With this, you are set up to begin experimenting with your gameplay systems in <abbr title="play in editor">PIE</abbr>. In early development, we recommend using this to figure out which Key-Value pairs you'll need in the Beamable Lobby structure. This should allow you to work on your gameplay development directly in <abbr title="play in editor">PIE</abbr> before doing the work to integrate with your <strong><a href="../../federation/federated-game-server/">Game Server Orchestrator using our Federation system</a></strong>.</p>
+<p>When you decide to implement <strong>Game Server Authentication</strong>, take a look at our <strong><a href="../code-multiplayer/">C++ Real-Time Multiplayer docs</a></strong> --- Unreal does not allow for a BP-only authentication flow (it needs <strong>PreLoginAsync</strong> which is a C++ only callback in the Game Mode).</p>
 
 
 

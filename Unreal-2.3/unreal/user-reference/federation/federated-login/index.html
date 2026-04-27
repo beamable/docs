@@ -1900,7 +1900,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1916,7 +1916,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -8889,8 +8889,8 @@
 <h3 id="writing-the-microservice">Writing the Microservice<a class="headerlink" href="#writing-the-microservice" title="Permanent link">¶</a></h3>
 <p>Semantically, there are two ways the <code>Authenticate</code> function can be called:</p>
 <ul>
-<li><strong>Account Creation Time</strong>: When using <strong><code>Login - Federated Identity</code> or <code>Sign-Up - Federated Identity</code> operations</strong>. </li>
-<li><strong>Account Attach Time</strong>: When using <strong><code>Attach - Federated Identity</code> operation</strong>. </li>
+<li><strong>Account Creation Time</strong>: When using <strong><code>Login - Federated Identity</code> or <code>Sign-Up - Federated Identity</code> operations</strong>.</li>
+<li><strong>Account Attach Time</strong>: When using <strong><code>Attach - Federated Identity</code> operation</strong>.</li>
 </ul>
 <p>In both cases, what you want to do is:</p>
 <ol>
@@ -8910,10 +8910,10 @@
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isLogin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_requestContext</span><span class="p">.</span><span class="n">UserId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0L</span><span class="p">;</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">// A user made the request which means we are trying to attach the identity to the user.</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isAttach</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_requestContext</span><span class="p">.</span><span class="n">UserId</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0L</span><span class="p">;</span><span class="w">    </span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isAttach</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_requestContext</span><span class="p">.</span><span class="n">UserId</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0L</span><span class="p">;</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="c1">// Get the token and use whatever 3rd Party SDK to fetch the user's id and return it</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FederatedAuthenticationResponse</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my3rdPartyId</span><span class="p">,</span><span class="w"> </span><span class="p">};</span><span class="w"> </span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FederatedAuthenticationResponse</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my3rdPartyId</span><span class="p">,</span><span class="w"> </span><span class="p">};</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="federated-login-multi-factor-authentication">Federated Login - Multi-Factor Authentication<a class="headerlink" href="#federated-login-multi-factor-authentication" title="Permanent link">¶</a></h2>
@@ -8927,7 +8927,7 @@
 <h3 id="writing-the-microservice_1">Writing the Microservice<a class="headerlink" href="#writing-the-microservice_1" title="Permanent link">¶</a></h3>
 <p>Semantically, there are an additional two ways that the Authenticate function can be called:</p>
 <ul>
-<li><strong>Without a <code>challenge</code>/<code>solution</code></strong>: This is the first part of the flow. <ul>
+<li><strong>Without a <code>challenge</code>/<code>solution</code></strong>: This is the first part of the flow.<ul>
 <li>Here, your function should generate a <code>challenge</code> and return it in the <code>FederatedAuthenticationResponse</code>.</li>
 <li>The <code>UserId</code> in <code>FederatedAuthenticationResponse</code> should be empty in this first step.</li>
 <li>Third-party SDKs that support/require 2FA will typically provide you a function to generate said challenge.</li>
@@ -8948,9 +8948,9 @@
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isLogin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_requestContext</span><span class="p">.</span><span class="n">UserId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0L</span><span class="p">;</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">// A user made the request which means we are trying to attach the identity to the user.</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isAttach</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_requestContext</span><span class="p">.</span><span class="n">UserId</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0L</span><span class="p">;</span><span class="w">                </span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isAttach</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_requestContext</span><span class="p">.</span><span class="n">UserId</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0L</span><span class="p">;</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">// Handle the case where we are asking for a challenge to solve (`solution` is empty). </span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">// Handle the case where we are asking for a challenge to solve (`solution` is empty).</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">solution</span><span class="p">))</span>
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">{</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="c1">// Return some challenge the user is expected to solve.</span>
@@ -8965,10 +8965,10 @@
 <a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="c1">// Handle the case where the user has provided the challenge AND the solution</span>
 <a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">challenge</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">solution</span><span class="p">))</span>
 <a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">        </span><span class="c1">// My code that validates the provided solution against the challenge.      </span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">        </span><span class="c1">// My code that validates the provided solution against the challenge.</span>
 <a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FederatedAuthenticationResponse</span>
 <a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">            </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UserIdInThirdParty</span><span class="w"> </span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">            </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UserIdInThirdParty</span>
 <a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">        </span><span class="p">};</span>
 <a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>

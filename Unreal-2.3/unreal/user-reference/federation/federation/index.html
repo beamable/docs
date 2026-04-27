@@ -1855,7 +1855,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1871,7 +1871,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -8770,12 +8770,12 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture-federation-general.png" data-desc-position="bottom"><img alt="microservices-architecture-federation-general.png" src="../../../../media/imgs/microservices-architecture-federation-general.png"></a></p>
 <p>As such, each of the <strong>Federations</strong> we provide have their own semantics, usage guidelines, performance characteristics and constraints described in their individual pages.</p>
 <h2 id="federation-id">Federation Id<a class="headerlink" href="#federation-id" title="Permanent link">¶</a></h2>
-<p>Federations can be thought of delegates called by our server in particular points of various flows. Federation Ids are a unique <code>string</code>-based identifier that identifies a particular implementation of a federation. </p>
+<p>Federations can be thought of delegates called by our server in particular points of various flows. Federation Ids are a unique <code>string</code>-based identifier that identifies a particular implementation of a federation.</p>
 <p>The combination of the <strong>Federation Id</strong> and the <strong>Federation Type</strong> is comparable to a function name/pointer assigned to an Unreal delegate; in the sense that it is used by the Beamable backend to know which implementation of a federation in your microservice it should talk to, if any.</p>
 <p>Examples:</p>
 <ul>
 <li><code>IFederatedLogin</code> would have different implementations for Steam and Epic auth integration.</li>
-<li>As such, <code>IFederatedLogin&lt;SteamId&gt;</code> and <code>IFederatedLogin&lt;EpicId&gt;</code> the two different interfaces you'll need to implement. </li>
+<li>As such, <code>IFederatedLogin&lt;SteamId&gt;</code> and <code>IFederatedLogin&lt;EpicId&gt;</code> the two different interfaces you'll need to implement.</li>
 </ul>
 <p>In other words, an id is just a unique <code>string</code> that you pass along in specific places depending on the federation to <strong>choose between one or more federations if any should be used</strong>.</p>
 <h2 id="addingremoving-federations">Adding/Removing Federations<a class="headerlink" href="#addingremoving-federations" title="Permanent link">¶</a></h2>

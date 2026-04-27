@@ -1771,7 +1771,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1787,7 +1787,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -9002,7 +9002,7 @@
 <h3 id="building-the-plan">Building the Plan<a class="headerlink" href="#building-the-plan" title="Permanent link">¶</a></h3>
 <p>The <code>deploy plan</code> command validates that your Standalone Microservice can be built and, optionally, that it will start accepting HTTPS traffic.</p>
 <p><strong>The command WILL NOT validate the services are booting up correctly by default.</strong> It assumes that you have tested your service locally before deploying it. However, you can pass in the <code>--health</code>  argument to make the command, run the built services locally and wait for the service to start responding to health check <abbr title="application programming interface">API</abbr> calls. This takes longer, but guarantees that the services <em>at least starts up</em>. This is especially useful if you're using our <code>[ConfigureServices]</code> and/or <code>[InitializeServices]</code> attributes to modify the service boot process.</p>
-<p>After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local <em>service manifest</em> is built implicitly from configurations inside your project. The built plan is there inform you about the changes you will be making (enabling/disabling existing services, adding new services, etc...) if you decide to <code>deploy release</code> it.</p>
+<p>After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local <em>service manifest</em> is built implicitly from configurations inside your project. The built plan is there inform you about the changes you will be making (enabling/disabling existing services, adding new services, etc.) if you decide to <code>deploy release</code> it.</p>
 <p>As an example, here's the output from a <code>deploy plan</code> invocation from inside our <code>UnrealSDK</code> project.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ dotnet beam deploy plan
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>

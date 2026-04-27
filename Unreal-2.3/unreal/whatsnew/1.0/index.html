@@ -1831,7 +1831,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -1847,7 +1847,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -8729,7 +8729,7 @@
 <p class="admonition-title">Access Denied</p>
 <p>Unreal's integrations with various version control systems will sometimes make files Read-Only at the OS-level. If this is the case, you may see an <code>Access Denied</code> error when running the above script. Part of that script is deleting the old <code>Plugins/BeamableCore</code> folder and some of the <code>uasset</code>/<code>umap</code> files inside it might be flagged as read-only. To fix this, revert the changes, go to the <code>Plugins/BeamableCore</code>, and optionally <code>Plugins/OnlineSubsystemBeamable</code>, search for <code>uasset</code>/<code>umap</code> files and make them NOT read-only. On Windows, this can be done by the "Properties" panel of the file.</p>
 </div>
-<p>Please contact our customer support if the above does not work.</p>
+<p>Contact our customer support if the above does not work.</p>
 <p>If the script is successfull, you should see something like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Found .uproject: ./YourProject.uproject
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
@@ -8755,7 +8755,7 @@
 <li>Unlink the Unreal Project by deleting the <code>.beamable/linked-projects.json</code> file.</li>
 <li>Link it again using <code>dotnet beam project add-unreal-project .</code></li>
 <li>
-<p>Disable Automatic code Generation by setting <code>&lt;GenerateClientCode&gt;false&lt;/GenerateClientCode&gt;</code> in every service's <code>csproj</code> file.        </p>
+<p>Disable Automatic code Generation by setting <code>&lt;GenerateClientCode&gt;false&lt;/GenerateClientCode&gt;</code> in every service's <code>csproj</code> file.</p>
 </li>
 <li>
 <p>Follow the <a href="https://docs.beamable.com/v2.0.0/docs/cli-guide-upgrading#from-202-to-301">CLI upgrade guide found here</a> to ensure your microservice is now correctly configured.</p>

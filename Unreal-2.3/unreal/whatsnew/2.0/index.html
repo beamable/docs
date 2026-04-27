@@ -2020,7 +2020,7 @@
   <span class="md-ellipsis">
     
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
     
@@ -2036,7 +2036,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Realtime Multiplayer
+    Real-Time Multiplayer
   
 
           </label>
@@ -9090,11 +9090,11 @@
 <h1 id="version-20x-release-notes">Version 2.0.x Release Notes<a class="headerlink" href="#version-20x-release-notes" title="Permanent link">¶</a></h1>
 <h2 id="version-201">Version 2.0.1<a class="headerlink" href="#version-201" title="Permanent link">¶</a></h2>
 <p>This is the release notes for the Beamable Unreal <abbr title="software development kit">SDK</abbr> version 2.0.1.</p>
-<p>This release has several fixes w.r.t increasing support for MacOS as a development platform, fixing certain dedicated server (linux) issues as well as updating the backing CLI version for additional fixes within the microservice code-generation pipeline.</p>
-<p><strong>Follow the instructions to upgrade from <a href="../../getting-started/setup/#upgrading-the-sdk">here</a></strong>. </p>
+<p>This release has several fixes w.r.t increasing support for macOS as a development platform, fixing certain dedicated server (linux) issues as well as updating the backing CLI version for additional fixes within the microservice code-generation pipeline.</p>
+<p><strong>Follow the instructions to upgrade from <a href="../../getting-started/setup/#upgrading-the-sdk">here</a></strong>.</p>
 <p>Then do the following:</p>
 <ul>
-<li>If you're upgrading from <code>1.X.X</code>, please follow any instructions in the <a href="#version-200">version 2.0.0 upgrade guide</a>.</li>
+<li>If you are upgrading from <code>1.X.X</code>, follow any instructions in the <a href="#version-200">version 2.0.0 upgrade guide</a>.</li>
 <li>In order to fix a bug, this hotfix requires that you regenerate your microservice clients after rebuilding the microservice projects, if you have any. So you'll need to run: <code>dotnet beam project generate-client "."</code></li>
 <li>Recompile your editor.</li>
 </ul>
@@ -9103,7 +9103,7 @@
 <li>Added an override to the path to <code>dotnet</code> (found in <code>Project Settings -&gt; Beam Editor</code>) so that non-default <code>dotnet</code> setups can be used.<ul>
 <li>In some dev's setups, <code>dotnet</code> might be installed in non-default locations --- you can now override where we look for the <code>dotnet</code> executable when invoking our CLI (from within the editor integration).</li>
 <li>This changes nothing about the runtime of your program; it only affects how we use the CLI (which is not used outside the Unreal Editor integration).</li>
-<li>After changing this setting, please re-open the editor.</li>
+<li>After changing this setting, restart the editor.</li>
 </ul>
 </li>
 <li>Added null guard to all <code>U[BeamJsonSerializableUObject]Library::Break</code> functions (change between ensure/silent-skip in <code>Project Settings -&gt; Beamable Core -&gt; bSilenceBreakGuardEnsures</code>).<ul>
@@ -9114,7 +9114,7 @@
 <h3 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">¶</a></h3>
 <ul>
 <li>Fixed linux compilation problem when compiling with stricter options.</li>
-<li>Fixed default <code>dotnet</code> path for MacOS.</li>
+<li>Fixed default <code>dotnet</code> path for macOS.</li>
 <li>Fixed issue where <code>CallingContext</code> wasn't being passed along in <code>Authenticate</code> calls in certain edge-cases</li>
 <li>Updated Auto Generated <code>UBeam___Api</code> classes code to fix a problem that would cause multiple <abbr title="play in editor">PIE</abbr> instances to behave incorrectly when running in non-standalone process mode.</li>
 </ul>
@@ -9124,7 +9124,7 @@
 <p>Follow the instructions to upgrade from <a href="../../getting-started/setup/#upgrading-the-sdk">here</a>. Then do the following:</p>
 <ul>
 <li>Go into your <code>Saved/Config/WindowsEditor/EditorPerProjectUserSettings</code> and remove any setting referencing a <code>BeamEditorBootstrapper</code> (or <code>UBeamEditorBootstrapper</code>).</li>
-<li>We changed the way the Editor environment is initialized and having this here will cause the initialization to run twice which can lead to instability. </li>
+<li>We changed the way the Editor environment is initialized and having this here will cause the initialization to run twice which can lead to instability.</li>
 </ul>
 <h3 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">¶</a></h3>
 <h4 id="unreal-engine-55x-support">Unreal Engine 5.5.x Support<a class="headerlink" href="#unreal-engine-55x-support" title="Permanent link">¶</a></h4>
@@ -9154,7 +9154,7 @@
 <p>A common use-case for live-services game is to define a starting state for user accounts. The way to do that within Beamable is via the <a href="../../user-reference/federation/federated-player-init/">Player Init Federation</a> interface in your microservice.</p>
 <p>This federation is guaranteed to run only once per player, whenever the player is created in the realm. At the Beamable Unreal <abbr title="software development kit">SDK</abbr> side, all SignUp functions expose the <code>InitProperties</code> parameter which is a map that will be passed along to the <code>IFederatedPlayerInit</code> in the microservice. This can be leveraged to implement custom sign-up flows and even special sign-up cases that provide players a better starting state should your game benefit from such a design.</p>
 <h4 id="microservice-client-code-generation">Microservice Client-Code Generation<a class="headerlink" href="#microservice-client-code-generation" title="Permanent link">¶</a></h4>
-<p>In the previous versions of the <abbr title="software development kit">SDK</abbr>, you could set <code>&lt;GenerateClientCode&gt;true&lt;/GenerateClientCode&gt;</code> in the <code>.csproj</code> of your Microservices in order to generate the client code for them on every rebuild. </p>
+<p>In the previous versions of the <abbr title="software development kit">SDK</abbr>, you could set <code>&lt;GenerateClientCode&gt;true&lt;/GenerateClientCode&gt;</code> in the <code>.csproj</code> of your Microservices in order to generate the client code for them on every rebuild.</p>
 <p>This is no longer possible.</p>
 <p>We made this change for a few reasons:</p>
 <ul>
@@ -9184,7 +9184,7 @@
 <h4 id="climicroservices-upgrade-instructions">CLI/Microservices - Upgrade Instructions<a class="headerlink" href="#climicroservices-upgrade-instructions" title="Permanent link">¶</a></h4>
 <p>If you were using the <code>FederatedGameServer</code> interface, you'll also have to do this.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// The type in the signature was changed to use our AutoGenerated lobby type.</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">// This change aims to make future updates simpler and automatic (since any new fields added to our </span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">// This change aims to make future updates simpler and automatic (since any new fields added to our</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">// backend's lobby structure will become immediately visible via our AutoGenerated API.</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">ServerInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateGameServer</span><span class="p">(</span><span class="n">Api</span><span class="p">.</span><span class="n">Autogenerated</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">Lobby</span><span class="w"> </span><span class="n">lobbyAutoGenerated</span><span class="p">)</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">{</span>
@@ -9204,7 +9204,7 @@
 <ul>
 <li>When creating a custom event by hand, adding a <code>FUserSlot</code> parameter pin to that event can sometimes crash the engine. This also seems to happen with <em>some</em> Unreal types that have custom pins (the same crash happens with <code>bool</code> pins, though less frequently).<ul>
 <li>This does NOT happen if you create the event using the functionality in the <code>CreateEvent</code> node OR by any other means of creating a custom event with all the pins it knows it should have.</li>
-<li>This crash also seems less likely to happen the longer the editor stays open. </li>
+<li>This crash also seems less likely to happen the longer the editor stays open.</li>
 </ul>
 </li>
 </ul>
