@@ -3,7 +3,7 @@
 Beamable provides several types of Blueprint nodes to interact with its systems. These are organized into four main categories: `Low Level`, `Local State`, `Events Bind`, and `Operation`. Each category serves different purposes and complexity levels in your game development workflow. These are all "blueprint syntactic sugar" for the various usage patterns of their backing C++ functions.
 
 !!! note "Navigating to C++ Code"
-    All of our special blueprint nodes link back to the appropriate C++ function via `Right-Click on Node > Go to Definition` or `Double-Click on Node`.
+    All special Blueprint nodes link back to the appropriate C++ function via `Right-Click on Node > Go to Definition` or `Double-Click on Node`.
 
     To make sure this works, you can verify that:
 
@@ -21,7 +21,7 @@ Beamable provides several types of Blueprint nodes to interact with its systems.
 Common use cases include:
 
 - Direct API requests
-- Customized behaviors not captured by our `UBeamRuntimeSubsystem` implementations.
+- Customized behaviors not captured by `UBeamRuntimeSubsystem` implementations.
 
 ## Operation Blueprints
 
@@ -66,22 +66,22 @@ There are two different kinds of `Local State` nodes: a single-output version an
 
 ## Events Bind
 
-Each of our subsystems also has an `Events - Bind` node that exposes all events that subsystem emits for binding.
+Each subsystem also has an `Events - Bind` node that exposes all events that subsystem emits for binding.
 
 ![blueprint-event.png](../../../media/imgs/blueprint-event.png)
 <center>*Sample of a Blueprint Event Node called when the Local State of the Inventory is Updated.*</center>
 
-You can see in the `Details` view that you can configure:
+In the `Details` view you can configure:
 
-- Which events are exposed by the Inventory `UBeamRuntimeSubsystem`.
-- If we expose them as `Delegate` input pins or as `Flow` output execution pins.
-- If we expose the `Unbind` input flow pin.
+- Which events are exposed by the Inventory `UBeamRuntimeSubsystem`
+- Whether to expose them as `Delegate` or `Flow` pins
+- Whether to expose the `Unbind` pin
 
 Common usages of these are in UIs with the following pattern:
 
 ![blueprint-event-bind-unbind.png](../../../media/imgs/blueprint-event-bind-unbind.png)
 
-We also provide `Unbind` nodes for cases where the above pattern isn't possible or desirable. In this node, you can select which events you are unbinding:
+The SDK also provides `Unbind` nodes for cases where the above pattern is not possible or desirable. In this node, you can select which events you are unbinding:
 
 ![blueprint-event-unbind.png](../../../media/imgs/blueprint-event-unbind.png)
 
@@ -91,7 +91,7 @@ We also provide `Unbind` nodes for cases where the above pattern isn't possible 
 - Reconfiguring a part of the UI whenever an inventory item changed
 
 ## Other Utilities
-We also provide additional utility Blueprint nodes such as:
+The SDK also provides additional utility Blueprint nodes such as:
 
 - Direct access to Beamable Subsystems (e.g., Identity, Inventory, Stats)
 - Event nodes for handling various system events

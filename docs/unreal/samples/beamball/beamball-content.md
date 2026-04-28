@@ -2,7 +2,7 @@
 
 ![beamball-content.gif](../../../media/imgs/beamball-content.gif)
 
-In the **Beamball** sample we have a basic implementation of the Store and Inventory Systems. Those are built using the Beamable’s **Store** and **Content** services. The flow combines backend data (listings and offers) with **local DataAssets** that define the visual presentation of each item.
+The **Beamball** sample includes a basic implementation of the Store and Inventory Systems. Those are built using the Beamable’s **Store** and **Content** services. The flow combines backend data (listings and offers) with **local DataAssets** that define the visual presentation of each item.
 
 ## Loading and Displaying Store Items
 
@@ -15,11 +15,11 @@ The Content system in Beamball acts as a bridge between:
 
 This design enables a flexible, dynamic, and content-driven inventory experience. New offers and items can be added without code changes, simply by publishing new Content and updating Store configurations.
 
-When the store screen is opened, the client first updates the player’s store state using the operator **`Operation - Store - Refresh Store`**. After the operation completes successfully, the store data is guaranteed to be up-to-date and available in the local State. Then we can retrieve it with **`Local State - Store - TryGetStoreView`**, ensuring that the UI always reflects the latest backend data.
+When the store screen is opened, the client first updates the player’s store state using the operator **`Operation - Store - Refresh Store`**. After the operation completes successfully, the store data is guaranteed to be up-to-date and available in the local State. Retrieve it with **`Local State - Store - TryGetStoreView`** to ensure the UI always reflects the latest backend data.
 
-The returned `Content Store View` contain the listings and their offers available to the player. Each listing represents a category of items, and contains references to one or more offers that can be purchased. In the Beamball sample, we have four listings, each representing a different skin for the player. Each listing contains a single offer that allows the player to purchase that skin.
+The returned `Content Store View` contain the listings and their offers available to the player. Each listing represents a category of items, and contains references to one or more offers that can be purchased. The Beamball sample has four listings, each representing a different skin for the player. Each listing contains a single offer that allows the player to purchase that skin.
 
-The Listing data is combined with a local **DataAssets** that define how each item should be presented in the UI. In this case, we have a DataAsset for each skin, containing information such as the skin’s name, description, and thumbnail image. The DataAssets are linked to the listings using its path as a Soft Object Reference in the `path` field of the listing.
+The Listing data is combined with a local **DataAssets** that define how each item should be presented in the UI. There is a `DataAsset` for each skin, containing the skin’s name, description, and thumbnail image. The DataAssets are linked to the listings using its path as a Soft Object Reference in the `path` field of the listing.
 
 Each listing is transformed into an **item widget**.  During initialization, the widget receives:
 

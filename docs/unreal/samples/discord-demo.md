@@ -1,10 +1,10 @@
 # Discord Integration Sample
 
-This demo showcases how you can use the **Unreal SDK** and **Beamable Microservices** to integrate with Discord for community management tools.
+This demo showcases how you can use the **Beamable Unreal SDK** and **Beamable Microservices** to integrate with Discord for community management tools.
 
 ## Introduction
 
-Aside from our `BeamableCore` Plugin, here's what the sample contains:
+Aside from the `BeamableCore` Plugin, here's what the sample contains:
 
 - **`BEAMPROJ_DiscordDemo` Unreal Plugin.**: Contains the UE implementation for the client.
 - **`Microservices/services/DiscordDemo` Microservice**: Microservice containing code that implements **IFederatedLogin** and a `DiscordBot` integration.
@@ -20,7 +20,7 @@ To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_DiscordD
       Instructions below assume that you already have the Discord server that you want to use for integration. If that is not the case, be sure to create one first. Make sure that you have the admin access to the Discord server of choice.
 
 ## Setting Discord Application
-Since this sample requires several resources, we do not host it ourselves. So, in order to access the sample we'll go set up a Discord account and set up the sample Discord bot:
+Since this sample requires several resources, it is not pre-hosted. To access it, set up a Discord account and configure the sample Discord bot:
 
 1. Log into your [Discord.dev](https://discord.com/developers/applications) account.
 2. Create an App. Set aside its `AppId` in a notepad for future use.
@@ -36,7 +36,7 @@ Since this sample requires several resources, we do not host it ourselves. So, i
       2. In `Default Install Settings` add `bot` to the `Scopes` field and `Administrator` to the `Permissions` field
       3. Install the App into your Discord server of choice.
 6. Now open the Discord application.
-      1. Open `Settings->Advanced` and enable the `Developer Mode` so that we can copy various Ids by right-clicking things in the UI.
+      1. Open `Settings->Advanced` and enable `Developer Mode` to copy various IDs by right-clicking items in the UI.
       2. Right click on the server icon and select the option `Copy server ID` and set it aside.
       3. Right click on the server icon and select `Settings->Roles`.
       4. Create a `enabled-matchmaking` role.
@@ -88,5 +88,5 @@ This sample is not meant to be used as a template directly, however, its compone
 - Beamable code inside `BEAMPROJ_DiscordDemo` except code inside a `ThirdParty` directory.
 - Content inside the `BEAMPROJ_DiscordDemo` except things inside a `ThirdParty` directory.
 
-## Why don't we provide a client build?
-Because clients must be pointed at your `discord-demo` realm. As such, you'd need to generate the build yourself, which you can do by packaging it normally for any of our supported platforms.
+## Why No Client Build
+Clients must be pointed at your `discord-demo` realm, so you need to generate the build yourself by packaging it for any supported platform.

@@ -6,7 +6,7 @@ This demo showcases how you can use the **Beamable Unreal SDK** in a full game p
 
 ## Introduction
 
-Aside from our `BeamableCore` Plugin, here's what the sample contains:
+Aside from the `BeamableCore` Plugin, here's what the sample contains:
 
 - **`BEAMPROJ_Beamball` Unreal Plugin.**: Contains the UE implementation for the sample client. Key locations in the project are:
       - `Plugins/BEAMPROJ_Beamball/Source/BEAMPROJ_Beamball/Public`: Public headers for gameplay/runtime systems.

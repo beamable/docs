@@ -1,10 +1,10 @@
 # Beamball - Steam Integration
 
-Here we explain how to integrate a Beamable game with Steam using the **Unreal SDK** and **Beamable Microservices**.
+This page explains how to integrate a Beamable game with Steam using the **Beamable Unreal SDK** and **Beamable Microservices**.
 
 ## Introduction
 
-Aside from our `BeamableCore` Plugin, here's what the sample contains:
+Aside from the `BeamableCore` Plugin, here's what the sample contains:
 
 - **`BEAMPROJ_Beamball` Unreal Plugin.**: Contains the UE implementation for the client.
 - **`Microservices/services/BeamballMs` Microservice**: Microservice containing code that implements **IFederatedLogin**
@@ -21,7 +21,7 @@ To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_Beamball
 
 ## Configuring the Sample as a Steam Application
 
-Since this sample requires several resources, we do not host it ourselves. So, to access the sample we'll go set up a Steam account and setup the sample:
+Since this sample requires several resources, it is not pre-hosted. To access it, set up a Steam account and configure the sample:
 
 1. Log into your [Steam](https://partner.steamgames.com/apps) developer account.
 2. Go to your App and set aside its `AppId`.
@@ -111,8 +111,8 @@ you to copy and use in your own project. Here's what these are:
 - Beamable code inside `BEAMPROJ_Beamball/**/PlatformIntegrations` except code inside a `ThirdParty` directory.
 - Content inside the `BEAMPROJ_Beamball` except things inside a `ThirdParty` directory.
 
-## Why don't we provide a client build?
-Because clients must be pointed at your `steam-demo` realm. As such, you'd need to generate the build yourself, which you can do by packaging it normally for any of our supported platforms.
+## Why No Client Build
+Clients must be pointed at your `steam-demo` realm, so you need to generate the build yourself by packaging it for any supported platform.
 
 ---
 

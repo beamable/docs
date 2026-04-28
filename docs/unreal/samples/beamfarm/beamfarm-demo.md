@@ -4,7 +4,7 @@ This demo showcases how you can use the **Beamable Unreal SDK** in a mobile game
 
 ## Introduction
 
-Aside from our `BeamableCore` Plugin, here's what the sample contains:
+Aside from the `BeamableCore` Plugin, here's what the sample contains:
 
 - **`BEAMPROJ_BeamFarm` Unreal Plugin.**: Contains the UE implementation for the sample client. Key locations in the project are:
     - `Plugins/BEAMPROJ_BeamFarm/Source/BEAMPROJ_BeamFarm/Public`: Public headers for runtime systems, including sign-in interfaces.

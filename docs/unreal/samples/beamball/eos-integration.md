@@ -1,10 +1,10 @@
 # Beamball - Epic Online Services Integration
 
-Here we explain how to integrate a Beamable game with Epic Online Services (EOS) using the **Unreal SDK** and **Beamable Microservices**.
+This page explains how to integrate a Beamable game with Epic Online Services (EOS) using the **Beamable Unreal SDK** and **Beamable Microservices**.
 
 ## Introduction
 
-Aside from our `BeamableCore` Plugin, here's what the sample contains:
+Aside from the `BeamableCore` Plugin, here's what the sample contains:
 
 - **`BEAMPROJ_Beamball` Unreal Plugin.**: Contains the UE implementation for the client.
 - **`Microservices/services/BeamballMs` Microservice**: Microservice containing code that implements **IFederatedLogin**
@@ -21,7 +21,7 @@ To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_Beamball
 
 ## Configuring the Sample as an Epic Application
 
-Since this sample requires several resources, we do not host it ourselves. So, to access the sample we'll set up an Epic Games account and configure the sample:
+Since this sample requires several resources, it is not pre-hosted. To access it, set up an Epic Games account and configure the sample:
 
 1. Log into your [Epic Games Developer Portal](https://dev.epicgames.com/portal).
 2. Create or select your application.
@@ -138,6 +138,6 @@ This sample is NOT a template you can start your own repository from. However, B
 - Beamable code inside `BEAMPROJ_Beamball/**/PlatformIntegrations` except code inside a `ThirdParty` directory.
 - Content inside the `BEAMPROJ_Beamball` except things inside a `ThirdParty` directory.
 
-## Why don't we provide a client build?
+## Why No Client Build
 
-Because clients must be pointed at your realm/Epic application. As such, you'd need to generate the build yourself, which you can do by packaging it for any of our supported platforms.
+Clients must be pointed at your realm/Epic application, so you need to generate the build yourself by packaging it for any supported platform.

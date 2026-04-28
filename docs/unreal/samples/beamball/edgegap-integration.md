@@ -52,7 +52,7 @@ Your microservices can access the EdgeGap configuration from the Realm Config at
 2. Make requests to the EdgeGap API with these credentials
 3. Store the resulting server connection details in the lobby's global data
 
-You can check the example of this in our [GitHub page](https://github.com/beamable/UnrealSDK/blob/main/Microservices/services/BeamballMs/BeamballMs.cs) for that sample.
+You can find an example of this in the [GitHub repository](https://github.com/beamable/UnrealSDK/blob/main/Microservices/services/BeamballMs/BeamballMs.cs).
 
 
 ## Additional Resources
