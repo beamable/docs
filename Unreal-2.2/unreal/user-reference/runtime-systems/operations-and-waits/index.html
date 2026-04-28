@@ -10580,7 +10580,7 @@
 <p><strong>Runtime Subsystem Implementation</strong>: implementations of virtual functions in one of our SDK's base classes such as <code>UBeamRuntimeSubsystem</code>.</p>
 <ol>
 <li>This is for when you wish to make a system that ties into the Beamable life-cycle like our own <code>UBeamRuntimeSubsystem</code> implementations do.</li>
-<li>This is rarely needed, but in unique custom use-cases it's likely to be the best way to accomplish your goals.<br><br></li>
+<li>This is rarely needed, but in unique custom use-cases it is likely to be the best way to accomplish your goals.<br><br></li>
 </ol>
 </li>
 <li>
@@ -10636,7 +10636,7 @@
 <a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">MyMsApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">GetEngineSubsystem</span><span class="o">&lt;</span><span class="n">UMyMsApi</span><span class="o">&gt;</span><span class="p">();</span>
 <a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">MyMsReq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UMyMsRequest</span><span class="o">::</span><span class="n">Make</span><span class="p">(</span><span class="n">GetTransientPackage</span><span class="p">(),</span><span class="w"> </span><span class="p">{});</span>
 <a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="c1">// Create the handler for the request capturing the "Op" it's a part of.</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="c1">// Create the handler for the request capturing the "Op" it is a part of.</span>
 <a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">MyMsHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FOnMyMsFullResponse</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">([</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">Op</span><span class="p">](</span><span class="n">FMyMsFullResponse</span><span class="w"> </span><span class="n">Resp</span><span class="p">)</span>
 <a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">    </span><span class="p">{</span>
 <a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">        </span><span class="c1">// If we timedout and are retrying the request, do nothing.</span>
@@ -10671,7 +10671,7 @@
 <p>The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style API just won't work with BPs. We wanted to create an underlying system that provided the same functionality while retaining BP compatibility even if it lost the template-based interface. The result was this <code>Operation</code> system.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>In using it inside our own SDK to develop our Stateful <code>UBeamRuntimeSubsystems</code>, we found that we didn't miss the template aspect or its chaining aspect of <code>Do().Then()</code>. However, the chaining might be something we eventually look into. Perhaps adding the ability to chain requests like these as "syntactic sugar". But it's highly unlikely we'll do anything with templates at the Operation-layer, as we do not want to lose the BP-Compatibility.</p>
+<p>In using it inside our own SDK to develop our Stateful <code>UBeamRuntimeSubsystems</code>, we found that we didn't miss the template aspect or its chaining aspect of <code>Do().Then()</code>. However, the chaining might be something we eventually look into. Perhaps adding the ability to chain requests like these as "syntactic sugar". But it is highly unlikely we'll do anything with templates at the Operation-layer, as we do not want to lose the BP-Compatibility.</p>
 </div>
 <h2 id="waits">Waits<a class="headerlink" href="#waits" title="Permanent link">¶</a></h2>
 <p>This is equivalent to <code>Promise.All</code> or <code>Task.WhenAll</code>, keeping with our promise analogy. It can be used to wait on a set of operations and/or requests executed concurrently whose errors and successes are handled all at once. To use this, call <code>UBeamRequestTracker::[CPP_]WaitAll</code>.</p>

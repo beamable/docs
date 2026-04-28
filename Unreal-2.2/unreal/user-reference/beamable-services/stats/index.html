@@ -10313,7 +10313,7 @@
 <p>In order to write to a <code>client</code>/<code>public</code> stat from a client, we use the <code>Set Stat Operation</code> for individual stat changes. For batching multiple stat changes, use the <code>TryCreateUpdateCommand</code> to begin building a set of stat changes for the given <code>UserSlot</code>, which are later committed via the <code>Commit Stats Operation</code>.</p>
 <p>These operations are backed by the <code>UBeamRuntimeSubsystem</code>. This is how it looks in <a href="../../runtime-systems/blueprints/">Blueprints</a>:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/stats-create-stats.png" data-desc-position="bottom"><img alt="stats-create-stats.png" src="../../../../media/imgs/stats-create-stats.png"></a></p>
-<p>You can check if it's working in the Beamable Portal:</p>
+<p>You can check if it is working in the Beamable Portal:</p>
 <ul>
 <li>Copy the <code>Gamertag/UserId</code> from the Unreal Engine logs.</li>
 <li>Select <code>Open Portal</code> in Beamable window.</li>
