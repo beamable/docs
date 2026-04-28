@@ -236,7 +236,7 @@ SomeSystem->Hook.Add(F____::CreateLambda([this]()
     const auto MyMsApi = GEngine->GetEngineSubsystem<UMyMsApi>();
     const auto MyMsReq = UMyMsRequest::Make(GetTransientPackage(), {});
 
-	// Create the handler for the request capturing the "Op" it's a part of.
+	// Create the handler for the request capturing the "Op" it is a part of.
     const auto MyMsHandler = FOnMyMsFullResponse::CreateLambda([this, Op](FMyMsFullResponse Resp)
     {
 		// If we timedout and are retrying the request, do nothing.
