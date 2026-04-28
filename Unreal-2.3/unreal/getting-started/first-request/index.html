@@ -8810,7 +8810,7 @@
 
 
 <h1 id="making-your-first-request">Making your First Request<a class="headerlink" href="#making-your-first-request" title="Permanent link">¶</a></h1>
-<p><strong>Here we will guide you through the process of loading the Beamable Window in your project and creating a simple request to retrieve user information.</strong></p>
+<p><strong>This page walks you through loading the Beamable Window in your project and making a simple request to retrieve user information.</strong></p>
 <div class="admonition note notice">
 <p class="admonition-title">Note</p>
 <p>This tutorial assumes you have already set up your Beamable account and integrated the Beamable <abbr title="software development kit">SDK</abbr> into your Unreal project. For instructions on doing so, see the <a href="../setup/">Setup Guide</a>.</p>
@@ -8842,29 +8842,29 @@
 </ul>
 </div>
 <h2 id="your-first-blueprint-request">Your First Blueprint Request<a class="headerlink" href="#your-first-blueprint-request" title="Permanent link">¶</a></h2>
-<p>Now that you are familiar with the Beamable Window, you are ready to make your first Beamable request. We'll do it via Blueprint, but you can do the exact same flow in C++ by making these calls in your Project's <code>GameMode</code> class's <code>BeginPlay</code> function.</p>
+<p>Now that you are familiar with the Beamable Window, you are ready to make your first Beamable request. This guide uses Blueprint, but the same flow works in C++ via calls in your Project's <code>GameMode</code> class's <code>BeginPlay</code> function.</p>
 <p>To get started, open your Level Blueprint and add the following nodes:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/intro-init-sdk-with-login-frictionless.png" data-desc-position="bottom"><img alt="intro-init-sdk-with-login-frictionless" src="../../../media/imgs/intro-init-sdk-with-login-frictionless.png"></a></p>
 <h3 id="whats-going-on-above">What's going on Above:<a class="headerlink" href="#whats-going-on-above" title="Permanent link">¶</a></h3>
-<p>The <code>BeamRuntime</code> is a <code>GameInstanceSubsystem</code> that is responsible for controlling the <abbr title="software development kit">SDK</abbr>'s lifecycle and player authentication. Calling this function will initialize the <abbr title="software development kit">SDK</abbr>. You can find a deep explanation about the Beamable Runtime in our <a href="../../user-reference/overview/">Technical Overview</a> page.</p>
-<p>Once the <abbr title="software development kit">SDK</abbr> is initialized, we can Login a guest account automatically. To do that, we're using the <code>Login - Frictionless</code> Operation node that will login a guest account into the <code>Player0</code> user slot.</p>
+<p>The <code>BeamRuntime</code> is a <code>GameInstanceSubsystem</code> that is responsible for controlling the <abbr title="software development kit">SDK</abbr>'s lifecycle and player authentication. Calling this function will initialize the <abbr title="software development kit">SDK</abbr>. The <a href="../../user-reference/overview/">Technical Overview</a> covers the Beamable Runtime in depth.</p>
+<p>Once the <abbr title="software development kit">SDK</abbr> is initialized, you can log in a guest account automatically. To do that, use the <code>Login - Frictionless</code> Operation node, which logs a guest account into the <code>Player0</code> user slot.</p>
 <p>Operation nodes are "purple" Beamable nodes that encapsulate many complex functionalities in a easy-to-use fashion. You can read more about the Operation Nodes <a href="../../user-reference/runtime-systems/blueprints/">Here</a>.</p>
-<p>In the Frictionless Login node, we have three flow pins to handle the result of our login operation:</p>
+<p>The Frictionless Login node has three flow pins to handle the result of the login operation:</p>
 <ul>
 <li><strong>On Success:</strong> executes if the login completed successfully.</li>
-<li><strong>On Error:</strong> executes if any error happens during our login flow.</li>
+<li><strong>On Error:</strong> executes if any error occurs during the Beamable login flow.</li>
 <li><strong>On Cancelled:</strong> used in <em>very special cases</em> and can mostly be ignored for now.</li>
 </ul>
 <p>And That's it! If this operation succeeds, you'll have a <strong>Guest Account</strong> signed-into the <code>Player0</code> user slot.</p>
 <p>With the SDKs default configuration and the above setup, you can enter <abbr title="play in editor">PIE</abbr> (Play-In-Editor) and should see several requests' responses being written to your Output Log window. After you see the final <code>GetMe</code> request, you can exit <abbr title="play in editor">PIE</abbr> knowing you've made your very first request to Beamable. Congratulations!</p>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
 <p>Now that you've made your first Beamable Request, you can take a look at the <a href="../../user-reference/overview/">Technical Overview</a> page to understand more about how the <abbr title="software development kit">SDK</abbr> is structured and identify the best path to using it in your game.</p>
-<p>Also, take a look at our <a href="../../samples/intro/">Samples</a>, they are a valuable source of practical information and good general reference.</p>
+<p>The <a href="../../samples/intro/">Samples</a> are also a valuable source of practical information and general reference.</p>
 <h2 id="issues-and-reporting">Issues and Reporting<a class="headerlink" href="#issues-and-reporting" title="Permanent link">¶</a></h2>
 <ul>
-<li>We highly recommend using verbose logging <code>log Category Verbose</code> when encountering an issue stemming from our <abbr title="software development kit">SDK</abbr> (Log Categories can be found in <code>BeambleCore/BeamLogging.h</code> file).</li>
-<li>This verbose logging will print <strong><em>a lot more</em></strong> information about requests being made and what the <abbr title="software development kit">SDK</abbr> is doing. Its meant to aid us in diagnosing issues that you may encounter when using the <abbr title="software development kit">SDK</abbr>, NOT for production use. To turn it off in the same editor session, just run <code>log Category Display</code> in the editor console.</li>
-<li>When reporting an issue to us, try to reproduce the issue with the logs of the relevant systems set to Verbose and attach them to your report. It usually helps us A LOT.</li>
+<li>For issues stemming from the <abbr title="software development kit">SDK</abbr>, enable verbose logging with <code>log Category Verbose</code>. Log categories are defined in <code>BeamableCore/BeamLogging.h</code>.</li>
+<li>Verbose logging prints significantly more information about requests and <abbr title="software development kit">SDK</abbr> activity. It is intended for diagnostics only, not production use. To disable it in the same editor session, run <code>log Category Display</code> in the editor console.</li>
+<li>When reporting an issue, reproduce it with the relevant log categories set to Verbose and attach the output to your report.</li>
 <li>To contact us for support or suggestions, head to our <a href="https://beamable.com/support">Support Portal</a>.</li>
 </ul>
 

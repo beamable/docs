@@ -8859,7 +8859,7 @@
 <p>Beamable provides several types of Blueprint nodes to interact with its systems. These are organized into four main categories: <code>Low Level</code>, <code>Local State</code>, <code>Events Bind</code>, and <code>Operation</code>. Each category serves different purposes and complexity levels in your game development workflow. These are all "blueprint syntactic sugar" for the various usage patterns of their backing C++ functions.</p>
 <div class="admonition note">
 <p class="admonition-title">Navigating to C++ Code</p>
-<p>All of our special blueprint nodes link back to the appropriate C++ function via <code>Right-Click on Node &gt; Go to Definition</code> or <code>Double-Click on Node</code>.</p>
+<p>All special Blueprint nodes link back to the appropriate C++ function via <code>Right-Click on Node &gt; Go to Definition</code> or <code>Double-Click on Node</code>.</p>
 <p>To make sure this works, you can verify that:</p>
 <ul>
 <li>
@@ -8876,7 +8876,7 @@
 <p>Common use cases include:</p>
 <ul>
 <li>Direct <abbr title="application programming interface">API</abbr> requests</li>
-<li>Customized behaviors not captured by our <code>UBeamRuntimeSubsystem</code> implementations.</li>
+<li>Customized behaviors not captured by <code>UBeamRuntimeSubsystem</code> implementations.</li>
 </ul>
 <h2 id="operation-blueprints">Operation Blueprints<a class="headerlink" href="#operation-blueprints" title="Permanent link">¶</a></h2>
 <p><code>Operations</code> provide high-level Blueprint nodes for asynchronous communication with Beamable services. It's designed to simplify common game operations. These nodes combine multiple low-level operations into single, easy-to-use nodes that handle complex workflows automatically. They're perfect for rapid development and standard game features.</p>
@@ -8914,19 +8914,19 @@
 <li>Access all local cached data of the Beamable <code>UBeamRuntimeSubsystem</code> implementations</li>
 </ul>
 <h2 id="events-bind">Events Bind<a class="headerlink" href="#events-bind" title="Permanent link">¶</a></h2>
-<p>Each of our subsystems also has an <code>Events - Bind</code> node that exposes all events that subsystem emits for binding.</p>
+<p>Each subsystem also has an <code>Events - Bind</code> node that exposes all events that subsystem emits for binding.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprint-event.png" data-desc-position="bottom"><img alt="blueprint-event.png" src="../../../../media/imgs/blueprint-event.png"></a></p>
 <center>*Sample of a Blueprint Event Node called when the Local State of the Inventory is Updated.*</center>
 
-<p>You can see in the <code>Details</code> view that you can configure:</p>
+<p>In the <code>Details</code> view you can configure:</p>
 <ul>
-<li>Which events are exposed by the Inventory <code>UBeamRuntimeSubsystem</code>.</li>
-<li>If we expose them as <code>Delegate</code> input pins or as <code>Flow</code> output execution pins.</li>
-<li>If we expose the <code>Unbind</code> input flow pin.</li>
+<li>Which events are exposed by the Inventory <code>UBeamRuntimeSubsystem</code></li>
+<li>Whether to expose them as <code>Delegate</code> or <code>Flow</code> pins</li>
+<li>Whether to expose the <code>Unbind</code> pin</li>
 </ul>
 <p>Common usages of these are in UIs with the following pattern:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprint-event-bind-unbind.png" data-desc-position="bottom"><img alt="blueprint-event-bind-unbind.png" src="../../../../media/imgs/blueprint-event-bind-unbind.png"></a></p>
-<p>We also provide <code>Unbind</code> nodes for cases where the above pattern isn't possible or desirable. In this node, you can select which events you are unbinding:</p>
+<p>The <abbr title="software development kit">SDK</abbr> also provides <code>Unbind</code> nodes for cases where the above pattern is not possible or desirable. In this node, you can select which events you are unbinding:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprint-event-unbind.png" data-desc-position="bottom"><img alt="blueprint-event-unbind.png" src="../../../../media/imgs/blueprint-event-unbind.png"></a></p>
 <p><strong>Common Use Cases:</strong></p>
 <ul>
@@ -8934,7 +8934,7 @@
 <li>Reconfiguring a part of the UI whenever an inventory item changed</li>
 </ul>
 <h2 id="other-utilities">Other Utilities<a class="headerlink" href="#other-utilities" title="Permanent link">¶</a></h2>
-<p>We also provide additional utility Blueprint nodes such as:</p>
+<p>The <abbr title="software development kit">SDK</abbr> also provides additional utility Blueprint nodes such as:</p>
 <ul>
 <li>Direct access to Beamable Subsystems (e.g., Identity, Inventory, Stats)</li>
 <li>Event nodes for handling various system events</li>

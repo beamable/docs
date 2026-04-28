@@ -8412,10 +8412,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-dont-we-provide-a-client-build" class="md-nav__link">
+  <a href="#why-no-client-build" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why don't we provide a client build?
+        Why No Client Build
       
     </span>
   </a>
@@ -8886,10 +8886,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-dont-we-provide-a-client-build" class="md-nav__link">
+  <a href="#why-no-client-build" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why don't we provide a client build?
+        Why No Client Build
       
     </span>
   </a>
@@ -8914,9 +8914,9 @@
 
 
 <h1 id="beamball-epic-online-services-integration">Beamball - Epic Online Services Integration<a class="headerlink" href="#beamball-epic-online-services-integration" title="Permanent link">¶</a></h1>
-<p>Here we explain how to integrate a Beamable game with Epic Online Services (EOS) using the <strong>Unreal <abbr title="software development kit">SDK</abbr></strong> and <strong>Beamable Microservices</strong>.</p>
+<p>This page explains how to integrate a Beamable game with Epic Online Services (EOS) using the <strong>Beamable Unreal <abbr title="software development kit">SDK</abbr></strong> and <strong>Beamable Microservices</strong>.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
-<p>Aside from our <code>BeamableCore</code> Plugin, here's what the sample contains:</p>
+<p>Aside from the <code>BeamableCore</code> Plugin, here's what the sample contains:</p>
 <ul>
 <li><strong><code>BEAMPROJ_Beamball</code> Unreal Plugin.</strong>: Contains the UE implementation for the client.</li>
 <li><strong><code>Microservices/services/BeamballMs</code> Microservice</strong>: Microservice containing code that implements <strong>IFederatedLogin</strong></li>
@@ -8932,7 +8932,7 @@
 <p>Instructions below assume that you already have the Epic application created in Epic's Developer portal. If that is not the case, be sure to create one first.</p>
 </div>
 <h2 id="configuring-the-sample-as-an-epic-application">Configuring the Sample as an Epic Application<a class="headerlink" href="#configuring-the-sample-as-an-epic-application" title="Permanent link">¶</a></h2>
-<p>Since this sample requires several resources, we do not host it ourselves. So, to access the sample we'll set up an Epic Games account and configure the sample:</p>
+<p>Since this sample requires several resources, it is not pre-hosted. To access it, set up an Epic Games account and configure the sample:</p>
 <ol>
 <li>Log into your <a href="https://dev.epicgames.com/portal">Epic Games Developer Portal</a>.</li>
 <li>Create or select your application.</li>
@@ -9041,8 +9041,8 @@
 <li>Beamable code inside <code>BEAMPROJ_Beamball/**/PlatformIntegrations</code> except code inside a <code>ThirdParty</code> directory.</li>
 <li>Content inside the <code>BEAMPROJ_Beamball</code> except things inside a <code>ThirdParty</code> directory.</li>
 </ul>
-<h2 id="why-dont-we-provide-a-client-build">Why don't we provide a client build?<a class="headerlink" href="#why-dont-we-provide-a-client-build" title="Permanent link">¶</a></h2>
-<p>Because clients must be pointed at your realm/Epic application. As such, you'd need to generate the build yourself, which you can do by packaging it for any of our supported platforms.</p>
+<h2 id="why-no-client-build">Why No Client Build<a class="headerlink" href="#why-no-client-build" title="Permanent link">¶</a></h2>
+<p>Clients must be pointed at your realm/Epic application, so you need to generate the build yourself by packaging it for any supported platform.</p>
 
 
 
