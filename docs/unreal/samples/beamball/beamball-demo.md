@@ -39,7 +39,7 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
 
 ## Running from the Main Menu
 1. Open the Unreal editor.
-2. Open the `L_Beamball_MainScreen` Level if it's not opened yet.
+2. Open the `L_Beamball_MainScreen` Level if it is not opened yet.
       1. You can find it inside the `BEAMPROJ_Beamball Content`  folder.
       2. If you can't see plugin content in your content browser, you can change the settings of the UE `Content Browser` to display it.
 3. Go to the `Beamable -> Microservice` window.
@@ -51,7 +51,7 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
 
 ### Running from the Gameplay Scene
 1. Open the Unreal editor.
-2. Open the `L_Beamball_Gameplay` Level if it's not opened yet.
+2. Open the `L_Beamball_Gameplay` Level if it is not opened yet.
       1. You can find it inside the `BEAMPROJ_Beamball Content`  folder.
       2. If you can't see plugin content in your content browser, you can change the settings of the UE `Content Browser` to display it.
 3. Go to the `Beamable -> PIE Settings -> Player Manager` window.

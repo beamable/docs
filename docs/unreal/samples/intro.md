@@ -42,4 +42,4 @@ To make this work as should we keep the `Config` and `.beamable` folders in sync
 
 - Our custom `Target.cs` code that will make the `Config` and `.beamable` folders at the root level of the repo be exact copies of the folders inside the `Overrides` directory of each `BEAMPROJ_` folder. In other words, the contents of those folders at the root level is defined by the selected `BEAMPROJ`.
 - An editor subsystem called `BeamProjSync` that, while the editor is running, file-watches those directories and copies changes made over to the appropriate `BEAMPROJ_` `Overrides` folder.
-- Those implementations are only related to the specificity of this sample configuration and it's not related to the samples' content themselves.
+- Those implementations are only related to the specificity of this sample configuration and it is not related to the samples' content themselves.

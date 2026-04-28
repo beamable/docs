@@ -332,7 +332,7 @@ Consider making 'ContentId' a readonly field. Otherwise the value may be inconsi
 ```
 
 **Solutions**:
-- Make the static field `readonly` if it's intended to be constant after initialization.
+- Make the static field `readonly` if it is intended to be constant after initialization.
   **Example of Solved Code**:
     ```csharp
     public partial class MyMicroservice : Microservice

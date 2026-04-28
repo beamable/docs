@@ -16,7 +16,7 @@ The SDK's Plugin is divided into several modules:
 
 For any technical lead making system-level decisions, effective use of Beamable and the Beamable Unreal SDK requires you to understand a few core concepts. So, after reading this document, you'll want to start here:
 
-- [**Content**](beamable-services/content.md): how you define your game's configuration -- balancing data, currency and item definitions, etc. Most of our systems depend on Content, so its a good place to start.
+- [**Content**](beamable-services/content.md): how you define your game's configuration -- balancing data, currency and item definitions, etc. Most of our systems depend on Content, so it is a good place to start.
 - [**Identity**](beamable-services/identity.md): the various ways you can manage a player's account and login flows.
 - [**Microservices**](microservices/microservices.md): our version of cloud-code -- but also much more.
 - [**Federation**](federation/federation.md): effectively exposed hooks in our backend's various features that you can hook into with custom behavior. You can leverage this for integrating with third-party authentication, initial player state and a lot more.
