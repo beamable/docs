@@ -72,7 +72,7 @@ You can check out our [Beamball Demo](../../samples/beamball/beamball-demo.md) f
 ## Developing with your Local Microservice and PIE
 For the In-Band calls (**Provision Game Server for Lobby** and **BeamPIE's PIE Lobby**), as long as your local microservice is running, your PIE clients will invoke it and that's that.
 
-When testing this from the actual matchmaking queue (as opposed to using BeamPIE to start the gameplay level directly), you'll need to set a content-based filter for which queues you want your locally running microservice to handle when it's running.
+When testing this from the actual matchmaking queue (as opposed to using BeamPIE to start the gameplay level directly), you'll need to set a content-based filter for which queues you want your locally running microservice to handle when it is running.
 
 You can do this via the [Federation tab of the Microservice](federation.md#workflows-for-developing-federations) window or by using the following Beam CLI commands:
 ``` sh

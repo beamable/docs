@@ -88,7 +88,7 @@ The Process to upgrade the SDK is similar to the initial setup. The main differe
 
 1. Download the latest [tagged release version](https://github.com/beamable/UnrealSDK/releases).
 2. Run through the steps in the [Setup SDK](#setup-the-beamable-sdk-in-your-project) section.
-3. If you made any custom changes to the SDK, leverage Git to re-apply them as needed. When making custom changes to the SDK, it's beneficial to flag them with a comment to make searching for them easier in this step.
+3. If you made any custom changes to the SDK, leverage Git to re-apply them as needed. When making custom changes to the SDK, it is beneficial to flag them with a comment to make searching for them easier in this step.
 4. Fix any compilation errors that happened due to breaking changes. Don't forget to fix any blueprints as well, after you get the editor to compile.
 5. Run `dotnet tool restore` from your project root.
 6. Verify that the CLI was updated to the proper version by running `dotnet beam version` and seeing that it matches the version in `E:/Path/To/UnrealSDK/.config/dotnet-tools.json`.

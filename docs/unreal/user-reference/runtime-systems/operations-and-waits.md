@@ -190,7 +190,7 @@ If a Delegate or Virtual Function returns one or more `FBeamOperationHandle`, yo
 
 2. **Runtime Subsystem Implementation**: implementations of virtual functions in one of our SDK's base classes such as `UBeamRuntimeSubsystem`.
 	1. This is for when you wish to make a system that ties into the Beamable life-cycle like our own `UBeamRuntimeSubsystem` implementations do.
-	2. This is rarely needed, but in unique custom use-cases it's likely to be the best way to accomplish your goals.<br><br>
+	2. This is rarely needed, but in unique custom use-cases it is likely to be the best way to accomplish your goals.<br><br>
 
 3. **Hooks:** bind into delegates created via `DEFINE_BEAM_OPERATION_HOOK`.
 	1. We don't use Hooks ourselves IN ANY CIRCUMSTANCES and leave these as "game-maker-only extensions".
@@ -272,7 +272,7 @@ SomeSystem->Hook.Add(F____::CreateLambda([this]()
 The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style API just won't work with BPs. We wanted to create an underlying system that provided the same functionality while retaining BP compatibility even if it lost the template-based interface. The result was this `Operation` system.
 
 !!! info
-	In using it inside our own SDK to develop our Stateful `UBeamRuntimeSubsystems`, we found that we didn't miss the template aspect or its chaining aspect of `Do().Then()`. However, the chaining might be something we eventually look into. Perhaps adding the ability to chain requests like these as "syntactic sugar". But it's highly unlikely we'll do anything with templates at the Operation-layer, as we do not want to lose the BP-Compatibility.
+	In using it inside our own SDK to develop our Stateful `UBeamRuntimeSubsystems`, we found that we didn't miss the template aspect or its chaining aspect of `Do().Then()`. However, the chaining might be something we eventually look into. Perhaps adding the ability to chain requests like these as "syntactic sugar". But it is highly unlikely we'll do anything with templates at the Operation-layer, as we do not want to lose the BP-Compatibility.
 
 ## Waits
 This is equivalent to `Promise.All` or `Task.WhenAll`, keeping with our promise analogy. It can be used to wait on a set of operations and/or requests executed concurrently whose errors and successes are handled all at once. To use this, call `UBeamRequestTracker::[CPP_]WaitAll`.

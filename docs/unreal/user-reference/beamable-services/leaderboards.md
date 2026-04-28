@@ -89,7 +89,7 @@ With our SDK it is possible to create leaderboards like in [Brawl Stars](https:/
 
 ![leaderboards-blueprint-player-rank.png](../../../media/imgs/leaderboards-blueprint-player-rank.png)
 
-Using the blue print shown above it's possible to get the player rank and show it as separate
+Using the blue print shown above it is possible to get the player rank and show it as separate
 
 ### Leaderboard Pagination
 

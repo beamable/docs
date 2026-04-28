@@ -25,7 +25,7 @@ These operations are backed by the `UBeamRuntimeSubsystem`. This is how it looks
 
 ![stats-create-stats.png](../../../media/imgs/stats-create-stats.png)
 
-You can check if it's working in the Beamable Portal:
+You can check if it is working in the Beamable Portal:
 
 - Copy the `Gamertag/UserId` from the Unreal Engine logs.
 - Select `Open Portal` in Beamable window.
