@@ -1,13 +1,13 @@
 ## Operations & Blueprints
 
-To improve Blueprint usability when working with **Operations**, we introduced a built-in way to manage **dependencies between multiple operations**.
+To improve Blueprint usability when working with **Operations**, the SDK provides a built-in way to manage **dependencies between multiple operations**.
 This approach removes the need for extra “wait” nodes and simplifies execution flow.
 
 ---
 
 ## The Wait Node
 
-Our solution provides a custom **UK2Node Wait** node that can wait on asynchronous operations, events, and similar workflows.
+The SDK provides a custom **UK2Node Wait** node that can wait on asynchronous operations, events, and similar workflows.
 
 This node enables a clean and explicit pattern where:
 - You wait for an async operation to finish

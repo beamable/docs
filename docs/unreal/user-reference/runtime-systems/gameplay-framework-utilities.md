@@ -1,6 +1,6 @@
 # Gameplay Framework Utilities
 
-To streamline the integration between the Beamable SDK and the Unreal Engine Gameplay Framework, we've provided a set of utilities and helper functions. These tools are designed to simplify and accelerate your workflow when combining both systems.
+To streamline the integration between the Beamable SDK and the Unreal Engine Gameplay Framework, the SDK provides a set of utilities and helper functions designed to simplify and accelerate your workflow when combining both systems.
 
 Beamable introduces the concept of [User Slots](user-slots.md), which are used to manage named local players. On the Unreal side, **local players** refers to users who are directly connected to the game instance, while **remote players** are those connected via the network.
 
@@ -8,7 +8,7 @@ To help bridge the gap between these two models, Beamable automatically handles 
 
 ## Blueprint Utilities
 
-We provide Blueprint-accessible utilities that allow you to retrieve the **User Slot** or **Gamer Tag** from Unreal’s core gameplay classes such as `PlayerController` and `PlayerState`.
+The SDK provides Blueprint-accessible utilities for retrieving the **User Slot** or **Gamer Tag** from Unreal’s core gameplay classes such as `PlayerController` and `PlayerState`.
 
 ### PlayerController Utility
 
