@@ -43,6 +43,8 @@ public class MatchResultEvent : CoreEvent
 }
 ```
 
+Keep the number of distinct categories small - a handful such as `"gameplay"`, `"funnel"`, and `"monetization"` is typical. Event names within a category can be more numerous; a single `"gameplay"` category might contain many sibling event types beyond just `"match_result"`.
+
 Then build and send the event from a callable method using `Services.Analytics`:
 
 ```csharp
