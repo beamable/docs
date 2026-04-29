@@ -8,7 +8,7 @@ They wrap concurrent *operations* (mostly HTTP Requests) under a `FBeamOperation
 
 > When you want to expose a single function that makes a bunch of async operations and emits events in the Game Thread, ultimately handling success/failure of the entire sequence of operations, use an `Operation`.
 
-We provide a lot of Operations inside our `UBeamRuntimeSubsystem` implementations, covering most basic use-cases. However, understanding how to create your own operations enables you to add behavior to last-mile hooks we expose.
+The SDK provides many Operations inside the `UBeamRuntimeSubsystem` implementations, covering most basic use cases. Understanding how to create your own operations enables you to add behavior to last-mile hooks the SDK exposes.
 
 A couple of examples:
 
@@ -16,12 +16,12 @@ A couple of examples:
 - "I want to go talk to a microservice to validate that you can actually join this matchmaking queue."
 
 !!! warning
-	While possible, we don't recommend creating the actual operations as blueprints. It's OK to do so for a quick experimentation session; but shipping with it is *not recommended*.
-	**Calling *Operations* that are written in C++ is the primary way we recommend Blueprints to interact with the Beamable SDK. We even have [special nodes](blueprints.md) for it.**
+	While possible, avoid creating Operations as Blueprints. It's OK to do so for a quick experimentation session; but shipping with it is *not recommended*.
+	**Calling *Operations* that are written in C++ is the primary way for Blueprints to interact with the Beamable SDK. The SDK even includes [special nodes](blueprints.md) for it.**
 
 ## Operation Lifecycle
 
-Every Operation has an `int64` id called the `FBeamOperationHandle` managed by the `UBeamRequestTracker`, a `UEngineSubsystem`. We use it to track the operation's state, its emitted events, its current status and which of Beamable's requests are part of it.
+Every Operation has an `int64` id called the `FBeamOperationHandle` managed by the `UBeamRequestTracker`, a `UEngineSubsystem`. The SDK uses it to track the operation's state, its emitted events, its current status and which of Beamable's requests are part of it.
 
 The lifecycle of an operation goes as follows:
 
@@ -33,12 +33,12 @@ The lifecycle of an operation goes as follows:
 - **Operation Hooks**: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work.
 
 ## Writing and Exposing your Own Regular Operations
-We expose all of our main SDK operations in both BP and CPP flavors. If you'd like to do the same thing, this section is for you. To learn about writing hook in C++, review the next section.
+The SDK exposes all main operations in both BP and C++ flavors. If you'd like to do the same thing, this section is for you. To learn about writing hooks in C++, review the next section.
 
 **The primary trade-off:**
 
 - BP-Compatible versions do not allow for lambda binding and variable capturing.
-- The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, we decided on supporting both flavors.
+- The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, the SDK supports both flavors.
 
 In order to easily support both flavors, the snippet below explains how you should write the actual operation logic such that it can be shared for both CPP and BP versions.
 
@@ -46,10 +46,10 @@ In order to easily support both flavors, the snippet below explains how you shou
 // This is the BP-Compatible Function
 FBeamOperationHandle U________::__________Operation(FUserSlot UserSlot, (...OperationParams...), FBeamOperationEventHandler OnOperationEvent, UObject* CallingContext)
 {
-	// First, we start an operation using the BP-Compatible BeginOperation call
+	// Start an operation using the BP-Compatible BeginOperation call
 	const auto Handle = Runtime->RequestTrackerSystem->BeginOperation({UserSlot}, GetClass()->GetFName().ToString(), OnOperationEvent);
 
-	// Then, we call a function that takes in the operation parameters and the Handle for the operation.
+	// Call a function that takes in the operation parameters and the Handle for the operation.
 	TheActualOperationLogic(UserSlot, (...OperationParams...), Handle);
 
 	// Operation functions usually return the handle so that callers can ask questions about the state of the operation if they want to.
@@ -59,10 +59,10 @@ FBeamOperationHandle U________::__________Operation(FUserSlot UserSlot, (...Oper
 // This is the CPP Function
 FBeamOperationHandle U__________::CPP_________Operation(FUserSlot UserSlot, (...OperationParams...), FBeamOperationEventHandlerCode OnOperationEvent, UObject* CallingContext)
 {
-	// First, we start an operation using the BP-Compatible BeginOperation call
+	// Start an operation using the BP-Compatible BeginOperation call
 	const auto Handle = Runtime->RequestTrackerSystem->CPP_BeginOperation({UserSlot}, GetClass()->GetFName().ToString(), OnOperationEvent);
 
-	// Then, we call a function that takes in the operation parameters and the Handle for the operation.
+	// Call a function that takes in the operation parameters and the Handle for the operation.
 	TheActualOperationLogic(UserSlot, Key, Value, Handle);
 
 	// Operation functions usually return the handle so that callers can ask questions to UBeamRequestTracker about the state of the operation if they want to.
@@ -74,7 +74,7 @@ void U__________::TheActualOperationLogic(FUserSlot Slot, (...OperationParams...
 {
     // This is mostly an example snippet of things you can do...
 
-    // We can check the local client state and fail operations without any request ever being made.
+    // Check the local client state and fail operations without any request ever being made.
     // For example, check if a user is authenticated or not.
     FBeamRealmUser RealmUser;
     if (!UserSlots->GetUserDataAtSlot(Slot, RealmUser, this))
@@ -83,21 +83,21 @@ void U__________::TheActualOperationLogic(FUserSlot Slot, (...OperationParams...
 	return;
     }
 
-    // We can also prepare a request handler, capturing the "Op" Handle
+    // Prepare a request handler, capturing the "Op" Handle
     const auto SomeRequestHandler = FOn______::CreateLambda([this, Op](F______ Resp)
     {
 
-		// If the request is being retried, we don't do anything.
-		// But... we could go update a UI here or something...
+		// If the request is being retried, do nothing.
+		// A good place to update UI, for example.
 		if (Resp.State == RS_Retrying) return;
 
-		// If the request was successful, we can trigger the Operation as a success.
+		// If the request was successful, trigger the Operation as a success.
 		if (Resp.State == RS_Success)
 		{
 			// (...) change local system's state
 			RequestTracker->TriggerOperationSuccess(Op, {});
 		}
-		// If the request failed, we can trigger the Operation as a success.
+		// If the request failed, trigger the Operation as an error.
 		else
 		{
 			// (...) handle error and trigger the Operation as an error.
@@ -105,15 +105,15 @@ void U__________::TheActualOperationLogic(FUserSlot Slot, (...OperationParams...
 		}
 	});
 
-	// Make the request passing in the "Op" Handle (this tracks lets our UBeamBackend know not to clean up the request until the Operation has finished)
+	// Make the request passing in the "Op" Handle (this lets `UBeamBackend` know not to clean up the request until the Operation has finished)
 	auto Ctx = Request____(Slot, (...ReqParams...), Op, SomeRequestHandler);
 }
 ```
 
 !!! warning Parameter Names and Beam Flow
-	The parameter names `UserSlot`, `OnOperationEvent` and `CallingContext` are important! They allow you to write your own implementation of our Beam Flow node for your operation. Look at the [Beam Flow Nodes](#beam-flow-nodes-operations) section for more information on how to create these.
+	The parameter names `UserSlot`, `OnOperationEvent` and `CallingContext` are important! They allow you to write your own implementation of the Beam Flow node for your operation. Look at the [Beam Flow Nodes](#beam-flow-nodes-operations) section for more information on how to create these.
 
-There are tons of examples of operations in our SDK. For some guidance, you can take a look at any of our various runtime subsystems such as:
+There are many examples of operations in the SDK. For guidance, look at any of the runtime subsystems such as:
 
 - `UBeamStatsSubsystem`
 - `UBeamInventorySubsystem`
@@ -123,7 +123,7 @@ There are tons of examples of operations in our SDK. For some guidance, you can 
 Feel free to copy-paste them as a template of how to implement and reason about `Operations`.
 
 ### Beam Flow Nodes - Operations
-As part of our [Blueprint integration](blueprints.md), we have created a few custom nodes that make invoking operations from blueprints much simpler. These look like this:
+As part of the [Blueprint integration](blueprints.md), the SDK includes a few custom nodes that make invoking operations from Blueprints much simpler. These look like this:
 
 ![beam-flow-node](../../../media/imgs/operation-and-waits-beam-flow-nodes.png)
 
@@ -134,7 +134,7 @@ As part of our [Blueprint integration](blueprints.md), we have created a few cus
 - Events can be: `OET_SUCCESS`, `OET_ERROR` and `OET_CANCELLED` plus a `FName EventId`.
 - Events can contain some arbitrary data associated with them (implementations of `IBeamOperationEventData`).
 
-To create these nodes for your own operations, you can look at any of our own nodes (that live inside our `UncookedOnly` module: `BeamableCoreBlueprintNodes` ) and copy/paste one implementation changing the values accordingly.
+To create these nodes for your own operations, look at any of the SDK's nodes (inside the `UncookedOnly` module: `BeamableCoreBlueprintNodes`) and copy/paste one implementation changing the values accordingly.
 
 **However, there are a few restrictions:**
 
@@ -145,7 +145,7 @@ To create these nodes for your own operations, you can look at any of our own no
     - The function can have any other parameters you want in any order as long as the above parameters are there.
 - The function must be declared from inside any `UWorldSubsystem`, `UGameInstanceSubsystem`, or `UBeamRuntimeSubsystem` subclass with a `static UMySubsystem* GetSelf(const UObject* CallingContext)` `UFUNCTION` that returns the instance of itself.
 
-**Here's an example of what you need to declare one of these** (we recommend copying from your own SDK code instead of this snippet).
+**Example declaration** — the SDK source is more up to date than the docs; prefer it over this snippet.
 
 ```c++
 #define LOCTEXT_NAMESPACE "K2BeamNode_Operation_CommitInventoryUpdate"
@@ -185,47 +185,46 @@ If a Delegate or Virtual Function returns one or more `FBeamOperationHandle`, yo
 
 **There are a few flavors of this around the SDK:**
 
-1. **Delayed Operation**: a simple callback with no parameters that returns a `FBeamOperationHandle` that our SDK should wait for.
-	1. See our `UBeamRuntime::LoginGuest` function for an example of this.<br><br>
+1. **Delayed Operation**: a simple callback with no parameters that returns a `FBeamOperationHandle` the SDK waits for.
+	1. See `UBeamRuntime::LoginGuest` for an example of this.<br><br>
 
-2. **Runtime Subsystem Implementation**: implementations of virtual functions in one of our SDK's base classes such as `UBeamRuntimeSubsystem`.
-	1. This is for when you wish to make a system that ties into the Beamable life-cycle like our own `UBeamRuntimeSubsystem` implementations do.
+2. **Runtime Subsystem Implementation**: implementations of virtual functions in one of the SDK's base classes such as `UBeamRuntimeSubsystem`.
+	1. This is for when you wish to make a system that ties into the Beamable life-cycle like the SDK's `UBeamRuntimeSubsystem` implementations do.
 	2. This is rarely needed, but in unique custom use-cases it is likely to be the best way to accomplish your goals.<br><br>
 
 3. **Hooks:** bind into delegates created via `DEFINE_BEAM_OPERATION_HOOK`.
-	1. We don't use Hooks ourselves IN ANY CIRCUMSTANCES and leave these as "game-maker-only extensions".
+	1. Rest assured: the Beamable Unreal SDK will never use Hooks internally. They are reserved exclusively for your extensions.
 	2. You can search for `DEFINE_BEAM_OPERATION_HOOK` and find some usages of the macro to better understand these.
 
 ### Beam Operation Hooks
 **Hooks** have some more context that you should know about how to use them:
 
-1. When calling an Operation we expose in our SDK, that Operation does some things and triggers the hooks at some well-known point during their execution.
-	1. Since you have the source code, you can look into these functions and see the exact semantics of the trigger, but we do try and keep these documented in call-site comments.<br><br>
+1. When calling an Operation the SDK exposes, that Operation does some things and triggers the hooks at some well-known point during their execution.
+	1. Since you have the source code, you can look into these functions and see the exact semantics of the trigger, but call-site comments document the exact trigger semantics.<br><br>
 
 2. Whenever a set of hooks are triggered, what actually happens is:
 	1. The returned `FBeamOperationHandles` from the hooks are fed into a `UBeamRequestTracker::WaitAll` call.
-	2. Our operation will wait for all your hooks to complete; successfully or otherwise.
+	2. The SDK operation waits for all your hooks to complete; successfully or otherwise.
 	3. If registered operations fail, the errors that exist inside those operations are logged so that there is a clear trail of where the problem occurred.
-	4. If your operations succeeded, we'll continue with our own operation and eventually trigger that as a success.
-	5. The semantics of what happens in case of a failure change from hook to hook, but for the most part we'll fail our own operation if any hooks fail.
+	4. If your operations succeeded, the SDK continues with the operation and eventually triggers it as a success.
+	5. The semantics of what happens in case of a failure change from hook to hook, but for the most part the SDK fails the operation if any hooks fail.
 
 **Here's a "template example" of how this will typically look:**
 
 ```C++
-// Let's say you want to run some synchronous code at a hook but don't really want to make any requests to anything.
-// In that case you can get the system and add a hook that:
+// Synchronous hook -- no requests needed:
 const U_____ SomeSystem;
 SomeSystem->Hook.Add(F____::CreateLambda([this]()
 {
 	// (...) Does some synchronous code
 	// This means that your operation is completed at the end of this function
 
-	// For cases like these, we provide the utility function below.
+	// Use the utility function below for synchronous hooks.
 	// This creates and immediately completes an operation and returns its handle.
     return GEngine->GetEngineSubsystem<UBeamRequestTracker>()->CPP_BeginSuccessfulOperation({}, FString("MySystemName"), FString(""), FBeamOperationEventHandlerCode{});
 }));
 
-// Let's say you want to call some microservice you wrote as part of our operation
+// To call a microservice as part of a hook:
 // In that case you can add a hook that:
 SomeSystem->Hook.Add(F____::CreateLambda([this]()
 {
@@ -239,7 +238,7 @@ SomeSystem->Hook.Add(F____::CreateLambda([this]()
 	// Create the handler for the request capturing the "Op" it is a part of.
     const auto MyMsHandler = FOnMyMsFullResponse::CreateLambda([this, Op](FMyMsFullResponse Resp)
     {
-		// If we timedout and are retrying the request, do nothing.
+		// If the request timed out and is being retried, do nothing.
 		if(Resp.State == RS_Retrying)
 			return;
 
@@ -269,20 +268,20 @@ SomeSystem->Hook.Add(F____::CreateLambda([this]()
 ```
 
 ## Why not Template-based Promises?
-The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style API just won't work with BPs. We wanted to create an underlying system that provided the same functionality while retaining BP compatibility even if it lost the template-based interface. The result was this `Operation` system.
+The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style API just won't work with BPs. The goal was an underlying system providing the same functionality while retaining BP compatibility, even without the template-based interface. The result was this `Operation` system.
 
 !!! info
-	In using it inside our own SDK to develop our Stateful `UBeamRuntimeSubsystems`, we found that we didn't miss the template aspect or its chaining aspect of `Do().Then()`. However, the chaining might be something we eventually look into. Perhaps adding the ability to chain requests like these as "syntactic sugar". But it is highly unlikely we'll do anything with templates at the Operation-layer, as we do not want to lose the BP-Compatibility.
+	In building the Stateful `UBeamRuntimeSubsystems` with this system, the team found the absence of template syntax and `Do().Then()` chaining to be a non-issue in practice. Chaining may be revisited eventually — perhaps as "syntactic sugar" — but template-layer additions are unlikely given the BP-Compatibility requirement.
 
 ## Waits
-This is equivalent to `Promise.All` or `Task.WhenAll`, keeping with our promise analogy. It can be used to wait on a set of operations and/or requests executed concurrently whose errors and successes are handled all at once. To use this, call `UBeamRequestTracker::[CPP_]WaitAll`.
+This is equivalent to `Promise.All` or `Task.WhenAll`, keeping with the promise analogy. It can be used to wait on a set of operations and/or requests executed concurrently whose errors and successes are handled all at once. To use this, call `UBeamRequestTracker::[CPP_]WaitAll`.
 
 This function takes arrays of `FBeamRequestContext`, `FBeamOperationHandle` and/or `FBeamWaitHandle` and a handler function. It will wait until all provided handles are completed, gather all emitted events and request responses, and invoke your handle function, passing in a helper struct to identify successes/failures.
 
-You can find examples of these in our SDKs so you can learn how to use this yourself. The most common examples are:
+Examples are available in the SDK. The most common are:
 
 - `UBeamRuntime`'s Initialization and Login's Lifecycle, defined as a multi-step operation with several wait points.
-- `UBeamContentSubsystem` also has an example around how we fetch content updates.
+- `UBeamContentSubsystem` also has an example of fetching content updates.
 
 ---
 

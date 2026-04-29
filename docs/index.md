@@ -23,7 +23,7 @@ The Beamable Unreal SDK is designed to work across multiple platforms. Below is 
 | Consoles | 🚧 Planned | — | Q1/Q2 2026 |
 
 ## Beamable CLI
-Most Beamable workflows are enabled through the Beamable CLI, our editor integrations making use of it to create Engine-specific workflows.
+Most Beamable workflows run through the Beamable CLI. Editor integrations use the CLI to create Engine-specific workflows.
 
 The SDK is tightly integrated with the CLI, in some ways more than others. For example:
 
@@ -33,7 +33,7 @@ The SDK is tightly integrated with the CLI, in some ways more than others. For e
 **The Beamable CLI is invisible where it needs to be and explicit where needed.**
 
 ## Where to start?
-We recommend for all new users to explore these starting points:
+New users should start with:
 
 - [Your First Request](unreal/getting-started/first-request.md)
 - [Blueprints Integration](unreal/user-reference/runtime-systems/blueprints.md)
@@ -42,10 +42,10 @@ We recommend for all new users to explore these starting points:
 
 After this, it depends on what your game is and what you are looking to do.
 
-- Our most utilized backend systems include: <!-- TODO(@drewbleam): This should lean further into showing off what the SDK can do (maybe Microservice cards like docs.beamable lander) -->
+- The most-used backend systems include: <!-- TODO(@drewbleam): This should lean further into showing off what the SDK can do (maybe Microservice cards like docs.beamable lander) -->
     - [Inventory](unreal/user-reference/beamable-services/inventory.md) for items and currency management
     - [Stats](unreal/user-reference/beamable-services/stats.md) for player-scoped key-value stores.
-- Custom features are explored in our [Content](unreal/user-reference/beamable-services/content.md) and [Microservices](unreal/user-reference/microservices/microservices.md) documentation with consideration to data structuring and writing custom code with Beamable.
+- Custom features are explored in the [Content](unreal/user-reference/beamable-services/content.md) and [Microservices](unreal/user-reference/microservices/microservices.md) documentation with consideration to data structuring and writing custom code with Beamable.
 
 ---
-*If you have any questions, feel free to [Contact Us](https://beamable.com/support) through one of our Customer Success channels.*
+*For support, email [support@beamable.com](mailto:support@beamable.com) or visit the [Beamable support page](https://beamable.com/support).*
