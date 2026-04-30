@@ -12,7 +12,7 @@ Beamable's Friend system allows the following game flows:
 
 There is support for both local and multiplayer usage. This document focuses on multiplayer, as it is the most common use case.
 
-A sample that demonstrates the friend subsystem is available in our [GitHub](https://github.com/beamable/UnrealSDK). For more details, check out the [Beamball Demo](../../samples/beamball/beamball-demo.md).
+A sample that demonstrates the friend subsystem is available in the [GitHub repository](https://github.com/beamable/UnrealSDK). For more details, check out the [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
 ## Getting Started
 To use the friend system, first configure an Unreal PIE session with multiple players.
@@ -95,7 +95,7 @@ When it triggers, the local state of the friend list will already have been upda
 
 ### How to Update the View Using System State (Invite Sample)
 
-In the example below, we demonstrate how to retrieve the user's friend state and use it to update a view or another screen. In this case, the example simply sets a list of all invites in the friend state. There are other ways to handle this, such as adding or removing items based on events, rather than setting the entire list. For simplicity, this example uses that approach.
+The example below shows how to retrieve the user's friend state and use it to update a view or another screen. In this case, the example simply sets a list of all invites in the friend state. There are other ways to handle this, such as adding or removing items based on events, rather than setting the entire list. For simplicity, this example uses that approach.
 
 ![friends-local-state-received-invite.png](../../../media/imgs/friends-local-state-received-invite.png)
 
