@@ -59,7 +59,7 @@ The main difference:
 - **Account Creation Time**: `Context.UserId` is `0`; as at this time, no account exists.
 - **Account Attach Time**: `Context.UserId` is a valid `GamerTag`; as you are adding an identity to an existing account.
 
-For non-MFA flows (which are most of the Store and Console login flows) this is all that is needed. Here's an example from our [Steam Demo](../../samples/beamball/steam-integration.md).
+For non-MFA flows (which are most of the Store and Console login flows) this is all that is needed. The following example is from the [Steam Demo](../../samples/beamball/steam-integration.md).
 
 ```csharp
 public async Promise<FederatedAuthenticationResponse> Authenticate(string token, string challenge, string solution)
@@ -80,9 +80,9 @@ public async Promise<FederatedAuthenticationResponse> Authenticate(string token,
 
 ### Setting up the Client
 
-In the client, we start by invoking our `Login - Federated Identity` operation. This operation has a sub-event that gets invoked when the microservice responds with a `challenge` string we need to solve. The SDK provides you a `UBeamMultiFactorLoginData` object you can store and carry around your game state so that your player can solve the challenge.
+In the client, start by invoking the `Login - Federated Identity` operation. This operation has a sub-event that fires when the microservice responds with a `challenge` string the player needs to solve. The SDK provides a `UBeamMultiFactorLoginData` object you can store and carry through your game state so that your player can solve the challenge.
 
-Here's an example from our Sui-Wallet integration showcase.
+The following example is from the Sui-Wallet integration showcase.
 
 ![federated-login-2fa-start.png](../../../media/imgs/federated-login-2fa-start.png)
 

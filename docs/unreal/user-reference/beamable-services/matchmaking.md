@@ -10,7 +10,7 @@ Beamable Matchmaking is a flexible system for connecting players together in onl
 
 Once a match is found, the result is a [Lobby](lobbies.md) containing all of the players in the match that was found.
 
-**_If you are working on a game with dedicated servers, we highly recommend you review_**:
+**If you are working on a game with dedicated servers, review these pages first:**
 
 - [Runtime Dedicated Servers](../realtime-multiplayer/realtime-multiplayer-overview.md)
 - [Federated Game Servers](../federation/federated-game-server.md)
@@ -47,7 +47,7 @@ Use the `Matchmaking - Try Leave Queue` Operation to leave the current queue. Wh
 ![matchmaking-leave.png](../../../media/imgs/matchmaking-leave.png)
 
 ## Matchmaking Queues
-Beamable's Matchmaking system depends on Beamable's [Content System](content.md) in order for you to define various matchmaking queues. Each Matchmaking queue is described by a `UBeamGameTypeContent`.
+Beamable's Matchmaking system depends on Beamable's [Content System](content.md) to define various matchmaking queues. Each Matchmaking queue is described by a `UBeamGameTypeContent`.
 
 This content type defines a few things about a queue:
 
@@ -76,7 +76,7 @@ This content type defines a few things about a queue:
 ## Lobby Subsystem Integration
 The Matchmaking Subsystem works with the [Lobby Subsystem](lobbies.md) by default. It does the following things:
 
-- The `OnMatchReady` callback is ONLY invoked AFTER we've already fetched the match Lobby's data.
+- The `OnMatchReady` callback is ONLY invoked AFTER the match Lobby data has been fetched.
     - This means you can use the `Local State - Lobby` nodes to fetch information from the lobby directly on this event.
     - For example, when used with [Federated Game Server](../federation/federated-game-server.md), you just get the connection string from the global lobby property to proceed.
 - When joining a queue, you can optionally pass in a set of key/value pairs called `FBeamTag`.
@@ -89,7 +89,7 @@ If your user is a [Party Leader](parties.md), you can join a queue and ALL playe
 
 Every user in a party receives an `OnMatchRemoteSearchStarted` notification whenever the leader joins a queue. If the party leader leaves the queue or the party disbands, every user will receive the `OnMatchCancelled` notification so that they can respond to the change.
 
-When joining a queue as the party leader and passing in `FBeamTag`, those tags are only for the party leader. If you need to gather data for every user, we recommend using [Federated Game Server](../federation/federated-game-server.md) and [Stats](stats.md) to get that data into the [Lobby](lobbies.md) instead.
+When joining a queue as the party leader and passing in `FBeamTag`, those tags are only for the party leader. If you need to gather data for every user, use [Federated Game Server](../federation/federated-game-server.md) and [Stats](stats.md) to get that data into the [Lobby](lobbies.md) instead.
 
 ## Match Found and Tickets
 When you join a queue in Beamable's matchmaking, you get back a `FBeamMatchmakingTicket`. This ticket contains information about the entry onto the queue:
@@ -99,4 +99,4 @@ When you join a queue in Beamable's matchmaking, you get back a `FBeamMatchmakin
 - **SlotsInTicket**: list of local `FUserSlot` that are in the ticket (just the Owner Player, unless your game has multiple local players and matchmaking).
 - **FoundMatchLobbyId**: only filled inside the `OnMatchReady` callback and has the id for the resulting [Lobby](lobbies.md) for the match. You can use this to retrieve data from the [Lobby Subsystem](lobbies.md) inside the `OnMatchReady` callback to get connection information and more.
 
-If you want to understand a bit more about these tickets, we recommend taking a look at the source code of the `UBeamMatchmakingSubsystem` (it is pretty simple and should give you a lot more confidence in understanding the system).
+To understand these tickets in more depth, see the source code of `UBeamMatchmakingSubsystem` — it is concise and covers the system in full.
