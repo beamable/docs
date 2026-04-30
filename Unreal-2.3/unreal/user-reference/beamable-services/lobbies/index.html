@@ -8901,7 +8901,7 @@
 <p>For games with dedicated servers, the <code>Lobby - Provision Game Server for Lobby</code> operation triggers <a href="../../federation/federated-game-server/">Game Server Federation</a> to boot up a server instance for the game. If you need to differentiate between matchmaking lobbies and Open/Closed lobbies, you can verify whether the lobby has a host within the federation's logic to properly handle when and which game server to provision.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-provision-federation.png" data-desc-position="bottom"><img alt="lobbies-provision-federation.png" src="../../../../media/imgs/lobbies-provision-federation.png"></a></p>
 <h2 id="reading-and-writing-to-lobbies">Reading and Writing to Lobbies<a class="headerlink" href="#reading-and-writing-to-lobbies" title="Permanent link">¶</a></h2>
-<p>For both Matchmaking lobbies and Open/Closed lobbies, we need APIs to read/write to lobby data that is synchronized between all players in the lobby.</p>
+<p>For both Matchmaking lobbies and Open/Closed lobbies, the <abbr title="software development kit">SDK</abbr> exposes APIs to read/write lobby data that is synchronized between all players in the lobby.</p>
 <p>Updating the Lobby's <code>Global Data</code> and any of its configurations can only be done by the Lobby's host (or a server in case of Matchmaking lobbies).</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-updating-lobby-data.png" data-desc-position="bottom"><img alt="lobbies-updating-lobby-data.png" src="../../../../media/imgs/lobbies-updating-lobby-data.png"></a></p>
 <p>Updating individual player data in the lobby can be done by the Host (for any player). Non-Host players can only update their own properties but read ALL player's properties.</p>
@@ -8914,7 +8914,7 @@
 <p>Beamable's Lobby system will automatically notify every player inside a lobby of relevant events. Once you're in a lobby, the <abbr title="software development kit">SDK</abbr> keeps track of your local state inside <code>UBeamLobbyState</code> (one per-<code>UserSlot</code>).</p>
 <p>You can use <code>GetCurrentSlotLobbyState</code> to get the <code>UBeamLobbyState</code> and setup various <strong>Delegates</strong> in this object to respond to these events, normally updating your UI or custom system built on top of this subsystem.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-notification-binding.png" data-desc-position="bottom"><img alt="lobbies-notification-binding.png" src="../../../../media/imgs/lobbies-notification-binding.png"></a></p>
-<p>Here's the list of events we expose:</p>
+<p>Here is the list of events the <abbr title="software development kit">SDK</abbr> exposes:</p>
 <ul>
 <li>
 <p><strong>OnKickedFromLobby</strong>: received whenever a host removes a player from the lobby via <code>KickPlayerOperation</code>.</p>

@@ -8898,7 +8898,7 @@
 <blockquote>
 <p>When you want to expose a single function that makes a bunch of async operations and emits events in the Game Thread, ultimately handling success/failure of the entire sequence of operations, use an <code>Operation</code>.</p>
 </blockquote>
-<p>We provide a lot of Operations inside our <code>UBeamRuntimeSubsystem</code> implementations, covering most basic use-cases. However, understanding how to create your own operations enables you to add behavior to last-mile hooks we expose.</p>
+<p>The <abbr title="software development kit">SDK</abbr> provides many Operations inside the <code>UBeamRuntimeSubsystem</code> implementations, covering most basic use cases. Understanding how to create your own operations enables you to add behavior to last-mile hooks the <abbr title="software development kit">SDK</abbr> exposes.</p>
 <p>A couple of examples:</p>
 <ul>
 <li>"I want to go talk to a microservice to fetch additional data for a user before the <abbr title="software development kit">SDK</abbr>'s <code>UBeamRuntime::OnUserReady</code> callback."</li>
@@ -8906,11 +8906,11 @@
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>While possible, we don't recommend creating the actual operations as blueprints. It's OK to do so for a quick experimentation session; but shipping with it is <em>not recommended</em>.
-<strong>Calling <em>Operations</em> that are written in C++ is the primary way we recommend Blueprints to interact with the Beamable <abbr title="software development kit">SDK</abbr>. We even have <a href="../../blueprints/">special nodes</a> for it.</strong></p>
+<p>While possible, avoid creating Operations as Blueprints. It's OK to do so for a quick experimentation session; but shipping with it is <em>not recommended</em>.
+<strong>Calling <em>Operations</em> written in C++ is the primary way for Blueprints to interact with the Beamable <abbr title="software development kit">SDK</abbr>. The <abbr title="software development kit">SDK</abbr> even includes <a href="../../blueprints/">special nodes</a> for it.</strong></p>
 </div>
 <h2 id="operation-lifecycle">Operation Lifecycle<a class="headerlink" href="#operation-lifecycle" title="Permanent link">¶</a></h2>
-<p>Every Operation has an <code>int64</code> id called the <code>FBeamOperationHandle</code> managed by the <code>UBeamRequestTracker</code>, a <code>UEngineSubsystem</code>. We use it to track the operation's state, its emitted events, its current status, and which of Beamable's requests are part of it.</p>
+<p>Every Operation has an <code>int64</code> id called the <code>FBeamOperationHandle</code> managed by the <code>UBeamRequestTracker</code>, a <code>UEngineSubsystem</code>. The <abbr title="software development kit">SDK</abbr> uses it to track the operation's state, its emitted events, its current status, and which of Beamable's requests are part of it.</p>
 <p>The lifecycle of an operation goes as follows:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/operations-and-waits-lifecycle.png" data-desc-position="bottom"><img alt="operations-and-waits-lifecycle.png" src="../../../../../media/imgs/operations-and-waits-lifecycle.png"></a></p>
 <p><strong>When writing Operations, there are two ways of thinking about them:</strong></p>
@@ -8919,20 +8919,20 @@
 <li><strong>Operation Hooks</strong>: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work.</li>
 </ul>
 <h2 id="writing-and-exposing-your-own-regular-operations">Writing and Exposing your Own Regular Operations<a class="headerlink" href="#writing-and-exposing-your-own-regular-operations" title="Permanent link">¶</a></h2>
-<p>We expose all of our main <abbr title="software development kit">SDK</abbr> operations in both BP and CPP flavors. If you'd like to do the same thing, this section is for you. To learn about writing hook in C++, review the next section.</p>
+<p>The <abbr title="software development kit">SDK</abbr> exposes all main operations in both BP and C++ flavors. If you'd like to do the same thing, this section is for you. To learn about writing hooks in C++, review the next section.</p>
 <p><strong>The primary trade-off:</strong></p>
 <ul>
 <li>BP-Compatible versions do not allow for lambda binding and variable capturing.</li>
-<li>The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, we decided on supporting both flavors.</li>
+<li>The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, the <abbr title="software development kit">SDK</abbr> supports both flavors.</li>
 </ul>
 <p>In order to easily support both flavors, the snippet below explains how you should write the actual operation logic such that it can be shared for both CPP and BP versions.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// This is the BP-Compatible Function</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">FBeamOperationHandle</span><span class="w"> </span><span class="nf">U________::__________Operation</span><span class="p">(</span><span class="n">FUserSlot</span><span class="w"> </span><span class="n">UserSlot</span><span class="p">,</span><span class="w"> </span><span class="p">(...</span><span class="n">OperationParams</span><span class="p">...),</span><span class="w"> </span><span class="n">FBeamOperationEventHandler</span><span class="w"> </span><span class="n">OnOperationEvent</span><span class="p">,</span><span class="w"> </span><span class="n">UObject</span><span class="o">*</span><span class="w"> </span><span class="n">CallingContext</span><span class="p">)</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">{</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="c1">// First, we start an operation using the BP-Compatible BeginOperation call</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="c1">// Start an operation using the BP-Compatible BeginOperation call</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">Handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Runtime</span><span class="o">-&gt;</span><span class="n">RequestTrackerSystem</span><span class="o">-&gt;</span><span class="n">BeginOperation</span><span class="p">({</span><span class="n">UserSlot</span><span class="p">},</span><span class="w"> </span><span class="n">GetClass</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetFName</span><span class="p">().</span><span class="n">ToString</span><span class="p">(),</span><span class="w"> </span><span class="n">OnOperationEvent</span><span class="p">);</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="c1">// Then, we call a function that takes in the operation parameters and the Handle for the operation.</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="c1">// Call a function that takes in the operation parameters and the Handle for the operation.</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">TheActualOperationLogic</span><span class="p">(</span><span class="n">UserSlot</span><span class="p">,</span><span class="w"> </span><span class="p">(...</span><span class="n">OperationParams</span><span class="p">...),</span><span class="w"> </span><span class="n">Handle</span><span class="p">);</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="c1">// Operation functions usually return the handle so that callers can ask questions about the state of the operation if they want to.</span>
@@ -8942,10 +8942,10 @@
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1">// This is the CPP Function</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">FBeamOperationHandle</span><span class="w"> </span><span class="nf">U__________::CPP_________Operation</span><span class="p">(</span><span class="n">FUserSlot</span><span class="w"> </span><span class="n">UserSlot</span><span class="p">,</span><span class="w"> </span><span class="p">(...</span><span class="n">OperationParams</span><span class="p">...),</span><span class="w"> </span><span class="n">FBeamOperationEventHandlerCode</span><span class="w"> </span><span class="n">OnOperationEvent</span><span class="p">,</span><span class="w"> </span><span class="n">UObject</span><span class="o">*</span><span class="w"> </span><span class="n">CallingContext</span><span class="p">)</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">{</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="c1">// First, we start an operation using the BP-Compatible BeginOperation call</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="c1">// Start an operation using the BP-Compatible BeginOperation call</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">Handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Runtime</span><span class="o">-&gt;</span><span class="n">RequestTrackerSystem</span><span class="o">-&gt;</span><span class="n">CPP_BeginOperation</span><span class="p">({</span><span class="n">UserSlot</span><span class="p">},</span><span class="w"> </span><span class="n">GetClass</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetFName</span><span class="p">().</span><span class="n">ToString</span><span class="p">(),</span><span class="w"> </span><span class="n">OnOperationEvent</span><span class="p">);</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="c1">// Then, we call a function that takes in the operation parameters and the Handle for the operation.</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="c1">// Call a function that takes in the operation parameters and the Handle for the operation.</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="n">TheActualOperationLogic</span><span class="p">(</span><span class="n">UserSlot</span><span class="p">,</span><span class="w"> </span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span><span class="p">,</span><span class="w"> </span><span class="n">Handle</span><span class="p">);</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
 <a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="c1">// Operation functions usually return the handle so that callers can ask questions to UBeamRequestTracker about the state of the operation if they want to.</span>
@@ -8957,7 +8957,7 @@
 <a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="p">{</span>
 <a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="c1">// This is mostly an example snippet of things you can do...</span>
 <a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
-<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">    </span><span class="c1">// We can check the local client state and fail operations without any request ever being made.</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">    </span><span class="c1">// Check the local client state and fail operations without any request ever being made.</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="c1">// For example, check if a user is authenticated or not.</span>
 <a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">    </span><span class="n">FBeamRealmUser</span><span class="w"> </span><span class="n">RealmUser</span><span class="p">;</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">UserSlots</span><span class="o">-&gt;</span><span class="n">GetUserDataAtSlot</span><span class="p">(</span><span class="n">Slot</span><span class="p">,</span><span class="w"> </span><span class="n">RealmUser</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">))</span>
@@ -8966,21 +8966,21 @@
 <a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">    </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
-<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">    </span><span class="c1">// We can also prepare a request handler, capturing the "Op" Handle</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">    </span><span class="c1">// Prepare a request handler, capturing the "Op" Handle</span>
 <a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">SomeRequestHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FOn______</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">([</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">Op</span><span class="p">](</span><span class="n">F______</span><span class="w"> </span><span class="n">Resp</span><span class="p">)</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">    </span><span class="p">{</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">        </span><span class="c1">// If the request is being retried, we don't do anything.</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">        </span><span class="c1">// But... we could go update a UI here or something...</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">        </span><span class="c1">// If the request is being retried, do nothing.</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">        </span><span class="c1">// A good place to update UI, for example.</span>
 <a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Resp</span><span class="p">.</span><span class="n">State</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">RS_Retrying</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>
-<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">        </span><span class="c1">// If the request was successful, we can trigger the Operation as a success.</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">        </span><span class="c1">// If the request was successful, trigger the Operation as a success.</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Resp</span><span class="p">.</span><span class="n">State</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">RS_Success</span><span class="p">)</span>
 <a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">        </span><span class="p">{</span>
 <a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">            </span><span class="c1">// (...) change local system's state</span>
 <a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">            </span><span class="n">RequestTracker</span><span class="o">-&gt;</span><span class="n">TriggerOperationSuccess</span><span class="p">(</span><span class="n">Op</span><span class="p">,</span><span class="w"> </span><span class="p">{});</span>
 <a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">        </span><span class="c1">// If the request failed, we can trigger the Operation as a success.</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">        </span><span class="c1">// If the request failed, trigger the Operation as an error.</span>
 <a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">        </span><span class="k">else</span>
 <a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">        </span><span class="p">{</span>
 <a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">            </span><span class="c1">// (...) handle error and trigger the Operation as an error.</span>
@@ -8988,15 +8988,15 @@
 <a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="w">    </span><span class="p">});</span>
 <a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>
-<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="w">    </span><span class="c1">// Make the request passing in the "Op" Handle (this tracks lets our UBeamBackend know not to clean up the request until the Operation has finished)</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="w">    </span><span class="c1">// Make the request passing in the "Op" Handle (this lets `UBeamBackend` know not to clean up the request until the Operation has finished)</span>
 <a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">Ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Request____</span><span class="p">(</span><span class="n">Slot</span><span class="p">,</span><span class="w"> </span><span class="p">(...</span><span class="n">ReqParams</span><span class="p">...),</span><span class="w"> </span><span class="n">Op</span><span class="p">,</span><span class="w"> </span><span class="n">SomeRequestHandler</span><span class="p">);</span>
 <a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="p">}</span>
 </code></pre></div>
 <div class="admonition warning parameter names and beam flow">
 <p class="admonition-title">Warning</p>
-<p>The parameter names <code>UserSlot</code>, <code>OnOperationEvent</code> and <code>CallingContext</code> are important! They allow you to write your own implementation of our Beam Flow node for your operation. Look at the <a href="#beam-flow-nodes-operations">Beam Flow Nodes</a> section for more information on how to create these.</p>
+<p>The parameter names <code>UserSlot</code>, <code>OnOperationEvent</code> and <code>CallingContext</code> are important! They allow you to write your own implementation of the Beam Flow node for your operation. Look at the <a href="#beam-flow-nodes-operations">Beam Flow Nodes</a> section for more information on how to create these.</p>
 </div>
-<p>There are tons of examples of operations in our <abbr title="software development kit">SDK</abbr>. For some guidance, you can take a look at any of our various runtime subsystems such as:</p>
+<p>There are many examples of operations in the <abbr title="software development kit">SDK</abbr>. For guidance, look at any of the runtime subsystems such as:</p>
 <ul>
 <li><code>UBeamStatsSubsystem</code></li>
 <li><code>UBeamInventorySubsystem</code></li>
@@ -9005,7 +9005,7 @@
 </ul>
 <p>Feel free to copy-paste them as a template of how to implement and reason about <code>Operations</code>.</p>
 <h3 id="beam-flow-nodes-operations">Beam Flow Nodes - Operations<a class="headerlink" href="#beam-flow-nodes-operations" title="Permanent link">¶</a></h3>
-<p>As part of our <a href="../../blueprints/">Blueprint integration</a>, we have created a few custom nodes that make invoking operations from blueprints much simpler. These look like this:</p>
+<p>As part of the <a href="../../blueprints/">Blueprint integration</a>, the <abbr title="software development kit">SDK</abbr> includes a few custom nodes that make invoking operations from Blueprints much simpler. These look like this:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/operation-and-waits-beam-flow-nodes.png" data-desc-position="bottom"><img alt="beam-flow-node" src="../../../../../media/imgs/operation-and-waits-beam-flow-nodes.png"></a></p>
 <p><strong>Beamable Operation Flow Nodes assume a few things:</strong></p>
 <ul>
@@ -9014,7 +9014,7 @@
 <li>Events can be: <code>OET_SUCCESS</code>, <code>OET_ERROR</code> and <code>OET_CANCELLED</code> plus a <code>FName EventId</code>.</li>
 <li>Events can contain some arbitrary data associated with them (implementations of <code>IBeamOperationEventData</code>).</li>
 </ul>
-<p>To create these nodes for your own operations, you can look at any of our own nodes (that live inside our <code>UncookedOnly</code> module: <code>BeamableCoreBlueprintNodes</code> ) and copy/paste one implementation changing the values accordingly.</p>
+<p>To create these nodes for your own operations, look at any of the <abbr title="software development kit">SDK</abbr>'s nodes (inside the <code>UncookedOnly</code> module: <code>BeamableCoreBlueprintNodes</code>) and copy/paste one implementation changing the values accordingly.</p>
 <p><strong>However, there are a few restrictions:</strong></p>
 <ul>
 <li>The function must be a <code>UFUNCTION</code> that returns a <code>FBeamOperationHandle</code> and contains the following named parameters:<ul>
@@ -9026,7 +9026,7 @@
 </li>
 <li>The function must be declared from inside any <code>UWorldSubsystem</code>, <code>UGameInstanceSubsystem</code>, or <code>UBeamRuntimeSubsystem</code> subclass with a <code>static UMySubsystem* GetSelf(const UObject* CallingContext)</code> <code>UFUNCTION</code> that returns the instance of itself.</li>
 </ul>
-<p><strong>Here's an example of what you need to declare one of these</strong> (we recommend copying from your own <abbr title="software development kit">SDK</abbr> code instead of this snippet).</p>
+<p><strong>Example declaration</strong> — the <abbr title="software development kit">SDK</abbr> source is more up to date than the docs; prefer it over this snippet.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#define LOCTEXT_NAMESPACE "K2BeamNode_Operation_CommitInventoryUpdate"</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">UCLASS</span><span class="p">(</span><span class="n">meta</span><span class="o">=</span><span class="p">(</span><span class="n">BeamFlowNode</span><span class="p">))</span>
@@ -9058,22 +9058,22 @@
 <p><strong>There are a few flavors of this around the <abbr title="software development kit">SDK</abbr>:</strong></p>
 <ol>
 <li>
-<p><strong>Delayed Operation</strong>: a simple callback with no parameters that returns a <code>FBeamOperationHandle</code> that our <abbr title="software development kit">SDK</abbr> should wait for.</p>
+<p><strong>Delayed Operation</strong>: a simple callback with no parameters that returns a <code>FBeamOperationHandle</code> the <abbr title="software development kit">SDK</abbr> waits for.</p>
 <ol>
-<li>See our <code>UBeamRuntime::LoginGuest</code> function for an example of this.<br><br></li>
+<li>See <code>UBeamRuntime::LoginGuest</code> for an example of this.<br><br></li>
 </ol>
 </li>
 <li>
-<p><strong>Runtime Subsystem Implementation</strong>: implementations of virtual functions in one of our <abbr title="software development kit">SDK</abbr>'s base classes such as <code>UBeamRuntimeSubsystem</code>.</p>
+<p><strong>Runtime Subsystem Implementation</strong>: implementations of virtual functions in one of the <abbr title="software development kit">SDK</abbr>'s base classes such as <code>UBeamRuntimeSubsystem</code>.</p>
 <ol>
-<li>This is for when you wish to make a system that ties into the Beamable life-cycle like our own <code>UBeamRuntimeSubsystem</code> implementations do.</li>
+<li>This is for when you wish to make a system that ties into the Beamable life-cycle like the <abbr title="software development kit">SDK</abbr>'s <code>UBeamRuntimeSubsystem</code> implementations do.</li>
 <li>This is rarely needed, but in unique custom use-cases it is likely to be the best way to accomplish your goals.<br><br></li>
 </ol>
 </li>
 <li>
 <p><strong>Hooks:</strong> bind into delegates created via <code>DEFINE_BEAM_OPERATION_HOOK</code>.</p>
 <ol>
-<li>We don't use Hooks ourselves IN ANY CIRCUMSTANCES and leave these as "game-maker-only extensions".</li>
+<li>Rest assured: the Beamable Unreal <abbr title="software development kit">SDK</abbr> will never use Hooks internally. They are reserved exclusively for your extensions.</li>
 <li>You can search for <code>DEFINE_BEAM_OPERATION_HOOK</code> and find some usages of the macro to better understand these.</li>
 </ol>
 </li>
@@ -9082,91 +9082,90 @@
 <p><strong>Hooks</strong> have some more context that you should know about how to use them:</p>
 <ol>
 <li>
-<p>When calling an Operation we expose in our <abbr title="software development kit">SDK</abbr>, that Operation does some things and triggers the hooks at some well-known point during their execution.</p>
+<p>When calling an Operation the <abbr title="software development kit">SDK</abbr> exposes, that Operation does some things and triggers the hooks at some well-known point during their execution.</p>
 <ol>
-<li>Since you have the source code, you can look into these functions and see the exact semantics of the trigger, but we do try and keep these documented in call-site comments.<br><br></li>
+<li>Within the <abbr title="software development kit">SDK</abbr>, triggers are usually documented with call-site comments. You can also consult the <abbr title="software development kit">SDK</abbr> source directly for the exact semantics.<br><br></li>
 </ol>
 </li>
 <li>
 <p>Whenever a set of hooks are triggered, what actually happens is:</p>
 <ol>
 <li>The returned <code>FBeamOperationHandles</code> from the hooks are fed into a <code>UBeamRequestTracker::WaitAll</code> call.</li>
-<li>Our operation will wait for all your hooks to complete; successfully or otherwise.</li>
+<li>The <abbr title="software development kit">SDK</abbr> operation waits for all your hooks to complete; successfully or otherwise.</li>
 <li>If registered operations fail, the errors that exist inside those operations are logged so that there is a clear trail of where the problem occurred.</li>
-<li>If your operations succeeded, we'll continue with our own operation and eventually trigger that as a success.</li>
-<li>The semantics of what happens in case of a failure change from hook to hook, but for the most part we'll fail our own operation if any hooks fail.</li>
+<li>If your operations succeeded, the <abbr title="software development kit">SDK</abbr> continues with the operation and eventually triggers it as a success.</li>
+<li>The semantics of what happens in case of a failure change from hook to hook, but for the most part the <abbr title="software development kit">SDK</abbr> fails the operation if any hooks fail.</li>
 </ol>
 </li>
 </ol>
 <p><strong>Here's a "template example" of how this will typically look:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Let's say you want to run some synchronous code at a hook but don't really want to make any requests to anything.</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">// In that case you can get the system and add a hook that:</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">const</span><span class="w"> </span><span class="n">U_____</span><span class="w"> </span><span class="n">SomeSystem</span><span class="p">;</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">SomeSystem</span><span class="o">-&gt;</span><span class="n">Hook</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">F____</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">([</span><span class="k">this</span><span class="p">]()</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">{</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">// (...) Does some synchronous code</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="c1">// This means that your operation is completed at the end of this function</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">// For cases like these, we provide the utility function below.</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="c1">// This creates and immediately completes an operation and returns its handle.</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">GetEngineSubsystem</span><span class="o">&lt;</span><span class="n">UBeamRequestTracker</span><span class="o">&gt;</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">CPP_BeginSuccessfulOperation</span><span class="p">({},</span><span class="w"> </span><span class="n">FString</span><span class="p">(</span><span class="s">"MySystemName"</span><span class="p">),</span><span class="w"> </span><span class="n">FString</span><span class="p">(</span><span class="s">""</span><span class="p">),</span><span class="w"> </span><span class="n">FBeamOperationEventHandlerCode</span><span class="p">{});</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">}));</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1">// Let's say you want to call some microservice you wrote as part of our operation</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1">// In that case you can add a hook that:</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="n">SomeSystem</span><span class="o">-&gt;</span><span class="n">Hook</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">F____</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">([</span><span class="k">this</span><span class="p">]()</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">{</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="c1">// Begins an operation</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">Op</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">GetEngineSubsystem</span><span class="o">&lt;</span><span class="n">UBeamRequestTracker</span><span class="o">&gt;</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">CPP_BeginOperation</span><span class="p">({},</span><span class="w"> </span><span class="n">FString</span><span class="p">(</span><span class="s">"MySystemName"</span><span class="p">),</span><span class="w"> </span><span class="p">{});</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="c1">// Get Microservice Subsystem that exposes calls to it</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">MyMsApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">GetEngineSubsystem</span><span class="o">&lt;</span><span class="n">UMyMsApi</span><span class="o">&gt;</span><span class="p">();</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">MyMsReq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UMyMsRequest</span><span class="o">::</span><span class="n">Make</span><span class="p">(</span><span class="n">GetTransientPackage</span><span class="p">(),</span><span class="w"> </span><span class="p">{});</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="c1">// Create the handler for the request capturing the "Op" it is a part of.</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">MyMsHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FOnMyMsFullResponse</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">([</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">Op</span><span class="p">](</span><span class="n">FMyMsFullResponse</span><span class="w"> </span><span class="n">Resp</span><span class="p">)</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">        </span><span class="c1">// If we timedout and are retrying the request, do nothing.</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">Resp</span><span class="p">.</span><span class="n">State</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">RS_Retrying</span><span class="p">)</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
-<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>
-<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">        </span><span class="n">UE_LOG</span><span class="p">(</span><span class="n">LogTemp</span><span class="p">,</span><span class="w"> </span><span class="n">Display</span><span class="p">,</span><span class="w"> </span><span class="n">TEXT</span><span class="p">(</span><span class="s">"Talked to a Microservice from a Hook!!!! Look at that, huh?"</span><span class="p">));</span>
-<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>
-<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">        </span><span class="c1">// If the response from the Microservice was not a success, fail the operation.</span>
-<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">Resp</span><span class="p">.</span><span class="n">State</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">RS_Success</span><span class="p">)</span>
-<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">            </span><span class="c1">// Trigger the operation as a success</span>
-<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">            </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">GetEngineSubsystem</span><span class="o">&lt;</span><span class="n">UBeamRequestTracker</span><span class="o">&gt;</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">TriggerOperationError</span><span class="p">(</span><span class="n">Op</span><span class="p">,</span><span class="w"> </span><span class="n">Resp</span><span class="p">.</span><span class="n">ErrorData</span><span class="p">.</span><span class="n">message</span><span class="p">);</span>
-<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
-<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>
-<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="w">        </span><span class="c1">// (...) Do stuff with the Microservice's response</span>
-<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>
-<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="w">        </span><span class="c1">// Trigger the operation as a success</span>
-<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="w">       </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">GetEngineSubsystem</span><span class="o">&lt;</span><span class="n">UBeamRequestTracker</span><span class="o">&gt;</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">TriggerOperationSuccess</span><span class="p">(</span><span class="n">Op</span><span class="p">,</span><span class="w"> </span><span class="n">FString</span><span class="p">(</span><span class="s">""</span><span class="p">));</span>
-<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="w">    </span><span class="p">});</span>
-<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>
-<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="w">    </span><span class="c1">// Make the request</span>
-<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a><span class="w">    </span><span class="n">FBeamRequestContext</span><span class="w"> </span><span class="n">Ctx</span><span class="p">;</span>
-<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="w">    </span><span class="n">MyMsApi</span><span class="o">-&gt;</span><span class="n">CPP_MyMs</span><span class="p">(</span><span class="n">UserSlot</span><span class="p">,</span><span class="w"> </span><span class="n">MyMsReq</span><span class="p">,</span><span class="w"> </span><span class="n">MyMsHandler</span><span class="p">,</span><span class="w"> </span><span class="n">Ctx</span><span class="p">,</span><span class="w"> </span><span class="n">Op</span><span class="p">,</span><span class="w"> </span><span class="n">GetGameInstance</span><span class="p">());</span>
-<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>
-<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a><span class="w">    </span><span class="c1">// Return the create Operation</span>
-<a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Op</span><span class="p">;</span>
-<a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a><span class="p">}));</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Synchronous hook -- no requests needed:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">const</span><span class="w"> </span><span class="n">U_____</span><span class="w"> </span><span class="n">SomeSystem</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">SomeSystem</span><span class="o">-&gt;</span><span class="n">Hook</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">F____</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">([</span><span class="k">this</span><span class="p">]()</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="c1">// (...) Does some synchronous code</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">// This means that your operation is completed at the end of this function</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="c1">// Use the utility function below for synchronous hooks.</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">// This creates and immediately completes an operation and returns its handle.</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">GetEngineSubsystem</span><span class="o">&lt;</span><span class="n">UBeamRequestTracker</span><span class="o">&gt;</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">CPP_BeginSuccessfulOperation</span><span class="p">({},</span><span class="w"> </span><span class="n">FString</span><span class="p">(</span><span class="s">"MySystemName"</span><span class="p">),</span><span class="w"> </span><span class="n">FString</span><span class="p">(</span><span class="s">""</span><span class="p">),</span><span class="w"> </span><span class="n">FBeamOperationEventHandlerCode</span><span class="p">{});</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}));</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1">// To call a microservice as part of a hook:</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1">// In that case you can add a hook that:</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">SomeSystem</span><span class="o">-&gt;</span><span class="n">Hook</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">F____</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">([</span><span class="k">this</span><span class="p">]()</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="p">{</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="c1">// Begins an operation</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">Op</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">GetEngineSubsystem</span><span class="o">&lt;</span><span class="n">UBeamRequestTracker</span><span class="o">&gt;</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">CPP_BeginOperation</span><span class="p">({},</span><span class="w"> </span><span class="n">FString</span><span class="p">(</span><span class="s">"MySystemName"</span><span class="p">),</span><span class="w"> </span><span class="p">{});</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="c1">// Get Microservice Subsystem that exposes calls to it</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">MyMsApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">GetEngineSubsystem</span><span class="o">&lt;</span><span class="n">UMyMsApi</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">MyMsReq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UMyMsRequest</span><span class="o">::</span><span class="n">Make</span><span class="p">(</span><span class="n">GetTransientPackage</span><span class="p">(),</span><span class="w"> </span><span class="p">{});</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="c1">// Create the handler for the request capturing the "Op" it is a part of.</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">MyMsHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FOnMyMsFullResponse</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">([</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">Op</span><span class="p">](</span><span class="n">FMyMsFullResponse</span><span class="w"> </span><span class="n">Resp</span><span class="p">)</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">        </span><span class="c1">// If the request timed out and is being retried, do nothing.</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">Resp</span><span class="p">.</span><span class="n">State</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">RS_Retrying</span><span class="p">)</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">        </span><span class="n">UE_LOG</span><span class="p">(</span><span class="n">LogTemp</span><span class="p">,</span><span class="w"> </span><span class="n">Display</span><span class="p">,</span><span class="w"> </span><span class="n">TEXT</span><span class="p">(</span><span class="s">"Talked to a Microservice from a Hook!!!! Look at that, huh?"</span><span class="p">));</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">        </span><span class="c1">// If the response from the Microservice was not a success, fail the operation.</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">Resp</span><span class="p">.</span><span class="n">State</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">RS_Success</span><span class="p">)</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">            </span><span class="c1">// Trigger the operation as a success</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">            </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">GetEngineSubsystem</span><span class="o">&lt;</span><span class="n">UBeamRequestTracker</span><span class="o">&gt;</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">TriggerOperationError</span><span class="p">(</span><span class="n">Op</span><span class="p">,</span><span class="w"> </span><span class="n">Resp</span><span class="p">.</span><span class="n">ErrorData</span><span class="p">.</span><span class="n">message</span><span class="p">);</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">        </span><span class="c1">// (...) Do stuff with the Microservice's response</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="w">        </span><span class="c1">// Trigger the operation as a success</span>
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="w">       </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">GetEngineSubsystem</span><span class="o">&lt;</span><span class="n">UBeamRequestTracker</span><span class="o">&gt;</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">TriggerOperationSuccess</span><span class="p">(</span><span class="n">Op</span><span class="p">,</span><span class="w"> </span><span class="n">FString</span><span class="p">(</span><span class="s">""</span><span class="p">));</span>
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="w">    </span><span class="c1">// Make the request</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="w">    </span><span class="n">FBeamRequestContext</span><span class="w"> </span><span class="n">Ctx</span><span class="p">;</span>
+<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a><span class="w">    </span><span class="n">MyMsApi</span><span class="o">-&gt;</span><span class="n">CPP_MyMs</span><span class="p">(</span><span class="n">UserSlot</span><span class="p">,</span><span class="w"> </span><span class="n">MyMsReq</span><span class="p">,</span><span class="w"> </span><span class="n">MyMsHandler</span><span class="p">,</span><span class="w"> </span><span class="n">Ctx</span><span class="p">,</span><span class="w"> </span><span class="n">Op</span><span class="p">,</span><span class="w"> </span><span class="n">GetGameInstance</span><span class="p">());</span>
+<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>
+<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a><span class="w">    </span><span class="c1">// Return the create Operation</span>
+<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Op</span><span class="p">;</span>
+<a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="p">}));</span>
 </code></pre></div>
 <h2 id="why-not-template-based-promises">Why not Template-based Promises?<a class="headerlink" href="#why-not-template-based-promises" title="Permanent link">¶</a></h2>
-<p>The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style <abbr title="application programming interface">API</abbr> just won't work with BPs. We wanted to create an underlying system that provided the same functionality while retaining BP compatibility even if it lost the template-based interface. The result was this <code>Operation</code> system.</p>
+<p>The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style <abbr title="application programming interface">API</abbr> just won't work with BPs. The goal was an underlying system providing the same functionality while retaining BP compatibility, even without the template-based interface. The result was this <code>Operation</code> system.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>In using it inside our own <abbr title="software development kit">SDK</abbr> to develop our Stateful <code>UBeamRuntimeSubsystems</code>, we found that we didn't miss the template aspect or its chaining aspect of <code>Do().Then()</code>. However, the chaining might be something we eventually look into. Perhaps adding the ability to chain requests like these as "syntactic sugar". But it is highly unlikely we'll do anything with templates at the Operation-layer, as we do not want to lose the BP-Compatibility.</p>
+<p>In building the Stateful <code>UBeamRuntimeSubsystems</code> with this system, the team found the absence of template syntax and <code>Do().Then()</code> chaining to be a non-issue in practice. Chaining may be revisited eventually — perhaps as "syntactic sugar" — but template-layer additions are unlikely given the BP-Compatibility requirement.</p>
 </div>
 <h2 id="waits">Waits<a class="headerlink" href="#waits" title="Permanent link">¶</a></h2>
-<p>This is equivalent to <code>Promise.All</code> or <code>Task.WhenAll</code>, keeping with our promise analogy. It can be used to wait on a set of operations and/or requests executed concurrently whose errors and successes are handled all at once. To use this, call <code>UBeamRequestTracker::[CPP_]WaitAll</code>.</p>
+<p>This is equivalent to <code>Promise.All</code> or <code>Task.WhenAll</code>, keeping with the promise analogy. It can be used to wait on a set of operations and/or requests executed concurrently whose errors and successes are handled all at once. To use this, call <code>UBeamRequestTracker::[CPP_]WaitAll</code>.</p>
 <p>This function takes arrays of <code>FBeamRequestContext</code>, <code>FBeamOperationHandle</code> and/or <code>FBeamWaitHandle</code> and a handler function. It will wait until all provided handles are completed, gather all emitted events and request responses, and invoke your handle function, passing in a helper struct to identify successes/failures.</p>
-<p>You can find examples of these in our SDKs so you can learn how to use this yourself. The most common examples are:</p>
+<p>Examples are available in the <abbr title="software development kit">SDK</abbr>. The most common are:</p>
 <ul>
 <li><code>UBeamRuntime</code>'s Initialization and Login's Lifecycle, defined as a multi-step operation with several wait points.</li>
-<li><code>UBeamContentSubsystem</code> also has an example around how we fetch content updates.</li>
+<li><code>UBeamContentSubsystem</code> also has an example of fetching content updates.</li>
 </ul>
 <hr>
 <p>Understanding these concepts and how to leverage them can unlock the maximum potential uses and customizability of the <abbr title="software development kit">SDK</abbr>, but superficial knowledge is enough for the most basic use-cases.</p>
