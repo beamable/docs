@@ -1,6 +1,6 @@
 # Federation
 
-**Federations** are similar to the idea of **Server-Side Callbacks or webhooks**, but are slightly expanded in use. They are Beamable's approach to extending, or sometimes delegating, the behavior of its Managed Services to microservices or third parties.
+**Federations** are similar to the idea of server-side callbacks or webhooks, but are slightly expanded in use. They are Beamable's approach to extending, or sometimes delegating, the behavior of its Managed Services to microservices or third parties.
 
 Here are a few example use cases that Federations as a concept means to solve:
 
