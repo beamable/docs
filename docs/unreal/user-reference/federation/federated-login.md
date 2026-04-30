@@ -86,7 +86,7 @@ The following example is from the Sui-Wallet integration showcase.
 
 ![federated-login-2fa-start.png](../../../media/imgs/federated-login-2fa-start.png)
 
-Once the challenge has been resolved, send it to the microservice by calling `Login - Commit Federated Identity`. The following example shows the challenge being signed before the solution is sent to the microservice.
+Once the challenge has been resolved, send the solution to the microservice by calling `Login - Commit Federated Identity`. The following example shows the challenge being signed before the solution is sent to the microservice.
 
 ![federated-login-2fa-commit.png](../../../media/imgs/federated-login-2fa-commit.png)
 

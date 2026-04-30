@@ -76,7 +76,7 @@ This content type defines a few things about a queue:
 ## Lobby Subsystem Integration
 The Matchmaking Subsystem works with the [Lobby Subsystem](lobbies.md) by default. It does the following things:
 
-- The `OnMatchReady` callback is ONLY invoked AFTER the match Lobby data has been fetched.
+- By the time `OnMatchReady` fires, the match Lobby data has been fetched and is available.
     - This means you can use the `Local State - Lobby` nodes to fetch information from the lobby directly on this event.
     - For example, when used with [Federated Game Server](../federation/federated-game-server.md), you just get the connection string from the global lobby property to proceed.
 - When joining a queue, you can optionally pass in a set of key/value pairs called `FBeamTag`.

@@ -1,6 +1,6 @@
 # Federation
 
-**Federations** are similar to the idea of **Server-Side Callbacks** or webhooks, but are slightly expanded in use. They are Beamable's approach to extending, or sometimes delegating, the behavior of its Managed Services to microservices or third parties.
+**Federations** are similar to the idea of **Server-Side Callbacks or webhooks**, but are slightly expanded in use. They are Beamable's approach to extending, or sometimes delegating, the behavior of its Managed Services to microservices or third parties.
 
 Here are a few example use cases that Federations as a concept means to solve:
 
@@ -19,7 +19,7 @@ Here is a high-level diagram of federations:
 Each **Federation** has its own semantics, usage guidelines, performance characteristics, and constraints, described in its individual page.
 
 ## Federation Id
-Federations can be thought of delegates called by our server in particular points of various flows. A Federation Id is a unique `string` value that designates a particular federation implementation.
+Federations are delegate methods in your microservice that the Beamable backend calls at specific points in various flows, to perform tasks that would otherwise be entirely internal to the Beamable backend. A Federation Id is a unique `string` value that designates a particular federation implementation.
 
 The combination of the **Federation Id** and the **Federation Type** is comparable to a function name/pointer assigned to an Unreal delegate; in the sense that it is used by the Beamable backend to know which implementation of a federation in your microservice it should talk to, if any.
 
