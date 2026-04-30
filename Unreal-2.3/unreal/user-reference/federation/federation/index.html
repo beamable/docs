@@ -8756,7 +8756,7 @@
 
 
 <h1 id="federation">Federation<a class="headerlink" href="#federation" title="Permanent link">¶</a></h1>
-<p><strong>Federations</strong> are similar to the idea <strong>Server Side Callbacks or WebHooks</strong> but are slightly expanded in use. It is Beamable's approach to solving extending, or sometimes delegating, the behavior of our Managed Services to microservices or 3rd parties.</p>
+<p><strong>Federations</strong> are similar to the idea of server-side callbacks or webhooks, but are slightly expanded in use. They are Beamable's approach to extending, or sometimes delegating, the behavior of its Managed Services to microservices or third parties.</p>
 <p>Here are a few example use cases that Federations as a concept means to solve:</p>
 <ul>
 <li>Implementing 3rd Party Auth Integrations with other Identity Providers</li>
@@ -8765,21 +8765,21 @@
 <li>Integrating with Game Server Orchestrators such as Edgegap, Agones or even a custom stack.</li>
 <li>Etc...</li>
 </ul>
-<p>Most implementations of Server-Side Callbacks are fire-and-forget (similar to a webhook). <strong>Federations</strong>, however, don't need to be fire-and-forget. Most <strong>Federations</strong> are calls made to your microservice happen as part of a particular flow, often having things happening <strong><em>before</em></strong> and/or <strong><em>after the Federated call finishes</em></strong>.</p>
-<p>Here's a high-level diagram of what federations are:</p>
+<p>Most implementations of Server-Side Callbacks are fire-and-forget (similar to a webhook). <strong>Federations</strong>, however, don't need to be fire-and-forget. Most <strong>Federations</strong> are calls made to your microservice that happen as part of a particular flow, often with things happening <strong><em>before</em></strong> and/or <strong><em>after the federated call finishes</em></strong>.</p>
+<p>Here is a high-level diagram of federations:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture-federation-general.png" data-desc-position="bottom"><img alt="microservices-architecture-federation-general.png" src="../../../../media/imgs/microservices-architecture-federation-general.png"></a></p>
-<p>As such, each of the <strong>Federations</strong> we provide have their own semantics, usage guidelines, performance characteristics and constraints described in their individual pages.</p>
+<p>Each <strong>Federation</strong> has its own semantics, usage guidelines, performance characteristics, and constraints, described in its individual page.</p>
 <h2 id="federation-id">Federation Id<a class="headerlink" href="#federation-id" title="Permanent link">¶</a></h2>
-<p>Federations can be thought of delegates called by our server in particular points of various flows. Federation Ids are a unique <code>string</code>-based identifier that identifies a particular implementation of a federation.</p>
+<p>Federations are delegate methods in your microservice that the Beamable backend calls at specific points in various flows, to perform tasks that would otherwise be entirely internal to the Beamable backend. A Federation Id is a unique <code>string</code> value that designates a particular federation implementation.</p>
 <p>The combination of the <strong>Federation Id</strong> and the <strong>Federation Type</strong> is comparable to a function name/pointer assigned to an Unreal delegate; in the sense that it is used by the Beamable backend to know which implementation of a federation in your microservice it should talk to, if any.</p>
 <p>Examples:</p>
 <ul>
 <li><code>IFederatedLogin</code> would have different implementations for Steam and Epic auth integration.</li>
-<li>As such, <code>IFederatedLogin&lt;SteamId&gt;</code> and <code>IFederatedLogin&lt;EpicId&gt;</code> the two different interfaces you'll need to implement.</li>
+<li><code>IFederatedLogin&lt;SteamId&gt;</code> and <code>IFederatedLogin&lt;EpicId&gt;</code> are the two interfaces you will need to implement.</li>
 </ul>
 <p>In other words, an id is just a unique <code>string</code> that you pass along in specific places depending on the federation to <strong>choose between one or more federations if any should be used</strong>.</p>
 <h2 id="addingremoving-federations">Adding/Removing Federations<a class="headerlink" href="#addingremoving-federations" title="Permanent link">¶</a></h2>
-<p>Federations are tied to interfaces implemented in your <code>Microservice</code> inherited class --- these federations and its IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, simply implement its federation and recompile the microservice project.</p>
+<p>Federations are tied to interfaces implemented in your <code>Microservice</code> inherited class --- these federations and their IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, simply implement its federation and recompile the microservice project.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// FederationIds.cs</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">[FederationId("cool")]</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CoolId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="p">;</span>
