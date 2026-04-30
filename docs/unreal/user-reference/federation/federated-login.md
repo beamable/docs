@@ -80,13 +80,13 @@ public async Promise<FederatedAuthenticationResponse> Authenticate(string token,
 
 ### Setting up the Client
 
-In the client, start by invoking the `Login - Federated Identity` operation. This operation has a sub-event that fires when the microservice responds with a `challenge` string the player needs to solve. The SDK provides a `UBeamMultiFactorLoginData` object you can store and carry through your game state so that your player can solve the challenge.
+In the client, start by invoking the `Login - Federated Identity` operation. This operation has a sub-event that fires when the microservice responds with a `challenge` string the authentication mechanism must resolve. The SDK provides a `UBeamMultiFactorLoginData` object you can store and carry through your game state while the authentication mechanism resolves the challenge.
 
 The following example is from the Sui-Wallet integration showcase.
 
 ![federated-login-2fa-start.png](../../../media/imgs/federated-login-2fa-start.png)
 
-Once the player has solved the challenge, you can send it to the Microservice by calling `Login - Commit Federated Identity`. You can see an example below where we sign the challenge before sending over the solution to our microservice.
+Once the challenge has been resolved, send it to the microservice by calling `Login - Commit Federated Identity`. The following example shows the challenge being signed before the solution is sent to the microservice.
 
 ![federated-login-2fa-commit.png](../../../media/imgs/federated-login-2fa-commit.png)
 
