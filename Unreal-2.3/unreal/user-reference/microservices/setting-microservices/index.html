@@ -8808,7 +8808,7 @@
 </div>
 <h3 id="create-the-microservice-solution-and-project">Create the Microservice Solution and Project<a class="headerlink" href="#create-the-microservice-solution-and-project" title="Permanent link">¶</a></h3>
 <p><strong>Make sure that you've completed the <a href="../../../getting-started/setup/">Setup</a> process for the <abbr title="software development kit">SDK</abbr> and that the editor is not running before starting this guide.</strong></p>
-<p>Open a terminal/shell (in Windows, we recommend <code>GitBash</code>) at your project's root and run the following command to create a new project and add a new microservice.</p>
+<p>Open a terminal/shell (on Windows, use <code>GitBash</code>) at your project's root and run the following command to create a new project and add a new microservice.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet beam project new service MicroserviceName --sln ProjectNameBeamable/ProjectNameBeamable.sln
 </code></pre></div>
 <p>The created Microservice would look something like the example one below here.</p>
@@ -8826,7 +8826,7 @@
 <p>Afterward, you can run the command below from your project's root.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dotnet beam project add-unreal-project .
 </code></pre></div>
-<p>Linking a project informs our CLI where it should put generated C++ files for communicating with the Microservice from UE code. <strong>To generate the project files, run</strong>:</p>
+<p>Linking a project tells the CLI where to put the generated C++ files for communicating with the Microservice from UE code. <strong>To generate the project files, run</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Run manually whenever you make schema changes to `Callable` method signatures or to types used in them</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>generate-client<span class="w"> </span><span class="s2">"."</span>
 </code></pre></div>
@@ -8883,7 +8883,7 @@
 </div>
 <p>Take a look at <a href="https://docs.beamable.com/docs/cli-guide-microservice-storage">this documentation</a> for more information on how to write the code inside Storages and how to access them in Microservices.</p>
 <h2 id="optional-libraries-and-c-microservices">Optional - Libraries and C# Microservices<a class="headerlink" href="#optional-libraries-and-c-microservices" title="Permanent link">¶</a></h2>
-<p>One of the big advantages of Beamable C# Microservices is that they are regular <code>.NET</code> projects. This means you get access to Nuget packages should you need to integrate Beamable with any particular Third-Party technology that we don't support out-of-the-box.</p>
+<p>One of the big advantages of Beamable C# Microservices is that they are regular <code>.NET</code> projects. This means you get access to NuGet packages should you need to integrate Beamable with any Third-Party technology not supported out of the box.</p>
 <p>To do so, use Nuget to add a package dependency to a project (this can be done easily through any IDE --- or through <code>dotnet nuget</code> command pallete).</p>
 <p>While definitely not the common case, it is possible for projects to require multiple services. When that happens, it is also common that those services share some logic or internal data types. To write your own code that is then shared between services:</p>
 <ul>
@@ -8899,7 +8899,7 @@
 <div class="admonition warning">
 <p class="admonition-title">UE Code Generation Limitations</p>
 <p>You can write any code here and share types between microservices. Keep in mind that, if you use these types in method signatures of multiple microservices, due to Unreal's lack of namespacing, you'll end up with two different UE types for the same shared type.</p>
-<p>For that reason, we currently recommend you do not expose shared complex types inside <code>Callable</code> method signatures.</p>
+<p>For that reason, avoid exposing shared complex types inside <code>Callable</code> method signatures.</p>
 </div>
 
 

@@ -8883,7 +8883,7 @@
 <ol>
 <li>Open your Level Blueprint (or some other BP).</li>
 <li>Get the <code>BeamInventorySubsystem</code></li>
-<li>Call <code>BeginInventoryUpdate</code>. This begins building a set of changes we will submit to the Beamable backend later.</li>
+<li>Call <code>BeginInventoryUpdate</code>. This begins building a set of changes to submit to the Beamable backend later.</li>
 <li>Call <code>PrepareAddCurrency</code> and <code>PrepareAddItem</code> selecting the currency and item types you created.</li>
 <li>Call the <code>Commit Inventory Update</code> operation.</li>
 </ol>
@@ -8898,7 +8898,7 @@
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-portal.png" data-desc-position="bottom"><img alt="inventory-portal.png" src="../../../../media/imgs/inventory-portal.png"></a></p>
 <h3 id="batching-updates">Batching updates<a class="headerlink" href="#batching-updates" title="Permanent link">¶</a></h3>
-<p>In the getting started example, we make a new <code>FBeamInventoryUpdateCommand</code> and commit it right away.</p>
+<p>In the getting started example, the code creates a new <code>FBeamInventoryUpdateCommand</code> and commits it right away.</p>
 <p>It is desirable, for both performance and latency reasons, to batch as many inventory changes as possible as long as it makes sense for your game's design. So, if your game's feature allows for a "edit multiple, commit later" pattern of UX, leveraging this <abbr title="application programming interface">API</abbr> is the most efficient way to go about it.</p>
 <h3 id="reading-local-state">Reading Local State<a class="headerlink" href="#reading-local-state" title="Permanent link">¶</a></h3>
 <p>In order to read the local state of the player's inventory, you can use the following operations:</p>
@@ -8906,8 +8906,8 @@
 <p>You can also use the <code>Local State - Inventory - TryGetAllItemsFilter</code> node to iterate over all the items of a particular subtype in the inventory.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-auto-casting.png" data-desc-position="bottom"><img alt="inventory-auto-casting.png" src="../../../../media/imgs/inventory-auto-casting.png"></a></p>
 <h2 id="currencies">Currencies<a class="headerlink" href="#currencies" title="Permanent link">¶</a></h2>
-<p>Currencies are used to buy items with our <a href="../stores/">Store system</a> (e.g. Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP) depending on the specifics of your game system.</p>
-<p>In the Beamable Unreal <abbr title="software development kit">SDK</abbr>, currencies are represented by the <code>UBeamCurrencyContent</code>. Each currency can specify a <code>startingAmount</code> that is used to pre-seed player accounts with that amount of currency for very simple cases. For more control over each player's starting state we recommend using <a href="../../federation/federated-player-init/">our Federated Player Init</a>.</p>
+<p>Currencies are used to buy items with the <a href="../stores/">Store system</a> (e.g. Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP) depending on the specifics of your game system.</p>
+<p>In the Beamable Unreal <abbr title="software development kit">SDK</abbr>, currencies are represented by the <code>UBeamCurrencyContent</code>. Each currency can specify a <code>startingAmount</code> that is used to pre-seed player accounts with that amount of currency for very simple cases. For more control over each player's starting state, use <a href="../../federation/federated-player-init/">Federated Player Init</a>.</p>
 <p>You can <a href="../content/#defining-custom-content-types">subclass</a> this content type if you want to add more information to currency that is specific to your liking, such as UI related <code>ObjectPaths</code> and other references to assets that might be relevant to your game.</p>
 <h2 id="items">Items<a class="headerlink" href="#items" title="Permanent link">¶</a></h2>
 <p>The Items feature allows for the creation and management of various in-game objects, such as equipment, consumables, and resources. In the Beamable Unreal <abbr title="software development kit">SDK</abbr>, items are represented by the <code>UBeamItemContent</code> type. You can <a href="../content/#defining-custom-content-types">subclass</a> this content type to add game-specific information to item content which is then accessible via the <code>UBeamContentSubsystem</code> and in Microservices.</p>
@@ -8937,7 +8937,7 @@
     - Bad: <code>ItemEnhancementName</code> and <code>ENH_Count</code>
     - Good: <code>ENHANCE_Name</code> and <code>ENHANCE_Count</code> OR <code>ItemEnhancementName</code> and <code>ItemEnhancementCount</code>.</p>
 <p><strong>For Values</strong>: Values should be no more than a few hundred characters long.</p>
-<p><strong>For larger, complex data structures</strong>: we recommend you use <a href="../../microservices/microservices/#micro-storages">Micro Storages</a> instead of this key-value store.</p>
+<p><strong>For larger, complex data structures</strong>: use <a href="../../microservices/microservices/#micro-storages">Micro Storages</a> instead of this key-value store.</p>
 <p>This is especially true if you do NOT need to use the data in these properties at the same time as you need the list of items (for example, a list view which then opens some sort of details view). This reduces pressure on the inventory service and can help reduce latency of inventory query requests.</p>
 
 

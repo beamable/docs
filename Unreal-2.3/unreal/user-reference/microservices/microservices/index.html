@@ -9061,15 +9061,15 @@
 <p>Beamable Microservices are Beamable's Cloud Code solution. These are written in C# and come with a set of development tools that are tightly integrated with the UE Editor and Beamable CLI.</p>
 <p>This page explains the high-to-low-level concepts of Microservices and to what end they can be used. <a href="../setting-microservices/">Take a look here for a getting started guide.</a></p>
 <h2 id="why-this-approach-to-cloud-code">Why this approach to Cloud-Code?<a class="headerlink" href="#why-this-approach-to-cloud-code" title="Permanent link">¶</a></h2>
-<p>A lot of cloud-code solutions sacrifice a lot of flexibility, cost-efficiency, performance or developer experience in exchange for simplifying the simple case. Our goal was to focus on helping you with the complex cases while keeping the simple case easy to work.</p>
-<p>We do so through this architecture:</p>
+<p>A lot of cloud-code solutions sacrifice a lot of flexibility, cost-efficiency, performance or developer experience in exchange for simplifying the simple case. The goal is to focus on the complex cases while keeping the simple case easy to work.</p>
+<p>The <abbr title="software development kit">SDK</abbr> achieves this through the following architecture:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture.png" data-desc-position="bottom"><img alt="microservices-architecture.png" src="../../../../media/imgs/microservices-architecture.png"></a></p>
 <p>The Microservice is:</p>
 <ul>
 <li>An easy-to-write server that provides a set of APIs you, the Game-Maker, create.</li>
 <li>Locally debuggable (really, just press Debug on Rider). <a href="#collaborative-debugging">Collaboratively too</a>.</li>
 <li>Deployed as a Docker container that you can customize.</li>
-<li>Promotable between Realms via the Portal OR our CLI (CI/CD folks rejoice).</li>
+<li>Promotable between Realms via the Portal or the CLI (CI/CD folks rejoice).</li>
 </ul>
 <p>Under the hood, microservices are a wrapper around a custom WebSocket protocol and Job Scheduler with a set of layered APIs you can use to easily write the simple cases and peel back to write the complex cases.</p>
 <p>It solves or helps with all the listed items above and the amount of code you actually need to write to expose an Endpoint your game can call is:</p>
@@ -9085,7 +9085,7 @@
 <p>The left side of the window provides you a list of all services in your project with a set of filters based on <strong>Service Groups</strong>. The right side is the <strong>Details Panel</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Service Groups</p>
-<p>In very rare cases, a project may require a non-trivial amount of services/storages. For Beamable's own internal development this is true (as we have microservices for each sample).</p>
+<p>In very rare cases, a project may require a non-trivial amount of services/storages. For Beamable's own internal development this is true (Beamable has microservices for each sample).</p>
 <p>In cases like these, a line can be added to the <code>csproj</code> file of each service to assign them to groups. These can then be used by the CLI's <code>project</code> pallet as filters while also being used as a filter in this window. The line to be added to the <code>BeamableSettings</code> <strong>PropertyGroup</strong> : <code>&lt;BeamServiceGroup&gt;SomeGroupId&lt;/BeamServiceGroup&gt;</code></p>
 <p>There are no restrictions on group names other than that <code>BEAMPROJ_</code> is a reserved prefix.</p>
 </div>
@@ -9124,11 +9124,11 @@
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Logging and Microservices</p>
-<p>We provide ways of dynamically changing the current log-level for deployed services. Also, <code>BeamableLogger</code> is the correct way to log things from within your Microservice code.</p>
+<p>The <abbr title="software development kit">SDK</abbr> provides ways to dynamically change the current log-level for deployed services. Also, <code>BeamableLogger</code> is the correct way to log things from within your Microservice code.</p>
 </div>
 <p><a href="../../../../cli/guides/microservices/">For more information on how to write microservice functions, you can take a look at these docs as well.</a></p>
 <h2 id="constraints-on-callable-functions">Constraints on Callable Functions<a class="headerlink" href="#constraints-on-callable-functions" title="Permanent link">¶</a></h2>
-<p>Our CLI is capable of generating Unreal bindings that will allow your Unreal code to call your microservice much like you would make an <abbr title="application programming interface">API</abbr> call to Beamable. To generate these bindings, we have <em>some</em> restrictions on what types can and can't be on method signatures for <code>Callables</code>.</p>
+<p>The CLI generates Unreal bindings that allow your Unreal code to call your microservice much like an <abbr title="application programming interface">API</abbr> call to Beamable. To generate these bindings, there are <em>some</em> restrictions on what types can and can't be on method signatures for <code>Callables</code>.</p>
 <p>Each <code>Callable</code> generates at least two <code>UObject</code> classes, one representing request's input parameters and another representing the response type. It also generates a function inside the generated <code>UBeamMicroserviceNameApi</code> subsystem (and accompanying Blueprint nodes).</p>
 <h3 id="signature-constraints">Signature Constraints<a class="headerlink" href="#signature-constraints" title="Permanent link">¶</a></h3>
 <p>When declaring <code>Callable</code> functions, you should be aware of a few limitations regarding its signatures.</p>
@@ -9225,7 +9225,7 @@
 <tr>
 <td><code>TMap&lt;FString, &gt;</code></td>
 <td><code>Dictionary&lt;string,&gt;</code></td>
-<td>We only support maps with <code>FString</code> as keys. The values can be any supported type.</td>
+<td>Only <code>FString</code> keys are supported. The values can be any supported type.</td>
 </tr>
 <tr>
 <td><strong>Beamable Types</strong></td>
@@ -9240,14 +9240,14 @@
 <tr>
 <td>A new UObject implementing <code>IBeamJsonSerializableUObject</code></td>
 <td>Any C# Class Type</td>
-<td>The fields of the C# class must also adhere to the constrains on this table.<br><br>If used in multiple <code>Callables</code> the generated type will be shared (our generate can identify that the same type is being used)</td>
+<td>The fields of the C# class must also adhere to the constrains on this table.<br><br>If used in multiple <code>Callables</code> the generated type will be shared (the code generator can identify that the same type is being used)</td>
 </tr>
 </tbody>
 </table>
 <p>A few things to note:</p>
 <ul>
 <li>Unreal's lack of Namespaces in Blueprint-Compatible-land makes auto-generated code pretty verbose.<ul>
-<li>When using these APIs, we recommend liberal <em>but careful</em> use of <code>auto</code>.</li>
+<li>When using these APIs, use <code>auto</code> liberally <em>but carefully</em>.</li>
 </ul>
 </li>
 <li>The code for <strong>all</strong> microservices in the solution is generated at once.<ul>
@@ -9270,13 +9270,13 @@
 <li>Writing custom serialization/deserialization logic (you'd have to modify the C# serialization too).</li>
 <li>Etc...</li>
 </ul>
-<p>To do that, we allow you to use the CLI to register replacement types so that the code-generation will skip the generation of a particular schema and instead use a type that you define.</p>
+<p>To do that, use the CLI to register replacement types so that code generation skips a particular schema and uses a type you define instead.</p>
 <h4 id="adding-a-replacement-type">Adding a Replacement Type<a class="headerlink" href="#adding-a-replacement-type" title="Permanent link">¶</a></h4>
 <ol>
 <li>Write your replacement type inside your Unreal Project.</li>
 <li>This must exist inside the <code>______MicroserviceClients/CustomReplacementTypes</code> module.</li>
 <li>If you don't have the <code>____MicroserviceClients</code> yet, just generate the microservice client code once via <code>dotnet beam project generate-client "."</code>.</li>
-<li>When writing the replacement type, look at the other generated code to see how to leverage our <code>UBeamJsonUtils</code> library to write the serialization logic.</li>
+<li>When writing the replacement type, look at the other generated code to see how to use the <code>UBeamJsonUtils</code> library to write the serialization logic.</li>
 <li>Use <code>dotnet beam project add-replacement-type</code> to add the created type.</li>
 <li>The <code>reference-id</code> argument is the OpenAPI ReferenceId for the type you want to replace. You can find this inside the <code>beam_openApi.json</code> file that lives in your microservice's <code>bin</code> directory. <code>ReferenceIds</code> are any of the json property names under the <code>components.schemas.&lt;ReferenceId&gt;</code> sub-object of this JSON file.</li>
 <li>The <code>replacement-type</code> argument is the name of the replacement type you've written.</li>
@@ -9297,16 +9297,16 @@
 <p>Some microservices may contain <code>Callables</code> that are not supposed to be callable from a client (dedicated server or otherwise), such as Admin Utilities. You can skip the generation of any callable by using the <code>flags:CallableFlags.SkipGenerateClientFiles</code> argument for the various <code>[Callable]</code> attributes. This will prevent the generation of the Unreal Request/Response types for that particular <code>Callable</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Non-Request/Response Types --- Schemas</p>
-<p>If <code>TypeA</code> is used inside <code>CallableA(TypeA paramA)</code> signature and nowhere else, when you <code>SkipGenerateClientFiles</code> to that callable, <code>TypeA</code> will no longer be generated. However, if <code>TypeA</code> is also used in <code>CallableB(TypeA paramA)</code> that does NOT have <code>SkipGenerateClientFiles</code>, <code>TypeA</code> will be generated (unless you flag it with <code>[BeamGenerateSchema]</code>). In other words, as long as a single usage in <code>Callable</code> signatures is found, we will generate these schemas for you.</p>
+<p>If <code>TypeA</code> is used inside <code>CallableA(TypeA paramA)</code> signature and nowhere else, when you <code>SkipGenerateClientFiles</code> to that callable, <code>TypeA</code> will no longer be generated. However, if <code>TypeA</code> is also used in <code>CallableB(TypeA paramA)</code> that does NOT have <code>SkipGenerateClientFiles</code>, <code>TypeA</code> will be generated (unless you flag it with <code>[BeamGenerateSchema]</code>). In other words, as long as a single usage in <code>Callable</code> signatures is found, these schemas are generated automatically.</p>
 </div>
 <h2 id="making-requests-on-behalf-of-users">Making Requests on Behalf of Users<a class="headerlink" href="#making-requests-on-behalf-of-users" title="Permanent link">¶</a></h2>
-<p>It is quite a common case that a Microservice needs to use one of our many APIs on behalf of a particular user. This allows you to re-use our APIs (that are usually written in a client-facing way) to be used for multiple users. A practical example:</p>
+<p>It is quite a common case that a Microservice needs to use one of Beamable's many APIs on behalf of a particular user. This lets you reuse those APIs (usually written in a client-facing way) for multiple users. A practical example:</p>
 <blockquote>
 <p>At the end of a MOBA match, you'll need to update player stats gathered during the match or process their account's new Experience or Rank. For this, you can make a <code>ServerCallable</code> called <code>ProcessMatchResults</code> and pass in information from your dedicated server whenever the match is over.</p>
 </blockquote>
-<p>To make requests on behalf of users, we provide the <code>AssumeNewUser</code> function. It gives you back a <code>UserRequestDataHandler</code> that has fields like <code>Context</code> and <code>Services</code>. Making <abbr title="application programming interface">API</abbr> calls from this <code>assumedUser.Services.Stats</code> instance as opposed to the usual <code>this.Services</code> will make the request on behalf of the user.</p>
+<p>To make requests on behalf of users, the <abbr title="software development kit">SDK</abbr> provides the <code>AssumeNewUser</code> function. It gives you back a <code>UserRequestDataHandler</code> that has fields like <code>Context</code> and <code>Services</code>. Making <abbr title="application programming interface">API</abbr> calls from this <code>assumedUser.Services.Stats</code> instance as opposed to the usual <code>this.Services</code> will make the request on behalf of the user.</p>
 <h2 id="multiple-microservices-and-organizing-code">Multiple Microservices and Organizing Code<a class="headerlink" href="#multiple-microservices-and-organizing-code" title="Permanent link">¶</a></h2>
-<p>The first impulse a lot of people have is to separate microservices semantically; one-per-feature. <strong>We do NOT recommend this.</strong> Here's why:</p>
+<p>The first impulse a lot of people have is to separate microservices semantically; one-per-feature. <strong>This is NOT recommended.</strong> Here's why:</p>
 <ul>
 <li>Having a lot of microservices will increase your cost for no benefit (<em>in most cases</em>).</li>
 <li>Having a lot of microservices increases project complexity (that impacts development costs).</li>
@@ -9318,7 +9318,7 @@
 <p><strong>Game Maker</strong>: "If I have 5 features in a single Microservices, how do I organize my <code>Callable</code> functions?"</p>
 <p><strong>Beamable</strong>: "You can create new parts of the <code>partial</code> Microservice type. You can declare utility static functions as well and make most <code>____Callable</code> just forward the call along."</p>
 </blockquote>
-<p>We've found these to be <strong>reasonable defaults</strong> that give you generally good runtime scalability for a low cost and provide a simple developer experience. You should always keep an eye on your service's behavior for optimization opportunities as you observe its behavior under load.</p>
+<p>These are <strong>reasonable defaults</strong> that give you generally good runtime scalability for a low cost and provide a simple developer experience. You should always keep an eye on your service's behavior for optimization opportunities as you observe its behavior under load.</p>
 <h3 id="microservice-routing-and-microservice-target">Microservice Routing and Microservice Target<a class="headerlink" href="#microservice-routing-and-microservice-target" title="Permanent link">¶</a></h3>
 <p>When you make a request to a microservice, you're not directly talking to your service. Your request comes in via Beamable's Gateway service, and that service figures out to which running Microservice instance it will forward that request.</p>
 <p>This allows us to integrate microservices running in your local machine "as though they" are part of the realm: requests made from your editor's <abbr title="play in editor">PIE</abbr> instance can choose a <strong>Microservice Target</strong>.</p>
@@ -9347,7 +9347,7 @@
 <blockquote>
 <p>Run the <code>dotnet beam project generate-client "."</code> command manually to generate these bindings. This command regenerates your client bindings AND run Unreal's <code>Regenerate Project Files</code> utility for you.</p>
 </blockquote>
-<p>We generate both C++ and Blueprint Bindings for every microservice <code>Callable</code>.</p>
+<p>The CLI generates both C++ and Blueprint Bindings for every microservice <code>Callable</code>.</p>
 <div class="admonition info">
 <p class="admonition-title">IMPORTANT: Using the generated code in UE</p>
 <p>The generated code exist inside a <code>__________MicroserviceClients</code> plugin. So, you should add this plugin as a dependency to any project/plugin you have from which you want to make calls to your microservices (don't forget to add it to <code>Target.cs</code> files as needed). Also, call <code>________MicroserviceClients.AddMicroserviceClients(this)</code> on any of the <code>Build.cs</code> files you have and want to communicate with a microservice.</p>
@@ -9367,14 +9367,14 @@
 <div class="admonition info">
 <p class="admonition-title">Which realm?</p>
 <p>How you wish to manage realms is a team-specific decision as there are cost implications per-microservice instance running in any realm to consider against how your team likes to work.</p>
-<p>At Beamable's UE team, we prefer the "team members are responsible not to break other team members environment"-approach so we recommend that you test things thoroughly and then publish to your <code>dev</code> realm (where everybody is).</p>
+<p>The Beamable UE team prefers the "team members are responsible not to break other team members environment"-approach. Test things thoroughly and then publish to your <code>dev</code> realm (where everybody is).</p>
 <p>Another strategy might be to have a <code>designer-dev</code> that lives between <code>staging</code> and <code>dev</code> that should be more stable and then you push to <code>dev</code> first and eventually promote it to <code>designer-dev</code>. Again, this is for your lead and team to discuss and decide how you wish to work.</p>
 <p>Finally, you can also choose a <code>one realm per developer</code> approach though that introduces a lot of workflow overhead. Though, there are team-specific cases where that might be a valid approach.</p>
 </div>
-<p>The way to deploy services for our UE integration is 100% CLI-based. The documentation for it can be found <a href="../../../../cli/guides/ms-deployment/">here</a>.</p>
+<p>Deploying services for the UE integration is 100% CLI-based. The documentation for it can be found <a href="../../../../cli/guides/ms-deployment/">here</a>.</p>
 <div class="admonition info">
 <p class="admonition-title">Why no Deploy Editor UI?</p>
-<p>If there's enough demand for it, we will consider adding it. However, deploying services is mostly done by engineers and CI/CD pipelines so we felt that compiling and opening the UE Editor just to do this didn't add enough value to the UE workflow.</p>
+<p>If demand warrants it, a deploy UI may be added. However, deploying services is mostly done by engineers and CI/CD pipelines; opening the UE Editor for this adds little value to the workflow.</p>
 </div>
 <h2 id="collaborative-debugging">Collaborative Debugging<a class="headerlink" href="#collaborative-debugging" title="Permanent link">¶</a></h2>
 <p>This one is pretty unique to Beamable's Microservices.</p>
@@ -9405,17 +9405,17 @@
 <center>Collaboration Tab of the Microservice Window</center>
 
 <h1 id="micro-storages">Micro Storages<a class="headerlink" href="#micro-storages" title="Permanent link">¶</a></h1>
-<p>Beamable Microservices allow you to store data in Beamable's own managed services such as <code>Stats</code>(Per-Player key-value stores) and <code>Inventory</code> (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it just makes your particular problem simpler to solve (instead of trying to fit it into our default stores).</p>
-<p>For those cases, Beamable offers a <code>MicroStorage</code>. This is a wrapper around a database that you can write to from your microservices. At the moment, we only support <code>MongoDB</code>. Like Microservices, these are scoped by realm as well (as in, data from Realm A is only visible in Realm A). <a href="./#micro-storages">Micro Storages</a>.</p>
+<p>Beamable Microservices allow you to store data in Beamable's own managed services such as <code>Stats</code>(Per-Player key-value stores) and <code>Inventory</code> (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it just makes your particular problem simpler to solve (instead of trying to fit it into the default stores).</p>
+<p>For those cases, Beamable offers a <code>MicroStorage</code>. This is a wrapper around a database that you can write to from your microservices. At the moment, only <code>MongoDB</code> is supported. Like Microservices, these are scoped by realm as well (as in, data from Realm A is only visible in Realm A). <a href="./#micro-storages">Micro Storages</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Relevancy for <abbr title="application programming interface">API</abbr> Design and Client-Code Generation</p>
-<p>While there's no compilation problem in using types declared in the <code>MicroStorage</code> project as part of the signatures of <code>Callable</code> functions, we <strong>DO NOT RECOMMEND</strong> you expose these types in Callable functions.</p>
+<p>While there's no compilation problem in using types declared in the <code>MicroStorage</code> project as part of the signatures of <code>Callable</code> functions, avoid exposing these types in Callable functions.</p>
 <p>While it can be simpler and faster to prototype this way, the post-release implications of doing that are all very bad. It makes it harder to modify your internal schema and makes it harder to introduce new behavior without doing data-migrations.</p>
-<p><strong>We recommend that <code>Callables</code> have unique request/response types for better long-term maintainability and flexibility</strong>.</p>
+<p><strong><code>Callables</code> should have unique request/response types for better long-term maintainability and flexibility</strong>.</p>
 </div>
 <h3 id="local-development-implications">Local Development Implications<a class="headerlink" href="#local-development-implications" title="Permanent link">¶</a></h3>
 <p>While you can develop microservices without Docker being run (except for its publishing step), you cannot do the same for <code>Microservices</code> that use <code>MicroStorages</code>. This is because the local running service expects there to be a locally running <code>MongoDB</code> instance it'll use as the Database.</p>
-<p>To make sure the above is true, we run <code>MongoDB</code>'s official container in your local Docker instance. This is managed automatically on startup of the microservice BUT does introduce a dependency on Docker for local iterative development.</p>
+<p>To make sure the above is true, the <abbr title="software development kit">SDK</abbr> runs <code>MongoDB</code>'s official container in your local Docker instance. This is managed automatically on startup of the microservice BUT does introduce a dependency on Docker for local iterative development.</p>
 
 
 

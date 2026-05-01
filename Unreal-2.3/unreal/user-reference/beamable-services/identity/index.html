@@ -8853,17 +8853,17 @@ best practices.</p>
 <p>This is handled automatically by the <code>Login</code> operations and <code>UBeamRuntimeSubsystem</code> implementations. You can see an overview of how this all works <a href="../../overview/">here</a>. The short version is: "After calling <code>Login</code> operations, your local state is ready for use."</p>
 <p>Here's a simple example using <code>Login - Frictionless</code> Operation:
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/federations-player-init-login-example.png" data-desc-position="bottom"><img alt="alt text" src="../../../../media/imgs/federations-player-init-login-example.png"></a></p>
-<p>As you can see, in the success handling of the operation, we simply tell our UI to go update itself. While not shown in this image, that UI can then use our <a href="../stats/"><code>Local State - Stats</code></a> and <a href="../inventory/"><code>Local State - Inventory</code></a> nodes to read the player's stats and inventory to render itself.</p>
+<p>As you can see, the success handler tells the UI to update itself. The UI can then use the <a href="../stats/"><code>Local State - Stats</code></a> and <a href="../inventory/"><code>Local State - Inventory</code></a> nodes to read the player's stats and inventory to render itself.</p>
 <div class="admonition note">
 <p class="admonition-title">Customizing the Login Flow</p>
 <p>If you want to add calls to Microservices to be made as part of the login flow (such that every time your game opens you make those calls), you can see how you can implement your own <a href="../../runtime-systems/lower-level/"><code>UBeamRuntimeSubsystem</code></a> and call your custom Microservice from there.</p>
 </div>
 <p>This approach, coupled with <a href="../../federation/federated-player-init/">Federated Player Initialization</a> greatly simplifies how you can design your game's boot-up flow and UI implementations.</p>
-<p>The following sections explain how to leverage our <abbr title="software development kit">SDK</abbr> to implement common authentication flows for different games and platforms.</p>
+<p>The following sections explain how to use the <abbr title="software development kit">SDK</abbr> to implement common authentication flows for different games and platforms.</p>
 <h2 id="mobile-games-style-authentication">"Mobile Games" Style Authentication<a class="headerlink" href="#mobile-games-style-authentication" title="Permanent link">¶</a></h2>
 <p>Mobile games often want to create a <strong>Guest Account</strong> for the player so they can start playing quickly and later decide if they want to <code>Attach</code> one or more permanent identities to that guest account.</p>
 <p>The <abbr title="software development kit">SDK</abbr> supports this flow via the <code>Login - Frictionless</code> operation.</p>
-<p>If an account is already locally cached at that <code>FUserSlot</code>, we'll log in to that one automatically without making a request to Beamable.</p>
+<p>If an account is already locally cached at that <code>FUserSlot</code>, the <abbr title="software development kit">SDK</abbr> logs in to that one automatically without making a request to Beamable.</p>
 <p><strong>Guest Accounts are lost if signed out (or locally cached data is lost for any reason)</strong>.
 To avoid that, players can "attach" some persistent identity information to that guest account. <code>Operation - Attach</code> nodes do so.</p>
 <p>Attaching an identity can succeed or fail:</p>
@@ -8883,17 +8883,17 @@ Handling of this is game specific, but most games will either:</p>
 </ul>
 </li>
 </ul>
-<p>You can check out our <a href="../../../samples/discord-demo/">Discord sample</a> for an example of this flow.</p>
+<p>See the <a href="../../../samples/discord-demo/">Discord sample</a> for an example of this flow.</p>
 <h2 id="pcconsole-style-authentication">"PC/Console" Style Authentication<a class="headerlink" href="#pcconsole-style-authentication" title="Permanent link">¶</a></h2>
 <p>In PC/Console titles, often the user can sign-in and up from inside the game. That can happen either through an active form-filling process, an active request to third-party authentication (Discord, Google, etc) or an automatic platform-based login (Epic Online Services, PSN, Steam, etc).</p>
 <p>In all of these cases, you usually want to keep the user signed into the machine after they login once (without having to go through the process of re-authenticating every time).</p>
-<p>For that, we provide a <code>Login - Local Cache</code>.</p>
+<p>For that, the <abbr title="software development kit">SDK</abbr> provides <code>Login - Local Cache</code>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/identity-login-local-cache.png" data-desc-position="bottom"><img alt="Login - Local Cache" src="../../../../media/imgs/identity-login-local-cache.png"></a></p>
 <h3 id="local-cache-emailpassword-form">Local Cache + Email/Password Form<a class="headerlink" href="#local-cache-emailpassword-form" title="Permanent link">¶</a></h3>
 <p>Some games might have builds distributed outside of common platforms and instead might want to ask users to sign-up via Email/Password.</p>
 <p>In these cases and builds, you'll want to:</p>
 <ul>
-<li>Call <code>Login - Local Cache</code> so we first try to login as the locally cached user in that slot.</li>
+<li>Call <code>Login - Local Cache</code> to first try logging in as the locally cached user in that slot.</li>
 <li>Call <code>Sign Up - Email And Password</code> with <code>bAutoLogin</code> as true.<ul>
 <li>You can optionally make use of properly configured Microservice with <a href="../../federation/federated-player-init/">Federated Player Initialization</a> and the <code>InitProperties</code> in the <code>SignUp</code> node to pass in additional data to influence initial player state.</li>
 </ul>
@@ -8903,17 +8903,17 @@ Handling of this is game specific, but most games will either:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/identity-email-and-password.png" data-desc-position="bottom"><img alt="Email and Password" src="../../../../media/imgs/identity-email-and-password.png"></a></p>
 <p>If your login/signup flows are the same (which is sometimes useful in early development), you can leverage the <code>Auto Login</code> option in this node. It'll create the account with email/password if it doesn't exist and, if it already does, it'll try to log into that account with the provided password.</p>
 <h3 id="local-cache-platform-specific">Local Cache + Platform-specific<a class="headerlink" href="#local-cache-platform-specific" title="Permanent link">¶</a></h3>
-<p>Beamable has a different approach for supporting 3rd-Party Platforms such as Steam. Instead of us trying to maintain a small subset of ALL existing 3rd-Party Platforms, we leverage our <a href="../../federation/federation/">Microservice Federation</a> capabilities to allow you to implement whichever Platform-specific features you need for your game.</p>
-<p>Platform login flows are usually very simple. You can see that in our working <a href="../../../samples/beamball/steam-integration/">Beamball - Steam Integration</a>.</p>
+<p>Beamable has a different approach for supporting 3rd-Party Platforms such as Steam. Rather than maintaining a small subset of all existing 3rd-Party Platforms, the <abbr title="software development kit">SDK</abbr> uses <a href="../../federation/federation/">Microservice Federation</a> capabilities, letting you implement whichever Platform-specific features your game needs.</p>
+<p>Platform login flows are usually very simple. You can see this in the <a href="../../../samples/beamball/steam-integration/">Beamball - Steam Integration</a> sample.</p>
 <p>In builds for specific stores and platforms, what you'll want to do is:</p>
 <ul>
-<li>Call <code>Login - Local Cache</code> so we first try to login as the locally cached user in that slot.</li>
+<li>Call <code>Login - Local Cache</code> to first try logging in as the locally cached user in that slot.</li>
 <li>Call <code>Sign Up - Federated Identity</code> with <code>bAutoLogin</code> as true and a properly configured Microservice with <a href="../../federation/federated-login/">Federated Login</a>.</li>
 <li>Both the success of the <code>Login - Local Cache</code> as well as the <code>Sign Up - Federated Identity</code> calls mean you have logged in successfully.</li>
 </ul>
 <p>Here's how that looks in the client side:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/identity-cache-plus-platform.png" data-desc-position="bottom"><img alt="Local Cache + Federated Identity" src="../../../../media/imgs/identity-cache-plus-platform.png"></a></p>
-<p>Each different platform (Steam, EOS, PSN, etc.) requires a different Microservice implementation. At the moment, we only have a sample for Steam --- but we plan to add samples for all major platforms (Steam, EOS, Console and Mobile platforms) as time passes and the <abbr title="software development kit">SDK</abbr> evolves to support each target.</p>
+<p>Each different platform (Steam, EOS, PSN, etc.) requires a different Microservice implementation. At the moment, only a Steam sample is available --- samples for all major platforms (EOS, Console, and Mobile) are planned as the <abbr title="software development kit">SDK</abbr> evolves.</p>
 <div class="admonition note">
 <p class="admonition-title">Why do platform integrations this way?</p>
 <p>The problem with Beamable supporting each platform directly in the <abbr title="software development kit">SDK</abbr> is that it ties Beamable <abbr title="software development kit">SDK</abbr> versions to each individual platform's <abbr title="software development kit">SDK</abbr> versions. This denies game makers the ability to independently select the feature-set they want to support from each individual platform.</p>

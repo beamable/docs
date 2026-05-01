@@ -9619,7 +9619,7 @@
 <p>The 7.0 release restructures the <code>.beamable/</code> folder in your project. Previously, there were several single-use files in the folder. Now, those files have been merged into a single <code>config.beam.json</code>.</p>
 <p>The first time you run any command with CLI 7.0, your config files will be automatically merged into the new format.</p>
 <h4 id="net10-support">Net10 Support<a class="headerlink" href="#net10-support" title="Permanent link">¶</a></h4>
-<p>While not a <em>breaking change</em>, it is worth noting that the CLI 7.x release multi-targets <code>net8.0</code>, and <code>net10.0</code>. We recommend you use <code>net10.0</code> whenever possible.</p>
+<p>While not a <em>breaking change</em>, it is worth noting that the CLI 7.x release multi-targets <code>net8.0</code>, and <code>net10.0</code>. Use <code>net10.0</code> whenever possible.</p>
 <h3 id="from-54x-to-600">From 5.4.x to 6.0.0<a class="headerlink" href="#from-54x-to-600" title="Permanent link">¶</a></h3>
 <p>There are no compile time breaking changes between 5.x and 6.0. However, there are a few major <em>workflow</em> changes you should know.</p>
 <h4 id="microservice-logging-changes">Microservice Logging Changes<a class="headerlink" href="#microservice-logging-changes" title="Permanent link">¶</a></h4>
@@ -9684,7 +9684,7 @@ much of your method will likely need to change as well.</p>
 <p>A better approach is to explicitly list the <code>IFederatedGameServer.CreateGameServer()</code>'s
 parameter with the new namespace, and then use a conversion tool to get back the old type.</p>
 <h4 id="client-generation">Client Generation<a class="headerlink" href="#client-generation" title="Permanent link">¶</a></h4>
-<p>In the old CLI and Microservice packages, Unity and Unreal Engine client could we be automatically
+<p>In the old CLI and Microservice packages, Unity and Unreal Engine client code could be automatically
 generated when the Microservices were built. However, in CLI 5+, the engine integrations themselves
 are responsible for generating the client code, and the default behavior is that a standalone
 Microservice project will <em>no longer generate client code automatically</em>.</p>
@@ -9742,7 +9742,7 @@ following line to the end of the file.
 </code></pre></div><p></p>
 <h3 id="from-202-to-301">From 2.0.2 to 3.0.1<a class="headerlink" href="#from-202-to-301" title="Permanent link">¶</a></h3>
 <p>The upgrade from 2.0.x to 3.0.1 brings a few critical updates to the <code>csproj</code> file, how the Beam CLI tool is managed, and the version of <code>dotnet</code>.</p>
-<p><strong>To start this process, let's open a terminal and navigate to the directory containing your <code>.beamable/</code> folder. All commands are written as though invoked from this directory.</strong></p>
+<p><strong>To start this process, open a terminal and navigate to the directory containing your <code>.beamable/</code> folder. All commands are written as though invoked from this directory.</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># In this file structure...</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>SomeDrive
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">|</span>---ProjectRoot
@@ -9757,7 +9757,7 @@ following line to the end of the file.
 <li>Install <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">dotnet 8 <abbr title="software development kit">SDK</abbr></a> in your machine (it is the new recommended version). The old <code>net6.0</code> framework's end-of-life arrived on November 12, 2024.</li>
 <li>Delete the <code>.beamable/local-services-manifest.json</code> file. (It is no longer necessary)</li>
 </ol>
-<p>Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install &amp; re-install specific versions when switching projects, but that is a bad workflow --- so... we changed it.</p>
+<p>Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install &amp; re-install specific versions when switching projects, but that is a bad workflow --- so that was changed.</p>
 <p>In 3.0.0, the CLI should be installed as a <em>local dotnet tool</em>.</p>
 <p>The steps to change your project from using the global CLI tool to a <em>local dotnet tool</em> are defined below.</p>
 <p>Start by verifying you are in the correct location by running the following command.
@@ -9820,8 +9820,7 @@ following line to the end of the file.
 <a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">  </span><span class="cm">&lt;!-- When running from inside docker, this gets injected via the Dockerfile at build-time. --&gt;</span>
 <a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="nt">&lt;/PropertyGroup&gt;</span>
 </code></pre></div><p></p>
-<p>If the project is targeting <code>net6.0</code> or <code>net7.0</code>, then, we recommend you
-upgrade the <code>TargetFramework</code> to <code>.net8.0</code>.
+<p>If the project is targeting <code>net6.0</code> or <code>net7.0</code>, upgrade the <code>TargetFramework</code> to <code>.net8.0</code>.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Dotnet Settings"</span><span class="nt">&gt;</span>
 <a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="cm">&lt;!-- net8.0 is the LTS version until 2026. To update your net version, update the &lt;TargetFramework&gt; when Beamable announces support. --&gt;</span>
 <a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="nt">&lt;TargetFramework&gt;</span>net8.0<span class="nt">&lt;/TargetFramework&gt;</span>
@@ -9874,7 +9873,7 @@ binaries are not compatible with Unity.</p>
 <p>You can run the command described in the error message to register the federation in the code with the <code>federation.json</code> file.</p>
 <blockquote>
 <p>📘 Why is this needed?</p>
-<p>We now support the ability to test federations locally (which was previously impossible due to architecture of 2.0.0). With this new ability, some UX requirements changed for our engine integrations. This change helps the development experience of such cases in the Unity/Unreal editor integrations.</p>
+<p>Beamable now supports testing federations locally (which was previously impossible due to the architecture of 2.0.0). With this new ability, some UX requirements changed for the engine integrations. This change improves the development experience in the Unity/Unreal editor integrations.</p>
 </blockquote>
 <h4 id="updating-the-dockerfile-files">Updating the <code>Dockerfile</code> Files<a class="headerlink" href="#updating-the-dockerfile-files" title="Permanent link">¶</a></h4>
 <p>This is very simple: simply replace the contents of each Dockerfile with the following. After replacing it, you can re-add any previous modifications you might've had.</p>
