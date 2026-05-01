@@ -3,7 +3,7 @@
 This guide will provide a way to get a working Linux build on Windows.
 
 !!! info "Building from Docker"
-	While it is possible to build a game using a Docker, we found that solution suboptimal compared to the one described in this guide.
+	While it is possible to build a game using Docker, that approach proved suboptimal compared to the one described in this guide.
 
 ## Cross Compilation
 

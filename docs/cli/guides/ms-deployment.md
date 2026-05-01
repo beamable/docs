@@ -47,11 +47,11 @@ dotnet beam deploy plan --plan "path to plan file"
 
 The `deploy plan` command validates that your Standalone Microservice can be built and, optionally, that it will start accepting HTTPS traffic.
 
-**The command WILL NOT validate the services are booting up correctly by default.** It assumes that you have tested your service locally before deploying it. However, you can pass in the `--health`  argument to make the command, run the built services locally and wait for the service to start responding to health check API calls. This takes longer, but guarantees that the services *at least starts up*. This is especially useful if you're using our `[ConfigureServices]` and/or `[InitializeServices]` attributes to modify the service boot process.
+**The command WILL NOT validate the services are booting up correctly by default.** It assumes that you have tested your service locally before deploying it. However, you can pass in the `--health`  argument to make the command, run the built services locally and wait for the service to start responding to health check API calls. This takes longer, but guarantees that the services *at least starts up*. This is especially useful if you're using the `[ConfigureServices]` and/or `[InitializeServices]` attributes to modify the service boot process.
 
 After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local _service manifest_ is built implicitly from configurations inside your project. The built plan is there inform you about the changes you will be making (enabling/disabling existing services, adding new services, etc.) if you decide to `deploy release` it.
 
-As an example, here's the output from a `deploy plan` invocation from inside our `UnrealSDK` project.
+As an example, here's the output from a `deploy plan` invocation from inside the `UnrealSDK` project.
 ```
 $ dotnet beam deploy plan
 
@@ -97,13 +97,13 @@ Saved plan: E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-173314046
 
 As you can see from the example, every `plan` invocation creates a `timestamp.plan.json` file inside your `.beamable\temp\plans` folder.
 #### Merge & Replace Plans
-When planning to release microservices, it is important to think about how to handle existing services. This is especially true of times when you remove a service. For that case, we provide two ways of generating a plan: **Replace** and **Merge**.
+When planning to release microservices, it is important to think about how to handle existing services. This is especially true of times when you remove a service. For that case, there are two ways of generating a plan: **Replace** and **Merge**.
 
 **Replace (default)**: Creates a release plan that completely overrides the existing remote services. Existing deployed services that are not present locally will be removed.
 
 **Merge**: Creates a release plan that merges your current local environment to the existing remote services. In other words, existing deployed services that are not present locally will remain unaffected.
 
-By default, we use the **replace** plan as it keeps "whatever is in your repository" as the source of truth. That being said, there are cases where **merge** can be useful.
+By default, the **replace** plan is used as it keeps "whatever is in your repository" as the source of truth. That being said, there are cases where **merge** can be useful.
 
 For example, in cases where you want to remove the source code of a service from the repo, but still have the service be available for a while; this can happen if you have multiple *supported* client versions in existence, one dependent on a removed service and the other not.
 
@@ -151,7 +151,7 @@ See the [Microservice Configuration Section](ms-configuration.md) for more detai
 
     Remember, Every service running on Beamable Cloud may increase your Beamable Bill. Disable your services to reduce your monthly bill.
 
-A quick-note: we highly recommend you ***delete services from your repository*** instead of enabling/disabling them *in most cases*. This feature exists for use-cases similar to the ones we have for the distribution of our Unreal SDK samples.
+A quick-note: ***delete services from your repository*** instead of enabling/disabling them *in most cases*. This feature exists for use-cases similar to those used for distributing the Unreal SDK samples.
 
 For game-makers, these are often advanced use-cases. An example could be:
 
@@ -250,7 +250,7 @@ You have full control over the docker-compose file, so if you want to set up per
 
 You can do that by running: `dotnet beam deploy plan --logs v` which prints out all docker commands it is using under the hood. You can then use the printed commands as a starting point for your investigation into whatever problem you're solving.
 
-**Debugging Container Structure**: In some cases of customized `Dockerfiles`, the image may fail to build or the container fail to run due to aspects of the container's file structure. Docker will not allow you to easily inspect a container's file structure unless it is running; and we cleanup the container once its `ENTRYPOINT` process is killed.
+**Debugging Container Structure**: In some cases of customized `Dockerfiles`, the image may fail to build or the container fail to run due to aspects of the container's file structure. Docker will not allow you to easily inspect a container's file structure unless it is running; and the container is removed once its `ENTRYPOINT` process is killed.
 
 This means that if SAMS code depends on local file structure (DLLs not existing where they should being the most common thing) and it fails because of a malformation of that structure you'll have a hard time debugging it.
 

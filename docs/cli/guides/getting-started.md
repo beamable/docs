@@ -6,9 +6,9 @@ The Beamable CLI is a dotnet tool that allows developers to interact with Beamab
 You'll need to install [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) before you can get started.
 Verify it is installed by running `dotnet --version` from a terminal.
 
-!!! info "We support Dotnet 8 as well."
+!!! info "Dotnet 8 is also supported."
 
-    If you are using the Beamable CLI before version 7.0, then you should be using [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). Starting with CLI 7.0 and beyond, we support both versions of dotnet, but we recommend you use `net10.0`.
+    If you are using the Beamable CLI before version 7.0, then you should be using [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). Starting with CLI 7.0 and beyond, both versions of dotnet are supported, but `net10.0` is recommended.
 
 ## Installing
 
@@ -56,7 +56,7 @@ dotnet beam config
 ```
 You should expect to see your CID/PID printed out.
 
-As of CLI 3.0.0, anytime you create a Beamable workspace, the CLI will be installed as a local tool next to the workspace's `.beamable/` folder. This means that you can run the local tool with `dotnet beam`. If you continue to use `beam` in the workspace, the global installation will automatically forward your command to the local tool. This will be inefficient and lead to poor performance. We recommend you use `dotnet beam` wherever possible.
+As of CLI 3.0.0, anytime you create a Beamable workspace, the CLI will be installed as a local tool next to the workspace's `.beamable/` folder. This means that you can run the local tool with `dotnet beam`. If you continue to use `beam` in the workspace, the global installation will automatically forward your command to the local tool. This will be inefficient and lead to poor performance. Use `dotnet beam` wherever possible.
 
 To check that everything is working correctly, you can use the beam me command. Now you have a configured CLI project!
 

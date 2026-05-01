@@ -24,7 +24,7 @@ After that, you can create campaigns setting some information through a few step
 
 !!! info "Important"
 
-    In case the campaign is of the In-game mail type, you will have the option to use Entitlements to grant rewards to players. However, Entitlements are a deprecated legacy system. We strongly recommend using Inventory instead, in conjunction with a different delivery mechanism such as Announcements or a custom C# Microservice.
+    In case the campaign is of the In-game mail type, you will have the option to use Entitlements to grant rewards to players. However, Entitlements are a deprecated legacy system. Use Inventory instead, in conjunction with a different delivery mechanism such as Announcements or a custom C# Microservice.
 
 ![Campaign Content](../media/imgs/campaigns-content.png)
 
