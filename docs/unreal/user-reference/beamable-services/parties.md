@@ -23,7 +23,7 @@ This section will bring a simple case for a party system and show how to impleme
 
 To use the party system, first you need to set up your environment with PIE mode, allowing you to play with multiple instances so that you can follow along with this guide.
 
-With the multiplayer instances set we can start creating a Blueprint (BP) function that will do the basic Party operations.
+With the multiplayer instances set, create a Blueprint (BP) function that will perform the basic Party operations.
 
 ### Creating a Party
 
@@ -109,6 +109,6 @@ Party Events are used to handle updates to the party, like updating visuals when
 
 ### Party State Usage
 
-In this case, we are iterating over the player states within the party. This can be used to populate the UI with the party's details.
+In this case, the example iterates over the player states within the party. This can be used to populate the UI with the party's details.
 
 ![party-get-state](../../../media/imgs/party-get-state.png)

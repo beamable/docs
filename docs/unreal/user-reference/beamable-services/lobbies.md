@@ -50,7 +50,7 @@ For games with dedicated servers, the `Lobby - Provision Game Server for Lobby` 
 ![lobbies-provision-federation.png](../../../media/imgs/lobbies-provision-federation.png)
 
 ## Reading and Writing to Lobbies
-For both Matchmaking lobbies and Open/Closed lobbies, we need APIs to read/write to lobby data that is synchronized between all players in the lobby.
+For both Matchmaking lobbies and Open/Closed lobbies, APIs are available to read/write lobby data that is synchronized between all players in the lobby.
 
 Updating the Lobby's `Global Data` and any of its configurations can only be done by the Lobby's host (or a server in case of Matchmaking lobbies).
 
@@ -75,7 +75,7 @@ You can use `GetCurrentSlotLobbyState` to get the `UBeamLobbyState` and setup va
 
 ![lobbies-notification-binding.png](../../../media/imgs/lobbies-notification-binding.png)
 
-Here's the list of events we expose:
+Here's the list of events exposed:
 
 - **OnKickedFromLobby**: received whenever a host removes a player from the lobby via `KickPlayerOperation`.
 	- Every player in the lobby receives this notification, including the host. <br><br>

@@ -15,7 +15,7 @@ The Microservice is:
 - An easy-to-write server that provides a set of APIs you, the Game-Maker, create.
 - Locally debuggable (really, just press Debug on Rider). [Collaboratively too](#collaborative-debugging).
 - Deployed as a Docker container that you can customize.
-- Promotable between Realms via the Portal OR our CLI (CI/CD folks rejoice).
+- Promotable between Realms via the Portal OR the CLI (CI/CD folks rejoice).
 
 Under the hood, microservices are a wrapper around a custom WebSocket protocol and Job Scheduler with a set of layered APIs you can use to easily write the simple cases and peel back to write the complex cases.
 
@@ -37,7 +37,7 @@ The Microservice Window enables developers to start/stop local services, to read
 The left side of the window provides you a list of all services in your project with a set of filters based on **Service Groups**. The right side is the **Details Panel**.
 
 !!! note "Service Groups"
-	In very rare cases, a project may require a non-trivial amount of services/storages. For Beamable's own internal development this is true (as we have microservices for each sample).
+	In very rare cases, a project may require a non-trivial amount of services/storages. For Beamable's own internal development this is true (as there are microservices for each sample).
 
 	In cases like these, a line can be added to the `csproj` file of each service to assign them to groups. These can then be used by the CLI's `project` pallet as filters while also being used as a filter in this window. The line to be added to the `BeamableSettings` **PropertyGroup** : `<BeamServiceGroup>SomeGroupId</BeamServiceGroup>`
 
@@ -78,12 +78,12 @@ Inside the method body, there are a few concepts that are relevant:
 	- So on and so forth...
 
 !!! warning "Logging and Microservices"
-	We provide ways of dynamically changing the current log-level for deployed services. Finally, `BeamableLogger` is the correct way to log things from within your Microservice code.
+	The SDK provides ways of dynamically changing the current log-level for deployed services. Finally, `BeamableLogger` is the correct way to log things from within your Microservice code.
 
 [For more information on how to write microservice functions, you can take a look at these docs as well.](https://docs.beamable.com/docs/microservices-feature-overview)
 
 ## Constraints on Callable Functions
-Our CLI is capable of generating Unreal bindings that will allow your Unreal code to call your microservice much like you would make an API call to Beamable. In order to generate these bindings, we have *some* restrictions on what types can and can't be on method signatures for `Callables`.
+The CLI generates Unreal bindings that allow your Unreal code to call your microservice much like you would make an API call to Beamable. In order to generate these bindings, there are *some* restrictions on what types can and cannot appear in method signatures for `Callables`.
 
 Each `Callable` generates at least two `UObject` classes, one representing request's input parameters and another representing the response type. It also generates a function inside the generated `UBeamMicroserviceNameApi` subsystem (and accompanying Blueprint nodes).
 
@@ -134,28 +134,28 @@ When you write types in C# and use them in `Callable` method signatures, you sho
 | **Unreal Types**                                          |                                                                             |                                                                                                                                                                                                                     |
 | `FString`                                                 | `string`                                                                    |                                                                                                                                                                                                                     |
 | `TArray<>`                                                | `List<>` or `T[]`                                                           | Any `TArray<SomeType>` will serialize normally as long as `SomeType` also respects the constraints here.                                                                                                            |
-| `TMap<FString, >`                                         | `Dictionary<string,>`                                                       | We only support maps with `FString` as keys. The values can be any supported type.                                                                                                                                  |
+| `TMap<FString, >`                                         | `Dictionary<string,>`                                                       | Only `FString` keys are supported. The values can be any supported type.                                                                                                                                            |
 | **Beamable Types**                                        |                                                                             |                                                                                                                                                                                                                     |
 | `FBeamArray` and `FBeamMap`                               | Any nested container such as `List<List<>>` or `Dictionary<string, List<>>` | These are used because <br>nesting containers directly ( `TArray<TArray<>>` / `TMap<,TMap<>>`) breaks Blueprint Support. These get generated to maintain that support.                                              |
-| A new UObject implementing `IBeamJsonSerializableUObject` | Any C# Class Type                                                           | The fields of the C# class must also adhere to the constrains on this table.<br><br>If used in multiple `Callables` the generated type will be shared (our generate can identify that the same type is being used) |
+| A new UObject implementing `IBeamJsonSerializableUObject` | Any C# Class Type                                                           | The fields of the C# class must also adhere to the constrains on this table.<br><br>If used in multiple `Callables` the generated type will be shared (the CLI generator can identify that the same type is being used) |
 
 A few things to note:
 
 - Unreal's lack of Namespaces in Blueprint-Compatible-land makes auto-generated code pretty verbose.
-	- When using these APIs, we recommend liberal *but careful* use of `auto`.
+	- When using these APIs, use `auto` liberally *but carefully*.
 - The code for **all** microservices in the solution is generated at once.
 	- This means that, if you have multiple Microservices, you cannot generate a single service's bindings.
 	- This is also a result of the Namespaces constraint.
 
 !!! note "Semantic Type Support"
-	In the future, we plan to support all `FBeamSemanticType` such as `FBeamGamerTag` and `FBeamContentId` as well as some Unreal-Specific types such as `FGameplayTag` and others.
+	Support for all `FBeamSemanticType` such as `FBeamGamerTag` and `FBeamContentId` as well as some Unreal-Specific types such as `FGameplayTag` and others is planned for a future release.
 
 ### Making Requests on Behalf of Users
-It is quite a common case that a Microservice needs to use one of our many APIs on behalf of a particular user. This allows you to re-use our APIs (that are usually written in a client-facing way) to be used for multiple users. A practical example:
+It is quite a common case that a Microservice needs to use one of Beamable's many APIs on behalf of a particular user. This allows you to re-use these APIs (usually written in a client-facing way) for multiple users. A practical example:
 
 > At the end of a MOBA match, you'll need to update player stats gathered during the match or process their account's new Experience or Rank. For this, you can make a `ServerCallable` called `ProcessMatchResults` and pass in information from your dedicated server whenever the match is over.
 
-In order to make requests on behalf of users we provide the `AssumeNewUser` function. It gives you back a `UserRequestDataHandler` that has fields like `Context` and `Services`. Making API calls from this `assumedUser.Services.Stats` instance as opposed to the usual `this.Services` will make the request on behalf of the user.
+To make requests on behalf of users, use the `AssumeNewUser` function. It gives you back a `UserRequestDataHandler` that has fields like `Context` and `Services`. Making API calls from this `assumedUser.Services.Stats` instance as opposed to the usual `this.Services` will make the request on behalf of the user.
 
 ### Multiple Microservices and Organizing Code
 The first impulse a lot of people have is to separate microservices semantically; one-per-feature. **We do not recommend this.** Here's why:
@@ -231,16 +231,16 @@ As such, you should publish the services to the appropriate realm.
 !!! info "Which realm?"
 	How you wish to manage realms is a team-specific decision as there are cost implications per-microservice instance running in any realm to consider against how your team likes to work.
 
-	 At Beamable's UE team, we prefer the "team members are responsible not to break other team members environment"-approach so we recommend that you test things thoroughly and then publish to your `dev` realm (where everybody is).
+	 Beamable's UE team prefers the "team members are responsible not to break other team members environment"-approach: test things thoroughly and then publish to the `dev` realm (where everybody is).
 
 	Another strategy might be to have a `designer-dev` that lives between `staging` and `dev` that should be more stable and then you push to `dev` first and eventually promote it to `designer-dev`. Again, this is for your lead and team to discuss and decide how you wish to work.
 
 	Finally, you can also choose a `one realm per developer` approach though that introduces a lot of workflow overhead. Though, there are team-specific cases where that might be a valid approach.
 
-The way to deploy services for our UE integration is 100% CLI-based. The documentation for it can be found here.
+Deploying services for the UE integration is 100% CLI-based. The documentation for it can be found here.
 
 !!! info "Why no Deploy Editor UI?"
-	If there's enough demand for it, we will consider adding it. However, deploying services is mostly done by engineers and CI/CD pipelines so we felt that compiling and opening the UE Editor just to do this didn't add enough value to the UE workflow.
+	If there's enough demand for it, a deploy UI will be considered. However, deploying services is mostly done by engineers and CI/CD pipelines, and compiling and opening the UE Editor just to do this does not add enough value to the UE workflow.
 
 ## Collaborative Debugging
 This one is pretty unique to Beamable's Microservices.
@@ -273,18 +273,18 @@ For smaller teams that like to move fast and can rely on lots of direct communic
 <center>Collaboration Tab of the Microservice Window</center>
 
 # Micro Storages
-Beamable Microservices allow you to store data in Beamable's own managed services such as `Stats`(Per-Player key-value stores) and `Inventory` (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it just makes your particular problem simpler to solve (instead of trying to fit it into our default stores).
+Beamable Microservices allow you to store data in Beamable's own managed services such as `Stats`(Per-Player key-value stores) and `Inventory` (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it just makes your particular problem simpler to solve (instead of trying to fit it into the default stores).
 
-For those cases, Beamable offers a `MicroStorage`. This is a wrapper around a database that you can write to from your microservices. At the moment, we only support `MongoDB`. Like Microservices, these are scoped by realm as well (as in, data from Realm A is only visible in Realm A). [Micro Storages](../microservices/microservices.md#micro-storages).
+For those cases, Beamable offers a `MicroStorage`. This is a wrapper around a database that you can write to from your microservices. At the moment, only `MongoDB` is supported. Like Microservices, these are scoped by realm as well (as in, data from Realm A is only visible in Realm A). [Micro Storages](../microservices/microservices.md#micro-storages).
 
 !!! note "Relevancy for API Design and Client-Code Generation"
-	While there's no compilation problem in using types declared in the `MicroStorage` project as part of the signatures of `Callable` functions, we **DO NOT RECOMMEND** you expose these types in Callable functions.
+	While there's no compilation problem in using types declared in the `MicroStorage` project as part of the signatures of `Callable` functions, exposing these types in Callable functions is **NOT RECOMMENDED**.
 
 	 While it can be simpler and faster to prototype this way, the post-release implications of doing that are all very bad. It makes it harder to modify your internal schema and makes it harder to introduce new behavior without doing data-migrations.
 
-	  **We recommend that `Callables` have unique request/response types for better long-term maintainability and flexibility**.
+	  **`Callables` should have unique request/response types for better long-term maintainability and flexibility**.
 
 # Local Development Implications
 While you can develop microservices without Docker being run (except for its publishing step), you cannot do the same for `Microservices` that use `MicroStorages`. This is because the local running service expects there to be a locally running `MongoDB` instance it'll use as the Database.
 
-To make sure the above is true, we run `MongoDB`'s official container in your local Docker instance. This is managed automatically on startup of the microservice BUT does introduce a dependency on Docker for local iterative development.
+To ensure this, the SDK runs `MongoDB`'s official container in your local Docker instance. This is managed automatically on startup of the microservice BUT does introduce a dependency on Docker for local iterative development.

@@ -21,7 +21,7 @@ Creating your first microservice will automatically create your solution for you
 ### Create the Microservice Solution and Project
 **Make sure that you've completed the [Setup](../../getting-started/setup.md) process for the SDK and that the editor is not running before starting this guide.**
 
-Open a terminal/shell (in Windows, we recommend `GitBash`) at your project's root and run the following command to create a new project and add a new microservice.
+Open a terminal/shell (in Windows, use `GitBash`) at your project's root and run the following command to create a new project and add a new microservice.
 
 ```
 dotnet beam project new service MicroserviceName --sln ProjectNameBeamable/ProjectNameBeamable.sln
@@ -49,7 +49,7 @@ Afterward, you can run the command below from your project's root.
 dotnet beam project add-unreal-project .
 ```
 
-Linking a project informs our CLI where it should put generated C++ files for communicating with the Microservice from UE code. **To generate the project files, run**:
+Linking a project informs the CLI where it should put generated C++ files for communicating with the Microservice from UE code. **To generate the project files, run**:
 
 ```bash
 # Run manually whenever you make schema changes to `Callable` method signatures or to types used in them
@@ -121,7 +121,7 @@ Storages ***cannot*** exist independent of Microservices and must be associated 
 Take a look at [this documentation](https://docs.beamable.com/docs/cli-guide-microservice-storage) for more information on how to write the code inside Storages and how to access them in Microservices.
 
 ## Optional - Libraries and C# Microservices
-One of the big advantages of Beamable C# Microservices is that they are regular `.NET` projects. This means you get access to Nuget packages should you need to integrate Beamable with any particular Third-Party technology that we don't support out-of-the-box.
+One of the big advantages of Beamable C# Microservices is that they are regular `.NET` projects. This means you get access to Nuget packages should you need to integrate Beamable with any particular Third-Party technology not supported out-of-the-box.
 
 To do so, use Nuget to add a package dependency to a project (this can be done easily through any IDE --- or through `dotnet nuget` command pallete).
 
@@ -135,5 +135,5 @@ While definitely not the common case, it is possible for projects to require mul
 !!! warning "UE Code Generation Limitations"
 	You can write any code here and share types between microservices. Keep in mind that, if you use these types in method signatures of multiple microservices, due to Unreal's lack of namespacing, you'll end up with two different UE types for the same shared type.
 
-	For that reason, we currently recommend you do not expose shared complex types inside `Callable` method signatures.
+	For that reason, avoid exposing shared complex types inside `Callable` method signatures.
 

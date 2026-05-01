@@ -118,7 +118,7 @@ A better approach is to explicitly list the `IFederatedGameServer.CreateGameServ
 parameter with the new namespace, and then use a conversion tool to get back the old type.
 
 #### Client Generation
-In the old CLI and Microservice packages, Unity and Unreal Engine client could we be automatically
+In the old CLI and Microservice packages, Unity and Unreal Engine client code could be automatically
 generated when the Microservices were built. However, in CLI 5+, the engine integrations themselves
 are responsible for generating the client code, and the default behaviour is that a standalone
 Microservice project will _no longer generate client code automatically_.
@@ -197,7 +197,7 @@ following line to the end of the file.
 ### From 2.0.2 to 3.0.1
 The upgrade from 2.0.x to 3.0.1 brings a few critical updates to the `csproj` file, how the Beam CLI tool is managed, and the version of `dotnet`.
 
-**To start this process, let's open a terminal and navigate to the directory containing your `.beamable` folder. All commands are written as though invoked from this directory.**
+**To start this process, open a terminal and navigate to the directory containing your `.beamable` folder. All commands are written as though invoked from this directory.**
 
 ```shell
 # In this file structure...
@@ -215,7 +215,7 @@ Starting with CLI 3.0.1, you should start by updating the CLI's file structure. 
 1. Install [dotnet 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) in your machine (it is the new recommended version). The old `net6.0` framework's end-of-life arrived on November 12, 2024.
 2. Delete the `.beamable/local-services-manifest.json` file. (It is no longer necessary)
 
-Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install & re-install specific versions when switching projects, but that is a bad workflow --- so... we changed it.
+Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install & re-install specific versions when switching projects, but that is a bad workflow --- so that was changed in 3.0.0.
 
 In 3.0.0, the CLI should be installed as a _local dotnet tool_.
 
@@ -293,8 +293,7 @@ In every `csproj` file for **Microservices**, **MicroStorages**, and **Common Li
 </PropertyGroup>
 ```
 
-If the project is targeting `net6.0` or `net7.0`, then, we recommend you
-upgrade the `TargetFramework` to `.net8.0`.
+If the project is targeting `net6.0` or `net7.0`, upgrade the `TargetFramework` to `.net8.0`.
 ```xml
 <PropertyGroup Label="Dotnet Settings">
   <!-- net8.0 is the LTS version until 2026. To update your net version, update the <TargetFramework> when Beamable announces support. -->
@@ -365,7 +364,7 @@ You can run the command described in the error message to register the federatio
 
 > 📘 Why is this needed?
 >
-> We now support the ability to test federations locally (which was previously impossible due to architecture of 2.0.0). With this new ability, some UX requirements changed for our engine integrations. This change helps the development experience of such cases in the Unity/Unreal editor integrations.
+> The SDK now supports the ability to test federations locally (which was previously impossible due to architecture of 2.0.0). With this new ability, some UX requirements changed for the engine integrations. This change helps the development experience of such cases in the Unity/Unreal editor integrations.
 
 #### Updating the `Dockerfile` Files
 This is very simple: simply replace the contents of each Dockerfile with the following. After replacing it, you can re-add any previous modifications you might've had.

@@ -212,11 +212,11 @@ There are several standard log attributes that will be included automatically. S
 
 ### Third Party Log Hosting
 
-Starting with version 6.0, it is possible to send Microservice logs to a third parties. In this example, we will use  BetterStack.
+Starting with version 6.0, it is possible to send Microservice logs to third parties. This example uses BetterStack.
 
 This section will assume you have set up a BetterStack account, and created a _Source_ such that you have a _source token_ and an _ingesting host_.
 
-To start, we will configure locally running Microservices to send data to BetterStack. To start, create this file called `config.yaml` next to your `BeamableServices.sln` file.
+To configure locally running Microservices to send data to BetterStack, create a file called `config.yaml` next to your `BeamableServices.sln` file.
 
 ```yml
 receivers:
@@ -272,7 +272,7 @@ docker run -p 4317:4317 -p 4318:4318 \
 	ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.125.0
 ```
 
-Now you have a locally running telemetry collector. We need to configure your local Microservice to _use_ the collector. Prepare the following environment variables,
+Now you have a locally running telemetry collector. Next, configure your local Microservice to _use_ the collector. Prepare the following environment variables,
 
 ```sh
 export BEAM_DISABLE_STANDARD_OTEL=1
@@ -290,7 +290,7 @@ In a few moments, you should see log data appear in BetterStack.
 
 ----
 
-To configure a deployed Microservice to report log data to BetterStack, we need to start the collector in the deployed environment. The easiest way to do this is to run the collector as a local process.
+To configure a deployed Microservice to report log data to BetterStack, start the collector in the deployed environment. The easiest way to do this is to run the collector as a local process.
 
 The `Dockerfile` needs to be modified to include the collector in the built image. Add these lines right below the `WORKDIR /beamApp` line,
 

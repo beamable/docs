@@ -15,11 +15,11 @@ The purpose of this function is:
 Most of the time, you achieve this by doing the following:
 
 1. \[**Game Client**]: Use the 3rd Party Client SDK to get a token of sorts.
-	1. See our [Steam](../../samples/steam-demo.md) and [Discord](../../samples/discord-demo.md) Samples for examples of this.
+	1. See the [Steam](../../samples/steam-demo.md) and [Discord](../../samples/discord-demo.md) Samples for examples of this.
 2. \[**Game Client**]: Invoke a `Login`/`SignUp`/`Attach` **Operation** and pass the following parameters:
 	1. **MicroserviceName**: this is the name of the Microservice (the **csproj** file name, in the default case).
 	2. **IdentityNamespace**: this is the Federation's **[Federation Id](federation.md#federation-id)**. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.
-	3. **IdentityUserId**: this is the 3rd Party's `UserId` for the user trying to login. We use this to determine if there's already a Beamable account mapped to this 3rd Party Id.
+	3. **IdentityUserId**: this is the 3rd Party's `UserId` for the user trying to login. Beamable uses this to determine if there's already a Beamable account mapped to this 3rd Party Id.
 	4. **IdentityAuthToken**: this is a token that for the user that can be used by the `Authenticate` function to map it back to a `UserId`.
 	5. **Federation Id**: this is the Federation's **[Federation Id](federation.md#federation-id)**. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.
 
@@ -59,7 +59,7 @@ The main difference:
 - **Account Creation Time**: `Context.UserId` is `0`; as at this time, no account exists.
 - **Account Attach Time**: `Context.UserId` is a valid `GamerTag`; as you are adding an identity to an existing account.
 
-For non-MFA flows (which are most of the Store and Console login flows) this is all that is needed. Here's an example from our [Steam Demo](../../samples/steam-demo.md).
+For non-MFA flows (which are most of the Store and Console login flows) this is all that is needed. Here's an example from the [Steam Demo](../../samples/steam-demo.md).
 
 ```csharp
 public async Promise<FederatedAuthenticationResponse> Authenticate(string token, string challenge, string solution)
@@ -80,13 +80,13 @@ public async Promise<FederatedAuthenticationResponse> Authenticate(string token,
 
 ### Setting up the Client
 
-In the client, we start by invoking our `Login - Federated Identity` operation. This operation has a sub-event that gets invoked when the microservice responds with a `challenge` string we need to solve. The SDK provides you a `UBeamMultiFactorLoginData` object you can store and carry around your game state so that your player can solve the challenge.
+In the client, start by invoking the `Login - Federated Identity` operation. This operation has a sub-event that gets invoked when the microservice responds with a `challenge` string to solve. The SDK provides a `UBeamMultiFactorLoginData` object you can store and carry around your game state so that your player can solve the challenge.
 
-Here's an example from our Sui-Wallet integration showcase.
+Here's an example from the Sui-Wallet integration showcase.
 
 ![federated-login-2fa-start.png](../../../media/imgs/federated-login-2fa-start.png)
 
-Once the player has solved the challenge, you can send it to the Microservice by calling `Login - Commit Federated Identity`. You can see an example below where we sign the challenge before sending over the solution to our microservice.
+Once the player has solved the challenge, send it to the Microservice by calling `Login - Commit Federated Identity`. The example below shows signing the challenge before sending the solution to the microservice.
 
 ![federated-login-2fa-commit.png](../../../media/imgs/federated-login-2fa-commit.png)
 

@@ -24,21 +24,21 @@ This is handled automatically by the `Login` operations and `UBeamRuntimeSubsyst
 Here's a simple example using `Login - Frictionless` Operation:
 ![alt text](../../../media/imgs/federations-player-init-login-example.png)
 
-As you can see, in the success handling of the operation, we simply tell our UI to go update itself. While not shown in this image, that UI can then use our [`Local State - Stats`](stats.md) and [`Local State - Inventory`](inventory.md) nodes to read the player's stats and inventory to render itself.
+As you can see, in the success handling of the operation, the UI is told to update itself. While not shown in this image, that UI can then use the [`Local State - Stats`](stats.md) and [`Local State - Inventory`](inventory.md) nodes to read the player's stats and inventory to render itself.
 
 !!! note "Customizing the Login Flow"
 	If you want to add calls to Microservices to be made as part of the login flow (such that every time your game opens you make those calls), you can see how you can implement your own [`UBeamRuntimeSubsystem`](../runtime-systems/lower-level.md) and call your custom Microservice from there.
 
 This approach, coupled with [Federated Player Initialization](../federation/federated-player-init.md) greatly simplifies how you can design your game's boot-up flow and UI implementations.
 
-The following sections explain how to leverage our SDK to implement common authentication flows for different games and platforms.
+The following sections explain how to use the SDK to implement common authentication flows for different games and platforms.
 
 ## "Mobile Games" Style Authentication
 Mobile games often want to create a **Guest Account** for the player so they can start playing quickly and later decide if they want to `Attach` one or more permanent identities to that guest account.
 
 The SDK supports this flow via the `Login - Frictionless` operation.
 
-If an account is already locally cached at that `FUserSlot`, we'll log in to that one automatically without making a request to Beamable.
+If an account is already locally cached at that `FUserSlot`, the SDK logs in to that one automatically without making a request to Beamable.
 
 **Guest Accounts are lost if signed out (or locally cached data is lost for any reason)**.
 To avoid that, players can "attach" some persistent identity information to that guest account. `Operation - Attach` nodes do so.
@@ -53,14 +53,14 @@ Handling of this is game specific, but most games will either:
     - Call the `Login` operation and log in with the in-use identity, discarding the guest account (this is the most common way to handle this).
     - Detect progress on the guest account and, if above a particular threshold, leverage microservices to try and do some progress merging should the user want it. This is non-trivial and not a lot of games do it since cost-benefit isn't there in most cases (but it is _possible_).
 
-You can check out our [Discord sample](../../samples/discord-demo.md) for an example of this flow.
+Check out the [Discord sample](../../samples/discord-demo.md) for an example of this flow.
 
 ## "PC/Console" Style Authentication
 In PC/Console titles, often the user can sign-in and up from inside the game. That can happen either through an active form-filling process, an active request to third-party authentication (Discord, Google, etc) or an automatic platform-based login (Epic Online Services, PSN, Steam, etc).
 
 In all of these cases, you usually want to keep the user signed into the machine after they login once (without having to go through the process of re-authenticating every time).
 
-For that, we provide a `Login - Local Cache`.
+The SDK provides a `Login - Local Cache` operation for this purpose.
 
 ![Login - Local Cache](../../../media/imgs/identity-login-local-cache.png)
 
@@ -69,7 +69,7 @@ Some games might have builds distributed outside of common platforms and instead
 
 In these cases and builds, you'll want to:
 
-- Call `Login - Local Cache` so we first try to login as the locally cached user in that slot.
+- Call `Login - Local Cache` to first try to login as the locally cached user in that slot.
 - Call `Sign Up - Email And Password` with `bAutoLogin` as true.
     - You can optionally make use of properly configured Microservice with [Federated Player Initialization](../federation/federated-player-init.md) and the `InitProperties` in the `SignUp` node to pass in additional data to influence initial player state.
 
@@ -81,13 +81,13 @@ If your login/signup flows are the same (which is sometimes useful in early deve
 
 
 ### Local Cache + Platform-specific
-Beamable has a different approach for supporting 3rd-Party Platforms such as Steam. Instead of us trying to maintain a small subset of ALL existing 3rd-Party Platforms, we leverage our [Microservice Federation](../federation/federation.md) capabilities to allow you to implement whichever Platform-specific features you need for your game.
+Beamable has a different approach for supporting 3rd-Party Platforms such as Steam. Rather than maintaining a small subset of ALL existing 3rd-Party Platforms, Beamable uses [Microservice Federation](../federation/federation.md) capabilities to let you implement whichever Platform-specific features you need for your game.
 
-Platform login flows are usually very simple. You can see that in our working [Steam Demo](../../samples/steam-demo.md).
+Platform login flows are usually very simple. You can see that in the working [Steam Demo](../../samples/steam-demo.md).
 
 In builds for specific stores and platforms, what you'll want to do is:
 
-- Call `Login - Local Cache` so we first try to login as the locally cached user in that slot.
+- Call `Login - Local Cache` to first try to login as the locally cached user in that slot.
 - Call `Sign Up - Federated Identity` with `bAutoLogin` as true and a properly configured Microservice with [Federated Login](../federation/federated-login.md).
 - Both the success of the `Login - Local Cache` as well as the `Sign Up - Federated Identity` calls mean you have logged in successfully.
 
@@ -95,7 +95,7 @@ Here's how that looks in the client side:
 
 ![Local Cache + Federated Identity](../../../media/imgs/identity-cache-plus-platform.png)
 
-Each different platform (Steam, EOS, PSN, etc.) requires a different Microservice implementation. At the moment, we only have a sample for Steam --- but we plan to add samples for all major platforms (Steam, EOS, Console and Mobile platforms) as time passes and the SDK evolves to support each target.
+Each different platform (Steam, EOS, PSN, etc.) requires a different Microservice implementation. At the moment, only a sample for Steam is available --- but samples for all major platforms (Steam, EOS, Console and Mobile platforms) are planned as the SDK evolves to support each target.
 
 !!! note "Why do platform integrations this way?"
 	The problem with Beamable supporting each platform directly in the SDK is that it ties Beamable SDK versions to each individual platform's SDK versions. This denies game makers the ability to independently select the feature-set they want to support from each individual platform.

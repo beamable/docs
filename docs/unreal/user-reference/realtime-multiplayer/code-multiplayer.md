@@ -75,18 +75,18 @@ virtual void BeginPlay() override
 **The code above still expects you to have the `Easy Enable` node in your level blueprint marked with `Init when Server Build`.**
 
 ## Implementing Game Server Authentication
-When using the Beamable SDK, in order to validate that the user should be allowed to connect to this game server, we need to know a few things:
+When using the Beamable SDK, in order to validate that the user should be allowed to connect to this game server, the server needs to know a few things:
 
 - The User's Auth Token and GamerTag... so that the server can verify the user is who they say they are.
-- Optionally, the Lobby Id for the lobby the user is in... so we can verify that the user is in a lobby registered with this Game Server.
+- Optionally, the Lobby Id for the lobby the user is in... to verify that the user is in a lobby registered with this Game Server.
 
-We expect to receive these via the `Options` parameter.
+These are expected to arrive via the `Options` parameter.
 
 In clients builds', passing these options can be achieved using `UBeamLobbySubsystem::TryOpenLevelFromLobby`. You can also use `UBeamLobbySubsystem::PrepareLoginOptions` to append these to a string you'll pass to the regular `Open Level` calls used to connect to game servers.
 
 When implementing `PreLoginAsync`, you need to call two functions:
 
-- `BeamPIE::Authentication::GetExpectedClientPIEOptions` --- this enables our PIE integration to work with Game Server Authentication (it gets around UE limitations --- see further down for more information on this).
+- `BeamPIE::Authentication::GetExpectedClientPIEOptions` --- this enables the PIE integration to work with Game Server Authentication (it gets around UE limitations --- see further down for more information on this).
 - `BeamMultiplayer::Authentication::PreLoginAsync` --- this uses the `Options` to validate the user is in fact inside a lobby that has been registered with this server.
 
 A simple implementation of that looks like this:
@@ -115,7 +115,7 @@ virtual void PreLoginAsync(const FString& Options, const FString& Address, const
 }
 ```
 
-The `BeamMultiplayer::Authentication::PreLoginAsync` function runs an operation that, once completed successfully, informs you that we have validated the user is both who they say they are and are in the lobby they say they are. You can do game-specific logic here and combine it with our verification too.
+The `BeamMultiplayer::Authentication::PreLoginAsync` function runs an operation that, once completed successfully, informs you that the user has been validated as both who they say they are and in the lobby they say they are. You can do game-specific logic here and combine it with that verification too.
 
 If you have multiple players per-client, you should also implement a subclass of `ULocalPlayer` as such. This will guarantee the correct GamerTag for each `UserSlot` in that client is correctly forwarded when that particular Local Player tries to connect to the Game Server. You can then configure the Local Player class for your game in `Project Settings > Engine > General Settings > Default Classes > Local Player Class`.
 
@@ -138,11 +138,11 @@ public:
 ```
 
 ## Understanding `FUniqueNetId` and Beamable
-`FUniqueNetId` is how UE identifies each player in the network. By default, when you sign in with Beamable, we set your `ULocalPlayer`'s preferred `FUniqueNetId` to be the user's `GamerTag`. This is how the Beamable SDK maps each Player in its `ULobby` objects to each **UE Player** objects. The `UBeamLobbySubsystem` has utility functions that help you get a `GamerTag` from a **Player Controller/State** object --- these rely on this mapping to work.
+`FUniqueNetId` is how UE identifies each player in the network. By default, when you sign in with Beamable, the SDK sets the `ULocalPlayer`'s preferred `FUniqueNetId` to be the user's `GamerTag`. This is how the Beamable SDK maps each Player in its `ULobby` objects to each **UE Player** objects. The `UBeamLobbySubsystem` has utility functions that help you get a `GamerTag` from a **Player Controller/State** object --- these rely on this mapping to work.
 
 As long as you are using the `Project Settings > Game > Beamable Runtime > Enable Gameplay Framework Integration`, this is all handled automatically for you (in various ways). If, for whatever reason, you want the `FUniqueNetId` to be something other than the Beamable GamerTag, you **_MUST_** also implement Game Server Authentication for these utility functions to work.
 
-This constraint exists because, for now, the logic in our `BeamMultiplayer::Authentication::PreLoginAsync` is the only place where we'll have both the `GamerTag` (from the `Options`) AND the `UniqueId` in order to map each player correctly.
+This constraint exists because, for now, the logic in `BeamMultiplayer::Authentication::PreLoginAsync` is the only place where both the `GamerTag` (from the `Options`) AND the `UniqueId` are available to map each player correctly.
 
 **_Keep in mind that the default SDK behavior does not need you to care about any of this._**
 
@@ -163,7 +163,7 @@ This means a few things:
 When writing your Game Server code, you generally don't want to be making requests for individual players one at a time (batching is generally better). Sometimes that is fine, but there are cases where you'll want to write several things to several players' Stats/Inventory (processing a match's results, for example). In cases like this, you should write `ServerCallable` functions in Microservices and call those from the Microservice. See [Microservices](../microservices/microservices.md) for more information about the various types of `Callable`.
 
 ## Making Beam PIE Faster
-Iteration time is one of the most important factors when developing a game. Because of that, we wanted you to be able to enter PIE as fast as UE allows us, but still have all the guarantees about Beamable. Unfortunately, that is not possible with Blueprints.
+Iteration time is one of the most important factors when developing a game. The goal is to let you enter PIE as fast as UE allows, while still having all the guarantees about Beamable. Unfortunately, that is not possible with Blueprints.
 
 However, it is possible with a custom `GameInstance` implementation.
 
@@ -223,10 +223,10 @@ public:
 };
 ```
 
-!!! note "Why do I have to write this code instead of inheriting from a class you give us?"
+!!! note "Why do I have to write this code instead of inheriting from a class?"
      The SDK's philosophy is one that tries **_not_** to force you into situations where you cannot combine its utilities and your own project-specific ones. A common mistake in SDK design is to provide a base-class that users _must inherit_; while it does make the simplest case a little easier, it tends to make complex cases _significantly harder_ than they need to be.
 
-    As such, we evaluate this cost is worth the flexibility.
+    This cost is considered worth the flexibility.
 
 **Note: _In builds, all functions from the `BeamPIE` namespace are no-ops._**
 

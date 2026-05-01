@@ -1,6 +1,6 @@
 # Setup: Beamable Unreal SDK
 
-Here, we will guide you through the process of downloading and setting up the Beamable SDK in your Unreal Engine project!
+This page walks through the process of downloading and setting up the Beamable SDK in your Unreal Engine project.
 
 ## Signup Requirement
 
@@ -17,10 +17,10 @@ Important notes and dependencies:
 
 
 ## Downloading and Installing the SDK
-- Download the Latest Version of the Beamable Unreal SDK from our [Github Repository](https://github.com/beamable/UnrealSDK/releases)
+- Download the Latest Version of the Beamable Unreal SDK from the [Github Repository](https://github.com/beamable/UnrealSDK/releases)
 - Unzip the contents of the downloaded file to a location where you can easily find it.
 
-Once you have our repo and dependencies set up, follow along with the next section to set up the SDK in your project.
+Once you have the repo and dependencies set up, follow along with the next section to set up the SDK in your project.
 
 ## Setting Up the SDK in your Project
 Now that you have the SDK downloaded, you can set it up in your Unreal Project. The steps to do so are slightly different depending on your OS.
@@ -61,7 +61,7 @@ Now that the script has run, you need to set up your project's `Target.cs` and `
 Pay attention to the type of module you're adding the SDK to and be sure to call the proper function (you can see the module type in your `uproject` file).
 
 ### Verifying Installation and Running
-Let's Check that everything is set up correctly be sure you can compile your project.
+Check that everything is set up correctly by compiling the project.
 
 === "Windows"
     1. Regenerate project files.
@@ -96,4 +96,4 @@ The Process to upgrade the SDK is similar to the initial setup. The main differe
     1. From your microservice project's directory, run `dotnet restore`.
     2. Verify that the CLI was updated to the proper version by running `dotnet beam version` from the microservice directory.
     3. Run `dotnet beam checks scan --fix all`.
-        1. Our CLI can fix _some_ breaking changes automatically with this command.
+        1. The CLI can fix _some_ breaking changes automatically with this command.

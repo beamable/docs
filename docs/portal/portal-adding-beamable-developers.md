@@ -7,7 +7,7 @@ For purposes of privacy and security, when you add someone to your account throu
 
 ### Creating the Account (Team Admin)
 
-First, let's create your teammate's new account:
+First, create your teammate's new account:
 
 1. Navigate to [beta-portal.beamable.com/login/](https://beta-portal.beamable.com/login/) and login using the customer ID, email, and password with which you registered your project.
 
@@ -63,5 +63,5 @@ To get your customer ID (CID), look for _config-defaults.txt_ in your project. T
    % grep cid ./Assets/Beamable/Resources/config-defaults.txt
        "cid": "1320644969098300",
    ```
-You can also email us at [support@beamable.com](mailto:support@beamable.com) with the email you used to register and we can look it up for you.
+You can also email [support@beamable.com](mailto:support@beamable.com) with the email you used to register and the support team can look it up for you.
 

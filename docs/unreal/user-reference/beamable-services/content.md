@@ -93,12 +93,12 @@ To prevent `Designer-B` from overwriting changes made by `Designer-A` the SDK wi
 
 ![content-conflict.png](../../../media/imgs/content-conflict.png)
 
-As such, we recommend a few things:
+To minimize friction, follow these guidelines:
 
 - Organize the designers in your realm to minimize the chance of **conflicts**.
     - As long as they are working in different content objects, working in the same realm should be seamless.<br><br>
 - Instruct designers to ALWAYS talk to the person whose publish action caused the conflict _before_ resolving things.
-  	- This is why we inform you _who_ made the last publish that caused the conflict.
+    - The SDK shows _who_ made the last publish that caused the conflict.
 
 This workflow can also be used for engineers that are developing non-Beamable related features.
 
@@ -110,7 +110,7 @@ In addition to the workflow above, there are cases where you might want to creat
 To achieve this --- just create a new realm for the development of that feature.
 
 !!! note "Feature Branches vs Feature Flags"
-    If you like working with feature branches, we recommend pairing this realm for the feature branch. For reducing complexity, we recommend only doing this for large features that will take a lot of time in development.
+    If you like working with feature branches, pair this realm with the feature branch. For reducing complexity, only do this for large features that will take a lot of time in development.
 
 	If you are a team that prefer to use feature flags over feature branches, you can still make the realm. Just write the code behind the feature flag to expect to be running in a realm whose Microservices, configuration and content match the feature realm's one.
 
@@ -186,9 +186,9 @@ The SDK fetches the content manifest before the `OnBeamableStarted` callback is 
 The SDK also supports live content updates (if you publish content while the game client is running):
 
 - While the [`OwnerUserSlot`](../runtime-systems/user-slots.md) is signed in to Beamable, `UBeamContentSubsystem` listens for notifications that the realm's content manifest has been updated.
-- When that happens, we will re-download the manifest.
+- When that happens, the SDK re-downloads the manifest.
 - If `bDownloadIndividualContentAtStart` is `true`:
-    - We download and cache all the updated content objects relative to the last manifest we've downloaded in this client.
+    - The SDK downloads and caches all the updated content objects relative to the last manifest downloaded in this client.
     - These updates are cached locally inside the `Saved` directory in binary form such that a user does not need to re-download content in subsequent runs of your game unless the published manifest changes.
     - This cache is invalidated if your game-version changes, the SDK version changes or the UE version changes.
 - If `bDownloadIndividualContentAtStart` is `false`:
@@ -205,7 +205,7 @@ In a couple of cases, you might want to bake content to distribute it with your 
 - If you plan to release a new build every time you want to update your game.
 - If you want to trade off some binary size for spending less time waiting for the individual content download at initialization time.
 
-To enable those cases, we provide an editor utility that will bake your local content into a `UBeamContentCache`.
+To enable those cases, the SDK provides an editor utility that will bake your local content into a `UBeamContentCache`.
 This is a special asset type that has the `UBeamContentObject` instances serialized using UE's binary serialization as opposed to JSON.
 
 **Keep in mind that this utility uses your local content, so make sure your content matches the realm's content before running it**.
@@ -226,6 +226,6 @@ Unreal's Binary serialization of `UObject` types works _mostly_ out of the box w
 
 Doing that will make the binary serialization of content for local caching work in each of these cases.
 
-For serializing arbitrary data structures, prefer `FBeamJsonSerializableUStruct` subtypes `UBeamContentObject` as these are simpler to set up. It is only in cases where you need a recursive type that we recommend the use of inlined `IBeamJsonSerializableUObject`.
+For serializing arbitrary data structures, prefer `FBeamJsonSerializableUStruct` subtypes `UBeamContentObject` as these are simpler to set up. Only use inlined `IBeamJsonSerializableUObject` in cases where you need a recursive type.
 
 For examples of handling this edge case, you can look at the `UBeamGameTypeContent` and `UBeamStatComparisonRule` types shipped with the SDK.
