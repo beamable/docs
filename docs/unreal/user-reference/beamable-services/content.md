@@ -56,7 +56,7 @@ Deleting content can be done simply by pressing `Del` on your keyboard with an i
 
 Items created locally will have a `[+]` sign next to them informing that they are not in the realm yet and will be added in the next publish. Items deleted locally that have counterparts on the realm will have a `[-]` sign next to them informing that they will be removed from the realm in the next publish.
 
-Modifying content can be done by via the Details Editor in the **Content Window**. Modified content, relative to the latest published manifest, is shown with an `[M]` icon next to them. They can be reverted to their state at the realm by using the `Revert` button.
+Modifying content can be done via the Details Editor in the **Content Window**. Modified content, relative to the latest published manifest, is shown with an `[M]` icon next to them. They can be reverted to their state at the realm by using the `Revert` button.
 
 ![content-revert.png](../../../media/imgs/content-revert.png)
 
@@ -73,7 +73,7 @@ To publish content to a realm simply use the Publish button.
 ### Understanding Content Auto-Sync Rules
 It is often desirable to have designers in a realm that is stable and allow them to work in `Blueprints`, `Beamable Content` and Unreal `Data Asset` in the same realm plus branch combination.
 
-In order to enable this workflow, the Beamable SDK:
+To enable this workflow, the Beamable SDK:
 
 - Listens for whenever any developer publishes content to a realm and notifies other developers working on that same realm.
 	- If `Designer-A` publishes changes, `Designer-B` will see a UE-notification informing them that `Designer-A` has just published. <br><br>
@@ -100,7 +100,7 @@ As such, consider these practices:
 
 This workflow can also be used for engineers that are developing non-Beamable related features.
 
-In addition to the workflow above, there are cases where you might want to create realms in order to have a more controlled environment for developing. Common examples are:
+In addition to the workflow above, there are cases where you might want to create realms to have a more controlled environment for developing. Common examples are:
 
 - Large features that make use of new custom content definitions developed alongside Microservices.
 - Content schema modifications or equivalents that will require migrating existing content to a new schema.
@@ -208,7 +208,7 @@ This is useful for a couple of workflows:
 - You can save the current state of your local content and share it with your teammates so they can load it in their machines and have the same local content state as you.
 - You can save the content state of your current realm and apply it to another realm.
 
-Content snapshots can be local or shared between users. The local ones are kept in the `.beamable\contentSnapshots` folder and the shared ones in the .beamable\shared\contentSnapshot folder of the project, so it can be versionated on git.
+Content snapshots can be local or shared between users. The local ones are kept in the `.beamable\contentSnapshots` folder and the shared ones in the .beamable\shared\contentSnapshot folder of the project, so you can version it with git.
 
 ### Creating Content Snapshots
 To create a content snapshot, click on the button in the top right corner of the Workspace window. This will create a snapshot of your current local content state. It then will be added to the list of snapshots in the Snapshots Window.
@@ -220,7 +220,7 @@ To apply the content of a snapshot to your current workspace, simply select the 
 
 ![content-apply-snapshot.png](../../../media/imgs/content-apply-snapshot.png)
 
-Aditionally you can also select the following options:
+Additionally you can also select the following options:
 
 - Delete Preset: deletes the snapshot after applying it.
 - Additive: if checked, the snapshot will be applied on top of your current local content state only adding the new and modified content. If unchecked, the snapshot will replace your current local content state.
@@ -228,11 +228,11 @@ Aditionally you can also select the following options:
 ### Sharing Content Snapshots
 Shared snapshots are stored in the `.beamable\shared\contentSnapshot` folder, so you can share them with your teammates by sharing that file through git or any other way you like. To save a Local Snapshot as Shared simply click on the `Save as Template` button.
 
-The Shared Snapshots are identified in the list with a different (ornge) icon.
+The Shared Snapshots are identified in the list with a different (orange) icon.
 
 ![content-shared-snapshot.png](../../../media/imgs/content-shared-snapshot.png)
 
-Notice that everytime you publish content to the realm it will automatically update the shared snapshot called `LatestPublished` to match the content that was just published. This means that you can always share with your teammates the latest published content by sharing that snapshot.
+Notice that every time you publish content to the realm it will automatically update the shared snapshot called `LatestPublished` to match the content that was just published. This means that you can always share with your teammates the latest published content by sharing that snapshot.
 
 ## Content History
 The content history system allows you to see the history of your content publishing and revert to any previous version of your content.

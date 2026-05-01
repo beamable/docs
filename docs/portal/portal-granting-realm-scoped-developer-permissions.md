@@ -38,13 +38,13 @@ This guide assumes there is already an account for the person whose access you a
 
 !!! info "Notes about Realm-Scoped Permissions"
 
-    - If somebody's Global role is higher than their Realm-scoped role, the Global role will take precedence.
+    - If somebody's Global role is higher than their Realm-scoped role, the Global role will take precedence
     - Realm-scoped roles propagate through the Realm hierarchy. Using a Prod→Staging→Dev setup as an example, if my Global role is "tester" and my team lead set me as a "developer" in staging and an "admin" in dev, then:
-        - In `Example-prod`, I only have tester permissions, because of my Global role.
-        - In `Example-staging`, I have developer permissions, because of my Realm-scoped role there.
-        - In `Example-dev`, I have administrative permissions, because of my Realm-scoped role there.
-        - Additionally, if any of my colleagues make a new child realm under `Example-dev`, I will be an admin there as well.
-        - Likewise, if someone makes a child realm under `Example-staging` (that is, a sibling of dev), I will have developer permissions there.
+        - In `Example-prod`, I only have tester permissions, because of my Global role
+        - In `Example-staging`, I have developer permissions, because of my Realm-scoped role there
+        - In `Example-dev`, I have administrative permissions, because of my Realm-scoped role there
+        - Additionally, if any of my colleagues make a new child realm under `Example-dev`, I will be an admin there as well
+        - Likewise, if someone makes a child realm under `Example-staging` (that is, a sibling of dev), I will have developer permissions there
 
 !!! info "TIP: Finding your CID"
 

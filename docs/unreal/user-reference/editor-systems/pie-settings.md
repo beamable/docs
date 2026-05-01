@@ -24,7 +24,7 @@ Player profiles can then be saved as either Local or Template, making them reusa
 
 * **Local (Green)**: Saved locally in your `.beamable/temp` folder. Useful for personal testing and development.
 * **Template (Orange)**: Saved in your `.beamable` folder and can be committed to version control. Intended as shared templates so the whole team can start from the same baseline.
-* **Captured (Grey)**: Per-session captured players are unsaved and cleared during the editor initialization.
+* **Captured (Gray)**: Per-session captured players are unsaved and cleared during the editor initialization.
 
 !!! warning "Player Profile Names and Descriptions"
     Always give saved player profiles a name, as only named profiles will appear in Play Presets.
@@ -77,7 +77,7 @@ For the most part, adding users will configure this correctly. Validation also r
 
 When selecting players, a few things are relevant:
 
-- You can check `Copy on PIE` in order to get a new user with Stats and Inventory copied from the selected user account. This is useful when you want to keep a consistent starting state so you can test things (think of keeping users at various progression points in your game).
+- You can check `Copy on PIE` to get a new user with Stats and Inventory copied from the selected user account. This is useful when you want to keep a consistent starting state so you can test things (think of keeping users at various progression points in your game).
 - **Shared Users** will always `Copy on PIE`. This is because Shared Users are meant a workflow baseline. The recommendation is that design leads can leverage this to enforce in-house workflows, training and on-boarding.
 - **Users from realms other than your current one** will also always `Copy on PIE`. This is because BeamPIE cannot sign in with a user from another realm into a different one. The SDK copies it instead.
 

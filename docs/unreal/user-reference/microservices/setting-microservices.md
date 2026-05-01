@@ -123,7 +123,7 @@ Take a look at [this documentation](https://docs.beamable.com/docs/cli-guide-mic
 ## Optional - Libraries and C# Microservices
 One of the big advantages of Beamable C# Microservices is that they are regular `.NET` projects. This means you get access to NuGet packages should you need to integrate Beamable with any Third-Party technology not supported out of the box.
 
-To do so, use Nuget to add a package dependency to a project (this can be done easily through any IDE --- or through `dotnet nuget` command pallete).
+To do so, use NuGet to add a package dependency to a project (this can be done easily through any IDE --- or through `dotnet nuget` command pallete).
 
 While definitely not the common case, it is possible for projects to require multiple services. When that happens, it is also common that those services share some logic or internal data types. To write your own code that is then shared between services:
 

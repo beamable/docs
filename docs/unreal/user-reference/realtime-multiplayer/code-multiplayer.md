@@ -75,7 +75,7 @@ virtual void BeginPlay() override
 **The code above still expects you to have the `Easy Enable` node in your level blueprint marked with `Init when Server Build`.**
 
 ## Implementing Game Server Authentication
-When using the Beamable SDK, in order to validate that the user should be allowed to connect to this game server, the SDK needs to verify a few things:
+When using the Beamable SDK, to validate that the user should be allowed to connect to this game server, the SDK needs to verify a few things:
 
 - The User's Auth Token and GamerTag... so that the server can verify the user is who they say they are.
 - Optionally, the Lobby Id for the lobby the user is in... to verify the user is in a lobby registered with this Game Server.
@@ -142,7 +142,7 @@ public:
 
 As long as you are using the `Project Settings > Game > Beamable Runtime > Enable Gameplay Framework Integration`, this is all handled automatically for you (in various ways). If, for whatever reason, you want the `FUniqueNetId` to be something other than the Beamable GamerTag, you **_MUST_** also implement Game Server Authentication for these utility functions to work.
 
-This constraint exists because, for now, the logic in `BeamMultiplayer::Authentication::PreLoginAsync` is the only place where the SDK will have both the `GamerTag` (from the `Options`) AND the `UniqueId` in order to map each player correctly.
+This constraint exists because, for now, the logic in `BeamMultiplayer::Authentication::PreLoginAsync` is the only place where the SDK will have both the `GamerTag` (from the `Options`) AND the `UniqueId` to map each player correctly.
 
 **_Keep in mind that the default SDK behavior does not need you to care about any of this._**
 
