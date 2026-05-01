@@ -10418,16 +10418,16 @@
 </code></pre></div>
 <p><strong>The code above still expects you to have the <code>Easy Enable</code> node in your level blueprint marked with <code>Init when Server Build</code>.</strong></p>
 <h2 id="implementing-game-server-authentication">Implementing Game Server Authentication<a class="headerlink" href="#implementing-game-server-authentication" title="Permanent link">¶</a></h2>
-<p>When using the Beamable SDK, in order to validate that the user should be allowed to connect to this game server, we need to know a few things:</p>
+<p>When using the Beamable SDK, in order to validate that the user should be allowed to connect to this game server, the server needs to know a few things:</p>
 <ul>
 <li>The User's Auth Token and GamerTag... so that the server can verify the user is who they say they are.</li>
-<li>Optionally, the Lobby Id for the lobby the user is in... so we can verify that the user is in a lobby registered with this Game Server.</li>
+<li>Optionally, the Lobby Id for the lobby the user is in... to verify that the user is in a lobby registered with this Game Server.</li>
 </ul>
-<p>We expect to receive these via the <code>Options</code> parameter.</p>
+<p>These are expected to arrive via the <code>Options</code> parameter.</p>
 <p>In clients builds', passing these options can be achieved using <code>UBeamLobbySubsystem::TryOpenLevelFromLobby</code>. You can also use <code>UBeamLobbySubsystem::PrepareLoginOptions</code> to append these to a string you'll pass to the regular <code>Open Level</code> calls used to connect to game servers.</p>
 <p>When implementing <code>PreLoginAsync</code>, you need to call two functions:</p>
 <ul>
-<li><code>BeamPIE::Authentication::GetExpectedClientPIEOptions</code> --- this enables our PIE integration to work with Game Server Authentication (it gets around UE limitations --- see further down for more information on this).</li>
+<li><code>BeamPIE::Authentication::GetExpectedClientPIEOptions</code> --- this enables the PIE integration to work with Game Server Authentication (it gets around UE limitations --- see further down for more information on this).</li>
 <li><code>BeamMultiplayer::Authentication::PreLoginAsync</code> --- this uses the <code>Options</code> to validate the user is in fact inside a lobby that has been registered with this server.</li>
 </ul>
 <p>A simple implementation of that looks like this:</p>
@@ -10453,7 +10453,7 @@
 <a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="p">}));</span>
 <a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="p">}</span>
 </code></pre></div>
-<p>The <code>BeamMultiplayer::Authentication::PreLoginAsync</code> function runs an operation that, once completed successfully, informs you that we have validated the user is both who they say they are and are in the lobby they say they are. You can do game-specific logic here and combine it with our verification too.</p>
+<p>The <code>BeamMultiplayer::Authentication::PreLoginAsync</code> function runs an operation that, once completed successfully, informs you that the user has been validated as both who they say they are and in the lobby they say they are. You can do game-specific logic here and combine it with that verification too.</p>
 <p>If you have multiple players per-client, you should also implement a subclass of <code>ULocalPlayer</code> as such. This will guarantee the correct GamerTag for each <code>UserSlot</code> in that client is correctly forwarded when that particular Local Player tries to connect to the Game Server. You can then configure the Local Player class for your game in <code>Project Settings &gt; Engine &gt; General Settings &gt; Default Classes &gt; Local Player Class</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/**</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cm"> * If you're game doesn't have multiple local players, this shouldn't be needed --- it doesn't hurt though.</span>
@@ -10472,9 +10472,9 @@
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">};</span>
 </code></pre></div>
 <h2 id="understanding-funiquenetid-and-beamable">Understanding <code>FUniqueNetId</code> and Beamable<a class="headerlink" href="#understanding-funiquenetid-and-beamable" title="Permanent link">¶</a></h2>
-<p><code>FUniqueNetId</code> is how UE identifies each player in the network. By default, when you sign in with Beamable, we set your <code>ULocalPlayer</code>'s preferred <code>FUniqueNetId</code> to be the user's <code>GamerTag</code>. This is how the Beamable SDK maps each Player in its <code>ULobby</code> objects to each <strong>UE Player</strong> objects. The <code>UBeamLobbySubsystem</code> has utility functions that help you get a <code>GamerTag</code> from a <strong>Player Controller/State</strong> object --- these rely on this mapping to work.</p>
+<p><code>FUniqueNetId</code> is how UE identifies each player in the network. By default, when you sign in with Beamable, the SDK sets the <code>ULocalPlayer</code>'s preferred <code>FUniqueNetId</code> to be the user's <code>GamerTag</code>. This is how the Beamable SDK maps each Player in its <code>ULobby</code> objects to each <strong>UE Player</strong> objects. The <code>UBeamLobbySubsystem</code> has utility functions that help you get a <code>GamerTag</code> from a <strong>Player Controller/State</strong> object --- these rely on this mapping to work.</p>
 <p>As long as you are using the <code>Project Settings &gt; Game &gt; Beamable Runtime &gt; Enable Gameplay Framework Integration</code>, this is all handled automatically for you (in various ways). If, for whatever reason, you want the <code>FUniqueNetId</code> to be something other than the Beamable GamerTag, you <strong><em>MUST</em></strong> also implement Game Server Authentication for these utility functions to work.</p>
-<p>This constraint exists because, for now, the logic in our <code>BeamMultiplayer::Authentication::PreLoginAsync</code> is the only place where we'll have both the <code>GamerTag</code> (from the <code>Options</code>) AND the <code>UniqueId</code> in order to map each player correctly.</p>
+<p>This constraint exists because, for now, the logic in <code>BeamMultiplayer::Authentication::PreLoginAsync</code> is the only place where both the <code>GamerTag</code> (from the <code>Options</code>) AND the <code>UniqueId</code> are available to map each player correctly.</p>
 <p><strong><em>Keep in mind that the default SDK behavior does not need you to care about any of this.</em></strong></p>
 <h2 id="user-slots-in-the-game-server-sdk">User Slots in the Game Server SDK<a class="headerlink" href="#user-slots-in-the-game-server-sdk" title="Permanent link">¶</a></h2>
 <p>User Slots are a big part of the regular workflow when working with Beamable SDK in game clients. For dedicated servers though they are not used. Any functions containing the <code>UserSlot</code> parameter, that parameter can be ignored.</p>
@@ -10491,7 +10491,7 @@
 <h3 id="writing-to-a-users-statsinventory">Writing to a User's Stats/Inventory<a class="headerlink" href="#writing-to-a-users-statsinventory" title="Permanent link">¶</a></h3>
 <p>When writing your Game Server code, you generally don't want to be making requests for individual players one at a time (batching is generally better). Sometimes that is fine, but there are cases where you'll want to write several things to several players' Stats/Inventory (processing a match's results, for example). In cases like this, you should write <code>ServerCallable</code> functions in Microservices and call those from the Microservice. See <a href="../../microservices/microservices/">Microservices</a> for more information about the various types of <code>Callable</code>.</p>
 <h2 id="making-beam-pie-faster">Making Beam PIE Faster<a class="headerlink" href="#making-beam-pie-faster" title="Permanent link">¶</a></h2>
-<p>Iteration time is one of the most important factors when developing a game. Because of that, we wanted you to be able to enter PIE as fast as UE allows us, but still have all the guarantees about Beamable. Unfortunately, that is not possible with Blueprints.</p>
+<p>Iteration time is one of the most important factors when developing a game. The goal is to let you enter PIE as fast as UE allows, while still having all the guarantees about Beamable. Unfortunately, that is not possible with Blueprints.</p>
 <p>However, it is possible with a custom <code>GameInstance</code> implementation.</p>
 <p>So, in order to enable you to take advantage of this, you can implement this snippet and configure your custom Game Instance class to be used in your <code>Project Settings &gt; Project &gt; Maps &amp; Modes &gt; Game Instance Class</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/**</span>
@@ -10547,9 +10547,9 @@
 <a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a><span class="p">};</span>
 </code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">Why do I have to write this code instead of inheriting from a class you give us?</p>
+<p class="admonition-title">Why do I have to write this code instead of inheriting from a class?</p>
 <p>The SDK's philosophy is one that tries <strong><em>not</em></strong> to force you into situations where you cannot combine its utilities and your own project-specific ones. A common mistake in SDK design is to provide a base-class that users <em>must inherit</em>; while it does make the simplest case a little easier, it tends to make complex cases <em>significantly harder</em> than they need to be.</p>
-<p>As such, we evaluate this cost is worth the flexibility.</p>
+<p>This cost is considered worth the flexibility.</p>
 </div>
 <p><strong>Note: <em>In builds, all functions from the <code>BeamPIE</code> namespace are no-ops.</em></strong></p>
 

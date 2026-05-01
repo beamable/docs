@@ -10402,7 +10402,7 @@
 <li>Optionally integrate with game server provisioning.</li>
 </ul>
 <p>Once a match is found, the result is a <a href="../lobbies/">Lobby</a> containing all of the players in the match that was found.</p>
-<p><strong><em>If you are working on a game with dedicated servers, we highly recommend you review</em></strong>:</p>
+<p><strong><em>If you are working on a game with dedicated servers, review</em></strong>:</p>
 <ul>
 <li><a href="../../realtime-multiplayer/realtime-multiplayer-overview/">Runtime Dedicated Servers</a></li>
 <li><a href="../../federation/federated-game-server/">Federated Game Servers</a></li>
@@ -10471,7 +10471,7 @@ The semantics for each event are:</p>
 <h2 id="lobby-subsystem-integration">Lobby Subsystem Integration<a class="headerlink" href="#lobby-subsystem-integration" title="Permanent link">¶</a></h2>
 <p>The Matchmaking Subsystem works with the <a href="../lobbies/">Lobby Subsystem</a> by default. It does the following things:</p>
 <ul>
-<li>The <code>OnMatchReady</code> callback is ONLY invoked AFTER we've already fetched the match Lobby's data.<ul>
+<li>The <code>OnMatchReady</code> callback is ONLY invoked AFTER the match Lobby's data has been fetched.<ul>
 <li>This means you can use the <code>Local State - Lobby</code> nodes to fetch information from the lobby directly on this event.</li>
 <li>For example, when used with <a href="../../federation/federated-game-server/">Federated Game Server</a>, you just get the connection string from the global lobby property to proceed.</li>
 </ul>
@@ -10485,7 +10485,7 @@ The semantics for each event are:</p>
 <p>The Matchmaking Subsystem works with the <a href="../parties/">Party Subsystem</a> by default.</p>
 <p>If your user is a <a href="../parties/">Party Leader</a>, you can join a queue and ALL players in your party will get into the queue with you. If you are not the Party leader, you cannot join the queue while in the party.</p>
 <p>Every user in a party receives an <code>OnMatchRemoteSearchStarted</code> notification whenever the leader joins a queue. If the party leader leaves the queue or the party disbands, every user will receive the <code>OnMatchCancelled</code> notification so that they can respond to the change.</p>
-<p>When joining a queue as the party leader and passing in <code>FBeamTag</code>, those tags are only for the party leader. If you need to gather data for every user, we recommend using <a href="../../federation/federated-game-server/">Federated Game Server</a> and <a href="../stats/">Stats</a> to get that data into the <a href="../lobbies/">Lobby</a> instead.</p>
+<p>When joining a queue as the party leader and passing in <code>FBeamTag</code>, those tags are only for the party leader. If you need to gather data for every user, use <a href="../../federation/federated-game-server/">Federated Game Server</a> and <a href="../stats/">Stats</a> to get that data into the <a href="../lobbies/">Lobby</a> instead.</p>
 <h2 id="match-found-and-tickets">Match Found and Tickets<a class="headerlink" href="#match-found-and-tickets" title="Permanent link">¶</a></h2>
 <p>When you join a queue in Beamable's matchmaking, you get back a <code>FBeamMatchmakingTicket</code>. This ticket contains information about the entry onto the queue:</p>
 <ul>
@@ -10494,7 +10494,7 @@ The semantics for each event are:</p>
 <li><strong>SlotsInTicket</strong>: list of local <code>FUserSlot</code> that are in the ticket (just the Owner Player, unless your game has multiple local players and matchmaking).</li>
 <li><strong>FoundMatchLobbyId</strong>: only filled inside the <code>OnMatchReady</code> callback and has the id for the resulting <a href="../lobbies/">Lobby</a> for the match. You can use this to retrieve data from the <a href="../lobbies/">Lobby Subsystem</a> inside the <code>OnMatchReady</code> callback to get connection information and more.</li>
 </ul>
-<p>If you want to understand a bit more about these tickets, we recommend taking a look at the source code of the <code>UBeamMatchmakingSubsystem</code> (it is pretty simple and should give you a lot more confidence in understanding the system).</p>
+<p>To understand more about these tickets, take a look at the source code of the <code>UBeamMatchmakingSubsystem</code> (it is pretty simple and should give you a lot more confidence in understanding the system).</p>
 
 
 
