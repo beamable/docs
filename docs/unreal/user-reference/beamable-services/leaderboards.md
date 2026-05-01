@@ -10,7 +10,7 @@ The Beamable **Leaderboards** allow the game makers to track player scores in so
 
 ## Getting Started
 
-In order to have a good overview for leaderboards we will present some common use cases and how to fully implement it.
+This section covers common leaderboard use cases and how to implement them.
 
 ### Creating the Leaderboards
 
@@ -83,7 +83,7 @@ The Stats in the leaderboard are mostly usage for keep cached a per entry inform
 
 ![leaderboards-blueprint-top10.png](../../../media/imgs/leaderboards-blueprint-top10.png)
 
-With our SDK it is possible to create leaderboards like in [Brawl Stars](https://supercell.com/en/games/brawlstars/)
+With the SDK you can create leaderboards like in [Brawl Stars](https://supercell.com/en/games/brawlstars/)
 
 ### Show the Player Rank
 

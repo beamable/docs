@@ -32,7 +32,7 @@ These differences are represented by the `[+]`,`[-]` and `[M]` signs.
 
 - `[+]`: Means the content exists locally but NOT in the realm.
 - `[M]`: Means the content exists BOTH locally and in the realm AND that it is modified relative to the one in the realm.
-    - `[!]`: Means the content had changes locally when someone else published to the realm. This means that your changes would overwrite the published changes. We call this a **Conflict**. You MUST resolve conflicts before changes can be published.
+    - `[!]`: Means the content had changes locally when someone else published to the realm. This means that your changes would overwrite the published changes. This is called a **Conflict**. You MUST resolve conflicts before changes can be published.
 - `[-]`: Means the content DOES NOT exist locally but DOES exist in the realm.
 
 If the content is not marked with any of these signs, it means it is in sync with the realm.
@@ -91,12 +91,12 @@ To prevent `Designer-B` from overwriting changes made by `Designer-A` the SDK wi
 
 ![content-conflict.png](../../../media/imgs/content-conflict.png)
 
-As such, we recommend a few things:
+As such, consider these practices:
 
 - Organize the designers in your realm to minimize the chance of **conflicts**.
     - As long as they are working in different content objects, working in the same realm should be seamless.<br><br>
 - Instruct designers to ALWAYS talk to the person whose publish action caused the conflict _before_ resolving things.
-  	- This is why we inform you _who_ made the last publish that caused the conflict.
+  	- This is why the SDK shows _who_ made the last publish that caused the conflict.
 
 This workflow can also be used for engineers that are developing non-Beamable related features.
 
@@ -108,7 +108,7 @@ In addition to the workflow above, there are cases where you might want to creat
 To achieve this --- just create a new realm for the development of that feature.
 
 !!! note "Feature Branches vs Feature Flags"
-    If you like working with feature branches, we recommend pairing this realm for the feature branch. For reducing complexity, we recommend only doing this for large features that will take a lot of time in development.
+    If you like working with feature branches, pair this realm with the feature branch. Limit this to large features that will take a lot of time in development.
 
 	If you are a team that prefer to use feature flags over feature branches, you can still make the realm. Just write the code behind the feature flag to expect to be running in a realm whose Microservices, configuration and content match the feature realm's one.
 
@@ -165,7 +165,7 @@ Annotate your `UPROPERTY` with `EditAnywhere` and either:
 | `UClass*`                       | `string`                                   | Gets converted to `FSoftObjectPath` when serializing. Deserializing will first create the `FSoftObjectPath` and then resolve it.                                                                                                   |
 | `TSoftObjectPtr`                | `string`                                   | Gets converted to `FSoftObjectPath` when serializing. When `None` serializes as an empty `string`.                                                                                                                                 |
 | `TArray<>`                      | `List<>` or `T[]`                          | Any `TArray<SomeType>` will serialize normally as long as `SomeType` is also supported.                                                                                                                                            |
-| `TMap<FString, >`               | `Dictionary<string,>`                      | We only support maps with `FString` as keys. The values can be any supported type.                                                                                                                                                 |
+| `TMap<FString, >`               | `Dictionary<string,>`                      | Only `FString` keys are supported. The values can be any supported type.                                                                                                                                                 |
 | **Beamable Types**              |                                            |                                                                                                                                                                                                                                    |
 | `FBeamOptional`                 | `Optional____`                             | Any property of a type implementing `FBeamOptional` doesn't get serialized if `IsSet==false` but does get serialized otherwise.<br><br>For example, `FOptionalInt32` serializes to nothing OR an `int32`.                          |
 | `FBeamSemanticType`             | `string` OR semantic type equivalent in C# | This always gets serialized as a JSON blob when inside `UBeamContentObject`.                                                                                                                                                       |
@@ -184,9 +184,9 @@ The SDK fetches the content manifest before the `OnBeamableStarted` callback is 
 The SDK also supports live content updates (if you publish content while the game client is running):
 
 - While the [`OwnerUserSlot`](../runtime-systems/user-slots.md) is signed in to Beamable, `UBeamContentSubsystem` listens for notifications that the realm's content manifest has been updated.
-- When that happens, we will re-download the manifest.
+- When that happens, the SDK re-downloads the manifest.
 - If `bDownloadIndividualContentAtStart` is `true`:
-    - We download and cache all the updated content objects relative to the last manifest we've downloaded in this client.
+    - The SDK downloads and caches all updated content objects relative to the last manifest downloaded in this client.
     - These updates are cached locally inside the `Saved` directory in binary form such that a user does not need to re-download content in subsequent runs of your game unless the published manifest changes.
     - This cache is invalidated if your game-version changes, the SDK version changes or the UE version changes.
 - If `bDownloadIndividualContentAtStart` is `false`:
@@ -248,7 +248,7 @@ In a couple of cases, you might want to bake content to distribute it with your 
 - If you plan to release a new build every time you want to update your game.
 - If you want to trade off some binary size for spending less time waiting for the individual content download at initialization time.
 
-To enable those cases, we provide an editor utility that will bake your local content into a `UBeamContentCache`.
+To enable those cases, the SDK includes an editor utility that bakes your local content into a `UBeamContentCache`.
 This is a special asset type that has the `UBeamContentObject` instances serialized using UE's binary serialization as opposed to JSON.
 
 **Keep in mind that this utility uses your local content, so make sure your content matches the realm's content before running it**.
@@ -269,6 +269,6 @@ Unreal's Binary serialization of `UObject` types works _mostly_ out of the box w
 
 Doing that will make the binary serialization of content for local caching work in each of these cases.
 
-For serializing arbitrary data structures, prefer `FBeamJsonSerializableUStruct` subtypes `UBeamContentObject` as these are simpler to set up. It is only in cases where you need a recursive type that we recommend the use of inlined `IBeamJsonSerializableUObject`.
+For serializing arbitrary data structures, prefer `FBeamJsonSerializableUStruct` subtypes of `UBeamContentObject` as these are simpler to set up. Use inlined `IBeamJsonSerializableUObject` only when you need a recursive type.
 
 For examples of handling this edge case, you can look at the `UBeamGameTypeContent` and `UBeamStatComparisonRule` types shipped with the SDK.
