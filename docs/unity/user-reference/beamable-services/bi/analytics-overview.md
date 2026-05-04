@@ -77,6 +77,8 @@ The source value is set automatically for each Analytics event and [Stats](../pr
 | Platform | Analytics event came from back-end | Yes | Yes |
 | Game Server | Analytics event came from the multiplayer server | Yes | Upon Request |
 
+Beamable Microservices can also emit custom analytics events. Events sent via the Microservice analytics API use the same channel as client-side telemetry and appear as **client** records. See [Microservice Analytics](../../../../cli/guides/ms-analytics.md).
+
 ## Analytics Events vs Stats
 
 Beamable supports both analytics events and [Stats](../profile-storage/stats.md). Each use case is unique.
