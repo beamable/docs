@@ -42,8 +42,10 @@ jobs:
 
           # Try a normal squash merge
           if git merge origin/${{ github.ref_name }} --squash; then
-                git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
-                git push origin ${{ matrix.branch }}
+                if ! git diff --cached --quiet; then
+                  git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
+                  git push origin ${{ matrix.branch }}
+                fi
                 echo "status=success" >> $GITHUB_OUTPUT
           else
               # Merge conflict: retry with 'theirs'
