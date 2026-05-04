@@ -4640,6 +4640,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9634,22 +9662,15 @@
 <h3 id="disposing-services">Disposing Services<a class="headerlink" href="#disposing-services" title="Permanent link">¶</a></h3>
 <p>A dependency scope can be in one of two states: active or disposed. A scope is active the moment it is built, and is disposed either by calling <code>IDependencyProviderScope.Dispose()</code> directly or by stopping the associated <code>BeamContext</code>. When a scope is disposed, no calls to <code>GetService&lt;T&gt;()</code> are allowed.</p>
 <p>By implementing <code>IBeamableDisposable</code>, you signal to the dependency scope that your service demands extra logic to run before scope disposal. In the example below, <code>ExampleService</code> prints a log message when the scope is disposed. If you are implementing custom services that require stateful operation, consider using the <code>IBeamableDisposable</code> interface. However, the Beamable SDK does not guarantee that a <code>BeamContext</code> will be stopped when the game is quit, and therefore does not guarantee that the dependency scope will be disposed.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ExampleService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IBeamableDisposable</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Promise</span><span class="w"> </span><span class="nf">OnDispose</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"cleaning up."</span><span class="p">);</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Promise</span><span class="p">.</span><span class="n">Success</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">public class ExampleService : IBeamableDisposable
+{
+    public Promise OnDispose()
+    {
+        Debug.Log("cleaning up.");
+        return Promise.Success;
+    }
+}
+</code></pre>
 <div class="admonition warning">
 <p class="admonition-title">Transient services do not use IBeamableDisposable</p>
 <p>Any service registered as Transient will not honor the <code>IBeamableDisposable</code> interface. Transient services are not meant to contain any state.</p>
@@ -9658,14 +9679,11 @@
 <p>A dependency scope represents a group of related services that use each other as internal dependencies. A scope can spawn a new child scope; a process known as "scope forking". A child scope inherits all previously configured service registrations. Additionally, all singleton instances from the parent scope are used in the child scope. However, any service registered as a scoped service will instantiate new instances for the child scope. Transient services (as always), result in new instances.</p>
 <p>If a parent dependency scope is disposed, then all child scopes will be disposed as well.</p>
 <p>When a scope is forked, there is an opportunity to modify service registrations for the child scope. The service registrations could be appended or mutated. In practice, this is used to provide <em>context</em> to a specific scope.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scope</span><span class="p">.</span><span class="n">Fork</span><span class="p">(</span><span class="n">builder</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">builder</span><span class="p">.</span><span class="n">AddScoped</span><span class="o">&lt;</span><span class="n">ExampleService</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="p">});</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var child = scope.Fork(builder =&gt;
+{
+    builder.AddScoped&lt;ExampleService&gt;();
+});
+</code></pre>
 <h2 id="custom-services">Custom Services<a class="headerlink" href="#custom-services" title="Permanent link">¶</a></h2>
 <p>One benefit of a dependency injection system is the ability to override existing service implementations, or provide new services for custom use cases.</p>
 <h3 id="adding-services">Adding Services<a class="headerlink" href="#adding-services" title="Permanent link">¶</a></h3>
@@ -9676,64 +9694,40 @@
 <li>takes 1 input parameter of type, <code>IDependencyBuilder</code></li>
 </ol>
 <p>The example below will receive the <code>IDependencyBuilder</code> and add a singleton <code>ExampleService</code>.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamContextSystem]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomRegistrations</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[RegisterBeamableDependencies]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Register</span><span class="p">(</span><span class="n">IDependencyBuilder</span><span class="w"> </span><span class="n">builder</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="n">AddSingleton</span><span class="o">&lt;</span><span class="n">ExampleService</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">[BeamContextSystem]
+public class CustomRegistrations
+{
+    [RegisterBeamableDependencies]
+    public static void Register(IDependencyBuilder builder)
+    {
+        builder.AddSingleton&lt;ExampleService&gt;();
+    }
+}
+</code></pre>
 <p>The <code>RegisterBeamableDependencies</code> takes two arguments, <code>order</code>, and <code>origin</code> that control which dependency scope is being configured, and in what order.</p>
 <p>The <code>origin</code> option is an enum that is <code>RegistrationOrigin.RUNTIME</code> by default. The other option is <code>RegistrationOrigin.EDITOR</code>. Beamable uses the same dependency injection concepts in the Unity Editor environment as well. If you want to override an editor service, set the origin to <code>EDITOR</code>.</p>
 <p>The <code>order</code> option controls the invocation ordering of <code>RegisterBeamableDependencies</code> methods. Ideally, all custom services should be registered in a single <code>RegisterBeamableDependencies</code> method. However, sometimes due to logical separation or package separation, it isn't possible to centralize dependency registrations. In this case, there are multiple functions tagged with the <code>RegisterBeamableDependencies</code> attribute, and the <em>order</em> they are invoked in can drastically change the outcome. All Beamable services are registered at an effective order value of -1000. The default <code>order</code> value for all custom <code>RegisterBeamableDependencies</code> methods is 0.</p>
 <h3 id="modifying-services">Modifying Services<a class="headerlink" href="#modifying-services" title="Permanent link">¶</a></h3>
 <p>In a <code>RegisterBeamableDependencies</code> method, the <code>IDependencyBuilder</code> instance can be used to <em>remove</em> existing registrations. Beamable automatically registers all of the services it needs to operate the base SDK. However, as an advanced developer, it is possible to remove Beamable service classes and replace them with custom implementations. To find the Beamable service registration listings, see the <code>com.beamable/Runtime/Beam.cs</code>static constructor. Additionally, look for references of <code>RegisterBeamableDependencies</code> to find any special places where services are added.</p>
 <p>In the example below, the <code>IDeviceIdResolver</code> interface is reconfigured to use a custom implementation. The <code>IDeviceIdResolver</code> is the interface responsible for identifying a device identifier used for Beamable Auth Device Id.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamContextSystem]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomRegistrations</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[RegisterBeamableDependencies]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Register</span><span class="p">(</span><span class="n">IDependencyBuilder</span><span class="w"> </span><span class="n">builder</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="n">ReplaceSingleton</span><span class="o">&lt;</span><span class="n">IDeviceIdResolver</span><span class="p">,</span><span class="w"> </span><span class="n">ExampleService</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+<pre><code class="language-csharp">[BeamContextSystem]
+public class CustomRegistrations
+{
+    [RegisterBeamableDependencies]
+    public static void Register(IDependencyBuilder builder)
+    {
+        builder.ReplaceSingleton&lt;IDeviceIdResolver, ExampleService&gt;();
+    }
+}
 
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ExampleService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDeviceIdResolver</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetDeviceId</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">NotImplementedException</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+public class ExampleService : IDeviceIdResolver
+{
+    public Promise&lt;string&gt; GetDeviceId()
+    {
+        throw new NotImplementedException();
+    }
+}
+</code></pre>
 <h2 id="microservices">Microservices<a class="headerlink" href="#microservices" title="Permanent link">¶</a></h2>
 <p>The Beamable Unity SDK uses <code>IDependencyBuilder</code> and <code>IDependencyProvider</code> to manage dependencies. Beamable Microservices use the same structures to manage their dependencies as well. The same concepts from the SDK apply in the Microservices, but some minor details change.</p>
 <h3 id="life-cycle">Life Cycle<a class="headerlink" href="#life-cycle" title="Permanent link">¶</a></h3>
@@ -9747,28 +9741,20 @@
 <p>A scoped service will be re-instantiated for each request.</p>
 <h3 id="service-registration">Service Registration<a class="headerlink" href="#service-registration" title="Permanent link">¶</a></h3>
 <p>In order to add or modify service registrations, the <code>Microservice</code> class must have a static method that is tagged with the <code>ConfigureServices</code> attribute, and accepts an <code>IServiceBuilder</code> instance. The <code>IServiceBuilder</code> has a <code>.Builder</code> accessor that exposes a <code>IDependencyBuilder</code>.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ConfigureServices]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Configure</span><span class="p">(</span><span class="n">IServiceBuilder</span><span class="w"> </span><span class="n">builder</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">  </span><span class="n">builder</span><span class="p">.</span><span class="n">Builder</span><span class="p">.</span><span class="n">AddScoped</span><span class="o">&lt;</span><span class="n">ExampleService</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">[ConfigureServices]
+public static void Configure(IServiceBuilder builder)
+{
+  builder.Builder.AddScoped&lt;ExampleService&gt;();
+}
+</code></pre>
 <h3 id="service-resolution">Service Resolution<a class="headerlink" href="#service-resolution" title="Permanent link">¶</a></h3>
 <p>In a Microservice, you can access the request's <code>IDependencyProvider</code> through the internal class members of the <code>Microservice</code> class.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ClientCallable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Test</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Provider</span><span class="p">.</span><span class="n">GetService</span><span class="o">&lt;</span><span class="n">ExampleService</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">[ClientCallable]
+public void Test()
+{
+    var service = Provider.GetService&lt;ExampleService&gt;();
+}
+</code></pre>
 
 
 

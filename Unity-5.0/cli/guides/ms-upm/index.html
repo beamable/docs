@@ -4495,6 +4495,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ms-command-line/" class="md-nav__link">
         
   
@@ -9330,19 +9358,16 @@
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can use Distribute a Microservice with UPM, you need to complete the
 <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
-<p>You can confirm you have everything installed checking the versions of the tools.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>--version
-dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># beam --version also works.</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>You can confirm you have everything installed checking the versions of the tools.</p>
+<pre><code class="language-sh">dotnet --version
+dotnet beam version # beam --version also works.
+</code></pre>
 <p>You also need to have a local <code>.beamable/</code> workspace with a Beamable
-Standalone Microservice. As a reminder, you can create one quickly using the commands below.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>init<span class="w"> </span>Project
-<span class="nb">cd</span><span class="w"> </span>Project
-dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>Service
-</code></pre></div></td></tr></tbody></table></div><p></p>
+Standalone Microservice. As a reminder, you can create one quickly using the commands below.</p>
+<pre><code class="language-sh">beam init Project
+cd Project
+dotnet beam project new service Service
+</code></pre>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">¶</a></h2>
 <p>Standalone Microservice projects can be distributed as Unity Package Manager
 (UPM) packages, letting downstream Unity projects reuse an existing
@@ -9358,121 +9383,75 @@ compatible Microservice.</p>
 <li>Create a local <code>Assets</code> folder next to the <code>.beamable/</code> folder</li>
 <li>Create a <code>Runtime</code> folder and a <code>Runtime/Client</code> folder next to the <code>.beamable/</code> folder</li>
 <li>Create a file in the <code>.beamable/</code> folder called <code>linked-projects.json</code>,
-    <div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">"unityProjectsPaths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="s2">"."</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div></li>
+    <code>json
+    {
+        "unityProjectsPaths": [
+            "."
+        ]
+    }</code></li>
 </ol>
 <p>So far, your folder structure should at least have these files.
-   </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>/Project
-  /.beamable
-    linked-projects.json
-  /Assets
-  /Runtime
-    /Client
-  /services~
-    /Service
-      Service.cs
-      Service.csproj
-      Program.cs
-      Dockerfile
-</code></pre></div></td></tr></tbody></table></div><p></p>
+   <code>/Project
+     /.beamable
+       linked-projects.json
+     /Assets
+     /Runtime
+       /Client
+     /services~
+       /Service
+         Service.cs
+         Service.csproj
+         Program.cs
+         Dockerfile</code></p>
 <ol>
 <li>In the <code>Runtime/Client</code> folder, create a file called <code>Service.Client.
 asmdef</code> (replace <code>"Service"</code> with your service name), and paste the following,
-   <div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">   </span><span class="nt">"references"</span><span class="p">:[</span>
-<span class="w">      </span><span class="s2">"Beamable.Platform"</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">"Unity.Beamable"</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">"Unity.Beamable.Runtime.Common"</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">"Unity.Beamable.Server.Runtime"</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">"Unity.Beamable.Server.Runtime.Common"</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">"Unity.Beamable.Customer.Common"</span>
-<span class="w">   </span><span class="p">],</span>
-<span class="w">   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Service.Client"</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">"autoReferenced"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+   <code>json
+   {
+      "references":[
+         "Beamable.Platform",
+         "Unity.Beamable",
+         "Unity.Beamable.Runtime.Common",
+         "Unity.Beamable.Server.Runtime",
+         "Unity.Beamable.Server.Runtime.Common",
+         "Unity.Beamable.Customer.Common"
+      ],
+      "name": "Service.Client",
+      "autoReferenced": true
+   }</code>
    Make sure to replace <code>"Service"</code> in the <code>"name"</code> field with your service
    name.</li>
 <li>Now you are ready to generate the client code. To do this, run the
    following command <strong>AFTER</strong> building your Microservice. This command
    should be run from the <code>/services~/Service</code> folder.
-   <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>generate-client<span class="w"> </span>./bin/Debug/net8.0/Service.dll<span class="w"> </span>--output-links<span class="w"> </span>--output-path-hints<span class="w"> </span><span class="s2">"Service=Runtime/Client/ServiceClient.cs"</span><span class="w"> </span>--logs<span class="w"> </span>v
-</code></pre></div></td></tr></tbody></table></div></li>
+   <code>sh
+   dotnet beam project generate-client ./bin/Debug/net8.0/Service.dll --output-links --output-path-hints "Service=Runtime/Client/ServiceClient.cs" --logs v</code></li>
 <li>You need to create a <code>package.json</code> file. Place it next to the <code>/Assets</code>
    folder in the Microservice project.
-   <div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">   </span><span class="p">{</span>
-<span class="w">     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"com.service"</span><span class="p">,</span>
-<span class="w">     </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span>
-<span class="w">     </span><span class="nt">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Demo"</span>
-<span class="w">   </span><span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div></li>
+   <code>json
+      {
+        "name": "com.service",
+        "version": "0.0.0",
+        "displayName": "Demo"
+      }</code></li>
 </ol>
 <p>Finally, your project structure should look similar to this,</p>
 <p>So far, your folder structure should at least have these files.
-   </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>/Project
-  package.json
-  /.beamable
-    linked-projects.json
-  /Assets
-  /Runtime
-    /Client
-      ServiceClient.cs
-      Service.Client.asmdef
-  /services~
-    /Service
-      Service.cs
-      Service.csproj
-      Program.cs
-      Dockerfile
-</code></pre></div></td></tr></tbody></table></div><p></p>
+   <code>/Project
+     package.json
+     /.beamable
+       linked-projects.json
+     /Assets
+     /Runtime
+       /Client
+         ServiceClient.cs
+         Service.Client.asmdef
+     /services~
+       /Service
+         Service.cs
+         Service.csproj
+         Program.cs
+         Dockerfile</code></p>
 <h3 id="preparing-the-unity-project">Preparing the Unity Project<a class="headerlink" href="#preparing-the-unity-project" title="Permanent link">¶</a></h3>
 <p>Now that the Microservice is ready, to import it into a Unity
 project as a UPM package, follow these steps.</p>
@@ -9484,8 +9463,8 @@ project as a UPM package, follow these steps.</p>
    your created <code>package.json</code> from the previous steps.</li>
 <li>Modify the <code>.beamable/additional-project-paths.json</code> file in the Unity
    project and add the path to the UPM project folder.
-   <div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">[</span><span class="s2">"/path/to/Project"</span><span class="p">]</span>
-</code></pre></div></td></tr></tbody></table></div></li>
+   <code>json
+   ["/path/to/Project"]</code></li>
 </ol>
 
 

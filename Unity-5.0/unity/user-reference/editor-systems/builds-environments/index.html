@@ -4408,6 +4408,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9189,124 +9217,66 @@
 <p>For automated builds (such as Unity Cloud, Github Actions, etc.), we also have a Unity pre-build script which will swap out the realm based on an environment variable. You can basically have multiple <code>config-&lt;env&gt;.txt</code> files.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiple-config-files-example.png" data-desc-position="bottom"><img alt="Multiple Config Files Example" src="../../../../media/imgs/multiple-config-files-example.png" width="300px"></a></p>
 <p>Here is a sample script that you can use to automate the builds.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.IO</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEditor</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEditor.Build</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEditor.Build.Reporting</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<pre><code class="language-csharp">using System;
+using System.IO;
+using UnityEditor;
+using UnityEditor.Build;
+using UnityEditor.Build.Reporting;
+using UnityEngine;
 
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BuildProcessorOverrideConfigDefaults</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IPreprocessBuildWithReport</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">callbackOrder</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+public class BuildProcessorOverrideConfigDefaults : IPreprocessBuildWithReport
+{
+    public int callbackOrder =&gt; 0;
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPreprocessBuild</span><span class="p">(</span><span class="n">BuildReport</span><span class="w"> </span><span class="n">report</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">configKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Environment</span><span class="p">.</span><span class="n">GetEnvironmentVariable</span><span class="p">(</span><span class="s">"BEAMABLE_CONFIG"</span><span class="p">);</span>
-<span class="w">        </span><span class="n">CopyOverrideConfig</span><span class="p">(</span><span class="n">configKey</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+    public void OnPreprocessBuild(BuildReport report)
+    {
+        string configKey = Environment.GetEnvironmentVariable("BEAMABLE_CONFIG");
+        CopyOverrideConfig(configKey);
+    }
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CopyOverrideConfig</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">configKey</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Checking for Beamable Config Override..."</span><span class="p">);</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">configDefaultsAssetPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="n">Combine</span><span class="p">(</span><span class="s">"Assets"</span><span class="p">,</span><span class="w"> </span><span class="s">"Beamable"</span><span class="p">,</span><span class="w"> </span><span class="s">"Resources"</span><span class="p">,</span><span class="w"> </span><span class="s">"config-defaults.txt"</span><span class="p">);</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">File</span><span class="p">.</span><span class="n">Exists</span><span class="p">(</span><span class="n">configDefaultsAssetPath</span><span class="p">))</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">IOException</span><span class="p">(</span><span class="s">$"Beamable Config Defaults missing! Config file was not found at path: '{configDefaultsAssetPath}'."</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
+    private static void CopyOverrideConfig(string configKey)
+    {
+        Debug.Log("Checking for Beamable Config Override...");
+        var configDefaultsAssetPath = Path.Combine("Assets", "Beamable", "Resources", "config-defaults.txt");
+        if (!File.Exists(configDefaultsAssetPath))
+        {
+            throw new IOException($"Beamable Config Defaults missing! Config file was not found at path: '{configDefaultsAssetPath}'.");
+        }
 
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">configKey</span><span class="p">))</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Beamable Config override provided. Attempting to copy 'config-{configKey}.txt' to 'config-defaults.txt'."</span><span class="p">);</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">configAssetPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="n">Combine</span><span class="p">(</span><span class="s">"Assets"</span><span class="p">,</span><span class="w"> </span><span class="s">"Beamable"</span><span class="p">,</span><span class="w"> </span><span class="s">"Resources"</span><span class="p">,</span><span class="w"> </span><span class="s">$"config-{configKey}.txt"</span><span class="p">);</span>
-<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">Exists</span><span class="p">(</span><span class="n">configAssetPath</span><span class="p">))</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">FileUtil</span><span class="p">.</span><span class="n">ReplaceFile</span><span class="p">(</span><span class="n">configAssetPath</span><span class="p">,</span><span class="w"> </span><span class="n">configDefaultsAssetPath</span><span class="p">);</span>
-<span class="w">                </span><span class="n">AssetDatabase</span><span class="p">.</span><span class="n">ImportAsset</span><span class="p">(</span><span class="n">configDefaultsAssetPath</span><span class="p">,</span><span class="w"> </span><span class="n">ImportAssetOptions</span><span class="p">.</span><span class="n">ForceUpdate</span><span class="p">);</span>
-<span class="w">                </span><span class="n">AssetDatabase</span><span class="p">.</span><span class="n">Refresh</span><span class="p">();</span>
+        if (!string.IsNullOrEmpty(configKey))
+        {
+            Debug.Log($"Beamable Config override provided. Attempting to copy 'config-{configKey}.txt' to 'config-defaults.txt'.");
+            var configAssetPath = Path.Combine("Assets", "Beamable", "Resources", $"config-{configKey}.txt");
+            if(File.Exists(configAssetPath))
+            {
+                FileUtil.ReplaceFile(configAssetPath, configDefaultsAssetPath);
+                AssetDatabase.ImportAsset(configDefaultsAssetPath, ImportAssetOptions.ForceUpdate);
+                AssetDatabase.Refresh();
 
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">configDefaultsText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="n">configDefaultsAssetPath</span><span class="p">);</span>
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">configAssetText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="n">configAssetPath</span><span class="p">);</span>
+                var configDefaultsText = File.ReadAllText(configDefaultsAssetPath);
+                var configAssetText = File.ReadAllText(configAssetPath);
 
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">configAssetText</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">configDefaultsText</span><span class="p">)</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">IOException</span><span class="p">(</span><span class="s">"Beamable Config override failed to copy to config-defaults. Config content does not match."</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                                          </span><span class="s">$"\n[config-defaults.txt]:\n{configDefaultsText}\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                                          </span><span class="s">$"\n[config-{configKey}.txt]:\n{configAssetText}"</span><span class="p">);</span>
-<span class="w">                </span><span class="p">}</span>
+                if (configAssetText != configDefaultsText)
+                {
+                    throw new IOException("Beamable Config override failed to copy to config-defaults. Config content does not match." +
+                                          $"\n[config-defaults.txt]:\n{configDefaultsText}\n" +
+                                          $"\n[config-{configKey}.txt]:\n{configAssetText}");
+                }
 
-<span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Beamable Config override successfully copied to config-defaults: '{configAssetPath}'."</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="k">else</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">IOException</span><span class="p">(</span><span class="s">$"Failed to apply Beamable Config override. Config file was not found at path: '{configAssetPath}'."</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">else</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"No Beamable Config Override provided, using default config."</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+                Debug.Log($"Beamable Config override successfully copied to config-defaults: '{configAssetPath}'.");
+            }
+            else
+            {
+                throw new IOException($"Failed to apply Beamable Config override. Config file was not found at path: '{configAssetPath}'.");
+            }
+        }
+        else
+        {
+            Debug.Log("No Beamable Config Override provided, using default config.");
+        }
+    }
+}
+</code></pre>
 
 
 

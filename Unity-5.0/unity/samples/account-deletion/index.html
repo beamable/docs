@@ -4390,6 +4390,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9284,209 +9312,121 @@
 <p>Since account deletion is a destructive action, it is <em>highly recommended</em> to prompt the user for confirmation before calling the microservice function. The API uses the player's account ID instead of their realm-specific ID, so their info will be deleted for every realm in your organization, not just one of them.</p>
 </div>
 <p>The player's account ID is not immediately accessible from the player Context, so first we need to run an account search to retrieve the expanded info about the player. An example result from an account search would look something like this:</p>
-<div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="nt">"accounts"</span><span class="p">:[{</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">1234</span><span class="p">,</span><span class="nt">"gamerTags"</span><span class="p">:[{</span><span class="nt">"projectId"</span><span class="p">:</span><span class="s2">"DE_12345"</span><span class="p">,</span><span class="nt">"gamerTag"</span><span class="p">:</span><span class="mi">1235</span><span class="p">}],</span><span class="nt">"thirdParties"</span><span class="p">:[],</span><span class="nt">"createdTimeMillis"</span><span class="p">:</span><span class="mi">1654192216717</span><span class="p">,</span><span class="nt">"updatedTimeMillis"</span><span class="p">:</span><span class="mi">1654192216717</span><span class="p">}]}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-json">{"accounts":[{"id":1234,"gamerTags":[{"projectId":"DE_12345","gamerTag":1235}],"thirdParties":[],"createdTimeMillis":1654192216717,"updatedTimeMillis":1654192216717}]}
+</code></pre>
 <p>We only need the first ID from that result, so we can create a couple classes to handle the deserialization of the response:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AccountSearchResponse</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Account</span><span class="p">[]</span><span class="w"> </span><span class="n">accounts</span><span class="p">;</span>
-<span class="p">}</span>
+<pre><code class="language-csharp">public class AccountSearchResponse
+{
+    public Account[] accounts;
+}
 
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Account</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+public class Account
+{
+    public long id;
+}
+</code></pre>
 <p>Now we can call the <code>basic/accounts/search</code> API. This requires a few query parameters, so we can build those into the URL of the call. Other notes are listed as code comments in the following example.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetAccountId</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="c1">//A search is run using the player's Realm ID (UserId)</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"/basic/accounts/search?query={Context.UserId}&amp;page=1&amp;pagesize=10"</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">//The Requester class is used to make REST API calls</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Requester</span><span class="p">.</span><span class="n">Request</span><span class="o">&lt;</span><span class="n">AccountSearchResponse</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">);</span>
-<span class="w">    </span><span class="c1">//We only need the ID of the first account in the list, since that is the one we will be deleting.</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">accounts</span><span class="p">.</span><span class="n">First</span><span class="p">().</span><span class="n">id</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">private async Task&lt;string&gt; GetAccountId()
+{
+    //A search is run using the player's Realm ID (UserId)
+    var path = $"/basic/accounts/search?query={Context.UserId}&amp;page=1&amp;pagesize=10";
+    //The Requester class is used to make REST API calls
+    var response = await Requester.Request&lt;AccountSearchResponse&gt;(Method.GET, path);
+    //We only need the ID of the first account in the list, since that is the one we will be deleting.
+    return response.accounts.First().id.ToString();
+}
+</code></pre>
 <p>Now that we have the account ID, we can call the forget user API. This is fairly similar to the last API call.</p>
 <p>It's worth noting that the example uses a custom parser for deserialization. This will effectively return the response string in its raw form, since it is only being returned to the client for logging purposes. If your game needs to make better use of this data, this can be accomplished by creating a class for the Requester to deserialize into, and changing the type parameter of Request (similar to how GetAccountId above).</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ForgetUser</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">accountId</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"/object/accounts/{accountId}/admin/forget"</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Requester</span><span class="p">.</span><span class="n">Request</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">DELETE</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">parser</span><span class="p">:(</span><span class="n">s</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">));</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">private async Task&lt;string&gt; ForgetUser(string accountId)
+{
+    var path = $"/object/accounts/{accountId}/admin/forget";
+    var response = await Requester.Request&lt;string&gt;(Method.DELETE, path, parser:(s =&gt; s));
+    return response;
+}
+</code></pre>
 <p>With these helper functions created, we can now create the client callable method for the microservice. This method simply ties our other two methods together to create a single execution flow.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ClientCallable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">DeleteAccount</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">accountId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GetAccountId</span><span class="p">();</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">ForgetUser</span><span class="p">(</span><span class="n">accountId</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">[ClientCallable]
+public async Task&lt;string&gt; DeleteAccount()
+{
+    var accountId = await GetAccountId();
+    var response = await ForgetUser(accountId);
+    return response;
+}
+</code></pre>
 <p>After publishing the microservice, you can call the DeleteAccount method from the appropriate location in your C# client code. You should see a response similar to the one below, if the deletion was successful:</p>
-<div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="nt">"createdTimeMillis"</span><span class="p">:</span><span class="mi">1654639620467</span><span class="p">,</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">1498288512206848</span><span class="p">,</span><span class="nt">"gamerTags"</span><span class="p">:[{</span><span class="nt">"projectId"</span><span class="p">:</span><span class="s2">"DE_12345"</span><span class="p">,</span><span class="nt">"gamerTag"</span><span class="p">:</span><span class="mi">1234</span><span class="p">}],</span><span class="nt">"updatedTimeMillis"</span><span class="p">:</span><span class="mi">1654715866882</span><span class="p">,</span><span class="nt">"thirdParties"</span><span class="p">:[]}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-json">{"createdTimeMillis":1654639620467,"id":1498288512206848,"gamerTags":[{"projectId":"DE_12345","gamerTag":1234}],"updatedTimeMillis":1654715866882,"thirdParties":[]}
+</code></pre>
 <h2 id="unity-code">Unity Code<a class="headerlink" href="#unity-code" title="Permanent link">¶</a></h2>
 <p>For additional thoroughness of erasure, it is recommended to also call <code>ClearAndStopAllContexts</code>, which is a static function from the Beamable SDK intended to clear all access tokens for logged in users, and clean up any subscriptions that were running.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//C# client code</span>
+<pre><code class="language-csharp">//C# client code
 
-<span class="c1">//Initialize BeamContext instance</span>
-<span class="n">_context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="k">await</span><span class="w"> </span><span class="n">_context</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+//Initialize BeamContext instance
+_context = BeamContext.Default;
+await _context.OnReady;
 
-<span class="c1">//Useful debug info</span>
-<span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Current PlayerId: {_context.UserId}"</span><span class="p">);</span>
-<span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Token: {_context.AccessToken.Token}"</span><span class="p">);</span>
+//Useful debug info
+Debug.Log($"Current PlayerId: {_context.UserId}");
+Debug.Log($"Token: {_context.AccessToken.Token}");
 
-<span class="c1">//Run the forget microservice</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DeletePlayerAccountClient</span><span class="p">();</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">DeleteAccount</span><span class="p">();</span>
+//Run the forget microservice
+var client = new DeletePlayerAccountClient();
+var response = await client.DeleteAccount();
 
-<span class="c1">//Log the response</span>
-<span class="c1">//If the microservice throws an exception, that will show up in the logs as well.</span>
-<span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">response</span><span class="p">);</span>
+//Log the response
+//If the microservice throws an exception, that will show up in the logs as well.
+Debug.Log(response);
 
-<span class="c1">//Clear out the users from the device.</span>
-<span class="k">await</span><span class="w"> </span><span class="n">Beam</span><span class="p">.</span><span class="n">ClearAndStopAllContexts</span><span class="p">();</span>
-</code></pre></div></td></tr></tbody></table></div>
+//Clear out the users from the device.
+await Beam.ClearAndStopAllContexts();
+</code></pre>
 <h2 id="complete-script">Complete Script<a class="headerlink" href="#complete-script" title="Permanent link">¶</a></h2>
 <p>Create a microservice via the <a href="../../user-reference/cloud-services/microservices/microservice-unity-integration/">Microservice Unity Integration</a>, then paste this script into the C# source file.</p>
-<p>DeletePlayerAccount.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Api</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Server</span><span class="p">;</span>
+<p>DeletePlayerAccount.cs</p>
+<pre><code class="language-csharp">using System.Linq;
+using System.Threading.Tasks;
+using Beamable.Common.Api;
+using Beamable.Server;
 
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Microservices</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Microservice("DeletePlayerAccount")]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DeletePlayerAccount</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="na">[ClientCallable]</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">DeleteAccount</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">accountId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GetAccountId</span><span class="p">();</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">ForgetUser</span><span class="p">(</span><span class="n">accountId</span><span class="p">);</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
+namespace Beamable.Microservices
+{
+    [Microservice("DeletePlayerAccount")]
+    public class DeletePlayerAccount : Microservice
+    {
+        [ClientCallable]
+        public async Task&lt;string&gt; DeleteAccount()
+        {
+            var accountId = await GetAccountId();
+            var response = await ForgetUser(accountId);
+            return response;
+        }
 
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetAccountId</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"/basic/accounts/search?query={Context.UserId}&amp;page=1&amp;pagesize=10"</span><span class="p">;</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Requester</span><span class="p">.</span><span class="n">Request</span><span class="o">&lt;</span><span class="n">AccountSearchResponse</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">);</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">accounts</span><span class="p">.</span><span class="n">First</span><span class="p">().</span><span class="n">id</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
+        private async Task&lt;string&gt; GetAccountId()
+        {
+            var path = $"/basic/accounts/search?query={Context.UserId}&amp;page=1&amp;pagesize=10";
+            var response = await Requester.Request&lt;AccountSearchResponse&gt;(Method.GET, path);
+            return response.accounts.First().id.ToString();
+        }
 
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ForgetUser</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">accountId</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"/object/accounts/{accountId}/admin/forget"</span><span class="p">;</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Requester</span><span class="p">.</span><span class="n">Request</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">DELETE</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">parser</span><span class="p">:(</span><span class="n">s</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">));</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
+        private async Task&lt;string&gt; ForgetUser(string accountId)
+        {
+            var path = $"/object/accounts/{accountId}/admin/forget";
+            var response = await Requester.Request&lt;string&gt;(Method.DELETE, path, parser:(s =&gt; s));
+            return response;
+        }
+    }
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AccountSearchResponse</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">Account</span><span class="p">[]</span><span class="w"> </span><span class="n">accounts</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
+    public class AccountSearchResponse
+    {
+        public Account[] accounts;
+    }
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Account</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+    public class Account
+    {
+        public long id;
+    }
+}
+</code></pre>
 
 
 

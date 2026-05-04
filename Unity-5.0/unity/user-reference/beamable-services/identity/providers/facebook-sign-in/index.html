@@ -4615,6 +4615,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9577,67 +9605,47 @@
 <p>Below are the integration steps that will allow you to implement Facebook Sign-In &amp; Beamable via Code. This section will describe several API pieces for you to implement your own wrapper.</p>
 <h2 id="facebook-login-callbacks">Facebook Login &amp; Callbacks<a class="headerlink" href="#facebook-login-callbacks" title="Permanent link">¶</a></h2>
 <p>Ultimately you will have to implement the Facebook SDK and listen for the callback with the Login Result. The callback is triggered by the <em>FB.LogInWithReadPermissions()</em> API call.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">perms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(){</span><span class="s">"public_profile"</span><span class="p">,</span><span class="w"> </span><span class="s">"email"</span><span class="p">};</span>
-<span class="n">FB</span><span class="p">.</span><span class="n">LogInWithReadPermissions</span><span class="p">(</span><span class="n">perms</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">FB_AuthCallback</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var perms = new List&lt;string&gt;(){"public_profile", "email"};
+FB.LogInWithReadPermissions(perms, result =&gt; FB_AuthCallback(result));
+</code></pre>
 <p>In this example, we are forwarding the result into our own method. In this method you should check for errors from Facebook. In addition, you would check to ensure that login was successful.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">FB_AuthCallback</span><span class="w"> </span><span class="p">(</span><span class="n">ILoginResult</span><span class="w"> </span><span class="n">result</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">Error</span><span class="p">)){</span>
-<span class="w">     </span><span class="c1">//There was an error to handle</span>
-<span class="w">     </span><span class="k">return</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
+<pre><code class="language-csharp">private void FB_AuthCallback (ILoginResult result)
+{
+    if(!string.IsNullOrEmpty(result.Error)){
+     //There was an error to handle
+     return;
+    }
 
-<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">FB</span><span class="p">.</span><span class="n">IsLoggedIn</span><span class="p">){</span>
-<span class="w">        </span><span class="c1">//User is logged into facebook successfully.</span>
+  if(FB.IsLoggedIn){
+        //User is logged into facebook successfully.
 
-<span class="w">    </span><span class="c1">// AccessToken class will have session details</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">aToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Facebook</span><span class="p">.</span><span class="n">Unity</span><span class="p">.</span><span class="n">AccessToken</span><span class="p">.</span><span class="n">CurrentAccessToken</span><span class="p">;</span>
+    // AccessToken class will have session details
+    var aToken = Facebook.Unity.AccessToken.CurrentAccessToken;
 
-<span class="w">    </span><span class="k">return</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    return;
+    }
+}
+</code></pre>
 <h2 id="beamable-login-with-accesstoken">Beamable Login with AccessToken<a class="headerlink" href="#beamable-login-with-accesstoken" title="Permanent link">¶</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Beamable SDK Initialization</p>
 <p>The following assumes that you have initialized the Beamable SDK and it is stored in a variable named <code>_beamContext</code>.
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<code>csharp
+    _beamContext = BeamContext.Default;
+    await _beamContext.OnReady;</code></p>
 </div>
 <p>We've passed in an additional helper object that will automate the Beamable login flow process. However, now we will expose what is "under the hood" of that helper.</p>
 <h3 id="getting-the-access-token-string">Getting the access token string<a class="headerlink" href="#getting-the-access-token-string" title="Permanent link">¶</a></h3>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// AccessToken class will have session details</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">aToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Facebook</span><span class="p">.</span><span class="n">Unity</span><span class="p">.</span><span class="n">AccessToken</span><span class="p">.</span><span class="n">CurrentAccessToken</span><span class="p">;</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">tokenString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aToken</span><span class="p">.</span><span class="n">TokenString</span><span class="p">;</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">// AccessToken class will have session details
+var aToken = Facebook.Unity.AccessToken.CurrentAccessToken;
+var tokenString = aToken.TokenString;
+</code></pre>
 <p>You will want a reference to the actual TokenString to pass to the Beamable third-party login service.</p>
 <h3 id="isthirdpartyavailable">IsThirdPartyAvailable<a class="headerlink" href="#isthirdpartyavailable" title="Permanent link">¶</a></h3>
 <p>With the access token, we need to check if this third party provider is available to the logged in user. It will return a boolean.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">thirdParty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">Facebook</span><span class="p">;</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">IsThirdPartyAvailable</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">tokenString</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var thirdParty = AuthThirdParty.Facebook;
+var available = _beamContext.Api.AuthService.IsThirdPartyAvailable(thirdParty, tokenString);
+</code></pre>
 <h2 id="handle-various-flow-scenarios">Handle Various Flow Scenarios<a class="headerlink" href="#handle-various-flow-scenarios" title="Permanent link">¶</a></h2>
 <p>Now that we have the Facebook token, we need to account for 3 different scenarios:</p>
 <ul>
@@ -9645,30 +9653,19 @@
 <li>Create New Player - Player wants to Create a new Player account</li>
 <li>Attach To Current Player - Player wants to attach this third-party login to an already authenticated Player</li>
 </ul>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//Specify the third party auth provider</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">thirdParty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">Facebook</span><span class="p">;</span>
-<span class="c1">//Get information about the user's third party credential</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">IsThirdPartyAvailable</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">HasThirdPartyAssociation</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">);</span>
+<pre><code class="language-csharp">//Specify the third party auth provider
+var thirdParty = AuthThirdParty.Facebook;
+//Get information about the user's third party credential
+var available = await _beamContext.Api.AuthService.IsThirdPartyAvailable(thirdParty, token);
+var userHasCredentials = _beamContext.Api.User.HasThirdPartyAssociation(thirdParty);
 
-<span class="c1">//Should we switch to a user that's not currently logged in?</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">shouldSwitchUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">available</span><span class="p">;</span>
-<span class="c1">//Should we create a brand new user with these credentials?</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">shouldCreateUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="p">;</span>
-<span class="c1">//Should we attach the credentials to an existing user?</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">shouldAttachToCurrentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">userHasCredentials</span><span class="p">;</span>
-</code></pre></div></td></tr></tbody></table></div>
+//Should we switch to a user that's not currently logged in?
+var shouldSwitchUsers = !available;
+//Should we create a brand new user with these credentials?
+var shouldCreateUser = available &amp;&amp; userHasCredentials;
+//Should we attach the credentials to an existing user?
+var shouldAttachToCurrentUser = available &amp;&amp; !userHasCredentials;
+</code></pre>
 <h2 id="facebooks-data-protection-assessment">Facebook's Data Protection Assessment<a class="headerlink" href="#facebooks-data-protection-assessment" title="Permanent link">¶</a></h2>
 <p>If you implement Facebook sign-in, you might be asked to submit an annual Data Protection Assessment through your Facebook Developer account. The following answers can be used if you have implemented Facebook authentication through Beamable.</p>
 <div class="admonition warning">

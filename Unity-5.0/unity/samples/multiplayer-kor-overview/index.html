@@ -4633,6 +4633,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9769,765 +9797,390 @@
 <p>The <code>GameSceneManager</code> is the main entry point to the Game Scene logic.</p>
 <p>Here a a few highlights.</p>
 <p><strong>Send Game Event</strong></p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">SendNetworkMessage</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ReadyEvent</span><span class="p">(</span><span class="n">_ownAttributes</span><span class="p">,</span><span class="w"> </span><span class="k">alias</span><span class="p">));</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">NetworkController.Instance.SendNetworkMessage(new ReadyEvent(_ownAttributes, alias));
+</code></pre>
 <p><strong>Receive Game Event</strong></p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPlayerReady</span><span class="w"> </span><span class="p">(</span><span class="n">ReadyEvent</span><span class="w"> </span><span class="n">readyEvent</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="c1">// Handle consequences...</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">private void OnPlayerReady (ReadyEvent readyEvent)
+{
+    // Handle consequences...
+}
+</code></pre>
 <p><em>In this section you will find some partial code snippets. Download the project to see the complete code.</em></p>
-<p>GameSceneManager.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
-<span class="normal">  2</span>
-<span class="normal">  3</span>
-<span class="normal">  4</span>
-<span class="normal">  5</span>
-<span class="normal">  6</span>
-<span class="normal">  7</span>
-<span class="normal">  8</span>
-<span class="normal">  9</span>
-<span class="normal"> 10</span>
-<span class="normal"> 11</span>
-<span class="normal"> 12</span>
-<span class="normal"> 13</span>
-<span class="normal"> 14</span>
-<span class="normal"> 15</span>
-<span class="normal"> 16</span>
-<span class="normal"> 17</span>
-<span class="normal"> 18</span>
-<span class="normal"> 19</span>
-<span class="normal"> 20</span>
-<span class="normal"> 21</span>
-<span class="normal"> 22</span>
-<span class="normal"> 23</span>
-<span class="normal"> 24</span>
-<span class="normal"> 25</span>
-<span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
-<span class="normal"> 35</span>
-<span class="normal"> 36</span>
-<span class="normal"> 37</span>
-<span class="normal"> 38</span>
-<span class="normal"> 39</span>
-<span class="normal"> 40</span>
-<span class="normal"> 41</span>
-<span class="normal"> 42</span>
-<span class="normal"> 43</span>
-<span class="normal"> 44</span>
-<span class="normal"> 45</span>
-<span class="normal"> 46</span>
-<span class="normal"> 47</span>
-<span class="normal"> 48</span>
-<span class="normal"> 49</span>
-<span class="normal"> 50</span>
-<span class="normal"> 51</span>
-<span class="normal"> 52</span>
-<span class="normal"> 53</span>
-<span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span>
-<span class="normal">119</span>
-<span class="normal">120</span>
-<span class="normal">121</span>
-<span class="normal">122</span>
-<span class="normal">123</span>
-<span class="normal">124</span>
-<span class="normal">125</span>
-<span class="normal">126</span>
-<span class="normal">127</span>
-<span class="normal">128</span>
-<span class="normal">129</span>
-<span class="normal">130</span>
-<span class="normal">131</span>
-<span class="normal">132</span>
-<span class="normal">133</span>
-<span class="normal">134</span>
-<span class="normal">135</span>
-<span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
-<span class="normal">142</span>
-<span class="normal">143</span>
-<span class="normal">144</span>
-<span class="normal">145</span>
-<span class="normal">146</span>
-<span class="normal">147</span>
-<span class="normal">148</span>
-<span class="normal">149</span>
-<span class="normal">150</span>
-<span class="normal">151</span>
-<span class="normal">152</span>
-<span class="normal">153</span>
-<span class="normal">154</span>
-<span class="normal">155</span>
-<span class="normal">156</span>
-<span class="normal">157</span>
-<span class="normal">158</span>
-<span class="normal">159</span>
-<span class="normal">160</span>
-<span class="normal">161</span>
-<span class="normal">162</span>
-<span class="normal">163</span>
-<span class="normal">164</span>
-<span class="normal">165</span>
-<span class="normal">166</span>
-<span class="normal">167</span>
-<span class="normal">168</span>
-<span class="normal">169</span>
-<span class="normal">170</span>
-<span class="normal">171</span>
-<span class="normal">172</span>
-<span class="normal">173</span>
-<span class="normal">174</span>
-<span class="normal">175</span>
-<span class="normal">176</span>
-<span class="normal">177</span>
-<span class="normal">178</span>
-<span class="normal">179</span>
-<span class="normal">180</span>
-<span class="normal">181</span>
-<span class="normal">182</span>
-<span class="normal">183</span>
-<span class="normal">184</span>
-<span class="normal">185</span>
-<span class="normal">186</span>
-<span class="normal">187</span>
-<span class="normal">188</span>
-<span class="normal">189</span>
-<span class="normal">190</span>
-<span class="normal">191</span>
-<span class="normal">192</span>
-<span class="normal">193</span>
-<span class="normal">194</span>
-<span class="normal">195</span>
-<span class="normal">196</span>
-<span class="normal">197</span>
-<span class="normal">198</span>
-<span class="normal">199</span>
-<span class="normal">200</span>
-<span class="normal">201</span>
-<span class="normal">202</span>
-<span class="normal">203</span>
-<span class="normal">204</span>
-<span class="normal">205</span>
-<span class="normal">206</span>
-<span class="normal">207</span>
-<span class="normal">208</span>
-<span class="normal">209</span>
-<span class="normal">210</span>
-<span class="normal">211</span>
-<span class="normal">212</span>
-<span class="normal">213</span>
-<span class="normal">214</span>
-<span class="normal">215</span>
-<span class="normal">216</span>
-<span class="normal">217</span>
-<span class="normal">218</span>
-<span class="normal">219</span>
-<span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span>
-<span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span>
-<span class="normal">226</span>
-<span class="normal">227</span>
-<span class="normal">228</span>
-<span class="normal">229</span>
-<span class="normal">230</span>
-<span class="normal">231</span>
-<span class="normal">232</span>
-<span class="normal">233</span>
-<span class="normal">234</span>
-<span class="normal">235</span>
-<span class="normal">236</span>
-<span class="normal">237</span>
-<span class="normal">238</span>
-<span class="normal">239</span>
-<span class="normal">240</span>
-<span class="normal">241</span>
-<span class="normal">242</span>
-<span class="normal">243</span>
-<span class="normal">244</span>
-<span class="normal">245</span>
-<span class="normal">246</span>
-<span class="normal">247</span>
-<span class="normal">248</span>
-<span class="normal">249</span>
-<span class="normal">250</span>
-<span class="normal">251</span>
-<span class="normal">252</span>
-<span class="normal">253</span>
-<span class="normal">254</span>
-<span class="normal">255</span>
-<span class="normal">256</span>
-<span class="normal">257</span>
-<span class="normal">258</span>
-<span class="normal">259</span>
-<span class="normal">260</span>
-<span class="normal">261</span>
-<span class="normal">262</span>
-<span class="normal">263</span>
-<span class="normal">264</span>
-<span class="normal">265</span>
-<span class="normal">266</span>
-<span class="normal">267</span>
-<span class="normal">268</span>
-<span class="normal">269</span>
-<span class="normal">270</span>
-<span class="normal">271</span>
-<span class="normal">272</span>
-<span class="normal">273</span>
-<span class="normal">274</span>
-<span class="normal">275</span>
-<span class="normal">276</span>
-<span class="normal">277</span>
-<span class="normal">278</span>
-<span class="normal">279</span>
-<span class="normal">280</span>
-<span class="normal">281</span>
-<span class="normal">282</span>
-<span class="normal">283</span>
-<span class="normal">284</span>
-<span class="normal">285</span>
-<span class="normal">286</span>
-<span class="normal">287</span>
-<span class="normal">288</span>
-<span class="normal">289</span>
-<span class="normal">290</span>
-<span class="normal">291</span>
-<span class="normal">292</span>
-<span class="normal">293</span>
-<span class="normal">294</span>
-<span class="normal">295</span>
-<span class="normal">296</span>
-<span class="normal">297</span>
-<span class="normal">298</span>
-<span class="normal">299</span>
-<span class="normal">300</span>
-<span class="normal">301</span>
-<span class="normal">302</span>
-<span class="normal">303</span>
-<span class="normal">304</span>
-<span class="normal">305</span>
-<span class="normal">306</span>
-<span class="normal">307</span>
-<span class="normal">308</span>
-<span class="normal">309</span>
-<span class="normal">310</span>
-<span class="normal">311</span>
-<span class="normal">312</span>
-<span class="normal">313</span>
-<span class="normal">314</span>
-<span class="normal">315</span>
-<span class="normal">316</span>
-<span class="normal">317</span>
-<span class="normal">318</span>
-<span class="normal">319</span>
-<span class="normal">320</span>
-<span class="normal">321</span>
-<span class="normal">322</span>
-<span class="normal">323</span>
-<span class="normal">324</span>
-<span class="normal">325</span>
-<span class="normal">326</span>
-<span class="normal">327</span>
-<span class="normal">328</span>
-<span class="normal">329</span>
-<span class="normal">330</span>
-<span class="normal">331</span>
-<span class="normal">332</span>
-<span class="normal">333</span>
-<span class="normal">334</span>
-<span class="normal">335</span>
-<span class="normal">336</span>
-<span class="normal">337</span>
-<span class="normal">338</span>
-<span class="normal">339</span>
-<span class="normal">340</span>
-<span class="normal">341</span>
-<span class="normal">342</span>
-<span class="normal">343</span>
-<span class="normal">344</span>
-<span class="normal">345</span>
-<span class="normal">346</span>
-<span class="normal">347</span>
-<span class="normal">348</span>
-<span class="normal">349</span>
-<span class="normal">350</span>
-<span class="normal">351</span>
-<span class="normal">352</span>
-<span class="normal">353</span>
-<span class="normal">354</span>
-<span class="normal">355</span>
-<span class="normal">356</span>
-<span class="normal">357</span>
-<span class="normal">358</span>
-<span class="normal">359</span>
-<span class="normal">360</span>
-<span class="normal">361</span>
-<span class="normal">362</span>
-<span class="normal">363</span>
-<span class="normal">364</span>
-<span class="normal">365</span>
-<span class="normal">366</span>
-<span class="normal">367</span>
-<span class="normal">368</span>
-<span class="normal">369</span>
-<span class="normal">370</span>
-<span class="normal">371</span>
-<span class="normal">372</span>
-<span class="normal">373</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Examples.Features.Multiplayer.Core</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Behaviours</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Data</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Multiplayer</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Multiplayer.Events</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Views</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Experimental.Api.Sim</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.Core.Debugging</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.Core.UI</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.Core.UI.DialogSystem</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.Core.Utilities</span><span class="p">;</span>
-
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">    </span><span class="c1">/// Handles the main scene logic: Game</span>
-<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GameSceneManager</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">//  Properties -----------------------------------</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">GameUIView</span><span class="w"> </span><span class="n">GameUIView</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">_gameUIView</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">Configuration</span><span class="w"> </span><span class="n">Configuration</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">_configuration</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnPointBehaviour</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AvailableSpawnPoints</span><span class="p">;</span>
-
-<span class="w">        </span><span class="c1">//  Fields ---------------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">IBeamableAPI</span><span class="w"> </span><span class="n">_beamableAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-
-<span class="w">        </span><span class="na">[SerializeField]</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">Configuration</span><span class="w"> </span><span class="n">_configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-
-<span class="w">        </span><span class="na">[SerializeField]</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">GameUIView</span><span class="w"> </span><span class="n">_gameUIView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">Attributes</span><span class="w"> </span><span class="n">_ownAttributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnablePlayer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_spawnablePlayers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnablePlayer</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnPointBehaviour</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_unusedSpawnPoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnPointBehaviour</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_dbidReadyReceived</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-
-<span class="w">        </span><span class="c1">//  Unity Methods   ------------------------------</span>
-<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">6</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarUIViews</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">CanvasGroup</span><span class="o">&gt;</span><span class="p">().</span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.0f</span><span class="p">;</span>
-
-<span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">BackButton</span><span class="p">.</span><span class="n">onClick</span><span class="p">.</span><span class="n">AddListener</span><span class="p">(</span><span class="n">BackButton_OnClicked</span><span class="p">);</span>
-<span class="w">            </span><span class="n">SetupBeamable</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="c1">//  Other Methods   ------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DebugLog</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// Respects Configuration.IsDebugLog Checkbox</span>
-<span class="w">            </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">_beamableAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Beamable</span><span class="p">.</span><span class="n">API</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">Initialize</span><span class="p">();</span>
-<span class="w">            </span><span class="n">_ownAttributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">GetChosenPlayerAttributes</span><span class="p">();</span>
-
-<span class="w">            </span><span class="c1">// Do this after calling "Beamable.API.Instance" for smoother UI</span>
-<span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">CanvasGroupsDoFadeIn</span><span class="p">();</span>
-
-<span class="w">            </span><span class="c1">// Set defaults if scene was loaded directly</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">TargetPlayerCount</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">KORConstants</span><span class="p">.</span><span class="n">UnsetValue</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">DebugLog</span><span class="p">(</span><span class="n">KORHelper</span><span class="p">.</span><span class="n">GetSceneLoadingMessage</span><span class="p">(</span><span class="n">gameObject</span><span class="p">.</span><span class="n">scene</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">));</span>
-<span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">TargetPlayerCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
-<span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CurrentPlayerCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
-<span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LocalPlayerDbid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamableAPI</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
-<span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">MatchId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KORMatchmaking</span><span class="p">.</span><span class="n">GetRandomMatchId</span><span class="p">();</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="k">else</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">DebugLog</span><span class="p">(</span><span class="n">KORHelper</span><span class="p">.</span><span class="n">GetSceneLoadingMessage</span><span class="p">(</span><span class="n">gameObject</span><span class="p">.</span><span class="n">scene</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">));</span>
-<span class="w">            </span><span class="p">}</span>
-
-<span class="w">            </span><span class="c1">// Set the ActiveSimGameType. This happens in 2+ spots to handle direct scene loading</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">IsSinglePlayerMode</span><span class="p">)</span>
-<span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">ActiveSimGameType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_configuration</span><span class="p">.</span><span class="n">SimGameType01Ref</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
-<span class="w">            </span><span class="k">else</span>
-<span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">ActiveSimGameType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_configuration</span><span class="p">.</span><span class="n">SimGameType02Ref</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
-
-<span class="w">            </span><span class="c1">// Initialize ECS</span>
-<span class="w">            </span><span class="n">SystemManager</span><span class="p">.</span><span class="n">StartGameSystems</span><span class="p">();</span>
-
-<span class="w">            </span><span class="c1">// Show the player's attributes in the UI of this scene</span>
-
-<span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AttributesPanelUI</span><span class="p">.</span><span class="n">Attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_ownAttributes</span><span class="p">;</span>
-
-<span class="w">            </span><span class="c1">// Initialize Networking</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Init</span><span class="p">();</span>
-
-<span class="w">            </span><span class="c1">// Set Available Spawns</span>
-<span class="w">            </span><span class="n">_unusedSpawnPoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AvailableSpawnPoints</span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
-
-<span class="w">            </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Log</span><span class="p">.</span><span class="n">CreateNewConsumer</span><span class="p">(</span><span class="n">HandleNetworkUpdate</span><span class="p">);</span>
-<span class="w">            </span><span class="c1">// Optional: Stuff to use later when player moves are incoming</span>
-<span class="w">            </span><span class="kt">long</span><span class="w"> </span><span class="n">tbdIncomingPlayerDbid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamableAPI</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">id</span><span class="p">;</span><span class="w"> </span><span class="c1">// test value;</span>
-<span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"MinPlayerCount = {RuntimeDataStorage.Instance.MinPlayerCount}"</span><span class="p">);</span>
-<span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"MaxPlayerCount = {RuntimeDataStorage.Instance.MaxPlayerCount}"</span><span class="p">);</span>
-<span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"CurrentPlayerCount = {RuntimeDataStorage.Instance.CurrentPlayerCount}"</span><span class="p">);</span>
-<span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"LocalPlayerDbid = {RuntimeDataStorage.Instance.LocalPlayerDbid}"</span><span class="p">);</span>
-<span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"IsLocalPlayerDbid = {RuntimeDataStorage.Instance.IsLocalPlayerDbid(tbdIncomingPlayerDbid)}"</span><span class="p">);</span>
-<span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"IsSinglePlayerMode = {RuntimeDataStorage.Instance.IsSinglePlayerMode}"</span><span class="p">);</span>
-
-<span class="w">            </span><span class="c1">// Optional: Show queueable status text onscreen</span>
-<span class="w">            </span><span class="n">SetStatusText</span><span class="p">(</span><span class="n">KORConstants</span><span class="p">.</span><span class="n">GameUIView_Playing</span><span class="p">,</span><span class="w"> </span><span class="n">TMP_BufferedText</span><span class="p">.</span><span class="n">BufferedTextMode</span><span class="p">.</span><span class="n">Immediate</span><span class="p">);</span>
-
-<span class="w">            </span><span class="c1">// Optional: Add easily configurable delays</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromSeconds</span><span class="p">(</span><span class="n">_configuration</span><span class="p">.</span><span class="n">DelayGameBeforeMove</span><span class="p">));</span>
-
-<span class="w">            </span><span class="c1">// Optional: Play sound</span>
-<span class="w">            </span><span class="c1">//SoundManager.Instance.PlayAudioClip(SoundConstants.Click01);</span>
-
-<span class="w">            </span><span class="c1">// Optional: Render color and text of avatar ui</span>
-<span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarViews</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPlayerJoined</span><span class="p">(</span><span class="n">PlayerJoinedEvent</span><span class="w"> </span><span class="n">joinEvent</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
-<span class="w">                </span><span class="k">return</span><span class="p">;</span>
-
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">spawnIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">rand</span><span class="p">.</span><span class="n">Next</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">_unusedSpawnPoints</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">spawnPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_unusedSpawnPoints</span><span class="p">[</span><span class="n">spawnIndex</span><span class="p">];</span>
-<span class="w">            </span><span class="n">_unusedSpawnPoints</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">spawnPoint</span><span class="p">);</span>
-
-<span class="w">            </span><span class="n">SpawnablePlayer</span><span class="w"> </span><span class="n">newPlayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SpawnablePlayer</span><span class="p">(</span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">,</span><span class="w"> </span><span class="n">spawnPoint</span><span class="p">);</span>
-<span class="w">            </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">);</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">Initialize</span><span class="p">();</span>
-<span class="w">            </span><span class="n">newPlayer</span><span class="p">.</span><span class="n">ChosenCharacter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">GetChosenCharacterByDBID</span><span class="p">(</span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">);</span>
-<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="k">alias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">GetPlayerAliasByDBID</span><span class="p">(</span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">);</span>
-
-<span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"alias from joinEvent dbid={joinEvent.PlayerDbid} alias={alias}"</span><span class="p">);</span>
-
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LocalDbid</span><span class="p">)</span>
-<span class="w">                </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">SendNetworkMessage</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ReadyEvent</span><span class="p">(</span><span class="n">_ownAttributes</span><span class="p">,</span><span class="w"> </span><span class="k">alias</span><span class="p">));</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPlayerReady</span><span class="p">(</span><span class="n">ReadyEvent</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Getting ready for dbid={readyEvt.PlayerDbid}"</span>
-<span class="w">                                       </span><span class="o">+</span><span class="w"> </span><span class="s">$" attributes move/charge={readyEvt.aggregateMovementSpeed}/{readyEvt.aggregateChargeSpeed}"</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLogLevel</span><span class="p">.</span><span class="n">Verbose</span><span class="p">);</span>
-
-<span class="w">            </span><span class="n">_dbidReadyReceived</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">readyEvt</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">);</span>
-
-<span class="w">            </span><span class="n">SpawnablePlayer</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">);</span>
-<span class="w">            </span><span class="n">sp</span><span class="p">.</span><span class="n">Attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Attributes</span><span class="p">(</span><span class="n">readyEvt</span><span class="p">.</span><span class="n">aggregateChargeSpeed</span><span class="p">,</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">.</span><span class="n">aggregateMovementSpeed</span><span class="p">);</span>
-<span class="w">            </span><span class="n">sp</span><span class="p">.</span><span class="n">PlayerAlias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">.</span><span class="n">playerAlias</span><span class="p">;</span>
-
-<span class="w">            </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"alias from readyEvt dbid={readyEvt.PlayerDbid} alias={sp.PlayerAlias}"</span><span class="p">);</span>
-
-<span class="w">            </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"OnPlayerReady Players={_dbidReadyReceived.Count}/{RuntimeDataStorage.Instance.CurrentPlayerCount}"</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLogLevel</span><span class="p">.</span><span class="n">Verbose</span><span class="p">);</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">_dbidReadyReceived</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CurrentPlayerCount</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
-<span class="w">                </span><span class="n">SpawnAllPlayersAtOnce</span><span class="p">();</span>
-<span class="w">                </span><span class="n">StartGameTimer</span><span class="p">();</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">StartGameTimer</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">GameUIView</span><span class="p">.</span><span class="n">GameTimerBehaviour</span><span class="p">.</span><span class="n">StartMatch</span><span class="p">();</span>
-<span class="w">            </span><span class="n">GameUIView</span><span class="p">.</span><span class="n">GameTimerBehaviour</span><span class="p">.</span><span class="n">OnGameOver</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="c1">// TODO: score the players, and end the game.</span>
-<span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Game over!"</span><span class="p">);</span>
-
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">uis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindObjectsOfType</span><span class="o">&lt;</span><span class="n">AvatarUIView</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">validUis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uis</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">ui</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ui</span><span class="p">.</span><span class="n">Player</span><span class="p">).</span><span class="n">ToList</span><span class="p">();</span>
-<span class="w">                </span><span class="n">validUis</span><span class="p">.</span><span class="n">Sort</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">SpawnablePlayer</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">SpawnablePlayer</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">);</span>
-<span class="w">                </span><span class="n">validUis</span><span class="p">.</span><span class="n">Sort</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">HealthBehaviour</span><span class="p">.</span><span class="n">Health</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">HealthBehaviour</span><span class="p">.</span><span class="n">Health</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
-
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">scores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">validUis</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">ui</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PlayerResult</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">playerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ui</span><span class="p">.</span><span class="n">SpawnablePlayer</span><span class="p">.</span><span class="n">DBID</span><span class="p">,</span>
-<span class="w">                    </span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ui</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">HealthBehaviour</span><span class="p">.</span><span class="n">Health</span><span class="p">,</span>
-<span class="w">                </span><span class="p">}).</span><span class="n">ToArray</span><span class="p">();</span>
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">selfRank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">selfScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scores</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
-<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">scores</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">playerId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LocalDbid</span><span class="p">)</span>
-<span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="n">selfRank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">                        </span><span class="n">selfScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<span class="w">                    </span><span class="p">}</span>
-<span class="w">                </span><span class="p">}</span>
-
-<span class="w">                </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">motionBehaviour</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">FindObjectsOfType</span><span class="o">&lt;</span><span class="n">AvatarMotionBehaviour</span><span class="o">&gt;</span><span class="p">())</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">motionBehaviour</span><span class="p">.</span><span class="n">Stop</span><span class="p">();</span>
-<span class="w">                    </span><span class="n">motionBehaviour</span><span class="p">.</span><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-<span class="w">                </span><span class="p">}</span>
-
-<span class="w">                </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">inputBehaviour</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">FindObjectsOfType</span><span class="o">&lt;</span><span class="n">PlayerInputBehaviour</span><span class="o">&gt;</span><span class="p">())</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">inputBehaviour</span><span class="p">.</span><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-<span class="w">                </span><span class="p">}</span>
-
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">ReportResults</span><span class="p">(</span><span class="n">scores</span><span class="p">);</span>
-
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">isWinner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">selfRank</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">earnings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">","</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">.</span><span class="n">currenciesGranted</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">grant</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"{grant.amount}x{grant.symbol}"</span><span class="p">));</span>
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">earningsBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">earnings</span><span class="p">)</span>
-<span class="w">                    </span><span class="o">?</span><span class="w"> </span><span class="s">"nothing"</span>
-<span class="w">                    </span><span class="p">:</span><span class="w"> </span><span class="n">earnings</span><span class="p">;</span>
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"You came in place: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">selfRank</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">". You earned "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">earningsBody</span><span class="p">;</span>
-<span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">ShowDialogBox</span><span class="o">&lt;</span><span class="n">DialogUI</span><span class="o">&gt;</span><span class="p">(</span>
-
-<span class="w">                    </span><span class="c1">// Renders this prefab. DUPLICATE this prefab and drag</span>
-<span class="w">                    </span><span class="c1">// into _storeUIView to change layout</span>
-<span class="w">                    </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">DialogUIPrefab</span><span class="p">,</span>
-
-<span class="w">                    </span><span class="c1">// Set Text</span>
-<span class="w">                    </span><span class="n">isWinner</span>
-<span class="w">                        </span><span class="o">?</span><span class="w"> </span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_GameOver_Victory</span>
-<span class="w">                        </span><span class="p">:</span><span class="w"> </span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_GameOver_Defeat</span><span class="p">,</span>
-<span class="w">                    </span><span class="n">body</span><span class="p">,</span>
-
-<span class="w">                    </span><span class="c1">// Create zero or more buttons</span>
-<span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DialogButtonData</span><span class="o">&gt;</span>
-<span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="k">new</span><span class="w"> </span><span class="nf">DialogButtonData</span><span class="p">(</span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_Ok</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                        </span><span class="p">{</span>
-<span class="w">                            </span><span class="n">KORHelper</span><span class="p">.</span><span class="n">PlayAudioForUIClickPrimary</span><span class="p">();</span>
-<span class="w">                            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">HideDialogBox</span><span class="p">();</span>
-
-<span class="w">                            </span><span class="c1">// Clean up manager</span>
-<span class="w">                            </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">                            </span><span class="n">_unusedSpawnPoints</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">                            </span><span class="n">_dbidReadyReceived</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">                            </span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-<span class="w">                            </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Cleanup</span><span class="p">();</span>
-
-<span class="w">                            </span><span class="c1">// Destroy ECS</span>
-<span class="w">                            </span><span class="n">SystemManager</span><span class="p">.</span><span class="n">DestroyGameSystems</span><span class="p">();</span>
-
-<span class="w">                            </span><span class="c1">// Change scenes</span>
-<span class="w">                            </span><span class="n">StartCoroutine</span><span class="p">(</span><span class="n">KORHelper</span><span class="p">.</span><span class="n">LoadScene_Coroutine</span><span class="p">(</span><span class="n">_configuration</span><span class="p">.</span><span class="n">IntroSceneName</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">_configuration</span><span class="p">.</span><span class="n">DelayBeforeLoadScene</span><span class="p">));</span>
-<span class="w">                        </span><span class="p">})</span>
-<span class="w">                    </span><span class="p">});</span>
-<span class="w">            </span><span class="p">};</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SpawnAllPlayersAtOnce</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">List</span><span class="o">&lt;</span><span class="n">CanvasGroup</span><span class="o">&gt;</span><span class="w"> </span><span class="n">avatarUiCanvasGroups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">CanvasGroup</span><span class="o">&gt;</span><span class="p">();</span>
-
-<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="o">++</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">SpawnablePlayer</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_spawnablePlayers</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
-
-<span class="w">                </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"DBID={sp.DBID} Spawning character={sp.ChosenCharacter.CharacterContentObject.ContentName}"</span>
-<span class="w">                                           </span><span class="o">+</span><span class="w"> </span><span class="s">$" attributes move/charge={sp.Attributes.MovementSpeed}/{sp.Attributes.ChargeSpeed}"</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLogLevel</span><span class="p">.</span><span class="n">Verbose</span><span class="p">);</span>
-
-<span class="w">                </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"playerAlias={sp.PlayerAlias}"</span><span class="p">);</span>
-
-<span class="w">                </span><span class="n">AvatarView</span><span class="w"> </span><span class="n">avatarView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameObject</span><span class="p">.</span><span class="n">Instantiate</span><span class="o">&lt;</span><span class="n">AvatarView</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">ChosenCharacter</span><span class="p">.</span><span class="n">AvatarViewPrefab</span><span class="p">);</span>
-<span class="w">                </span><span class="n">avatarView</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">SetPhysicsPosition</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">SpawnPointBehaviour</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
-
-<span class="w">                </span><span class="n">Player</span><span class="w"> </span><span class="n">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avatarView</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">                </span><span class="n">player</span><span class="p">.</span><span class="n">SetAlias</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">PlayerAlias</span><span class="p">);</span>
-
-<span class="w">                </span><span class="n">avatarView</span><span class="p">.</span><span class="n">SetForPlayer</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">DBID</span><span class="p">);</span>
-<span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarViews</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">avatarView</span><span class="p">);</span>
-
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LocalDbid</span><span class="p">)</span>
-<span class="w">                    </span><span class="n">avatarView</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">AvatarMotionBehaviour</span><span class="o">&gt;</span><span class="p">().</span><span class="n">PreviewBehaviour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">                </span><span class="k">else</span>
-<span class="w">                    </span><span class="n">avatarView</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">PlayerInputBehaviour</span><span class="o">&gt;</span><span class="p">().</span><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-
-<span class="w">                </span><span class="n">AvatarMotionBehaviour</span><span class="w"> </span><span class="n">amb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avatarView</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">AvatarMotionBehaviour</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">                </span><span class="n">amb</span><span class="p">.</span><span class="n">Attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">Attributes</span><span class="p">;</span>
-
-<span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarUIViews</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">Set</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="w"> </span><span class="n">sp</span><span class="p">);</span>
-<span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarUIViews</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">Render</span><span class="p">();</span>
-<span class="w">                </span><span class="n">avatarUiCanvasGroups</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarUIViews</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">CanvasGroup</span><span class="o">&gt;</span><span class="p">());</span>
-<span class="w">            </span><span class="p">}</span>
-
-<span class="w">            </span><span class="n">TweenHelper</span><span class="p">.</span><span class="n">CanvasGroupsDoFade</span><span class="p">(</span><span class="n">avatarUiCanvasGroups</span><span class="p">,</span><span class="w"> </span><span class="m">0.0f</span><span class="p">,</span><span class="w"> </span><span class="m">1.0f</span><span class="p">,</span><span class="w"> </span><span class="m">1.0f</span><span class="p">,</span><span class="w"> </span><span class="m">0.0f</span><span class="p">,</span><span class="w"> </span><span class="m">0.0f</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">HandleNetworkUpdate</span><span class="p">(</span><span class="n">TimeUpdate</span><span class="w"> </span><span class="n">update</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">evt</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">update</span><span class="p">.</span><span class="n">Events</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">HandleNetworkEvent</span><span class="p">(</span><span class="n">evt</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">HandleNetworkEvent</span><span class="p">(</span><span class="n">KOREvent</span><span class="w"> </span><span class="n">korEvent</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">korEvent</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="n">ReadyEvent</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">:</span>
-<span class="w">                    </span><span class="n">OnPlayerReady</span><span class="p">(</span><span class="n">readyEvt</span><span class="p">);</span>
-<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
-
-<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="n">PlayerJoinedEvent</span><span class="w"> </span><span class="n">joinEvt</span><span class="p">:</span>
-<span class="w">                    </span><span class="n">OnPlayerJoined</span><span class="p">(</span><span class="n">joinEvt</span><span class="p">);</span>
-<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">        </span><span class="c1">/// Render UI text</span>
-<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">        </span><span class="c1">/// &lt;param name="message"&gt;&lt;/param&gt;</span>
-<span class="w">        </span><span class="c1">/// &lt;param name="statusTextMode"&gt;&lt;/param&gt;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetStatusText</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">TMP_BufferedText</span><span class="p">.</span><span class="n">BufferedTextMode</span><span class="w"> </span><span class="n">statusTextMode</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">BufferedText</span><span class="p">.</span><span class="n">SetText</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">statusTextMode</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="c1">//  Event Handlers -------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">BackButton_OnClicked</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">KORHelper</span><span class="p">.</span><span class="n">PlayAudioForUIClickBack</span><span class="p">();</span>
-
-<span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">ShowDialogBox</span><span class="o">&lt;</span><span class="n">DialogUI</span><span class="o">&gt;</span><span class="p">(</span>
-
-<span class="w">                </span><span class="c1">// Renders this prefab. DUPLICATE this prefab and drag</span>
-<span class="w">                </span><span class="c1">// into _storeUIView to change layout</span>
-<span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">DialogUIPrefab</span><span class="p">,</span>
-
-<span class="w">                </span><span class="c1">// Set Text</span>
-<span class="w">                </span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_AreYouSure</span><span class="p">,</span>
-<span class="w">                </span><span class="s">"This will end your game."</span><span class="p">,</span>
-
-<span class="w">                </span><span class="c1">// Create zero or more buttons</span>
-<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DialogButtonData</span><span class="o">&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="nf">DialogButtonData</span><span class="p">(</span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_Ok</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="n">KORHelper</span><span class="p">.</span><span class="n">PlayAudioForUIClickPrimary</span><span class="p">();</span>
-<span class="w">                        </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">HideDialogBox</span><span class="p">();</span>
-
-<span class="w">                        </span><span class="c1">// Clean up manager</span>
-<span class="w">                        </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">                        </span><span class="n">_unusedSpawnPoints</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">                        </span><span class="n">_dbidReadyReceived</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">                        </span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-<span class="w">                        </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Cleanup</span><span class="p">();</span>
-
-<span class="w">                        </span><span class="c1">// Destroy ECS</span>
-<span class="w">                        </span><span class="n">SystemManager</span><span class="p">.</span><span class="n">DestroyGameSystems</span><span class="p">();</span>
-
-<span class="w">                        </span><span class="c1">// Change scenes</span>
-<span class="w">                        </span><span class="n">StartCoroutine</span><span class="p">(</span><span class="n">KORHelper</span><span class="p">.</span><span class="n">LoadScene_Coroutine</span><span class="p">(</span><span class="n">_configuration</span><span class="p">.</span><span class="n">IntroSceneName</span><span class="p">,</span>
-<span class="w">                            </span><span class="n">_configuration</span><span class="p">.</span><span class="n">DelayBeforeLoadScene</span><span class="p">));</span>
-<span class="w">                    </span><span class="p">}),</span>
-<span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="nf">DialogButtonData</span><span class="p">(</span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_Cancel</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="n">KORHelper</span><span class="p">.</span><span class="n">PlayAudioForUIClickSecondary</span><span class="p">();</span>
-<span class="w">                        </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">HideDialogBox</span><span class="p">();</span>
-<span class="w">                    </span><span class="p">})</span>
-<span class="w">                </span><span class="p">});</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>GameSceneManager.cs</p>
+<pre><code class="language-csharp">using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Beamable.Examples.Features.Multiplayer.Core;
+using Beamable.Samples.KOR.Behaviours;
+using Beamable.Samples.KOR.Data;
+using Beamable.Samples.KOR.Multiplayer;
+using Beamable.Samples.KOR.Multiplayer.Events;
+using Beamable.Samples.KOR.Views;
+using UnityEngine;
+using Beamable.Experimental.Api.Sim;
+using Beamable.Samples.Core.Debugging;
+using Beamable.Samples.Core.UI;
+using Beamable.Samples.Core.UI.DialogSystem;
+using Beamable.Samples.Core.Utilities;
+
+namespace Beamable.Samples.KOR
+{
+    /// &lt;summary&gt;
+    /// Handles the main scene logic: Game
+    /// &lt;/summary&gt;
+    public class GameSceneManager : MonoBehaviour
+    {
+        //  Properties -----------------------------------
+        public GameUIView GameUIView { get { return _gameUIView; } }
+        public Configuration Configuration { get { return _configuration; } }
+        public List&lt;SpawnPointBehaviour&gt; AvailableSpawnPoints;
+
+        //  Fields ---------------------------------------
+        private IBeamableAPI _beamableAPI = null;
+
+        [SerializeField]
+        private Configuration _configuration = null;
+
+        [SerializeField]
+        private GameUIView _gameUIView = null;
+
+        private Attributes _ownAttributes = null;
+
+        private List&lt;SpawnablePlayer&gt; _spawnablePlayers = new List&lt;SpawnablePlayer&gt;();
+        private List&lt;SpawnPointBehaviour&gt; _unusedSpawnPoints = new List&lt;SpawnPointBehaviour&gt;();
+        private HashSet&lt;long&gt; _dbidReadyReceived = new HashSet&lt;long&gt;();
+        private bool _hasSpawned = false;
+
+        //  Unity Methods   ------------------------------
+        protected void Start()
+        {
+            for (int i = 0; i &lt; 6; i++)
+                _gameUIView.AvatarUIViews[i].GetComponent&lt;CanvasGroup&gt;().alpha = 0.0f;
+
+            _gameUIView.BackButton.onClick.AddListener(BackButton_OnClicked);
+            SetupBeamable();
+        }
+
+        //  Other Methods   ------------------------------
+        private void DebugLog(string message)
+        {
+            // Respects Configuration.IsDebugLog Checkbox
+            Configuration.Debugger.Log(message);
+        }
+
+        private async void SetupBeamable()
+        {
+            _beamableAPI = await Beamable.API.Instance;
+            await RuntimeDataStorage.Instance.CharacterManager.Initialize();
+            _ownAttributes = await RuntimeDataStorage.Instance.CharacterManager.GetChosenPlayerAttributes();
+
+            // Do this after calling "Beamable.API.Instance" for smoother UI
+            _gameUIView.CanvasGroupsDoFadeIn();
+
+            // Set defaults if scene was loaded directly
+            if (RuntimeDataStorage.Instance.TargetPlayerCount == KORConstants.UnsetValue)
+            {
+                DebugLog(KORHelper.GetSceneLoadingMessage(gameObject.scene.name, true));
+                RuntimeDataStorage.Instance.TargetPlayerCount = 1;
+                RuntimeDataStorage.Instance.CurrentPlayerCount = 1;
+                RuntimeDataStorage.Instance.LocalPlayerDbid = _beamableAPI.User.id;
+                RuntimeDataStorage.Instance.MatchId = KORMatchmaking.GetRandomMatchId();
+            }
+            else
+            {
+                DebugLog(KORHelper.GetSceneLoadingMessage(gameObject.scene.name, false));
+            }
+
+            // Set the ActiveSimGameType. This happens in 2+ spots to handle direct scene loading
+            if (RuntimeDataStorage.Instance.IsSinglePlayerMode)
+                RuntimeDataStorage.Instance.ActiveSimGameType = await _configuration.SimGameType01Ref.Resolve();
+            else
+                RuntimeDataStorage.Instance.ActiveSimGameType = await _configuration.SimGameType02Ref.Resolve();
+
+            // Initialize ECS
+            SystemManager.StartGameSystems();
+
+            // Show the player's attributes in the UI of this scene
+
+            _gameUIView.AttributesPanelUI.Attributes = _ownAttributes;
+
+            // Initialize Networking
+            await NetworkController.Instance.Init();
+
+            // Set Available Spawns
+            _unusedSpawnPoints = AvailableSpawnPoints.ToList();
+
+            NetworkController.Instance.Log.CreateNewConsumer(HandleNetworkUpdate);
+            // Optional: Stuff to use later when player moves are incoming
+            long tbdIncomingPlayerDbid = _beamableAPI.User.id; // test value;
+            DebugLog($"MinPlayerCount = {RuntimeDataStorage.Instance.MinPlayerCount}");
+            DebugLog($"MaxPlayerCount = {RuntimeDataStorage.Instance.MaxPlayerCount}");
+            DebugLog($"CurrentPlayerCount = {RuntimeDataStorage.Instance.CurrentPlayerCount}");
+            DebugLog($"LocalPlayerDbid = {RuntimeDataStorage.Instance.LocalPlayerDbid}");
+            DebugLog($"IsLocalPlayerDbid = {RuntimeDataStorage.Instance.IsLocalPlayerDbid(tbdIncomingPlayerDbid)}");
+            DebugLog($"IsSinglePlayerMode = {RuntimeDataStorage.Instance.IsSinglePlayerMode}");
+
+            // Optional: Show queueable status text onscreen
+            SetStatusText(KORConstants.GameUIView_Playing, TMP_BufferedText.BufferedTextMode.Immediate);
+
+            // Optional: Add easily configurable delays
+            await Task.Delay(TimeSpan.FromSeconds(_configuration.DelayGameBeforeMove));
+
+            // Optional: Play sound
+            //SoundManager.Instance.PlayAudioClip(SoundConstants.Click01);
+
+            // Optional: Render color and text of avatar ui
+            _gameUIView.AvatarViews.Clear();
+        }
+
+        public async void OnPlayerJoined(PlayerJoinedEvent joinEvent)
+        {
+            if (_spawnablePlayers.Find(i =&gt; i.DBID == joinEvent.PlayerDbid) != null)
+                return;
+
+            var spawnIndex = NetworkController.Instance.rand.Next(0, _unusedSpawnPoints.Count);
+            var spawnPoint = _unusedSpawnPoints[spawnIndex];
+            _unusedSpawnPoints.Remove(spawnPoint);
+
+            SpawnablePlayer newPlayer = new SpawnablePlayer(joinEvent.PlayerDbid, spawnPoint);
+            _spawnablePlayers.Add(newPlayer);
+            await RuntimeDataStorage.Instance.CharacterManager.Initialize();
+            newPlayer.ChosenCharacter = await RuntimeDataStorage.Instance.CharacterManager.GetChosenCharacterByDBID(joinEvent.PlayerDbid);
+            string alias = await RuntimeDataStorage.Instance.CharacterManager.GetPlayerAliasByDBID(joinEvent.PlayerDbid);
+
+            DebugLog($"alias from joinEvent dbid={joinEvent.PlayerDbid} alias={alias}");
+
+            if (joinEvent.PlayerDbid == NetworkController.Instance.LocalDbid)
+                NetworkController.Instance.SendNetworkMessage(new ReadyEvent(_ownAttributes, alias));
+        }
+
+        private void OnPlayerReady(ReadyEvent readyEvt)
+        {
+            Configuration.Debugger.Log($"Getting ready for dbid={readyEvt.PlayerDbid}"
+                                       + $" attributes move/charge={readyEvt.aggregateMovementSpeed}/{readyEvt.aggregateChargeSpeed}", DebugLogLevel.Verbose);
+
+            _dbidReadyReceived.Add(readyEvt.PlayerDbid);
+
+            SpawnablePlayer sp = _spawnablePlayers.Find(i =&gt; i.DBID == readyEvt.PlayerDbid);
+            sp.Attributes = new Attributes(readyEvt.aggregateChargeSpeed, readyEvt.aggregateMovementSpeed);
+            sp.PlayerAlias = readyEvt.playerAlias;
+
+            Configuration.Debugger.Log($"alias from readyEvt dbid={readyEvt.PlayerDbid} alias={sp.PlayerAlias}");
+
+            Configuration.Debugger.Log($"OnPlayerReady Players={_dbidReadyReceived.Count}/{RuntimeDataStorage.Instance.CurrentPlayerCount}", DebugLogLevel.Verbose);
+            if (!_hasSpawned &amp;&amp; _dbidReadyReceived.Count == RuntimeDataStorage.Instance.CurrentPlayerCount)
+            {
+                _hasSpawned = true;
+                SpawnAllPlayersAtOnce();
+                StartGameTimer();
+            }
+        }
+
+        private void StartGameTimer()
+        {
+            GameUIView.GameTimerBehaviour.StartMatch();
+            GameUIView.GameTimerBehaviour.OnGameOver += async () =&gt;
+            {
+                // TODO: score the players, and end the game.
+                Debug.Log("Game over!");
+
+                var uis = FindObjectsOfType&lt;AvatarUIView&gt;();
+                var validUis = uis.Where(ui =&gt; ui.Player).ToList();
+                validUis.Sort((a, b) =&gt; a.SpawnablePlayer.DBID &gt; b.SpawnablePlayer.DBID ? 1 : -1);
+                validUis.Sort((a, b) =&gt; a.Player.HealthBehaviour.Health &gt; b.Player.HealthBehaviour.Health ? -1 : 1);
+
+                var scores = validUis.Select(ui =&gt; new PlayerResult
+                {
+                    playerId = ui.SpawnablePlayer.DBID,
+                    score = ui.Player.HealthBehaviour.Health,
+                }).ToArray();
+                var selfRank = 0;
+                var selfScore = scores[0];
+                for (var i = 0; i &lt; scores.Length; i++)
+                {
+                    scores[i].rank = i;
+                    if (scores[i].playerId == NetworkController.Instance.LocalDbid)
+                    {
+                        selfRank = i;
+                        selfScore = scores[i];
+                    }
+                }
+
+                foreach (var motionBehaviour in FindObjectsOfType&lt;AvatarMotionBehaviour&gt;())
+                {
+                    motionBehaviour.Stop();
+                    motionBehaviour.enabled = false;
+                }
+
+                foreach (var inputBehaviour in FindObjectsOfType&lt;PlayerInputBehaviour&gt;())
+                {
+                    inputBehaviour.enabled = false;
+                }
+
+                var results = await NetworkController.Instance.ReportResults(scores);
+
+                var isWinner = selfRank == 0;
+                var earnings = string.Join(",", results.currenciesGranted.Select(grant =&gt; $"{grant.amount}x{grant.symbol}"));
+                var earningsBody = string.IsNullOrWhiteSpace(earnings)
+                    ? "nothing"
+                    : earnings;
+                var body = "You came in place: " + (selfRank + 1) + ". You earned " + earningsBody;
+                _gameUIView.DialogSystem.ShowDialogBox&lt;DialogUI&gt;(
+
+                    // Renders this prefab. DUPLICATE this prefab and drag
+                    // into _storeUIView to change layout
+                    _gameUIView.DialogSystem.DialogUIPrefab,
+
+                    // Set Text
+                    isWinner
+                        ? KORConstants.Dialog_GameOver_Victory
+                        : KORConstants.Dialog_GameOver_Defeat,
+                    body,
+
+                    // Create zero or more buttons
+                    new List&lt;DialogButtonData&gt;
+                    {
+                        new DialogButtonData(KORConstants.Dialog_Ok, () =&gt;
+                        {
+                            KORHelper.PlayAudioForUIClickPrimary();
+                            _gameUIView.DialogSystem.HideDialogBox();
+
+                            // Clean up manager
+                            _spawnablePlayers.Clear();
+                            _unusedSpawnPoints.Clear();
+                            _dbidReadyReceived.Clear();
+                            _hasSpawned = false;
+                            NetworkController.Instance.Cleanup();
+
+                            // Destroy ECS
+                            SystemManager.DestroyGameSystems();
+
+                            // Change scenes
+                            StartCoroutine(KORHelper.LoadScene_Coroutine(_configuration.IntroSceneName,
+                                _configuration.DelayBeforeLoadScene));
+                        })
+                    });
+            };
+        }
+
+        private void SpawnAllPlayersAtOnce()
+        {
+            List&lt;CanvasGroup&gt; avatarUiCanvasGroups = new List&lt;CanvasGroup&gt;();
+
+            for (int p = 0; p &lt; _spawnablePlayers.Count; p++)
+            {
+                SpawnablePlayer sp = _spawnablePlayers[p];
+
+                Configuration.Debugger.Log($"DBID={sp.DBID} Spawning character={sp.ChosenCharacter.CharacterContentObject.ContentName}"
+                                           + $" attributes move/charge={sp.Attributes.MovementSpeed}/{sp.Attributes.ChargeSpeed}", DebugLogLevel.Verbose);
+
+                DebugLog($"playerAlias={sp.PlayerAlias}");
+
+                AvatarView avatarView = GameObject.Instantiate&lt;AvatarView&gt;(sp.ChosenCharacter.AvatarViewPrefab);
+                avatarView.transform.SetPhysicsPosition(sp.SpawnPointBehaviour.transform.position);
+
+                Player player = avatarView.gameObject.GetComponent&lt;Player&gt;();
+                player.SetAlias(sp.PlayerAlias);
+
+                avatarView.SetForPlayer(sp.DBID);
+                _gameUIView.AvatarViews.Add(avatarView);
+
+                if (sp.DBID == NetworkController.Instance.LocalDbid)
+                    avatarView.gameObject.GetComponent&lt;AvatarMotionBehaviour&gt;().PreviewBehaviour = null;
+                else
+                    avatarView.gameObject.GetComponent&lt;PlayerInputBehaviour&gt;().enabled = false;
+
+                AvatarMotionBehaviour amb = avatarView.gameObject.GetComponent&lt;AvatarMotionBehaviour&gt;();
+                amb.Attributes = sp.Attributes;
+
+                _gameUIView.AvatarUIViews[p].Set(player, sp);
+                _gameUIView.AvatarUIViews[p].Render();
+                avatarUiCanvasGroups.Add(_gameUIView.AvatarUIViews[p].GetComponent&lt;CanvasGroup&gt;());
+            }
+
+            TweenHelper.CanvasGroupsDoFade(avatarUiCanvasGroups, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f);
+        }
+
+        public void HandleNetworkUpdate(TimeUpdate update)
+        {
+            foreach (var evt in update.Events)
+            {
+                HandleNetworkEvent(evt);
+            }
+        }
+
+        public void HandleNetworkEvent(KOREvent korEvent)
+        {
+            switch (korEvent)
+            {
+                case ReadyEvent readyEvt:
+                    OnPlayerReady(readyEvt);
+                    break;
+
+                case PlayerJoinedEvent joinEvt:
+                    OnPlayerJoined(joinEvt);
+                    break;
+            }
+        }
+
+        /// &lt;summary&gt;
+        /// Render UI text
+        /// &lt;/summary&gt;
+        /// &lt;param name="message"&gt;&lt;/param&gt;
+        /// &lt;param name="statusTextMode"&gt;&lt;/param&gt;
+        public void SetStatusText(string message, TMP_BufferedText.BufferedTextMode statusTextMode)
+        {
+            _gameUIView.BufferedText.SetText(message, statusTextMode);
+        }
+
+        //  Event Handlers -------------------------------
+        private void BackButton_OnClicked()
+        {
+            KORHelper.PlayAudioForUIClickBack();
+
+            _gameUIView.DialogSystem.ShowDialogBox&lt;DialogUI&gt;(
+
+                // Renders this prefab. DUPLICATE this prefab and drag
+                // into _storeUIView to change layout
+                _gameUIView.DialogSystem.DialogUIPrefab,
+
+                // Set Text
+                KORConstants.Dialog_AreYouSure,
+                "This will end your game.",
+
+                // Create zero or more buttons
+                new List&lt;DialogButtonData&gt;
+                {
+                    new DialogButtonData(KORConstants.Dialog_Ok, () =&gt;
+                    {
+                        KORHelper.PlayAudioForUIClickPrimary();
+                        _gameUIView.DialogSystem.HideDialogBox();
+
+                        // Clean up manager
+                        _spawnablePlayers.Clear();
+                        _unusedSpawnPoints.Clear();
+                        _dbidReadyReceived.Clear();
+                        _hasSpawned = false;
+                        NetworkController.Instance.Cleanup();
+
+                        // Destroy ECS
+                        SystemManager.DestroyGameSystems();
+
+                        // Change scenes
+                        StartCoroutine(KORHelper.LoadScene_Coroutine(_configuration.IntroSceneName,
+                            _configuration.DelayBeforeLoadScene));
+                    }),
+                    new DialogButtonData(KORConstants.Dialog_Cancel, () =&gt;
+                    {
+                        KORHelper.PlayAudioForUIClickSecondary();
+                        _gameUIView.DialogSystem.HideDialogBox();
+                    })
+                });
+        }
+    }
+}
+</code></pre>
 <h3 id="step-4-create-the-multiplayer-code">Step 4. Create the Multiplayer Code<a class="headerlink" href="#step-4-create-the-multiplayer-code" title="Permanent link">¶</a></h3>
 <p>Now that the core game logic is setup, use Beamable to connect 2 (or more) players together. Create the Multiplayer event objects, send outgoing events, and handle incoming events.</p>
 <table>

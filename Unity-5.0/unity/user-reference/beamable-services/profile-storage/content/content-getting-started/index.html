@@ -4482,6 +4482,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9299,156 +9327,85 @@
 <p>Beamable's Content Service allows game makers to create, manage, and distribute game content. Create content in the Beamable Content Manager window in the Unity Editor, then publish it to Beamable's servers. Once published, pull it into your game at runtime via the <code>ContentService</code> API.</p>
 <h2 id="creating-custom-content-types">Creating Custom Content Types<a class="headerlink" href="#creating-custom-content-types" title="Permanent link">¶</a></h2>
 <p>In this snippet, the custom <code>ArmorItem</code> item type is created. Note that, as a subclass of <code>ItemContent</code>, whose content type is already <code>"items"</code>, Armor's resulting content type will be <code>"items.armor"</code>. In the Content Manager in Unity, this will appear as a nested category under the <code>items</code> type.</p>
-<p>Armor.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Inventory</span><span class="p">;</span>
+<p>Armor.cs</p>
+<pre><code class="language-csharp">using Beamable.Common.Content;
+using Beamable.Common.Inventory;
 
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.ContentService</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[ContentType("armor")]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ArmorItem</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ItemContent</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Defense</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+namespace Beamable.Examples.Services.ContentService
+{
+    [ContentType("armor")]
+    public class ArmorItem : ItemContent
+    {
+        public string Name = "";
+        public int Defense = 0;
+    }
+}
+</code></pre>
 <p>In this snippet, the <code>ArmorItem</code> reference is resolved for use at runtime. There are two different methods for resolving content. Both are shown here for comparison. In production, choose whichever one method works best for the needs of the project.</p>
 <p>See session <a href="../content-overview/#contentlink-and-contentref">ContentLink vs ContentRef</a> in the Content Overview for more info.</p>
-<p>ContentServiceCustomExample.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Examples.Shared</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<p>ContentServiceCustomExample.cs</p>
+<pre><code class="language-csharp">using Beamable.Examples.Shared;
+using UnityEngine;
 
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.ContentService</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">    </span><span class="c1">/// Demonstrates &lt;see cref="ContentService"/&gt;.</span>
-<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ContentServiceCustomExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">//  Fields  ---------------------------------------</span>
-<span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">ArmorItemLink</span><span class="w"> </span><span class="n">_armorLink</span><span class="p">;</span>
-<span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">ArmorItemRef</span><span class="w"> </span><span class="n">_armorRef</span><span class="p">;</span>
+namespace Beamable.Examples.Services.ContentService
+{
+    /// &lt;summary&gt;
+    /// Demonstrates &lt;see cref="ContentService"/&gt;.
+    /// &lt;/summary&gt;
+    public class ContentServiceCustomExample : MonoBehaviour
+    {
+        //  Fields  ---------------------------------------
+        [SerializeField] private ArmorItemLink _armorLink;
+        [SerializeField] private ArmorItemRef _armorRef;
 
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">ArmorItem</span><span class="w"> </span><span class="n">_armorFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">ArmorItem</span><span class="w"> </span><span class="n">_armorFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+        private ArmorItem _armorFromLink = null;
+        private ArmorItem _armorFromRef = null;
 
-<span class="w">        </span><span class="c1">//  Unity Methods  --------------------------------</span>
-<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start()"</span><span class="p">);</span>
+        //  Unity Methods  --------------------------------
+        protected void Start()
+        {
+            Debug.Log($"Start()");
 
-<span class="w">            </span><span class="n">SetupBeamable</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
+            SetupBeamable();
+        }
 
-<span class="w">        </span><span class="c1">//  Methods  --------------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+        //  Methods  --------------------------------------
+        private async void SetupBeamable()
+        {
+            var beamContext = BeamContext.Default;
+            await beamContext.OnReady;
 
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"beamContext.PlayerId = {beamContext.PlayerId}"</span><span class="p">);</span>
+            Debug.Log($"beamContext.PlayerId = {beamContext.PlayerId}");
 
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_armorLink</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
-<span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_armorFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_armorFromLink.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                              </span><span class="s">$"Id = {_armorFromLink.Id}"</span><span class="p">);</span>
-<span class="w">                </span><span class="p">})</span>
-<span class="w">                </span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_armorFromLink.Resolve() Error!"</span><span class="p">);</span>
-<span class="w">                </span><span class="p">});</span>
+            await _armorLink.Resolve()
+                .Then(content =&gt;
+                {
+                    _armorFromLink = content;
+                    Debug.Log($"_armorFromLink.Resolve() Success! " +
+                              $"Id = {_armorFromLink.Id}");
+                })
+                .Error(ex =&gt;
+                {
+                    Debug.LogError($"_armorFromLink.Resolve() Error!");
+                });
 
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_armorRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
-<span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_armorFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_armorFromRef.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                              </span><span class="s">$"Id = {_armorFromRef.Id}"</span><span class="p">);</span>
+            await _armorRef.Resolve()
+                .Then(content =&gt;
+                {
+                    _armorFromRef = content;
+                    Debug.Log($"_armorFromRef.Resolve() Success! " +
+                              $"Id = {_armorFromRef.Id}");
 
-<span class="w">                </span><span class="p">}).</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_armorFromRef.Resolve() Error!"</span><span class="p">);</span>
-<span class="w">                </span><span class="p">});</span>
+                }).Error(ex =&gt;
+                {
+                    Debug.LogError($"_armorFromRef.Resolve() Error!");
+                });
 
 
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+        }
+    }
+}
+</code></pre>
 <h2 id="creating-new-content">Creating New Content<a class="headerlink" href="#creating-new-content" title="Permanent link">¶</a></h2>
 <p>Game makers may create new content of <em>existing</em> content types or new content of <em>custom</em> content types. For the purposes of this guide, we will be using the existing "Item" type.</p>
 <table>
@@ -9491,135 +9448,72 @@
 </table>
 <h2 id="downloading-content">Downloading Content<a class="headerlink" href="#downloading-content" title="Permanent link">¶</a></h2>
 <p>Pull published content from Beamable's <code>ContentService</code> via a <code>ContentLink</code> or <code>ContentRef</code>. Both are shown in this example.</p>
-<p>ContentServiceExistingExample.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Inventory</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<p>ContentServiceExistingExample.cs</p>
+<pre><code class="language-csharp">using System;
+using Beamable.Common.Content;
+using Beamable.Common.Inventory;
+using UnityEngine;
 
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.ContentService</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Serializable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ItemLink</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentLink</span><span class="o">&lt;</span><span class="n">ItemContent</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+namespace Beamable.Examples.Services.ContentService
+{
+    [Serializable]
+    public class ItemLink : ContentLink&lt;ItemContent&gt; {}
 
-<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">    </span><span class="c1">/// Demonstrates &lt;see cref="ContentService"/&gt;.</span>
-<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ContentServiceExistingExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">//  Fields  ---------------------------------------</span>
-<span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">ItemLink</span><span class="w"> </span><span class="n">_itemLink</span><span class="p">;</span>
-<span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">ItemRef</span><span class="w"> </span><span class="n">_itemRef</span><span class="p">;</span>
+    /// &lt;summary&gt;
+    /// Demonstrates &lt;see cref="ContentService"/&gt;.
+    /// &lt;/summary&gt;
+    public class ContentServiceExistingExample : MonoBehaviour
+    {
+        //  Fields  ---------------------------------------
+        [SerializeField] private ItemLink _itemLink;
+        [SerializeField] private ItemRef _itemRef;
 
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">ItemContent</span><span class="w"> </span><span class="n">_itemContentFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">ItemContent</span><span class="w"> </span><span class="n">_itemContentFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+        private ItemContent _itemContentFromLink = null;
+        private ItemContent _itemContentFromRef = null;
 
-<span class="w">        </span><span class="c1">//  Unity Methods  --------------------------------</span>
-<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start()"</span><span class="p">);</span>
+        //  Unity Methods  --------------------------------
+        protected void Start()
+        {
+            Debug.Log($"Start()");
 
-<span class="w">            </span><span class="n">SetupBeamable</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
+            SetupBeamable();
+        }
 
-<span class="w">        </span><span class="c1">//  Methods  --------------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+        //  Methods  --------------------------------------
+        private async void SetupBeamable()
+        {
+            var beamContext = BeamContext.Default;
+            await beamContext.OnReady;
 
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"beamContext.PlayerId = {beamContext.PlayerId}"</span><span class="p">);</span>
+            Debug.Log($"beamContext.PlayerId = {beamContext.PlayerId}");
 
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_itemLink</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
-<span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_itemContentFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_itemContentFromLink.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                              </span><span class="s">$"Id = {_itemContentFromLink.Id}"</span><span class="p">);</span>
-<span class="w">                </span><span class="p">})</span>
-<span class="w">                </span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromLink.Resolve() Error!"</span><span class="p">);</span>
-<span class="w">                </span><span class="p">});</span>
+            await _itemLink.Resolve()
+                .Then(content =&gt;
+                {
+                    _itemContentFromLink = content;
+                    Debug.Log($"_itemContentFromLink.Resolve() Success! " +
+                              $"Id = {_itemContentFromLink.Id}");
+                })
+                .Error(ex =&gt;
+                {
+                    Debug.LogError($"_itemContentFromLink.Resolve() Error!");
+                });
 
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_itemRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
-<span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_itemContentFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_itemContentFromRef.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                              </span><span class="s">$"Id = {_itemContentFromRef.Id}"</span><span class="p">);</span>
+            await _itemRef.Resolve()
+                .Then(content =&gt;
+                {
+                    _itemContentFromRef = content;
+                    Debug.Log($"_itemContentFromRef.Resolve() Success! " +
+                              $"Id = {_itemContentFromRef.Id}");
 
-<span class="w">                </span><span class="p">}).</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromRef.Resolve() Error!"</span><span class="p">);</span>
-<span class="w">                </span><span class="p">});</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+                }).Error(ex =&gt;
+                {
+                    Debug.LogError($"_itemContentFromRef.Resolve() Error!");
+                });
+        }
+    }
+}
+</code></pre>
 <p>After being added to a GameObject, the Inspector will display a drop-down of all valid content entries.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/ContentServiceExample.png" data-desc-position="bottom"><img alt="Content Service Example" src="../../../../../../media/imgs/ContentServiceExample.png" style="height:auto;width:500px"></a></p>
 <p>Click Play in the Editor and inspect the console to see that the Item content was pulled successfully.</p>

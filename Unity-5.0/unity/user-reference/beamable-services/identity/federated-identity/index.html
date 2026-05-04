@@ -4541,6 +4541,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9428,143 +9456,84 @@
 <h3 id="implementing-an-ifederationid-interface">Implementing an IFederationId interface<a class="headerlink" href="#implementing-an-ifederationid-interface" title="Permanent link">¶</a></h3>
 <p>Create an implementation of IThirdPartyCloudIdentity in Beamable/Common (or any shared assembly).
 This will create a "tuna" namespace for your new authentication scheme. Namespace will be a part of the authentication endpoint path. In the following example, TunaCloudIdentity will correspond to <code>/your_microservice/tuna/authenticate</code> and HaddockCloudIdentity will correspond to <code>/your_microservice/haddock/authenticate</code>.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[FederationId("tuna")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TunaCloudIdentity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span>
-<span class="p">{</span>
-<span class="p">}</span>
+<pre><code class="language-csharp">[FederationId("tuna")]
+public class TunaCloudIdentity : IFederationId
+{
+}
 
-<span class="na">[FederationId("haddock")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">HaddockCloudIdentity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span>
-<span class="p">{</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+[FederationId("haddock")]
+public class HaddockCloudIdentity : IFederationId
+{
+}
+</code></pre>
 <h3 id="implementing-ifederatedlogin-in-your-microservice">Implementing IFederatedLogin in your microservice<a class="headerlink" href="#implementing-ifederatedlogin-in-your-microservice" title="Permanent link">¶</a></h3>
 <p>Let's say you already have a TunaService that holds all your user's data. We will use it to validate a "token" received by the client and respond with a "user_id".</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("AuthenticationMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AuthenticationMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederatedLogin</span><span class="o">&lt;</span><span class="n">TunaCloudIdentity</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">IFederatedLogin</span><span class="o">&lt;</span><span class="n">HaddockCloudIdentity</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedAuthenticationResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="n">IFederatedLogin</span><span class="o">&lt;</span><span class="n">TunaCloudIdentity</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Authenticate</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">challenge</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">solution</span><span class="p">)</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Token can be something like an authorization_code, depending on your client and service implementations</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">tunaUserResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">TunaService</span><span class="p">.</span><span class="n">GetUserByAuthorizationCode</span><span class="p">(</span><span class="n">token</span><span class="p">);</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tunaUserResponse</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">UnauthorizedException</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FederatedAuthenticationResponse</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tunaUserResponse</span><span class="p">.</span><span class="n">userId</span><span class="w"> </span><span class="p">};</span>
-<span class="w">  </span><span class="p">}</span>
+<pre><code class="language-csharp">[Microservice("AuthenticationMicroservice")]
+public class AuthenticationMicroservice : IFederatedLogin&lt;TunaCloudIdentity&gt;, IFederatedLogin&lt;HaddockCloudIdentity&gt;, Microservice
+{
+  public async Promise&lt;FederatedAuthenticationResponse&gt; IFederatedLogin&lt;TunaCloudIdentity&gt;.Authenticate(string token, string challenge, string solution)
+  {
+    // Token can be something like an authorization_code, depending on your client and service implementations
+    var tunaUserResponse = await TunaService.GetUserByAuthorizationCode(token);
+    if (tunaUserResponse == null)
+    {
+        throw new UnauthorizedException();
+    }
+    return new FederatedAuthenticationResponse { user_id = tunaUserResponse.userId };
+  }
 
-<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedAuthenticationResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="n">IFederatedLogin</span><span class="o">&lt;</span><span class="n">HaddockCloudIdentity</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Authenticate</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">challenge</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">solution</span><span class="p">)</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">NotImplementedException</span><span class="p">(</span><span class="s">"Haddock identity is not implemented. Please use Tuna identity instead."</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+  public async Promise&lt;FederatedAuthenticationResponse&gt; IFederatedLogin&lt;HaddockCloudIdentity&gt;.Authenticate(string token, string challenge, string solution)
+  {
+    throw new NotImplementedException("Haddock identity is not implemented. Please use Tuna identity instead.");
+  }
+}
+</code></pre>
 <div class="admonition info">
 <p class="admonition-title">User Id generation</p>
 </div>
 <p>Ensure that User IDs are generated deterministically. For a given input from the provider, the resulting User ID must always be the same. Avoid using <code>Guid.NewGuid().ToString()</code>, as this creates a new account for every login attempt. Instead, use a unique identifier provided by the external auth provider (for example, a subject ID or public key).</p>
 <p>In this example, we didn't use the "challenge" and "solution" arguments. The standard use case for challenges is wallet authentication. If a client sends us a wallet address as a token, the only way to verify the ownership of that wallet is to issue a challenge, and require a user to sign that challenge using their private key. <a href="https://github.com/beamable/solana-example">Solana/Phantom wallet authentication</a> is an example that uses a challenge.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedAuthenticationResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Authenticate</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">challenge</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">solution</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">BeamableLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">"We didn't receive a token (public key)"</span><span class="p">);</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">InvalidAuthenticationRequest</span><span class="p">(</span><span class="s">"Token (public key) is required"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+<pre><code class="language-csharp">public async Promise&lt;FederatedAuthenticationResponse&gt; Authenticate(string token, string challenge, string solution)
+{
+    if (string.IsNullOrEmpty(token))
+    {
+        BeamableLogger.LogError("We didn't receive a token (public key)");
+        throw new InvalidAuthenticationRequest("Token (public key) is required");
+    }
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">challenge</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">solution</span><span class="p">))</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Verify the solution</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AuthenticationService</span><span class="p">.</span><span class="n">IsSignatureValid</span><span class="p">(</span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="n">challenge</span><span class="p">,</span><span class="w"> </span><span class="n">solution</span><span class="p">))</span>
-<span class="w">            </span><span class="c1">// User identity is confirmed</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FederatedAuthenticationResponse</span>
-<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="p">};</span>
-<span class="w">        </span><span class="c1">// Signature is invalid, user identity isn't confirmed</span>
-<span class="w">        </span><span class="n">BeamableLogger</span><span class="p">.</span><span class="n">LogWarning</span><span class="p">(</span>
-<span class="w">            </span><span class="s">"Invalid signature {signature} for challenge {challenge} and wallet {wallet}"</span><span class="p">,</span><span class="w"> </span><span class="n">solution</span><span class="p">,</span>
-<span class="w">            </span><span class="n">challenge</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">UnauthorizedException</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    if (!string.IsNullOrEmpty(challenge) &amp;&amp; !string.IsNullOrEmpty(solution))
+    {
+        // Verify the solution
+        if (AuthenticationService.IsSignatureValid(token, challenge, solution))
+            // User identity is confirmed
+            return new FederatedAuthenticationResponse
+                { user_id = token };
+        // Signature is invalid, user identity isn't confirmed
+        BeamableLogger.LogWarning(
+            "Invalid signature {signature} for challenge {challenge} and wallet {wallet}", solution,
+            challenge, token);
+        throw new UnauthorizedException();
+    }
 
-<span class="w">    </span><span class="c1">// Generate a challenge</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FederatedAuthenticationResponse</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">challenge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"Please sign this random message to authenticate, {Guid.NewGuid()}"</span><span class="p">,</span>
-<span class="w">        </span><span class="n">challenge_ttl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Configuration</span><span class="p">.</span><span class="n">AuthenticationChallengeTtlSec</span>
-<span class="w">    </span><span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    // Generate a challenge
+    return new FederatedAuthenticationResponse
+    {
+        challenge = $"Please sign this random message to authenticate, {Guid.NewGuid()}",
+        challenge_ttl = Configuration.AuthenticationChallengeTtlSec
+    };
+}
+</code></pre>
 <h3 id="attaching-an-external-identity-to-a-player-client">Attaching an external identity to a player (CLIENT)<a class="headerlink" href="#attaching-an-external-identity-to-a-player-client" title="Permanent link">¶</a></h3>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Accounts</span>
-<span class="w">  </span><span class="p">.</span><span class="n">AddExternalIdentity</span><span class="o">&lt;</span><span class="n">TunaCloudIdentity</span><span class="p">,</span><span class="w"> </span><span class="n">AuthenticationMicroserviceClient</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_authorizationCode</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var ctx = BeamContext.Default;
+var response = await ctx.Accounts
+  .AddExternalIdentity&lt;TunaCloudIdentity, AuthenticationMicroserviceClient&gt;(_authorizationCode);
+</code></pre>
 <h3 id="login-in-using-an-external-identity-client">Login-in using an external identity (CLIENT)<a class="headerlink" href="#login-in-using-an-external-identity-client" title="Permanent link">¶</a></h3>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">accountRecoveryResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Accounts</span>
-<span class="w">  </span><span class="p">.</span><span class="n">RecoverAccountWithExternalIdentity</span><span class="o">&lt;</span><span class="n">TunaCloudIdentity</span><span class="p">,</span><span class="w"> </span><span class="n">AuthenticationMicroserviceClient</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_authorizationCode</span><span class="p">);</span>
-<span class="k">await</span><span class="w"> </span><span class="n">accountRecoveryResponse</span><span class="p">.</span><span class="n">SwitchToAccount</span><span class="p">();</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var ctx = BeamContext.Default;
+var accountRecoveryResponse = await ctx.Accounts
+  .RecoverAccountWithExternalIdentity&lt;TunaCloudIdentity, AuthenticationMicroserviceClient&gt;(_authorizationCode);
+await accountRecoveryResponse.SwitchToAccount();
+</code></pre>
 <h3 id="running-or-publish-your-microservice">Running or Publish your microservice<a class="headerlink" href="#running-or-publish-your-microservice" title="Permanent link">¶</a></h3>
 <p>Previous to the Beamable Mercury release (Unity 2.0, CLI 3.0, and UE 1.0), you would need to publish the service to test federation. However, now you can test federations with a locally running service.</p>
 <h2 id="more-samples">More Samples<a class="headerlink" href="#more-samples" title="Permanent link">¶</a></h2>

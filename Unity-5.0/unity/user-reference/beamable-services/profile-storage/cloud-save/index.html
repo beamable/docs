@@ -4574,6 +4574,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9573,125 +9601,69 @@
 <p>Cloud Saved files are written to an object store that is managed by the Cloud Saving service. The key of the object is the MD5 checksum of the content in the file, this is done to preserve the history of the files.</p>
 <p>The manifest tracks the MD5 checksum (etag) of the file and the common name (key) of the file, so we can fetch the object by its MD5 checksum and write it to disk using the common name.</p>
 <p><strong>Json Format</strong></p>
-<div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">   </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"1366764038702081"</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">"manifest"</span><span class="p">:[</span>
-<span class="w">      </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">"bucketName"</span><span class="p">:</span><span class="s2">"beam-cloud-saving"</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">"key"</span><span class="p">:</span><span class="s2">"ComplexFile.json"</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">"size"</span><span class="p">:</span><span class="mi">642</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">"lastModified"</span><span class="p">:</span><span class="mi">20210602112148</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">"eTag"</span><span class="p">:</span><span class="s2">"B0FAB230EE1DB774FFE1DE866309D720"</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">],</span>
-<span class="w">   </span><span class="nt">"replacement"</span><span class="p">:</span><span class="kc">false</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-json">{
+   "id":"1366764038702081",
+   "manifest":[
+      {
+         "bucketName":"beam-cloud-saving",
+         "key":"ComplexFile.json",
+         "size":642,
+         "lastModified":20210602112148,
+         "eTag":"B0FAB230EE1DB774FFE1DE866309D720"
+      }
+   ],
+   "replacement":false
+}
+</code></pre>
 <h3 id="changing-service-configuration">Changing Service Configuration<a class="headerlink" href="#changing-service-configuration" title="Permanent link">¶</a></h3>
 <p>You can override the service to fit your application using <code>PlayerCloudSavingConfiguration</code>. By default, the SDK creates a new instance with default values, but you can change these values using Beamable's Dependency Injection system as illustrated below.</p>
 <p>CustomRegisterExample.cs</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamContextSystem]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PlayerCloudSaveCustomRegister</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[RegisterBeamableDependencies]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RegisterServices</span><span class="p">(</span><span class="n">IDependencyBuilder</span><span class="w"> </span><span class="n">builder</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Replace the old PlayerCloudSavingConfiguration with the new instance</span>
-<span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="n">ReplaceSingleton</span><span class="o">&lt;</span><span class="n">PlayerCloudSavingConfiguration</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">PlayerCloudSavingConfiguration</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">//UseAutoCloud = true, // Uncomment to enable AutoCloud. Check UseAutoCloud summary for more information</span>
-<span class="w">            </span><span class="c1">//CustomSerializer = CustomSerializer, // Uncomment to apply a CustomSerializer, the example method is returning an empty string</span>
-<span class="w">            </span><span class="c1">//CustomDeserializer = CustomDeserializer, // Uncomment to apply a CustomDeserializer, the example method is returning a null ref</span>
-<span class="w">            </span><span class="c1">//HandleConflicts = ResolveUsingLargerFile, // Uncomment to apply a Custom Handle Conflict, the example method is resolving the conflicts using the larget file</span>
-<span class="w">            </span><span class="c1">//HandleDownloadFileError = HandleDownloadError,</span>
-<span class="w">        </span><span class="p">});</span>
-<span class="w">    </span><span class="p">}</span>
+<pre><code class="language-csharp">[BeamContextSystem]
+public class PlayerCloudSaveCustomRegister
+{
+    [RegisterBeamableDependencies]
+    public static void RegisterServices(IDependencyBuilder builder)
+    {
+        // Replace the old PlayerCloudSavingConfiguration with the new instance
+        builder.ReplaceSingleton&lt;PlayerCloudSavingConfiguration&gt;(new PlayerCloudSavingConfiguration
+        {
+            //UseAutoCloud = true, // Uncomment to enable AutoCloud. Check UseAutoCloud summary for more information
+            //CustomSerializer = CustomSerializer, // Uncomment to apply a CustomSerializer, the example method is returning an empty string
+            //CustomDeserializer = CustomDeserializer, // Uncomment to apply a CustomDeserializer, the example method is returning a null ref
+            //HandleConflicts = ResolveUsingLargerFile, // Uncomment to apply a Custom Handle Conflict, the example method is resolving the conflicts using the larget file
+            //HandleDownloadFileError = HandleDownloadError,
+        });
+    }
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">Unit</span><span class="o">&gt;</span><span class="w"> </span><span class="n">HandleDownloadError</span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">arg</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">NotImplementedException</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    private static Promise&lt;Unit&gt; HandleDownloadError(Exception arg)
+    {
+        throw new NotImplementedException();
+    }
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ResolveUsingLargerFile</span><span class="p">(</span><span class="n">IConflictResolver</span><span class="w"> </span><span class="n">resolver</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">conflicts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DataConflictDetail</span><span class="o">&gt;</span><span class="p">(</span><span class="n">resolver</span><span class="p">.</span><span class="n">Conflicts</span><span class="p">);</span>
-<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">DataConflictDetail</span><span class="w"> </span><span class="n">dataConflictDetail</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">conflicts</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">bool</span><span class="w"> </span><span class="n">isLocalLarger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataConflictDetail</span><span class="p">.</span><span class="n">LocalSaveEntry</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">dataConflictDetail</span><span class="p">.</span><span class="n">CloudSaveEntry</span><span class="p">.</span><span class="n">size</span><span class="p">;</span>
-<span class="w">            </span><span class="n">ConflictResolveType</span><span class="w"> </span><span class="n">conflictResolveType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isLocalLarger</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">ConflictResolveType</span><span class="p">.</span><span class="n">UseLocal</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="n">ConflictResolveType</span><span class="p">.</span><span class="n">UseCloud</span><span class="p">;</span>
-<span class="w">            </span><span class="n">resolver</span><span class="p">.</span><span class="n">Resolve</span><span class="p">(</span><span class="n">dataConflictDetail</span><span class="p">,</span><span class="w"> </span><span class="n">conflictResolveType</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
+    private static void ResolveUsingLargerFile(IConflictResolver resolver)
+    {
+        var conflicts = new List&lt;DataConflictDetail&gt;(resolver.Conflicts);
+        foreach (DataConflictDetail dataConflictDetail in conflicts)
+        {
+            bool isLocalLarger = dataConflictDetail.LocalSaveEntry.size &gt;= dataConflictDetail.CloudSaveEntry.size;
+            ConflictResolveType conflictResolveType = isLocalLarger ? ConflictResolveType.UseLocal :  ConflictResolveType.UseCloud;
+            resolver.Resolve(dataConflictDetail, conflictResolveType);
+        }
+    }
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">CustomSerializer</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">arg</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Apply any Serialization, like https://www.newtonsoft.com/json/help/html/serializingjson.htm</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
+    private static string CustomSerializer(object arg)
+    {
+        // Apply any Serialization, like https://www.newtonsoft.com/json/help/html/serializingjson.htm
+        return string.Empty;
+    }
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">object</span><span class="w"> </span><span class="nf">CustomDeserializer</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">arg</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Apply any Deserializer, like https://www.newtonsoft.com/json/help/html/serializingjson.htm</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    private static object CustomDeserializer(string arg)
+    {
+        // Apply any Deserializer, like https://www.newtonsoft.com/json/help/html/serializingjson.htm
+        return null;
+    }
+}
+</code></pre>
 <h3 id="syncing-of-data">Syncing Of Data<a class="headerlink" href="#syncing-of-data" title="Permanent link">¶</a></h3>
 <p>The downloading operation uses Unity's <a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Networking.DownloadHandlerFile.html"><code>DownloadHandlerFile</code></a>. If the file is new, it will be saved directly to the <code>/data/</code> Folder. If the file has a conflict it will first be saved to the <code>/temp/</code> folder, if the resolver chooses to use the Cloud Save, it'll be moved to the <code>/data/</code> folder, if not, it will be archived.</p>
 <p><em>Note</em>: If the destination files are kept open by some unrelated system during the syncing process, the <code>CloudSavingService</code> will reattempt several times. Upon any ultimate failure, an <code>IOException</code> will be thrown.</p>
@@ -9750,294 +9722,151 @@
 <h2 id="sample-code">Sample Code<a class="headerlink" href="#sample-code" title="Permanent link">¶</a></h2>
 <p>Here is some sample code that demonstrates how to use the Cloud Save Service in Unity. This sample code shows all the different options for using the Cloud Save Service. Note that this is an example for reference only. We do not recommend copying directly the functions used in the sample.</p>
 <p>CloudSavingServiceExample.cs</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
-<span class="normal">  2</span>
-<span class="normal">  3</span>
-<span class="normal">  4</span>
-<span class="normal">  5</span>
-<span class="normal">  6</span>
-<span class="normal">  7</span>
-<span class="normal">  8</span>
-<span class="normal">  9</span>
-<span class="normal"> 10</span>
-<span class="normal"> 11</span>
-<span class="normal"> 12</span>
-<span class="normal"> 13</span>
-<span class="normal"> 14</span>
-<span class="normal"> 15</span>
-<span class="normal"> 16</span>
-<span class="normal"> 17</span>
-<span class="normal"> 18</span>
-<span class="normal"> 19</span>
-<span class="normal"> 20</span>
-<span class="normal"> 21</span>
-<span class="normal"> 22</span>
-<span class="normal"> 23</span>
-<span class="normal"> 24</span>
-<span class="normal"> 25</span>
-<span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
-<span class="normal"> 35</span>
-<span class="normal"> 36</span>
-<span class="normal"> 37</span>
-<span class="normal"> 38</span>
-<span class="normal"> 39</span>
-<span class="normal"> 40</span>
-<span class="normal"> 41</span>
-<span class="normal"> 42</span>
-<span class="normal"> 43</span>
-<span class="normal"> 44</span>
-<span class="normal"> 45</span>
-<span class="normal"> 46</span>
-<span class="normal"> 47</span>
-<span class="normal"> 48</span>
-<span class="normal"> 49</span>
-<span class="normal"> 50</span>
-<span class="normal"> 51</span>
-<span class="normal"> 52</span>
-<span class="normal"> 53</span>
-<span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span>
-<span class="normal">119</span>
-<span class="normal">120</span>
-<span class="normal">121</span>
-<span class="normal">122</span>
-<span class="normal">123</span>
-<span class="normal">124</span>
-<span class="normal">125</span>
-<span class="normal">126</span>
-<span class="normal">127</span>
-<span class="normal">128</span>
-<span class="normal">129</span>
-<span class="normal">130</span>
-<span class="normal">131</span>
-<span class="normal">132</span>
-<span class="normal">133</span>
-<span class="normal">134</span>
-<span class="normal">135</span>
-<span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
-<span class="normal">142</span>
-<span class="normal">143</span>
-<span class="normal">144</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Api.CloudSaving</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Player.CloudSaving</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Globalization</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Random</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UnityEngine</span><span class="p">.</span><span class="n">Random</span><span class="p">;</span>
+<pre><code class="language-csharp">using Beamable;
+using Beamable.Api.CloudSaving;
+using Beamable.Common;
+using Beamable.Player.CloudSaving;
+using System;
+using System.Globalization;
+using System.Text;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CloudSaving_Sample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">MAIN_SAVE_TXT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"main_save.txt"</span><span class="p">;</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">BACKUP_SAVE_TXT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"backup_save.txt"</span><span class="p">;</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">BYTE_SAVE_DAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"byte_save.dat"</span><span class="p">;</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">GAME_SAVE_JSON</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"game_save.json"</span><span class="p">;</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">ICloudSavingService</span><span class="w"> </span><span class="n">_cloudSavingService</span><span class="p">;</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">_init</span><span class="p">;</span>
+public class CloudSaving_Sample : MonoBehaviour
+{
+    private const string MAIN_SAVE_TXT = "main_save.txt";
+    private const string BACKUP_SAVE_TXT = "backup_save.txt";
+    private const string BYTE_SAVE_DAT = "byte_save.dat";
+    private const string GAME_SAVE_JSON = "game_save.json";
+    private ICloudSavingService _cloudSavingService;
+    private bool _init;
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Awake</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">InitServiceAsync</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    private void Awake()
+    {
+        InitServiceAsync();
+    }
 
-<span class="w">    </span><span class="na">[ContextMenu("Check Save Data")]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CheckSaveData</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">CheckSaveDataAsync</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    [ContextMenu("Check Save Data")]
+    public void CheckSaveData()
+    {
+        CheckSaveDataAsync();
+    }
 
-<span class="w">    </span><span class="na">[ContextMenu("Update Save File")]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SaveFile</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SaveFileAsync</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    [ContextMenu("Update Save File")]
+    public void SaveFile()
+    {
+        _ = SaveFileAsync();
+    }
 
-<span class="w">    </span><span class="na">[ContextMenu("Force Upload Save File")]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ForceUploadSaveFile</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">ForceUploadSaveFileAsync</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    [ContextMenu("Force Upload Save File")]
+    public void ForceUploadSaveFile()
+    {
+        ForceUploadSaveFileAsync();
+    }
 
-<span class="w">    </span><span class="na">[ContextMenu("Force Download Save File")]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ForceDownloadSaveFile</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">ForceDownloadSaveFileAsync</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    [ContextMenu("Force Download Save File")]
+    public void ForceDownloadSaveFile()
+    {
+        ForceDownloadSaveFileAsync();
+    }
 
-<span class="w">    </span><span class="na">[ContextMenu("Update Save Files")]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdateSaveFiles</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Use Update Function to Handle Manifest Changes that require to commit them to Cloud</span>
-<span class="w">        </span><span class="n">_cloudSavingService</span><span class="p">.</span><span class="n">Update</span><span class="p">(</span><span class="n">builder</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">builder</span><span class="p">.</span><span class="n">ArchiveSaveData</span><span class="p">(</span><span class="n">BACKUP_SAVE_TXT</span><span class="p">);</span>
-<span class="w">            </span><span class="n">builder</span><span class="p">.</span><span class="n">RenameSaveData</span><span class="p">(</span><span class="n">GAME_SAVE_JSON</span><span class="p">,</span><span class="w"> </span><span class="s">"Player_Save.json"</span><span class="p">);</span>
-<span class="w">            </span><span class="n">builder</span><span class="p">.</span><span class="n">ForgetSaveData</span><span class="p">(</span><span class="n">BYTE_SAVE_DAT</span><span class="p">);</span>
-<span class="w">        </span><span class="p">});</span>
-<span class="w">    </span><span class="p">}</span>
+    [ContextMenu("Update Save Files")]
+    public void UpdateSaveFiles()
+    {
+        // Use Update Function to Handle Manifest Changes that require to commit them to Cloud
+        _cloudSavingService.Update(builder =&gt;
+        {
+            builder.ArchiveSaveData(BACKUP_SAVE_TXT);
+            builder.RenameSaveData(GAME_SAVE_JSON, "Player_Save.json");
+            builder.ForgetSaveData(BYTE_SAVE_DAT);
+        });
+    }
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">InitServiceAsync</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Get BeamContext</span>
-<span class="w">        </span><span class="n">BeamContext</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
+    private async void InitServiceAsync()
+    {
+        // Get BeamContext
+        BeamContext context = await BeamContext.Default.Instance;
 
-<span class="w">        </span><span class="n">_cloudSavingService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">CloudSaving</span><span class="p">;</span>
-<span class="w">        </span><span class="c1">// Register to CloudSavingError and OnManifestUpdate | This is optional, use it if you need to handle it by yourself</span>
-<span class="w">        </span><span class="n">_cloudSavingService</span><span class="p">.</span><span class="n">OnCloudSavingError</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">OnCloudSavingError</span><span class="p">;</span>
-<span class="w">        </span><span class="n">_cloudSavingService</span><span class="p">.</span><span class="n">OnManifestUpdated</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">OnManifestUpdated</span><span class="p">;</span>
+        _cloudSavingService = context.CloudSaving;
+        // Register to CloudSavingError and OnManifestUpdate | This is optional, use it if you need to handle it by yourself
+        _cloudSavingService.OnCloudSavingError += OnCloudSavingError;
+        _cloudSavingService.OnManifestUpdated += OnManifestUpdated;
 
-<span class="w">        </span><span class="c1">// Init System and start to check for Local and Remote Changes</span>
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">_cloudSavingService</span><span class="p">.</span><span class="n">Init</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+        // Init System and start to check for Local and Remote Changes
+        await _cloudSavingService.Init(3);
 
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Cloud Saving Service Initialized"</span><span class="p">);</span>
+        Debug.Log("Cloud Saving Service Initialized");
 
-<span class="w">    </span><span class="p">}</span>
+    }
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnManifestUpdated</span><span class="p">(</span><span class="n">CloudSavingManifest</span><span class="w"> </span><span class="n">manifest</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Manifest Updated. Items Count: {manifest.manifest.Count}"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+    private void OnManifestUpdated(CloudSavingManifest manifest)
+    {
+        Debug.Log($"Manifest Updated. Items Count: {manifest.manifest.Count}");
+    }
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnCloudSavingError</span><span class="p">(</span><span class="n">CloudSavingError</span><span class="w"> </span><span class="n">error</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Cloud Saving Error: {error.Message}"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+    private void OnCloudSavingError(CloudSavingError error)
+    {
+        Debug.Log($"Cloud Saving Error: {error.Message}");
+    }
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CheckSaveDataAsync</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Load Data from Save and Check their contents</span>
-<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">mainSaveContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_cloudSavingService</span><span class="p">.</span><span class="n">LoadDataString</span><span class="p">(</span><span class="n">MAIN_SAVE_TXT</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Main Save Data: {mainSaveContent}"</span><span class="p">);</span>
-<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">backupSaveContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_cloudSavingService</span><span class="p">.</span><span class="n">LoadDataString</span><span class="p">(</span><span class="n">BACKUP_SAVE_TXT</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Backup Save Data: {backupSaveContent}"</span><span class="p">);</span>
+    private async void CheckSaveDataAsync()
+    {
+        // Load Data from Save and Check their contents
+        string mainSaveContent = await _cloudSavingService.LoadDataString(MAIN_SAVE_TXT);
+        Debug.Log($"Main Save Data: {mainSaveContent}");
+        string backupSaveContent = await _cloudSavingService.LoadDataString(BACKUP_SAVE_TXT);
+        Debug.Log($"Backup Save Data: {backupSaveContent}");
 
-<span class="w">        </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">byteDataContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_cloudSavingService</span><span class="p">.</span><span class="n">LoadDataByte</span><span class="p">(</span><span class="n">BYTE_SAVE_DAT</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Byte Save Data: {byteDataContent}"</span><span class="p">);</span>
+        byte[] byteDataContent = await _cloudSavingService.LoadDataByte(BYTE_SAVE_DAT);
+        Debug.Log($"Byte Save Data: {byteDataContent}");
 
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">gameSaveContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_cloudSavingService</span><span class="p">.</span><span class="n">LoadData</span><span class="o">&lt;</span><span class="n">GameSave</span><span class="o">&gt;</span><span class="p">(</span><span class="n">GAME_SAVE_JSON</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span>
-<span class="w">            </span><span class="s">$"Game Save Data: Level: {gameSaveContent.level} |  Score: {gameSaveContent.score} | ExtraData: {gameSaveContent.extraData}"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+        var gameSaveContent = await _cloudSavingService.LoadData&lt;GameSave&gt;(GAME_SAVE_JSON);
+        Debug.Log(
+            $"Game Save Data: Level: {gameSaveContent.level} |  Score: {gameSaveContent.score} | ExtraData: {gameSaveContent.extraData}");
+    }
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="w"> </span><span class="nf">SaveFileAsync</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">forceContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Save files with random with Forced value or with random values</span>
+    private async Promise SaveFileAsync(string forceContent = null)
+    {
+        // Save files with random with Forced value or with random values
 
-<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">forceContent</span><span class="p">)</span>
-<span class="w">            </span><span class="o">?</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">)</span>
-<span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="n">forceContent</span><span class="p">;</span>
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">_cloudSavingService</span><span class="p">.</span><span class="n">SaveData</span><span class="p">(</span><span class="n">MAIN_SAVE_TXT</span><span class="p">,</span><span class="w"> </span><span class="n">contents</span><span class="p">);</span>
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">_cloudSavingService</span><span class="p">.</span><span class="n">SaveData</span><span class="p">(</span><span class="n">BACKUP_SAVE_TXT</span><span class="p">,</span><span class="w"> </span><span class="n">contents</span><span class="p">);</span>
+        string contents = string.IsNullOrEmpty(forceContent)
+            ? DateTime.UtcNow.ToString(CultureInfo.InvariantCulture)
+            : forceContent;
+        await _cloudSavingService.SaveData(MAIN_SAVE_TXT, contents);
+        await _cloudSavingService.SaveData(BACKUP_SAVE_TXT, contents);
 
-<span class="w">        </span><span class="n">GameSave</span><span class="w"> </span><span class="n">gameSave</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GameSave</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">11</span><span class="p">),</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">),</span><span class="w"> </span><span class="n">extraData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Guid</span><span class="p">.</span><span class="n">NewGuid</span><span class="p">().</span><span class="n">ToString</span><span class="p">(),</span>
-<span class="w">        </span><span class="p">};</span>
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">_cloudSavingService</span><span class="p">.</span><span class="n">SaveData</span><span class="p">(</span><span class="n">GAME_SAVE_JSON</span><span class="p">,</span><span class="w"> </span><span class="n">gameSave</span><span class="p">);</span>
+        GameSave gameSave = new GameSave()
+        {
+            level = Random.Range(1, 11), score = Random.Range(1, 100), extraData = Guid.NewGuid().ToString(),
+        };
+        await _cloudSavingService.SaveData(GAME_SAVE_JSON, gameSave);
 
-<span class="w">        </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">encodedBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Encoding</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">contents</span><span class="p">);</span>
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">_cloudSavingService</span><span class="p">.</span><span class="n">SaveData</span><span class="p">(</span><span class="n">BYTE_SAVE_DAT</span><span class="p">,</span><span class="w"> </span><span class="n">encodedBytes</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+        byte[] encodedBytes = Encoding.Default.GetBytes(contents);
+        await _cloudSavingService.SaveData(BYTE_SAVE_DAT, encodedBytes);
+    }
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ForceUploadSaveFileAsync</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Force change Files Values and Force them to be uploaded to Cloud</span>
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nf">SaveFileAsync</span><span class="p">(</span><span class="s">$"ForcedContent-{DateTime.Now.ToString(CultureInfo.InvariantCulture)}"</span><span class="p">);</span>
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">_cloudSavingService</span><span class="p">.</span><span class="n">ForceUploadLocalData</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    private async void ForceUploadSaveFileAsync()
+    {
+        // Force change Files Values and Force them to be uploaded to Cloud
+        await SaveFileAsync($"ForcedContent-{DateTime.Now.ToString(CultureInfo.InvariantCulture)}");
+        await _cloudSavingService.ForceUploadLocalData();
+    }
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ForceDownloadSaveFileAsync</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Force download Cloud Values replacing any Local Changes.</span>
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">_cloudSavingService</span><span class="p">.</span><span class="n">ForceDownloadCloudData</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    private async void ForceDownloadSaveFileAsync()
+    {
+        // Force download Cloud Values replacing any Local Changes.
+        await _cloudSavingService.ForceDownloadCloudData();
+    }
 
-<span class="w">    </span><span class="na">[Serializable]</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GameSave</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">level</span><span class="p">;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">score</span><span class="p">;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">extraData</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    [Serializable]
+    private class GameSave
+    {
+        public int level;
+        public float score;
+        public string extraData;
+    }
+}
+</code></pre>
 
 
 

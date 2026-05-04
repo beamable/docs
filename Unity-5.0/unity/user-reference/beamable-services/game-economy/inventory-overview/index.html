@@ -4575,6 +4575,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9523,189 +9551,106 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/federated-inventory-grant-flow.png" data-desc-position="bottom"><img alt="Federated Inventory Grant Flow" src="../../../../../media/imgs/federated-inventory-grant-flow.png" style="height:auto;width:400px"></a></p>
 <h3 id="ifederatedinventoryt-interface"><code>IFederatedInventory&lt;T&gt;</code> interface<a class="headerlink" href="#ifederatedinventoryt-interface" title="Permanent link">¶</a></h3>
 <p>To use the Federated Inventory you should start by implementing the <code>IFederatedInventory&lt;T&gt;</code> interface in your microservice. Be aware that this interface also implements <code>IFederatedLogin&lt;T&gt;</code> because federated authentication is a prerequisite, as mentioned earlier. <code>T</code> must be your implementation of the <code>IThirdPartyCloudIdentity</code> - a very simple interface that requires you to define a unique name/namespace for your federation. This enables you to have multiple federation implementations in a single microservice.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyFederationIdentity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IThirdPartyCloudIdentity</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">UniqueName</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"my-cool-federation"</span><span class="p">;</span>
-<span class="p">}</span>
+<pre><code class="language-csharp">public class MyFederationIdentity : IThirdPartyCloudIdentity
+{
+    public string UniqueName =&gt; "my-cool-federation";
+}
 
-<span class="na">[Microservice("MyFederation")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyFederationService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="p">,</span><span class="w"> </span><span class="n">IFederatedInventory</span><span class="o">&lt;</span><span class="n">MyFederationIdentity</span><span class="o">&gt;</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedAuthenticationResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Authenticate</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">challenge</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">solution</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">NotImplementedException</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+[Microservice("MyFederation")]
+public class MyFederationService : Microservice, IFederatedInventory&lt;MyFederationIdentity&gt;
+{
+    public Promise&lt;FederatedAuthenticationResponse&gt; Authenticate(string token, string challenge, string solution)
+    {
+        throw new System.NotImplementedException();
+    }
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedInventoryProxyState</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetInventoryState</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">NotImplementedException</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    public Promise&lt;FederatedInventoryProxyState&gt; GetInventoryState(string id)
+    {
+        throw new System.NotImplementedException();
+    }
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedInventoryProxyState</span><span class="o">&gt;</span><span class="w"> </span><span class="n">StartInventoryTransaction</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">transaction</span><span class="p">,</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">currencies</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FederatedItemCreateRequest</span><span class="o">&gt;</span><span class="w"> </span><span class="n">newItems</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FederatedItemDeleteRequest</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deleteItems</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FederatedItemUpdateRequest</span><span class="o">&gt;</span><span class="w"> </span><span class="n">updateItems</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">NotImplementedException</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    public Promise&lt;FederatedInventoryProxyState&gt; StartInventoryTransaction(string id, string transaction, Dictionary&lt;string, long&gt; currencies, List&lt;FederatedItemCreateRequest&gt; newItems, List&lt;FederatedItemDeleteRequest&gt; deleteItems, List&lt;FederatedItemUpdateRequest&gt; updateItems)
+    {
+        throw new System.NotImplementedException();
+    }
+}
+</code></pre>
 <h3 id="getinventorystate-implementation"><code>GetInventoryState</code> implementation<a class="headerlink" href="#getinventorystate-implementation" title="Permanent link">¶</a></h3>
 <p>You can do any custom logic here. For example, you could AI generate some items, load items from a smart contract, use microstorage, or do anything that satisfies your specific requirements.
 Here's a dummy example that will return some static items and currency, just to showcase the response structure:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedInventoryProxyState</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetInventoryState</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedInventoryProxyState</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Successful</span><span class="p">(</span>
-<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">FederatedInventoryProxyState</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">currencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="s">"currency.federated-gold"</span><span class="p">,</span><span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="s">"currency.federated-silver"</span><span class="p">,</span><span class="w"> </span><span class="m">5000</span><span class="w"> </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FederatedItemProxy</span><span class="o">&gt;&gt;</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="s">"items.avatar"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FederatedItemProxy</span><span class="o">&gt;</span>
-<span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="k">new</span><span class="p">()</span>
-<span class="w">                        </span><span class="p">{</span>
-<span class="w">                            </span><span class="n">proxyId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"externalAvatarId1"</span><span class="p">,</span>
-<span class="w">                            </span><span class="n">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ItemProperty</span><span class="o">&gt;</span>
-<span class="w">                            </span><span class="p">{</span>
-<span class="w">                                </span><span class="k">new</span><span class="p">()</span>
-<span class="w">                                </span><span class="p">{</span>
-<span class="w">                                    </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"level"</span><span class="p">,</span>
-<span class="w">                                    </span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"20"</span>
-<span class="w">                                </span><span class="p">},</span>
-<span class="w">                                </span><span class="k">new</span><span class="p">()</span>
-<span class="w">                                </span><span class="p">{</span>
-<span class="w">                                    </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"color"</span><span class="p">,</span>
-<span class="w">                                    </span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"blue"</span>
-<span class="w">                                </span><span class="p">}</span>
-<span class="w">                            </span><span class="p">}</span>
-<span class="w">                        </span><span class="p">},</span>
-<span class="w">                        </span><span class="k">new</span><span class="p">()</span>
-<span class="w">                        </span><span class="p">{</span>
-<span class="w">                            </span><span class="n">proxyId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"externalAvatarId2"</span><span class="p">,</span>
-<span class="w">                            </span><span class="n">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ItemProperty</span><span class="o">&gt;</span>
-<span class="w">                            </span><span class="p">{</span>
-<span class="w">                                </span><span class="k">new</span><span class="p">()</span>
-<span class="w">                                </span><span class="p">{</span>
-<span class="w">                                    </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"level"</span><span class="p">,</span>
-<span class="w">                                    </span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"30"</span>
-<span class="w">                                </span><span class="p">},</span>
-<span class="w">                                </span><span class="k">new</span><span class="p">()</span>
-<span class="w">                                </span><span class="p">{</span>
-<span class="w">                                    </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"color"</span><span class="p">,</span>
-<span class="w">                                    </span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"red"</span>
-<span class="w">                                </span><span class="p">}</span>
-<span class="w">                            </span><span class="p">}</span>
-<span class="w">                        </span><span class="p">}</span>
-<span class="w">                    </span><span class="p">}</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">public Promise&lt;FederatedInventoryProxyState&gt; GetInventoryState(string id)
+{
+    return Promise&lt;FederatedInventoryProxyState&gt;.Successful(
+        new FederatedInventoryProxyState
+        {
+            currencies = new Dictionary&lt;string, long&gt;
+            {
+                { "currency.federated-gold", 1000 },
+                { "currency.federated-silver", 5000 }
+            },
+            items = new Dictionary&lt;string, List&lt;FederatedItemProxy&gt;&gt;
+            {
+                {
+                    "items.avatar", new List&lt;FederatedItemProxy&gt;
+                    {
+                        new()
+                        {
+                            proxyId = "externalAvatarId1",
+                            properties = new List&lt;ItemProperty&gt;
+                            {
+                                new()
+                                {
+                                    name = "level",
+                                    value = "20"
+                                },
+                                new()
+                                {
+                                    name = "color",
+                                    value = "blue"
+                                }
+                            }
+                        },
+                        new()
+                        {
+                            proxyId = "externalAvatarId2",
+                            properties = new List&lt;ItemProperty&gt;
+                            {
+                                new()
+                                {
+                                    name = "level",
+                                    value = "30"
+                                },
+                                new()
+                                {
+                                    name = "color",
+                                    value = "red"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    );
+}
+</code></pre>
 <p>The important thing to emphasize here is the <code>id</code> argument. It's the same external account id that you return from the <code>Authenticate</code> method. If you want to access the player's id in the Beamable system, you can use <code>this.Context.UserId</code>
 As an example, you can use the wallet address as an external user identifier when implementing blockchain federation.</p>
 <h3 id="startinventorytransaction-implementation"><code>StartInventoryTransaction</code> implementation<a class="headerlink" href="#startinventorytransaction-implementation" title="Permanent link">¶</a></h3>
 <p>The Inventory service will forward all the changes against federated currency and items. This method has the same return type as the previous one.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedInventoryProxyState</span><span class="o">&gt;</span><span class="w"> </span><span class="n">StartInventoryTransaction</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">transaction</span><span class="p">,</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">currencies</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FederatedItemCreateRequest</span><span class="o">&gt;</span><span class="w"> </span><span class="n">newItems</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FederatedItemDeleteRequest</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deleteItems</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FederatedItemUpdateRequest</span><span class="o">&gt;</span><span class="w"> </span><span class="n">updateItems</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_myFederation</span><span class="p">.</span><span class="n">ApplyCurrency</span><span class="p">(</span><span class="n">currencies</span><span class="p">);</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_myFederation</span><span class="p">.</span><span class="n">AddItems</span><span class="p">(</span><span class="n">newItems</span><span class="p">);</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_myFederation</span><span class="p">.</span><span class="n">UpdateItems</span><span class="p">(</span><span class="n">updateItems</span><span class="p">);</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_myFederation</span><span class="p">.</span><span class="n">DeleteItems</span><span class="p">(</span><span class="n">deleteItems</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nf">GetInventoryState</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">public Promise&lt;FederatedInventoryProxyState&gt; StartInventoryTransaction(string id, string transaction, Dictionary&lt;string, long&gt; currencies, List&lt;FederatedItemCreateRequest&gt; newItems, List&lt;FederatedItemDeleteRequest&gt; deleteItems, List&lt;FederatedItemUpdateRequest&gt; updateItems)
+{
+    await _myFederation.ApplyCurrency(currencies);
+    await _myFederation.AddItems(newItems);
+    await _myFederation.UpdateItems(updateItems);
+    await _myFederation.DeleteItems(deleteItems);
+    return await GetInventoryState(id);
+}
+</code></pre>
 <p>The <code>transaction</code> argument is a unique transaction id generated in our Inventory service, and you can use it to guard against multiple submissions.</p>
 <p>If your transaction processing is to slow to return a timely response, you can implement the async approach. Process the transaction in the background and just return the current state. Once the transaction finishes processing, you can report back the new state like this:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="n">Requester</span><span class="p">.</span><span class="n">Request</span><span class="o">&lt;</span><span class="n">CommonResponse</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">PUT</span><span class="p">,</span><span class="w"> </span><span class="s">$"/object/inventory/{_userContext.UserId}/proxy/state"</span><span class="p">,</span><span class="w"> </span><span class="n">newState</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">await Requester.Request&lt;CommonResponse&gt;(Method.PUT, $"/object/inventory/{_userContext.UserId}/proxy/state", newState);
+</code></pre>
 <p>The Inventory service will notify the game client to refresh the inventory content if there's a diff.</p>
 <h2 id="samples">Samples<a class="headerlink" href="#samples" title="Permanent link">¶</a></h2>
 <p>If your game allows the user to purchase items from the store in the form of armor or accessories for the character. We can achieve this by creating the items in the <a href="../../profile-storage/content/content-unity/#content-manager-editor">Content Manager</a>, then setting up an in-game <a href="../stores-overview/">Store</a>, and finally allowing the player to access their inventory. There are various APIs available to retrieve the user's Inventory, and the content stored in the inventory supports custom data to suit the specific implementation.</p>

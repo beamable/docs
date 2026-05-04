@@ -4654,6 +4654,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9783,11 +9811,11 @@ A file is marked as <strong>Conflicted</strong> only when:</p>
 </ul>
 <p>If you want to revert all conflicted files at once using the same strategy, you can do the following on your terminal.</p>
 <p><strong>Local</strong></p>
-<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>content<span class="w"> </span>resolve<span class="w"> </span>--use<span class="w"> </span><span class="nb">local</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-shell">beam content resolve --use local
+</code></pre>
 <p><strong>Remote</strong></p>
-<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>content<span class="w"> </span>resolve<span class="w"> </span>--use<span class="w"> </span>realm
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-shell">beam content resolve --use realm
+</code></pre>
 <p>This approach gives teams explicit control over version resolution while maintaining data integrity.</p>
 <div class="admonition info">
 <p class="admonition-title">Best Practice</p>
@@ -9964,275 +9992,144 @@ A file is marked as <strong>Conflicted</strong> only when:</p>
 </table>
 <h3 id="content-validation-examples">Content Validation Examples<a class="headerlink" href="#content-validation-examples" title="Permanent link">¶</a></h3>
 <p>This <code>ContentValidationExample.cs</code> snippet demonstrates the usage of built-in validation and custom validation within a custom subclass of <code>ContentObject</code>.</p>
-<p>ComplexItem.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content.Validation</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Inventory</span><span class="p">;</span>
+<p>ComplexItem.cs</p>
+<pre><code class="language-csharp">using System;
+using Beamable.Common.Content;
+using Beamable.Common.Content.Validation;
+using Beamable.Common.Inventory;
 
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.ContentService</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Serializable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ComplexItemLink</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentLink</span><span class="o">&lt;</span><span class="n">ComplexItem</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+namespace Beamable.Examples.Services.ContentService
+{
+    [Serializable]
+    public class ComplexItemLink : ContentLink&lt;ComplexItem&gt; {}
 
-<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">    </span><span class="c1">/// This demonstrates validation rules</span>
-<span class="w">    </span><span class="c1">/// for use with any fields within a &lt;&lt;see cref="ContentObject"/&gt;</span>
-<span class="w">    </span><span class="c1">/// subclass.</span>
-<span class="w">    </span><span class="c1">///</span>
-<span class="w">    </span><span class="c1">/// Using validation is optional.</span>
-<span class="w">    </span><span class="c1">///</span>
-<span class="w">    </span><span class="c1">/// See "Beamable.Common.Content.Validation" for full list.</span>
-<span class="w">    </span><span class="c1">///</span>
-<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">    </span><span class="na">[ContentType("complex_item")]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ComplexItem</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ItemContent</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">        </span><span class="c1">/// Built-in: Validation requires that the value be NOT blank.</span>
-<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">        </span><span class="na">[CannotBeBlank]</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+    /// &lt;summary&gt;
+    /// This demonstrates validation rules
+    /// for use with any fields within a &lt;&lt;see cref="ContentObject"/&gt;
+    /// subclass.
+    ///
+    /// Using validation is optional.
+    ///
+    /// See "Beamable.Common.Content.Validation" for full list.
+    ///
+    /// &lt;/summary&gt;
+    [ContentType("complex_item")]
+    public class ComplexItem : ItemContent
+    {
+        /// &lt;summary&gt;
+        /// Built-in: Validation requires that the value be NOT blank.
+        /// &lt;/summary&gt;
+        [CannotBeBlank]
+        public string Name = "";
 
-<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">        </span><span class="c1">/// Custom: Validation requires that the value be string and of</span>
-<span class="w">        </span><span class="c1">/// string length of 2 or 3.</span>
-<span class="w">        </span><span class="c1">/// See &lt;see cref="MustBeStringLength"/&gt;.</span>
-<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">        </span><span class="na">[MustBeStringLength (2, 3)]</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">FavoriteLetters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+        /// &lt;summary&gt;
+        /// Custom: Validation requires that the value be string and of
+        /// string length of 2 or 3.
+        /// See &lt;see cref="MustBeStringLength"/&gt;.
+        /// &lt;/summary&gt;
+        [MustBeStringLength (2, 3)]
+        public string FavoriteLetters = "";
 
-<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">        </span><span class="c1">/// Built-in: Validation requires that the value be positive and</span>
-<span class="w">        </span><span class="c1">/// non-zero.</span>
-<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">        </span><span class="na">[MustBePositive(false)]</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Defense</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+        /// &lt;summary&gt;
+        /// Built-in: Validation requires that the value be positive and
+        /// non-zero.
+        /// &lt;/summary&gt;
+        [MustBePositive(false)]
+        public int Defense = 0;
 
-<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">        </span><span class="c1">/// Built-In: Here is an optional value with no validation.</span>
-<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">OptionalInt</span><span class="w"> </span><span class="n">Health</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
-This <code>MustBeStringLength.cs</code> snippet demonstrates the implementation of <strong>custom</strong> validation.<p></p>
-<p>MustBeStringLength.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span>
-<span class="normal">83</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content.Validation</span><span class="p">;</span>
+        /// &lt;summary&gt;
+        /// Built-In: Here is an optional value with no validation.
+        /// &lt;/summary&gt;
+        public OptionalInt Health;
+    }
+}
+</code></pre>
+<p>This <code>MustBeStringLength.cs</code> snippet demonstrates the implementation of <strong>custom</strong> validation.</p>
+<p>MustBeStringLength.cs</p>
+<pre><code class="language-csharp">using System;
+using Beamable.Common.Content;
+using Beamable.Common.Content.Validation;
 
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.ContentService</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">    </span><span class="c1">/// Demonstrates a custom validation rule for a</span>
-<span class="w">    </span><span class="c1">/// field of a &lt;see cref="ContentObject"/&gt; subclass.</span>
-<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MustBeStringLength</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ValidationAttribute</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">//  Fields  ---------------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">STRING_TYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Value must be a string type."</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">ARGUMENT_ERROR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The StringLengthMin of {0} must be &lt;= StringLengthMax of {1}."</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">VALUE_ERROR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The field string length of {0} must be &gt;= {1} and &lt;= {2}."</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+namespace Beamable.Examples.Services.ContentService
+{
+    /// &lt;summary&gt;
+    /// Demonstrates a custom validation rule for a
+    /// field of a &lt;see cref="ContentObject"/&gt; subclass.
+    /// &lt;/summary&gt;
+    public class MustBeStringLength : ValidationAttribute
+    {
+        //  Fields  ---------------------------------------
+        private const string STRING_TYPE = "Value must be a string type.";
+        private const string ARGUMENT_ERROR = "The StringLengthMin of {0} must be &lt;= StringLengthMax of {1}.";
+        private const string VALUE_ERROR = "The field string length of {0} must be &gt;= {1} and &lt;= {2}.";
+        private int _stringLengthMin = 0;
+        private int _stringLengthMax = 0;
 
-<span class="w">        </span><span class="c1">//  Constructor Methods  --------------------------------</span>
+        //  Constructor Methods  --------------------------------
 
-<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">        </span><span class="c1">/// Optional. Pass validation arguments.</span>
-<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">        </span><span class="c1">/// &lt;param name="stringLengthMin"&gt;&lt;/param&gt;</span>
-<span class="w">        </span><span class="c1">/// &lt;param name="stringLengthMax"&gt;&lt;/param&gt;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">MustBeStringLength</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">stringLengthMin</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stringLengthMax</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">_stringLengthMin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringLengthMin</span><span class="p">;</span>
-<span class="w">            </span><span class="n">_stringLengthMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringLengthMax</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
+        /// &lt;summary&gt;
+        /// Optional. Pass validation arguments.
+        /// &lt;/summary&gt;
+        /// &lt;param name="stringLengthMin"&gt;&lt;/param&gt;
+        /// &lt;param name="stringLengthMax"&gt;&lt;/param&gt;
+        public MustBeStringLength(int stringLengthMin, int stringLengthMax)
+        {
+            _stringLengthMin = stringLengthMin;
+            _stringLengthMax = stringLengthMax;
+        }
 
-<span class="w">        </span><span class="c1">//  Other Methods  --------------------------------</span>
+        //  Other Methods  --------------------------------
 
-<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">        </span><span class="c1">/// Performs the validation using the current field type,</span>
-<span class="w">        </span><span class="c1">/// field value, and any validation arguments.</span>
-<span class="w">        </span><span class="c1">///</span>
-<span class="w">        </span><span class="c1">/// Any thrown &lt;see cref="ContentValidationException"/&gt; will</span>
-<span class="w">        </span><span class="c1">/// show helpful text in the inspector to the game maker.</span>
-<span class="w">        </span><span class="c1">///</span>
-<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">        </span><span class="c1">/// &lt;param name="args"&gt;&lt;/param&gt;</span>
-<span class="w">        </span><span class="c1">/// &lt;exception cref="ContentValidationException"&gt;&lt;/exception&gt;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Validate</span><span class="p">(</span><span class="n">ContentValidationArgs</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">ValidationFieldWrapper</span><span class="w"> </span><span class="n">validationField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="n">ValidationField</span><span class="p">;</span>
-<span class="w">            </span><span class="n">IContentObject</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="n">Content</span><span class="p">;</span>
-<span class="w">            </span><span class="n">Type</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">validationField</span><span class="p">.</span><span class="n">FieldType</span><span class="p">;</span>
-<span class="w">            </span><span class="kt">object</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">validationField</span><span class="p">.</span><span class="n">GetValue</span><span class="p">();</span>
+        /// &lt;summary&gt;
+        /// Performs the validation using the current field type,
+        /// field value, and any validation arguments.
+        ///
+        /// Any thrown &lt;see cref="ContentValidationException"/&gt; will
+        /// show helpful text in the inspector to the game maker.
+        ///
+        /// &lt;/summary&gt;
+        /// &lt;param name="args"&gt;&lt;/param&gt;
+        /// &lt;exception cref="ContentValidationException"&gt;&lt;/exception&gt;
+        public override void Validate(ContentValidationArgs args)
+        {
+            ValidationFieldWrapper validationField = args.ValidationField;
+            IContentObject content = args.Content;
+            Type type = validationField.FieldType;
+            object obj = validationField.GetValue();
 
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Optional</span><span class="p">).</span><span class="n">IsAssignableFrom</span><span class="p">(</span><span class="n">type</span><span class="p">))</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">Optional</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Optional</span><span class="p">;</span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">optional</span><span class="p">.</span><span class="n">HasValue</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
-<span class="w">                </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">optional</span><span class="p">.</span><span class="n">GetOptionalType</span><span class="p">();</span>
-<span class="w">                </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">optional</span><span class="p">.</span><span class="n">GetValue</span><span class="p">();</span>
-<span class="w">            </span><span class="p">}</span>
+            if (typeof(Optional).IsAssignableFrom(type))
+            {
+                Optional optional = obj as Optional;
+                if (!optional.HasValue) return;
+                type = optional.GetOptionalType();
+                obj = optional.GetValue();
+            }
 
-<span class="w">            </span><span class="c1">// Validation: Is it a string?</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ValidationAttribute</span><span class="p">.</span><span class="n">IsNumericType</span><span class="p">(</span><span class="n">type</span><span class="p">))</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span><span class="w"> </span><span class="n">STRING_TYPE</span><span class="w"> </span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
+            // Validation: Is it a string?
+            if (ValidationAttribute.IsNumericType(type))
+            {
+                throw new ContentValidationException(content, validationField, STRING_TYPE );
+            }
 
-<span class="w">            </span><span class="c1">// Validation: Are the arguments correct?</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_stringLengthMin</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span>
-<span class="w">                    </span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">ARGUMENT_ERROR</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">));</span>
-<span class="w">            </span><span class="p">}</span>
+            // Validation: Are the arguments correct?
+            if (_stringLengthMin &gt; _stringLengthMax)
+            {
+                throw new ContentValidationException(content, validationField,
+                    string.Format(ARGUMENT_ERROR, _stringLengthMin, _stringLengthMax));
+            }
 
-<span class="w">            </span><span class="c1">// Validation: Is the current value correct?</span>
-<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">stringValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stringValue</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">||</span>
-<span class="w">                </span><span class="o">!</span><span class="p">(</span><span class="n">stringValue</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">stringValue</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">))</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span>
-<span class="w">                    </span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">VALUE_ERROR</span><span class="p">,</span><span class="w"> </span><span class="n">stringValue</span><span class="p">.</span><span class="n">Length</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">));</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+            // Validation: Is the current value correct?
+            string stringValue = obj as string;
+            if (stringValue == null ||
+                !(stringValue.Length &gt;= _stringLengthMin &amp;&amp; stringValue.Length &lt;= _stringLengthMax))
+            {
+                throw new ContentValidationException(content, validationField,
+                    string.Format(VALUE_ERROR, stringValue.Length, _stringLengthMin, _stringLengthMax));
+            }
+        }
+    }
+}
+</code></pre>
 <h3 id="optional-values">Optional Values<a class="headerlink" href="#optional-values" title="Permanent link">¶</a></h3>
 <p>Beamable includes a suite of "optional" datatypes. Here the game maker must set the checkbox to true in the inspector before populating the field. The "optional" functionality and the "validation" functionality may be combined too.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/optional.png" data-desc-position="bottom"><img alt="Optional" src="../../../../../../media/imgs/optional.png"></a></p>
@@ -10245,10 +10142,9 @@ This <code>MustBeStringLength.cs</code> snippet demonstrates the implementation 
 </ul>
 <h3 id="why-beamablelocal-is-gitignored">Why <code>.beamable/local/</code> Is Gitignored<a class="headerlink" href="#why-beamablelocal-is-gitignored" title="Permanent link">¶</a></h3>
 <p>The SDK adds the following entries to <code>.beamable/.gitignore</code>:</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>temp/**/*
+<pre><code>temp/**/*
 local/**/*
-</code></pre></div></td></tr></tbody></table></div>
+</code></pre>
 <p>The <code>local/**/*</code> entry intentionally excludes <code>.beamable/local/</code> from Git. Because <code>referenceManifestId</code> is updated on every publish, even a single publish touches every content JSON file — producing frequent, low-signal commits. For Git-friendly content tracking, use <strong>Content Snapshots</strong> instead (see the Snapshot button in Beam Content).</p>
 <p>You can track the raw local JSON files in Git by removing <code>local/**/*</code> from your <code>.gitignore</code>, but this is not recommended unless your team is comfortable with the resulting commit noise.</p>
 <h3 id="version-control-best-practices">Version Control Best Practices<a class="headerlink" href="#version-control-best-practices" title="Permanent link">¶</a></h3>
@@ -10258,8 +10154,8 @@ local/**/*
 <li>These changes can safely be reverted if needed</li>
 <li><strong>Handling Revert Operations</strong>
    Reverting to an older version will trigger conflict detection (due to mismatched <code>referenceManifestId</code>). To resolve while preserving your content changes, run:
-   <div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>content<span class="w"> </span>resolve<span class="w"> </span>--use<span class="w"> </span><span class="nb">local</span>
-</code></pre></div></td></tr></tbody></table></div>
+   <code>shell
+   beam content resolve --use local</code>
    This command keeps your local content modifications and updates the <code>referenceManifestId</code> to match the remote version for each conflicted content.</li>
 </ol>
 <h2 id="storage-location-of-content-types-in-editor">Storage Location of Content Types in Editor<a class="headerlink" href="#storage-location-of-content-types-in-editor" title="Permanent link">¶</a></h2>

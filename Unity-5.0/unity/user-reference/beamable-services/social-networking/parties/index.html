@@ -4580,6 +4580,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9507,97 +9535,69 @@ The <code>Create</code> method has a number of optional parameters:</p>
 <li><code>Unrestricted</code> means the party can be joined by any player who knows the <code>partyId</code></li>
 <li><code>InviteOnly</code> allows only invited players to join the party</li>
 </ul>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Party</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">PartyRestriction</span><span class="p">.</span><span class="n">Unrestricted</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">await _beamContext.Party.Create(PartyRestriction.Unrestricted);
+</code></pre>
 <h3 id="listening-for-party-updates">Listening for Party Updates<a class="headerlink" href="#listening-for-party-updates" title="Permanent link">¶</a></h3>
 <p>The following events are available</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="n">PartyInviteNotification</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OnPlayerInvited</span><span class="p">;</span>
-<span class="k">public</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="n">PlayerJoinedNotification</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OnPlayerJoined</span><span class="p">;</span>
-<span class="k">public</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="n">PlayerLeftNotification</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OnPlayerLeft</span><span class="p">;</span>
-<span class="k">public</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="n">PartyUpdatedNotification</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OnPartyUpdated</span><span class="p">;</span>
-<span class="k">public</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="n">PlayerPromotedNotification</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OnPlayerPromoted</span><span class="p">;</span>
-<span class="k">public</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="n">PlayerKickedNotification</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OnPlayerKicked</span><span class="p">;</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">public Action&lt;PartyInviteNotification&gt; OnPlayerInvited;
+public Action&lt;PlayerJoinedNotification&gt; OnPlayerJoined;
+public Action&lt;PlayerLeftNotification&gt; OnPlayerLeft;
+public Action&lt;PartyUpdatedNotification&gt; OnPartyUpdated;
+public Action&lt;PlayerPromotedNotification&gt; OnPlayerPromoted;
+public Action&lt;PlayerKickedNotification&gt; OnPlayerKicked;
+</code></pre>
 <h3 id="joining-party">Joining Party<a class="headerlink" href="#joining-party" title="Permanent link">¶</a></h3>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Party</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="n">partyId</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">await _beamContext.Party.Join(partyId);
+</code></pre>
 <h3 id="leaving-a-party">Leaving a Party<a class="headerlink" href="#leaving-a-party" title="Permanent link">¶</a></h3>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Party</span><span class="p">.</span><span class="n">Leave</span><span class="p">();</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">await _beamContext.Party.Leave();
+</code></pre>
 <h3 id="getting-party-invites">Getting Party Invites<a class="headerlink" href="#getting-party-invites" title="Permanent link">¶</a></h3>
 <p>There is an observable list of available party invites.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">party</span><span class="p">.</span><span class="n">ReceivedPartyInvites</span><span class="p">.</span><span class="n">OnElementsAdded</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">invites</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="c1">// accept the first invite</span>
-<span class="w">    </span><span class="n">invites</span><span class="p">.</span><span class="n">First</span><span class="p">().</span><span class="n">Accept</span><span class="p">();</span>
-<span class="p">};</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">party.ReceivedPartyInvites.OnElementsAdded += invites =&gt;
+{
+    // accept the first invite
+    invites.First().Accept();
+};
+</code></pre>
 <p>Additionally, this method returns a <code>InvitesResponse</code> object which contains pending party invitations as <code>List&lt;PartyInvite&gt;</code>. Each <code>PartyInvite</code> contains a <code>invitedBy</code> player ID and a <code>partyId</code> which can be passed to <code>Party.Join</code> method to join the party.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">invites</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Party</span><span class="p">.</span><span class="n">GetInvites</span><span class="p">();</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var invites = await _beamContext.Party.GetInvites();
+</code></pre>
 <h3 id="party-leader-methods">Party Leader Methods<a class="headerlink" href="#party-leader-methods" title="Permanent link">¶</a></h3>
 <p>Methods below can be called only by a party leader.</p>
 <h4 id="updating-party">Updating Party<a class="headerlink" href="#updating-party" title="Permanent link">¶</a></h4>
 <p>This method allows to change settings of an already created party. Again <code>maxSize</code> parameter is optional. The <code>State</code> property is altered by this method.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Party</span><span class="p">.</span><span class="n">Update</span><span class="p">(</span><span class="n">PartyRestriction</span><span class="p">.</span><span class="n">Unrestricted</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">await _beamContext.Party.Update(PartyRestriction.Unrestricted, 5);
+</code></pre>
 <h4 id="inviting-player">Inviting Player<a class="headerlink" href="#inviting-player" title="Permanent link">¶</a></h4>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// acquire a playerId from the player social sdk</span>
-<span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Party</span><span class="p">.</span><span class="n">Invite</span><span class="p">(</span><span class="n">playerId</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">// acquire a playerId from the player social sdk
+await _beamContext.Party.Invite(playerId);
+</code></pre>
 <h3 id="party-member-actions">Party Member Actions<a class="headerlink" href="#party-member-actions" title="Permanent link">¶</a></h3>
 <p>There is an observable structure, <code>PartyMembers</code> that contains the list of party members. If the current player is the leader, they can promote or kick players from this list.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">party</span><span class="p">.</span><span class="n">PartyMembers</span><span class="p">.</span><span class="n">OnElementsAdded</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">members</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"{member.playerId} joined the party"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
+<pre><code class="language-csharp">party.PartyMembers.OnElementsAdded += members =&gt;
+{
+    foreach (var member in members)
+    {
+        Debug.Log($"{member.playerId} joined the party");
+    }
+};
 
-<span class="n">party</span><span class="p">.</span><span class="n">PartyMembers</span><span class="p">.</span><span class="n">OnElementRemoved</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">members</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"{member.playerId} left the party"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-</code></pre></div></td></tr></tbody></table></div>
+party.PartyMembers.OnElementRemoved += members =&gt;
+{
+    foreach (var member in members)
+    {
+        Debug.Log($"{member.playerId} left the party");
+    }
+};
+</code></pre>
 <p>The <code>PartyMember</code> structure has <code>Promote</code> and <code>Kick</code> methods, but player actions can also be taken with the <code>Party</code> accessor directly.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// promote the player to party leader</span>
-<span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Party</span><span class="p">.</span><span class="n">Promote</span><span class="p">(</span><span class="n">playerId</span><span class="p">);</span>
+<pre><code class="language-csharp">// promote the player to party leader
+await _beamContext.Party.Promote(playerId);
 
-<span class="c1">// remove the player from the party</span>
-<span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Party</span><span class="p">.</span><span class="n">Kick</span><span class="p">(</span><span class="n">playerId</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+// remove the player from the party
+await _beamContext.Party.Kick(playerId);
+</code></pre>
 <h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">¶</a></h2>
 <blockquote>
 <p>Is there a party storage? Similar to <code>clientData</code> in <code>GroupService</code> that we can utilize?</p>

@@ -4643,6 +4643,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9732,108 +9760,64 @@
 </tbody>
 </table>
 <p>Apply <code>[IgnoreContentField]</code> to any field you wish to exclude from the Content Serialization process.</p>
-<p>MyCustomContent.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Agnostic]</span>
-<span class="na">[ContentType("MyCustomContent")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span>
-<span class="p">{</span>
-<span class="w">     </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">;</span>
-<span class="w">     </span><span class="k">public</span><span class="w"> </span><span class="n">AssetReferenceSprite</span><span class="w"> </span><span class="n">Icon</span><span class="p">;</span>
+<p>MyCustomContent.cs</p>
+<pre><code class="language-csharp">[Agnostic]
+[ContentType("MyCustomContent")]
+public class MyCustomContent : ContentObject
+{
+     public string Name;
+     public AssetReferenceSprite Icon;
 
-<span class="w">     </span><span class="na">[IgnoreContentField]</span>
-<span class="w">     </span><span class="k">public</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">KeyValuePair</span><span class="p">;</span>
+     [IgnoreContentField]
+     public Dictionary&lt;string, int&gt; KeyValuePair;
 
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+}
+</code></pre>
 <h3 id="inheritance-hierarchies">Inheritance Hierarchies<a class="headerlink" href="#inheritance-hierarchies" title="Permanent link">¶</a></h3>
 <p>There might be cases where you want to have some hierarchy chain of <code>ContentObject</code> but have one of the types in the chain not be an actual <code>ContentType</code>; for example, to share code between different child <code>ContentTypes</code> but in a parent class that can never be created directly as a piece of Beamable content. You can do that by making the class abstract and <strong>not</strong> marking it as a <code>ContentType</code>.</p>
 <p>The snippet below demonstrate what that would look like.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// BaseCustomContent.cs</span>
-<span class="na">[ContentType("BaseCustomContent")]</span>
-<span class="na">[System.Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BaseCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/** (...) */</span><span class="w"> </span><span class="p">}</span>
+<pre><code class="language-csharp">// BaseCustomContent.cs
+[ContentType("BaseCustomContent")]
+[System.Serializable]
+public class BaseCustomContent : ContentObject { /** (...) */ }
 
-<span class="c1">// AbstractCustomContent.cs</span>
-<span class="c1">// This type is not a Beamable ContentType, but it'll share its members and functions with its children.</span>
-<span class="na">[System.Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AbstractCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">BaseCustomContent</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/** (...) */</span><span class="w"> </span><span class="p">}</span>
+// AbstractCustomContent.cs
+// This type is not a Beamable ContentType, but it'll share its members and functions with its children.
+[System.Serializable]
+public abstract class AbstractCustomContent : BaseCustomContent { /** (...) */ }
 
-<span class="c1">// Leaf1CustomContent.cs</span>
-<span class="na">[ContentType("leaf1")]</span>
-<span class="na">[System.Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Leaf1CustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AbstractCustomContent</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/** (...) */</span><span class="w"> </span><span class="p">}</span>
+// Leaf1CustomContent.cs
+[ContentType("leaf1")]
+[System.Serializable]
+public class Leaf1CustomContent : AbstractCustomContent { /** (...) */ }
 
-<span class="c1">// Leaf2CustomContent.cs</span>
-<span class="na">[ContentType("leaf2")]</span>
-<span class="na">[System.Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Leaf2CustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AbstractCustomContent</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/** (...) */</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+// Leaf2CustomContent.cs
+[ContentType("leaf2")]
+[System.Serializable]
+public class Leaf2CustomContent : AbstractCustomContent { /** (...) */ }
+</code></pre>
 <h2 id="content-api">Content API<a class="headerlink" href="#content-api" title="Permanent link">¶</a></h2>
 <h3 id="subscribing-to-content-changes">Subscribing to Content Changes<a class="headerlink" href="#subscribing-to-content-changes" title="Permanent link">¶</a></h3>
 <p>The ContentService API allows you to subscribe to content changes on the server. This is useful for dynamically updating content in your game without requiring a full game update.</p>
 <p>You can subscribe to all content changes, or filter by a specific type of content. The example below demonstrates both methods.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<pre><code class="language-csharp">private async void SetupBeamable()
+{
+    var beamContext = BeamContext.Default;
+    await beamContext.OnReady;
 
-<span class="w">    </span><span class="c1">// Fetch All</span>
-<span class="w">    </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ContentService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">clientManifest</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"#1. ContentService, all object count = {clientManifest.entries.Count}"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">});</span>
+    // Fetch All
+    beamContext.Api.ContentService.Subscribe(clientManifest =&gt;
+    {
+        Debug.Log($"#1. ContentService, all object count = {clientManifest.entries.Count}");
+    });
 
-<span class="w">    </span><span class="c1">// Fetch Filtered</span>
-<span class="w">    </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ContentService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="s">"items"</span><span class="p">,</span><span class="w"> </span><span class="n">clientManifest</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"#2. ContentService, filtered 'items' object count = {clientManifest.entries.Count}"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">});</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    // Fetch Filtered
+    beamContext.Api.ContentService.Subscribe("items", clientManifest =&gt;
+    {
+        Debug.Log($"#2. ContentService, filtered 'items' object count = {clientManifest.entries.Count}");
+    });
+}
+</code></pre>
 <p>Beamable supports subscriptions to Content as well as direct references to individual pieces of content. Both of these will allow you to download content from the server as needed.</p>
 <h3 id="contentlink-and-contentref">ContentLink and ContentRef<a class="headerlink" href="#contentlink-and-contentref" title="Permanent link">¶</a></h3>
 <p>Subscriptions use a PlatformSubscription to dynamically read the data on the server, and fire a callback when the data is changed. However, ContentLink and ContentRef are both resolved manually when the data is needed.</p>
@@ -9843,135 +9827,72 @@
 <li><code>ContentRef</code> - Beamable will perform a lazy load to resolve the reference, so a <code>ContentRef</code> can safely be <code>null</code> as long as it is never resolved</li>
 </ul>
 <p>In short, <code>ContentLink</code>s are strict "hard" connections whereas <code>ContentRef</code>s are "soft" or "loose" connections.</p>
-<p>ContentServiceExistingExample.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Inventory</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<p>ContentServiceExistingExample.cs</p>
+<pre><code class="language-csharp">using System;
+using Beamable.Common.Content;
+using Beamable.Common.Inventory;
+using UnityEngine;
 
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.ContentService</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Serializable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ItemLink</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentLink</span><span class="o">&lt;</span><span class="n">ItemContent</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+namespace Beamable.Examples.Services.ContentService
+{
+    [Serializable]
+    public class ItemLink : ContentLink&lt;ItemContent&gt; {}
 
-<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">    </span><span class="c1">/// Demonstrates &lt;see cref="ContentService"/&gt;.</span>
-<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ContentServiceExistingExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">//  Fields  ---------------------------------------</span>
-<span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">ItemLink</span><span class="w"> </span><span class="n">_itemLink</span><span class="p">;</span>
-<span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">ItemRef</span><span class="w"> </span><span class="n">_itemRef</span><span class="p">;</span>
+    /// &lt;summary&gt;
+    /// Demonstrates &lt;see cref="ContentService"/&gt;.
+    /// &lt;/summary&gt;
+    public class ContentServiceExistingExample : MonoBehaviour
+    {
+        //  Fields  ---------------------------------------
+        [SerializeField] private ItemLink _itemLink;
+        [SerializeField] private ItemRef _itemRef;
 
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">ItemContent</span><span class="w"> </span><span class="n">_itemContentFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">ItemContent</span><span class="w"> </span><span class="n">_itemContentFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+        private ItemContent _itemContentFromLink = null;
+        private ItemContent _itemContentFromRef = null;
 
-<span class="w">        </span><span class="c1">//  Unity Methods  --------------------------------</span>
-<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start()"</span><span class="p">);</span>
+        //  Unity Methods  --------------------------------
+        protected void Start()
+        {
+            Debug.Log($"Start()");
 
-<span class="w">            </span><span class="n">SetupBeamable</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
+            SetupBeamable();
+        }
 
-<span class="w">        </span><span class="c1">//  Methods  --------------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+        //  Methods  --------------------------------------
+        private async void SetupBeamable()
+        {
+            var beamContext = BeamContext.Default;
+            await beamContext.OnReady;
 
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"beamContext.PlayerId = {beamContext.PlayerId}"</span><span class="p">);</span>
+            Debug.Log($"beamContext.PlayerId = {beamContext.PlayerId}");
 
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_itemLink</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
-<span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_itemContentFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_itemContentFromLink.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                              </span><span class="s">$"Id = {_itemContentFromLink.Id}"</span><span class="p">);</span>
-<span class="w">                </span><span class="p">})</span>
-<span class="w">                </span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromLink.Resolve() Error!"</span><span class="p">);</span>
-<span class="w">                </span><span class="p">});</span>
+            await _itemLink.Resolve()
+                .Then(content =&gt;
+                {
+                    _itemContentFromLink = content;
+                    Debug.Log($"_itemContentFromLink.Resolve() Success! " +
+                              $"Id = {_itemContentFromLink.Id}");
+                })
+                .Error(ex =&gt;
+                {
+                    Debug.LogError($"_itemContentFromLink.Resolve() Error!");
+                });
 
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_itemRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
-<span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_itemContentFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_itemContentFromRef.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                              </span><span class="s">$"Id = {_itemContentFromRef.Id}"</span><span class="p">);</span>
+            await _itemRef.Resolve()
+                .Then(content =&gt;
+                {
+                    _itemContentFromRef = content;
+                    Debug.Log($"_itemContentFromRef.Resolve() Success! " +
+                              $"Id = {_itemContentFromRef.Id}");
 
-<span class="w">                </span><span class="p">}).</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromRef.Resolve() Error!"</span><span class="p">);</span>
-<span class="w">                </span><span class="p">});</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+                }).Error(ex =&gt;
+                {
+                    Debug.LogError($"_itemContentFromRef.Resolve() Error!");
+                });
+        }
+    }
+}
+</code></pre>
 <div class="admonition info">
 <p class="admonition-title">Best Practices</p>
 <ul>
@@ -9983,111 +9904,68 @@
 </div>
 <h3 id="getmanifest-method">GetManifest Method<a class="headerlink" href="#getmanifest-method" title="Permanent link">¶</a></h3>
 <p>In the SDK, the <code>GetManifest</code> function accepts a filter string, as shown in the example below. You can read more about filters in the Content Management section.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">IList</span><span class="o">&lt;</span><span class="n">IContentObject</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">LoadMyTaggedContent</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">tag</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<pre><code class="language-csharp">public async Promise&lt;IList&lt;IContentObject&gt;&gt; LoadMyTaggedContent(string tag)
+{
+    var ctx = BeamContext.Default;
 
-<span class="w">    </span><span class="c1">// load a manifest that only has content including the request tag</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Content</span><span class="p">.</span><span class="n">GetManifest</span><span class="p">(</span><span class="s">$"tag:{tag}"</span><span class="p">);</span>
+    // load a manifest that only has content including the request tag
+    var manifest = await ctx.Content.GetManifest($"tag:{tag}");
 
-<span class="w">    </span><span class="c1">// resolve all the content in that manifest</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="n">manifest</span><span class="p">.</span><span class="n">ResolveAll</span><span class="p">();</span>
+    // resolve all the content in that manifest
+    var content =  await manifest.ResolveAll();
 
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    return content;
+}
+</code></pre>
 <h3 id="getcontent-method">GetContent Method<a class="headerlink" href="#getcontent-method" title="Permanent link">¶</a></h3>
 <p>Beamable's ContentService has another method that can pull content: GetContent. Since this method will attempt to pull several pieces of content at once, it is often inefficient, however it may be useful depending on the scope of your project.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">contentIdToLoad</span><span class="p">;</span>
+<pre><code class="language-csharp">private string contentIdToLoad;
 
-<span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">GetContent</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rawContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ContentService</span><span class="p">.</span><span class="n">GetContent</span><span class="p">(</span><span class="n">contentIdToLoad</span><span class="p">);</span><span class="w"> </span><span class="c1">//Returns as IContentObject</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rawContent</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ItemContent</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">//content can now be used as ItemContent</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+private async void GetContent()
+{
+    var rawContent = await _beamContext.Api.ContentService.GetContent(contentIdToLoad); //Returns as IContentObject
+    var content = rawContent as ItemContent;
+    //content can now be used as ItemContent
+}
+</code></pre>
 <p>Filter strings do not grant type safety in the SDK, and are more prone to bugs and unintentional filtering. The above sample can be re-written with the <code>ContentQuery</code> class instead of the filter string. The <code>ContentQuery</code> allows the developer to specify constraints in a type safe way and will avoid filter serialization bugs.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">IList</span><span class="o">&lt;</span><span class="n">IContentObject</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">LoadMyTaggedContent</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">tag</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">   </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">   </span><span class="kt">var</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Content</span><span class="p">.</span><span class="n">GetManifest</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ContentQuery</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">     </span><span class="n">TagConstraints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">{</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="p">}</span>
-<span class="w">   </span><span class="p">});</span>
-<span class="w">   </span><span class="kt">var</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="n">manifest</span><span class="p">.</span><span class="n">ResolveAll</span><span class="p">();</span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">public async Promise&lt;IList&lt;IContentObject&gt;&gt; LoadMyTaggedContent(string tag)
+{
+   var ctx = BeamContext.Default;
+   var manifest = await ctx.Content.GetManifest(new ContentQuery
+   {
+     TagConstraints = new HashSet&lt;string&gt;{ tag }
+   });
+   var content =  await manifest.ResolveAll();
+   return content;
+}
+</code></pre>
 <h3 id="content-with-microservices">Content with Microservices<a class="headerlink" href="#content-with-microservices" title="Permanent link">¶</a></h3>
 <p>This 'MyCustomContent.cs' snippet includes the  <code>[Agnostic]</code> attribute. To make content classes available to your microservices, add the attribute to your content classes.</p>
 <p>See <a href="../../../../cloud-services/microservices/microservice-framework/">Microservices</a> for more info.</p>
-<p>MyCustomContent.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Agnostic]</span>
-<span class="na">[ContentType("MyCustomContent")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>MyCustomContent.cs</p>
+<pre><code class="language-csharp">[Agnostic]
+[ContentType("MyCustomContent")]
+public class MyCustomContent : ContentObject { ... }
+</code></pre>
 <h3 id="changing-content-namespaces">Changing Content Namespaces<a class="headerlink" href="#changing-content-namespaces" title="Permanent link">¶</a></h3>
 <p>This sample shows how to switch the default content namespace to "tuna" before resolving a <code>CurrencyRef</code>.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tester</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">CurrencyRef</span><span class="w"> </span><span class="n">currency</span><span class="p">;</span>
+<pre><code class="language-csharp">public class Tester : MonoBehaviour
+{
+    public CurrencyRef currency;
 
-<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+    async void Start()
+    {
+        var ctx = BeamContext.Default;
 
-<span class="w">        </span><span class="n">ctx</span><span class="p">.</span><span class="n">Content</span><span class="p">.</span><span class="n">GetContent</span><span class="p">(</span><span class="n">content</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="s">"tuna"</span><span class="p">);</span>
+        ctx.Content.GetContent(content.Id, "tuna");
 
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ContentService</span><span class="p">)</span><span class="n">ctx</span><span class="p">.</span><span class="n">Content</span><span class="p">;</span>
-<span class="w">        </span><span class="n">service</span><span class="p">.</span><span class="n">SwitchDefaultManifestID</span><span class="p">(</span><span class="s">"tuna"</span><span class="p">);</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">currency</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+        var service = (ContentService)ctx.Content;
+        service.SwitchDefaultManifestID("tuna");
+        var content = await currency.Resolve();
+    }
+}
+</code></pre>
 <h2 id="content-management">Content Management<a class="headerlink" href="#content-management" title="Permanent link">¶</a></h2>
 <p>Content management is critical to keep the content in your game engaging and reactive, and Beamable provides a number of content management tools. This is a mixture of solutions within the "Beamable SDK for Unity" and Rest API calls. In addition Beamable provides some extended tools that integrate with Google Sheets as a plugin.</p>
 <p>Beamable provides a streamlined Content Publishing pipeline. You can deploy your content across multiple environments that can be tailored to your own internal publishing workflow.</p>
@@ -10097,12 +9975,12 @@
 <h3 id="storage-location-of-content-types-and-content-live-refresh">Storage Location of Content Types and Content Live Refresh<a class="headerlink" href="#storage-location-of-content-types-and-content-live-refresh" title="Permanent link">¶</a></h3>
 <p>One of the main benefits of our content system is that, when you hit publish and the content updates, we will automatically refresh that content on each game client via a server-to-client message. This allows for the system to be incredibly interactive at development time as well as allowing for over the air updates to players who are playing in "Production" after a content promotion.</p>
 <p>While using the Content Manager Editor (Unity Editor) it will be saved locally to your project in the following location:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">/</span><span class="n">Assets</span><span class="o">/</span><span class="n">Beamable</span><span class="o">/</span><span class="n">Editor</span><span class="o">/</span><span class="n">content</span><span class="o">/</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">/Assets/Beamable/Editor/content/
+</code></pre>
 <p>On client builds for devices, the development location is not included in the built game project. Instead, when the player loads the game, a fresh copy of all content is retrieved from the Beamable backend and stored on device. This allows Beamable to serve <em>dynamic</em> content to the game project. By default, this is a lazy loading operation. Each of Beamable's feature prefabs show a loading progress indicator UI automatically.</p>
 <p>Content is stored on device within Unity's <a href="https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html"><code>Application.persistentDataPath</code></a>.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="n">Application</span><span class="p">.</span><span class="n">persistentDataPath</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">$"/content/{contentId}.json"</span><span class="p">;</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp"> Application.persistentDataPath + $"/content/{contentId}.json";
+</code></pre>
 <h3 id="content-caching">Content Caching<a class="headerlink" href="#content-caching" title="Permanent link">¶</a></h3>
 <p>Content is cached by the client and stored both in memory and persisted to disk. When content is updated on our backend, Beamable updates a client manifest and push it to all clients to invalidate and update the cache.</p>
 <p>See source code of <code>Runtime/DisruptorEngine/Content/ContentCache.cs</code> for more info.</p>

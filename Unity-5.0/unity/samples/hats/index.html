@@ -4390,6 +4390,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9490,118 +9518,70 @@
 <p><strong>Multiplayer Game Simulation</strong></p>
 <p>HATS uses a deterministic simulation networking model. All network messages (<code>HatsGameMessage</code>) are broadcast to every client and fed into a local per-client instance of <code>GameSimulation</code>. The simulation, in turn, locally generates a series of <code>HatsGameEvent</code> to be consumed by MonoBehaviours that manage graphics and audio per GameObjects,</p>
 <p><code>SpawnEventHandler</code>, for instance, instantiates a new player GameObject when receiving a <code>PlayerSpawnEvent</code>;</p>
-<p>SpawnEventHandler.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="n">IEnumerator</span><span class="w"> </span><span class="nf">HandleSpawnEvent</span><span class="p">(</span><span class="n">PlayerSpawnEvent</span><span class="w"> </span><span class="n">evt</span><span class="p">,</span><span class="w"> </span><span class="n">Action</span><span class="w"> </span><span class="n">callback</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Spawning player "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">evt</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">dbid</span><span class="p">);</span>
-<span class="w">    </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">playerGob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instantiate</span><span class="p">(</span><span class="n">playerPrefab</span><span class="p">,</span><span class="w"> </span><span class="n">GameProcessor</span><span class="p">.</span><span class="n">BattleGridBehaviour</span><span class="p">.</span><span class="n">Grid</span><span class="p">.</span><span class="n">transform</span><span class="p">);</span>
-<span class="w">    </span><span class="n">playerGob</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="n">GameProcessor</span><span class="p">,</span><span class="w"> </span><span class="n">evt</span><span class="p">.</span><span class="n">Player</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">localPosition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameProcessor</span><span class="p">.</span><span class="n">BattleGridBehaviour</span><span class="p">.</span><span class="n">Grid</span><span class="p">.</span><span class="n">CellToLocal</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">Position</span><span class="p">);</span>
-<span class="w">    </span><span class="n">playerGob</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">localPosition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">localPosition</span><span class="p">;</span>
-<span class="w">    </span><span class="n">callback</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>SpawnEventHandler.cs</p>
+<pre><code class="language-csharp">public override IEnumerator HandleSpawnEvent(PlayerSpawnEvent evt, Action callback)
+{
+    Debug.Log("Spawning player " + evt.Player.dbid);
+    yield return null;
+    var playerGob = Instantiate(playerPrefab, GameProcessor.BattleGridBehaviour.Grid.transform);
+    playerGob.Setup(GameProcessor, evt.Player);
+    var localPosition = GameProcessor.BattleGridBehaviour.Grid.CellToLocal(evt.Position);
+    playerGob.transform.localPosition = localPosition;
+    callback();
+}
+</code></pre>
 <p>Local player input is captured and converted to network messages via <code>PlayerMoveBuilder</code>:</p>
-<p>PlayerMoveBuilder.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CommitMove</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">moveBuilderState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PlayerMoveBuilderState</span><span class="p">.</span><span class="n">COMMITTED</span><span class="p">;</span>
-<span class="w">    </span><span class="n">NetworkDriver</span><span class="p">.</span><span class="n">DeclareLocalPlayerAction</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">HatsPlayerMove</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Dbid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PlayerDbid</span><span class="p">,</span>
-<span class="w">        </span><span class="n">TurnNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameProcessor</span><span class="p">.</span><span class="n">Simulation</span><span class="p">.</span><span class="n">CurrentTurn</span><span class="p">,</span>
-<span class="w">        </span><span class="n">Direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MoveDirection</span><span class="p">,</span>
-<span class="w">        </span><span class="n">MoveType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MoveType</span>
-<span class="w">    </span><span class="p">});</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>PlayerMoveBuilder.cs</p>
+<pre><code class="language-csharp">public void CommitMove()
+{
+    moveBuilderState = PlayerMoveBuilderState.COMMITTED;
+    NetworkDriver.DeclareLocalPlayerAction(new HatsPlayerMove
+    {
+        Dbid = PlayerDbid,
+        TurnNumber = GameProcessor.Simulation.CurrentTurn,
+        Direction = MoveDirection,
+        MoveType = MoveType
+    });
+}
+</code></pre>
 <p><em>Keep in mind that <strong>all</strong> messages are broadcast to <strong>every</strong> client, including the one that sent the message in the first place.</em></p>
 <p>The <code>GameProcessor</code> spins up the game simulation (<code>GameSimulation</code>) and the network layer (<code>MultiplayerGameDriver</code>), wiring them together:</p>
-<p>GameProcessor.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">StartGame</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dbids</span><span class="p">,</span><span class="w"> </span><span class="n">BotProfileContent</span><span class="w"> </span><span class="n">botProfileContent</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">messageQueue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MultiplayerGameDriver</span><span class="p">.</span><span class="n">Init</span><span class="p">(</span><span class="n">roomId</span><span class="p">,</span><span class="w"> </span><span class="n">framesPerSecond</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span><span class="p">());</span>
+<p>GameProcessor.cs</p>
+<pre><code class="language-csharp">public void StartGame(List&lt;long&gt; dbids, BotProfileContent botProfileContent)
+{
+    var messageQueue = MultiplayerGameDriver.Init(roomId, framesPerSecond, new List&lt;long&gt;());
 
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">players</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dbids</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">dbid</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HatsPlayer</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">dbid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dbid</span>
-<span class="w">    </span><span class="p">}).</span><span class="n">ToList</span><span class="p">();</span>
+    var players = dbids.Select(dbid =&gt; new HatsPlayer
+    {
+        dbid = dbid
+    }).ToList();
 
-<span class="w">    </span><span class="n">Simulation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GameSimulation</span><span class="p">(</span><span class="n">BattleGridBehaviour</span><span class="p">.</span><span class="n">BattleGrid</span><span class="p">,</span><span class="w"> </span><span class="n">framesPerSecond</span><span class="p">,</span><span class="w"> </span><span class="n">_configuration</span><span class="p">,</span><span class="w"> </span><span class="n">players</span><span class="p">,</span><span class="w"> </span><span class="n">botProfileContent</span><span class="p">,</span><span class="w"> </span><span class="n">roomId</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">(),</span><span class="w"> </span><span class="n">messageQueue</span><span class="p">);</span>
-<span class="w">    </span><span class="n">BattleGridBehaviour</span><span class="p">.</span><span class="n">SetupInitialTileChanges</span><span class="p">();</span>
-<span class="w">    </span><span class="n">StartCoroutine</span><span class="p">(</span><span class="n">PlayGame</span><span class="p">());</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+    Simulation = new GameSimulation(BattleGridBehaviour.BattleGrid, framesPerSecond, _configuration, players, botProfileContent, roomId.GetHashCode(), messageQueue);
+    BattleGridBehaviour.SetupInitialTileChanges();
+    StartCoroutine(PlayGame());
+}
+</code></pre>
 <p>It continuously relays game events to local handlers:</p>
-<p>GameProcessor.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">evt</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">Simulation</span><span class="p">.</span><span class="n">PlayGame</span><span class="p">())</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">currentTurn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Simulation</span><span class="p">.</span><span class="n">CurrentTurn</span><span class="p">;</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">evt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">        </span><span class="k">continue</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
+<p>GameProcessor.cs</p>
+<pre><code class="language-csharp">foreach (var evt in Simulation.PlayGame())
+{
+    currentTurn = Simulation.CurrentTurn;
+    if (evt == null)
+    {
+        yield return null;
+        continue;
+    }
 
-<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">evt</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">PlayerSpawnEvent</span><span class="w"> </span><span class="n">spawnEvt</span><span class="p">:</span>
-<span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">EventHandlers</span><span class="p">.</span><span class="n">Handle</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">spawnEvt</span><span class="p">,</span><span class="w"> </span><span class="n">handler</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">handler</span><span class="p">.</span><span class="n">HandleSpawnEvent</span><span class="p">);</span>
-<span class="w">            </span><span class="k">break</span><span class="p">;</span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">PlayerMoveEvent</span><span class="w"> </span><span class="n">moveEvt</span><span class="p">:</span>
-<span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">EventHandlers</span><span class="p">.</span><span class="n">Handle</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">moveEvt</span><span class="p">,</span><span class="w"> </span><span class="n">handler</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">handler</span><span class="p">.</span><span class="n">HandleMoveEvent</span><span class="p">);</span>
-<span class="w">            </span><span class="k">break</span><span class="p">;</span>
-<span class="p">...</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+    switch (evt)
+    {
+        case PlayerSpawnEvent spawnEvt:
+            yield return EventHandlers.Handle(this, spawnEvt, handler =&gt; handler.HandleSpawnEvent);
+            break;
+        case PlayerMoveEvent moveEvt:
+            yield return EventHandlers.Handle(this, moveEvt, handler =&gt; handler.HandleMoveEvent);
+            break;
+...
+</code></pre>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/hats-multiplayer-diagram.svg" data-desc-position="bottom"><img alt="HATS Multiplayer Diagram" src="../../../media/imgs/hats-multiplayer-diagram.svg"></a></p>
 <p><strong>Leaderboard</strong></p>
 <div class="admonition info">
@@ -9610,15 +9590,14 @@
 <p>• <a href="../../user-reference/beamable-services/social-networking/leaderboards/">Leaderboards</a> - Display and update per-game leaderboards</p>
 </div>
 <p>Leaderboard-related functionality is handled via <code>LeaderboardScreenController</code>. It retrieves the current leaderboard in one essential call to Beamable's leaderboard SDK:</p>
-<p>LeaderboardScreenController.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">LeaderboardService</span><span class="p">.</span><span class="n">GetBoard</span><span class="p">(</span><span class="n">LeaderboardRef</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="n">focus</span><span class="p">:</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>LeaderboardScreenController.cs</p>
+<pre><code class="language-csharp">view = await beamable.LeaderboardService.GetBoard(LeaderboardRef, 0, 50, focus: beamable.User.id);
+</code></pre>
 <p>In <code>GameOverController</code>, the winning player updates the leaderboard when receiving a <code>GameOverEvent</code>:</p>
-<p>GameOverController.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isWinner</span><span class="p">)</span>
-<span class="w">    </span><span class="n">_beamableAPI</span><span class="p">.</span><span class="n">LeaderboardService</span><span class="p">.</span><span class="n">IncrementScore</span><span class="p">(</span><span class="n">_leaderboardRef</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>GameOverController.cs</p>
+<pre><code class="language-csharp">if (isWinner)
+    _beamableAPI.LeaderboardService.IncrementScore(_leaderboardRef.Id, 1);
+</code></pre>
 <p><strong>Inventory</strong></p>
 <div class="admonition info">
 <p class="admonition-title">Related Guides</p>
@@ -9626,46 +9605,29 @@
 <p>• <a href="../../user-reference/beamable-services/game-economy/inventory-overview/">Inventory</a> - Define player inventory and offer items in a store</p>
 </div>
 <p>HATS offers players to buy characters and hats, both being purely decorative items without any effect on gameplay. Players need to earn Gems to buy these items. All items are subtypes of Beamable's <code>ItemContent</code> and are managed by the <a href="../../user-reference/beamable-services/profile-storage/content/content-overview/">Beamable Content Manager</a>. Transactions and available shop listings are handled by <code>CharacterPanelController</code>, going hand in hand with <code>PlayerInventory</code>:</p>
-<p>CharacterPanelController.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">PopulateCharacterShop</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">beamable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Beamable</span><span class="p">.</span><span class="n">API</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">shop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">CommerceService</span><span class="p">.</span><span class="n">GetCurrent</span><span class="p">(</span><span class="n">CharacterShopRef</span><span class="p">.</span><span class="n">Id</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">playerCharacters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">PlayerInventory</span><span class="p">.</span><span class="n">GetAvailableCharacters</span><span class="p">();</span>
-<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">listing</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">shop</span><span class="p">.</span><span class="n">listings</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">itemContentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listing</span><span class="p">.</span><span class="n">offer</span><span class="p">.</span><span class="n">obtainItems</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">contentId</span><span class="p">;</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">hasCharacterAlready</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">playerCharacters</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="n">character</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">character</span><span class="p">.</span><span class="n">Id</span><span class="p">.</span><span class="n">Equals</span><span class="p">(</span><span class="n">itemContentId</span><span class="p">));</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasCharacterAlready</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span><span class="w"> </span><span class="c1">// skip this listing because the player already owns the take</span>
-<span class="w">        </span><span class="p">...</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p>PlayerInventory.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">CharacterContent</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">GetAvailableCharacters</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">beamable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Beamable</span><span class="p">.</span><span class="n">API</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">InventoryService</span><span class="p">.</span><span class="n">GetItems</span><span class="o">&lt;</span><span class="n">CharacterContent</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">    </span><span class="p">...</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>CharacterPanelController.cs</p>
+<pre><code class="language-csharp">public async Task PopulateCharacterShop()
+{
+    var beamable = await Beamable.API.Instance;
+    var shop = await beamable.CommerceService.GetCurrent(CharacterShopRef.Id);
+    var playerCharacters = await PlayerInventory.GetAvailableCharacters();
+    foreach (var listing in shop.listings)
+    {
+        var itemContentId = listing.offer.obtainItems[0].contentId;
+        var hasCharacterAlready = playerCharacters.Any(character =&gt; character.Id.Equals(itemContentId));
+        if (hasCharacterAlready) continue; // skip this listing because the player already owns the take
+        ...
+    }
+}
+</code></pre>
+<p>PlayerInventory.cs</p>
+<pre><code class="language-csharp">public static async Task&lt;List&lt;CharacterContent&gt;&gt; GetAvailableCharacters()
+{
+    var beamable = await Beamable.API.Instance;
+    var characters = await beamable.InventoryService.GetItems&lt;CharacterContent&gt;();
+    ...
+}
+</code></pre>
 <h2 id="additional-experiments">Additional Experiments<a class="headerlink" href="#additional-experiments" title="Permanent link">¶</a></h2>
 <p>Here are some optional experiments game makers can complete in the sample project.</p>
 <p>Did you complete all the experiments with success? We'd love to hear about it. <a href="https://www.beamable.com/contact-us">Contact us</a>.</p>
@@ -9723,63 +9685,36 @@
 <p>For HATS, a single catch-all GameType is used, allowing the player to play against up to three bots <strong>or</strong> other human contenders, waiting 10 seconds until the match starts.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/hats-catch-all-game-type.png" data-desc-position="bottom"><img alt="HATS Catch-All Game Type" src="../../../media/imgs/hats-catch-all-game-type.png"></a></p>
 <p><code>MatchmakingBehaviour</code> handles all Matchmaking-related functionality. As soon as a match is found, the 'Scene02Game' scene is loaded:</p>
-<p>MatchmakingBehaviour.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">MatchmakingHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_api</span><span class="p">.</span><span class="n">Experimental</span><span class="p">.</span><span class="n">MatchmakingService</span><span class="p">.</span><span class="n">StartMatchmaking</span><span class="p">(</span>
-<span class="w">    </span><span class="n">GameTypeRef</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span>
-<span class="w">    </span><span class="n">maxWait</span><span class="p">:</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromSeconds</span><span class="p">(</span><span class="n">_configuration</span><span class="p">.</span><span class="n">OverrideMaxMatchmakingTimeout</span><span class="p">),</span>
-<span class="w">    </span><span class="n">updateHandler</span><span class="p">:</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// No updates available at the moment when searching a match.</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="n">readyHandler</span><span class="p">:</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span><span class="p">(</span><span class="n">handle</span><span class="p">.</span><span class="n">State</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MatchmakingState</span><span class="p">.</span><span class="n">Ready</span><span class="p">);</span>
+<p>MatchmakingBehaviour.cs</p>
+<pre><code class="language-csharp">MatchmakingHandle = await _api.Experimental.MatchmakingService.StartMatchmaking(
+    GameTypeRef.Id,
+    maxWait: TimeSpan.FromSeconds(_configuration.OverrideMaxMatchmakingTimeout),
+    updateHandler: handle =&gt;
+    {
+        // No updates available at the moment when searching a match.
+    },
+    readyHandler: handle =&gt;
+    {
+        Debug.Assert(handle.State == MatchmakingState.Ready);
 
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">dbids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MatchmakingHandle</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">Players</span><span class="p">;</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">gameId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MatchmakingHandle</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">GameId</span><span class="p">;</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">matchId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">handle</span><span class="p">.</span><span class="n">Match</span><span class="p">.</span><span class="n">matchId</span><span class="p">;</span>
+        var dbids = MatchmakingHandle.Status.Players;
+        var gameId = MatchmakingHandle.Status.GameId;
+        var matchId = handle.Match.matchId;
 
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Match is ready! Found matchID={matchId} gameId={gameId}"</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Starting match with DBIDs={string.Join("</span><span class="p">,</span><span class="s">", dbids.ToArray())}"</span><span class="p">);</span>
+        Debug.Log($"Match is ready! Found matchID={matchId} gameId={gameId}");
+        Debug.Log($"Starting match with DBIDs={string.Join(",", dbids.ToArray())}");
 
-<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dbidsAsLong</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dbids</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">long</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">i</span><span class="p">)).</span><span class="n">ToList</span><span class="p">();</span>
-<span class="w">        </span><span class="n">HatsScenes</span><span class="p">.</span><span class="n">LoadGameScene</span><span class="p">(</span><span class="n">gameId</span><span class="p">,</span><span class="w"> </span><span class="n">dbidsAsLong</span><span class="p">);</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="n">timeoutHandler</span><span class="p">:</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Matchmaking timed out! state={handle.State}"</span><span class="p">);</span>
-<span class="w">        </span><span class="n">IsSearching</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-<span class="w">        </span><span class="n">OnTimedOut</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+        List&lt;long&gt; dbidsAsLong = dbids.Select(i =&gt; long.Parse(i)).ToList();
+        HatsScenes.LoadGameScene(gameId, dbidsAsLong);
+    },
+    timeoutHandler: handle =&gt;
+    {
+        Debug.Log($"Matchmaking timed out! state={handle.State}");
+        IsSearching = false;
+        OnTimedOut?.Invoke();
+    }
+);
+</code></pre>
 <h2 id="game-security">Game Security<a class="headerlink" href="#game-security" title="Permanent link">¶</a></h2>
 <p>See <a href="../../user-reference/beamable-services/social-networking/multiplayer/">Multiplayer</a> for more info.</p>
 <h2 id="playing-against-yourself">Playing "Against Yourself"<a class="headerlink" href="#playing-against-yourself" title="Permanent link">¶</a></h2>

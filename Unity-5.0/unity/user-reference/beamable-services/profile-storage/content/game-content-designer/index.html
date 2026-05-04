@@ -4632,6 +4632,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9704,167 +9732,98 @@
 </ul>
 <p>For all the following examples, we assume that the export type is set as <strong>List</strong>. This represents the typical common setup.</p>
 <p><strong>Basic Object</strong></p>
-<p><strong>Input:</strong>
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>symbol | data | other_data
+<p><strong>Input:</strong></p>
+<pre><code>symbol | data | other_data
 A2     | B2   | C2
 A3     | B3   | C3
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Output:</strong>
-</p><div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"__README"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Readme here ... "</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"BasicObject"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A2"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B2"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"other_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C2"</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A3"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B3"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"other_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C3"</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code class="language-json">{
+  "__README": "Readme here ... ",
+  "BasicObject": [
+    {
+      "symbol": "A2",
+      "data": "B2",
+      "other_data": "C2"
+    },
+    {
+      "symbol": "A3",
+      "data": "B3",
+      "other_data": "C3"
+    }
+  ]
+}
+</code></pre>
 <p><strong>Basic Object With Comment</strong></p>
 <p>To write a comment, or have an empty row for whatever reason, just add a '#' to the start of the row. This will tell the exporter to act like the row doesn't even exist.</p>
-<p><strong>Input:</strong>
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>symbol | data | other_data
+<p><strong>Input:</strong></p>
+<pre><code>symbol | data | other_data
 A2     | B2   | C2
 #      |      |
 A4     | B4   | C4
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Output:</strong>
-</p><div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"__README"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Readme text ... "</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"BasicObjectWithComment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A2"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B2"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"other_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C2"</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A4"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B4"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"other_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C4"</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code class="language-json">{
+  "__README": "Readme text ... ",
+  "BasicObjectWithComment": [
+    {
+      "symbol": "A2",
+      "data": "B2",
+      "other_data": "C2"
+    },
+    {
+      "symbol": "A4",
+      "data": "B4",
+      "other_data": "C4"
+    }
+  ]
+}
+</code></pre>
 <p><strong>Complex Object</strong></p>
 <p>Adding a dot '.' to a path, creates a more complex object. Multiple columns can map to the same object with different fields.</p>
 <p>These can be as deep as needed.</p>
-<p><strong>Input:</strong>
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>symbol | data | object.one | object.two | deep.foo | deep.child.bar | deep.child.delta
+<p><strong>Input:</strong></p>
+<pre><code>symbol | data | object.one | object.two | deep.foo | deep.child.bar | deep.child.delta
 A2     | B2   | C2         | D2         | E2       | F2             | G2
 A3     | B3   | C3         | D3         | E3       | F3             | G3
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Output:</strong>
-</p><div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"__README"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Readme text ..."</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"ComplexObject"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A2"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B2"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"one"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C2"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"two"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D2"</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">"deep"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"child"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"bar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F2"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"delta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"G2"</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A3"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B3"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"one"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C3"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"two"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D3"</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">"deep"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E3"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"child"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"bar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F3"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"delta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"G3"</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code class="language-json">{
+  "__README": "Readme text ...",
+  "ComplexObject": [
+    {
+      "symbol": "A2",
+      "data": "B2",
+      "object": {
+        "one": "C2",
+        "two": "D2"
+      },
+      "deep": {
+        "foo": "E2",
+        "child": {
+          "bar": "F2",
+          "delta": "G2"
+        }
+      }
+    },
+    {
+      "symbol": "A3",
+      "data": "B3",
+      "object": {
+        "one": "C3",
+        "two": "D3"
+      },
+      "deep": {
+        "foo": "E3",
+        "child": {
+          "bar": "F3",
+          "delta": "G3"
+        }
+      }
+    }
+  ]
+}
+</code></pre>
 <div class="admonition warning">
 <p class="admonition-title">Important Notes</p>
 <p>Here are some common issues and solutions:</p>
@@ -9901,48 +9860,30 @@ A3     | B3   | C3         | D3         | E3       | F3             | G3
 <h2 id="using-the-data">Using the Data<a class="headerlink" href="#using-the-data" title="Permanent link">¶</a></h2>
 <p>In the end, GCD generates properly formatted JSON. It does not prescribe a delivery mechanism. The system is flexible to how game makers choose to use the data in the game project.</p>
 <p>For example, here is a Google Sheet with GCD used to configure the following data set:</p>
-<p><strong>Input:</strong>
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>Weapons[].Name | Weapons[].Damage
+<p><strong>Input:</strong></p>
+<pre><code>Weapons[].Name | Weapons[].Damage
 Sword          | 20
 Dagger         | 5
 Spear          | 30
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Output:</strong>
-</p><div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"Weapons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sword"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"Damage"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dagger"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"Damage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spear"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"Damage"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code class="language-json">{
+  "Weapons": [
+    {
+      "Name": "Sword",
+      "Damage": 20
+    },
+    {
+      "Name": "Dagger",
+      "Damage": 5
+    },
+    {
+      "Name": "Spear",
+      "Damage": 30
+    }
+  ]
+}
+</code></pre>
 <p>Here are 3 popular usage techniques.</p>
 <h4 id="loading-json-from-local-storage">Loading JSON from local storage<a class="headerlink" href="#loading-json-from-local-storage" title="Permanent link">¶</a></h4>
 <p>The game maker exports the data to flat files, adds them to the Unity project, and loads them <strong>locally</strong> as needed.</p>
@@ -10015,89 +9956,49 @@ Spear          | 30
 </tbody>
 </table>
 <p><strong>Sample Code</strong></p>
-<p>GameContentDesignerDemo_Json.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<p>GameContentDesignerDemo_Json.cs</p>
+<pre><code class="language-csharp">using UnityEngine;
 
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Labs.GameContentDesigner.Json</span>
-<span class="p">{</span>
-<span class="w">   </span><span class="na">[System.Serializable]</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeaponJson</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">;</span>
-<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Damage</span><span class="p">;</span>
-<span class="w">   </span><span class="p">}</span>
+namespace Beamable.Examples.Labs.GameContentDesigner.Json
+{
+   [System.Serializable]
+   public class WeaponJson
+   {
+      public string Name;
+      public string Damage;
+   }
 
-<span class="w">   </span><span class="na">[System.Serializable]</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeaponsJson</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="n">WeaponJson</span><span class="p">[]</span><span class="w"> </span><span class="n">Weapons</span><span class="p">;</span>
-<span class="w">   </span><span class="p">}</span>
+   [System.Serializable]
+   public class WeaponsJson
+   {
+      public WeaponJson[] Weapons;
+   }
 
-<span class="w">   </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">   </span><span class="c1">/// Demonstrates &lt;see cref="GameContentDesignerDemo"/&gt;.</span>
-<span class="w">   </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GameContentDesignerDemo_Json</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="c1">//  Fields  ---------------------------------------</span>
+   /// &lt;summary&gt;
+   /// Demonstrates &lt;see cref="GameContentDesignerDemo"/&gt;.
+   /// &lt;/summary&gt;
+   public class GameContentDesignerDemo_Json : MonoBehaviour
+   {
+      //  Fields  ---------------------------------------
 
-<span class="w">      </span><span class="na">[SerializeField]</span>
-<span class="w">      </span><span class="k">private</span><span class="w"> </span><span class="n">TextAsset</span><span class="w"> </span><span class="n">_weaponsJson</span><span class="p">;</span>
+      [SerializeField]
+      private TextAsset _weaponsJson;
 
-<span class="w">      </span><span class="c1">//  Unity Methods  --------------------------------</span>
-<span class="w">      </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">      </span><span class="p">{</span>
-<span class="w">         </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start()"</span><span class="p">);</span>
+      //  Unity Methods  --------------------------------
+      protected void Start()
+      {
+         Debug.Log($"Start()");
 
-<span class="w">         </span><span class="n">WeaponsJson</span><span class="w"> </span><span class="n">weapons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonUtility</span><span class="p">.</span><span class="n">FromJson</span><span class="o">&lt;</span><span class="n">WeaponsJson</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_weaponsJson</span><span class="p">.</span><span class="n">text</span><span class="p">);</span>
+         WeaponsJson weapons = JsonUtility.FromJson&lt;WeaponsJson&gt;(_weaponsJson.text);
 
-<span class="w">         </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">WeaponJson</span><span class="w"> </span><span class="n">weapon</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">weapons</span><span class="p">.</span><span class="n">Weapons</span><span class="p">)</span>
-<span class="w">         </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"weapon.Name = {weapon.Name}, weapon.Damage = {weapon.Damage}"</span><span class="p">);</span>
-<span class="w">         </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+         foreach (WeaponJson weapon in weapons.Weapons)
+         {
+            Debug.Log($"weapon.Name = {weapon.Name}, weapon.Damage = {weapon.Damage}");
+         }
+      }
+   }
+}
+</code></pre>
 <h4 id="using-beamable-sdk">Using Beamable SDK<a class="headerlink" href="#using-beamable-sdk" title="Permanent link">¶</a></h4>
 <p>Beamable is optional for GCD. However, to complete <strong>this</strong> specific usage option, the Beamable SDK and a Beamable license are required.</p>
 <p><strong>Pros</strong>
@@ -10138,103 +10039,56 @@ Spear          | 30
 </tr>
 </tbody>
 </table>
-<p>GameContentDesignerDemo_Content.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<p>GameContentDesignerDemo_Content.cs</p>
+<pre><code class="language-csharp">using Beamable.Common.Content;
+using UnityEngine;
 
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Labs.GameContentDesignerDemo.Content</span>
-<span class="p">{</span>
-<span class="w">   </span><span class="na">[ContentType("gcd_weapon")]</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GCDWeapon</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">;</span>
-<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Damage</span><span class="p">;</span>
-<span class="w">   </span><span class="p">}</span>
+namespace Beamable.Examples.Labs.GameContentDesignerDemo.Content
+{
+   [ContentType("gcd_weapon")]
+   public class GCDWeapon : ContentObject
+   {
+      public string Name;
+      public string Damage;
+   }
 
-<span class="w">   </span><span class="na">[ContentType("gcd_weapons")]</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GCDWeapons</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="n">WeaponContentRef</span><span class="p">[]</span><span class="w"> </span><span class="n">WeaponContentRefs</span><span class="p">;</span>
-<span class="w">   </span><span class="p">}</span>
+   [ContentType("gcd_weapons")]
+   public class GCDWeapons : ContentObject
+   {
+      public WeaponContentRef[] WeaponContentRefs;
+   }
 
-<span class="w">   </span><span class="na">[System.Serializable]</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeaponContentRef</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentRef</span><span class="o">&lt;</span><span class="n">GCDWeapon</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+   [System.Serializable]
+   public class WeaponContentRef : ContentRef&lt;GCDWeapon&gt; { }
 
-<span class="w">   </span><span class="na">[System.Serializable]</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeaponsContentRef</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentRef</span><span class="o">&lt;</span><span class="n">GCDWeapons</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+   [System.Serializable]
+   public class WeaponsContentRef : ContentRef&lt;GCDWeapons&gt; { }
 
-<span class="w">   </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">   </span><span class="c1">/// Demonstrates &lt;see cref="GameContentDesignerDemo"/&gt;.</span>
-<span class="w">   </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GameContentDesignerDemo_Content</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="c1">//  Fields  ---------------------------------------</span>
-<span class="w">      </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">WeaponsContentRef</span><span class="w"> </span><span class="n">_weaponsContentRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+   /// &lt;summary&gt;
+   /// Demonstrates &lt;see cref="GameContentDesignerDemo"/&gt;.
+   /// &lt;/summary&gt;
+   public class GameContentDesignerDemo_Content : MonoBehaviour
+   {
+      //  Fields  ---------------------------------------
+      [SerializeField] private WeaponsContentRef _weaponsContentRef = null;
 
-<span class="w">      </span><span class="c1">//  Unity Methods   -------------------------------</span>
-<span class="w">      </span><span class="k">protected</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">      </span><span class="p">{</span>
-<span class="w">         </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start()"</span><span class="p">);</span>
+      //  Unity Methods   -------------------------------
+      protected async void Start()
+      {
+         Debug.Log($"Start()");
 
-<span class="w">         </span><span class="n">GCDWeapons</span><span class="w"> </span><span class="n">weaponsContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_weaponsContentRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
+         GCDWeapons weaponsContent = await _weaponsContentRef.Resolve();
 
-<span class="w">         </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">WeaponContentRef</span><span class="w"> </span><span class="n">weaponContentRef</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">weaponsContent</span><span class="p">.</span><span class="n">WeaponContentRefs</span><span class="p">)</span>
-<span class="w">         </span><span class="p">{</span>
-<span class="w">            </span><span class="n">GCDWeapon</span><span class="w"> </span><span class="n">weapon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">weaponContentRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
+         foreach (WeaponContentRef weaponContentRef in weaponsContent.WeaponContentRefs)
+         {
+            GCDWeapon weapon = await weaponContentRef.Resolve();
 
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"weapon.Name = {weapon.Name}, weapon.Damage = {weapon.Damage}"</span><span class="p">);</span>
-<span class="w">         </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+            Debug.Log($"weapon.Name = {weapon.Name}, weapon.Damage = {weapon.Damage}");
+         }
+      }
+   }
+}
+</code></pre>
 <h2 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link">¶</a></h2>
 <p>Mouse over a schema header to reveal the <strong>cell notes</strong>. Notes store the column metadata.</p>
 <ul>

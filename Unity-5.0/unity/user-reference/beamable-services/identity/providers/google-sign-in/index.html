@@ -4638,6 +4638,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9642,8 +9670,8 @@
 <p><strong>Record the KeyStore SHA-1 Fingerprint</strong></p>
 <ul>
 <li>Open a terminal where you created the keystore and run:
-   <div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>keytool<span class="w"> </span>-list<span class="w"> </span>-v<span class="w"> </span>-keystore<span class="w"> </span>&lt;your.keystore&gt;
-</code></pre></div></td></tr></tbody></table></div></li>
+   <code>bash
+   keytool -list -v -keystore &lt;your.keystore&gt;</code></li>
 <li>Look for the SHA-1 fingerprint in the output and save it</li>
 <li>If you do not have <code>keytool</code> installed, follow <a href="https://stackoverflow.com/questions/5488339/how-can-i-find-and-run-the-keytool">the instructions for finding and running keytool</a> after installing Java on your machine</li>
 </ul>
@@ -9690,16 +9718,13 @@
 <li>Look for the <code>dependencies</code> block</li>
 <li>Add <code>play-services-auth</code> as shown below:</li>
 </ul>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>dependencies {
+<pre><code class="language-gradle">dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.google.android.gms:play-services-auth:21.5.0'
     **DEPS**
 }
-</code></pre></div></td></tr></tbody></table></div>
+
+</code></pre>
 <hr>
 <h3 id="additional-ios-setup">Additional iOS Setup<a class="headerlink" href="#additional-ios-setup" title="Permanent link">¶</a></h3>
 <p>When using Google Sign-In on Apple, the Login Flow depends on version 5 of Google's Sign-In SDK framework for iOS. Enabling sign-in on iOS also requires first-time setup regarding a custom URL scheme specific to your Google Cloud App, including overriding the <code>openURL</code> method on <code>UnityAppController</code>.</p>
@@ -9729,136 +9754,79 @@
 <p>The response from the Google Sign-In flow on Apple uses the custom <strong>Supported URL Scheme</strong>. This requires that the app delegate (<code>UnityAppController</code>) implement the <code>openURL</code> method. Using <strong>swizzling</strong>, we can define a new method and exchange implementations at runtime.</p>
 <p>Place both <code>GoogleSignInAppController.h</code> and <code>GoogleSignInAppController.mm</code> within a <code>Plugins/iOS</code> folder in your Unity project.</p>
 <p><strong>GoogleSignInAppController.h</strong></p>
-<div class="language-objectivec highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#import &lt;GoogleSignIn/GIDSignIn.h&gt;</span>
-<span class="cp">#import &lt;UnityAppController.h&gt;</span>
+<pre><code class="language-objectivec">#import &lt;GoogleSignIn/GIDSignIn.h&gt;
+#import &lt;UnityAppController.h&gt;
 
-<span class="k">@interface</span> <span class="nc">UnityAppController</span> <span class="nl">(GoogleSignInAppController)</span>
+@interface UnityAppController (GoogleSignInAppController)
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="bp">UIApplication</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">application</span>
-<span class="w">            </span><span class="nl">openURL</span><span class="p">:(</span><span class="bp">NSURL</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">url</span>
-<span class="w">            </span><span class="nl">options</span><span class="p">:(</span><span class="bp">NSDictionary</span><span class="o">&lt;</span><span class="bp">NSString</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">id</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">options</span><span class="p">;</span>
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary&lt;NSString *, id&gt; *)options;
 
-<span class="k">@end</span>
-</code></pre></div></td></tr></tbody></table></div>
+@end
+
+</code></pre>
 <p><strong>GoogleSignInAppController.m</strong></p>
-<div class="language-objectivec highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#import "GoogleSignInAppController.h"</span>
-<span class="cp">#import &lt;objc/runtime.h&gt;</span>
+<pre><code class="language-objectivec">#import "GoogleSignInAppController.h"
+#import &lt;objc/runtime.h&gt;
 
-<span class="k">@implementation</span> <span class="nc">UnityAppController</span> <span class="nl">(GoogleSignInController)</span>
+@implementation UnityAppController (GoogleSignInController)
 
-<span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">load</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">method_exchangeImplementations</span><span class="p">(</span>
-<span class="w">        </span><span class="n">class_getInstanceMethod</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span><span class="w"> </span><span class="k">@selector</span><span class="p">(</span><span class="n">application</span><span class="o">:</span><span class="n">openURL</span><span class="o">:</span><span class="n">options</span><span class="o">:</span><span class="p">)),</span>
-<span class="w">        </span><span class="n">class_getInstanceMethod</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span><span class="w"> </span><span class="k">@selector</span><span class="p">(</span><span class="n">GoogleSignInAppController</span><span class="o">:</span><span class="n">openURL</span><span class="o">:</span><span class="n">options</span><span class="o">:</span><span class="p">))</span>
-<span class="w">    </span><span class="p">);</span>
-<span class="p">}</span>
++ (void)load {
+    method_exchangeImplementations(
+        class_getInstanceMethod(self, @selector(application:openURL:options:)),
+        class_getInstanceMethod(self, @selector(GoogleSignInAppController:openURL:options:))
+    );
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">GoogleSignInAppController:</span><span class="p">(</span><span class="bp">UIApplication</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">app</span>
-<span class="w">                           </span><span class="nl">openURL</span><span class="p">:(</span><span class="bp">NSURL</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">url</span>
-<span class="w">                           </span><span class="nl">options</span><span class="p">:(</span><span class="bp">NSDictionary</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">options</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">BOOL</span><span class="w"> </span><span class="n">handled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nb">self</span><span class="w"> </span><span class="n">GoogleSignInAppController</span><span class="o">:</span><span class="n">app</span><span class="w"> </span><span class="n">openURL</span><span class="o">:</span><span class="n">url</span><span class="w"> </span><span class="n">options</span><span class="o">:</span><span class="n">options</span><span class="p">];</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[[</span><span class="n">GIDSignIn</span><span class="w"> </span><span class="n">sharedInstance</span><span class="p">]</span><span class="w"> </span><span class="n">handleURL</span><span class="o">:</span><span class="n">url</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">handled</span><span class="p">;</span>
-<span class="p">}</span>
+- (BOOL)GoogleSignInAppController:(UIApplication *)app
+                           openURL:(NSURL *)url
+                           options:(NSDictionary *)options {
+    BOOL handled = [self GoogleSignInAppController:app openURL:url options:options];
+    return [[GIDSignIn sharedInstance] handleURL:url] || handled;
+}
 
-<span class="k">@end</span>
-</code></pre></div></td></tr></tbody></table></div>
+@end
+
+</code></pre>
 <h2 id="google-sign-in-integration">Google Sign-In Integration<a class="headerlink" href="#google-sign-in-integration" title="Permanent link">¶</a></h2>
 <p>The Beamable SDK contains a wrapper for native Google Sign-In behavior on Android and iOS. The provided class is called GoogleSignIn, which can be initialized with the correct Web Client ID, iOS Client ID, as well as a "target" (a context for the sign in callback to attach to), and a callback method name.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="n">GoogleSignIn</span><span class="w"> </span><span class="n">_google</span><span class="p">;</span>
+<pre><code class="language-csharp">private GoogleSignIn _google;
 
-<span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">webClientId</span><span class="p">;</span>
-<span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">iosClientId</span><span class="p">;</span><span class="w"> </span><span class="c1">//can be left blank if iOS is unsupported</span>
+private string webClientId;
+private string iosClientId; //can be left blank if iOS is unsupported
 
-<span class="c1">/// &lt;summary&gt;</span>
-<span class="c1">/// Starts Google Login process, then calls GoogleAuthResponse with a message.</span>
-<span class="c1">/// &lt;/summary&gt;</span>
-<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">StartGoogleLogin</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">_google</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GoogleSignIn</span><span class="p">(</span><span class="n">gameObject</span><span class="p">,</span><span class="w"> </span><span class="s">"GoogleAuthResponse"</span><span class="p">,</span><span class="w"> </span><span class="n">webClientId</span><span class="p">,</span><span class="w"> </span><span class="n">iosClientId</span><span class="p">);</span>
-<span class="w">    </span><span class="n">_google</span><span class="p">.</span><span class="n">Login</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+/// &lt;summary&gt;
+/// Starts Google Login process, then calls GoogleAuthResponse with a message.
+/// &lt;/summary&gt;
+public void StartGoogleLogin()
+{
+    _google = new GoogleSignIn(gameObject, "GoogleAuthResponse", webClientId, iosClientId);
+    _google.Login();
+}
+</code></pre>
 <p>After the Login process is started, the callback function (GoogleAuthResponse) will be invoked with a message:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">/// &lt;summary&gt;</span>
-<span class="c1">/// Callback to be invoked via UnitySendMessage when the plugin either</span>
-<span class="c1">/// receives a valid ID token or indicates an error.</span>
-<span class="c1">/// &lt;/summary&gt;</span>
-<span class="c1">/// &lt;param name="message"&gt;Response message from the Google Sign-In plugin&lt;/param&gt;</span>
-<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">GoogleAuthResponse</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">GoogleSignIn</span><span class="p">.</span><span class="n">HandleResponse</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">token</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="c1">//Login failed or was canceled</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="k">else</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="c1">//Login successful, see additional functions below</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="n">errback</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">errback</span><span class="p">);</span><span class="w"> </span><span class="p">});</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">/// &lt;summary&gt;
+/// Callback to be invoked via UnitySendMessage when the plugin either
+/// receives a valid ID token or indicates an error.
+/// &lt;/summary&gt;
+/// &lt;param name="message"&gt;Response message from the Google Sign-In plugin&lt;/param&gt;
+private void GoogleAuthResponse(string message)
+{
+    GoogleSignIn.HandleResponse(message, token =&gt;
+        {
+            if (token == null)
+            {
+                //Login failed or was canceled
+            }
+            else
+            {
+                //Login successful, see additional functions below
+            }
+        },
+        errback =&gt; { Debug.LogError(errback); });
+}
+</code></pre>
 <h2 id="handle-various-flow-scenarios">Handle Various Flow Scenarios<a class="headerlink" href="#handle-various-flow-scenarios" title="Permanent link">¶</a></h2>
 <p>Now that we have the Google credential (token), we need to account for 3 different scenarios:</p>
 <ul>
@@ -9875,74 +9843,49 @@
 <div class="admonition info">
 <p class="admonition-title">Beamable SDK Initialization</p>
 <p>The following assumes that you have initialized the Beamable SDK and it is stored in _beamContext variable.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
-</code></pre></div></td></tr></tbody></table></div>
+<p><code>csharp
+_beamContext = BeamContext.Default;
+await _beamContext.OnReady;</code></p>
 </div>
 <p>The following code will establish conditions for various flow scenarios.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//Specify the third party auth provider</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">thirdParty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">Google</span><span class="p">;</span>
-<span class="c1">//Get information about the user's third party credential</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">IsThirdPartyAvailable</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">HasThirdPartyAssociation</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">);</span>
+<pre><code class="language-csharp">//Specify the third party auth provider
+var thirdParty = AuthThirdParty.Google;
+//Get information about the user's third party credential
+var available = await _beamContext.Api.AuthService.IsThirdPartyAvailable(thirdParty, token);
+var userHasCredentials = _beamContext.Api.User.HasThirdPartyAssociation(thirdParty);
 
-<span class="c1">//Should we switch to a user that's not currently logged in?</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">shouldSwitchUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">available</span><span class="p">;</span>
-<span class="c1">//Should we create a brand new user with these credentials?</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">shouldCreateUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="p">;</span>
-<span class="c1">//Should we attach the credentials to an existing user?</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">shouldAttachToCurrentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">userHasCredentials</span><span class="p">;</span>
-</code></pre></div></td></tr></tbody></table></div>
+//Should we switch to a user that's not currently logged in?
+var shouldSwitchUsers = !available;
+//Should we create a brand new user with these credentials?
+var shouldCreateUser = available &amp;&amp; userHasCredentials;
+//Should we attach the credentials to an existing user?
+var shouldAttachToCurrentUser = available &amp;&amp; !userHasCredentials;
+</code></pre>
 <h3 id="switch-users">Switch Users<a class="headerlink" href="#switch-users" title="Permanent link">¶</a></h3>
 <p>In this example, the AuthService is used to authenticate a user with a third-party auth provider.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">shouldSwitchUsers</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">LoginThirdParty</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">if(shouldSwitchUsers)
+{
+      await _beamContext.Api.AuthService.LoginThirdParty(thirdParty, token, false);
+}
+</code></pre>
 <h3 id="create-new-user">Create New User<a class="headerlink" href="#create-new-user" title="Permanent link">¶</a></h3>
 <p>If we want to create a new user and apply the third-party credentials, we can use the following calls from AuthService.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">shouldCreateUser</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">      </span><span class="kt">var</span><span class="w"> </span><span class="n">tokenResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">CreateUser</span><span class="p">();</span>
-<span class="w">      </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">ApplyToken</span><span class="p">(</span><span class="n">tokenResponse</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">RegisterThirdPartyCredentials</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
-<span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">UpdateUserData</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">if(shouldCreateUser)
+{
+      var tokenResponse = await _beamContext.AuthService.CreateUser();
+      _beamContext.ApplyToken(tokenResponse);
+    var user = await _beamContext.Api.AuthService.RegisterThirdPartyCredentials(thirdParty, token);
+    _beamContext.Api.UpdateUserData(user);
+}
+</code></pre>
 <h3 id="link-to-existing-user">Link To Existing User<a class="headerlink" href="#link-to-existing-user" title="Permanent link">¶</a></h3>
 <p>If the user already exists and is now trying to link their Google credentials to it, the flow is very similar to new user creation.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">shouldAttachToCurrentUser</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">      </span><span class="kt">var</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">RegisterThirdPartyCredentials</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
-<span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">UpdateUserData</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">if(shouldAttachToCurrentUser)
+{
+      var user = await _beamContext.Api.AuthService.RegisterThirdPartyCredentials(thirdParty, token);
+    _beamContext.Api.UpdateUserData(user);
+}
+</code></pre>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
 <ul>
 <li>Players can edit account details (name, avatar)</li>

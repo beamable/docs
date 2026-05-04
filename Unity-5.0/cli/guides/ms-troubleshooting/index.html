@@ -4398,6 +4398,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ms-command-line/" class="md-nav__link">
         
   
@@ -9714,970 +9742,670 @@
 <h2 id="multiple-microservice-classes-detected">Multiple Microservice Classes Detected<a class="headerlink" href="#multiple-microservice-classes-detected" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Only one <code>Microservice</code> class should exist per microservice project. Multiple classes marked with the <code>[Microservice]</code> attribute will cause conflicts in code generation and runtime behavior.</p>
-<p><strong>Example Code Triggering the Error</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{}</span>
+<p><strong>Example Code Triggering the Error</strong>:</p>
+<pre><code class="language-csharp">[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice {}
 
-<span class="na">[Microservice("MyOtherMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyOtherMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Example Error Message</strong>:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Multiple Microservice classes detected. Make sure only a single class implementing Microservice exists in each service project. ClassNames=MyMicroservice, MyOtherMicroservice.
-</code></pre></div></td></tr></tbody></table></div><p></p>
+[Microservice("MyOtherMicroservice")]
+public partial class MyOtherMicroservice : Microservice {}
+</code></pre>
+<p><strong>Example Error Message</strong>:</p>
+<pre><code>Multiple Microservice classes detected. Make sure only a single class implementing Microservice exists in each service project. ClassNames=MyMicroservice, MyOtherMicroservice.
+</code></pre>
 <p><strong>Solutions</strong>:
 - Ensure only one class is marked as a <code>Microservice</code> in your project</p>
-<p><strong>Example of Solved Code</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example of Solved Code</strong>:</p>
+<pre><code class="language-csharp">[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice {}
+</code></pre>
 <hr>
 <h2 id="non-partial-microservice-class-detected">Non-Partial Microservice Class Detected<a class="headerlink" href="#non-partial-microservice-class-detected" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Microservice classes must be marked as <code>partial</code> to allow code generation tools to extend them.</p>
-<p><strong>Example Code Triggering the Error</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Example Error Message</strong>:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Non-Partial Microservice class detected. Make sure your Microservice class is marked as partial.
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example Code Triggering the Error</strong>:</p>
+<pre><code class="language-csharp">[Microservice("MyMicroservice")]
+public class MyMicroservice : Microservice {}
+</code></pre>
+<p><strong>Example Error Message</strong>:</p>
+<pre><code>Non-Partial Microservice class detected. Make sure your Microservice class is marked as partial.
+</code></pre>
 <p><strong>Solutions</strong>:
 - Add the <code>partial</code> modifier to the class</p>
-<p><strong>Example of Solved Code</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example of Solved Code</strong>:</p>
+<pre><code class="language-csharp">[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice {}
+</code></pre>
 <hr>
 <h2 id="microservice-class-missing-microservice-id">Microservice Class Missing Microservice Id<a class="headerlink" href="#microservice-class-missing-microservice-id" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 The <code>Microservice</code> class must include the <code>[Microservice("Id")]</code> attribute to define its identifier.</p>
-<p><strong>Example Code Triggering the Error</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Example Error Message</strong>:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Microservice class is missing the microservice id
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example Code Triggering the Error</strong>:</p>
+<pre><code class="language-csharp">public partial class MyMicroservice : Microservice {}
+</code></pre>
+<p><strong>Example Error Message</strong>:</p>
+<pre><code>Microservice class is missing the microservice id
+</code></pre>
 <p><strong>Solutions</strong>:
 - Add the <code>[Microservice("Id")]</code> attribute to the class</p>
-<p><strong>Example of Solved Code</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example of Solved Code</strong>:</p>
+<pre><code class="language-csharp">[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice {}
+</code></pre>
 <hr>
 <h2 id="async-void-callable-methods">Async Void Callable Methods<a class="headerlink" href="#async-void-callable-methods" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Methods marked as <code>[Callable]</code>, <code>[ClientCallable]</code>, <code>[ServerCallable]</code> should not be <code>async void</code>. Using <code>async void</code> makes it impossible to track errors or await completion.</p>
-<p><strong>Example Code Triggering the Error</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Callable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CallMicroservice</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Example Error Message</strong>:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Microservice Callable methods cannot be async voids. Ex: CallMicroservice.
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example Code Triggering the Error</strong>:</p>
+<pre><code class="language-csharp">[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice
+{
+    [Callable]
+    public async void CallMicroservice() {}
+}
+</code></pre>
+<p><strong>Example Error Message</strong>:</p>
+<pre><code>Microservice Callable methods cannot be async voids. Ex: CallMicroservice.
+</code></pre>
 <p><strong>Solutions</strong>:
 - Change the return type to <code>Task</code></p>
-<p><strong>Example of Solved Code</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Callable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">CallMicroservice</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example of Solved Code</strong>:</p>
+<pre><code class="language-csharp">[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice
+{
+    [Callable]
+    public async Task CallMicroservice() {}
+}
+</code></pre>
 <h2 id="invalid-type-usage-in-callable-method">Invalid Type Usage in Callable Method<a class="headerlink" href="#invalid-type-usage-in-callable-method" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Types used in <code>[ClientCallable]</code> methods must be available to both server and client. Declaring types inside the microservice class makes them inaccessible to the Unity client as we're not regenerating DTO for Client.</p>
-<p><strong>Example Code Triggering the Error</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">        </span><span class="na">[ClientCallable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">DTO</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CallServiceAsync</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DTO</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">};</span>
+<p><strong>Example Code Triggering the Error</strong>:</p>
+<pre><code class="language-csharp">[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice
+{
+        [ClientCallable]
+    public async Task&lt;DTO&gt; CallServiceAsync() =&gt; new DTO { x = 1 };
 
-<span class="w">    </span><span class="na">[ClientCallable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CallService</span><span class="p">(</span><span class="n">DTO</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-<span class="p">}</span>
+    [ClientCallable]
+    public void CallService(DTO data) {}
+}
 
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Example Error Message</strong>:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Microservice Callable method `CallServiceAsync` uses a Type that cannot be inside microservice scope. Type: `DTO`.
-</code></pre></div></td></tr></tbody></table></div><p></p>
+public class DTO
+{
+    public int x;
+}
+
+</code></pre>
+<p><strong>Example Error Message</strong>:</p>
+<pre><code>Microservice Callable method `CallServiceAsync` uses a Type that cannot be inside microservice scope. Type: `DTO`.
+</code></pre>
 <p><strong>Solutions</strong>:
 - Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server</p>
-<p><strong>Example of Solved Code</strong> (Microservice):
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[ClientCallable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">DTO</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CallServiceAsync</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DTO</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">};</span>
+<p><strong>Example of Solved Code</strong> (Microservice):</p>
+<pre><code class="language-csharp">[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice
+{
+    [ClientCallable]
+    public async Task&lt;DTO&gt; CallServiceAsync() =&gt; new DTO { x = 1 };
 
-<span class="w">    </span><span class="na">[ClientCallable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CallService</span><span class="p">(</span><span class="n">DTO</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Shared Project Code</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+    [ClientCallable]
+    public void CallService(DTO data) {}
+}
+</code></pre>
+<p><strong>Shared Project Code</strong>:</p>
+<pre><code class="language-csharp">public class DTO
+{
+    public int x;
+}
+</code></pre>
 <hr>
 <h2 id="callable-method-types-usage-are-nested">Callable Method Types usage are Nested<a class="headerlink" href="#callable-method-types-usage-are-nested" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Types used in <code>[ClientCallable]</code> methods must be declared in outer scope so the Source Code Generator can handle it properly.</p>
-<p><strong>Example Code Triggering the Error</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DTO</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
+<p><strong>Example Code Triggering the Error</strong>:</p>
+<pre><code class="language-csharp">[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice
+{
+    public class DTO
+    {
+        public int x;
+    }
 
-<span class="w">    </span><span class="na">[ClientCallable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CallService</span><span class="p">(</span><span class="n">DTO</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Example Error Message</strong>:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>{nameof(Server.Microservice)} Callable method CallService uses a Type that is Nested, which is not supported by the Source Code Generator. Please move DTO to outer scope.
-</code></pre></div></td></tr></tbody></table></div><p></p>
+    [ClientCallable]
+    public void CallService(DTO data) {}
+}
+</code></pre>
+<p><strong>Example Error Message</strong>:</p>
+<pre><code>{nameof(Server.Microservice)} Callable method CallService uses a Type that is Nested, which is not supported by the Source Code Generator. Please move DTO to outer scope.
+</code></pre>
 <p><strong>Solutions</strong>:
 - Move named types used by <code>Callable</code> methods to a non-nested scope</p>
-<p><strong>Example of Solved Code</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[ClientCallable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CallService</span><span class="p">(</span><span class="n">DTO</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-<span class="p">}</span>
+<p><strong>Example of Solved Code</strong>:</p>
+<pre><code class="language-csharp">[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice
+{
+    [ClientCallable]
+    public void CallService(DTO data) {}
+}
 
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+public class DTO
+{
+    public int x;
+}
+</code></pre>
 <hr>
 <h2 id="beam-generated-schema-class-is-a-nested-type">Beam Generated Schema Class is a Nested Type<a class="headerlink" href="#beam-generated-schema-class-is-a-nested-type" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Classes that uses the attribute <code>[BeamGenerateSchema]</code> cannot be declared as nested type because the Source Generator Cannot handle it.</p>
-<p><strong>Example Code Triggering the Error</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[BeamGenerateSchema]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DTO</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Example Error Message</strong>:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Type DTO contains [BeamGenerateSchema] attribute and is a Nested type, which is not supported by the Source Generator. Please move DTO to outer scope.
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example Code Triggering the Error</strong>:</p>
+<pre><code class="language-csharp">[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice
+{
+    [BeamGenerateSchema]
+    public class DTO
+    {
+        public int x;
+    }
+}
+</code></pre>
+<p><strong>Example Error Message</strong>:</p>
+<pre><code>Type DTO contains [BeamGenerateSchema] attribute and is a Nested type, which is not supported by the Source Generator. Please move DTO to outer scope.
+</code></pre>
 <p><strong>Solutions</strong>:
 - Move classes that contains <code>[BeamGenerateSchema]</code> attribute to a non-nested scope</p>
-<p><strong>Example of Solved Code</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<p><strong>Example of Solved Code</strong>:</p>
+<pre><code class="language-csharp">[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice { }
 
-<span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+[BeamGenerateSchema]
+public class DTO
+{
+    public int x;
+}
+</code></pre>
 <hr>
 <h2 id="invalid-microservice-id">Invalid Microservice ID<a class="headerlink" href="#invalid-microservice-id" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Microservices IDs must match the <code>&lt;BeamID&gt;</code> property on csproj. If there is none <code>&lt;BeamID&gt;</code> property it needs to match the project's name.</p>
-<p><strong>Example Code Triggering the Error</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Example CSProj Triggering the Error</strong>:
-</p><div class="language-xml highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
-<span class="w">    </span>...
-<span class="w">    </span><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Beamable Settings"</span><span class="nt">&gt;</span>
-<span class="w">        </span>...
-<span class="w">        </span><span class="nt">&lt;BeamId&gt;</span>OtherBeamId<span class="nt">&lt;/BeamId&gt;</span>
-<span class="w">        </span>...
-<span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span>
-<span class="w">    </span>...
-<span class="nt">&lt;/Project&gt;</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Example Error Message</strong>:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Microservice ID: `MyMicroservice` is invalid, it needs to be the same as &lt;BeamId&gt; csharp property (or as csproj name if none exist): `OtherBeamId`
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example Code Triggering the Error</strong>:</p>
+<pre><code class="language-csharp">[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice {}
+</code></pre>
+<p><strong>Example CSProj Triggering the Error</strong>:</p>
+<pre><code class="language-xml">&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+    ...
+    &lt;PropertyGroup Label="Beamable Settings"&gt;
+        ...
+        &lt;BeamId&gt;OtherBeamId&lt;/BeamId&gt;
+        ...
+    &lt;/PropertyGroup&gt;
+    ...
+&lt;/Project&gt;
+</code></pre>
+<p><strong>Example Error Message</strong>:</p>
+<pre><code>Microservice ID: `MyMicroservice` is invalid, it needs to be the same as &lt;BeamId&gt; csharp property (or as csproj name if none exist): `OtherBeamId`
+</code></pre>
 <p><strong>Solutions</strong>:
 - Switch <code>Microservice</code> attribute parameter to use the same value as <code>&lt;BeamId&gt;</code>
   <strong>Example of Solved Code</strong>:
-    </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("OtherBeamId")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
-
-<span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
-- Update <code>&lt;BeamId&gt;</code> property to match the <code>Microservice</code> attribute value
+    ```csharp
+    [Microservice("OtherBeamId")]
+    public partial class MyMicroservice : Microservice { }</p>
+<pre><code>[BeamGenerateSchema]
+public class DTO
+{
+    public int x;
+}
+```
+</code></pre>
+<ul>
+<li>Update <code>&lt;BeamId&gt;</code> property to match the <code>Microservice</code> attribute value
   <strong>Example of Solved CSProj</strong>:
-    <div class="language-xml highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
-<span class="w">    </span>...
-<span class="w">    </span><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Beamable Settings"</span><span class="nt">&gt;</span>
-<span class="w">        </span>...
-<span class="w">        </span><span class="nt">&lt;BeamId&gt;</span>MyMicroservice<span class="nt">&lt;/BeamId&gt;</span>
-<span class="w">        </span>...
-<span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span>
-<span class="w">    </span>...
-<span class="nt">&lt;/Project&gt;</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+    <code>xml
+    &lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+        ...
+        &lt;PropertyGroup Label="Beamable Settings"&gt;
+            ...
+            &lt;BeamId&gt;MyMicroservice&lt;/BeamId&gt;
+            ...
+        &lt;/PropertyGroup&gt;
+        ...
+    &lt;/Project&gt;</code></li>
+</ul>
 <hr>
 <h2 id="static-field-in-microservice">Static Field in Microservice<a class="headerlink" href="#static-field-in-microservice" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Non-readonly static fields in Microservices are discouraged because they do not behave reliably in horizontally scaled environments. Their state is not shared across instances.</p>
-<p><strong>Example Code Triggering the Warning</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">ContentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"coins.gems"</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Example Warning Message</strong>:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Consider making 'ContentId' a readonly field. Otherwise the value may be inconsistent in production environments.
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example Code Triggering the Warning</strong>:</p>
+<pre><code class="language-csharp">public partial class MyMicroservice : Microservice
+{
+    public static string ContentId = "coins.gems";
+}
+</code></pre>
+<p><strong>Example Warning Message</strong>:</p>
+<pre><code>Consider making 'ContentId' a readonly field. Otherwise the value may be inconsistent in production environments.
+</code></pre>
 <p><strong>Solutions</strong>:
 - Make the static field <code>readonly</code> if it is intended to be constant after initialization
   <strong>Example of Solved Code</strong>:
-    </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">ContentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"coins.gems"</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
-- Or convert it to a non-static field if it should be instance-bound<p></p>
+    <code>csharp
+    public partial class MyMicroservice : Microservice
+    {
+        public static readonly string ContentId = "coins.gems";
+    }</code>
+- Or convert it to a non-static field if it should be instance-bound</p>
 <hr>
 <h2 id="missing-serializable-attribute-on-type">Missing Serializable Attribute on Type<a class="headerlink" href="#missing-serializable-attribute-on-type" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 All types used in Microservice method signatures or marked with <code>[BeamGenerateSchema]</code> must be annotated with <code>[Serializable]</code> to ensure correct serialization and code generation.</p>
 <p><strong>Examples Code Triggering the Error</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDto</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyOtherDto</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="na">[Microservice("OtherBeamId")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[ClientCallable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CallService</span><span class="p">(</span><span class="n">MyOtherDto</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
-<p><strong>Example Error Messages</strong>:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Add the [Serializable] attribute to type 'MyDto'
-</code></pre></div></td></tr></tbody></table></div>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Add the [Serializable] attribute to type 'MyOtherDto'
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<pre><code class="language-csharp">[BeamGenerateSchema]
+public class MyDto
+{
+    public int x;
+}
+public class MyOtherDto
+{
+    public int x;
+}
+[Microservice("OtherBeamId")]
+public partial class MyMicroservice : Microservice
+{
+    [ClientCallable]
+    public void CallService(MyOtherDto data) {}
+}
+</code></pre>
+<p><strong>Example Error Messages</strong>:</p>
+<pre><code>Add the [Serializable] attribute to type 'MyDto'
+</code></pre>
+<pre><code>Add the [Serializable] attribute to type 'MyOtherDto'
+</code></pre>
 <p><strong>Solution</strong>:
 - Add the <code>[Serializable]</code> attribute
   <strong>Example of Solved Code</strong>:
-    </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Serializable]</span>
-<span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDto</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="na">[Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyOtherDto</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="na">[Microservice("OtherBeamId")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[ClientCallable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CallService</span><span class="p">(</span><span class="n">MyOtherDto</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+    <code>csharp
+    [Serializable]
+    [BeamGenerateSchema]
+    public class MyDto
+    {
+        public int x;
+    }
+    [Serializable]
+    public class MyOtherDto
+    {
+        public int x;
+    }
+    [Microservice("OtherBeamId")]
+    public partial class MyMicroservice : Microservice
+    {
+        [ClientCallable]
+        public void CallService(MyOtherDto data) {}
+    }</code></p>
 <hr>
 <h2 id="property-found-in-serializable-type">Property Found in Serializable Type<a class="headerlink" href="#property-found-in-serializable-type" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Properties in types used in Microservice method signatures or marked with <code>[BeamGenerateSchema]</code> are ignored by the client code generator. Fields should be used instead.</p>
-<p><strong>Example Code Triggering the Warning</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDto</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Example Warning Message</strong>:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Consider changing property 'X' to a field to include it in client-generated code
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example Code Triggering the Warning</strong>:</p>
+<pre><code class="language-csharp">[Serializable]
+public class MyDto
+{
+    public int X { get; set; }
+}
+</code></pre>
+<p><strong>Example Warning Message</strong>:</p>
+<pre><code>Consider changing property 'X' to a field to include it in client-generated code
+</code></pre>
 <p><strong>Solution</strong>:
 - Use fields instead of properties
   <strong>Example of Solved Code</strong>:
-    </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDto</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+    <code>csharp
+    [Serializable]
+    public class MyDto
+    {
+        public int X;
+    }</code></p>
 <hr>
 <h2 id="nullable-field-in-serializable-type">Nullable Field in Serializable Type<a class="headerlink" href="#nullable-field-in-serializable-type" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Fields with nullable types (for example, <code>int?</code>, <code>string?</code>) are not supported in types used in Microservice method signatures or marked with <code>[BeamGenerateSchema]</code>. Use <code>Optional&lt;T&gt;</code> instead to ensure predictable behavior.</p>
-<p><strong>Example Code Triggering the Error</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDto</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int?</span><span class="w"> </span><span class="n">Score</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Example Error Message</strong>:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Change field 'Score' to use Optional&lt;T&gt; instead of a nullable type
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example Code Triggering the Error</strong>:</p>
+<pre><code class="language-csharp">[Serializable]
+public class MyDto
+{
+    public int? Score;
+}
+</code></pre>
+<p><strong>Example Error Message</strong>:</p>
+<pre><code>Change field 'Score' to use Optional&lt;T&gt; instead of a nullable type
+</code></pre>
 <p><strong>Solution</strong>:
 - Use <code>Optional&lt;T&gt;</code> instead of nullable types
   <strong>Example of Solved Code</strong>:
-    </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDto</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Score</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+    <code>csharp
+    [Serializable]
+    public class MyDto
+    {
+        public Optional&lt;int&gt; Score;
+    }</code></p>
 <hr>
 <h2 id="invalid-contentobject-used">Invalid ContentObject Used<a class="headerlink" href="#invalid-contentobject-used" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Using <code>ContentObject</code> or its subtypes directly in serializable fields or parameters is discouraged, as it may lead to large data payloads. Instead, prefer using <code>ContentRef&lt;T&gt;</code> to reference content objects efficiently.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">MyItem</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
-<span class="p">}</span>
+<pre><code class="language-csharp">[BeamGenerateSchema]
+public class MyDTO
+{
+    public MyItem item;
+}
 
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyItem</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div></td></tr></tbody></table></div>
+public class MyItem : ContentObject {}
+</code></pre>
 <p><strong>Example Error Message</strong>:</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Change 'item' to use ContentRef&lt;MyItem&gt; instead of MyItem
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code>Change 'item' to use ContentRef&lt;MyItem&gt; instead of MyItem
+</code></pre>
 <p><strong>Solution</strong>:</p>
 <ul>
 <li>Replace the direct <code>ContentObject</code> usage with <code>ContentRef&lt;T&gt;</code></li>
 </ul>
-<p><strong>Example of Solved Code</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">ContentRef</span><span class="o">&lt;</span><span class="n">MyItem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
-<span class="p">}</span>
+<p><strong>Example of Solved Code</strong>:</p>
+<pre><code class="language-csharp">[BeamGenerateSchema]
+public class MyDTO
+{
+    public ContentRef&lt;MyItem&gt; item;
+}
 
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyItem</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+public class MyItem : ContentObject {}
+</code></pre>
 <h2 id="type-used-in-beamgenerateschema-is-missing-attribute">Type Used in BeamGenerateSchema is Missing Attribute<a class="headerlink" href="#type-used-in-beamgenerateschema-is-missing-attribute" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 When a class is marked with <code>[BeamGenerateSchema]</code>, all custom types used in its fields must also be annotated with <code>[BeamGenerateSchema]</code>.</p>
-<p><strong>Example Code Triggering the Error</strong>:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">MyOtherDTO</span><span class="w"> </span><span class="n">otherDTO</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyOtherDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Value</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Example Error Message</strong>:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Add the [BeamGenerateSchema] attribute to type 'MyOtherDTO'
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example Code Triggering the Error</strong>:</p>
+<pre><code class="language-csharp">[BeamGenerateSchema]
+public class MyDTO
+{
+    public MyOtherDTO otherDTO;
+}
+public class MyOtherDTO
+{
+    public int Value;
+}
+</code></pre>
+<p><strong>Example Error Message</strong>:</p>
+<pre><code>Add the [BeamGenerateSchema] attribute to type 'MyOtherDTO'
+</code></pre>
 <p><strong>Solution</strong>:
 - Add <code>[BeamGenerateSchema]</code> to all nested field types
   <strong>Example of Solved Code</strong>:
-    </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">MyOtherDTO</span><span class="w"> </span><span class="n">otherDTO</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyOtherDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Value</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+    <code>csharp
+    [BeamGenerateSchema]
+    public class MyDTO
+    {
+        public MyOtherDTO otherDTO;
+    }
+    [BeamGenerateSchema]
+    public class MyOtherDTO
+    {
+        public int Value;
+    }</code></p>
 <hr>
 <h2 id="dictionary-key-must-be-string-on-serializable-types">Dictionary Key Must Be String on Serializable Types<a class="headerlink" href="#dictionary-key-must-be-string-on-serializable-types" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 When using a <code>Dictionary</code> field in a type marked with <code>[BeamGenerateSchema]</code>, the key must be of type <code>string</code>. Other key types are not supported.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">InvalidDict</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">[BeamGenerateSchema]
+public class MyDTO
+{
+    public Dictionary&lt;int, string&gt; InvalidDict;
+}
+</code></pre>
 <p><strong>Example Error Message</strong>:</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Change the dictionary key of field 'InvalidDict' to string instead of type 'int'
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code>Change the dictionary key of field 'InvalidDict' to string instead of type 'int'
+</code></pre>
 <p><strong>Solution</strong>:</p>
 <ul>
 <li>Change the dictionary key type to <code>string</code></li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ValidDict</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">[BeamGenerateSchema]
+public class MyDTO
+{
+    public Dictionary&lt;string, string&gt; ValidDict;
+}
+</code></pre>
 <hr>
 <h2 id="field-on-serializable-type-is-subtype-from-dictionary">Field on Serializable Type Is Subtype From Dictionary<a class="headerlink" href="#field-on-serializable-type-is-subtype-from-dictionary" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Types that subclass <code>Dictionary</code> are not supported as field types in <code>[BeamGenerateSchema]</code> annotated classes.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDict</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+<pre><code class="language-csharp">public class MyDict : Dictionary&lt;string, string&gt; {}
 
-<span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">MyDict</span><span class="w"> </span><span class="n">customDict</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+[BeamGenerateSchema]
+public class MyDTO
+{
+    public MyDict customDict;
+}
+</code></pre>
 <p><strong>Example Error Message</strong>:</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Replace field 'customDict' to Dictionary instead of type 'MyDict'
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code>Replace field 'customDict' to Dictionary instead of type 'MyDict'
+</code></pre>
 <p><strong>Solution</strong>:</p>
 <ul>
 <li>Use <code>Dictionary&lt;string, T&gt;</code> directly instead of a subclass</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">customDict</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">[BeamGenerateSchema]
+public class MyDTO
+{
+    public Dictionary&lt;string, string&gt; customDict;
+}
+</code></pre>
 <hr>
 <h2 id="field-on-serializable-type-is-subtype-from-list">Field on Serializable Type Is Subtype From List<a class="headerlink" href="#field-on-serializable-type-is-subtype-from-list" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Types that subclass <code>List&lt;T&gt;</code> are not supported as field types in <code>[BeamGenerateSchema]</code> annotated classes.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyList</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+<pre><code class="language-csharp">public class MyList : List&lt;string&gt; {}
 
-<span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">MyList</span><span class="w"> </span><span class="n">customList</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+[BeamGenerateSchema]
+public class MyDTO
+{
+    public MyList customList;
+}
+</code></pre>
 <p><strong>Example Error Message</strong>:</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Replace field 'customList' to List instead of type 'MyList'
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code>Replace field 'customList' to List instead of type 'MyList'
+</code></pre>
 <p><strong>Solution</strong>:</p>
 <ul>
 <li>Use <code>List&lt;T&gt;</code> directly instead of a subclass</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">customList</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">[BeamGenerateSchema]
+public class MyDTO
+{
+    public List&lt;string&gt; customList;
+}
+</code></pre>
 <hr>
 <h2 id="callable-method-declaration-type-is-contentobject-subtype">Callable Method Declaration Type Is ContentObject Subtype<a class="headerlink" href="#callable-method-declaration-type-is-contentobject-subtype" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Types used in <code>Callable</code> methods cannot inherit from <code>ContentObject</code>. Only the base <code>ContentObject</code> is supported.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w"> </span><span class="p">{}</span>
+<pre><code class="language-csharp">public class MyContent : ContentObject {}
 
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Callable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">DoSomething</span><span class="p">(</span><span class="n">MyContent</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">CompletedTask</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+public class MyMicroservice : Microservice
+{
+    [Callable]
+    public Task DoSomething(MyContent input) =&gt; Task.CompletedTask;
+}
+</code></pre>
 <p><strong>Example Error Message</strong>:</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Change type 'MyContent' to use the base ContentObject type instead of a subtype
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code>Change type 'MyContent' to use the base ContentObject type instead of a subtype
+</code></pre>
 <p><strong>Solution</strong>:</p>
 <ul>
 <li>Use <code>ContentObject</code> instead of a derived type</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Callable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">DoSomething</span><span class="p">(</span><span class="n">ContentObject</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">CompletedTask</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">public class MyMicroservice : Microservice
+{
+    [Callable]
+    public Task DoSomething(ContentObject input) =&gt; Task.CompletedTask;
+}
+</code></pre>
 <hr>
 <h2 id="callable-method-declaration-type-is-invalid-dictionary">Callable Method Declaration Type Is Invalid Dictionary<a class="headerlink" href="#callable-method-declaration-type-is-invalid-dictionary" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Dictionaries in <code>[Callable]</code> method parameters are only valid if their keys are of type <code>string</code>.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Callable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">DoSomething</span><span class="p">(</span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">CompletedTask</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">public class MyMicroservice : Microservice
+{
+    [Callable]
+    public Task DoSomething(Dictionary&lt;int, string&gt; input) =&gt; Task.CompletedTask;
+}
+</code></pre>
 <p><strong>Example Error Message</strong>:</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Change the dictionary key of 'input' to string instead of type 'int'
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code>Change the dictionary key of 'input' to string instead of type 'int'
+</code></pre>
 <p><strong>Solution</strong>:</p>
 <ul>
 <li>Change dictionary key to <code>string</code></li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Callable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">DoSomething</span><span class="p">(</span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">CompletedTask</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">public class MyMicroservice : Microservice
+{
+    [Callable]
+    public Task DoSomething(Dictionary&lt;string, string&gt; input) =&gt; Task.CompletedTask;
+}
+</code></pre>
 <hr>
 <h2 id="callable-method-declaration-type-is-subtype-from-dictionary">Callable Method Declaration Type Is Subtype From Dictionary<a class="headerlink" href="#callable-method-declaration-type-is-subtype-from-dictionary" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Types used in <code>[Callable]</code> methods that subclass <code>Dictionary</code> are not supported.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDict</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+<pre><code class="language-csharp">public class MyDict : Dictionary&lt;string, string&gt; {}
 
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Callable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">DoSomething</span><span class="p">(</span><span class="n">MyDict</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">CompletedTask</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+public class MyMicroservice : Microservice
+{
+    [Callable]
+    public Task DoSomething(MyDict input) =&gt; Task.CompletedTask;
+}
+</code></pre>
 <p><strong>Example Error Message</strong>:</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Replace 'input' to Dictionary instead of type 'MyDict'
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code>Replace 'input' to Dictionary instead of type 'MyDict'
+</code></pre>
 <p><strong>Solution</strong>:</p>
 <ul>
 <li>Use <code>Dictionary&lt;string, T&gt;</code> directly</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Callable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">DoSomething</span><span class="p">(</span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">CompletedTask</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">public class MyMicroservice : Microservice
+{
+    [Callable]
+    public Task DoSomething(Dictionary&lt;string, string&gt; input) =&gt; Task.CompletedTask;
+}
+</code></pre>
 <hr>
 <h2 id="callable-method-declaration-type-is-subtype-from-list">Callable Method Declaration Type Is Subtype From List<a class="headerlink" href="#callable-method-declaration-type-is-subtype-from-list" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Types used in <code>[Callable]</code> methods that subclass <code>List&lt;T&gt;</code> are not supported.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyList</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+<pre><code class="language-csharp">public class MyList : List&lt;string&gt; {}
 
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Callable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">DoSomething</span><span class="p">(</span><span class="n">MyList</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">CompletedTask</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+public class MyMicroservice : Microservice
+{
+    [Callable]
+    public Task DoSomething(MyList input) =&gt; Task.CompletedTask;
+}
+</code></pre>
 <p><strong>Example Error Message</strong>:</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Replace 'input' to List instead of type 'MyList'
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code>Replace 'input' to List instead of type 'MyList'
+</code></pre>
 <p><strong>Solution</strong>:</p>
 <ul>
 <li>Use <code>List&lt;T&gt;</code> directly</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Callable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">DoSomething</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">CompletedTask</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">public class MyMicroservice : Microservice
+{
+    [Callable]
+    public Task DoSomething(List&lt;string&gt; input) =&gt; Task.CompletedTask;
+}
+</code></pre>
 <hr>
 <h2 id="invalid-generic-type-in-microservice">Invalid Generic Type in Microservice<a class="headerlink" href="#invalid-generic-type-in-microservice" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
 Generic types are not supported in Microservice <code>[Callable]</code> methods or in classes marked with <code>[BeamGenerateSchema]</code>, except for a specific set of allowed generic types. The code generator cannot properly handle custom generic types for client-side code generation. The only permitted generic types are: <code>List&lt;T&gt;</code>, <code>Dictionary&lt;TKey, TValue&gt;</code>, <code>Optional&lt;T&gt;</code>, and <code>ContentRef&lt;T&gt;</code>.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Custom generic class</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GenericContainer</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">Value</span><span class="p">;</span>
-<span class="p">}</span>
+<pre><code class="language-csharp">// Custom generic class
+public class GenericContainer&lt;T&gt;
+{
+    public T Value;
+}
 
-<span class="na">[BeamGenerateSchema]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">GenericContainer</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">container</span><span class="p">;</span><span class="w"> </span><span class="c1">// Error: GenericContainer is not an allowed generic type</span>
-<span class="p">}</span>
+[BeamGenerateSchema]
+public class MyDTO
+{
+    public GenericContainer&lt;int&gt; container; // Error: GenericContainer is not an allowed generic type
+}
 
-<span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[ClientCallable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">GenericContainer</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">GetData</span><span class="p">()</span><span class="w"> </span><span class="c1">// Error: GenericContainer is not an allowed generic type</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">FromResult</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">GenericContainer</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice
+{
+    [ClientCallable]
+    public Task&lt;GenericContainer&lt;string&gt;&gt; GetData() // Error: GenericContainer is not an allowed generic type
+    {
+        return Task.FromResult(new GenericContainer&lt;string&gt;());
+    }
+}
+</code></pre>
 <p><strong>Example Error Message</strong>:</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Generic Types on Microservice Callable methods or classes with [BeamGenerateSchema] are not supported. The only generic types allowed are: List&lt;T&gt;, Dictionary&lt;TKey, TValue&gt;, Optional&lt;T&gt;, ContentRef&lt;T&gt;. Please change 'GenericContainer&lt;int&gt;' in 'MyDTO.container' to a non-generic type.
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code>Generic Types on Microservice Callable methods or classes with [BeamGenerateSchema] are not supported. The only generic types allowed are: List&lt;T&gt;, Dictionary&lt;TKey, TValue&gt;, Optional&lt;T&gt;, ContentRef&lt;T&gt;. Please change 'GenericContainer&lt;int&gt;' in 'MyDTO.container' to a non-generic type.
+</code></pre>
 <p><strong>Solutions</strong>:</p>
 <ul>
 <li>Replace custom generic types with concrete types</li>
 <li>Use one of the allowed generic types (<code>List&lt;T&gt;</code>, <code>Dictionary&lt;string,T&gt;</code>, <code>Optional&lt;T&gt;</code>, <code>ContentRef&lt;T&gt;</code>) if they fit your use case</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Option 1: Use a concrete type</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">IntContainer</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Value</span><span class="p">;</span>
-<span class="p">}</span>
+<pre><code class="language-csharp">// Option 1: Use a concrete type
+public class IntContainer
+{
+    public int Value;
+}
 
-<span class="na">[BeamGenerateSchema]</span>
-<span class="na">[Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">IntContainer</span><span class="w"> </span><span class="n">container</span><span class="p">;</span><span class="w"> </span><span class="c1">// Fixed: Using concrete type</span>
-<span class="p">}</span>
+[BeamGenerateSchema]
+[Serializable]
+public class MyDTO
+{
+    public IntContainer container; // Fixed: Using concrete type
+}
 
-<span class="c1">// Option 2: Use allowed generic types</span>
-<span class="na">[BeamGenerateSchema]</span>
-<span class="na">[Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyOtherDTO</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">values</span><span class="p">;</span><span class="w"> </span><span class="c1">// Allowed: List&lt;T&gt; is permitted</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">optionalValue</span><span class="p">;</span><span class="w"> </span><span class="c1">// Allowed: Optional&lt;T&gt; is permitted</span>
-<span class="p">}</span>
+// Option 2: Use allowed generic types
+[BeamGenerateSchema]
+[Serializable]
+public class MyOtherDTO
+{
+    public List&lt;int&gt; values; // Allowed: List&lt;T&gt; is permitted
+    public Optional&lt;int&gt; optionalValue; // Allowed: Optional&lt;T&gt; is permitted
+}
 
-<span class="na">[Microservice("MyMicroservice")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[ClientCallable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">IntContainer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetData</span><span class="p">()</span><span class="w"> </span><span class="c1">// Fixed: Returns concrete type</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">FromResult</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">IntContainer</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
+[Microservice("MyMicroservice")]
+public partial class MyMicroservice : Microservice
+{
+    [ClientCallable]
+    public Task&lt;IntContainer&gt; GetData() // Fixed: Returns concrete type
+    {
+        return Task.FromResult(new IntContainer());
+    }
 
-<span class="w">    </span><span class="na">[ClientCallable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">GetStrings</span><span class="p">()</span><span class="w"> </span><span class="c1">// Allowed: List&lt;T&gt; is permitted</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">FromResult</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    [ClientCallable]
+    public Task&lt;List&lt;string&gt;&gt; GetStrings() // Allowed: List&lt;T&gt; is permitted
+    {
+        return Task.FromResult(new List&lt;string&gt;());
+    }
+}
+</code></pre>
 
 
 

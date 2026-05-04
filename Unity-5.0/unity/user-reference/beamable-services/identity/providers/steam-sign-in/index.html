@@ -4548,6 +4548,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9489,14 +9517,11 @@
 </table>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/7bf9ab2-Portal-Realm_Config_steam.png" data-desc-position="bottom"><img alt="Portal Realm Config Steam" src="../../../../../../media/imgs/7bf9ab2-Portal-Realm_Config_steam.png" style="height:auto;width:500px"></a></p>
 <p>While the above steps are not needed to test that the Steamworks SDK is working, they are critical in order for the Beamable Steam integration to work properly. Note that you will also need to have a GameObject with the SteamManager script (from the <a href="https://github.com/rlabrecque/Steamworks.NET-Example/blob/master/Assets/Scripts/Steamworks.NET/SteamManager.cs">Steamworks.NET Example repository</a>) attached.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">(){</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">steamUserID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SteamUser</span><span class="p">.</span><span class="n">GetSteamID</span><span class="p">().</span><span class="n">ToString</span><span class="p">();</span>
-<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"SteamUserID: {steamUserID}"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">void Start(){
+    var steamUserID = SteamUser.GetSteamID().ToString();
+    Debug.Log($"SteamUserID: {steamUserID}");
+}
+</code></pre>
 <p>You should see that your Steam ID is printed to the console.</p>
 <div class="admonition info">
 <p class="admonition-title">Using Steamworks</p>
@@ -9505,117 +9530,70 @@
 </div>
 <h2 id="getting-steam-session-ticket">Getting Steam Session Ticket<a class="headerlink" href="#getting-steam-session-ticket" title="Permanent link">¶</a></h2>
 <p>You'll need to acquire a Steam Session Ticket to validate. In the example below, we are using the <code>SteamUser.GetAuthSessionTicket()</code> function of the Steamworks SDK to accomplish this. You can copy and paste the following into your code as-is to get your Steam Session Ticket:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">/// &lt;summary&gt;</span>
-<span class="c1">/// Get the Auth ticket for the current Steam User</span>
-<span class="c1">/// &lt;/summary&gt;</span>
-<span class="c1">/// &lt;param name="hAuthTicket"&gt;&lt;/param&gt;</span>
-<span class="c1">/// &lt;returns&gt;an string auth ticket provided from steam&lt;/returns&gt;</span>
-<span class="k">private</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetSteamAuthTicket</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">promise</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">steamAuthTicketBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="p">[</span><span class="m">1024</span><span class="p">];</span>
-<span class="w">    </span><span class="kt">uint</span><span class="w"> </span><span class="n">steamAuthTicketBufferSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1024</span><span class="p">;</span>
+<pre><code class="language-csharp">/// &lt;summary&gt;
+/// Get the Auth ticket for the current Steam User
+/// &lt;/summary&gt;
+/// &lt;param name="hAuthTicket"&gt;&lt;/param&gt;
+/// &lt;returns&gt;an string auth ticket provided from steam&lt;/returns&gt;
+private Promise&lt;string&gt; GetSteamAuthTicket()
+{
+    var promise = new Promise&lt;string&gt;();
+    var steamAuthTicketBuffer = new byte[1024];
+    uint steamAuthTicketBufferSize = 1024;
 
-<span class="w">    </span><span class="n">Callback</span><span class="o">&lt;</span><span class="n">GetAuthSessionTicketResponse_t</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">usedBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">byte</span><span class="o">&gt;</span><span class="p">(</span><span class="n">steamAuthTicketBuffer</span><span class="p">).</span><span class="n">GetRange</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">steamAuthTicketBufferSize</span><span class="p">).</span><span class="n">ToArray</span><span class="p">();</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BitConverter</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="n">usedBytes</span><span class="p">).</span><span class="n">Replace</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
-<span class="w">        </span><span class="n">promise</span><span class="p">.</span><span class="n">CompleteSuccess</span><span class="p">(</span><span class="n">ticket</span><span class="p">);</span>
-<span class="w">    </span><span class="p">});</span>
+    Callback&lt;GetAuthSessionTicketResponse_t&gt;.Create(_ =&gt;
+    {
+        var usedBytes = new List&lt;byte&gt;(steamAuthTicketBuffer).GetRange(0, (int) steamAuthTicketBufferSize).ToArray();
+        var ticket = BitConverter.ToString(usedBytes).Replace("-", string.Empty);
+        promise.CompleteSuccess(ticket);
+    });
 
-<span class="w">    </span><span class="n">SteamUser</span><span class="p">.</span><span class="n">GetAuthSessionTicket</span><span class="p">(</span><span class="n">steamAuthTicketBuffer</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">steamAuthTicketBufferSize</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">steamAuthTicketBufferSize</span><span class="p">);</span>
+    SteamUser.GetAuthSessionTicket(steamAuthTicketBuffer, (int) steamAuthTicketBufferSize, out steamAuthTicketBufferSize);
 
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">promise</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    return promise;
+}
+</code></pre>
 <p>You can then call this promise as an async/await task:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GetSteamAuthTicket</span><span class="p">();</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var ticket = await GetSteamAuthTicket();
+</code></pre>
 <h2 id="using-the-steam-auth-session-ticket-with-beamable">Using the Steam Auth Session Ticket with Beamable<a class="headerlink" href="#using-the-steam-auth-session-ticket-with-beamable" title="Permanent link">¶</a></h2>
 <p>One next step you can take is to validate the Session Ticket with Beamable. Beamable will return whether that ticket is valid or not. You can use the function below as-is:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">/// &lt;summary&gt;</span>
-<span class="c1">/// Validate a Steam ticket with the Beamable service</span>
-<span class="c1">/// &lt;/summary&gt;</span>
-<span class="c1">/// &lt;param name="ticket"&gt;&lt;/param&gt;</span>
-<span class="c1">/// &lt;returns&gt;True if Valid, False if error or failed validation&lt;/returns&gt;</span>
-<span class="k">private</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">BeamableValidateSteamTicket</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">ticket</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">promise</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">();</span>
+<pre><code class="language-csharp">/// &lt;summary&gt;
+/// Validate a Steam ticket with the Beamable service
+/// &lt;/summary&gt;
+/// &lt;param name="ticket"&gt;&lt;/param&gt;
+/// &lt;returns&gt;True if Valid, False if error or failed validation&lt;/returns&gt;
+private Promise&lt;bool&gt; BeamableValidateSteamTicket(string ticket)
+{
+    var promise = new Promise&lt;bool&gt;();
 
-<span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Requester</span><span class="p">.</span><span class="n">Request</span><span class="o">&lt;</span><span class="n">Beamable</span><span class="p">.</span><span class="n">Common</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">EmptyResponse</span><span class="o">&gt;</span><span class="p">(</span>
-<span class="w">        </span><span class="n">Beamable</span><span class="p">.</span><span class="n">Common</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">,</span>
-<span class="w">        </span><span class="s">$"/basic/payments/steam/auth"</span><span class="p">,</span>
-<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nf">SteamTicketRequest</span><span class="p">(</span><span class="n">ticket</span><span class="p">))</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">promise</span><span class="p">.</span><span class="n">CompleteSuccess</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
-<span class="w">    </span><span class="p">})</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="o">=&gt;</span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">ex</span><span class="p">);</span>
-<span class="w">        </span><span class="n">promise</span><span class="p">.</span><span class="n">CompleteSuccess</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
-<span class="w">    </span><span class="p">});</span>
+    _beamContext.Requester.Request&lt;Beamable.Common.Api.EmptyResponse&gt;(
+        Beamable.Common.Api.Method.POST,
+        $"/basic/payments/steam/auth",
+        new SteamTicketRequest(ticket))
+    .Then(f =&gt;
+    {
+        promise.CompleteSuccess(true);
+    })
+    .Error(ex=&gt;{
+        Debug.LogError(ex);
+        promise.CompleteSuccess(false);
+    });
 
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">promise</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    return promise;
+}
+</code></pre>
 <p>You can call this promise using async/await:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">isSteamTicketValid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">BeamableValidateSteamTicket</span><span class="p">(</span><span class="n">ticket</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var isSteamTicketValid = await BeamableValidateSteamTicket(ticket);
+</code></pre>
 <h2 id="login-to-beamable-with-third-party-steam">Login to Beamable with Third-Party (Steam)<a class="headerlink" href="#login-to-beamable-with-third-party-steam" title="Permanent link">¶</a></h2>
 <p>Much like our other third-party authentication methods, you will use the three main functions in the Beamable SDK: <code>LoginThirdParty</code>, <code>RegisterThirdPartyCredentials</code>, <code>CreateUser</code>.</p>
 <p>To use these services, you must convert the Steam Auth Ticket to the proper format in order for Beamable to recognize it.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AuthenticateUserRequest</span><span class="p">(</span><span class="n">SteamUser</span><span class="p">.</span><span class="n">GetSteamID</span><span class="p">().</span><span class="n">ToString</span><span class="p">(),</span><span class="w"> </span><span class="n">ticket</span><span class="p">);</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">steamRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonUtility</span><span class="p">.</span><span class="n">ToJson</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">encodedRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">steamRequest</span><span class="p">);</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">encodedRequest</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var request = new AuthenticateUserRequest(SteamUser.GetSteamID().ToString(), ticket);
+var steamRequest = JsonUtility.ToJson(request);
+var encodedRequest = Encoding.UTF8.GetBytes(steamRequest);
+var token = Convert.ToBase64String(encodedRequest);
+</code></pre>
 <p>In the following sections, you will see that we use the above code to convert the ticket to a Beamable token.</p>
 <h2 id="handle-various-flow-scenarios">Handle Various Flow Scenarios<a class="headerlink" href="#handle-various-flow-scenarios" title="Permanent link">¶</a></h2>
 <p>Now that we have the Steam Session Token, we need to account for 3 different scenarios:</p>
@@ -9631,197 +9609,108 @@ Returning Player linking their account with Steam</p>
 </ul>
 </li>
 </ul>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">/// &lt;summary&gt;</span>
-<span class="c1">/// Initiate Steam sign-in, making appropriate account changes as needed</span>
-<span class="c1">/// depending on whether the Beamable account or the Steam account already</span>
-<span class="c1">/// have associations.</span>
-<span class="c1">/// &lt;/summary&gt;</span>
-<span class="c1">/// &lt;param name="steamId"&gt;The player's Steam ID as a string.&lt;/param&gt;</span>
-<span class="c1">/// &lt;param name="ticket"&gt;Steam authentication session ticket.&lt;/param&gt;</span>
-<span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="w"> </span><span class="nf">SignInWithSteam</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">steamId</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">ticket</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">beamable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<pre><code class="language-csharp">/// &lt;summary&gt;
+/// Initiate Steam sign-in, making appropriate account changes as needed
+/// depending on whether the Beamable account or the Steam account already
+/// have associations.
+/// &lt;/summary&gt;
+/// &lt;param name="steamId"&gt;The player's Steam ID as a string.&lt;/param&gt;
+/// &lt;param name="ticket"&gt;Steam authentication session ticket.&lt;/param&gt;
+private async Promise SignInWithSteam(string steamId, string ticket)
+{
+    var beamable = BeamContext.Default;
+    await beamable.OnReady;
 
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AuthenticateUserRequest</span><span class="p">(</span><span class="n">steamId</span><span class="p">,</span><span class="w"> </span><span class="n">ticket</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">jsonRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonUtility</span><span class="p">.</span><span class="n">ToJson</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">encodedRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">jsonRequest</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">encodedRequest</span><span class="p">);</span>
+    var request = new AuthenticateUserRequest(steamId, ticket);
+    var jsonRequest = JsonUtility.ToJson(request);
+    var encodedRequest = Encoding.UTF8.GetBytes(jsonRequest);
+    var token = Convert.ToBase64String(encodedRequest);
 
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">IsThirdPartyAvailable</span><span class="p">(</span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">Steam</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">available</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">hasSteam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">HasThirdPartyAssociation</span><span class="p">(</span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">Steam</span><span class="p">);</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasSteam</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="nf">CreateNewBeamableUser</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
+    var available = await beamable.Api.AuthService.IsThirdPartyAvailable(AuthThirdParty.Steam, token);
+    if (available)
+    {
+        var hasSteam = beamable.Api.User.HasThirdPartyAssociation(AuthThirdParty.Steam);
+        if (hasSteam)
+        {
+            await CreateNewBeamableUser();
+        }
 
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nf">RegisterSteamToCurrentUser</span><span class="p">(</span><span class="n">token</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">else</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nf">LoginUsingSteam</span><span class="p">(</span><span class="n">token</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+        await RegisterSteamToCurrentUser(token);
+    }
+    else
+    {
+        await LoginUsingSteam(token);
+    }
+}
+</code></pre>
 <p>Below you will find the three helper functions: <code>LoginUsingSteam</code>, <code>CreateNewBeamableUser</code>, and <code>RegisterSteamToCurrentUser</code></p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">/// &lt;summary&gt;</span>
-<span class="c1">/// Log into an existing Beamable account using Steam credentials. It may be</span>
-<span class="c1">/// the case that that is the same account as the current account, in which</span>
-<span class="c1">/// case the player ID will stay the same. Otherwise, it will switch to the</span>
-<span class="c1">/// Beamable account associated with the Steam credentials.</span>
-<span class="c1">/// &lt;/summary&gt;</span>
-<span class="c1">/// &lt;param name="token"&gt;Steam authentication request token.&lt;/param&gt;</span>
-<span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">LoginUsingSteam</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">beamable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">tokenResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">LoginThirdParty</span><span class="p">(</span>
-<span class="w">        </span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">Steam</span><span class="p">,</span>
-<span class="w">        </span><span class="n">token</span><span class="p">,</span>
-<span class="w">        </span><span class="n">includeAuthHeader</span><span class="p">:</span><span class="w"> </span><span class="k">false</span>
-<span class="w">    </span><span class="p">);</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ApplyToken</span><span class="p">(</span><span class="n">tokenResponse</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">/// &lt;summary&gt;</span>
-<span class="c1">/// Create a new Beamable user and immediately make that user the current user.</span>
-<span class="c1">/// &lt;/summary&gt;</span>
-<span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">CreateNewBeamableUser</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">beamable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">tokenResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">CreateUser</span><span class="p">();</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ApplyToken</span><span class="p">(</span><span class="n">tokenResponse</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">/// &lt;summary&gt;</span>
-<span class="c1">/// Register Steam credentials to the current Beamable user.</span>
-<span class="c1">/// &lt;/summary&gt;</span>
-<span class="c1">/// &lt;param name="token"&gt;Steam authentication request token.&lt;/param&gt;</span>
-<span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">RegisterSteamToCurrentUser</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">beamable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">RegisterThirdPartyCredentials</span><span class="p">(</span>
-<span class="w">        </span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">Steam</span><span class="p">,</span>
-<span class="w">        </span><span class="n">token</span>
-<span class="w">    </span><span class="p">);</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">PlayerId</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">beamable</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">UpdateUserData</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">/// &lt;summary&gt;
+/// Log into an existing Beamable account using Steam credentials. It may be
+/// the case that that is the same account as the current account, in which
+/// case the player ID will stay the same. Otherwise, it will switch to the
+/// Beamable account associated with the Steam credentials.
+/// &lt;/summary&gt;
+/// &lt;param name="token"&gt;Steam authentication request token.&lt;/param&gt;
+private static async Task LoginUsingSteam(string token)
+{
+    var beamable = BeamContext.Default;
+    var tokenResponse = await beamable.Api.AuthService.LoginThirdParty(
+        AuthThirdParty.Steam,
+        token,
+        includeAuthHeader: false
+    );
+    await beamable.Api.ApplyToken(tokenResponse);
+}
+</code></pre>
+<pre><code class="language-csharp">/// &lt;summary&gt;
+/// Create a new Beamable user and immediately make that user the current user.
+/// &lt;/summary&gt;
+private static async Task CreateNewBeamableUser()
+{
+    var beamable = BeamContext.Default;
+    var tokenResponse = await beamable.Api.AuthService.CreateUser();
+    await beamable.Api.ApplyToken(tokenResponse);
+}
+</code></pre>
+<pre><code class="language-csharp">/// &lt;summary&gt;
+/// Register Steam credentials to the current Beamable user.
+/// &lt;/summary&gt;
+/// &lt;param name="token"&gt;Steam authentication request token.&lt;/param&gt;
+private static async Task RegisterSteamToCurrentUser(string token)
+{
+    var beamable = BeamContext.Default;
+    var user = await beamable.Api.AuthService.RegisterThirdPartyCredentials(
+        AuthThirdParty.Steam,
+        token
+    );
+    if (user.id != beamable.PlayerId)
+    {
+        beamable.Api.UpdateUserData(user);
+    }
+}
+</code></pre>
 <h2 id="putting-it-all-together">Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permanent link">¶</a></h2>
 <p>In the Start method of your MonoBehaviour, you can do something like the following:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
-<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Beamable User ID: {_beamContext.PlayerId}"</span><span class="p">);</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">SteamManager</span><span class="p">.</span><span class="n">Initialized</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"SteamManager not initialized."</span><span class="p">);</span>
-<span class="w">      </span><span class="c1">// This may happen if the player is not logged into Steam on their machine.</span>
-<span class="w">      </span><span class="k">return</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">steamUserID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SteamUser</span><span class="p">.</span><span class="n">GetSteamID</span><span class="p">().</span><span class="n">ToString</span><span class="p">();</span>
-<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"SteamUserID:{steamUserID}"</span><span class="p">);</span>
+<pre><code class="language-csharp">async void Start()
+{
+    _beamContext = BeamContext.Default;
+    await _beamContext.OnReady;
+    Debug.Log($"Beamable User ID: {_beamContext.PlayerId}");
+    if (!SteamManager.Initialized)
+    {
+      Debug.Log("SteamManager not initialized.");
+      // This may happen if the player is not logged into Steam on their machine.
+      return;
+    }
+    var steamUserID = SteamUser.GetSteamID().ToString();
+    Debug.Log($"SteamUserID:{steamUserID}");
 
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GetSteamAuthTicket</span><span class="p">();</span>
-<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Current Steam Ticket: {ticket}"</span><span class="p">);</span>
+    var ticket = await GetSteamAuthTicket();
+    Debug.Log($"Current Steam Ticket: {ticket}");
 
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nf">SignInWithSteam</span><span class="p">(</span><span class="n">steamUserID</span><span class="p">,</span><span class="w"> </span><span class="n">ticket</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    await SignInWithSteam(steamUserID, ticket);
+}
+</code></pre>
 <h2 id="purchasing-payments">Purchasing &amp; Payments<a class="headerlink" href="#purchasing-payments" title="Permanent link">¶</a></h2>
 <p>Beamable also has integrated Purchasing and Payments with Steam. You can issue a request to purchase an item and then pay for that item on the Steam platform. Once the purchase has completed the content is granted to the player from Beamable.</p>
 

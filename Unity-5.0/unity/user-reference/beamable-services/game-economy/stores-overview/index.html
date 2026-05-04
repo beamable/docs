@@ -4580,6 +4580,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9505,107 +9533,62 @@
 </div>
 <h3 id="making-a-purchase">Making a Purchase<a class="headerlink" href="#making-a-purchase" title="Permanent link">¶</a></h3>
 <p>Use <code>CommerceService.Purchase()</code>, which takes a Store ID and an Item ID. For ease of use, it is recommended to create a <code>StoreRef</code> and <code>ListingRef</code>, which will create a drop-down in the Inspector to select a valid store and item.</p>
-<p>StoreTest.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">StoreRef</span><span class="w"> </span><span class="n">storeRef</span><span class="p">;</span>
-<span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">ListingRef</span><span class="w"> </span><span class="n">listingRef</span><span class="p">;</span>
+<p>StoreTest.cs</p>
+<pre><code class="language-csharp">[SerializeField] private StoreRef storeRef;
+[SerializeField] private ListingRef listingRef;
 
-<span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">MakePurchase</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+private async Task&lt;bool&gt; MakePurchase()
+{
+    var success = true;
 
-<span class="w">    </span><span class="c1">//Errors are simply logged to the console here,</span>
-<span class="w">      </span><span class="c1">//but the user should also be notified in the UI or otherwise.</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">CommerceService</span><span class="p">.</span><span class="n">Purchase</span><span class="p">(</span><span class="n">storeRef</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="n">listingRef</span><span class="p">.</span><span class="n">Id</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="n">Error</span><span class="p">((</span><span class="n">error</span><span class="p">)</span><span class="o">=&gt;</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
-<span class="w">            </span><span class="n">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-<span class="w">        </span><span class="p">});</span>
+    //Errors are simply logged to the console here,
+      //but the user should also be notified in the UI or otherwise.
+    await _beamContext.Api.CommerceService.Purchase(storeRef.Id, listingRef.Id)
+        .Error((error)=&gt;
+        {
+            Debug.LogError(error);
+            success = false;
+        });
 
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">success</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+    return success;
+}
+</code></pre>
 <p>To validate if the purchase was successful, we can also use the InventoryService to print out the inventory before and after the purchase. See the <a href="../inventory-overview/">Inventory</a> service for more details.</p>
-<p>StoreTest.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">PurchaseItem</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nf">PrintInventory</span><span class="p">();</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">MakePurchase</span><span class="p">();</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">success</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Purchase was successful!"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nf">PrintInventory</span><span class="p">();</span>
-<span class="p">}</span>
+<p>StoreTest.cs</p>
+<pre><code class="language-csharp">private async Task PurchaseItem()
+{
+    await PrintInventory();
+    var success = await MakePurchase();
+    if (success)
+    {
+        Debug.Log("Purchase was successful!");
+    }
+    await PrintInventory();
+}
 
-<span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">PrintInventory</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">inventory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">InventoryService</span><span class="p">.</span><span class="n">GetCurrent</span><span class="p">();</span>
+private async Task PrintInventory()
+{
+    var inventory = await _beamContext.Api.InventoryService.GetCurrent();
 
-<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">kvp</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">inventory</span><span class="p">.</span><span class="n">items</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">inventoryItemName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"{kvp.Key} x {kvp.Value.Count}"</span><span class="p">;</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">inventoryItemName</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+    foreach (var kvp in inventory.items)
+    {
+        var inventoryItemName = $"{kvp.Key} x {kvp.Value.Count}";
+        Debug.Log(inventoryItemName);
+    }
+}
+</code></pre>
 <h3 id="unity-iap">Unity <abbr title="in-app purchases">IAP</abbr><a class="headerlink" href="#unity-iap" title="Permanent link">¶</a></h3>
 <p>If you want to leverage Unity <abbr title="in-app purchases">IAP</abbr>, you can use a <a href="./#custom-purchase-reporting">Custom Purchase Reporting</a> to integrate directly with Unity <abbr title="in-app purchases">IAP</abbr>. Beamable already has a custom purchaser to do this, and all you need to do is register it, like below.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamContextSystem]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Registrations</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[RegisterBeamableDependencies()]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Register</span><span class="p">(</span><span class="n">IDependencyBuilder</span><span class="w"> </span><span class="n">builder</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="n">AddSingleton</span><span class="o">&lt;</span><span class="n">IBeamablePurchaser</span><span class="p">,</span><span class="w"> </span><span class="n">UnityBeamablePurchaser</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">[BeamContextSystem]
+public class Registrations
+{
+    [RegisterBeamableDependencies()]
+    public static void Register(IDependencyBuilder builder)
+    {
+        builder.AddSingleton&lt;IBeamablePurchaser, UnityBeamablePurchaser&gt;();
+    }
+}
+</code></pre>
 <h3 id="custom-purchaser">Custom Purchaser<a class="headerlink" href="#custom-purchaser" title="Permanent link">¶</a></h3>
 <p>The Beamable <strong>Custom Purchaser</strong> service allows game makers to implement custom purchasing solutions for in-app purchases, bypassing Unity's built-in <abbr title="in-app purchases">IAP</abbr> system for complete control over the payment flow.</p>
 <p>Consider implementing a custom purchaser when you need:</p>
@@ -9697,545 +9680,283 @@
 </table>
 <h4 id="creating-a-custom-purchaser-class">Creating a Custom Purchaser Class<a class="headerlink" href="#creating-a-custom-purchaser-class" title="Permanent link">¶</a></h4>
 <p>Implement the <code>IBeamablePurchaser</code> interface. The following snippet shows the required structure:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomPurchaser</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IBeamablePurchaser</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">PaymentService</span><span class="w"> </span><span class="n">_paymentService</span><span class="p">;</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">YourPaymentProvider</span><span class="w"> </span><span class="n">_paymentProvider</span><span class="p">;</span><span class="w"> </span><span class="c1">// Your payment provider SDK</span>
+<pre><code class="language-csharp">public class CustomPurchaser : IBeamablePurchaser
+{
+    private PaymentService _paymentService;
+    private YourPaymentProvider _paymentProvider; // Your payment provider SDK
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">Unit</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Initialize</span><span class="p">(</span><span class="n">IDependencyProvider</span><span class="w"> </span><span class="n">provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Initialize your payment provider</span>
-<span class="w">        </span><span class="n">_paymentProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">YourPaymentProvider</span><span class="p">();</span>
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">_paymentProvider</span><span class="p">.</span><span class="n">Initialize</span><span class="p">();</span>
+    public async Promise&lt;Unit&gt; Initialize(IDependencyProvider provider = null)
+    {
+        // Initialize your payment provider
+        _paymentProvider = new YourPaymentProvider();
+        await _paymentProvider.Initialize();
 
-<span class="w">        </span><span class="c1">// Get reference to Beamable's payment service</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
-<span class="w">        </span><span class="n">_paymentService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">PaymentService</span><span class="p">;</span>
+        // Get reference to Beamable's payment service
+        var context = await BeamContext.Default.Instance;
+        _paymentService = context.Api.PaymentService;
 
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">Unit</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+        return new Unit();
+    }
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">GetLocalizedPrice</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">skuSymbol</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Query your payment provider for localized price</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">_paymentProvider</span><span class="p">.</span><span class="n">GetLocalizedPrice</span><span class="p">(</span><span class="n">skuSymbol</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+    public string GetLocalizedPrice(string skuSymbol)
+    {
+        // Query your payment provider for localized price
+        return _paymentProvider.GetLocalizedPrice(skuSymbol);
+    }
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">CompletedTransaction</span><span class="o">&gt;</span><span class="w"> </span><span class="n">StartPurchase</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">listingSymbol</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">skuSymbol</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">try</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// 1. Notify Beamable that purchase is starting</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_paymentService</span><span class="p">.</span><span class="n">BeginPurchase</span><span class="p">(</span><span class="n">listingSymbol</span><span class="p">);</span>
+    public async Promise&lt;CompletedTransaction&gt; StartPurchase(string listingSymbol, string skuSymbol)
+    {
+        try
+        {
+            // 1. Notify Beamable that purchase is starting
+            await _paymentService.BeginPurchase(listingSymbol);
 
-<span class="w">            </span><span class="c1">// 2. Start purchase with your payment provider</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_paymentProvider</span><span class="p">.</span><span class="n">ProcessPayment</span><span class="p">(</span><span class="n">skuSymbol</span><span class="p">);</span>
+            // 2. Start purchase with your payment provider
+            var result = await _paymentProvider.ProcessPayment(skuSymbol);
 
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">Success</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="c1">// 3. Complete purchase with Beamable for fulfillment</span>
-<span class="w">                </span><span class="k">await</span><span class="w"> </span><span class="n">_paymentService</span><span class="p">.</span><span class="n">CompletePurchase</span><span class="p">(</span><span class="n">listingSymbol</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">Receipt</span><span class="p">);</span>
-<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CompletedTransaction</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Receipt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">Receipt</span><span class="w"> </span><span class="p">};</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="k">else</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="c1">// 4. Handle failure</span>
-<span class="w">                </span><span class="k">await</span><span class="w"> </span><span class="n">_paymentService</span><span class="p">.</span><span class="n">FailPurchase</span><span class="p">(</span><span class="n">listingSymbol</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">ErrorMessage</span><span class="p">);</span>
-<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">Exception</span><span class="p">(</span><span class="s">$"Purchase failed: {result.ErrorMessage}"</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">UserCancelledException</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// Handle user cancellation</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_paymentService</span><span class="p">.</span><span class="n">CancelPurchase</span><span class="p">(</span><span class="n">listingSymbol</span><span class="p">);</span>
-<span class="w">            </span><span class="k">throw</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// Handle other errors</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_paymentService</span><span class="p">.</span><span class="n">FailPurchase</span><span class="p">(</span><span class="n">listingSymbol</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
-<span class="w">            </span><span class="k">throw</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+            if (result.Success)
+            {
+                // 3. Complete purchase with Beamable for fulfillment
+                await _paymentService.CompletePurchase(listingSymbol, result.Receipt);
+                return new CompletedTransaction { Receipt = result.Receipt };
+            }
+            else
+            {
+                // 4. Handle failure
+                await _paymentService.FailPurchase(listingSymbol, result.ErrorMessage);
+                throw new Exception($"Purchase failed: {result.ErrorMessage}");
+            }
+        }
+        catch (UserCancelledException)
+        {
+            // Handle user cancellation
+            await _paymentService.CancelPurchase(listingSymbol);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            // Handle other errors
+            await _paymentService.FailPurchase(listingSymbol, ex.Message);
+            throw;
+        }
+    }
+}
+</code></pre>
 <h4 id="registering-custom-purchaser">Registering Custom Purchaser<a class="headerlink" href="#registering-custom-purchaser" title="Permanent link">¶</a></h4>
 <p>Register your implementation with Beamable's Dependency Injection system:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamContextSystem]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Registrations</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[RegisterBeamableDependencies()]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Register</span><span class="p">(</span><span class="n">IDependencyBuilder</span><span class="w"> </span><span class="n">builder</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="n">AddSingleton</span><span class="o">&lt;</span><span class="n">IBeamablePurchaser</span><span class="p">,</span><span class="w"> </span><span class="n">CustomPurchaser</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">[BeamContextSystem]
+public class Registrations
+{
+    [RegisterBeamableDependencies()]
+    public static void Register(IDependencyBuilder builder)
+    {
+        builder.AddSingleton&lt;IBeamablePurchaser, CustomPurchaser&gt;();
+    }
+}
+</code></pre>
 <h3 id="custom-stores">Custom Stores<a class="headerlink" href="#custom-stores" title="Permanent link">¶</a></h3>
 <p>The Beamable <strong>CommerceService</strong> service allows game makers to create custom storefronts with flexible purchasing options.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">CommerceService</span><span class="p">.</span><span class="n">Purchase</span><span class="p">(</span><span class="n">storeSymbol</span><span class="p">,</span><span class="w"> </span><span class="n">listingSymbol</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">await _beamContext.Api.CommerceService.Purchase(storeSymbol, listingSymbol);
+</code></pre>
 <p>There are 3 major parts to the Store setup process. The workflow involves configuring Unity <abbr title="in-app purchases">IAP</abbr>, setting up platform integrations, and creating Beamable content.
 The following code examples demonstrate how to implement a custom store experience.</p>
-<p>CommerceServiceExample.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
-<span class="normal">  2</span>
-<span class="normal">  3</span>
-<span class="normal">  4</span>
-<span class="normal">  5</span>
-<span class="normal">  6</span>
-<span class="normal">  7</span>
-<span class="normal">  8</span>
-<span class="normal">  9</span>
-<span class="normal"> 10</span>
-<span class="normal"> 11</span>
-<span class="normal"> 12</span>
-<span class="normal"> 13</span>
-<span class="normal"> 14</span>
-<span class="normal"> 15</span>
-<span class="normal"> 16</span>
-<span class="normal"> 17</span>
-<span class="normal"> 18</span>
-<span class="normal"> 19</span>
-<span class="normal"> 20</span>
-<span class="normal"> 21</span>
-<span class="normal"> 22</span>
-<span class="normal"> 23</span>
-<span class="normal"> 24</span>
-<span class="normal"> 25</span>
-<span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
-<span class="normal"> 35</span>
-<span class="normal"> 36</span>
-<span class="normal"> 37</span>
-<span class="normal"> 38</span>
-<span class="normal"> 39</span>
-<span class="normal"> 40</span>
-<span class="normal"> 41</span>
-<span class="normal"> 42</span>
-<span class="normal"> 43</span>
-<span class="normal"> 44</span>
-<span class="normal"> 45</span>
-<span class="normal"> 46</span>
-<span class="normal"> 47</span>
-<span class="normal"> 48</span>
-<span class="normal"> 49</span>
-<span class="normal"> 50</span>
-<span class="normal"> 51</span>
-<span class="normal"> 52</span>
-<span class="normal"> 53</span>
-<span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span>
-<span class="normal">119</span>
-<span class="normal">120</span>
-<span class="normal">121</span>
-<span class="normal">122</span>
-<span class="normal">123</span>
-<span class="normal">124</span>
-<span class="normal">125</span>
-<span class="normal">126</span>
-<span class="normal">127</span>
-<span class="normal">128</span>
-<span class="normal">129</span>
-<span class="normal">130</span>
-<span class="normal">131</span>
-<span class="normal">132</span>
-<span class="normal">133</span>
-<span class="normal">134</span>
-<span class="normal">135</span>
-<span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
-<span class="normal">142</span>
-<span class="normal">143</span>
-<span class="normal">144</span>
-<span class="normal">145</span>
-<span class="normal">146</span>
-<span class="normal">147</span>
-<span class="normal">148</span>
-<span class="normal">149</span>
-<span class="normal">150</span>
-<span class="normal">151</span>
-<span class="normal">152</span>
-<span class="normal">153</span>
-<span class="normal">154</span>
-<span class="normal">155</span>
-<span class="normal">156</span>
-<span class="normal">157</span>
-<span class="normal">158</span>
-<span class="normal">159</span>
-<span class="normal">160</span>
-<span class="normal">161</span>
-<span class="normal">162</span>
-<span class="normal">163</span>
-<span class="normal">164</span>
-<span class="normal">165</span>
-<span class="normal">166</span>
-<span class="normal">167</span>
-<span class="normal">168</span>
-<span class="normal">169</span>
-<span class="normal">170</span>
-<span class="normal">171</span>
-<span class="normal">172</span>
-<span class="normal">173</span>
-<span class="normal">174</span>
-<span class="normal">175</span>
-<span class="normal">176</span>
-<span class="normal">177</span>
-<span class="normal">178</span>
-<span class="normal">179</span>
-<span class="normal">180</span>
-<span class="normal">181</span>
-<span class="normal">182</span>
-<span class="normal">183</span>
-<span class="normal">184</span>
-<span class="normal">185</span>
-<span class="normal">186</span>
-<span class="normal">187</span>
-<span class="normal">188</span>
-<span class="normal">189</span>
-<span class="normal">190</span>
-<span class="normal">191</span>
-<span class="normal">192</span>
-<span class="normal">193</span>
-<span class="normal">194</span>
-<span class="normal">195</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Examples.Shared</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine.Events</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Api.Payments</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Api.Inventory</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Inventory</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Shop</span><span class="p">;</span>
+<p>CommerceServiceExample.cs</p>
+<pre><code class="language-csharp">using System.Collections.Generic;
+using Beamable.Examples.Shared;
+using UnityEngine;
+using UnityEngine.Events;
+using Beamable.Api.Payments;
+using Beamable.Common.Api.Inventory;
+using Beamable.Common.Inventory;
+using Beamable.Common.Shop;
 
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.CommerceService</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[System.Serializable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">RefreshedUnityEvent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">UnityEvent</span><span class="o">&lt;</span><span class="n">CommerceServiceExampleData</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+namespace Beamable.Examples.Services.CommerceService
+{
+    [System.Serializable]
+    public class RefreshedUnityEvent : UnityEvent&lt;CommerceServiceExampleData&gt; { }
 
-<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">    </span><span class="c1">/// Demonstrates &lt;see cref="CommerceService"/&gt;.</span>
-<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CommerceServiceExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">//  Events  ---------------------------------------</span>
-<span class="w">        </span><span class="na">[HideInInspector]</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">RefreshedUnityEvent</span><span class="w"> </span><span class="n">OnRefreshed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RefreshedUnityEvent</span><span class="p">();</span>
+    /// &lt;summary&gt;
+    /// Demonstrates &lt;see cref="CommerceService"/&gt;.
+    /// &lt;/summary&gt;
+    public class CommerceServiceExample : MonoBehaviour
+    {
+        //  Events  ---------------------------------------
+        [HideInInspector]
+        public RefreshedUnityEvent OnRefreshed = new RefreshedUnityEvent();
 
-<span class="w">        </span><span class="c1">//  Fields  ---------------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">ItemContentType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"items"</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">CurrencyContentType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"currency"</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">CurrencyType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"currency.Coin"</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">EmptyDisplayName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"[Empty]"</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">CurrencyDisplayName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Coin"</span><span class="p">;</span>
+        //  Fields  ---------------------------------------
+        private const string ItemContentType = "items";
+        private const string CurrencyContentType = "currency";
+        private const string CurrencyType = "currency.Coin";
+        private const string EmptyDisplayName = "[Empty]";
+        private const string CurrencyDisplayName = "Coin";
 
-<span class="w">        </span><span class="na">[SerializeField]</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">StoreRef</span><span class="w"> </span><span class="n">_storeRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">StoreContent</span><span class="w"> </span><span class="n">_storeContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">BeamContext</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">;</span>
+        [SerializeField]
+        private StoreRef _storeRef = null;
+        private StoreContent _storeContent = null;
+        private BeamContext _beamContext;
 
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">CommerceServiceExampleData</span><span class="w"> </span><span class="n">_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CommerceServiceExampleData</span><span class="p">();</span>
+        private CommerceServiceExampleData _data = new CommerceServiceExampleData();
 
-<span class="w">        </span><span class="c1">//  Unity Methods  --------------------------------</span>
-<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start() Instructions...\n\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                      </span><span class="s">" * Ensure Computer's Internet Is Active\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                      </span><span class="s">" * Run The Scene\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                      </span><span class="s">" * See Onscreen UI Show HasInternet = true\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                      </span><span class="s">" * Ensure Computer's Internet Is NOT Active\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                      </span><span class="s">" * See Onscreen UI Show HasInternet = false\n"</span><span class="p">);</span>
+        //  Unity Methods  --------------------------------
+        protected void Start()
+        {
+            Debug.Log($"Start() Instructions...\n\n" +
+                      " * Ensure Computer's Internet Is Active\n" +
+                      " * Run The Scene\n" +
+                      " * See Onscreen UI Show HasInternet = true\n" +
+                      " * Ensure Computer's Internet Is NOT Active\n" +
+                      " * See Onscreen UI Show HasInternet = false\n");
 
-<span class="w">            </span><span class="n">SetupBeamable</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
+            SetupBeamable();
+        }
 
-<span class="w">        </span><span class="c1">//  Methods  --------------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+        //  Methods  --------------------------------------
+        private async void SetupBeamable()
+        {
+            _beamContext = BeamContext.Default;
+            await _beamContext.OnReady;
 
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"beamContext.PlayerId = {_beamContext.PlayerId}"</span><span class="p">);</span>
+            Debug.Log($"beamContext.PlayerId = {_beamContext.PlayerId}");
 
-<span class="w">            </span><span class="n">_storeContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_storeRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
+            _storeContent = await _storeRef.Resolve();
 
-<span class="w">            </span><span class="c1">// Observe Changes</span>
-<span class="w">            </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">InventoryService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">ItemContentType</span><span class="p">,</span><span class="w"> </span><span class="n">Inventory_OnChanged</span><span class="p">);</span>
-<span class="w">            </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">InventoryService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">CurrencyContentType</span><span class="p">,</span><span class="w"> </span><span class="n">Currency_OnChanged</span><span class="p">);</span>
-<span class="w">            </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">CommerceService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">_storeContent</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="n">CommerceService_OnChanged</span><span class="p">);</span>
+            // Observe Changes
+            _beamContext.Api.InventoryService.Subscribe(ItemContentType, Inventory_OnChanged);
+            _beamContext.Api.InventoryService.Subscribe(CurrencyContentType, Currency_OnChanged);
+            _beamContext.Api.CommerceService.Subscribe(_storeContent.Id, CommerceService_OnChanged);
 
-<span class="w">            </span><span class="c1">// Update UI Immediately</span>
-<span class="w">            </span><span class="n">Refresh</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
+            // Update UI Immediately
+            Refresh();
+        }
 
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Buy</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_data</span><span class="p">.</span><span class="n">SelectedItemData</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"BuySelectedStoreItem() failed because _selectedItemData =</span>
-<span class="w">                 </span><span class="p">{</span><span class="n">_data</span><span class="p">.</span><span class="n">SelectedItemData</span><span class="p">}.</span><span class="s">");</span>
-<span class="w">                </span><span class="k">return</span><span class="p">;</span>
-<span class="w">            </span><span class="p">}</span>
+        public async void Buy()
+        {
+            if (_data.SelectedItemData == null)
+            {
+                Debug.LogError($"BuySelectedStoreItem() failed because _selectedItemData =
+                 {_data.SelectedItemData}.");
+                return;
+            }
 
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">_data</span><span class="p">.</span><span class="n">CanAffordSelectedStoreItemData</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"BuySelectedStoreItem() failed because CanAffordSelectedStoreItemData =</span>
-<span class="w">                 </span><span class="p">{</span><span class="n">_data</span><span class="p">.</span><span class="n">CanAffordSelectedStoreItemData</span><span class="p">}.</span><span class="s">");</span>
-<span class="w">                </span><span class="k">return</span><span class="p">;</span>
-<span class="w">            </span><span class="p">}</span>
+            if (!_data.CanAffordSelectedStoreItemData)
+            {
+                Debug.LogError($"BuySelectedStoreItem() failed because CanAffordSelectedStoreItemData =
+                 {_data.CanAffordSelectedStoreItemData}.");
+                return;
+            }
 
-<span class="w">            </span><span class="c1">// Buy!</span>
-<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">storeSymbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_storeContent</span><span class="p">.</span><span class="n">Id</span><span class="p">;</span>
-<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">listingSymbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_data</span><span class="p">.</span><span class="n">SelectedItemData</span><span class="p">.</span><span class="n">PlayerListingView</span><span class="p">.</span><span class="n">symbol</span><span class="p">;</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">CommerceService</span><span class="p">.</span><span class="n">Purchase</span><span class="p">(</span><span class="n">storeSymbol</span><span class="p">,</span><span class="w"> </span><span class="n">listingSymbol</span><span class="p">);</span>
+            // Buy!
+            string storeSymbol = _storeContent.Id;
+            string listingSymbol = _data.SelectedItemData.PlayerListingView.symbol;
+            await _beamContext.Api.CommerceService.Purchase(storeSymbol, listingSymbol);
 
-<span class="w">        </span><span class="p">}</span>
+        }
 
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Refresh</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">refreshLog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"Refresh() ..."</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                                </span><span class="s">$"\n * StoreItemDatas.Count = {_data.StoreItemDatas.Count}\n\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                                </span><span class="s">$"\n * InventoryItemDatas.Count = {_data.InventoryItemDatas.Count}\n\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                                </span><span class="s">$"\n * CurrencyAmount.Count = {_data.CurrencyAmount}\n\n"</span><span class="p">;</span>
+        public void Refresh()
+        {
+            string refreshLog = $"Refresh() ..." +
+                                $"\n * StoreItemDatas.Count = {_data.StoreItemDatas.Count}\n\n" +
+                                $"\n * InventoryItemDatas.Count = {_data.InventoryItemDatas.Count}\n\n" +
+                                $"\n * CurrencyAmount.Count = {_data.CurrencyAmount}\n\n";
 
-<span class="w">            </span><span class="n">_data</span><span class="p">.</span><span class="n">InstructionLogs</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">            </span><span class="n">_data</span><span class="p">.</span><span class="n">InstructionLogs</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Click `Buy` to add 1 item to Inventory"</span><span class="p">);</span>
-<span class="w">            </span><span class="n">_data</span><span class="p">.</span><span class="n">InstructionLogs</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"or Click `Reset` to delete and create a new player"</span><span class="p">);</span>
+            _data.InstructionLogs.Clear();
+            _data.InstructionLogs.Add("Click `Buy` to add 1 item to Inventory");
+            _data.InstructionLogs.Add("or Click `Reset` to delete and create a new player");
 
-<span class="w">            </span><span class="c1">//Debug.Log(refreshLog);</span>
+            //Debug.Log(refreshLog);
 
-<span class="w">            </span><span class="c1">// Send relevant data to the UI for rendering</span>
-<span class="w">            </span><span class="n">OnRefreshed</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">_data</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
+            // Send relevant data to the UI for rendering
+            OnRefreshed?.Invoke(_data);
+        }
 
-<span class="w">        </span><span class="c1">//  Event Handlers  -------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Inventory_OnChanged</span><span class="p">(</span><span class="n">InventoryView</span><span class="w"> </span><span class="n">inventoryView</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">_data</span><span class="p">.</span><span class="n">InventoryItemDatas</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">KeyValuePair</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ItemView</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">kvp</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">inventoryView</span><span class="p">.</span><span class="n">items</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">itemName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetDisplayNameFromContentId</span><span class="p">(</span><span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">);</span>
+        //  Event Handlers  -------------------------------
+        private async void Inventory_OnChanged(InventoryView inventoryView)
+        {
+            _data.InventoryItemDatas.Clear();
+            foreach (KeyValuePair&lt;string, List&lt;ItemView&gt;&gt; kvp in inventoryView.items)
+            {
+                string itemName = ExampleProjectHelper.GetDisplayNameFromContentId(kvp.Key);
 
-<span class="w">                </span><span class="n">ItemContent</span><span class="w"> </span><span class="n">itemContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span>
-<span class="w">                    </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetItemContentById</span><span class="p">(</span><span class="n">_beamContext</span><span class="p">,</span><span class="w"> </span><span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">);</span>
+                ItemContent itemContent = await
+                    ExampleProjectHelper.GetItemContentById(_beamContext, kvp.Key);
 
-<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"{itemName} x {kvp.Value.Count}"</span><span class="p">;</span>
-<span class="w">                </span><span class="n">ItemData</span><span class="w"> </span><span class="n">itemData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ItemData</span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">itemContent</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">);</span>
+                string title = $"{itemName} x {kvp.Value.Count}";
+                ItemData itemData = new ItemData(title, itemContent, null);
 
-<span class="w">                </span><span class="n">_data</span><span class="p">.</span><span class="n">InventoryItemDatas</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">itemData</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
+                _data.InventoryItemDatas.Add(itemData);
+            }
 
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_data</span><span class="p">.</span><span class="n">InventoryItemDatas</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="c1">// Show "Empty"</span>
-<span class="w">                </span><span class="n">_data</span><span class="p">.</span><span class="n">InventoryItemDatas</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ItemData</span><span class="p">(</span><span class="n">EmptyDisplayName</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">));</span>
-<span class="w">            </span><span class="p">}</span>
+            if (_data.InventoryItemDatas.Count == 0)
+            {
+                // Show "Empty"
+                _data.InventoryItemDatas.Add(new ItemData(EmptyDisplayName, null, null));
+            }
 
-<span class="w">            </span><span class="n">Refresh</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
+            Refresh();
+        }
 
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Currency_OnChanged</span><span class="p">(</span><span class="n">InventoryView</span><span class="w"> </span><span class="n">inventoryViewForCurrencies</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">_data</span><span class="p">.</span><span class="n">CurrencyAmount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<span class="w">            </span><span class="n">_data</span><span class="p">.</span><span class="n">CurrencyLogs</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">KeyValuePair</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">kvp</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">inventoryViewForCurrencies</span><span class="p">.</span><span class="n">currencies</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">CurrencyType</span><span class="p">)</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_data</span><span class="p">.</span><span class="n">CurrencyAmount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">kvp</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">                </span><span class="k">else</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="k">continue</span><span class="p">;</span>
-<span class="w">                </span><span class="p">}</span>
+        private async void Currency_OnChanged(InventoryView inventoryViewForCurrencies)
+        {
+            _data.CurrencyAmount = 0;
+            _data.CurrencyLogs.Clear();
+            foreach (KeyValuePair&lt;string, long&gt; kvp in inventoryViewForCurrencies.currencies)
+            {
+                if (kvp.Key == CurrencyType)
+                {
+                    _data.CurrencyAmount = (int)kvp.Value;
+                }
+                else
+                {
+                    continue;
+                }
 
-<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">itemName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetDisplayNameFromContentId</span><span class="p">(</span><span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">);</span>
+                string itemName = ExampleProjectHelper.GetDisplayNameFromContentId(kvp.Key);
 
-<span class="w">                </span><span class="n">CurrencyContent</span><span class="w"> </span><span class="n">currencyContent</span><span class="w"> </span><span class="o">=</span>
-<span class="w">                    </span><span class="k">await</span><span class="w"> </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetCurrencyContentById</span><span class="p">(</span><span class="n">_beamContext</span><span class="p">,</span><span class="w"> </span><span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">);</span>
+                CurrencyContent currencyContent =
+                    await ExampleProjectHelper.GetCurrencyContentById(_beamContext, kvp.Key);
 
-<span class="w">                </span><span class="n">_data</span><span class="p">.</span><span class="n">CurrencyContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currencyContent</span><span class="p">;</span>
-<span class="w">                </span><span class="n">_data</span><span class="p">.</span><span class="n">CurrencyLogs</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"{itemName} x {kvp.Value}"</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
+                _data.CurrencyContent = currencyContent;
+                _data.CurrencyLogs.Add($"{itemName} x {kvp.Value}");
+            }
 
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"_data.CurrencyAmount: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">_data</span><span class="p">.</span><span class="n">CurrencyAmount</span><span class="p">);</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_data</span><span class="p">.</span><span class="n">CurrencyLogs</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">_data</span><span class="p">.</span><span class="n">CurrencyLogs</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">EmptyDisplayName</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
+            Debug.Log("_data.CurrencyAmount: " + _data.CurrencyAmount);
+            if (_data.CurrencyLogs.Count == 0)
+            {
+                _data.CurrencyLogs.Add(EmptyDisplayName);
+            }
 
-<span class="w">            </span><span class="n">Refresh</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
+            Refresh();
+        }
 
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CommerceService_OnChanged</span><span class="p">(</span><span class="n">PlayerStoreView</span><span class="w"> </span><span class="n">playerStoreView</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">_data</span><span class="p">.</span><span class="n">StoreItemDatas</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+        private async void CommerceService_OnChanged(PlayerStoreView playerStoreView)
+        {
+            _data.StoreItemDatas.Clear();
 
-<span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">PlayerListingView</span><span class="w"> </span><span class="n">playerListingView</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">playerStoreView</span><span class="p">.</span><span class="n">listings</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">playerListingView</span><span class="p">.</span><span class="n">offer</span><span class="p">.</span><span class="n">price</span><span class="p">.</span><span class="n">amount</span><span class="p">;</span>
-<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">contentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">playerListingView</span><span class="p">.</span><span class="n">offer</span><span class="p">.</span><span class="n">obtainItems</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">contentId</span><span class="p">;</span>
-<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">itemName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetDisplayNameFromContentId</span><span class="p">(</span><span class="n">contentId</span><span class="p">);</span>
-<span class="w">                </span><span class="n">ItemContent</span><span class="w"> </span><span class="n">itemContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetItemContentById</span><span class="p">(</span><span class="n">_beamContext</span><span class="p">,</span>
-<span class="w">                 </span><span class="n">contentId</span><span class="p">);</span>
+            foreach (PlayerListingView playerListingView in playerStoreView.listings)
+            {
+                int price = playerListingView.offer.price.amount;
+                string contentId = playerListingView.offer.obtainItems[0].contentId;
+                string itemName = ExampleProjectHelper.GetDisplayNameFromContentId(contentId);
+                ItemContent itemContent = await ExampleProjectHelper.GetItemContentById(_beamContext,
+                 contentId);
 
-<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"{itemName} ({price} {CurrencyDisplayName})"</span><span class="p">;</span>
-<span class="w">                </span><span class="n">ItemData</span><span class="w"> </span><span class="n">itemData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ItemData</span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">itemContent</span><span class="p">,</span><span class="w"> </span><span class="n">playerListingView</span><span class="p">);</span>
-<span class="w">                </span><span class="n">_data</span><span class="p">.</span><span class="n">StoreItemDatas</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">itemData</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
+                string title = $"{itemName} ({price} {CurrencyDisplayName})";
+                ItemData itemData = new ItemData(title, itemContent, playerListingView);
+                _data.StoreItemDatas.Add(itemData);
+            }
 
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_data</span><span class="p">.</span><span class="n">StoreItemDatas</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="c1">// Show "Empty"</span>
-<span class="w">                </span><span class="n">_data</span><span class="p">.</span><span class="n">StoreItemDatas</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ItemData</span><span class="p">(</span><span class="n">EmptyDisplayName</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">));</span>
-<span class="w">            </span><span class="p">}</span>
+            if (_data.StoreItemDatas.Count == 0)
+            {
+                // Show "Empty"
+                _data.StoreItemDatas.Add(new ItemData(EmptyDisplayName, null, null));
+            }
 
-<span class="w">            </span><span class="n">Refresh</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+            Refresh();
+        }
+    }
+}
+</code></pre>
 <h2 id="custom-purchase-reporting">Custom Purchase Reporting<a class="headerlink" href="#custom-purchase-reporting" title="Permanent link">¶</a></h2>
 <p>As a game maker you will find that in some cases you need to be able to report purchases from outside the Beamable store flow. Beamable provides you with a way to do this through a small configuration change in the Portal and some client-side tracking code.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/payment-audits-realm-config.png" data-desc-position="bottom"><img alt="Payment Audits Realm Config" src="../../../../../media/imgs/payment-audits-realm-config.png"></a></p>
@@ -10289,78 +10010,43 @@ The following code examples demonstrate how to implement a custom store experien
 </tbody>
 </table>
 <p>Code example:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">TrackSomePurchase</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Random</span><span class="p">();</span>
+<pre><code class="language-csharp">private async Task TrackSomePurchase()
+{
+    var ctx = await BeamContext.Default.Instance;
+    var random = new Random();
 
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">purchaseId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"listings.ten_bucks_for_some_coins"</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">skuName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"skus.ten_dollar_pack"</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">productId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"com.beamable.example.d10"</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"stores.default"</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">9.99</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isoCurrency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"USD"</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">obtainCurrencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ObtainCurrency</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">new</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="n">Next</span><span class="p">(</span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"currency.coins"</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="p">};</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">obtainItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ObtainItem</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">new</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">contentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"items.diamond_1"</span><span class="p">,</span>
-<span class="w">            </span><span class="n">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ItemProperty</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">new</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"color"</span><span class="p">,</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"blue"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">};</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">trackRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TrackPurchaseRequest</span><span class="p">(</span>
-<span class="w">      </span><span class="n">purchaseId</span><span class="p">,</span>
-<span class="w">      </span><span class="n">skuName</span><span class="p">,</span>
-<span class="w">      </span><span class="n">productId</span><span class="p">,</span>
-<span class="w">      </span><span class="n">store</span><span class="p">,</span>
-<span class="w">      </span><span class="n">price</span><span class="p">,</span>
-<span class="w">      </span><span class="n">isoCurrency</span><span class="p">,</span>
-<span class="w">      </span><span class="n">obtainCurrencies</span><span class="p">,</span>
-<span class="w">      </span><span class="n">obtainItems</span>
-<span class="w">    </span><span class="p">);</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">PaymentService</span><span class="p">.</span><span class="n">Track</span><span class="p">(</span><span class="n">trackRequest</span><span class="p">);</span>
-<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Request tracked."</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    var purchaseId = "listings.ten_bucks_for_some_coins";
+    var skuName = "skus.ten_dollar_pack";
+    var productId = "com.beamable.example.d10";
+    var store = "stores.default";
+    var price = 9.99;
+    var isoCurrency = "USD";
+    var obtainCurrencies = new List&lt;ObtainCurrency&gt;
+    {
+        new() { amount = random.Next(10), symbol = "currency.coins" }
+    };
+    var obtainItems = new List&lt;ObtainItem&gt;
+    {
+        new()
+        {
+            contentId = "items.diamond_1",
+            properties = new List&lt;ItemProperty&gt; { new() { name = "color", value = "blue" } }
+        }
+    };
+    var trackRequest = new TrackPurchaseRequest(
+      purchaseId,
+      skuName,
+      productId,
+      store,
+      price,
+      isoCurrency,
+      obtainCurrencies,
+      obtainItems
+    );
+    await ctx.Api.PaymentService.Track(trackRequest);
+    Debug.Log("Request tracked.");
+}
+</code></pre>
 <p>Once you do the above tracking, you can view the results by going to the Portal and clicking on <em>Real Money Transactions</em> under the Monetization section. Within a few minutes at most, the tracking that was posted should appear there and you can view the details of your transactions.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/portal-purchase-results.png" data-desc-position="bottom"><img alt="Portal Purchase Results" src="../../../../../media/imgs/portal-purchase-results.png" style="height:auto;width:500px"></a></p>
 <p>In addition, the dashboards on the Realm should reflect the purchase as well.</p>

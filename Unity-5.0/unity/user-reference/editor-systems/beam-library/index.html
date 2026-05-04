@@ -4590,6 +4590,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9657,73 +9685,41 @@
 <h3 id="adminflow-api">AdminFlow API<a class="headerlink" href="#adminflow-api" title="Permanent link">¶</a></h3>
 <h4 id="creating-custom-admin-commands">Creating Custom Admin Commands<a class="headerlink" href="#creating-custom-admin-commands" title="Permanent link">¶</a></h4>
 <p>Game makers can create custom admin commands for additional functionality.</p>
-<p>AdminFlowCustomCommandExample.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.ConsoleCommands</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<p>AdminFlowCustomCommandExample.cs</p>
+<pre><code class="language-csharp">using Beamable.ConsoleCommands;
+using UnityEngine;
 
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Features.AdminFlow</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[BeamableConsoleCommandProvider]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomConsoleCommandProvider</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="na">[BeamableConsoleCommand ("Add", "A sample addition command", "Add &lt;int&gt; &lt;int&gt;")]</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="m">0</span><span class="p">]);</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="m">1</span><span class="p">]);</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">"Result: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
+namespace Beamable.Examples.Features.AdminFlow
+{
+    [BeamableConsoleCommandProvider]
+    public class CustomConsoleCommandProvider
+    {
+        [BeamableConsoleCommand ("Add", "A sample addition command", "Add &lt;int&gt; &lt;int&gt;")]
+        public string Add(string[] args)
+        {
+            var a = int.Parse(args[0]);
+            var b = int.Parse(args[1]);
+            return "Result: " + (a + b);
+        }
+    }
 
-<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">    </span><span class="c1">/// Demonstrates &lt;see cref="AdminFlow"/&gt;.</span>
-<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AdminFlowCustomCommandExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">//  Unity Methods  --------------------------------</span>
-<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start() Instructions...\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                      </span><span class="s">" * Run The Scene\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                      </span><span class="s">" * Type '~' in Unity Game Window to open Admin Console\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                      </span><span class="s">" * Type 'Add 5 10'\n"</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                      </span><span class="s">" * See 'Result: 15' in Unity Console Window\n"</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+    /// &lt;summary&gt;
+    /// Demonstrates &lt;see cref="AdminFlow"/&gt;.
+    /// &lt;/summary&gt;
+    public class AdminFlowCustomCommandExample : MonoBehaviour
+    {
+        //  Unity Methods  --------------------------------
+        protected void Start()
+        {
+            Debug.Log($"Start() Instructions...\n" +
+                      " * Run The Scene\n" +
+                      " * Type '~' in Unity Game Window to open Admin Console\n" +
+                      " * Type 'Add 5 10'\n" +
+                      " * See 'Result: 15' in Unity Console Window\n");
+        }
+    }
+}
+</code></pre>
 
 
 

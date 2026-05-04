@@ -4634,6 +4634,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9620,70 +9648,46 @@
 <p>A job must execute a single action. That action can be a privileged call to a Microservice, an HTTP call, or an internal Beamable message bus call. In the SDK, only Microservice and HTTP calls are supported.</p>
 <h3 id="microservice-action">Microservice Action<a class="headerlink" href="#microservice-action" title="Permanent link">¶</a></h3>
 <p>A scheduled job executing a Microservice should use the <code>.Schedule().Microservice()</code> utility function.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Scheduler</span><span class="p">.</span><span class="n">Schedule</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Microservice</span><span class="o">&lt;</span><span class="n">ExampleService</span><span class="o">&gt;</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">ExampleMethod</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">OnCron</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">Daily</span><span class="p">())</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Save</span><span class="p">(</span><span class="s">"example"</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var job = await Services.Scheduler.Schedule()
+    .Microservice&lt;ExampleService&gt;()
+    .Run(n =&gt; n.ExampleMethod)
+    .OnCron(c =&gt; c.Daily())
+    .Save("example");
+</code></pre>
 <p>The <code>.Microservice&lt;ExampleService&gt;()</code> method allows the developer to use the <code>Run()</code> method, which will require the developer to provide an expression mapping to a callable method. The input parameter to <code>Run()</code> should map an instance of the desired service to the <em>method group</em> that will be run when the job executes. The lack of parenthesis on <code>n =&gt; n.ExampleMethod</code> indicates it is a method group. If the desired method takes input arguments,  the values should be passed as additional arguments to the <code>.Run()</code> method.</p>
 <p>The target method group must return a <code>Task</code> or <code>Promise</code>. It is invalid to schedule a call to a function that itself returns any value. The target method should be marked with the <code>[ServerCallable]</code> attribute. When Beamable executes the job and calls the method, it will not provide any <code>playerId</code>, so the <code>[ClientCallable]</code> attribute will be invalid. However, to protect and secure endpoints, they should require the admin <code>"*"</code> scope. The <code>[ServerCallable]</code> attribute ensures that the method invocation has the admin scope, but does not need a <code>playerId</code>.</p>
 <p>The <code>.Microservice&lt;T&gt;()</code> method takes an optional parameter called <code>useLocal</code>. When Beamable executes the job, it can send a request to a locally running Microservice, or to the deployed Microservice on the realm. When <code>useLocal</code> is set to <code>true</code>, the request will be sent to whatever address scheduled the job. For local testing, this means that if you schedule a Microservice action from a locally running Microservice, your locally running Microservice will be expected to handle the method call later. If the remote service is used to schedule the job, then the remote service will be sent the invocation. If <code>useLocal</code> is set to <code>false</code>, then all requests will always be sent to the remote, even if they were scheduled from a locally running service.
 By default, <code>useLocal</code> is set as <code>true</code>.</p>
 <h3 id="http-action">HTTP Action<a class="headerlink" href="#http-action" title="Permanent link">¶</a></h3>
 <p>A scheduled job executing a HTTP request should use the <code>.Schedule().Http()</code> utility function.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Scheduler</span><span class="p">.</span><span class="n">Schedule</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Http</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">,</span><span class="w"> </span><span class="s">"https://webhook.site/2e7e3ca0-a771-4515-8570-e925c69f2059"</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">OnCron</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">Daily</span><span class="p">())</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Save</span><span class="p">(</span><span class="s">"sample"</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var job = await Services.Scheduler.Schedule()
+    .Http()
+    .Run(Method.GET, "https://webhook.site/2e7e3ca0-a771-4515-8570-e925c69f2059")
+    .OnCron(c =&gt; c.Daily())
+    .Save("sample");
+</code></pre>
 <p>The <code>.Http()</code> method allows the developer to use the <code>.Run()</code> function that creates an HTTP action for the job. Optionally, a third parameter can be given as the body for the HTTP request. By default, the HTTP action will use JSON to serialize any request payload. There are overloads of the method available that allow a developer to specify a custom body, accept header, and custom headers.</p>
 <h2 id="job-triggers">Job Triggers<a class="headerlink" href="#job-triggers" title="Permanent link">¶</a></h2>
 <p>A job must have at least 1 trigger, but may have many. A trigger is some schedule that defines when the job should execute the action. There are two types of triggers, a cron trigger, and a time trigger.</p>
 <h3 id="time-triggers">Time Triggers<a class="headerlink" href="#time-triggers" title="Permanent link">¶</a></h3>
 <p>A time trigger specifies an exact time for a job to execute. There are a few utility methods to assist in creating time triggers.</p>
 <p>In this example, the <code>OnExactDate</code> method is used to schedule the job to execute once on the 1st of April, 2024.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Scheduler</span><span class="p">.</span><span class="n">Schedule</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Http</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">,</span><span class="w"> </span><span class="s">"https://example.com"</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">OnExactDate</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">DateTime</span><span class="p">(</span><span class="m">2024</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Save</span><span class="p">(</span><span class="s">"sample"</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var job = await Services.Scheduler.Schedule()
+    .Http()
+    .Run(Method.GET, "https://example.com")
+    .OnExactDate(new DateTime(2024, 4, 1))
+    .Save("sample");
+</code></pre>
 <p>In this example, the <code>After</code> method is used to schedule the job to execute once thirty seconds after <code>.Save()</code> called.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Scheduler</span><span class="p">.</span><span class="n">Schedule</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Http</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">,</span><span class="w"> </span><span class="s">"https://example.com"</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">After</span><span class="p">(</span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromSeconds</span><span class="p">(</span><span class="m">30</span><span class="p">))</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Save</span><span class="p">(</span><span class="s">"sample"</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var job = await Services.Scheduler.Schedule()
+    .Http()
+    .Run(Method.GET, "https://example.com")
+    .After(TimeSpan.FromSeconds(30))
+    .Save("sample");
+</code></pre>
 <h3 id="cron-triggers">Cron Triggers<a class="headerlink" href="#cron-triggers" title="Permanent link">¶</a></h3>
 <p>A cron trigger specifies an <a href="https://github.com/atifaziz/NCrontab">NCronTab</a> expression that dictates a series of times when the job should execute. Cron expressions are unbounded, and have no end date. The cron expression must be a 6 term expression, in this format</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>* * * * * *
+<pre><code class="language-text">* * * * * *
 - - - - - -
 | | | | | |
 | | | | | +--- day of week (0 - 6) (Sunday=0)
@@ -9692,30 +9696,20 @@ By default, <code>useLocal</code> is set as <code>true</code>.</p>
 | | +--------- hour (0 - 23)
 | +----------- min (0 - 59)
 +------------- sec (0 - 59)
-</code></pre></div></td></tr></tbody></table></div>
+</code></pre>
 <p>Creating cron strings by hand is allowed, but is tricky for the uninitiated. As an alternative, there is a cron builder utility function.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Scheduler</span><span class="p">.</span><span class="n">Schedule</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Http</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">,</span><span class="w"> </span><span class="s">"https://example.com"</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">OnCron</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">c</span>
-<span class="w">        </span><span class="p">.</span><span class="n">AtSecond</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="n">AtMinute</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="n">AtHour</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="n">OnDayOfMonth</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="n">InApril</span><span class="p">()</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Save</span><span class="p">(</span><span class="s">"sample"</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var job = await Services.Scheduler.Schedule()
+    .Http()
+    .Run(Method.GET, "https://example.com")
+    .OnCron(c =&gt; c
+        .AtSecond(0)
+        .AtMinute(0)
+        .AtHour(0)
+        .OnDayOfMonth(1)
+        .InApril()
+    )
+    .Save("sample");
+</code></pre>
 <p>The cron builder must specify all components of the cron string. Each time unit has an <code>At</code> method that specifies an exact value for the time. Each time unit also has an <code>Every</code> variant that puts a <code>*</code> in the place of that time value. Each time unit also has an <code>EveryNth</code> that places a <code>n/*</code> value in the cron string. <code>Between</code> and <code>Complex</code> can also be provided.</p>
 <div class="admonition warning">
 <p class="admonition-title">Don't forget about Cron Triggers!</p>
@@ -9757,33 +9751,26 @@ This table shows common schedule patterns that may be helpful.</p>
 <p>Every job has a retry policy. Each time a job executes, if the action fails, the execution has failed. When an execution fails, the retry policy determines what happens next. If the policy allows, the action is retried until it either succeeds, or the policy is exhausted.</p>
 <p>The default retry policy allows for 1 retry, after 10 seconds.
 In this sample, the policy is set to allow for 2 retries, half a second apart.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Scheduler</span><span class="p">.</span><span class="n">Schedule</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Http</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">,</span><span class="w"> </span><span class="s">"https://example.com"</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">OnCron</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">Daily</span><span class="p">())</span>
-<span class="w">    </span><span class="p">.</span><span class="n">WithRetryPolicy</span><span class="p">(</span><span class="n">maxRetryCount</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">retryDelayMs</span><span class="p">:</span><span class="m">500</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Save</span><span class="p">(</span><span class="s">"sample"</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var job = await Services.Scheduler.Schedule()
+    .Http()
+    .Run(Method.GET, "https://example.com")
+    .OnCron(c =&gt; c.Daily())
+    .WithRetryPolicy(maxRetryCount: 2, retryDelayMs:500)
+    .Save("sample");
+</code></pre>
 <h2 id="job-executions">Job Executions<a class="headerlink" href="#job-executions" title="Permanent link">¶</a></h2>
 <p>A job may execute many times depending on the job's triggers. It may be useful to know about past executions, and upcoming executions.</p>
 <h3 id="upcoming-job-executions">Upcoming Job Executions<a class="headerlink" href="#upcoming-job-executions" title="Permanent link">¶</a></h3>
 <p>This code sample will acquire the upcoming job executions for a job with the given id.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Provider</span><span class="p">.</span><span class="n">GetService</span><span class="o">&lt;</span><span class="n">BeamScheduler</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">upcoming</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">api</span><span class="p">.</span><span class="n">GetJobUpcomingExecutions</span><span class="p">(</span><span class="n">jobId</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var api = Provider.GetService&lt;BeamScheduler&gt;();
+var upcoming = await api.GetJobUpcomingExecutions(jobId);
+</code></pre>
 <p>Upcoming job executions are <code>DateTime</code> structures. If the job has a cron trigger, then this will return the first 1000 execution times. An optional <code>limit</code> parameter may be passed to get less or more executions.</p>
 <h3 id="past-and-current-executions">Past and Current Executions<a class="headerlink" href="#past-and-current-executions" title="Permanent link">¶</a></h3>
 <p>This code sample will acquire past and ongoing job executions for a job with the given id.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Provider</span><span class="p">.</span><span class="n">GetService</span><span class="o">&lt;</span><span class="n">BeamScheduler</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">executions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">api</span><span class="p">.</span><span class="n">GetJobActivity</span><span class="p">(</span><span class="n">jobId</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var api = Provider.GetService&lt;BeamScheduler&gt;();
+var executions = await api.GetJobActivity(jobId);
+</code></pre>
 <p>Each execution will have a list of events that describe the execution's current state. This table shows the various execution states.</p>
 <table>
 <thead>
@@ -9823,71 +9810,44 @@ In this sample, the policy is set to allow for 2 retries, half a second apart.</
 <p>After you create a job, you can let it execute, modify it, or cancel it. Canceling or modifying a job will take effect on the next execution of the job. These operations identify jobs by their identifier, the <code>id</code> field of the <code>Job</code> data structure. If you need to find a job by name, the <code>GetJobs</code> method allows searching by name.</p>
 <h3 id="canceling-a-job">Canceling a Job<a class="headerlink" href="#canceling-a-job" title="Permanent link">¶</a></h3>
 <p>A Job may be canceled at any time. However, if there is an ongoing execution of the Job, it will not be cut short. Instead, the next scheduled execution of the Job will be canceled, as well as all following scheduled executions.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Scheduler</span><span class="p">.</span><span class="n">CancelJob</span><span class="p">(</span><span class="n">job</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">await Services.Scheduler.CancelJob(job.id);
+</code></pre>
 <p>When a Job is canceled, the actions are left alone, but all Job Triggers are removed from the job.</p>
 <h3 id="modifying-a-job">Modifying a Job<a class="headerlink" href="#modifying-a-job" title="Permanent link">¶</a></h3>
 <p>A Job may be modified to have different triggers, actions, or metadata. The code below shows how this is possible. If there is an ongoing execution of the Job, it will not use the modified data. Instead, the modification will take effect for all future scheduled executions of the Job.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Scheduler</span><span class="p">.</span><span class="n">GetJob</span><span class="p">(</span><span class="n">job</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
-<span class="n">job</span><span class="p">.</span><span class="n">triggers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ExactTimeEvent</span><span class="p">(</span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromHours</span><span class="p">(</span><span class="m">1</span><span class="p">)));</span>
-<span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Scheduler</span><span class="p">.</span><span class="n">SaveJob</span><span class="p">(</span><span class="n">job</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">var job = await Services.Scheduler.GetJob(job.id);
+job.triggers.Add(new ExactTimeEvent(DateTime.UtcNow + TimeSpan.FromHours(1)));
+await Services.Scheduler.SaveJob(job);
+</code></pre>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>The code below demonstrates how to create a simple scheduled job that will award a player 10 gems, one minute after the job is scheduled.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("example")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ExampleService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[ClientCallable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ScheduleAward</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Scheduler</span>
-<span class="w">      </span><span class="p">.</span><span class="n">Schedule</span><span class="p">()</span>
-<span class="w">            </span><span class="p">.</span><span class="n">Microservice</span><span class="o">&lt;</span><span class="n">ExampleService</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="c1">// execute a type safe method on the ExampleService</span>
-<span class="w">            </span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">AwardBonus</span><span class="p">,</span><span class="w"> </span><span class="n">Context</span><span class="p">.</span><span class="n">UserId</span><span class="p">)</span><span class="w"> </span><span class="c1">// Run AwardBonus, with the current player id.</span>
-<span class="w">            </span><span class="p">.</span><span class="n">After</span><span class="p">(</span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMinutes</span><span class="p">(</span><span class="m">1</span><span class="p">))</span><span class="w"> </span><span class="c1">// Trigger the method in 1 minute</span>
-<span class="w">            </span><span class="p">.</span><span class="n">Save</span><span class="p">(</span><span class="s">$"awarding-{Context.UserId}"</span><span class="p">);</span><span class="w"> </span><span class="c1">// save the job</span>
+<pre><code class="language-csharp">[Microservice("example")]
+public class ExampleService : Microservice
+{
+    [ClientCallable]
+    public async Promise&lt;Job&gt; ScheduleAward()
+    {
+        var job = await Services.Scheduler
+      .Schedule()
+            .Microservice&lt;ExampleService&gt;() // execute a type safe method on the ExampleService
+            .Run(t =&gt; t.AwardBonus, Context.UserId) // Run AwardBonus, with the current player id.
+            .After(TimeSpan.FromMinutes(1)) // Trigger the method in 1 minute
+            .Save($"awarding-{Context.UserId}"); // save the job
 
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">job</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
+        return job;
+    }
 
-<span class="w">    </span><span class="na">[ServerCallable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">AwardBonus</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">userId</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"awarding a bonus to player {userId}"</span><span class="p">);</span>
-<span class="w">    </span><span class="c1">// Note that ServerCallable has no user ID in its context implicitly,</span>
-<span class="w">    </span><span class="c1">// so we must use AssumeNewUser to do anything player-oriented.</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">assumed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssumeNewUser</span><span class="p">(</span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">requireAdminUser</span><span class="p">:</span><span class="w"> </span><span class="k">false</span><span class="p">);</span>
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">assumed</span><span class="p">.</span><span class="n">Services</span><span class="p">.</span><span class="n">Inventory</span><span class="p">.</span><span class="n">AddCurrency</span><span class="p">(</span><span class="s">"currency.gems"</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    [ServerCallable]
+    public async Task AwardBonus(long userId)
+    {
+        Debug.Log($"awarding a bonus to player {userId}");
+    // Note that ServerCallable has no user ID in its context implicitly,
+    // so we must use AssumeNewUser to do anything player-oriented.
+    var assumed = AssumeNewUser(userId, requireAdminUser: false);
+        await assumed.Services.Inventory.AddCurrency("currency.gems", 10);
+    }
+}
+</code></pre>
 
 
 

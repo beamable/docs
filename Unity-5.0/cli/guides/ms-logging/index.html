@@ -11,7 +11,7 @@
         <link rel="prev" href="../ms-upm/">
       
       
-        <link rel="next" href="../ms-command-line/">
+        <link rel="next" href="../ms-analytics/">
       
       
         
@@ -4561,6 +4561,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -9487,41 +9515,30 @@
 <p>This guide assumes you have an existing Microservice. You need to complete the
 [Getting-Started Guide]
 (getting-started.md). That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
-<p>You can confirm you have everything installed checking the versions of the tools.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>--version
-dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p>In order to configure a Microservice, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>init<span class="w"> </span>MyProject
-<span class="nb">cd</span><span class="w"> </span>MyProject
-dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>You can confirm you have everything installed checking the versions of the tools.</p>
+<pre><code class="language-sh">dotnet --version
+dotnet beam version # dotnet beam --version also works.
+</code></pre>
+<p>In order to configure a Microservice, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.</p>
+<pre><code class="language-sh">beam init MyProject
+cd MyProject
+dotnet beam project new service HelloWorld
+</code></pre>
 <h2 id="logs">Logs<a class="headerlink" href="#logs" title="Permanent link">¶</a></h2>
 <p>In CLI 6.0+, Microservices use the standard <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line">Microservice Logging Tools</a> for logging. To log something, use the following example:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ClientCallable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SampleLog</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="n">Information</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">[ClientCallable]
+public void SampleLog()
+{
+    Log.Information("Hello");
+}
+</code></pre>
 <p>The static functions on the <code>Log</code> type will reference a default <code>ILogger</code>. If you want to use custom logging functions, access the <code>ILogger</code> via <code>Log.Default</code>. Beamable Microservices use <em>ZLogger</em> under the hood, so you can access those methods directly if you want to.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ClientCallable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SampleLog</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">ZLogInformation</span><span class="p">(</span><span class="s">$"Hello"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">[ClientCallable]
+public void SampleLog()
+{
+    Log.Default.ZLogInformation($"Hello");
+}
+</code></pre>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Local microservice logs will not appear in the Portal unless the <code>BEAM_LOCAL_OTEL</code> environment variable is set.</p>
@@ -9546,156 +9563,92 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 <h3 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">¶</a></h3>
 <p>In version 6.0+, Microservice logs include attributes that can be explored in the Portal.</p>
 <h4 id="single-custom-attributes">Single Custom Attributes<a class="headerlink" href="#single-custom-attributes" title="Permanent link">¶</a></h4>
-<p>You can add custom attributes per log message by using the standard string formatting approach:
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ClientCallable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CustomAttribute</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="n">Information</span><span class="p">(</span><span class="s">"attribute {a}"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p>If the method was invoked with <code>a</code> equal to <code>42</code>, then the rendered log message would appear as:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>attribute 42
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>You can add custom attributes per log message by using the standard string formatting approach:</p>
+<pre><code class="language-csharp">[ClientCallable]
+public void CustomAttribute(int a)
+{
+    Log.Information("attribute {a}", a);
+}
+</code></pre>
+<p>If the method was invoked with <code>a</code> equal to <code>42</code>, then the rendered log message would appear as:</p>
+<pre><code>attribute 42
+</code></pre>
 <p>However, the attribute, <code>a</code>, is available for querying in the Portal. Use a custom search expression for <code>a:42</code> to find any log messages with the <code>a</code> attribute value of <code>42</code>.</p>
 <h4 id="scoped-custom-attributes">Scoped Custom Attributes<a class="headerlink" href="#scoped-custom-attributes" title="Permanent link">¶</a></h4>
 <p>You can automatically add attributes to an entire sequence of logs. For example, imagine you wanted to tag a series of log lines as being part of an algorithm.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ClientCallable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CustomAttribute</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isOdd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CheckIfNumberIsOdd</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
-<span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="n">Information</span><span class="p">(</span><span class="s">"{a} is odd={isOdd}"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">isOdd</span><span class="p">);</span>
-<span class="p">}</span>
+<pre><code class="language-csharp">[ClientCallable]
+public void CustomAttribute(int a)
+{
+    var isOdd = CheckIfNumberIsOdd(a);
+    Log.Information("{a} is odd={isOdd}", a, isOdd);
+}
 
-<span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">CheckIfNumberIsOdd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Log</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">BeginScope</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="na">["operation"]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nameof</span><span class="p">(</span><span class="n">CheckIfNumberIsOdd</span><span class="p">),</span>
-<span class="w">        </span><span class="na">["number"]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number</span>
-<span class="w">    </span><span class="p">});</span>
+public bool CheckIfNumberIsOdd(int number)
+{
+    using var _ = Log.Default.BeginScope(new Dictionary&lt;string, object&gt;
+    {
+        ["operation"] = nameof(CheckIfNumberIsOdd),
+        ["number"] = number
+    });
 
-<span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="n">Debug</span><span class="p">(</span><span class="s">"Checking number"</span><span class="p">);</span>
+    Log.Debug("Checking number");
 
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isOdd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isOdd</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="n">Debug</span><span class="p">(</span><span class="s">"number is odd!"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">else</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="n">Debug</span><span class="p">(</span><span class="s">"number is even!"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+    var isOdd = number % 2 == 1;
+    if (isOdd)
+    {
+        Log.Debug("number is odd!");
+    }
+    else
+    {
+        Log.Debug("number is even!");
+    }
 
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">isOdd</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    return isOdd;
+}
+</code></pre>
 <p>The log lines will be rendered as follows:</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Checking number
+<pre><code>Checking number
 number is even!
 42 is odd=False
-</code></pre></div></td></tr></tbody></table></div>
+</code></pre>
 <p>However, the <em>attributes</em> available on the log lines will include the <code>operation</code> and <code>number</code>, while the attributes on the last log will not.</p>
 <h4 id="defined-custom-attributes">Defined Custom Attributes<a class="headerlink" href="#defined-custom-attributes" title="Permanent link">¶</a></h4>
 <p>In the previous section, the custom log attributes are localized to specific log events. The attributes are searchable in the Portal, but they will not appear as <em>known</em> attributes, because they are not declared at any top level location. In order to define known attributes, you need to use a custom <code>ITelemetryAttributeProvider</code>.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomAttributes</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ITelemetryAttributeProvider</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">TelemetryAttributeDescriptor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetDescriptors</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">NotImplementedException</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+<pre><code class="language-csharp">public class CustomAttributes : ITelemetryAttributeProvider
+{
+    public List&lt;TelemetryAttributeDescriptor&gt; GetDescriptors()
+    {
+        throw new System.NotImplementedException();
+    }
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CreateDefaultAttributes</span><span class="p">(</span><span class="n">IDefaultAttributeContext</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">NotImplementedException</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    public void CreateDefaultAttributes(IDefaultAttributeContext ctx)
+    {
+        throw new System.NotImplementedException();
+    }
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CreateConnectionAttributes</span><span class="p">(</span><span class="n">IConnectionAttributeContext</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">NotImplementedException</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    public void CreateConnectionAttributes(IConnectionAttributeContext ctx)
+    {
+        throw new System.NotImplementedException();
+    }
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CreateRequestAttributes</span><span class="p">(</span><span class="n">IRequestAttributeContext</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">NotImplementedException</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+    public void CreateRequestAttributes(IRequestAttributeContext ctx)
+    {
+        throw new System.NotImplementedException();
+    }
+}
+</code></pre>
 <p>And register the <code>CustomAttributes</code> in the dependency scope of your service.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">BeamServer</span>
-<span class="w">        </span><span class="p">.</span><span class="n">Create</span><span class="p">()</span>
-<span class="w">        </span><span class="p">.</span><span class="n">IncludeRoutes</span><span class="o">&lt;</span><span class="n">YourService</span><span class="o">&gt;</span><span class="p">(</span><span class="n">routePrefix</span><span class="p">:</span><span class="w"> </span><span class="s">""</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="n">ConfigureServices</span><span class="p">(</span><span class="n">builder</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">builder</span><span class="p">.</span><span class="n">AddSingleton</span><span class="o">&lt;</span><span class="n">CustomAttributes</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="p">})</span><span class="w">        </span><span class="p">.</span><span class="n">RunForever</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">public static async Task Main()
+{
+    await BeamServer
+        .Create()
+        .IncludeRoutes&lt;YourService&gt;(routePrefix: "")
+        .ConfigureServices(builder =&gt;
+        {
+            builder.AddSingleton&lt;CustomAttributes&gt;();
+        })        .RunForever();
+}
+</code></pre>
 <p>The various <em>CreateAttribute</em> functions should add attributes to the current context of a request.
 - <code>DefaultAttributes</code> allow you to add an attribute to <em>every</em> log line
 - <code>ConnectionAttributes</code> allow you to add an attribute to every log line that is part of a specific <em>connection</em> to Beamable. When a Microservice runs locally, there is only a single connection, but in a deployed environment, there are <em>10</em> connections
@@ -9839,33 +9792,7 @@ number is even!
 <p>Starting with version 6.0, you can send Microservice logs to third-party log hosting services. In this example, we will use BetterStack.</p>
 <p>This section will assume you have set up a BetterStack account, and created a <em>Source</em> such that you have a <em>source token</em> and an <em>ingesting host</em>.</p>
 <p>To start, we will configure locally running Microservices to send data to BetterStack. To start, create this file called <code>config.yaml</code> next to your <code>BeamableServices.sln</code> file.</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>receivers:
+<pre><code class="language-yml">receivers:
   otlp:
     protocols:
       grpc:
@@ -9892,195 +9819,120 @@ service:
       receivers: [otlp]
       processors: [batch]
       exporters: [otlphttp/betterstack]
-</code></pre></div></td></tr></tbody></table></div>
+</code></pre>
 <blockquote>
 <p>[!TIP]
 Learn more about this file by reading the <a href="https://opentelemetry.io/docs/collector/configuration/">documentation</a></p>
 </blockquote>
-<p>Prepare the following environment variables.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Send local log data to Portal for debug purposes</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_LOCAL_OTEL</span><span class="o">=</span><span class="nb">true</span>
+<p>Prepare the following environment variables.</p>
+<pre><code class="language-sh"># Send local log data to Portal for debug purposes
+export BEAM_LOCAL_OTEL=true
 
-<span class="c1"># Use the tokenSource from better stack instead of 123</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">BETTERSTACK_AUTH</span><span class="o">=</span><span class="s2">"Bearer 123"</span>
+# Use the tokenSource from better stack instead of 123
+export BETTERSTACK_AUTH="Bearer 123"
 
-<span class="c1"># Use the ingestingHost</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">BETTERSTACK_ENDPOINT</span><span class="o">=</span><span class="s2">"https://123.eu-nbg-2.betterstackdata.com"</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p>Run the standard Open Telemetry collector in Docker,
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">4317</span>:4317<span class="w"> </span>-p<span class="w"> </span><span class="m">4318</span>:4318<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/config.yaml:/etc/otelcol-contrib/config.yaml<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-e<span class="w"> </span><span class="nv">BETTERSTACK_ENDPOINT</span><span class="o">=</span><span class="nv">$BETTERSTACK_ENDPOINT</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-e<span class="w"> </span><span class="nv">BETTERSTACK_AUTH</span><span class="o">=</span><span class="nv">$BETTERSTACK_AUTH</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.125.0
-</code></pre></div></td></tr></tbody></table></div><p></p>
+# Use the ingestingHost
+export BETTERSTACK_ENDPOINT="https://123.eu-nbg-2.betterstackdata.com"
+</code></pre>
+<p>Run the standard Open Telemetry collector in Docker,</p>
+<pre><code class="language-sh">docker run -p 4317:4317 -p 4318:4318 \
+    -v $(pwd)/config.yaml:/etc/otelcol-contrib/config.yaml \
+    -e BETTERSTACK_ENDPOINT=$BETTERSTACK_ENDPOINT \
+    -e BETTERSTACK_AUTH=$BETTERSTACK_AUTH \
+    ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.125.0
+</code></pre>
 <p>Now you have a locally running telemetry collector. We need to configure your local Microservice to <em>use</em> the collector. Prepare the following environment variables,</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_DISABLE_STANDARD_OTEL</span><span class="o">=</span><span class="m">1</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_OTEL_EXPORTER_OTLP_ENDPOINT</span><span class="o">=</span>http://127.0.0.1:4318
-<span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_OTEL_EXPORTER_OTLP_PROTOCOL</span><span class="o">=</span>HttpProtobuf
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-sh">export BEAM_DISABLE_STANDARD_OTEL=1
+export BEAM_OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:4318
+export BEAM_OTEL_EXPORTER_OTLP_PROTOCOL=HttpProtobuf
+</code></pre>
 <p>Run the Microservice under the above environment, which will disable the standard Beamable collector, and route log traffic to the collector you just created in the previous step.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>run
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-sh">dotnet run
+</code></pre>
 <p>In a few moments, you should see log data appear in BetterStack.</p>
 <hr>
 <p>To configure a deployed Microservice to report log data to BetterStack, we need to start the collector in the deployed environment. The easiest way to do this is to run the collector as a local process.</p>
 <p>Modify the <code>Dockerfile</code> to include the collector in the built image. Add these lines right below the <code>WORKDIR /beamApp</code> line,</p>
-<div class="language-dockerfile highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c"># Install utilities</span>
-<span class="k">RUN</span><span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>--no-cache<span class="w"> </span>curl<span class="w"> </span>tar
+<pre><code class="language-dockerfile"># Install utilities
+RUN apk add --no-cache curl tar
 
-<span class="c"># Download and install OpenTelemetry Collector Contrib</span>
-<span class="k">RUN</span><span class="w"> </span>curl<span class="w"> </span>-fL<span class="w"> </span>-o<span class="w"> </span>/tmp/otelcol.tar.gz<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.125.0/otelcol-contrib_0.125.0_linux_amd64.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/otel-contrib<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>tar<span class="w"> </span>-xzf<span class="w"> </span>/tmp/otelcol.tar.gz<span class="w"> </span>-C<span class="w"> </span>/otel-contrib<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>rm<span class="w"> </span>/tmp/otelcol.tar.gz
+# Download and install OpenTelemetry Collector Contrib
+RUN curl -fL -o /tmp/otelcol.tar.gz \
+        https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.125.0/otelcol-contrib_0.125.0_linux_amd64.tar.gz &amp;&amp; \
+    mkdir -p /otel-contrib &amp;&amp; \
+    tar -xzf /tmp/otelcol.tar.gz -C /otel-contrib &amp;&amp; \
+    rm /tmp/otelcol.tar.gz
 
-<span class="c"># Copy the local config yaml file into the image</span>
-<span class="k">COPY</span><span class="w"> </span>config.yaml<span class="w"> </span>/otel-contrib/config.yaml
-</code></pre></div></td></tr></tbody></table></div>
+# Copy the local config yaml file into the image
+COPY config.yaml /otel-contrib/config.yaml
+</code></pre>
 <p>Copy the <code>config.yaml</code> file from before and paste it next to the <code>Dockerfile</code>.</p>
 <p>Add the following functions to your <code>Program.cs</code></p>
 <blockquote>
 <p>[!WARNING]
 This sample hard-codes the BetterStack auth for simplicity. We are working on better solutions for secret management. Please check in soon.</p>
 </blockquote>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupTelemetry</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">Environment</span><span class="p">.</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s">"BEAM_DISABLE_STANDARD_OTEL"</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">);</span>
-<span class="w">    </span><span class="n">Environment</span><span class="p">.</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s">"BEAM_OTEL_EXPORTER_OTLP_ENDPOINT"</span><span class="p">,</span><span class="w"> </span><span class="s">"http://127.0.0.1:4318"</span><span class="p">);</span>
-<span class="w">    </span><span class="n">Environment</span><span class="p">.</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s">"BEAM_OTEL_EXPORTER_OTLP_PROTOCOL"</span><span class="p">,</span><span class="w"> </span><span class="s">"HttpProtobuf"</span><span class="p">);</span>
-<span class="p">}</span>
+<pre><code class="language-csharp">
+public static void SetupTelemetry()
+{
+    Environment.SetEnvironmentVariable("BEAM_DISABLE_STANDARD_OTEL", "1");
+    Environment.SetEnvironmentVariable("BEAM_OTEL_EXPORTER_OTLP_ENDPOINT", "http://127.0.0.1:4318");
+    Environment.SetEnvironmentVariable("BEAM_OTEL_EXPORTER_OTLP_PROTOCOL", "HttpProtobuf");
+}
 
-<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupCollector</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isDocker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Environment</span><span class="p">.</span><span class="n">GetEnvironmentVariable</span><span class="p">(</span><span class="s">"DOTNET_RUNNING_IN_CONTAINER"</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"true"</span><span class="p">;</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">isDocker</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+public static void SetupCollector()
+{
+    var isDocker = Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true";
+    if (!isDocker) return;
 
 
-<span class="w">    </span><span class="n">Environment</span><span class="p">.</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s">"BETTERSTACK_AUTH"</span><span class="p">,</span><span class="w"> </span><span class="s">"Bearer REDACTED"</span><span class="p">);</span>
-<span class="w">    </span><span class="n">Environment</span><span class="p">.</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s">"BETTERSTACK_ENDPOINT"</span><span class="p">,</span><span class="w"> </span><span class="s">"https://REDACTED.eu-nbg-2.betterstackdata.com"</span><span class="p">);</span>
+    Environment.SetEnvironmentVariable("BETTERSTACK_AUTH", "Bearer REDACTED");
+    Environment.SetEnvironmentVariable("BETTERSTACK_ENDPOINT", "https://REDACTED.eu-nbg-2.betterstackdata.com");
 
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">startInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ProcessStartInfo</span><span class="p">(</span><span class="s">"/otel-contrib/otelcol-contrib"</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Arguments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"--config /otel-contrib/config.yaml"</span>
-<span class="w">    </span><span class="p">};</span>
+    var startInfo = new ProcessStartInfo("/otel-contrib/otelcol-contrib")
+    {
+        Arguments = "--config /otel-contrib/config.yaml"
+    };
 
-<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Starting collector..."</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Process</span><span class="p">.</span><span class="n">Start</span><span class="p">(</span><span class="n">startInfo</span><span class="p">);</span>
+    Console.WriteLine("Starting collector...");
+    var p = Process.Start(startInfo);
 
-<span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="n">Exited</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// panic! If the collector has stopped, then logs aren't getting sent anywhere.</span>
-<span class="w">        </span><span class="c1">//  and all we can do is explode so that AWS will re-place the task.</span>
-<span class="w">        </span><span class="n">Environment</span><span class="p">.</span><span class="n">Exit</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<span class="w">    </span><span class="p">};</span>
+    p.Exited += (sender, args) =&gt;
+    {
+        // panic! If the collector has stopped, then logs aren't getting sent anywhere.
+        //  and all we can do is explode so that AWS will re-place the task.
+        Environment.Exit(1);
+    };
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">.</span><span class="n">Start</span><span class="p">())</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// panic! If the collector did not start, then logs aren't getting sent anywhere.</span>
-<span class="w">        </span><span class="c1">//  and all we can do is explode so that AWS will re-place the task.</span>
-<span class="w">        </span><span class="n">Environment</span><span class="p">.</span><span class="n">Exit</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+    if (!p.Start())
+    {
+        // panic! If the collector did not start, then logs aren't getting sent anywhere.
+        //  and all we can do is explode so that AWS will re-place the task.
+        Environment.Exit(1);
 
-<span class="w">    </span><span class="p">}</span>
+    }
 
-<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"started collector..."</span><span class="p">);</span>
+    Console.WriteLine("started collector...");
 
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
-<p>And invoke those methods before starting the service.
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">/// &lt;summary&gt;</span>
-<span class="c1">/// The entry point for the &lt;see cref="BeamService"/&gt; service.</span>
-<span class="c1">/// &lt;/summary&gt;</span>
-<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">SetupTelemetry</span><span class="p">();</span>
-<span class="w">    </span><span class="n">SetupCollector</span><span class="p">();</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">BeamServer</span>
-<span class="w">        </span><span class="p">.</span><span class="n">Create</span><span class="p">()</span>
-<span class="w">        </span><span class="p">.</span><span class="n">IncludeRoutes</span><span class="o">&lt;</span><span class="n">Pasta</span><span class="p">.</span><span class="n">Pasta</span><span class="o">&gt;</span><span class="p">(</span><span class="n">routePrefix</span><span class="p">:</span><span class="w"> </span><span class="s">""</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="n">RunForever</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
-<p>Deploy the service
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>release
-</code></pre></div></td></tr></tbody></table></div><p></p>
+}
+</code></pre>
+<p>And invoke those methods before starting the service.</p>
+<pre><code class="language-csharp">/// &lt;summary&gt;
+/// The entry point for the &lt;see cref="BeamService"/&gt; service.
+/// &lt;/summary&gt;
+public static async Task Main()
+{
+    SetupTelemetry();
+    SetupCollector();
+    await BeamServer
+        .Create()
+        .IncludeRoutes&lt;Pasta.Pasta&gt;(routePrefix: "")
+        .RunForever();
+}
+</code></pre>
+<p>Deploy the service</p>
+<pre><code class="language-sh">dotnet beam deploy release
+</code></pre>
 <blockquote>
 <p>[!tip]
 The Docker image size will be larger than normal, because you are including the collector application. This will increase the upload time, especially the first time.</p>

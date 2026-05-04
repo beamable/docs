@@ -4480,6 +4480,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../cli/guides/ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../cli/guides/ms-command-line/" class="md-nav__link">
         
   
@@ -9299,32 +9327,20 @@
 <p>Create a Player Stat through the Portal by navigating to a specific player and using the following popup:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/player-stats-create-popup.png" data-desc-position="bottom"><img alt="Player Stats Create Popup" src="../../../../../media/imgs/player-stats-create-popup.png" style="height:auto;width:400px"></a></p>
 <p>The other way, and easier as well for doing this for all your players, is to set the stat through code, you can do it as in the example below.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("StatsTest")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">StatsTest</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
-<span class="p">{</span>
-<span class="w">  </span><span class="na">[ClientCallable]</span>
-<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">SetTestStat</span><span class="p">()</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">stats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="s">"TEST_STAT"</span><span class="p">,</span><span class="w"> </span><span class="s">"test value"</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="p">};</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Stats</span><span class="p">.</span><span class="n">SetStats</span><span class="p">(</span><span class="s">"public"</span><span class="p">,</span><span class="w"> </span><span class="n">stats</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<pre><code class="language-csharp">[Microservice("StatsTest")]
+public class StatsTest : Microservice
+{
+  [ClientCallable]
+  public async Task SetTestStat()
+  {
+    var stats = new Dictionary&lt;string, string&gt;
+    {
+      { "TEST_STAT", "test value" }
+    };
+    await Services.Stats.SetStats("public", stats);
+  }
+}
+</code></pre>
 <p>Values for stats are always strings, and you can do simple operations with them like <code>EQUALS</code> and <code>NOT EQUALS</code>. There are some stats that have numeric values, however these can only be set by Beamable's backend.</p>
 <h2 id="campaign-with-stats">Campaign with Stats<a class="headerlink" href="#campaign-with-stats" title="Permanent link">¶</a></h2>
 <p>You can use Player Stats to define which players are going to receive a campaign. That can be done while creating a new campaign in the Portal. In the following image you can see the stage in which this can be done.</p>
