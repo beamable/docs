@@ -1,6 +1,6 @@
 # Game Content Designer
 
-The Beamable **Game Content Designer** feature allows game makers to create and manage data structures without having to write code.
+The Beamable **Game Content Designer** service allows game makers to create and manage data structures without having to write code.
 
 Live games often have frequent changes to their structured and unstructured data: the definition of items and merchandise, virtual goods, currencies, inventory, items, world data, and stories are just a few examples.
 
@@ -25,7 +25,7 @@ With **Game Content Designer**, game makers can create where they are most comfo
 
 !!! info "Beamable Not Required"
 
-    This feature does not require a Beamable license nor the Beamable SDK. It is a free tool for use by the community. It is created and maintained by Beamable.
+    This service does not require a Beamable license nor the Beamable SDK. It is a free tool for use by the community. It is created and maintained by Beamable.
 
 ### Workflows
 

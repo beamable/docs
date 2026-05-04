@@ -1,11 +1,11 @@
 # Groups
 
-The **Groups** feature allows players to play together in-game.
+The **Groups** service allows players to play together in-game.
 
-The purpose of this feature is to allow players to play together in-game.
+The purpose of this service is to allow players to play together in-game.
 
 Players can create groups and interact in real-time. Interactions include donating currency between group members for spending on in-game items. Depending on the game design, group members may have shared goals where interaction and collaboration are a key part of success.
-Here are some common use cases for the Groups feature:
+Here are some common use cases for the Groups service:
 
 • **Collaboration** - Group members may share resources to progress on common goals (such as quests)
 • **Competition** - All groups in the game community compete directly and indirectly for rewards
@@ -21,11 +21,11 @@ Here is the glossary of group-related terms.
 
 ## Groups API
 
-Unlike many Beamable Features, Groups do not require a specific Beamable Feature Prefab to be used. The main entry point to this feature is C# programming.
+Unlike many Beamable services, Groups do not require a specific Beamable Feature Prefab to be used. The main entry point to this service is C# programming.
 
 !!! info "Learning Fundamentals"
 
-    Before using this feature, it is recommended to understand Beamable's fundamental concepts.
+    Before using this service, it is recommended to understand Beamable's fundamental concepts.
 
     • See [Beamable: Asynchronous Programming](https://docs.beamable.com/docs/guides-overview#asynchronous-programming) for more info
 
@@ -326,7 +326,7 @@ namespace Beamable.Examples.Services.GroupsService
 
 ## Adding Group Chat
 
-The chat feature includes full functionality for groups. Players can send chat messages within their group. Players can also send chat messages globally, within rooms, and directly to a specific player. See [Chat](chat.md) for more info.
+The chat service includes full functionality for groups. Players can send chat messages within their group. Players can also send chat messages globally, within rooms, and directly to a specific player. See [Chat](chat.md) for more info.
 
 ## Adding Group Events
-The events feature includes full functionality for groups. Players can collaborate with group members and get group rewards. See [Events](../live-ops/live-ops.md) for more info.
+The events service includes full functionality for groups. Players can collaborate with group members and get group rewards. See [Events](../live-ops/live-ops.md) for more info.

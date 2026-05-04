@@ -1,6 +1,6 @@
 # Federated Identity
 
-Beamable supports custom authentication federation using managed [microservices](https://docs.beamable.com/docs/microservices-feature-overview). You can use this feature to implement an OAuth2, OpenID Connect, or a custom external authentication provider and use it with Beamable. We also support two-way challenge-based flows for PKI-based authentication for Web3/blockchain scenarios. Some use cases:
+Beamable supports custom authentication federation using managed [microservices](https://docs.beamable.com/docs/microservices-feature-overview). You can use this service to implement an OAuth2, OpenID Connect, or a custom external authentication provider and use it with Beamable. We also support two-way challenge-based flows for PKI-based authentication for Web3/blockchain scenarios. Some use cases:
 
 - Blockchain wallet authentication - Attach a wallet to a player's account and use it for authentication
 - External authentication provider integration - Already using something like Auth0? Use it for your game to achieve a Single Sign-On experience
