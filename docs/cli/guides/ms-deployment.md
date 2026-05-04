@@ -103,7 +103,7 @@ When planning to release microservices, it is important to think about how to ha
 
 **Merge**: Creates a release plan that merges your current local environment to the existing remote services. In other words, existing deployed services that are not present locally will remain unaffected.
 
-By default, the **replace** plan is used as it keeps "whatever is in your repository" as the source of truth. That being said, there are cases where **merge** can be useful.
+By default, we use the **replace** plan as it keeps "whatever is in your repository" as the source of truth. That being said, there are cases where **merge** can be useful.
 
 For example, in cases where you want to remove the source code of a service from the repo, but still have the service be available for a while; this can happen if you have multiple *supported* client versions in existence, one dependent on a removed service and the other not.
 
@@ -250,7 +250,7 @@ You have full control over the docker-compose file, so if you want to set up per
 
 You can do that by running: `dotnet beam deploy plan --logs v` which prints out all docker commands it is using under the hood. You can then use the printed commands as a starting point for your investigation into whatever problem you're solving.
 
-**Debugging Container Structure**: In some cases of customized `Dockerfiles`, the image may fail to build or the container fail to run due to aspects of the container's file structure. Docker will not allow you to easily inspect a container's file structure unless it is running; and the container is removed once its `ENTRYPOINT` process is killed.
+**Debugging Container Structure**: In some cases of customized `Dockerfiles`, the image may fail to build or the container fail to run due to aspects of the container's file structure. Docker will not allow you to easily inspect a container's file structure unless its running; and we cleanup the container once its `ENTRYPOINT` process is killed.
 
 This means that if SAMS code depends on local file structure (DLLs not existing where they should being the most common thing) and it fails because of a malformation of that structure you'll have a hard time debugging it.
 
