@@ -10175,7 +10175,7 @@
 <li><code>platform_session_session_end</code></li>
 <li><code>platform_session_install</code></li>
 </ul>
-<p>But as you use Beamable features and as you write custom Telemetry events more data and tables will automatically be available. Query periodically to see what tables are available. The following query will provide you with a list of all currently available tables.</p>
+<p>But as you use Beamable services and as you write custom Telemetry events more data and tables will automatically be available. Query periodically to see what tables are available. The following query will provide you with a list of all currently available tables.</p>
 <div class="language-sql highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">columns</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">table_schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'your de_ID goes here'</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h3>

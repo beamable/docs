@@ -9295,14 +9295,14 @@
 
 <h1 id="username-password-authentication">Username-Password Authentication<a class="headerlink" href="#username-password-authentication" title="Permanent link">¶</a></h1>
 <p>Username and Password is a great way to provide cross platform authentication if you do not want social integration. In addition, you can use this method for allowing a player to signup for your game or service.</p>
-<p>Beamable will create a user account for you when you initialize, but you can use this feature to also provide additional credentials for sign-in.</p>
+<p>Beamable will create a user account for you when you initialize, but you can use this service to also provide additional credentials for sign-in.</p>
 <div class="admonition info">
 <p class="admonition-title">UI &amp; Edge Cases</p>
 <p>Using a custom username and password feature in your game does require some additional work and considerations. You will have to create multiple screens for sign-up, auto sign-in, password recovery, and error handling.</p>
 </div>
 <p>Below is a simple username and password flow where, after initializing, we prompt the user for how they want to proceed. They have the option to create a new account or to log in. This example doesn't include flows for password recovery or account switching. However, those can be also implemented.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/d86e42f-simple_username_password_flow.png" data-desc-position="bottom"><img alt="Simple Username Password Flow" src="../../../../../media/imgs/d86e42f-simple_username_password_flow.png" style="height:auto;width:600px"></a></p>
-<p>Using the username and password feature is easy. There are just a few APIs you need to know about to be ready to go. Read more here to learn how to use <code>AddEmail</code> and <code>RecoverAccountWithEmail</code> methods of the <code>PlayerAccounts</code> SDK.</p>
+<p>Using the username and password service is easy. There are just a few APIs you need to know about to be ready to go. Read more here to learn how to use <code>AddEmail</code> and <code>RecoverAccountWithEmail</code> methods of the <code>PlayerAccounts</code> SDK.</p>
 <h2 id="declarations">Declarations<a class="headerlink" href="#declarations" title="Permanent link">¶</a></h2>
 <p>The following code samples assume that you have already initialized the SDK.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
