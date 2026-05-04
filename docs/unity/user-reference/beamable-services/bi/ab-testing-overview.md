@@ -42,7 +42,7 @@ The game front-end loads the player manifest from the `TrialDataService`. The `P
 
 ## A/B Testing API
 
-Unlike many Beamable services, A/B Testing does not require a specific Beamable Feature Prefab to be used. The main entry point to this service is C# programming.
+Unlike many Beamable services, A/B Testing does not require a specific Beamable Feature Prefab to be used. The main entry point to A/B testing is C# programming.
 
 The main API is [`beamableAPI.TrialDataService`](https://csharp.cdocs.beamable.com/latest/interfaceBeamable_1_1Common_1_1Api_1_1CloudData_1_1ICloudDataApi.html#details).
 
