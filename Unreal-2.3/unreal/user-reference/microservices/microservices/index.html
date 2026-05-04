@@ -9062,7 +9062,7 @@
 <p>This page explains the high-to-low-level concepts of Microservices and to what end they can be used. <a href="../setting-microservices/">Take a look here for a getting started guide.</a></p>
 <h2 id="why-this-approach-to-cloud-code">Why this approach to Cloud-Code?<a class="headerlink" href="#why-this-approach-to-cloud-code" title="Permanent link">¶</a></h2>
 <p>A lot of cloud-code solutions sacrifice a lot of flexibility, cost-efficiency, performance or developer experience in exchange for simplifying the simple case. The goal is to focus on the complex cases while keeping the simple case easy to work.</p>
-<p>The <abbr title="software development kit">SDK</abbr> achieves this through the following architecture:</p>
+<p>The SDK achieves this through the following architecture:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture.png" data-desc-position="bottom"><img alt="microservices-architecture.png" src="../../../../media/imgs/microservices-architecture.png"></a></p>
 <p>The Microservice is:</p>
 <ul>
@@ -9124,11 +9124,11 @@
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Logging and Microservices</p>
-<p>The <abbr title="software development kit">SDK</abbr> provides ways to dynamically change the current log-level for deployed services. Also, <code>BeamableLogger</code> is the correct way to log things from within your Microservice code.</p>
+<p>The SDK provides ways to dynamically change the current log-level for deployed services. Also, <code>BeamableLogger</code> is the correct way to log things from within your Microservice code.</p>
 </div>
 <p><a href="../../../../cli/guides/microservices/">For more information on how to write microservice functions, you can take a look at these docs as well.</a></p>
 <h2 id="constraints-on-callable-functions">Constraints on Callable Functions<a class="headerlink" href="#constraints-on-callable-functions" title="Permanent link">¶</a></h2>
-<p>The CLI generates Unreal bindings that allow your Unreal code to call your microservice much like an <abbr title="application programming interface">API</abbr> call to Beamable. To generate these bindings, there are <em>some</em> restrictions on what types can and can't be on method signatures for <code>Callables</code>.</p>
+<p>The CLI generates Unreal bindings that allow your Unreal code to call your microservice much like an API call to Beamable. To generate these bindings, there are <em>some</em> restrictions on what types can and can't be on method signatures for <code>Callables</code>.</p>
 <p>Each <code>Callable</code> generates at least two <code>UObject</code> classes, one representing request's input parameters and another representing the response type. It also generates a function inside the generated <code>UBeamMicroserviceNameApi</code> subsystem (and accompanying Blueprint nodes).</p>
 <h3 id="signature-constraints">Signature Constraints<a class="headerlink" href="#signature-constraints" title="Permanent link">¶</a></h3>
 <p>When declaring <code>Callable</code> functions, you should be aware of a few limitations regarding its signatures.</p>
@@ -9157,7 +9157,7 @@
 <li>If you are using <a href="../../federation/federation/">Federations</a>, you should be aware that each federation introduces certain reserved routes that you are then NOT allowed to use.</li>
 </ul>
 <p>Keep in mind that only a few things actually affect the shape of any particular <code>Callable</code>'s generated client code. This means that different signatures can effectively represent the same endpoint.</p>
-<p><strong>The lists below all produce the same exposed <abbr title="application programming interface">API</abbr> and generated client code:</strong></p>
+<p><strong>The lists below all produce the same exposed API and generated client code:</strong></p>
 <ul>
 <li>For primitive types:<ul>
 <li><code>public int PotatoAdd()</code></li>
@@ -9304,7 +9304,7 @@
 <blockquote>
 <p>At the end of a MOBA match, you'll need to update player stats gathered during the match or process their account's new Experience or Rank. For this, you can make a <code>ServerCallable</code> called <code>ProcessMatchResults</code> and pass in information from your dedicated server whenever the match is over.</p>
 </blockquote>
-<p>To make requests on behalf of users, the <abbr title="software development kit">SDK</abbr> provides the <code>AssumeNewUser</code> function. It gives you back a <code>UserRequestDataHandler</code> that has fields like <code>Context</code> and <code>Services</code>. Making <abbr title="application programming interface">API</abbr> calls from this <code>assumedUser.Services.Stats</code> instance as opposed to the usual <code>this.Services</code> will make the request on behalf of the user.</p>
+<p>To make requests on behalf of users, the SDK provides the <code>AssumeNewUser</code> function. It gives you back a <code>UserRequestDataHandler</code> that has fields like <code>Context</code> and <code>Services</code>. Making API calls from this <code>assumedUser.Services.Stats</code> instance as opposed to the usual <code>this.Services</code> will make the request on behalf of the user.</p>
 <h2 id="multiple-microservices-and-organizing-code">Multiple Microservices and Organizing Code<a class="headerlink" href="#multiple-microservices-and-organizing-code" title="Permanent link">¶</a></h2>
 <p>The first impulse a lot of people have is to separate microservices semantically; one-per-feature. <strong>This is NOT recommended.</strong> Here's why:</p>
 <ul>
@@ -9327,7 +9327,7 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/editor-ms.png" data-desc-position="bottom"><img alt="editor-ms.png" src="../../../../media/imgs/editor-ms.png"></a></p>
 <h1 id="common-developer-workflows">Common Developer Workflows<a class="headerlink" href="#common-developer-workflows" title="Permanent link">¶</a></h1>
 <p>There are a few different ways to work with Microservices in Unreal, each with their own advantages and disadvantages. These are NOT how-to guides, they are high-level descriptions to help you get a feel regarding how to work with Beamable and how its tools can be used to work alone and as a team.</p>
-<h2 id="designing-the-api">Designing the <abbr title="application programming interface">API</abbr><a class="headerlink" href="#designing-the-api" title="Permanent link">¶</a></h2>
+<h2 id="designing-the-api">Designing the API<a class="headerlink" href="#designing-the-api" title="Permanent link">¶</a></h2>
 <p>If you're in the very early stages of solving a problem, you just want to get the features to work. Here's a workflow that doesn't require you to open Unreal at all, allowing you to focus only on getting your <code>Callables</code> to work!</p>
 <p>Here are the steps:</p>
 <ol>
@@ -9408,14 +9408,14 @@
 <p>Beamable Microservices allow you to store data in Beamable's own managed services such as <code>Stats</code>(Per-Player key-value stores) and <code>Inventory</code> (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it just makes your particular problem simpler to solve (instead of trying to fit it into the default stores).</p>
 <p>For those cases, Beamable offers a <code>MicroStorage</code>. This is a wrapper around a database that you can write to from your microservices. At the moment, only <code>MongoDB</code> is supported. Like Microservices, these are scoped by realm as well (as in, data from Realm A is only visible in Realm A). <a href="./#micro-storages">Micro Storages</a>.</p>
 <div class="admonition note">
-<p class="admonition-title">Relevancy for <abbr title="application programming interface">API</abbr> Design and Client-Code Generation</p>
+<p class="admonition-title">Relevancy for API Design and Client-Code Generation</p>
 <p>While there's no compilation problem in using types declared in the <code>MicroStorage</code> project as part of the signatures of <code>Callable</code> functions, avoid exposing these types in Callable functions.</p>
 <p>While it can be simpler and faster to prototype this way, the post-release implications of doing that are all very bad. It makes it harder to modify your internal schema and makes it harder to introduce new behavior without doing data-migrations.</p>
 <p><strong><code>Callables</code> should have unique request/response types for better long-term maintainability and flexibility</strong>.</p>
 </div>
 <h3 id="local-development-implications">Local Development Implications<a class="headerlink" href="#local-development-implications" title="Permanent link">¶</a></h3>
 <p>While you can develop microservices without Docker being run (except for its publishing step), you cannot do the same for <code>Microservices</code> that use <code>MicroStorages</code>. This is because the local running service expects there to be a locally running <code>MongoDB</code> instance it'll use as the Database.</p>
-<p>To make sure the above is true, the <abbr title="software development kit">SDK</abbr> runs <code>MongoDB</code>'s official container in your local Docker instance. This is managed automatically on startup of the microservice BUT does introduce a dependency on Docker for local iterative development.</p>
+<p>To make sure the above is true, the SDK runs <code>MongoDB</code>'s official container in your local Docker instance. This is managed automatically on startup of the microservice BUT does introduce a dependency on Docker for local iterative development.</p>
 
 
 

@@ -8768,13 +8768,13 @@
 
 
 <h1 id="connectivity-management">Connectivity Management<a class="headerlink" href="#connectivity-management" title="Permanent link">¶</a></h1>
-<p>Games with live services require access to the internet and an open connection to the backend. In the Beamable <abbr title="software development kit">SDK</abbr>, an <code>FUserSlot</code> is considered <strong><em>connected</em></strong>:</p>
+<p>Games with live services require access to the internet and an open connection to the backend. In the Beamable SDK, an <code>FUserSlot</code> is considered <strong><em>connected</em></strong>:</p>
 <blockquote>
 <p>When there's a signed-in user and the WebSocket connection (see <code>UBeamNotifications</code> and <code>UBeamRuntime</code>) for that user is alive.</p>
 </blockquote>
 <p>The semantics above are also what the servers use to keep track of any user's online status (relevant to real-time services like <a href="../../beamable-services/matchmaking/">Matchmaking</a> and <a href="../../beamable-services/lobbies/">Lobbies</a>).</p>
 <h2 id="thinking-about-connectivity">Thinking about Connectivity<a class="headerlink" href="#thinking-about-connectivity" title="Permanent link">¶</a></h2>
-<p>The Beamable <abbr title="software development kit">SDK</abbr> provides a <code>UBeamConnectivityManager</code> class that keeps the connectivity state for any logged-in <code>FUserSlot</code>.
+<p>The Beamable SDK provides a <code>UBeamConnectivityManager</code> class that keeps the connectivity state for any logged-in <code>FUserSlot</code>.
 - For games that have only a single <em>local</em> player, you can use <code>UBeamRuntime::GetOwnerSlotConnectivity</code> to access the correct manager by default.</p>
 <ul>
 <li>For games with multiple <em>local</em> players, you can get the managers from <code>UBeamRuntime::GetSlotConnectivity</code> for each user (for the most part, they shouldn't differ in status).</li>
@@ -8785,7 +8785,7 @@
 <p><strong>The details of this process are:</strong></p>
 <ul>
 <li>The WebSocket connection fails.</li>
-<li>The <abbr title="software development kit">SDK</abbr> attempts to reconnect <strong>X</strong> times before going into <code>CONN_Offline</code> to avoid jittery short-lived instability.</li>
+<li>The SDK attempts to reconnect <strong>X</strong> times before going into <code>CONN_Offline</code> to avoid jittery short-lived instability.</li>
 <li>See <code>Project Settings -&gt; Beam Runtime -&gt; ConnectivityRetryCountBeforeOffline</code> for <strong>X</strong>.</li>
 <li>If all of these attempts fail, the connection goes into <code>CONN_Offline</code>.</li>
 <li>If any of these attempts succeed, the game proceeds as normal without <em>any</em> callbacks being triggered.</li>
@@ -8799,13 +8799,13 @@
 </ul>
 </li>
 <li>
-<p>The <abbr title="software development kit">SDK</abbr> sets up a Tick (<code>UBeamConnectivityManager::ReconnectionTick</code>) function to run while you are in <code>CONN_Offline</code> mode.</p>
+<p>The SDK sets up a Tick (<code>UBeamConnectivityManager::ReconnectionTick</code>) function to run while you are in <code>CONN_Offline</code> mode.</p>
 <ul>
 <li>Provides more flexibility for games that want to handle connectivity loss in complex ways such as waiting for X amount of time before booting the player out, reducing available feature set, etc.</li>
 </ul>
 </li>
 </ol>
-<p>While in <code>CONN_Offline</code> mode, the <abbr title="software development kit">SDK</abbr> keeps trying to reestablish the <code>FUserSlot</code>'s connection with Beamable. This happens automatically in the background and is a continuous process.</p>
+<p>While in <code>CONN_Offline</code> mode, the SDK keeps trying to reestablish the <code>FUserSlot</code>'s connection with Beamable. This happens automatically in the background and is a continuous process.</p>
 <h3 id="reconnect-behavior">Reconnect behavior<a class="headerlink" href="#reconnect-behavior" title="Permanent link">¶</a></h3>
 <p>If the connection is reestablished, <code>UBeamConnectivityManager::OnReconnected</code> is broadcast. Then if <code>Project Settings → Beam Runtime → AutomaticallyNotifyFixupComplete</code> is:</p>
 <ul>
@@ -8834,7 +8834,7 @@
 <p>Connectivity can be lost and/or regained at <em>any time in your game's flow</em>. It can happen mid-cutscene, mid-gameplay, mid-pause menu, etc.</p>
 </li>
 <li>
-<p>If the <abbr title="software development kit">SDK</abbr> automatically refreshed the subsystem's state after a reconnection, the callbacks throughout the refresh process would trigger. This means that one of the below would have to be true:</p>
+<p>If the SDK automatically refreshed the subsystem's state after a reconnection, the callbacks throughout the refresh process would trigger. This means that one of the below would have to be true:</p>
 <ul>
 <li>Upon going offline, we could unbind all callbacks (which is overeager and makes your binding code more complex)</li>
 <li>You have to write code for those delegates assuming it could run at any time (which makes it a lot harder to write that code).</li>
@@ -8846,7 +8846,7 @@
 </ul>
 </li>
 </ul>
-<p>For these reasons, the <abbr title="software development kit">SDK</abbr> does not automatically refresh; instead, it gives you the tools to set up your game state as needed.</p>
+<p>For these reasons, the SDK does not automatically refresh; instead, it gives you the tools to set up your game state as needed.</p>
 <blockquote>
 <p>You are responsible for calling the various <code>Refresh</code> operations from <code>UBeamRuntimeSubsystem</code> implementations you care about, either in the <code>CONN_Fixup</code> state's tick function OR in the <code>OnReconnected</code> callback.</p>
 </blockquote>

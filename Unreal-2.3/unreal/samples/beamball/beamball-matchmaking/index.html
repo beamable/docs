@@ -8780,7 +8780,7 @@
 
 
 <h1 id="beamball-matchmaking-and-lobby-system">Beamball – Matchmaking and Lobby System<a class="headerlink" href="#beamball-matchmaking-and-lobby-system" title="Permanent link">¶</a></h1>
-<p>The <strong>Beamball</strong> sample demonstrates a basic implementation of the Beamable <abbr title="software development kit">SDK</abbr>'s <strong>Matchmaking</strong> and <strong>Lobby</strong> services and Edgegap Orchestrators.</p>
+<p>The <strong>Beamball</strong> sample demonstrates a basic implementation of the Beamable SDK's <strong>Matchmaking</strong> and <strong>Lobby</strong> services and Edgegap Orchestrators.</p>
 <video controls="" preload="metadata" playsinline="" style="display:block; width:80%; margin:0 auto;">
   <source src="../../../../media/vids/beamball-team.mp4" type="video/mp4">
 </video>
@@ -8790,7 +8790,7 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-matchmaking.png" data-desc-position="bottom"><img alt="beamball-matchmaking.png" src="../../../../media/imgs/beamball-matchmaking.png"></a></p>
 <p>The Player selects <strong>Play</strong> in the main menu then the <strong><code>Refresh Hatchora Ping Stat Operation</code></strong> updates ping in the player's stats allowing the server to choose the best lobby to this player. The local state is checked with <strong><code>Local State - Matchmaking - IsUserInQueue</code></strong>, leaving the queue if already in. The  <strong><code>Local State - Lobby - TryGetCurrentLobby</code></strong> checks if the player is in a lobby, leaving if so. Finally, if there's impediment the player joins the matchmaking queue with <strong><code>Operation - Matchmaking - Join Queue</code></strong>. Beamable services handle the rest of the matchmaking process, forming balanced lobbies and starting the match.</p>
 <div class="admonition note">
-<p class="admonition-title">Main <abbr title="software development kit">SDK</abbr> Functions to be aware of:</p>
+<p class="admonition-title">Main SDK Functions to be aware of:</p>
 <ul>
 <li><strong><code>Operation - Matchmaking - Leave Queue</code></strong>: Removes the player from the current matchmaking queue.</li>
 <li><strong><code>Operation - Lobby - Leave Lobby</code></strong>: Exits the current lobby if one exists.</li>

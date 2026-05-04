@@ -8857,7 +8857,7 @@
 </blockquote>
 <p>Most of the time, you achieve this by doing the following:</p>
 <ol>
-<li>[<strong>Game Client</strong>]: Use the 3rd Party Client <abbr title="software development kit">SDK</abbr> to get a token of sorts.<ol>
+<li>[<strong>Game Client</strong>]: Use the 3rd Party Client SDK to get a token of sorts.<ol>
 <li>See our <a href="../../../samples/beamball/steam-integration/">Steam</a> and <a href="../../../samples/discord-demo/">Discord</a> Samples for examples of this.</li>
 </ol>
 </li>
@@ -8875,7 +8875,7 @@
 <h3 id="setting-up-the-client">Setting up the Client<a class="headerlink" href="#setting-up-the-client" title="Permanent link">¶</a></h3>
 <p>In the client:</p>
 <ul>
-<li>Initialize the <abbr title="software development kit">SDK</abbr>.</li>
+<li>Initialize the SDK.</li>
 <li>Use the <code>Sign-Up - Federated Identity</code> node with <code>Auto Login</code> passing in:<ul>
 <li>The Microservice's Id.</li>
 <li>The Federation's Id.</li>
@@ -8918,7 +8918,7 @@
 </code></pre></div>
 <h2 id="federated-login-multi-factor-authentication">Federated Login - Multi-Factor Authentication<a class="headerlink" href="#federated-login-multi-factor-authentication" title="Permanent link">¶</a></h2>
 <h3 id="setting-up-the-client_1">Setting up the Client<a class="headerlink" href="#setting-up-the-client_1" title="Permanent link">¶</a></h3>
-<p>In the client, start by invoking the <code>Login - Federated Identity</code> operation. This operation has a sub-event that fires when the microservice responds with a <code>challenge</code> string the authentication mechanism must resolve. The <abbr title="software development kit">SDK</abbr> provides a <code>UBeamMultiFactorLoginData</code> object carrying the authentication context; persist it in your game state and pass it to <code>Login - Commit Federated Identity</code> once the challenge is resolved.</p>
+<p>In the client, start by invoking the <code>Login - Federated Identity</code> operation. This operation has a sub-event that fires when the microservice responds with a <code>challenge</code> string the authentication mechanism must resolve. The SDK provides a <code>UBeamMultiFactorLoginData</code> object carrying the authentication context; persist it in your game state and pass it to <code>Login - Commit Federated Identity</code> once the challenge is resolved.</p>
 <p>The following example is from the Sui-Wallet integration showcase.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/federated-login-2fa-start.png" data-desc-position="bottom"><img alt="federated-login-2fa-start.png" src="../../../../media/imgs/federated-login-2fa-start.png"></a></p>
 <p>Once the challenge has been resolved, send the solution to the microservice by calling <code>Login - Commit Federated Identity</code>. The following example shows the challenge being signed before the solution is sent to the microservice.</p>

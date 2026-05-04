@@ -8712,7 +8712,7 @@
 
 
 <h1 id="user-slots">User Slots<a class="headerlink" href="#user-slots" title="Permanent link">¶</a></h1>
-<p><strong>User Slots are at the core of how the <abbr title="software development kit">SDK</abbr> handles local users.</strong></p>
+<p><strong>User Slots are at the core of how the SDK handles local users.</strong></p>
 <blockquote>
 <p>Each <code>UserSlot</code> is a named slot that represents a local user.</p>
 </blockquote>
@@ -8721,7 +8721,7 @@
 <p class="admonition-title">Unreal Local Player Index</p>
 <p>You can think of the <code>UBeamCoreSettings::RuntimeUserSlots</code> array as though it were indexed by Unreal's own <code>LocalPlayerIndex</code>.</p>
 </div>
-<p>Almost all <abbr title="software development kit">SDK</abbr> APIs take in a <code>FUserSlot</code> struct representing the local user making the request. Only "public" APIs do not require them (APIs that you can call after the <abbr title="software development kit">SDK</abbr> has been initialized but before any <code>Login</code> has happened).</p>
+<p>Almost all SDK APIs take in a <code>FUserSlot</code> struct representing the local user making the request. Only "public" APIs do not require them (APIs that you can call after the SDK has been initialized but before any <code>Login</code> has happened).</p>
 <p>If your game has <strong>no <em>local</em> multiplayer</strong> (just a single local player), you only need to know a few things about <strong>UserSlots</strong>:</p>
 <ul>
 <li>You should pass in the <strong>Owner User Slot</strong> (the one mapped to the "Local Player 0") to any calls taking an <code>FUserSlot</code>.<ul>
@@ -8748,12 +8748,12 @@
 </ul>
 </li>
 <li>Enabling local co-op games to have multiple players logged in at the same time.<ul>
-<li>For more on login flows, see the <a href="../../overview/"><abbr title="software development kit">SDK</abbr> Lifecycle</a> and various flavors described in <a href="../../beamable-services/identity/">Identity</a>.</li>
+<li>For more on login flows, see the <a href="../../overview/">SDK Lifecycle</a> and various flavors described in <a href="../../beamable-services/identity/">Identity</a>.</li>
 </ul>
 </li>
 <li>Handling support for Multiplayer <abbr title="play in editor">PIE</abbr>-mode by namespacing each Slot (UE's <code>FWorldContext::WorldType</code> and <code>FWorldContext::PIEInstance</code>).<ul>
-<li>To do so, the <abbr title="software development kit">SDK</abbr> must find a <code>UWorld</code> to get the context from.</li>
-<li>This is why, like UE, the <abbr title="application programming interface">API</abbr> takes in a <code>UObject* CallingContext</code> in certain parts.</li>
+<li>To do so, the SDK must find a <code>UWorld</code> to get the context from.</li>
+<li>This is why, like UE, the API takes in a <code>UObject* CallingContext</code> in certain parts.</li>
 <li>At runtime, this parameter is never optional.</li>
 </ul>
 </li>

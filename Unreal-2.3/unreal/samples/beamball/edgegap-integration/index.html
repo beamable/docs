@@ -8867,7 +8867,7 @@
 <h3 id="storing-edgegap-credentials-in-realm-config">Storing EdgeGap Credentials in Realm Config<a class="headerlink" href="#storing-edgegap-credentials-in-realm-config" title="Permanent link">¶</a></h3>
 <p>EdgeGap integration requires three configuration parameters that should be stored in your Realm Config:</p>
 <ul>
-<li><strong><abbr title="application programming interface">API</abbr> Key</strong>: Your EdgeGap <abbr title="application programming interface">API</abbr> key for authentication</li>
+<li><strong>API Key</strong>: Your EdgeGap API key for authentication</li>
 <li><strong>Application Name</strong>: Your registered EdgeGap application name</li>
 <li><strong>Version</strong>: The version of your game server to deploy</li>
 </ul>
@@ -8877,14 +8877,14 @@
 <p>Your microservices can access the EdgeGap configuration from the Realm Config at runtime. When provisioning a game server for a lobby, you:</p>
 <ol>
 <li>Retrieve the EdgeGap configuration from Realm Config</li>
-<li>Make requests to the EdgeGap <abbr title="application programming interface">API</abbr> with these credentials</li>
+<li>Make requests to the EdgeGap API with these credentials</li>
 <li>Store the resulting server connection details in the lobby's global data</li>
 </ol>
 <p>You can find an example of this in the <a href="https://github.com/beamable/UnrealSDK/blob/main/Microservices/services/BeamballMs/BeamballMs.cs">GitHub repository</a>.</p>
 <h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://docs.edgegap.com/unreal-engine">EdgeGap Official Documentation</a></li>
-<li><a href="https://docs.edgegap.com/api">EdgeGap <abbr title="application programming interface">API</abbr> Reference</a></li>
+<li><a href="https://docs.edgegap.com/api">EdgeGap API Reference</a></li>
 <li><a href="../../../user-reference/microservices/microservices/">Beamable Microservices Documentation</a></li>
 <li><a href="../../../../cli/guides/configuration/">Beamable Realm Configuration Guide</a></li>
 </ul>

@@ -8992,7 +8992,7 @@
 
 
 <h1 id="beamball-steam-integration">Beamball - Steam Integration<a class="headerlink" href="#beamball-steam-integration" title="Permanent link">¶</a></h1>
-<p>This page explains how to integrate a Beamable game with Steam using the <strong>Beamable Unreal <abbr title="software development kit">SDK</abbr></strong> and <strong>Beamable Microservices</strong>.</p>
+<p>This page explains how to integrate a Beamable game with Steam using the <strong>Beamable Unreal SDK</strong> and <strong>Beamable Microservices</strong>.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
 <p>Aside from the <code>BeamableCore</code> Plugin, here's what the sample contains:</p>
 <ul>
@@ -9014,7 +9014,7 @@
 <ol>
 <li>Log into your <a href="https://partner.steamgames.com/apps">Steam</a> developer account.</li>
 <li>Go to your App and set aside its <code>AppId</code>.</li>
-<li>Create a Publisher Web <abbr title="application programming interface">API</abbr> key
+<li>Create a Publisher Web API key
    using <a href="https://partner.steamgames.com/doc/webapi_overview/auth#publisher-keys">this tutorial</a>. Set it aside in a
    notepad for future use.</li>
 <li>Make sure that the game is added to the user that you want to use to log in. To do that:<ol>
@@ -9071,9 +9071,9 @@
 <h2 id="sample-highlights">Sample Highlights<a class="headerlink" href="#sample-highlights" title="Permanent link">¶</a></h2>
 <p>This sample demonstrates a complete Steam authentication integration using Beamable's federated login system.</p>
 <h3 id="client-side-implementation">Client-Side Implementation<a class="headerlink" href="#client-side-implementation" title="Permanent link">¶</a></h3>
-<p>The client uses the Steam <abbr title="software development kit">SDK</abbr> directly to obtain authentication credentials. The implementation in <code>BeamableSteam.h</code> provides a <code>TryGetSteamData</code> function that:</p>
+<p>The client uses the Steam SDK directly to obtain authentication credentials. The implementation in <code>BeamableSteam.h</code> provides a <code>TryGetSteamData</code> function that:</p>
 <ol>
-<li><strong>Retrieves Steam User Interface</strong>: Accesses the Steam <abbr title="software development kit">SDK</abbr>'s <code>ISteamUser</code> interface to interact with the authenticated Steam user.</li>
+<li><strong>Retrieves Steam User Interface</strong>: Accesses the Steam SDK's <code>ISteamUser</code> interface to interact with the authenticated Steam user.</li>
 <li><strong>Generates Auth Session Ticket</strong>: Calls <code>GetAuthSessionTicket()</code> to generate a cryptographic proof that the user owns the game and has an active Steam session. This ticket is a binary blob that Steam can validate server-side.</li>
 <li><strong>Converts Ticket to Hex String</strong>: The binary ticket is converted to a hexadecimal string format for transmission to Beamable.</li>
 <li><strong>Obtains Steam ID</strong>: Retrieves the user's unique Steam ID (SteamID64) for identification purposes.</li>
@@ -9084,9 +9084,9 @@
 <p>The <code>BeamballMs.Steam.cs</code> microservice implements <code>IFederatedLogin&lt;SteamId&gt;</code> to handle authentication:</p>
 <ol>
 <li><strong>Authentication Flow</strong>: When a user attempts to log in, the microservice receives the Auth Session Ticket from the client.</li>
-<li><strong>Ticket Validation</strong>: The microservice calls Steam's <code>AuthenticateUserTicket</code> Web <abbr title="application programming interface">API</abbr> endpoint to validate the ticket against Steam's servers using your Publisher Web <abbr title="application programming interface">API</abbr> Key.</li>
+<li><strong>Ticket Validation</strong>: The microservice calls Steam's <code>AuthenticateUserTicket</code> Web API endpoint to validate the ticket against Steam's servers using your Publisher Web API Key.</li>
 <li><strong>User Identification</strong>: Steam returns the user's unique Steam ID (SteamID64), which becomes the federated identity linked to the Beamable account.</li>
-<li><strong>Player Initialization</strong>: For first-time users, the microservice calls Steam's <code>GetPlayerSummaries</code> <abbr title="application programming interface">API</abbr> to retrieve the user's profile data (display name, avatar URLs) and populates the Beamable account with this information as player stats.</li>
+<li><strong>Player Initialization</strong>: For first-time users, the microservice calls Steam's <code>GetPlayerSummaries</code> API to retrieve the user's profile data (display name, avatar URLs) and populates the Beamable account with this information as player stats.</li>
 </ol>
 <p>This two-phase approach ensures that users are properly authenticated via Steam and their account is enriched with Steam profile data for display in-game.</p>
 <h2 id="can-i-use-it-as-a-template">Can I use it as a Template?<a class="headerlink" href="#can-i-use-it-as-a-template" title="Permanent link">¶</a></h2>

@@ -8778,7 +8778,7 @@
 
 
 <h1 id="stats">Stats<a class="headerlink" href="#stats" title="Permanent link">¶</a></h1>
-<p>The Beamable <abbr title="software development kit">SDK</abbr> Stats feature allows players to track a variety of built-in and custom player stat variables with configurable visibility levels. Two main use cases are:</p>
+<p>The Beamable SDK Stats feature allows players to track a variety of built-in and custom player stat variables with configurable visibility levels. Two main use cases are:</p>
 <ul>
 <li><strong>Data Store</strong>: can hold key/value pairs associated with a particular user.</li>
 <li><strong>Targeting</strong>: these key/value pairs can be used by other Beamable systems for various things (Announcement Campaigns, Matchmaking and others).</li>
@@ -8816,12 +8816,12 @@
 <li>Use the other functions in the <code>UBeamStatsSubsystem</code> to set up as many changes as possible.</li>
 <li>Commit.</li>
 </ul>
-<p>When it is possible (and desirable) for your game, this flow reduces the overall latency your players experience and reduces the number of <abbr title="application programming interface">API</abbr> calls you make to Beamable.</p>
+<p>When it is possible (and desirable) for your game, this flow reduces the overall latency your players experience and reduces the number of API calls you make to Beamable.</p>
 <h2 id="reading-other-players-public-stats">Reading Other Players' Public Stats<a class="headerlink" href="#reading-other-players-public-stats" title="Permanent link">¶</a></h2>
 <p>You might want to read public stats of some other player to display information about them in your UI. To do that, you can use the following <code>Operation</code> and <code>Local State</code> calls.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/stats-reading-other-player-stats.png" data-desc-position="bottom"><img alt="stats-reading-other-player-stats.png" src="../../../../media/imgs/stats-reading-other-player-stats.png"></a></p>
 <h2 id="stats-keys-values">Stats Keys &amp; Values<a class="headerlink" href="#stats-keys-values" title="Permanent link">¶</a></h2>
-<p>The <abbr title="software development kit">SDK</abbr> does not enforce limitations on stat keys or values. However, the following guidelines are <em>highly recommended</em> for project organization and performance reasons.</p>
+<p>The SDK does not enforce limitations on stat keys or values. However, the following guidelines are <em>highly recommended</em> for project organization and performance reasons.</p>
 <p><strong>For Keys:</strong>
 - 8-20 characters are ideal (purely for human ergonomics).
 - Keeping them under a few hundred characters is best for performance.

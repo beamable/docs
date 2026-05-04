@@ -8914,7 +8914,7 @@
 
 
 <h1 id="beamball-epic-online-services-integration">Beamball - Epic Online Services Integration<a class="headerlink" href="#beamball-epic-online-services-integration" title="Permanent link">¶</a></h1>
-<p>This page explains how to integrate a Beamable game with Epic Online Services (EOS) using the <strong>Beamable Unreal <abbr title="software development kit">SDK</abbr></strong> and <strong>Beamable Microservices</strong>.</p>
+<p>This page explains how to integrate a Beamable game with Epic Online Services (EOS) using the <strong>Beamable Unreal SDK</strong> and <strong>Beamable Microservices</strong>.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
 <p>Aside from the <code>BeamableCore</code> Plugin, here's what the sample contains:</p>
 <ul>
@@ -9031,7 +9031,7 @@
 <li><strong>Lifetime</strong>: Ensures the token hasn't expired (with 2-minute clock skew tolerance)</li>
 <li><strong>Application ID</strong>: Verifies the <code>appid</code> claim matches your configured Application ID</li>
 <li><strong>User Identification</strong>: Extracts the Epic Account ID from the <code>sub</code> (subject) claim, which becomes the federated identity linked to the Beamable account.</li>
-<li><strong>Player Initialization</strong>: For first-time users, the microservice obtains a client credentials access token and calls Epic's account information <abbr title="application programming interface">API</abbr> to retrieve the user's display name and preferred language, populating the Beamable account with this data as player stats.</li>
+<li><strong>Player Initialization</strong>: For first-time users, the microservice obtains a client credentials access token and calls Epic's account information API to retrieve the user's display name and preferred language, populating the Beamable account with this data as player stats.</li>
 </ol>
 <p>This implementation follows Epic's official authentication documentation and security best practices for validating third-party tokens using asymmetric cryptography.</p>
 <h2 id="can-i-use-it-as-a-template">Can I use it as a Template?<a class="headerlink" href="#can-i-use-it-as-a-template" title="Permanent link">¶</a></h2>

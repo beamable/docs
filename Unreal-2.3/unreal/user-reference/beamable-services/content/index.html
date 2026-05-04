@@ -9074,33 +9074,33 @@
 <p>Modifying content can be done via the Details Editor in the <strong>Content Window</strong>. Modified content, relative to the latest published manifest, is shown with an <code>[M]</code> icon next to them. They can be reverted to their state at the realm by using the <code>Revert</code> button.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content-revert.png" data-desc-position="bottom"><img alt="content-revert.png" src="../../../../media/imgs/content-revert.png"></a></p>
 <h2 id="publishing-and-auto-syncing">Publishing and Auto-Syncing<a class="headerlink" href="#publishing-and-auto-syncing" title="Permanent link">¶</a></h2>
-<p><strong>Publishing</strong> tells the Beamable <abbr title="software development kit">SDK</abbr> that you want to send your entire local content state to the realm and make that the source of truth. The source of truth for content in a realm is always whatever manifest was last published to that realm.</p>
+<p><strong>Publishing</strong> tells the Beamable SDK that you want to send your entire local content state to the realm and make that the source of truth. The source of truth for content in a realm is always whatever manifest was last published to that realm.</p>
 <p>To publish content to a realm simply use the Publish button.</p>
 <div class="admonition note">
 <p class="admonition-title">For Designers</p>
-<p>You can think of the realm's published content as a "Dropbox/Google Drive folder" that contains all content objects' serialized JSON files. The manifest is an index that tells the <abbr title="software development kit">SDK</abbr> which content exists and where to download their JSON files.</p>
+<p>You can think of the realm's published content as a "Dropbox/Google Drive folder" that contains all content objects' serialized JSON files. The manifest is an index that tells the SDK which content exists and where to download their JSON files.</p>
 <p><strong>Publishing</strong> means deleting all the contents of the Dropbox folder and replacing them with your local files.</p>
 </div>
 <h3 id="understanding-content-auto-sync-rules">Understanding Content Auto-Sync Rules<a class="headerlink" href="#understanding-content-auto-sync-rules" title="Permanent link">¶</a></h3>
 <p>It is often desirable to have designers in a realm that is stable and allow them to work in <code>Blueprints</code>, <code>Beamable Content</code> and Unreal <code>Data Asset</code> in the same realm plus branch combination.</p>
-<p>To enable this workflow, the Beamable <abbr title="software development kit">SDK</abbr>:</p>
+<p>To enable this workflow, the Beamable SDK:</p>
 <ul>
 <li>Listens for whenever any developer publishes content to a realm and notifies other developers working on that same realm.<ul>
 <li>If <code>Designer-A</code> publishes changes, <code>Designer-B</code> will see a UE-notification informing them that <code>Designer-A</code> has just published. <br><br></li>
 </ul>
 </li>
 <li>Automatically keeps any un-modified local files up-to-date with the latest version of that file published to the realm.<ul>
-<li>If <code>Designer-A</code> publishes changes to <code>Content-1</code> and <code>Designer-B</code> had no changes made to that file in their machine, the <abbr title="software development kit">SDK</abbr> in <code>Designer-B</code>'s machine will automatically update their <code>Content-1</code> file to match the newest version of it published by <code>Designer-A</code>.</li>
+<li>If <code>Designer-A</code> publishes changes to <code>Content-1</code> and <code>Designer-B</code> had no changes made to that file in their machine, the SDK in <code>Designer-B</code>'s machine will automatically update their <code>Content-1</code> file to match the newest version of it published by <code>Designer-A</code>.</li>
 <li>The notification tells you what content was automatically synchronized. <br><br></li>
 </ul>
 </li>
 <li>Informs you that you had made changes to a file that was modified in the published manifest. This is called a <strong>Conflict</strong>.<ul>
-<li>If <code>Designer-A</code> publishes changes to <code>Content-1</code> and <code>Designer-B</code> had made changes to that file in their machine, the <abbr title="software development kit">SDK</abbr> in <code>Designer-B</code>'s machine will NOT automatically update their <code>Content-1</code> file. Instead, it'll accuse a <strong>Conflict</strong>.</li>
+<li>If <code>Designer-A</code> publishes changes to <code>Content-1</code> and <code>Designer-B</code> had made changes to that file in their machine, the SDK in <code>Designer-B</code>'s machine will NOT automatically update their <code>Content-1</code> file. Instead, it'll accuse a <strong>Conflict</strong>.</li>
 <li>The notification informs you if a conflict happened.</li>
 </ul>
 </li>
 </ul>
-<p>To prevent <code>Designer-B</code> from overwriting changes made by <code>Designer-A</code> the <abbr title="software development kit">SDK</abbr> will not allow <code>Designer-B</code> to <strong>Publish</strong> until all detected conflicts are resolved. Resolving a conflict can be done in one of two ways:</p>
+<p>To prevent <code>Designer-B</code> from overwriting changes made by <code>Designer-A</code> the SDK will not allow <code>Designer-B</code> to <strong>Publish</strong> until all detected conflicts are resolved. Resolving a conflict can be done in one of two ways:</p>
 <ul>
 <li><strong>Use Realm</strong>: this will discard all local changes to that content and use whatever was published.</li>
 <li><strong>Use Mine</strong>: this will simply ignore the conflict (which means that it will allow you to publish and your publish WILL overwrite the version in the realm).</li>
@@ -9113,7 +9113,7 @@
 </ul>
 </li>
 <li>Instruct designers to ALWAYS talk to the person whose publish action caused the conflict <em>before</em> resolving things.<ul>
-<li>This is why the <abbr title="software development kit">SDK</abbr> shows <em>who</em> made the last publish that caused the conflict.</li>
+<li>This is why the SDK shows <em>who</em> made the last publish that caused the conflict.</li>
 </ul>
 </li>
 </ul>
@@ -9131,7 +9131,7 @@
 </div>
 <p>Once your work is done, you can configure the stable realm with whatever new configuration is required and then use the CLI or the Portal to move the content over to the new realm.</p>
 <h2 id="custom-content-types">Custom Content Types<a class="headerlink" href="#custom-content-types" title="Permanent link">¶</a></h2>
-<p>In Unreal, you define content schemas as sub-classes of <code>UBeamContentObject</code> or any of its subtypes available in the <abbr title="software development kit">SDK</abbr> ( <code>UBeamItemContent</code> , <code>UBeamGameTypeContent</code> , etc.). Every content type must define a unique string ID for that particular type and a function that returns it.</p>
+<p>In Unreal, you define content schemas as sub-classes of <code>UBeamContentObject</code> or any of its subtypes available in the SDK ( <code>UBeamItemContent</code> , <code>UBeamGameTypeContent</code> , etc.). Every content type must define a unique string ID for that particular type and a function that returns it.</p>
 <p>The following example of <code>UBeamCurrencyContent</code> shows how that can be done:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">UCLASS</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">BEAMABLECORE_API</span><span class="w"> </span><span class="n">UBeamCurrencyContent</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UBeamContentObject</span>
@@ -9160,7 +9160,7 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Microservices</p>
-<p>In a lot of cases, you will want to access these content objects in Microservices.  For all of Beamable's own content-types ( <code>UBeamCurrencyContent</code> , etc.) you will find equivalents in the Microservice <abbr title="software development kit">SDK</abbr>. For your own custom types, you'll need to declare them in C#. To do so, use the serialization table below as reference to know how to map types from C++ to C#.</p>
+<p>In a lot of cases, you will want to access these content objects in Microservices.  For all of Beamable's own content-types ( <code>UBeamCurrencyContent</code> , etc.) you will find equivalents in the Microservice SDK. For your own custom types, you'll need to declare them in C#. To do so, use the serialization table below as reference to know how to map types from C++ to C#.</p>
 </div>
 <h2 id="supported-content-serialization">Supported Content Serialization<a class="headerlink" href="#supported-content-serialization" title="Permanent link">¶</a></h2>
 <table>
@@ -9266,16 +9266,16 @@
 </table>
 <p>Take a look at <code>UMockBeamContentObject</code> to see the supported types.</p>
 <h2 id="runtime-content-subsystem">Runtime Content Subsystem<a class="headerlink" href="#runtime-content-subsystem" title="Permanent link">¶</a></h2>
-<p>The <abbr title="software development kit">SDK</abbr> fetches the content manifest before the <code>OnBeamableStarted</code> callback is triggered. By default, it downloads the content manifest and each individual piece of content. You can enable and disable this behavior it can be configured to do so inside <code>Project Settings -&gt; Beamable Runtime</code>.</p>
+<p>The SDK fetches the content manifest before the <code>OnBeamableStarted</code> callback is triggered. By default, it downloads the content manifest and each individual piece of content. You can enable and disable this behavior it can be configured to do so inside <code>Project Settings -&gt; Beamable Runtime</code>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content-download-individual-on-start.png" data-desc-position="bottom"><img alt="content-download-individual-on-start.png" src="../../../../media/imgs/content-download-individual-on-start.png"></a></p>
-<p>The <abbr title="software development kit">SDK</abbr> also supports live content updates (if you publish content while the game client is running):</p>
+<p>The SDK also supports live content updates (if you publish content while the game client is running):</p>
 <ul>
 <li>While the <a href="../../runtime-systems/user-slots/"><code>OwnerUserSlot</code></a> is signed in to Beamable, <code>UBeamContentSubsystem</code> listens for notifications that the realm's content manifest has been updated.</li>
-<li>When that happens, the <abbr title="software development kit">SDK</abbr> re-downloads the manifest.</li>
+<li>When that happens, the SDK re-downloads the manifest.</li>
 <li>If <code>bDownloadIndividualContentAtStart</code> is <code>true</code>:<ul>
-<li>The <abbr title="software development kit">SDK</abbr> downloads and caches all updated content objects relative to the last manifest downloaded in this client.</li>
+<li>The SDK downloads and caches all updated content objects relative to the last manifest downloaded in this client.</li>
 <li>These updates are cached locally inside the <code>Saved</code> directory in binary form such that a user does not need to re-download content in subsequent runs of your game unless the published manifest changes.</li>
-<li>This cache is invalidated if your game-version changes, the <abbr title="software development kit">SDK</abbr> version changes or the UE version changes.</li>
+<li>This cache is invalidated if your game-version changes, the SDK version changes or the UE version changes.</li>
 </ul>
 </li>
 <li>If <code>bDownloadIndividualContentAtStart</code> is <code>false</code>:<ul>
@@ -9322,7 +9322,7 @@
 <li>If you plan to release a new build every time you want to update your game.</li>
 <li>If you want to trade off some binary size for spending less time waiting for the individual content download at initialization time.</li>
 </ul>
-<p>To enable those cases, the <abbr title="software development kit">SDK</abbr> includes an editor utility that bakes your local content into a <code>UBeamContentCache</code>.
+<p>To enable those cases, the SDK includes an editor utility that bakes your local content into a <code>UBeamContentCache</code>.
 This is a special asset type that has the <code>UBeamContentObject</code> instances serialized using UE's binary serialization as opposed to JSON.</p>
 <p><strong>Keep in mind that this utility uses your local content, so make sure your content matches the realm's content before running it</strong>.</p>
 <p>The utility is called <code>EBP_BakeContent</code> and can be found in Beamable Core's plugin folder under <code>/Editor/Utility/EBP_BakeContent.EBP_BakeContent</code>. Running this utility goes through your local content and bakes them into a <code>BCC_</code> assets ( <code>UBeamContentCache</code> ) stored in <code>/Game/Beamable/Content/Manifests/Cooked/</code> directory. This directory is configured, by default, to be included in packaged games.</p>
@@ -9340,7 +9340,7 @@ This is a special asset type that has the <code>UBeamContentObject</code> instan
 </ul>
 <p>Doing that will make the binary serialization of content for local caching work in each of these cases.</p>
 <p>For serializing arbitrary data structures, prefer <code>FBeamJsonSerializableUStruct</code> subtypes of <code>UBeamContentObject</code> as these are simpler to set up. Use inlined <code>IBeamJsonSerializableUObject</code> only when you need a recursive type.</p>
-<p>For examples of handling this edge case, you can look at the <code>UBeamGameTypeContent</code> and <code>UBeamStatComparisonRule</code> types shipped with the <abbr title="software development kit">SDK</abbr>.</p>
+<p>For examples of handling this edge case, you can look at the <code>UBeamGameTypeContent</code> and <code>UBeamStatComparisonRule</code> types shipped with the SDK.</p>
 
 
 
