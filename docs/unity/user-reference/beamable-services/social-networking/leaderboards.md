@@ -1,6 +1,6 @@
 # Leaderboards
 
-The purpose of this feature is to allow players to see and participate in score-based Leaderboards.
+The purpose of this service is to allow players to see and participate in score-based Leaderboards.
 
 Leaderboards provide competitive ranking systems that encourage player engagement and retention by displaying player performance relative to others.
 
@@ -107,5 +107,5 @@ private async Task<List<RankEntry>> LeaderboardServiceGetBoard(string id, long u
 ```
 ## WebGL Sample
 
-You can try out this feature in the interactive WebGL demo:
+You can try out this service in the interactive WebGL demo:
 [Unity WebGL Player - Leaderboard Flow Example](https://beamable.github.io/Beamable_SDK_Examples/Builds/WebGL/LeaderboardFlowExample/index.html)

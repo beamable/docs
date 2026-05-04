@@ -1,6 +1,6 @@
 # Apple Sign-In
 
-The purpose of this guide is for game makers to use Apple Sign-In with the Beamable Accounts feature.
+The purpose of this guide is for game makers to use Apple Sign-In with the Beamable Accounts service.
 
 Beamable integrates with Apple Sign-In to make it easy for users to sign in to your apps and websites using their Apple ID. Instead of filling out forms, verifying email addresses, and choosing new passwords, they can use Sign in with Apple to set up an account and start using your app right away. All accounts are protected with two-factor authentication for superior security, and Apple will not track users' activity in your app or website.
 

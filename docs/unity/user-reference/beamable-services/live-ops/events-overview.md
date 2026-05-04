@@ -1,8 +1,8 @@
 # Events - Overview
 
-The Beamable **Events** feature allows game makers to create engaging time-limited competitions and activities for players.
+The Beamable **Events** service allows game makers to create engaging time-limited competitions and activities for players.
 
-The purpose of this feature is to allow the game maker to set up a one-time Events competition for players.
+The purpose of this service is to allow the game maker to set up a one-time Events competition for players.
 
 Events provide a powerful way to drive player engagement through time-limited challenges, competitions, and special activities that create urgency and community participation.
 
@@ -282,7 +282,7 @@ namespace Beamable.Examples.Services.EventsService
 
 ## Getting Started
 
-Events, like many other Beamable features, are created, configured, and published via the [Content Manager](../profile-storage/content/content-unity.md#content-manager-editor). This guide is intended to show you how to create an event, configure its required (or optional) data, and publish it to your users.
+Events, like many other Beamable services, are created, configured, and published via the [Content Manager](../profile-storage/content/content-unity.md#content-manager-editor). This guide is intended to show you how to create an event, configure its required (or optional) data, and publish it to your users.
 
 Follow these steps to create and configure an event:
 
