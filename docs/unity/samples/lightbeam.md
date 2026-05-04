@@ -1,9 +1,15 @@
-# Lightbeam Overview
+# Lightbeam Samples Overview
 
-The _Beam Library_ window in the Unity Editor has a list of Lightbeams. Lightbeams are Unity Package Samples designed to teach you various parts of the Beamable SDK. The Lightbeams share a common architectural design pattern. Unity Package Samples are copied into your `/Assets` folder and you have complete control over their source code. This means you can fork these samples into your project, or just delete them when you're done. The Lightbeams are versioned with each release of the Beamable SDK, which means you can have multiple versions of the Lightbeam installed in your `/Assets` folder.
+Lightbeams are Unity Package Samples that teach you various parts of the Beamable SDK. You can access them from the Beam Samples Window in the Unity Editor. 
+
+![lightbeam samples.png](../../media/imgs/lightbeam-samples.png){width=600px}
+
+
+All Lightbeams share a common architectural design pattern and are versioned with each SDK release, letting you install multiple versions side by side in your `/Assets` folder.
+
+Unity Package Samples copy directly into `/Assets`, giving you full control over the source code. Fork them into your project or delete them when you're done.
 
 Most of the Lightbeams are full `.unity`scene files that offer a greybox UI to explore a feature-set.
-
 
 ## Common Sample Structure
 
@@ -32,8 +38,6 @@ To start learning about the code in each Lightbeam, jump into the `HomePage` cla
 public async Promise OnInstantiated(LightBeam ctx)
 ```
 
-
-
 ## Lightbeam Framework
 
 Most of the Lightbeam samples use a common framework that builds on top of Beamable's [Dependency Injection](doc:beam-sdk-di). The Lightbeam framework is trying to solve the age-old "UI data binding" problem in a way that feels natural to the Beamable SDK. A `LightBeam` is a dependency scope built with a `BeamContext`, plus whatever `GameObjects` and UI related prefabs that exist to power the greybox UI. The `LightBeam` type is used to instantiate UI prefabs and offer a chance to bind data to those prefab instances directly from the dependency injection scope.
@@ -48,7 +52,6 @@ var lightBeam = await beamContext.CreateLightBeam(root, loadingBlocker, builder 
 ```
 
 The `CreateLightBeam` function takes 3 parameters. The first 2 are UI related. The `root` is a `GameObject` reference where the LightBeam will spawn all future UI panels. The `loadingBlocker` is a `CanvasGroup` that the LightBeam uses to fade transition between panels. Finally, the last parameter is the `builder`, which is a `IDependencyBuilder` object. This instance can be used to add UI prefab types into the dependency scope.
-
 
 ### Light Components
 
@@ -101,7 +104,6 @@ var instance = await lightBeam.Instantiate<AccountDisplayBehaviour, PlayerAccoun
 The `lightBeam.Instantiate()` method fetches the requested type from the `IDependencyProvider`, instantiates the type as a `GameObject`and attaches the newly spawned `Transform` to the given `playerAccountContainer` transform. Then the `AccountDisplayBehaviour.OnInstantiated`method is invoked on the new instance, and the data argument is forwarded.
 
 In addition to the `Instantiate` method, the `LightBeam` context has a `GotoPage` method. This method is used to change the top-level UI object under the given `root` GameObject used to create the `LightBeam`. All this method does is use the `CanvasGroup` to fade transition between two `ILightComponent` instances.
-
 
 ### Custom Parameters
 
