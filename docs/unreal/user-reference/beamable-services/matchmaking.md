@@ -71,7 +71,7 @@ This content type defines a few things about a queue:
 - `MaxWaitDurationSecs`: Defines how long the player can stay in the queue without being matched; after this time passes, the matchmaking fails and `OnMatchTimedOut` is triggered.
 - `MatchingIntervalSecs`: Defines the ticking interval for the queue. Defaults to 10 seconds, which means that new sets of matches are produced every 10 seconds.
 	- If the time it takes to tick a queue is longer than the value set here, the longer value becomes the new tick.
-- `FederatedGameServerNamespace`: Defines a [Federation Id](../federation/federation.md#federation-id) for a [Federated Game Server](../federation/federated-game-server.md) federation.
+- `FederatedGameServerNamespace`: Defines a [Federation Id](../federation/federation.md#federation-id) for a [Federated Game Server](../federation/federated-game-server.md).
 
 ## Lobby Subsystem Integration
 The Matchmaking Subsystem works with the [Lobby Subsystem](lobbies.md) by default. It does the following things:

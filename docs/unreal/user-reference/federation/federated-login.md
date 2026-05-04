@@ -35,8 +35,8 @@ In the client:
 - Use the `Sign-Up - Federated Identity` node with `Auto Login` passing in:
     - The Microservice's Id.
     - The Federation's Id.
-    - The User Id _**of the Federated 3rd Party user**_ (this would be the user's Steam Id, for example).
-    - A token that can be used to authenticate this user's account with the Federated 3rd Party.
+    - The User Id _of the federated 3rd party user_ (this would be the user's Steam Id, for example).
+    - A token that can be used to authenticate this user's account with the federated 3rd party.
 
 It looks like this:
 
