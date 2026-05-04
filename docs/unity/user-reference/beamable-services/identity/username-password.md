@@ -11,7 +11,7 @@ Below is a simple username and password flow where, after initializing, we promp
 
 ![Simple Username Password Flow](../../../../media/imgs/d86e42f-simple_username_password_flow.png){: style="height:auto;width:600px"}
 
-Using the username and password service is easy. There are just a few APIs you need to know about to be ready to go. Read more here to learn how to use `AddEmail` and `RecoverAccountWithEmail` methods of the `PlayerAccounts` SDK.
+Using username and password for logins is easy. There are just a few APIs you need to know about to be ready to go. Read more here to learn how to use `AddEmail` and `RecoverAccountWithEmail` methods of the `PlayerAccounts` SDK.
 
 ## Declarations
 
