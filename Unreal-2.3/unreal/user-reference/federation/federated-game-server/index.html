@@ -8746,9 +8746,9 @@
 </ul>
 <h2 id="configuring-a-game-server-federation-to-be-called">Configuring a Game Server Federation to be Called<a class="headerlink" href="#configuring-a-game-server-federation-to-be-called" title="Permanent link">¶</a></h2>
 <p>Beamable's Backend leverages a Content called <code>UBeamGameTypeContent</code> (<code>game_types</code>).
-A GameType represents a set of rules for how Beamable's Matchmaking should produce matches of this game type (including the federation).</p>
+A GameType represents a set of rules for how Beamable's Matchmaking should produce matches of this game type (including the Federation).</p>
 <ol>
-<li>Implement <code>IFederatedGameServer</code> federation in your microservice with a particular <a href="../federation/#federation-id">Federation Id</a>.</li>
+<li>Implement the <code>IFederatedGameServer</code> Federation in your microservice with a particular <a href="../federation/#federation-id">Federation Id</a>.</li>
 <li>Set up that <a href="../federation/#federation-id">Federation Id</a> in any <code>UBeamGameTypeContent</code>'s <code>federation</code> field.</li>
 <li>Publish the Content.</li>
 </ol>
@@ -8809,7 +8809,7 @@ A GameType represents a set of rules for how Beamable's Matchmaking should produ
 </ol>
 </li>
 <li>Once all players are ready, the lobby host can invoke the <code>UBeamLobbySubsystem</code>'s <code>ProvisionGameServerForLobby</code> function.</li>
-<li>This function requests that the configured federation on the <code>UBeamGameTypeContent</code> be run.</li>
+<li>This function requests that the configured Federation on the <code>UBeamGameTypeContent</code> be run.</li>
 <li>Once it does, it'll trigger <code>UBeamLobbyState</code>'s <code>OnLobbyUpdated</code> callback for the lobby each particular player is in.<ol>
 <li>You can then use <code>Local State - Lobby - Open Level</code> and, if you've set the connection information in the lobby's data (<code>ULobby::Data</code>), this node will connect and travel accordingly.</li>
 </ol>

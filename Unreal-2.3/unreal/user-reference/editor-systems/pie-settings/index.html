@@ -8920,7 +8920,7 @@ To enable them, go to the Beamable Core section in the Unreal Engine editor sett
 <ul>
 <li><strong>Local (Green)</strong>: Saved locally in your <code>.beamable/temp</code> folder. Useful for personal testing and development.</li>
 <li><strong>Template (Orange)</strong>: Saved in your <code>.beamable</code> folder and can be committed to version control. Intended as shared templates so the whole team can start from the same baseline.</li>
-<li><strong>Captured (Grey)</strong>: Per-session captured players are unsaved and cleared during the editor initialization.</li>
+<li><strong>Captured (Gray)</strong>: Per-session captured players are unsaved and cleared during the editor initialization.</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Player Profile Names and Descriptions</p>
@@ -8968,7 +8968,7 @@ You can also add descriptions and tags to profiles to provide extra context for 
 <p>For the most part, adding users will configure this correctly. Validation also runs before <abbr title="play in editor">PIE</abbr> starts to ensure the selected <code>Play Preset</code> is compatible with the defined UE <abbr title="play in editor">PIE</abbr> settings themselves.</p>
 <p>When selecting players, a few things are relevant:</p>
 <ul>
-<li>You can check <code>Copy on PIE</code> in order to get a new user with Stats and Inventory copied from the selected user account. This is useful when you want to keep a consistent starting state so you can test things (think of keeping users at various progression points in your game).</li>
+<li>You can check <code>Copy on PIE</code> to get a new user with Stats and Inventory copied from the selected user account. This is useful when you want to keep a consistent starting state so you can test things (think of keeping users at various progression points in your game).</li>
 <li><strong>Shared Users</strong> will always <code>Copy on PIE</code>. This is because Shared Users are meant a workflow baseline. The recommendation is that design leads can leverage this to enforce in-house workflows, training and on-boarding.</li>
 <li><strong>Users from realms other than your current one</strong> will also always <code>Copy on PIE</code>. This is because BeamPIE cannot sign in with a user from another realm into a different one. The <abbr title="software development kit">SDK</abbr> copies it instead.</li>
 </ul>
