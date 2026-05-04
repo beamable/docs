@@ -42,7 +42,7 @@ The game front-end loads the player manifest from the `TrialDataService`. The `P
 
 ## A/B Testing API
 
-Unlike many Beamable Features, A/B Testing does not require a specific Beamable Feature Prefab to be used. The main entry point to this feature is C# programming.
+Unlike many Beamable services, A/B Testing does not require a specific Beamable Feature Prefab to be used. The main entry point to A/B testing is C# programming.
 
 The main API is [`beamableAPI.TrialDataService`](https://csharp.cdocs.beamable.com/latest/interfaceBeamable_1_1Common_1_1Api_1_1CloudData_1_1ICloudDataApi.html#details).
 
@@ -96,7 +96,7 @@ Example Player Manifest
 
 ### Stats
 
-The [Stats](../profile-storage/stats.md) feature is related to A/B Testing in a couple of ways.
+The [Stats](../profile-storage/stats.md) service is related to A/B Testing in a couple of ways.
 
 **1. Automatic Stats**
 
@@ -140,7 +140,7 @@ For debugging the manifests, game players can use the Admin Flow to enter comman
 
 ## Getting Started
 
-The **A/B Testing** feature allows game makers to deploy new functionality to subset of players.
+The **A/B Testing** service allows game makers to deploy new functionality to subset of players.
 
 ### Creating Data
 

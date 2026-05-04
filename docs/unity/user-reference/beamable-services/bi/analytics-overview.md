@@ -331,7 +331,7 @@ As you use Beamable, more and more data will be available. That means more table
 - `platform_session_session_end`
 - `platform_session_install`
 
-But as you use Beamable features and as you write custom Telemetry events more data and tables will automatically be available. Query periodically to see what tables are available. The following query will provide you with a list of all currently available tables.
+But as you use Beamable services and as you write custom Telemetry events more data and tables will automatically be available. Query periodically to see what tables are available. The following query will provide you with a list of all currently available tables.
 
 ```sql
 SELECT distinct table_name FROM information_schema.columns WHERE table_schema = 'your de_ID goes here'

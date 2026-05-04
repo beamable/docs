@@ -2,7 +2,7 @@
 
 Username and Password is a great way to provide cross platform authentication if you do not want social integration. In addition, you can use this method for allowing a player to signup for your game or service.
 
-Beamable will create a user account for you when you initialize, but you can use this feature to also provide additional credentials for sign-in.
+Beamable will create a user account for you when you initialize, but you can use this service to also provide additional credentials for sign-in.
 
 !!! info "UI & Edge Cases"
     Using a custom username and password feature in your game does require some additional work and considerations. You will have to create multiple screens for sign-up, auto sign-in, password recovery, and error handling.
@@ -11,7 +11,7 @@ Below is a simple username and password flow where, after initializing, we promp
 
 ![Simple Username Password Flow](../../../../media/imgs/d86e42f-simple_username_password_flow.png){: style="height:auto;width:600px"}
 
-Using the username and password feature is easy. There are just a few APIs you need to know about to be ready to go. Read more here to learn how to use `AddEmail` and `RecoverAccountWithEmail` methods of the `PlayerAccounts` SDK.
+Using the username and password service is easy. There are just a few APIs you need to know about to be ready to go. Read more here to learn how to use `AddEmail` and `RecoverAccountWithEmail` methods of the `PlayerAccounts` SDK.
 
 ## Declarations
 

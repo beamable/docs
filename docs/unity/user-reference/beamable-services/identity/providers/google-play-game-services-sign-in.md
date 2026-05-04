@@ -1,6 +1,6 @@
 # Google Play Game Services Sign-In
 
-The purpose of this guide is for game makers to use Google Play Games Services with the Beamable Accounts feature.
+The purpose of this guide is for game makers to use Google Play Games Services with the Beamable Accounts service.
 
 Beamable integrates with Google Play Games Services to make it easy for users to sign in to your apps using their ID. Instead of filling out forms, verifying email addresses, and choosing new passwords, they can use a simple sign-in method to set up an account and start using your app right away. It makes it easy to use Beamable across different devices using one credential. A user always has the option to revoke access to an application at any time.
 
@@ -13,7 +13,7 @@ This document describes how to complete a basic Google Play Games Services integ
 
 ## Getting Started
 
-This guide provides step-by-step instructions to set up Google Play Game Services Sign-In with Beamable's Accounts feature in a Unity project.
+This guide provides step-by-step instructions to set up Google Play Game Services Sign-In with Beamable's Accounts service in a Unity project.
 
 ### Prerequisites
 
@@ -132,4 +132,4 @@ var shouldAttachToCurrentUser = available && !userHasCredentials;
 ## Next Steps
 
 * Players can edit account details (name, avatar)
-* Players can switch accounts or sign in with various methods. See the [Identity](../identity.md) feature page for more info
+* Players can switch accounts or sign in with various methods. See the [Identity](../identity.md) service page for more info

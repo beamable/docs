@@ -1,6 +1,6 @@
 # Multiplayer
 
-The Beamable Multiplayer feature allows game makers to create real-time and turn-based multi-user game experiences.
+The Beamable Multiplayer service allows game makers to create real-time and turn-based multi-user game experiences.
 
 **What is a game server?** A game **server** is the source of event coordination in a multiplayer video game. The server transmits enough events about its internal state to allow each connected **client** to maintain their own accurate version of the game. Events may contain various types of information including; properties about the game world, the players, and player input. See [Wikipedia](https://en.wikipedia.org/wiki/Game_server) for more info.
 
@@ -52,7 +52,7 @@ here is a high-level diagram of the Beamable Multiplayer terms
 | Event | The data packet that represents a player's turn in the game. This may be any serializable C# structure. |
 | Latency | This measurement indicates the average total time needed for the game **client** to send an event to the Multiplayer **server** and receive the reply. Latency is measured in milliseconds (e.g., 200ms) |
 | Matchmaking | This is the process of choosing a `MatchId` based on criteria. E.g., "Give me a match to play in with 3 total players with beginner skill level". Beamable includes an optional, light-weight Matchmaking service.<br><br>_Note: See [Matchmaking](matchmaking.md) for more info_ |
-| SimClient | This class is the main entry point for Beamable's Multiplayer feature. |
+| SimClient | This class is the main entry point for Beamable's Multiplayer service. |
 | SimClient's TargetNetworkLead | This is network buffer. It represents how long the Multiplayer **server** holds game **events** before sending them back to clients. E.g., With a value of 5, the Multiplayer **server** will hold 5 events before sending those 5 to the game client's. A higher value provides more consistency to the **clients'** rendering experience, but at the cost of higher latency. |
 | SimClient's Match | This represents a set of players playing a specific instance of the game together. Only players in the **same** match may collaborate, compete, and communicate. |
 | SimClient's FramesPerSecond | This is the rate (in times per second) at which the **client** receives event updates from the Multiplayer **server**. As a data optimization, typically this is set lower than the rendering frame rate of Unity. |
