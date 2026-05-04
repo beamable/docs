@@ -1,6 +1,6 @@
 # Announcements - Overview
 
-The Beamable **Announcements** feature allows game makers to create and manage in-game announcements for players.
+The Beamable **Announcements** service allows game makers to create and manage in-game announcements for players.
 
 Announcements provide a powerful way to communicate with players about updates, events, news, and other important information directly within your game. If your game releases new downloadable content every week and the main menu displays it in a news panel, you can build that panel by modifying the Announcements prefab to suit your game's UI scheme, or by pulling announcements via code.
 

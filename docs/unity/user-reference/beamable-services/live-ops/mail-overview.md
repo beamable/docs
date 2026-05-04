@@ -1,12 +1,12 @@
 # Mail - Overview
 
-The Beamable **Mail** feature allows game makers to create and manage in-game mail messaging systems for players.
+The Beamable **Mail** service allows game makers to create and manage in-game mail messaging systems for players.
 
-The purpose of this feature is to allow players to manage in-game mail messages. Let's say your users have an inbox in their player profile, and they can receive messages whenever something significant happens. This is a good fit for Mail.
+The purpose of this service is to allow players to manage in-game mail messages. Let's say your users have an inbox in their player profile, and they can receive messages whenever something significant happens. This is a good fit for Mail.
 
 Mail provides a messaging system that enables players to send and receive persistent messages with attachments and rewards, creating engagement through communication and item distribution.
 
-Unlike many Beamable features, Mail does not have a dedicated feature prefab. The main usages of this feature are listed below.
+Unlike many Beamable services, Mail does not have a dedicated feature prefab. The main usages of this service are listed below.
 
 | Function | Definition |
 |----------|------------|
@@ -21,7 +21,7 @@ Mobile Notifications are a native part of mobile platforms including iOS and And
 
 ## Mail API
 
-Unlike many Beamable features, Mail does not require a specific Beamable feature prefab to be used. The main entry point to this feature is C# programming. The main API component is [`MailService`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Mail_1_1MailService.html).
+Unlike many Beamable services, Mail does not require a specific Beamable feature prefab to be used. The main entry point to this service is C# programming. The main API component is [`MailService`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Mail_1_1MailService.html).
 
 The following chart describes the main **functionality** related to mail messages.
 
