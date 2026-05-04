@@ -78,7 +78,7 @@ echo "Queued:"; for d in "${to_push[@]}"; do echo "  $(basename "$d")"; done
 for i in "${!to_push[@]}"; do
   echo; echo "Pushing $(basename "${to_push[$i]}")..."
   git -C "${to_push[$i]}" push
-  [[ $i -lt $((${#to_push[@]} - 1)) ]] && echo "Waiting 2 minutes..." && sleep 120
+  [[ $i -ge 1 && $i -lt $((${#to_push[@]} - 1)) ]] && echo "Waiting 2 minutes..." && sleep 120
 done
 echo; echo "All pushes complete."
 ```
@@ -195,7 +195,7 @@ Internal team documentation lives at `https://help.beamable.com/Internal/interna
 - **Code terms in prose:** backtick-fence class names, method names, property names, and attribute names when referring to the code entity (e.g., `` `BeamContext` ``, `` `PlayerId` ``). For .NET attributes, use the consumer-facing short form without the `Attribute` suffix (e.g., `[IgnoreContentField]`, not `[IgnoreContentFieldAttribute]`). Exception: `MonoBehaviour` must preserve Unity's spelling with the `u` regardless of American English preference elsewhere.
 - **American English spelling:** use American forms throughout (-ize, -ization, single-L in "canceling", "canceled", "modeling", etc.). Exception: `MonoBehaviour` (Unity API name; spelling is fixed).
 - **Product term capitalization:** Portal, Cloud Save, Content Manager, Admin Console, Beam Library (capitalized); see commit history for resolved cases
-- **`docs/includes/abbreviations.md`:** provides hover tooltips for TLAs across all pages. Omit "SDK" — it appears too frequently in these docs for a tooltip to add value, and the constant underline creates visual noise. Add an acronym only when a reader encountering it cold would benefit from the expansion.
+- **`docs/includes/abbreviations.md`:** provides hover tooltips for TLAs across all pages. Omit "SDK" and "API" — they appear too frequently in these docs for a tooltip to add value, and the constant underline creates visual noise. Add an acronym only when a reader encountering it cold would benefit from the expansion.
 - **Definition list bullets:** bold the term but not the colon — `**Term**: description` not `**Term:** description`
 - **Reference style guides:** Google Developer Documentation Style Guide and Microsoft Writing Style Guide
 
