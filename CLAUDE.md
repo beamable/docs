@@ -51,7 +51,7 @@ After pushing to a core branch, immediately `git pull` in the corresponding unit
 
 ### CLI guide edits
 
-Files under `docs/cli/guides/` are core-owned and auto-synced into unity/unreal. Edit them only in the relevant core worktree — do not copy changes by hand. Unity-only edits go directly to the unity worktree.
+Files under `docs/cli/guides/` are core-owned and auto-synced into unity/unreal. Edit them only in the relevant core worktree — do not copy changes by hand, even during a copyediting pass on a unity or unreal branch. Unity-only edits go directly to the unity worktree; Unreal-only edits (anything not in `docs/cli/guides/`) go directly to the unreal worktree.
 
 ### Staggered pushes
 
