@@ -23,10 +23,10 @@ Other actions provided by the Beamable **Lobbies** service include:
 
     Here are some additional things to consider when designing a lobby for matchmaking:
 
-    - The lobby should be designed to be visually appealing and user-friendly
-    - The lobby should provide players with information about the status of their matchmaking queue, such as how many players are currently in the lobby and how long it is expected to take to find a match
-    - The lobby should allow players to communicate with each other before the game starts. This can help to improve the overall experience for players
-    - The lobby should be secure and prevent players from cheating or exploiting the system
+    - Design the lobby to be visually appealing and user-friendly
+    - Provide players with matchmaking queue status, such as how many players are currently in the lobby and the estimated wait time
+    - Allow players to communicate with each other before the game starts to improve the overall experience
+    - Make the lobby secure to prevent players from cheating or exploiting the system
 
 ## Lobbies API
 
@@ -38,7 +38,7 @@ These examples cover common use cases for Lobbies. The `_beamContext` variable u
 
 ### Creating a Lobby
 
-The [Create](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Lobbies_1_1LobbyService.html#a0e8f956a954c74e55f5a26db755e5499) method will create a lobby with specified parameters which can be accessed through `_beamContext.Lobby.Value`.
+The [Create](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Lobbies_1_1LobbyService.html#a0e8f956a954c74e55f5a26db755e5499) method will create a lobby with specified parameters which you can access through `_beamContext.Lobby.Value`.
 
 The `Create` method requires:
 
@@ -67,7 +67,7 @@ public async Task CreateLobbyAsync(CreateLobbyRecord lobbyRecord) =>
 
 ### Updating a Lobby
 
-The `Update` method will update details about an existing lobby which can be accessed through `_beamContext.Lobby.Value`.
+The `Update` method will update details about an existing lobby which you can access through `_beamContext.Lobby.Value`.
 
 The `Update` method requires:
 

@@ -9,8 +9,8 @@ The **Stats** service allows game makers to store and track pieces of data about
 
 The Stats service offers two main entry points:
 
-- **StatsService API** - This has high flexibility
-- **StatsBehaviour Component** - This has high ease-of-use
+- **`StatsService` API** - This has high flexibility
+- **`StatsBehaviour` Component** - This has high ease-of-use
 
 ## Custom Stats
 Beamable allows game makers to create custom status for the specific needs of the game design. Mind the following rules when creating defining those:
@@ -56,7 +56,7 @@ Beamable automatically creates a specific set of _game private_ stats for each n
 
 ## StatsService API
 
-The [StatsService](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Stats_1_1StatsService.html#details) provides programmatic access to player statistics. Here are the main methods available:
+The [`StatsService`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Stats_1_1StatsService.html#details) provides programmatic access to player statistics. Here are the main methods available:
 
 | Method | Signature | Description |
 |--------|-----------|-------------|
@@ -136,11 +136,11 @@ Custom stats are created on-demand the first time they are written to. However, 
 There are two main methods for interacting with Stats:
 
 - Using the [`StatBehaviour`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Stats_1_1StatBehaviour.html) Component
-- Raw C# coding using the StatsService
+- Raw C# coding using the `StatsService`
 
 Game makers can use either/both methods to meet the needs of the game project.
 
-### Using StatsBehaviour Component
+### Using `StatsBehaviour` Component
 
 This method offers higher ease-of-use using pre made components
 
@@ -190,15 +190,15 @@ namespace Beamable.Examples.Services.StatsService
 }
 ```
 
-### Using the StatsService API
+### Using the `StatsService` API
 
-This method offers higher flexibility using raw C# coding using the StatsService
+This method offers higher flexibility using raw C# coding using the `StatsService`
 
 | Unity Hierarchy | Unity Inspector |
 | :-------------- | :-------------- |
 | ![Coding Hierarchy](../../../../media/imgs/stats-coding-hierarchy.jpg) | ![Coding Inspector](../../../../media/imgs/stats-coding-inspector.jpg) |
 
-The SetStats and GetStats methods require additional parameters.
+The `SetStats` and `GetStats` methods require additional parameters.
 
 | Parameter Name | Detail |
 |----------------|--------|

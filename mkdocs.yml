@@ -33,7 +33,6 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.details
-  - pymdownx.superfences
   - admonition
   - pymdownx.arithmatex:
       generic: true

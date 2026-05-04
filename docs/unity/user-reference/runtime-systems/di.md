@@ -32,9 +32,9 @@ Transient service instances are never cached. Every time a transient service is 
 
 ### Disposing Services
 
-A dependency scope can be in one of two states, active, or disposed. A scope is active the moment it is built. However, a scope can be disposed through the `IDependencyProviderScope.Dispose()` method. When a `BeamContext` is stopped, the associated `IDependencyProvider` will be disposed. When a scope is disposed, no calls to `GetService<T>()` are allowed.
+A dependency scope can be in one of two states: active or disposed. A scope is active the moment it is built, and is disposed either by calling `IDependencyProviderScope.Dispose()` directly or by stopping the associated `BeamContext`. When a scope is disposed, no calls to `GetService<T>()` are allowed.
 
-The `IBeamableDisposable` interface informs the dependency scope that a service requires some sort of disposal logic before the scope is finished transitioning to the disposed state. In the example code below, the `ExampleService` will print a log message when the service scope is disposed. If you are implementing custom services that require stateful operation, consider using the `IBeamableDisposable` interface. However, the Beamable SDK does not guarantee that a `BeamContext` will be stopped when the game is quit, and therefor, does not guarantee that the service scope will be disposed.
+By implementing `IBeamableDisposable`, you signal to the dependency scope that your service demands extra logic to run before scope disposal. In the example below, `ExampleService` prints a log message when the scope is disposed. If you are implementing custom services that require stateful operation, consider using the `IBeamableDisposable` interface. However, the Beamable SDK does not guarantee that a `BeamContext` will be stopped when the game is quit, and therefore does not guarantee that the dependency scope will be disposed.
 
 ```csharp
 public class ExampleService : IBeamableDisposable
@@ -77,7 +77,7 @@ The Beamable SDK has a global `IDependencyBuilder` available via `Beam.Dependenc
 2. Is a method marked with the `RegisterBeamableDependencies` attribute,
 3. takes 1 input parameter of type, `IDependencyBuilder`
 
-The example below will receive the `IDependencyBuilder`and add a singleton `ExampleService`.
+The example below will receive the `IDependencyBuilder` and add a singleton `ExampleService`.
 
 ```csharp
 [BeamContextSystem]
@@ -129,11 +129,11 @@ The Beamable Unity SDK uses `IDependencyBuilder` and `IDependencyProvider` to ma
 
 ### Life Cycle
 
-When a Microservice starts, there is one main `IDependencyBuilder` . In order to initialize and connect to Beamable, the `IDependencyBuilder` creates a main `IDependencyProvider`. However, every request sent to a Microservice will get a unique `IDependencyProvider`. The main scope is forked and modified with the `RequestContext` information for the request. When the request terminates, the child scope is disposed.
+When a `Microservice` starts, there is one main `IDependencyBuilder` . In order to initialize and connect to Beamable, the `IDependencyBuilder` creates a main `IDependencyProvider`. However, every request sent to a `Microservice` will get a unique `IDependencyProvider`. The main scope is forked and modified with the `RequestContext` information for the request. When the request terminates, the child scope is disposed.
 
 #### Scoped vs Singleton
 
-In a Microservice, a service registered as a singleton will be the only instance of that service between all requests. It can be used to store a limited amount of state between service requests.
+In a `Microservice`, a service registered as a singleton will be the only instance of that service between all requests. Use it to store a limited amount of state between service requests.
 
 !!! warning "Do not store critical state in memory"
 Remember that a Microservice may be running multiple instances when deployed. This means that you should not assume that a singleton's class variables are stable across _all_ requests. They are only stable for requests sent to the given instance of the Microservice.

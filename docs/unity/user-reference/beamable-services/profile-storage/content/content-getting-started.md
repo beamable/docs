@@ -1,6 +1,6 @@
 # Content - Getting Started
 
-Beamable's Content Service allows game makers to create, manage, and distribute game content. Content can be created in the Beamable Content Manager window in the Unity Editor, and then published to Beamable's servers. Once published, content can be pulled into a game at runtime via the ContentService API.
+Beamable's Content Service allows game makers to create, manage, and distribute game content. Create content in the Beamable Content Manager window in the Unity Editor, then publish it to Beamable's servers. Once published, pull it into your game at runtime via the `ContentService` API.
 
 ## Creating Custom Content Types
 
@@ -107,7 +107,7 @@ Game makers may create new content of _existing_ content types or new content of
 
 ## Downloading Content
 
-Content that has been published to the server can be pulled from Beamable's ContentService via a ContentLink or ContentRef. Both are shown in this example.
+Pull published content from Beamable's `ContentService` via a `ContentLink` or `ContentRef`. Both are shown in this example.
 
 ContentServiceExistingExample.cs
 ```csharp

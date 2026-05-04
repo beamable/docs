@@ -14,7 +14,7 @@ To start using Beamable in your project, you need to have a valid Beamable accou
 
 ## Downloading and Installing the Beamable SDK
 
-You can download the Beamable SDK Installer Package [Here](https://packages.beamable.com/com.beamable/Beamable_SDK_Installer.unitypackage).
+You can download the [Beamable SDK Installer Package](https://packages.beamable.com/com.beamable/Beamable_SDK_Installer.unitypackage).
 
 Once downloaded, follow these steps to install the Beamable SDK into your Unity project.
 
@@ -62,28 +62,19 @@ You should expect to see a `.beamable/` folder and a `.config/` folder in your U
 
 The `.config/` folder has a file called `dotnet-tools.json` that specifies the version of the Beam CLI being used by the Beamable Unity SDK. By default, the Beamable SDK will maintain this number, and you should not edit it by hand.
 
-New versions of the Beamable SDK may depend on different versions of the Beam CLI. This table shows which versions of the Beamable SDK depend on what CLI versions.
+New versions of the Beamable SDK may depend on different versions of the Beam CLI. This table shows the latest version for each release line; for the complete patch-by-patch history, see [SDK/CLI Version History](./sdk-cli-version-history.md).
 
 | SDK Version | CLI Version |
 | :---------- | :---------- |
-| 5.0.0       | 7.0.0 |
-| 4.0.4       | 6.2.2 |
-| 4.0.3       | 6.2.2 |
-| 4.0.2       | 6.2.1 |
-| 4.0.1       | 6.2.0 |
-| 4.0.0       | 6.2.0 |
-| 3.1.7       | 5.4.3 |
-| 3.1.6       | 5.4.2 |
-| 3.1.5       | 5.4.2 |
-| 3.1.4       | 5.4.2 |
-| 3.1.3       | 5.4.2 |
-| 3.1.2       | 5.4.2 |
-| 3.1.1       | 5.4.1 |
-| 3.1.0       | 5.4.0 |
-| 3.0.0       | 5.3.0 |
-| 2.4.5       | 4.3.6 |
-| 2.4.4       | 4.3.5 |
-| 2.4.3       | 4.3.4 |
+| 5.0.1 | 7.0.1 |
+| 4.0.4 | 6.2.2 |
+| 3.1.7 | 5.4.3 |
+| 3.0.0 | 5.3.0 |
+| 2.4.6 | 4.3.7 |
+| 2.3.0 | 4.3.0 |
+| 2.2.0 | 4.2.0 |
+| 2.1.4 | 4.1.5 |
+| 2.0.3 | 3.0.2 |
 
 
 

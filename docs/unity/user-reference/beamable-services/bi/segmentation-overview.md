@@ -31,7 +31,7 @@ In this trial, we also added these values to complete and save the trial.
 
 ![Trial Save](../../../../media/imgs/trail_save.png)
 
-What this is doing is creating a trial that can be joined by a cohort. As you will learn in the A/B Testing area, that trials can be used in various places to run experiments. The above will create a cohort called "7thDayReturningPlayers" and all actions can be performed on this cohort from various other parts of Beamable.
+What this is doing is creating a trial that can be joined by a cohort. As you will learn in the A/B Testing area, you can use trials in various places to run experiments. The above will create a cohort called "7thDayReturningPlayers" and you can perform all actions on this cohort from various other parts of Beamable.
 
 ### Upload CSV to Create a Cohort
 
