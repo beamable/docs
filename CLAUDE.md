@@ -47,6 +47,54 @@ git worktree add ../beamable-docs-unity-5.0 unity/v5.0
 
 Adjacent minor versions (e.g. `v5.0` and `v5.1`) typically have little divergence, so the same copyediting change usually applies cleanly to both.
 
+### Core → Unity pull-after-push
+
+After pushing to a core branch, immediately `git pull` in the corresponding unity and unreal worktrees. The `auto-sync-core.yml` action squash-merges core changes onto downstream branches on push; without pulling afterward, your next push to those branches will be rejected as non-fast-forward.
+
+### CLI guide edits
+
+Files under `docs/cli/guides/` are core-owned and auto-synced into unity/unreal. Edit them only in the relevant core worktree — do not copy changes by hand. Unity-only edits go directly to the unity worktree.
+
+### Staggered pushes
+
+GitHub Actions serializes gh-pages deploys with a concurrency group (one active job, one pending). Pushing multiple branches in rapid succession causes queued jobs to be canceled. Push branches sequentially, waiting for each deploy to complete before pushing the next (typical run: 40–90 seconds).
+
+The script below pushes all ahead worktrees with a 2-minute gap. Save it as a shell function or run it directly:
+
+```bash
+#!/usr/bin/env bash
+to_push=()
+for dir in ~/src/beamable/beamable-docs-*/; do
+  dir="${dir%/}"
+  ahead=$(git -C "$dir" rev-list --count '@{u}..HEAD' 2>/dev/null)
+  [[ "$ahead" -gt 0 ]] && to_push+=("$dir")
+done
+
+if [[ ${#to_push[@]} -eq 0 ]]; then
+  echo "Nothing ahead of remote in any beamable-docs worktree."
+  exit 0
+fi
+
+echo "Queued:"; for d in "${to_push[@]}"; do echo "  $(basename "$d")"; done
+
+for i in "${!to_push[@]}"; do
+  echo; echo "Pushing $(basename "${to_push[$i]}")..."
+  git -C "${to_push[$i]}" push
+  [[ $i -lt $((${#to_push[@]} - 1)) ]] && echo "Waiting 2 minutes..." && sleep 120
+done
+echo; echo "All pushes complete."
+```
+
+### Branch mapping
+
+The authoritative source is `.github/workflows/auto-sync-core.yml` on the core branch — verify there before assuming any auto-merge relationship.
+
+| Core branch | Unity branch | Unreal branch | Notes |
+|---|---|---|---|
+| `core/v7.0` | `unity/v5.0` | `unreal/v2.3` | Auto-sync active |
+| `core/v7.1` | — | `unreal/v2.3` | Auto-sync to unreal only |
+| — | `unity/v5.1` | — | No auto-merge from any core branch; apply CLI guide fixes directly or cherry-pick from core |
+
 ## Setup
 
 Requirements: Python 3.12, git-lfs
@@ -110,6 +158,10 @@ For **feature and fix PRs**, prefer **squash-and-merge**. These are typically si
 
 Neither convention is enforced by tooling — both are de facto habits. When in doubt, ask: "does the history of *how* this landed matter?" If yes, merge commit; if no, squash.
 
+### Backporting
+
+Copyediting and style changes (grammar, punctuation, passive voice, style consistency) apply only to `v5.x` branches and newer. Do not backport these to `unity/v4.0` or earlier. Only backport factual corrections pertinent to that specific version (SDK/CLI version table entries, bug fix notes, feature corrections, etc.).
+
 ## SDK Source References
 
 When verifying API names, event names, Blueprint node names, or
@@ -126,6 +178,16 @@ their own paths in personal memory or shell config.
 
 Documentation navigation is defined by `SUMMARY.md` files (using `mkdocs-literate-nav` plugin) in each content branch.
 
+## Auto-generated Content
+
+Three sections must not be edited directly in Markdown — make changes upstream in their respective sources:
+
+1. **CLI command reference** — `docs/cli/commands/cli-command-reference/`
+2. **Web SDK docs**
+3. **API docs**
+
+Internal team documentation lives at `https://help.beamable.com/Internal/internal/documentation/introduction/` (deployed but not publicly advertised).
+
 ## Style Guide
 
 - **Bullet lists and table entries:** no terminal periods, regardless of whether items are sentences or fragments
@@ -135,4 +197,10 @@ Documentation navigation is defined by `SUMMARY.md` files (using `mkdocs-literat
 - **Code terms in prose:** backtick-fence class names, method names, property names, and attribute names when referring to the code entity (e.g., `` `BeamContext` ``, `` `PlayerId` ``). For .NET attributes, use the consumer-facing short form without the `Attribute` suffix (e.g., `[IgnoreContentField]`, not `[IgnoreContentFieldAttribute]`). Exception: `MonoBehaviour` must preserve Unity's spelling with the `u` regardless of American English preference elsewhere.
 - **American English spelling:** use American forms throughout (-ize, -ization, single-L in "canceling", "canceled", "modeling", etc.). Exception: `MonoBehaviour` (Unity API name; spelling is fixed).
 - **Product term capitalization:** Portal, Cloud Save, Content Manager, Admin Console, Beam Library (capitalized); see commit history for resolved cases
+- **Definition list bullets:** bold the term but not the colon — `**Term**: description` not `**Term:** description`
 - **Reference style guides:** Google Developer Documentation Style Guide and Microsoft Writing Style Guide
+
+## Working with Claude Code
+
+- **Audits:** When scanning docs for style, grammar, spelling, or formatting issues, enumerate all findings and present a summary — do not edit content files until explicitly asked to address specific items.
+- **This file:** Treat this CLAUDE.md as a living document shared among contributors and agentic assistants. Suggest additions proactively when workflow improvements, conventions, or hard-won context come up.
