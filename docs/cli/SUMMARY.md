@@ -13,6 +13,7 @@
     - [CLI Workflows](guides/ms-workflow.md)
     - [UPM](guides/ms-upm.md)
     - [Logging](guides/ms-logging.md)
+    - [Analytics](guides/ms-analytics.md)
     - [Command Line Output](guides/ms-command-line.md)
     - [Troubleshooting](guides/ms-troubleshooting.md)
 - Beam CLI Commands
