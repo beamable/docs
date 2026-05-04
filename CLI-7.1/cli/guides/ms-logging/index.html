@@ -6710,7 +6710,7 @@ For more information on ZLogger's <code>DebugLogProcessor</code> and async log p
 </table>
 <h3 id="third-party-log-hosting">Third Party Log Hosting<a class="headerlink" href="#third-party-log-hosting" title="Permanent link">¶</a></h3>
 <p>Starting with version 6.0, it is possible to send Microservice logs to a third parties. In this example, we will use  BetterStack.</p>
-<p>This section will assume you have set up a BetterStack account, and created a <em>Source</em> such that you have a <em>source token</em> and an <em>ingesting host</em>.</p>
+<p>This section assumes you have set up a BetterStack account and created a <em>Source</em> such that you have a <em>source token</em> and an <em>ingesting host</em>.</p>
 <p>To start, we will configure locally running Microservices to send data to BetterStack. To start, create this file called <code>config.yaml</code> next to your <code>BeamableServices.sln</code> file.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>receivers:
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  otlp:
@@ -6761,7 +6761,7 @@ Learn more about this file by reading the <a href="https://opentelemetry.io/docs
 <a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">BETTERSTACK_AUTH</span><span class="o">=</span><span class="nv">$BETTERSTACK_AUTH</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span>ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.125.0
 </code></pre></div><p></p>
-<p>Now you have a locally running telemetry collector. We need to configure your local Microservice to <em>use</em> the collector. Prepare the following environment variables,</p>
+<p>Now you have a locally running telemetry collector. Next, configure your local Microservice to <em>use</em> the collector. Prepare the following environment variables:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_DISABLE_STANDARD_OTEL</span><span class="o">=</span><span class="m">1</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_OTEL_EXPORTER_OTLP_ENDPOINT</span><span class="o">=</span>http://127.0.0.1:4318
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_OTEL_EXPORTER_OTLP_PROTOCOL</span><span class="o">=</span>HttpProtobuf

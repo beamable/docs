@@ -7134,7 +7134,7 @@ following line to the end of the file.
 </code></pre></div><p></p>
 <h3 id="from-202-to-301">From 2.0.2 to 3.0.1<a class="headerlink" href="#from-202-to-301" title="Permanent link">¶</a></h3>
 <p>The upgrade from 2.0.x to 3.0.1 brings a few critical updates to the <code>csproj</code> file, how the Beam CLI tool is managed, and the version of <code>dotnet</code>.</p>
-<p><strong>To start this process, let's open a terminal and navigate to the directory containing your <code>.beamable/</code> folder. All commands are written as though invoked from this directory.</strong></p>
+<p><strong>To start this process, open a terminal and navigate to the directory containing your <code>.beamable/</code> folder. All commands are written as though invoked from this directory.</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># In this file structure...</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>SomeDrive
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">|</span>---ProjectRoot
@@ -7212,8 +7212,7 @@ following line to the end of the file.
 <a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">  </span><span class="cm">&lt;!-- When running from inside docker, this gets injected via the Dockerfile at build-time. --&gt;</span>
 <a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="nt">&lt;/PropertyGroup&gt;</span>
 </code></pre></div><p></p>
-<p>If the project is targeting <code>net6.0</code> or <code>net7.0</code>, then, we recommend you
-upgrade the <code>TargetFramework</code> to <code>.net8.0</code>.
+<p>If the project is targeting <code>net6.0</code> or <code>net7.0</code>, upgrade the <code>TargetFramework</code> to <code>.net8.0</code>.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Dotnet Settings"</span><span class="nt">&gt;</span>
 <a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="cm">&lt;!-- net8.0 is the LTS version until 2026. To update your net version, update the &lt;TargetFramework&gt; when Beamable announces support. --&gt;</span>
 <a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="nt">&lt;TargetFramework&gt;</span>net8.0<span class="nt">&lt;/TargetFramework&gt;</span>
