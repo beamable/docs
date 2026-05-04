@@ -2,7 +2,7 @@
 
 The Beamable **Announcements** service allows game makers to create and manage in-game announcements for players.
 
-Announcements provide a powerful way to communicate with players about updates, events, news, and other important information directly within your game. If Your game releases new downloadable content every week, and the main menu displays the content in a news panel. This can be created from modifying the Announcements prefab to suit your game's UI scheme, or pulling the announcement via code.
+Announcements provide a powerful way to communicate with players about updates, events, news, and other important information directly within your game. If your game releases new downloadable content every week and the main menu displays it in a news panel, you can build that panel by modifying the Announcements prefab to suit your game's UI scheme, or by pulling announcements via code.
 
 Announcements exist in the form of content objects. They are created and published via the [Content Manager](../profile-storage/content/content-unity.md#content-manager-editor), and viewable via the Announcements Prefab or another custom solution.
 
@@ -57,7 +57,7 @@ private void SubscribeToAnnouncements()
 
 ### Displaying Announcements
 
-Once we have retrieved the announcements, they can be displayed in the app. The function below simply reads the title and body of the content and logs them to the console, but the specific game implementation will require some custom solution.
+Once you have retrieved the announcements, display them in the app. The function below simply reads the title and body of the content and logs them to the console, but the specific game implementation will require some custom solution.
 
 ```csharp
 private void PrintAnnouncements(List<AnnouncementView> announcements)

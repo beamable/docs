@@ -22,7 +22,7 @@ dotnet beam project new service HelloWorld
 
 ## Federation
 
-Microservice _Federation_ is the ability to inject custom server logic in the middle of existing Beamable server functionality. Federation can be used to add custom behaviour to your game like supporting external identity auth providers, using a block chain as the backing data provider for player inventory, managing how match making works, and more.
+Microservice _Federation_ is the ability to inject custom server logic in the middle of existing Beamable server functionality. Federation can be used to add custom behavior to your game like supporting external identity auth providers, using a block chain as the backing data provider for player inventory, managing how match making works, and more.
 
 There are 4 types of federation. All of these federations have C# interfaces
 that define the types of functions that they require.
@@ -43,7 +43,7 @@ public partial class ExampleService : IFederatedLogin<MySample>
 }
 ```
 
-The `MySample` class included as the generic type in the `IFederatedLogin` interface specifies the id for the federated login. The class signature for these types must implement the `IFederationId` type, and be annotated with a `FederationId` attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.
+The `MySample` class included as the generic type in the `IFederatedLogin` interface specifies the id for the federated login. The class signature for these types must implement the `IFederationId` type and include a `FederationId` attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.
 
 ```csharp
 [FederationId("myId")]

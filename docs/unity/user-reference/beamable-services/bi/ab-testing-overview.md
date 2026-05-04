@@ -1,6 +1,6 @@
 # A/B Testing
 
-A/B Testing can be a great tool to help improve how your users interact with your game. And it can be used across the three main metric pillars: Engagement, Retention & Monetization.
+A/B Testing can be a great tool to help improve how your users interact with your game. Use it across the three main metric pillars: Engagement, Retention & Monetization.
 
 The concept of A/B Testing is to run experiments across a cohort (segmented set) of players and compare feedback. You can measure the results of these tests to create opportunities for improved engagement, retention, and monetization.
 
@@ -102,7 +102,7 @@ The [Stats](../profile-storage/stats.md) service is related to A/B Testing in a 
 
 Each player **who is a member** of an A/B Testing Trial automatically has these populated Stats.
 
-These values can be accessed programmatically via **set** as `game.private.player` or set in the Beamable Portal.
+Access these values programmatically via **set** as `game.private.player` or set them in the Beamable Portal.
 
 | Name | Detail |
 |------|--------|
@@ -113,7 +113,7 @@ These values can be accessed programmatically via **set** as `game.private.playe
 
 For any A/B Testing Trial with an "Allocation" of type "Custom", the game maker specifies any player Stat and a relational operator. This determines the cohort (for example, stat of `PLAYER_LEVEL` > 1).
 
-These values can be accessed programmatically via **get** as `game.private.player`.
+Access these values programmatically via **get** as `game.private.player`.
 
 ### Debugging Manifests
 

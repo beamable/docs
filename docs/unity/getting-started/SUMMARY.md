@@ -1,1 +1,2 @@
 ﻿- [Setup Unity SDK](installing-beamable.md)
+- [SDK/CLI Version History](sdk-cli-version-history.md)
