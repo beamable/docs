@@ -5991,7 +5991,7 @@
 
 <h1 id="notifications">Notifications<a class="headerlink" href="#notifications" title="Permanent link">¶</a></h1>
 <h2 id="listening-for-notifications">Listening for Notifications<a class="headerlink" href="#listening-for-notifications" title="Permanent link">¶</a></h2>
-<p>Beamable provides several player facing and game facing callbacks via WebSockets. The Unity <abbr title="software development kit">SDK</abbr> relies on these WebSockets events to manage state and run C# callbacks within the <abbr title="software development kit">SDK</abbr>. The CLI provides two useful commands to monitor these WebSockets events, one for <a href="../../commands/cli-command-reference/listen/player/">player events</a> and a second for <a href="../../commands/cli-command-reference/listen/server/">game events</a>.</p>
+<p>Beamable provides several player facing and game facing callbacks via WebSockets. The Unity SDK relies on these WebSockets events to manage state and run C# callbacks within the SDK. The CLI provides two useful commands to monitor these WebSockets events, one for <a href="../../commands/cli-command-reference/listen/player/">player events</a> and a second for <a href="../../commands/cli-command-reference/listen/server/">game events</a>.</p>
 <p><strong>IMPORTANT</strong>: these commands are meant as diagnostic tools, and should not be used as critical components in a game's architecture. Neither command has robust reconnection logic, and if the socket is closed due to ephemeral network failure, it will not re-open automatically.</p>
 
 

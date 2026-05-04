@@ -6289,8 +6289,8 @@
 </table>
 <h2 id="calling-microservice-code-from-unity">Calling Microservice Code From Unity<a class="headerlink" href="#calling-microservice-code-from-unity" title="Permanent link">¶</a></h2>
 <div class="admonition info">
-<p class="admonition-title">Use the Unity <abbr title="software development kit">SDK</abbr></p>
-<p>You should be using the Beamable <abbr title="software development kit">SDK</abbr> in your Unity projects that use Standalone Microservices. Otherwise, there will be many compile errors as the Beamable <abbr title="software development kit">SDK</abbr> is not available.</p>
+<p class="admonition-title">Use the Unity SDK</p>
+<p>You should be using the Beamable SDK in your Unity projects that use Standalone Microservices. Otherwise, there will be many compile errors as the Beamable SDK is not available.</p>
 </div>
 <p>Microservices can automatically generate client code for the Unity game engine. First, link a Unity project to the <code>.beamable/</code> workspace using the project add-unity-project command.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>add-unity-project<span class="w"> </span>&lt;relative-path-to-unity-project&gt;
@@ -6313,8 +6313,8 @@
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
 </code></pre></div>
 <p>The automatic client code generation can be disabled when a project builds by modifying the <code>&lt;GenerateClientCode&gt;</code> option. Learn more in the <a href="../ms-configuration/#GenerateClientCode">configuration guide</a>.</p>
-<h3 id="open-api">Open <abbr title="application programming interface">API</abbr><a class="headerlink" href="#open-api" title="Permanent link">¶</a></h3>
-<p>You can use the project oapi command to generate an Open <abbr title="application programming interface">API</abbr> document and then use open source tools to transpile the document into a client in some other programming language.</p>
+<h3 id="open-api">Open API<a class="headerlink" href="#open-api" title="Permanent link">¶</a></h3>
+<p>You can use the project oapi command to generate an Open API document and then use open source tools to transpile the document into a client in some other programming language.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>oapi<span class="w"> </span>--output<span class="w"> </span>example.json<span class="w"> </span>--ids<span class="w"> </span>MyService
 </code></pre></div>
 <p>In fact, that command can baked into the Microservice's <code>.csproj</code> file with a custom build target. This requires that the <code>&lt;SolutionDir&gt;</code> property is set, which only happens when you run the project from the IDE. See the generate-props command to extend the <code>&lt;SolutionDir&gt;</code> property outside of IDE use cases.
@@ -6322,7 +6322,7 @@
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="nt">&lt;Exec</span><span class="w"> </span><span class="na">Command=</span><span class="s">"$(BeamableTool) project oapi --ids HelloWorld | jq '.data.openApi | fromjson' &gt; $(SolutionDir)local/doc.json"</span><span class="nt">/&gt;</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nt">&lt;/Target&gt;</span>
 </code></pre></div><p></p>
-<p>Then, you can use the open source <a href="https://openapi-generator.tech/docs/generators/javascript/">Open <abbr title="application programming interface">API</abbr> Generator</a> to build a local javascript client. This snippet uses docker to interact with the generator tool, but you can also use <code>npm</code>.</p>
+<p>Then, you can use the open source <a href="https://openapi-generator.tech/docs/generators/javascript/">Open API Generator</a> to build a local javascript client. This snippet uses docker to interact with the generator tool, but you can also use <code>npm</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">:/local"</span><span class="w"> </span>openapitools/openapi-generator-cli<span class="w"> </span>generate<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span>-i<span class="w"> </span>/local/doc.json<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span>-g<span class="w"> </span>javascript<span class="w"> </span><span class="se">\</span>
