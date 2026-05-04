@@ -9564,7 +9564,7 @@
 <h1 id="facebook-sign-in-overview">Facebook Sign-In - Overview<a class="headerlink" href="#facebook-sign-in-overview" title="Permanent link">¶</a></h1>
 <p>Providing Facebook sign-in is a great, and very common, way to provide cross-platform identity support to your game. Facebook also provides a number of social features that are supported by Beamable and that will help you connect players together and create communities for your game(s).</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/e869edb-442d473-facebook3.png" data-desc-position="bottom"><img alt="Facebook Sign-In" src="../../../../../../media/imgs/e869edb-442d473-facebook3.png" style="height:auto;width:500px"></a></p>
-<p>Below is a typical Facebook usage pattern. You initiate from your UI that you want to use Facebook to sign-in and then listen for the callbacks from the Facebook <abbr title="software development kit">SDK</abbr>. Once the player account has successfully logged into Facebook, then you can use Beamable to link to an existing account or create a new one.</p>
+<p>Below is a typical Facebook usage pattern. You initiate from your UI that you want to use Facebook to sign-in and then listen for the callbacks from the Facebook SDK. Once the player account has successfully logged into Facebook, then you can use Beamable to link to an existing account or create a new one.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/d3ad803-facebook_flow.png" data-desc-position="bottom"><img alt="Facebook Flow" src="../../../../../../media/imgs/d3ad803-facebook_flow.png" style="height:auto;width:500px"></a></p>
 <h3 id="configure-facebook-app">Configure Facebook App<a class="headerlink" href="#configure-facebook-app" title="Permanent link">¶</a></h3>
 <p>In order to setup the Unity Project you need to configure the Facebook Dashboard:</p>
@@ -9574,9 +9574,9 @@
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/facebook-app.png" data-desc-position="bottom"><img alt="facebook-app.png" src="../../../../../../media/imgs/facebook-app.png"></a></p>
 <h2 id="facebook-sign-in">Facebook Sign-In<a class="headerlink" href="#facebook-sign-in" title="Permanent link">¶</a></h2>
-<p>Below are the integration steps that will allow you to implement Facebook Sign-In &amp; Beamable via Code. This section will describe several <abbr title="application programming interface">API</abbr> pieces for you to implement your own wrapper.</p>
+<p>Below are the integration steps that will allow you to implement Facebook Sign-In &amp; Beamable via Code. This section will describe several API pieces for you to implement your own wrapper.</p>
 <h2 id="facebook-login-callbacks">Facebook Login &amp; Callbacks<a class="headerlink" href="#facebook-login-callbacks" title="Permanent link">¶</a></h2>
-<p>Ultimately you will have to implement the Facebook <abbr title="software development kit">SDK</abbr> and listen for the callback with the Login Result. The callback is triggered by the <em>FB.LogInWithReadPermissions()</em> <abbr title="application programming interface">API</abbr> call.</p>
+<p>Ultimately you will have to implement the Facebook SDK and listen for the callback with the Login Result. The callback is triggered by the <em>FB.LogInWithReadPermissions()</em> API call.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">perms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(){</span><span class="s">"public_profile"</span><span class="p">,</span><span class="w"> </span><span class="s">"email"</span><span class="p">};</span>
 <span class="n">FB</span><span class="p">.</span><span class="n">LogInWithReadPermissions</span><span class="p">(</span><span class="n">perms</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">FB_AuthCallback</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
@@ -9616,8 +9616,8 @@
 </code></pre></div></td></tr></tbody></table></div>
 <h2 id="beamable-login-with-accesstoken">Beamable Login with AccessToken<a class="headerlink" href="#beamable-login-with-accesstoken" title="Permanent link">¶</a></h2>
 <div class="admonition info">
-<p class="admonition-title">Beamable <abbr title="software development kit">SDK</abbr> Initialization</p>
-<p>The following assumes that you have initialized the Beamable <abbr title="software development kit">SDK</abbr> and it is stored in a variable named <code>_beamContext</code>.
+<p class="admonition-title">Beamable SDK Initialization</p>
+<p>The following assumes that you have initialized the Beamable SDK and it is stored in a variable named <code>_beamContext</code>.
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
 <span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
@@ -9781,7 +9781,7 @@
 <td>YES</td>
 </tr>
 <tr>
-<td>Are Meta <abbr title="application programming interface">API</abbr> access tokens and app secrets protected?</td>
+<td>Are Meta API access tokens and app secrets protected?</td>
 <td>YES</td>
 </tr>
 <tr>

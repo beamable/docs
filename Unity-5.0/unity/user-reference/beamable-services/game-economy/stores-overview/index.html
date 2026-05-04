@@ -9497,7 +9497,7 @@
 <p>Beamable's Store feature allows the game maker to create a storefront in their application. Users can purchase items with real money or virtual currency. These can be attached to third-party purchasing methods (Apple, Google, etc.), or Unity's built-in <abbr title="in-app purchases">IAP</abbr> system.</p>
 <p>The setup for Stores uses the <a href="../../profile-storage/content/content-overview/#content-management">Content Manager</a>, and relies on at least one valid <a href="../virtual-currency-overview/">Virtual Currency</a>, so it is recommended to review those features before implementation.</p>
 <p>Beamable supports purchasing using both virtual currency and real money (<abbr title="in-app purchases">IAP</abbr>) to purchase in-game items.</p>
-<h2 id="stores-api">Stores <abbr title="application programming interface">API</abbr><a class="headerlink" href="#stores-api" title="Permanent link">¶</a></h2>
+<h2 id="stores-api">Stores API<a class="headerlink" href="#stores-api" title="Permanent link">¶</a></h2>
 <p>Beamable offers various APIs to allow the game maker to set up purchasing with various configurations. <a href="../virtual-currency-overview/">Virtual Currency</a> or real money can be used to purchase items, as well as support for Unity <abbr title="in-app purchases">IAP</abbr> or a variety of third-party or custom purchasers.</p>
 <div class="admonition info">
 <p class="admonition-title">Prerequisites</p>
@@ -10239,13 +10239,13 @@ The following code examples demonstrate how to implement a custom store experien
 <h2 id="custom-purchase-reporting">Custom Purchase Reporting<a class="headerlink" href="#custom-purchase-reporting" title="Permanent link">¶</a></h2>
 <p>As a game maker you will find that in some cases you need to be able to report purchases from outside the Beamable store flow. Beamable provides you with a way to do this through a small configuration change in the Portal and some client-side tracking code.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/payment-audits-realm-config.png" data-desc-position="bottom"><img alt="Payment Audits Realm Config" src="../../../../../media/imgs/payment-audits-realm-config.png"></a></p>
-<p>As shown in the above example, you will need to set a key in your Realm configuration to override purchase reporting to enable this functionality. Without this configuration change the <abbr title="application programming interface">API</abbr> will error and not report anything.</p>
+<p>As shown in the above example, you will need to set a key in your Realm configuration to override purchase reporting to enable this functionality. Without this configuration change the API will error and not report anything.</p>
 <p>Here we are setting the namespace to <strong>payments</strong> and then the key is <strong>client_audits</strong> and we will set the value to <strong>true</strong>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Security Warning</p>
 <p>This feature is not secure unless you track this from within a MicroService and validate the purchase. It is highly advisable to do so to prevent a customer from spoofing or falsely tracking a purchase.</p>
 </div>
-<p>Once your configuration has been setup to allow this <abbr title="application programming interface">API</abbr> to function, then you can use the <code>.Api.PaymentService.Track</code> <abbr title="application programming interface">API</abbr> to track the purchase. The various fields of the tracking request may be arbitrary strings of your choice, but for the sake of consistency you may want to match the patterns used by the Beamable Commerce Service.</p>
+<p>Once your configuration has been setup to allow this API to function, then you can use the <code>.Api.PaymentService.Track</code> API to track the purchase. The various fields of the tracking request may be arbitrary strings of your choice, but for the sake of consistency you may want to match the patterns used by the Beamable Commerce Service.</p>
 <table>
 <thead>
 <tr>

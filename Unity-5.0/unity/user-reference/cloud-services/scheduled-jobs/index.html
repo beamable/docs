@@ -9604,7 +9604,7 @@
 
 
 <h1 id="scheduled-jobs">Scheduled Jobs<a class="headerlink" href="#scheduled-jobs" title="Permanent link">¶</a></h1>
-<p>A scheduled job is a networking event that happens in the future. Scheduled jobs can be microservice <code>Callable</code> invocations, HTTP calls, or generalized Beamable message bus events. Today, scheduled jobs are available directly via the Beamable <abbr title="application programming interface">API</abbr> (see the <a href="https://dev.api.beamable.com/api/platform/docs">Open <abbr title="application programming interface">API</abbr> swagger</a> doc), or through an <abbr title="software development kit">SDK</abbr> accessible in Microservices using Beamable 1.16.0 or later.</p>
+<p>A scheduled job is a networking event that happens in the future. Scheduled jobs can be microservice <code>Callable</code> invocations, HTTP calls, or generalized Beamable message bus events. Today, scheduled jobs are available directly via the Beamable API (see the <a href="https://dev.api.beamable.com/api/platform/docs">Open API swagger</a> doc), or through an SDK accessible in Microservices using Beamable 1.16.0 or later.</p>
 <p>Every scheduled job has 4 main components,</p>
 <ul>
 <li>Metadata</li>
@@ -9617,7 +9617,7 @@
 <p>Commonly, the <code>source</code> represents the entity or process that creates a job. By default, the <code>source</code> will be the Microservice's name that schedules the job.</p>
 <p>The <code>name</code> can be anything, but use it to uniquely describe the job. For example, before creating a job to award bonus currency to a player, your system can check for the existence of a job with the name, <code>$"award-{Context.UserId}"</code>, and only if the job does <em>not</em> exist, will you create it.</p>
 <h2 id="job-actions">Job Actions<a class="headerlink" href="#job-actions" title="Permanent link">¶</a></h2>
-<p>A job must execute a single action. That action can be a privileged call to a Microservice, an HTTP call, or an internal Beamable message bus call. In the <abbr title="software development kit">SDK</abbr>, only Microservice and HTTP calls are supported.</p>
+<p>A job must execute a single action. That action can be a privileged call to a Microservice, an HTTP call, or an internal Beamable message bus call. In the SDK, only Microservice and HTTP calls are supported.</p>
 <h3 id="microservice-action">Microservice Action<a class="headerlink" href="#microservice-action" title="Permanent link">¶</a></h3>
 <p>A scheduled job executing a Microservice should use the <code>.Schedule().Microservice()</code> utility function.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -9719,7 +9719,7 @@ By default, <code>useLocal</code> is set as <code>true</code>.</p>
 <p>The cron builder must specify all components of the cron string. Each time unit has an <code>At</code> method that specifies an exact value for the time. Each time unit also has an <code>Every</code> variant that puts a <code>*</code> in the place of that time value. Each time unit also has an <code>EveryNth</code> that places a <code>n/*</code> value in the cron string. <code>Between</code> and <code>Complex</code> can also be provided.</p>
 <div class="admonition warning">
 <p class="admonition-title">Don't forget about Cron Triggers!</p>
-<p>It is easy to create a scheduled job using a cron trigger, and then forget it exists! Make sure keep track of your cron jobs. The <abbr title="application programming interface">API</abbr> and <abbr title="software development kit">SDK</abbr> can search for active jobs, but it is always a good idea to have a sense of the jobs running in your realm.</p>
+<p>It is easy to create a scheduled job using a cron trigger, and then forget it exists! Make sure keep track of your cron jobs. The API and SDK can search for active jobs, but it is always a good idea to have a sense of the jobs running in your realm.</p>
 </div>
 <p>For common schedule types (daily, weekly, monthly, twiceMonthly), short cuts exist.
 This table shows common schedule patterns that may be helpful.</p>

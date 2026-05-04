@@ -9406,7 +9406,7 @@
 • <a href="../../user-reference/beamable-services/social-networking/connectivity/">Multiplayer</a> - Real-time multiplayer game functionality that enables multiple players to interact in shared game sessions</p>
 </div>
 <h3 id="step-1-setup-project">Step 1. Setup Project<a class="headerlink" href="#step-1-setup-project" title="Permanent link">¶</a></h3>
-<p>Here are instructions to setup the Beamable <abbr title="software development kit">SDK</abbr> and "GameType" content.</p>
+<p>Here are instructions to setup the Beamable SDK and "GameType" content.</p>
 <table>
 <thead>
 <tr>
@@ -9416,7 +9416,7 @@
 </thead>
 <tbody>
 <tr>
-<td>1. Install the Beamable <abbr title="software development kit">SDK</abbr> and Register/Login</td>
+<td>1. Install the Beamable SDK and Register/Login</td>
 <td>• See <a href="../../getting-started/installing-beamable/">Getting Started</a> for more info.</td>
 </tr>
 <tr>
@@ -9609,7 +9609,7 @@
 <p>Related Guides: It is recommended to read the guide before continuing with the sample steps below.</p>
 <p>• <a href="../../user-reference/beamable-services/social-networking/leaderboards/">Leaderboards</a> - Display and update per-game leaderboards</p>
 </div>
-<p>Leaderboard-related functionality is handled via <code>LeaderboardScreenController</code>. It retrieves the current leaderboard in one essential call to Beamable's leaderboard <abbr title="software development kit">SDK</abbr>:</p>
+<p>Leaderboard-related functionality is handled via <code>LeaderboardScreenController</code>. It retrieves the current leaderboard in one essential call to Beamable's leaderboard SDK:</p>
 <p>LeaderboardScreenController.cs
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">LeaderboardService</span><span class="p">.</span><span class="n">GetBoard</span><span class="p">(</span><span class="n">LeaderboardRef</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="n">focus</span><span class="p">:</span><span class="w"> </span><span class="n">beamable</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>

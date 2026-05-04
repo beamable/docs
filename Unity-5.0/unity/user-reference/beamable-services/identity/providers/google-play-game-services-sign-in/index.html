@@ -9416,7 +9416,7 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>1. Unity: Set up the Beamable <abbr title="software development kit">SDK</abbr> for Unity</strong></td>
+<td><strong>1. Unity: Set up the Beamable SDK for Unity</strong></td>
 <td>• See Beamable's <a href="../../../../../getting-started/installing-beamable/">Getting Started</a> for more info</td>
 </tr>
 <tr>
@@ -9443,7 +9443,7 @@
 <h3 id="additional-ios-setup">Additional iOS Setup<a class="headerlink" href="#additional-ios-setup" title="Permanent link">¶</a></h3>
 <p>Make sure that your game flow takes into account the fact that iOS is not a supported platform by Google Play Game Services.</p>
 <h2 id="google-play-game-services-integration">Google Play Game Services Integration<a class="headerlink" href="#google-play-game-services-integration" title="Permanent link">¶</a></h2>
-<p>The Beamable <abbr title="software development kit">SDK</abbr> contains a wrapper for GPGS behavior on Android (iOS is not supported). The provided class is called SignInWithGPG, which can be initialized after following steps from <a href="https://developers.google.com/games/services/console/enabling">Google documentation</a>. It does contain two Actions that developer can subscribe to: <code>OnLoginResult</code> and <code>OnRequestServerSideAccessResult</code>. To perform login as third party to Beamable, both must return successfully. The first returns info about local login, and the second about getting the server-side access token that is required for the Beamable backend.</p>
+<p>The Beamable SDK contains a wrapper for GPGS behavior on Android (iOS is not supported). The provided class is called SignInWithGPG, which can be initialized after following steps from <a href="https://developers.google.com/games/services/console/enabling">Google documentation</a>. It does contain two Actions that developer can subscribe to: <code>OnLoginResult</code> and <code>OnRequestServerSideAccessResult</code>. To perform login as third party to Beamable, both must return successfully. The first returns info about local login, and the second about getting the server-side access token that is required for the Beamable backend.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -9529,8 +9529,8 @@
 <li>Attach To Current Player - Player wants to attach this third-party login to an already authenticated Player</li>
 </ul>
 <div class="admonition info">
-<p class="admonition-title">Beamable <abbr title="software development kit">SDK</abbr> Initialization</p>
-<p>The following assumes that you have initialized the Beamable <abbr title="software development kit">SDK</abbr> and it is stored in _beamContext variable.</p>
+<p class="admonition-title">Beamable SDK Initialization</p>
+<p>The following assumes that you have initialized the Beamable SDK and it is stored in _beamContext variable.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
 <span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>

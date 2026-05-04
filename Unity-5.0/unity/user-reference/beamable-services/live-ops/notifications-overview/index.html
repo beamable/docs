@@ -9331,7 +9331,7 @@
 <p>The Beamable <strong>Notifications</strong> feature allows game makers to message players, regardless if the game is running.</p>
 <p>Notifications provide a messaging system that enables communication between different parts of your game through a publish/subscribe pattern. Objects can listen for updates (subscribe) with a certain tag. Other objects can then notify the subscribers (publish) with some context-relevant data.</p>
 <p>The Notification feature's functionality is actually used by many other features, providing a foundation for a publish/subscribe pattern. For example, <code>Inventory.Subscribe()</code> uses the NotificationService's <code>Subscribe()</code> function under the hood.</p>
-<p>Through the Notification <abbr title="application programming interface">API</abbr>, the game maker can use this same messaging system for other parts of their game. This means that the purpose of the Notification feature is to expose a feature that Beamable already uses internally in the <abbr title="software development kit">SDK</abbr>.</p>
+<p>Through the Notification API, the game maker can use this same messaging system for other parts of their game. This means that the purpose of the Notification feature is to expose a feature that Beamable already uses internally in the SDK.</p>
 <p>There are two main types of notifications:</p>
 <ul>
 <li><strong>Local Notifications</strong> - Received on the <strong>client-side</strong> while the game is running</li>
@@ -9375,8 +9375,8 @@
 <p class="admonition-title">Work in Progress</p>
 <p>This feature is currently under active development with additional capabilities being added.</p>
 </div>
-<h2 id="notifications-api">Notifications <abbr title="application programming interface">API</abbr><a class="headerlink" href="#notifications-api" title="Permanent link">¶</a></h2>
-<p>The Notifications feature can be accessed via the NotificationsService from the Beamable <abbr title="application programming interface">API</abbr>. Notifications primarily function using a <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">Publish-subscribe pattern</a>, where objects that should react to incoming messages (the "subscribers") listen for messages being sent out by another object (the "publishers"). Following this pattern, the <abbr title="application programming interface">API</abbr> is quite simple.</p>
+<h2 id="notifications-api">Notifications API<a class="headerlink" href="#notifications-api" title="Permanent link">¶</a></h2>
+<p>The Notifications feature can be accessed via the NotificationsService from the Beamable API. Notifications primarily function using a <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">Publish-subscribe pattern</a>, where objects that should react to incoming messages (the "subscribers") listen for messages being sent out by another object (the "publishers"). Following this pattern, the API is quite simple.</p>
 <h4 id="callback-function">Callback Function<a class="headerlink" href="#callback-function" title="Permanent link">¶</a></h4>
 <p>When a subscribed object receives a message, the message carries some data with it that can provide extra content about the event that occurred. For the purposes of this document, this function will be used:</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>

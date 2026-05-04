@@ -9494,14 +9494,14 @@
 • You cannot initialize both Services at the same time, the first one initialized will lock the other to be used.
 • Both services share the same cloud storage, but the saved data are stored in different system paths. When you switch to the new one, it will automatically download your data.</p>
 </div>
-<h3 id="cloud-save-api">Cloud Save <abbr title="application programming interface">API</abbr><a class="headerlink" href="#cloud-save-api" title="Permanent link">¶</a></h3>
+<h3 id="cloud-save-api">Cloud Save API<a class="headerlink" href="#cloud-save-api" title="Permanent link">¶</a></h3>
 <p>Unlike many Beamable Features, Cloud Save does not require the usage of a specific Beamable Feature Prefab. The main entry point to this feature is C# programming.</p>
 <div class="admonition info">
 <p class="admonition-title">Learning Fundamentals</p>
 <p>For comprehensive learning about Beamable fundamentals, we recommend the following resources:</p>
 <p>• See <a href="https://docs.beamable.com/docs/guides-overview#asynchronous-programming">Beamable: Asynchronous Programming</a> for more info</p>
 </div>
-<p><em>Note</em>: This <abbr title="application programming interface">API</abbr> is demonstrated in the <code>CloudSavingServiceExample.cs</code> below.</p>
+<p><em>Note</em>: This API is demonstrated in the <code>CloudSavingServiceExample.cs</code> below.</p>
 <table>
 <thead>
 <tr>
@@ -9560,7 +9560,7 @@
 </tr>
 <tr>
 <td><code>Update</code></td>
-<td>This function allows you to do Update operations to the <code>CloudSaveService</code> and apply them only once, reducing <abbr title="application programming interface">API</abbr> calls to the backend.<br><br>The possible operations for the <code>CloudDataUpdateBuilder</code> are:<br><br>- <code>SaveData</code><br>- <code>ArchiveSaveData</code><br>- <code>RenameSaveData</code><br>- <code>ForgetSaveData</code></td>
+<td>This function allows you to do Update operations to the <code>CloudSaveService</code> and apply them only once, reducing API calls to the backend.<br><br>The possible operations for the <code>CloudDataUpdateBuilder</code> are:<br><br>- <code>SaveData</code><br>- <code>ArchiveSaveData</code><br>- <code>RenameSaveData</code><br>- <code>ForgetSaveData</code></td>
 </tr>
 <tr>
 <td><code>SetConflictResolverOverride</code></td>
@@ -9600,7 +9600,7 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="changing-service-configuration">Changing Service Configuration<a class="headerlink" href="#changing-service-configuration" title="Permanent link">¶</a></h3>
-<p>You can override the service to fit your application using <code>PlayerCloudSavingConfiguration</code>. By default, the <abbr title="software development kit">SDK</abbr> creates a new instance with default values, but you can change these values using Beamable's Dependency Injection system as illustrated below.</p>
+<p>You can override the service to fit your application using <code>PlayerCloudSavingConfiguration</code>. By default, the SDK creates a new instance with default values, but you can change these values using Beamable's Dependency Injection system as illustrated below.</p>
 <p>CustomRegisterExample.cs</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>

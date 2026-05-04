@@ -9279,8 +9279,8 @@
 <h2 id="login-functions">Login Functions<a class="headerlink" href="#login-functions" title="Permanent link">¶</a></h2>
 <p>The aspects at the core of Identity in Beamable are the RecoverAccount functions, often called Login functions. These are used throughout all the various sign-in methods. <code>RecoverAccountWithEmail()</code> is used for email and password verification, and <code>RecoverAccountWithThirdParty()</code> is used for third-party authentication providers.</p>
 <div class="admonition info">
-<p class="admonition-title">Beamable <abbr title="application programming interface">API</abbr> Access</p>
-<p><code>BeamContext</code> exposes <code>AuthService</code>. For more information on how to access services, see the documentation on the <a href="doc:beamable-player-centric-api">Player-Centric <abbr title="application programming interface">API</abbr></a>.</p>
+<p class="admonition-title">Beamable API Access</p>
+<p><code>BeamContext</code> exposes <code>AuthService</code>. For more information on how to access services, see the documentation on the <a href="doc:beamable-player-centric-api">Player-Centric API</a>.</p>
 </div>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">Accounts</span><span class="p">.</span><span class="n">RecoverAccountWithEmail</span><span class="p">(</span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">)</span>

@@ -9613,7 +9613,7 @@
 <li>Tournaments - Deeper user experience. Player rewards are given</li>
 </ul>
 <p>See Leaderboard for more info.</p>
-<h2 id="tournaments-api">Tournaments <abbr title="application programming interface">API</abbr><a class="headerlink" href="#tournaments-api" title="Permanent link">¶</a></h2>
+<h2 id="tournaments-api">Tournaments API<a class="headerlink" href="#tournaments-api" title="Permanent link">¶</a></h2>
 <h3 id="initializing-beamcontext">Initializing BeamContext<a class="headerlink" href="#initializing-beamcontext" title="Permanent link">¶</a></h3>
 <p>This code sample is very similar to most other code guides. Note that we are saving the User ID to a variable for use in later functions.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -9758,17 +9758,17 @@ TournamentServiceExample.cs
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>The <strong>Beamable Tournaments</strong> feature provides a system for recurring social competitions where players get promoted and demoted between competitive tiers (for example: Bronze, Silver, and Gold). Players begin in the lowest tier by submitting scores, leveraging the existing Beamable Leaderboard system. Tournaments have recurring cycles on a fixed period of your choice (such as daily or weekly).</p>
 <p>Tournaments become active after publishing the content to a realm. Once published, the tournament runs on its defined cycle schedule. Players participate by submitting scores, and all players initially start in the bottom stage of the bottom tier.</p>
-<p>The <strong>Beamable Tournaments</strong> system automatically creates leaderboards for tournaments based on the tournament content. The only setup required for a working tournament is the Beamable <abbr title="software development kit">SDK</abbr>, a realm, and published tournament content. Player score submission to the Tournaments system is server-authoritative: it requires C# microservices or a similarly privileged context.</p>
+<p>The <strong>Beamable Tournaments</strong> system automatically creates leaderboards for tournaments based on the tournament content. The only setup required for a working tournament is the Beamable SDK, a realm, and published tournament content. Player score submission to the Tournaments system is server-authoritative: it requires C# microservices or a similarly privileged context.</p>
 <h3 id="steps-to-setup">Steps to Setup<a class="headerlink" href="#steps-to-setup" title="Permanent link">¶</a></h3>
 <ol>
-<li>Have a Beamable account, and the Beamable Unity <abbr title="software development kit">SDK</abbr> installed.</li>
+<li>Have a Beamable account, and the Beamable Unity SDK installed.</li>
 <li>Create a new Tournament by setting up Tournament Content.</li>
 <li>Publish the Tournament Content via Content Manager.</li>
 <li>Players submit scores. All players begin at the lowest ranking.</li>
 <li>Player tiers are maintained for the duration of a cycle. Scores are submitted via the Tournament system and stored in the Leaderboard system. Scores dictate stage progression and are fully reset between Tournament cycles.</li>
 </ol>
 <h3 id="key-elements">Key Elements<a class="headerlink" href="#key-elements" title="Permanent link">¶</a></h3>
-<p>Game Makers set up tournaments by defining their content. This content includes the tournament name, the number of tiers, colors for each tier, and specific promotion and demotion rules. Rewards, if specified, are granted as Beamable Inventory items and currencies and are evaluated at the end of each competition cycle. All tournament definitions are created as structured data using the Unity Content Manager with the Beamable <abbr title="software development kit">SDK</abbr>.</p>
+<p>Game Makers set up tournaments by defining their content. This content includes the tournament name, the number of tiers, colors for each tier, and specific promotion and demotion rules. Rewards, if specified, are granted as Beamable Inventory items and currencies and are evaluated at the end of each competition cycle. All tournament definitions are created as structured data using the Unity Content Manager with the Beamable SDK.</p>
 <h4 id="tournament-properties">Tournament Properties<a class="headerlink" href="#tournament-properties" title="Permanent link">¶</a></h4>
 <table>
 <thead>
@@ -9804,11 +9804,11 @@ TournamentServiceExample.cs
 </tr>
 <tr>
 <td><strong>Rank Rewards</strong></td>
-<td>These rewards reference the Beamable Inventory for fulfillment. The system evaluates and grants these rewards at the end of each Tournament cycle. Players must explicitly claim rewards via the Tournament <abbr title="application programming interface">API</abbr> for fulfillment.</td>
+<td>These rewards reference the Beamable Inventory for fulfillment. The system evaluates and grants these rewards at the end of each Tournament cycle. Players must explicitly claim rewards via the Tournament API for fulfillment.</td>
 </tr>
 <tr>
 <td><strong>Score Rewards</strong></td>
-<td>These rewards also reference the Beamable Inventory for fulfillment. The system evaluates and grants these rewards at the end of each Tournament cycle. Players must explicitly claim rewards via the Tournament <abbr title="application programming interface">API</abbr> for fulfillment.</td>
+<td>These rewards also reference the Beamable Inventory for fulfillment. The system evaluates and grants these rewards at the end of each Tournament cycle. Players must explicitly claim rewards via the Tournament API for fulfillment.</td>
 </tr>
 <tr>
 <td><strong>Group Rewards</strong></td>
@@ -9824,7 +9824,7 @@ TournamentServiceExample.cs
 </ul>
 <h3 id="protips">Protips<a class="headerlink" href="#protips" title="Permanent link">¶</a></h3>
 <ul>
-<li>While both leaderboards and tournament content are viewable within the Beamable Portal, direct management of Tournaments currently requires <abbr title="application programming interface">API</abbr> calls</li>
+<li>While both leaderboards and tournament content are viewable within the Beamable Portal, direct management of Tournaments currently requires API calls</li>
 <li>Player scores persist for the duration of the tournament cycle; when players enter the next cycle their scores begin at 0, but within the new tier and stage dictated by promotion or demotion</li>
 <li>From cycle to cycle, player scores are reset to 0 but tiers persist. If you, the Game Maker, wish to carry over previous Tournament scores, a separate microservice will be required to pre-seed this information when each new cycle starts</li>
 <li>Tournaments differ from Events by featuring a recurring time cycle. Events each have a beginning and end, and potentially multiple phases. Events can have one-off occurrences or be scheduled to recur, but Tournaments always require a cadence</li>

@@ -9406,11 +9406,11 @@
 
 
 <h1 id="connectivity">Connectivity<a class="headerlink" href="#connectivity" title="Permanent link">¶</a></h1>
-<p>The Connectivity system drives the heartbeat sent back to the Beamable backend platform. If the game client loses connectivity, the heartbeat will stop and the Beamable <abbr title="application programming interface">API</abbr> will gracefully wait for reconnection before resuming the full online feature-set.</p>
+<p>The Connectivity system drives the heartbeat sent back to the Beamable backend platform. If the game client loses connectivity, the heartbeat will stop and the Beamable API will gracefully wait for reconnection before resuming the full online feature-set.</p>
 <p>The system monitors internet connectivity and updates automatically if any changes occur; including remote server outages or loss of local ethernet/Wi-Fi internet.</p>
-<h2 id="connectivity-api">Connectivity <abbr title="application programming interface">API</abbr><a class="headerlink" href="#connectivity-api" title="Permanent link">¶</a></h2>
+<h2 id="connectivity-api">Connectivity API<a class="headerlink" href="#connectivity-api" title="Permanent link">¶</a></h2>
 <p>Unlike many Beamable Features, Connectivity does not require a specific Beamable Feature Prefab to be used. The main entry point to this feature is C# programming.</p>
-<p>The main <abbr title="application programming interface">API</abbr> highlights include <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Connectivity_1_1ConnectivityService.html#details"><code>ConnectivityService</code></a>.</p>
+<p>The main API highlights include <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Connectivity_1_1ConnectivityService.html#details"><code>ConnectivityService</code></a>.</p>
 <table>
 <thead>
 <tr>
@@ -9658,7 +9658,7 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="custom-connectivity-service">Custom Connectivity Service<a class="headerlink" href="#custom-connectivity-service" title="Permanent link">¶</a></h3>
-<p>From version 1.11 and above, you can override the <code>IConnectivityChecker</code> service via Dependency Injection and change how the connectivity logic works. The default implementation uses a polling approach and sends requests to Beamable's <abbr title="application programming interface">API</abbr> Gateway.</p>
+<p>From version 1.11 and above, you can override the <code>IConnectivityChecker</code> service via Dependency Injection and change how the connectivity logic works. The default implementation uses a polling approach and sends requests to Beamable's API Gateway.</p>
 <p>In the code sample below, there is a custom implementation of <code>IConnectivityService</code> that pings a local server at <code>"http://127.0.0.1:3000/ping"</code>.</p>
 <p>CustomConnectivityService.cs
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>

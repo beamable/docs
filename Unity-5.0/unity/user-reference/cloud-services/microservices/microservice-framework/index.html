@@ -9733,7 +9733,7 @@
 </div>
 <h4 id="access-unity-version-via-headers">Access Unity Version via Headers<a class="headerlink" href="#access-unity-version-via-headers" title="Permanent link">¶</a></h4>
 <p>The HTTP headers can be found via the <code>Context.Headers</code> property. The <code>Headers</code> is a <code>Dictionary&lt;string, string&gt;</code>, where the keys represent HTTP header names, and the values represent HTTP header values.</p>
-<p>The Unity Beamable <abbr title="software development kit">SDK</abbr> sends a few special headers that describe the game's environment, including the game's version, Unity's version, Beamable's version, and Unity's runtime target.</p>
+<p>The Unity Beamable SDK sends a few special headers that describe the game's environment, including the game's version, Unity's version, Beamable's version, and Unity's runtime target.</p>
 <table>
 <thead>
 <tr>
@@ -9745,9 +9745,9 @@
 </thead>
 <tbody>
 <tr>
-<td>X-KS-BEAM-<abbr title="software development kit">SDK</abbr>-VERSION</td>
+<td>X-KS-BEAM-SDK-VERSION</td>
 <td><code>var headerPresent = Context.Headers.TryGetBeamableSdkVersion(out var version);</code></td>
-<td>The Beamable <abbr title="software development kit">SDK</abbr> version that the request originated from.</td>
+<td>The Beamable SDK version that the request originated from.</td>
 <td>1.3.0, 1.2.10</td>
 </tr>
 <tr>
@@ -9770,7 +9770,7 @@
 </tr>
 </tbody>
 </table>
-<p>These headers are sent automatically from the Unity <abbr title="software development kit">SDK</abbr>. If a request is sent from elsewhere, such as a custom script, the headers may not be present.</p>
+<p>These headers are sent automatically from the Unity SDK. If a request is sent from elsewhere, such as a custom script, the headers may not be present.</p>
 <h4 id="handling-request-timeouts">Handling Request Timeouts<a class="headerlink" href="#handling-request-timeouts" title="Permanent link">¶</a></h4>
 <p>It is possible that a request may timeout while it is executing. Long running loops are one example. In the code below, the <code>while</code> loop never completes, so the method never returns a value, so the request will timeout.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -10074,7 +10074,7 @@
 </code></pre></div></td></tr></tbody></table></div>
 <div class="admonition info">
 <p class="admonition-title">Share Exception code with Unity</p>
-<p>The <code>RequesterException</code> is the same type of exception that is thrown on the Unity client <abbr title="software development kit">SDK</abbr> in the event of a Beamable networking error. You can catch the same type and use the same error handling logic.</p>
+<p>The <code>RequesterException</code> is the same type of exception that is thrown on the Unity client SDK in the event of a Beamable networking error. You can catch the same type and use the same error handling logic.</p>
 </div>
 <h3 id="beamable-docker">Beamable &amp; Docker<a class="headerlink" href="#beamable-docker" title="Permanent link">¶</a></h3>
 <p>Beamable Microservices uses the industry standard Docker technology. Docker simplifies and accelerates your workflow, while giving developers the freedom to innovate with their choice of tools, application stacks, and deployment environments for each project. See Docker's <a href="https://docs.docker.com/">documentation</a> for more info.</p>
@@ -10083,7 +10083,7 @@
 <h2 id="publishing-microservices">Publishing Microservices<a class="headerlink" href="#publishing-microservices" title="Permanent link">¶</a></h2>
 <p>Microservices are developed locally on your machine, but when it comes to release your game or do more integrated testing, the Microservices should be published to the Beamable Cloud. When a Microservice is published, Beamable takes charge of running the Microservice at production scale, with auto-scaling rules.</p>
 <p>To Publish your Microservices, navigate to the <em>Beam Services</em>  window and click the <em>Release</em> button at the top of the window. A popup will appear that operates in three main phases. First, all your local services are built in Release mode. If there are any compile errors in your services, the publish process will fail here. Second, the publish popup will show an option to review the publication. You will be given an opportunity to see which services will be uploaded, what services will be enabled, etc. The final phase is the actual uploading of the Microservice code and the publication event.</p>
-<p>Microservice and storages are published as a single atomic unit, instead of individually. If you have multiple Microservices, a publication will take all Microservices into consideration. However, if the Beamable <abbr title="software development kit">SDK</abbr> can determine that the Microservice has not changed, then it will not be re-uploaded.</p>
+<p>Microservice and storages are published as a single atomic unit, instead of individually. If you have multiple Microservices, a publication will take all Microservices into consideration. However, if the Beamable SDK can determine that the Microservice has not changed, then it will not be re-uploaded.</p>
 <h2 id="using-published-services">Using Published Services<a class="headerlink" href="#using-published-services" title="Permanent link">¶</a></h2>
 <p>Once the services have been published, they are viewable on the Beamable Portal. Services logs, metrics, and openAPI specification can be accessed for these remote services.</p>
 <h3 id="remote-logging">Remote Logging<a class="headerlink" href="#remote-logging" title="Permanent link">¶</a></h3>

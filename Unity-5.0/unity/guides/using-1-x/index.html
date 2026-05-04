@@ -9162,14 +9162,14 @@
 
 
 
-<h1 id="unity-beamable-sdk-1x-is-end-of-life">Unity Beamable <abbr title="software development kit">SDK</abbr> 1.x is End Of Life<a class="headerlink" href="#unity-beamable-sdk-1x-is-end-of-life" title="Permanent link">¶</a></h1>
-<p>The 1.x version of the Unity Beamable <abbr title="software development kit">SDK</abbr> will not be officially supported as of <strong>December 15th, 2025</strong>. If you have a project using the 1.x version, then you must take action immediately.</p>
-<p>The preferred approach is to upgrade your projects to later versions of the Beamable Unity <abbr title="software development kit">SDK</abbr>. To update your project, please see our <a href="../../whatsnew/2.0/">upgrade documentation</a>.</p>
+<h1 id="unity-beamable-sdk-1x-is-end-of-life">Unity Beamable SDK 1.x is End Of Life<a class="headerlink" href="#unity-beamable-sdk-1x-is-end-of-life" title="Permanent link">¶</a></h1>
+<p>The 1.x version of the Unity Beamable SDK will not be officially supported as of <strong>December 15th, 2025</strong>. If you have a project using the 1.x version, then you must take action immediately.</p>
+<p>The preferred approach is to upgrade your projects to later versions of the Beamable Unity SDK. To update your project, please see our <a href="../../whatsnew/2.0/">upgrade documentation</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Please remember that if you are updating from a 1.x version, you must update to 2.x <em>before</em> you can update beyond 2.0.</p>
 </div>
-<p>However, if you cannot update the <abbr title="software development kit">SDK</abbr> version number, you can apply a small code change to your project to enable continued longevity.</p>
+<p>However, if you cannot update the SDK version number, you can apply a small code change to your project to enable continued longevity.</p>
 <ol>
 <li>You must add <a href="https://gist.github.com/cdhanna/19cf0c4b0eaaf36b1eabc898224c1d4c">this file</a> to your <code>/Assets</code> folder.</li>
 <li>You must verify that your realm configuration settings in the Beamable Portal do not have a <code>notification/publisher</code> value set to <code>pubnub</code>. If you do have this setting enabled, then remove it, or change the value to <code>beamable</code>.</li>

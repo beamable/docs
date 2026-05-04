@@ -9541,7 +9541,7 @@
 
   <h1>2.0</h1>
 
-<p>If you have a Unity project using the Beamable 1.x <abbr title="software development kit">SDK</abbr>, we strongly recommend you consider upgrading to the 2.0 release. Version 2 brings several massive improvements to the <abbr title="software development kit">SDK</abbr>.</p>
+<p>If you have a Unity project using the Beamable 1.x SDK, we strongly recommend you consider upgrading to the 2.0 release. Version 2 brings several massive improvements to the SDK.</p>
 <ol>
 <li>Microservices use our latest "Standalone" model, which means you can leverage many more features than previously possible in version 1.</li>
 <li>Microservices are more performant, uploads are faster, and debugging is way easier than before.</li>
@@ -9551,7 +9551,7 @@
 <p>To start the upgrade, update your <code>com.beamable</code> and <code>com.beamable.server</code> packages to <code>2.0.0</code>. This can be done in the Unity Package Manager, or by modifying the <code>manifest.json</code> file directly.</p>
 <blockquote>
 <p>🚧 The update to 2.0 requires a Microservice migration!</p>
-<p>The new 2.0 <abbr title="software development kit">SDK</abbr> treats Microservices as standalone .NET projects instead of embedded Unity code. The <abbr title="software development kit">SDK</abbr> has an automated migration process, but there may be a few manual code edits required.</p>
+<p>The new 2.0 SDK treats Microservices as standalone .NET projects instead of embedded Unity code. The SDK has an automated migration process, but there may be a few manual code edits required.</p>
 </blockquote>
 <h2 id="microservice-migration">Microservice Migration<a class="headerlink" href="#microservice-migration" title="Permanent link">¶</a></h2>
 <h3 id="1-planning-stage">1 - Planning Stage<a class="headerlink" href="#1-planning-stage" title="Permanent link">¶</a></h3>
@@ -9574,7 +9574,7 @@
 <p><br></p>
 <h3 id="2-new-services-organization">2 - New Services Organization<a class="headerlink" href="#2-new-services-organization" title="Permanent link">¶</a></h3>
 <p><br></p>
-<p><strong>Previous Folder Structure (Beamable <abbr title="software development kit">SDK</abbr> 1.x)</strong></p>
+<p><strong>Previous Folder Structure (Beamable SDK 1.x)</strong></p>
 <ul>
 <li>Microservices:</li>
 <li>Located under <code>Assets/Beamable/Microservices</code></li>
@@ -9583,7 +9583,7 @@
 <li>Located under <code>Assets/Beamable/StorageObjects</code></li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://files.readme.io/fdda2acb0f2f27cc0e7395f20993d9618d0837f1f7d970a859d8d4864ad9b8b9-image.png" data-desc-position="bottom"><img border="{false}" src="https://files.readme.io/fdda2acb0f2f27cc0e7395f20993d9618d0837f1f7d970a859d8d4864ad9b8b9-image.png"></a></p>
-<p><strong>New Folder Structure (Beamable <abbr title="software development kit">SDK</abbr> 2.0)</strong></p>
+<p><strong>New Folder Structure (Beamable SDK 2.0)</strong></p>
 <ul>
 <li>Microservices and Storages are treated as <strong>separate projects</strong> inside a different solution then the one Unity is in</li>
 <li>They are all stored under a <strong>hidden folder</strong> outside Unity's <code>Assets/</code> folder, in a new folder named <code>BeamableServices</code></li>
@@ -9648,10 +9648,10 @@
 <p>The 2.0 release looks a little different that the 1.0 era. At a very high level, the <em>Toolbox</em> has been removed. Instead of using the <em>Toolbox</em> to navigate the Beamable windows, use the <em>Beamable Button</em> at the top-right of the editor.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://files.readme.io/d4f1339576d3e88c3263e346efd83f0205fb18c50b44000c85db810b6dec332c-image.png" data-desc-position="bottom"><img align="center" alt="The Beamable Button is at the top-right of the editor." border="{false}" caption="The Beamable Button is at the top-right of the editor." src="https://files.readme.io/d4f1339576d3e88c3263e346efd83f0205fb18c50b44000c85db810b6dec332c-image.png"></a></p>
 <h2 id="goodbye-prefabs">Goodbye Prefabs<a class="headerlink" href="#goodbye-prefabs" title="Permanent link">¶</a></h2>
-<p>The <em>Toolbox</em> has been removed, and so have access to the old Beamable prefabs. If you were using those prefabs, they still exist, but are not easily accessible. Your existing scenes should not break, because the Beamable <abbr title="software development kit">SDK</abbr> still <em>includes</em> the prefabs. However, the prefabs will be completely removed in a future version of Beamable. The removal will happen in a phased approach. First, the prefabs themselves will be deleted, and in a later release, the scripts will be removed. We recommend that you migrate away from using these prefabs, or Unpack the prefabs, and copy and renamespace the scripts.</p>
-<p>With the removal of the prefabs, our skinning and theming systems have also been removed in the 2.0 release. Similarly, the old skinning scripts still exist in the <abbr title="software development kit">SDK</abbr>, but they are no longer accessible for new use cases. We recommend you migrate away from these scripts if you're using them.</p>
+<p>The <em>Toolbox</em> has been removed, and so have access to the old Beamable prefabs. If you were using those prefabs, they still exist, but are not easily accessible. Your existing scenes should not break, because the Beamable SDK still <em>includes</em> the prefabs. However, the prefabs will be completely removed in a future version of Beamable. The removal will happen in a phased approach. First, the prefabs themselves will be deleted, and in a later release, the scripts will be removed. We recommend that you migrate away from using these prefabs, or Unpack the prefabs, and copy and renamespace the scripts.</p>
+<p>With the removal of the prefabs, our skinning and theming systems have also been removed in the 2.0 release. Similarly, the old skinning scripts still exist in the SDK, but they are no longer accessible for new use cases. We recommend you migrate away from these scripts if you're using them.</p>
 <h2 id="hello-lightbeams">Hello Lightbeams<a class="headerlink" href="#hello-lightbeams" title="Permanent link">¶</a></h2>
-<p>Instead of prefabs, the new window, <em>Beam Library</em> shows a collection of <em>Package Samples</em> that are copied into your Assets folder. You have complete control over these samples, and they are versioned with the <abbr title="software development kit">SDK</abbr>. Learn more about lightbeams, <a href="doc:lightbeam-code-overview">LightBeam Overview</a>.</p>
+<p>Instead of prefabs, the new window, <em>Beam Library</em> shows a collection of <em>Package Samples</em> that are copied into your Assets folder. You have complete control over these samples, and they are versioned with the SDK. Learn more about lightbeams, <a href="doc:lightbeam-code-overview">LightBeam Overview</a>.</p>
 <h2 id="standalone-microservices">Standalone Microservices<a class="headerlink" href="#standalone-microservices" title="Permanent link">¶</a></h2>
 <p>The <em>Microservice Manager</em> has been renamed to <em>Beam Services</em>. The window looks similar to the old <em>Microservice Manager</em>, but different in a few critical ways. The most important change is that only 1 service is focused at any given time. To view the logs from another service, use the service picker dropdown.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://files.readme.io/a171022e82eed04bf94a02227740b063e7ba366538545ab2914fe56b344f61c8-image.png" data-desc-position="bottom"><img align="center" border="{false}" width="50% " src="https://files.readme.io/a171022e82eed04bf94a02227740b063e7ba366538545ab2914fe56b344f61c8-image.png"></a></p>
