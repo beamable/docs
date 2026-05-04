@@ -208,7 +208,7 @@ following line to the end of the file.
 ### From 2.0.2 to 3.0.1
 The upgrade from 2.0.x to 3.0.1 brings a few critical updates to the `csproj` file, how the Beam CLI tool is managed, and the version of `dotnet`.
 
-**To start this process, let's open a terminal and navigate to the directory containing your `.beamable/` folder. All commands are written as though invoked from this directory.**
+**To start this process, open a terminal and navigate to the directory containing your `.beamable/` folder. All commands are written as though invoked from this directory.**
 
 ```shell
 # In this file structure...
@@ -304,8 +304,7 @@ In every `csproj` file for **Microservices**, **MicroStorages**, and **Common Li
 </PropertyGroup>
 ```
 
-If the project is targeting `net6.0` or `net7.0`, then, we recommend you
-upgrade the `TargetFramework` to `.net8.0`.
+If the project is targeting `net6.0` or `net7.0`, upgrade the `TargetFramework` to `.net8.0`.
 ```xml
 <PropertyGroup Label="Dotnet Settings">
   <!-- net8.0 is the LTS version until 2026. To update your net version, update the <TargetFramework> when Beamable announces support. -->

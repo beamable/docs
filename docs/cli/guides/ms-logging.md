@@ -250,7 +250,7 @@ There are several standard log attributes that will be included automatically. S
 
 Starting with version 6.0, it is possible to send Microservice logs to a third parties. In this example, we will use  BetterStack.
 
-This section will assume you have set up a BetterStack account, and created a _Source_ such that you have a _source token_ and an _ingesting host_.
+This section assumes you have set up a BetterStack account and created a _Source_ such that you have a _source token_ and an _ingesting host_.
 
 To start, we will configure locally running Microservices to send data to BetterStack. To start, create this file called `config.yaml` next to your `BeamableServices.sln` file.
 
@@ -308,7 +308,7 @@ docker run -p 4317:4317 -p 4318:4318 \
 	ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.125.0
 ```
 
-Now you have a locally running telemetry collector. We need to configure your local Microservice to _use_ the collector. Prepare the following environment variables,
+Now you have a locally running telemetry collector. Next, configure your local Microservice to _use_ the collector. Prepare the following environment variables:
 
 ```sh
 export BEAM_DISABLE_STANDARD_OTEL=1
