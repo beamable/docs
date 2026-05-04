@@ -15,7 +15,7 @@ The [Content System](content.md), as both `UBeamStoreContent` and `UBeamListingC
 ### Store Content
 The store content has the following properties:
 
-- **Show Innactive Listings**: shows listing that the user already purchased and that are outside of the availability window or cohort settings.
+- **Show Inactive Listings**: shows listing that the user already purchased and that are outside of the availability window or cohort settings.
 - **Active Listing Limit**: defaults to 20. The Store will only show the first N listings that are valid. When asking for all active listings for a particular user, the API will return a maximum of whatever is here.
 
 ### Listing Content
