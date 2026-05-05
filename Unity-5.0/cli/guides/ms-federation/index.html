@@ -9530,7 +9530,7 @@ that define the types of functions that they require.
     // implementation
 }
 </code></pre>
-<p>The <code>MySample</code> class included as the generic type in the <code>IFederatedLogin</code> interface specifies the id for the federated login. The class signature for these types must implement the <code>IFederationId</code> type and include a <code>FederationId</code> attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.</p>
+<p>The <code>MySample</code> class included as the generic type in the <code>IFederatedLogin</code> interface specifies the id for the federated login. The class signature for these types must implement the <code>IFederationId</code> type, and be annotated with a <code>FederationId</code> attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.</p>
 <pre><code class="language-csharp">[FederationId("myId")]
 public class MySample : IFederationId { }
 </code></pre>

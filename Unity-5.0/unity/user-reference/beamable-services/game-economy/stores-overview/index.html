@@ -9673,7 +9673,7 @@ public class Registrations
 }
 </code></pre>
 <h3 id="custom-purchaser">Custom Purchaser<a class="headerlink" href="#custom-purchaser" title="Permanent link">¶</a></h3>
-<p>The Beamable <strong>Custom Purchaser</strong> service allows game makers to implement custom purchasing solutions for in-app purchases, bypassing Unity's built-in <abbr title="in-app purchases">IAP</abbr> system for complete control over the payment flow.</p>
+<p>The Beamable <strong>Custom Purchaser</strong> mechanism allows game makers to implement custom purchasing solutions for in-app purchases, bypassing Unity's built-in <abbr title="in-app purchases">IAP</abbr> system for complete control over the payment flow.</p>
 <p>Consider implementing a custom purchaser when you need:</p>
 <ul>
 <li><strong>Third-party payment providers</strong> (Stripe, PayPal, custom billing systems)</li>
@@ -9838,7 +9838,7 @@ public class Registrations
 }
 </code></pre>
 <h3 id="custom-stores">Custom Stores<a class="headerlink" href="#custom-stores" title="Permanent link">¶</a></h3>
-<p>The Beamable <strong>CommerceService</strong> service allows game makers to create custom storefronts with flexible purchasing options.</p>
+<p>The Beamable <strong>Commerce</strong> service allows game makers to create custom storefronts with flexible purchasing options.</p>
 <pre><code class="language-csharp">await _beamContext.Api.CommerceService.Purchase(storeSymbol, listingSymbol);
 </code></pre>
 <p>There are 3 major parts to the Store setup process. The workflow involves configuring Unity <abbr title="in-app purchases">IAP</abbr>, setting up platform integrations, and creating Beamable content.
