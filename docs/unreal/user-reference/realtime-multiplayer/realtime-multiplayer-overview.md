@@ -7,7 +7,7 @@ There are multiple ways to design real-time multiplayer games: dedicated servers
 Beamable integrates with Unreal's Gameplay Framework in a couple of different ways; none of those are via an **OnlineSubsystem**.
 
 !!! note "Why no Online Subsystem?"
-     Because Beamable's approach to Cloud Code (custom code to extend backend functionality) does not mesh well with those interfaces --- you'd end up either losing a lot of Beamable's most useful functionality OR gaining a non-trivial amount of complexity to use it. Therefore, the Beamable SDK provides you with utilities to make dedicated server games itself.
+     Because Beamable's approach to Cloud Code (custom code to extend backend functionality) does not mesh well with those interfaces — you'd end up either losing a lot of Beamable's most useful functionality OR gaining a non-trivial amount of complexity to use it. Therefore, the Beamable SDK provides you with utilities to make dedicated server games itself.
 
 Instead, here are the main components of which you need to be aware:
 
@@ -15,7 +15,7 @@ Instead, here are the main components of which you need to be aware:
 - **[Lobbies](../beamable-services/lobbies.md)**: [Beamable's Matchmaking](../beamable-services/matchmaking.md) generates, for each match found, a Lobby structure of players. Lobbies are closest to what Unreal's OnlineSubsystem calls a "**Session**". Lobbies can also be created by players themselves.
 - **[Server Provisioning](../federation/federated-game-server.md)**: Beamable's approach to Cloud Code, [Microservices](../microservices/microservices.md), allows you to hook into certain processes that the Beamable Backend does; this is called **Federation**. For example, Game Server Federations can be used to run arbitrary code **after the matchmaking has created the lobby** but **before the clients are notified the match was found**. This allows you to fill the lobby with relevant data for your match, provision a server, wait for the server to spin up and then allow the Backend to notify the clients. This flow significantly simplifies client and server code around this connection flow.
 - **[Game Server Authentication](code-multiplayer.md)**: It is pretty important that you implement Unreal's **PreLoginAsync** at some point before you ship a game. The Beamable SDK's **UBeamLobbySubsystem** provides you with utilities to validate that the user trying to connect _is in fact in a lobby the game server is managing and is a valid player_.
-- **[PIE Support](../editor-systems/pie-settings.md)**: Anyone that has worked in multiplayer games knows about the challenge of maintaining a good workflow in PIE --- this is because code written for the gameplay makes all sorts of assumptions about the game state: it usually assumes clients are already logged in and SDKs are initialized, it assumes that a Lobby (or Session) already exists, it'll read data from that Lobby/Session as part of its initialization and systems and so on... the Beamable SDK's **BeamPIE** system gives you these guarantees in PIE with a single Blueprint node; among other things, this is an extremely useful tool throughout all stages of development.
+- **[PIE Support](../editor-systems/pie-settings.md)**: Anyone that has worked in multiplayer games knows about the challenge of maintaining a good workflow in PIE — this is because code written for the gameplay makes all sorts of assumptions about the game state: it usually assumes clients are already logged in and SDKs are initialized, it assumes that a Lobby (or Session) already exists, it'll read data from that Lobby/Session as part of its initialization and systems and so on... the Beamable SDK's **BeamPIE** system gives you these guarantees in PIE with a single Blueprint node; among other things, this is an extremely useful tool throughout all stages of development.
 - **[Local and Remote Multiplayer](../runtime-systems/user-slots.md)**: If your game needs BOTH multiple local players per-client AND remote play, the Beamable SDK also supports that via the User Slot system. Each Client has multiple **Runtime User Slots**: **Player0**, **Player1**, etc. In clients, these map to UE's own **LocalPlayerIndex**; this mapping is implicit and index-based. You can tell the Beamable SDK about your game's **RuntimeUserSlots** in `Project Settings > Engine >  Beamable Core`. If your game does NOT support local + remote multiplayer, then this is not relevant and the SDK's defaults will work for you.
 
 You can see an example of a working implementation of these in the **[Beamball Sample](../../samples/beamball/beamball-demo.md)**.
@@ -90,10 +90,10 @@ If you enter PIE now, here's what happens under the hood:
 - All PIE clients log in with their mapped users (the ones you configured in your `Play Preset`).
 - The PIE server instance keeps trying to create a lobby with the mapped users until it succeeds.
 - The PIE clients wait until they become aware they were put into the Lobby.
-- Once the Lobby is created and all PIE clients are aware that they are in the lobby, the Waiting Room **Server Travels** back to the Gameplay Level you started in, taking all clients with them --- this time, the `Easy Enable` node does nothing.
+- Once the Lobby is created and all PIE clients are aware that they are in the lobby, the Waiting Room **Server Travels** back to the Gameplay Level you started in, taking all clients with them — this time, the `Easy Enable` node does nothing.
 
 !!! warning "Iteration Time"
-     This is the quick setup way. There is a way to avoid the need for this **Waiting Room** but it requires C++ and a custom **Game Instance** --- this is outlined in the [C++ Real-Time Multiplayer Guide](code-multiplayer.md#making-beam-pie-faster).
+     This is the quick setup way. There is a way to avoid the need for this **Waiting Room** but it requires C++ and a custom **Game Instance** — this is outlined in the [C++ Real-Time Multiplayer Guide](code-multiplayer.md#making-beam-pie-faster).
 
 The above process guarantees two things:
 
@@ -107,10 +107,10 @@ There are several overridable functions and events the Game Mode class exposes t
 
 > Callbacks that happen before the **Player Controller** is fully created (before `PostLogin`), cannot interact with the Beamable SDK and do NOT have the guarantee the SDK is ready.
 
-This is because initializing the SDK is an Asynchronous Process and takes time --- there is no way to tell Unreal to wait until the SDK is initialized before running `Begin Play`. From `PostLogin` forward, you can make use of the SDK; Content is ready, the Lobby information is available and so on...
+This is because initializing the SDK is an Asynchronous Process and takes time — there is no way to tell Unreal to wait until the SDK is initialized before running `Begin Play`. From `PostLogin` forward, you can make use of the SDK; Content is ready, the Lobby information is available and so on...
 
 !!! warning "World Actors"
-    If you have Blueprints in your Level Actor that need to access data inside the Lobby to be initialized, don't use `Begin Play` -- instead, call a function on it from a point where you have the guarantee the SDK is initialized and ready for use.
+    If you have Blueprints in your Level Actor that need to access data inside the Lobby to be initialized, don't use `Begin Play` — instead, call a function on it from a point where you have the guarantee the SDK is initialized and ready for use.
 
 If you'd like to see an example of this, take a look at the [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
@@ -168,9 +168,9 @@ Once the lobby is registered, you can use `Local State - Lobby - TryGetLobbyById
 
 This initialization can be preloading assets, making requests to microservices and so on...
 
-Once this is done and you are ready to accept client connections, you should call `Operation - Lobby - Server - Notify Lobby Ready for Clients`. This signals your awaiting **Game Server Federation's `CreateGameServer` implementation** that the game server is ready to accept client connections --- allowing it to complete so that Beamable notifies all players in the Lobby forwarding the connection information to them.
+Once this is done and you are ready to accept client connections, you should call `Operation - Lobby - Server - Notify Lobby Ready for Clients`. This signals your awaiting **Game Server Federation's `CreateGameServer` implementation** that the game server is ready to accept client connections — allowing it to complete so that Beamable notifies all players in the Lobby forwarding the connection information to them.
 
-After these steps are completed, you'll begin receiving connections --- in UE, handling player connection and initialization is done in a Game Mode implementation (see [here](#preparing-a-build-for-your-game-server-orchestrator)).
+After these steps are completed, you'll begin receiving connections — in UE, handling player connection and initialization is done in a Game Mode implementation (see [here](#preparing-a-build-for-your-game-server-orchestrator)).
 
 ![multiplayer-build.png](../../../media/imgs/multiplayer-build.png)
 <center>Example of Level Blueprint for a Game Server Build</center>
@@ -179,7 +179,7 @@ After these steps are completed, you'll begin receiving connections --- in UE, h
 
 With this, you are set up to begin experimenting with your gameplay systems in PIE. In early development, use this to figure out which Key-Value pairs you'll need in the Beamable Lobby structure. This should allow you to work on your gameplay development directly in PIE before doing the work to integrate with your **[Game Server Orchestrator using the Federation system](../federation/federated-game-server.md)**.
 
-When you decide to implement **Game Server Authentication**, take a look at the **[C++ Real-Time Multiplayer docs](code-multiplayer.md)** --- Unreal does not allow for a BP-only authentication flow (it needs **PreLoginAsync** which is a C++ only callback in the Game Mode).
+When you decide to implement **Game Server Authentication**, take a look at the **[C++ Real-Time Multiplayer docs](code-multiplayer.md)** — Unreal does not allow for a BP-only authentication flow (it needs **PreLoginAsync** which is a C++ only callback in the Game Mode).
 
 
 

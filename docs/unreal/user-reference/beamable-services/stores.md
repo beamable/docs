@@ -15,17 +15,17 @@ The [Content System](content.md), as both `UBeamStoreContent` and `UBeamListingC
 ### Store Content
 The store content has the following properties:
 
-- **Show Inactive Listings**: shows listing that the user already purchased and that are outside of the availability window or cohort settings.
-- **Active Listing Limit**: defaults to 20. The Store will only show the first N listings that are valid. When asking for all active listings for a particular user, the API will return a maximum of whatever is here.
+- **Show Inactive Listings**: shows listing that the user already purchased and that are outside of the availability window or cohort settings
+- **Active Listing Limit**: defaults to 20. The Store will only show the first N listings that are valid. When asking for all active listings for a particular user, the API will return a maximum of whatever is here
 
 ### Listing Content
 You can think of a listing as an entry in a catalog of purchasable products.
 
-- **Price**: Is the amount of `currency` a player must have to acquire this listing.
-- **Offer**: Describes what will be added to the player's inventory once the purchase is completed.
-- **Client Data**: Use this to store information specific to your game's UI in a way that you can parse and display.
-- **DateTime**: Is an active period as an ISO-8601 string.
-- **Purchase Limit**: Number of times the listing is purchasable by the same user. Since it is optional, absent means infinite purchases are allowed while the listing's other filters say you can buy it.
+- **Price**: Is the amount of `currency` a player must have to acquire this listing
+- **Offer**: Describes what will be added to the player's inventory once the purchase is completed
+- **Client Data**: Use this to store information specific to your game's UI in a way that you can parse and display
+- **DateTime**: Is an active period as an ISO-8601 string
+- **Purchase Limit**: Number of times the listing is purchasable by the same user. Since it is optional, absent means infinite purchases are allowed while the listing's other filters say you can buy it
 
 Subtypes of `UBeamListingContent` are not supported; use `ClientData` instead.
 

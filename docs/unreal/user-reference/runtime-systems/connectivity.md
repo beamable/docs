@@ -19,7 +19,7 @@ In Blueprints, we have a few [special nodes](blueprints.md) for accessing this d
 
 After a user is logged into a `FUserSlot`, losing the connection to the Beamable backend (due to internet access loss or otherwise) will have the `UBeamConnectivityManager` go into the `CONN_Offline` state.
 
-**The details of this process are:**
+**The details of this process are**:
 
 - The WebSocket connection fails.
 - We attempt to reconnect **X** times before going into `CONN_Offline` to avoid jittery short-lived instability.

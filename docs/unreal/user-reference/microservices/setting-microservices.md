@@ -58,11 +58,11 @@ dotnet beam project generate-client "."
 
 After generating the client in your Unreal project, these are the next steps:
 
-- Add the generated plugin (`ProjectNameMicroserviceClients`) to your `uproject` file and enable it.
-- Add the `ProjectNameMicroserviceClients` modules to your `Target.cs` files.
+- Add the generated plugin (`ProjectNameMicroserviceClients`) to your `uproject` file and enable it
+- Add the `ProjectNameMicroserviceClients` modules to your `Target.cs` files
     - `MyProject.Target.cs` and `MyProjectEditor.Target.cs`
-    - `MyProjectServer.Target.cs`, if you have a dedicated server build.
-- Add `ProjectNameMicroserviceClients.AddMicroserviceClients(this)` line to your game module's `Build.cs` files.
+    - `MyProjectServer.Target.cs`, if you have a dedicated server build
+- Add `ProjectNameMicroserviceClients.AddMicroserviceClients(this)` line to your game module's `Build.cs` files
 
 The generated microservice clients are implementations of `UBeamMicroserviceClientSubsystem` which are `UEngineSubsystem`. The client exposes functions for each microservice request that are essentially the same as the [UBeam_____Api](../runtime-systems/lower-level.md) Lower Level API.
 
@@ -121,9 +121,9 @@ Storages ***cannot*** exist independent of Microservices and must be associated 
 Take a look at [this documentation](https://docs.beamable.com/docs/cli-guide-microservice-storage) for more information on how to write the code inside Storages and how to access them in Microservices.
 
 ## Optional - Libraries and C# Microservices
-One of the big advantages of Beamable C# Microservices is that they are regular `.NET` projects. This means you get access to Nuget packages should you need to integrate Beamable with any particular Third-Party technology not supported out-of-the-box.
+One of the big advantages of Beamable C# Microservices is that they are regular `.NET` projects. This means you get access to NuGet packages should you need to integrate Beamable with any particular third-party technology not supported out-of-the-box.
 
-To do so, use Nuget to add a package dependency to a project (this can be done easily through any IDE --- or through `dotnet nuget` command pallete).
+To do so, use NuGet to add a package dependency to a project (this can be done easily through any IDE — or through `dotnet nuget` command pallete).
 
 While definitely not the common case, it is possible for projects to require multiple services. When that happens, it is also common that those services share some logic or internal data types. To write your own code that is then shared between services:
 

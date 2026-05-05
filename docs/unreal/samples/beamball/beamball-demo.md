@@ -2,13 +2,13 @@
 
 ![beamable-release.gif](../../../media/imgs/beamable-release.gif)
 
-This demo showcases how you can use the **Beamable Unreal SDK** in a full game project. Particularly it focuses on the Store, Leaderboard, Stats and Matchmaking services.
+This demo showcases how you can use the **Beamable Unreal SDK** in a full game project. Particularly it focuses on the Store, Leaderboard, Stats, and Matchmaking services.
 
 ## Introduction
 
 Aside from our `BeamableCore` Plugin, here's what the sample contains:
 
-- **`BEAMPROJ_Beamball` Unreal Plugin.**: Contains the UE implementation for the sample's client. The core code is inside `LiveOpsDemoMainMenu.h` and part of the implementation is done through BPs inside the folder `UI_BPs` folder of the `BEAMPROJ_Beamball` project.
+- **`BEAMPROJ_Beamball` Unreal Plugin.**: Contains the UE implementation for the sample's client. The core code is inside `LiveOpsDemoMainMenu.h` and part of the implementation is done through BPs inside the folder `UI_BPs` folder of the `BEAMPROJ_Beamball` project
 - **`Microservice/BeamballMs` Microservice**: Microservice containing code that's used by the sample for various matchmaking and stats stuff.
 
 To set up this sample you'll need a a Beamable Account and a Realm. To configure the repo for the sample run `dotnet beam unreal select-sample BEAMPROJ_Beamball`.

@@ -6,13 +6,13 @@ This demo showcases how you can use the **Unreal SDK** and **Beamable Microservi
 
 Aside from our `BeamableCore` Plugin, here's what the sample contains:
 
-- **`BEAMPROJ_SteamDemo` Unreal Plugin.**: Contains the UE implementation for the client.
+- **`BEAMPROJ_SteamDemo` Unreal Plugin.**: Contains the UE implementation for the client
 - **`Microservices/services/SteamDemo` Microservice**: Microservice containing code that implements **IFederatedLogin**
 
 To set up this sample you'll need a few things:
 
-- A Beamable Account and a Realm.
-- A Steam Developer Account.
+- A Beamable Account and a Realm
+- A Steam Developer Account
 
 To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_SteamDemo`.
 
@@ -82,9 +82,9 @@ This is how we initialize the SDK and sign in a user with their Steam account.
 
 This sample is NOT a template you can start your own repository from. However, its Beamable code components are free for you to copy and use in your own project. Here's what these are:
 
-- The `SteamDemo` Microservice.
-- Beamable code inside `BEAMPROJ_SteamDemo` except code inside a `ThirdParty` directory.
-- Content inside the `BEAMPROJ_SteamDemo` except things inside a `ThirdParty` directory.
+- The `SteamDemo` Microservice
+- Beamable code inside `BEAMPROJ_SteamDemo` except code inside a `ThirdParty` directory
+- Content inside the `BEAMPROJ_SteamDemo` except things inside a `ThirdParty` directory
 
 ## Why don't we provide a client build?
-Because clients must be pointed at your `steam-demo` realm. As such, you'd need to generate the build yourself, which you can do by packaging it normally for any of our supported platforms.
+Clients must be pointed at your `steam-demo` realm, meaning you will need to generate the build yourself. You can do so by packaging it normally for any of our supported platforms.

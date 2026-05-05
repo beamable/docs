@@ -42,7 +42,7 @@ Run the `beam_init_game_maker.sh` script to set up the SDK in your project. The 
 ### Setting Up Modules
 Now that the script has run, you need to set up your project's `Target.cs` and `Build.cs` files to include Beamable's SDK.
 
-**For each of your `Target.cs` files, add the following lines to their constructor:**
+**For each of your `Target.cs` files, add the following lines to their constructor**:
 
 | File                        | Configuration Code |
 |-----------------------------|--------------------|
@@ -50,7 +50,7 @@ Now that the script has run, you need to set up your project's `Target.cs` and `
 | `MyProjectEditor.Target.cs` | `Beam.ConfigureEditor(this, Beam.OssConfig.Disabled())` |
 | `MyProjectServer.Target.cs` | `Beam.ConfigureServer(this, Beam.OssConfig.Disabled())` *(only if you have dedicated server builds)* |
 
-**In each of the Modules you want to use Beamable's SDK, add this to their `Build.cs` files:**
+**In each of the Modules you want to use Beamable's SDK, add this to their `Build.cs` files**:
 
 | Module Type                   | Configuration Code |
 |-------------------------------|--------------------|

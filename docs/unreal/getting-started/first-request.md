@@ -53,9 +53,9 @@ Operation nodes are "purple" Beamable nodes that encapsulate many complex functi
 
 The Frictionless Login node has three flow pins to handle the result of the login operation:
 
-- **On Success:** executes if the login completed successfully.
-- **On Error:** executes if any error happens during the login flow.
-- **On Cancelled:** used in _very special cases_ and can mostly be ignored for now.
+- **On Success**: executes if the login completed successfully
+- **On Error**: executes if any error happens during the login flow
+- **On Cancelled**: used in _very special cases_ and can mostly be ignored for now
 
 And That's it! If this operation succeeds, you'll have a **Guest Account** signed-into the `Player0` user slot.
 
@@ -68,7 +68,7 @@ Now that you've made your first Beamable Request, you can take a look at the [Te
 Also, take a look at the [Samples](../samples/intro.md), which are a valuable source of practical information and good general reference.
 
 ## Issues and Reporting
-- Use verbose logging `log Category Verbose` when encountering an issue stemming from the SDK (Log Categories can be found in `BeambleCore/BeamLogging.h` file).
-- This verbose logging will print ***a lot more*** information about requests being made and what the SDK is doing. It is meant to aid in diagnosing issues, NOT for production use. To turn it off in the same editor session, run `log Category Display` in the editor console.
-- When reporting an issue, try to reproduce it with the logs of the relevant systems set to Verbose and attach them to the report.
-- To contact support or submit suggestions, head to the [Support Portal](https://beamable.com/support).
+- Use verbose logging `log Category Verbose` when encountering an issue stemming from the SDK (Log Categories can be found in `BeambleCore/BeamLogging.h` file)
+- This verbose logging will print ***a lot more*** information about requests being made and what the SDK is doing. It is meant to aid in diagnosing issues, NOT for production use. To turn it off in the same editor session, run `log Category Display` in the editor console
+- When reporting an issue, try to reproduce it with the logs of the relevant systems set to Verbose and attach them to the report
+- To contact support or submit suggestions, head to the [Support Portal](https://beamable.com/support)

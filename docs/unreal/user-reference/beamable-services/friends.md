@@ -4,11 +4,11 @@ The Beamable **Friends** feature allows game makers to connect players with each
 
 Beamable's Friend system allows the following game flows:
 
- - Send friend invites to other players.
- - Accept/Decline invites received from other players.
- - Block/Unblock other players.
- - Check the status of the player (Online, offline).
- - Remove the player from the friend list.
+ - Send friend invites to other players
+ - Accept/Decline invites received from other players
+ - Block/Unblock other players
+ - Check the status of the player (Online, offline)
+ - Remove the player from the friend list
 
 There is support for both local and multiplayer usage. This document focuses on multiplayer, as it is the most common use case.
 
@@ -65,10 +65,10 @@ When the player that received the invite decline it, both receive the `OnInviteD
 2. Call the `Operation - Friend - BlockPlayer`/`Operation - Friend - Unblock`. This will allow you to block/unblock a player using the gamer tag of this player.
 
 ???+ Warning "Observations"
-    - You can block any player — friend or not.
-    - **Blocked players can not be friends**.
-    - If you are already friends with a player and block them, the friendship is removed automatically.
-    - If you block a friend and then unblock them, this does not restore the friendship — a new friend invite is required.
+    - You can block any player — friend or not
+    - **Blocked players can not be friends**
+    - If you are already friends with a player and block them, the friendship is removed automatically
+    - If you block a friend and then unblock them, this does not restore the friendship — a new friend invite is required
 
 ![friends-block-player.png](../../../media/imgs/friends-block-player.png)
 

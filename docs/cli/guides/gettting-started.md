@@ -3,7 +3,7 @@
 The Beamable CLI is a dotnet tool that allows developers to interact with Beamable. It can manage a variety of Beamable technologies, including Microservices, Content, and other services.
 
 ## Dependencies
-You'll need to install [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) before you can get started.
+You'll need to install [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) before you can get started.
 Verify it is installed by running `dotnet --version` from a terminal.
 
 ## Installing
@@ -24,9 +24,9 @@ The following command will install the latest CLI. The "latest" string can be an
 beam version install latest
 ```
 
-!!! info "Check Versions on Nuget"
+!!! info "Check Versions on NuGet"
 
-    Remember, Beamable.Tools is a dotnet tool available through Nuget. As such, you can find all available versions at [nuget.org](https://www.nuget.org/packages/Beamable.Tools)
+    Remember, Beamable.Tools is a dotnet tool available through NuGet. As such, you can find all available versions at [nuget.org](https://www.nuget.org/packages/Beamable.Tools)
 
 There may be updates you are required to do, so please check the [migration guide](upgrading.md).
 
@@ -61,6 +61,6 @@ To check that everything is working correctly, you can use the beam me command. 
 From here, you can:
 
 - Setup [Standalone Microservices](microservices.md)
-- Manage Content,
-- Listen to server events,
-- [learn how the CLI handles data output](ms-command-line.md).
+- Manage Content
+- Listen to server events
+- [learn how the CLI handles data output](ms-command-line.md)

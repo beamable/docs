@@ -8,7 +8,7 @@ This demo showcases how you can use the **Beamable Unreal SDK** in LiveOps game 
 
 Aside from our `BeamableCore` Plugin, here's what the sample contains:
 
-- **`BEAMPROJ_LiveOpsDemo` Unreal Plugin.**: Contains the UE implementation for the sample's client. The core code is inside `LiveOpsDemoMainMenu.h` and part of the implementation is done through BPs inside the folder `UI_BPs` folder of the `BEAMPROJ_LiveOpsDemo` project.
+- **`BEAMPROJ_LiveOpsDemo` Unreal Plugin.**: Contains the UE implementation for the sample's client. The core code is inside `LiveOpsDemoMainMenu.h` and part of the implementation is done through BPs inside the folder `UI_BPs` folder of the `BEAMPROJ_LiveOpsDemo` project
 - **`Microservice/LiveOpsDemo` Microservice**: Microservice containing code that's used by the sample for various inventory and stat related things.
 
 To set up this sample you'll need a Beamable Account and a Realm. To configure the repo for the sample run `dotnet beam unreal select-sample BEAMPROJ_LiveOpsDemo`.

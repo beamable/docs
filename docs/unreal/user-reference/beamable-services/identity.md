@@ -81,7 +81,7 @@ If your login/signup flows are the same (which is sometimes useful in early deve
 
 
 ### Local Cache + Platform-specific
-Beamable has a different approach for supporting 3rd-Party Platforms such as Steam. Rather than maintaining a small subset of ALL existing 3rd-Party Platforms, Beamable uses [Microservice Federation](../federation/federation.md) capabilities to let you implement whichever Platform-specific features you need for your game.
+Beamable has a different approach for supporting third-party platforms such as Steam and Epic Online Services. Rather than maintaining a small subset of all existing third-party platforms, Beamable uses [Microservice Federation](../federation/federation.md) capabilities to let you implement whichever Platform-specific features you need for your game.
 
 Platform login flows are usually very simple. You can see that in the working [Steam Demo](../../samples/steam-demo.md).
 
@@ -95,7 +95,7 @@ Here's how that looks in the client side:
 
 ![Local Cache + Federated Identity](../../../media/imgs/identity-cache-plus-platform.png)
 
-Each different platform (Steam, EOS, PSN, etc.) requires a different Microservice implementation. At the moment, only a sample for Steam is available --- but samples for all major platforms (Steam, EOS, Console and Mobile platforms) are planned as the SDK evolves to support each target.
+Each different platform (Steam, EOS, PSN, etc.) requires a different Microservice implementation. At the moment, only a sample for Steam is available — but samples for all major platforms (Steam, EOS, Console and Mobile platforms) are planned as the SDK evolves to support each target.
 
 !!! note "Why do platform integrations this way?"
 	The problem with Beamable supporting each platform directly in the SDK is that it ties Beamable SDK versions to each individual platform's SDK versions. This denies game makers the ability to independently select the feature-set they want to support from each individual platform.
@@ -105,6 +105,4 @@ Each different platform (Steam, EOS, PSN, etc.) requires a different Microservic
     The advantages of the Federation approach is that the game-maker retains control of how they want to interact with the feature-set of each platform and gives them better control of upgrade timings.
 
 ## Identity in Dedicated Servers
-Dedicated Servers use a different authentication model ([real-time multiplayer](../realtime-multiplayer/realtime-multiplayer-overview.md)) that is not `UserSlot`-based.
-
-As such, none of these flows run in Dedicated Servers.
+Dedicated Servers use a different authentication model ([real-time multiplayer](../realtime-multiplayer/realtime-multiplayer-overview.md)) that is not `UserSlot`-based, meaning none of the flows described here run.

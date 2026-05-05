@@ -12,10 +12,10 @@ We do so through this architecture:
 
 The Microservice is:
 
-- An easy-to-write server that provides a set of APIs you, the Game-Maker, create.
-- Locally debuggable (really, just press Debug on Rider). [Collaboratively too](#collaborative-debugging).
-- Deployed as a Docker container that you can customize.
-- Promotable between Realms via the Portal OR the CLI (CI/CD folks rejoice).
+- An easy-to-write server that provides a set of APIs you, the Game-Maker, create
+- Locally debuggable (really, just press Debug on Rider). [Collaboratively too](#collaborative-debugging)
+- Deployed as a Docker container that you can customize
+- Promotable between Realms via the Portal OR the CLI (CI/CD folks rejoice)
 
 Under the hood, microservices are a wrapper around a custom WebSocket protocol and Job Scheduler with a set of layered APIs you can use to easily write the simple cases and peel back to write the complex cases.
 
@@ -46,11 +46,11 @@ The left side of the window provides you a list of all services in your project 
 ### The Details Panel
 The Details panel provides a detailed view of the microservices and access to a few features:
 
-- Start/Stop the service in your local machine.
-- Display logs for the service running on your local machine.
-- Open the Beamable Portal targeting **your local service**.
-- [Configure which **Microservice Target** the Play-in-Editor sessions will target](#collaborative-debugging).
-- [Configure Federation-specific settings](../federation/federation.md).
+- Start/Stop the service in your local machine
+- Display logs for the service running on your local machine
+- Open the Beamable Portal targeting **your local service**
+- [Configure which **Microservice Target** the Play-in-Editor sessions will target](#collaborative-debugging)
+- [Configure Federation-specific settings](../federation/federation.md)
 
 ### Local - Logs Tab
 Here you can explore the logs for any running Microservice. You can filter by **Log Level**, substring search and also clear stored logs.
@@ -107,7 +107,7 @@ When declaring `Callable` functions, you should be aware of a few limitations re
 
 Keep in mind that only a few things actually affect the shape of any particular `Callable`'s generated client code. This means that different signatures can effectively represent the same endpoint.
 
-**The lists below all produce the same exposed API and generated client code:**
+**The lists below all produce the same exposed API and generated client code**:
 
 - For primitive types:
 	- `public int PotatoAdd()`
@@ -224,9 +224,9 @@ Once you have these, you can:
 If you are using [Federations](../federation/federation.md), there are a few particulars of this workflow of which you should be aware. If not, the above works as described.
 
 ## Deploying to a Realm
-Once you have things working locally, you'll likely want to make the Microservice available to other team members working on the realm. If you just push your code up, other team members would also have to run the service locally and that might not always be desirable.
+Once you have things working locally, you may want to make the Microservice available to other team members working in the same realm. If all you do is push your code, other team members would also have to run the service locally.
 
-As such, you should publish the services to the appropriate realm.
+To allow your teammates to use the service without needing to run it locally, you should publish the services to the appropriate realm.
 
 !!! info "Which realm?"
 	How you wish to manage realms is a team-specific decision as there are cost implications per-microservice instance running in any realm to consider against how your team likes to work.

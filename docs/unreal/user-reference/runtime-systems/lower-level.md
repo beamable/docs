@@ -58,7 +58,7 @@ By default, these are if:
 - Received any error defined in `UBeamBackend::AUTH_ERROR_CODE_RETRY_ALLOWED`.
     - These errors trigger the SDK's authentication token refresh flow. It will refresh the token and then retry the request.
 
-If you ever encounter issues with this system, `log LogBeamBackend Verbose` is a useful Unreal command that can be used as a diagnostic tool. It will print out the entire process of building the request, sending it out and receiving its response.
+If you ever encounter issues with this system, `log LogBeamBackend Verbose` is a useful Unreal command that can be used as a diagnostic tool. It will print out the entire process of building the request, sending it out, and receiving its response.
 
 !!! note "Connectivity"
     The Beamable SDK does not handle the concept of "player connectivity to the internet" via request/response heuristics. See `UBeamNotifications` below and [Connectivity](connectivity.md) for more information.
@@ -79,6 +79,6 @@ For example:
 - These are used by that service's `UBeamRuntimeSubsystem` based on their semantic needs.
     - For example, `UBeamMatchmakingNotifications` subscribes to notifications for the matchmaking ticket while a `FUserSlot` is on a given queue.<br><br>
 
-- You can use Microservices to send out custom notifications --- those can be received in clients by creating your own subsystem modeled after these.
+- You can use Microservices to send out custom notifications — those can be received in clients by creating your own subsystem modeled after these.
     - Use `UBeamRuntime::SubscribeToCustomNotification` to subscribe to these easily at runtime.
 

@@ -4,7 +4,7 @@ Federate Standalone Microservices with external services
 
 ## Dependencies
 
-Before you can federate using Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](gettting-started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can federate using Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](gettting-started.md). That means having [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -22,7 +22,7 @@ dotnet beam project new service HelloWorld
 
 ## Federation
 
-Microservice _Federation_ is the ability to inject custom server logic in the middle of existing Beamable server functionality. Federation can be used to add custom behaviour to your game like supporting external identity auth providers, using a block chain as the backing data provider for player inventory, managing how match making works, and more.
+Microservice _Federation_ is the ability to inject custom server logic in the middle of existing Beamable server functionality. Federation can be used to add custom behavior to your game like supporting external identity auth providers, using a block chain as the backing data provider for player inventory, managing how match making works, and more.
 
 There are 4 types of federation. All of these federations have C# interfaces
 that define the types of functions that they require.

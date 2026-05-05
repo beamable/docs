@@ -4,7 +4,7 @@ Debug Standalone Microservices locally
 
 ## Dependencies
 
-Before you can debug Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](gettting-started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can debug Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](gettting-started.md). That means having [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -33,7 +33,7 @@ Unfortunately, JetBrains Rider has limited hot reload support out of the box. Wi
 
 Not all types of source code changes will work with hot reload. Only changes to the `.cs` files will be acceptable. No changes to the `.csproj` or other build-time configuration options will be reloaded.
 
-### Dotnet CLI
+### .NET CLI
 
 You can run your service with hot reload by using the vanilla dotnet CLI.
 

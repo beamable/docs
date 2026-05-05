@@ -101,7 +101,7 @@ Both lobby types have the same schema and are represented by the `ULobby` class.
 - **Name** and **Description**: are arbitrarily defined when the lobby is created. For matchmaking, these are empty.
 - **Host**: the host player's `FBeamGamerTag`. For matchmaking lobbies, there is no host. <!-- TODO(@drewbleam): Federation thing: Make a section here explaining LoL-style matchmaking where player properties change after the match is made but BEFORE the server is provisioned. -->
 - **Restriction**: defines whether the lobby is **Open** or **Closed**.
-	- Can be changed -- whenever it is changed to **Closed**, a new **Passcode** is generated.
+	- Can be changed — whenever it is changed to **Closed**, a new **Passcode** is generated.
 - **Passcode**: an auto-generated realm-scoped unique value that can be used to `JoinLobbyByPasscode`.
 	- This is filled on-creation and the passcode length has a minimum of 6 characters.
 - **MaxPlayers**: defines the maximum amount of players that can be in this lobby at the same time.

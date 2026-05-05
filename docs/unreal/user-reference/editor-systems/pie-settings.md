@@ -22,9 +22,9 @@ Whenever you run the game in the editor with PIE, the Player Manager records any
 
 Player profiles can then be saved as either Local or Template, making them reusable in Play Presets:
 
-* **Local (Green)**: Saved locally in your `.beamable/temp` folder. Useful for personal testing and development.
-* **Template (Orange)**: Saved in your `.beamable` folder and can be committed to version control. Intended as shared templates so the whole team can start from the same baseline.
-* **Captured (Grey)**: Per-session captured players are unsaved and cleared during the editor initialization.
+* **Local (Green)**: Saved locally in your `.beamable/temp` folder. Useful for personal testing and development
+* **Template (Orange)**: Saved in your `.beamable` folder and can be committed to version control. Intended as shared templates so the whole team can start from the same baseline
+* **Captured (Grey)**: Per-session captured players are unsaved and cleared during the editor initialization
 
 !!! warning "Player Profile Names and Descriptions"
     Always give saved player profiles a name, as only named profiles will appear in Play Presets.
@@ -60,26 +60,26 @@ Play Presets can be configured to initialize lobbies for PIE, allowing you to te
 
 In the PIE Lobby Settings you can configure:
 
-- **Enable/Disable**: checkbox in the header enables or disables the PIE Lobby simulation for this preset.
-- **Server Map Override**: map that will be used as the server map for the PIE Lobby. This overrides the default server map defined in the Unreal Project Settings.
-- **Game Type**: Game Type content that will be used for the PIE Lobby Scene. If there is a federation configured here, the federation does run too.
-- **Lobby Global Data**: Custom Global Key-Value pairs that will be used to initialize the PIE Lobby. This data is available in the Gameplay Scene and can be used to simulate different scenarios.
+- **Enable/Disable**: checkbox in the header enables or disables the PIE Lobby simulation for this preset
+- **Server Map Override**: map that will be used as the server map for the PIE Lobby. This overrides the default server map defined in the Unreal Project Settings
+- **Game Type**: Game Type content that will be used for the PIE Lobby Scene. If there is a federation configured here, the federation does run too
+- **Lobby Global Data**: Custom Global Key-Value pairs that will be used to initialize the PIE Lobby. This data is available in the Gameplay Scene and can be used to simulate different scenarios
 
 ![pie-fake-lobby.png](../../../media/imgs/pie-fake-lobby.png)
 
 ### User Settings
 The User Settings section allows you to configure per-player settings for the users that will be automatically logged in this session. The mapping goes as follows:
 
-- **PIE Client**: Starts at 1~X. X is the `Number of Players` you define in Unreal's own Play Mode Settings.
-- **User Slot**: For each PIE client, you can define a user for each of configured `Runtime User Slots`.
+- **PIE Client**: Starts at 1~X. X is the `Number of Players` you define in Unreal's own Play Mode Settings
+- **User Slot**: For each PIE client, you can define a user for each of configured `Runtime User Slots`
 
 For the most part, adding users will configure this correctly. Validation also runs before PIE starts to ensure the selected `Play Preset` is compatible with the defined UE PIE settings themselves.
 
 When selecting players, a few things are relevant:
 
-- You can check `Copy on PIE` in order to get a new user with Stats and Inventory copied from the selected user account. This is useful when you want to keep a consistent starting state so you can test things (think of keeping users at various progression points in your game).
-- **Shared Users** will always `Copy on PIE`. This is because Shared Users are meant a workflow baseline. The recommendation is that design leads can leverage this to enforce in-house workflows, training and on-boarding.
-- **Users from realms other than your current one** will also always `Copy on PIE`. This is because BeamPIE cannot sign in with a user from another realm into a different one. The SDK copies it instead.
+- You can check `Copy on PIE` in order to get a new user with Stats and Inventory copied from the selected user account. This is useful when you want to keep a consistent starting state so you can test things (think of keeping users at various progression points in your game)
+- **Shared Users** will always `Copy on PIE`. This is because Shared Users are meant a workflow baseline. The recommendation is that design leads can leverage this to enforce in-house workflows, training, and on-boarding
+- **Users from realms other than your current one** will also always `Copy on PIE`. This is because BeamPIE cannot sign in with a user from another realm into a different one. The SDK copies it instead
 
 When Fake Lobbies are enabled, the Add Lobby Data will be available to add custom Key-Value pairs that will be used to initialize the per-player key-value store lobby itself. This data is accessible in the Gameplay Level and can be used to simulate various scenarios such as the selection of which skin the player chose or many other parameters that would get put into the lobby either via Federation or Matchmaking/Lobby systems themselves.
 

@@ -1,10 +1,10 @@
 # Federation
 
-**Federations** are similar to the idea **Server Side Callbacks or WebHooks** but are slightly expanded in use. It is Beamable's approach to extending, or sometimes delegating, the behavior of its Managed Services to microservices or 3rd parties.
+**Federations** are similar to the idea **Server Side Callbacks or WebHooks** but are slightly expanded in use. It is Beamable's approach to extending, or sometimes delegating, the behavior of its Managed Services to microservices or third parties.
 
 Here are a few example use cases that Federations as a concept means to solve:
 
-- Implementing 3rd Party Auth Integrations with other Identity Providers
+- Implementing third-party Auth Integrations with other Identity Providers
 - Customizing Initial Player Account States
 - Integrating Beamable Inventory with Steam Inventory or Web3 Wallets.
 - Integrating with Game Server Orchestrators such as Hathora, Agones or even a custom stack.
@@ -16,7 +16,7 @@ Here's a high-level diagram of what federations are:
 
 ![microservices-architecture-federation-general.png](../../../media/imgs/microservices-architecture-federation-general.png)
 
-As such, each of the provided **Federations** has its own semantics, usage guidelines, performance characteristics and constraints described in their individual pages.
+Each of the provided **Federations** has its own semantics, usage guidelines, performance characteristics, and constraints described in their individual pages.
 
 ## Federation Calls
 There are two types of **Federation Calls** the Beamable Backend makes:
@@ -42,12 +42,13 @@ The combination of the **Federation Id** and the **Federation Type** is comparab
 Examples:
 
 - `IFederatedLogin` would have different implementations for Steam and Epic auth integration.
-- As such, `IFederatedLogin<SteamId>` and `IFederatedLogin<EpicId>` the two different interfaces you'll need to implement.
+- `IFederatedLogin<SteamId>` and `IFederatedLogin<EpicId>` are the two interfaces you will need to implement.
+- `SteamId` carries `[FederationId("steam")]`; `EpicId` carries `[FederationId("epic")]` — Beamable uses these strings to route each request to the correct implementation.
 
 In other words, an id is just a unique `string` that you pass along in specific places depending on the federation to **choose between one or more federations if any should be used**.
 
 ## Adding/Removing Federations
-Federations are tied to interfaces implemented in your `Microservice` inherited class --- these federations and its IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, simply implement its federation and recompile the microservice project.
+Federations are tied to interfaces implemented in your `Microservice` inherited class — these federations and its IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, simply implement its federation and recompile the microservice project.
 
 ```csharp
 // FederationIds.cs
@@ -68,7 +69,7 @@ After adding any federation, your IDE will likely complain that you are not impl
 Take a look at each individual federation docs page for more information on use-cases and usage guidelines.
 
 ## Workflows for Developing Federations
-Most federations are inside complex application paths. As such, you need a way to iterate on them locally, much like how you do with `Callables` (see [Microservices](../microservices/microservices.md#common-developer-workflows)). This is why the SDK differentiates between In-Band calls to Federations and Out-of-Band calls to federations.
+Most federations are inside complex application paths. Thus, you need a way to iterate on them locally, much like how you do with `Callables` (see [Microservices](../microservices/microservices.md#common-developer-workflows)). This is why the SDK differentiates between In-Band calls to Federations and Out-of-Band calls to Federations.
 
 For **In-Band Calls** that reach a federated endpoint, the selected [Microservice Target](../microservices/microservices.md#microservice-routing-and-microservice-target) defines which running microservice instance will handle the federated call. In other words, you don't have to think about them. These get the same semantics as `Callables` routing.
 

@@ -6,13 +6,13 @@ This demo showcases how you can use the **Unreal SDK** and **Beamable Microservi
 
 Aside from our `BeamableCore` Plugin, here's what the sample contains:
 
-- **`BEAMPROJ_DiscordDemo` Unreal Plugin.**: Contains the UE implementation for the client.
-- **`Microservices/services/DiscordDemo` Microservice**: Microservice containing code that implements **IFederatedLogin** and a `DiscordBot` integration.
+- **`BEAMPROJ_DiscordDemo` Unreal Plugin.**: Contains the UE implementation for the client
+- **`Microservices/services/DiscordDemo` Microservice**: Microservice containing code that implements **IFederatedLogin** and a `DiscordBot` integration
 
 To set up this sample you'll need a few things:
 
-- A Beamable Account and a Realm.
-- A Discord Developer Account.
+- A Beamable Account and a Realm
+- A Discord Developer Account
 
 To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_DiscordDemo`.
 
@@ -84,9 +84,9 @@ In order to actually gate matchmaking you'll need to set up a rule in your `Game
 
 This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here's what these are:
 
-- The `DiscordDemo` Microservice.
-- Beamable code inside `BEAMPROJ_DiscordDemo` except code inside a `ThirdParty` directory.
-- Content inside the `BEAMPROJ_DiscordDemo` except things inside a `ThirdParty` directory.
+- The `DiscordDemo` Microservice
+- Beamable code inside `BEAMPROJ_DiscordDemo` except code inside a `ThirdParty` directory
+- Content inside the `BEAMPROJ_DiscordDemo` except things inside a `ThirdParty` directory
 
 ## Why don't we provide a client build?
-Because clients must be pointed at your `discord-demo` realm. As such, you'd need to generate the build yourself, which you can do by packaging it normally for any of our supported platforms.
+Clients must be pointed at your `discord-demo` realm, meaning you will need to generate the build yourself. You can do this by packaging it normally for any of our supported platforms.

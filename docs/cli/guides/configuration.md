@@ -61,7 +61,7 @@ Logs at
 
 ## Folder structure
 
-The one file that always will and should be is `connection-configuration.json` containing info about host, CID and PID of current configuration.
+The one file that always will and should be is `connection-configuration.json` containing info about host, CID, and PID of current configuration.
 The rest of the files are described in the table below:
 
 | path                        |                     description                      | can be included in VCS |

@@ -16,9 +16,9 @@ The SDK's Plugin is divided into several modules:
 
 For any technical lead making system-level decisions, effective use of Beamable and the Beamable Unreal SDK requires you to understand a few core concepts. So, after reading this document, you'll want to start here:
 
-- [**Content**](beamable-services/content.md): how you define your game's configuration -- balancing data, currency and item definitions, etc. Most of our systems depend on Content, so it is a good place to start.
+- [**Content**](beamable-services/content.md): how you define your game's configuration — balancing data, currency and item definitions, etc. Most of our systems depend on Content, so it is a good place to start.
 - [**Identity**](beamable-services/identity.md): the various ways you can manage a player's account and login flows.
-- [**Microservices**](microservices/microservices.md): our version of cloud-code -- but also much more.
+- [**Microservices**](microservices/microservices.md): our version of cloud-code — but also much more.
 - [**Federation**](federation/federation.md): effectively exposed hooks in our backend's various features that you can hook into with custom behavior. You can leverage this for integrating with third-party authentication, initial player state and a lot more.
 
 Aside from those core concepts, the links below explain some of our higher-level systems.
@@ -30,9 +30,9 @@ Aside from those core concepts, the links below explain some of our higher-level
 ## Beamable Runtime SDK
 `UBeamRuntime` is the entry point for the Beamable SDK at runtime (PIE, packaged game clients, and dedicated servers). It is a `GameInstanceSubsystem` and follows its lifecycle rules. It is responsible for a couple of things:
 
-- Controls the SDK's runtime initialization flow.
-- Controls the various SDK's user \[un\]-authentication flows.
-- Controls `UBeamRuntimeSubsystems'` lifecycle with respect to the SDK's initialization flow itself and `FUserSlot` authentication.
+- Controls the SDK's runtime initialization flow
+- Controls the various SDK's user \[un\]-authentication flows
+- Controls `UBeamRuntimeSubsystems'` lifecycle with respect to the SDK's initialization flow itself and `FUserSlot` authentication
 
 The image below describes how the SDK's lifecycle injects itself into UE's lifecycle:
 
@@ -53,11 +53,11 @@ The next image shows a high-level description of the authentication flows suppor
 
 These are handwritten and maintained by the Beamable SDK team. Here are a few examples:
 
-- `UBeamStatsSubsystem`: enables you to store arbitrary key-value pairs associated to a player's account.
-- `UBeamInventorySubsystem`: provides builder functions around our Inventory APIs that allows you to combine what would be multiple API requests into a single batched inventory update. It also receives inventory notifications coming from the server and keeps in-memory player state in sync.
-- `UBeamMatchmakingSubsystem`: provides a stateful way of joining/canceling a matchmaking queue and receiving updates when a match is found.
+- `UBeamStatsSubsystem`: enables you to store arbitrary key-value pairs associated to a player's account
+- `UBeamInventorySubsystem`: provides builder functions around our Inventory APIs that allows you to combine what would be multiple API requests into a single batched inventory update. It also receives inventory notifications coming from the server and keeps in-memory player state in sync
+- `UBeamMatchmakingSubsystem`: provides a stateful way of joining/canceling a matchmaking queue and receiving updates when a match is found
 
-These systems make use of the various `UBeamRuntimeSubsystem` callbacks to keep their state correct and expose callbacks and configuration options for **Game-Maker Code** to run with semantically relevant guarantees. Coupled with [Federations](federation/federation.md), these guarantees can be leveraged to greatly simplify the complexity of client implementations -- usually reducing the complexity and cost of your game's systems implementation.
+These systems make use of the various `UBeamRuntimeSubsystem` callbacks to keep their state correct and expose callbacks and configuration options for **Game-Maker Code** to run with semantically relevant guarantees. Coupled with [Federations](federation/federation.md), these guarantees can be leveraged to greatly simplify the complexity of client implementations — usually reducing the complexity and cost of your game's systems implementation.
 
 All of our [Blueprint](runtime-systems/blueprints.md) nodes, except our **Low-Level** ones, are backed by these sub-system implementations.
 
@@ -69,9 +69,9 @@ You can also opt out of these entirely by adding them to `UBeamCoreSettings` 's 
 
 You can leverage the above to:
 
-- Delay initialization of subsystems to a later point to reduce startup times.
-- Remove our implementation of a set of systems so that you can use your own implementation of those systems without paying the overhead of our default implementations.
-- Disable systems that you do not want to use to reduce the SDK's request overhead.
+- Delay initialization of subsystems to a later point to reduce startup times
+- Remove our implementation of a set of systems so that you can use your own implementation of those systems without paying the overhead of our default implementations
+- Disable systems that you do not want to use to reduce the SDK's request overhead
 
 Keep in mind that the simplest way is to build your features *on top of* these subsystems instead of replacing them.
 However, there are complex cases where it may be easier to make your own system *instead of* these subsystems.

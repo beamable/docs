@@ -6,7 +6,7 @@ In the **Beamball** sample we demonstrate a basic implementation of the Beamable
 
 ![beamball-matchmaking.png](../../../media/imgs/beamball-matchmaking.png)
 
-The Player selects **Play** in the main menu then the **`Refresh Hatchora Ping Stat Operation`** updates ping in the player's stats allowing the server to choose the best lobby to this player. The local state is checked with **`Local State - Matchmaking - IsUserInQueue`**, leaving the queue if already in. The  **`Local State - Lobby - TryGetCurrentLobby`** checks if the player is in a lobby, leaving if so. Finally, if there's impediment the player joins the matchmaking queue with **`Operation - Matchmaking - Join Queue`**. Beamable services handle the rest of the matchmaking process, forming balanced lobbies and starting the match.
+The Player selects **Play** in the main menu then the **`Refresh Hathora Ping Stat Operation`** updates ping in the player's stats allowing the server to choose the best lobby to this player. The local state is checked with **`Local State - Matchmaking - IsUserInQueue`**, leaving the queue if already in. The  **`Local State - Lobby - TryGetCurrentLobby`** checks if the player is in a lobby, leaving if so. Finally, if no impediments remain, the player joins the matchmaking queue with **`Operation - Matchmaking - Join Queue`**. Beamable services handle the rest of the matchmaking process: forming balanced lobbies and starting the match.
 
 !!! note "Main SDK Functions to be aware of:"
     - **`Operation - Matchmaking - Leave Queue`**: Removes the player from the current matchmaking queue.
@@ -17,7 +17,7 @@ The Player selects **Play** in the main menu then the **`Refresh Hatchora Ping S
 
 ## Matchmaking Events
 ![beamball-matchmacking3.png](../../../media/imgs/beamball-matchmacking3.png)
-The matchmaking process is asynchronous, and the player is kept informed through event bindings on the **`Events - Matchmaking - Bind`**. The player is notified when they successfully started search for a match, when the Match is ready, canceled or timed out.
+The matchmaking process is asynchronous, and the player is kept informed through event bindings on the **`Events - Matchmaking - Bind`**. The player is notified when they successfully started search for a match, when the Match is ready, canceled, or timed out.
 
 ## Starting a Match
 ![beamball-matchmaking2.png](../../../media/imgs/beamball-matchmaking2.png)

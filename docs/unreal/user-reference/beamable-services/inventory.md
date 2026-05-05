@@ -2,15 +2,15 @@
 
 The Beamable Inventory system is designed to manage player inventories, allowing for the addition and removal of items and currencies. It supports both **Fungible** and **Non-Fungible** content types:
 
-- **Fungible** means that each instance of that content is not unique. The simplest example is a Soft/Hard Currency in a live-services game. Each coin you grant the player is not unique. In Beamable, this type of content is represented as a `UBeamCurrencyContent`.
-- **Non-Fungible** means that each instance of that content is unique. The simplest example is an item in an MMORPG. Each instance of that item is unique and can have its own properties. In Beamable, this type of content is represented as a `UBeamItemContent`.
+- **Fungible** means that each instance of that content is not unique. The simplest example is a Soft/Hard Currency in a live-services game. Each coin you grant the player is not unique. In Beamable, this type of content is represented as a `UBeamCurrencyContent`
+- **Non-Fungible** means that each instance of that content is unique. The simplest example is an item in an MMORPG. Each instance of that item is unique and can have its own properties. In Beamable, this type of content is represented as a `UBeamItemContent`
 
 The Inventory system is built on top of Beamable's [Content Feature](content.md). `Currency` and `Item` content is created via the content window. You can also inherit from their base types to define additional read-only properties for custom items/currencies in your game.
 
 Each player's inventory state can be thought of as:
 
-- A mapping of how much of each defined `Currency` the player currently has.
-- A list of instances of `Items` the player owns, each with their own unique `InstanceId` and Key-Value pair of instance properties.
+- A mapping of how much of each defined `Currency` the player currently has
+- A list of instances of `Items` the player owns, each with their own unique `InstanceId` and Key-Value pair of instance properties
 
 In short, Inventory manages two types of data: items and virtual currencies.
 
@@ -40,10 +40,10 @@ Now, call this function while a user is signed in to grant the currency/item to 
 
 After running the above function at least once, you should be able to see the results of these calls in the Beamable portal. To do so:
 
-- Copy the `Gamertag/UserId` from the Unreal Engine logs.
-- Select `Open Portal` in Beamable window.
-- Go to `Engage->Players` and search for the player via `Gamertag/UserId`.
-- Go to `Inventory` and see that the appropriate currency and items are inside the user's inventory.
+- Copy the `Gamertag/UserId` from the Unreal Engine logs
+- Select `Open Portal` in Beamable window
+- Go to `Engage->Players` and search for the player via `Gamertag/UserId`
+- Go to `Inventory` and see that the appropriate currency and items are inside the user's inventory
 
 ![inventory-portal.png](../../../media/imgs/inventory-portal.png)
 
@@ -73,12 +73,12 @@ The Items feature allows for the creation and management of various in-game obje
 
 In the `UBeamInventorySubsystem`, each item instance inside a player's inventory is represented by `FBeamItemState`. These instances have the following properties:
 
-- **ContentId**: the Id of `UBeamItemContent` that represents the type of this item instance.
-- **Properties**: a key-value store of properties of this specific item instance. You control which properties exist here.
-- **InstanceId**: a unique id of item instance inside this player's inventory.
-- **CreatedAt**: when item instance was created.
-- **UpdatedAt**: last edit date.
-- **FederatedId**: See [Inventory Federation](../federation/federated-inventory.md) for more information about this field.
+- **ContentId**: the Id of `UBeamItemContent` that represents the type of this item instance
+- **Properties**: a key-value store of properties of this specific item instance. You control which properties exist here
+- **InstanceId**: a unique id of item instance inside this player's inventory
+- **CreatedAt**: when item instance was created
+- **UpdatedAt**: last edit date
+- **FederatedId**: See [Inventory Federation](../federation/federated-inventory.md) for more information about this field
 
 ## Client Permissions
 
@@ -95,9 +95,9 @@ If not toggled, the content becomes **Server-Authoritative**: trying to add/remo
 As with most key-value pairs for arbitrary data, try to follow the guidelines below:
 
 **For Keys**:
-- 8-20 characters are ideal (purely for human ergonomics).
-- Keeping them under a few hundred characters is best for performance.
-- Use enforceable and recognizable patterns for your keys.
+- 8-20 characters are ideal (purely for human ergonomics)
+- Keeping them under a few hundred characters is best for performance
+- Use enforceable and recognizable patterns for your keys
 	- Bad: `ItemEnhancementName` and `ENH_Count`
 	- Good: `ENHANCE_Name` and `ENHANCE_Count` OR `ItemEnhancementName` and `ItemEnhancementCount`.
 

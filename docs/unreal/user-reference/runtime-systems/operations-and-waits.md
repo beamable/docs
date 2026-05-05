@@ -21,24 +21,24 @@ A couple of examples:
 
 ## Operation Lifecycle
 
-Every Operation has an `int64` id called the `FBeamOperationHandle` managed by the `UBeamRequestTracker`, a `UEngineSubsystem`. The SDK uses it to track the operation's state, its emitted events, its current status and which of Beamable's requests are part of it.
+Every Operation has an `int64` identifier called the `FBeamOperationHandle` managed by the `UBeamRequestTracker`, a `UEngineSubsystem`. The SDK uses it to track the operation's state, its emitted events, its current status, and which of Beamable's requests are part of it.
 
 The lifecycle of an operation goes as follows:
 
 ![operations-and-waits-lifecycle.png](../../../media/imgs/operations-and-waits-lifecycle.png)
 
-**When writing Operations, there are two ways of thinking about them:**
+**When writing Operations, there are two ways of thinking about them**:
 
-- **Regular Operations**: are just a "Promise".
-- **Operation Hooks**: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work.
+- **Regular Operations**: are just a "Promise"
+- **Operation Hooks**: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work
 
 ## Writing and Exposing your Own Regular Operations
 The SDK exposes all main operations in both BP and C++ flavors. If you'd like to do the same thing, this section is for you. To learn about writing hooks in C++, review the next section.
 
-**The primary trade-off:**
+**The primary trade-off**:
 
-- BP-Compatible versions do not allow for lambda binding and variable capturing.
-- The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, the SDK supports both flavors.
+- BP-Compatible versions do not allow for lambda binding and variable capturing
+- The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, the SDK supports both flavors
 
 In order to easily support both flavors, the snippet below explains how you should write the actual operation logic such that it can be shared for both CPP and BP versions.
 
@@ -118,7 +118,7 @@ There are many examples of operations in the SDK. For guidance, look at any of t
 - `UBeamStatsSubsystem`
 - `UBeamInventorySubsystem`
 - `UBeamLobbySubsystem`
-- Any other sub-class of `UBeamRuntimeSubsystem`.
+- Any other sub-class of `UBeamRuntimeSubsystem`
 
 Feel free to copy-paste them as a template of how to implement and reason about `Operations`.
 
@@ -127,23 +127,23 @@ As part of the [Blueprint integration](blueprints.md), the SDK includes a few cu
 
 ![beam-flow-node](../../../media/imgs/operation-and-waits-beam-flow-nodes.png)
 
-**Beamable Operation Flow Nodes assume a few things:**
+**Beamable Operation Flow Nodes assume a few things**:
 
-- One or more participating `UserSlots` (see [User Slots](user-slots.md) for more information).
-- An event handler for handling any of the events.
-- Events can be: `OET_SUCCESS`, `OET_ERROR` and `OET_CANCELLED` plus a `FName EventId`.
-- Events can contain some arbitrary data associated with them (implementations of `IBeamOperationEventData`).
+- One or more participating `UserSlots` (see [User Slots](user-slots.md) for more information)
+- An event handler for handling any of the events
+- Events can be: `OET_SUCCESS`, `OET_ERROR` and `OET_CANCELLED` plus a `FName EventId`
+- Events can contain some arbitrary data associated with them (implementations of `IBeamOperationEventData`)
 
 To create these nodes for your own operations, look at any of the SDK's nodes (inside the `UncookedOnly` module: `BeamableCoreBlueprintNodes`) and copy/paste one implementation changing the values accordingly.
 
-**However, there are a few restrictions:**
+**However, there are a few restrictions**:
 
 - The function must be a `UFUNCTION` that returns a `FBeamOperationHandle` and contains the following named parameters:
 	- `FUserSlot UserSlot` if a single user is involved in the operation or `TArray<FUserSlot> UserSlot` if multiple users are involved in the operation.
-      - If multiple users, the `UFUNCTION` must also add `meta=(BeamOperationMultiUser)`.
+      - If multiple users, the `UFUNCTION` must also add `meta=(BeamOperationMultiUser)`
 	- `FBeamOperationEventHandler OnOperationEvent` to be the event handler that will handle all events raised by the operation.
-    - The function can have any other parameters you want in any order as long as the above parameters are there.
-- The function must be declared from inside any `UWorldSubsystem`, `UGameInstanceSubsystem`, or `UBeamRuntimeSubsystem` subclass with a `static UMySubsystem* GetSelf(const UObject* CallingContext)` `UFUNCTION` that returns the instance of itself.
+    - The function can have any other parameters you want in any order as long as the above parameters are there
+- The function must be declared from inside any `UWorldSubsystem`, `UGameInstanceSubsystem`, or `UBeamRuntimeSubsystem` subclass with a `static UMySubsystem* GetSelf(const UObject* CallingContext)` `UFUNCTION` that returns the instance of itself
 
 **Example declaration** — the SDK source is more up to date than the docs; prefer it over this snippet.
 
@@ -183,7 +183,7 @@ Writing Hooks are callback points that let you customize how the SDK behaves dur
 If a Delegate or Virtual Function returns one or more `FBeamOperationHandle`, you need to create operations and return their handles. The SDK will wait on these operations before continuing its own execution. Conceptually, this lets you inject a promise into a larger long-running operation.
 
 
-**There are a few flavors of this around the SDK:**
+**There are a few flavors of this around the SDK**:
 
 1. **Delayed Operation**: a simple callback with no parameters that returns a `FBeamOperationHandle` the SDK waits for.
 	1. See `UBeamRuntime::LoginGuest` for an example of this.<br><br>
@@ -192,7 +192,7 @@ If a Delegate or Virtual Function returns one or more `FBeamOperationHandle`, yo
 	1. This is for when you wish to make a system that ties into the Beamable life-cycle like the SDK's `UBeamRuntimeSubsystem` implementations do.
 	2. This is rarely needed, but in unique custom use-cases it is likely to be the best way to accomplish your goals.<br><br>
 
-3. **Hooks:** bind into delegates created via `DEFINE_BEAM_OPERATION_HOOK`.
+3. **Hooks**: these bind into delegates created via `DEFINE_BEAM_OPERATION_HOOK`.
 	1. Rest assured: the Beamable Unreal SDK will never use Hooks internally. They are reserved exclusively for your extensions.
 	2. You can search for `DEFINE_BEAM_OPERATION_HOOK` and find some usages of the macro to better understand these.
 
@@ -209,7 +209,7 @@ If a Delegate or Virtual Function returns one or more `FBeamOperationHandle`, yo
 	4. If your operations succeeded, the SDK continues with the operation and eventually triggers it as a success.
 	5. The semantics of what happens in case of a failure change from hook to hook, but for the most part the SDK fails the operation if any hooks fail.
 
-**Here's a "template example" of how this will typically look:**
+**Here is a "template example" of how this will typically look**:
 
 ```C++
 // Synchronous hook -- no requests needed:
@@ -280,8 +280,8 @@ This function takes arrays of `FBeamRequestContext`, `FBeamOperationHandle` and/
 
 Examples are available in the SDK. The most common are:
 
-- `UBeamRuntime`'s Initialization and Login's Lifecycle, defined as a multi-step operation with several wait points.
-- `UBeamContentSubsystem` also has an example of fetching content updates.
+- `UBeamRuntime`'s Initialization and Login's Lifecycle, defined as a multi-step operation with several wait points
+- `UBeamContentSubsystem` also has an example of fetching content updates
 
 ---
 

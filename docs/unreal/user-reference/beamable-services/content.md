@@ -47,7 +47,7 @@ If the content is not marked with any of these signs, it means it is in sync wit
 
 ![content-add-content.gif](../../../media/imgs/content-add-content.gif)
 
-**To create a new piece of content locally:**
+**To create a new piece of content locally**:
 
 1. Select **+** next to any of the content type headers to create a content of that type.
 2. Rename the created content; it cannot contain whitespaces or `.`.
@@ -107,7 +107,7 @@ In addition to the workflow above, there are cases where you might want to creat
 - Large features that make use of new custom content definitions developed alongside Microservices.
 - Content schema modifications or equivalents that will require migrating existing content to a new schema.
 
-To achieve this --- just create a new realm for the development of that feature.
+To achieve this — just create a new realm for the development of that feature.
 
 !!! note "Feature Branches vs Feature Flags"
     If you like working with feature branches, pair this realm with the feature branch. For reducing complexity, only do this for large features that will take a lot of time in development.

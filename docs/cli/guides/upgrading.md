@@ -120,7 +120,7 @@ parameter with the new namespace, and then use a conversion tool to get back the
 #### Client Generation
 In the old CLI and Microservice packages, Unity and Unreal Engine client code could be automatically
 generated when the Microservices were built. However, in CLI 5+, the engine integrations themselves
-are responsible for generating the client code, and the default behaviour is that a standalone
+are responsible for generating the client code, and the default behavior is that a standalone
 Microservice project will _no longer generate client code automatically_.
 
 It is possible to generate a unity client by hand using the following command,
@@ -151,7 +151,7 @@ releases.
 
 #### Removed `net6.0` and `net7.0` support
 Unfortunately, `net6.0` and `net7.0` have reached their [End-Of-Life phases](https://devblogs.microsoft.com/dotnet/dotnet-6-end-of-support/).
-The CLI 4.0 release officially drops Beamable support for these EOL dotnet
+The CLI 4.0 release officially drops Beamable support for these EOL .NET
 versions. As such, when you update your projects, you must update your
 `.csproj` files to use `net8.0`.
 
@@ -167,14 +167,14 @@ And update it to
 <TargetFramework>net8.0</TargetFramework>
 ```
 
-> 📘 Update Dotnet SDK
+> 📘 Update .NET SDK
 >
 > As of CLI 4.0.0, you must have dotnet8 SDK installed on your development
 > machines, instead of the dotnet6 SDK.
 
 #### `MongoDb.Driver` package vulnerability
 Previous versions of Beamable relied on version 2.15.1 of the `MongoDb.
-Driver` nuget package. If your project does not include any storage objects,
+Driver` NuGet package. If your project does not include any storage objects,
 you can ignore this step. However, if you do have storage objects, then
 those projects likely include this reference in the `.csproj` files,
 
@@ -215,7 +215,7 @@ Starting with CLI 3.0.1, you should start by updating the CLI's file structure. 
 1. Install [dotnet 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) in your machine (it is the new recommended version). The old `net6.0` framework's end-of-life arrived on November 12, 2024.
 2. Delete the `.beamable/local-services-manifest.json` file. (It is no longer necessary)
 
-Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install & re-install specific versions when switching projects, but that is a bad workflow --- so that was changed in 3.0.0.
+Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install & re-install specific versions when switching projects, but that is a bad workflow — so that was changed in 3.0.0.
 
 In 3.0.0, the CLI should be installed as a _local dotnet tool_.
 
@@ -272,11 +272,11 @@ You tried using a Beamable CLI version=[3.0.1] which is different than the one c
 #### Updating the `.csproj` Files
 The next step in this migration is to fix up the `.csproj` files for your microservices. The new `.csproj` file structure comes with a few new things:
 
-- It will version-lock the package versions to the currently local CLI version (the one inside `.config/dotnet-tools.json`).
-	- This means updating the CLI is just changing that version number.
-	- You can manually edit this to dodge the version-lock if you want to risk it.
-- It includes a Roslyn Static Analyser to help you out with microservices and federation implementations.
-- It'll target `.net8`.
+- It will version-lock the package versions to the currently local CLI version (the one inside `.config/dotnet-tools.json`)
+	- This means updating the CLI is just changing that version number
+	- You can manually edit this to dodge the version-lock if you want to risk it
+- It includes a Roslyn Static Analyser to help you out with microservices and federation implementations
+- It'll target `.net8`
 
 In every `csproj` file for **Microservices**, **MicroStorages**, and **Common Libraries**, follow the steps below:
 
@@ -349,9 +349,9 @@ With the introduction of the `Beamable.Microservice.SourceGen` library, all Micr
 
 If you use any Federated endpoints as part of your Microservices, there a few code-changes you'll have to make:
 
-- Replace all `IThirdPartyCloudIdentity` with `IFederationId`.
-- Add a `FederationId` attribute to the class `IFederationId` --- the `UniqueName` is the property.
-- If you were ever accessing the `UniqueName` property as part of your code, you'll need to replace those calls with `GetUniqueName()`.
+- Replace all `IThirdPartyCloudIdentity` with `IFederationId`
+- Add a `FederationId` attribute to the class `IFederationId` — the `UniqueName` is the property
+- If you were ever accessing the `UniqueName` property as part of your code, you'll need to replace those calls with `GetUniqueName()`
 
 Once these are in, try to compile your services. The newly referenced Roslyn Static Analyzer should tell you if you made any mistakes.
 
@@ -427,10 +427,10 @@ beam config
 
 If you forgot to the run the command, or would like to verify that the upgrade happened correctly, follow the bullets below.
 
-- The `.beamable/beamoLocalManifest.json` file should no longer exist.
-- The `.beamable/beamoLocalRuntime.json` file should no longer exist.
-- The `.beamable/config-defaults.json` file should no longer exist.
-- The `.beamable/user-token.json` file should no longer exist.
+- The `.beamable/beamoLocalManifest.json` file should no longer exist
+- The `.beamable/beamoLocalRuntime.json` file should no longer exist
+- The `.beamable/config-defaults.json` file should no longer exist
+- The `.beamable/user-token.json` file should no longer exist
 
 Instead, you should expect to see (at least),
 - `.beamable/connection-configuration.json` _(this replaces the old `config-defaults` file. )_
@@ -440,7 +440,7 @@ Instead, you should expect to see (at least),
 
 ##### SDK Version
 
-Unfortunately, the upgrade flow between major version 1 and 2 does not automatically upgrade the nuget dependency on Beamable. All of the `.csproj` files you may have will need to be manually upgraded to Beamable 2.0.1. Remember, every service, common library, and storage have their own `.csproj` files.
+Unfortunately, the upgrade flow between major version 1 and 2 does not automatically upgrade the NuGet dependency on Beamable. All of the `.csproj` files you may have will need to be manually upgraded to Beamable 2.0.1. Remember, every service, common library, and storage have their own `.csproj` files.
 
 Open each `csproj` file, and find the `<PackageReference>` for Beamable.
 For a service, it will likely look like this,
@@ -466,7 +466,7 @@ In addition, different project types have the following upgrade requirements...
 
 ###### Services
 
-For services, the `csproj` file has been simplified between major versions 1 and 2. You can remove all of the tasks and extraneous nuget references.
+For services, the `csproj` file has been simplified between major versions 1 and 2. You can remove all of the tasks and extraneous NuGet references.
 
 This snippet can (and should) be removed from a 1.19.22 service's `csproj` file.
 ```xml

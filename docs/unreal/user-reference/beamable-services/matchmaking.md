@@ -59,7 +59,7 @@ This content type defines a few things about a queue:
 - `FOptionalBeamStatComparisonRule EntryRules`: Optionally defines a set of [Stat](stats.md) comparison rules. Only players whose [Stats](stats.md) match those comparisons will be allowed into this queue.
 
 !!! note "Gating by Rank"
-	Failing to meet entry rule requirements will cause the Join Operation to fail -- so these can be used to gate queues on a player's account level or rank for example.
+	Failing to meet entry rule requirements will cause the Join Operation to fail — so these can be used to gate queues on a player's account level or rank for example.
 
 - `Numeric Rules` and `String Rules` are match grouping rules.
 	- **Numeric Rules** tries to group players with a particular stat within certain delta range.

@@ -40,7 +40,7 @@ Operation nodes can be configured in the following ways:
 
 ![blueprints-beam-mode.png](../../../media/imgs/blueprints-beam-mode.png)
 
-**Common use cases include:**
+**Common use cases include**:
 
 - Player Authentication flows
 - Inventory transactions
@@ -58,7 +58,7 @@ Operation nodes can be configured in the following ways:
 
 There are two different kinds of `Local State` nodes: a single-output version and a `for-each-style` version. These aim to cover most common ways to read this data from subsystems and display them in UI or make gameplay-related decisions based on them.
 
-**Common use cases include:**
+**Common use cases include**:
 
 - Access Player stats
 - Player inventory management including items and currencies
@@ -85,7 +85,7 @@ We also provide `Unbind` nodes for cases where the above pattern isn't possible 
 
 ![blueprint-event-unbind.png](../../../media/imgs/blueprint-event-unbind.png)
 
-**Common Use Cases:**
+**Common Use Cases**:
 
 - Notifying the player that a Match was found
 - Reconfiguring a part of the UI whenever an inventory item changed

@@ -5,7 +5,7 @@ Logging from a Microservice
 
 This guide assumes you have an existing Microservice. You need to complete the
 [Getting-Started Guide]
-(gettting-started.md). That means having [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+(gettting-started.md). That means having [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -180,9 +180,9 @@ public static async Task Main()
 ```
 
 The various _CreateAttribute_ functions should add attributes to the current context of a request.
-- `DefaultAttributes` allow you to add an attribute to _every_ log line.
-- `ConnectionAttributes` allow you to add an attribute to every log line that is part of a specific _connection_ to Beamable. When a Microservice runs locally, there is only a single connection, but in a deployed environment, there are _10_ connections.
-- `RequestAttributes` allow you add attributes to every log line per _request_.
+- `DefaultAttributes` allow you to add an attribute to _every_ log line
+- `ConnectionAttributes` allow you to add an attribute to every log line that is part of a specific _connection_ to Beamable. When a Microservice runs locally, there is only a single connection, but in a deployed environment, there are _10_ connections
+- `RequestAttributes` allow you add attributes to every log line per _request_
 
 The `GetDescriptors()` function must return a description for all attributes you want to be defined. When an attribute is described from the return value, the title and description will appear in Portal.
 
@@ -210,7 +210,7 @@ There are several standard log attributes that will be included automatically. S
 | beam.connection.request.root_trace_id   | The top level trace id from Beamable's internal observability stack                            | Only included when the service is processing a request | BEAM         | VERBOSE |
 | beam.connection.request.parent_trace_id | The most recent parent trace id from Beamable's internal observability stack                   | Only included when the service is processing a request | BEAM         | VERBOSE |
 
-### Third Party Log Hosting
+### Third-Party Log Hosting
 
 Starting with version 6.0, it is possible to send Microservice logs to third parties. This example uses BetterStack.
 
