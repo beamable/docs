@@ -2,7 +2,7 @@
 
 **This page walks through the process of loading the Beamable Window in your project and creating a simple request to retrieve user information.**
 
-!!! note Notice
+!!! note "Notice"
     This tutorial assumes you have already set up your Beamable account and integrated the Beamable SDK into your Unreal project. For instructions on doing so, see the [Setup Guide](setup.md).
 
 ## Accessing the Beamable Window
@@ -49,7 +49,7 @@ The `BeamRuntime` is a `GameInstanceSubsystem` that is responsible for controlli
 
 Once the SDK is initialized, the `Login - Frictionless` Operation node logs in a guest account automatically into the `Player0` user slot.
 
-Operation nodes are "purple" Beamable nodes that encapsulate many complex functionalities in a easy-to-use fashion. You can read more about the Operation Nodes [Here](../user-reference/runtime-systems/blueprints.md).
+Operation nodes are "purple" Beamable nodes that encapsulate many complex functionalities in a easy-to-use fashion. See [Operation Nodes](../user-reference/runtime-systems/blueprints.md) for more information.
 
 The Frictionless Login node has three flow pins to handle the result of the login operation:
 

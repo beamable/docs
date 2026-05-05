@@ -54,7 +54,7 @@ Now, you'll need to configure a Beamable realm so you can use it:
 14. Run `dotnet beam deploy release --latest-plan`.
 	1. This deploys the services outlined by the generated plan in the previous command.
 15. Go to the Portal (`Operate -> Microservices`) to verify that the microservices have initialized.
-17. In `DefaultEngine.ini` set the value of `SteamDevAppId` to your Steam Application ID. For more info, view the tutorial [here](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Online/Steam/).
+17. In `DefaultEngine.ini` set the value of `SteamDevAppId` to your Steam Application ID. For more info, see the [Unreal Engine Steam tutorial](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Online/Steam/).
 18. Package the project.
 19. In main folder (in the built game's folder where the executable is) create `steam_appid.txt` file with Steam Application ID as only content.
 

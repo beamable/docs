@@ -19,7 +19,7 @@ Logging in with the Beamable Unreal SDK means:
 
 > Authenticating the user, fetching all relevant data from the backend into the `UBeamRuntimeSubsystem`'s in-memory state and then completes the operation.
 
-This is handled automatically by the `Login` operations and `UBeamRuntimeSubsystem` implementations. You can see an overview of how this all works [here](../overview.md). The short version is: "After calling `Login` operations, your local state is ready for use."
+This is handled automatically by the `Login` operations and `UBeamRuntimeSubsystem` implementations. See the [SDK Overview](../overview.md) for how this all works. The short version is: "After calling `Login` operations, your local state is ready for use."
 
 Here's a simple example using `Login - Frictionless` Operation:
 ![alt text](../../../media/imgs/federations-player-init-login-example.png)

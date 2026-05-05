@@ -1,7 +1,7 @@
 # SDK Technical Overview
 
 The Beamable SDK is a collection of custom UE `Engine`, `Editor` and `GameInstance` Subsystems.
-If you are not familiar with Unreal Subsystems, you can take a look at their docs [here](https://dev.epicgames.com/documentation/en-us/unreal-engine/programming-subsystems-in-unreal-engine).
+If you are not familiar with Unreal Subsystems, see the [Unreal Engine Programming Subsystems documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/programming-subsystems-in-unreal-engine).
 
 **Game-Maker Code** (as in, code the Beamable customer writes) can take advantage of various guarantees the SDK provides by understanding how these subsystems work.
 

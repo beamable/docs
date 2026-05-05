@@ -29,7 +29,7 @@ To set up an organization and realm to run this sample, follow the steps below.
       3. Ensure there's a `leaderboard` content with the name `global`
       3. Ensure there are 3 `listings` content with the names `skin1`, `skin2`, `skin3`
       5. Select `Publish` to publish those new contents to the realm.
-      6. You can read more about the content system [Here](../../user-reference/beamable-services/content.md)
+      6. See the [Content System documentation](../../user-reference/beamable-services/content.md)
 
 ## Running the Sample in Editor
 

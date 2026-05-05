@@ -89,7 +89,7 @@ When toggled, the content becomes **Client-Authoritative**: the SDK allows game-
 If not toggled, the content becomes **Server-Authoritative**: trying to add/remove that item or currency to the player inventory from a game-client directly results in an error. The item/currencies are still readable in the game-client. To add/remove items and currencies that are **Server-Authoritative**, do so via a Microservice and a `ClientCallable`.
 
 !!! note "Edit player Inventory via Portal"
-	Regardless of the value of the `clientPermission` field it is possible to view and modify players' inventory through the Portal. More info [here](https://docs.beamable.com/docs/portal-inventory).
+	Regardless of the value of the `clientPermission` field it is possible to view and modify players' inventory through the Portal. See the [Portal Inventory documentation](https://docs.beamable.com/docs/portal-inventory).
 
 ## Item Instance Properties
 As with most key-value pairs for arbitrary data, try to follow the guidelines below:

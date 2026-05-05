@@ -26,7 +26,7 @@ For the server ones it is easy to test them on Windows machine in two different 
 
 [WSL](https://learn.microsoft.com/en-us/windows/wsl/about) is a feature of Windows for running a Linux environment on Windows machine, without Docker.
 
-!!! note WSL
+!!! note "WSL"
     This part of tutorial is written with assumption that [WSL](https://learn.microsoft.com/en-us/windows/wsl/about) is installed and operational.
 
 1. Build Linux Server target build of the game.
@@ -39,7 +39,7 @@ For the server ones it is easy to test them on Windows machine in two different 
 
 Docker is often used by Game Server Orchestrators for running built Game Servers. Beamable does provide a working example of that workflow in [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
-!!! note Assumption
+!!! note "Assumption"
     This part of tutorial is written with assumption that Docker is installed and operational.
 
 1. Build the game's **Linux Server** target.

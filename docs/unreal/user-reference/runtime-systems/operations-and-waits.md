@@ -110,7 +110,7 @@ void U__________::TheActualOperationLogic(FUserSlot Slot, (...OperationParams...
 }
 ```
 
-!!! warning Parameter Names and Beam Flow
+!!! warning "Parameter Names and Beam Flow"
 	The parameter names `UserSlot`, `OnOperationEvent` and `CallingContext` are important! They allow you to write your own implementation of the Beam Flow node for your operation. Look at the [Beam Flow Nodes](#beam-flow-nodes-operations) section for more information on how to create these.
 
 There are many examples of operations in the SDK. For guidance, look at any of the runtime subsystems such as:
