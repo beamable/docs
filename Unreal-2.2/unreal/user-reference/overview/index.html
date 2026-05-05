@@ -10366,7 +10366,7 @@ If you are not familiar with Unreal Subsystems, you can take a look at their doc
 <p>The SDK's Plugin is divided into several modules:</p>
 <ul>
 <li><strong>BeamableCore</strong> contains the <code>UEngineSubsystem</code> implementations shared between <code>Editor</code> and <code>Runtime</code> executing environments. It also contains the <code>UBeamContentObject</code> schema definitions for our <a href="../beamable-services/content/">content system</a>.</li>
-<li><strong>BeamableCoreRuntime</strong> contains the <code>UBeamRuntime</code> and <code>UBeamRuntimeSubsystem</code> implementations and manages the SDK lifecycle at runtime (during PIE and in packaged clients).</li>
+<li><strong>BeamableCoreRuntime</strong> contains the <code>UBeamRuntime</code> and <code>UBeamRuntimeSubsystem</code> implementations and manages the SDK lifecycle at runtime (during <abbr title="Play in Editor">PIE</abbr> and in packaged clients).</li>
 <li><strong>BeamableCoreEditor</strong> and <strong>BeamableCoreRuntimeEditor</strong> contains <code>UBeamEditor</code> and our editor integration code: custom BlueprintNodes, PropertyCustomizations, etc.</li>
 </ul>
 <h3 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">¶</a></h3>
@@ -10384,7 +10384,7 @@ If you are not familiar with Unreal Subsystems, you can take a look at their doc
 <li><a href="../beamable-services/stores/"><strong>Stores</strong></a>, <a href="../beamable-services/leaderboards/"><strong>Leaderboards</strong></a> and <a href="../beamable-services/announcements/"><strong>Announcements</strong></a> are all parts of our suite of services to help with live-ops meta-game engagement.</li>
 </ul>
 <h2 id="beamable-runtime-sdk">Beamable Runtime SDK<a class="headerlink" href="#beamable-runtime-sdk" title="Permanent link">¶</a></h2>
-<p><code>UBeamRuntime</code> is the entry point for the Beamable SDK at runtime (PIE, packaged game clients, and dedicated servers). It is a <code>GameInstanceSubsystem</code> and follows its lifecycle rules. It is responsible for a couple of things:</p>
+<p><code>UBeamRuntime</code> is the entry point for the Beamable SDK at runtime (<abbr title="Play in Editor">PIE</abbr>, packaged game clients, and dedicated servers). It is a <code>GameInstanceSubsystem</code> and follows its lifecycle rules. It is responsible for a couple of things:</p>
 <ul>
 <li>Controls the SDK's runtime initialization flow.</li>
 <li>Controls the various SDK's user [un]-authentication flows.</li>

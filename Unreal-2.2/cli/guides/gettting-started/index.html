@@ -10365,7 +10365,7 @@ Verify it is installed by running <code>dotnet --version</code> from a terminal.
 <p>This command will prompt you for your organization's alias, your credentials, and which realm to use. When it is complete, you should see a <code>./beamable</code> folder in the current directory. See the <a href="../configuration/">Configuration</a> for details about this folder. Now, you can run a <a href="../../commands/cli-command-reference/cli-config/">beam config</a> command to verify your project is set up.</p>
 <p></p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config
 </code></pre></div>
-You should expect to see your CID/PID printed out.<p></p>
+You should expect to see your <abbr title="customer ID">CID</abbr>/<abbr title="realm identifier">PID</abbr> printed out.<p></p>
 <p>As of CLI 3.0.0, anytime you create a Beamable workspace, the CLI will be installed as a local tool next to the workspace's <code>.beamable</code> folder. This means that you can run the local tool with <code>dotnet beam</code>. If you continue to use <code>beam</code> in the workspace, the global installation will automatically forward your command to the local tool. This will be inefficient and lead to poor performance. We recommend you use <code>dotnet beam</code> wherever possible.</p>
 <p>To check that everything is working correctly, you can use the beam me command. Now you have a configured CLI project!</p>
 <div class="admonition info">
