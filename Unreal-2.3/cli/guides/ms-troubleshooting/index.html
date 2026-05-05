@@ -9272,7 +9272,7 @@ Only one <code>Microservice</code> class should exist per microservice project. 
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Multiple Microservice classes detected. Make sure only a single class implementing Microservice exists in each service project. ClassNames=MyMicroservice, MyOtherMicroservice.
 </code></pre></div><p></p>
 <p><strong>Solutions</strong>:
-- Ensure only one class is marked as a <code>Microservice</code> in your project.</p>
+- Ensure only one class is marked as a <code>Microservice</code> in your project</p>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{}</span>
@@ -9289,7 +9289,7 @@ Microservice classes must be marked as <code>partial</code> to allow code genera
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Non-Partial Microservice class detected. Make sure your Microservice class is marked as partial.
 </code></pre></div><p></p>
 <p><strong>Solutions</strong>:
-- Add the <code>partial</code> modifier to the class.</p>
+- Add the <code>partial</code> modifier to the class</p>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{}</span>
@@ -9305,7 +9305,7 @@ The <code>Microservice</code> class must include the <code>[Microservice("Id")]<
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Microservice class is missing the microservice id
 </code></pre></div><p></p>
 <p><strong>Solutions</strong>:
-- Add the <code>[Microservice("Id")]</code> attribute to the class.</p>
+- Add the <code>[Microservice("Id")]</code> attribute to the class</p>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{}</span>
@@ -9326,7 +9326,7 @@ Methods marked as <code>[Callable]</code>, <code>[ClientCallable]</code>, <code>
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Microservice Callable methods cannot be async voids. Ex: CallMicroservice.
 </code></pre></div><p></p>
 <p><strong>Solutions</strong>:
-- Change the return type to <code>Task</code>.</p>
+- Change the return type to <code>Task</code></p>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
@@ -9397,7 +9397,7 @@ Types used in <code>[ClientCallable]</code> methods must be declared in outer sc
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>{nameof(Server.Microservice)} Callable method CallService uses a Type that is Nested, which is not supported by the Source Code Generator. Please move DTO to outer scope.
 </code></pre></div><p></p>
 <p><strong>Solutions</strong>:
-- Move named types used by <code>Callable</code> methods to a non-nested scope.</p>
+- Move named types used by <code>Callable</code> methods to a non-nested scope</p>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
@@ -9430,7 +9430,7 @@ Classes that uses the attribute <code>[BeamGenerateSchema]</code> cannot be decl
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Type DTO contains [BeamGenerateSchema] attribute and is a Nested type, which is not supported by the Source Generator. Please move DTO to outer scope.
 </code></pre></div><p></p>
 <p><strong>Solutions</strong>:
-- Move classes that contains <code>[BeamGenerateSchema]</code> attribute to a non-nested scope.</p>
+- Move classes that contains <code>[BeamGenerateSchema]</code> attribute to a non-nested scope</p>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
@@ -9501,7 +9501,7 @@ Non-readonly static fields in Microservices are discouraged because they do not 
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Consider making 'ContentId' a readonly field. Otherwise the value may be inconsistent in production environments.
 </code></pre></div><p></p>
 <p><strong>Solutions</strong>:
-- Make the static field <code>readonly</code> if it is intended to be constant after initialization.
+- Make the static field <code>readonly</code> if it is intended to be constant after initialization
   <strong>Example of Solved Code</strong>:
     </p><div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
 <a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="p">{</span>
@@ -9536,7 +9536,7 @@ All types used in Microservice method signatures or marked with <code>[BeamGener
 <div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Add the [Serializable] attribute to type 'MyOtherDto'
 </code></pre></div><p></p>
 <p><strong>Solution</strong>:
-- Add the <code>[Serializable]</code> attribute.
+- Add the <code>[Serializable]</code> attribute
   <strong>Example of Solved Code</strong>:
     </p><div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="na">[Serializable]</span>
 <a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="na">[BeamGenerateSchema]</span>
@@ -9594,7 +9594,7 @@ Fields with nullable types (e.g., <code>int?</code>, <code>string?</code>) are n
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>Change field 'Score' to use Optional&lt;T&gt; instead of a nullable type
 </code></pre></div><p></p>
 <p><strong>Solution</strong>:
-- Use <code>Optional&lt;T&gt;</code> instead of nullable types.
+- Use <code>Optional&lt;T&gt;</code> instead of nullable types
   <strong>Example of Solved Code</strong>:
     </p><div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="na">[Serializable]</span>
 <a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDto</span>
@@ -9620,7 +9620,7 @@ Using <code>ContentObject</code> or its subtypes directly in serializable fields
 </code></pre></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Replace the direct <code>ContentObject</code> usage with <code>ContentRef&lt;T&gt;</code>.</li>
+<li>Replace the direct <code>ContentObject</code> usage with <code>ContentRef&lt;T&gt;</code></li>
 </ul>
 <p><strong>Example of Solved Code</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="na">[BeamGenerateSchema]</span>
@@ -9649,7 +9649,7 @@ When a class is marked with <code>[BeamGenerateSchema]</code>, all custom types 
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>Add the [BeamGenerateSchema] attribute to type 'MyOtherDTO'
 </code></pre></div><p></p>
 <p><strong>Solution</strong>:
-- Add <code>[BeamGenerateSchema]</code> to all nested field types.
+- Add <code>[BeamGenerateSchema]</code> to all nested field types
   <strong>Example of Solved Code</strong>:
     </p><div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="na">[BeamGenerateSchema]</span>
 <a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDTO</span>
@@ -9678,7 +9678,7 @@ When using a <code>Dictionary</code> field in a type marked with <code>[BeamGene
 </code></pre></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Change the dictionary key type to <code>string</code>.</li>
+<li>Change the dictionary key type to <code>string</code></li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="na">[BeamGenerateSchema]</span>
@@ -9705,7 +9705,7 @@ Types that subclass <code>Dictionary</code> are not supported as field types in 
 </code></pre></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Use <code>Dictionary&lt;string, T&gt;</code> directly instead of a subclass.</li>
+<li>Use <code>Dictionary&lt;string, T&gt;</code> directly instead of a subclass</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="na">[BeamGenerateSchema]</span>
@@ -9732,7 +9732,7 @@ Types that subclass <code>List&lt;T&gt;</code> are not supported as field types 
 </code></pre></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Use <code>List&lt;T&gt;</code> directly instead of a subclass.</li>
+<li>Use <code>List&lt;T&gt;</code> directly instead of a subclass</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="na">[BeamGenerateSchema]</span>
@@ -9759,7 +9759,7 @@ Types used in <code>Callable</code> methods cannot inherit from <code>ContentObj
 </code></pre></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Use <code>ContentObject</code> instead of a derived type.</li>
+<li>Use <code>ContentObject</code> instead of a derived type</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
@@ -9784,7 +9784,7 @@ Dictionaries in <code>[Callable]</code> method parameters are only valid if thei
 </code></pre></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Change dictionary key to <code>string</code>.</li>
+<li>Change dictionary key to <code>string</code></li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
@@ -9811,7 +9811,7 @@ Types used in <code>[Callable]</code> methods that subclass <code>Dictionary</co
 </code></pre></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Use <code>Dictionary&lt;string, T&gt;</code> directly.</li>
+<li>Use <code>Dictionary&lt;string, T&gt;</code> directly</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
@@ -9838,7 +9838,7 @@ Types used in <code>[Callable]</code> methods that subclass <code>List&lt;T&gt;<
 </code></pre></div>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Use <code>List&lt;T&gt;</code> directly.</li>
+<li>Use <code>List&lt;T&gt;</code> directly</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
@@ -9880,7 +9880,7 @@ Generic types are not supported in Microservice <code>[Callable]</code> methods 
 <p><strong>Solutions</strong>:</p>
 <ul>
 <li>Replace custom generic types with concrete types</li>
-<li>Use one of the allowed generic types (<code>List&lt;T&gt;</code>, <code>Dictionary&lt;string,T&gt;</code>, <code>Optional&lt;T&gt;</code>, <code>ContentRef&lt;T&gt;</code>) if they fit your use case.</li>
+<li>Use one of the allowed generic types (<code>List&lt;T&gt;</code>, <code>Dictionary&lt;string,T&gt;</code>, <code>Optional&lt;T&gt;</code>, <code>ContentRef&lt;T&gt;</code>) if they fit your use case</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="c1">// Option 1: Use a concrete type</span>
