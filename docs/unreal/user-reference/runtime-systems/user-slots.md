@@ -11,7 +11,7 @@ These are defined in `UBeamCoreSettings::RuntimeUserSlots` (found in `Project Se
 
 Almost all of our APIs take in a `FUserSlot` struct representing the local user making the request. Only "public" APIs do not require them (APIs that you can call after the SDK has been initialized but before any `Login` has happened).
 
-If your game has **no _local_ multiplayer** (just a single local player), you only need to know a few things about **UserSlots**:
+If your game has **no _local_ multiplayer** (just a single local player), you only need to know a few things about user slots:
 
 - You should pass in the **Owner User Slot** (the one mapped to the "Local Player 0") to any calls taking an `FUserSlot`
     - In C++, you can use `UBeamCoreSettings::GetOwnerPlayerSlot()` to get it

@@ -7,7 +7,7 @@ This demo showcases how you can use the **Unreal SDK** and **Beamable Microservi
 Aside from our `BeamableCore` Plugin, here's what the sample contains:
 
 - **`BEAMPROJ_DiscordDemo` Unreal Plugin.**: Contains the UE implementation for the client
-- **`Microservices/services/DiscordDemo` Microservice**: Microservice containing code that implements **IFederatedLogin** and a `DiscordBot` integration
+- **`Microservices/services/DiscordDemo` Microservice**: Microservice containing code that implements `IFederatedLogin` and a `DiscordBot` integration
 
 To set up this sample you'll need a few things:
 

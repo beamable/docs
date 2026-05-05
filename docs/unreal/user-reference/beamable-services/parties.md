@@ -41,7 +41,7 @@ With the multiplayer instances set, create a Blueprint (BP) function that will p
 
 1. Open your Level Blueprint (or some other BP)
 2. Call `TryGetUserPartyState` from the `BeamPartySubsystem`.
-    - If the player is already in a party, it will return true
+    - If the player is already in a party, it will return `true`
     - A player must be removed from their current party before joining another. Trying to join without doing so will return an error
 3. After verifying and removing the player from their existing party if necessary, call the operation: `Operation - Party - JoinPlayerParty`.
 
@@ -53,7 +53,7 @@ With the multiplayer instances set, create a Blueprint (BP) function that will p
 ### Inviting Players (Leader Only)
 
 1. Open your Level Blueprint (or some other BP)
-2. Call `Operation - Party - InvitePlayerToMyParty`. It will send an invite to a given FBeamGamerTag.
+2. Call `Operation - Party - InvitePlayerToMyParty`. It will send an invite to a given `FBeamGamerTag`.
 
 ???+ Warning "Friends"
     It is **NOT** required to be a friend to receive/send a party invite.
