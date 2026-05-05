@@ -1,6 +1,6 @@
 # Friends
 
-The Beamable **Friends** feature allows game makers to connect players with each other and manage the status of new friends.
+The Beamable **Friends** service allows game makers to connect players with each other and manage the status of new friends.
 
 Beamable's Friend system allows the following game flows:
 

@@ -1,6 +1,6 @@
 # Stats
 
-The Beamable SDK Stats feature allows players to track a variety of built-in and custom player stat variables with configurable visibility levels. Two main use cases are:
+The Beamable SDK Stats service allows players to track a variety of built-in and custom player stat variables with configurable visibility levels. Two main use cases are:
 
 - **Data Store**: can hold key/value pairs associated with a particular user
 - **Targeting**: these key/value pairs can be used by other Beamable systems for various things (Announcement Campaigns, Matchmaking, and others)
