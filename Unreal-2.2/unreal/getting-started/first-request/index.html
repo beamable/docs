@@ -10326,12 +10326,12 @@
 
 <h1 id="making-your-first-request">Making your First Request<a class="headerlink" href="#making-your-first-request" title="Permanent link">¶</a></h1>
 <p><strong>This page walks through the process of loading the Beamable Window in your project and creating a simple request to retrieve user information.</strong></p>
-<div class="admonition note notice">
-<p class="admonition-title">Note</p>
+<div class="admonition note">
+<p class="admonition-title">Notice</p>
 <p>This tutorial assumes you have already set up your Beamable account and integrated the Beamable SDK into your Unreal project. For instructions on doing so, see the <a href="../setup/">Setup Guide</a>.</p>
 </div>
 <h2 id="accessing-the-beamable-window">Accessing the Beamable Window<a class="headerlink" href="#accessing-the-beamable-window" title="Permanent link">¶</a></h2>
-<p>When opening the Unreal Editor of your project, you'll see the Beamable Logo in the upper-right, next to the Settings dropdown. This button opens the Beamable Editor Window. Here, you can log in to the account you just created in the Beamable portal.</p>
+<p>When opening the Unreal Editor of your project, you'll see the Beamable Logo in the upper-right, next to the Settings dropdown. This button opens the Beamable Editor Window. Here, you can log in to the account you just created in the Beamable Portal.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/intro-beamable-window-location.gif" data-desc-position="bottom"><img alt="intro-beamable-window-location.png" src="../../../media/imgs/intro-beamable-window-location.gif"></a></p>
 <p>When the login process is finished, you should see the Beamable Window Editor like this:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/intro-beamable-window-opened.png" data-desc-position="bottom"><img alt="intro-beamable-window-opened.png" src="../../../media/imgs/intro-beamable-window-opened.png"></a></p>
@@ -10363,7 +10363,7 @@
 <h3 id="whats-going-on-above">What's going on Above:<a class="headerlink" href="#whats-going-on-above" title="Permanent link">¶</a></h3>
 <p>The <code>BeamRuntime</code> is a <code>GameInstanceSubsystem</code> that is responsible for controlling the SDK's lifecycle and player authentication. Calling this function will initialize the SDK. You can find a deep explanation about the Beamable Runtime in the <a href="../../user-reference/overview/">Technical Overview</a> page.</p>
 <p>Once the SDK is initialized, the <code>Login - Frictionless</code> Operation node logs in a guest account automatically into the <code>Player0</code> user slot.</p>
-<p>Operation nodes are "purple" Beamable nodes that encapsulate many complex functionalities in a easy-to-use fashion. You can read more about the Operation Nodes <a href="../../user-reference/runtime-systems/blueprints/">Here</a>.</p>
+<p>Operation nodes are "purple" Beamable nodes that encapsulate many complex functionalities in a easy-to-use fashion. See <a href="../../user-reference/runtime-systems/blueprints/">Operation Nodes</a> for more information.</p>
 <p>The Frictionless Login node has three flow pins to handle the result of the login operation:</p>
 <ul>
 <li><strong>On Success</strong>: executes if the login completed successfully</li>

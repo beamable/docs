@@ -10529,7 +10529,7 @@ options for player collaboration and team organization.</p>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
 <li>Call <code>TryGetUserPartyState</code> from the <code>BeamPartySubsystem</code>.<ul>
-<li>If the player is already in a party, it will return true</li>
+<li>If the player is already in a party, it will return <code>true</code></li>
 <li>A player must be removed from their current party before joining another. Trying to join without doing so will return an error</li>
 </ul>
 </li>
@@ -10543,7 +10543,7 @@ options for player collaboration and team organization.</p>
 <h3 id="inviting-players-leader-only">Inviting Players (Leader Only)<a class="headerlink" href="#inviting-players-leader-only" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call <code>Operation - Party - InvitePlayerToMyParty</code>. It will send an invite to a given FBeamGamerTag.</li>
+<li>Call <code>Operation - Party - InvitePlayerToMyParty</code>. It will send an invite to a given <code>FBeamGamerTag</code>.</li>
 </ol>
 <details class="warning" open="open">
 <summary>Friends</summary>

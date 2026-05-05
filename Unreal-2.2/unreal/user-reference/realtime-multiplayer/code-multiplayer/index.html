@@ -10353,10 +10353,10 @@
 <p>By default, Beamable integrates with the Gameplay Framework to give you cross-platform Game Server Authentication (to enable cross-play) WITHOUT going through OnlineSubsystem interfaces. Basically, the <code>FUniqueNetId</code> for each player is the user's <code>GamerTag</code>. More details about disabling this further down in this document (not recommended).</p>
 <p>There are a few components here that you need to know about before you implement this:</p>
 <ul>
-<li><strong>AGameMode::BeginPlay</strong>: In most C++-based implementations, this is your server's "entry point".</li>
-<li><strong>AGameMode::PreLoginAsync</strong>: This is what UE calls whenever a client attempts to connect to a game server — once you invoke a callback it provides, the user is either accepted or rejected. This will be invoked on the server once per-player (if you have multiple players per-client, this is an important distinction).</li>
-<li><strong>ULocalPlayer::GetGameLoginOptions</strong>: This appends a string of Options to each <code>ULocalPlayer</code>'s connection string.</li>
-<li><strong>FUniqueNetIdRepl</strong>: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework.</li>
+<li><code>AGameMode::BeginPlay</code>: In most C++-based implementations, this is your server's "entry point".</li>
+<li><code>AGameMode::PreLoginAsync</code>: This is what UE calls whenever a client attempts to connect to a game server — once you invoke a callback it provides, the user is either accepted or rejected. This will be invoked on the server once per-player (if you have multiple players per-client, this is an important distinction).</li>
+<li><code>ULocalPlayer::GetGameLoginOptions</code>: This appends a string of Options to each <code>ULocalPlayer</code>'s connection string.</li>
+<li><code>FUniqueNetIdRepl</code>: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework.</li>
 </ul>
 <h3 id="setting-up-your-gameplay-levels-level-blueprint">Setting Up your Gameplay Level's Level Blueprint<a class="headerlink" href="#setting-up-your-gameplay-levels-level-blueprint" title="Permanent link">¶</a></h3>
 <p>This section is the C++ version of <a href="../realtime-multiplayer-overview/#setting-up-your-gameplay-levels-level-blueprint">what is done in the Level Blueprint here</a>.</p>
