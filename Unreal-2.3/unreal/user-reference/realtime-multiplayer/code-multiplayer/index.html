@@ -8912,7 +8912,7 @@
 <p>In clients builds', passing these options can be achieved using <code>UBeamLobbySubsystem::TryOpenLevelFromLobby</code>. You can also use <code>UBeamLobbySubsystem::PrepareLoginOptions</code> to append these to a string you'll pass to the regular <code>Open Level</code> calls used to connect to game servers.</p>
 <p>When implementing <code>PreLoginAsync</code>, you need to call two functions:</p>
 <ul>
-<li><code>BeamPIE::Authentication::GetExpectedClientPIEOptions</code> --- this enables the <abbr title="play in editor">PIE</abbr> integration to work with Game Server Authentication (it gets around UE limitations --- see further down for more information on this).</li>
+<li><code>BeamPIE::Authentication::GetExpectedClientPIEOptions</code> --- this enables the <abbr title="Play in Editor">PIE</abbr> integration to work with Game Server Authentication (it gets around UE limitations --- see further down for more information on this).</li>
 <li><code>BeamMultiplayer::Authentication::PreLoginAsync</code> --- this uses the <code>Options</code> to validate the user is in fact inside a lobby that has been registered with this server.</li>
 </ul>
 <p>A simple implementation of that looks like this:</p>
@@ -8975,8 +8975,8 @@
 </div>
 <h3 id="writing-to-a-users-statsinventory">Writing to a User's Stats/Inventory<a class="headerlink" href="#writing-to-a-users-statsinventory" title="Permanent link">¶</a></h3>
 <p>When writing your Game Server code, you generally don't want to be making requests for individual players one at a time (batching is generally better). Sometimes that is fine, but there are cases where you'll want to write several things to several players' Stats/Inventory (processing a match's results, for example). In cases like this, you should write <code>ServerCallable</code> functions in Microservices and call those from the Microservice. See <a href="../../microservices/microservices/">Microservices</a> for more information about the various types of <code>Callable</code>.</p>
-<h2 id="making-beam-pie-faster">Making Beam <abbr title="play in editor">PIE</abbr> Faster<a class="headerlink" href="#making-beam-pie-faster" title="Permanent link">¶</a></h2>
-<p>Iteration time is one of the most important factors in game development, so entering <abbr title="play in editor">PIE</abbr> as fast as UE allows — without sacrificing Beamable's guarantees — is worth the extra setup.</p>
+<h2 id="making-beam-pie-faster">Making Beam <abbr title="Play in Editor">PIE</abbr> Faster<a class="headerlink" href="#making-beam-pie-faster" title="Permanent link">¶</a></h2>
+<p>Iteration time is one of the most important factors in game development, so entering <abbr title="Play in Editor">PIE</abbr> as fast as UE allows — without sacrificing Beamable's guarantees — is worth the extra setup.</p>
 <p>A custom <code>GameInstance</code> implementation makes this possible.</p>
 <p>Implement the snippet below and configure your custom Game Instance class in <code>Project Settings &gt; Project &gt; Maps &amp; Modes &gt; Game Instance Class</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/**</span>

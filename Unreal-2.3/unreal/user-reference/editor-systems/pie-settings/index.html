@@ -8901,21 +8901,21 @@
 
 
 
-<h1 id="pie-settings"><abbr title="play in editor">PIE</abbr> Settings<a class="headerlink" href="#pie-settings" title="Permanent link">¶</a></h1>
-<p>The new Beamable <abbr title="play in editor">PIE</abbr> Settings provide a flexible way to configure your game for Play In Editor (<abbr title="play in editor">PIE</abbr>). With this system, you can create, capture, and save player profiles for use at runtime, as well as define custom play presets directly within your Unreal projects.</p>
+<h1 id="pie-settings"><abbr title="Play in Editor">PIE</abbr> Settings<a class="headerlink" href="#pie-settings" title="Permanent link">¶</a></h1>
+<p>The new Beamable <abbr title="Play in Editor">PIE</abbr> Settings provide a flexible way to configure your game for Play In Editor (<abbr title="Play in Editor">PIE</abbr>). With this system, you can create, capture, and save player profiles for use at runtime, as well as define custom play presets directly within your Unreal projects.</p>
 <p>This enables you to test your game across multiple configurations and entry points without repeatedly changing project settings. You can even simulate custom lobbies inside <strong>Gameplay Levels</strong> while overriding both per-player and global settings.</p>
 <div class="admonition warning">
-<p class="admonition-title"><abbr title="play in editor">PIE</abbr> Settings are Experimental</p>
-<p><abbr title="play in editor">PIE</abbr> Settings are currently marked as Experimental under <code>Project Settings &gt; Engine &gt; Beamable Core</code> and are disabled by default.
-To enable them, go to the Beamable Core section in the Unreal Engine editor settings. Once enabled, restart the editor and the <abbr title="play in editor">PIE</abbr> Settings UI will be available.</p>
+<p class="admonition-title"><abbr title="Play in Editor">PIE</abbr> Settings are Experimental</p>
+<p><abbr title="Play in Editor">PIE</abbr> Settings are currently marked as Experimental under <code>Project Settings &gt; Engine &gt; Beamable Core</code> and are disabled by default.
+To enable them, go to the Beamable Core section in the Unreal Engine editor settings. Once enabled, restart the editor and the <abbr title="Play in Editor">PIE</abbr> Settings UI will be available.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-enable.png" data-desc-position="bottom"><img alt="pie-enable.png" src="../../../../media/imgs/pie-enable.png"></a></p>
 </div>
 <h2 id="player-manager">Player Manager<a class="headerlink" href="#player-manager" title="Permanent link">¶</a></h2>
-<p>The Player Manager lets you manage player profiles and settings for your game. It provides an easy-to-use interface to create, capture (from <abbr title="play in editor">PIE</abbr>), and save player profiles that can be used at runtime.</p>
+<p>The Player Manager lets you manage player profiles and settings for your game. It provides an easy-to-use interface to create, capture (from <abbr title="Play in Editor">PIE</abbr>), and save player profiles that can be used at runtime.</p>
 <p>Profiles with a name become available in Play Presets, making it simple to switch between different players during development and testing.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-user.png" data-desc-position="bottom"><img alt="pie-user.png" src="../../../../media/imgs/pie-user.png"></a></p>
 <h3 id="capturing-and-saving-players">Capturing and Saving Players<a class="headerlink" href="#capturing-and-saving-players" title="Permanent link">¶</a></h3>
-<p>Whenever you run the game in the editor with <abbr title="play in editor">PIE</abbr>, the Player Manager records any logged-in players. This creates a new profile in the list, which can be inspected using the Open Portal button.</p>
+<p>Whenever you run the game in the editor with <abbr title="Play in Editor">PIE</abbr>, the Player Manager records any logged-in players. This creates a new profile in the list, which can be inspected using the Open Portal button.</p>
 <p>Player profiles can then be saved as either Local or Template, making them reusable in Play Presets:</p>
 <ul>
 <li><strong>Local (Green)</strong>: Saved locally in your <code>.beamable/temp</code> folder. Useful for personal testing and development.</li>
@@ -8928,10 +8928,10 @@ To enable them, go to the Beamable Core section in the Unreal Engine editor sett
 You can also add descriptions and tags to profiles to provide extra context for testing scenarios.</p>
 </div>
 <h2 id="play-presets">Play Presets<a class="headerlink" href="#play-presets" title="Permanent link">¶</a></h2>
-<p>Play Presets let you define how your game should run in <abbr title="play in editor">PIE</abbr>. You can create, edit, and delete presets from the Play Presets section of the <abbr title="play in editor">PIE</abbr> Settings. This allows you to test different scenarios and entry points without modifying global project settings. Each preset can specify:</p>
+<p>Play Presets let you define how your game should run in <abbr title="Play in Editor">PIE</abbr>. You can create, edit, and delete presets from the Play Presets section of the <abbr title="Play in Editor">PIE</abbr> Settings. This allows you to test different scenarios and entry points without modifying global project settings. Each preset can specify:</p>
 <ul>
 <li>In which maps can the preset be used</li>
-<li>Whether it should create a lobby for the <abbr title="play in editor">PIE</abbr> session</li>
+<li>Whether it should create a lobby for the <abbr title="Play in Editor">PIE</abbr> session</li>
 <li>Which players will be logged into the session (and be placed into the lobby, if creating one)</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-settings.png" data-desc-position="bottom"><img alt="pie-settings.png" src="../../../../media/imgs/pie-settings.png"></a></p>
@@ -8946,26 +8946,26 @@ You can also add descriptions and tags to profiles to provide extra context for 
 <p>Play Presets can be configured to apply to specific maps or a list of maps which match the name rule requirement (Regex). This allows you to have different presets for different levels or game modes. You can specify the maps in the <strong>Available Maps</strong> list of the preset editor and/or add a name rule in the Map Name Pattern in case you have a lot of maps.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-map-settings.png" data-desc-position="bottom"><img alt="pie-map-settings.png" src="../../../../media/imgs/pie-map-settings.png"></a></p>
 <h3 id="fake-lobbies">Fake Lobbies<a class="headerlink" href="#fake-lobbies" title="Permanent link">¶</a></h3>
-<p>Play Presets can be configured to initialize lobbies for <abbr title="play in editor">PIE</abbr>, allowing you to test multiplayer scenarios with real Beamable accounts <strong><em>directly in <abbr title="play in editor">PIE</abbr> from the Gameplay Level</em></strong>. This is especially useful when testing games that use the <strong>Gameplay Level</strong> as the entry point, since it ensures the initialization of Beamable systems and lobby setup. Normally, this initialization would occur in earlier Levels, such as the <strong>Main Boot Level</strong> (Main Menu/Title Screen/etc.).</p>
+<p>Play Presets can be configured to initialize lobbies for <abbr title="Play in Editor">PIE</abbr>, allowing you to test multiplayer scenarios with real Beamable accounts <strong><em>directly in <abbr title="Play in Editor">PIE</abbr> from the Gameplay Level</em></strong>. This is especially useful when testing games that use the <strong>Gameplay Level</strong> as the entry point, since it ensures the initialization of Beamable systems and lobby setup. Normally, this initialization would occur in earlier Levels, such as the <strong>Main Boot Level</strong> (Main Menu/Title Screen/etc.).</p>
 <div class="admonition warning">
 <p class="admonition-title">Tight Integration with Beamable Real-Time Multiplayer Systems</p>
-<p>Play Presets' <abbr title="play in editor">PIE</abbr> Lobby feature is tightly integrated with the Beamable Runtime Multiplayer Systems, having some requirements in your scenes to work properly. For more information, check the <a href="../../realtime-multiplayer/realtime-multiplayer-overview/">Real-Time Multiplayer Overview</a> page.</p>
+<p>Play Presets' <abbr title="Play in Editor">PIE</abbr> Lobby feature is tightly integrated with the Beamable Runtime Multiplayer Systems, having some requirements in your scenes to work properly. For more information, check the <a href="../../realtime-multiplayer/realtime-multiplayer-overview/">Real-Time Multiplayer Overview</a> page.</p>
 </div>
-<p>In the <abbr title="play in editor">PIE</abbr> Lobby Settings you can configure:</p>
+<p>In the <abbr title="Play in Editor">PIE</abbr> Lobby Settings you can configure:</p>
 <ul>
-<li><strong>Enable/Disable</strong>: checkbox in the header enables or disables the <abbr title="play in editor">PIE</abbr> Lobby simulation for this preset.</li>
-<li><strong>Server Map Override</strong>: map that will be used as the server map for the <abbr title="play in editor">PIE</abbr> Lobby. This overrides the default server map defined in the Unreal Project Settings.</li>
-<li><strong>Game Type</strong>: Game Type content that will be used for the <abbr title="play in editor">PIE</abbr> Lobby Scene. If there is a federation configured here, the federation does run too.</li>
-<li><strong>Lobby Global Data</strong>: Custom Global Key-Value pairs that will be used to initialize the <abbr title="play in editor">PIE</abbr> Lobby. This data is available in the Gameplay Scene and can be used to simulate different scenarios.</li>
+<li><strong>Enable/Disable</strong>: checkbox in the header enables or disables the <abbr title="Play in Editor">PIE</abbr> Lobby simulation for this preset.</li>
+<li><strong>Server Map Override</strong>: map that will be used as the server map for the <abbr title="Play in Editor">PIE</abbr> Lobby. This overrides the default server map defined in the Unreal Project Settings.</li>
+<li><strong>Game Type</strong>: Game Type content that will be used for the <abbr title="Play in Editor">PIE</abbr> Lobby Scene. If there is a federation configured here, the federation does run too.</li>
+<li><strong>Lobby Global Data</strong>: Custom Global Key-Value pairs that will be used to initialize the <abbr title="Play in Editor">PIE</abbr> Lobby. This data is available in the Gameplay Scene and can be used to simulate different scenarios.</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-fake-lobby.png" data-desc-position="bottom"><img alt="pie-fake-lobby.png" src="../../../../media/imgs/pie-fake-lobby.png"></a></p>
 <h3 id="user-settings">User Settings<a class="headerlink" href="#user-settings" title="Permanent link">¶</a></h3>
 <p>The User Settings section allows you to configure per-player settings for the users that will be automatically logged in this session. The mapping goes as follows:</p>
 <ul>
-<li><strong><abbr title="play in editor">PIE</abbr> Client</strong>: Starts at 1~X. X is the <code>Number of Players</code> you define in Unreal's own Play Mode Settings.</li>
-<li><strong>User Slot</strong>: For each <abbr title="play in editor">PIE</abbr> client, you can define a user for each of configured <code>Runtime User Slots</code>.</li>
+<li><strong><abbr title="Play in Editor">PIE</abbr> Client</strong>: Starts at 1~X. X is the <code>Number of Players</code> you define in Unreal's own Play Mode Settings.</li>
+<li><strong>User Slot</strong>: For each <abbr title="Play in Editor">PIE</abbr> client, you can define a user for each of configured <code>Runtime User Slots</code>.</li>
 </ul>
-<p>For the most part, adding users will configure this correctly. Validation also runs before <abbr title="play in editor">PIE</abbr> starts to ensure the selected <code>Play Preset</code> is compatible with the defined UE <abbr title="play in editor">PIE</abbr> settings themselves.</p>
+<p>For the most part, adding users will configure this correctly. Validation also runs before <abbr title="Play in Editor">PIE</abbr> starts to ensure the selected <code>Play Preset</code> is compatible with the defined UE <abbr title="Play in Editor">PIE</abbr> settings themselves.</p>
 <p>When selecting players, a few things are relevant:</p>
 <ul>
 <li>You can check <code>Copy on PIE</code> to get a new user with Stats and Inventory copied from the selected user account. This is useful when you want to keep a consistent starting state so you can test things (think of keeping users at various progression points in your game).</li>
@@ -8974,11 +8974,11 @@ You can also add descriptions and tags to profiles to provide extra context for 
 </ul>
 <p>When Fake Lobbies are enabled, the Add Lobby Data will be available to add custom Key-Value pairs that will be used to initialize the per-player key-value store lobby itself. This data is accessible in the Gameplay Level and can be used to simulate various scenarios such as the selection of which skin the player chose or many other parameters that would get put into the lobby either via Federation or Matchmaking/Lobby systems themselves.</p>
 <h4 id="teams-configuration">Teams Configuration<a class="headerlink" href="#teams-configuration" title="Permanent link">¶</a></h4>
-<p>User Settings also includes a <strong>Teams</strong> configuration that lets you define party and team assignments directly for each player in the session. This means you can set up a full party with team assignments before <abbr title="play in editor">PIE</abbr> starts, and the system will initialize everything automatically when the session begins.</p>
+<p>User Settings also includes a <strong>Teams</strong> configuration that lets you define party and team assignments directly for each player in the session. This means you can set up a full party with team assignments before <abbr title="Play in Editor">PIE</abbr> starts, and the system will initialize everything automatically when the session begins.</p>
 <p>This gives you a fully integrated way to test the <strong>party system</strong> and <strong>team logic</strong> end-to-end without needing to manually trigger party invites or team assignments at runtime:</p>
 <ul>
 <li><strong>Party</strong>: group the configured players into a party so they are already associated when the Gameplay Level starts.</li>
-<li><strong>Teams</strong>: assign each player to a specific team within that party, allowing you to test team-based gameplay scenarios (e.g., two players on Team A vs. two players on Team B) directly in <abbr title="play in editor">PIE</abbr>.</li>
+<li><strong>Teams</strong>: assign each player to a specific team within that party, allowing you to test team-based gameplay scenarios (e.g., two players on Team A vs. two players on Team B) directly in <abbr title="Play in Editor">PIE</abbr>.</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie_play_users.png" data-desc-position="bottom"><img alt="pie_play_users.png" src="../../../../media/imgs/pie_play_users.png"></a></p>
 <div class="admonition warning">
