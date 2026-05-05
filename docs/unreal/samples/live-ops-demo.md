@@ -29,7 +29,7 @@ To set up an organization and realm to run this sample, follow the steps below.
       6. You can read more about the content system [Here](../user-reference/beamable-services/content.md)
 6. Now let's setup the Announcements
       1. Open the Beamable Portal.
-      2. Choose `liveops-demo` realm from Beamable portal.
+      2. Choose `liveops-demo` realm from Beamable Portal.
       3. Go to `Communicate->Campaigns`.
       4. Click on Create Campaign.
       5. Initialize the campaign scheduling, content, and the gifts it provides and save it.
@@ -59,7 +59,7 @@ At runtime, the sample works in the following way:
 1. Every time you run the demo, it will initialize the player inventory with 3 sample items that have the an item property called `level` set to `1`.
 1. It'll also initialize a Stat `sample_stat` with the value `1`.
       1. You can also click the button next to the `sample stat` stat to increment it.
-2. In the announcements page, you'll find all the announcements you configured via the portal (provided the schedule you put in makes it active).
+2. In the announcements page, you'll find all the announcements you configured via the Portal (provided the schedule you put in makes it active).
       1. You can click on any announcement.
       2. Doing so shows its content and all the rewards/gifts that could be claimed through this announcement (if any).
       3. You can claim the gifts inside the announcement by clicking on the claim button.
