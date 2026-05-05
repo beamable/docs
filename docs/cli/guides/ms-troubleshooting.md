@@ -547,7 +547,7 @@ Add the [BeamGenerateSchema] attribute to type 'MyOtherDTO'
 
 ## Dictionary Key Must Be String on Serializable Types
 
-**Explanation**:\
+**Explanation**:
 When using a `Dictionary` field in a type marked with `[BeamGenerateSchema]`, the key must be of type `string`. Other key types are not supported.
 
 **Example Code Triggering the Error**:
@@ -584,7 +584,7 @@ public class MyDTO
 
 ## Field on Serializable Type Is Subtype From Dictionary
 
-**Explanation**:\
+**Explanation**:
 Types that subclass `Dictionary` are not supported as field types in `[BeamGenerateSchema]` annotated classes.
 
 **Example Code Triggering the Error**:
@@ -623,7 +623,7 @@ public class MyDTO
 
 ## Field on Serializable Type Is Subtype From List
 
-**Explanation**:\
+**Explanation**:
 Types that subclass `List<T>` are not supported as field types in `[BeamGenerateSchema]` annotated classes.
 
 **Example Code Triggering the Error**:
@@ -662,7 +662,7 @@ public class MyDTO
 
 ## Callable Method Declaration Type Is ContentObject Subtype
 
-**Explanation**:\
+**Explanation**:
 Types used in `Callable` methods cannot inherit from `ContentObject`. Only the base `ContentObject` is supported.
 
 **Example Code Triggering the Error**:
@@ -701,7 +701,7 @@ public class MyMicroservice : Microservice
 
 ## Callable Method Declaration Type Is Invalid Dictionary
 
-**Explanation**:\
+**Explanation**:
 Dictionaries in `[Callable]` method parameters are only valid if their keys are of type `string`.
 
 **Example Code Triggering the Error**:
@@ -738,7 +738,7 @@ public class MyMicroservice : Microservice
 
 ## Callable Method Declaration Type Is Subtype From Dictionary
 
-**Explanation**:\
+**Explanation**:
 Types used in `[Callable]` methods that subclass `Dictionary` are not supported.
 
 **Example Code Triggering the Error**:
@@ -777,7 +777,7 @@ public class MyMicroservice : Microservice
 
 ## Callable Method Declaration Type Is Subtype From List
 
-**Explanation**:\
+**Explanation**:
 Types used in `[Callable]` methods that subclass `List<T>` are not supported.
 
 **Example Code Triggering the Error**:
