@@ -2486,7 +2486,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2499,6 +2499,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8858,29 +8941,29 @@
 <h1 id="lobbies">Lobbies<a class="headerlink" href="#lobbies" title="Permanent link">¶</a></h1>
 <p>Beamable's Lobby system can be used primarily for 2 cases:</p>
 <ul>
-<li><strong>Open/Closed Custom Lobbies/Rooms</strong>: player-created custom rooms for room-based games.</li>
-<li><strong>Resulting Matchmaking Matches</strong>: matchmaking queues output lobbies with players in them at each matchmaking queue. See more in <a href="../matchmaking/">Matchmaking</a>.</li>
+<li><strong>Open/Closed Custom Lobbies/Rooms</strong>: player-created custom rooms for room-based games</li>
+<li><strong>Resulting Matchmaking Matches</strong>: matchmaking queues output lobbies with players in them at each matchmaking queue. See more in <a href="../matchmaking/">Matchmaking</a></li>
 </ul>
 <p>Lobbies are rooms containing only <a href="../../runtime-systems/connectivity/">online players</a>, a set of arbitrary room properties, and per-player properties. There are a few rules you should be aware of:</p>
 <ul>
-<li>Each Non-Matchmaking Lobby has a <strong>Host</strong> and other Players.</li>
+<li>Each Non-Matchmaking Lobby has a <strong>Host</strong> and other Players</li>
 <li>
 <p>Matchmaking Result Lobbies have no host; instead they disband once every player in them is offline. <br><br></p>
 </li>
 <li>
 <p><strong>The Host Player</strong>:</p>
 <ul>
-<li>Becoming offline will disband a lobby (after a small delay).</li>
-<li>Can edit global properties and any other player's properties.</li>
+<li>Becoming offline will disband a lobby (after a small delay)</li>
+<li>Can edit global properties and any other player's properties</li>
 <li>Can kick other players. <br><br></li>
 </ul>
 </li>
 <li>
 <p><strong>Other Players</strong>:</p>
 <ul>
-<li>Can <strong>read</strong> the entire lobby data but only <strong>write</strong> to their own state.</li>
-<li>Can leave the lobby.</li>
-<li>Will be removed from the lobby after becoming offline (after a small delay).</li>
+<li>Can <strong>read</strong> the entire lobby data but only <strong>write</strong> to their own state</li>
+<li>Can leave the lobby</li>
+<li>Will be removed from the lobby after becoming offline (after a small delay)</li>
 </ul>
 </li>
 </ul>
@@ -8929,7 +9012,7 @@
 </ul>
 </li>
 <li>
-<p><strong>OnLobbyDisbanded</strong>: received whenever the host player leaves.</p>
+<p><strong>OnLobbyDisbanded</strong>: received whenever the host player leaves</p>
 <ul>
 <li>Every remaining player in the lobby receives this notification. The host does not receive it.<br><br></li>
 </ul>
@@ -8946,42 +9029,42 @@
 </ul>
 <p>Both lobby types have the same schema and are represented by the <code>ULobby</code> class. This class has several properties:</p>
 <ul>
-<li><strong>LobbyId</strong>: the unique identifier for the Lobby.</li>
+<li><strong>LobbyId</strong>: the unique identifier for the Lobby</li>
 <li><strong>MatchType</strong>: contains information about the <code>UBeamGameTypeContent</code> that is associated with the lobby.</li>
-<li><strong>Name</strong> and <strong>Description</strong>: are arbitrarily defined when the lobby is created. For matchmaking, these are empty.</li>
+<li><strong>Name</strong> and <strong>Description</strong>: are arbitrarily defined when the lobby is created. For matchmaking, these are empty</li>
 <li><strong>Host</strong>: the host player's <code>FBeamGamerTag</code>. For matchmaking lobbies, there is no host. <!-- TODO(@drewbleam): Federation thing: Make a section here explaining LoL-style matchmaking where player properties change after the match is made but BEFORE the server is provisioned. --></li>
-<li><strong>Restriction</strong>: defines whether the lobby is <strong>Open</strong> or <strong>Closed</strong>.<ul>
-<li>Can be changed -- whenever it is changed to <strong>Closed</strong>, a new <strong>Passcode</strong> is generated.</li>
+<li><strong>Restriction</strong>: defines whether the lobby is <strong>Open</strong> or <strong>Closed</strong><ul>
+<li>Can be changed — whenever it is changed to <strong>Closed</strong>, a new <strong>Passcode</strong> is generated</li>
 </ul>
 </li>
 <li><strong>Passcode</strong>: an auto-generated realm-scoped unique value that can be used to <code>JoinLobbyByPasscode</code>.<ul>
-<li>This is filled on-creation and the passcode length has a minimum of 6 characters.</li>
+<li>This is filled on-creation and the passcode length has a minimum of 6 characters</li>
 </ul>
 </li>
-<li><strong>MaxPlayers</strong>: defines the maximum amount of players that can be in this lobby at the same time.<ul>
+<li><strong>MaxPlayers</strong>: defines the maximum amount of players that can be in this lobby at the same time<ul>
 <li>When changing this via <code>CommitLobbyUpdateOperation</code>, if you have more players than the new <strong>MaxPlayer</strong> value, you'll get an error.</li>
 </ul>
 </li>
 <li><strong>Players</strong>: a list of <code>ULobbyPlayer</code> containing data associated to each player in the lobby.<ul>
 <li><strong>PlayerId</strong>: the player's <code>FBeamGamerTag</code>.</li>
-<li><strong>Joined</strong>: a ISO-8601 date time string for when the player.</li>
-<li><strong>Tags</strong>: an array of Key-Value pairs (allows duplicates).</li>
+<li><strong>Joined</strong>: a ISO-8601 date time string for when the player</li>
+<li><strong>Tags</strong>: an array of Key-Value pairs (allows duplicates)</li>
 </ul>
 </li>
-<li><strong>Data</strong>: an arbitrary data store that can be filled and updated by the host of the lobby.<ul>
-<li>Can be filled via <a href="../../federation/federated-game-server/">Federations</a> as well.</li>
+<li><strong>Data</strong>: an arbitrary data store that can be filled and updated by the host of the lobby<ul>
+<li>Can be filled via <a href="../../federation/federated-game-server/">Federations</a> as well</li>
 </ul>
 </li>
-<li><strong>Created</strong>: a ISO-8601 date time string for when the Lobby was created.</li>
+<li><strong>Created</strong>: a ISO-8601 date time string for when the Lobby was created</li>
 </ul>
 <h1 id="utilities-for-dedicated-server-games">Utilities for Dedicated Server Games<a class="headerlink" href="#utilities-for-dedicated-server-games" title="Permanent link">¶</a></h1>
 <p>The Lobby subsystem provides you with utilities that help you integrate Beamable into UE's Gameplay Framework.</p>
 <ul>
-<li><strong>Local State - Lobby - Open Level</strong>: can be used in Game Clients to connect to a Game Server by extracting connection information (URL and Port) from the Lobby's Global Data.</li>
+<li><strong>Local State - Lobby - Open Level</strong>: can be used in Game Clients to connect to a Game Server by extracting connection information (URL and Port) from the Lobby's Global Data</li>
 <li><strong>Local State - Lobby - Client - Prepare Login Options</strong>: can be used in Game Clients to add Beamable's required parameters to the <code>FString Options</code> you'll need to pass along to UE's default <code>Open Level</code> node.</li>
 <li><strong>Local State - Lobby - Get Gamer Tag</strong> and <strong>Local State - Lobby - Get User Slot</strong>: These nodes are meant to map UE constructs, such as <code>PlayerControllers</code> and <code>PlayerState</code> instances, to Beamable constructs like <code>GamerTag</code> and <code>UserSlots</code>; refer to their tooltips for a better understanding of the mapping.</li>
 <li><strong>Local State - Lobby - Get Lobby Id (by Gamer Tag)</strong>: This returns the LobbyId containing the user of the given <code>GamerTag</code>.</li>
-<li><strong>Local State - Lobby - Server - Get Lobby Id From CLArgs</strong>: This is meant to help integrate with Game Server Orchestrators — see the <a href="../../realtime-multiplayer/realtime-multiplayer-overview/">Real-Time Multiplayer Docs</a> for more information.</li>
+<li><strong>Local State - Lobby - Server - Get Lobby Id From CLArgs</strong>: This is meant to help integrate with Game Server Orchestrators — see the <a href="../../realtime-multiplayer/realtime-multiplayer-overview/">Real-Time Multiplayer Docs</a> for more information</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-gameplay-helpers.png" data-desc-position="bottom"><img alt="lobbies-gameplay-helpers.png" src="../../../../media/imgs/lobbies-gameplay-helpers.png"></a></p>
 

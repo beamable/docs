@@ -2569,7 +2569,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2582,6 +2582,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -9025,9 +9108,9 @@
 <p>Beamable Content System is a read-only (at runtime) arbitrary data store that allows you to define arbitrary JSON-serialized <em>content objects</em> for use at runtime. Several of Beamable's own managed features also use content in some way or another.</p>
 <p>The system is manifest-based.</p>
 <ul>
-<li>A <strong>manifest</strong> is a list of published content objects in a realm indexed by their content ids.</li>
-<li><strong>Publishing</strong> a manifest means first uploading all the individual content objects to Beamable and, after that, uploading a manifest that knows where the content objects live.</li>
-<li><strong>Downloading</strong> a manifest does not necessarily imply downloading the individual content object jsons (more information below).</li>
+<li>A <strong>manifest</strong> is a list of published content objects in a realm indexed by their content ids</li>
+<li><strong>Publishing</strong> a manifest means first uploading all the individual content objects to Beamable and, after that, uploading a manifest that knows where the content objects live</li>
+<li><strong>Downloading</strong> a manifest does not necessarily imply downloading the individual content object jsons (more information below)</li>
 </ul>
 <p><strong><em>You are solely responsible for maintaining backward compatibility for your custom content objects.</em></strong></p>
 <p>Each individual content object in each manifest is identified by an ID with the format below:</p>
@@ -9085,45 +9168,45 @@
 <p>It is often desirable to have designers in a realm that is stable and allow them to work in <code>Blueprints</code>, <code>Beamable Content</code> and Unreal <code>Data Asset</code> in the same realm plus branch combination.</p>
 <p>To enable this workflow, the Beamable SDK:</p>
 <ul>
-<li>Listens for whenever any developer publishes content to a realm and notifies other developers working on that same realm.<ul>
+<li>Listens for whenever any developer publishes content to a realm and notifies other developers working on that same realm<ul>
 <li>If <code>Designer-A</code> publishes changes, <code>Designer-B</code> will see a UE-notification informing them that <code>Designer-A</code> has just published. <br><br></li>
 </ul>
 </li>
-<li>Automatically keeps any un-modified local files up-to-date with the latest version of that file published to the realm.<ul>
+<li>Automatically keeps any un-modified local files up-to-date with the latest version of that file published to the realm<ul>
 <li>If <code>Designer-A</code> publishes changes to <code>Content-1</code> and <code>Designer-B</code> had no changes made to that file in their machine, the SDK in <code>Designer-B</code>'s machine will automatically update their <code>Content-1</code> file to match the newest version of it published by <code>Designer-A</code>.</li>
 <li>The notification tells you what content was automatically synchronized. <br><br></li>
 </ul>
 </li>
-<li>Informs you that you had made changes to a file that was modified in the published manifest. This is called a <strong>Conflict</strong>.<ul>
+<li>Informs you that you had made changes to a file that was modified in the published manifest. This is called a <strong>Conflict</strong><ul>
 <li>If <code>Designer-A</code> publishes changes to <code>Content-1</code> and <code>Designer-B</code> had made changes to that file in their machine, the SDK in <code>Designer-B</code>'s machine will NOT automatically update their <code>Content-1</code> file. Instead, it'll accuse a <strong>Conflict</strong>.</li>
-<li>The notification informs you if a conflict happened.</li>
+<li>The notification informs you if a conflict happened</li>
 </ul>
 </li>
 </ul>
 <p>To prevent <code>Designer-B</code> from overwriting changes made by <code>Designer-A</code> the SDK will not allow <code>Designer-B</code> to <strong>Publish</strong> until all detected conflicts are resolved. Resolving a conflict can be done in one of two ways:</p>
 <ul>
-<li><strong>Use Realm</strong>: this will discard all local changes to that content and use whatever was published.</li>
-<li><strong>Use Mine</strong>: this will simply ignore the conflict (which means that it will allow you to publish and your publish WILL overwrite the version in the realm).</li>
+<li><strong>Use Realm</strong>: this will discard all local changes to that content and use whatever was published</li>
+<li><strong>Use Mine</strong>: this will simply ignore the conflict (which means that it will allow you to publish and your publish WILL overwrite the version in the realm)</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content-conflict.png" data-desc-position="bottom"><img alt="content-conflict.png" src="../../../../media/imgs/content-conflict.png"></a></p>
 <p>As such, consider these practices:</p>
 <ul>
-<li>Organize the designers in your realm to minimize the chance of <strong>conflicts</strong>.<ul>
+<li>Organize the designers in your realm to minimize the chance of <strong>conflicts</strong><ul>
 <li>As long as they are working in different content objects, working in the same realm should be seamless.<br><br></li>
 </ul>
 </li>
-<li>Instruct designers to ALWAYS talk to the person whose publish action caused the conflict <em>before</em> resolving things.<ul>
-<li>This is why the SDK shows <em>who</em> made the last publish that caused the conflict.</li>
+<li>Instruct designers to ALWAYS talk to the person whose publish action caused the conflict <em>before</em> resolving things<ul>
+<li>This is why the SDK shows <em>who</em> made the last publish that caused the conflict</li>
 </ul>
 </li>
 </ul>
 <p>This workflow can also be used for engineers that are developing non-Beamable related features.</p>
 <p>In addition to the workflow above, there are cases where you might want to create realms to have a more controlled environment for developing. Common examples are:</p>
 <ul>
-<li>Large features that make use of new custom content definitions developed alongside Microservices.</li>
-<li>Content schema modifications or equivalents that will require migrating existing content to a new schema.</li>
+<li>Large features that make use of new custom content definitions developed alongside Microservices</li>
+<li>Content schema modifications or equivalents that will require migrating existing content to a new schema</li>
 </ul>
-<p>To achieve this --- just create a new realm for the development of that feature.</p>
+<p>To achieve this — just create a new realm for the development of that feature.</p>
 <div class="admonition note">
 <p class="admonition-title">Feature Branches vs Feature Flags</p>
 <p>If you like working with feature branches, pair this realm with the feature branch. Limit this to large features that will take a lot of time in development.</p>
@@ -9271,16 +9354,16 @@
 <p>The SDK also supports live content updates (if you publish content while the game client is running):</p>
 <ul>
 <li>While the <a href="../../runtime-systems/user-slots/"><code>OwnerUserSlot</code></a> is signed in to Beamable, <code>UBeamContentSubsystem</code> listens for notifications that the realm's content manifest has been updated.</li>
-<li>When that happens, the SDK re-downloads the manifest.</li>
+<li>When that happens, the SDK re-downloads the manifest</li>
 <li>If <code>bDownloadIndividualContentAtStart</code> is <code>true</code>:<ul>
-<li>The SDK downloads and caches all updated content objects relative to the last manifest downloaded in this client.</li>
+<li>The SDK downloads and caches all updated content objects relative to the last manifest downloaded in this client</li>
 <li>These updates are cached locally inside the <code>Saved</code> directory in binary form such that a user does not need to re-download content in subsequent runs of your game unless the published manifest changes.</li>
-<li>This cache is invalidated if your game-version changes, the SDK version changes or the UE version changes.</li>
+<li>This cache is invalidated if your game-version changes, the SDK version changes or the UE version changes</li>
 </ul>
 </li>
 <li>If <code>bDownloadIndividualContentAtStart</code> is <code>false</code>:<ul>
 <li>You are then responsible for downloading each individual content via the APIs: <code>FetchIndividualContentBatchOperation</code> and <code>FetchIndividualContentOperation</code>.</li>
-<li>Caching will still occur automatically when manually downloading content.</li>
+<li>Caching will still occur automatically when manually downloading content</li>
 </ul>
 </li>
 </ul>
@@ -9291,9 +9374,9 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content-snapshots-window.png" data-desc-position="bottom"><img alt="content-snapshots-window.png" src="../../../../media/imgs/content-snapshots-window.png"></a></p>
 <p>This is useful for a couple of workflows:</p>
 <ul>
-<li>You can use it to save the state of your local content before trying out risky changes and then restore it if you don't like the changes.</li>
-<li>You can save the current state of your local content and share it with your teammates so they can load it in their machines and have the same local content state as you.</li>
-<li>You can save the content state of your current realm and apply it to another realm.</li>
+<li>You can use it to save the state of your local content before trying out risky changes and then restore it if you don't like the changes</li>
+<li>You can save the current state of your local content and share it with your teammates so they can load it in their machines and have the same local content state as you</li>
+<li>You can save the content state of your current realm and apply it to another realm</li>
 </ul>
 <p>Content snapshots can be local or shared between users. The local ones are kept in the <code>.beamable\contentSnapshots</code> folder and the shared ones in the .beamable\shared\contentSnapshot folder of the project, so you can version it with git.</p>
 <h3 id="creating-content-snapshots">Creating Content Snapshots<a class="headerlink" href="#creating-content-snapshots" title="Permanent link">¶</a></h3>
@@ -9304,8 +9387,8 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content-apply-snapshot.png" data-desc-position="bottom"><img alt="content-apply-snapshot.png" src="../../../../media/imgs/content-apply-snapshot.png"></a></p>
 <p>Additionally you can also select the following options:</p>
 <ul>
-<li>Delete Preset: deletes the snapshot after applying it.</li>
-<li>Additive: if checked, the snapshot will be applied on top of your current local content state only adding the new and modified content. If unchecked, the snapshot will replace your current local content state.</li>
+<li>Delete Preset: deletes the snapshot after applying it</li>
+<li>Additive: if checked, the snapshot will be applied on top of your current local content state only adding the new and modified content. If unchecked, the snapshot will replace your current local content state</li>
 </ul>
 <h3 id="sharing-content-snapshots">Sharing Content Snapshots<a class="headerlink" href="#sharing-content-snapshots" title="Permanent link">¶</a></h3>
 <p>Shared snapshots are stored in the <code>.beamable\shared\contentSnapshot</code> folder, so you can share them with your teammates by sharing that file through git or any other way you like. To save a Local Snapshot as Shared simply click on the <code>Save as Template</code> button.</p>
@@ -9319,8 +9402,8 @@
 <h2 id="baking-content">Baking Content<a class="headerlink" href="#baking-content" title="Permanent link">¶</a></h2>
 <p>In a couple of cases, you might want to bake content to distribute it with your build:</p>
 <ul>
-<li>If you plan to release a new build every time you want to update your game.</li>
-<li>If you want to trade off some binary size for spending less time waiting for the individual content download at initialization time.</li>
+<li>If you plan to release a new build every time you want to update your game</li>
+<li>If you want to trade off some binary size for spending less time waiting for the individual content download at initialization time</li>
 </ul>
 <p>To enable those cases, the SDK includes an editor utility that bakes your local content into a <code>UBeamContentCache</code>.
 This is a special asset type that has the <code>UBeamContentObject</code> instances serialized using UE's binary serialization as opposed to JSON.</p>

@@ -2352,7 +2352,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2365,6 +2365,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -9275,7 +9358,7 @@ Types used in <code>[ClientCallable]</code> methods must be available to both se
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Microservice Callable method `CallServiceAsync` uses a Type that cannot be inside microservice scope. Type: `DTO`.
 </code></pre></div><p></p>
 <p><strong>Solutions</strong>:
-- Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server.</p>
+- Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server</p>
 <p><strong>Example of Solved Code</strong> (Microservice):
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
@@ -9425,7 +9508,7 @@ Non-readonly static fields in Microservices are discouraged because they do not 
 <a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">ContentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"coins.gems"</span><span class="p">;</span>
 <a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="p">}</span>
 </code></pre></div>
-- Or convert it to a non-static field if it should be instance-bound.<p></p>
+- Or convert it to a non-static field if it should be instance-bound<p></p>
 <hr>
 <h2 id="missing-serializable-attribute-on-type">Missing Serializable Attribute on Type<a class="headerlink" href="#missing-serializable-attribute-on-type" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
@@ -9488,7 +9571,7 @@ Properties in types used in Microservice method signatures or marked with <code>
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Consider changing property 'X' to a field to include it in client-generated code
 </code></pre></div><p></p>
 <p><strong>Solution</strong>:
-- Use fields instead of properties.
+- Use fields instead of properties
   <strong>Example of Solved Code</strong>:
     </p><div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="na">[Serializable]</span>
 <a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDto</span>
@@ -9796,7 +9879,7 @@ Generic types are not supported in Microservice <code>[Callable]</code> methods 
 </code></pre></div>
 <p><strong>Solutions</strong>:</p>
 <ul>
-<li>Replace custom generic types with concrete types.</li>
+<li>Replace custom generic types with concrete types</li>
 <li>Use one of the allowed generic types (<code>List&lt;T&gt;</code>, <code>Dictionary&lt;string,T&gt;</code>, <code>Optional&lt;T&gt;</code>, <code>ContentRef&lt;T&gt;</code>) if they fit your use case.</li>
 </ul>
 <p><strong>Example of Solved Code</strong>:</p>

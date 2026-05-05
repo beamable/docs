@@ -2412,7 +2412,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2425,6 +2425,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8713,11 +8796,11 @@
 <h2 id="migrating-from-100-preview">Migrating from 1.0.0 PREVIEW<a class="headerlink" href="#migrating-from-100-preview" title="Permanent link">¶</a></h2>
 <p>We highly recommend you start this process with no staged changes to your VCS and in an isolated local branch such that you can revert as needed.</p>
 <ul>
-<li>Download/Clone our Tagged Release.</li>
-<li>Extract it to a location in the same drive as your project.</li>
+<li>Download/Clone our Tagged Release</li>
+<li>Extract it to a location in the same drive as your project</li>
 <li>Copy/Paste the <code>beam_game_maker_init.sh</code> into your project's root (next to your <code>.uproject</code> file).</li>
 <li>Open a shell (we recommend <code>GitBash</code> if you're using <code>git</code>) in your project root directory.</li>
-<li>Run that script passing in the path to our extracted project.</li>
+<li>Run that script passing in the path to our extracted project</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># If you just want to install the BeamableCore plugin (no OnlineSubsystem)</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>.<span class="w"> </span>beam_game_maker_init.sh<span class="w"> </span><span class="s2">"/e/Path/To/Unreal/SDK/Root/Folder"</span>
@@ -8730,7 +8813,7 @@
 <p>Unreal's integrations with various version control systems will sometimes make files Read-Only at the OS-level. If this is the case, you may see an <code>Access Denied</code> error when running the above script. Part of that script is deleting the old <code>Plugins/BeamableCore</code> folder and some of the <code>uasset</code>/<code>umap</code> files inside it might be flagged as read-only. To fix this, revert the changes, go to the <code>Plugins/BeamableCore</code>, and optionally <code>Plugins/OnlineSubsystemBeamable</code>, search for <code>uasset</code>/<code>umap</code> files and make them NOT read-only. On Windows, this can be done by the "Properties" panel of the file.</p>
 </div>
 <p>Contact our customer support if the above does not work.</p>
-<p>If the script is successfull, you should see something like this:</p>
+<p>If the script is successful, you should see something like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Found .uproject: ./YourProject.uproject
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Installing the SDK in your project: YourProject
@@ -8758,10 +8841,10 @@
 <p>Disable Automatic code Generation by setting <code>&lt;GenerateClientCode&gt;false&lt;/GenerateClientCode&gt;</code> in every service's <code>csproj</code> file.</p>
 </li>
 <li>
-<p>Follow the <a href="https://docs.beamable.com/v2.0.0/docs/cli-guide-upgrading#from-202-to-301">CLI upgrade guide found here</a> to ensure your microservice is now correctly configured.</p>
+<p>Follow the <a href="https://docs.beamable.com/v2.0.0/docs/cli-guide-upgrading#from-202-to-301">CLI upgrade guide found here</a> to ensure your microservice is now correctly configured</p>
 </li>
 <li>
-<p>Run your microservice from Rider to verify the upgrade worked.</p>
+<p>Run your microservice from Rider to verify the upgrade worked</p>
 </li>
 <li>
 <p>If you want, re-enable Automatic Code Generation by setting <code>&lt;GenerateClientCode&gt;true&lt;/GenerateClientCode&gt;</code> in every service's <code>csproj</code> file.</p>
@@ -8771,7 +8854,7 @@
 <p><strong>In the Unreal Solution:</strong></p>
 <ul>
 <li>
-<p>There were a number of renames and changes, so the project is likely NOT compiling at this point; if most of your work was in Blueprints, those may not be compiling even if the editor is.</p>
+<p>There were a number of renames and changes, so the project is likely NOT compiling at this point; if most of your work was in Blueprints, those may not be compiling even if the editor is</p>
 </li>
 <li>
 <p><code>Target.cs</code> file and <code>Beam.Configure___</code> functions</p>
@@ -8797,19 +8880,19 @@
 </ul>
 </li>
 <li>We removed <code>IsFirstAuth</code> and <code>bDidFirstAuthRun</code> in favor of a simpler <code>IsLoggedIn(FUserSlot)</code> function with which you can build.<ul>
-<li>The new semantics are slightly different and just tell you that there's a user in that slot or not; you are free to handle "Return to main menu" situation as you wish.</li>
+<li>The new semantics are slightly different and just tell you that there's a user in that slot or not; you are free to handle "Return to main menu" situation as you wish</li>
 </ul>
 </li>
-<li>Read more about the initialization flow <a href="../../intro">here</a>.</li>
+<li>Read more about the initialization flow <a href="../../intro">here</a></li>
 </ul>
 </li>
 </ul>
 <p><strong>Microservice Clients suffered a MAJOR change.</strong></p>
 <ul>
-<li>Microservices are now generated into their own exclusive Plugin. This makes the Microservice Client code accessible from any other Plugin or Module in your project.</li>
+<li>Microservices are now generated into their own exclusive Plugin. This makes the Microservice Client code accessible from any other Plugin or Module in your project</li>
 <li>This means a few things:<ul>
 <li>You must add this plugin to all relevant <code>Target.cs</code> and <code>Build.cs</code>.</li>
-<li>You must add this plugin to your Project's <code>.uproject</code> file (can be done via the editor, but since you might not be able to compile --- you can do it manually too).</li>
+<li>You must add this plugin to your Project's <code>.uproject</code> file (can be done via the editor, but since you might not be able to compile — you can do it manually too).</li>
 <li>If you were using OnlineSubsystemBeamable:<ul>
 <li>Delete the <code>AutoGen</code> folder from inside the <code>Customer</code> directory.</li>
 <li>Add the <code>MicroserviceNameMicroserviceClients</code> plugin as a dependency to the OnlineSubsystemBeamable plugin.</li>
@@ -8819,12 +8902,12 @@
 </li>
 <li>If you haven't already, regenerate the microservice clients via by rebuilding them (or running the <code>dotnet beam generate-client</code> command).<ul>
 <li>This will create a new Plugin in your project called <code>MicroserviceNameMicroserviceClients</code>.</li>
-<li>This Plugin can be added to any other Plugin or your own project to gain access to the microservice clients and types.</li>
+<li>This Plugin can be added to any other Plugin or your own project to gain access to the microservice clients and types</li>
 <li>About code-changes:<ul>
 <li>The new clients no longer prefix <em>every</em> generated type with <code>MicroserviceName</code>; it only does so for the Request types.</li>
-<li>You'll have to go through the code and use the newly generated types.</li>
-<li>This change was made to provide you with more control over naming data-types shared between microservice and Unreal and reduce the common-case verbosity of these names.</li>
-<li>This means you can fix name conflicts as they appear <em>in your project</em> instead of us preemptively doing it.</li>
+<li>You'll have to go through the code and use the newly generated types</li>
+<li>This change was made to provide you with more control over naming data-types shared between microservice and Unreal and reduce the common-case verbosity of these names</li>
+<li>This means you can fix name conflicts as they appear <em>in your project</em> instead of us preemptively doing it</li>
 </ul>
 </li>
 </ul>

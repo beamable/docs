@@ -2587,7 +2587,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2600,6 +2600,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -9066,10 +9149,10 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture.png" data-desc-position="bottom"><img alt="microservices-architecture.png" src="../../../../media/imgs/microservices-architecture.png"></a></p>
 <p>The Microservice is:</p>
 <ul>
-<li>An easy-to-write server that provides a set of APIs you, the Game-Maker, create.</li>
-<li>Locally debuggable (really, just press Debug on Rider). <a href="#collaborative-debugging">Collaboratively too</a>.</li>
-<li>Deployed as a Docker container that you can customize.</li>
-<li>Promotable between Realms via the Portal or the CLI (CI/CD folks rejoice).</li>
+<li>An easy-to-write server that provides a set of APIs you, the Game-Maker, create</li>
+<li>Locally debuggable (really, just press Debug on Rider). <a href="#collaborative-debugging">Collaboratively too</a></li>
+<li>Deployed as a Docker container that you can customize</li>
+<li>Promotable between Realms via the Portal or the CLI (CI/CD folks rejoice)</li>
 </ul>
 <p>Under the hood, microservices are a wrapper around a custom WebSocket protocol and Job Scheduler with a set of layered APIs you can use to easily write the simple cases and peel back to write the complex cases.</p>
 <p>It solves or helps with all the listed items above and the amount of code you actually need to write to expose an Endpoint your game can call is:</p>
@@ -9092,11 +9175,11 @@
 <h3 id="the-details-panel">The Details Panel<a class="headerlink" href="#the-details-panel" title="Permanent link">¶</a></h3>
 <p>The Details panel provides a detailed view of the microservices and access to a few features:</p>
 <ul>
-<li>Start/Stop the service in your local machine.</li>
-<li>Display <a href="../../../../cli/guides/ms-logging/">logs</a> for the service running on your local machine.</li>
-<li>Open the Beamable Portal targeting <strong>your local service</strong>.</li>
-<li><a href="#collaborative-debugging">Configure which <strong>Microservice Target</strong> the Play-in-Editor sessions will target</a>.</li>
-<li><a href="../../federation/federation/">Configure Federation-specific settings</a>.</li>
+<li>Start/Stop the service in your local machine</li>
+<li>Display <a href="../../../../cli/guides/ms-logging/">logs</a> for the service running on your local machine</li>
+<li>Open the Beamable Portal targeting <strong>your local service</strong></li>
+<li><a href="#collaborative-debugging">Configure which <strong>Microservice Target</strong> the Play-in-Editor sessions will target</a></li>
+<li><a href="../../federation/federation/">Configure Federation-specific settings</a></li>
 </ul>
 <h2 id="microservice-coding">Microservice Coding<a class="headerlink" href="#microservice-coding" title="Permanent link">¶</a></h2>
 <p>Microservices are developed in C# and in their own solution. They inherit from the <code>Microservice</code> base class and are <code>partial</code> by default. Inside each Microservice class, you can annotate instance methods with the following attributes to various effects:</p>
@@ -9135,13 +9218,13 @@
 <ul>
 <li>No <code>void</code> return.</li>
 <li>Can be <code>async</code> or not.</li>
-<li>Cannot return container types directly.<ul>
+<li>Cannot return container types directly<ul>
 <li><code>List&lt;&gt;</code> / <code>Dictionary&lt;string,&gt;</code></li>
-<li>Wrap it in a struct/class instead.</li>
+<li>Wrap it in a struct/class instead</li>
 </ul>
 </li>
 <li>No overloading of <code>Callables</code>.<ul>
-<li>This is because each of these must map to a unique route so name things accordingly.</li>
+<li>This is because each of these must map to a unique route so name things accordingly</li>
 <li>Non-<code>Callable</code> functions can be overloaded just fine.</li>
 </ul>
 </li>
@@ -9150,11 +9233,11 @@
 </ul>
 </li>
 <li>Must be an instance method (no <code>static</code> keyword).<ul>
-<li>Currently, every request is handled by a unique instance of the Microservice class.</li>
+<li>Currently, every request is handled by a unique instance of the Microservice class</li>
 <li>This also means that it is highly discouraged to put member fields in the instance itself</li>
 </ul>
 </li>
-<li>If you are using <a href="../../federation/federation/">Federations</a>, you should be aware that each federation introduces certain reserved routes that you are then NOT allowed to use.</li>
+<li>If you are using <a href="../../federation/federation/">Federations</a>, you should be aware that each federation introduces certain reserved routes that you are then NOT allowed to use</li>
 </ul>
 <p>Keep in mind that only a few things actually affect the shape of any particular <code>Callable</code>'s generated client code. This means that different signatures can effectively represent the same endpoint.</p>
 <p><strong>The lists below all produce the same exposed API and generated client code:</strong></p>
@@ -9246,13 +9329,13 @@
 </table>
 <p>A few things to note:</p>
 <ul>
-<li>Unreal's lack of Namespaces in Blueprint-Compatible-land makes auto-generated code pretty verbose.<ul>
+<li>Unreal's lack of Namespaces in Blueprint-Compatible-land makes auto-generated code pretty verbose<ul>
 <li>When using these APIs, use <code>auto</code> liberally <em>but carefully</em>.</li>
 </ul>
 </li>
-<li>The code for <strong>all</strong> microservices in the solution is generated at once.<ul>
-<li>This means that, if you have multiple Microservices, you cannot generate a single service's bindings.</li>
-<li>This is also a result of the Namespaces constraint.</li>
+<li>The code for <strong>all</strong> microservices in the solution is generated at once<ul>
+<li>This means that, if you have multiple Microservices, you cannot generate a single service's bindings</li>
+<li>This is also a result of the Namespaces constraint</li>
 </ul>
 </li>
 </ul>
@@ -9266,8 +9349,8 @@
 <p>It can sometimes be useful to hand-write a type that would be otherwise generated by the Microservice Client code generation. These use-cases are things like:</p>
 <ul>
 <li>Changing the generated type from a <code>UCLASS</code> to a <code>USTRUCT</code>.</li>
-<li>Adding utility functions to the generated type.</li>
-<li>Writing custom serialization/deserialization logic (you'd have to modify the C# serialization too).</li>
+<li>Adding utility functions to the generated type</li>
+<li>Writing custom serialization/deserialization logic (you'd have to modify the C# serialization too)</li>
 <li>Etc...</li>
 </ul>
 <p>To do that, use the CLI to register replacement types so that code generation skips a particular schema and uses a type you define instead.</p>
@@ -9296,7 +9379,7 @@
 <h3 id="skip-callable-generation">Skip Callable Generation<a class="headerlink" href="#skip-callable-generation" title="Permanent link">¶</a></h3>
 <p>Some microservices may contain <code>Callables</code> that are not supposed to be callable from a client (dedicated server or otherwise), such as Admin Utilities. You can skip the generation of any callable by using the <code>flags:CallableFlags.SkipGenerateClientFiles</code> argument for the various <code>[Callable]</code> attributes. This will prevent the generation of the Unreal Request/Response types for that particular <code>Callable</code>.</p>
 <div class="admonition note">
-<p class="admonition-title">Non-Request/Response Types --- Schemas</p>
+<p class="admonition-title">Non-Request/Response Types — Schemas</p>
 <p>If <code>TypeA</code> is used inside <code>CallableA(TypeA paramA)</code> signature and nowhere else, when you <code>SkipGenerateClientFiles</code> to that callable, <code>TypeA</code> will no longer be generated. However, if <code>TypeA</code> is also used in <code>CallableB(TypeA paramA)</code> that does NOT have <code>SkipGenerateClientFiles</code>, <code>TypeA</code> will be generated (unless you flag it with <code>[BeamGenerateSchema]</code>). In other words, as long as a single usage in <code>Callable</code> signatures is found, these schemas are generated automatically.</p>
 </div>
 <h2 id="making-requests-on-behalf-of-users">Making Requests on Behalf of Users<a class="headerlink" href="#making-requests-on-behalf-of-users" title="Permanent link">¶</a></h2>
@@ -9308,10 +9391,10 @@
 <h2 id="multiple-microservices-and-organizing-code">Multiple Microservices and Organizing Code<a class="headerlink" href="#multiple-microservices-and-organizing-code" title="Permanent link">¶</a></h2>
 <p>The first impulse a lot of people have is to separate microservices semantically; one-per-feature. <strong>This is NOT recommended.</strong> Here's why:</p>
 <ul>
-<li>Having a lot of microservices will increase your cost for no benefit (<em>in most cases</em>).</li>
-<li>Having a lot of microservices increases project complexity (that impacts development costs).</li>
-<li>Having a lot of microservices makes you add latency to things that otherwise wouldn't have it (cross-microservice communication is possible but rarely actually needed).</li>
-<li>Having a lot of microservices increases deployment times.</li>
+<li>Having a lot of microservices will increase your cost for no benefit (<em>in most cases</em>)</li>
+<li>Having a lot of microservices increases project complexity (that impacts development costs)</li>
+<li>Having a lot of microservices makes you add latency to things that otherwise wouldn't have it (cross-microservice communication is possible but rarely actually needed)</li>
+<li>Having a lot of microservices increases deployment times</li>
 </ul>
 <p>The key metric you should use to consider creating additional microservices is <strong><em>different load profiles at runtime</em></strong>. At a <em>very</em> high level, if you have a set of features with similar expected load profiles, you can keep them together as the auto-scaling will work uniformly to handle the increased load. If you have services with "spike-y" load profiles (either in memory usage or CPU), then consider putting each of them in their own service so that they can be scaled up/down independently and faster than your other larger services.</p>
 <blockquote>
@@ -9380,25 +9463,25 @@
 <p>This one is pretty unique to Beamable's Microservices.</p>
 <p>Imagine the following:</p>
 <ul>
-<li>You have a service published in a realm with your designer working and testing against it.</li>
-<li>The designer does something that reveals a bug in your service.</li>
-<li>It is unclear what causes it exactly and but the designer can repro it consistently by playing in <abbr title="Play in Editor">PIE</abbr>.</li>
+<li>You have a service published in a realm with your designer working and testing against it</li>
+<li>The designer does something that reveals a bug in your service</li>
+<li>It is unclear what causes it exactly and but the designer can repro it consistently by playing in <abbr title="Play in Editor">PIE</abbr></li>
 </ul>
 <p>Now, the usual flow for handling this situation would be similar to this:</p>
 <ul>
-<li>Make a ticket.</li>
-<li>Live with the bug while a ticket/task finds its way to an engineer, impacting designer productivity.</li>
-<li>Hope the engineer can repro it as consistently as the designer... or do it at all.</li>
-<li>Try to fix it in the future.</li>
+<li>Make a ticket</li>
+<li>Live with the bug while a ticket/task finds its way to an engineer, impacting designer productivity</li>
+<li>Hope the engineer can repro it as consistently as the designer... or do it at all</li>
+<li>Try to fix it in the future</li>
 </ul>
 <p>Or... you could instead use Beamable's Collaborative Debugging workflow:</p>
 <ul>
-<li>As the engineer, hop on a voice chat with the designer and make sure you're in the same realm as them.</li>
-<li>As the engineer, boot up your local service with a debugger attached and a breakpoint.</li>
-<li>As the designer, open the editor and the <strong>Microservice Window's Collaboration tab</strong> for the service and select your engineer's email from the drop-down.</li>
-<li>As the designer, enter <abbr title="Play in Editor">PIE</abbr> and do what you do to repro the bug.</li>
+<li>As the engineer, hop on a voice chat with the designer and make sure you're in the same realm as them</li>
+<li>As the engineer, boot up your local service with a debugger attached and a breakpoint</li>
+<li>As the designer, open the editor and the <strong>Microservice Window's Collaboration tab</strong> for the service and select your engineer's email from the drop-down</li>
+<li>As the designer, enter <abbr title="Play in Editor">PIE</abbr> and do what you do to repro the bug</li>
 <li>As the engineer, observe your (conditional or data) breakpoint is hit or read your additional <code>BeamableLogger</code> log lines.</li>
-<li>Quickly diagnose the issue and unblock the designer.</li>
+<li>Quickly diagnose the issue and unblock the designer</li>
 </ul>
 <p>For smaller teams that like to move fast and can rely on lots of direct communication between designers and engineers, this workflow is a <strong>massive improvement to the current available alternatives</strong>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-window-collaboration.png" data-desc-position="bottom"><img alt="microservices-window-collaboration.png" src="../../../../media/imgs/microservices-window-collaboration.png"></a></p>

@@ -2537,7 +2537,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2550,6 +2550,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8960,11 +9043,11 @@
 <h1 id="leaderboards">Leaderboards<a class="headerlink" href="#leaderboards" title="Permanent link">¶</a></h1>
 <p>The Beamable <strong>Leaderboards</strong> allow the game makers to track player scores in social rankings which are "global" (with hundreds of millions of players) or "segmented" (in smaller groups). It supports:</p>
 <ul>
-<li>Assign a player to a specific leaderboard.</li>
-<li>Retrieve entries from specific ranges in the leaderboard.</li>
-<li>Leaderboard pagination.</li>
-<li>Retrieve a specific player rank.</li>
-<li>Retrieve the friends ranks.</li>
+<li>Assign a player to a specific leaderboard</li>
+<li>Retrieve entries from specific ranges in the leaderboard</li>
+<li>Leaderboard pagination</li>
+<li>Retrieve a specific player rank</li>
+<li>Retrieve the friends ranks</li>
 </ul>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>This section covers common leaderboard use cases and how to implement them.</p>
@@ -8985,18 +9068,18 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/leaderboards-content-details.png" data-desc-position="bottom"><img alt="leaderboards-content-details.png" src="../../../../media/imgs/leaderboards-content-details.png"></a></p>
 <ul>
 <li><strong>Client Permission</strong>: Allow the clients to update their score in the leaderboard. <strong>OBS: This will be possible vulnerability in your game</strong></li>
-<li><strong>Partitioned</strong>: Determines whether this leaderboard automatically partitions into smaller leaderboards.</li>
-<li><strong>Max Entries</strong>: Determines the maximum number of entries in a given leaderboard partition.</li>
-<li><strong>Cohort Settings</strong>: Specifies criteria for grouping players together.</li>
+<li><strong>Partitioned</strong>: Determines whether this leaderboard automatically partitions into smaller leaderboards</li>
+<li><strong>Max Entries</strong>: Determines the maximum number of entries in a given leaderboard partition</li>
+<li><strong>Cohort Settings</strong>: Specifies criteria for grouping players together</li>
 </ul>
 <h3 id="assign-player-to-leaderboard">Assign Player to Leaderboard<a class="headerlink" href="#assign-player-to-leaderboard" title="Permanent link">¶</a></h3>
 <p>There are two ways to assign a player to a leaderboard:</p>
 <ul>
-<li>Set a Score Directly: Simply submit a score for the player on the desired leaderboard. This automatically associates the player with that leaderboard.</li>
+<li>Set a Score Directly: Simply submit a score for the player on the desired leaderboard. This automatically associates the player with that leaderboard</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/leaderboards-blueprint-update-score.png" data-desc-position="bottom"><img alt="leaderboards-blueprint-update-score.png" src="../../../../media/imgs/leaderboards-blueprint-update-score.png"></a></p>
 <ul>
-<li>Use FetchAssignedLeaderboardOperation with Join = true: This operation is particularly useful for partitioned leaderboards. By passing the base leaderboard ID, this operation returns the specific partitioned leaderboard ID (e.g., "leaderboards.my_partitioned_board" becomes "leaderboards.my_partitioned_board#0").</li>
+<li>Use FetchAssignedLeaderboardOperation with Join = true: This operation is particularly useful for partitioned leaderboards. By passing the base leaderboard ID, this operation returns the specific partitioned leaderboard ID (e.g., "leaderboards.my_partitioned_board" becomes "leaderboards.my_partitioned_board#0")</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/leaderboards-blueprint-fetchassigned.png" data-desc-position="bottom"><img alt="leaderboards-blueprint-fetchassigned.png" src="../../../../media/imgs/leaderboards-blueprint-fetchassigned.png"></a></p>
 <div class="admonition warning">

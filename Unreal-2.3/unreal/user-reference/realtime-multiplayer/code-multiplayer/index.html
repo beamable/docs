@@ -2475,7 +2475,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2488,6 +2488,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8838,10 +8921,10 @@
 <p>By default, Beamable integrates with the Gameplay Framework to give you cross-platform Game Server Authentication (to enable cross-play) WITHOUT going through OnlineSubsystem interfaces. Basically, the <code>FUniqueNetId</code> for each player is the user's <code>GamerTag</code>. More details about disabling this further down in this document (not recommended).</p>
 <p>There are a few components here that you need to know about before you implement this:</p>
 <ul>
-<li><strong>AGameMode::BeginPlay</strong>: In most C++-based implementations, this is your server's "entry point".</li>
-<li><strong>AGameMode::PreLoginAsync</strong>: This is what UE calls whenever a client attempts to connect to a game server --- once you invoke a callback it provides, the user is either accepted or rejected. This will be invoked on the server once per-player (if you have multiple players per-client, this is an important distinction).</li>
+<li><strong>AGameMode::BeginPlay</strong>: In most C++-based implementations, this is your server's "entry point"</li>
+<li><strong>AGameMode::PreLoginAsync</strong>: This is what UE calls whenever a client attempts to connect to a game server — once you invoke a callback it provides, the user is either accepted or rejected. This will be invoked on the server once per-player (if you have multiple players per-client, this is an important distinction)</li>
 <li><strong>ULocalPlayer::GetGameLoginOptions</strong>: This appends a string of Options to each <code>ULocalPlayer</code>'s connection string.</li>
-<li><strong>FUniqueNetIdRepl</strong>: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework.</li>
+<li><strong>FUniqueNetIdRepl</strong>: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework</li>
 </ul>
 <h3 id="setting-up-your-gameplay-levels-level-blueprint">Setting Up your Gameplay Level's Level Blueprint<a class="headerlink" href="#setting-up-your-gameplay-levels-level-blueprint" title="Permanent link">¶</a></h3>
 <p>This section is the C++ version of <a href="../realtime-multiplayer-overview/#setting-up-your-gameplay-levels-level-blueprint">what is done in the Level Blueprint here</a>.</p>
@@ -8905,15 +8988,15 @@
 <h2 id="implementing-game-server-authentication">Implementing Game Server Authentication<a class="headerlink" href="#implementing-game-server-authentication" title="Permanent link">¶</a></h2>
 <p>When using the Beamable SDK, to validate that the user should be allowed to connect to this game server, the SDK needs to verify a few things:</p>
 <ul>
-<li>The User's Auth Token and GamerTag... so that the server can verify the user is who they say they are.</li>
-<li>Optionally, the Lobby Id for the lobby the user is in... to verify the user is in a lobby registered with this Game Server.</li>
+<li>The User's Auth Token and GamerTag... so that the server can verify the user is who they say they are</li>
+<li>Optionally, the Lobby Id for the lobby the user is in... to verify the user is in a lobby registered with this Game Server</li>
 </ul>
 <p>Pass these via the <code>Options</code> parameter.</p>
 <p>In clients builds', passing these options can be achieved using <code>UBeamLobbySubsystem::TryOpenLevelFromLobby</code>. You can also use <code>UBeamLobbySubsystem::PrepareLoginOptions</code> to append these to a string you'll pass to the regular <code>Open Level</code> calls used to connect to game servers.</p>
 <p>When implementing <code>PreLoginAsync</code>, you need to call two functions:</p>
 <ul>
-<li><code>BeamPIE::Authentication::GetExpectedClientPIEOptions</code> --- this enables the <abbr title="Play in Editor">PIE</abbr> integration to work with Game Server Authentication (it gets around UE limitations --- see further down for more information on this).</li>
-<li><code>BeamMultiplayer::Authentication::PreLoginAsync</code> --- this uses the <code>Options</code> to validate the user is in fact inside a lobby that has been registered with this server.</li>
+<li><code>BeamPIE::Authentication::GetExpectedClientPIEOptions</code> — this enables the <abbr title="Play in Editor">PIE</abbr> integration to work with Game Server Authentication (it gets around UE limitations — see further down for more information on this).</li>
+<li><code>BeamMultiplayer::Authentication::PreLoginAsync</code> — this uses the <code>Options</code> to validate the user is in fact inside a lobby that has been registered with this server.</li>
 </ul>
 <p>A simple implementation of that looks like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">PreLoginAsync</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Options</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Address</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FUniqueNetIdRepl</span><span class="o">&amp;</span><span class="w"> </span><span class="n">UniqueId</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FOnPreLoginCompleteDelegate</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OnComplete</span><span class="p">)</span><span class="w"> </span><span class="k">override</span>
@@ -8957,7 +9040,7 @@
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">};</span>
 </code></pre></div>
 <h2 id="understanding-funiquenetid-and-beamable">Understanding <code>FUniqueNetId</code> and Beamable<a class="headerlink" href="#understanding-funiquenetid-and-beamable" title="Permanent link">¶</a></h2>
-<p><code>FUniqueNetId</code> is how UE identifies each player in the network. By default, when you sign in with Beamable, the SDK sets the <code>ULocalPlayer</code>'s preferred <code>FUniqueNetId</code> to be the user's <code>GamerTag</code>. This is how the Beamable SDK maps each Player in its <code>ULobby</code> objects to each <strong>UE Player</strong> objects. The <code>UBeamLobbySubsystem</code> has utility functions that help you get a <code>GamerTag</code> from a <strong>Player Controller/State</strong> object --- these rely on this mapping to work.</p>
+<p><code>FUniqueNetId</code> is how UE identifies each player in the network. By default, when you sign in with Beamable, the SDK sets the <code>ULocalPlayer</code>'s preferred <code>FUniqueNetId</code> to be the user's <code>GamerTag</code>. This is how the Beamable SDK maps each Player in its <code>ULobby</code> objects to each <strong>UE Player</strong> objects. The <code>UBeamLobbySubsystem</code> has utility functions that help you get a <code>GamerTag</code> from a <strong>Player Controller/State</strong> object — these rely on this mapping to work.</p>
 <p>As long as you are using the <code>Project Settings &gt; Game &gt; Beamable Runtime &gt; Enable Gameplay Framework Integration</code>, this is all handled automatically for you (in various ways). If, for whatever reason, you want the <code>FUniqueNetId</code> to be something other than the Beamable GamerTag, you <strong><em>MUST</em></strong> also implement Game Server Authentication for these utility functions to work.</p>
 <p>This constraint exists because, for now, the logic in <code>BeamMultiplayer::Authentication::PreLoginAsync</code> is the only place where the SDK will have both the <code>GamerTag</code> (from the <code>Options</code>) AND the <code>UniqueId</code> to map each player correctly.</p>
 <p><strong><em>Keep in mind that the default SDK behavior does not need you to care about any of this.</em></strong></p>
@@ -8967,11 +9050,11 @@
 <ul>
 <li>There is no need to <code>SignUp</code>/<code>Login</code>; just to <code>InitSDK</code>.</li>
 <li>Calling APIs that simply read data from users via their <code>GamerTag</code> or other Ids will work fine.</li>
-<li>Calling APIs that write to user data is not recommended via regular SDK functions (see below for the alternative).</li>
+<li>Calling APIs that write to user data is not recommended via regular SDK functions (see below for the alternative)</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Server Mapping Slots - Experimental</p>
-<p>By default, if you are implementing the <strong>Game Server Authentication</strong> described here. The server stores the AuthToken for each user inside server mapping slots --- this means the Game Server <em>can</em> make requests "as though they were the user itself" but with the Server's admin permissions. This can be useful due to certain legacy API limitations.</p>
+<p>By default, if you are implementing the <strong>Game Server Authentication</strong> described here. The server stores the AuthToken for each user inside server mapping slots — this means the Game Server <em>can</em> make requests "as though they were the user itself" but with the Server's admin permissions. This can be useful due to certain legacy API limitations.</p>
 </div>
 <h3 id="writing-to-a-users-statsinventory">Writing to a User's Stats/Inventory<a class="headerlink" href="#writing-to-a-users-statsinventory" title="Permanent link">¶</a></h3>
 <p>When writing your Game Server code, you generally don't want to be making requests for individual players one at a time (batching is generally better). Sometimes that is fine, but there are cases where you'll want to write several things to several players' Stats/Inventory (processing a match's results, for example). In cases like this, you should write <code>ServerCallable</code> functions in Microservices and call those from the Microservice. See <a href="../../microservices/microservices/">Microservices</a> for more information about the various types of <code>Callable</code>.</p>

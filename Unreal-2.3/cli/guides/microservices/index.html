@@ -2352,7 +2352,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2365,6 +2365,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8779,9 +8862,9 @@
 
 <h1 id="microservices">Microservices<a class="headerlink" href="#microservices" title="Permanent link">¶</a></h1>
 <p>Developing Standalone Microservices with the Beam CLI</p>
-<p>Beamable offers a rich microservice development workflow using the Beam CLI and Dotnet. Microservices deploy to the Beamable Cloud, and offer a secure way to handle server-side authoritative logic for your games.</p>
+<p>Beamable offers a rich microservice development workflow using the Beam CLI and .NET. Microservices deploy to the Beamable Cloud, and offer a secure way to handle server-side authoritative logic for your games.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>Before you can develop a Beamable Standalone Microservice, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">Dotnet 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
+<p>Before you can develop a Beamable Standalone Microservice, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
@@ -8860,15 +8943,15 @@ And then click the Execute button! In your Standalone Microservice project, you 
 </tr>
 <tr>
 <td><code>MyProject/services/Programcs</code></td>
-<td>This file is the entry point of the dotnet application. It bootstraps the server and starts it. You may edit it, but make sure not to remove the section that enables the service.</td>
+<td>This file is the entry point of the .NET application. It bootstraps the server and starts it. You may edit it, but make sure not to remove the section that enables the service.</td>
 </tr>
 <tr>
 <td><code>MyProject/services/HelloWorld.csproj</code></td>
-<td>This file is the dotnet project file for your service. You can modify the <code>.csproj</code> file to customize your service. See the <a href="../ms-configuration/">Microservice Configuration Section</a> section for more details</td>
+<td>This file is the .NET project file for your service. You can modify the <code>.csproj</code> file to customize your service. See the <a href="../ms-configuration/">Microservice Configuration Section</a> section for more details</td>
 </tr>
 <tr>
 <td><code>MyProject/BeamableServices.sln</code></td>
-<td>This file is the dotnet solution file, and organizes your services. If you add additional services or storage databases, they will be tracked through the <code>.sln</code> file.</td>
+<td>This file is the .NET solution file, and organizes your services. If you add additional services or storage databases, they will be tracked through the <code>.sln</code> file.</td>
 </tr>
 </tbody>
 </table>

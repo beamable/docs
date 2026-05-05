@@ -494,7 +494,7 @@
   <a href="#ios-support" class="md-nav__link">
     <span class="md-ellipsis">
       
-        IOS Support
+        iOS Support
       
     </span>
   </a>
@@ -2573,7 +2573,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2586,6 +2586,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8858,7 +8941,7 @@
   <a href="#ios-support" class="md-nav__link">
     <span class="md-ellipsis">
       
-        IOS Support
+        iOS Support
       
     </span>
   </a>
@@ -9034,7 +9117,7 @@
 <h1 id="version-230-release-notes">Version 2.3.0 Release Notes<a class="headerlink" href="#version-230-release-notes" title="Permanent link">¶</a></h1>
 <p>These are the release notes for the Beamable Unreal SDK version 2.3.0. This release includes several new features, improvements, and bug fixes to enhance your experience with the Beamable Unreal SDK. Below are the highlights of this release:</p>
 <h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">¶</a></h2>
-<h3 id="ios-support">IOS Support<a class="headerlink" href="#ios-support" title="Permanent link">¶</a></h3>
+<h3 id="ios-support">iOS Support<a class="headerlink" href="#ios-support" title="Permanent link">¶</a></h3>
 <p>We are excited to announce that Beamable Unreal SDK now supports the iOS platform! You can now build and deploy your Beamable-powered games on iOS devices, expanding your reach to a wider audience.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/apple-ios-13.png" data-desc-position="bottom"><img alt="apple-ios-13.png" src="../../../media/imgs/apple-ios-13.png" width="400"></a></p>
 <h3 id="new-microservice-editor">New Microservice Editor<a class="headerlink" href="#new-microservice-editor" title="Permanent link">¶</a></h3>
@@ -9073,22 +9156,22 @@
 <h4 id="platform-integration-samples">Platform Integration Samples<a class="headerlink" href="#platform-integration-samples" title="Permanent link">¶</a></h4>
 <p>The Beamball sample now includes comprehensive platform integration demonstrations:</p>
 <ul>
-<li><strong>Steam Integration</strong>: We've folded the previous standalone Steam demo into the Beamball sample, showcasing federated login with Steam using Auth Session Tickets and the Steam Partner Web API.</li>
-<li><strong>Epic Online Services (<abbr title="Epic Online Services">EOS</abbr>) Integration</strong>: A new Epic Account integration sample demonstrates federated login using OpenID Connect JWT validation with support for multiple authentication methods (PersistentAuth, Exchange Code, Developer Auth, and Account Portal).</li>
+<li><strong>Steam Integration</strong>: We've folded the previous standalone Steam demo into the Beamball sample, showcasing federated login with Steam using Auth Session Tickets and the Steam Partner Web API</li>
+<li><strong>Epic Online Services (<abbr title="Epic Online Services">EOS</abbr>) Integration</strong>: A new Epic Account integration sample demonstrates federated login using OpenID Connect JWT validation with support for multiple authentication methods (PersistentAuth, Exchange Code, Developer Auth, and Account Portal)</li>
 </ul>
 <p>These samples demonstrate complete authentication flows from client to server, including player initialization with platform-specific profile data. See the <a href="../../samples/beamball/steam-integration/">Steam Integration</a> and <a href="../../samples/beamball/eos-integration/"><abbr title="Epic Online Services">EOS</abbr> Integration</a> documentation for detailed setup instructions.</p>
 <p>The Beamfarm sample for now, just has the Google Sign-In (Android) and Game Center (iOS) login integrations in similar fashion to the Beamball samples. In the future, this Beamfarm sample will evolve into a async-multiplayer mobile-game-style sample and Beamball will remain focused for PC (and in the future Console).</p>
 <h2 id="other-changes">Other Changes<a class="headerlink" href="#other-changes" title="Permanent link">¶</a></h2>
 <ul>
 <li>The minimum .NET version used by the CLI is now enforced by the <code>global.json</code> file. The normal upgrade process creates this, and this change should not affect your currently working project.</li>
-<li>[Fix] Fixed the issue that caused the store subsystem to incorrectly cache the state of the first store's view as all store's views.</li>
+<li>[Fix] Fixed the issue that caused the store subsystem to incorrectly cache the state of the first store's view as all store's views</li>
 </ul>
 <h2 id="upgrading">Upgrading<a class="headerlink" href="#upgrading" title="Permanent link">¶</a></h2>
 <p>If you are upgrading from version 2.2.1, the upgrade process is:</p>
 <ul>
-<li>Follow the Upgrade Steps available <a href="../../getting-started/setup/#upgrading-the-sdk">Here</a></li>
+<li>Follow the <a href="../../getting-started/setup/#upgrading-the-sdk">Upgrade Steps</a></li>
 <li>This release requires that you regenerate your microservice clients after rebuilding the microservice projects, if you have any. So you'll need to run: <code>dotnet beam project generate-client "."</code></li>
-<li>Recompile your editor.</li>
+<li>Recompile your editor</li>
 </ul>
 <p>If you are upgrading from any older version, also see the <strong>What's New</strong>/<strong>Upgrade Guide</strong> for the versions in between.</p>
 

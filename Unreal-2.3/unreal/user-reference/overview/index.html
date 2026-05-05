@@ -2479,7 +2479,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2492,6 +2492,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8852,27 +8935,27 @@ If you are not familiar with Unreal Subsystems, you can take a look at their doc
 <ul>
 <li><strong>BeamableCore</strong> contains the <code>UEngineSubsystem</code> implementations shared between <code>Editor</code> and <code>Runtime</code> executing environments. It also contains the <code>UBeamContentObject</code> schema definitions for the <a href="../beamable-services/content/">content system</a>.</li>
 <li><strong>BeamableCoreRuntime</strong> contains the <code>UBeamRuntime</code> and <code>UBeamRuntimeSubsystem</code> implementations and manages the SDK lifecycle at runtime (during <abbr title="Play in Editor">PIE</abbr> and in packaged clients).</li>
-<li><strong>BeamableCoreEditor</strong> and <strong>BeamableCoreRuntimeEditor</strong> contains <code>UBeamEditor</code> and the editor integration code: custom BlueprintNodes, PropertyCustomizations, etc.</li>
+<li><strong>BeamableCoreEditor</strong> and <strong>BeamableCoreRuntimeEditor</strong> contain <code>UBeamEditor</code> and the editor integration code: custom BlueprintNodes, PropertyCustomizations, etc.</li>
 </ul>
 <h3 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">¶</a></h3>
 <p>For any technical lead making system-level decisions, effective use of Beamable and the Beamable Unreal SDK requires you to understand a few core concepts. So, after reading this document, you'll want to start here:</p>
 <ul>
-<li><a href="../beamable-services/content/"><strong>Content</strong></a>: how you define your game's configuration -- balancing data, currency and item definitions, etc. Most SDK systems depend on Content, so it is a good place to start.</li>
-<li><a href="../beamable-services/identity/"><strong>Identity</strong></a>: the various ways you can manage a player's account and login flows.</li>
-<li><a href="../microservices/microservices/"><strong>Microservices</strong></a>: Beamable's version of cloud-code -- but also much more.</li>
-<li><a href="../federation/federation/"><strong>Federation</strong></a>: extension points in Beamable backend services that delegate specific actions to your microservices, such as third-party authentication.</li>
+<li><a href="../beamable-services/content/"><strong>Content</strong></a>: how you define your game's configuration — balancing data, currency and item definitions, etc. Most SDK systems depend on Content, so it is a good place to start</li>
+<li><a href="../beamable-services/identity/"><strong>Identity</strong></a>: the various ways you can manage a player's account and login flows</li>
+<li><a href="../microservices/microservices/"><strong>Microservices</strong></a>: Beamable's version of cloud-code — but also much more</li>
+<li><a href="../federation/federation/"><strong>Federation</strong></a>: extension points in Beamable backend services that delegate specific actions to your microservices, such as third-party authentication</li>
 </ul>
 <p>Aside from those core concepts, the links below explain some of the higher-level systems.</p>
 <ul>
-<li><a href="../beamable-services/stats/"><strong>Stats</strong></a> and <a href="../beamable-services/inventory/"><strong>Inventory</strong></a> are the general-case player-data stores. These can be used to store player-related data and implement a variety of features.</li>
-<li><a href="../beamable-services/matchmaking/"><strong>Matchmaking</strong></a>, <a href="../beamable-services/lobbies/"><strong>Lobbies</strong></a>, <a href="../beamable-services/friends/"><strong>Friends</strong></a> and <a href="../beamable-services/parties/"><strong>Parties</strong></a> are all part of the suite of services for real-time multiplayer games.</li>
-<li><a href="../beamable-services/stores/"><strong>Stores</strong></a>, <a href="../beamable-services/leaderboards/"><strong>Leaderboards</strong></a> and <a href="../beamable-services/announcements/"><strong>Announcements</strong></a> are all part of the suite of services for live-ops meta-game engagement.</li>
+<li><a href="../beamable-services/stats/"><strong>Stats</strong></a> and <a href="../beamable-services/inventory/"><strong>Inventory</strong></a> are the general-case player-data stores. These can be used to store player-related data and implement a variety of features</li>
+<li><a href="../beamable-services/matchmaking/"><strong>Matchmaking</strong></a>, <a href="../beamable-services/lobbies/"><strong>Lobbies</strong></a>, <a href="../beamable-services/friends/"><strong>Friends</strong></a> and <a href="../beamable-services/parties/"><strong>Parties</strong></a> are all part of the suite of services for real-time multiplayer games</li>
+<li><a href="../beamable-services/stores/"><strong>Stores</strong></a>, <a href="../beamable-services/leaderboards/"><strong>Leaderboards</strong></a> and <a href="../beamable-services/announcements/"><strong>Announcements</strong></a> are all part of the suite of services for live-ops meta-game engagement</li>
 </ul>
 <h2 id="beamable-runtime-sdk">Beamable Runtime SDK<a class="headerlink" href="#beamable-runtime-sdk" title="Permanent link">¶</a></h2>
 <p><code>UBeamRuntime</code> is the entry point for the Beamable SDK at runtime (<abbr title="Play in Editor">PIE</abbr>, packaged game clients, and dedicated servers). It is a <code>GameInstanceSubsystem</code> and follows its lifecycle rules. It is responsible for a couple of things:</p>
 <ul>
-<li>Controls the SDK's runtime initialization flow.</li>
-<li>Controls the various SDK's user [un]-authentication flows.</li>
+<li>Controls the SDK's runtime initialization flow</li>
+<li>Controls the various SDK's user [un]-authentication flows</li>
 <li>Controls <code>UBeamRuntimeSubsystems'</code> lifecycle with respect to the SDK's initialization flow itself and <code>FUserSlot</code> authentication.</li>
 </ul>
 <p>The image below describes how the SDK's lifecycle injects itself into UE's lifecycle:</p>
@@ -8893,16 +8976,16 @@ If you are not familiar with Unreal Subsystems, you can take a look at their doc
 <li><code>UBeamInventorySubsystem</code>: provides builder functions around the Inventory APIs that allow you to combine what would be multiple API requests into a single batched inventory update. It also receives inventory notifications coming from the server and keeps in-memory player state in sync.</li>
 <li><code>UBeamMatchmakingSubsystem</code>: provides a stateful way of joining/canceling a matchmaking queue and receiving updates when a match is found.</li>
 </ul>
-<p>These systems make use of the various <code>UBeamRuntimeSubsystem</code> callbacks to keep their state correct and expose callbacks and configuration options for <strong>Game-Maker Code</strong> to run with semantically relevant guarantees. Coupled with <a href="../federation/federation/">Federations</a>, these guarantees can be leveraged to greatly simplify the complexity of client implementations -- usually reducing the complexity and cost of your game's systems implementation.</p>
+<p>These systems make use of the various <code>UBeamRuntimeSubsystem</code> callbacks to keep their state correct and expose callbacks and configuration options for <strong>Game-Maker Code</strong> to run with semantically relevant guarantees. Coupled with <a href="../federation/federation/">Federations</a>, these guarantees can be leveraged to greatly simplify the complexity of client implementations — usually reducing the complexity and cost of your game's systems implementation.</p>
 <p>All <a href="../runtime-systems/blueprints/">Blueprint</a> nodes, except the <strong>Low-Level</strong> ones, are backed by these subsystem implementations.</p>
 <p>If the exposed hooks on these are not enough for your use case and constraints, you can create your own <code>UBeamRuntimeSubsystem</code>. The SDK does not obfuscate its inner-workings from you so you can use the existing <code>UBeamRuntimeSubsystems</code> as a reference to understand how to create your own. The documentation on <a href="../runtime-systems/lower-level/">Lower Level SDK</a> and <a href="../runtime-systems/operations/operations-and-waits/">Operations &amp; Waits</a> can also be useful when implementing your own <code>UBeamRuntimeSubsystems</code>.</p>
 <h4 id="advanced-disabling-runtime-subsystems">Advanced - Disabling Runtime Subsystems<a class="headerlink" href="#advanced-disabling-runtime-subsystems" title="Permanent link">¶</a></h4>
 <p>You can also opt out of these entirely by adding them to <code>UBeamCoreSettings</code> 's property: <code>ManuallyInitializedRuntimeSubsystems</code>. All subsystems in this list, and any other subsystem that depends on it, are not automatically initialized by the SDK. For example, if <code>UBeamInventorySubsystem</code> is in this list, this system will not be usable until you manually initialize it.</p>
 <p>You can leverage the above to:</p>
 <ul>
-<li>Delay initialization of subsystems to a later point to reduce startup times.</li>
-<li>Replace the SDK's default implementation of a system with your own, avoiding its overhead.</li>
-<li>Disable systems that you do not want to use to reduce the SDK's request overhead.</li>
+<li>Delay initialization of subsystems to a later point to reduce startup times</li>
+<li>Replace the SDK's default implementation of a system with your own, avoiding its overhead</li>
+<li>Disable systems that you do not want to use to reduce the SDK's request overhead</li>
 </ul>
 <p>Keep in mind that the simplest way is to build your features <em>on top of</em> these subsystems instead of replacing them.
 However, there are complex cases where it may be easier to make your own system <em>instead of</em> these subsystems.
@@ -8910,9 +8993,9 @@ This is why the SDK allows enabling and disabling systems at this granularity.</
 <h4 id="advanced-beyond-hooks-and-sdk-modifications">Advanced - Beyond Hooks and SDK Modifications<a class="headerlink" href="#advanced-beyond-hooks-and-sdk-modifications" title="Permanent link">¶</a></h4>
 <p>The Beamable Unreal SDK ships with full source code so you can edit it when needed. The code is organized and commented to make modifications feasible, for a few reasons:</p>
 <ul>
-<li><strong>Owning Dependencies</strong>: The Beamable UE team's philosophy is that dependencies should be managed explicitly and, whenever possible, committed to your VCS. Since the Beamable SDK is a significant dependency of your project, we want you to have as much control over it as possible.</li>
+<li><strong>Owning Dependencies</strong>: The Beamable UE team's philosophy is that dependencies should be managed explicitly and, whenever possible, committed to your VCS. Since the Beamable SDK is a significant dependency of your project, we want you to have as much control over it as possible</li>
 <li><strong>Visibility</strong>: SDK internals are subject to change, so avoid depending on them directly — but having access to them can better inform design choices. You can use the details of <code>UBeamRuntimeSubsystem</code> implementations as guides when designing custom systems on top of Beamable.</li>
-<li><strong>Debuggability</strong>: Having the SDK source lets you investigate it, find issues stemming from incorrect usage or SDK bugs, and report them to Beamable.</li>
+<li><strong>Debuggability</strong>: Having the SDK source lets you investigate it, find issues stemming from incorrect usage or SDK bugs, and report them to Beamable</li>
 </ul>
 <p>The goal is to help you get a head start in development, but if the SDK's systems are not working for you, you are free to adjust or replace them.</p>
 <div class="admonition warning">

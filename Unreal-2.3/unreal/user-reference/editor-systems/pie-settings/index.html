@@ -2509,7 +2509,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2522,6 +2522,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8920,7 +9003,7 @@ To enable them, go to the Beamable Core section in the Unreal Engine editor sett
 <ul>
 <li><strong>Local (Green)</strong>: Saved locally in your <code>.beamable/temp</code> folder. Useful for personal testing and development.</li>
 <li><strong>Template (Orange)</strong>: Saved in your <code>.beamable</code> folder and can be committed to version control. Intended as shared templates so the whole team can start from the same baseline.</li>
-<li><strong>Captured (Gray)</strong>: Per-session captured players are unsaved and cleared during the editor initialization.</li>
+<li><strong>Captured (Gray)</strong>: Per-session captured players are unsaved and cleared during the editor initialization</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Player Profile Names and Descriptions</p>
@@ -8953,10 +9036,10 @@ You can also add descriptions and tags to profiles to provide extra context for 
 </div>
 <p>In the <abbr title="Play in Editor">PIE</abbr> Lobby Settings you can configure:</p>
 <ul>
-<li><strong>Enable/Disable</strong>: checkbox in the header enables or disables the <abbr title="Play in Editor">PIE</abbr> Lobby simulation for this preset.</li>
-<li><strong>Server Map Override</strong>: map that will be used as the server map for the <abbr title="Play in Editor">PIE</abbr> Lobby. This overrides the default server map defined in the Unreal Project Settings.</li>
-<li><strong>Game Type</strong>: Game Type content that will be used for the <abbr title="Play in Editor">PIE</abbr> Lobby Scene. If there is a federation configured here, the federation does run too.</li>
-<li><strong>Lobby Global Data</strong>: Custom Global Key-Value pairs that will be used to initialize the <abbr title="Play in Editor">PIE</abbr> Lobby. This data is available in the Gameplay Scene and can be used to simulate different scenarios.</li>
+<li><strong>Enable/Disable</strong>: checkbox in the header enables or disables the <abbr title="Play in Editor">PIE</abbr> Lobby simulation for this preset</li>
+<li><strong>Server Map Override</strong>: map that will be used as the server map for the <abbr title="Play in Editor">PIE</abbr> Lobby. This overrides the default server map defined in the Unreal Project Settings</li>
+<li><strong>Game Type</strong>: Game Type content that will be used for the <abbr title="Play in Editor">PIE</abbr> Lobby Scene. If there is a federation configured here, the federation does run too</li>
+<li><strong>Lobby Global Data</strong>: Custom Global Key-Value pairs that will be used to initialize the <abbr title="Play in Editor">PIE</abbr> Lobby. This data is available in the Gameplay Scene and can be used to simulate different scenarios</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-fake-lobby.png" data-desc-position="bottom"><img alt="pie-fake-lobby.png" src="../../../../media/imgs/pie-fake-lobby.png"></a></p>
 <h3 id="user-settings">User Settings<a class="headerlink" href="#user-settings" title="Permanent link">¶</a></h3>
@@ -8977,8 +9060,8 @@ You can also add descriptions and tags to profiles to provide extra context for 
 <p>User Settings also includes a <strong>Teams</strong> configuration that lets you define party and team assignments directly for each player in the session. This means you can set up a full party with team assignments before <abbr title="Play in Editor">PIE</abbr> starts, and the system will initialize everything automatically when the session begins.</p>
 <p>This gives you a fully integrated way to test the <strong>party system</strong> and <strong>team logic</strong> end-to-end without needing to manually trigger party invites or team assignments at runtime:</p>
 <ul>
-<li><strong>Party</strong>: group the configured players into a party so they are already associated when the Gameplay Level starts.</li>
-<li><strong>Teams</strong>: assign each player to a specific team within that party, allowing you to test team-based gameplay scenarios (e.g., two players on Team A vs. two players on Team B) directly in <abbr title="Play in Editor">PIE</abbr>.</li>
+<li><strong>Party</strong>: group the configured players into a party so they are already associated when the Gameplay Level starts</li>
+<li><strong>Teams</strong>: assign each player to a specific team within that party, allowing you to test team-based gameplay scenarios (e.g., two players on Team A vs. two players on Team B) directly in <abbr title="Play in Editor">PIE</abbr></li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie_play_users.png" data-desc-position="bottom"><img alt="pie_play_users.png" src="../../../../media/imgs/pie_play_users.png"></a></p>
 <div class="admonition warning">

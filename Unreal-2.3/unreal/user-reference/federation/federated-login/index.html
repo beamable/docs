@@ -2481,7 +2481,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2494,6 +2494,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8853,18 +8936,18 @@
 </code></pre></div>
 <p>The purpose of this function is:</p>
 <blockquote>
-<p>Map a third-party token to a Unique Identifier for the user within the 3rd Party.</p>
+<p>Map a third-party token to a Unique Identifier for the user within the third-party.</p>
 </blockquote>
 <p>Most of the time, you achieve this by doing the following:</p>
 <ol>
-<li>[<strong>Game Client</strong>]: Use the 3rd Party Client SDK to get a token of sorts.<ol>
+<li>[<strong>Game Client</strong>]: Use the third-party Client SDK to get a token of sorts.<ol>
 <li>See our <a href="../../../samples/beamball/steam-integration/">Steam</a> and <a href="../../../samples/discord-demo/">Discord</a> Samples for examples of this.</li>
 </ol>
 </li>
 <li>[<strong>Game Client</strong>]: Invoke a <code>Login</code>/<code>SignUp</code>/<code>Attach</code> <strong>Operation</strong> and pass the following parameters:<ol>
 <li><strong>MicroserviceName</strong>: this is the name of the Microservice (the <strong>csproj</strong> file name, in the default case).</li>
 <li><strong>IdentityNamespace</strong>: this is the Federation's <strong><a href="../federation/#federation-id">Federation Id</a></strong>. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.</li>
-<li><strong>IdentityUserId</strong>: this is the 3rd Party's <code>UserId</code> for the user trying to login. We use this to determine if there's already a Beamable account mapped to this 3rd Party Id.</li>
+<li><strong>IdentityUserId</strong>: this is the third-party's <code>UserId</code> for the user trying to login. We use this to determine if there's already a Beamable account mapped to this third-party Id.</li>
 <li><strong>IdentityAuthToken</strong>: this is a token that for the user that can be used by the <code>Authenticate</code> function to map it back to a <code>UserId</code>.</li>
 <li><strong>Federation Id</strong>: this is the Federation's <strong><a href="../federation/#federation-id">Federation Id</a></strong>. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.</li>
 </ol>
@@ -8875,12 +8958,12 @@
 <h3 id="setting-up-the-client">Setting up the Client<a class="headerlink" href="#setting-up-the-client" title="Permanent link">¶</a></h3>
 <p>In the client:</p>
 <ul>
-<li>Initialize the SDK.</li>
+<li>Initialize the SDK</li>
 <li>Use the <code>Sign-Up - Federated Identity</code> node with <code>Auto Login</code> passing in:<ul>
-<li>The Microservice's Id.</li>
-<li>The Federation's Id.</li>
-<li>The User Id <em>of the federated 3rd party user</em> (this would be the user's Steam Id, for example).</li>
-<li>A token that can be used to authenticate this user's account with the federated 3rd party.</li>
+<li>The Microservice's Id</li>
+<li>The Federation's Id</li>
+<li>The User Id <em>of the federated third-party user</em> (this would be the user's Steam Id, for example)</li>
+<li>A token that can be used to authenticate this user's account with the federated third-party</li>
 </ul>
 </li>
 </ul>
@@ -8894,8 +8977,8 @@
 </ul>
 <p>In both cases, what you want to do is:</p>
 <ol>
-<li>Use the 3rd Party's APIs or C# SDKs to validate the provided <code>token</code>.</li>
-<li>Use the 3rd Party's APIs or C# SDKs to get the <code>UserId</code> for that <code>token</code>'s user.</li>
+<li>Use the third-party's APIs or C# SDKs to validate the provided <code>token</code>.</li>
+<li>Use the third-party's APIs or C# SDKs to get the <code>UserId</code> for that <code>token</code>'s user.</li>
 <li>Return <code>UserId</code> the <code>FederatedAuthenticationResponse</code> .</li>
 </ol>
 <p>The main difference:</p>
@@ -8930,7 +9013,7 @@
 <li><strong>Without a <code>challenge</code>/<code>solution</code></strong>: This is the first part of the flow.<ul>
 <li>Here, your function should generate a <code>challenge</code> and return it in the <code>FederatedAuthenticationResponse</code>.</li>
 <li>The <code>UserId</code> in <code>FederatedAuthenticationResponse</code> should be empty in this first step.</li>
-<li>Third-party SDKs that support/require 2FA will typically provide you a function to generate said challenge.</li>
+<li>Third-party SDKs that support/require 2FA will typically provide you a function to generate said challenge</li>
 <li>The <code>challenge</code> is sent back to the client who should then solve it.</li>
 <li>After solving the challenge, the client must invoke <code>Login</code>/<code>Attach</code> again, but now passing in the <code>challenge</code> and <code>solution</code>.</li>
 </ul>

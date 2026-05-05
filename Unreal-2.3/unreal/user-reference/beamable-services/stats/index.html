@@ -2447,7 +2447,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2460,6 +2460,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8780,8 +8863,8 @@
 <h1 id="stats">Stats<a class="headerlink" href="#stats" title="Permanent link">¶</a></h1>
 <p>The Beamable SDK Stats feature allows players to track a variety of built-in and custom player stat variables with configurable visibility levels. Two main use cases are:</p>
 <ul>
-<li><strong>Data Store</strong>: can hold key/value pairs associated with a particular user.</li>
-<li><strong>Targeting</strong>: these key/value pairs can be used by other Beamable systems for various things (Announcement Campaigns, Matchmaking and others).</li>
+<li><strong>Data Store</strong>: can hold key/value pairs associated with a particular user</li>
+<li><strong>Targeting</strong>: these key/value pairs can be used by other Beamable systems for various things (Announcement Campaigns, Matchmaking and others)</li>
 </ul>
 <p><strong>There are two important specifiers of each stat: Visibility and Domain.</strong></p>
 <p>Visibility is represented in Unreal by enum <code>EBeamStatsVisibility</code>, and it describes stat visibility.</p>
@@ -8804,7 +8887,7 @@
 <li>Select <code>Open Portal</code> in Beamable window.</li>
 <li>Go to <code>Engage-&gt;Players</code> and search for the player via <code>Gamertag/UserId</code>.</li>
 <li>Go to <code>Stats</code> and search for <code>NewStatKey</code>.</li>
-<li>You should see that it exists with correct value.</li>
+<li>You should see that it exists with correct value</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/stats-portal.png" data-desc-position="bottom"><img alt="stats-portal.png" src="../../../../media/imgs/stats-portal.png"></a></p>
 <center>*View of the stats in the Beamable Portal*</center>
@@ -8814,7 +8897,7 @@
 <ul>
 <li>Create <code>UpdateCommand</code>.</li>
 <li>Use the other functions in the <code>UBeamStatsSubsystem</code> to set up as many changes as possible.</li>
-<li>Commit.</li>
+<li>Commit</li>
 </ul>
 <p>When it is possible (and desirable) for your game, this flow reduces the overall latency your players experience and reduces the number of API calls you make to Beamable.</p>
 <h2 id="reading-other-players-public-stats">Reading Other Players' Public Stats<a class="headerlink" href="#reading-other-players-public-stats" title="Permanent link">¶</a></h2>
@@ -8823,14 +8906,14 @@
 <h2 id="stats-keys-values">Stats Keys &amp; Values<a class="headerlink" href="#stats-keys-values" title="Permanent link">¶</a></h2>
 <p>The SDK does not enforce limitations on stat keys or values. However, the following guidelines are <em>highly recommended</em> for project organization and performance reasons.</p>
 <p><strong>For Keys:</strong>
-- 8-20 characters are ideal (purely for human ergonomics).
-- Keeping them under a few hundred characters is best for performance.
-- Use enforceable and recognizable patterns for your keys.
+- 8-20 characters are ideal (purely for human ergonomics)
+- Keeping them under a few hundred characters is best for performance
+- Use enforceable and recognizable patterns for your keys
     - Bad: <code>CharacterTalents</code> and <code>LoadoutForCharacter</code>
     - Good: <code>CHAR_Talents</code> and <code>CHAR_Loadout</code></p>
 <p><strong>For Values:</strong>
-- Values should be no more than a few hundred characters long.
-- If you need larger complex data structures, use <a href="../../microservices/microservices/#micro-storages">Storage Objects</a> instead.</p>
+- Values should be no more than a few hundred characters long
+- If you need larger complex data structures, use <a href="../../microservices/microservices/#micro-storages">Storage Objects</a> instead</p>
 <p>Beamable's stats service indexes on stat keys; keeping keys short improves read and write performance.</p>
 
 

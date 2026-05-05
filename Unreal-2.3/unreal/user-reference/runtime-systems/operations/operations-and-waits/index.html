@@ -2505,7 +2505,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2518,6 +2518,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8915,15 +8998,15 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/operations-and-waits-lifecycle.png" data-desc-position="bottom"><img alt="operations-and-waits-lifecycle.png" src="../../../../../media/imgs/operations-and-waits-lifecycle.png"></a></p>
 <p><strong>When writing Operations, there are two ways of thinking about them:</strong></p>
 <ul>
-<li><strong>Regular Operations</strong>: are just a "Promise".</li>
-<li><strong>Operation Hooks</strong>: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work.</li>
+<li><strong>Regular Operations</strong>: are just a "Promise"</li>
+<li><strong>Operation Hooks</strong>: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work</li>
 </ul>
 <h2 id="writing-and-exposing-your-own-regular-operations">Writing and Exposing your Own Regular Operations<a class="headerlink" href="#writing-and-exposing-your-own-regular-operations" title="Permanent link">¶</a></h2>
 <p>The SDK exposes all main operations in both BP and C++ flavors. If you'd like to do the same thing, this section is for you. To learn about writing hooks in C++, review the next section.</p>
 <p><strong>The primary trade-off:</strong></p>
 <ul>
-<li>BP-Compatible versions do not allow for lambda binding and variable capturing.</li>
-<li>The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, the SDK supports both flavors.</li>
+<li>BP-Compatible versions do not allow for lambda binding and variable capturing</li>
+<li>The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, the SDK supports both flavors</li>
 </ul>
 <p>In order to easily support both flavors, the snippet below explains how you should write the actual operation logic such that it can be shared for both CPP and BP versions.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// This is the BP-Compatible Function</span>
@@ -9010,7 +9093,7 @@
 <p><strong>Beamable Operation Flow Nodes assume a few things:</strong></p>
 <ul>
 <li>One or more participating <code>UserSlots</code> (see <a href="../../user-slots/">User Slots</a> for more information).</li>
-<li>An event handler for handling any of the events.</li>
+<li>An event handler for handling any of the events</li>
 <li>Events can be: <code>OET_SUCCESS</code>, <code>OET_ERROR</code> and <code>OET_CANCELLED</code> plus a <code>FName EventId</code>.</li>
 <li>Events can contain some arbitrary data associated with them (implementations of <code>IBeamOperationEventData</code>).</li>
 </ul>
@@ -9021,7 +9104,7 @@
 <li><code>FUserSlot UserSlot</code> if a single user is involved in the operation or <code>TArray&lt;FUserSlot&gt; UserSlot</code> if multiple users are involved in the operation.</li>
 <li>If multiple users, the <code>UFUNCTION</code> must also add <code>meta=(BeamOperationMultiUser)</code>.</li>
 <li><code>FBeamOperationEventHandler OnOperationEvent</code> to be the event handler that will handle all events raised by the operation.</li>
-<li>The function can have any other parameters you want in any order as long as the above parameters are there.</li>
+<li>The function can have any other parameters you want in any order as long as the above parameters are there</li>
 </ul>
 </li>
 <li>The function must be declared from inside any <code>UWorldSubsystem</code>, <code>UGameInstanceSubsystem</code>, or <code>UBeamRuntimeSubsystem</code> subclass with a <code>static UMySubsystem* GetSelf(const UObject* CallingContext)</code> <code>UFUNCTION</code> that returns the instance of itself.</li>

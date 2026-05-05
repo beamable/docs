@@ -2352,7 +2352,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2365,6 +2365,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8843,24 +8926,24 @@
 <p>To generate a Beamball server build with the Edgegap plugin, Docker is required. The plugin uses Docker to package the dedicated server into a container image that can then be published to Edgegap directly from the plugin.</p>
 <p>Overview:</p>
 <ul>
-<li>The Edgegap plugin relies on Docker to create the container image for the Beamball dedicated server build.</li>
-<li>Verify that your Beamball server build target is configured correctly before running the Edgegap build workflow.</li>
-<li>After the Docker image is generated, use the plugin's Publish button to send the build to your Edgegap application version.</li>
+<li>The Edgegap plugin relies on Docker to create the container image for the Beamball dedicated server build</li>
+<li>Verify that your Beamball server build target is configured correctly before running the Edgegap build workflow</li>
+<li>After the Docker image is generated, use the plugin's Publish button to send the build to your Edgegap application version</li>
 </ul>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
 <h3 id="edgegap-environment-variables-required">Edgegap Environment Variables Required<a class="headerlink" href="#edgegap-environment-variables-required" title="Permanent link">¶</a></h3>
 <p>Once you set up your version, you will need to add the following environment variables to the version.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/edgegap-env-vars.png" data-desc-position="bottom"><img alt="Edgegap Env Variables" src="../../../../media/imgs/edgegap-env-vars.png"></a></p>
 <ul>
-<li>BEAMABLE_CUSTOMER_OVERRIDE: The <abbr title="customer ID">CID</abbr> found in your Beamable portal.</li>
+<li>BEAMABLE_CUSTOMER_OVERRIDE: The <abbr title="customer ID">CID</abbr> found in your Beamable portal</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-costumer-id.png" data-desc-position="bottom"><img alt="Portal CID" src="../../../../media/imgs/beamball-costumer-id.png"></a></p>
 <ul>
 <li>
-<p>BEAMABLE_REALM_OVERRIDE: The Realm found in your Beamable portal.</p>
+<p>BEAMABLE_REALM_OVERRIDE: The Realm found in your Beamable portal</p>
 </li>
 <li>
-<p>BEAMABLE_REALM_SECRET: The Realm Secret.</p>
+<p>BEAMABLE_REALM_SECRET: The Realm Secret</p>
 </li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-realm-secret.png" data-desc-position="bottom"><img alt="Portal PID and Secret" src="../../../../media/imgs/beamball-realm-secret.png"></a></p>

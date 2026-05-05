@@ -2436,7 +2436,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2449,6 +2449,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8759,10 +8842,10 @@
 <p><strong>Federations</strong> are similar to the idea of server-side callbacks or webhooks, but are slightly expanded in use. They are Beamable's approach to extending, or sometimes delegating, the behavior of its Managed Services to microservices or third parties.</p>
 <p>Here are a few example use cases that Federations as a concept means to solve:</p>
 <ul>
-<li>Implementing 3rd Party Auth Integrations with other Identity Providers</li>
+<li>Implementing third-party Auth Integrations with other Identity Providers</li>
 <li>Customizing Initial Player Account States</li>
-<li>Integrating Beamable Inventory with Steam Inventory or Web3 Wallets.</li>
-<li>Integrating with Game Server Orchestrators such as Edgegap, Agones or even a custom stack.</li>
+<li>Integrating Beamable Inventory with Steam Inventory or Web3 Wallets</li>
+<li>Integrating with Game Server Orchestrators such as Edgegap, Agones or even a custom stack</li>
 <li>Etc...</li>
 </ul>
 <p>Most implementations of Server-Side Callbacks are fire-and-forget (similar to a webhook). <strong>Federations</strong>, however, don't need to be fire-and-forget. Most <strong>Federations</strong> are calls made to your microservice that happen as part of a particular flow, often with things happening <strong><em>before</em></strong> and/or <strong><em>after the federated call finishes</em></strong>.</p>
@@ -8780,7 +8863,7 @@
 </ul>
 <p><code>FederationId</code> values are the mechanism Beamable uses to select the correct Federation implementation when your microservice provides more than one of the same type. This is the <code>FederationId</code> parameter passed to <code>LoginFederatedOperation</code>, <code>SignUpFederatedOperation</code>, and <code>AttachFederatedOperation</code> on <code>UBeamRuntime</code>.</p>
 <h2 id="addingremoving-federations">Adding/Removing Federations<a class="headerlink" href="#addingremoving-federations" title="Permanent link">¶</a></h2>
-<p>Federations are tied to interfaces implemented in your <code>Microservice</code> inherited class --- these Federations and their IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, simply implement its Federation and recompile the microservice project.</p>
+<p>Federations are tied to interfaces implemented in your <code>Microservice</code> inherited class — these Federations and their IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, simply implement its Federation and recompile the microservice project.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// FederationIds.cs</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">[FederationId("cool")]</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CoolId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="p">;</span>

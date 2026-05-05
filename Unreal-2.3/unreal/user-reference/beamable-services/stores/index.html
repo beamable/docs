@@ -2470,7 +2470,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2483,6 +2483,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8837,17 +8920,17 @@
 <h3 id="store-content">Store Content<a class="headerlink" href="#store-content" title="Permanent link">¶</a></h3>
 <p>The store content has the following properties:</p>
 <ul>
-<li><strong>Show Inactive Listings</strong>: shows listing that the user already purchased and that are outside of the availability window or cohort settings.</li>
-<li><strong>Active Listing Limit</strong>: defaults to 20. The Store will only show the first N listings that are valid. When asking for all active listings for a particular user, the API will return a maximum of whatever is here.</li>
+<li><strong>Show Inactive Listings</strong>: shows listing that the user already purchased and that are outside of the availability window or cohort settings</li>
+<li><strong>Active Listing Limit</strong>: defaults to 20. The Store will only show the first N listings that are valid. When asking for all active listings for a particular user, the API will return a maximum of whatever is here</li>
 </ul>
 <h3 id="listing-content">Listing Content<a class="headerlink" href="#listing-content" title="Permanent link">¶</a></h3>
 <p>You can think of a listing as an entry in a catalog of purchasable products.</p>
 <ul>
 <li><strong>Price</strong>: Is the amount of <code>currency</code> a player must have to acquire this listing.</li>
-<li><strong>Offer</strong>: Describes what will be added to the player's inventory once the purchase is completed.</li>
-<li><strong>Client Data</strong>: Use this to store information specific to your game's UI in a way that you can parse and display.</li>
-<li><strong>DateTime</strong>: Is an active period as an ISO-8601 string.</li>
-<li><strong>Purchase Limit</strong>: Number of times the listing is purchasable by the same user. Since it is optional, absent means infinite purchases are allowed while the listing's other filters say you can buy it.</li>
+<li><strong>Offer</strong>: Describes what will be added to the player's inventory once the purchase is completed</li>
+<li><strong>Client Data</strong>: Use this to store information specific to your game's UI in a way that you can parse and display</li>
+<li><strong>DateTime</strong>: Is an active period as an ISO-8601 string</li>
+<li><strong>Purchase Limit</strong>: Number of times the listing is purchasable by the same user. Since it is optional, absent means infinite purchases are allowed while the listing's other filters say you can buy it</li>
 </ul>
 <p>Subtypes of <code>UBeamListingContent</code> are not supported; use <code>ClientData</code> instead.</p>
 <h2 id="beam-store-subsystem">Beam Store Subsystem<a class="headerlink" href="#beam-store-subsystem" title="Permanent link">¶</a></h2>

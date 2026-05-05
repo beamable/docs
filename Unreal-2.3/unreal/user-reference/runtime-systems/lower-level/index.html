@@ -2425,7 +2425,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2438,6 +2438,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8737,7 +8820,7 @@
 <p>This section talks about lower-level details of how requests to Beamable get made. <strong><em>You don't need to read this</em></strong>, but... you might want to if you plan on implementing your own <code>UBeamRuntimeSubsystem</code>.</p>
 <p>Here's why you'd want to do this:</p>
 <ul>
-<li>You want to replace one of the SDK's implementations with something custom and want to provide guarantees about your system's lifecycle that are similar to those the SDK provides.</li>
+<li>You want to replace one of the SDK's implementations with something custom and want to provide guarantees about your system's lifecycle that are similar to those the SDK provides</li>
 <li>You wish to guarantee that when any <code>Login / Signup</code> Operation's success is triggered, you'll already have access to custom data fetched via Microservices and MicroStorages.</li>
 </ul>
 <p>Unless you are solving one of the two problems above, you will not need to write your own <code>UBeamRuntimeSubsystem</code>. If you do, the following concepts are essential.</p>
@@ -8756,7 +8839,7 @@
 <li>
 <p><code>UBeamRequestTracker</code>: provides BP-compatible async operations that emit various events as they go along.</p>
 <ul>
-<li>You can think of these as "BP-Compatible Promises".</li>
+<li>You can think of these as "BP-Compatible Promises"</li>
 <li>These are integrated with the <code>UBeam____Api</code> subsystems.</li>
 <li><code>BeginOperation</code> is effectively the same a creating a new promise.</li>
 <li><code>TriggerOperationSuccess</code>, <code>TriggerOperationError</code> and <code>TriggerOperationCancelled</code> should be called when you want to complete the Operation.</li>
@@ -8767,7 +8850,7 @@
 <p><code>UBeam_____Api</code>:  Code-Generated Subsystems from the Beamable Backend OpenAPI spec.</p>
 <ul>
 <li>These are stateless <code>UEngineSubsystem</code> implementations.</li>
-<li>These provide you low-level access to every end-point of the Beamable backend even if the SDK does not include utilities that do exactly what you want.</li>
+<li>These provide you low-level access to every end-point of the Beamable backend even if the SDK does not include utilities that do exactly what you want</li>
 <li>As UE doesn't allow for namespaces AND BP-compatibility, this is <em>very</em> verbose. Prefer more liberal use of <code>auto</code> when dealing with Code-Gen API Types.</li>
 <li>At runtime, don't forget to pass in the <code>UObject* CallingContext</code> parameter: any <code>UWorld</code>, <code>UGameInstanceSubsystem</code>, <code>UActorComponent</code> or <code>AActor</code> will do (this ensures proper behavior in all cases of <abbr title="Play in Editor">PIE</abbr>).<br><br></li>
 </ul>
@@ -8780,9 +8863,9 @@
 <p><code>UBeamBackend</code> is the most important <code>UEngineSubsystem</code> in the SDK. It leverages Unreal's <code>HTTP</code> module to make requests to the configured Beamable backend. It contains the implementations used by the <code>UBeam____Api</code> classes to make the actual requests.</p>
 <p>These implementations handle:</p>
 <ul>
-<li>Request/Response serialization and deserialization.</li>
-<li>Configurable Retry Logic with per-request-type, per-user-slot and per-call-site granularity.</li>
-<li>Request's response caching, though this is disabled by default as caching is a very context dependent endeavor.</li>
+<li>Request/Response serialization and deserialization</li>
+<li>Configurable Retry Logic with per-request-type, per-user-slot and per-call-site granularity</li>
+<li>Request's response caching, though this is disabled by default as caching is a very context dependent endeavor</li>
 <li>Transparent and Automatic Re-Auth in case of expired <code>AccessToken</code> through a user's <code>RefreshToken</code>.</li>
 </ul>
 <p>The SDK provides a few different request types with 4 implementations:</p>
@@ -8803,7 +8886,7 @@
 <li>
 <p>Received any error defined in <code>UBeamBackend::AUTH_ERROR_CODE_RETRY_ALLOWED</code>.</p>
 <ul>
-<li>These errors trigger the SDK's authentication token refresh flow. It will refresh the token and then retry the request.</li>
+<li>These errors trigger the SDK's authentication token refresh flow. It will refresh the token and then retry the request</li>
 </ul>
 </li>
 </ul>
@@ -8831,7 +8914,7 @@
 </ul>
 </li>
 <li>
-<p>You can use Microservices to send out custom notifications --- those can be received in clients by creating your own subsystem modeled after these.</p>
+<p>You can use Microservices to send out custom notifications — those can be received in clients by creating your own subsystem modeled after these</p>
 <ul>
 <li>Use <code>UBeamRuntime::SubscribeToCustomNotification</code> to subscribe to these easily at runtime.</li>
 </ul>

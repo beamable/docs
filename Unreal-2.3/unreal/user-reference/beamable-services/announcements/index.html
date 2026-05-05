@@ -2414,7 +2414,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2427,6 +2427,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8714,8 +8797,8 @@
 <h1 id="announcements">Announcements<a class="headerlink" href="#announcements" title="Permanent link">¶</a></h1>
 <p>The Beamable SDK Announcement feature allows players to view and receive game-wide announcements configured by the game makers. A few of the main use cases are:</p>
 <ul>
-<li><strong>Communicating to Players</strong> information about the game's live operations that are relevant.</li>
-<li><strong>Targeting a Subset of Players</strong> with gifts or compensations due to things that happen over the course of your live-game services.</li>
+<li><strong>Communicating to Players</strong> information about the game's live operations that are relevant</li>
+<li><strong>Targeting a Subset of Players</strong> with gifts or compensations due to things that happen over the course of your live-game services</li>
 </ul>
 <p>Announcements can be created via the <a href="https://docs.beamable.com/docs/portal-announcements">portal</a>.</p>
 <p>Once created, announcements stay live during the specified date times. While live, each player has a "view" of that announcement.
@@ -8730,7 +8813,7 @@ This view defines whether the player has seen that announcement or claimed any g
 <p>Aside from the <code>Id</code> most other <code>FString</code> fields in the announcement can be used to store whatever data you need. Common practices include:</p>
 <ul>
 <li>Passing in <code>TSoftObjectPath</code> strings to reference in-game assets.</li>
-<li>Passing in some custom string format such that your UI interprets it and changes its behavior accordingly.</li>
+<li>Passing in some custom string format such that your UI interprets it and changes its behavior accordingly</li>
 <li>Use <code>ClientDataList</code> to pass in key-value pairs of arbitrary string data based on your game's context.</li>
 </ul>
 <p>The <code>Title</code>, <code>Summary</code>, and <code>Body</code> fields are format-agnostic — treat them as semantic suggestions and populate them however your game requires.</p>

@@ -2352,7 +2352,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2365,6 +2365,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8785,7 +8868,7 @@
 </ul>
 </li>
 <li>Clone the UnrealSDK Repository<ul>
-<li>Clone the <a href="https://github.com/Beamable/UnrealSDK">UnrealSDK</a> repository if you didn't yet.</li>
+<li>Clone the <a href="https://github.com/Beamable/UnrealSDK">UnrealSDK</a> repository if you didn't yet</li>
 <li>Run the <code>prepare_repo.sh</code> Script. (GitBash is recommended, but any similar shell works.)</li>
 </ul>
 </li>
@@ -8815,14 +8898,14 @@
 <h2 id="why-a-single-repository">Why a Single Repository?<a class="headerlink" href="#why-a-single-repository" title="Permanent link">¶</a></h2>
 <p>All Beamable samples live in the main repository for two reasons:</p>
 <ul>
-<li><strong>QA</strong>: Beamable continuously develops and tests against the samples.</li>
-<li><strong>Up-to-date samples</strong>: Whenever the SDK is updated, the sample projects are updated too. Maintaining samples alongside core features keeps everything stable and consistent.</li>
+<li><strong>QA</strong>: Beamable continuously develops and tests against the samples</li>
+<li><strong>Up-to-date samples</strong>: Whenever the SDK is updated, the sample projects are updated too. Maintaining samples alongside core features keeps everything stable and consistent</li>
 </ul>
 <p>To make this work, the <code>Config</code> and <code>.beamable</code> folders are kept in sync by:</p>
 <ul>
 <li>A custom <code>Target.cs</code> code that makes the <code>Config</code> and <code>.beamable</code> folders at the root level of the repo exact copies of the folders inside the <code>Overrides</code> directory of each <code>BEAMPROJ_</code> folder. In other words, the contents of those folders at the root level is defined by the selected <code>BEAMPROJ</code>.</li>
 <li>An editor subsystem called <code>BeamProjSync</code> that, while the editor is running, file-watches those directories and copies changes made over to the appropriate <code>BEAMPROJ_</code> <code>Overrides</code> folder.</li>
-<li>Those implementations are only related to the specificity of this sample configuration and it is not related to the samples' content themselves.</li>
+<li>Those implementations are only related to the specificity of this sample configuration and it is not related to the samples' content themselves</li>
 </ul>
 
 

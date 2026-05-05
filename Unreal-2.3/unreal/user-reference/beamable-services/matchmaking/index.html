@@ -2497,7 +2497,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2510,6 +2510,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8880,11 +8963,11 @@
 <h1 id="matchmaking">Matchmaking<a class="headerlink" href="#matchmaking" title="Permanent link">¶</a></h1>
 <p>Beamable Matchmaking is a flexible system for connecting players together in online games. You can use it to:</p>
 <ul>
-<li>Create and manage matchmaking queues.</li>
-<li>Define match rules and team configurations.</li>
-<li>Handle player matching logic based on stats and criteria.</li>
-<li>Manage queue state and match found notifications.</li>
-<li>Optionally integrate with game server provisioning.</li>
+<li>Create and manage matchmaking queues</li>
+<li>Define match rules and team configurations</li>
+<li>Handle player matching logic based on stats and criteria</li>
+<li>Manage queue state and match found notifications</li>
+<li>Optionally integrate with game server provisioning</li>
 </ul>
 <p>Once a match is found, the result is a <a href="../lobbies/">Lobby</a> containing all of the players in the match that was found.</p>
 <p><strong>If you are working on a game with dedicated servers, review these pages first:</strong></p>
@@ -8897,7 +8980,7 @@
 <p>To use <code>UBeamMatchmakingSubsystem</code> via blueprints (or C++), you'll need to:</p>
 <ul>
 <li>Use the <a href="../content/">Content Window</a> to create a <code>Beam Game Type Content</code> with a single team with a Min/Max player count of 1.</li>
-<li>Publish that content to your realm.</li>
+<li>Publish that content to your realm</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/matchmaking-content-creation.png" data-desc-position="bottom"><img alt="matchmaking-content-creation.png" src="../../../../media/imgs/matchmaking-content-creation.png"></a></p>
 <h3 id="joining-a-queue">Joining a Queue<a class="headerlink" href="#joining-a-queue" title="Permanent link">¶</a></h3>
@@ -8932,12 +9015,12 @@ The semantics for each event are:</p>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Gating by Rank</p>
-<p>Failing to meet entry rule requirements will cause the Join Operation to fail -- so these can be used to gate queues on a player's account level or rank for example.</p>
+<p>Failing to meet entry rule requirements will cause the Join Operation to fail — so these can be used to gate queues on a player's account level or rank for example.</p>
 </div>
 <ul>
 <li><code>Numeric Rules</code> and <code>String Rules</code> are match grouping rules.<ul>
-<li><strong>Numeric Rules</strong> tries to group players with a particular stat within certain delta range.</li>
-<li><strong>String Rules</strong> groups players whose values for a particular stat match a certain value.</li>
+<li><strong>Numeric Rules</strong> tries to group players with a particular stat within certain delta range</li>
+<li><strong>String Rules</strong> groups players whose values for a particular stat match a certain value</li>
 </ul>
 </li>
 </ul>
@@ -8948,7 +9031,7 @@ The semantics for each event are:</p>
 <ul>
 <li><code>MaxWaitDurationSecs</code>: Defines how long the player can stay in the queue without being matched; after this time passes, the matchmaking fails and <code>OnMatchTimedOut</code> is triggered.</li>
 <li><code>MatchingIntervalSecs</code>: Defines the ticking interval for the queue. Defaults to 10 seconds, which means that new sets of matches are produced every 10 seconds.<ul>
-<li>If the time it takes to tick a queue is longer than the value set here, the longer value becomes the new tick.</li>
+<li>If the time it takes to tick a queue is longer than the value set here, the longer value becomes the new tick</li>
 </ul>
 </li>
 <li><code>FederatedGameServerNamespace</code>: Defines a <a href="../../federation/federation/#federation-id">Federation Id</a> for a <a href="../../federation/federated-game-server/">Federated Game Server</a>.</li>
@@ -8958,11 +9041,11 @@ The semantics for each event are:</p>
 <ul>
 <li>By the time <code>OnMatchReady</code> fires, the match Lobby data has been fetched and is available.<ul>
 <li>This means you can use the <code>Local State - Lobby</code> nodes to fetch information from the lobby directly on this event.</li>
-<li>For example, when used with <a href="../../federation/federated-game-server/">Federated Game Server</a>, you just get the connection string from the global lobby property to proceed.</li>
+<li>For example, when used with <a href="../../federation/federated-game-server/">Federated Game Server</a>, you just get the connection string from the global lobby property to proceed</li>
 </ul>
 </li>
 <li>When joining a queue, you can optionally pass in a set of key/value pairs called <code>FBeamTag</code>.<ul>
-<li>When a match gets made with that particular user/party, these tags end up inside the <a href="../lobbies/">Lobby</a>'s per-player data.</li>
+<li>When a match gets made with that particular user/party, these tags end up inside the <a href="../lobbies/">Lobby</a>'s per-player data</li>
 </ul>
 </li>
 </ul>
@@ -8974,8 +9057,8 @@ The semantics for each event are:</p>
 <h2 id="match-found-and-tickets">Match Found and Tickets<a class="headerlink" href="#match-found-and-tickets" title="Permanent link">¶</a></h2>
 <p>When you join a queue in Beamable's matchmaking, you get back a <code>FBeamMatchmakingTicket</code>. This ticket contains information about the entry onto the queue:</p>
 <ul>
-<li><strong>GameType</strong>: queue type.</li>
-<li><strong>GamerTagsInTicket</strong>: list of players that are in the ticket.</li>
+<li><strong>GameType</strong>: queue type</li>
+<li><strong>GamerTagsInTicket</strong>: list of players that are in the ticket</li>
 <li><strong>SlotsInTicket</strong>: list of local <code>FUserSlot</code> that are in the ticket (just the Owner Player, unless your game has multiple local players and matchmaking).</li>
 <li><strong>FoundMatchLobbyId</strong>: only filled inside the <code>OnMatchReady</code> callback and has the id for the resulting <a href="../lobbies/">Lobby</a> for the match. You can use this to retrieve data from the <a href="../lobbies/">Lobby Subsystem</a> inside the <code>OnMatchReady</code> callback to get connection information and more.</li>
 </ul>

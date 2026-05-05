@@ -2442,7 +2442,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2455,6 +2455,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -8784,11 +8867,11 @@
 <p>After a user is logged into a <code>FUserSlot</code>, losing the connection to the Beamable backend (due to internet access loss or otherwise) will have the <code>UBeamConnectivityManager</code> go into the <code>CONN_Offline</code> state.</p>
 <p><strong>The details of this process are:</strong></p>
 <ul>
-<li>The WebSocket connection fails.</li>
+<li>The WebSocket connection fails</li>
 <li>The SDK attempts to reconnect <strong>X</strong> times before going into <code>CONN_Offline</code> to avoid jittery short-lived instability.</li>
 <li>See <code>Project Settings -&gt; Beam Runtime -&gt; ConnectivityRetryCountBeforeOffline</code> for <strong>X</strong>.</li>
 <li>If all of these attempts fail, the connection goes into <code>CONN_Offline</code>.</li>
-<li>If any of these attempts succeed, the game proceeds as normal without <em>any</em> callbacks being triggered.</li>
+<li>If any of these attempts succeed, the game proceeds as normal without <em>any</em> callbacks being triggered</li>
 </ul>
 <p>Once in <code>CONN_Offline</code>, two things happen:</p>
 <ol>
@@ -8837,12 +8920,12 @@
 <p>If the SDK automatically refreshed the subsystem's state after a reconnection, the callbacks throughout the refresh process would trigger. This means that one of the below would have to be true:</p>
 <ul>
 <li>Upon going offline, we could unbind all callbacks (which is overeager and makes your binding code more complex)</li>
-<li>You have to write code for those delegates assuming it could run at any time (which makes it a lot harder to write that code).</li>
-<li>You have to respond by any loss of connection by restarting the game (thus unbinding all delegates).</li>
+<li>You have to write code for those delegates assuming it could run at any time (which makes it a lot harder to write that code)</li>
+<li>You have to respond by any loss of connection by restarting the game (thus unbinding all delegates)</li>
 </ul>
 </li>
-<li>Our previous experience with automatic refreshing has been that it is just not worth it.<ul>
-<li>For every game-maker for whom automatic refreshing worked out of the box, it caused significant problems for another.</li>
+<li>Our previous experience with automatic refreshing has been that it is just not worth it<ul>
+<li>For every game-maker for whom automatic refreshing worked out of the box, it caused significant problems for another</li>
 </ul>
 </li>
 </ul>

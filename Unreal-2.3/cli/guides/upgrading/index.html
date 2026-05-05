@@ -2352,7 +2352,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -2365,6 +2365,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -9657,7 +9740,7 @@ included automatically by referencing the <code>Beamable.Microservice.Runtime</c
 package. You can also change the version number to exactly <code>3.3.0</code>.</p>
 <h4 id="replaced-serilog-with-zlogger">Replaced <code>Serilog</code> with <code>ZLogger</code><a class="headerlink" href="#replaced-serilog-with-zlogger" title="Permanent link">¶</a></h4>
 <p>This fix will be automatically handled by running <code>beam checks scan --fix all</code></p>
-<p><code>Serilog</code> is a popular logging framework in the dotnet ecosystem, and Beamable used
+<p><code>Serilog</code> is a popular logging framework in the .NET ecosystem, and Beamable used
 it extensively in earlier versions. However, with CLI 5+, Beamable migrated to
 use <code>ZLogger</code>, which is a higher performance logging tool.</p>
 <p>If your code uses the following types of log statements, then you will need to make a small
@@ -9720,13 +9803,13 @@ declaration,</p>
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">&lt;TargetFramework&gt;</span>net8.0<span class="nt">&lt;/TargetFramework&gt;</span>
 </code></pre></div><p></p>
 <blockquote>
-<p>📘 Update Dotnet SDK</p>
-<p>As of CLI 4.0.0, you must have dotnet8 SDK installed on your development
-machines, instead of the dotnet6 SDK.</p>
+<p>📘 Update .NET SDK</p>
+<p>As of CLI 4.0.0, you must have .NET 8 SDK installed on your development
+machines, instead of the .NET 6 SDK.</p>
 </blockquote>
 <h4 id="mongodbdriver-package-vulnerability"><code>MongoDb.Driver</code> package vulnerability<a class="headerlink" href="#mongodbdriver-package-vulnerability" title="Permanent link">¶</a></h4>
 <p>Previous versions of Beamable relied on version 2.15.1 of the <code>MongoDb.
-Driver</code> nuget package. If your project does not include any storage objects,
+Driver</code> NuGet package. If your project does not include any storage objects,
 you can ignore this step. However, if you do have storage objects, then
 those projects likely include this reference in the <code>.csproj</code> files,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"MongoDB.Driver"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.15.1"</span><span class="nt">/&gt;</span>
@@ -9757,7 +9840,7 @@ following line to the end of the file.
 <li>Install <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">dotnet 8 SDK</a> in your machine (it is the new recommended version). The old <code>net6.0</code> framework's end-of-life arrived on November 12, 2024.</li>
 <li>Delete the <code>.beamable/local-services-manifest.json</code> file. (It is no longer necessary)</li>
 </ol>
-<p>Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install &amp; re-install specific versions when switching projects, but that is a bad workflow --- so that was changed.</p>
+<p>Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install &amp; re-install specific versions when switching projects, but that is a bad workflow — so that was changed.</p>
 <p>In 3.0.0, the CLI should be installed as a <em>local dotnet tool</em>.</p>
 <p>The steps to change your project from using the global CLI tool to a <em>local dotnet tool</em> are defined below.</p>
 <p>Start by verifying you are in the correct location by running the following command.
@@ -9802,11 +9885,11 @@ following line to the end of the file.
 <ul>
 <li>It will version-lock the package versions to the currently local CLI version (the one inside <code>.config/dotnet-tools.json</code>).<ul>
 <li>This means updating the CLI is just changing that version number.</li>
-<li>You can manually edit this to dodge the version-lock if you want to risk it.</li>
+<li>You can manually edit this to dodge the version-lock if you want to risk it</li>
 </ul>
 </li>
-<li>It includes a Roslyn Static Analyser to help you out with microservices and federation implementations.</li>
-<li>It'll target <code>.net8</code>.</li>
+<li>It includes a Roslyn Static Analyzer to help you out with microservices and federation implementations</li>
+<li>It'll target <code>.net8</code></li>
 </ul>
 <p>In every <code>csproj</code> file for <strong>Microservices</strong>, <strong>MicroStorages</strong>, and <strong>Common Libraries</strong>, follow the steps below:</p>
 <p>First, add a <code>PropertyGroup</code> with a <code>Label</code> called <code>Beamable Version</code> that looks like this:
@@ -9863,7 +9946,7 @@ binaries are not compatible with Unity.</p>
 <p>If you use any Federated endpoints as part of your Microservices, there a few code-changes you'll have to make:</p>
 <ul>
 <li>Replace all <code>IThirdPartyCloudIdentity</code> with <code>IFederationId</code>.</li>
-<li>Add a <code>FederationId</code> attribute to the class <code>IFederationId</code> --- the <code>UniqueName</code> is the property.</li>
+<li>Add a <code>FederationId</code> attribute to the class <code>IFederationId</code> — the <code>UniqueName</code> is the property.</li>
 <li>If you were ever accessing the <code>UniqueName</code> property as part of your code, you'll need to replace those calls with <code>GetUniqueName()</code>.</li>
 </ul>
 <p>Once these are in, try to compile your services. The newly referenced Roslyn Static Analyzer should tell you if you made any mistakes.</p>
@@ -9936,7 +10019,7 @@ After you upgrade your global CLI to 2.0.1, run the following command in your pr
 - <code>.beamable/temp/connection-auth.json</code> <em>(this replaces the old <code>user-token</code> file)</em></p>
 <h4 id="csproj-files"><code>.csproj</code> Files<a class="headerlink" href="#csproj-files" title="Permanent link">¶</a></h4>
 <h5 id="sdk-version">SDK Version<a class="headerlink" href="#sdk-version" title="Permanent link">¶</a></h5>
-<p>Unfortunately, the upgrade flow between major version 1 and 2 does not automatically upgrade the nuget dependency on Beamable. All of the <code>.csproj</code> files you may have will need to be manually upgraded to Beamable 2.0.1. Remember, every service, common library, and storage have their own <code>.csproj</code> files.</p>
+<p>Unfortunately, the upgrade flow between major version 1 and 2 does not automatically upgrade the NuGet dependency on Beamable. All of the <code>.csproj</code> files you may have will need to be manually upgraded to Beamable 2.0.1. Remember, every service, common library, and storage have their own <code>.csproj</code> files.</p>
 <p>Open each <code>csproj</code> file, and find the <code>&lt;PackageReference&gt;</code> for Beamable.
 For a service, it will likely look like this,
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"1.19.22"</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -9951,7 +10034,7 @@ For a service, it will likely look like this,
 <h5 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">¶</a></h5>
 <p>In addition, different project types have the following upgrade requirements...</p>
 <h6 id="services">Services<a class="headerlink" href="#services" title="Permanent link">¶</a></h6>
-<p>For services, the <code>csproj</code> file has been simplified between major versions 1 and 2. You can remove all of the tasks and extraneous nuget references.</p>
+<p>For services, the <code>csproj</code> file has been simplified between major versions 1 and 2. You can remove all of the tasks and extraneous NuGet references.</p>
 <p>This snippet can (and should) be removed from a 1.19.22 service's <code>csproj</code> file.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"EmbedIO"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"3.4.*"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"LoxSmoke.DocXml"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"3.4.*"</span><span class="w"> </span><span class="nt">/&gt;</span>
