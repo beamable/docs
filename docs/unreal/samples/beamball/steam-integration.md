@@ -7,7 +7,7 @@ This page explains how to integrate a Beamable game with Steam using the **Beama
 Aside from the `BeamableCore` Plugin, here's what the sample contains:
 
 - **`BEAMPROJ_Beamball` Unreal Plugin.**: Contains the UE implementation for the client.
-- **`Microservices/services/BeamballMs` Microservice**: Microservice containing code that implements **IFederatedLogin**
+- **`Microservices/services/BeamballMs` Microservice**: Microservice containing code that implements `IFederatedLogin`
 
 To set up this sample, you'll need a few things:
 

@@ -5,10 +5,10 @@ By default, Beamable integrates with the Gameplay Framework to give you cross-pl
 
 There are a few components here that you need to know about before you implement this:
 
-- **AGameMode::BeginPlay**: In most C++-based implementations, this is your server's "entry point"
-- **AGameMode::PreLoginAsync**: This is what UE calls whenever a client attempts to connect to a game server — once you invoke a callback it provides, the user is either accepted or rejected. This will be invoked on the server once per-player (if you have multiple players per-client, this is an important distinction)
-- **ULocalPlayer::GetGameLoginOptions**: This appends a string of Options to each `ULocalPlayer`'s connection string.
-- **FUniqueNetIdRepl**: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework
+- `AGameMode::BeginPlay`: In most C++-based implementations, this is your server's "entry point"
+- `AGameMode::PreLoginAsync`: This is what UE calls whenever a client attempts to connect to a game server — once you invoke a callback it provides, the user is either accepted or rejected. This will be invoked on the server once per-player (if you have multiple players per-client, this is an important distinction)
+- `ULocalPlayer::GetGameLoginOptions`: This appends a string of Options to each `ULocalPlayer`'s connection string.
+- `FUniqueNetIdRepl`: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework
 
 ### Setting Up your Gameplay Level's Level Blueprint
 This section is the C++ version of [what is done in the Level Blueprint here](realtime-multiplayer-overview.md#setting-up-your-gameplay-levels-level-blueprint).

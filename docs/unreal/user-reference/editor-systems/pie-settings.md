@@ -79,7 +79,7 @@ When selecting players, a few things are relevant:
 
 - You can check `Copy on PIE` to get a new user with Stats and Inventory copied from the selected user account. This is useful when you want to keep a consistent starting state so you can test things (think of keeping users at various progression points in your game).
 - **Shared Users** will always `Copy on PIE`. This is because Shared Users are meant a workflow baseline. The recommendation is that design leads can leverage this to enforce in-house workflows, training and on-boarding.
-- **Users from realms other than your current one** will also always `Copy on PIE`. This is because BeamPIE cannot sign in with a user from another realm into a different one. The SDK copies it instead.
+- **Users from realms other than your current one** will also always `Copy on PIE`. This is because `BeamPIE` cannot sign in with a user from another realm into a different one. The SDK copies it instead.
 
 When Fake Lobbies are enabled, the Add Lobby Data will be available to add custom Key-Value pairs that will be used to initialize the per-player key-value store lobby itself. This data is accessible in the Gameplay Level and can be used to simulate various scenarios such as the selection of which skin the player chose or many other parameters that would get put into the lobby either via Federation or Matchmaking/Lobby systems themselves.
 

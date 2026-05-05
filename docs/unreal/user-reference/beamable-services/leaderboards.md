@@ -51,7 +51,7 @@ There are two ways to assign a player to a leaderboard:
 
 ![leaderboards-blueprint-update-score.png](../../../media/imgs/leaderboards-blueprint-update-score.png)
 
- - Use FetchAssignedLeaderboardOperation with Join = true: This operation is particularly useful for partitioned leaderboards. By passing the base leaderboard ID, this operation returns the specific partitioned leaderboard ID (e.g., "leaderboards.my_partitioned_board" becomes "leaderboards.my_partitioned_board#0")
+ - Use `FetchAssignedLeaderboardOperation` with `Join` = `true`: This operation is particularly useful for partitioned leaderboards. By passing the base leaderboard ID, this operation returns the specific partitioned leaderboard ID (e.g., "leaderboards.my_partitioned_board" becomes "leaderboards.my_partitioned_board#0")
 
 ![leaderboards-blueprint-fetchassigned.png](../../../media/imgs/leaderboards-blueprint-fetchassigned.png)
 

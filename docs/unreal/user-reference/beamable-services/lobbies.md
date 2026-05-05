@@ -117,10 +117,10 @@ Both lobby types have the same schema and are represented by the `ULobby` class.
 # Utilities for Dedicated Server Games
 The Lobby subsystem provides you with utilities that help you integrate Beamable into UE's Gameplay Framework.
 
-- **Local State - Lobby - Open Level**: can be used in Game Clients to connect to a Game Server by extracting connection information (URL and Port) from the Lobby's Global Data
-- **Local State - Lobby - Client - Prepare Login Options**: can be used in Game Clients to add Beamable's required parameters to the `FString Options` you'll need to pass along to UE's default `Open Level` node.
-- **Local State - Lobby - Get Gamer Tag** and **Local State - Lobby - Get User Slot**: These nodes are meant to map UE constructs, such as `PlayerControllers` and `PlayerState` instances, to Beamable constructs like `GamerTag` and `UserSlots`; refer to their tooltips for a better understanding of the mapping.
-- **Local State - Lobby - Get Lobby Id (by Gamer Tag)**: This returns the LobbyId containing the user of the given `GamerTag`.
-- **Local State - Lobby - Server - Get Lobby Id From CLArgs**: This is meant to help integrate with Game Server Orchestrators — see the [Real-Time Multiplayer Docs](../realtime-multiplayer/realtime-multiplayer-overview.md) for more information
+- `Local State - Lobby - Open Level`: can be used in Game Clients to connect to a Game Server by extracting connection information (URL and Port) from the Lobby's Global Data
+- `Local State - Lobby - Client - Prepare Login Options`: can be used in Game Clients to add Beamable's required parameters to the `FString Options` you'll need to pass along to UE's default `Open Level` node.
+- `Local State - Lobby - Get Gamer Tag` and `Local State - Lobby - Get User Slot`: These nodes are meant to map UE constructs, such as `PlayerControllers` and `PlayerState` instances, to Beamable constructs like `GamerTag` and `UserSlots`; refer to their tooltips for a better understanding of the mapping.
+- `Local State - Lobby - Get Lobby Id (by Gamer Tag)`: This returns the LobbyId containing the user of the given `GamerTag`.
+- `Local State - Lobby - Server - Get Lobby Id From CLArgs`: This is meant to help integrate with Game Server Orchestrators — see the [Real-Time Multiplayer Docs](../realtime-multiplayer/realtime-multiplayer-overview.md) for more information
 
 ![lobbies-gameplay-helpers.png](../../../media/imgs/lobbies-gameplay-helpers.png)

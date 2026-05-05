@@ -70,7 +70,7 @@ Some games might have builds distributed outside of common platforms and instead
 In these cases and builds, you'll want to:
 
 - Call `Login - Local Cache` to first try logging in as the locally cached user in that slot.
-- Call `Sign Up - Email And Password` with `bAutoLogin` as true.
+- Call `Sign Up - Email And Password` with `bAutoLogin` as `true`.
     - You can optionally make use of properly configured Microservice with [Federated Player Initialization](../federation/federated-player-init.md) and the `InitProperties` in the `SignUp` node to pass in additional data to influence initial player state.
 
 Here's what you would do once the user confirms the form:
@@ -88,7 +88,7 @@ Platform login flows are usually very simple. You can see this in the [Beamball 
 In builds for specific stores and platforms, what you'll want to do is:
 
 - Call `Login - Local Cache` to first try logging in as the locally cached user in that slot.
-- Call `Sign Up - Federated Identity` with `bAutoLogin` as true and a properly configured Microservice with [Federated Login](../federation/federated-login.md).
+- Call `Sign Up - Federated Identity` with `bAutoLogin` as `true` and a properly configured Microservice with [Federated Login](../federation/federated-login.md).
 - Both the success of the `Login - Local Cache` as well as the `Sign Up - Federated Identity` calls mean you have logged in successfully.
 
 Here's how that looks in the client side:
