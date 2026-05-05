@@ -56,7 +56,7 @@ Deleting content can be done simply by pressing `Del` on your keyboard with an i
 
 Items created locally will have a `[+]` sign next to them informing that they are not in the realm yet and will be added in the next publish. Items deleted locally that have counterparts on the realm will have a `[-]` sign next to them informing that they will be removed from the realm in the next publish.
 
-Modifying content can be done by via the Details Editor in the **Content Window**. Modified content, relative to the latest published manifest, is shown with an `[M]` icon next to them. They can be reverted to their state at the realm by using the `Revert` button.
+Modifying content can be done via the Details Editor in the **Content Window**. Modified content, relative to the latest published manifest, is shown with an `[M]` icon next to them. They can be reverted to their state at the realm by using the `Revert` button.
 
 ![content-revert.png](../../../media/imgs/content-revert.png)
 
