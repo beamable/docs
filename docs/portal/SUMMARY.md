@@ -2,6 +2,8 @@
 - Managing Accounts
     - [Adding Beamable Developers](portal-adding-beamable-developers.md)
     - [Granting Realm Scoped Developer Permissions](portal-granting-realm-scoped-developer-permissions.md)
+- Managing Realms
+    - [Archiving Realms](portal-archiving-realms.md)
 - Services
     - [Players](portal-players.md)
     - [Groups](portal-groups.md)
