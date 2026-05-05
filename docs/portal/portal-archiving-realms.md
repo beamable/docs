@@ -17,7 +17,7 @@ Only admins can archive realms. Developers and testers can log into Portal, but 
 3. Find the realm you want to archive in the realm hierarchy
 
 4. In the Cyan-Teal area of the realm card, click the Ellipsis (three-dot) menu
-![Realm Card](docs/media/imgs/archive-archiveRealm.png)
+![Realm Card](docs/media/imgs/archive-realmCard.png)
 5. Open the realm card menu
 ![Realm Card Menu](docs/media/imgs/archive-realmMenu.png)
 6. In the upper-right corner of the realm card, click the three-dot menu
