@@ -53,14 +53,14 @@ You might want to read public stats of some other player to display information 
 ## Stats Keys & Values
 The SDK does not enforce limitations on stat keys or values. However, the following guidelines are *highly recommended* for project organization and performance reasons.
 
-**For Keys:**
+**For Keys**:
 - 8-20 characters are ideal (purely for human ergonomics)
 - Keeping them under a few hundred characters is best for performance
 - Use enforceable and recognizable patterns for your keys
 	- Bad: `CharacterTalents` and `LoadoutForCharacter`
 	- Good: `CHAR_Talents` and `CHAR_Loadout`
 
-**For Values:**
+**For Values**:
 - Values should be no more than a few hundred characters long
 - If you need larger complex data structures, use [Storage Objects](../microservices/microservices.md#micro-storages) instead
 

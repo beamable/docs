@@ -170,7 +170,7 @@ This initialization can be preloading assets, making requests to microservices a
 
 Once this is done and you are ready to accept client connections, you should call `Operation - Lobby - Server - Notify Lobby Ready for Clients`. This signals your awaiting **Game Server Federation's `CreateGameServer` implementation** that the game server is ready to accept client connections — allowing it to complete so that Beamable notifies all players in the Lobby forwarding the connection information to them.
 
-After these steps are completed, you'll begin receiving connections — in UE, handling player connection and initialization is done in a Game Mode implementation (see [here](#preparing-a-build-for-your-game-server-orchestrator)).
+After these steps are completed, you'll begin receiving connections — in UE, handling player connection and initialization is done in a Game Mode implementation (see [the section below](#preparing-a-build-for-your-game-server-orchestrator)).
 
 ![multiplayer-build.png](../../../media/imgs/multiplayer-build.png)
 <center>Example of Level Blueprint for a Game Server Build</center>

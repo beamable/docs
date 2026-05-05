@@ -110,7 +110,7 @@ void U__________::TheActualOperationLogic(FUserSlot Slot, (...OperationParams...
 }
 ```
 
-!!! warning Parameter Names and Beam Flow
+!!! warning "Parameter Names and Beam Flow"
 	The parameter names `UserSlot`, `OnOperationEvent` and `CallingContext` are important! They allow you to write your own implementation of the Beam Flow node for your operation. Look at the [Beam Flow Nodes](#beam-flow-nodes-operations) section for more information on how to create these.
 
 There are many examples of operations in the SDK. For guidance, look at any of the runtime subsystems such as:
@@ -192,7 +192,7 @@ If a Delegate or Virtual Function returns one or more `FBeamOperationHandle`, yo
 	1. This is for when you wish to make a system that ties into the Beamable life-cycle like the SDK's `UBeamRuntimeSubsystem` implementations do.
 	2. This is rarely needed, but in unique custom use-cases it is likely to be the best way to accomplish your goals.<br><br>
 
-3. **Hooks:** bind into delegates created via `DEFINE_BEAM_OPERATION_HOOK`.
+3. **Hooks**: bind into delegates created via `DEFINE_BEAM_OPERATION_HOOK`.
 	1. Rest assured: the Beamable Unreal SDK will never use Hooks internally. They are reserved exclusively for your extensions.
 	2. You can search for `DEFINE_BEAM_OPERATION_HOOK` and find some usages of the macro to better understand these.
 

@@ -279,7 +279,7 @@ As such, you should publish the services to the appropriate realm.
 
 	Finally, you can also choose a `one realm per developer` approach though that introduces a lot of workflow overhead. Though, there are team-specific cases where that might be a valid approach.
 
-Deploying services for the UE integration is 100% CLI-based. The documentation for it can be found [here](../../../cli/guides/ms-deployment.md).
+Deploying services for the UE integration is 100% CLI-based. See the [Microservice Deployment guide](../../../cli/guides/ms-deployment.md).
 
 !!! info "Why no Deploy Editor UI?"
 	If demand warrants it, a deploy UI may be added. However, deploying services is mostly done by engineers and CI/CD pipelines; opening the UE Editor for this adds little value to the workflow.

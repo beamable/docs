@@ -26,7 +26,7 @@ To set up an organization and realm to run this sample, follow the steps below.
       3. Ensure there's an `item` content with the name `sample_item`
       4. Ensure there are 2 `currency` contents with names `gems` and `coins`
       5. Click `Publish` to publish those new contents to the realm.
-      6. You can read more about the content system [Here](../user-reference/beamable-services/content.md)
+      6. See the [Content System documentation](../user-reference/beamable-services/content.md)
 6. Now let's set up the Announcements
       1. Open the Beamable Portal.
       2. Choose `liveops-demo` realm from Beamable Portal.

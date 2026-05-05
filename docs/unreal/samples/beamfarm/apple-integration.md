@@ -127,20 +127,20 @@ async Promise<FederatedAuthenticationResponse>
 
 ### Login Flow (Returning Player)
 
-**Purpose:** Authenticate a player who has already linked Apple.
+**Purpose**: Authenticate a player who has already linked Apple.
 
-**Client:**
+**Client**:
 
 1. Game Center Login
 2. Retrieve Game Center UserId
 3. Call Federated Login
 
-**Server:**
+**Server**:
 
 - Finds account linked to Apple UserId
 - Logs player in
 
-**Result:**
+**Result**:
 
 - Player authenticated
 
@@ -148,19 +148,19 @@ async Promise<FederatedAuthenticationResponse>
 
 ### Attach Flow (First-Time Link)
 
-**Purpose:** Link Apple to an existing account.
+**Purpose**: Link Apple to an existing account.
 
-**Client:**
+**Client**:
 
 1. Apple Login
 2. Retrieve Apple UserId
 3. Call Attach – Federated Identity
 
-**Server:**
+**Server**:
 
 - Links Apple UserId to current account
 
-**Result:**
+**Result**:
 
 - Apple identity attached
 - Progress preserved

@@ -56,8 +56,7 @@ Now, you'll need to configure a Beamable realm to work with your Steam App so yo
 14. Run `dotnet beam deploy release --latest-plan`.
     1. This deploys the services outlined by the generated plan in the previous command.
 15. Go to the Portal (`Operate -> Microservices`) to verify that the microservices have initialized.
-16. In `DefaultEngine.ini` set the value of `SteamDevAppId` to your Steam Application ID. For more info, view the
-    tutorial [here](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Online/Steam/).
+16. In `DefaultEngine.ini` set the value of `SteamDevAppId` to your Steam Application ID. For more info, see the [Unreal Engine Steam tutorial](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Online/Steam/).
 17. Package the project using the `BeamableUnrealSteam` target.
 
 Now, you are ready to log in with Steam.
@@ -167,4 +166,4 @@ Set the `com.apple.security.app-sandbox` key to `false`:
 </plist>
 ```
 
-> **Warning:** Only set `APP_SANDBOX` to `No` in development builds. Re-enable it before submitting to production or the Mac App Store.
+> **Warning**: Only set `APP_SANDBOX` to `No` in development builds. Re-enable it before submitting to production or the Mac App Store.
