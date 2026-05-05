@@ -10475,11 +10475,11 @@
 <h1 id="leaderboards">Leaderboards<a class="headerlink" href="#leaderboards" title="Permanent link">¶</a></h1>
 <p>The Beamable <strong>Leaderboards</strong> allow the game makers to track player scores in social rankings which are "global" (with hundreds of millions of players) or "segmented" (in smaller groups). It supports:</p>
 <ul>
-<li>Assign a player to a specific leaderboard.</li>
-<li>Retrieve entries from specific ranges in the leaderboard.</li>
-<li>Leaderboard pagination.</li>
-<li>Retrieve a specific player rank.</li>
-<li>Retrieve the friends ranks.</li>
+<li>Assign a player to a specific leaderboard</li>
+<li>Retrieve entries from specific ranges in the leaderboard</li>
+<li>Leaderboard pagination</li>
+<li>Retrieve a specific player rank</li>
+<li>Retrieve the friends ranks</li>
 </ul>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>The following sections present common use cases and how to fully implement them.</p>
@@ -10500,18 +10500,18 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/leaderboards-content-details.png" data-desc-position="bottom"><img alt="leaderboards-content-details.png" src="../../../../media/imgs/leaderboards-content-details.png"></a></p>
 <ul>
 <li><strong>Client Permission</strong>: Allow the clients to update their score in the leaderboard. <strong>OBS: This will be possible vulnerability in your game</strong></li>
-<li><strong>Partitioned</strong>: Determines whether this leaderboard automatically partitions into smaller leaderboards.</li>
-<li><strong>Max Entries</strong>: Determines the maximum number of entries in a given leaderboard partition.</li>
-<li><strong>Cohort Settings</strong>: Specifies criteria for grouping players together.</li>
+<li><strong>Partitioned</strong>: Determines whether this leaderboard automatically partitions into smaller leaderboards</li>
+<li><strong>Max Entries</strong>: Determines the maximum number of entries in a given leaderboard partition</li>
+<li><strong>Cohort Settings</strong>: Specifies criteria for grouping players together</li>
 </ul>
 <h3 id="assign-player-to-leaderboard">Assign Player to Leaderboard<a class="headerlink" href="#assign-player-to-leaderboard" title="Permanent link">¶</a></h3>
 <p>There are two ways to assign a player to a leaderboard:</p>
 <ul>
-<li>Set a Score Directly: Simply submit a score for the player on the desired leaderboard. This automatically associates the player with that leaderboard.</li>
+<li>Set a Score Directly: Simply submit a score for the player on the desired leaderboard. This automatically associates the player with that leaderboard</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/leaderboards-blueprint-update-score.png" data-desc-position="bottom"><img alt="leaderboards-blueprint-update-score.png" src="../../../../media/imgs/leaderboards-blueprint-update-score.png"></a></p>
 <ul>
-<li>Use FetchAssignedLeaderboardOperation with Join = true: This operation is particularly useful for partitioned leaderboards. By passing the base leaderboard ID, this operation returns the specific partitioned leaderboard ID (e.g., "leaderboards.my_partitioned_board" becomes "leaderboards.my_partitioned_board#0").</li>
+<li>Use FetchAssignedLeaderboardOperation with Join = true: This operation is particularly useful for partitioned leaderboards. By passing the base leaderboard ID, this operation returns the specific partitioned leaderboard ID (e.g., "leaderboards.my_partitioned_board" becomes "leaderboards.my_partitioned_board#0")</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/leaderboards-blueprint-fetchassigned.png" data-desc-position="bottom"><img alt="leaderboards-blueprint-fetchassigned.png" src="../../../../media/imgs/leaderboards-blueprint-fetchassigned.png"></a></p>
 <div class="admonition warning">

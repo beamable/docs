@@ -10399,9 +10399,9 @@ To enable them, go to the Beamable Core section in the Unreal Engine editor sett
 <p>Whenever you run the game in the editor with <abbr title="Play in Editor">PIE</abbr>, the Player Manager records any logged-in players. This creates a new profile in the list, which can be inspected using the Open Portal button.</p>
 <p>Player profiles can then be saved as either Local or Template, making them reusable in Play Presets:</p>
 <ul>
-<li><strong>Local (Green)</strong>: Saved locally in your <code>.beamable/temp</code> folder. Useful for personal testing and development.</li>
-<li><strong>Template (Orange)</strong>: Saved in your <code>.beamable</code> folder and can be committed to version control. Intended as shared templates so the whole team can start from the same baseline.</li>
-<li><strong>Captured (Grey)</strong>: Per-session captured players are unsaved and cleared during the editor initialization.</li>
+<li><strong>Local (Green)</strong>: Saved locally in your <code>.beamable/temp</code> folder. Useful for personal testing and development</li>
+<li><strong>Template (Orange)</strong>: Saved in your <code>.beamable</code> folder and can be committed to version control. Intended as shared templates so the whole team can start from the same baseline</li>
+<li><strong>Captured (Grey)</strong>: Per-session captured players are unsaved and cleared during the editor initialization</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Player Profile Names and Descriptions</p>
@@ -10434,24 +10434,24 @@ You can also add descriptions and tags to profiles to provide extra context for 
 </div>
 <p>In the <abbr title="Play in Editor">PIE</abbr> Lobby Settings you can configure:</p>
 <ul>
-<li><strong>Enable/Disable</strong>: checkbox in the header enables or disables the <abbr title="Play in Editor">PIE</abbr> Lobby simulation for this preset.</li>
-<li><strong>Server Map Override</strong>: map that will be used as the server map for the <abbr title="Play in Editor">PIE</abbr> Lobby. This overrides the default server map defined in the Unreal Project Settings.</li>
-<li><strong>Game Type</strong>: Game Type content that will be used for the <abbr title="Play in Editor">PIE</abbr> Lobby Scene. If there is a federation configured here, the federation does run too.</li>
-<li><strong>Lobby Global Data</strong>: Custom Global Key-Value pairs that will be used to initialize the <abbr title="Play in Editor">PIE</abbr> Lobby. This data is available in the Gameplay Scene and can be used to simulate different scenarios.</li>
+<li><strong>Enable/Disable</strong>: checkbox in the header enables or disables the <abbr title="Play in Editor">PIE</abbr> Lobby simulation for this preset</li>
+<li><strong>Server Map Override</strong>: map that will be used as the server map for the <abbr title="Play in Editor">PIE</abbr> Lobby. This overrides the default server map defined in the Unreal Project Settings</li>
+<li><strong>Game Type</strong>: Game Type content that will be used for the <abbr title="Play in Editor">PIE</abbr> Lobby Scene. If there is a federation configured here, the federation does run too</li>
+<li><strong>Lobby Global Data</strong>: Custom Global Key-Value pairs that will be used to initialize the <abbr title="Play in Editor">PIE</abbr> Lobby. This data is available in the Gameplay Scene and can be used to simulate different scenarios</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-fake-lobby.png" data-desc-position="bottom"><img alt="pie-fake-lobby.png" src="../../../../media/imgs/pie-fake-lobby.png"></a></p>
 <h3 id="user-settings">User Settings<a class="headerlink" href="#user-settings" title="Permanent link">¶</a></h3>
 <p>The User Settings section allows you to configure per-player settings for the users that will be automatically logged in this session. The mapping goes as follows:</p>
 <ul>
-<li><strong><abbr title="Play in Editor">PIE</abbr> Client</strong>: Starts at 1~X. X is the <code>Number of Players</code> you define in Unreal's own Play Mode Settings.</li>
-<li><strong>User Slot</strong>: For each <abbr title="Play in Editor">PIE</abbr> client, you can define a user for each of configured <code>Runtime User Slots</code>.</li>
+<li><strong><abbr title="Play in Editor">PIE</abbr> Client</strong>: Starts at 1~X. X is the <code>Number of Players</code> you define in Unreal's own Play Mode Settings</li>
+<li><strong>User Slot</strong>: For each <abbr title="Play in Editor">PIE</abbr> client, you can define a user for each of configured <code>Runtime User Slots</code></li>
 </ul>
 <p>For the most part, adding users will configure this correctly. Validation also runs before <abbr title="Play in Editor">PIE</abbr> starts to ensure the selected <code>Play Preset</code> is compatible with the defined UE <abbr title="Play in Editor">PIE</abbr> settings themselves.</p>
 <p>When selecting players, a few things are relevant:</p>
 <ul>
-<li>You can check <code>Copy on PIE</code> in order to get a new user with Stats and Inventory copied from the selected user account. This is useful when you want to keep a consistent starting state so you can test things (think of keeping users at various progression points in your game).</li>
-<li><strong>Shared Users</strong> will always <code>Copy on PIE</code>. This is because Shared Users are meant a workflow baseline. The recommendation is that design leads can leverage this to enforce in-house workflows, training and on-boarding.</li>
-<li><strong>Users from realms other than your current one</strong> will also always <code>Copy on PIE</code>. This is because BeamPIE cannot sign in with a user from another realm into a different one. The SDK copies it instead.</li>
+<li>You can check <code>Copy on PIE</code> in order to get a new user with Stats and Inventory copied from the selected user account. This is useful when you want to keep a consistent starting state so you can test things (think of keeping users at various progression points in your game)</li>
+<li><strong>Shared Users</strong> will always <code>Copy on PIE</code>. This is because Shared Users are meant a workflow baseline. The recommendation is that design leads can leverage this to enforce in-house workflows, training, and on-boarding</li>
+<li><strong>Users from realms other than your current one</strong> will also always <code>Copy on PIE</code>. This is because BeamPIE cannot sign in with a user from another realm into a different one. The SDK copies it instead</li>
 </ul>
 <p>When Fake Lobbies are enabled, the Add Lobby Data will be available to add custom Key-Value pairs that will be used to initialize the per-player key-value store lobby itself. This data is accessible in the Gameplay Level and can be used to simulate various scenarios such as the selection of which skin the player chose or many other parameters that would get put into the lobby either via Federation or Matchmaking/Lobby systems themselves.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie_play_users.png" data-desc-position="bottom"><img alt="pie_play_users.png" src="../../../../media/imgs/pie_play_users.png"></a></p>

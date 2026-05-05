@@ -10366,9 +10366,9 @@
 <p>Operation nodes are "purple" Beamable nodes that encapsulate many complex functionalities in a easy-to-use fashion. You can read more about the Operation Nodes <a href="../../user-reference/runtime-systems/blueprints/">Here</a>.</p>
 <p>The Frictionless Login node has three flow pins to handle the result of the login operation:</p>
 <ul>
-<li><strong>On Success:</strong> executes if the login completed successfully.</li>
-<li><strong>On Error:</strong> executes if any error happens during the login flow.</li>
-<li><strong>On Cancelled:</strong> used in <em>very special cases</em> and can mostly be ignored for now.</li>
+<li><strong>On Success</strong>: executes if the login completed successfully</li>
+<li><strong>On Error</strong>: executes if any error happens during the login flow</li>
+<li><strong>On Cancelled</strong>: used in <em>very special cases</em> and can mostly be ignored for now</li>
 </ul>
 <p>And That's it! If this operation succeeds, you'll have a <strong>Guest Account</strong> signed-into the <code>Player0</code> user slot.</p>
 <p>With the SDKs default configuration and the above setup, you can enter <abbr title="Play in Editor">PIE</abbr> (Play-In-Editor) and should see several requests' responses being written to your Output Log window. After you see the final <code>GetMe</code> request, you can exit <abbr title="Play in Editor">PIE</abbr> knowing you've made your very first request to Beamable. Congratulations!</p>
@@ -10377,10 +10377,10 @@
 <p>Also, take a look at the <a href="../../samples/intro/">Samples</a>, which are a valuable source of practical information and good general reference.</p>
 <h2 id="issues-and-reporting">Issues and Reporting<a class="headerlink" href="#issues-and-reporting" title="Permanent link">¶</a></h2>
 <ul>
-<li>Use verbose logging <code>log Category Verbose</code> when encountering an issue stemming from the SDK (Log Categories can be found in <code>BeambleCore/BeamLogging.h</code> file).</li>
-<li>This verbose logging will print <strong><em>a lot more</em></strong> information about requests being made and what the SDK is doing. It is meant to aid in diagnosing issues, NOT for production use. To turn it off in the same editor session, run <code>log Category Display</code> in the editor console.</li>
-<li>When reporting an issue, try to reproduce it with the logs of the relevant systems set to Verbose and attach them to the report.</li>
-<li>To contact support or submit suggestions, head to the <a href="https://beamable.com/support">Support Portal</a>.</li>
+<li>Use verbose logging <code>log Category Verbose</code> when encountering an issue stemming from the SDK (Log Categories can be found in <code>BeambleCore/BeamLogging.h</code> file)</li>
+<li>This verbose logging will print <strong><em>a lot more</em></strong> information about requests being made and what the SDK is doing. It is meant to aid in diagnosing issues, NOT for production use. To turn it off in the same editor session, run <code>log Category Display</code> in the editor console</li>
+<li>When reporting an issue, try to reproduce it with the logs of the relevant systems set to Verbose and attach them to the report</li>
+<li>To contact support or submit suggestions, head to the <a href="https://beamable.com/support">Support Portal</a></li>
 </ul>
 
 

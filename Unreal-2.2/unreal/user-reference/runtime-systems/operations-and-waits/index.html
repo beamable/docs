@@ -10423,20 +10423,20 @@
 <strong>Calling <em>Operations</em> that are written in C++ is the primary way for Blueprints to interact with the Beamable SDK. The SDK even includes <a href="../blueprints/">special nodes</a> for it.</strong></p>
 </div>
 <h2 id="operation-lifecycle">Operation Lifecycle<a class="headerlink" href="#operation-lifecycle" title="Permanent link">¶</a></h2>
-<p>Every Operation has an <code>int64</code> id called the <code>FBeamOperationHandle</code> managed by the <code>UBeamRequestTracker</code>, a <code>UEngineSubsystem</code>. The SDK uses it to track the operation's state, its emitted events, its current status and which of Beamable's requests are part of it.</p>
+<p>Every Operation has an <code>int64</code> identifier called the <code>FBeamOperationHandle</code> managed by the <code>UBeamRequestTracker</code>, a <code>UEngineSubsystem</code>. The SDK uses it to track the operation's state, its emitted events, its current status, and which of Beamable's requests are part of it.</p>
 <p>The lifecycle of an operation goes as follows:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/operations-and-waits-lifecycle.png" data-desc-position="bottom"><img alt="operations-and-waits-lifecycle.png" src="../../../../media/imgs/operations-and-waits-lifecycle.png"></a></p>
-<p><strong>When writing Operations, there are two ways of thinking about them:</strong></p>
+<p><strong>When writing Operations, there are two ways of thinking about them</strong>:</p>
 <ul>
-<li><strong>Regular Operations</strong>: are just a "Promise".</li>
-<li><strong>Operation Hooks</strong>: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work.</li>
+<li><strong>Regular Operations</strong>: are just a "Promise"</li>
+<li><strong>Operation Hooks</strong>: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work</li>
 </ul>
 <h2 id="writing-and-exposing-your-own-regular-operations">Writing and Exposing your Own Regular Operations<a class="headerlink" href="#writing-and-exposing-your-own-regular-operations" title="Permanent link">¶</a></h2>
 <p>The SDK exposes all main operations in both BP and C++ flavors. If you'd like to do the same thing, this section is for you. To learn about writing hooks in C++, review the next section.</p>
-<p><strong>The primary trade-off:</strong></p>
+<p><strong>The primary trade-off</strong>:</p>
 <ul>
-<li>BP-Compatible versions do not allow for lambda binding and variable capturing.</li>
-<li>The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, the SDK supports both flavors.</li>
+<li>BP-Compatible versions do not allow for lambda binding and variable capturing</li>
+<li>The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, the SDK supports both flavors</li>
 </ul>
 <p>In order to easily support both flavors, the snippet below explains how you should write the actual operation logic such that it can be shared for both CPP and BP versions.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// This is the BP-Compatible Function</span>
@@ -10514,30 +10514,30 @@
 <li><code>UBeamStatsSubsystem</code></li>
 <li><code>UBeamInventorySubsystem</code></li>
 <li><code>UBeamLobbySubsystem</code></li>
-<li>Any other sub-class of <code>UBeamRuntimeSubsystem</code>.</li>
+<li>Any other sub-class of <code>UBeamRuntimeSubsystem</code></li>
 </ul>
 <p>Feel free to copy-paste them as a template of how to implement and reason about <code>Operations</code>.</p>
 <h3 id="beam-flow-nodes-operations">Beam Flow Nodes - Operations<a class="headerlink" href="#beam-flow-nodes-operations" title="Permanent link">¶</a></h3>
 <p>As part of the <a href="../blueprints/">Blueprint integration</a>, the SDK includes a few custom nodes that make invoking operations from Blueprints much simpler. These look like this:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/operation-and-waits-beam-flow-nodes.png" data-desc-position="bottom"><img alt="beam-flow-node" src="../../../../media/imgs/operation-and-waits-beam-flow-nodes.png"></a></p>
-<p><strong>Beamable Operation Flow Nodes assume a few things:</strong></p>
+<p><strong>Beamable Operation Flow Nodes assume a few things</strong>:</p>
 <ul>
-<li>One or more participating <code>UserSlots</code> (see <a href="../user-slots/">User Slots</a> for more information).</li>
-<li>An event handler for handling any of the events.</li>
-<li>Events can be: <code>OET_SUCCESS</code>, <code>OET_ERROR</code> and <code>OET_CANCELLED</code> plus a <code>FName EventId</code>.</li>
-<li>Events can contain some arbitrary data associated with them (implementations of <code>IBeamOperationEventData</code>).</li>
+<li>One or more participating <code>UserSlots</code> (see <a href="../user-slots/">User Slots</a> for more information)</li>
+<li>An event handler for handling any of the events</li>
+<li>Events can be: <code>OET_SUCCESS</code>, <code>OET_ERROR</code> and <code>OET_CANCELLED</code> plus a <code>FName EventId</code></li>
+<li>Events can contain some arbitrary data associated with them (implementations of <code>IBeamOperationEventData</code>)</li>
 </ul>
 <p>To create these nodes for your own operations, look at any of the SDK's nodes (inside the <code>UncookedOnly</code> module: <code>BeamableCoreBlueprintNodes</code>) and copy/paste one implementation changing the values accordingly.</p>
-<p><strong>However, there are a few restrictions:</strong></p>
+<p><strong>However, there are a few restrictions</strong>:</p>
 <ul>
 <li>The function must be a <code>UFUNCTION</code> that returns a <code>FBeamOperationHandle</code> and contains the following named parameters:<ul>
 <li><code>FUserSlot UserSlot</code> if a single user is involved in the operation or <code>TArray&lt;FUserSlot&gt; UserSlot</code> if multiple users are involved in the operation.</li>
-<li>If multiple users, the <code>UFUNCTION</code> must also add <code>meta=(BeamOperationMultiUser)</code>.</li>
+<li>If multiple users, the <code>UFUNCTION</code> must also add <code>meta=(BeamOperationMultiUser)</code></li>
 <li><code>FBeamOperationEventHandler OnOperationEvent</code> to be the event handler that will handle all events raised by the operation.</li>
-<li>The function can have any other parameters you want in any order as long as the above parameters are there.</li>
+<li>The function can have any other parameters you want in any order as long as the above parameters are there</li>
 </ul>
 </li>
-<li>The function must be declared from inside any <code>UWorldSubsystem</code>, <code>UGameInstanceSubsystem</code>, or <code>UBeamRuntimeSubsystem</code> subclass with a <code>static UMySubsystem* GetSelf(const UObject* CallingContext)</code> <code>UFUNCTION</code> that returns the instance of itself.</li>
+<li>The function must be declared from inside any <code>UWorldSubsystem</code>, <code>UGameInstanceSubsystem</code>, or <code>UBeamRuntimeSubsystem</code> subclass with a <code>static UMySubsystem* GetSelf(const UObject* CallingContext)</code> <code>UFUNCTION</code> that returns the instance of itself</li>
 </ul>
 <p><strong>Example declaration</strong> — the SDK source is more up to date than the docs; prefer it over this snippet.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#define LOCTEXT_NAMESPACE "K2BeamNode_Operation_CommitInventoryUpdate"</span>
@@ -10568,7 +10568,7 @@
 <h2 id="writing-hooks">Writing Hooks<a class="headerlink" href="#writing-hooks" title="Permanent link">¶</a></h2>
 <p>Writing Hooks are callback points that let you customize how the SDK behaves during long-running operations.</p>
 <p>If a Delegate or Virtual Function returns one or more <code>FBeamOperationHandle</code>, you need to create operations and return their handles. The SDK will wait on these operations before continuing its own execution. Conceptually, this lets you inject a promise into a larger long-running operation.</p>
-<p><strong>There are a few flavors of this around the SDK:</strong></p>
+<p><strong>There are a few flavors of this around the SDK</strong>:</p>
 <ol>
 <li>
 <p><strong>Delayed Operation</strong>: a simple callback with no parameters that returns a <code>FBeamOperationHandle</code> the SDK waits for.</p>
@@ -10584,7 +10584,7 @@
 </ol>
 </li>
 <li>
-<p><strong>Hooks:</strong> bind into delegates created via <code>DEFINE_BEAM_OPERATION_HOOK</code>.</p>
+<p><strong>Hooks</strong>: these bind into delegates created via <code>DEFINE_BEAM_OPERATION_HOOK</code>.</p>
 <ol>
 <li>Rest assured: the Beamable Unreal SDK will never use Hooks internally. They are reserved exclusively for your extensions.</li>
 <li>You can search for <code>DEFINE_BEAM_OPERATION_HOOK</code> and find some usages of the macro to better understand these.</li>
@@ -10611,7 +10611,7 @@
 </ol>
 </li>
 </ol>
-<p><strong>Here's a "template example" of how this will typically look:</strong></p>
+<p><strong>Here is a "template example" of how this will typically look</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Synchronous hook -- no requests needed:</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">const</span><span class="w"> </span><span class="n">U_____</span><span class="w"> </span><span class="n">SomeSystem</span><span class="p">;</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">SomeSystem</span><span class="o">-&gt;</span><span class="n">Hook</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">F____</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">([</span><span class="k">this</span><span class="p">]()</span>
@@ -10677,8 +10677,8 @@
 <p>This function takes arrays of <code>FBeamRequestContext</code>, <code>FBeamOperationHandle</code> and/or <code>FBeamWaitHandle</code> and a handler function. It will wait until all provided handles are completed, gather all emitted events and request responses, and invoke your handle function, passing in a helper struct to identify successes/failures.</p>
 <p>Examples are available in the SDK. The most common are:</p>
 <ul>
-<li><code>UBeamRuntime</code>'s Initialization and Login's Lifecycle, defined as a multi-step operation with several wait points.</li>
-<li><code>UBeamContentSubsystem</code> also has an example of fetching content updates.</li>
+<li><code>UBeamRuntime</code>'s Initialization and Login's Lifecycle, defined as a multi-step operation with several wait points</li>
+<li><code>UBeamContentSubsystem</code> also has an example of fetching content updates</li>
 </ul>
 <hr>
 <p>Understanding these concepts and how to leverage them can unlock the maximum potential uses and customizability of the SDK, but superficial knowledge is sufficient for the most basic use-cases.</p>

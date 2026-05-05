@@ -3258,10 +3258,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dotnet-cli" class="md-nav__link">
+  <a href="#net-cli" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dotnet CLI
+        .NET CLI
       
     </span>
   </a>
@@ -10283,10 +10283,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dotnet-cli" class="md-nav__link">
+  <a href="#net-cli" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dotnet CLI
+        .NET CLI
       
     </span>
   </a>
@@ -10329,7 +10329,7 @@
 <h1 id="microservice-debugging">Microservice Debugging<a class="headerlink" href="#microservice-debugging" title="Permanent link">¶</a></h1>
 <p>Debug Standalone Microservices locally</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>Before you can debug Beamable Standalone Microservices, you need to complete the <a href="../gettting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">Dotnet 8</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
+<p>Before you can debug Beamable Standalone Microservices, you need to complete the <a href="../gettting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">.NET 8</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># beam --version also works.</span>
@@ -10346,7 +10346,7 @@
 <p>If you run your service with hot reload enabled, then your code will be recompiled automatically as you make changes to your code, and your running service won't need to restart.</p>
 <p>Unfortunately, JetBrains Rider has limited hot reload support out of the box. With that in mind, this guide will assume that if you want to use hot reload, you'll be using the CLI.</p>
 <p>Not all types of source code changes will work with hot reload. Only changes to the <code>.cs</code> files will be acceptable. No changes to the <code>.csproj</code> or other build-time configuration options will be reloaded.</p>
-<h3 id="dotnet-cli">Dotnet CLI<a class="headerlink" href="#dotnet-cli" title="Permanent link">¶</a></h3>
+<h3 id="net-cli">.NET CLI<a class="headerlink" href="#net-cli" title="Permanent link">¶</a></h3>
 <p>You can run your service with hot reload by using the vanilla dotnet CLI.</p>
 <p></p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w"> </span>MyProject<span class="w"> </span>%<span class="w"> </span>dotnet<span class="w"> </span>watch<span class="w"> </span>--project<span class="w"> </span>./services/HelloWorld
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>dotnet<span class="w"> </span>watch<span class="w"> </span>🔥<span class="w"> </span>Hot<span class="w"> </span>reload<span class="w"> </span>enabled.<span class="w"> </span>For<span class="w"> </span>a<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>supported<span class="w"> </span>edits,<span class="w"> </span>see<span class="w"> </span>https://aka.ms/dotnet/hot-reload.

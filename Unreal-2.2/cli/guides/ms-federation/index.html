@@ -10395,7 +10395,7 @@
 <h1 id="microservice-federation">Microservice Federation<a class="headerlink" href="#microservice-federation" title="Permanent link">¶</a></h1>
 <p>Federate Standalone Microservices with external services</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>Before you can federate using Beamable Standalone Microservices, you need to complete the <a href="../gettting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">Dotnet 8</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
+<p>Before you can federate using Beamable Standalone Microservices, you need to complete the <a href="../gettting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">.NET 8</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># beam --version also works.</span>
@@ -10406,7 +10406,7 @@
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
 </code></pre></div>
 <h2 id="federation">Federation<a class="headerlink" href="#federation" title="Permanent link">¶</a></h2>
-<p>Microservice <em>Federation</em> is the ability to inject custom server logic in the middle of existing Beamable server functionality. Federation can be used to add custom behaviour to your game like supporting external identity auth providers, using a block chain as the backing data provider for player inventory, managing how match making works, and more.</p>
+<p>Microservice <em>Federation</em> is the ability to inject custom server logic in the middle of existing Beamable server functionality. Federation can be used to add custom behavior to your game like supporting external identity auth providers, using a block chain as the backing data provider for player inventory, managing how match making works, and more.</p>
 <p>There are 4 types of federation. All of these federations have C# interfaces
 that define the types of functions that they require.
 1. <code>IFederatedLogin</code>

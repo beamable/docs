@@ -10297,7 +10297,7 @@
 <p>In Blueprints, we have a few <a href="../blueprints/">special nodes</a> for accessing this data:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/connectivity-local-state-nodes.png" data-desc-position="bottom"><img alt="connectivity-local-state-nodes.png" src="../../../../media/imgs/connectivity-local-state-nodes.png"></a></p>
 <p>After a user is logged into a <code>FUserSlot</code>, losing the connection to the Beamable backend (due to internet access loss or otherwise) will have the <code>UBeamConnectivityManager</code> go into the <code>CONN_Offline</code> state.</p>
-<p><strong>The details of this process are:</strong></p>
+<p><strong>The details of this process are</strong>:</p>
 <ul>
 <li>The WebSocket connection fails.</li>
 <li>We attempt to reconnect <strong>X</strong> times before going into <code>CONN_Offline</code> to avoid jittery short-lived instability.</li>

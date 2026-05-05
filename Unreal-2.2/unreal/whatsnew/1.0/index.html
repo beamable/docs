@@ -10245,7 +10245,7 @@
 <p>Unreal's integrations with various version control systems will sometimes make files Read-Only at the OS-level. If this is the case, you may see an <code>Access Denied</code> error when running the above script. Part of that script is deleting the old <code>Plugins/BeamableCore</code> folder and some of the <code>uasset</code>/<code>umap</code> files inside it might be flagged as read-only. To fix this, revert the changes, go to the <code>Plugins/BeamableCore</code>, and optionally <code>Plugins/OnlineSubsystemBeamable</code>, search for <code>uasset</code>/<code>umap</code> files and make them NOT read-only. On Windows, this can be done by the "Properties" panel of the file.</p>
 </div>
 <p>Contact our customer support if the above does not work.</p>
-<p>If the script is successfull, you should see something like this:</p>
+<p>If the script is successful, you should see something like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Found .uproject: ./YourProject.uproject
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Installing the SDK in your project: YourProject
@@ -10283,7 +10283,7 @@
 </li>
 <li>If you don't want, you can read about manual generation <a href="../../user-reference/microservices/microservices/">here</a></li>
 </ul>
-<p><strong>In the Unreal Solution:</strong></p>
+<p><strong>In the Unreal Solution</strong>:</p>
 <ul>
 <li>
 <p>There were a number of renames and changes, so the project is likely NOT compiling at this point; if most of your work was in Blueprints, those may not be compiling even if the editor is.</p>
@@ -10324,7 +10324,7 @@
 <li>Microservices are now generated into their own exclusive Plugin. This makes the Microservice Client code accessible from any other Plugin or Module in your project.</li>
 <li>This means a few things:<ul>
 <li>You must add this plugin to all relevant <code>Target.cs</code> and <code>Build.cs</code>.</li>
-<li>You must add this plugin to your Project's <code>.uproject</code> file (can be done via the editor, but since you might not be able to compile --- you can do it manually too).</li>
+<li>You must add this plugin to your Project's <code>.uproject</code> file (can be done via the editor, but since you might not be able to compile — you can do it manually too).</li>
 <li>If you were using OnlineSubsystemBeamable:<ul>
 <li>Delete the <code>AutoGen</code> folder from inside the <code>Customer</code> directory.</li>
 <li>Add the <code>MicroserviceNameMicroserviceClients</code> plugin as a dependency to the OnlineSubsystemBeamable plugin.</li>

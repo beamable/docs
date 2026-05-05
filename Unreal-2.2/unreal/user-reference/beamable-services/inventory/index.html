@@ -10373,14 +10373,14 @@
 <h1 id="inventory">Inventory<a class="headerlink" href="#inventory" title="Permanent link">¶</a></h1>
 <p>The Beamable Inventory system is designed to manage player inventories, allowing for the addition and removal of items and currencies. It supports both <strong>Fungible</strong> and <strong>Non-Fungible</strong> content types:</p>
 <ul>
-<li><strong>Fungible</strong> means that each instance of that content is not unique. The simplest example is a Soft/Hard Currency in a live-services game. Each coin you grant the player is not unique. In Beamable, this type of content is represented as a <code>UBeamCurrencyContent</code>.</li>
-<li><strong>Non-Fungible</strong> means that each instance of that content is unique. The simplest example is an item in an MMORPG. Each instance of that item is unique and can have its own properties. In Beamable, this type of content is represented as a <code>UBeamItemContent</code>.</li>
+<li><strong>Fungible</strong> means that each instance of that content is not unique. The simplest example is a Soft/Hard Currency in a live-services game. Each coin you grant the player is not unique. In Beamable, this type of content is represented as a <code>UBeamCurrencyContent</code></li>
+<li><strong>Non-Fungible</strong> means that each instance of that content is unique. The simplest example is an item in an MMORPG. Each instance of that item is unique and can have its own properties. In Beamable, this type of content is represented as a <code>UBeamItemContent</code></li>
 </ul>
 <p>The Inventory system is built on top of Beamable's <a href="../content/">Content Feature</a>. <code>Currency</code> and <code>Item</code> content is created via the content window. You can also inherit from their base types to define additional read-only properties for custom items/currencies in your game.</p>
 <p>Each player's inventory state can be thought of as:</p>
 <ul>
-<li>A mapping of how much of each defined <code>Currency</code> the player currently has.</li>
-<li>A list of instances of <code>Items</code> the player owns, each with their own unique <code>InstanceId</code> and Key-Value pair of instance properties.</li>
+<li>A mapping of how much of each defined <code>Currency</code> the player currently has</li>
+<li>A list of instances of <code>Items</code> the player owns, each with their own unique <code>InstanceId</code> and Key-Value pair of instance properties</li>
 </ul>
 <p>In short, Inventory manages two types of data: items and virtual currencies.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
@@ -10406,10 +10406,10 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-operations.png" data-desc-position="bottom"><img alt="inventory-operations.png" src="../../../../media/imgs/inventory-operations.png"></a></p>
 <p>After running the above function at least once, you should be able to see the results of these calls in the Beamable portal. To do so:</p>
 <ul>
-<li>Copy the <code>Gamertag/UserId</code> from the Unreal Engine logs.</li>
-<li>Select <code>Open Portal</code> in Beamable window.</li>
-<li>Go to <code>Engage-&gt;Players</code> and search for the player via <code>Gamertag/UserId</code>.</li>
-<li>Go to <code>Inventory</code> and see that the appropriate currency and items are inside the user's inventory.</li>
+<li>Copy the <code>Gamertag/UserId</code> from the Unreal Engine logs</li>
+<li>Select <code>Open Portal</code> in Beamable window</li>
+<li>Go to <code>Engage-&gt;Players</code> and search for the player via <code>Gamertag/UserId</code></li>
+<li>Go to <code>Inventory</code> and see that the appropriate currency and items are inside the user's inventory</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-portal.png" data-desc-position="bottom"><img alt="inventory-portal.png" src="../../../../media/imgs/inventory-portal.png"></a></p>
 <h3 id="batching-updates">Batching updates<a class="headerlink" href="#batching-updates" title="Permanent link">¶</a></h3>
@@ -10428,12 +10428,12 @@
 <p>The Items feature allows for the creation and management of various in-game objects, such as equipment, consumables, and resources. In the Beamable Unreal SDK, items are represented by the <code>UBeamItemContent</code> type. You can <a href="../content/#defining-custom-content-types">subclass</a> this content type to add game-specific information to item content which is then accessible via the <code>UBeamContentSubsystem</code> and in Microservices.</p>
 <p>In the <code>UBeamInventorySubsystem</code>, each item instance inside a player's inventory is represented by <code>FBeamItemState</code>. These instances have the following properties:</p>
 <ul>
-<li><strong>ContentId</strong>: the Id of <code>UBeamItemContent</code> that represents the type of this item instance.</li>
-<li><strong>Properties</strong>: a key-value store of properties of this specific item instance. You control which properties exist here.</li>
-<li><strong>InstanceId</strong>: a unique id of item instance inside this player's inventory.</li>
-<li><strong>CreatedAt</strong>: when item instance was created.</li>
-<li><strong>UpdatedAt</strong>: last edit date.</li>
-<li><strong>FederatedId</strong>: See <a href="../../federation/federated-inventory/">Inventory Federation</a> for more information about this field.</li>
+<li><strong>ContentId</strong>: the Id of <code>UBeamItemContent</code> that represents the type of this item instance</li>
+<li><strong>Properties</strong>: a key-value store of properties of this specific item instance. You control which properties exist here</li>
+<li><strong>InstanceId</strong>: a unique id of item instance inside this player's inventory</li>
+<li><strong>CreatedAt</strong>: when item instance was created</li>
+<li><strong>UpdatedAt</strong>: last edit date</li>
+<li><strong>FederatedId</strong>: See <a href="../../federation/federated-inventory/">Inventory Federation</a> for more information about this field</li>
 </ul>
 <h2 id="client-permissions">Client Permissions<a class="headerlink" href="#client-permissions" title="Permanent link">¶</a></h2>
 <p>It's up to developers to decide how the content can be added to player inventory by specifying <code>clientPermission</code> field:</p>
@@ -10446,9 +10446,9 @@
 <h2 id="item-instance-properties">Item Instance Properties<a class="headerlink" href="#item-instance-properties" title="Permanent link">¶</a></h2>
 <p>As with most key-value pairs for arbitrary data, try to follow the guidelines below:</p>
 <p><strong>For Keys</strong>:
-- 8-20 characters are ideal (purely for human ergonomics).
-- Keeping them under a few hundred characters is best for performance.
-- Use enforceable and recognizable patterns for your keys.
+- 8-20 characters are ideal (purely for human ergonomics)
+- Keeping them under a few hundred characters is best for performance
+- Use enforceable and recognizable patterns for your keys
     - Bad: <code>ItemEnhancementName</code> and <code>ENH_Count</code>
     - Good: <code>ENHANCE_Name</code> and <code>ENHANCE_Count</code> OR <code>ItemEnhancementName</code> and <code>ItemEnhancementCount</code>.</p>
 <p><strong>For Values</strong>: Values should be no more than a few hundred characters long.</p>

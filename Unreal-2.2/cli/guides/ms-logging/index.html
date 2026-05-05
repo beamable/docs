@@ -3535,7 +3535,7 @@
   <a href="#third-party-log-hosting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Third Party Log Hosting
+        Third-Party Log Hosting
       
     </span>
   </a>
@@ -10431,7 +10431,7 @@
   <a href="#third-party-log-hosting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Third Party Log Hosting
+        Third-Party Log Hosting
       
     </span>
   </a>
@@ -10465,7 +10465,7 @@
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>This guide assumes you have an existing Microservice. You need to complete the
 [Getting-Started Guide]
-(gettting-started.md). That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">Dotnet 8</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
+(gettting-started.md). That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">.NET 8</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># beam --version also works.</span>
@@ -10601,9 +10601,9 @@ The default log level is <code>DEBUG</code> when you are running a service local
 <a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="p">}</span>
 </code></pre></div>
 <p>The various <em>CreateAttribute</em> functions should add attributes to the current context of a request.
-- <code>DefaultAttributes</code> allow you to add an attribute to <em>every</em> log line.
-- <code>ConnectionAttributes</code> allow you to add an attribute to every log line that is part of a specific <em>connection</em> to Beamable. When a Microservice runs locally, there is only a single connection, but in a deployed environment, there are <em>10</em> connections.
-- <code>RequestAttributes</code> allow you add attributes to every log line per <em>request</em>.</p>
+- <code>DefaultAttributes</code> allow you to add an attribute to <em>every</em> log line
+- <code>ConnectionAttributes</code> allow you to add an attribute to every log line that is part of a specific <em>connection</em> to Beamable. When a Microservice runs locally, there is only a single connection, but in a deployed environment, there are <em>10</em> connections
+- <code>RequestAttributes</code> allow you add attributes to every log line per <em>request</em></p>
 <p>The <code>GetDescriptors()</code> function must return a description for all attributes you want to be defined. When an attribute is described from the return value, the title and description will appear in Portal.</p>
 <h3 id="standard-log-attributes">Standard Log Attributes<a class="headerlink" href="#standard-log-attributes" title="Permanent link">¶</a></h3>
 <p>There are several standard log attributes that will be included automatically. Some of these are from the Open Telemetry (OTEL) standard, and others are from Beamable's logging middleware.</p>
@@ -10739,7 +10739,7 @@ The default log level is <code>DEBUG</code> when you are running a service local
 </tr>
 </tbody>
 </table>
-<h3 id="third-party-log-hosting">Third Party Log Hosting<a class="headerlink" href="#third-party-log-hosting" title="Permanent link">¶</a></h3>
+<h3 id="third-party-log-hosting">Third-Party Log Hosting<a class="headerlink" href="#third-party-log-hosting" title="Permanent link">¶</a></h3>
 <p>Starting with version 6.0, it is possible to send Microservice logs to third parties. This example uses BetterStack.</p>
 <p>This section will assume you have set up a BetterStack account, and created a <em>Source</em> such that you have a <em>source token</em> and an <em>ingesting host</em>.</p>
 <p>To configure locally running Microservices to send data to BetterStack, create a file called <code>config.yaml</code> next to your <code>BeamableServices.sln</code> file.</p>

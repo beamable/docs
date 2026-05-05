@@ -10253,7 +10253,7 @@
 </li>
 <li>
 <p>To set up permissions specific to a game realm, click on <em>Realm-scoped +</em> to open additional fields. Use them to grant a role within a specific realm.
-   (<strong>NOTE:</strong> Existing realm-scoped permissions cannot be changed; click the red X to remove a permission. Click the green arrow to undelete a realm-scoped role.)</p>
+   (<strong>NOTE</strong>: Existing realm-scoped permissions cannot be changed; click the red X to remove a permission. Click the green arrow to undelete a realm-scoped role.)</p>
 </li>
 </ol>
 <div class="admonition info">
@@ -10272,13 +10272,13 @@
 <div class="admonition info">
 <p class="admonition-title">Notes about Realm-Scoped Permissions</p>
 <ul>
-<li>If somebody's Global role is higher than their Realm-scoped role, the Global role will take precedence.</li>
+<li>If somebody's Global role is higher than their Realm-scoped role, the Global role will take precedence</li>
 <li>Realm-scoped roles propagate through the Realm hierarchy. Using a Prod→Staging→Dev setup as an example, if my Global role is "tester" and my team lead set me as a "developer" in staging and an "admin" in dev, then:<ul>
-<li>In <code>Example-prod</code>, I only have tester permissions, because of my Global role.</li>
-<li>In <code>Example-staging</code>, I have developer permissions, because of my Realm-scoped role there.</li>
-<li>In <code>Example-dev</code>, I have administrative permissions, because of my Realm-scoped role there.</li>
-<li>Additionally, if any of my colleagues make a new child realm under <code>Example-dev</code>, I will be an admin there as well.</li>
-<li>Likewise, if someone makes a child realm under <code>Example-staging</code> (that is, a sibling of dev), I will have developer permissions there.</li>
+<li>In <code>Example-prod</code>, I only have tester permissions, because of my Global role</li>
+<li>In <code>Example-staging</code>, I have developer permissions, because of my Realm-scoped role there</li>
+<li>In <code>Example-dev</code>, I have administrative permissions, because of my Realm-scoped role there</li>
+<li>Additionally, if any of my colleagues make a new child realm under <code>Example-dev</code>, I will be an admin there as well</li>
+<li>Likewise, if someone makes a child realm under <code>Example-staging</code> (that is, a sibling of dev), I will have developer permissions there</li>
 </ul>
 </li>
 </ul>

@@ -10529,8 +10529,8 @@ options for player collaboration and team organization.</p>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
 <li>Call <code>TryGetUserPartyState</code> from the <code>BeamPartySubsystem</code>.<ul>
-<li>If the player is already in a party, it will return true.</li>
-<li>A player must be removed from their current party before joining another. Trying to join without doing so will return an error.</li>
+<li>If the player is already in a party, it will return true</li>
+<li>A player must be removed from their current party before joining another. Trying to join without doing so will return an error</li>
 </ul>
 </li>
 <li>After verifying and removing the player from their existing party if necessary, call the operation: <code>Operation - Party - JoinPlayerParty</code>.</li>
