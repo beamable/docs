@@ -16,7 +16,7 @@ The Beamable Portal provides access to manage all aspects of your game's data ar
 
 ## Steps
 
-The Portal is available in your favorite web-browser at [https://portal.beamable.com](https://portal.beamable.com).{width="300px"}
+The Beamable Portal is available in your favorite web-browser at [https://portal.beamable.com/](https://portal.beamable.com/)
 
 | Step                               | Screenshot                                        |
 |:-----------------------------------|:--------------------------------------------------|

@@ -86,7 +86,7 @@ public class Registrations
 
 ### Custom Purchaser
 
-The Beamable **Custom Purchaser** service allows game makers to implement custom purchasing solutions for in-app purchases, bypassing Unity's built-in IAP system for complete control over the payment flow.
+The Beamable **Custom Purchaser** mechanism allows game makers to implement custom purchasing solutions for in-app purchases, bypassing Unity's built-in IAP system for complete control over the payment flow.
 
 Consider implementing a custom purchaser when you need:
 
@@ -216,7 +216,7 @@ public class Registrations
 ```
 
 ### Custom Stores
-The Beamable **CommerceService** service allows game makers to create custom storefronts with flexible purchasing options.
+The Beamable **Commerce** service allows game makers to create custom storefronts with flexible purchasing options.
 
 ```csharp
 await _beamContext.Api.CommerceService.Purchase(storeSymbol, listingSymbol);
