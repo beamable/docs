@@ -11,12 +11,12 @@ Here is the user interface of the Beamable "Portal" tool window.
 
 ## Beamable High-Level Data Concepts
 
-The Portal provides access to manage all aspects of your game's data architecture and player interactions.
+The Beamable Portal provides access to manage all aspects of your game's data architecture and player interactions.
 
 
 ## Steps
 
-The Portal is available in your favorite web-browser at [https://portal.beamable.com](https://portal.beamable.com).{width="300px"}
+The Beamable Portal is available in your favorite web-browser at [https://portal.beamable.com/](https://portal.beamable.com/).{width="300px"}
 
 | Step                         | Detail                                              |
 | :--------------------------- | :-------------------------------------------------- |
