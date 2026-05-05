@@ -7,7 +7,7 @@
 
 ## Accessing the Beamable Window
 
-When opening the Unreal Editor of your project, you'll see the Beamable Logo in the upper-right, next to the Settings dropdown. This button opens the Beamable Editor Window. Here, you can log in to the account you just created in the Beamable portal.
+When opening the Unreal Editor of your project, you'll see the Beamable Logo in the upper-right, next to the Settings dropdown. This button opens the Beamable Editor Window. Here, you can log in to the account you just created in the Beamable Portal.
 
 ![intro-beamable-window-location.png](../../media/imgs/intro-beamable-window-location.gif)
 

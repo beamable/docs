@@ -21,11 +21,11 @@ Once you set up your version, you will need to add the following environment var
 
  ![Edgegap Env Variables](../../../media/imgs/edgegap-env-vars.png)
 
-- BEAMABLE_CUSTOMER_OVERRIDE: The CID found in your Beamable portal
+- BEAMABLE_CUSTOMER_OVERRIDE: The CID found in your Beamable Portal
 
 ![Portal CID](../../../media/imgs/beamball-costumer-id.png)
 
-- BEAMABLE_REALM_OVERRIDE: The Realm found in your Beamable portal
+- BEAMABLE_REALM_OVERRIDE: The Realm found in your Beamable Portal
 
 - BEAMABLE_REALM_SECRET: The Realm Secret
 

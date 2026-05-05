@@ -38,7 +38,7 @@ Now, call this function while a user is signed in to grant the currency/item to 
 
 ![inventory-operations.png](../../../media/imgs/inventory-operations.png)
 
-After running the above function at least once, you should be able to see the results of these calls in the Beamable portal. To do so:
+After running the above function at least once, you should be able to see the results of these calls in the Beamable Portal. To do so:
 
 - Copy the `Gamertag/UserId` from the Unreal Engine logs.
 - Select `Open Portal` in Beamable window.

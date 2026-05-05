@@ -239,7 +239,7 @@ Here are the steps:
 2. Press the Debug or Run button on the IDE.
 3. Wait for the Service to Start.
 	1. The service will print out `Service ready for traffic.`
-4. The service prints out a Portal URL for you or you can use the `dotnet beam project open-swagger MicroserviceName` command to open the portal.
+4. The service prints out a Portal URL for you or you can use the `dotnet beam project open-swagger MicroserviceName` command to open the Portal.
 5. From that page, you can make requests to your service as though your own developer account was a player in your realm.
 6. Iterate quickly.
 

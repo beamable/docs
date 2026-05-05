@@ -14,10 +14,10 @@ This section covers common leaderboard use cases and how to implement them.
 
 ### Creating the Leaderboards
 
-There's two ways to create a new leaderboard, using the portal or as a content.
+There's two ways to create a new leaderboard, using the Portal or as a content.
 
 !!! note "Type of leaderboard"
-	If you created the leaderboard in the content, it will appear in the portal as expected. But if you create the leaderboard directly in the portal, it WON'T appear in the content.
+	If you created the leaderboard in the content, it will appear in the Portal as expected. But if you create the leaderboard directly in the Portal, it WON'T appear in the content.
 
 #### Creating via Content
 
