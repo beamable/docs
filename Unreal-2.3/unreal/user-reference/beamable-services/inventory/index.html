@@ -8972,7 +8972,7 @@
 </ol>
 <p>Now, call this function while a user is signed in to grant the currency/item to the player.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-operations.png" data-desc-position="bottom"><img alt="inventory-operations.png" src="../../../../media/imgs/inventory-operations.png"></a></p>
-<p>After running the above function at least once, you should be able to see the results of these calls in the Beamable portal. To do so:</p>
+<p>After running the above function at least once, you should be able to see the results of these calls in the Beamable Portal. To do so:</p>
 <ul>
 <li>Copy the <code>Gamertag/UserId</code> from the Unreal Engine logs.</li>
 <li>Select <code>Open Portal</code> in Beamable window.</li>
@@ -8993,7 +8993,7 @@
 <p>In the Beamable Unreal SDK, currencies are represented by the <code>UBeamCurrencyContent</code>. Each currency can specify a <code>startingAmount</code> that is used to pre-seed player accounts with that amount of currency for very simple cases. For more control over each player's starting state, use <a href="../../federation/federated-player-init/">Federated Player Init</a>.</p>
 <p>You can <a href="../content/#defining-custom-content-types">subclass</a> this content type if you want to add more information to currency that is specific to your liking, such as UI related <code>ObjectPaths</code> and other references to assets that might be relevant to your game.</p>
 <h2 id="items">Items<a class="headerlink" href="#items" title="Permanent link">¶</a></h2>
-<p>The Items feature allows for the creation and management of various in-game objects, such as equipment, consumables, and resources. In the Beamable Unreal SDK, items are represented by the <code>UBeamItemContent</code> type. You can <a href="../content/#defining-custom-content-types">subclass</a> this content type to add game-specific information to item content which is then accessible via the <code>UBeamContentSubsystem</code> and in Microservices.</p>
+<p>The Items service allows for the creation and management of various in-game objects, such as equipment, consumables, and resources. In the Beamable Unreal SDK, items are represented by the <code>UBeamItemContent</code> type. You can <a href="../content/#defining-custom-content-types">subclass</a> this content type to add game-specific information to item content which is then accessible via the <code>UBeamContentSubsystem</code> and in Microservices.</p>
 <p>In the <code>UBeamInventorySubsystem</code>, each item instance inside a player's inventory is represented by <code>FBeamItemState</code>. These instances have the following properties:</p>
 <ul>
 <li><strong>ContentId</strong>: the Id of <code>UBeamItemContent</code> that represents the type of this item instance.</li>
@@ -9009,7 +9009,7 @@
 <p>If not toggled, the content becomes <strong>Server-Authoritative</strong>: trying to add/remove that item or currency to the player inventory from a game-client directly results in an error. The item/currencies are still readable in the game-client. To add/remove items and currencies that are <strong>Server-Authoritative</strong>, do so via a Microservice and a <code>ClientCallable</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Edit player Inventory via Portal</p>
-<p>Regardless of the value of the <code>clientPermission</code> field it is possible to view and modify players' inventory through the Portal. More info <a href="https://docs.beamable.com/docs/portal-inventory">here</a>.</p>
+<p>Regardless of the value of the <code>clientPermission</code> field it is possible to view and modify players' inventory through the Portal. See the <a href="https://docs.beamable.com/docs/portal-inventory">Portal Inventory documentation</a>.</p>
 </div>
 <h2 id="item-instance-properties">Item Instance Properties<a class="headerlink" href="#item-instance-properties" title="Permanent link">¶</a></h2>
 <p>As with most key-value pairs for arbitrary data, try to follow the guidelines below:</p>

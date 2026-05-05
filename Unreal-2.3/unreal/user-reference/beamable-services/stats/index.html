@@ -8861,7 +8861,7 @@
 
 
 <h1 id="stats">Stats<a class="headerlink" href="#stats" title="Permanent link">¶</a></h1>
-<p>The Beamable SDK Stats feature allows players to track a variety of built-in and custom player stat variables with configurable visibility levels. Two main use cases are:</p>
+<p>The Beamable SDK Stats service allows players to track a variety of built-in and custom player stat variables with configurable visibility levels. Two main use cases are:</p>
 <ul>
 <li><strong>Data Store</strong>: can hold key/value pairs associated with a particular user</li>
 <li><strong>Targeting</strong>: these key/value pairs can be used by other Beamable systems for various things (Announcement Campaigns, Matchmaking and others)</li>
@@ -8905,13 +8905,13 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/stats-reading-other-player-stats.png" data-desc-position="bottom"><img alt="stats-reading-other-player-stats.png" src="../../../../media/imgs/stats-reading-other-player-stats.png"></a></p>
 <h2 id="stats-keys-values">Stats Keys &amp; Values<a class="headerlink" href="#stats-keys-values" title="Permanent link">¶</a></h2>
 <p>The SDK does not enforce limitations on stat keys or values. However, the following guidelines are <em>highly recommended</em> for project organization and performance reasons.</p>
-<p><strong>For Keys:</strong>
+<p><strong>For Keys</strong>:
 - 8-20 characters are ideal (purely for human ergonomics)
 - Keeping them under a few hundred characters is best for performance
 - Use enforceable and recognizable patterns for your keys
     - Bad: <code>CharacterTalents</code> and <code>LoadoutForCharacter</code>
     - Good: <code>CHAR_Talents</code> and <code>CHAR_Loadout</code></p>
-<p><strong>For Values:</strong>
+<p><strong>For Values</strong>:
 - Values should be no more than a few hundred characters long
 - If you need larger complex data structures, use <a href="../../microservices/microservices/#micro-storages">Storage Objects</a> instead</p>
 <p>Beamable's stats service indexes on stat keys; keeping keys short improves read and write performance.</p>

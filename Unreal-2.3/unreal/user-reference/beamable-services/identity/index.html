@@ -8933,7 +8933,7 @@ best practices.</p>
 <blockquote>
 <p>Authenticating the user, fetching all relevant data from the backend into the <code>UBeamRuntimeSubsystem</code>'s in-memory state and then completes the operation.</p>
 </blockquote>
-<p>This is handled automatically by the <code>Login</code> operations and <code>UBeamRuntimeSubsystem</code> implementations. You can see an overview of how this all works <a href="../../overview/">here</a>. The short version is: "After calling <code>Login</code> operations, your local state is ready for use."</p>
+<p>This is handled automatically by the <code>Login</code> operations and <code>UBeamRuntimeSubsystem</code> implementations. See the <a href="../../overview/">SDK Overview</a> for how this all works. The short version is: "After calling <code>Login</code> operations, your local state is ready for use."</p>
 <p>Here's a simple example using <code>Login - Frictionless</code> Operation:
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/federations-player-init-login-example.png" data-desc-position="bottom"><img alt="alt text" src="../../../../media/imgs/federations-player-init-login-example.png"></a></p>
 <p>As you can see, the success handler tells the UI to update itself. The UI can then use the <a href="../stats/"><code>Local State - Stats</code></a> and <a href="../inventory/"><code>Local State - Inventory</code></a> nodes to read the player's stats and inventory to render itself.</p>
@@ -8977,7 +8977,7 @@ Handling of this is game specific, but most games will either:</p>
 <p>In these cases and builds, you'll want to:</p>
 <ul>
 <li>Call <code>Login - Local Cache</code> to first try logging in as the locally cached user in that slot.</li>
-<li>Call <code>Sign Up - Email And Password</code> with <code>bAutoLogin</code> as true.<ul>
+<li>Call <code>Sign Up - Email And Password</code> with <code>bAutoLogin</code> as <code>true</code>.<ul>
 <li>You can optionally make use of properly configured Microservice with <a href="../../federation/federated-player-init/">Federated Player Initialization</a> and the <code>InitProperties</code> in the <code>SignUp</code> node to pass in additional data to influence initial player state.</li>
 </ul>
 </li>
@@ -8991,7 +8991,7 @@ Handling of this is game specific, but most games will either:</p>
 <p>In builds for specific stores and platforms, what you'll want to do is:</p>
 <ul>
 <li>Call <code>Login - Local Cache</code> to first try logging in as the locally cached user in that slot.</li>
-<li>Call <code>Sign Up - Federated Identity</code> with <code>bAutoLogin</code> as true and a properly configured Microservice with <a href="../../federation/federated-login/">Federated Login</a>.</li>
+<li>Call <code>Sign Up - Federated Identity</code> with <code>bAutoLogin</code> as <code>true</code> and a properly configured Microservice with <a href="../../federation/federated-login/">Federated Login</a>.</li>
 <li>Both the success of the <code>Login - Local Cache</code> as well as the <code>Sign Up - Federated Identity</code> calls mean you have logged in successfully.</li>
 </ul>
 <p>Here's how that looks in the client side:</p>

@@ -9052,10 +9052,10 @@
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>This section covers common leaderboard use cases and how to implement them.</p>
 <h3 id="creating-the-leaderboards">Creating the Leaderboards<a class="headerlink" href="#creating-the-leaderboards" title="Permanent link">¶</a></h3>
-<p>There's two ways to create a new leaderboard, using the portal or as a content.</p>
+<p>There's two ways to create a new leaderboard, using the Portal or as a content.</p>
 <div class="admonition note">
 <p class="admonition-title">Type of leaderboard</p>
-<p>If you created the leaderboard in the content, it will appear in the portal as expected. But if you create the leaderboard directly in the portal, it WON'T appear in the content.</p>
+<p>If you created the leaderboard in the content, it will appear in the Portal as expected. But if you create the leaderboard directly in the Portal, it WON'T appear in the content.</p>
 </div>
 <h4 id="creating-via-content">Creating via Content<a class="headerlink" href="#creating-via-content" title="Permanent link">¶</a></h4>
 <p>In order to create a content of leaderboard type, first you will need to open the <strong>Beamable Window</strong> in the top right and select the <strong>Content</strong> tab.</p>
@@ -9079,7 +9079,7 @@
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/leaderboards-blueprint-update-score.png" data-desc-position="bottom"><img alt="leaderboards-blueprint-update-score.png" src="../../../../media/imgs/leaderboards-blueprint-update-score.png"></a></p>
 <ul>
-<li>Use FetchAssignedLeaderboardOperation with Join = true: This operation is particularly useful for partitioned leaderboards. By passing the base leaderboard ID, this operation returns the specific partitioned leaderboard ID (e.g., "leaderboards.my_partitioned_board" becomes "leaderboards.my_partitioned_board#0")</li>
+<li>Use <code>FetchAssignedLeaderboardOperation</code> with <code>Join</code> = <code>true</code>: This operation is particularly useful for partitioned leaderboards. By passing the base leaderboard ID, this operation returns the specific partitioned leaderboard ID (e.g., "leaderboards.my_partitioned_board" becomes "leaderboards.my_partitioned_board#0")</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/leaderboards-blueprint-fetchassigned.png" data-desc-position="bottom"><img alt="leaderboards-blueprint-fetchassigned.png" src="../../../../media/imgs/leaderboards-blueprint-fetchassigned.png"></a></p>
 <div class="admonition warning">

@@ -9075,8 +9075,8 @@
 <a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">Ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Request____</span><span class="p">(</span><span class="n">Slot</span><span class="p">,</span><span class="w"> </span><span class="p">(...</span><span class="n">ReqParams</span><span class="p">...),</span><span class="w"> </span><span class="n">Op</span><span class="p">,</span><span class="w"> </span><span class="n">SomeRequestHandler</span><span class="p">);</span>
 <a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="p">}</span>
 </code></pre></div>
-<div class="admonition warning parameter names and beam flow">
-<p class="admonition-title">Warning</p>
+<div class="admonition warning">
+<p class="admonition-title">Parameter Names and Beam Flow</p>
 <p>The parameter names <code>UserSlot</code>, <code>OnOperationEvent</code> and <code>CallingContext</code> are important! They allow you to write your own implementation of the Beam Flow node for your operation. Look at the <a href="#beam-flow-nodes-operations">Beam Flow Nodes</a> section for more information on how to create these.</p>
 </div>
 <p>There are many examples of operations in the SDK. For guidance, look at any of the runtime subsystems such as:</p>
@@ -9154,7 +9154,7 @@
 </ol>
 </li>
 <li>
-<p><strong>Hooks:</strong> bind into delegates created via <code>DEFINE_BEAM_OPERATION_HOOK</code>.</p>
+<p><strong>Hooks</strong>: bind into delegates created via <code>DEFINE_BEAM_OPERATION_HOOK</code>.</p>
 <ol>
 <li>Rest assured: the Beamable Unreal SDK will never use Hooks internally. They are reserved exclusively for your extensions.</li>
 <li>You can search for <code>DEFINE_BEAM_OPERATION_HOOK</code> and find some usages of the macro to better understand these.</li>

@@ -9375,36 +9375,36 @@
 <hr>
 <h2 id="login-vs-attach-flows">Login vs Attach Flows<a class="headerlink" href="#login-vs-attach-flows" title="Permanent link">¶</a></h2>
 <h3 id="login-flow-returning-player">Login Flow (Returning Player)<a class="headerlink" href="#login-flow-returning-player" title="Permanent link">¶</a></h3>
-<p><strong>Purpose:</strong> Authenticate a player who has already linked Apple.</p>
-<p><strong>Client:</strong></p>
+<p><strong>Purpose</strong>: Authenticate a player who has already linked Apple.</p>
+<p><strong>Client</strong>:</p>
 <ol>
 <li>Game Center Login</li>
 <li>Retrieve Game Center UserId</li>
 <li>Call Federated Login</li>
 </ol>
-<p><strong>Server:</strong></p>
+<p><strong>Server</strong>:</p>
 <ul>
 <li>Finds account linked to Apple UserId</li>
 <li>Logs player in</li>
 </ul>
-<p><strong>Result:</strong></p>
+<p><strong>Result</strong>:</p>
 <ul>
 <li>Player authenticated</li>
 </ul>
 <hr>
 <h3 id="attach-flow-first-time-link">Attach Flow (First-Time Link)<a class="headerlink" href="#attach-flow-first-time-link" title="Permanent link">¶</a></h3>
-<p><strong>Purpose:</strong> Link Apple to an existing account.</p>
-<p><strong>Client:</strong></p>
+<p><strong>Purpose</strong>: Link Apple to an existing account.</p>
+<p><strong>Client</strong>:</p>
 <ol>
 <li>Apple Login</li>
 <li>Retrieve Apple UserId</li>
 <li>Call Attach – Federated Identity</li>
 </ol>
-<p><strong>Server:</strong></p>
+<p><strong>Server</strong>:</p>
 <ul>
 <li>Links Apple UserId to current account</li>
 </ul>
-<p><strong>Result:</strong></p>
+<p><strong>Result</strong>:</p>
 <ul>
 <li>Apple identity attached</li>
 <li>Progress preserved</li>

@@ -9060,11 +9060,11 @@
 <h1 id="utilities-for-dedicated-server-games">Utilities for Dedicated Server Games<a class="headerlink" href="#utilities-for-dedicated-server-games" title="Permanent link">¶</a></h1>
 <p>The Lobby subsystem provides you with utilities that help you integrate Beamable into UE's Gameplay Framework.</p>
 <ul>
-<li><strong>Local State - Lobby - Open Level</strong>: can be used in Game Clients to connect to a Game Server by extracting connection information (URL and Port) from the Lobby's Global Data</li>
-<li><strong>Local State - Lobby - Client - Prepare Login Options</strong>: can be used in Game Clients to add Beamable's required parameters to the <code>FString Options</code> you'll need to pass along to UE's default <code>Open Level</code> node.</li>
-<li><strong>Local State - Lobby - Get Gamer Tag</strong> and <strong>Local State - Lobby - Get User Slot</strong>: These nodes are meant to map UE constructs, such as <code>PlayerControllers</code> and <code>PlayerState</code> instances, to Beamable constructs like <code>GamerTag</code> and <code>UserSlots</code>; refer to their tooltips for a better understanding of the mapping.</li>
-<li><strong>Local State - Lobby - Get Lobby Id (by Gamer Tag)</strong>: This returns the LobbyId containing the user of the given <code>GamerTag</code>.</li>
-<li><strong>Local State - Lobby - Server - Get Lobby Id From CLArgs</strong>: This is meant to help integrate with Game Server Orchestrators — see the <a href="../../realtime-multiplayer/realtime-multiplayer-overview/">Real-Time Multiplayer Docs</a> for more information</li>
+<li><code>Local State - Lobby - Open Level</code>: can be used in Game Clients to connect to a Game Server by extracting connection information (URL and Port) from the Lobby's Global Data</li>
+<li><code>Local State - Lobby - Client - Prepare Login Options</code>: can be used in Game Clients to add Beamable's required parameters to the <code>FString Options</code> you'll need to pass along to UE's default <code>Open Level</code> node.</li>
+<li><code>Local State - Lobby - Get Gamer Tag</code> and <code>Local State - Lobby - Get User Slot</code>: These nodes are meant to map UE constructs, such as <code>PlayerControllers</code> and <code>PlayerState</code> instances, to Beamable constructs like <code>GamerTag</code> and <code>UserSlots</code>; refer to their tooltips for a better understanding of the mapping.</li>
+<li><code>Local State - Lobby - Get Lobby Id (by Gamer Tag)</code>: This returns the LobbyId containing the user of the given <code>GamerTag</code>.</li>
+<li><code>Local State - Lobby - Server - Get Lobby Id From CLArgs</code>: This is meant to help integrate with Game Server Orchestrators — see the <a href="../../realtime-multiplayer/realtime-multiplayer-overview/">Real-Time Multiplayer Docs</a> for more information</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-gameplay-helpers.png" data-desc-position="bottom"><img alt="lobbies-gameplay-helpers.png" src="../../../../media/imgs/lobbies-gameplay-helpers.png"></a></p>
 
