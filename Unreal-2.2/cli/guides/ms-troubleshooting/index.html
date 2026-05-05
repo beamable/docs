@@ -11096,7 +11096,7 @@ When a class is marked with <code>[BeamGenerateSchema]</code>, all custom types 
 </code></pre></div><p></p>
 <hr>
 <h2 id="dictionary-key-must-be-string-on-serializable-types">Dictionary Key Must Be String on Serializable Types<a class="headerlink" href="#dictionary-key-must-be-string-on-serializable-types" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:\
+<p><strong>Explanation</strong>:
 When using a <code>Dictionary</code> field in a type marked with <code>[BeamGenerateSchema]</code>, the key must be of type <code>string</code>. Other key types are not supported.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="na">[BeamGenerateSchema]</span>
@@ -11121,7 +11121,7 @@ When using a <code>Dictionary</code> field in a type marked with <code>[BeamGene
 </code></pre></div>
 <hr>
 <h2 id="field-on-serializable-type-is-subtype-from-dictionary">Field on Serializable Type Is Subtype From Dictionary<a class="headerlink" href="#field-on-serializable-type-is-subtype-from-dictionary" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:\
+<p><strong>Explanation</strong>:
 Types that subclass <code>Dictionary</code> are not supported as field types in <code>[BeamGenerateSchema]</code> annotated classes.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDict</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
@@ -11148,7 +11148,7 @@ Types that subclass <code>Dictionary</code> are not supported as field types in 
 </code></pre></div>
 <hr>
 <h2 id="field-on-serializable-type-is-subtype-from-list">Field on Serializable Type Is Subtype From List<a class="headerlink" href="#field-on-serializable-type-is-subtype-from-list" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:\
+<p><strong>Explanation</strong>:
 Types that subclass <code>List&lt;T&gt;</code> are not supported as field types in <code>[BeamGenerateSchema]</code> annotated classes.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyList</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
@@ -11175,7 +11175,7 @@ Types that subclass <code>List&lt;T&gt;</code> are not supported as field types 
 </code></pre></div>
 <hr>
 <h2 id="callable-method-declaration-type-is-contentobject-subtype">Callable Method Declaration Type Is ContentObject Subtype<a class="headerlink" href="#callable-method-declaration-type-is-contentobject-subtype" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:\
+<p><strong>Explanation</strong>:
 Types used in <code>Callable</code> methods cannot inherit from <code>ContentObject</code>. Only the base <code>ContentObject</code> is supported.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w"> </span><span class="p">{}</span>
@@ -11202,7 +11202,7 @@ Types used in <code>Callable</code> methods cannot inherit from <code>ContentObj
 </code></pre></div>
 <hr>
 <h2 id="callable-method-declaration-type-is-invalid-dictionary">Callable Method Declaration Type Is Invalid Dictionary<a class="headerlink" href="#callable-method-declaration-type-is-invalid-dictionary" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:\
+<p><strong>Explanation</strong>:
 Dictionaries in <code>[Callable]</code> method parameters are only valid if their keys are of type <code>string</code>.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
@@ -11227,7 +11227,7 @@ Dictionaries in <code>[Callable]</code> method parameters are only valid if thei
 </code></pre></div>
 <hr>
 <h2 id="callable-method-declaration-type-is-subtype-from-dictionary">Callable Method Declaration Type Is Subtype From Dictionary<a class="headerlink" href="#callable-method-declaration-type-is-subtype-from-dictionary" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:\
+<p><strong>Explanation</strong>:
 Types used in <code>[Callable]</code> methods that subclass <code>Dictionary</code> are not supported.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyDict</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
@@ -11254,7 +11254,7 @@ Types used in <code>[Callable]</code> methods that subclass <code>Dictionary</co
 </code></pre></div>
 <hr>
 <h2 id="callable-method-declaration-type-is-subtype-from-list">Callable Method Declaration Type Is Subtype From List<a class="headerlink" href="#callable-method-declaration-type-is-subtype-from-list" title="Permanent link">¶</a></h2>
-<p><strong>Explanation</strong>:\
+<p><strong>Explanation</strong>:
 Types used in <code>[Callable]</code> methods that subclass <code>List&lt;T&gt;</code> are not supported.</p>
 <p><strong>Example Code Triggering the Error</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyList</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
