@@ -246,7 +246,7 @@ There are several standard log attributes that will be included automatically. S
 | beam.connection.request.root_trace_id   | The top level trace id from Beamable's internal observability stack                            | Only included when the service is processing a request | BEAM         | VERBOSE |
 | beam.connection.request.parent_trace_id | The most recent parent trace id from Beamable's internal observability stack                   | Only included when the service is processing a request | BEAM         | VERBOSE |
 
-### Third Party Log Hosting
+### Third-Party Log Hosting
 
 Starting with version 6.0, it is possible to send Microservice logs to third parties. This example uses BetterStack.
 
