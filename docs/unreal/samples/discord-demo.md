@@ -11,8 +11,8 @@ Aside from the `BeamableCore` Plugin, here's what the sample contains:
 
 To set up this sample you'll need a few things:
 
-- A Beamable Account and a Realm.
-- A Discord Developer Account.
+- A Beamable Account and a Realm
+- A Discord Developer Account
 
 To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_DiscordDemo`.
 

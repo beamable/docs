@@ -27,7 +27,7 @@ If your game has a sign-up and/or login screen that the user is expected to choo
 If your game uses some third-party store identity such as Steam/Epic Store, you can follow this flow. This requires you to have correctly setup an identity federation for the store (see each federation's How-To guides for [more information](../federation/federated-login.md).
 
 - Use the `IOnlineIdentity::Login` function with a `LoginType` of  `BeamOSS::GetIdentityTypeFederated()` with `UOnlineSubsystemBeamableSettings::bAutoSignUpWhenLogin` as `true`.
-    - Each third-party identity may require different inputs. This depends on how your federation is set up. See the [Discord](../../samples/discord-demo.md) and [Steam](../../samples/beamball/steam-integration.md) samples for examples of how to write these federations.
+    - Each third-party identity may require different inputs. This depends on how your federation is set up. See the [Discord](../../samples/discord-demo.md) and [Steam](../../samples/beamball/steam-integration.md) samples for examples of how to write these federations
 
 !!! note "Attaching Other Identities"
     You can still attach other identities using any of the `BeamOSS::GetIdentityTypeAttach____()`. The same rules around `bAutoLoginOnAttach` apply.

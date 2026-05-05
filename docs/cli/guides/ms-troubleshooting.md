@@ -147,7 +147,7 @@ Microservice Callable method `CallServiceAsync` uses a Type that cannot be insid
 ```
 
 **Solutions**:
-- Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server.
+- Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server
 
 **Example of Solved Code** (Microservice):
 ```csharp
@@ -340,7 +340,7 @@ Consider making 'ContentId' a readonly field. Otherwise the value may be inconsi
         public static readonly string ContentId = "coins.gems";
     }
     ```
-- Or convert it to a non-static field if it should be instance-bound.
+- Or convert it to a non-static field if it should be instance-bound
 
 ---
 
@@ -422,7 +422,7 @@ Consider changing property 'X' to a field to include it in client-generated code
 ```
 
 **Solution**:
-- Use fields instead of properties.
+- Use fields instead of properties
   **Example of Solved Code**:
     ```csharp
     [Serializable]
@@ -853,7 +853,7 @@ Generic Types on Microservice Callable methods or classes with [BeamGenerateSche
 
 **Solutions**:
 
-- Replace custom generic types with concrete types.
+- Replace custom generic types with concrete types
 - Use one of the allowed generic types (`List<T>`, `Dictionary<string,T>`, `Optional<T>`, `ContentRef<T>`) if they fit your use case.
 
 **Example of Solved Code**:

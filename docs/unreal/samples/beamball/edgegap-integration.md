@@ -8,9 +8,9 @@ To generate a Beamball server build with the Edgegap plugin, Docker is required.
 
 Overview:
 
-- The Edgegap plugin relies on Docker to create the container image for the Beamball dedicated server build.
-- Verify that your Beamball server build target is configured correctly before running the Edgegap build workflow.
-- After the Docker image is generated, use the plugin's Publish button to send the build to your Edgegap application version.
+- The Edgegap plugin relies on Docker to create the container image for the Beamball dedicated server build
+- Verify that your Beamball server build target is configured correctly before running the Edgegap build workflow
+- After the Docker image is generated, use the plugin's Publish button to send the build to your Edgegap application version
 
 
 ## Configuration
@@ -21,13 +21,13 @@ Once you set up your version, you will need to add the following environment var
 
  ![Edgegap Env Variables](../../../media/imgs/edgegap-env-vars.png)
 
-- BEAMABLE_CUSTOMER_OVERRIDE: The CID found in your Beamable portal.
+- BEAMABLE_CUSTOMER_OVERRIDE: The CID found in your Beamable portal
 
 ![Portal CID](../../../media/imgs/beamball-costumer-id.png)
 
-- BEAMABLE_REALM_OVERRIDE: The Realm found in your Beamable portal.
+- BEAMABLE_REALM_OVERRIDE: The Realm found in your Beamable portal
 
-- BEAMABLE_REALM_SECRET: The Realm Secret.
+- BEAMABLE_REALM_SECRET: The Realm Secret
 
 ![Portal PID and Secret](../../../media/imgs/beamball-realm-secret.png)
 

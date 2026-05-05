@@ -41,8 +41,8 @@ With the multiplayer instances set, you can create a Blueprint (BP) function tha
 
 1. Open your Level Blueprint (or some other BP)
 2. Call `TryGetUserPartyState` from the `BeamPartySubsystem`.
-    - If the player is already in a party, it will return true.
-    - A player must be removed from their current party before joining another. Trying to join without doing so will return an error.
+    - If the player is already in a party, it will return true
+    - A player must be removed from their current party before joining another. Trying to join without doing so will return an error
 3. After verifying and removing the player from their existing party if necessary, call the operation: `Operation - Party - JoinPlayerParty`.
 
 ![party-join](../../../media/imgs/party-join.png)

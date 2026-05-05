@@ -7,7 +7,7 @@ Beamable provides sample projects for Unreal as part of the Beamable Unreal SDK 
       - NET 8.0
       - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 2. Clone the UnrealSDK Repository
-      - Clone the [UnrealSDK](https://github.com/Beamable/UnrealSDK) repository if you didn't yet.
+      - Clone the [UnrealSDK](https://github.com/Beamable/UnrealSDK) repository if you didn't yet
       - Run the `prepare_repo.sh` Script. (GitBash is recommended, but any similar shell works.)
 
 ## Select the Sample to Run
@@ -35,11 +35,11 @@ Beamable provides sample projects for Unreal as part of the Beamable Unreal SDK 
 ## Why a Single Repository?
 All Beamable samples live in the main repository for two reasons:
 
-- **QA**: Beamable continuously develops and tests against the samples.
-- **Up-to-date samples**: Whenever the SDK is updated, the sample projects are updated too. Maintaining samples alongside core features keeps everything stable and consistent.
+- **QA**: Beamable continuously develops and tests against the samples
+- **Up-to-date samples**: Whenever the SDK is updated, the sample projects are updated too. Maintaining samples alongside core features keeps everything stable and consistent
 
 To make this work, the `Config` and `.beamable` folders are kept in sync by:
 
 - A custom `Target.cs` code that makes the `Config` and `.beamable` folders at the root level of the repo exact copies of the folders inside the `Overrides` directory of each `BEAMPROJ_` folder. In other words, the contents of those folders at the root level is defined by the selected `BEAMPROJ`.
 - An editor subsystem called `BeamProjSync` that, while the editor is running, file-watches those directories and copies changes made over to the appropriate `BEAMPROJ_` `Overrides` folder.
-- Those implementations are only related to the specificity of this sample configuration and it is not related to the samples' content themselves.
+- Those implementations are only related to the specificity of this sample configuration and it is not related to the samples' content themselves

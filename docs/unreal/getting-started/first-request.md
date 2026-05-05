@@ -53,9 +53,9 @@ Operation nodes are "purple" Beamable nodes that encapsulate many complex functi
 
 The Frictionless Login node has three flow pins to handle the result of the login operation:
 
-- **On Success:** executes if the login completed successfully.
-- **On Error:** executes if any error occurs during the Beamable login flow.
-- **On Cancelled:** used in _very special cases_ and can mostly be ignored for now.
+- **On Success:** executes if the login completed successfully
+- **On Error:** executes if any error occurs during the Beamable login flow
+- **On Cancelled:** used in _very special cases_ and can mostly be ignored for now
 
 And That's it! If this operation succeeds, you'll have a **Guest Account** signed-into the `Player0` user slot.
 
@@ -70,5 +70,5 @@ The [Samples](../samples/intro.md) are also a valuable source of practical infor
 ## Issues and Reporting
 - For issues stemming from the SDK, enable verbose logging with `log Category Verbose`. Log categories are defined in `BeamableCore/BeamLogging.h`.
 - Verbose logging prints significantly more information about requests and SDK activity. It is intended for diagnostics only, not production use. To disable it in the same editor session, run `log Category Display` in the editor console.
-- When reporting an issue, reproduce it with the relevant log categories set to Verbose and attach the output to your report.
-- To contact us for support or suggestions, head to our [Support Portal](https://beamable.com/support).
+- When reporting an issue, reproduce it with the relevant log categories set to Verbose and attach the output to your report
+- To contact us for support or suggestions, head to our [Support Portal](https://beamable.com/support)

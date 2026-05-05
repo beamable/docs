@@ -17,7 +17,7 @@ If your game has **no _local_ multiplayer** (just a single local player), you on
     - In C++, you can use `UBeamCoreSettings::GetOwnerPlayerSlot()` to get it.
 - In Blueprints, you'll only have to manually pass in user slots if you change the default slot from `"Player0"`.
 - If you're using any of the lower-level APIs (`UBeam____Api` subsystems and `Low-Level` blueprint nodes), you might see functions that take in a `UObject* ContextObject`.
-    - These are there to support Unreal's Multiplayer PIE mode (for the same reason a lot of UE's own APIs also need one of these).
+    - These are there to support Unreal's Multiplayer PIE mode (for the same reason a lot of UE's own APIs also need one of these)
     - If you're calling them from a `UGameInstanceSubsystem`, `UActorComponent` or `AActor` or `Blueprint`, you can pass itself (`this`/`Self`) to this parameter.
 
 !!! warning "Non-Local Multiplayer Games"
@@ -28,14 +28,14 @@ For games that do want to support multiple local players (each with their own Be
 ## User Slots At Runtime
 The `UBeamUserSlots` Engine Subsystem is responsible for:
 
-- Storing the authentication tokens for the last account that logged into a particular slot.
+- Storing the authentication tokens for the last account that logged into a particular slot
     - These are kept in Unreal's default `Saved` directory.
-- Enabling local co-op games to have multiple players logged in at the same time.
-    - For more on login flows, see the [SDK Lifecycle](../overview.md) and various flavors described in [Identity](../beamable-services/identity.md).
+- Enabling local co-op games to have multiple players logged in at the same time
+    - For more on login flows, see the [SDK Lifecycle](../overview.md) and various flavors described in [Identity](../beamable-services/identity.md)
 - Handling support for Multiplayer PIE-mode by namespacing each Slot (UE's `FWorldContext::WorldType` and `FWorldContext::PIEInstance`).
     - To do so, the SDK must find a `UWorld` to get the context from.
     - This is why, like UE, the API takes in a `UObject* CallingContext` in certain parts.
-    - At runtime, this parameter is never optional.
+    - At runtime, this parameter is never optional
 - Asserting that only slots defined in the `UBeamCoreSettings` are in use.
     - Any User Slot with `Test` in its name is exempt from this rule so you can write automated tests with arbitrary amounts of user slots by using user slots with `Test` in their names.
 

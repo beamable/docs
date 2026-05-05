@@ -9,9 +9,9 @@ public async Promise<ServerInfo> CreateGameServer(Lobby lobby);
 
 There are 3 calls that eventually invoke this function:
 
-- **Matchmaking Match Found**: The Beamable Backend will call the **CreateGameServer** function for each match produced by its matchmaking tick.
-- **Provision Game Server for Lobby**: The [Lobby's Host Player](../beamable-services/lobbies.md) asks Beamable to provision a Game Server for their Lobby.
-- **Beam PIE's PIE Lobby**: Made by [Beam PIE's PIE Lobby setup](../editor-systems/pie-settings.md). See the [Real-Time Multiplayer Guides](../realtime-multiplayer/realtime-multiplayer-overview.md) for more information.
+- **Matchmaking Match Found**: The Beamable Backend will call the **CreateGameServer** function for each match produced by its matchmaking tick
+- **Provision Game Server for Lobby**: The [Lobby's Host Player](../beamable-services/lobbies.md) asks Beamable to provision a Game Server for their Lobby
+- **Beam PIE's PIE Lobby**: Made by [Beam PIE's PIE Lobby setup](../editor-systems/pie-settings.md). See the [Real-Time Multiplayer Guides](../realtime-multiplayer/realtime-multiplayer-overview.md) for more information
 
 ## Configuring a Game Server Federation to be Called
 Beamable's Backend leverages a Content called `UBeamGameTypeContent` (`game_types`).

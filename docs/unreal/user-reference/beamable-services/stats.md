@@ -2,8 +2,8 @@
 
 The Beamable SDK Stats feature allows players to track a variety of built-in and custom player stat variables with configurable visibility levels. Two main use cases are:
 
-- **Data Store**: can hold key/value pairs associated with a particular user.
-- **Targeting**: these key/value pairs can be used by other Beamable systems for various things (Announcement Campaigns, Matchmaking and others).
+- **Data Store**: can hold key/value pairs associated with a particular user
+- **Targeting**: these key/value pairs can be used by other Beamable systems for various things (Announcement Campaigns, Matchmaking and others)
 
 **There are two important specifiers of each stat: Visibility and Domain.**
 
@@ -31,7 +31,7 @@ You can check if it is working in the Beamable Portal:
 - Select `Open Portal` in Beamable window.
 - Go to `Engage->Players` and search for the player via `Gamertag/UserId`.
 - Go to `Stats` and search for `NewStatKey`.
-- You should see that it exists with correct value.
+- You should see that it exists with correct value
 
 ![stats-portal.png](../../../media/imgs/stats-portal.png)
 <center>*View of the stats in the Beamable Portal*</center>
@@ -41,7 +41,7 @@ In this example, a new `UpdateCommand` is created and committed right away. For 
 
 - Create `UpdateCommand`.
 - Use the other functions in the `UBeamStatsSubsystem` to set up as many changes as possible.
-- Commit.
+- Commit
 
 When it is possible (and desirable) for your game, this flow reduces the overall latency your players experience and reduces the number of API calls you make to Beamable.
 
@@ -54,14 +54,14 @@ You might want to read public stats of some other player to display information 
 The SDK does not enforce limitations on stat keys or values. However, the following guidelines are *highly recommended* for project organization and performance reasons.
 
 **For Keys:**
-- 8-20 characters are ideal (purely for human ergonomics).
-- Keeping them under a few hundred characters is best for performance.
-- Use enforceable and recognizable patterns for your keys.
+- 8-20 characters are ideal (purely for human ergonomics)
+- Keeping them under a few hundred characters is best for performance
+- Use enforceable and recognizable patterns for your keys
 	- Bad: `CharacterTalents` and `LoadoutForCharacter`
 	- Good: `CHAR_Talents` and `CHAR_Loadout`
 
 **For Values:**
-- Values should be no more than a few hundred characters long.
-- If you need larger complex data structures, use [Storage Objects](../microservices/microservices.md#micro-storages) instead.
+- Values should be no more than a few hundred characters long
+- If you need larger complex data structures, use [Storage Objects](../microservices/microservices.md#micro-storages) instead
 
 Beamable's stats service indexes on stat keys; keeping keys short improves read and write performance.

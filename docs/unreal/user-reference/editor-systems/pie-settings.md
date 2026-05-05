@@ -24,7 +24,7 @@ Player profiles can then be saved as either Local or Template, making them reusa
 
 * **Local (Green)**: Saved locally in your `.beamable/temp` folder. Useful for personal testing and development.
 * **Template (Orange)**: Saved in your `.beamable` folder and can be committed to version control. Intended as shared templates so the whole team can start from the same baseline.
-* **Captured (Gray)**: Per-session captured players are unsaved and cleared during the editor initialization.
+* **Captured (Gray)**: Per-session captured players are unsaved and cleared during the editor initialization
 
 !!! warning "Player Profile Names and Descriptions"
     Always give saved player profiles a name, as only named profiles will appear in Play Presets.
@@ -60,10 +60,10 @@ Play Presets can be configured to initialize lobbies for PIE, allowing you to te
 
 In the PIE Lobby Settings you can configure:
 
-- **Enable/Disable**: checkbox in the header enables or disables the PIE Lobby simulation for this preset.
-- **Server Map Override**: map that will be used as the server map for the PIE Lobby. This overrides the default server map defined in the Unreal Project Settings.
-- **Game Type**: Game Type content that will be used for the PIE Lobby Scene. If there is a federation configured here, the federation does run too.
-- **Lobby Global Data**: Custom Global Key-Value pairs that will be used to initialize the PIE Lobby. This data is available in the Gameplay Scene and can be used to simulate different scenarios.
+- **Enable/Disable**: checkbox in the header enables or disables the PIE Lobby simulation for this preset
+- **Server Map Override**: map that will be used as the server map for the PIE Lobby. This overrides the default server map defined in the Unreal Project Settings
+- **Game Type**: Game Type content that will be used for the PIE Lobby Scene. If there is a federation configured here, the federation does run too
+- **Lobby Global Data**: Custom Global Key-Value pairs that will be used to initialize the PIE Lobby. This data is available in the Gameplay Scene and can be used to simulate different scenarios
 
 ![pie-fake-lobby.png](../../../media/imgs/pie-fake-lobby.png)
 
@@ -90,8 +90,8 @@ User Settings also includes a **Teams** configuration that lets you define party
 
 This gives you a fully integrated way to test the **party system** and **team logic** end-to-end without needing to manually trigger party invites or team assignments at runtime:
 
-- **Party**: group the configured players into a party so they are already associated when the Gameplay Level starts.
-- **Teams**: assign each player to a specific team within that party, allowing you to test team-based gameplay scenarios (e.g., two players on Team A vs. two players on Team B) directly in PIE.
+- **Party**: group the configured players into a party so they are already associated when the Gameplay Level starts
+- **Teams**: assign each player to a specific team within that party, allowing you to test team-based gameplay scenarios (e.g., two players on Team A vs. two players on Team B) directly in PIE
 
 ![pie_play_users.png](../../../media/imgs/pie_play_users.png)
 

@@ -2,11 +2,11 @@
 
 The Beamable **Leaderboards** allow the game makers to track player scores in social rankings which are "global" (with hundreds of millions of players) or "segmented" (in smaller groups). It supports:
 
- - Assign a player to a specific leaderboard.
- - Retrieve entries from specific ranges in the leaderboard.
- - Leaderboard pagination.
- - Retrieve a specific player rank.
- - Retrieve the friends ranks.
+ - Assign a player to a specific leaderboard
+ - Retrieve entries from specific ranges in the leaderboard
+ - Leaderboard pagination
+ - Retrieve a specific player rank
+ - Retrieve the friends ranks
 
 ## Getting Started
 
@@ -38,20 +38,20 @@ Before publish it there's some configurations that can change the way your leade
 ![leaderboards-content-details.png](../../../media/imgs/leaderboards-content-details.png)
 
  - **Client Permission**: Allow the clients to update their score in the leaderboard. **OBS: This will be possible vulnerability in your game**
- - **Partitioned**: Determines whether this leaderboard automatically partitions into smaller leaderboards.
- - **Max Entries**: Determines the maximum number of entries in a given leaderboard partition.
- - **Cohort Settings**: Specifies criteria for grouping players together.
+ - **Partitioned**: Determines whether this leaderboard automatically partitions into smaller leaderboards
+ - **Max Entries**: Determines the maximum number of entries in a given leaderboard partition
+ - **Cohort Settings**: Specifies criteria for grouping players together
 
 
 ### Assign Player to Leaderboard
 
 There are two ways to assign a player to a leaderboard:
 
- - Set a Score Directly: Simply submit a score for the player on the desired leaderboard. This automatically associates the player with that leaderboard.
+ - Set a Score Directly: Simply submit a score for the player on the desired leaderboard. This automatically associates the player with that leaderboard
 
 ![leaderboards-blueprint-update-score.png](../../../media/imgs/leaderboards-blueprint-update-score.png)
 
- - Use FetchAssignedLeaderboardOperation with Join = true: This operation is particularly useful for partitioned leaderboards. By passing the base leaderboard ID, this operation returns the specific partitioned leaderboard ID (e.g., "leaderboards.my_partitioned_board" becomes "leaderboards.my_partitioned_board#0").
+ - Use FetchAssignedLeaderboardOperation with Join = true: This operation is particularly useful for partitioned leaderboards. By passing the base leaderboard ID, this operation returns the specific partitioned leaderboard ID (e.g., "leaderboards.my_partitioned_board" becomes "leaderboards.my_partitioned_board#0")
 
 ![leaderboards-blueprint-fetchassigned.png](../../../media/imgs/leaderboards-blueprint-fetchassigned.png)
 

@@ -2,8 +2,8 @@
 
 The Beamable SDK Announcement feature allows players to view and receive game-wide announcements configured by the game makers. A few of the main use cases are:
 
-- **Communicating to Players** information about the game's live operations that are relevant.
-- **Targeting a Subset of Players** with gifts or compensations due to things that happen over the course of your live-game services.
+- **Communicating to Players** information about the game's live operations that are relevant
+- **Targeting a Subset of Players** with gifts or compensations due to things that happen over the course of your live-game services
 
 Announcements can be created via the [portal](https://docs.beamable.com/docs/portal-announcements).
 
@@ -27,7 +27,7 @@ Marking announcements as read can be achieved in a similar way but with the `Mar
 Aside from the `Id` most other `FString` fields in the announcement can be used to store whatever data you need. Common practices include:
 
 - Passing in `TSoftObjectPath` strings to reference in-game assets.
-- Passing in some custom string format such that your UI interprets it and changes its behavior accordingly.
+- Passing in some custom string format such that your UI interprets it and changes its behavior accordingly
 - Use `ClientDataList` to pass in key-value pairs of arbitrary string data based on your game's context.
 
 The `Title`, `Summary`, and `Body` fields are format-agnostic — treat them as semantic suggestions and populate them however your game requires.

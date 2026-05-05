@@ -21,11 +21,11 @@ After a user is logged into a `FUserSlot`, losing the connection to the Beamable
 
 **The details of this process are:**
 
-- The WebSocket connection fails.
+- The WebSocket connection fails
 - The SDK attempts to reconnect **X** times before going into `CONN_Offline` to avoid jittery short-lived instability.
   - See `Project Settings -> Beam Runtime -> ConnectivityRetryCountBeforeOffline` for **X**.
   - If all of these attempts fail, the connection goes into `CONN_Offline`.
-  - If any of these attempts succeed, the game proceeds as normal without _any_ callbacks being triggered.
+  - If any of these attempts succeed, the game proceeds as normal without _any_ callbacks being triggered
 
 Once in `CONN_Offline`, two things happen:
 
@@ -64,10 +64,10 @@ The `UBeamRuntimeSubsystem` implementations DO NOT attempt to refresh their loca
 
 - If the SDK automatically refreshed the subsystem's state after a reconnection, the callbacks throughout the refresh process would trigger. This means that one of the below would have to be true:
     - Upon going offline, we could unbind all callbacks (which is overeager and makes your binding code more complex)
-    - You have to write code for those delegates assuming it could run at any time (which makes it a lot harder to write that code).
-    - You have to respond by any loss of connection by restarting the game (thus unbinding all delegates).
-  - Our previous experience with automatic refreshing has been that it is just not worth it.
-    - For every game-maker for whom automatic refreshing worked out of the box, it caused significant problems for another.
+    - You have to write code for those delegates assuming it could run at any time (which makes it a lot harder to write that code)
+    - You have to respond by any loss of connection by restarting the game (thus unbinding all delegates)
+  - Our previous experience with automatic refreshing has been that it is just not worth it
+    - For every game-maker for whom automatic refreshing worked out of the box, it caused significant problems for another
 
 For these reasons, the SDK does not automatically refresh; instead, it gives you the tools to set up your game state as needed.
 

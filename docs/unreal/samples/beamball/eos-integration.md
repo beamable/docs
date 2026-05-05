@@ -11,8 +11,8 @@ Aside from the `BeamableCore` Plugin, here's what the sample contains:
 
 To set up this sample, you'll need a few things:
 
-- A Beamable Account and a Realm.
-- An Epic Games Developer Account.
+- A Beamable Account and a Realm
+- An Epic Games Developer Account
 
 To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_Beamball`.
 
@@ -90,8 +90,8 @@ Testing the EOS integration in PIE should be performed in PIE's `Standalone Game
 
 To test the sample:
 
-- Launch the game with your Epic account.
-- On the login screen, you should see an Epic button. Press it.
+- Launch the game with your Epic account
+- On the login screen, you should see an Epic button. Press it
 
 ## Sample Highlights
 

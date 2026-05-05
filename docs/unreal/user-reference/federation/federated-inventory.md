@@ -10,7 +10,7 @@ Here's how this works at a high-level:
 Here's some more detail:
 
 - The "id" parameter is the UserId that the `IFederatedLogin.Authenticate` generates. All this function really does is add instances of items and currencies to the response and forward it along.
-- The "transaction" parameter is an optional string provided by the caller. You are expected to provide an idempotency guarantee that every given transaction string value is only processed once. In most cases, this is just a pass-along to Web3 wallets or wherever you're keeping the inventory information. If that's not supported by your third-party, you can leverage StorageObjects to provide this guarantee.
+- The "transaction" parameter is an optional string provided by the caller. You are expected to provide an idempotency guarantee that every given transaction string value is only processed once. In most cases, this is just a pass-along to Web3 wallets or wherever you're keeping the inventory information. If that's not supported by your third-party, you can leverage StorageObjects to provide this guarantee
 
 !!! note "Support in SDK"
 	Support for this federation in the SDK's `UBeamInventorySubsystem` is coming soon.

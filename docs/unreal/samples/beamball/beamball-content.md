@@ -11,7 +11,7 @@ The **Beamball** sample includes a basic implementation of the Store and Invento
 The Content system in Beamball acts as a bridge between:
 
 - **The online side** – store listings and offers managed by Beamable services,
-- **The local side** – Local State that is a mirror of the Online state. DataAssets and widgets that define how items are displayed in the game.
+- **The local side** – Local State that is a mirror of the Online state. DataAssets and widgets that define how items are displayed in the game
 
 This design enables a flexible, dynamic, and content-driven inventory experience. New offers and items can be added without code changes, simply by publishing new Content and updating Store configurations.
 
@@ -25,7 +25,7 @@ Each listing is transformed into an **item widget**.  During initialization, the
 
 - The **Offer** from the Listing data (used to display price),
 - The **Beam Content Id** to link the UI with Beamable services,
-- The **DataAsset** that defines the item’s local presentation.
+- The **DataAsset** that defines the item’s local presentation
 
 Widgets are then placed dynamically into a **grid layout**, with positioning calculated from the number of items already added.
 
@@ -43,7 +43,7 @@ When the player selects an item to purchase, the corresponding widget calls the 
 - Validating the offer,
 - Checking the player’s balance,
 - Deducting the cost,
-- Adding the item to the player’s inventory.
+- Adding the item to the player’s inventory
 
 Upon successful completion of the purchase operation, the player’s inventory changes with the addition of the item. It triggers a redraw from scratch from the UI so it can include the newly acquired item.
 

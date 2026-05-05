@@ -30,8 +30,8 @@ This guide assumes there is already an account for the person whose access you a
     Beamable's API (and thus also the admin Portal) currently has 4 levels of privilege for any given account. Lowest to highest they are:
 
     0. no role     -  No permissions. Most players are at this level.
-    1. `tester`    -  Mostly read-only permissions (with some exceptions).
-    2. `developer` -  Mostly read-write but not able to manage users or team.
+    1. `tester`    -  Mostly read-only permissions (with some exceptions)
+    2. `developer` -  Mostly read-write but not able to manage users or team
     3. `admin`     -  All access everywhere. Lots of power!
 
 7. Click the _Preview Changes_ button on the bottom right of the menu. Review your changes and click _save_ to submit the updates. Changes will take effect only once the action indicators stop spinning and the "Permissions" menu is refreshed.

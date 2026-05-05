@@ -8,10 +8,10 @@ Beamable Unreal SDK provides a set of editor systems that help you manage multip
 
 The Beamable Editor Panel is the main interface for interacting with Beamable features in the Unreal Engine editor. It provides access to various tools and settings that allow you to manage your game integration, including:
 
-* **Home**: dashboard that provides an overview of your Beamable project, including current realm and quick access to the Portal.
-* **Beamable Content Editor**:  tool for managing your game content, including assets, blueprints, and other resources.
-* **Microservices**: system for managing and running local microservices that can extend the functionality of your game.
-* **PIE Settings**: set of settings that allow you to configure your game for Play In Editor (PIE) mode, including player profiles and custom play presets.
+* **Home**: dashboard that provides an overview of your Beamable project, including current realm and quick access to the Portal
+* **Beamable Content Editor**:  tool for managing your game content, including assets, blueprints, and other resources
+* **Microservices**: system for managing and running local microservices that can extend the functionality of your game
+* **PIE Settings**: set of settings that allow you to configure your game for Play In Editor (PIE) mode, including player profiles and custom play presets
 
 ### Accessing the Beamable Editor Panel
 To open the Beamable Editor Panel, select the **Beamable** icon on the right side of the Unreal Engine toolbar. This will open the Beamable Editor Panel, where you can access all available features and settings.
@@ -25,6 +25,6 @@ In the same section, you can also find the **Home Dashboard** button, which will
 ### Other Sections
 You will find specific documentation for each of the editor systems in the following pages:
 
-- [Content](../beamable-services/content.md): tool for managing your game content.
-- [Microservices](../microservices/microservices.md): system for managing and running local microservices.
-- [PIE Settings](pie-settings.md): set of settings that allow you to configure your game for Play In Editor.
+- [Content](../beamable-services/content.md): tool for managing your game content
+- [Microservices](../microservices/microservices.md): system for managing and running local microservices
+- [PIE Settings](pie-settings.md): set of settings that allow you to configure your game for Play In Editor

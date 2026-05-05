@@ -34,8 +34,8 @@ Once the matchmaking system has formed a lobby, the player is notified and can s
 The matchmaking system in Beamball demonstrates how to integrate Beamable’s **Matchmaking** and **Lobby** operators in a clean sequence:
 
 - Ensure the player leaves any existing queues or lobbies,
-- Place the player into the appropriate matchmaking queue.
-- Handle asynchronous events to keep the player informed of their matchmaking status.
-- Start the match once the lobby is ready.
+- Place the player into the appropriate matchmaking queue
+- Handle asynchronous events to keep the player informed of their matchmaking status
+- Start the match once the lobby is ready
 
 This guarantees a seamless matchmaking experience while letting Beamable’s backend dynamically manage match creation and team balance.

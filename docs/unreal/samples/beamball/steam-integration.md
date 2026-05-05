@@ -11,8 +11,8 @@ Aside from the `BeamableCore` Plugin, here's what the sample contains:
 
 To set up this sample, you'll need a few things:
 
-- A Beamable Account and a Realm.
-- A Steam Developer Account.
+- A Beamable Account and a Realm
+- A Steam Developer Account
 
 To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_Beamball`.
 
@@ -70,9 +70,9 @@ Testing the Steam integration in PIE should be performed in PIE's `Standalone Ga
 
 To test the sample:
 
-- Beamball with Steam open with the account to which you added the game.
-- You should see your "Steam" status change to playing.
-- On the login screen, you should see a Steam button. Press it.
+- Beamball with Steam open with the account to which you added the game
+- You should see your "Steam" status change to playing
+- On the login screen, you should see a Steam button. Press it
 
 ## Sample Highlights
 

@@ -4,7 +4,7 @@ This section talks about lower-level details of how requests to Beamable get mad
 
 Here's why you'd want to do this:
 
-- You want to replace one of the SDK's implementations with something custom and want to provide guarantees about your system's lifecycle that are similar to those the SDK provides.
+- You want to replace one of the SDK's implementations with something custom and want to provide guarantees about your system's lifecycle that are similar to those the SDK provides
 - You wish to guarantee that when any `Login / Signup` Operation's success is triggered, you'll already have access to custom data fetched via Microservices and MicroStorages.
 
 Unless you are solving one of the two problems above, you will not need to write your own `UBeamRuntimeSubsystem`. If you do, the following concepts are essential.
@@ -18,7 +18,7 @@ The lowest layer of systems is shared between the SDK's UE Editor integration an
     - This is basically a local user cache that is aware of the peculiarities of PIE.<br><br>
 
 - `UBeamRequestTracker`: provides BP-compatible async operations that emit various events as they go along.
-    - You can think of these as "BP-Compatible Promises".
+    - You can think of these as "BP-Compatible Promises"
     - These are integrated with the `UBeam____Api` subsystems.
     - `BeginOperation` is effectively the same a creating a new promise.
     - `TriggerOperationSuccess`, `TriggerOperationError` and `TriggerOperationCancelled` should be called when you want to complete the Operation.
@@ -26,7 +26,7 @@ The lowest layer of systems is shared between the SDK's UE Editor integration an
 
 - `UBeam_____Api`:  Code-Generated Subsystems from the Beamable Backend OpenAPI spec.
     - These are stateless `UEngineSubsystem` implementations.
-    - These provide you low-level access to every end-point of the Beamable backend even if the SDK does not include utilities that do exactly what you want.
+    - These provide you low-level access to every end-point of the Beamable backend even if the SDK does not include utilities that do exactly what you want
     - As UE doesn't allow for namespaces AND BP-compatibility, this is _very_ verbose. Prefer more liberal use of `auto` when dealing with Code-Gen API Types.
     - At runtime, don't forget to pass in the `UObject* CallingContext` parameter: any `UWorld`, `UGameInstanceSubsystem`, `UActorComponent` or `AActor` will do (this ensures proper behavior in all cases of PIE).<br><br>
 
@@ -37,9 +37,9 @@ The lowest layer of systems is shared between the SDK's UE Editor integration an
 
 These implementations handle:
 
-- Request/Response serialization and deserialization.
-- Configurable Retry Logic with per-request-type, per-user-slot and per-call-site granularity.
-- Request's response caching, though this is disabled by default as caching is a very context dependent endeavor.
+- Request/Response serialization and deserialization
+- Configurable Retry Logic with per-request-type, per-user-slot and per-call-site granularity
+- Request's response caching, though this is disabled by default as caching is a very context dependent endeavor
 - Transparent and Automatic Re-Auth in case of expired `AccessToken` through a user's `RefreshToken`.
 
 The SDK provides a few different request types with 4 implementations:
@@ -56,7 +56,7 @@ By default, these are if:
     - The Unreal HTTP Requests returning a `EHttpFailureReason::ConnectionError` or `EHttpFailureReason::TimedOut` are parsed into `FBeamErrorResponse` with a `408`.<br><br>
 
 - Received any error defined in `UBeamBackend::AUTH_ERROR_CODE_RETRY_ALLOWED`.
-    - These errors trigger the SDK's authentication token refresh flow. It will refresh the token and then retry the request.
+    - These errors trigger the SDK's authentication token refresh flow. It will refresh the token and then retry the request
 
 If you ever encounter issues with this system, `log LogBeamBackend Verbose` is a useful Unreal command that can be used as a diagnostic tool. It will print out the entire process of building the request, sending it out and receiving its response.
 
@@ -79,6 +79,6 @@ For example:
 - These are used by that service's `UBeamRuntimeSubsystem` based on their semantic needs.
     - For example, `UBeamMatchmakingNotifications` subscribes to notifications for the matchmaking ticket while a `FUserSlot` is on a given queue.<br><br>
 
-- You can use Microservices to send out custom notifications --- those can be received in clients by creating your own subsystem modeled after these.
+- You can use Microservices to send out custom notifications — those can be received in clients by creating your own subsystem modeled after these
     - Use `UBeamRuntime::SubscribeToCustomNotification` to subscribe to these easily at runtime.
 

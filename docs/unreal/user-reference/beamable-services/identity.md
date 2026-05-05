@@ -51,7 +51,7 @@ Attaching an identity can succeed or fail:
 - If it fails with an `_IN_USE` error code, it means that the identity is already in use.
 Handling of this is game specific, but most games will either:
     - Call the `Login` operation and log in with the in-use identity, discarding the guest account (this is the most common way to handle this).
-    - Detect progress on the guest account and, if above a particular threshold, leverage microservices to try and do some progress merging should the user want it. This is non-trivial and not a lot of games do it since cost-benefit isn't there in most cases (but it is _possible_).
+    - Detect progress on the guest account and, if above a particular threshold, leverage microservices to try and do some progress merging should the user want it. This is non-trivial and not a lot of games do it since cost-benefit isn't there in most cases (but it is _possible_)
 
 See the [Discord sample](../../samples/discord-demo.md) for an example of this flow.
 
@@ -81,7 +81,7 @@ If your login/signup flows are the same (which is sometimes useful in early deve
 
 
 ### Local Cache + Platform-specific
-Beamable has a different approach for supporting 3rd-Party Platforms such as Steam. Rather than maintaining a small subset of all existing 3rd-Party Platforms, the SDK uses [Microservice Federation](../federation/federation.md) capabilities, letting you implement whichever Platform-specific features your game needs.
+Beamable has a different approach for supporting third-party Platforms such as Steam. Rather than maintaining a small subset of all existing third-party Platforms, the SDK uses [Microservice Federation](../federation/federation.md) capabilities, letting you implement whichever Platform-specific features your game needs.
 
 Platform login flows are usually very simple. You can see this in the [Beamball - Steam Integration](../../samples/beamball/steam-integration.md) sample.
 
@@ -95,7 +95,7 @@ Here's how that looks in the client side:
 
 ![Local Cache + Federated Identity](../../../media/imgs/identity-cache-plus-platform.png)
 
-Each different platform (Steam, EOS, PSN, etc.) requires a different Microservice implementation. At the moment, only a Steam sample is available --- samples for all major platforms (EOS, Console, and Mobile) are planned as the SDK evolves.
+Each different platform (Steam, EOS, PSN, etc.) requires a different Microservice implementation. At the moment, only a Steam sample is available — samples for all major platforms (EOS, Console, and Mobile) are planned as the SDK evolves.
 
 !!! note "Why do platform integrations this way?"
 	The problem with Beamable supporting each platform directly in the SDK is that it ties Beamable SDK versions to each individual platform's SDK versions. This denies game makers the ability to independently select the feature-set they want to support from each individual platform.

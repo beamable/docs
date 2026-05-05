@@ -2,11 +2,11 @@
 
 Beamable Matchmaking is a flexible system for connecting players together in online games. You can use it to:
 
-- Create and manage matchmaking queues.
-- Define match rules and team configurations.
-- Handle player matching logic based on stats and criteria.
-- Manage queue state and match found notifications.
-- Optionally integrate with game server provisioning.
+- Create and manage matchmaking queues
+- Define match rules and team configurations
+- Handle player matching logic based on stats and criteria
+- Manage queue state and match found notifications
+- Optionally integrate with game server provisioning
 
 Once a match is found, the result is a [Lobby](lobbies.md) containing all of the players in the match that was found.
 
@@ -20,7 +20,7 @@ Once a match is found, the result is a [Lobby](lobbies.md) containing all of the
 To use `UBeamMatchmakingSubsystem` via blueprints (or C++), you'll need to:
 
 - Use the [Content Window](content.md) to create a `Beam Game Type Content` with a single team with a Min/Max player count of 1.
-- Publish that content to your realm.
+- Publish that content to your realm
 
 ![matchmaking-content-creation.png](../../../media/imgs/matchmaking-content-creation.png)
 
@@ -59,18 +59,18 @@ This content type defines a few things about a queue:
 - `FOptionalBeamStatComparisonRule EntryRules`: Optionally defines a set of [Stat](stats.md) comparison rules. Only players whose [Stats](stats.md) match those comparisons will be allowed into this queue.
 
 !!! note "Gating by Rank"
-	Failing to meet entry rule requirements will cause the Join Operation to fail -- so these can be used to gate queues on a player's account level or rank for example.
+	Failing to meet entry rule requirements will cause the Join Operation to fail — so these can be used to gate queues on a player's account level or rank for example.
 
 - `Numeric Rules` and `String Rules` are match grouping rules.
-	- **Numeric Rules** tries to group players with a particular stat within certain delta range.
-	- **String Rules** groups players whose values for a particular stat match a certain value.
+	- **Numeric Rules** tries to group players with a particular stat within certain delta range
+	- **String Rules** groups players whose values for a particular stat match a certain value
 
 !!! note "Grouping by WinRate"
 	If you compute and store a Win Percentage value in a `Stat`, for example, you can tell the queue to group players that are closer in win-rate than others using **Numeric Rules**.
 
 - `MaxWaitDurationSecs`: Defines how long the player can stay in the queue without being matched; after this time passes, the matchmaking fails and `OnMatchTimedOut` is triggered.
 - `MatchingIntervalSecs`: Defines the ticking interval for the queue. Defaults to 10 seconds, which means that new sets of matches are produced every 10 seconds.
-	- If the time it takes to tick a queue is longer than the value set here, the longer value becomes the new tick.
+	- If the time it takes to tick a queue is longer than the value set here, the longer value becomes the new tick
 - `FederatedGameServerNamespace`: Defines a [Federation Id](../federation/federation.md#federation-id) for a [Federated Game Server](../federation/federated-game-server.md).
 
 ## Lobby Subsystem Integration
@@ -78,9 +78,9 @@ The Matchmaking Subsystem works with the [Lobby Subsystem](lobbies.md) by defaul
 
 - By the time `OnMatchReady` fires, the match Lobby data has been fetched and is available.
     - This means you can use the `Local State - Lobby` nodes to fetch information from the lobby directly on this event.
-    - For example, when used with [Federated Game Server](../federation/federated-game-server.md), you just get the connection string from the global lobby property to proceed.
+    - For example, when used with [Federated Game Server](../federation/federated-game-server.md), you just get the connection string from the global lobby property to proceed
 - When joining a queue, you can optionally pass in a set of key/value pairs called `FBeamTag`.
-    - When a match gets made with that particular user/party, these tags end up inside the [Lobby](lobbies.md)'s per-player data.
+    - When a match gets made with that particular user/party, these tags end up inside the [Lobby](lobbies.md)'s per-player data
 
 ## Party Subsystem Integration
 The Matchmaking Subsystem works with the [Party Subsystem](parties.md) by default.
@@ -94,8 +94,8 @@ When joining a queue as the party leader and passing in `FBeamTag`, those tags a
 ## Match Found and Tickets
 When you join a queue in Beamable's matchmaking, you get back a `FBeamMatchmakingTicket`. This ticket contains information about the entry onto the queue:
 
-- **GameType**: queue type.
-- **GamerTagsInTicket**: list of players that are in the ticket.
+- **GameType**: queue type
+- **GamerTagsInTicket**: list of players that are in the ticket
 - **SlotsInTicket**: list of local `FUserSlot` that are in the ticket (just the Owner Player, unless your game has multiple local players and matchmaking).
 - **FoundMatchLobbyId**: only filled inside the `OnMatchReady` callback and has the id for the resulting [Lobby](lobbies.md) for the match. You can use this to retrieve data from the [Lobby Subsystem](lobbies.md) inside the `OnMatchReady` callback to get connection information and more.
 

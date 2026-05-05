@@ -10,16 +10,16 @@ public async Promise<FederatedAuthenticationResponse> Authenticate(string token,
 ```
 
 The purpose of this function is:
-> Map a third-party token to a Unique Identifier for the user within the 3rd Party.
+> Map a third-party token to a Unique Identifier for the user within the third-party.
 
 Most of the time, you achieve this by doing the following:
 
-1. \[**Game Client**]: Use the 3rd Party Client SDK to get a token of sorts.
+1. \[**Game Client**]: Use the third-party Client SDK to get a token of sorts.
 	1. See our [Steam](../../samples/beamball/steam-integration.md) and [Discord](../../samples/discord-demo.md) Samples for examples of this.
 2. \[**Game Client**]: Invoke a `Login`/`SignUp`/`Attach` **Operation** and pass the following parameters:
 	1. **MicroserviceName**: this is the name of the Microservice (the **csproj** file name, in the default case).
 	2. **IdentityNamespace**: this is the Federation's **[Federation Id](federation.md#federation-id)**. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.
-	3. **IdentityUserId**: this is the 3rd Party's `UserId` for the user trying to login. We use this to determine if there's already a Beamable account mapped to this 3rd Party Id.
+	3. **IdentityUserId**: this is the third-party's `UserId` for the user trying to login. We use this to determine if there's already a Beamable account mapped to this third-party Id.
 	4. **IdentityAuthToken**: this is a token that for the user that can be used by the `Authenticate` function to map it back to a `UserId`.
 	5. **Federation Id**: this is the Federation's **[Federation Id](federation.md#federation-id)**. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.
 
@@ -31,12 +31,12 @@ After this, the flow goes into your `Authenticate` function. What that function 
 
 In the client:
 
-- Initialize the SDK.
+- Initialize the SDK
 - Use the `Sign-Up - Federated Identity` node with `Auto Login` passing in:
-    - The Microservice's Id.
-    - The Federation's Id.
-    - The User Id _of the federated 3rd party user_ (this would be the user's Steam Id, for example).
-    - A token that can be used to authenticate this user's account with the federated 3rd party.
+    - The Microservice's Id
+    - The Federation's Id
+    - The User Id _of the federated third-party user_ (this would be the user's Steam Id, for example)
+    - A token that can be used to authenticate this user's account with the federated third-party
 
 It looks like this:
 
@@ -50,8 +50,8 @@ Semantically, there are two ways the `Authenticate` function can be called:
 
 In both cases, what you want to do is:
 
-1. Use the 3rd Party's APIs or C# SDKs to validate the provided `token`.
-2. Use the 3rd Party's APIs or C# SDKs to get the `UserId` for that `token`'s user.
+1. Use the third-party's APIs or C# SDKs to validate the provided `token`.
+2. Use the third-party's APIs or C# SDKs to get the `UserId` for that `token`'s user.
 3. Return `UserId` the `FederatedAuthenticationResponse` .
 
 The main difference:
@@ -99,7 +99,7 @@ Semantically, there are an additional two ways that the Authenticate function ca
 - **Without a `challenge`/`solution`**: This is the first part of the flow.
 	- Here, your function should generate a `challenge` and return it in the `FederatedAuthenticationResponse`.
 	- The `UserId` in `FederatedAuthenticationResponse` should be empty in this first step.
-	- Third-party SDKs that support/require 2FA will typically provide you a function to generate said challenge.
+	- Third-party SDKs that support/require 2FA will typically provide you a function to generate said challenge
 	- The `challenge` is sent back to the client who should then solve it.
 	- After solving the challenge, the client must invoke `Login`/`Attach` again, but now passing in the `challenge` and `solution`.
 - **With a `challenge`/`solution`**: This is the second part of the flow.

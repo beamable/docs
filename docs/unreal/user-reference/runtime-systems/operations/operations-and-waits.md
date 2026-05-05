@@ -29,16 +29,16 @@ The lifecycle of an operation goes as follows:
 
 **When writing Operations, there are two ways of thinking about them:**
 
-- **Regular Operations**: are just a "Promise".
-- **Operation Hooks**: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work.
+- **Regular Operations**: are just a "Promise"
+- **Operation Hooks**: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work
 
 ## Writing and Exposing your Own Regular Operations
 The SDK exposes all main operations in both BP and C++ flavors. If you'd like to do the same thing, this section is for you. To learn about writing hooks in C++, review the next section.
 
 **The primary trade-off:**
 
-- BP-Compatible versions do not allow for lambda binding and variable capturing.
-- The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, the SDK supports both flavors.
+- BP-Compatible versions do not allow for lambda binding and variable capturing
+- The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, the SDK supports both flavors
 
 In order to easily support both flavors, the snippet below explains how you should write the actual operation logic such that it can be shared for both CPP and BP versions.
 
@@ -130,7 +130,7 @@ As part of the [Blueprint integration](../blueprints.md), the SDK includes a few
 **Beamable Operation Flow Nodes assume a few things:**
 
 - One or more participating `UserSlots` (see [User Slots](../user-slots.md) for more information).
-- An event handler for handling any of the events.
+- An event handler for handling any of the events
 - Events can be: `OET_SUCCESS`, `OET_ERROR` and `OET_CANCELLED` plus a `FName EventId`.
 - Events can contain some arbitrary data associated with them (implementations of `IBeamOperationEventData`).
 
@@ -142,7 +142,7 @@ To create these nodes for your own operations, look at any of the SDK's nodes (i
 	- `FUserSlot UserSlot` if a single user is involved in the operation or `TArray<FUserSlot> UserSlot` if multiple users are involved in the operation.
       - If multiple users, the `UFUNCTION` must also add `meta=(BeamOperationMultiUser)`.
 	- `FBeamOperationEventHandler OnOperationEvent` to be the event handler that will handle all events raised by the operation.
-    - The function can have any other parameters you want in any order as long as the above parameters are there.
+    - The function can have any other parameters you want in any order as long as the above parameters are there
 - The function must be declared from inside any `UWorldSubsystem`, `UGameInstanceSubsystem`, or `UBeamRuntimeSubsystem` subclass with a `static UMySubsystem* GetSelf(const UObject* CallingContext)` `UFUNCTION` that returns the instance of itself.
 
 **Example declaration** — the SDK source is more up to date than the docs; prefer it over this snippet.

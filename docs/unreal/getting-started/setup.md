@@ -18,7 +18,7 @@ Important notes and dependencies:
 
 ## Downloading and Installing the SDK
 - Download the latest version of the Beamable Unreal SDK from the [GitHub Repository](https://github.com/beamable/UnrealSDK/releases)
-- Unzip the contents of the downloaded file to a location where you can easily find it.
+- Unzip the contents of the downloaded file to a location where you can easily find it
 
 Once the repo and dependencies are set up, follow the next section to set up the SDK in your project.
 

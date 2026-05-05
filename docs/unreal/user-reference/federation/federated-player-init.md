@@ -50,8 +50,8 @@ The `Dictionary<string, string> properties` argument in the Federation's C# Code
 | **Specific to each Sign-Up Type**                                                                                                                                                                                                                                                      |
 | `__beam_user_email__`               | `Email And Password`     | The email used in the sign-up or being attached.                                                                                                                                                                    |
 | `__beam_user_password__`            | `Email And Password`     | The password used in the sign-up or being attached.                                                                                                                                                                 |
-| `__beam_3rd_party_user_id__`        | `Federated`              | The Federated UserId -- for example, the user's SteamId.                                                                                                                                                            |
-| `__beam_3rd_party_auth_token__`     | `Federated`              | The Federated Auth Token -- for example, the user's Steam Auth Token provided by the Steam SDK                                                                                                                      |
+| `__beam_3rd_party_user_id__`        | `Federated`              | The Federated UserId — for example, the user's SteamId.                                                                                                                                                            |
+| `__beam_3rd_party_auth_token__`     | `Federated`              | The Federated Auth Token — for example, the user's Steam Auth Token provided by the Steam SDK                                                                                                                      |
 
 In most cases, this is used to define a set of initial stats, currencies or items for a player. These will be available client-side when the operation completes.
 
@@ -71,5 +71,5 @@ A few ideas on how to leverage this:
 
 You can see an example of this federation in the following samples:
 
--  [Beamball Demo](../../samples/beamball/beamball-demo.md) sample.
--  [LiveOps Demo](../../samples/live-ops-demo.md) sample.
+-  [Beamball Demo](../../samples/beamball/beamball-demo.md) sample
+-  [LiveOps Demo](../../samples/live-ops-demo.md) sample
