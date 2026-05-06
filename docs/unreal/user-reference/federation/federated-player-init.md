@@ -61,7 +61,7 @@ In Blueprints, all you need to do is create a new account using `Login - Frictio
 
 As you can see, defining the initial state of your players using custom logic in this federation makes this initial state transparent to client logic.
 
-A few ideas on how to leverage this:
+A few ideas on how to use this:
 
 - Use `Game Client Versions` to define account initialization logic over time.
 - Use `Content` or `MicroStorages` to build more advanced segmented starting state logic.
@@ -71,5 +71,5 @@ A few ideas on how to leverage this:
 
 You can see an example of this federation in the following samples:
 
--  [Beamball Demo](../../samples/beamball/beamball-demo.md) sample
--  [LiveOps Demo](../../samples/live-ops-demo.md) sample
+- [Beamball Demo](../../samples/beamball/beamball-demo.md) sample
+- [LiveOps Demo](../../samples/live-ops-demo.md) sample

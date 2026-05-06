@@ -40,7 +40,7 @@ The SDK exposes all main operations in both BP and C++ flavors. If you'd like to
 - BP-Compatible versions do not allow for lambda binding and variable capturing
 - The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, the SDK supports both flavors
 
-In order to easily support both flavors, the snippet below explains how you should write the actual operation logic such that it can be shared for both CPP and BP versions.
+To easily support both flavors, the snippet below explains how you should write the actual operation logic such that it can be shared for both CPP and BP versions.
 
 ```c++
 // This is the BP-Compatible Function
@@ -174,7 +174,7 @@ class UK2BeamNode_Operation_CommitInventoryUpdate : public UK2BeamNode_Operation
 
 As long as you have one of these in an `UncookedOnly` module of your game, you'll be able to expose your own custom operations as BP nodes (this is compatible with Multiplayer PIE mode).
 
-This is very useful when designing unique features leveraging [MicroServices and MicroStorages](../../microservices/microservices.md) and other `FBeamOperationHandle` returning functions.
+This is very useful when designing unique features using [MicroServices and MicroStorages](../../microservices/microservices.md) and other `FBeamOperationHandle` returning functions.
 
 ## Writing Hooks
 
@@ -285,7 +285,7 @@ Examples are available in the SDK. The most common are:
 
 ---
 
-Understanding these concepts and how to leverage them can unlock the maximum potential uses and customizability of the SDK, but superficial knowledge is enough for the most basic use-cases.
+Understanding these concepts and how to use them can unlock the maximum potential uses and customizability of the SDK, but superficial knowledge is enough for the most basic use-cases.
 
 
 Take your time, read the source, and refer back to this page as you need!

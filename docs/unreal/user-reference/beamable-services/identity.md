@@ -51,7 +51,7 @@ Attaching an identity can succeed or fail:
 - If it fails with an `_IN_USE` error code, it means that the identity is already in use.
 Handling of this is game specific, but most games will either:
     - Call the `Login` operation and log in with the in-use identity, discarding the guest account (this is the most common way to handle this).
-    - Detect progress on the guest account and, if above a particular threshold, leverage microservices to try and do some progress merging should the user want it. This is non-trivial and not a lot of games do it since cost-benefit isn't there in most cases (but it is _possible_)
+    - Detect progress on the guest account and, if above a particular threshold, use microservices to try and do some progress merging should the user want it. This is non-trivial and not a lot of games do it since cost-benefit isn't there in most cases (but it is _possible_)
 
 See the [Discord sample](../../samples/discord-demo.md) for an example of this flow.
 
@@ -77,7 +77,7 @@ Here's what you would do once the user confirms the form:
 
 ![Email and Password](../../../media/imgs/identity-email-and-password.png)
 
-If your login/signup flows are the same (which is sometimes useful in early development), you can leverage the `Auto Login` option in this node. It'll create the account with email/password if it doesn't exist and, if it already does, it'll try to log into that account with the provided password.
+If your login/signup flows are the same (which is sometimes useful in early development), you can use the `Auto Login` option in this node. It'll create the account with email/password if it doesn't exist and, if it already does, it'll try to log into that account with the provided password.
 
 
 ### Local Cache + Platform-specific
@@ -107,4 +107,4 @@ Each different platform (Steam, EOS, PSN, etc.) requires a different Microservic
 ## Identity in Dedicated Servers
 Dedicated Servers use a different authentication model ([real-time multiplayer](../realtime-multiplayer/realtime-multiplayer-overview.md)) that is not `UserSlot`-based.
 
-As such, none of these flows run in Dedicated Servers.
+Therefore, none of these flows run in Dedicated Servers.

@@ -54,7 +54,7 @@ Take a look at each individual Federation's docs page for more information on us
 
 ## Workflows for Developing Federations
 
-Most Federations are inside complex application paths. As such, you need a way to iterate on them locally, much like how you do with `Callables` (see [Microservices](../microservices/microservices.md#common-developer-workflows)).
+Most Federations are inside complex application paths. Therefore, you need a way to iterate on them locally, much like how you do with `Callables` (see [Microservices](../microservices/microservices.md#common-developer-workflows)).
 
 The selected [Microservice Target](../microservices/microservices.md#microservice-routing-and-microservice-target) defines which running microservice instance will handle the federated call. These get the same semantics as `Callables` routing. If any Federation does not support or requires additional configuration for local testing, it'll be specified in their documentation.
 

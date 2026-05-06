@@ -1,6 +1,6 @@
 ﻿# Editor Systems Overview
 
-Beamable Unreal SDK provides a set of editor systems that help you manage multiple aspects of your game integration. These systems are designed to integrate seamlessly with the Unreal Engine editor, allowing you to access Beamable features directly from the editor.
+Beamable Unreal SDK provides a set of editor systems that help you manage multiple aspects of your game integration. These systems are designed to integrate with the Unreal Engine editor, giving you direct access to Beamable features from within the editor.
 
 ## Beamable Editor Panel
 
@@ -9,7 +9,7 @@ Beamable Unreal SDK provides a set of editor systems that help you manage multip
 The Beamable Editor Panel is the main interface for interacting with Beamable features in the Unreal Engine editor. It provides access to various tools and settings that allow you to manage your game integration, including:
 
 * **Home**: dashboard that provides an overview of your Beamable project, including current realm and quick access to the Portal
-* **Beamable Content Editor**:  tool for managing your game content, including assets, blueprints, and other resources
+* **Beamable Content Editor**: tool for managing your game content, including assets, blueprints, and other resources
 * **Microservices**: system for managing and running local microservices that can extend the functionality of your game
 * **PIE Settings**: set of settings that allow you to configure your game for Play In Editor (PIE) mode, including player profiles and custom play presets
 
@@ -20,7 +20,7 @@ To open the Beamable Editor Panel, select the **Beamable** icon on the right sid
 ### Home Section
 The Home section allows you to select the current realm for your project and provides quick access to the Beamable Portal. Realm selection is located at the top of the panel, and you can switch between different realms as needed. By using the **Apply to Build** button, you can apply the selected realm to your current build configuration.
 
-In the same section, you can also find the **Home Dashboard** button, which will open the Beamable Portal in your web browser, allowing you to manage your project settings and resources online. There's also other shortcuts to the Portal specific sections, such as the **Microservices** and **Content**.
+In the same section, you can also find the **Home Dashboard** button, which will open the Beamable Portal in your web browser, allowing you to manage your project settings and resources online. There are also other shortcuts to the Portal-specific sections, such as the **Microservices** and **Content**.
 
 ### Other Sections
 You will find specific documentation for each of the editor systems in the following pages:

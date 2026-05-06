@@ -226,7 +226,7 @@ public:
 !!! note "Why do I have to write this code instead of inheriting from a class you give us?"
      The SDK's philosophy is one that tries **_not_** to force you into situations where you cannot combine its utilities and your own project-specific ones. A common mistake in SDK design is to provide a base-class that users _must inherit_; while it does make the simplest case a little easier, it tends to make complex cases _significantly harder_ than they need to be.
 
-    As such, we evaluate this cost is worth the flexibility.
+    Therefore, this trade-off is worth the flexibility.
 
 **Note: _In builds, all functions from the `BeamPIE` namespace are no-ops._**
 

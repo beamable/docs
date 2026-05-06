@@ -45,7 +45,7 @@ The next image shows a high-level description of the authentication flows suppor
 **_Every engineer working with Beamable should understand this lifecycle._** It should enable them to make the best use and decisions when designing systems with or on top of Beamable.
 
 ### Beamable Runtime Subsystems
-`BeamRuntimeSubsystems` are stateful subsystems that aim to provide an extendable baseline of some Beamable functionality. They are built on top of the auto-generated lower-level API (`UBeam____Api` classes) to make it simpler to leverage the SDK's APIs so that:
+`BeamRuntimeSubsystems` are stateful subsystems that aim to provide an extendable baseline of some Beamable functionality. They are built on top of the auto-generated lower-level API (`UBeam____Api` classes) to make it simpler to use the SDK's APIs so that:
 
 1. You don't have to set up the common case.
 2. You can use them and their extension points for variations of the common case.
@@ -57,7 +57,7 @@ These are handwritten and maintained by the Beamable SDK team. Here are a few ex
 - `UBeamInventorySubsystem`: provides builder functions around the Inventory APIs that allow you to combine what would be multiple API requests into a single batched inventory update. It also receives inventory notifications coming from the server and keeps in-memory player state in sync.
 - `UBeamMatchmakingSubsystem`: provides a stateful way of joining/canceling a matchmaking queue and receiving updates when a match is found.
 
-These systems make use of the various `UBeamRuntimeSubsystem` callbacks to keep their state correct and expose callbacks and configuration options for **Game-Maker Code** to run with semantically relevant guarantees. Coupled with [Federations](federation/federation.md), these guarantees can be leveraged to greatly simplify the complexity of client implementations — usually reducing the complexity and cost of your game's systems implementation.
+These systems make use of the various `UBeamRuntimeSubsystem` callbacks to keep their state correct and expose callbacks and configuration options for **Game-Maker Code** to run with semantically relevant guarantees. Coupled with [Federations](federation/federation.md), these guarantees can be used to greatly simplify the complexity of client implementations — usually reducing the complexity and cost of your game's systems implementation.
 
 All [Blueprint](runtime-systems/blueprints.md) nodes, except the **Low-Level** ones, are backed by these subsystem implementations.
 
@@ -67,7 +67,7 @@ If the exposed hooks on these are not enough for your use case and constraints, 
 
 You can also opt out of these entirely by adding them to `UBeamCoreSettings` 's property: `ManuallyInitializedRuntimeSubsystems`. All subsystems in this list, and any other subsystem that depends on it, are not automatically initialized by the SDK. For example, if `UBeamInventorySubsystem` is in this list, this system will not be usable until you manually initialize it.
 
-You can leverage the above to:
+You can use the above to:
 
 - Delay initialization of subsystems to a later point to reduce startup times
 - Replace the SDK's default implementation of a system with your own, avoiding its overhead

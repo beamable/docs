@@ -268,7 +268,7 @@ If you are using [Federations](../federation/federation.md), there are a few par
 ## Deploying to a Realm
 Once you have things working locally, you'll likely want to make the Microservice available to other team members working on the realm. If you just push your code up, other team members would also have to run the service locally and that might not always be desirable.
 
-As such, you should publish the services to the appropriate realm.
+Therefore, publish the services to the appropriate realm.
 
 !!! info "Which realm?"
 	How you wish to manage realms is a team-specific decision as there are cost implications per-microservice instance running in any realm to consider against how your team likes to work.

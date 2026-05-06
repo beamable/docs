@@ -91,10 +91,10 @@ To prevent `Designer-B` from overwriting changes made by `Designer-A` the SDK wi
 
 ![content-conflict.png](../../../media/imgs/content-conflict.png)
 
-As such, consider these practices:
+Therefore, consider these practices:
 
 - Organize the designers in your realm to minimize the chance of **conflicts**
-    - As long as they are working in different content objects, working in the same realm should be seamless.<br><br>
+    - As long as they are working in different content objects, working in the same realm should cause no conflicts.<br><br>
 - Instruct designers to ALWAYS talk to the person whose publish action caused the conflict _before_ resolving things
   	- This is why the SDK shows _who_ made the last publish that caused the conflict
 

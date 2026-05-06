@@ -64,7 +64,7 @@ Now, you are ready to sign into a game using Discord.
 
 ## Playing the sample in Editor
 
-In order to test the sample:
+To test the sample:
 
 1. Open the `BeamableUnreal` in the Unreal Editor
 2. Sign into your Beamable account in the `Beamable Window` and go to the `discord-demo` realm.
@@ -78,7 +78,7 @@ In order to test the sample:
 
 ![discord_sample_notify.png](../../media/imgs/discord_sample_notify.png)
 
-In order to actually gate matchmaking you'll need to set up a rule in your `GameType` content that excludes people from the queue that do not have the role. This is not shown on this demo.
+To actually gate matchmaking you'll need to set up a rule in your `GameType` content that excludes people from the queue that do not have the role. This is not shown on this demo.
 
 ## Can I use it as a Template?
 

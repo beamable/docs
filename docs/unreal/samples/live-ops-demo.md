@@ -49,7 +49,7 @@ Now you're set up to run the sample.
       1. Go to the `Home` window.
       2. Click on `Reset PIE Users`.
 3. Open the `LiveOpsDemo` Level if it is not opened yet.
-      1. You can find it inside the `BEAMPROJ_LiveOpsDemo Content`  folder.
+      1. You can find it inside the `BEAMPROJ_LiveOpsDemo Content` folder.
       2. If you can't see plugin content in your content browser, you can change the settings of the UE `Content Browser` to display it.
 5. Play the `LiveOpsDemo` in the Editor.
 

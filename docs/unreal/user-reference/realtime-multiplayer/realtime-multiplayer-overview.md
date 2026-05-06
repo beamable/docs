@@ -34,7 +34,7 @@ This documentation uses a few terms to refer to common parts of the architecture
 There _**are**_ other ways to arrange and organize server-authoritative games but most games do something at least similar to this, and, Unreal helps you more if you are close to this.
 
 ## Getting Started - Setting up Gameplay Levels and a PIE Setting
-This guide explains how to leverage the SDK's **[PIE Support](../editor-systems/pie-settings.md)** to set up your Gameplay Level so you can start experimenting with Beamable immediately.
+This guide explains how to use the SDK's **[PIE Support](../editor-systems/pie-settings.md)** to set up your Gameplay Level so you can start experimenting with Beamable immediately.
 
 ![multiplayer-scenes.png](../../../media/imgs/multiplayer-scenes.png)
 <center>Example of PIE Settings for a gameplay level</center>
