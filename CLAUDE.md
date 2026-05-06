@@ -51,7 +51,7 @@ After pushing to a core branch, immediately `git pull` in the corresponding unit
 
 ### CLI guide edits and shared includes
 
-Files under `docs/cli/guides/` and `docs/includes/` (including `abbreviations.md`) are core-owned and auto-synced into unity/unreal. Edit them only in the relevant core worktree — do not copy changes by hand, even during a copyediting pass on a unity or unreal branch. Unity-only edits go directly to the unity worktree; Unreal-only edits (anything not in `docs/cli/guides/` or `docs/includes/`) go directly to the unreal worktree.
+Files under `docs/cli/guides/`, `docs/includes/` (including `abbreviations.md`), and `docs/portal/` are core-owned and auto-synced into unity/unreal. Edit them only in the relevant core worktree — do not copy changes by hand, even during a copyediting pass on a unity or unreal branch. Unity-only edits go directly to the unity worktree; Unreal-only edits (anything not in `docs/cli/guides/`, `docs/includes/`, or `docs/portal/`) go directly to the unreal worktree.
 
 ### Staggered pushes
 
@@ -158,7 +158,9 @@ Neither convention is enforced by tooling — both are de facto habits. When in 
 
 ### Backporting
 
-Copyediting and style changes (grammar, punctuation, passive voice, style consistency) apply only to `v5.x` branches and newer. Do not backport these to `unity/v4.0` or earlier. Only backport factual corrections pertinent to that specific version (SDK/CLI version table entries, bug fix notes, feature corrections, etc.).
+Copyediting and style changes (grammar, punctuation, passive voice, style consistency) apply only to `unity/v5.x` branches and newer, `unreal/v2.x` and newer, and the corresponding core branches. Do not backport these to `unity/v4.0` or earlier. Only backport factual corrections pertinent to that specific version (SDK/CLI version table entries, bug fix notes, feature corrections, etc.).
+
+For **Unreal**, apply copyediting changes to `unreal/v2.2` immediately after finishing each item on `unreal/v2.3` — do not defer all `v2.2` work to the end of the session. Applying each change while context is fresh is faster and less error-prone than a bulk pass later. Exception: if a `v2.3` item is flagged for SDK-team verification (Priority 3), hold off on `v2.2` until the `v2.3` fix is confirmed.
 
 ## SDK Source References
 
