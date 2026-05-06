@@ -47,7 +47,7 @@ After running the above function at least once, you should be able to see the re
 
 ![inventory-portal.png](../../../media/imgs/inventory-portal.png)
 
-### Batching updates
+### Batching Updates
 In the getting started example, a new `FBeamInventoryUpdateCommand` is created and committed right away.
 
 It is desirable, for both performance and latency reasons, to batch as many inventory changes as possible as long as it makes sense for your game's design. So, if your game's feature allows for a "edit multiple, commit later" pattern of UX, using this API is the most efficient way to go about it.

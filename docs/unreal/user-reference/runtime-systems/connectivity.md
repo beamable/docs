@@ -37,7 +37,7 @@ Once we go into `CONN_Offline`, two things happen:
 
 While in `CONN_Offline` mode, we'll keep trying to reestablish the `FUserSlot`'s connection with Beamable. This happens automatically in the background and is a continuous process.
 
-### Reconnect behavior
+### Reconnect Behavior
 
 If we manage to reestablish the connection, we broadcast `UBeamConnectivityManager::OnReconnected`. Then if `Project Settings → Beam Runtime → AutomaticallyNotifyFixupComplete` is:
 

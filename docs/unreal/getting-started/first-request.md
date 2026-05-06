@@ -43,13 +43,13 @@ To get started, open your Level Blueprint and add the following nodes:
 
 ![intro-init-sdk-with-login-frictionless](../../media/imgs/intro-init-sdk-with-login-frictionless.png)
 
-### What's going on Above:
+### What Is Happening Above
 
 The `BeamRuntime` is a `GameInstanceSubsystem` that is responsible for controlling the SDK's lifecycle and player authentication. Calling this function will initialize the SDK. You can find a deep explanation about the Beamable Runtime in the [Technical Overview](../user-reference/overview.md) page.
 
 Once the SDK is initialized, the `Login - Frictionless` Operation node logs in a guest account automatically into the `Player0` user slot.
 
-Operation nodes are "purple" Beamable nodes that encapsulate many complex functionalities in a easy-to-use fashion. See [Operation Nodes](../user-reference/runtime-systems/blueprints.md) for more information.
+Operation nodes are "purple" Beamable nodes that encapsulate many complex functionalities in an easy-to-use fashion. See [Operation Nodes](../user-reference/runtime-systems/blueprints.md) for more information.
 
 The Frictionless Login node has three flow pins to handle the result of the login operation:
 
@@ -57,7 +57,7 @@ The Frictionless Login node has three flow pins to handle the result of the logi
 - **On Error**: executes if any error happens during the login flow
 - **On Cancelled**: used in _very special cases_ and can mostly be ignored for now
 
-And That's it! If this operation succeeds, you'll have a **Guest Account** signed-into the `Player0` user slot.
+If this operation succeeds, you'll have a **Guest Account** signed-into the `Player0` user slot.
 
 With the SDKs default configuration and the above setup, you can enter PIE (Play-In-Editor) and should see several requests' responses being written to your Output Log window. After you see the final `GetMe` request, you can exit PIE knowing you've made your very first request to Beamable. Congratulations!
 
@@ -68,7 +68,7 @@ Now that you've made your first Beamable Request, you can take a look at the [Te
 Also, take a look at the [Samples](../samples/intro.md), which are a valuable source of practical information and good general reference.
 
 ## Issues and Reporting
-- Use verbose logging `log Category Verbose` when encountering an issue stemming from the SDK (Log Categories can be found in `BeambleCore/BeamLogging.h` file)
+- Use verbose logging `log Category Verbose` when encountering an issue stemming from the SDK (Log Categories can be found in `BeamableCore/BeamLogging.h` file)
 - This verbose logging will print ***a lot more*** information about requests being made and what the SDK is doing. It is meant to aid in diagnosing issues, NOT for production use. To turn it off in the same editor session, run `log Category Display` in the editor console
 - When reporting an issue, try to reproduce it with the logs of the relevant systems set to Verbose and attach them to the report
 - To contact support or submit suggestions, head to the [Support Portal](https://beamable.com/support)
