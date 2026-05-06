@@ -108,11 +108,11 @@ Both lobby types have the same schema and are represented by the `ULobby` class.
 	- When changing this via `CommitLobbyUpdateOperation`, if you have more players than the new **MaxPlayer** value, you'll get an error.
 - **Players**: a list of `ULobbyPlayer` containing data associated to each player in the lobby.
 	- **PlayerId**: the player's `FBeamGamerTag`.
-	- **Joined**: an ISO-8601 date time string for when the player
+	- **Joined**: an ISO 8601 date time string for when the player
 	- **Tags**: an array of Key-Value pairs (allows duplicates)
 - **Data**: an arbitrary data store that can be filled and updated by the host of the lobby
 	- Can be filled via [Federations](../federation/federated-game-server.md) as well
-- **Created**: an ISO-8601 date time string for when the Lobby was created
+- **Created**: an ISO 8601 date time string for when the Lobby was created
 
 # Utilities for Dedicated Server Games
 The Lobby subsystem provides you with utilities that help you integrate Beamable into UE's Gameplay Framework.
