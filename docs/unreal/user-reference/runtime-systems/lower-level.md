@@ -24,7 +24,7 @@ The lowest layer of systems is shared between the SDK's UE Editor integration an
     - `TriggerOperationSuccess`, `TriggerOperationError` and `TriggerOperationCancelled` should be called when you want to complete the Operation.
     - This is a somewhat complex subsystem so read [Operations and Waits](operations-and-waits.md) for more details.<br><br>
 
-- `UBeam_____Api`:  Code-Generated Subsystems from the Beamable Backend OpenAPI spec.
+- `UBeam_____Api`: Code-Generated Subsystems from the Beamable Backend OpenAPI spec.
     - These are stateless `UEngineSubsystem` implementations.
     - These provide you low-level access to every end-point of the Beamable backend even if the SDK does not include utilities that do exactly what you want.
     - As UE doesn't allow for namespaces AND BP-compatibility, this is _very_ verbose. Prefer more liberal use of `auto` when dealing with Code-Gen API Types.
@@ -33,7 +33,7 @@ The lowest layer of systems is shared between the SDK's UE Editor integration an
 - `UBeamBackend`, `UBeamNotifications` and `UBeam_____Notifications` are discussed in the sections below.
 
 ## `UBeamBackend`
-`UBeamBackend` is the most important `UEngineSubsystem` in the SDK. It leverages Unreal's `HTTP` module to make requests to the configured Beamable backend. It contains the implementations used by the `UBeam____Api` classes to make the actual requests.
+`UBeamBackend` is the most important `UEngineSubsystem` in the SDK. It uses Unreal's `HTTP` module to make requests to the configured Beamable backend. It contains the implementations used by the `UBeam____Api` classes to make the actual requests.
 
 These implementations handle:
 
@@ -65,7 +65,7 @@ If you ever encounter issues with this system, `log LogBeamBackend Verbose` is a
 
 ## `UBeamNotifications`
 
-Every connected Beamable player maintains a WebSocket connection to Beamable while they are logged-in. This system leverages UE's `WebSocket` module to open web-socket connections for each logged-in user (using `FUserSlot`).
+Every connected Beamable player maintains a WebSocket connection to Beamable while they are logged-in. This system uses UE's `WebSocket` module to open web-socket connections for each logged-in user (using `FUserSlot`).
 
 This WebSocket connection semantically represents the connectivity status for that particular user. This means the SDK (and the Beamable Servers) think that a user is online/offline based on whether this connection is alive and well. Which in turn means that, if you want to use any of the SDK's real-time services ([Matchmaking](../beamable-services/matchmaking.md), [Lobbies](../beamable-services/lobbies.md), etc.) this connection needs to be properly working. At runtime, `UBeamRuntime`, and `UBeamConnectivityManager` handle per-`FUserSlot` [Connectivity](connectivity.md) statuses.
 

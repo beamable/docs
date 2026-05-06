@@ -20,7 +20,7 @@ To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_DiscordD
       Instructions below assume that you already have the Discord server that you want to use for integration. If that is not the case, be sure to create one first. Make sure that you have the admin access to the Discord server of choice.
 
 ## Setting Discord Application
-Since this sample requires several resources, we do not host it ourselves. So, in order to access the sample we'll go set up a Discord account and set up the sample Discord bot:
+Since this sample requires several resources, we do not host it ourselves. So, to access the sample we'll go set up a Discord account and set up the sample Discord bot:
 
 1. Log into your [Discord.dev](https://discord.com/developers/applications) account.
 2. Create an App. Set aside its `AppId` in a notepad for future use.
@@ -64,7 +64,7 @@ Now, you are ready to sign into a game using Discord.
 
 ## Playing the sample in Editor
 
-In order to test the sample:
+To test the sample:
 
 1. Open the `BeamableUnreal` in the Unreal Editor
 2. Sign into your Beamable account in the `Beamable Window` and go to the `discord-demo` realm.
@@ -78,7 +78,7 @@ In order to test the sample:
 
 ![discord_sample_notify.png](../../media/imgs/discord_sample_notify.png)
 
-In order to actually gate matchmaking you'll need to set up a rule in your `GameType` content that excludes people from the queue that do not have the role. This is not shown on this demo.
+To actually gate matchmaking you'll need to set up a rule in your `GameType` content that excludes people from the queue that do not have the role. This is not shown on this demo.
 
 ## Can I use it as a Template?
 

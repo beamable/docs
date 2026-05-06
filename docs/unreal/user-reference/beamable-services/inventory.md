@@ -50,10 +50,10 @@ After running the above function at least once, you should be able to see the re
 ### Batching updates
 In the getting started example, a new `FBeamInventoryUpdateCommand` is created and committed right away.
 
-It is desirable, for both performance and latency reasons, to batch as many inventory changes as possible as long as it makes sense for your game's design. So, if your game's feature allows for a "edit multiple, commit later" pattern of UX, leveraging this API is the most efficient way to go about it.
+It is desirable, for both performance and latency reasons, to batch as many inventory changes as possible as long as it makes sense for your game's design. So, if your game's feature allows for a "edit multiple, commit later" pattern of UX, using this API is the most efficient way to go about it.
 
 ### Reading Local State
-In order to read the local state of the player's inventory, you can use the following operations:
+To read the local state of the player's inventory, you can use the following operations:
 
 ![inventory-local-state.png](../../../media/imgs/inventory-local-state.png)
 
@@ -62,7 +62,7 @@ You can also use the `Local State - Inventory - TryGetAllItemsFilter` node to it
 ![inventory-auto-casting.png](../../../media/imgs/inventory-auto-casting.png)
 
 ## Currencies
-Currencies are used to buy items with the [Store system](stores.md) (e.g. Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP) depending on the specifics of your game system.
+Currencies are used to buy items with the [Store system](stores.md) (for example, Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP) depending on the specifics of your game system.
 
 In the Beamable Unreal SDK, currencies are represented by the `UBeamCurrencyContent`. Each currency can specify a `startingAmount` that is used to pre-seed player accounts with that amount of currency for very simple cases. For more control over each player's starting state, use [Federated Player Init](../federation/federated-player-init.md).
 
@@ -88,8 +88,8 @@ When toggled, the content becomes **Client-Authoritative**: the SDK allows game-
 
 If not toggled, the content becomes **Server-Authoritative**: trying to add/remove that item or currency to the player inventory from a game-client directly results in an error. The item/currencies are still readable in the game-client. To add/remove items and currencies that are **Server-Authoritative**, do so via a Microservice and a `ClientCallable`.
 
-!!! note "Edit player Inventory via Portal"
-	Regardless of the value of the `clientPermission` field it is possible to view and modify players' inventory through the Portal. See the [Portal Inventory documentation](https://docs.beamable.com/docs/portal-inventory).
+!!! note "Edit player Inventory via the Portal"
+	Regardless of the value of the `clientPermission` field you can view and modify players' inventory through the Portal. See the [Portal Inventory documentation](https://docs.beamable.com/docs/portal-inventory).
 
 ## Item Instance Properties
 As with most key-value pairs for arbitrary data, try to follow the guidelines below:

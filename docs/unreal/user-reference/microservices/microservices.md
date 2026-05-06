@@ -83,7 +83,7 @@ Inside the method body, there are a few concepts that are relevant:
 [For more information on how to write microservice functions, you can take a look at these docs as well.](https://docs.beamable.com/docs/microservices-feature-overview)
 
 ## Constraints on Callable Functions
-The CLI generates Unreal bindings that allow your Unreal code to call your microservice much like you would make an API call to Beamable. In order to generate these bindings, there are *some* restrictions on what types can and cannot appear in method signatures for `Callables`.
+The CLI generates Unreal bindings that allow your Unreal code to call your microservice much like you would make an API call to Beamable. To generate these bindings, there are *some* restrictions on what types can and cannot appear in method signatures for `Callables`.
 
 Each `Callable` generates at least two `UObject` classes, one representing request's input parameters and another representing the response type. It also generates a function inside the generated `UBeamMicroserviceNameApi` subsystem (and accompanying Blueprint nodes).
 

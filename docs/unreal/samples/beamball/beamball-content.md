@@ -21,7 +21,7 @@ The returned `Content Store View` contain the listings and their offers availabl
 
 The Listing data is combined with a local **DataAssets** that define how each item should be presented in the UI. In this case, we have a DataAsset for each skin, containing information such as the skin’s name, description, and thumbnail image. The DataAssets are linked to the listings using its path as a Soft Object Reference in the `path` field of the listing.
 
-Each listing is transformed into an **item widget**.  During initialization, the widget receives:
+Each listing is transformed into an **item widget**. During initialization, the widget receives:
 
 - The **Offer** from the Listing data (used to display price),
 - The **Beam Content Id** to link the UI with Beamable services,
@@ -31,7 +31,7 @@ Widgets are then placed dynamically into a **grid layout**, with positioning cal
 
 
 !!! note "Main Operators to be aware of:"
-    - **`Operation - Store - Refresh Store`**:  Refreshes the player’s store state from the backend.
+    - **`Operation - Store - Refresh Store`**: Refreshes the player’s store state from the backend.
     - **`Local State - Store - TryGetStoreView`**: Retrieves the updated StoreView from the local Beamable state.
 
 ## Purchasing Items
@@ -50,5 +50,5 @@ Upon successful completion of the purchase operation, the player’s inventory c
 ![beamball-pruchase2.png](../../../media/imgs/beamball-pruchase2.png)
 
 !!! note "Main Operators to be aware of:"
-    - **`Operation - Store - Perform Purchase`**:  Purchase a listing in the player's account.
+    - **`Operation - Store - Perform Purchase`**: Purchase a listing in the player's account.
     - **`Events - Inventory - Bind`**: Trigger an event when the inventory is refreshed (Updated) in the server.

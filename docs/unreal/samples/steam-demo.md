@@ -21,7 +21,7 @@ To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_SteamDem
 
 ## Setting Steam Application
 
-Since this sample requires several resources, we do not host it ourselves. So, in order to access the sample we'll go set up a Steam account and setup the sample:
+Since this sample requires several resources, we do not host it ourselves. So, to access the sample we'll go set up a Steam account and setup the sample:
 
 1. Log into your [Steam](https://partner.steamgames.com/apps) developer account.
 2. Go to your App and set aside its `AppId`.
@@ -45,7 +45,7 @@ Now, you'll need to configure a Beamable realm so you can use it:
 7. Compile and open the `BeamableUnreal` editor (it'll be configured as the `BEAMPROJ_SteamDemo`) project.
 8. Sign into your Beamable account and go to the `steam-demo` realm.
 	1. Hit `Apply to Build`.
-9.  Open a bash terminal at the `BeamableUnreal` root directory.
+9. Open a bash terminal at the `BeamableUnreal` root directory.
 10. Run `dotnet beam project enable --with-group BEAMPROJ_SteamDemo`
 11. Run `dotnet beam project disable --without-group BEAMPROJ_SteamDemo`
 12. Guarantee `Docker` is open and running.
@@ -66,7 +66,7 @@ Testing the Steam integration from the editor should be performed in `Standalone
 
 ![steam-demo-PIE-mode.png](../../media/imgs/steam-demo-PIE-mode.png)
 
-In order to test the sample:
+To test the sample:
 
 - Start game with Steam open with the account to which you added the game.
 - It should automatically try to login to that account.

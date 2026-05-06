@@ -78,7 +78,7 @@ For **In-Band Calls** that reach a federated endpoint, the selected [Microservic
 !!! warning "What about PROD?!"
 	By default, production realm disallows ***any and all routing to microservices that are not the deployed ones***. In other words, if you run a local microservice while in a Prod realm it CANNOT steal any traffic from the service that is deployed; be it **in-band** or **out-of-band**.
 
-In order to configure these filters, you can use the **Local - Federations** tab of your **[Microservice Inspector](../microservices/microservices.md#microservice-window)**. The filters, when out-of-band calls can be made to a particular federated endpoint, are described in each federation's own pages (for an example, [see here](federated-game-server.md)).
+To configure these filters, you can use the **Local - Federations** tab of your **[Microservice Inspector](../microservices/microservices.md#microservice-window)**. The filters, when out-of-band calls can be made to a particular federated endpoint, are described in each federation's own pages (for an example, [see here](federated-game-server.md)).
 
 
 ![microservices-window-federation.png](../../../media/imgs/microservices-window-federation.png)

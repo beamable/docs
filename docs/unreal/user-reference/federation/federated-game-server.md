@@ -14,7 +14,7 @@ There are 3 [Federation Calls](federation.md#federation-calls) to this function:
 - **Beam PIE's PIE Lobby**: This is an In-Band call made by [Beam PIE's PIE Lobby setup](../editor-systems/pie-settings.md). You can read more about this in the [Real-Time Multiplayer Guides](../realtime-multiplayer/realtime-multiplayer-overview.md).
 
 ## Configuring a Game Server Federation to be Called
-Beamable's Backend leverages a Content called `UBeamGameTypeContent` (`game_types`). A GameType is essentially a set of rules for how Beamable's Matchmaking should produce matches of this game type (including the federation).
+Beamable's Backend uses a Content called `UBeamGameTypeContent` (`game_types`). A GameType is essentially a set of rules for how Beamable's Matchmaking should produce matches of this game type (including the federation).
 
 1. Implement `IFederatedGameServer` federation in your microservice with a particular [Federation Id](federation.md#federation-id).
 2. Set up that [Federation Id](federation.md#federation-id) in any `UBeamGameTypeContent`'s `federation` field.

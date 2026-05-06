@@ -75,7 +75,7 @@ virtual void BeginPlay() override
 **The code above still expects you to have the `Easy Enable` node in your level blueprint marked with `Init when Server Build`.**
 
 ## Implementing Game Server Authentication
-When using the Beamable SDK, in order to validate that the user should be allowed to connect to this game server, the server needs to know a few things:
+When using the Beamable SDK, to validate that the user should be allowed to connect to this game server, the server needs to know a few things:
 
 - The User's Auth Token and GamerTag... so that the server can verify the user is who they say they are.
 - Optionally, the Lobby Id for the lobby the user is in... to verify that the user is in a lobby registered with this Game Server.
@@ -167,7 +167,7 @@ Iteration time is one of the most important factors when developing a game. The 
 
 However, it is possible with a custom `GameInstance` implementation.
 
-So, in order to enable you to take advantage of this, you can implement this snippet and configure your custom Game Instance class to be used in your `Project Settings > Project > Maps & Modes > Game Instance Class`.
+So, to enable you to take advantage of this, you can implement this snippet and configure your custom Game Instance class to be used in your `Project Settings > Project > Maps & Modes > Game Instance Class`.
 
 ```c++
 /**

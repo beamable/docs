@@ -3,14 +3,14 @@
 This guide will provide a way to get a working Linux build on Windows.
 
 !!! info "Building from Docker"
-	While it is possible to build a game using a Docker, that solution proved suboptimal compared to the one described in this guide.
+	While you can build a game using Docker, that solution proved suboptimal compared to the one described in this guide.
 
 ## Cross Compilation
 
 !!! warning "Windows only"
 	Cross-compiling in Unreal world is limited to **Windows** only. On Linux you can compile only Linux target, same for Mac users.
 
-In order to get cross compilation to work, it requires:
+To get cross compilation to work, it requires:
 1. Go to [Unreal docs](https://dev.epicgames.com/documentation/en-us/unreal-engine/linux-development-requirements-for-unreal-engine?application_version=5.3#versionhistory) page that contains toolchains, download and install the `Cross-Compile Toolchain` that matches version of Unreal Engine you are using.
 2. Update environment variables by adding new variable `LINUX_MULTIARCH_ROOT` with value being the path to the newly installed toolchain. It should be something like `F:\UnrealToolchains\v22_clang-16.0.6-centos7`.
 3. Now when the game is open in the editor it should be possible to build for the `Linux` Target platform:
@@ -19,7 +19,7 @@ In order to get cross compilation to work, it requires:
 
 ## Testing the build
 
-In order to test Linux game builds, using another machine with Linux installed is recommended.
+To test Linux game builds, using another machine with Linux installed is recommended.
 For the server ones it is easy to test them on Windows machine in two different ways.
 
 ### WSL
@@ -76,4 +76,4 @@ ENTRYPOINT [ "./{ProjectName}Server.sh", "-custom_parameter=SOME_VALUE" ]
 ```
 
 5. Open command line in `LinuxServer` directory and run this command: `docker build -t my_server .`.
-6. Now it is possible to run the server build with command: `docker run -t my_server`.
+6. Run the server build: `docker run -t my_server`.

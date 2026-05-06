@@ -17,7 +17,7 @@ This flow is useful for when you want to automatically create a user for the pla
 ## Manual Sign-Up/Login with Email/Password
 If your game has a sign-up and/or login screen that the user is expected to choose their sign-up or login flows, this is what you want.
 
--  Use the `IOnlineIdentity::Login` function with a `LoginType` of `BeamOSS::GetIdentityTypeSignUpEmail()`.
+- Use the `IOnlineIdentity::Login` function with a `LoginType` of `BeamOSS::GetIdentityTypeSignUpEmail()`.
 - If you have `UOnlineSubsystemBeamableSettings::bAutoSignUpWhenLogin` set to `true`, you can use `BeamOSS::GetIdentityTypeEmail()` and it'll automatically create an account if the credentials provided aren't already associated with an account (if they are, you'll sign into the provided credentials).
 
 !!! note "Attaching Other Identities"
@@ -26,7 +26,7 @@ If your game has a sign-up and/or login screen that the user is expected to choo
 ## Automatic Third-Party via Store + Attaching Identities
 If your game uses some third-party store identity such as Steam/Epic Store, you can follow this flow. This requires you to have correctly setup an identity federation for the store (see each federation's How-To guides for [more information](../federation/federated-login.md).
 
-- Use the `IOnlineIdentity::Login` function with a `LoginType` of  `BeamOSS::GetIdentityTypeFederated()` with `UOnlineSubsystemBeamableSettings::bAutoSignUpWhenLogin` as `true`.
+- Use the `IOnlineIdentity::Login` function with a `LoginType` of `BeamOSS::GetIdentityTypeFederated()` with `UOnlineSubsystemBeamableSettings::bAutoSignUpWhenLogin` as `true`.
     - Each third-party identity may require different inputs. This depends on how your federation is set up. See the [Discord](../../samples/discord-demo.md) and [Steam](../../samples/steam-demo.md) samples for examples of how to write these federations.
 
 !!! note "Attaching Other Identities"

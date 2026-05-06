@@ -48,7 +48,7 @@ With the multiplayer instances set, create a Blueprint (BP) function that will p
 ![party-join](../../../media/imgs/party-join.png)
 
 ???+ Warning "Join Unrestricted Party"
-    If the party type is `unrestrict` it is possible to join without receiving an invite from another player.
+    If the party type is `unrestrict` you can join without receiving an invite from another player.
 
 ### Inviting Players (Leader Only)
 
