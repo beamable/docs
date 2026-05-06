@@ -8871,7 +8871,7 @@
 
 <h2 id="starting-a-matchmaking-queue">Starting a Matchmaking Queue<a class="headerlink" href="#starting-a-matchmaking-queue" title="Permanent link">¶</a></h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-matchmaking.png" data-desc-position="bottom"><img alt="beamball-matchmaking.png" src="../../../../media/imgs/beamball-matchmaking.png"></a></p>
-<p>The Player selects <strong>Play</strong> in the main menu then the <strong><code>Refresh Hatchora Ping Stat Operation</code></strong> updates ping in the player's stats allowing the server to choose the best lobby to this player. The local state is checked with <strong><code>Local State - Matchmaking - IsUserInQueue</code></strong>, leaving the queue if already in. The  <strong><code>Local State - Lobby - TryGetCurrentLobby</code></strong> checks if the player is in a lobby, leaving if so. Finally, if there's impediment the player joins the matchmaking queue with <strong><code>Operation - Matchmaking - Join Queue</code></strong>. Beamable services handle the rest of the matchmaking process, forming balanced lobbies and starting the match.</p>
+<p>The Player selects <strong>Play</strong> in the main menu then the <strong><code>Refresh Hatchora Ping Stat Operation</code></strong> updates ping in the player's stats allowing the server to choose the best lobby to this player. The local state is checked with <strong><code>Local State - Matchmaking - IsUserInQueue</code></strong>, leaving the queue if already in. The <strong><code>Local State - Lobby - TryGetCurrentLobby</code></strong> checks if the player is in a lobby, leaving if so. Finally, if there's impediment the player joins the matchmaking queue with <strong><code>Operation - Matchmaking - Join Queue</code></strong>. Beamable services handle the rest of the matchmaking process, forming balanced lobbies and starting the match.</p>
 <div class="admonition note">
 <p class="admonition-title">Main SDK Functions to be aware of:</p>
 <ul>
@@ -8887,7 +8887,7 @@
 The matchmaking process is asynchronous, and the player is kept informed through event bindings on the <strong><code>Events - Matchmaking - Bind</code></strong>. The player is notified when they successfully started search for a match, when the Match is ready, canceled or timed out.</p>
 <h2 id="starting-a-match">Starting a Match<a class="headerlink" href="#starting-a-match" title="Permanent link">¶</a></h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-matchmaking2.png" data-desc-position="bottom"><img alt="beamball-matchmaking2.png" src="../../../../media/imgs/beamball-matchmaking2.png"></a></p>
-<p>Once the matchmaking system has formed a lobby, the player is notified and can start. The <strong><code>Operation - Lobby - Load Level</code></strong> operator is called, which signals Beamable's backend to initiate the match using the configured Lobby Data. In this sample the Edgegap Orchestrator handles the server alocation and returns a call to Beamable to start the match, allowing players to seamlessly transition into the game.</p>
+<p>Once the matchmaking system has formed a lobby, the player is notified and can start. The <strong><code>Operation - Lobby - Load Level</code></strong> operator is called, which signals Beamable's backend to initiate the match using the configured Lobby Data. In this sample the Edgegap Orchestrator handles the server alocation and returns a call to Beamable to start the match, allowing players to transition directly into the game.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
 <p>The matchmaking system in Beamball demonstrates how to integrate Beamable’s <strong>Matchmaking</strong> and <strong>Lobby</strong> operators in a clean sequence:</p>
 <ul>
@@ -8896,7 +8896,7 @@ The matchmaking process is asynchronous, and the player is kept informed through
 <li>Handle asynchronous events to keep the player informed of their matchmaking status</li>
 <li>Start the match once the lobby is ready</li>
 </ul>
-<p>This guarantees a seamless matchmaking experience while letting Beamable’s backend dynamically manage match creation and team balance.</p>
+<p>This provides a reliable matchmaking experience while letting Beamable’s backend dynamically manage match creation and team balance.</p>
 
 
 

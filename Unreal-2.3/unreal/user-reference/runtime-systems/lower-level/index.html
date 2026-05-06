@@ -8847,7 +8847,7 @@
 </ul>
 </li>
 <li>
-<p><code>UBeam_____Api</code>:  Code-Generated Subsystems from the Beamable Backend OpenAPI spec.</p>
+<p><code>UBeam_____Api</code>: Code-Generated Subsystems from the Beamable Backend OpenAPI spec.</p>
 <ul>
 <li>These are stateless <code>UEngineSubsystem</code> implementations.</li>
 <li>These provide you low-level access to every end-point of the Beamable backend even if the SDK does not include utilities that do exactly what you want</li>
@@ -8860,7 +8860,7 @@
 </li>
 </ul>
 <h2 id="ubeambackend"><code>UBeamBackend</code><a class="headerlink" href="#ubeambackend" title="Permanent link">¶</a></h2>
-<p><code>UBeamBackend</code> is the most important <code>UEngineSubsystem</code> in the SDK. It leverages Unreal's <code>HTTP</code> module to make requests to the configured Beamable backend. It contains the implementations used by the <code>UBeam____Api</code> classes to make the actual requests.</p>
+<p><code>UBeamBackend</code> is the most important <code>UEngineSubsystem</code> in the SDK. It uses Unreal's <code>HTTP</code> module to make requests to the configured Beamable backend. It contains the implementations used by the <code>UBeam____Api</code> classes to make the actual requests.</p>
 <p>These implementations handle:</p>
 <ul>
 <li>Request/Response serialization and deserialization</li>
@@ -8896,7 +8896,7 @@
 <p>The Beamable SDK does not handle the concept of "player connectivity to the internet" via request/response heuristics. See <code>UBeamNotifications</code> below and <a href="../connectivity/">Connectivity</a> for more information.</p>
 </div>
 <h2 id="ubeamnotifications"><code>UBeamNotifications</code><a class="headerlink" href="#ubeamnotifications" title="Permanent link">¶</a></h2>
-<p>Every connected Beamable player maintains a WebSocket connection to Beamable while they are logged-in. This system leverages UE's <code>WebSocket</code> module to open web-socket connections for each logged-in user (using <code>FUserSlot</code>).</p>
+<p>Every connected Beamable player maintains a WebSocket connection to Beamable while they are logged-in. This system uses UE's <code>WebSocket</code> module to open web-socket connections for each logged-in user (using <code>FUserSlot</code>).</p>
 <p>This WebSocket connection semantically represents the connectivity status for that particular user. This means the SDK (and the Beamable Servers) think that a user is online/offline based on whether this connection is alive and well. Which in turn means that, if you want to use any of the SDK's real-time services (<a href="../../beamable-services/matchmaking/">Matchmaking</a>, <a href="../../beamable-services/lobbies/">Lobbies</a>, etc.) this connection needs to be properly working. At runtime, <code>UBeamRuntime</code>, and <code>UBeamConnectivityManager</code> handle per-<code>FUserSlot</code> <a href="../connectivity/">Connectivity</a> statuses.</p>
 <p>Aside from defining <a href="../connectivity/">Connectivity</a> semantics, this connection is also how the Beamable servers (or your own custom Microservices) send notifications to clients about certain events.</p>
 <p>For example:</p>

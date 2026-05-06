@@ -8961,7 +8961,7 @@
 <h1 id="setup-beamable-unreal-sdk">Setup: Beamable Unreal SDK<a class="headerlink" href="#setup-beamable-unreal-sdk" title="Permanent link">¶</a></h1>
 <p>This guide walks you through downloading and setting up the Beamable Unreal SDK in your project.</p>
 <h2 id="signup-requirement">Signup Requirement<a class="headerlink" href="#signup-requirement" title="Permanent link">¶</a></h2>
-<p>To start using Beamable in your project you need to have a valid Account in the <a href="https://portal.beamable.com/signup/registration">Beamable Portal</a>. Remember your <strong>Alias</strong> as it'll be used to log into the SDK in your editor or via the Beamable CLI.</p>
+<p>To start using Beamable in your project you need to have a valid Account in the <a href="https://portal.beamable.com/signup/registration">Beamable Portal</a>. Remember your <strong>Alias</strong>, as it is used to log in to the SDK through your editor or the Beamable CLI.</p>
 <h2 id="project-requirements">Project Requirements<a class="headerlink" href="#project-requirements" title="Permanent link">¶</a></h2>
 <p>Important notes and dependencies:</p>
 <table>
@@ -9073,7 +9073,7 @@
 </table>
 <p>Pay attention to the type of module you're adding the SDK to and be sure to call the proper function (you can see the module type in your <code>uproject</code> file).</p>
 <h3 id="verifying-installation-and-running">Verifying Installation and Running<a class="headerlink" href="#verifying-installation-and-running" title="Permanent link">¶</a></h3>
-<p>Let's Check that everything is set up correctly be sure you can compile your project.</p>
+<p>Verify that everything is set up correctly and that you can compile your project.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Windows</label><label for="__tabbed_2_2">macOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -9110,11 +9110,11 @@
 </div>
 <p><strong>Now you're ready to do your <a href="../first-request/">First Request</a> with Beamable!</strong></p>
 <h2 id="upgrading-the-sdk">Upgrading the SDK<a class="headerlink" href="#upgrading-the-sdk" title="Permanent link">¶</a></h2>
-<p>The Process to upgrade the SDK is similar to the initial setup. The main difference is that you need to be sure to re-apply any custom changes you made to the SDK after upgrading.</p>
+<p>The process to upgrade the SDK is similar to the initial setup. The main difference is that you need to be sure to re-apply any custom changes you made to the SDK after upgrading.</p>
 <ol>
 <li>Download the latest <a href="https://github.com/beamable/UnrealSDK/releases">tagged release version</a>.</li>
-<li>Run through the steps in the <a href="#setup-the-beamable-sdk-in-your-project">Setup SDK</a> section.</li>
-<li>If you made any custom changes to the SDK, leverage Git to re-apply them as needed. When making custom changes to the SDK, it is beneficial to flag them with a comment to make searching for them easier in this step.</li>
+<li>Run through the steps in the <a href="#setting-up-the-sdk-in-your-project">Setup SDK</a> section.</li>
+<li>If you made any custom changes to the SDK, use Git to re-apply them as needed. When making custom changes to the SDK, it is beneficial to flag them with a comment to make searching for them easier in this step.</li>
 <li>Fix any compilation errors that happened due to breaking changes. Don't forget to fix any blueprints as well, after you get the editor to compile.</li>
 <li>Run <code>dotnet tool restore</code> from your project root.</li>
 <li>Verify that the CLI was updated to the proper version by running <code>dotnet beam version</code> and seeing that it matches the version in <code>E:/Path/To/UnrealSDK/.config/dotnet-tools.json</code>.</li>

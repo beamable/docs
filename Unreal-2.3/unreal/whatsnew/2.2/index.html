@@ -9049,7 +9049,7 @@
 <h3 id="upgrading">Upgrading<a class="headerlink" href="#upgrading" title="Permanent link">¶</a></h3>
 <p>If you are upgrading from version 2.2.0, the upgrade process is very simple:</p>
 <ul>
-<li>Follow the Upgrade Steps available <a href="../../getting-started/setup/#upgrading-the-sdk">Here</a></li>
+<li>Follow the <a href="../../getting-started/setup/#upgrading-the-sdk">Upgrade Guide</a></li>
 <li>This release requires that you regenerate your microservice clients after rebuilding the microservice projects, if you have any. So you'll need to run: <code>dotnet beam project generate-client "."</code></li>
 <li>Recompile your editor</li>
 </ul>
@@ -9072,13 +9072,13 @@
 <h3 id="upgrading_1">Upgrading<a class="headerlink" href="#upgrading_1" title="Permanent link">¶</a></h3>
 <p>If you are upgrading from version 2.0.1, the upgrade process is very simple:</p>
 <ul>
-<li>Follow the Upgrade Steps available <a href="../../getting-started/setup/#upgrading-the-sdk">Here</a></li>
+<li>Follow the <a href="../../getting-started/setup/#upgrading-the-sdk">Upgrade Guide</a></li>
 <li>This release requires that you regenerate your microservice clients after rebuilding the microservice projects, if you have any. So you'll need to run: <code>dotnet beam project generate-client "."</code></li>
 <li>Recompile your editor</li>
 </ul>
 <p>If you are upgrading from any older version, also see the <strong>What's New</strong>/<strong>Upgrade Guide</strong> for the versions in between.</p>
 <h4 id="fixing-android-packagingdeployment-issues-in-ue-56">Fixing Android Packaging/Deployment Issues in UE 5.6<a class="headerlink" href="#fixing-android-packagingdeployment-issues-in-ue-56" title="Permanent link">¶</a></h4>
-<p>In Unreal Engine 5.6, you can find Android packaging and deployment <a href="https://dev.epicgames.com/community/learning/tutorials/d6ne/how-to-fix-unreal-engine-5-6-1-error-undefined-symbol-std-__ndk1-__libcpp_verbose_abort-when-packaging-apk">issues</a> occuring due to a conflict between Unreal and certain internal Android NDK libraries. This problem affects projects using NDK versions 28 or above. The root cause is the mismatch introduced in how UE 5.6 interacts with the newer NDK libraries, and resolving it requires adjusting your setup following this steps:</p>
+<p>In Unreal Engine 5.6, you can find Android packaging and deployment <a href="https://dev.epicgames.com/community/learning/tutorials/d6ne/how-to-fix-unreal-engine-5-6-1-error-undefined-symbol-std-__ndk1-__libcpp_verbose_abort-when-packaging-apk">issues</a> occurring due to a conflict between Unreal and certain internal Android NDK libraries. This problem affects projects using NDK versions 28 or above. The root cause is the mismatch introduced in how UE 5.6 interacts with the newer NDK libraries, and resolving it requires adjusting your setup following these steps:</p>
 <ol>
 <li>Close your Unreal project completely.</li>
 <li>Delete the following folders from your project directory: <code>Intermediate</code>, <code>Saved</code>, <code>DerivedDataCache</code>, <code>Binaries</code>, <code>Build</code></li>
@@ -9098,11 +9098,11 @@
 </ol>
 </li>
 </ol>
-<p>Now It would look like this in your project:
+<p>Now it would look like this in your project:
  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/what-is-new-android-sdk-state.png" data-desc-position="bottom"><img alt="android-state.png" src="../../../media/imgs/what-is-new-android-sdk-state.png"></a></p>
 <h4 id="changes-to-ini-files-in-the-new-unreal-version">Changes to <code>.ini</code> Files in the New Unreal Version<a class="headerlink" href="#changes-to-ini-files-in-the-new-unreal-version" title="Permanent link">¶</a></h4>
 <p>Previously, our custom configurations were included in Unreal’s default configuration files, Now, these settings have been moved into separate files with the <strong>"Beam"</strong> prefix, allowing for a clearer separation between base project settings and Beam-specific settings.</p>
-<p>If you have made changes on the default beamable settings, you'll need to copy their beamable settings into the new files, Paste the custom content into the corresponding new files acording with the table below:</p>
+<p>If you have customized the default Beamable settings, copy them into the corresponding new files according to the table below:</p>
 <table>
 <thead>
 <tr>

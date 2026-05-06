@@ -8832,7 +8832,7 @@
 <p>When the store screen is opened, the client first updates the player’s store state using the operator <strong><code>Operation - Store - Refresh Store</code></strong>. After the operation completes successfully, the store data is guaranteed to be up-to-date and available in the local State. Retrieve it with <strong><code>Local State - Store - TryGetStoreView</code></strong> to ensure the UI always reflects the latest backend data.</p>
 <p>The returned <code>Content Store View</code> contain the listings and their offers available to the player. Each listing represents a category of items, and contains references to one or more offers that can be purchased. The Beamball sample has four listings, each representing a different skin for the player. Each listing contains a single offer that allows the player to purchase that skin.</p>
 <p>The Listing data is combined with a local <strong>DataAssets</strong> that define how each item should be presented in the UI. There is a <code>DataAsset</code> for each skin, containing the skin’s name, description, and thumbnail image. The DataAssets are linked to the listings using its path as a Soft Object Reference in the <code>path</code> field of the listing.</p>
-<p>Each listing is transformed into an <strong>item widget</strong>.  During initialization, the widget receives:</p>
+<p>Each listing is transformed into an <strong>item widget</strong>. During initialization, the widget receives:</p>
 <ul>
 <li>The <strong>Offer</strong> from the Listing data (used to display price),</li>
 <li>The <strong>Beam Content Id</strong> to link the UI with Beamable services,</li>
@@ -8842,7 +8842,7 @@
 <div class="admonition note">
 <p class="admonition-title">Main Operators to be aware of:</p>
 <ul>
-<li><strong><code>Operation - Store - Refresh Store</code></strong>:  Refreshes the player’s store state from the backend.</li>
+<li><strong><code>Operation - Store - Refresh Store</code></strong>: Refreshes the player’s store state from the backend.</li>
 <li><strong><code>Local State - Store - TryGetStoreView</code></strong>: Retrieves the updated StoreView from the local Beamable state.</li>
 </ul>
 </div>
@@ -8860,7 +8860,7 @@
 <div class="admonition note">
 <p class="admonition-title">Main Operators to be aware of:</p>
 <ul>
-<li><strong><code>Operation - Store - Perform Purchase</code></strong>:  Purchase a listing in the player's account.</li>
+<li><strong><code>Operation - Store - Perform Purchase</code></strong>: Purchase a listing in the player's account.</li>
 <li><strong><code>Events - Inventory - Bind</code></strong>: Trigger an event when the inventory is refreshed (Updated) in the server.</li>
 </ul>
 </div>

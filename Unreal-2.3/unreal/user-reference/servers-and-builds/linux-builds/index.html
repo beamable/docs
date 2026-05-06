@@ -8876,20 +8876,20 @@
 <p>This guide will provide a way to get a working Linux build on Windows.</p>
 <div class="admonition info">
 <p class="admonition-title">Building from Docker</p>
-<p>While it is possible to build a game using Docker, that approach proved suboptimal compared to the one described in this guide.</p>
+<p>While you can build a game using Docker, that approach proved suboptimal compared to the one described in this guide.</p>
 </div>
 <h2 id="cross-compilation">Cross Compilation<a class="headerlink" href="#cross-compilation" title="Permanent link">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Windows only</p>
 <p>Cross-compiling in Unreal world is limited to <strong>Windows</strong> only. On Linux you can compile only Linux target, same for Mac users.</p>
 </div>
-<p>In order to get cross compilation to work, it requires:
+<p>Cross-compilation requires:
 1. Go to <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/linux-development-requirements-for-unreal-engine?application_version=5.3#versionhistory">Unreal docs</a> page that contains toolchains, download and install the <code>Cross-Compile Toolchain</code> that matches version of Unreal Engine you are using.
 2. Update environment variables by adding new variable <code>LINUX_MULTIARCH_ROOT</code> with value being the path to the newly installed toolchain. It should be something like <code>F:\UnrealToolchains\v22_clang-16.0.6-centos7</code>.
 3. Now when the game is open in the editor it should be possible to build for the <code>Linux</code> Target platform:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/linux-builds-editor.png" data-desc-position="bottom"><img alt="linux-builds-editor.png" src="../../../../media/imgs/linux-builds-editor.png"></a></p>
 <h2 id="testing-the-build">Testing the build<a class="headerlink" href="#testing-the-build" title="Permanent link">¶</a></h2>
-<p>In order to test Linux game builds, using another machine with Linux installed is recommended.
+<p>To test Linux game builds, use a machine with Linux installed.
 For the server ones it is easy to test them on Windows machine in two different ways.</p>
 <h3 id="wsl">WSL<a class="headerlink" href="#wsl" title="Permanent link">¶</a></h3>
 <p><a href="https://learn.microsoft.com/en-us/windows/wsl/about">WSL</a> is a feature of Windows for running a Linux environment on Windows machine, without Docker.</p>
@@ -8950,7 +8950,7 @@ For the server ones it is easy to test them on Windows machine in two different 
 </code></pre></div>
 <ol>
 <li>Open command line in <code>LinuxServer</code> directory and run this command: <code>docker build -t my_server .</code>.</li>
-<li>Now it is possible to run the server build with command: <code>docker run -t my_server</code>.</li>
+<li>Run the server build: <code>docker run -t my_server</code>.</li>
 </ol>
 
 
