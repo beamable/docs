@@ -4,7 +4,7 @@ This guide walks you through downloading and setting up the Beamable Unreal SDK 
 
 ## Signup Requirement
 
-To start using Beamable in your project you need to have a valid Account in the [Beamable Portal](https://portal.beamable.com/signup/registration). Remember your **Alias** as it'll be used to log into the SDK in your editor or via the Beamable CLI.
+To start using Beamable in your project you need to have a valid Account in the [Beamable Portal](https://portal.beamable.com/signup/registration). Remember your **Alias**, as it is used to log in to the SDK through your editor or the Beamable CLI.
 
 ## Project Requirements
 Important notes and dependencies:
@@ -61,7 +61,7 @@ Now that the script has run, you need to set up your project's `Target.cs` and `
 Pay attention to the type of module you're adding the SDK to and be sure to call the proper function (you can see the module type in your `uproject` file).
 
 ### Verifying Installation and Running
-Let's Check that everything is set up correctly be sure you can compile your project.
+Verify that everything is set up correctly and that you can compile your project.
 
 === "Windows"
     1. Regenerate project files.
@@ -84,11 +84,11 @@ Let's Check that everything is set up correctly be sure you can compile your pro
 **Now you're ready to do your [First Request](../getting-started/first-request.md) with Beamable!**
 
 ## Upgrading the SDK
-The Process to upgrade the SDK is similar to the initial setup. The main difference is that you need to be sure to re-apply any custom changes you made to the SDK after upgrading.
+The process to upgrade the SDK is similar to the initial setup. The main difference is that you need to be sure to re-apply any custom changes you made to the SDK after upgrading.
 
 1. Download the latest [tagged release version](https://github.com/beamable/UnrealSDK/releases).
-2. Run through the steps in the [Setup SDK](#setup-the-beamable-sdk-in-your-project) section.
-3. If you made any custom changes to the SDK, leverage Git to re-apply them as needed. When making custom changes to the SDK, it is beneficial to flag them with a comment to make searching for them easier in this step.
+2. Run through the steps in the [Setup SDK](#setting-up-the-sdk-in-your-project) section.
+3. If you made any custom changes to the SDK, use Git to re-apply them as needed. When making custom changes to the SDK, it is beneficial to flag them with a comment to make searching for them easier in this step.
 4. Fix any compilation errors that happened due to breaking changes. Don't forget to fix any blueprints as well, after you get the editor to compile.
 5. Run `dotnet tool restore` from your project root.
 6. Verify that the CLI was updated to the proper version by running `dotnet beam version` and seeing that it matches the version in `E:/Path/To/UnrealSDK/.config/dotnet-tools.json`.
