@@ -199,6 +199,7 @@ Internal team documentation lives at `https://help.beamable.com/Internal/interna
 - **Product term capitalization:** Portal, Cloud Save, Content Manager, Admin Console, Beam Library (capitalized); see commit history for resolved cases
 - **`docs/includes/abbreviations.md`:** provides hover tooltips for TLAs across all pages. Omit "SDK" and "API" — they appear too frequently in these docs for a tooltip to add value, and the constant underline creates visual noise. Add an acronym only when a reader encountering it cold would benefit from the expansion.
 - **Definition list bullets:** bold the term but not the colon — `**Term**: description` not `**Term:** description`
+- **Heading capitalization:** Title Case at all levels (H1–H4). This is the de facto standard across all SDK docs; sentence-case headings are outliers to be corrected.
 - **Reference style guides:** Google Developer Documentation Style Guide and Microsoft Writing Style Guide
 
 ## Working with Claude Code
