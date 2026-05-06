@@ -10544,7 +10544,7 @@
 </div>
 <p><a href="https://docs.beamable.com/docs/microservices-feature-overview">For more information on how to write microservice functions, you can take a look at these docs as well.</a></p>
 <h2 id="constraints-on-callable-functions">Constraints on Callable Functions<a class="headerlink" href="#constraints-on-callable-functions" title="Permanent link">¶</a></h2>
-<p>The CLI generates Unreal bindings that allow your Unreal code to call your microservice much like you would make an API call to Beamable. In order to generate these bindings, there are <em>some</em> restrictions on what types can and cannot appear in method signatures for <code>Callables</code>.</p>
+<p>The CLI generates Unreal bindings that allow your Unreal code to call your microservice much like you would make an API call to Beamable. To generate these bindings, there are <em>some</em> restrictions on what types can and cannot appear in method signatures for <code>Callables</code>.</p>
 <p>Each <code>Callable</code> generates at least two <code>UObject</code> classes, one representing request's input parameters and another representing the response type. It also generates a function inside the generated <code>UBeamMicroserviceNameApi</code> subsystem (and accompanying Blueprint nodes).</p>
 <h3 id="signature-constraints">Signature Constraints<a class="headerlink" href="#signature-constraints" title="Permanent link">¶</a></h3>
 <p>When declaring <code>Callable</code> functions, you should be aware of a few limitations regarding its signatures.</p>

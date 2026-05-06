@@ -10299,7 +10299,7 @@
 <h2 id="automatic-third-party-via-store-attaching-identities">Automatic Third-Party via Store + Attaching Identities<a class="headerlink" href="#automatic-third-party-via-store-attaching-identities" title="Permanent link">¶</a></h2>
 <p>If your game uses some third-party store identity such as Steam/Epic Store, you can follow this flow. This requires you to have correctly setup an identity federation for the store (see each federation's How-To guides for <a href="../../federation/federated-login/">more information</a>.</p>
 <ul>
-<li>Use the <code>IOnlineIdentity::Login</code> function with a <code>LoginType</code> of  <code>BeamOSS::GetIdentityTypeFederated()</code> with <code>UOnlineSubsystemBeamableSettings::bAutoSignUpWhenLogin</code> as <code>true</code>.<ul>
+<li>Use the <code>IOnlineIdentity::Login</code> function with a <code>LoginType</code> of <code>BeamOSS::GetIdentityTypeFederated()</code> with <code>UOnlineSubsystemBeamableSettings::bAutoSignUpWhenLogin</code> as <code>true</code>.<ul>
 <li>Each third-party identity may require different inputs. This depends on how your federation is set up. See the <a href="../../../samples/discord-demo/">Discord</a> and <a href="../../../samples/steam-demo/">Steam</a> samples for examples of how to write these federations.</li>
 </ul>
 </li>

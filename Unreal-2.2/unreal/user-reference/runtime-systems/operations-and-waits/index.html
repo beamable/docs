@@ -10438,7 +10438,7 @@
 <li>BP-Compatible versions do not allow for lambda binding and variable capturing</li>
 <li>The CPP Version does allow for those things and, as they can be extremely useful for development speed and other cases, the SDK supports both flavors</li>
 </ul>
-<p>In order to easily support both flavors, the snippet below explains how you should write the actual operation logic such that it can be shared for both CPP and BP versions.</p>
+<p>To easily support both flavors, the snippet below explains how you should write the actual operation logic such that it can be shared for both CPP and BP versions.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// This is the BP-Compatible Function</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">FBeamOperationHandle</span><span class="w"> </span><span class="nf">U________::__________Operation</span><span class="p">(</span><span class="n">FUserSlot</span><span class="w"> </span><span class="n">UserSlot</span><span class="p">,</span><span class="w"> </span><span class="p">(...</span><span class="n">OperationParams</span><span class="p">...),</span><span class="w"> </span><span class="n">FBeamOperationEventHandler</span><span class="w"> </span><span class="n">OnOperationEvent</span><span class="p">,</span><span class="w"> </span><span class="n">UObject</span><span class="o">*</span><span class="w"> </span><span class="n">CallingContext</span><span class="p">)</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">{</span>
@@ -10564,7 +10564,7 @@
 <a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="cp">#undef LOCTEXT_NAMESPACE</span>
 </code></pre></div>
 <p>As long as you have one of these in an <code>UncookedOnly</code> module of your game, you'll be able to expose your own custom operations as BP nodes (this is compatible with Multiplayer <abbr title="Play in Editor">PIE</abbr> mode).</p>
-<p>This is very useful when designing unique features leveraging <a href="../../microservices/microservices/">MicroServices and MicroStorages</a> and other <code>FBeamOperationHandle</code> returning functions.</p>
+<p>This is very useful when designing unique features using <a href="../../microservices/microservices/">MicroServices and MicroStorages</a> and other <code>FBeamOperationHandle</code> returning functions.</p>
 <h2 id="writing-hooks">Writing Hooks<a class="headerlink" href="#writing-hooks" title="Permanent link">¶</a></h2>
 <p>Writing Hooks are callback points that let you customize how the SDK behaves during long-running operations.</p>
 <p>If a Delegate or Virtual Function returns one or more <code>FBeamOperationHandle</code>, you need to create operations and return their handles. The SDK will wait on these operations before continuing its own execution. Conceptually, this lets you inject a promise into a larger long-running operation.</p>
@@ -10681,7 +10681,7 @@
 <li><code>UBeamContentSubsystem</code> also has an example of fetching content updates</li>
 </ul>
 <hr>
-<p>Understanding these concepts and how to leverage them can unlock the maximum potential uses and customizability of the SDK, but superficial knowledge is sufficient for the most basic use-cases.</p>
+<p>Understanding these concepts and how to use them can unlock the maximum potential uses and customizability of the SDK, but superficial knowledge is sufficient for the most basic use-cases.</p>
 <p>Take your time, read the source, and refer back to this page as you need!</p>
 
 

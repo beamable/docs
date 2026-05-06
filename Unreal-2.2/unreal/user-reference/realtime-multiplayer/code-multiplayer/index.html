@@ -10418,7 +10418,7 @@
 </code></pre></div>
 <p><strong>The code above still expects you to have the <code>Easy Enable</code> node in your level blueprint marked with <code>Init when Server Build</code>.</strong></p>
 <h2 id="implementing-game-server-authentication">Implementing Game Server Authentication<a class="headerlink" href="#implementing-game-server-authentication" title="Permanent link">¶</a></h2>
-<p>When using the Beamable SDK, in order to validate that the user should be allowed to connect to this game server, the server needs to know a few things:</p>
+<p>When using the Beamable SDK, to validate that the user should be allowed to connect to this game server, the server needs to know a few things:</p>
 <ul>
 <li>The User's Auth Token and GamerTag... so that the server can verify the user is who they say they are.</li>
 <li>Optionally, the Lobby Id for the lobby the user is in... to verify that the user is in a lobby registered with this Game Server.</li>
@@ -10493,7 +10493,7 @@
 <h2 id="making-beam-pie-faster">Making Beam <abbr title="Play in Editor">PIE</abbr> Faster<a class="headerlink" href="#making-beam-pie-faster" title="Permanent link">¶</a></h2>
 <p>Iteration time is one of the most important factors when developing a game. The goal is to let you enter <abbr title="Play in Editor">PIE</abbr> as fast as UE allows, while still having all the guarantees about Beamable. Unfortunately, that is not possible with Blueprints.</p>
 <p>However, it is possible with a custom <code>GameInstance</code> implementation.</p>
-<p>So, in order to enable you to take advantage of this, you can implement this snippet and configure your custom Game Instance class to be used in your <code>Project Settings &gt; Project &gt; Maps &amp; Modes &gt; Game Instance Class</code>.</p>
+<p>So, to enable you to take advantage of this, you can implement this snippet and configure your custom Game Instance class to be used in your <code>Project Settings &gt; Project &gt; Maps &amp; Modes &gt; Game Instance Class</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/**</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cm"> * This is BeamPIE's advanced implementation.</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cm"> * It is MUCH faster than the Blueprint node version at the cost of being a little more complex in what it is doing under the hood.</span>

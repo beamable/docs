@@ -10476,7 +10476,7 @@
 </div>
 <h3 id="understanding-content-auto-sync-rules">Understanding Content Auto-Sync Rules<a class="headerlink" href="#understanding-content-auto-sync-rules" title="Permanent link">¶</a></h3>
 <p>It is often desirable to have designers in a realm that is stable and allow them to work in <code>Blueprints</code>, <code>Beamable Content</code> and Unreal <code>Data Asset</code> in the same realm plus branch combination.</p>
-<p>In order to enable this workflow, the Beamable SDK:</p>
+<p>To enable this workflow, the Beamable SDK:</p>
 <ul>
 <li>Listens for whenever any developer publishes content to a realm and notifies other developers working on that same realm.<ul>
 <li>If <code>Designer-A</code> publishes changes, <code>Designer-B</code> will see a UE-notification informing them that <code>Designer-A</code> has just published. <br><br></li>
@@ -10502,7 +10502,7 @@
 <p>To minimize friction, follow these guidelines:</p>
 <ul>
 <li>Organize the designers in your realm to minimize the chance of <strong>conflicts</strong>.<ul>
-<li>As long as they are working in different content objects, working in the same realm should be seamless.<br><br></li>
+<li>As long as they are working in different content objects, working in the same realm should cause no conflicts.<br><br></li>
 </ul>
 </li>
 <li>Instruct designers to ALWAYS talk to the person whose publish action caused the conflict <em>before</em> resolving things.<ul>
@@ -10511,7 +10511,7 @@
 </li>
 </ul>
 <p>This workflow can also be used for engineers that are developing non-Beamable related features.</p>
-<p>In addition to the workflow above, there are cases where you might want to create realms in order to have a more controlled environment for developing. Common examples are:</p>
+<p>In addition to the workflow above, there are cases where you might want to create realms to have a more controlled environment for developing. Common examples are:</p>
 <ul>
 <li>Large features that make use of new custom content definitions developed alongside Microservices.</li>
 <li>Content schema modifications or equivalents that will require migrating existing content to a new schema.</li>

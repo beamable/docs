@@ -10394,7 +10394,7 @@ To avoid that, players can "attach" some persistent identity information to that
 Handling of this is game specific, but most games will either:</p>
 <ul>
 <li>Call the <code>Login</code> operation and log in with the in-use identity, discarding the guest account (this is the most common way to handle this).</li>
-<li>Detect progress on the guest account and, if above a particular threshold, leverage microservices to try and do some progress merging should the user want it. This is non-trivial and not a lot of games do it since cost-benefit isn't there in most cases (but it is <em>possible</em>).</li>
+<li>Detect progress on the guest account and, if above a particular threshold, use microservices to try and do some progress merging should the user want it. This is non-trivial and not a lot of games do it since cost-benefit isn't there in most cases (but it is <em>possible</em>).</li>
 </ul>
 </li>
 </ul>
@@ -10416,7 +10416,7 @@ Handling of this is game specific, but most games will either:</p>
 </ul>
 <p>Here's what you would do once the user confirms the form:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/identity-email-and-password.png" data-desc-position="bottom"><img alt="Email and Password" src="../../../../media/imgs/identity-email-and-password.png"></a></p>
-<p>If your login/signup flows are the same (which is sometimes useful in early development), you can leverage the <code>Auto Login</code> option in this node. It'll create the account with email/password if it doesn't exist and, if it already does, it'll try to log into that account with the provided password.</p>
+<p>If your login/signup flows are the same (which is sometimes useful in early development), you can use the <code>Auto Login</code> option in this node. It'll create the account with email/password if it doesn't exist and, if it already does, it'll try to log into that account with the provided password.</p>
 <h3 id="local-cache-platform-specific">Local Cache + Platform-specific<a class="headerlink" href="#local-cache-platform-specific" title="Permanent link">¶</a></h3>
 <p>Beamable has a different approach for supporting third-party platforms such as Steam and Epic Online Services. Rather than maintaining a small subset of all existing third-party platforms, Beamable uses <a href="../../federation/federation/">Microservice Federation</a> capabilities to let you implement whichever Platform-specific features you need for your game.</p>
 <p>Platform login flows are usually very simple. You can see that in the working <a href="../../../samples/steam-demo/">Steam Demo</a>.</p>

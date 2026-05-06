@@ -10282,7 +10282,7 @@
 <li><strong>Beam <abbr title="Play in Editor">PIE</abbr>'s <abbr title="Play in Editor">PIE</abbr> Lobby</strong>: This is an In-Band call made by <a href="../../editor-systems/pie-settings/">Beam <abbr title="Play in Editor">PIE</abbr>'s <abbr title="Play in Editor">PIE</abbr> Lobby setup</a>. You can read more about this in the <a href="../../realtime-multiplayer/realtime-multiplayer-overview/">Real-Time Multiplayer Guides</a>.</li>
 </ul>
 <h2 id="configuring-a-game-server-federation-to-be-called">Configuring a Game Server Federation to be Called<a class="headerlink" href="#configuring-a-game-server-federation-to-be-called" title="Permanent link">¶</a></h2>
-<p>Beamable's Backend leverages a Content called <code>UBeamGameTypeContent</code> (<code>game_types</code>). A GameType is essentially a set of rules for how Beamable's Matchmaking should produce matches of this game type (including the federation).</p>
+<p>Beamable's Backend uses a Content called <code>UBeamGameTypeContent</code> (<code>game_types</code>). A GameType is essentially a set of rules for how Beamable's Matchmaking should produce matches of this game type (including the federation).</p>
 <ol>
 <li>Implement <code>IFederatedGameServer</code> federation in your microservice with a particular <a href="../federation/#federation-id">Federation Id</a>.</li>
 <li>Set up that <a href="../federation/#federation-id">Federation Id</a> in any <code>UBeamGameTypeContent</code>'s <code>federation</code> field.</li>
