@@ -12,3 +12,13 @@ which branch to start from and then follow PR procedures:
 3. Push your changes and open a PR
 4. Get reviews. Balbio should always be a PR reviewer
 5. When approved, merge your changes (TODO: squash-merge? rebase-merge? merge-merge?)
+
+## Style Reference
+
+Primary style references for prose and formatting decisions:
+
+- [Google Developer Documentation Style Guide](https://developers.google.com/style)
+- [Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/)
+
+Project-specific rules (heading capitalization, code term formatting, product name
+capitalization, etc.) are documented in `CLAUDE.md` on this branch.
