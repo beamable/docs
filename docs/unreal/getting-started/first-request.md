@@ -43,13 +43,13 @@ To get started, open your Level Blueprint and add the following nodes:
 
 ![intro-init-sdk-with-login-frictionless](../../media/imgs/intro-init-sdk-with-login-frictionless.png)
 
-### What's going on Above:
+### What Is Happening Above
 
 The `BeamRuntime` is a `GameInstanceSubsystem` that is responsible for controlling the SDK's lifecycle and player authentication. Calling this function will initialize the SDK. The [Technical Overview](../user-reference/overview.md) covers the Beamable Runtime in depth.
 
 Once the SDK is initialized, you can log in a guest account automatically. To do that, use the `Login - Frictionless` Operation node, which logs a guest account into the `Player0` user slot.
 
-Operation nodes are "purple" Beamable nodes that encapsulate many complex functionalities in a easy-to-use fashion. See [Operation Nodes](../user-reference/runtime-systems/blueprints.md) for more information.
+Operation nodes are "purple" Beamable nodes that encapsulate many complex functionalities in an easy-to-use fashion. See [Operation Nodes](../user-reference/runtime-systems/blueprints.md) for more information.
 
 The Frictionless Login node has three flow pins to handle the result of the login operation:
 
@@ -57,7 +57,7 @@ The Frictionless Login node has three flow pins to handle the result of the logi
 - **On Error**: executes if any error occurs during the Beamable login flow
 - **On Cancelled**: used in _very special cases_ and can mostly be ignored for now
 
-And That's it! If this operation succeeds, you'll have a **Guest Account** signed-into the `Player0` user slot.
+If this operation succeeds, you'll have a **Guest Account** signed-into the `Player0` user slot.
 
 With the SDKs default configuration and the above setup, you can enter PIE (Play-In-Editor) and should see several requests' responses being written to your Output Log window. After you see the final `GetMe` request, you can exit PIE knowing you've made your very first request to Beamable. Congratulations!
 
