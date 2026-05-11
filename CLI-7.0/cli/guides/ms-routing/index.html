@@ -6273,7 +6273,7 @@
 <li><em>Optionally</em>, the HTTP request should have a <code>X-BEAM-SERVICE-ROUTING-KEY</code> header that carries a map of service routing keys, and</li>
 <li><em>Optionally</em>, the HTTP request should have an <code>Authorization</code> header that carries a Bearer Token.</li>
 </ol>
-<h4 id="path-routing">Path Routing<a class="headerlink" href="#path-routing" title="Permanent link">¶</a></h4>
+<h3 id="path-routing">Path Routing<a class="headerlink" href="#path-routing" title="Permanent link">¶</a></h3>
 <p>The <code>uri</code> of the HTTP request destined for a Microservice must follow a strict format. The format is given by the code snippet below.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">var</span><span class="w"> </span><span class="nx">uri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'https://'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">host</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'/basic/'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">cid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'.'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">pid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'.'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">localPrefix</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'micro_'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">serviceName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'/'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">method</span><span class="p">;</span>
 </code></pre></div>
@@ -6327,18 +6327,18 @@
 </tbody>
 </table>
 <p>When the <code>host</code> (<code>api.beamable.com</code>) receives an HTTP request with the following <code>uri</code> format, the request will be deconstructed into the variable components, and the contents of the HTTP request will be forwarded to your Microservice via the <em>Thorium</em> web socket protocol. The Microservice receives the request, and uses the <code>method</code> component of the original request to invoke the right <code>[Callable]</code> method.</p>
-<h4 id="x-beam-service-routing-key-header">X-BEAM-SERVICE-ROUTING-KEY Header<a class="headerlink" href="#x-beam-service-routing-key-header" title="Permanent link">¶</a></h4>
+<h3 id="x-beam-service-routing-key-header">X-BEAM-SERVICE-ROUTING-KEY Header<a class="headerlink" href="#x-beam-service-routing-key-header" title="Permanent link">¶</a></h3>
 <p>When a Microservice is started locally, it may share the same name with a Microservice running in the Beamable cloud. When this happens, and your local development machine is generating traffic for the named service, the <em>routing key</em> defines <em>which</em> Microservice instance (the local or remote) receives the traffic.</p>
 <p>A Microservice instance may optionally register a routing key, and if they do, then they will only receive traffic that includes the routing key in a custom <code>X-BEAM-SERVICE-ROUTING-KEY</code> header.</p>
 <p>All microservice instances running on the Beamable cloud <em>do not</em> register any routing keys, so they receive traffic that does not include any <code>X-BEAM-SERVICE-ROUTING-KEY</code> value.</p>
 <p>The format of the <code>X-BEAM-SERVICE-ROUTING-KEY</code> value should be a series of <code>&lt;service&gt;:&lt;routingKey&gt;</code> pairs, separated by commas. Here is an example of a routing key header value that routes two services,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>serviceA:routingKeyA,serviceB:routingKeyB
 </code></pre></div>
-<h4 id="x-de-scope-header">X-DE-SCOPE Header<a class="headerlink" href="#x-de-scope-header" title="Permanent link">¶</a></h4>
+<h3 id="x-de-scope-header">X-DE-SCOPE Header<a class="headerlink" href="#x-de-scope-header" title="Permanent link">¶</a></h3>
 <p>In addition to specifying the <code>cid</code> and <code>pid</code> in the <code>uri</code> of the HTTP request, those values must also be sent in a special HTTP header, <code>X-DE-SCOPE</code>. The value for this header should take the format,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">var</span><span class="w"> </span><span class="nx">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'.'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">pid</span><span class="p">;</span>
 </code></pre></div>
-<h4 id="authorization">Authorization<a class="headerlink" href="#authorization" title="Permanent link">¶</a></h4>
+<h3 id="authorization">Authorization<a class="headerlink" href="#authorization" title="Permanent link">¶</a></h3>
 <p>Finally, while not required, we recommend sending an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cat<span class="w"> </span>.beamable/temp/auth.beam.json
 </code></pre></div>
