@@ -437,7 +437,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    Managing Realms
   
 
     
@@ -450,6 +450,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Managing Realms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../portal/portal-archiving-realms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archiving Realms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4">
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -6441,7 +6524,7 @@
 <a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>
 <a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>Saved plan: E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json
 </code></pre></div><p></p>
-<p>As you can see from the example, every <code>plan</code> invocation creates a <code>timestamp.plan.json</code> file inside your <code>.beamable\temp\plans</code> folder.</p>
+<p>As you can see from the example, every <code>plan</code> invocation creates a <code>timestamp.plan.json</code> file inside your <code>.beamable/temp/plans</code> folder.</p>
 <h4 id="merge-replace-plans">Merge &amp; Replace Plans<a class="headerlink" href="#merge-replace-plans" title="Permanent link">¶</a></h4>
 <p>When planning to release microservices, its important to think about how to handle existing services. This is especially true of times when you remove a service. For that case, we provide two ways of generating a plan: <strong>Replace</strong> and <strong>Merge</strong>.</p>
 <p><strong>Replace (default)</strong>: Creates a release plan that completely overrides the existing remote services. Existing deployed services that are not present locally will be removed.</p>
