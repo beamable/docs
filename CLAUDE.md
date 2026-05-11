@@ -75,6 +75,15 @@ fi
 
 echo "Queued:"; for d in "${to_push[@]}"; do echo "  $(basename "$d")"; done
 
+# Push order relies on lexical glob expansion of beamable-docs-*/:
+# api, core, internal, unity, unreal, websdk. This happens to place
+# core/* before unity/* and unreal/*, which is required by the
+# auto-sync-core dependency (core changes squash-merge onto unity
+# and unreal on push, so core must land first). If a future SDK
+# is named alphabetically before "core" with a downstream sync
+# relationship, replace this implicit ordering with an explicit
+# priority sort.
+
 for i in "${!to_push[@]}"; do
   echo; echo "Pushing $(basename "${to_push[$i]}")..."
   # Pull --rebase first to pick up any auto-sync-core squash-merges
