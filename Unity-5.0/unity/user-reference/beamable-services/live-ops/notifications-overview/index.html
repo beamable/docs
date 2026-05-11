@@ -9488,14 +9488,14 @@
 </div>
 <h2 id="notifications-api">Notifications API<a class="headerlink" href="#notifications-api" title="Permanent link">¶</a></h2>
 <p>The Notifications service can be accessed via the NotificationsService from the Beamable API. Notifications primarily function using a <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">Publish-subscribe pattern</a>, where objects that should react to incoming messages (the "subscribers") listen for messages being sent out by another object (the "publishers"). Following this pattern, the API is quite simple.</p>
-<h4 id="callback-function">Callback Function<a class="headerlink" href="#callback-function" title="Permanent link">¶</a></h4>
+<h3 id="callback-function">Callback Function<a class="headerlink" href="#callback-function" title="Permanent link">¶</a></h3>
 <p>When a subscribed object receives a message, the message carries some data with it that can provide extra content about the event that occurred. For the purposes of this document, this function will be used:</p>
 <pre><code class="language-csharp">void CallbackAction(object callbackObject)
 {
     //Some code that uses the callback object
 }
 </code></pre>
-<h4 id="subscribeunsubscribe">Subscribe/Unsubscribe<a class="headerlink" href="#subscribeunsubscribe" title="Permanent link">¶</a></h4>
+<h3 id="subscribeunsubscribe">Subscribe/Unsubscribe<a class="headerlink" href="#subscribeunsubscribe" title="Permanent link">¶</a></h3>
 <p>Subscriptions are PlayerId based, so an event published by the server (for example, a microservice) must specify your PlayerId in order for your client to receive the event.</p>
 <pre><code class="language-csharp">var beamable = BeamContext.Default;
 
@@ -9505,7 +9505,7 @@ beamable.Api.NotificationService.Subscribe("messageName", CallbackAction );
 //Stop listening for events with the specified message name
 beamable.Api.NotificationService.Unsubscribe("messageName", CallbackAction );
 </code></pre>
-<h4 id="publish-from-microservice">Publish (from Microservice)<a class="headerlink" href="#publish-from-microservice" title="Permanent link">¶</a></h4>
+<h3 id="publish-from-microservice">Publish (from Microservice)<a class="headerlink" href="#publish-from-microservice" title="Permanent link">¶</a></h3>
 <pre><code class="language-csharp">public async Task SendNotificationFromMicroservice(List&lt;long&gt; playerIds, string context, object payload)
 {
     var json = JsonUtility.ToJson(payload);

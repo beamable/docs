@@ -9605,7 +9605,7 @@
 • You cannot initialize both Services at the same time, the first one initialized will lock the other to be used.
 • Both services share the same cloud storage, but the saved data are stored in different system paths. When you switch to the new one, it will automatically download your data.</p>
 </div>
-<h3 id="cloud-save-api">Cloud Save API<a class="headerlink" href="#cloud-save-api" title="Permanent link">¶</a></h3>
+<h2 id="cloud-save-api">Cloud Save API<a class="headerlink" href="#cloud-save-api" title="Permanent link">¶</a></h2>
 <p>Unlike many Beamable services, Cloud Save does not require the usage of a specific Beamable Feature Prefab. The main entry point to this service is C# programming.</p>
 <div class="admonition info">
 <p class="admonition-title">Learning Fundamentals</p>
@@ -9679,7 +9679,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="cloud-data-manifest">Cloud Data Manifest<a class="headerlink" href="#cloud-data-manifest" title="Permanent link">¶</a></h3>
+<h2 id="cloud-data-manifest">Cloud Data Manifest<a class="headerlink" href="#cloud-data-manifest" title="Permanent link">¶</a></h2>
 <p>When changes are detected by the service and finished saving locally, the Local Cloud Data Manifest will be updated. Therefore, after updating data to Cloud Save, The local manifest will be updated to match the manifest from Cloud.</p>
 <p>Cloud Saved files are written to an object store that is managed by the Cloud Saving service. The key of the object is the MD5 checksum of the content in the file, this is done to preserve the history of the files.</p>
 <p>The manifest tracks the MD5 checksum (etag) of the file and the common name (key) of the file, so we can fetch the object by its MD5 checksum and write it to disk using the common name.</p>
@@ -9698,7 +9698,7 @@
    "replacement":false
 }
 </code></pre>
-<h3 id="changing-service-configuration">Changing Service Configuration<a class="headerlink" href="#changing-service-configuration" title="Permanent link">¶</a></h3>
+<h2 id="changing-service-configuration">Changing Service Configuration<a class="headerlink" href="#changing-service-configuration" title="Permanent link">¶</a></h2>
 <p>You can override the service to fit your application using <code>PlayerCloudSavingConfiguration</code>. By default, the SDK creates a new instance with default values, but you can change these values using Beamable's Dependency Injection system as illustrated below.</p>
 <p>CustomRegisterExample.cs</p>
 <pre><code class="language-csharp">[BeamContextSystem]
@@ -9747,18 +9747,18 @@ public class PlayerCloudSaveCustomRegister
     }
 }
 </code></pre>
-<h3 id="syncing-of-data">Syncing Of Data<a class="headerlink" href="#syncing-of-data" title="Permanent link">¶</a></h3>
+<h2 id="syncing-of-data">Syncing Of Data<a class="headerlink" href="#syncing-of-data" title="Permanent link">¶</a></h2>
 <p>The downloading operation uses Unity's <a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Networking.DownloadHandlerFile.html"><code>DownloadHandlerFile</code></a>. If the file is new, it will be saved directly to the <code>/data/</code> Folder. If the file has a conflict it will first be saved to the <code>/temp/</code> folder, if the resolver chooses to use the Cloud Save, it'll be moved to the <code>/data/</code> folder, if not, it will be archived.</p>
 <p><em>Note</em>: If the destination files are kept open by some unrelated system during the syncing process, the <code>CloudSavingService</code> will reattempt several times. Upon any ultimate failure, an <code>IOException</code> will be thrown.</p>
-<h3 id="storage-of-data">Storage Of Data<a class="headerlink" href="#storage-of-data" title="Permanent link">¶</a></h3>
+<h2 id="storage-of-data">Storage Of Data<a class="headerlink" href="#storage-of-data" title="Permanent link">¶</a></h2>
 <p>Data is stored in within Unity's <a href="https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html"><code>Application.persistentDataPath</code></a> and prefixed with the Customer ID (<abbr title="customer ID">CID</abbr>), Project ID (<abbr title="realm identifier">PID</abbr>), and Player ID (PlayerId). This is to ensure data is scoped to a game and a player. The full path is available at <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1CloudSaving_1_1CloudSavingService.html"><code>ICloudSavingService.LocalDataFullPath</code></a>.</p>
 <p>There are two options for detecting changes to the Local Save files, the first one, which is the Default, is to detect changes at runtime from the manifest and the other is to use the AutoCloud feature, which detects the folder path directly.</p>
-<h4 id="detecting-changes-from-local-manifest">Detecting Changes from Local Manifest<a class="headerlink" href="#detecting-changes-from-local-manifest" title="Permanent link">¶</a></h4>
+<h3 id="detecting-changes-from-local-manifest">Detecting Changes from Local Manifest<a class="headerlink" href="#detecting-changes-from-local-manifest" title="Permanent link">¶</a></h3>
 <p>For this option, whenever a File is Saved using the <code>SaveData</code> functions through the service, which could be from <code>ICloudSavingService</code> or from the <code>CloudDataUpdateBuilder</code> it will update the local manifest automatically. After the polling interval taken on the <code>Init</code> function, it will automatically upload any changes to the cloud service. If you write a file directly to the <code>/data/</code> folder, this option will not detect it automatically.</p>
-<h4 id="detecting-changes-from-data-folder-autocloud">Detecting Changes from Data Folder (AutoCloud)<a class="headerlink" href="#detecting-changes-from-data-folder-autocloud" title="Permanent link">¶</a></h4>
+<h3 id="detecting-changes-from-data-folder-autocloud">Detecting Changes from Data Folder (AutoCloud)<a class="headerlink" href="#detecting-changes-from-data-folder-autocloud" title="Permanent link">¶</a></h3>
 <p>The AutoCloud feature will automatically check the <code>/data/</code> folder checking for changes every polling interval and automatically uploading any changes to the cloud service. It also updates the local manifest automatically. This is slightly more expensive than the first option as it needs to keep generating the checksum for the file every polling interval, but it allows you to write the file manually to the data folder.</p>
 <p>To enable this option, you will need to add or update the Custom dependency for <code>PlayerCloudSavingConfiguration</code> and set the property <code>UseAutoCloud</code> to true. Check the section <a href="#changing-service-configuration">Changing Service Configuration</a> to see how to properly add it.</p>
-<h3 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">¶</a></h3>
+<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">¶</a></h2>
 <p>Is possible that some errors occur when trying to download a saved file. The system automatically will try to download the file 10 times, if the 10th retry fails, the system will return an error. Which can be anything from no connection to a file not found. By default, the service will use the <code>DefaultRecover</code>, which will not throw an exception if the file cannot be found in storage, ignoring its download and using the local reference as the new one. If there is any other error, it will throw the exception.</p>
 <p>If you want to change its behavior, you will need to add or update the Custom dependency for <code>PlayerCloudSavingConfiguration</code> and set the property <code>HandleDownloadFileError</code>. Check the section <a href="#changing-service-configuration">Changing Service Configuration</a> to see how to properly add it.</p>
 <h2 id="data-limitations">Data Limitations<a class="headerlink" href="#data-limitations" title="Permanent link">¶</a></h2>
