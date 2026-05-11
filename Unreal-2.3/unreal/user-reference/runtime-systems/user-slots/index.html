@@ -8795,7 +8795,7 @@
 
 
 <h1 id="user-slots">User Slots<a class="headerlink" href="#user-slots" title="Permanent link">¶</a></h1>
-<p><strong>User Slots are at the core of how the SDK handles local users.</strong></p>
+<p>User Slots are at the core of how the SDK handles local users.</p>
 <blockquote>
 <p>Each <code>UserSlot</code> is a named slot that represents a local user.</p>
 </blockquote>
@@ -8805,16 +8805,16 @@
 <p>You can think of the <code>UBeamCoreSettings::RuntimeUserSlots</code> array as though it were indexed by Unreal's own <code>LocalPlayerIndex</code>.</p>
 </div>
 <p>Almost all SDK APIs take in a <code>FUserSlot</code> struct representing the local user making the request. Only "public" APIs do not require them (APIs that you can call after the SDK has been initialized but before any <code>Login</code> has happened).</p>
-<p>If your game has <strong>no <em>local</em> multiplayer</strong> (just a single local player), you only need to know a few things about user slots:</p>
+<p>If your game has no <em>local</em> multiplayer (just a single local player), you only need to know a few things about user slots:</p>
 <ul>
-<li>You should pass in the <strong>Owner User Slot</strong> (the one mapped to the "Local Player 0") to any calls taking an <code>FUserSlot</code>.<ul>
-<li>In C++, you can use <code>UBeamCoreSettings::GetOwnerPlayerSlot()</code> to get it.</li>
+<li>You should pass in the <strong>Owner User Slot</strong> (the one mapped to the "Local Player 0") to any calls taking an <code>FUserSlot</code><ul>
+<li>In C++, you can use <code>UBeamCoreSettings::GetOwnerPlayerSlot()</code> to get it</li>
 </ul>
 </li>
-<li>In Blueprints, you'll only have to manually pass in user slots if you change the default slot from <code>"Player0"</code>.</li>
-<li>If you're using any of the lower-level APIs (<code>UBeam____Api</code> subsystems and <code>Low-Level</code> blueprint nodes), you might see functions that take in a <code>UObject* ContextObject</code>.<ul>
+<li>In Blueprints, you'll only have to manually pass in user slots if you change the default slot from <code>"Player0"</code></li>
+<li>If you're using any of the lower-level APIs (<code>UBeam____Api</code> subsystems and <code>Low-Level</code> blueprint nodes), you might see functions that take in a <code>UObject* ContextObject</code><ul>
 <li>These are there to support Unreal's Multiplayer <abbr title="Play in Editor">PIE</abbr> mode (for the same reason a lot of UE's own APIs also need one of these)</li>
-<li>If you're calling them from a <code>UGameInstanceSubsystem</code>, <code>UActorComponent</code> or <code>AActor</code> or <code>Blueprint</code>, you can pass itself (<code>this</code>/<code>Self</code>) to this parameter.</li>
+<li>If you're calling them from a <code>UGameInstanceSubsystem</code>, <code>UActorComponent</code> or <code>AActor</code> or <code>Blueprint</code>, you can pass itself (<code>this</code>/<code>Self</code>) to this parameter</li>
 </ul>
 </li>
 </ul>
@@ -8827,25 +8827,25 @@
 <p>The <code>UBeamUserSlots</code> Engine Subsystem is responsible for:</p>
 <ul>
 <li>Storing the authentication tokens for the last account that logged into a particular slot<ul>
-<li>These are kept in Unreal's default <code>Saved</code> directory.</li>
+<li>These are kept in Unreal's default <code>Saved</code> directory</li>
 </ul>
 </li>
 <li>Enabling local co-op games to have multiple players logged in at the same time<ul>
 <li>For more on login flows, see the <a href="../../overview/">SDK Lifecycle</a> and various flavors described in <a href="../../beamable-services/identity/">Identity</a></li>
 </ul>
 </li>
-<li>Handling support for Multiplayer <abbr title="Play in Editor">PIE</abbr>-mode by namespacing each Slot (UE's <code>FWorldContext::WorldType</code> and <code>FWorldContext::PIEInstance</code>).<ul>
-<li>To do so, the SDK must find a <code>UWorld</code> to get the context from.</li>
-<li>This is why, like UE, the API takes in a <code>UObject* CallingContext</code> in certain parts.</li>
+<li>Handling support for Multiplayer <abbr title="Play in Editor">PIE</abbr>-mode by namespacing each Slot (UE's <code>FWorldContext::WorldType</code> and <code>FWorldContext::PIEInstance</code>)<ul>
+<li>To do so, the SDK must find a <code>UWorld</code> to get the context from</li>
+<li>This is why, like UE, the API takes in a <code>UObject* CallingContext</code> in certain parts</li>
 <li>At runtime, this parameter is never optional</li>
 </ul>
 </li>
-<li>Asserting that only slots defined in the <code>UBeamCoreSettings</code> are in use.<ul>
-<li>Any User Slot with <code>Test</code> in its name is exempt from this rule so you can write automated tests with arbitrary amounts of user slots by using user slots with <code>Test</code> in their names.</li>
+<li>Asserting that only slots defined in the <code>UBeamCoreSettings</code> are in use<ul>
+<li>Any User Slot with <code>Test</code> in its name is exempt from this rule so you can write automated tests with arbitrary amounts of user slots by using user slots with <code>Test</code> in their names</li>
 </ul>
 </li>
 </ul>
-<p><strong><em><code>UBeamUserSlots</code> does not handle the actual logging in and logging out.</em></strong> That is handled by <code>UBeamRuntime</code>, a <code>UGameInstanceSubsystem</code> responsible for <abbr title="Play in Editor">PIE</abbr> instances and packaged games.</p>
+<p><code>UBeamUserSlots</code> does not handle the actual logging in and logging out. That is handled by <code>UBeamRuntime</code>, a <code>UGameInstanceSubsystem</code>, responsible for <abbr title="Play in Editor">PIE</abbr> instances and packaged games.</p>
 <p><a href="../../beamable-services/identity/">After logging in</a>, you can use <a href="../blueprints/">these Blueprint nodes</a> to get information about the account logged into the given slot.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/user-slots-get-user-data.png" data-desc-position="bottom"><img alt="user-slots-get-user-data.png" src="../../../../media/imgs/user-slots-get-user-data.png"></a></p>
 

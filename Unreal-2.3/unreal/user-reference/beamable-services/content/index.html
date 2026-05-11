@@ -9378,7 +9378,7 @@
 <li>You can save the current state of your local content and share it with your teammates so they can load it in their machines and have the same local content state as you</li>
 <li>You can save the content state of your current realm and apply it to another realm</li>
 </ul>
-<p>Content snapshots can be local or shared between users. The local ones are kept in the <code>.beamable\contentSnapshots</code> folder and the shared ones in the .beamable\shared\contentSnapshot folder of the project, so you can version it with git.</p>
+<p>Content snapshots can be local or shared between users. The local ones are kept in the <code>.beamable/contentSnapshots</code> folder and the shared ones in the .beamable/shared/contentSnapshot folder of the project, so you can version it with git.</p>
 <h3 id="creating-content-snapshots">Creating Content Snapshots<a class="headerlink" href="#creating-content-snapshots" title="Permanent link">¶</a></h3>
 <p>To create a content snapshot, click on the button in the top right corner of the Workspace window. This will create a snapshot of your current local content state. It then will be added to the list of snapshots in the Snapshots Window.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content_snapshot_create.png" data-desc-position="bottom"><img alt="content_snapshot_create.png" src="../../../../media/imgs/content_snapshot_create.png"></a></p>
@@ -9391,7 +9391,7 @@
 <li>Additive: if checked, the snapshot will be applied on top of your current local content state only adding the new and modified content. If unchecked, the snapshot will replace your current local content state</li>
 </ul>
 <h3 id="sharing-content-snapshots">Sharing Content Snapshots<a class="headerlink" href="#sharing-content-snapshots" title="Permanent link">¶</a></h3>
-<p>Shared snapshots are stored in the <code>.beamable\shared\contentSnapshot</code> folder, so you can share them with your teammates by sharing that file through git or any other way you like. To save a Local Snapshot as Shared simply click on the <code>Save as Template</code> button.</p>
+<p>Shared snapshots are stored in the <code>.beamable/shared/contentSnapshot</code> folder, so you can share them with your teammates by sharing that file through git or any other way you like. To save a Local Snapshot as Shared simply click on the <code>Save as Template</code> button.</p>
 <p>The Shared Snapshots are identified in the list with a different (orange) icon.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content-shared-snapshot.png" data-desc-position="bottom"><img alt="content-shared-snapshot.png" src="../../../../media/imgs/content-shared-snapshot.png"></a></p>
 <p>Notice that every time you publish content to the realm it will automatically update the shared snapshot called <code>LatestPublished</code> to match the content that was just published. This means that you can always share with your teammates the latest published content by sharing that snapshot.</p>

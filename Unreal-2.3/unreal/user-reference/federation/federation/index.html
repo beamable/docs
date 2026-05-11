@@ -8857,9 +8857,9 @@
 <p>The combination of the <strong>Federation Id</strong> and the <strong>Federation Type</strong> is comparable to a function name/pointer assigned to an Unreal delegate; in the sense that it is used by the Beamable backend to know which implementation of a federation in your microservice it should talk to, if any.</p>
 <p>Examples:</p>
 <ul>
-<li><code>IFederatedLogin</code> would have different implementations for Steam and Epic auth integration.</li>
-<li><code>IFederatedLogin&lt;SteamId&gt;</code> and <code>IFederatedLogin&lt;EpicId&gt;</code> are the two interfaces you will need to implement.</li>
-<li><code>SteamId</code> carries <code>[FederationId("steam")]</code>; <code>EpicId</code> carries <code>[FederationId("epic")]</code> — Beamable uses these strings to route each request to the correct implementation.</li>
+<li><code>IFederatedLogin</code> would have different implementations for Steam and Epic auth integration</li>
+<li><code>IFederatedLogin&lt;SteamId&gt;</code> and <code>IFederatedLogin&lt;EpicId&gt;</code> are the two interfaces you will need to implement</li>
+<li><code>SteamId</code> carries <code>[FederationId("steam")]</code>; <code>EpicId</code> carries <code>[FederationId("epic")]</code> — Beamable uses these strings to route each request to the correct implementation</li>
 </ul>
 <p><code>FederationId</code> values are the mechanism Beamable uses to select the correct Federation implementation when your microservice provides more than one of the same type. This is the <code>FederationId</code> parameter passed to <code>LoginFederatedOperation</code>, <code>SignUpFederatedOperation</code>, and <code>AttachFederatedOperation</code> on <code>UBeamRuntime</code>.</p>
 <h2 id="addingremoving-federations">Adding/Removing Federations<a class="headerlink" href="#addingremoving-federations" title="Permanent link">¶</a></h2>
