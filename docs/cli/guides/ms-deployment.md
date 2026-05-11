@@ -99,7 +99,7 @@ To release, use `dotnet beam deploy release --plan E:\UnrealProjects\BeamableUnr
 Saved plan: E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json
 ```
 
-As you can see from the example, every `plan` invocation creates a `timestamp.plan.json` file inside your `.beamable\temp\plans` folder.
+As you can see from the example, every `plan` invocation creates a `timestamp.plan.json` file inside your `.beamable/temp/plans` folder.
 #### Merge & Replace Plans
 When planning to release microservices, its important to think about how to handle existing services. This is especially true of times when you remove a service. For that case, we provide two ways of generating a plan: **Replace** and **Merge**.
 
