@@ -420,10 +420,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#whats-going-on-above" class="md-nav__link">
+  <a href="#what-is-happening-above" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What's going on Above:
+        What Is Happening Above
       
     </span>
   </a>
@@ -10270,10 +10270,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#whats-going-on-above" class="md-nav__link">
+  <a href="#what-is-happening-above" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What's going on Above:
+        What Is Happening Above
       
     </span>
   </a>
@@ -10331,11 +10331,11 @@
 <p>This tutorial assumes you have already set up your Beamable account and integrated the Beamable SDK into your Unreal project. For instructions on doing so, see the <a href="../setup/">Setup Guide</a>.</p>
 </div>
 <h2 id="accessing-the-beamable-window">Accessing the Beamable Window<a class="headerlink" href="#accessing-the-beamable-window" title="Permanent link">¶</a></h2>
-<p>When opening the Unreal Editor of your project, you'll see the Beamable Logo in the upper-right, next to the Settings dropdown. This button opens the Beamable Editor Window. Here, you can log in to the account you just created in the Beamable Portal.</p>
+<p>When opening the Unreal Editor of your project, you will see the Beamable Logo in the upper-right, next to the Settings dropdown. This button opens the Beamable Editor Window. Here, you can log in to the account you just created in the Beamable Portal.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/intro-beamable-window-location.gif" data-desc-position="bottom"><img alt="intro-beamable-window-location.png" src="../../../media/imgs/intro-beamable-window-location.gif"></a></p>
 <p>When the login process is finished, you should see the Beamable Window Editor like this:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/intro-beamable-window-opened.png" data-desc-position="bottom"><img alt="intro-beamable-window-opened.png" src="../../../media/imgs/intro-beamable-window-opened.png"></a></p>
-<p>Here's a quick tour of Beamable Window's functions:</p>
+<p>Here is a quick tour of the Beamable Window's functions:</p>
 <div class="grid cards">
 <ul>
 <li>
@@ -10357,27 +10357,27 @@
 </ul>
 </div>
 <h2 id="your-first-blueprint-request">Your First Blueprint Request<a class="headerlink" href="#your-first-blueprint-request" title="Permanent link">¶</a></h2>
-<p>Now that you are familiar with the Beamable Window, you are ready to make your first Beamable request. We'll do it via Blueprint, but you can do the exact same flow in C++ by making these calls in your Project's <code>GameMode</code> class's <code>BeginPlay</code> function.</p>
+<p>Now that you are familiar with the Beamable Window, you are ready to make your first Beamable request. This guide uses Blueprint, but the same flow works in C++ via calls in your Project's <code>GameMode</code> class's <code>BeginPlay</code> function.</p>
 <p>To get started, open your Level Blueprint and add the following nodes:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/intro-init-sdk-with-login-frictionless.png" data-desc-position="bottom"><img alt="intro-init-sdk-with-login-frictionless" src="../../../media/imgs/intro-init-sdk-with-login-frictionless.png"></a></p>
-<h3 id="whats-going-on-above">What's going on Above:<a class="headerlink" href="#whats-going-on-above" title="Permanent link">¶</a></h3>
-<p>The <code>BeamRuntime</code> is a <code>GameInstanceSubsystem</code> that is responsible for controlling the SDK's lifecycle and player authentication. Calling this function will initialize the SDK. You can find a deep explanation about the Beamable Runtime in the <a href="../../user-reference/overview/">Technical Overview</a> page.</p>
+<h3 id="what-is-happening-above">What Is Happening Above<a class="headerlink" href="#what-is-happening-above" title="Permanent link">¶</a></h3>
+<p>The <code>BeamRuntime</code> is a <code>GameInstanceSubsystem</code> that is responsible for controlling the SDK's lifecycle and player authentication. Call this function to initialize the SDK. You can find a deep explanation about the Beamable Runtime in the <a href="../../user-reference/overview/">Technical Overview</a> page.</p>
 <p>Once the SDK is initialized, the <code>Login - Frictionless</code> Operation node logs in a guest account automatically into the <code>Player0</code> user slot.</p>
-<p>Operation nodes are "purple" Beamable nodes that encapsulate many complex functionalities in a easy-to-use fashion. See <a href="../../user-reference/runtime-systems/blueprints/">Operation Nodes</a> for more information.</p>
+<p>Operation nodes are "purple" Beamable nodes that encapsulate many complex bodies of functionality in an easy-to-use fashion. See <a href="../../user-reference/runtime-systems/blueprints/">Operation Nodes</a> for more information.</p>
 <p>The Frictionless Login node has three flow pins to handle the result of the login operation:</p>
 <ul>
 <li><strong>On Success</strong>: executes if the login completed successfully</li>
 <li><strong>On Error</strong>: executes if any error happens during the login flow</li>
 <li><strong>On Cancelled</strong>: used in <em>very special cases</em> and can mostly be ignored for now</li>
 </ul>
-<p>And That's it! If this operation succeeds, you'll have a <strong>Guest Account</strong> signed-into the <code>Player0</code> user slot.</p>
-<p>With the SDKs default configuration and the above setup, you can enter <abbr title="Play in Editor">PIE</abbr> (Play-In-Editor) and should see several requests' responses being written to your Output Log window. After you see the final <code>GetMe</code> request, you can exit <abbr title="Play in Editor">PIE</abbr> knowing you've made your very first request to Beamable. Congratulations!</p>
+<p>If this operation succeeds, you will have a guest account signed-into the <code>Player0</code> user slot.</p>
+<p>With the SDK's default configuration and the above setup, enter <abbr title="Play in Editor">PIE</abbr> (Play-In-Editor). You should see several requests' responses written to your Output Log window. After you see the final <code>GetMe</code> request, you can exit <abbr title="Play in Editor">PIE</abbr> knowing you have made your first request to Beamable. Congratulations!</p>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
-<p>Now that you've made your first Beamable Request, you can take a look at the <a href="../../user-reference/overview/">Technical Overview</a> page to understand more about how the SDK is structured and identify the best path to using it in your game.</p>
+<p>Now that you have made your first Beamable Request, see the <a href="../../user-reference/overview/">Technical Overview</a> page to understand more about how the SDK is structured and identify the best path to using it in your game.</p>
 <p>Also, take a look at the <a href="../../samples/intro/">Samples</a>, which are a valuable source of practical information and good general reference.</p>
 <h2 id="issues-and-reporting">Issues and Reporting<a class="headerlink" href="#issues-and-reporting" title="Permanent link">¶</a></h2>
 <ul>
-<li>Use verbose logging <code>log Category Verbose</code> when encountering an issue stemming from the SDK (Log Categories can be found in <code>BeambleCore/BeamLogging.h</code> file)</li>
+<li>Use verbose logging <code>log Category Verbose</code> when encountering an issue stemming from the SDK (Log Categories can be found in <code>BeamableCore/BeamLogging.h</code> file)</li>
 <li>This verbose logging will print <strong><em>a lot more</em></strong> information about requests being made and what the SDK is doing. It is meant to aid in diagnosing issues, NOT for production use. To turn it off in the same editor session, run <code>log Category Display</code> in the editor console</li>
 <li>When reporting an issue, try to reproduce it with the logs of the relevant systems set to Verbose and attach them to the report</li>
 <li>To contact support or submit suggestions, head to the <a href="https://beamable.com/support">Support Portal</a></li>

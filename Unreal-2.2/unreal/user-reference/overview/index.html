@@ -10362,14 +10362,14 @@
 <p>The Beamable SDK is a collection of custom UE <code>Engine</code>, <code>Editor</code> and <code>GameInstance</code> Subsystems.
 If you are not familiar with Unreal Subsystems, see the <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/programming-subsystems-in-unreal-engine">Unreal Engine Programming Subsystems documentation</a>.</p>
 <p><strong>Game-Maker Code</strong> (as in, code the Beamable customer writes) can take advantage of various guarantees the SDK provides by understanding how these subsystems work.</p>
-<h3 id="plugin-modules">Plugin Modules<a class="headerlink" href="#plugin-modules" title="Permanent link">¶</a></h3>
+<h2 id="plugin-modules">Plugin Modules<a class="headerlink" href="#plugin-modules" title="Permanent link">¶</a></h2>
 <p>The SDK's Plugin is divided into several modules:</p>
 <ul>
 <li><strong>BeamableCore</strong> contains the <code>UEngineSubsystem</code> implementations shared between <code>Editor</code> and <code>Runtime</code> executing environments. It also contains the <code>UBeamContentObject</code> schema definitions for the <a href="../beamable-services/content/">content system</a>.</li>
 <li><strong>BeamableCoreRuntime</strong> contains the <code>UBeamRuntime</code> and <code>UBeamRuntimeSubsystem</code> implementations and manages the SDK lifecycle at runtime (during <abbr title="Play in Editor">PIE</abbr> and in packaged clients).</li>
 <li><strong>BeamableCoreEditor</strong> and <strong>BeamableCoreRuntimeEditor</strong> contain <code>UBeamEditor</code> and the editor integration code: custom BlueprintNodes, PropertyCustomizations, etc.</li>
 </ul>
-<h3 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">¶</a></h3>
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">¶</a></h2>
 <p>For any technical lead making system-level decisions, effective use of Beamable and the Beamable Unreal SDK requires you to understand a few core concepts. So, after reading this document, you'll want to start here:</p>
 <ul>
 <li><a href="../beamable-services/content/"><strong>Content</strong></a>: how you define your game's configuration — balancing data, currency and item definitions, etc. Most SDK systems depend on Content, so it is a good place to start</li>

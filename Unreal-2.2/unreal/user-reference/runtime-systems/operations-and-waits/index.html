@@ -10406,7 +10406,7 @@
 
 <h1 id="unreal-sdk-operations-waits">Unreal SDK - Operations &amp; Waits<a class="headerlink" href="#unreal-sdk-operations-waits" title="Permanent link">¶</a></h1>
 <p>The Beamable SDK uses a slight variation on Promises that are named Operations. These provide the same semantics as Promises, but their implementation is slightly different to allow for a BP-compatible API and "sub-events".</p>
-<h3 id="how-operations-work">How Operations Work<a class="headerlink" href="#how-operations-work" title="Permanent link">¶</a></h3>
+<h2 id="how-operations-work">How Operations Work<a class="headerlink" href="#how-operations-work" title="Permanent link">¶</a></h2>
 <p>They wrap concurrent <em>operations</em> (mostly HTTP Requests) under a <code>FBeamOperationHandle</code> exposed to some higher-level system. Simply put:</p>
 <blockquote>
 <p>When you want to expose a single function that makes a bunch of async operations and emits events in the Game Thread, ultimately handling success/failure of the entire sequence of operations, use an <code>Operation</code>.</p>
