@@ -77,6 +77,11 @@ echo "Queued:"; for d in "${to_push[@]}"; do echo "  $(basename "$d")"; done
 
 for i in "${!to_push[@]}"; do
   echo; echo "Pushing $(basename "${to_push[$i]}")..."
+  # Pull --rebase first to pick up any auto-sync-core squash-merges
+  # that landed while editing. Without this, the push fails as
+  # non-fast-forward whenever a core branch was pushed upstream
+  # of a downstream branch since the last local fetch.
+  git -C "${to_push[$i]}" pull --rebase || { echo "Pull failed for $(basename "${to_push[$i]}") — resolve and re-run."; exit 1; }
   git -C "${to_push[$i]}" push
   [[ $i -ge 1 && $i -lt $((${#to_push[@]} - 1)) ]] && echo "Waiting 2 minutes..." && sleep 120
 done
