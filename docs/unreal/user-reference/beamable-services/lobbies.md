@@ -114,7 +114,7 @@ Both lobby types have the same schema and are represented by the `ULobby` class.
 	- Can be filled via [Federations](../federation/federated-game-server.md) as well
 - **Created**: an ISO 8601 date time string for when the Lobby was created
 
-# Utilities for Dedicated Server Games
+## Utilities for Dedicated Server Games
 The Lobby subsystem provides you with utilities that help you integrate Beamable into UE's Gameplay Framework.
 
 - `Local State - Lobby - Open Level`: can be used in Game Clients to connect to a Game Server by extracting connection information (URL and Port) from the Lobby's Global Data

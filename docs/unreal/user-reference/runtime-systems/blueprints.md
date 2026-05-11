@@ -25,7 +25,7 @@ Common use cases include:
 
 ## Operation Blueprints
 
-`Operations` provide high-level Blueprint nodes for asynchronous communication with Beamable services. It's designed to simplify common game operations. These nodes combine multiple low-level operations into single, easy-to-use nodes that handle complex workflows automatically. They're perfect for rapid development and standard game features.
+`Operations` provide high-level Blueprint nodes for asynchronous communication with Beamable services. They are designed to simplify common game development tasks by combining multiple low-level operations into single, easy-to-use nodes that handle complex workflows automatically. They are well suited to rapid development and standard game features.
 
 ![operators-sample.png](../../../media/imgs/blueprint-operators.png)
 <center>*Sample of an Operator Blueprint Node that encapsulates the Purchase Operation for a Listing from the Skin Store.*</center>
@@ -40,7 +40,7 @@ Operation nodes can be configured in the following ways:
 
 ![blueprints-beam-mode.png](../../../media/imgs/blueprints-beam-mode.png)
 
-**Common use cases include:**
+**Common use cases include**:
 
 - Player Authentication flows
 - Inventory transactions
@@ -58,7 +58,7 @@ Operation nodes can be configured in the following ways:
 
 There are two different kinds of `Local State` nodes: a single-output version and a `for-each-style` version. These aim to cover most common ways to read this data from subsystems and display them in UI or make gameplay-related decisions based on them.
 
-**Common use cases include:**
+**Common use cases include**:
 
 - Access Player stats
 - Player inventory management including items and currencies
@@ -85,7 +85,7 @@ The SDK also provides `Unbind` nodes for cases where the above pattern is not po
 
 ![blueprint-event-unbind.png](../../../media/imgs/blueprint-event-unbind.png)
 
-**Common Use Cases:**
+**Common use cases include**:
 
 - Notifying the player that a Match was found
 - Reconfiguring a part of the UI whenever an inventory item changed
@@ -99,7 +99,7 @@ The SDK also provides additional utility Blueprint nodes such as:
 - Helper nodes for common operations and data transformations
 
 ![blueprint-subsystems.png](../../../media/imgs/blueprint-subsystems.png)
-<center>*Sample of a Blueprint graph that access the Beamable Inventory Subsystem and retrieve a currency amount from the local cached state*</center>
+<center>*Sample of a Blueprint graph that accesses the Beamable Inventory Subsystem and retrieves a currency amount from the local cached state.*</center>
 
 ## Node Customization
 Multiple Blueprint nodes can be modified in their `Detail` panel. These configurations allow you to change the pin layout of the node for cases where one layout or another is more beneficial.
