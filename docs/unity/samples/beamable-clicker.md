@@ -10,7 +10,7 @@ A simple clicker game sample demonstrating Beamable's Leaderboard system. **In t
   </iframe>
 </div>
 
-### Features
+## Features
 
 !!! info "Beamable Features Used"
 
@@ -20,7 +20,7 @@ A simple clicker game sample demonstrating Beamable's Leaderboard system. **In t
     - [Stats](../user-reference/beamable-services/profile-storage/stats.md) - Player statistics tracking
     - [Connectivity](../user-reference/beamable-services/social-networking/connectivity.md) - Player connection management
 
-### Game Rules
+## Game Rules
 
 - Players have a limited time to click and grow their tree
 - Each click increases the current score

@@ -259,7 +259,7 @@ Spear          | 30
 
 Here are 3 popular usage techniques.
 
-#### Loading JSON from local storage
+### Loading JSON from local storage
 
 The game maker exports the data to flat files, adds them to the Unity project, and loads them **locally** as needed.
 
@@ -280,7 +280,7 @@ The game maker exports the data to flat files, adds them to the Unity project, a
 | 3. Convert the JSON to C# objects | • See `GameContentDesignerDemo_Json.cs` below |
 | 4. Use the C# objects | • See `GameContentDesignerDemo_Json.cs` below |
 
-#### Loading JSON from online storage
+### Loading JSON from online storage
 
 The game maker prepares the data, hosts it, and loads it **remotely** as needed.
 
@@ -349,7 +349,7 @@ namespace Beamable.Examples.Labs.GameContentDesigner.Json
 }
 ```
 
-#### Using Beamable SDK
+### Using Beamable SDK
 
 Beamable is optional for GCD. However, to complete **this** specific usage option, the Beamable SDK and a Beamable license are required.
 

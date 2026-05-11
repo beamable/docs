@@ -6,7 +6,7 @@ In "Global Price War" (GPW), the winners say **Buy low, sell high! Finish rich a
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2yVdP53Gw64?si=6f3VCYe6z6tWcxAa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-### Features
+## Features
 
 !!! info "Beamable Features Used"
 
@@ -21,7 +21,7 @@ In "Global Price War" (GPW), the winners say **Buy low, sell high! Finish rich a
     - **[MicroStorage](../user-reference/cloud-services/microstorages.md)** - MongoDB database integration for persistent data
 
 
-### Architecture
+## Architecture
 
 The GPW2 project uses a more sophisticated architecture compared to GPW1:
 
