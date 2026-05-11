@@ -27,8 +27,10 @@ Common use cases include:
 
 `Operations` provide high-level Blueprint nodes for asynchronous communication with Beamable services. They are designed to simplify common game development tasks by combining multiple low-level operations into single, easy-to-use nodes that handle complex workflows automatically. They are well suited to rapid development and standard game features.
 
-![operators-sample.png](../../../media/imgs/blueprint-operators.png)
-<center>*Sample of an Operator Blueprint Node that encapsulates the Purchase Operation for a Listing from the Skin Store.*</center>
+<figure markdown="span">
+  ![An On Clicked event node wired into a single Operation - Store - Perform Purchase node exposing On Success, On Error, and On Cancelled output pins.](../../../media/imgs/blueprint-operators.png)
+  <figcaption>*Sample of an Operator Blueprint Node that encapsulates the Purchase Operation for a Listing from the Skin Store.*</figcaption>
+</figure>
 
 ### Configuring Operation Nodes
 Operation nodes can be configured in the following ways:
@@ -53,8 +55,10 @@ Operation nodes can be configured in the following ways:
 
 `Local State` Blueprints manage the player's in-memory (locally cached) version of the data associated with players. None of these are asynchronous operations. They are meant to be used to read in-memory state and display it in UI or for use in your own systems, built on top of Beamable's systems.
 
-![blueprints-localstate.png](../../../media/imgs/blueprint-localstate.png)
-<center>*Sample of a Local State Blueprint Node that returns the local cached state of the player's Items of the Inventory.*</center>
+<figure markdown="span">
+  ![A Local State - Inventory - TryGetAllItems node feeding a For Each Loop that breaks each Beam Item State and passes the content ID to an Add Content to UI node.](../../../media/imgs/blueprint-localstate.png)
+  <figcaption>*Sample of a Local State Blueprint Node that returns the local cached state of the player's Items of the Inventory.*</figcaption>
+</figure>
 
 There are two different kinds of `Local State` nodes: a single-output version and a `for-each-style` version. These aim to cover most common ways to read this data from subsystems and display them in UI or make gameplay-related decisions based on them.
 
@@ -68,8 +72,10 @@ There are two different kinds of `Local State` nodes: a single-output version an
 
 Each subsystem also has an `Events - Bind` node that exposes all events that subsystem emits for binding.
 
-![blueprint-event.png](../../../media/imgs/blueprint-event.png)
-<center>*Sample of a Blueprint Event Node called when the Local State of the Inventory is Updated.*</center>
+<figure markdown="span">
+  ![Two Events - Inventory - Bind node variants alongside a Details panel exposing the OnInventoryRefreshed event with checkboxes for Show Events As Execute Pin and Show Unbind As Execute Pin.](../../../media/imgs/blueprint-event.png)
+  <figcaption>*Sample of a Blueprint Event Node called when the Local State of the Inventory is Updated.*</figcaption>
+</figure>
 
 In the `Details` view you can configure:
 
@@ -98,8 +104,10 @@ The SDK also provides additional utility Blueprint nodes such as:
 - Iterator nodes for processing collections of data
 - Helper nodes for common operations and data transformations
 
-![blueprint-subsystems.png](../../../media/imgs/blueprint-subsystems.png)
-<center>*Sample of a Blueprint graph that accesses the Beamable Inventory Subsystem and retrieves a currency amount from the local cached state.*</center>
+<figure markdown="span">
+  ![Blueprint graph wiring a Try Get Currency Amount call through To Text and Append into a SetText node on a Coins label.](../../../media/imgs/blueprint-subsystems.png)
+  <figcaption>*Sample of a Blueprint graph that accesses the Beamable Inventory Subsystem and retrieves a currency amount from the local cached state.*</figcaption>
+</figure>
 
 ## Node Customization
 Multiple Blueprint nodes can be modified in their `Detail` panel. These configurations allow you to change the pin layout of the node for cases where one layout or another is more beneficial.

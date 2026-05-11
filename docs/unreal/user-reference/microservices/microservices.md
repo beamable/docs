@@ -216,7 +216,7 @@ The key metric you should use to consider creating additional microservices is *
 
 These are **reasonable defaults** that give you generally good runtime scalability for a low cost and provide a simple developer experience. You should always keep an eye on your service's behavior for optimization opportunities as you observe its behavior under load.
 
-### Microservice Routing and Microservice Target
+## Microservice Routing and Microservice Target
 When you make a request to a microservice, you're not directly talking to your service. Your request comes in via Beamable's Gateway service, and that service figures out to which running Microservice instance it will forward that request.
 
 This allows us to integrate microservices running in your local machine "as though they" are part of the realm: requests made from your editor's PIE instance can choose a **Microservice Target**.
