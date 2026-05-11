@@ -9696,7 +9696,7 @@ To release, use `dotnet beam deploy release --plan E:\UnrealProjects\BeamableUnr
 
 Saved plan: E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json
 </code></pre>
-<p>As you can see from the example, every <code>plan</code> invocation creates a <code>timestamp.plan.json</code> file inside your <code>.beamable\temp\plans</code> folder.</p>
+<p>As you can see from the example, every <code>plan</code> invocation creates a <code>timestamp.plan.json</code> file inside your <code>.beamable/temp/plans</code> folder.</p>
 <h4 id="merge-replace-plans">Merge &amp; Replace Plans<a class="headerlink" href="#merge-replace-plans" title="Permanent link">¶</a></h4>
 <p>When planning to release microservices, its important to think about how to handle existing services. This is especially true of times when you remove a service. For that case, we provide two ways of generating a plan: <strong>Replace</strong> and <strong>Merge</strong>.</p>
 <p><strong>Replace (default)</strong>: Creates a release plan that completely overrides the existing remote services. Existing deployed services that are not present locally will be removed.</p>
