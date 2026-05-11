@@ -5,14 +5,14 @@ If you are not familiar with Unreal Subsystems, see the [Unreal Engine Programmi
 
 **Game-Maker Code** (as in, code the Beamable customer writes) can take advantage of various guarantees the SDK provides by understanding how these subsystems work.
 
-### Plugin Modules
+## Plugin Modules
 The SDK's Plugin is divided into several modules:
 
 - **BeamableCore** contains the `UEngineSubsystem` implementations shared between `Editor` and `Runtime` executing environments. It also contains the `UBeamContentObject` schema definitions for the [content system](beamable-services/content.md).
 - **BeamableCoreRuntime** contains the `UBeamRuntime` and `UBeamRuntimeSubsystem` implementations and manages the SDK lifecycle at runtime (during PIE and in packaged clients).
 - **BeamableCoreEditor** and **BeamableCoreRuntimeEditor** contain `UBeamEditor` and the editor integration code: custom BlueprintNodes, PropertyCustomizations, etc.
 
-### Core Concepts
+## Core Concepts
 
 For any technical lead making system-level decisions, effective use of Beamable and the Beamable Unreal SDK requires you to understand a few core concepts. So, after reading this document, you'll want to start here:
 

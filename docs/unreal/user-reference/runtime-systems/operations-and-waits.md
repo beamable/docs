@@ -2,7 +2,7 @@
 
 The Beamable SDK uses a slight variation on Promises that are named Operations. These provide the same semantics as Promises, but their implementation is slightly different to allow for a BP-compatible API and "sub-events".
 
-### How Operations Work
+## How Operations Work
 
 They wrap concurrent *operations* (mostly HTTP Requests) under a `FBeamOperationHandle` exposed to some higher-level system. Simply put:
 
