@@ -6,7 +6,7 @@ The concept of A/B Testing is to run experiments across a cohort (segmented set)
 
 ![Metric Pillars](../../../../media/imgs/METRIC_PILLARS.png){width="600px"}
 
-#### Benefits of A/B Testing
+## Benefits of A/B Testing
 
 - **Increase KPIs** - Key performance indicators, including retention, can be isolated and improved through testing
 - **Increase Revenue** - By improving KPIs, improve revenue
@@ -20,7 +20,7 @@ Generally, follow this process:
 - Create one or more Cohorts of players from the analytic
 - Then **A/B Test**, Run experiments to test your theories of how to improve the specific metric pillar
 
-#### Flowchart
+## Flowchart
 
 Here is a flowchart demonstrating an example of one A/B Testing Trial.
 
@@ -28,7 +28,7 @@ Here is a flowchart demonstrating an example of one A/B Testing Trial.
 
 The game front-end loads the player manifest from the `TrialDataService`. The `PlayerProgression` data returned depends on a player-specific Stat value.
 
-#### Glossary
+## Glossary
 
 | Name | Detail |
 |------|--------|

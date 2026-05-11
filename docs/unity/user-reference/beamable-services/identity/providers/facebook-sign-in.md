@@ -9,7 +9,7 @@ Below is a typical Facebook usage pattern. You initiate from your UI that you wa
 ![Facebook Flow](../../../../../media/imgs/d3ad803-facebook_flow.png){: style="height:auto;width:500px"}
 
 
-### Configure Facebook App
+## Configure Facebook App
 
 In order to setup the Unity Project you need to configure the Facebook Dashboard:
 

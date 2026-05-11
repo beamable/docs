@@ -34,7 +34,7 @@ Beamable offers multiple messaging capabilities to communicate with your player 
 
 The Notifications service can be accessed via the NotificationsService from the Beamable API. Notifications primarily function using a [Publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern), where objects that should react to incoming messages (the "subscribers") listen for messages being sent out by another object (the "publishers"). Following this pattern, the API is quite simple.
 
-#### Callback Function
+### Callback Function
 
 When a subscribed object receives a message, the message carries some data with it that can provide extra content about the event that occurred. For the purposes of this document, this function will be used:
 
@@ -45,7 +45,7 @@ void CallbackAction(object callbackObject)
 }
 ```
 
-#### Subscribe/Unsubscribe
+### Subscribe/Unsubscribe
 
 Subscriptions are PlayerId based, so an event published by the server (for example, a microservice) must specify your PlayerId in order for your client to receive the event.
 
@@ -59,7 +59,7 @@ beamable.Api.NotificationService.Subscribe("messageName", CallbackAction );
 beamable.Api.NotificationService.Unsubscribe("messageName", CallbackAction );
 ```
 
-#### Publish (from Microservice)
+### Publish (from Microservice)
 
 ```csharp
 public async Task SendNotificationFromMicroservice(List<long> playerIds, string context, object payload)

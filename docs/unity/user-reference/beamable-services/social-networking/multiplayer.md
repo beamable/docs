@@ -72,7 +72,7 @@ In multiplayer gaming, matchmaking is the process of choosing a `MatchId` based 
 
 See [Matchmaking](matchmaking.md) for more info.
 
-### Playing "Against Yourself"
+### Playing "against Yourself"
 
 One of the challenges of developing a multiplayer game is testing it frequently as an individual developer. Finding a friend to play against you **every** time you run the game in development is prohibitive.
 
@@ -82,7 +82,7 @@ Here are 2 strategies to help the development process.
 
 The sample game includes an optional bot opponent. This is an AI that plays against you. Simply click "Start Game: Human vs Bot" from the Menu Scene to activate it. Architecturally this is similar to the full game and it fully uses the Beamable Multiplayer event objects for each player move. However, it requires only one human player.
 
-#### Playing Against Yourself
+#### Playing against Yourself
 
 The sample game allows a workflow to test the full 2 player experience with relative ease. Build the Unity sample project as a standalone game for either Mac or PC. Then run the game in the Unity Editor **also**. Simply click "Start Game: Human vs Human" from the Menu Scene in **both** game clients to activate it.
 

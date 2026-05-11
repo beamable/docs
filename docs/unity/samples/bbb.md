@@ -6,7 +6,7 @@ In the "Beamable Boss Battle" (BBB) sample game, **The Hero has reached the dung
 
     • [Microservices](../user-reference/cloud-services/microservices/microservice-framework.md) - Server-side code that runs in the cloud to handle game logic, data validation, and real-time multiplayer functionality
 
-### Screenshots
+## Screenshots
 
 The player navigates from the Intro Scene to the Game Scene, where all the action takes place.
 

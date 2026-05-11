@@ -125,7 +125,7 @@ To create a new shared Assembly Definition, you need to create a regular Assembl
 
 All shared assemblies will be cause dotnet compatible projects to generate in your Unity project's `/Library/BeamEditor/generatedProjects` folder. These projects are automatically referenced in your Microservice's `.csproj` file.
 
-## Sharing Microservices Between Projects
+## Sharing Microservices between Projects
 
 The primary way to use Microservices in Unity is to create a new service for each Unity project. However, there are several ways to share Microservice functionality between multiple Unity projects using Beamable.
 

@@ -27,7 +27,7 @@ Here is the glossary of Tournament terms.
 | Tournament Player Limit | The maximum number of tournament players **per** stage (e.g., 50) |
 | Tier | An ordered grouping of **stages**, relative to the game's community |
 
-### Tournament vs Leaderboards
+## Tournament vs Leaderboards
 
 Beamable supports many social services including Tournaments and Leaderboards. A game can incorporate either, none, or both. Both services help to build game community, encourage player competition, and increase player retention.
 
