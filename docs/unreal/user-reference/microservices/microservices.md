@@ -150,14 +150,14 @@ A few things to note:
 !!! note "Semantic Type Support"
 	Support for all `FBeamSemanticType` such as `FBeamGamerTag` and `FBeamContentId` as well as some Unreal-Specific types such as `FGameplayTag` and others is planned for a future release.
 
-### Making Requests on Behalf of Users
+## Making Requests on Behalf of Users
 It is quite a common case that a Microservice needs to use one of Beamable's many APIs on behalf of a particular user. This allows you to re-use these APIs (usually written in a client-facing way) for multiple users. A practical example:
 
 > At the end of a MOBA match, you'll need to update player stats gathered during the match or process their account's new Experience or Rank. For this, you can make a `ServerCallable` called `ProcessMatchResults` and pass in information from your dedicated server whenever the match is over.
 
 To make requests on behalf of users, use the `AssumeNewUser` function. It gives you back a `UserRequestDataHandler` that has fields like `Context` and `Services`. Making API calls from this `assumedUser.Services.Stats` instance as opposed to the usual `this.Services` will make the request on behalf of the user.
 
-### Multiple Microservices and Organizing Code
+## Multiple Microservices and Organizing Code
 The first impulse a lot of people have is to separate microservices semantically; one-per-feature. **We do not recommend this.** Here's why:
 
 - Having a lot of microservices will increase your cost for no benefit (_in most cases_).
@@ -173,7 +173,7 @@ The key metric you should use to consider creating additional microservices is *
 
 We've found these to be **reasonable defaults** that give you generally good runtime scalability for a low-cost and provide a simple developer experience. You should always keep an eye on your service's behavior for optimization opportunities as you observe its behavior under load.
 
-### Microservice Routing and Microservice Target
+## Microservice Routing and Microservice Target
 When you make a request to a microservice, you're not actually directly talking to your service. Your request comes in via Beamable's Gateway service and that service figures out to which running Microservice instance it will forward that request.
 
 This allows us to integrate microservices running in your local machine "as though they" are part of the realm in two specific ways:
