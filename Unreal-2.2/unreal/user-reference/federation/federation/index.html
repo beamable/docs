@@ -10293,16 +10293,16 @@
 
 
 <h1 id="federation">Federation<a class="headerlink" href="#federation" title="Permanent link">¶</a></h1>
-<p><strong>Federations</strong> are similar to the idea <strong>Server Side Callbacks or WebHooks</strong> but are slightly expanded in use. It is Beamable's approach to extending, or sometimes delegating, the behavior of its Managed Services to microservices or third parties.</p>
+<p><strong>Federations</strong> are similar to the idea of server-side callbacks or webhooks, but are slightly expanded in use. They are Beamable's approach to extending, or sometimes delegating, the behavior of its Managed Services to microservices or third parties.</p>
 <p>Here are a few example use cases that Federations as a concept means to solve:</p>
 <ul>
 <li>Implementing third-party Auth Integrations with other Identity Providers</li>
 <li>Customizing Initial Player Account States</li>
-<li>Integrating Beamable Inventory with Steam Inventory or Web3 Wallets.</li>
-<li>Integrating with Game Server Orchestrators such as Hathora, Agones or even a custom stack.</li>
+<li>Integrating Beamable Inventory with Steam Inventory or Web3 Wallets</li>
+<li>Integrating with Game Server Orchestrators such as Hathora, Agones or even a custom stack</li>
 <li>Etc...</li>
 </ul>
-<p>Most implementations of Server-Side Callbacks are fire-and-forget (similar to a webhook). <strong>Federations</strong>, however, don't need to be fire-and-forget. Most <strong>Federations</strong> are calls made to your microservice happen as part of a particular flow, often having things happening <strong><em>before</em></strong> and/or <strong><em>after the Federated call finishes</em></strong>.</p>
+<p>Most implementations of Server-Side Callbacks are fire-and-forget (similar to a webhook). <strong>Federations</strong>, however, don't need to be fire-and-forget. Most <strong>Federations</strong> are calls made to your microservice that happen as part of a particular flow, often with things happening <strong><em>before</em></strong> and/or <strong><em>after the Federated call finishes</em></strong>.</p>
 <p>Here's a high-level diagram of what federations are:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture-federation-general.png" data-desc-position="bottom"><img alt="microservices-architecture-federation-general.png" src="../../../../media/imgs/microservices-architecture-federation-general.png"></a></p>
 <p>Each of the provided <strong>Federations</strong> has its own semantics, usage guidelines, performance characteristics, and constraints described in their individual pages.</p>
@@ -10318,13 +10318,13 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture-federations-out-of-band.png" data-desc-position="bottom"><img alt="microservices-architecture-federations-out-of-band.png" src="../../../../media/imgs/microservices-architecture-federations-out-of-band.png"></a></p>
 <p>For more information about the workflow implications of the difference between both <strong>Federation Call</strong> types, see <a href="#workflows-for-developing-federations">below.</a></p>
 <h2 id="federation-id">Federation Id<a class="headerlink" href="#federation-id" title="Permanent link">¶</a></h2>
-<p>Federations can be thought of as delegates called by the Beamable server at particular points of various flows. Federation Ids are a unique <code>string</code>-based identifier that uniquely identifies a particular implementation of a federation.</p>
+<p>Federations can be thought of as delegates called by the Beamable server at particular points of various flows. Federation Ids are unique <code>string</code>-based identifiers that uniquely identify a particular implementation of a federation.</p>
 <p>The combination of the <strong>Federation Id</strong> and the <strong>Federation Type</strong> is comparable to a function name/pointer assigned to an Unreal delegate; in the sense that it is used by the Beamable backend to know which implementation of a federation in your microservice it should talk to, if any.</p>
 <p>Examples:</p>
 <ul>
-<li><code>IFederatedLogin</code> would have different implementations for Steam and Epic auth integration.</li>
-<li><code>IFederatedLogin&lt;SteamId&gt;</code> and <code>IFederatedLogin&lt;EpicId&gt;</code> are the two interfaces you will need to implement.</li>
-<li><code>SteamId</code> carries <code>[FederationId("steam")]</code>; <code>EpicId</code> carries <code>[FederationId("epic")]</code> — Beamable uses these strings to route each request to the correct implementation.</li>
+<li><code>IFederatedLogin</code> would have different implementations for Steam and Epic auth integration</li>
+<li><code>IFederatedLogin&lt;SteamId&gt;</code> and <code>IFederatedLogin&lt;EpicId&gt;</code> are the two interfaces you will need to implement</li>
+<li><code>SteamId</code> carries <code>[FederationId("steam")]</code>; <code>EpicId</code> carries <code>[FederationId("epic")]</code> — Beamable uses these strings to route each request to the correct implementation</li>
 </ul>
 <p>In other words, an id is just a unique <code>string</code> that you pass along in specific places depending on the federation to <strong>choose between one or more federations if any should be used</strong>.</p>
 <h2 id="addingremoving-federations">Adding/Removing Federations<a class="headerlink" href="#addingremoving-federations" title="Permanent link">¶</a></h2>

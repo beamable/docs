@@ -1541,7 +1541,12 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#making-requests-on-behalf-of-users" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1551,8 +1556,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#multiple-microservices-and-organizing-code" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1562,8 +1567,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#microservice-routing-and-microservice-target" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1571,11 +1576,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -10504,7 +10504,12 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#making-requests-on-behalf-of-users" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -10514,8 +10519,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#multiple-microservices-and-organizing-code" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -10525,8 +10530,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#microservice-routing-and-microservice-target" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -10534,11 +10539,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -10854,13 +10854,13 @@
 <p class="admonition-title">Semantic Type Support</p>
 <p>Support for all <code>FBeamSemanticType</code> such as <code>FBeamGamerTag</code> and <code>FBeamContentId</code> as well as some Unreal-Specific types such as <code>FGameplayTag</code> and others is planned for a future release.</p>
 </div>
-<h3 id="making-requests-on-behalf-of-users">Making Requests on Behalf of Users<a class="headerlink" href="#making-requests-on-behalf-of-users" title="Permanent link">¶</a></h3>
+<h2 id="making-requests-on-behalf-of-users">Making Requests on Behalf of Users<a class="headerlink" href="#making-requests-on-behalf-of-users" title="Permanent link">¶</a></h2>
 <p>It is quite a common case that a Microservice needs to use one of Beamable's many APIs on behalf of a particular user. This allows you to re-use these APIs (usually written in a client-facing way) for multiple users. A practical example:</p>
 <blockquote>
 <p>At the end of a MOBA match, you'll need to update player stats gathered during the match or process their account's new Experience or Rank. For this, you can make a <code>ServerCallable</code> called <code>ProcessMatchResults</code> and pass in information from your dedicated server whenever the match is over.</p>
 </blockquote>
 <p>To make requests on behalf of users, use the <code>AssumeNewUser</code> function. It gives you back a <code>UserRequestDataHandler</code> that has fields like <code>Context</code> and <code>Services</code>. Making API calls from this <code>assumedUser.Services.Stats</code> instance as opposed to the usual <code>this.Services</code> will make the request on behalf of the user.</p>
-<h3 id="multiple-microservices-and-organizing-code">Multiple Microservices and Organizing Code<a class="headerlink" href="#multiple-microservices-and-organizing-code" title="Permanent link">¶</a></h3>
+<h2 id="multiple-microservices-and-organizing-code">Multiple Microservices and Organizing Code<a class="headerlink" href="#multiple-microservices-and-organizing-code" title="Permanent link">¶</a></h2>
 <p>The first impulse a lot of people have is to separate microservices semantically; one-per-feature. <strong>We do not recommend this.</strong> Here's why:</p>
 <ul>
 <li>Having a lot of microservices will increase your cost for no benefit (<em>in most cases</em>).</li>
@@ -10874,7 +10874,7 @@
 <p><strong>Beamable</strong>: "You can create new parts of the <code>partial</code> Microservice type. You can declare utility static functions as well and make most <code>____Callable</code> just forward the call along."</p>
 </blockquote>
 <p>We've found these to be <strong>reasonable defaults</strong> that give you generally good runtime scalability for a low-cost and provide a simple developer experience. You should always keep an eye on your service's behavior for optimization opportunities as you observe its behavior under load.</p>
-<h3 id="microservice-routing-and-microservice-target">Microservice Routing and Microservice Target<a class="headerlink" href="#microservice-routing-and-microservice-target" title="Permanent link">¶</a></h3>
+<h2 id="microservice-routing-and-microservice-target">Microservice Routing and Microservice Target<a class="headerlink" href="#microservice-routing-and-microservice-target" title="Permanent link">¶</a></h2>
 <p>When you make a request to a microservice, you're not actually directly talking to your service. Your request comes in via Beamable's Gateway service and that service figures out to which running Microservice instance it will forward that request.</p>
 <p>This allows us to integrate microservices running in your local machine "as though they" are part of the realm in two specific ways:</p>
 <ul>
