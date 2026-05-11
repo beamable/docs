@@ -8962,7 +8962,7 @@
 <li>Customized behaviors not captured by <code>UBeamRuntimeSubsystem</code> implementations.</li>
 </ul>
 <h2 id="operation-blueprints">Operation Blueprints<a class="headerlink" href="#operation-blueprints" title="Permanent link">¶</a></h2>
-<p><code>Operations</code> provide high-level Blueprint nodes for asynchronous communication with Beamable services. It's designed to simplify common game operations. These nodes combine multiple low-level operations into single, easy-to-use nodes that handle complex workflows automatically. They're perfect for rapid development and standard game features.</p>
+<p><code>Operations</code> provide high-level Blueprint nodes for asynchronous communication with Beamable services. They are designed to simplify common game development tasks by combining multiple low-level operations into single, easy-to-use nodes that handle complex workflows automatically. They are well suited to rapid development and standard game features.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprint-operators.png" data-desc-position="bottom"><img alt="operators-sample.png" src="../../../../media/imgs/blueprint-operators.png"></a></p>
 <center>*Sample of an Operator Blueprint Node that encapsulates the Purchase Operation for a Listing from the Skin Store.*</center>
 
@@ -8975,7 +8975,7 @@
 <li><strong>BeamFlow + OnSubEvents</strong>: exposes one <code>Flow</code> output pin for each of Success/Failure/Cancelled <strong><em>PLUS</em></strong> a single <code>Flow</code> output pin for each sub-event emitted by the operation. Sub-events are calls to the Operation <code>Delegate</code> that do not complete the operation (the semantics of each sub-event are explained on their tooltip).</li>
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprints-beam-mode.png" data-desc-position="bottom"><img alt="blueprints-beam-mode.png" src="../../../../media/imgs/blueprints-beam-mode.png"></a></p>
-<p><strong>Common use cases include:</strong></p>
+<p><strong>Common use cases include</strong>:</p>
 <ul>
 <li>Player Authentication flows</li>
 <li>Inventory transactions</li>
@@ -8990,7 +8990,7 @@
 <center>*Sample of a Local State Blueprint Node that returns the local cached state of the player's Items of the Inventory.*</center>
 
 <p>There are two different kinds of <code>Local State</code> nodes: a single-output version and a <code>for-each-style</code> version. These aim to cover most common ways to read this data from subsystems and display them in UI or make gameplay-related decisions based on them.</p>
-<p><strong>Common use cases include:</strong></p>
+<p><strong>Common use cases include</strong>:</p>
 <ul>
 <li>Access Player stats</li>
 <li>Player inventory management including items and currencies</li>
@@ -9011,7 +9011,7 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprint-event-bind-unbind.png" data-desc-position="bottom"><img alt="blueprint-event-bind-unbind.png" src="../../../../media/imgs/blueprint-event-bind-unbind.png"></a></p>
 <p>The SDK also provides <code>Unbind</code> nodes for cases where the above pattern is not possible or desirable. In this node, you can select which events you are unbinding:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprint-event-unbind.png" data-desc-position="bottom"><img alt="blueprint-event-unbind.png" src="../../../../media/imgs/blueprint-event-unbind.png"></a></p>
-<p><strong>Common Use Cases:</strong></p>
+<p><strong>Common use cases include</strong>:</p>
 <ul>
 <li>Notifying the player that a Match was found</li>
 <li>Reconfiguring a part of the UI whenever an inventory item changed</li>
@@ -9025,7 +9025,7 @@
 <li>Helper nodes for common operations and data transformations</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprint-subsystems.png" data-desc-position="bottom"><img alt="blueprint-subsystems.png" src="../../../../media/imgs/blueprint-subsystems.png"></a></p>
-<center>*Sample of a Blueprint graph that access the Beamable Inventory Subsystem and retrieve a currency amount from the local cached state*</center>
+<center>*Sample of a Blueprint graph that accesses the Beamable Inventory Subsystem and retrieves a currency amount from the local cached state.*</center>
 
 <h2 id="node-customization">Node Customization<a class="headerlink" href="#node-customization" title="Permanent link">¶</a></h2>
 <p>Multiple Blueprint nodes can be modified in their <code>Detail</code> panel. These configurations allow you to change the pin layout of the node for cases where one layout or another is more beneficial.</p>
