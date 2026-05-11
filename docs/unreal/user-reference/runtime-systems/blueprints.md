@@ -29,7 +29,7 @@ Common use cases include:
 
 <figure markdown="span">
   ![An On Clicked event node wired into a single Operation - Store - Perform Purchase node exposing On Success, On Error, and On Cancelled output pins.](../../../media/imgs/blueprint-operators.png)
-  <figcaption>*Sample of an Operator Blueprint Node that encapsulates the Purchase Operation for a Listing from the Skin Store.*</figcaption>
+  <figcaption>Sample of an Operator Blueprint Node that encapsulates the Purchase Operation for a Listing from the Skin Store.</figcaption>
 </figure>
 
 ### Configuring Operation Nodes
@@ -57,7 +57,7 @@ Operation nodes can be configured in the following ways:
 
 <figure markdown="span">
   ![A Local State - Inventory - TryGetAllItems node feeding a For Each Loop that breaks each Beam Item State and passes the content ID to an Add Content to UI node.](../../../media/imgs/blueprint-localstate.png)
-  <figcaption>*Sample of a Local State Blueprint Node that returns the local cached state of the player's Items of the Inventory.*</figcaption>
+  <figcaption>Sample of a Local State Blueprint Node that returns the local cached state of the player's Items of the Inventory.</figcaption>
 </figure>
 
 There are two different kinds of `Local State` nodes: a single-output version and a `for-each-style` version. These aim to cover most common ways to read this data from subsystems and display them in UI or make gameplay-related decisions based on them.
@@ -74,7 +74,7 @@ Each subsystem also has an `Events - Bind` node that exposes all events that sub
 
 <figure markdown="span">
   ![Two Events - Inventory - Bind node variants alongside a Details panel exposing the OnInventoryRefreshed event with checkboxes for Show Events As Execute Pin and Show Unbind As Execute Pin.](../../../media/imgs/blueprint-event.png)
-  <figcaption>*Sample of a Blueprint Event Node called when the Local State of the Inventory is Updated.*</figcaption>
+  <figcaption>Sample of a Blueprint Event Node called when the Local State of the Inventory is Updated.</figcaption>
 </figure>
 
 In the `Details` view you can configure:
@@ -106,7 +106,7 @@ We also provide additional utility Blueprint nodes such as:
 
 <figure markdown="span">
   ![Blueprint graph wiring a Try Get Currency Amount call through To Text and Append into a SetText node on a Coins label.](../../../media/imgs/blueprint-subsystems.png)
-  <figcaption>*Sample of a Blueprint graph that accesses the Beamable Inventory Subsystem and retrieves a currency amount from the local cached state.*</figcaption>
+  <figcaption>Sample of a Blueprint graph that accesses the Beamable Inventory Subsystem and retrieves a currency amount from the local cached state.</figcaption>
 </figure>
 
 ## Node Customization
