@@ -7,7 +7,7 @@
 
 ## Accessing the Beamable Window
 
-When opening the Unreal Editor of your project, you'll see the Beamable Logo in the upper-right, next to the Settings dropdown. This button opens the Beamable Editor Window. Here, you can log in to the account you just created in the Beamable Portal.
+When opening the Unreal Editor of your project, you will see the Beamable Logo in the upper-right, next to the Settings dropdown. This button opens the Beamable Editor Window. Here, you can log in to the account you just created in the Beamable Portal.
 
 ![intro-beamable-window-location.png](../../media/imgs/intro-beamable-window-location.gif)
 
@@ -15,7 +15,7 @@ When the login process is finished, you should see the Beamable Window Editor li
 
 ![intro-beamable-window-opened.png](../../media/imgs/intro-beamable-window-opened.png)
 
-Here's a quick tour of Beamable Window's functions:
+Here is a quick tour of the Beamable Window's functions:
 
 
 <div class="grid cards" markdown>
@@ -45,11 +45,11 @@ To get started, open your Level Blueprint and add the following nodes:
 
 ### What Is Happening Above
 
-The `BeamRuntime` is a `GameInstanceSubsystem` that is responsible for controlling the SDK's lifecycle and player authentication. Calling this function will initialize the SDK. The [Technical Overview](../user-reference/overview.md) covers the Beamable Runtime in depth.
+The `BeamRuntime` is a `GameInstanceSubsystem` that is responsible for controlling the SDK's lifecycle and player authentication. Call this function to initialize the SDK. The [Technical Overview](../user-reference/overview.md) covers the Beamable Runtime in depth.
 
 Once the SDK is initialized, you can log in a guest account automatically. To do that, use the `Login - Frictionless` Operation node, which logs a guest account into the `Player0` user slot.
 
-Operation nodes are "purple" Beamable nodes that encapsulate many complex functionalities in an easy-to-use fashion. See [Operation Nodes](../user-reference/runtime-systems/blueprints.md) for more information.
+Operation nodes are "purple" Beamable nodes that encapsulate many complex bodies of functionality in an easy-to-use fashion. See [Operation Nodes](../user-reference/runtime-systems/blueprints.md) for more information.
 
 The Frictionless Login node has three flow pins to handle the result of the login operation:
 
@@ -57,18 +57,18 @@ The Frictionless Login node has three flow pins to handle the result of the logi
 - **On Error**: executes if any error occurs during the Beamable login flow
 - **On Cancelled**: used in _very special cases_ and can mostly be ignored for now
 
-If this operation succeeds, you'll have a **Guest Account** signed-into the `Player0` user slot.
+If this operation succeeds, you will have a guest account signed-into the `Player0` user slot.
 
-With the SDKs default configuration and the above setup, you can enter PIE (Play-In-Editor) and should see several requests' responses being written to your Output Log window. After you see the final `GetMe` request, you can exit PIE knowing you've made your very first request to Beamable. Congratulations!
+With the SDK's default configuration and the above setup, enter PIE (Play-In-Editor). You should see several requests' responses written to your Output Log window. After you see the final `GetMe` request, you can exit PIE knowing you have made your first request to Beamable. Congratulations!
 
 
 ## Next Steps
-Now that you've made your first Beamable Request, you can take a look at the [Technical Overview](../user-reference/overview.md) page to understand more about how the SDK is structured and identify the best path to using it in your game.
+Now that you have made your first Beamable Request, see the [Technical Overview](../user-reference/overview.md) page to understand more about how the SDK is structured and identify the best path to using it in your game.
 
 The [Samples](../samples/intro.md) are also a valuable source of practical information and general reference.
 
 ## Issues and Reporting
-- For issues stemming from the SDK, enable verbose logging with `log Category Verbose`. Log categories are defined in `BeamableCore/BeamLogging.h`.
-- Verbose logging prints significantly more information about requests and SDK activity. It is intended for diagnostics only, not production use. To disable it in the same editor session, run `log Category Display` in the editor console.
+- For issues stemming from the SDK, enable verbose logging with `log Category Verbose`. Log categories are defined in `BeamableCore/BeamLogging.h`
+- Verbose logging prints significantly more information about requests and SDK activity. It is intended for diagnostics only, not production use. To disable it in the same editor session, run `log Category Display` in the editor console
 - When reporting an issue, reproduce it with the relevant log categories set to Verbose and attach the output to your report
 - To contact us for support or suggestions, head to our [Support Portal](https://beamable.com/support)
