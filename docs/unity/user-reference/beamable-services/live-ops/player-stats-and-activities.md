@@ -1,8 +1,8 @@
-# Player Stats and Activities
+# Player stats and activities
 
 Stats let game makers create variables to determine which players receive campaigns [documentation](doc:campaigns) and other live ops events. Create them in the Portal; see the [documentation](doc:stats) for details.
 
-## Creating a Player Stat
+## Creating a player stat
 
 Create a Player Stat through the Portal by navigating to a specific player and using the following popup:
 
@@ -28,7 +28,7 @@ public class StatsTest : Microservice
 
 Values for stats are always strings, and you can do simple operations with them like `EQUALS` and `NOT EQUALS`. There are some stats that have numeric values, however these can only be set by Beamable's backend.
 
-## Campaign with Stats
+## Campaign with stats
 
 You can use Player Stats to define which players are going to receive a campaign. That can be done while creating a new campaign in the Portal. In the following image you can see the stage in which this can be done.
 
@@ -38,7 +38,7 @@ When creating the stat, you will choose between a few automatic stats that are s
 
 ![Campaign Custom Stat Creation](../../../../media/imgs/campaign-custom-stat-creation.png){: style="height:auto;width:400px"}
 
-## Player Activities
+## Player activities
 
 These are used to create campaigns using time as parameters. For example, you can use the install date of players as a start point to trigger the campaign, by setting it to happen a few days after that time. The values that can be used as date points are:
 

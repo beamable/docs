@@ -4,7 +4,7 @@
 
 The Beamable Login tool window provides a user interface for managing authentication and account access within the Unity editor environment. The purpose of this Tool Window is to allow front-end administration of the game maker account.
 
-## The User Interface
+## The user interface
 
 Here is the user interface of the Beamable "Login" tool window.
 
@@ -19,11 +19,11 @@ To open the panel, select "Log in" from the Beamable Button if you are not logge
 ![Beamable Login Button](../../../media/imgs/1aeb1cdb745e27cfe00a335c8684677c8a7e3812ef84f8dcee6ad3366837e036-image.png){width="300px"}
 
 
-## Login Information
+## Login information
 
 When you log into Beamable in the Unity editor, the log-in information is kept in the `.beamable/` workspace folder in your Unity project's root folder. You can run terminal commands from the project's root folder with the same authentication. If you log out from either the CLI or the Unity editor, the log-in information will be removed.
 
-## Changing Beamable Environment
+## Changing Beamable environment
 
 By default, Beamable packages are configured to use Beamable's production server environment, at `https://api.beamable.com`. If you want to target a different Beamable server environment, or a Private Cloud environment, you need to configure that when you log into Beamable within the Unity Editor.
 

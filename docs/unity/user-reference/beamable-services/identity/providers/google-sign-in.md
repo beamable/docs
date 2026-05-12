@@ -1,17 +1,17 @@
-# Google Sign-In
+# Google sign-in
 
 The purpose of this guide is to help game makers use Google Sign-In with the Beamable Accounts service.
 
 Beamable integrates with Google's Sign-In service to provide authentication for your game. Google's [Sign-In](https://developers.google.com/identity/sign-in/web/sign-in) manages the OAuth 2.0 flow and token lifecycle, simplifying your integration with Google APIs. A user always has the option to revoke access to an application at any time.
 
-## Getting Started
+## Getting started
 
 This guide provides step-by-step instructions to set up Google Sign-In with Beamable's Accounts service in a Unity project.
 
 !!! note "Google Play Game Services"
     This guide covers Google Sign-In using OAuth. It does not apply to Google Play Game Services (GPGS), which uses a different authentication flow.
 
-### Create a Unity Project
+### Create a Unity project
 
 **Set up the Beamable SDK for Unity**
 
@@ -28,7 +28,7 @@ This guide provides step-by-step instructions to set up Google Sign-In with Beam
    - Set your package name (e.g., `com.yourcompany.yourgame`)
    - You will need this exact package name for the Google Cloud Console setup
 
-### Create KeyStore for Signing
+### Create KeyStore for signing
 
 **Create a KeyStore**
 
@@ -45,7 +45,7 @@ This guide provides step-by-step instructions to set up Google Sign-In with Beam
    - Look for the SHA-1 fingerprint in the output and save it
    - If you do not have `keytool` installed, follow [the instructions for finding and running keytool](https://stackoverflow.com/questions/5488339/how-can-i-find-and-run-the-keytool) after installing Java on your machine
 
-### Create Google Cloud Console - OAuth 2.0 Credentials
+### Create OAuth 2.0 credentials in Google Cloud Console
 
 **Create a Project & Enable APIs:**
 
@@ -78,17 +78,17 @@ You need to create **TWO** credentials:
 
 ---
 
-### Configure Unity Project
+### Configure Unity project
 
 Beamable's Google Sign-In integration requires `play-services-auth` in your Android build.
 
-#### Enable Custom Android Gradle Template
+#### Enable custom Android Gradle template
 
 - Change platform to Android (if not already done)
 - Enable Custom Gradle Template: **Project Settings** → **Player** → **Other Settings** → **Custom Gradle Template**
 - This will generate a file at `Plugins/Android/mainTemplate.gradle`
 
-#### Add play-services-auth Dependency
+#### Add play-services-auth dependency
 
 - Open the `.gradle` file located in your project at `Plugins/Android/mainTemplate.gradle`
 - Look for the `dependencies` block
@@ -105,7 +105,7 @@ dependencies {
 
 ---
 
-### Additional iOS Setup
+### Additional iOS setup
 
 When using Google Sign-In on Apple, the Login Flow depends on version 5 of Google's Sign-In SDK framework for iOS. Enabling sign-in on iOS also requires first-time setup regarding a custom URL scheme specific to your Google Cloud App, including overriding the `openURL` method on `UnityAppController`.
 
@@ -115,7 +115,7 @@ When using Google Sign-In on Apple, the Login Flow depends on version 5 of Googl
 | **2. Add the URL scheme to your project** | Your custom URL scheme is a reversed version of your iOS Client ID: `com.googleusercontent.apps.<your-app-id>`<br><br>Unity → File → Build Settings → Player Settings → Other Settings<br><br>Supported URL schemes: set size to 1 and enter your reversed ID as Element 0 |
 | **3. Ensure app delegate handles `openURL`** | The app delegate for your app should handle `application:openURL:options:` and invoke the `handleURL` method of `GIDSignIn`. |
 
-#### Method Swizzling for iOS URL Handling
+#### Method swizzling for iOS URL handling
 
 The response from the Google Sign-In flow on Apple uses the custom **Supported URL Scheme**. This requires that the app delegate (`UnityAppController`) implement the `openURL` method. Using **swizzling**, we can define a new method and exchange implementations at runtime.
 
@@ -163,7 +163,7 @@ Place both `GoogleSignInAppController.h` and `GoogleSignInAppController.mm` with
 
 ```
 
-## Google Sign-In Integration
+## Google sign-in integration
 
 The Beamable SDK contains a wrapper for native Google Sign-In behavior on Android and iOS. The provided class is called GoogleSignIn, which can be initialized with the correct Web Client ID, iOS Client ID, as well as a "target" (a context for the sign in callback to attach to), and a callback method name.
 
@@ -208,7 +208,7 @@ private void GoogleAuthResponse(string message)
 }
 ```
 
-## Handle Various Flow Scenarios
+## Handle various flow scenarios
 
 Now that we have the Google credential (token), we need to account for 3 different scenarios:
 
@@ -247,7 +247,7 @@ var shouldCreateUser = available && userHasCredentials;
 var shouldAttachToCurrentUser = available && !userHasCredentials;
 ```
 
-### Switch Users
+### Switch users
 
 In this example, the AuthService is used to authenticate a user with a third-party auth provider.
 
@@ -258,7 +258,7 @@ if(shouldSwitchUsers)
 }
 ```
 
-### Create New User
+### Create new user
 
 If we want to create a new user and apply the third-party credentials, we can use the following calls from AuthService.
 
@@ -272,7 +272,7 @@ if(shouldCreateUser)
 }
 ```
 
-### Link To Existing User
+### Link to existing user
 
 If the user already exists and is now trying to link their Google credentials to it, the flow is very similar to new user creation.
 
@@ -285,7 +285,7 @@ if(shouldAttachToCurrentUser)
 ```
 
 
-## Next Steps
+## Next steps
 
 - Players can edit account details (name, avatar)
 - Players can switch accounts or sign in with various methods. See the [Identity](../identity.md) service page for more info

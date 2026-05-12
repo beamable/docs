@@ -1,4 +1,4 @@
-# Asynchronous Turn Based Notifications
+# Asynchronous turn based notifications
 
 Update players and UI with turn based notifications.
 
@@ -8,9 +8,9 @@ In this example, we have created a simple turn-based "ping-pong" game where two 
 
 The server maintains the turn state in a shared `TurnData` document and provides endpoints for the client to ping the opponent and check the current turn.
 
-## Components Breakdown
+## Components breakdown
 
-### 1. TurnSystem (Client)
+### 1. TurnSystem (client)
 
 The `TurnSystem` class handles the following responsibilities:
 
@@ -25,7 +25,7 @@ The `TurnSystem` class handles the following responsibilities:
 - **`HandlePingNotification`**: When a notification is received indicating the opponent's turn, this function processes the notification and updates the player's UI accordingly
 - **`UpdateTurnStatus`**: Queries the server to check if it is the player's turn and updates the turn indicator UI
 
-### 2. Service (Server)
+### 2. Service (server)
 
 The `Service` microservice is responsible for:
 
@@ -40,7 +40,7 @@ The `Service` microservice is responsible for:
 - **`GetFromPlayer`**: Fetches the `FromPlayer` field from the `TurnData`, allowing the client to set the opponent player on initialization
 - The data is stored in a Microstorage
 
-## Beamable Features Used
+## Beamable features used
 
 ### 1. Notifications
 The system uses Beamable's `NotificationService` to send real-time updates (`PingNotification`) when the turn switches from one player to another.
@@ -48,5 +48,5 @@ The system uses Beamable's `NotificationService` to send real-time updates (`Pin
 ### 2. Microservices
 The server-side logic for turn management is encapsulated in Beamable microservices, which provide callable methods (`Ping`, `IsPlayerTurn`, `GetFromPlayer`) for the client to interact with.
 
-### 3. Microstorage
+### 3. MicroStorage
 `TurnData` is stored using Beamable's microstorage to maintain persistent state across player turns.

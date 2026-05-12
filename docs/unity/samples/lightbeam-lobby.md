@@ -11,7 +11,7 @@ There are no prerequisites for this sample. It shows you how to:
 - Join a lobby by name (open) or passcode (closed)
 - Inspect live lobby state, including player count and lobby metadata
 
-## Sample Overview
+## Sample overview
 
 The sample loads four independent **Player Contexts** side by side (P1–P4), each representing a separate player. Each context panel displays the player's ID, name, lobby membership status, and the current number of players in the lobby.
 

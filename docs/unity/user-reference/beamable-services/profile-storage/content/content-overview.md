@@ -1,4 +1,4 @@
-# Content - Overview
+# Content - overview
 
 The **Content** service allows game maker to store project-specific data objects. It is embedded into many other Beamable services, such as Inventory, Store, Leaderboards, and Tournaments. For simplicity, some Beamable data structures may be omitted from this diagram.
 
@@ -12,7 +12,7 @@ The content ID is assigned at creation of a new content, and is composed of cont
 One important concept of the Content ID is the "Nesting". Content IDs can be nested, and the resulting hierarchy will be baked in to the name. For example, to group "weekend" events under a common folder — the content ID would be:
 `events.weekend.<user-defined-id>`.
 
-## Content Namespaces
+## Content namespaces
 
 Content is validated as a manifest, letting items be checked against each other. This prevents validation errors when publishing; however, individual changes could cause validation errors after uploading; for example, a store references a currency that no longer exists.
 
@@ -22,7 +22,7 @@ Namespaces are locations for content to be published so that the content does no
 
     Beamable APIs that use content under the hood, such as Commerce and Inventory, can only use entries from the "global" namespace.
 
-## Content Data
+## Content data
 
 Content types are must extend [`Beamable.Common.Content.ContentObject`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1ContentObject.html). All derive from Unity's [`ScriptableObject`](https://docs.unity3d.com/Manual/class-ScriptableObject.html). The Beamable SDK for Unity ships with all content types needed for common use cases.
 
@@ -43,7 +43,7 @@ Content types are must extend [`Beamable.Common.Content.ContentObject`](https://
 | [`TournamentContent`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Tournaments_1_1TournamentContent.html#details) | [Tournaments](doc:tournaments-feature-overview) | No |
 | [`VipContent`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Inventory_1_1VipContent.html#details) | -- | No |
 
-### Beamable Serialization of Custom Content Types
+### Beamable serialization of custom content types
 
 Unity's built-in types use [Unity's serialization](https://docs.unity3d.com/Manual/script-Serialization.html). However, Beamable's custom content types rely instead on Beamable's custom serialization. This serialization is strict and has limitations.
 
@@ -68,7 +68,7 @@ public class MyCustomContent : ContentObject
 }
 ```
 
-### Inheritance Hierarchies
+### Inheritance hierarchies
 
 There might be cases where you want to have some hierarchy chain of `ContentObject` but have one of the types in the chain not be an actual `ContentType`; for example, to share code between different child `ContentTypes` but in a parent class that can never be created directly as a piece of Beamable content. You can do that by making the class abstract and **not** marking it as a `ContentType`.
 
@@ -98,7 +98,7 @@ public class Leaf2CustomContent : AbstractCustomContent { /** (...) */ }
 
 ## Content API
 
-### Subscribing to Content Changes
+### Subscribing to content changes
 
 The ContentService API allows you to subscribe to content changes on the server. This is useful for dynamically updating content in your game without requiring a full game update.
 
@@ -212,7 +212,7 @@ namespace Beamable.Examples.Services.ContentService
     - **DO**: Use `ContentLink` in any member variable in your _custom_ content type that references another content type. ContentLink is useful for data that needs to be loaded quickly at runtime, since it is preloaded in very early stages of the application's lifecycle
     - **DON'T**: Use `ContentRef` by default _everywhere_ in your project. This is supported but is considered overkill. ContentRef is useful for data that the application can afford to load on-demand (especially data that might not get loaded at all)
 
-### GetManifest Method
+### GetManifest method
 
 In the SDK, the `GetManifest` function accepts a filter string, as shown in the example below. You can read more about filters in the Content Management section.
 
@@ -231,7 +231,7 @@ public async Promise<IList<IContentObject>> LoadMyTaggedContent(string tag)
 }
 ```
 
-### GetContent Method
+### GetContent method
 
 Beamable's ContentService has another method that can pull content: GetContent. Since this method will attempt to pull several pieces of content at once, it is often inefficient, however it may be useful depending on the scope of your project.
 
@@ -274,7 +274,7 @@ MyCustomContent.cs
 public class MyCustomContent : ContentObject { ... }
 ```
 
-### Changing Content Namespaces
+### Changing content namespaces
 This sample shows how to switch the default content namespace to "tuna" before resolving a `CurrencyRef`.
 
 ```csharp
@@ -295,7 +295,7 @@ public class Tester : MonoBehaviour
 }
 ```
 
-## Content Management
+## Content management
 
 Content management is critical to keep the content in your game engaging and reactive, and Beamable provides a number of content management tools. This is a mixture of solutions within the "Beamable SDK for Unity" and Rest API calls. In addition Beamable provides some extended tools that integrate with Google Sheets as a plugin.
 
@@ -307,7 +307,7 @@ When you create your Beamable account, we automatically create a "Development to
 
 Then, once you have tested that the new content in your environment looks correct, you can go into the Portal to promote the "Dev" content to "Staging" and eventually "Production".
 
-### Storage Location of Content Types and Content Live Refresh
+### Storage location of content types and content live refresh
 
 One of the main benefits of our content system is that, when you hit publish and the content updates, we will automatically refresh that content on each game client via a server-to-client message. This allows for the system to be incredibly interactive at development time as well as allowing for over the air updates to players who are playing in "Production" after a content promotion.
 
@@ -324,13 +324,13 @@ Content is stored on device within Unity's [`Application.persistentDataPath`](ht
 ```csharp
  Application.persistentDataPath + $"/content/{contentId}.json";
 ```
-### Content Caching
+### Content caching
 
 Content is cached by the client and stored both in memory and persisted to disk. When content is updated on our backend, Beamable updates a client manifest and push it to all clients to invalidate and update the cache.
 
 See source code of `Runtime/DisruptorEngine/Content/ContentCache.cs` for more info.
 
-## Remote Configuration Workflows
+## Remote configuration workflows
 
 A fundamental pattern for using Beamable Content is **Remote Configuration**. With modest planning, game makers can maximize the user experience while minimizing the number of game updates shipped. This workflow allows game makers to update game content remotely and do so in real-time. Games can tweak existing features, launch new features, test out functionality — all without necessarily shipping app updates or code changes.This can be especially useful for live-ops, seasonal events, and limited-time offers.
 

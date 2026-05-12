@@ -1,4 +1,4 @@
-# Scheduled Jobs
+# Scheduled jobs
 
 A scheduled job is a networking event that happens in the future. Scheduled jobs can be microservice `Callable` invocations, HTTP calls, or generalized Beamable message bus events. Today, scheduled jobs are available directly via the Beamable API (see the [Open API swagger](https://dev.api.beamable.com/api/platform/docs) doc), or through an SDK accessible in Microservices using Beamable 1.16.0 or later.
 
@@ -9,7 +9,7 @@ Every scheduled job has 4 main components,
 - A list of triggers
 - A retry policy
 
-## Job Metadata
+## Job metadata
 
 The metadata for a job includes a `name`, a `source`, and after it is saved, an `id`. The `name` and `source` can both be used to search for existing jobs. The `id` is unique for each job.
 
@@ -17,11 +17,11 @@ Commonly, the `source` represents the entity or process that creates a job. By d
 
 The `name` can be anything, but use it to uniquely describe the job. For example, before creating a job to award bonus currency to a player, your system can check for the existence of a job with the name, `$"award-{Context.UserId}"`, and only if the job does _not_ exist, will you create it.
 
-## Job Actions
+## Job actions
 
 A job must execute a single action. That action can be a privileged call to a Microservice, an HTTP call, or an internal Beamable message bus call. In the SDK, only Microservice and HTTP calls are supported.
 
-### Microservice Action
+### Microservice action
 
 A scheduled job executing a Microservice should use the `.Schedule().Microservice()` utility function.
 
@@ -40,7 +40,7 @@ The target method group must return a `Task` or `Promise`. It is invalid to sche
 The `.Microservice<T>()` method takes an optional parameter called `useLocal`. When Beamable executes the job, it can send a request to a locally running Microservice, or to the deployed Microservice on the realm. When `useLocal` is set to `true`, the request will be sent to whatever address scheduled the job. For local testing, this means that if you schedule a Microservice action from a locally running Microservice, your locally running Microservice will be expected to handle the method call later. If the remote service is used to schedule the job, then the remote service will be sent the invocation. If `useLocal` is set to `false`, then all requests will always be sent to the remote, even if they were scheduled from a locally running service.
 By default, `useLocal` is set as `true`.
 
-### HTTP Action
+### HTTP action
 
 A scheduled job executing a HTTP request should use the `.Schedule().Http()` utility function.
 
@@ -54,11 +54,11 @@ var job = await Services.Scheduler.Schedule()
 
 The `.Http()` method allows the developer to use the `.Run()` function that creates an HTTP action for the job. Optionally, a third parameter can be given as the body for the HTTP request. By default, the HTTP action will use JSON to serialize any request payload. There are overloads of the method available that allow a developer to specify a custom body, accept header, and custom headers.
 
-## Job Triggers
+## Job triggers
 
 A job must have at least 1 trigger, but may have many. A trigger is some schedule that defines when the job should execute the action. There are two types of triggers, a cron trigger, and a time trigger.
 
-### Time Triggers
+### Time triggers
 
 A time trigger specifies an exact time for a job to execute. There are a few utility methods to assist in creating time triggers.
 
@@ -82,7 +82,7 @@ var job = await Services.Scheduler.Schedule()
 	.Save("sample");
 ```
 
-### Cron Triggers
+### Cron triggers
 
 A cron trigger specifies an [NCronTab](https://github.com/atifaziz/NCrontab) expression that dictates a series of times when the job should execute. Cron expressions are unbounded, and have no end date. The cron expression must be a 6 term expression, in this format
 
@@ -131,7 +131,7 @@ This table shows common schedule patterns that may be helpful.
 | `.OnCron(c => c 	.AtSecond(0) 	.EveryNthMinute(30) 	.EveryHour() 	.EveryDayOfTheWeek() 	.EveryMonth() )`   | On the first second, every 30 minutes, all the time                             |
 | `.OnCron(c => c   		.AtSecond(0)   		.AtMinute(0)   		.EveryNthHour(2)   		.OnFriday()   		.InJuly()   	)` | On the first second, of the first minute, every other hour, on Fridays in July. |
 
-## Job Retry Policy
+## Job retry policy
 
 Every job has a retry policy. Each time a job executes, if the action fails, the execution has failed. When an execution fails, the retry policy determines what happens next. If the policy allows, the action is retried until it either succeeds, or the policy is exhausted.
 
@@ -147,11 +147,11 @@ var job = await Services.Scheduler.Schedule()
 	.Save("sample");
 ```
 
-## Job Executions
+## Job executions
 
 A job may execute many times depending on the job's triggers. It may be useful to know about past executions, and upcoming executions.
 
-### Upcoming Job Executions
+### Upcoming job executions
 
 This code sample will acquire the upcoming job executions for a job with the given id.
 
@@ -162,7 +162,7 @@ var upcoming = await api.GetJobUpcomingExecutions(jobId);
 
 Upcoming job executions are `DateTime` structures. If the job has a cron trigger, then this will return the first 1000 execution times. An optional `limit` parameter may be passed to get less or more executions.
 
-### Past and Current Executions
+### Past and current executions
 
 This code sample will acquire past and ongoing job executions for a job with the given id.
 
@@ -182,11 +182,11 @@ Each execution will have a list of events that describe the execution's current 
 | CANCELED   | The job has been stopped.                                                          |
 | ERROR      | The job has failed. The `message` field of the event should have an error message. |
 
-## Managing Jobs
+## Managing jobs
 
 After you create a job, you can let it execute, modify it, or cancel it. Canceling or modifying a job will take effect on the next execution of the job. These operations identify jobs by their identifier, the `id` field of the `Job` data structure. If you need to find a job by name, the `GetJobs` method allows searching by name.
 
-### Canceling a Job
+### Canceling a job
 
 A Job may be canceled at any time. However, if there is an ongoing execution of the Job, it will not be cut short. Instead, the next scheduled execution of the Job will be canceled, as well as all following scheduled executions.
 
@@ -196,7 +196,7 @@ await Services.Scheduler.CancelJob(job.id);
 
 When a Job is canceled, the actions are left alone, but all Job Triggers are removed from the job.
 
-### Modifying a Job
+### Modifying a job
 
 A Job may be modified to have different triggers, actions, or metadata. The code below shows how this is possible. If there is an ongoing execution of the Job, it will not use the modified data. Instead, the modification will take effect for all future scheduled executions of the Job.
 
@@ -206,7 +206,7 @@ job.triggers.Add(new ExactTimeEvent(DateTime.UtcNow + TimeSpan.FromHours(1)));
 await Services.Scheduler.SaveJob(job);
 ```
 
-## Getting Started
+## Getting started
 
 The code below demonstrates how to create a simple scheduled job that will award a player 10 gems, one minute after the job is scheduled.
 

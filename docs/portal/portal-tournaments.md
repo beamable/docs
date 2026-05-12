@@ -2,7 +2,7 @@
 
 The Tournaments feature can be managed from the Portal.
 
-## Getting Started
+## Getting started
 
 Follow these steps to manage player tournaments:
 
@@ -14,7 +14,7 @@ Follow these steps to manage player tournaments:
 | 4. Open the player's Tournaments page     | • Click "Tournaments" on the navigation panel         |
 | 5. Configure the settings                 | • Enjoy!                                              |
 
-## Game Maker User Experience
+## Game Maker user experience
 
 The tournaments management interface allows you to view and manage player tournament participation:
 

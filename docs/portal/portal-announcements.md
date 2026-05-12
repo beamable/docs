@@ -2,7 +2,7 @@
 
 This page provides access to the Announcements Feature within the Portal Tool Window.
 
-## Getting Started
+## Getting started
 
 Follow these steps to access and configure Announcements:
 
@@ -12,7 +12,7 @@ Follow these steps to access and configure Announcements:
 | 2. Navigate via sidebar   | • Click "Announcements"                  |
 | 3. Configure the settings | • Enjoy!                                 |
 
-## Game Maker User Experience
+## Game Maker user experience
 
 The Portal Announcements interface provides comprehensive management of in-game announcements.
 

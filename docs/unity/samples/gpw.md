@@ -1,4 +1,4 @@
-# Global Price War - Chat Sample
+# Global Price War - chat sample
 
 A sample project demonstrating Beamable's Chat feature through a trading game called "Global Price Wars".
 
@@ -37,7 +37,7 @@ In "Global Price War" (GPW), the winners say **Buy low, sell high! Finish rich a
 | :--- | :--- |
 | **Beamable** | 1. **Download** the [Chat GPW Sample Project](https://github.com/beamable/Chat_GPW_Sample_Project)<br/>2. Open in Unity Editor (Version 2021.3 or later)<br/>3. Open the Beamable [Toolbox](../user-reference/editor-systems/unity-editor-login.md)<br/>4. Sign-In / Register To Beamable. See [Getting Started](../getting-started/installing-beamable.md) for more info<br/>5. Rebuild the Unity [Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@1.3/manual/AddressableAssetsDevelopmentCycle.html) : Unity → Window → Asset Management → Groups, then Build → Update a Previous Build<br/>6. Open the `Scene01Intro` Scene<br/>7. Play The Scene: Unity → Edit → Play<br/>8. Click the "Start" Button<br/>9. Enjoy!<br/><br/>_Note: This sample project is compatible with Unity 2021.3 and later versions._ |
 
-### Rules of the Game
+### Rules of the game
 
 - 1 player starts the game with limited turns
 - After the final turn, the game is over
@@ -50,7 +50,7 @@ In "Global Price War" (GPW), the winners say **Buy low, sell high! Finish rich a
 
 _Pro Tip: Sell all owned items before the final turn to increase the final score._
 
-## Design Overview
+## Design overview
 
 Many Beamable features are used to implement the game design and game rules.
 
@@ -62,7 +62,7 @@ Using the Beamable [Content](../user-reference/beamable-services/profile-storage
 | :--- | :--- | :--- |
 | <img src="https://files.readme.io/300a32f-remo.jpg" width="300"/> | <img src="https://files.readme.io/c1c1b17-locatino.jpg" width="300"/> | <img src="https://files.readme.io/da1d00f-coffee.jpg" width="300"/> |
 
-### Class Organization
+### Class organization
 
 Each scene uses the `GPWController` class to interact with the local data model and the remote services.
 
@@ -70,7 +70,7 @@ Here is a high-level chart showing the _partial_ structure.
 
 <!-- Class organization diagram would go here -->
 
-### Design of Data
+### Design of data
 
 The data within the `RuntimeDataStorage` is vital for the core game loop.
 

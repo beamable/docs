@@ -40,7 +40,7 @@ Schema headers are initially defined in the first row of a GCD sheet. For comple
 - **JSON** - A lightweight format for storing and transporting data. This is the primary export option. See [JSON Overview](https://www.json.org/json-en.html) for more info
 - **YAML** - A human-readable data-serialization language. This is a secondary export option. See [YAML Overview](https://en.wikipedia.org/wiki/YAML) for more info
 
-### Creating the Sheet
+### Creating the sheet
 
 Google Sheets is a web-based spreadsheet app. Here data is arranged in the rows and columns in a grid and can be manipulated and used for modeling calculations.
 
@@ -64,14 +64,14 @@ For **existing** Google Sheets with GCD already installed, the following step ma
 | 3. Open any Google Sheet | • E.g., The file created in "Step 1. Create the Sheet" above |
 | 4. Enable "Game Content Designer" Add-On | • (Google Sheet → Add-Ons → Game Content Designer) |
 
-### Managing the Data
+### Managing the data
 
 | Step | Detail |
 |------|--------|
 | 1. Edit the Google Sheet | • Add cells<br/>• Edit cells<br/>• Delete cells<br/><br/>_Note: Google Sheets support styling of fonts and colors to aid readability, validation to correct newly inputted values, formulas for math operations (e.g., add cells, average cells, etc...), and more..._ |
 | 2. Save the Google Sheet | _Note: Google Sheets save automatically. The format is versioned, backed-up, and easily shared for collaboration_ |
 
-## Adding Data
+## Adding data
 
 Schema Headers make up the first row of a GCD sheet.
 
@@ -201,7 +201,7 @@ A3     | B3   | C3         | D3         | E3       | F3             | G3
 
     • Avoid naming any cell as **_locale**. That is a reserved keyword for GCD
 
-### More Data Formatting Options
+### More data formatting options
 
 GCD supports even more!
 
@@ -223,7 +223,7 @@ All examples (1-9) are available in the following Google Sheets example file:
 |--------|--------|
 | ![Beamable Logo](../../../../../media/imgs/beamable-logo-small.jpg) | 1. **Open** the [Game Content Designer - Google Sheets Examples](https://docs.google.com/spreadsheets/d/1mYB6q-pFjbI3RMZLHh-hN6v1Wv4kVAq9NfbjPc42P44/edit?usp=sharing)<br/>2. Explore the tabs, descriptions, and cells<br/>3. Enjoy!<br/><br/>_Note: It is not recommended to use this file as-is directly in a production project. Simply learn from it and be inspired_ |
 
-## Using the Data
+## Using the data
 
 In the end, GCD generates properly formatted JSON. It does not prescribe a delivery mechanism. The system is flexible to how game makers choose to use the data in the game project.
 

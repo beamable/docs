@@ -1,4 +1,4 @@
-# Facebook Sign-In - Overview
+# Facebook sign-in - overview
 
 Providing Facebook sign-in is a great, and very common, way to provide cross-platform identity support to your game. Facebook also provides a number of social features that are supported by Beamable and that will help you connect players together and create communities for your game(s).
 
@@ -9,7 +9,7 @@ Below is a typical Facebook usage pattern. You initiate from your UI that you wa
 ![Facebook Flow](../../../../../media/imgs/d3ad803-facebook_flow.png){: style="height:auto;width:500px"}
 
 
-## Configure Facebook App
+## Configure Facebook app
 
 In order to setup the Unity Project you need to configure the Facebook Dashboard:
 
@@ -18,11 +18,11 @@ In order to setup the Unity Project you need to configure the Facebook Dashboard
 
 ![facebook-app.png](../../../../../media/imgs/facebook-app.png)
 
-## Facebook Sign-In
+## Facebook sign-in
 
 Below are the integration steps that will allow you to implement Facebook Sign-In & Beamable via Code. This section will describe several API pieces for you to implement your own wrapper.
 
-## Facebook Login & Callbacks
+## Facebook login and callbacks
 
 Ultimately you will have to implement the Facebook SDK and listen for the callback with the Login Result. The callback is triggered by the _FB.LogInWithReadPermissions()_ API call.
 
@@ -52,7 +52,7 @@ private void FB_AuthCallback (ILoginResult result)
 }
 ```
 
-## Beamable Login with AccessToken
+## Beamable login with AccessToken
 
 !!! info "Beamable SDK Initialization"
     The following assumes that you have initialized the Beamable SDK and it is stored in a variable named `_beamContext`.
@@ -82,7 +82,7 @@ var thirdParty = AuthThirdParty.Facebook;
 var available = _beamContext.Api.AuthService.IsThirdPartyAvailable(thirdParty, tokenString);
 ```
 
-## Handle Various Flow Scenarios
+## Handle various flow scenarios
 
 Now that we have the Facebook token, we need to account for 3 different scenarios:
 
@@ -105,7 +105,7 @@ var shouldCreateUser = available && userHasCredentials;
 var shouldAttachToCurrentUser = available && !userHasCredentials;
 ```
 
-## Facebook's Data Protection Assessment
+## Facebook's data protection assessment
 
 If you implement Facebook sign-in, you might be asked to submit an annual Data Protection Assessment through your Facebook Developer account. The following answers can be used if you have implemented Facebook authentication through Beamable.
 
@@ -115,11 +115,11 @@ If you implement Facebook sign-in, you might be asked to submit an annual Data P
 
     If the game developer chooses to call and store Facebook Platform Data, you do so at your own risk.
 
-## Answers to the Data Protection Assessment
+## Answers to the data protection assessment
 
 If you have implemented a default Facebook authentication flow using Beamable, you can answer the Data Protection Assessment using the following answers:
 
-### Data Use
+### Data use
 
 | Question | Answer |
 |----------|--------|
@@ -128,13 +128,13 @@ If you have implemented a default Facebook authentication flow using Beamable, y
 | Does the application use Platform data for surveillance (law or national security) | NO |
 | How does your software use Platform Data? | Beamable Sign-In transmits the user's access token to backend services via HTTP request secured by industry standard SSL/TLS, in order to associate a Beamable account with a Facebook/Meta account. The token only exists in memory for the duration of the request and is never stored. The platform-specific account id is stored in order to resolve the player account in the future in case they reinstall the app, or login from a different device |
 
-### Data Sharing
+### Data sharing
 
 | Question | Answer |
 |----------|--------|
 | Do you share platform data you receive through this app for any reasons | CHECK "I am not sharing platform data that is received through this app." |
 
-### Data Deletion
+### Data deletion
 
 | Question | Answer |
 |----------|--------|
@@ -143,7 +143,7 @@ If you have implemented a default Facebook authentication flow using Beamable, y
 | How do you determine when Platform Data is no longer necessary to provide an app experience or service to users? | We only store platform data that is strictly required to deliver feature functionality, and then only upon player opt-in. For instance, a player may opt-into (but is not required to) using Facebook or another social login mechanism to access their player account across devices. In such cases, we may need to store the platform-specific account id in order to locate the player account upon login. A player may either, in a self-service manner, remove this login mechanism or request that the developer do this for them. In such a case, we determine that Platform Data is no longer necessary when the player expresses as much, or the feature is deprecated. |
 | How can users request their data to be deleted? | Users can contact the developer or Beamable via email, expressing that their data be deleted. Upon receipt of such a request, and verification that the player does indeed own the account, deletion of platform data is a one-click operation via the administrative web portal of the developer. |
 
-### Data Security
+### Data security
 
 | Question | Answer |
 |----------|--------|

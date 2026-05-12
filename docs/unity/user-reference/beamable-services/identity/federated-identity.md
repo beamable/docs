@@ -1,4 +1,4 @@
-# Federated Identity
+# Federated identity
 
 Beamable supports custom authentication federation using managed [microservices](https://docs.beamable.com/docs/microservices-feature-overview). You can use this service to implement an OAuth2, OpenID Connect, or a custom external authentication provider and use it with Beamable. We also support two-way challenge-based flows for PKI-based authentication for Web3/blockchain scenarios. Some use cases:
 
@@ -7,9 +7,9 @@ Beamable supports custom authentication federation using managed [microservices]
 
 Here we will go through the steps to create a custom authentication federation.
 
-## Creating a Custom Federation
+## Creating a custom federation
 
-### Creating a microservice
+### Creating a Microservice
 
 You should first create a microservice or use an existing one. You can bundle multiple authentication federations in a single microservice using the `UniqueName` value of cloud identity classes to establish namespaces. This is illustrated by the difference between "tuna" and "haddock" below.
 
@@ -30,7 +30,7 @@ public class HaddockCloudIdentity : IFederationId
 }
 ```
 
-### Implementing IFederatedLogin in your microservice
+### Implementing IFederatedLogin in your Microservice
 
 Let's say you already have a TunaService that holds all your user's data. We will use it to validate a "token" received by the client and respond with a "user_id".
 
@@ -113,10 +113,10 @@ var accountRecoveryResponse = await ctx.Accounts
 await accountRecoveryResponse.SwitchToAccount();
 ```
 
-### Running or Publish your microservice
+### Running or publishing your Microservice
 
 Previous to the Beamable Mercury release (Unity 2.0, CLI 3.0, and UE 1.0), you would need to publish the service to test federation. However, now you can test federations with a locally running service.
 
-## More Samples
+## More samples
 Here are some more examples of federated identity implementations:
 - [Solana/Phantom authentication and inventory federation](https://github.com/beamable/solana-example)

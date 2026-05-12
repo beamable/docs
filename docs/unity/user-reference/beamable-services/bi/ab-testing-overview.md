@@ -1,4 +1,4 @@
-# A/B Testing
+# A/B testing
 
 A/B Testing can be a great tool to help improve how your users interact with your game. Use it across the three main metric pillars: Engagement, Retention & Monetization.
 
@@ -6,7 +6,7 @@ The concept of A/B Testing is to run experiments across a cohort (segmented set)
 
 ![Metric Pillars](../../../../media/imgs/METRIC_PILLARS.png){width="600px"}
 
-## Benefits of A/B Testing
+## Benefits of A/B testing
 
 - **Increase KPIs** - Key performance indicators, including retention, can be isolated and improved through testing
 - **Increase Revenue** - By improving KPIs, improve revenue
@@ -40,7 +40,7 @@ The game front-end loads the player manifest from the `TrialDataService`. The `P
 | Member | Refers to a player _within_ a trial |
 | Member Count | How many members are in a given cohort |
 
-## A/B Testing API
+## A/B testing API
 
 Unlike many Beamable services, A/B Testing does not require a specific Beamable Feature Prefab to be used. The main entry point to A/B testing is C# programming.
 
@@ -115,7 +115,7 @@ For any A/B Testing Trial with an "Allocation" of type "Custom", the game maker 
 
 Access these values programmatically via **get** as `game.private.player`.
 
-### Debugging Manifests
+### Debugging manifests
 
 For debugging the manifests, game players can use the Admin Flow to enter commands.
 
@@ -138,11 +138,11 @@ For debugging the manifests, game players can use the Admin Flow to enter comman
     - Fetch the manifest with every incoming request, it is cheap to do so
     - Cache the cloud data in local storage or in memory
 
-## Getting Started
+## Getting started
 
 The **A/B Testing** service allows game makers to deploy new functionality to subset of players.
 
-### Creating Data
+### Creating data
 
 Here the data will be created. This represents the **default** data that all users will receive (unless overridden by the Trial created per Step 2).
 
@@ -152,7 +152,7 @@ Here the data will be created. This represents the **default** data that all use
 | 2. Open "Game Based Cloud Data" | ![Portal Cloud Data](../../../../media/imgs/Portal-Cloud%20Data.png){width="400px"} |
 | 3. Upload Data | ![Portal Cloud Data YAML](../../../../media/imgs/Portal-Cloud%20Data-2_YAML.png){width="400px"}<br>• Click "Upload"<br>• Populate all data fields<br>• Optional, choose the appropriate file from Data Files below<br>• Click "Upload"<br>*Note: At present the only data format supported for "Cloud Data" governed by Trials is [YAML](https://en.wikipedia.org/wiki/YAML)* |
 
-### Creating Trial
+### Creating the trial
 
 Here the Trial will be created. This represents the rules for if/when the **default** data created in Step 1 above will be overridden.
 
@@ -169,7 +169,7 @@ Here the Trial will be created. This represents the rules for if/when the **defa
 | 5. Play the Trial | _Note: Trial play interface - image not available_<br>• Click "Play"<br>• Click "Confirm"<br>_Note: See A/B Testing - Code (Glossary) for more info_ |
 | 6. Set the Stat | ![Portal Stats Profile Edit](../../../../media/imgs/Portal-Stats-1profile-edit.png){width="500px"}<br>• Open "Player Administration"<br>• Open "Stats"<br>Enter the `PlayerId` of the active player from the Unity Console Window and the namespace of `game.private.player`<br>• Click "Add Player Stat"<br>• Enter Name of `PLAYER_LEVEL` and a Value of `1` or `2`. Each returns a dataset via `TrialDataService`<br>![Portal Stats Profile Add](../../../../media/imgs/Portal-Stats-2profile-add.png){width="400px"}<br>_Note: The trial in this example depends on a stat value. However, other types of trials do not. Choose the best criteria for the needs of the project._ |
 
-### Loading Data
+### Loading data
 
 Here the game client will load the Trial data. If the current player qualifies for the criteria of the Trial created in Step 2, the player will receive overridden data. Otherwise the player will receive the **default** data created in Step 1.
 
@@ -201,7 +201,7 @@ foreach (CloudMetaData cloudMetaData in playerManifestResponse.meta)
 }
 ```
 
-### Data Files
+### Data files
 
 To follow along with the steps above using the example data download these [Json data files](https://github.com/beamable/Beamable_SDK_Examples/tree/master/client/Assets/Examples/Runtime/Services/TrialDataService/Json) which matches the `MyPlayerProgression` data type. Or create and choose your own custom files and custom data type.
 
@@ -209,7 +209,7 @@ To follow along with the steps above using the example data download these [Json
 - **player_level_1_cohort.json** - For use with Step 2.4 above
 - **player_level_not1_cohort.json** - For use with Step 2.4 above
 
-### Sample Code
+### Sample code
 
 The `TrialDataServiceExample.cs` loads the `MyPlayerProgression` object with appropriate values. The related A/B Test trial uses the player's Stat of `PLAYER_LEVEL` to determine the appropriate values.
 
@@ -361,7 +361,7 @@ Steps
 
 If the onscreen UI shows different text in each case, then all is setup properly.
 
-## Troubleshooting Tips
+## Troubleshooting tips
 
 Here are some areas to double check if your testing is not working as intended.
 

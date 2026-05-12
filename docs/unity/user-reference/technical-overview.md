@@ -4,20 +4,20 @@
 
 Modern game development faces numerous challenges: setting up scalable backend infrastructure, implementing secure authentication systems, managing virtual economies, handling real-time multiplayer networking, and analyzing player behavior. Beamable solves these problems by providing a unified platform that enables developers to build modern multiplayer games with advanced features like live operations, social networking, game economy, analytics, and cloud services without the complexity of managing backend infrastructure.
 
-## Beamable Way
+## The Beamable Way
 
 The Beamable Unity SDK allows your Unity Project to connect with the Beamable Services. This addresses the fundamental challenges of modern game development by providing a comprehensive, integrated platform that eliminates the need to build backend infrastructure from scratch. Instead of spending months implementing authentication systems, virtual economies, and multiplayer networking, developers can focus on creating compelling gameplay experiences.
 
 The platform's player-centric design ensures that all systems work together, while the deep Unity Editor integration maintains developer productivity. With first-class support for C# Microservices, developers can extend the platform with custom server-side logic without managing servers or scaling infrastructure. This combination of features and ease of use empowers developers to build, launch, and operate modern multiplayer games efficiently.
 
 
-### Player-Centric API and Dependency Injection
+### Player-centric API and dependency injection
 
 Beamable follows a player-centric architecture that fundamentally changes how developers think about game backend services. Traditional game development often requires managing multiple disparate systems, each with their own APIs, authentication methods, and data models. This fragmentation leads to increased development time, security vulnerabilities, and maintenance overhead.
 
 The [Player-Centric API](runtime-systems/player-centric-api.md) solves this by organizing all services around the player experience, providing a unified interface that treats the player as the central entity. The [Dependency Injection System](runtime-systems/di.md) ensures clean architecture patterns for managing service dependencies, making code more testable and maintainable. On top of it, a suite of Unity Editor Tools deeply integrated provides a consistent development workflow, allowing developers to configure, test, and deploy backend services directly from the Unity Editor.
 
-### Microservice-First Architecture
+### Microservice-first architecture
 
 Many games require custom server-side logic that goes beyond standard backend services. Traditional approaches often require managing servers, scaling infrastructure, and handling deployment complexity. This creates significant operational overhead and limits development agility.
 
@@ -25,9 +25,9 @@ Beamable's microservice system solves these challenges by allowing developers to
 
 [Microstorages](cloud-services/microstorages.md) offer custom data storage solutions that integrate with the microservice framework, while [Scheduled Jobs](cloud-services/scheduled-jobs.md) enable automated background tasks and cron jobs for maintenance and periodic operations.
 
-## Core Services
+## Core services
 
-### Identity and Authentication
+### Identity and authentication
 
 One of the most complex challenges in modern game development is implementing secure, scalable authentication that works across multiple platforms and devices. Players expect to be able to sign in quickly, maintain their progress across devices, and link multiple authentication methods to a single account. Traditional authentication implementations require managing OAuth flows, storing sensitive credentials, handling edge cases like token expiration, and ensuring compliance with platform-specific requirements.
 
@@ -37,13 +37,13 @@ The system also integrates with major third-party authentication providers, incl
 
 The [Federated Identity](beamable-services/identity/federated-identity.md) system allows players to link multiple authentication methods to a single account, solving the common problem of players losing access to their accounts when switching between devices or authentication providers.
 
-### Game Economy
+### Game economy
 
 Monetization and virtual economies are critical for the success of modern games, but implementing them securely and flexibly presents significant challenges. Developers must create systems for multiple currency types, complex item relationships, secure transaction processing, and fraud prevention. Traditional implementations often result in rigid systems that are difficult to modify post-launch and vulnerable to exploitation.
 
 Beamable's game economy system provides a comprehensive solution for monetization and virtual economy management. The [Virtual Currency](beamable-services/game-economy/virtual-currency-overview.md) system supports multiple currency types with configurable conversion rates, enabling complex economic designs while maintaining balance and preventing inflation. The [Inventory System](beamable-services/game-economy/inventory-overview.md) handles item management, collections, and player inventories with support for item stacking, expiration, and complex item relationships. The [Stores](beamable-services/game-economy/stores-overview.md) system provides in-game stores that support both real money and virtual currency purchases, with built-in support for platform-specific payment processing and receipt validation.
 
-### Live Operations
+### Live operations
 
 Maintaining player engagement after launch requires sophisticated live operations capabilities. Game developers need to deliver new content, run limited-time events, communicate with players, and respond to changing player behavior in real-time. Traditional approaches often require client updates for new content, limiting the speed and flexibility of live operations.
 
@@ -51,7 +51,7 @@ Beamable's live operations suite addresses these challenges with dynamic content
 
 The [Mail System](beamable-services/live-ops/mail-overview.md) offers in-game messaging with attachment support, enabling developers to send rewards, compensation, or personalized messages directly to players. The [Player Stats and Activities](beamable-services/live-ops/player-stats-and-activities.md) system tracks player progression and activities, providing the data foundation for targeted live operations.
 
-### Social Networking
+### Social networking
 
 Modern games increasingly rely on social features to drive engagement and retention. However, implementing robust social networking features requires sophisticated real-time communication systems, matchmaking algorithms, and community management tools. Building these systems from scratch is time-consuming and technically challenging.
 
@@ -59,7 +59,7 @@ Beamable's social networking suite provides complete multiplayer and social feat
 
 [Groups](beamable-services/social-networking/groups.md) enable the creation of clans, guilds, and other social organizations with customizable permissions and management tools. [Leaderboards](beamable-services/social-networking/leaderboards.md) provide competitive rankings and scoring systems that can be configured for different game modes and time periods. The [Lobbies](beamable-services/social-networking/lobbies.md) system manages game session creation and player matchmaking, while [Matchmaking](beamable-services/social-networking/matchmaking.md) provides skill-based and custom matchmaking algorithms. [Parties](beamable-services/social-networking/parties.md) enable group formation for multiplayer games. [Tournaments](beamable-services/social-networking/tournaments.md) provide competitive tournament systems with brackets, scheduling, and prize distribution.
 
-### Profile Storage and Data Management
+### Profile storage and data management
 
 Player data persistence and synchronization across devices is a fundamental requirement for modern games. Players expect their progress to be saved securely and available across all their devices. Implementing robust cloud save systems requires handling data conflicts, ensuring data integrity, and managing storage costs at scale.
 
@@ -67,7 +67,7 @@ Beamable's profile storage and data management systems solve these challenges co
 
 The content management system addresses the challenge of managing game configuration data that needs to be updated without client releases. The [Content Overview](beamable-services/profile-storage/content/content-overview.md) explains the content system architecture, while [Content Unity Integration](beamable-services/profile-storage/content/content-unity.md) shows how content integrates with Unity workflows. [Getting Started with Content](beamable-services/profile-storage/content/content-getting-started.md) provides implementation guidance, and the [Game Content Designer](beamable-services/profile-storage/content/game-content-designer.md) offers visual tools for content creation and management.
 
-### Business Intelligence and Analytics
+### Business intelligence and analytics
 
 Understanding player behavior and optimizing game performance requires sophisticated analytics and experimentation capabilities. Game developers need to track player actions, analyze retention patterns, segment players for targeted experiences, and run controlled experiments to optimize game mechanics. Building these systems internally requires significant data engineering expertise and infrastructure.
 

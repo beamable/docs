@@ -2,7 +2,7 @@
 
 The Groups feature allows you to organize and manage player groups through the Portal.
 
-## Getting Started
+## Getting started
 
 Follow these steps to configure Groups settings:
 
@@ -12,7 +12,7 @@ Follow these steps to configure Groups settings:
 | 2. Expand "Engage" section on the sidebar | • Click "Groups"                         |
 | 3. Configure the settings                 | • Enjoy!                                 |
 
-## Game Maker User Experience
+## Game Maker user experience
 
 The following screenshot shows the Groups management interface:
 

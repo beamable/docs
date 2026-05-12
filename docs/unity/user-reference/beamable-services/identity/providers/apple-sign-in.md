@@ -1,4 +1,4 @@
-# Apple Sign-In
+# Apple sign-in
 
 The purpose of this guide is for game makers to use Apple Sign-In with the Beamable Accounts service.
 
@@ -7,7 +7,7 @@ Beamable integrates with Apple Sign-In to make it easy for users to sign in to y
 !!! info "Prerequisites"
     Before Apple Sign-In will work properly, configure your Unity project to support Apple as a third-party authentication provider.
 
-## Apple Sign-In Integration
+## Apple sign-in integration
 
 The recommended solution for implementing Apple Sign-In is to build a wrapper on top of SignInWithApple, a Unity package that is installed with Beamable.
 
@@ -49,7 +49,7 @@ public void StartAppleLogin()
 }
 ```
 
-## Handle Various Flow Scenarios
+## Handle various flow scenarios
 
 Depending on the state of the currently logged in user, we may need to attach the credentials to the current user, switch to a different user, or create a new one entirely. The following code covers all 3 cases.
 
@@ -68,7 +68,7 @@ var shouldCreateUser = available && userHasCredentials;
 var shouldAttachToCurrentUser = available && !userHasCredentials;
 ```
 
-### Should Switch Users
+### Should switch users
 
 Here we are authenticating the third party (Apple) with Beamable by logging them in using the LoginThirdParty API.
 
@@ -79,7 +79,7 @@ if(shouldSwitchUsers)
 }
 ```
 
-### Should Create User
+### Should create user
 
 Here we create a new user, apply the current token to that user, then register the third party login (Apple) using the RegisterThirdPartyCredentials API. We take the user returned and then update the user data.
 
@@ -93,7 +93,7 @@ if(shouldCreateUser)
 }
 ```
 
-### Should Update Current User
+### Should update current user
 
 Here we are attaching to the current user with the Apple token. This scenario is essentially "auto-login". The Apple user has already been linked with the current Beamable user and we can safely apply the token.
 
@@ -104,7 +104,7 @@ if(shouldAttachToCurrentUser)
     _beamContext.Api.UpdateUserData(user);
 }
 ```
-## Apple's App Privacy Questionnaire
+## Apple's app privacy questionnaire
 
 Any developer that wants to submit a new application or app update to the Apple App Store is required to submit an application privacy questionnaire specifying which data is collected by their app and the data collected by any SDKs integrated into their app. [More information.](https://developer.apple.com/app-store/app-privacy-details/)
 

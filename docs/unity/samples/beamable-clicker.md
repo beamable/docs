@@ -1,4 +1,4 @@
-# Leaderboard Sample
+# Leaderboard sample
 
 A simple clicker game sample demonstrating Beamable's Leaderboard system. **In this game, button clicks grow trees. Click as many times as possible within the time limit.**
 
@@ -20,7 +20,7 @@ A simple clicker game sample demonstrating Beamable's Leaderboard system. **In t
     - [Stats](../user-reference/beamable-services/profile-storage/stats.md) - Player statistics tracking
     - [Connectivity](../user-reference/beamable-services/social-networking/connectivity.md) - Player connection management
 
-## Game Rules
+## Game rules
 
 - Players have a limited time to click and grow their tree
 - Each click increases the current score
@@ -28,7 +28,7 @@ A simple clicker game sample demonstrating Beamable's Leaderboard system. **In t
 - Scores are submitted to a global leaderboard for competition
 - The tree grows visually based on the player's performance relative to the global high score
 
-## Project Repository
+## Project repository
 
 The code for the Leaderboard ABC Sample is available at [Leaderboard ABC Sample Project](https://github.com/beamable/Leaderboard_ABC_Sample_Project).
 
@@ -44,11 +44,11 @@ The code for the Leaderboard ABC Sample is available at [Leaderboard ABC Sample 
 |--------|--------|
 | **Beamable** | 1. **Download** the [Leaderboard ABC Sample Project](https://github.com/beamable/Leaderboard_ABC_Sample_Project)<br>2. Open in Unity Editor (Version 2021.3 or later)<br>3. Open the Beamable [Toolbox](../user-reference/editor-systems/unity-editor-login.md)<br>4. Sign-In / Register To Beamable. See [Getting Started](../getting-started/installing-beamable.md) for more info<br>5. Open the Content Manager Window and click "Publish". See [Content Manager](../user-reference/beamable-services/profile-storage/content/content-overview.md) for more info<br>6. Open the `1.Intro` Scene<br>7. Play The Scene: Unity → Edit → Play<br>8. Enjoy!<br><br>_Note: Sample projects are compatible with supported Unity versions_ |
 
-## Implementation Guide
+## Implementation guide
 
 This sample demonstrates key Beamable integration patterns for leaderboards and stats.
 
-### Key Components
+### Key components
 
 **IntroSceneManager.cs** - Handles Beamable SDK initialization and connectivity checks
 ```csharp
@@ -71,7 +71,7 @@ private void SetLeaderboardScore(LeaderboardContent leaderboardContent, double s
 }
 ```
 
-## Additional Experiments
+## Additional experiments
 
 Try these optional experiments to extend the sample:
 
@@ -82,13 +82,13 @@ Try these optional experiments to extend the sample:
 | Intermediate | Difficulty Levels | Implement multiple difficulty levels with varying time limits |
 | Advanced | Tree Varieties | Create different tree types with unique growth animations |
 
-## Advanced Topics
+## Advanced topics
 
-### Using Beamable Stats
+### Using Beamable stats
 
 This sample uses Beamable Stats to track player progress. While not strictly necessary for a simple clicker game, Stats demonstrate how to store and retrieve player-specific data.
 
-### Managing Leaderboards via Portal
+### Managing leaderboards via Portal
 
 The Beamable Portal allows game makers to manage leaderboards, view player scores, and configure leaderboard settings.
 

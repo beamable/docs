@@ -1,4 +1,4 @@
-# Global Price War 2 - Chat & MicroStorage Sample
+# Global Price War 2 - chat and MicroStorage sample
 
 A sample project demonstrating Beamable's Chat and MicroStorage features through an advanced trading game called "Global Price Wars 2".
 
@@ -31,7 +31,7 @@ The GPW2 project uses a more sophisticated architecture compared to GPW1:
 - **Scalable Design**: Supports multiple concurrent games and players
 
 
-## Project Repository
+## Project repository
 
 The code for Global Price War 2 is available at [Chat GPW 2 With MicroStorage Sample Project](https://github.com/beamable/Chat_GPW_2_With_MicroStorage_Sample_Project).
 
@@ -54,7 +54,7 @@ The code for Global Price War 2 is available at [Chat GPW 2 With MicroStorage Sa
 | :--- | :--- |
 | **Beamable** | 1. **Download** the [Chat GPW2 Sample Project](https://github.com/beamable/Chat_GPW_2_With_MicroStorage_Sample_Project)<br/>2. Open in Unity Editor (Version 2021.3 or later)<br/>3. Open the Beamable [Toolbox](../user-reference/editor-systems/unity-editor-login.md)<br/>4. Sign-In / Register To Beamable. See [Getting Started](../getting-started/installing-beamable.md) for more info<br/>5. Set up Docker and Microservices following the [Microservices Guide](../user-reference/cloud-services/microservices/microservice-framework.md)<br/>6. Deploy the MicroStorage and Microservices<br/>7. Open the `Scene01Intro` Scene<br/>8. Play The Scene: Unity → Edit → Play<br/>9. Click the "Start" Button<br/>10. Enjoy!<br/><br/>_Note: This sample project requires Docker setup for Microservices and is compatible with Unity 2021.3 and later versions._ |
 
-### Rules of the Game
+### Rules of the game
 
 - 1 player starts the game with limited turns
 - After the final turn, the game is over
@@ -67,21 +67,21 @@ The code for Global Price War 2 is available at [Chat GPW 2 With MicroStorage Sa
 
 _Pro Tip: Sell all owned items before the final turn to increase the final score._
 
-## Key Differences from GPW1
+## Key differences from GPW1
 
 This advanced version (GPW2) includes several enhancements over the basic Chat GPW project:
 
-### MicroStorage Integration
+### MicroStorage integration
 - **Persistent Data**: Uses Beamable MicroStorage for persistent, server-side data storage
 - **Shared Market Data**: All players see the same market prices stored in the database
 - **Real-time Synchronization**: Market data updates are synchronized across all connected players
 
-### Microservices Architecture
+### Microservices architecture
 - **Server-side Logic**: Game logic runs on Beamable Microservices for better security and consistency
 - **Data Validation**: Server validates all transactions and market operations
 - **Scalable Design**: Architecture supports multiple concurrent players and games
 
-### Advanced Features
+### Advanced features
 - **Database Persistence**: Game state persists between sessions
 - **Enhanced Chat**: More sophisticated chat integration with game events
 - **Market Dynamics**: More realistic market behavior with server-controlled pricing

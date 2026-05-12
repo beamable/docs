@@ -1,8 +1,8 @@
-# Web Access Sample
+# Web access sample
 
 The project linked from this page is an example of how to use Beamable APIs in a webpage context: HTML and Javascript.
 
-## Quick Start
+## Quick start
 
 The example code in <https://github.com/beamable/BeamWebAccess-example> is pointed at the `BeamWebAccess-prod` realm, as described below. You can start testing with it without making any changes. You can read more on [GitHub](https://github.com/beamable/BeamWebAccess-example)
 

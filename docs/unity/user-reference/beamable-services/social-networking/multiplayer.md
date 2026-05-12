@@ -4,7 +4,7 @@ The Beamable Multiplayer service allows game makers to create real-time and turn
 
 **What is a game server?** A game **server** is the source of event coordination in a multiplayer video game. The server transmits enough events about its internal state to allow each connected **client** to maintain their own accurate version of the game. Events may contain various types of information including; properties about the game world, the players, and player input. See [Wikipedia](https://en.wikipedia.org/wiki/Game_server) for more info.
 
-## Game Servers
+## Game servers
 
 Here are the leading options;
 
@@ -34,7 +34,7 @@ _Here is a comparison of various game servers;_
 | Higher Security                               | ✔️ (Determinism) | ✔️ (Server-Authoritative) | ❌ |
 | Lower Latency                                 | ✔️               | ✔️                        | ✔️                     |
 
-## Beamable Multiplayer
+## Beamable multiplayer
 
 The Beamable Multiplayer API is lean and straightforward to setup. The pipeline and workflow for development are ready out-of-the-box on day 1 of development, allowing game makers to focus on game-specific client logic.
 
@@ -58,7 +58,7 @@ here is a high-level diagram of the Beamable Multiplayer terms
 | SimClient's FramesPerSecond | This is the rate (in times per second) at which the **client** receives event updates from the Multiplayer **server**. As a data optimization, typically this is set lower than the rendering frame rate of Unity. |
 | Server | This refers to the instance of the server code that sits between the game's **clients** and manages distribution of the game events. |
 
-### Game Security
+### Game security
 
 To be more secure against any malicious hackers in your multiplayer game's community, consider never sending any game object state (player's heath, power of weapon, etc) as part of the messages to be synchronized over the network.
 
@@ -72,17 +72,17 @@ In multiplayer gaming, matchmaking is the process of choosing a `MatchId` based 
 
 See [Matchmaking](matchmaking.md) for more info.
 
-### Playing "against Yourself"
+### Playing "against yourself"
 
 One of the challenges of developing a multiplayer game is testing it frequently as an individual developer. Finding a friend to play against you **every** time you run the game in development is prohibitive.
 
 Here are 2 strategies to help the development process.
 
-#### Adding a Bot
+#### Adding a bot
 
 The sample game includes an optional bot opponent. This is an AI that plays against you. Simply click "Start Game: Human vs Bot" from the Menu Scene to activate it. Architecturally this is similar to the full game and it fully uses the Beamable Multiplayer event objects for each player move. However, it requires only one human player.
 
-#### Playing against Yourself
+#### Playing against yourself
 
 The sample game allows a workflow to test the full 2 player experience with relative ease. Build the Unity sample project as a standalone game for either Mac or PC. Then run the game in the Unity Editor **also**. Simply click "Start Game: Human vs Human" from the Menu Scene in **both** game clients to activate it.
 
@@ -90,7 +90,7 @@ Doing a build takes a few minutes. Depending on the specifics of your game, it m
 
 This is the process of choosing a `MatchId` based on criteria — for example, "Give me a match to play in with 3 total players with beginner skill level". Beamable includes an optional, light-weight Matchmaking service.
 
-### Randomization and Determinism
+### Randomization and determinism
 
 In single-player game design, game makers may freely use randomization libraries to add variety to game play. The environment may be randomized, the enemy amount and variety can change every game session. This adds richness and replayability to the game.
 
@@ -106,7 +106,7 @@ Here is the **High-level Sequence for Beamable Multiplayer**.
 
     This API is experimental and may change in future versions.
 
-### Creating Multiplayer Session
+### Creating multiplayer session
 Each game client connects this way. No one client has special status of 'host'. Depending on the needs of the game, the `SimClient` session may stay from the moment any one player joins until the moment the last player leaves.
 
 ```csharp
@@ -127,7 +127,7 @@ public class MyPlayerMoveEvent
 }
 ```
 
-### Subscribing To Events
+### Subscribing to events
 The client must repeat this for **each** PlayerId of interest.
 
 ```csharp
@@ -135,7 +135,7 @@ _simClient.On<MyPlayerMoveEvent>(MyPlayerMoveEvent.Name, _localPlayerDbid.ToStri
      SimClient_OnMyPlayerMoveEvent);
 ```
 
-### Sending Events
+### Sending events
 Typically each player's input is converted into an event.
 
 ```csharp
@@ -143,7 +143,7 @@ _simClient.SendEvent(MyPlayerMoveEvent.Name,
      new MyPlayerMoveEvent(_localPlayerDbid, new Vector3(0, 0, 0)));
 ```
 
-### Handling Event
+### Handling event
 Typically for a fair and consistent game play experience, best practices dictate that all events, even the local clients own player's events are sent to the server, later received, and then converted to rendered graphics and sounds. This way the requisite latency is the same for the local client as it is for all other clients in the same match.
 
 ```csharp
@@ -153,7 +153,7 @@ private void SimClient_OnMyPlayerMoveEvent(MyPlayerMoveEvent myPlayerMoveEvent)
 }
 ```
 
-### Handling Network Faults
+### Handling network faults
 
 It is possible that temporary network outages may occur. While these errors are occurring, player communication with the Beamable Game Relay is blocked, and no messages will be sent or received. When network connectivity resumes, the session will resume sending and receiving events.
 
@@ -195,7 +195,7 @@ catch (SimNetworkErrorException ex)
 
 In the event that a network outage is unrecoverable, the entire `SimNetworkEventStream` instance needs to be reconstructed. Any further calls to `SimClient.Update` will re-throw the `SimNetworkErrorException`.
 
-#### Custom Fault Tolerance
+#### Custom fault tolerance
 
 It is possible to inject custom network outage fault tolerance logic. Use [Custom Dependency Injection](../../runtime-systems/di.md) to inject a new instance of `ISimFaultHandler`, or pass in a custom instance of `ISimFaultHandler` as an optional parameter to the `SimNetworkEventStream`.
 
@@ -213,7 +213,7 @@ The default implementation of the `ISimFaultHandler` is the `DefaultSimFaultHand
     });
     ```
 
-### Sample Code
+### Sample code
 Here is a complete Beamable Multiplayer example that creates a game session and sends/receives game events.
 
 MultiplayerExample.cs

@@ -22,7 +22,7 @@ This sample requires the `LootboxService` Microservice to be running locally. Be
 !!! warning "Service must be running"
     Without the `LootboxService` running, the timer will not load and the **Claim Reward** button will not function.
 
-## Sample Overview
+## Sample overview
 
 When you open the scene, the home screen shows a countdown timer. On startup, the sample reads the last-claim timestamp stored in the player's Stats. The `LootboxService` Microservice uses that timestamp to calculate how much time has elapsed and how long remains before the next claim.
 

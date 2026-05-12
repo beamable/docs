@@ -16,7 +16,7 @@ The main API highlights include [`ConnectivityService`](https://csharp.cdocs.bea
 | SetHasInternet | Setter. Determines if the app has internet connectivity<br><br>_Note: Calling this is not required. The Beamable system will automatically monitor connectivity and update the ConnectivityService._ |
 
 
-### Sample Code
+### Sample code
 
 Here are some code examples to help you get started.
 
@@ -115,7 +115,7 @@ namespace Beamable.Examples.Services.ConnectivityService
 }
 ```
 
-### Disable Network Connection
+### Disable network connection
 
 Game makers can set a global disable to simulate not having Wi-Fi before BeamContext initialization.
 
@@ -144,7 +144,7 @@ private async void SetupBeamable()
 }
 ```
 
-### Custom Connectivity Service
+### Custom connectivity service
 
 From version 1.11 and above, you can override the `IConnectivityChecker` service via Dependency Injection and change how the connectivity logic works. The default implementation uses a polling approach and sends requests to Beamable's API Gateway.
 
@@ -386,7 +386,7 @@ The result of this is as follows:
 
 Overall, users with bad connections will see an error, as they should, but people with fine connections should experience markedly fewer false negatives.
 
-#### Dependency Registration
+#### Dependency registration
 
 ```csharp
 [BeamContextSystem]
@@ -402,7 +402,7 @@ public class DependencyRegistration
 }
 ```
 
-#### Connectivity Service Override
+#### Connectivity service override
 
 ```csharp
 public class AlwaysConnectivityChecker : IConnectivityChecker
