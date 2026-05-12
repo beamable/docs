@@ -1,4 +1,4 @@
-# Microservice Analytics
+# Microservice analytics
 
 Emit custom analytics events from a Beamable Standalone Microservice.
 
@@ -20,7 +20,7 @@ cd MyProject
 dotnet beam project new service HelloWorld
 ```
 
-## Emitting Events
+## Emitting events
 
 Microservices can emit custom analytics events using the `Services.Analytics` API.
 
@@ -58,13 +58,13 @@ public async Task<string> RecordMatchResult(string outcome, int score)
 }
 ```
 
-### Source Domain
+### Source domain
 
 The Microservice analytics API uses the same channel as client-side telemetry. Events emitted from a Microservice therefore appear as **client** records in Athena, not as a separate server or game source.
 
 The Athena table name follows the pattern `client_{category}_{event_name}`. For the example above, the table is `client_gameplay_match_result`.
 
-### Verifying Events
+### Verifying events
 
 After invoking your Microservice method, the event should appear in Athena within a few minutes. You can confirm it with a query like:
 

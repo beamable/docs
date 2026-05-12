@@ -1,7 +1,7 @@
-# Granting Developer Permissions
+# Granting developer permissions
 When your Beamable account contains multiple games, you may wish to allow different teammates different access levels depending on which game they are working on. This article shows how to set up realm-scoped permissions.
 
-## Getting Started
+## Getting started
 
 This guide assumes there is already an account for the person whose access you are changing. If they need a new account, follow the instructions in [Portal / Adding Developers](portal-adding-beamable-developers.md) first.
 
