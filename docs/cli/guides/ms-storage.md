@@ -1,4 +1,4 @@
-# Microservice Storage
+# Microservice storage
 
 Add database storage to Beamable Standalone Microservices
 
@@ -19,7 +19,7 @@ cd MyProject
 dotnet beam project new service HelloWorld
 ```
 
-## Storage Objects
+## Storage objects
 
 A Storage Object is a MongoDB database. Beamable will host and manage a database on your behalf when you deploy your project. Locally, the Beam CLI creates a local mongo database inside a Docker container. Beamable never installs mongo directly on your host machine.
 

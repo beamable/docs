@@ -1,4 +1,4 @@
-# Microservice Configuration
+# Microservice configuration
 
 Configure Standalone Microservices
 
@@ -19,7 +19,7 @@ cd MyProject
 dotnet beam project new service HelloWorld
 ```
 
-## Project Configuration
+## Project configuration
 
 Each Standalone Microservice is a dotnet project, and can be configured through the dotnet `.csproj`. In most IDEs, the `.csproj` file will be hidden automatically, but you can open it by right-clicking on the project in the IDE and opening the `.csproj` file. As of Beam CLI 3.0.0, the starting `.csproj` has the following structure.
 
@@ -51,12 +51,12 @@ Each Standalone Microservice is a dotnet project, and can be configured through 
 </Project>
 ```
 
-### Code Dependencies
+### Code dependencies
 
 Dotnet projects use a tool called _Nuget_ to manage dependencies on other code libraries. Each `<PackageReference>` node within an `<ItemGroup>` element declares a Nuget dependency. By default, every Standalone Microservice requires the [Beamable Microservice Nuget Package](https://www.nuget.org/packages/Beamable.Microservice.Runtime). However, you can add whatever packages you require as well.
 
 
-### Beamable Properties
+### Beamable properties
 
 Dotnet uses a tool called `msbuild` to compile your code into executable files. When the build happens, `msbuild` accesses various XML based properties within the `<PropertyGroup>` elements of the `.csproj` file.
 
@@ -187,13 +187,13 @@ If you need to specify multiple values, use a `,` or a `;` to separate values. Y
 | `<BeamServiceGroup>` | empty         |
 
 
-### Telemetry Properties
+### Telemetry properties
 
 In CLI 6.0, the CLI will try to collect usage data and send it to Beamable. You can opt out of this by changing the `BeamCliAllowTelemetry` property to false in the `.beamable/otel-config.json` file.
 
 Additionally, you can completely opt out of usage reporting by setting the `BEAM_NO_TELEMETRY` environment variable.
 
-### Dotnet Properties
+### Dotnet properties
 
 Common Dotnet properties may be explored through [Dotnet's Documentation](https://learn.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2022) . However, there are a few properties that are set automatically through the usage of the [Beamable Microservice Nuget Package](https://www.nuget.org/packages/Beamable.Microservice.Runtime). To view these default settings, you should view the package source code's `.props` file, located here,
 

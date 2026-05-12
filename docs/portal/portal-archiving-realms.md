@@ -1,4 +1,4 @@
-# Archiving Realms
+# Archiving realms
 
 Archiving a realm removes it from the active realm hierarchy for a game in the Beamable Portal. Use this workflow when you need to retire a game environment that your team no longer uses
 
@@ -8,7 +8,7 @@ Only admins can archive realms. Developers and testers can log into Portal, but 
 
     Archive realms from the visual top of the hierarchy display down toward the production realm. This usually means starting with the `-dev` realm, unless your game has additional child realms above it in the hierarchy
 
-## Archive a Realm
+## Archive a realm
 
 1. Log into [Portal](https://portal.beamable.com/)
 
@@ -28,7 +28,7 @@ Only admins can archive realms. Developers and testers can log into Portal, but 
 ![Archive Realm](docs/media/imgs/archive-archiveRealm.png)
 9. Click _Archive_
 
-## Stop Running Microservices
+## Stop running Microservices
 
 You cannot archive a realm while it has running Microservices. If _Archive Realm_ is disabled and Portal shows a message that the realm has Microservices running, stop those services before you archive the realm
 
@@ -51,7 +51,7 @@ After all Microservices in the realm are stopped, return to the realm card and a
     Wait until each Microservice is marked as stopped before stopping the next one. This keeps the Portal state clear and makes the archive flow smoother
 
 
-## Archive a Game's Realm Hierarchy
+## Archive a game's realm hierarchy
 
 To archive a full game hierarchy, repeat the archive workflow for each realm. Start at the visual top of the hierarchy display and move downward until you reach the production realm
 

@@ -1,4 +1,4 @@
-# Microservice Federation
+# Microservice federation
 
 Federate Standalone Microservices with external services
 
@@ -51,7 +51,7 @@ public class MySample : IFederationId { }
 ```
 ---
 
-## CLI Commands
+## CLI commands
 
 The CLI offers a few commands to enable and disable federations for a service. The `beam fed` command suite allows you to read and write federation data. None of the commands will modify your C# source files.
 
@@ -76,9 +76,9 @@ dotnet beam fed list
 
 ---
 
-## Possible Issues and Solutions
+## Possible issues and solutions
 
-### Invalid Federation Id detected
+### Invalid federation ID detected
 
 **Example Code Triggering the Error**:
 ```csharp
