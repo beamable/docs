@@ -1352,7 +1352,7 @@
   <a href="#creating-new-projects" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating New Projects
+        Creating new projects
       
     </span>
   </a>
@@ -1385,7 +1385,7 @@
   <a href="#checking-running-microservices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checking Running Microservices
+        Checking running Microservices
       
     </span>
   </a>
@@ -1396,7 +1396,7 @@
   <a href="#stopping-services" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stopping Services
+        Stopping services
       
     </span>
   </a>
@@ -1407,7 +1407,7 @@
   <a href="#observing-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observing Logs
+        Observing logs
       
     </span>
   </a>
@@ -6239,7 +6239,7 @@
   <a href="#creating-new-projects" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating New Projects
+        Creating new projects
       
     </span>
   </a>
@@ -6272,7 +6272,7 @@
   <a href="#checking-running-microservices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checking Running Microservices
+        Checking running Microservices
       
     </span>
   </a>
@@ -6283,7 +6283,7 @@
   <a href="#stopping-services" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stopping Services
+        Stopping services
       
     </span>
   </a>
@@ -6294,7 +6294,7 @@
   <a href="#observing-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observing Logs
+        Observing logs
       
     </span>
   </a>
@@ -6318,7 +6318,7 @@
 
 
 
-<h1 id="microservice-cli-workflows">Microservice CLI Workflows<a class="headerlink" href="#microservice-cli-workflows" title="Permanent link">¶</a></h1>
+<h1 id="microservice-cli-workflows">Microservice CLI workflows<a class="headerlink" href="#microservice-cli-workflows" title="Permanent link">¶</a></h1>
 <p>Managing Microservices from the CLI</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can manage Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">Dotnet 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
@@ -6326,7 +6326,7 @@
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w">   </span><span class="c1"># dotnet beam --version also works.</span>
 </code></pre></div><p></p>
-<h2 id="creating-new-projects">Creating New Projects<a class="headerlink" href="#creating-new-projects" title="Permanent link">¶</a></h2>
+<h2 id="creating-new-projects">Creating new projects<a class="headerlink" href="#creating-new-projects" title="Permanent link">¶</a></h2>
 <p>New Microservices, Storages, and Common projects can be created within an existing <code>.beamable/</code> workspace.</p>
 <p>Use the <code>beam project new</code> commands to create new projects.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>&lt;name&gt;<span class="w"> </span><span class="c1"># create a new Microservice</span>
@@ -6358,14 +6358,14 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>run<span class="w"> </span>--ids<span class="w"> </span>HelloWorld
 </code></pre></div>
 <p>Optionally, you can enable hot-reload by passing the <code>-w</code> flag.</p>
-<h2 id="checking-running-microservices">Checking Running Microservices<a class="headerlink" href="#checking-running-microservices" title="Permanent link">¶</a></h2>
+<h2 id="checking-running-microservices">Checking running Microservices<a class="headerlink" href="#checking-running-microservices" title="Permanent link">¶</a></h2>
 <p>You can use the <code>project ps</code> command to check for <em>running</em> services. If you run the command while no services are running, the output will be empty. However, if the command is executed while a Microservice is running, then it will be displayed.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>MyProject<span class="w"> </span>%<span class="w"> </span>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>ps
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>HelloWorld<span class="w"> </span>is<span class="w"> </span>available<span class="w"> </span><span class="nv">prefix</span><span class="o">=[</span>Chriss-MacBook-Pro-2<span class="o">]</span><span class="w"> </span><span class="nv">docker</span><span class="o">=[</span>False<span class="o">]</span>
 </code></pre></div>
 <p>The <code>prefix</code> in the log declares that the service is running locally, and the <code>docker</code> log declares that the service is running through dotnet, and not inside a docker container.</p>
 <p>Optionally, you can pass the <code>-w</code> flag to watch for changes to running services.</p>
-<h2 id="stopping-services">Stopping Services<a class="headerlink" href="#stopping-services" title="Permanent link">¶</a></h2>
+<h2 id="stopping-services">Stopping services<a class="headerlink" href="#stopping-services" title="Permanent link">¶</a></h2>
 <p>If a service is running, then the project stop command may be used to stop the program. If the service is not running, then the command will have no output. However, if the service is running, it will log a stop message.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>MyProject<span class="w"> </span>%<span class="w"> </span>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>stop<span class="w"> </span>--ids<span class="w"> </span>HelloWorld
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>stopped<span class="w"> </span>HelloWorld.
@@ -6373,7 +6373,7 @@
 <p>When a service is stopped this way, you should expect to see a log in the Microservice itself,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[Info] Stopping service through debug-server due to reason=[cli-request]
 </code></pre></div>
-<h2 id="observing-logs">Observing Logs<a class="headerlink" href="#observing-logs" title="Permanent link">¶</a></h2>
+<h2 id="observing-logs">Observing logs<a class="headerlink" href="#observing-logs" title="Permanent link">¶</a></h2>
 <p>When a service is run, the process that starts the service should receive the log outputs. For example, if the service is run through the IDE, then the IDE should receive the logs from the service. However, it is possible to attach to the logs of a running service from a separate process.</p>
 <p>For example, imagine that a service is run through <code>dotnet</code> directly,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dotnet<span class="w"> </span>dotnet<span class="w"> </span>run<span class="w"> </span>--project<span class="w"> </span>services/HelloWorld

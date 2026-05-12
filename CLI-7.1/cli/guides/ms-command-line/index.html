@@ -1447,7 +1447,7 @@
   <a href="#raw-output-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Raw Output Mode
+        Raw output mode
       
     </span>
   </a>
@@ -1469,7 +1469,7 @@
   <a href="#piping-and-logging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Piping and Logging
+        Piping and logging
       
     </span>
   </a>
@@ -1480,7 +1480,7 @@
   <a href="#error-logging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Error Logging
+        Error logging
       
     </span>
   </a>
@@ -6239,7 +6239,7 @@
   <a href="#raw-output-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Raw Output Mode
+        Raw output mode
       
     </span>
   </a>
@@ -6261,7 +6261,7 @@
   <a href="#piping-and-logging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Piping and Logging
+        Piping and logging
       
     </span>
   </a>
@@ -6272,7 +6272,7 @@
   <a href="#error-logging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Error Logging
+        Error logging
       
     </span>
   </a>
@@ -6296,7 +6296,7 @@
 
 
 
-<h1 id="command-line-output">Command-Line Output<a class="headerlink" href="#command-line-output" title="Permanent link">¶</a></h1>
+<h1 id="command-line-output">Command-line output<a class="headerlink" href="#command-line-output" title="Permanent link">¶</a></h1>
 <p>Passing output from the CLI to other processes</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can use the Beamable CLI, you need to complete the <a href="doc:cli-guide-getting-started">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">Dotnet 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
@@ -6344,7 +6344,7 @@
 <p>In order to set the log level, the full level name may be used (case insensitive), or simply the first letter of the level. For example, to use verbose logs, the following expression may be used.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span>--logs<span class="w"> </span>v
 </code></pre></div>
-<h2 id="raw-output-mode">Raw Output Mode<a class="headerlink" href="#raw-output-mode" title="Permanent link">¶</a></h2>
+<h2 id="raw-output-mode">Raw output mode<a class="headerlink" href="#raw-output-mode" title="Permanent link">¶</a></h2>
 <p>By default, the Beam CLI prints output in a variety of ways. Some commands will print JSON to the Standard Output Buffer (StdOut), and other commands will print conversational messages. However, all commands can be forced to print in a structured JSON format.</p>
 <p>The <code>--raw</code> flag will always print messages in JSON. The <code>--raw</code> message contains additional information than what may be printed for commands that already use JSON. For example, the <code>beam config</code> command prints JSON,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config
@@ -6411,7 +6411,7 @@
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span>.data.cid
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="m">123</span>
 </code></pre></div>
-<h2 id="piping-and-logging">Piping and Logging<a class="headerlink" href="#piping-and-logging" title="Permanent link">¶</a></h2>
+<h2 id="piping-and-logging">Piping and logging<a class="headerlink" href="#piping-and-logging" title="Permanent link">¶</a></h2>
 <p>When the <code>--raw</code> flag is used, or a command is piped to a file, then the Standard Output Buffer will only receive the <code>--raw</code> output data. If the <code>--logs</code> flag is set, then logs will be sent to the Standard Error Buffer, such that will appear in the console. However, it can be tricky to emit the process logs to a file.</p>
 <p>To do so, pipe the Standard Error Buffer to a file. For example, the following expression will put the process logs into a file.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span>--logs<span class="w"> </span>v<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>test.txt
@@ -6423,7 +6423,7 @@
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>GET<span class="w"> </span>call:<span class="w"> </span>/basic/beamo/manifest/current
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>...
 </code></pre></div>
-<h2 id="error-logging">Error Logging<a class="headerlink" href="#error-logging" title="Permanent link">¶</a></h2>
+<h2 id="error-logging">Error logging<a class="headerlink" href="#error-logging" title="Permanent link">¶</a></h2>
 <p>The Beam CLI usually creates a temporary log file and emits verbose logs to the file for diagnostic purposes. This can be disabled if the environment variable, <code>BEAM_CLI_NO_FILE_LOG</code> is set to anything, or if the <code>--no-log-file</code> file is passed.</p>
 <p>When an error occurs, the output log should include a line similar to,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Logs at

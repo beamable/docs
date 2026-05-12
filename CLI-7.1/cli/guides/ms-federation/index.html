@@ -1346,7 +1346,7 @@
   <a href="#cli-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI Commands
+        CLI commands
       
     </span>
   </a>
@@ -1357,19 +1357,19 @@
   <a href="#possible-issues-and-solutions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Possible Issues and Solutions
+        Possible issues and solutions
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Possible Issues and Solutions">
+    <nav class="md-nav" aria-label="Possible issues and solutions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#invalid-federation-id-detected" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Invalid Federation Id detected
+        Invalid federation ID detected
       
     </span>
   </a>
@@ -6278,7 +6278,7 @@
   <a href="#cli-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI Commands
+        CLI commands
       
     </span>
   </a>
@@ -6289,19 +6289,19 @@
   <a href="#possible-issues-and-solutions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Possible Issues and Solutions
+        Possible issues and solutions
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Possible Issues and Solutions">
+    <nav class="md-nav" aria-label="Possible issues and solutions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#invalid-federation-id-detected" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Invalid Federation Id detected
+        Invalid federation ID detected
       
     </span>
   </a>
@@ -6352,7 +6352,7 @@
 
 
 
-<h1 id="microservice-federation">Microservice Federation<a class="headerlink" href="#microservice-federation" title="Permanent link">¶</a></h1>
+<h1 id="microservice-federation">Microservice federation<a class="headerlink" href="#microservice-federation" title="Permanent link">¶</a></h1>
 <p>Federate Standalone Microservices with external services</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can federate using Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">Dotnet 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
@@ -6384,7 +6384,7 @@ that define the types of functions that they require.
 <h2 id="federationidmyid-public-class-mysample-ifederationid"><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[FederationId("myId")]</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MySample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div><a class="headerlink" href="#federationidmyid-public-class-mysample-ifederationid" title="Permanent link">¶</a></h2>
-<h2 id="cli-commands">CLI Commands<a class="headerlink" href="#cli-commands" title="Permanent link">¶</a></h2>
+<h2 id="cli-commands">CLI commands<a class="headerlink" href="#cli-commands" title="Permanent link">¶</a></h2>
 <p>The CLI offers a few commands to enable and disable federations for a service. The <code>beam fed</code> command suite allows you to read and write federation data. None of the commands will modify your C# source files.</p>
 <p>The <code>beam fed list</code> command will show all federations for all services.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>fed<span class="w"> </span>list
@@ -6403,8 +6403,8 @@ that define the types of functions that they require.
 <a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">             </span><span class="o">]</span>
 </code></pre></div><p></p>
 <hr>
-<h2 id="possible-issues-and-solutions">Possible Issues and Solutions<a class="headerlink" href="#possible-issues-and-solutions" title="Permanent link">¶</a></h2>
-<h3 id="invalid-federation-id-detected">Invalid Federation Id detected<a class="headerlink" href="#invalid-federation-id-detected" title="Permanent link">¶</a></h3>
+<h2 id="possible-issues-and-solutions">Possible issues and solutions<a class="headerlink" href="#possible-issues-and-solutions" title="Permanent link">¶</a></h2>
+<h3 id="invalid-federation-id-detected">Invalid federation ID detected<a class="headerlink" href="#invalid-federation-id-detected" title="Permanent link">¶</a></h3>
 <p><strong>Example Code Triggering the Error</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">[FederationId("123-MyFederation")]</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyFederation</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="w"> </span><span class="p">{}</span>
