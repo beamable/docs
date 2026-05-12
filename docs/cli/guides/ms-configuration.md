@@ -21,7 +21,7 @@ dotnet beam project new service HelloWorld
 
 ## Project configuration
 
-Each Standalone Microservice is a dotnet project, and can be configured through the dotnet `.csproj`. In most IDEs, the `.csproj` file will be hidden automatically, but you can open it by right-clicking on the project in the IDE and opening the `.csproj` file. As of Beam CLI 3.0.0, the starting `.csproj` has the following structure.
+Each Standalone Microservice is a .NET project, and can be configured through the dotnet `.csproj`. In most IDEs, the `.csproj` file will be hidden automatically, but you can open it by right-clicking on the project in the IDE and opening the `.csproj` file. As of Beam CLI 3.0.0, the starting `.csproj` has the following structure.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

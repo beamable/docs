@@ -222,7 +222,7 @@ ENTRYPOINT "dotnet" $BEAM_APP
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
 ```
 ### Local Docker testing and debugging
-The recommended developer workflow is to run your micro services using Dotnet. However, because deployments are running within a container, it may be beneficial to validate that your services work in Docker before deploying them (especially if you've made changes to the default `Dockerfile`).
+The recommended developer workflow is to run your micro services using .NET. However, because deployments are running within a container, it may be beneficial to validate that your services work in Docker before deploying them (especially if you've made changes to the default `Dockerfile`).
 
 To validate your Docker services, use the `--docker-compose-dir` option for the `beam deploy plan` command. The `plan` command will generate a [docker compose](https://docs.docker.com/compose/) project directory at the given path. The project will have all of your enabled services and storages.
 
