@@ -1,4 +1,4 @@
-# Announcements - Overview
+# Announcements - overview
 
 The Beamable **Announcements** service allows game makers to create and manage in-game announcements for players.
 
@@ -29,7 +29,7 @@ private async void Start()
 }
 ```
 
-### Retrieving the Announcements via GetCurrent
+### Retrieving announcements via GetCurrent
 
 The simplest way to retrieve announcements is via the `GetCurrent()` method from the `AnnouncementService`. This will return an `AnnouncementQueryResponse`, which contains a list of Announcements.
 
@@ -41,7 +41,7 @@ private async Task<List<AnnouncementView>> GetAnnouncements()
 }
 ```
 
-### Retrieving Announcements via Subscription
+### Retrieving announcements via subscription
 
 The `AnnouncementService` also features a `Subscribe` method, allowing the game client to react to new announcements as they are published.
 
@@ -55,7 +55,7 @@ private void SubscribeToAnnouncements()
 }
 ```
 
-### Displaying Announcements
+### Displaying announcements
 
 Once you have retrieved the announcements, display them in the app. The function below simply reads the title and body of the content and logs them to the console, but the specific game implementation will require some custom solution.
 
@@ -70,13 +70,13 @@ private void PrintAnnouncements(List<AnnouncementView> announcements)
 }
 ```
 
-### Validating the Implementation
+### Validating the implementation
 
 Call either the `SubscribeToAnnouncements()` or `GetAnnouncements()` functions and inspect the Unity console to validate that your functions are working. Below is the console for a successful run.
 
 ![Announcement Test Results](../../../../media/imgs/announcements-test-console.png){: style="height:auto;width:400px"}
 
-### Sample Code
+### Sample code
 
 Below is the full script that shows how to initialize Beamable, retrieve announcements, and print them to the console.
 

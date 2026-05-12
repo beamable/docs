@@ -27,7 +27,7 @@ Here is the glossary of Tournament terms.
 | Tournament Player Limit | The maximum number of tournament players **per** stage (e.g., 50) |
 | Tier | An ordered grouping of **stages**, relative to the game's community |
 
-## Tournament vs Leaderboards
+## Tournament vs leaderboards
 
 Beamable supports many social services including Tournaments and Leaderboards. A game can incorporate either, none, or both. Both services help to build game community, encourage player competition, and increase player retention.
 
@@ -56,7 +56,7 @@ private async void Start()
 }
 ```
 
-### Getting Tournaments
+### Getting tournaments
 
 This function will return all tournaments in your game's content database.
 
@@ -68,7 +68,7 @@ private async Task<List<TournamentInfo>> GetTournaments()
 }
 ```
 
-### Joining Tournament
+### Joining a tournament
 
 Before a score can be posted in a tournament, the player must join the tournament using this function.
 
@@ -79,7 +79,7 @@ private async Task JoinTournament(string tournamentId)
 }
 ```
 
-### Setting Score
+### Setting a score
 
 The following function sets the user's score in the tournament. The `_userId` variable comes from BeamContext in the "Initialize BeamContext" example above.
 
@@ -90,7 +90,7 @@ private async Task SetScore(string tournamentId, double score)
 }
 ```
 
-### Sample Code
+### Sample code
 
 This sample code demonstrates how to use the TournamentService to join a tournament and set a score for the current player.
 TournamentServiceExample.cs
@@ -138,14 +138,14 @@ namespace Beamable.Examples.Services.TournamentService
 }
 ```
 
-## Getting Started
+## Getting started
 The **Beamable Tournaments** service provides a system for recurring social competitions where players get promoted and demoted between competitive tiers (for example: Bronze, Silver, and Gold). Players begin in the lowest tier by submitting scores, leveraging the existing Beamable Leaderboard system. Tournaments have recurring cycles on a fixed period of your choice (such as daily or weekly).
 
 Tournaments become active after publishing the content to a realm. Once published, the tournament runs on its defined cycle schedule. Players participate by submitting scores, and all players initially start in the bottom stage of the bottom tier.
 
 The **Beamable Tournaments** system automatically creates leaderboards for tournaments based on the tournament content. The only setup required for a working tournament is the Beamable SDK, a realm, and published tournament content. Player score submission to the Tournaments system is server-authoritative: it requires C# microservices or a similarly privileged context.
 
-### Steps to Setup
+### Steps to setup
 
 1. Have a Beamable account, and the Beamable Unity SDK installed.
 2. Create a new Tournament by setting up Tournament Content.
@@ -153,11 +153,11 @@ The **Beamable Tournaments** system automatically creates leaderboards for tourn
 4. Players submit scores. All players begin at the lowest ranking.
 5. Player tiers are maintained for the duration of a cycle. Scores are submitted via the Tournament system and stored in the Leaderboard system. Scores dictate stage progression and are fully reset between Tournament cycles.
 
-### Key Elements
+### Key elements
 
 Game Makers set up tournaments by defining their content. This content includes the tournament name, the number of tiers, colors for each tier, and specific promotion and demotion rules. Rewards, if specified, are granted as Beamable Inventory items and currencies and are evaluated at the end of each competition cycle. All tournament definitions are created as structured data using the Unity Content Manager with the Beamable SDK.
 
-#### Tournament Properties
+#### Tournament properties
 
 | Property | Description |
 |----------|-------------|
@@ -171,7 +171,7 @@ Game Makers set up tournaments by defining their content. This content includes 
 | **Score Rewards** | These rewards also reference the Beamable Inventory for fulfillment. The system evaluates and grants these rewards at the end of each Tournament cycle. Players must explicitly claim rewards via the Tournament API for fulfillment. |
 | **Group Rewards** | These rewards pertain to players who are enrolled in a group, within the Beamable Groups System. They are fulfilled the same way as other rewards, through Beamable Inventory. Group reward eligibility is specified similar to individual Rank Rewards: the reward specifies which tier the reward belongs to, as well as a range of stages and rankings within which players are eligible for the reward. Rankings for group rewards are tracked separately from individual player rankings: the score for a group is the sum of the scores of that group's members, and the rankings are calculated accordingly. |
 
-### Testing Notes
+### Testing notes
 
 - **Manage Test Tournaments**. Tournaments set to cycle frequently (for example, hourly) for testing purposes can cause issues if left active. It is best practice to delete these test tournaments after completing your testing
 - **Early Cycle Termination**. Game makers can end a tournament cycle early. However, this action only affects the current cycle. Subsequent tournaments remain scheduled and operate under their original time cycle parameters

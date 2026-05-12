@@ -1,4 +1,4 @@
-# HTML Sign-In
+# HTML sign-in
 
 ## Overview
 
@@ -6,9 +6,9 @@ The purpose of this guide is to demonstrate everything needed for game makers to
 In this guide we will have a step-by-step approach to creating a simple HTML page that can log in users and retrieve their account information. After following through this guide, the new HTML login will be functional and ready for any additional branding and customization.
 This web page may be setup in a game specific or studio specific setting. It is recommended to have some basic knowledge of web development, including basic HTML and JavaScript before continuing.
 
-## Creating HTML Login Page
+## Creating HTML login page
 
-### Setup Website HTML
+### Setup website HTML
 
 The first step is to create the login page itself. Ultimately, this will be hosted in a durable and highly available fashion, with [SSL/TLS](https://cybernews.com/resources/web-hosting-glossary/#ssl-tls) security and a hostname. However for starting out we can go with a simple file on your machine, something like `file:///Users/exampleuser/Projects/Beamable/index.html`.
 
@@ -22,7 +22,7 @@ The login page needs a form that gathers email and password.
 </form>
 ```
 
-### Setup Login JavaScript
+### Setup login JavaScript
 
 In the HTML above, the Login button refers to a JavaScript function that does not yet exist, namely `login()`. Let’s use a bit of jQuery to retrieve the username and password values from the form and then pass them along to the `/basic/auth/token` endpoint.
 
@@ -50,7 +50,7 @@ function login(evt) {
 !!! info "Logging into a realm"
     Using only your CID in the X-DE-SCOPE header is accepted, but for almost all purposes, logging into a specific realm (CID.PID) is better.
 
-### Setup Account Information Retrieval
+### Setup account information retrieval
 
 The response for a successful login is a Json object containing an OAuth access token, the corresponding refresh token, and information about the token type (always ‘Bearer’ in our case) and expiration time. With the access token in hand, we can now retrieve account data from the `/basic/accounts/me` endpoint.
 
@@ -73,7 +73,7 @@ request.done(function(data) {
 !!! info "Best Practice"
     In a production implementation, save the refresh token to persistent storage such as browser cookies or other client storage.
 
-### Complete HTML and JavaScript Sample
+### Complete HTML and JavaScript sample
 
 The document below ties together all the pieces from the step by step instructions above.
 

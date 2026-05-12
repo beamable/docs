@@ -16,9 +16,9 @@ ReadMe.io uses custom markdown extensions and proprietary syntax that need to be
 8. **Converting code block file naming syntax**
 9. Cleaning up HTML elements and special syntax
 
-## Step-by-Step Conversion Process
+## Step-by-step conversion process
 
-### 1. Remove ReadMe.io Header Metadata and Add Proper Markdown Headers
+### 1. Remove ReadMe.io header metadata and add proper Markdown headers
 
 **Identify**: Look for YAML front matter at the top of ReadMe.io files
 
@@ -112,7 +112,7 @@ Even more content...
 - **H4 (`####`)**: Sub-subsections
 - Never skip header levels (e.g., don't go from H2 directly to H4)
 
-### 2. Convert Block Quotes to MkDocs Callouts
+### 2. Convert block quotes to MkDocs callouts
 
 **Identify**: Look for sections starting with `>` (block quotes)
 
@@ -140,7 +140,7 @@ Even more content...
     • Beamable supports Windows, Mac, iOS, Android platforms
 ```
 
-### 3. Remove ReadMe.io HTML Blocks
+### 3. Remove ReadMe.io HTML blocks
 
 **Identify**: Look for `[block:html]` sections
 
@@ -156,7 +156,7 @@ Even more content...
 ```
 → **DELETE ENTIRELY**
 
-### 4. Convert Parameter Tables
+### 4. Convert parameter tables
 
 **Identify**: Look for `[block:parameters]` sections
 
@@ -190,7 +190,7 @@ Even more content...
 | Game Name | Enter game project name |
 ```
 
-### 5. Convert [block:image] Blocks to Standard Markdown Images
+### 5. Convert [block:image] blocks to standard Markdown images
 
 **Identify**: Look for `[block:image]` sections containing JSON-structured image data
 
@@ -297,7 +297,7 @@ curl -o "docs/media/imgs/unity-editor-realm-selector.png" "https://files.readme.
 ls -la docs/media/imgs/unity-editor-realm-selector.png
 ```
 
-### 6. Replace Placeholder Syntax
+### 6. Replace placeholder syntax
 
 **Identify**: Look for `<<TEXT_*>>` and `<<glossary:*>>` placeholders
 
@@ -311,7 +311,7 @@ ls -la docs/media/imgs/unity-editor-realm-selector.png
 - `<<glossary:PlayerId>>` → "PlayerId"
 - `<<TXT_GOTCHAS>>` → "Here are some common issues and solutions:"
 
-### 7. Convert Links and Remove Special Attributes
+### 7. Convert links and remove special attributes
 
 **Identify**: HTML anchor tags with special classes
 
@@ -327,7 +327,7 @@ ls -la docs/media/imgs/unity-editor-realm-selector.png
 [choosing a plan](https://www.beamable.com/pricing)
 ```
 
-### 8. Convert Code Block File Naming Syntax
+### 8. Convert code block file naming syntax
 
 **Identify**: Look for code blocks with filenames included after the language identifier
 
@@ -374,14 +374,14 @@ using UnityEngine;
 - There should be no space between the filename line and the opening ```
 - This ensures proper syntax highlighting and rendering in MkDocs
 
-### 9. Clean Up HTML Elements
+### 9. Clean up HTML elements
 
 **Remove or Convert**:
 - `<br />` tags (use line breaks instead)
 - Custom HTML styling
 - ReadMe.io-specific attributes
 
-### 10. Fix Table Formatting
+### 10. Fix table formatting
 
 **Ensure proper markdown table syntax**:
 - Headers separated by `|`
@@ -389,7 +389,7 @@ using UnityEngine;
 - Consistent column alignment
 - Handle multi-line content with `<br>` tags where needed
 
-## Quality Checklist
+## Quality checklist
 
 After conversion, verify:
 
@@ -405,14 +405,14 @@ After conversion, verify:
 - [ ] Tables have proper markdown syntax
 - [ ] No ReadMe.io-specific syntax remains
 
-## File Structure Considerations
+## File structure considerations
 
-### Image Organization
+### Image organization
 - Store all images in `docs/media/imgs/` folder
 - Use descriptive filenames (e.g., `step-1-import-package.png`)
 - **CRITICAL: Calculate correct relative paths based on file location depth**
 
-### Calculating Correct Relative Paths to Images
+### Calculating correct relative paths to images
 
 **Important**: The relative path to `media/imgs/` depends on how deep your markdown file is nested within the `docs/` folder structure.
 

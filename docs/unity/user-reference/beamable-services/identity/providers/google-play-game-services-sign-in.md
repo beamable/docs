@@ -1,4 +1,4 @@
-# Google Play Game Services Sign-In
+# Google Play Game Services sign-in
 
 The purpose of this guide is for game makers to use Google Play Games Services with the Beamable Accounts service.
 
@@ -11,7 +11,7 @@ This document describes how to complete a basic Google Play Games Services integ
     Before Google Sign-In will work properly, configure your Unity project to support GPGS as a third-party authentication provider. Verify that GPGS is working correctly and that users can log in to GPGS in-game before using it as a third-party provider.
 
 
-## Getting Started
+## Getting started
 
 This guide provides step-by-step instructions to set up Google Play Game Services Sign-In with Beamable's Accounts service in a Unity project.
 
@@ -27,7 +27,7 @@ This guide assumes the following prerequisites have been completed:
 | **4. Android: Set up the corresponding Google Cloud Platform application with OAuth 2.0 credentials** | • See Google's [start-integrating#configure_a_project](https://developers.google.com/identity/sign-in/android/start-integrating#configure_a_project) for more info<br>**Note:** You will need both Web application credentials AND platform specific credentials for Android or iOS or both. |
 
 
-### Configure Beamable Platform
+### Configure Beamable platform
 
 In orther to setup the Unity Project you need to Set the GPS Secret to Beamable Platform
 
@@ -37,12 +37,12 @@ In orther to setup the Unity Project you need to Set the GPS Secret to Beamable 
 ![f12a299-portalScreen.png](../../../../../media/imgs/f12a299-portalScreen.png)
 
 
-### Additional iOS Setup
+### Additional iOS setup
 
 Make sure that your game flow takes into account the fact that iOS is not a supported platform by Google Play Game Services.
 
 
-## Google Play Game Services Integration
+## Google Play Game Services integration
 
 The Beamable SDK contains a wrapper for GPGS behavior on Android (iOS is not supported). The provided class is called SignInWithGPG, which can be initialized after following steps from [Google documentation](https://developers.google.com/games/services/console/enabling). It does contain two Actions that developer can subscribe to: `OnLoginResult` and `OnRequestServerSideAccessResult`. To perform login as third party to Beamable, both must return successfully. The first returns info about local login, and the second about getting the server-side access token that is required for the Beamable backend.
 
@@ -89,7 +89,7 @@ private void HandleRequestServerSideAccessResult(bool success, string token)
 }
 ```
 
-## Handle Various Flow Scenarios
+## Handle various flow scenarios
 
 Now that we have the Google credential (token), we need to account for 3 different scenarios:
 
@@ -129,7 +129,7 @@ var shouldAttachToCurrentUser = available && !userHasCredentials;
 ```
 
 
-## Next Steps
+## Next steps
 
 * Players can edit account details (name, avatar)
 * Players can switch accounts or sign in with various methods. See the [Identity](../identity.md) service page for more info

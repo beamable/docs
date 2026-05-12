@@ -1,4 +1,4 @@
-# Stores - Overview
+# Stores - overview
 
 Beamable's Store service allows the game maker to create a storefront in their application. Users can purchase items with real money or virtual currency. These can be attached to third-party purchasing methods (Apple, Google, etc.), or Unity's built-in IAP system.
 
@@ -15,7 +15,7 @@ Beamable offers various APIs to allow the game maker to set up purchasing with v
     Before users can purchase items, you must set up at least one valid currency, a store item, and store listing.
 
 
-### Making a Purchase
+### Making a purchase
 
 Use `CommerceService.Purchase()`, which takes a Store ID and an Item ID. For ease of use, it is recommended to create a `StoreRef` and `ListingRef`, which will create a drop-down in the Inspector to select a valid store and item.
 
@@ -84,7 +84,7 @@ public class Registrations
 }
 ```
 
-### Custom Purchaser
+### Custom purchaser
 
 The Beamable **Custom Purchaser** mechanism allows game makers to implement custom purchasing solutions for in-app purchases, bypassing Unity's built-in IAP system for complete control over the payment flow.
 
@@ -103,14 +103,14 @@ Consider implementing a custom purchaser when you need:
 - Platform-specific payment provider integration
 - Thorough testing across all target platforms
 
-#### Implementation Overview
+#### Implementation overview
 
 A custom purchaser implementation involves two main components:
 
 1. **IBeamablePurchaser Implementation** - Handles the purchase flow
 2. **PaymentService Integration** - Communicates with Beamable's backend
 
-#### IBeamablePurchaser Interface
+#### IBeamablePurchaser interface
 
 Your custom purchaser class **must implement** the [`IBeamablePurchaser`](https://github.com/beamable/BeamableProduct/blob/main/client/Packages/com.beamable/Runtime/Core/Platform/SDK/Payments/IBeamablePurchaser.cs) interface:
 
@@ -120,7 +120,7 @@ Your custom purchaser class **must implement** the [`IBeamablePurchaser`](https:
 | GetLocalizedPrice | Fetch localized price strings from your payment provider  | When displaying prices |
 | StartPurchase     | Initiate purchase flow through your payment provider      | When user starts purchase |
 
-#### PaymentService Integration
+#### PaymentService integration
 
 Your custom purchaser **must interact** with Beamable's [`PaymentService`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Payments_1_1PaymentService.html) to ensure proper purchase tracking and fulfillment:
 
@@ -132,7 +132,7 @@ Your custom purchaser **must interact** with Beamable's [`PaymentService`](https
 | CancelPurchase   | Handle user-canceled purchases                           | When user cancels |
 | FailPurchase     | Handle failed purchase attempts                           | When payment fails |
 
-#### Creating a Custom Purchaser Class
+#### Creating a custom purchaser class
 Implement the `IBeamablePurchaser` interface. The following snippet shows the required structure:
 
 ```csharp
@@ -199,7 +199,7 @@ public class CustomPurchaser : IBeamablePurchaser
 }
 ```
 
-#### Registering Custom Purchaser
+#### Registering custom purchaser
 
 Register your implementation with Beamable's Dependency Injection system:
 
@@ -215,7 +215,7 @@ public class Registrations
 }
 ```
 
-### Custom Stores
+### Custom stores
 The Beamable **Commerce** service allows game makers to create custom storefronts with flexible purchasing options.
 
 ```csharp
@@ -423,7 +423,7 @@ namespace Beamable.Examples.Services.CommerceService
     }
 }
 ```
-## Custom Purchase Reporting
+## Custom purchase reporting
 
 As a game maker you will find that in some cases you need to be able to report purchases from outside the Beamable store flow. Beamable provides you with a way to do this through a small configuration change in the Portal and some client-side tracking code.
 

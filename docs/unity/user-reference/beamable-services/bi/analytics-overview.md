@@ -1,6 +1,6 @@
 # Analytics
 
-## Why Analytics?
+## Why analytics?
 
 Beamable's Analytics solution provides the most control and access to your data. There are important reports that are needed to measure the success of your game and, as a game maker, you want to know:
 
@@ -23,7 +23,7 @@ These examples are among a select few necessities to measure the success of your
 
     To get set up for querying Beamable analytics, please [contact us](https://www.beamable.com/contact-us).
 
-## System Telemetry
+## System telemetry
 
 Beamable also writes some default telemetry data just from using features of the service. There are several KPI's (Key points of interest) that Beamable already knows that you will need.
 
@@ -55,7 +55,7 @@ These KPI's, defined below, are meant to help you in the following ways:
 | `platform_administration_change_email` | player has changed their email |
 | `platform_administration_reset_password` | player has reset their password |
 
-## Game Maker User Experience
+## Game Maker user experience
 
 The Beamable Portal allows the game maker to view and download player analytics. Individual player analytics can be found within the player profile page.
 
@@ -79,7 +79,7 @@ The source value is set automatically for each Analytics event and [Stats](../pr
 
 Beamable Microservices can also emit custom analytics events. Events sent via the Microservice analytics API use the same channel as client-side telemetry and appear as **client** records. See [Microservice Analytics](../../../../cli/guides/ms-analytics.md).
 
-## Analytics Events vs Stats
+## Analytics events vs stats
 
 Beamable supports both analytics events and [Stats](../profile-storage/stats.md). Each use case is unique.
 
@@ -88,7 +88,7 @@ Beamable supports both analytics events and [Stats](../profile-storage/stats.md)
 | Analytics Event | Analytics Database | • Events take some time to appear<br>• Holds deep history<br>• Answers queries like "When did player X purchase item Y?"<br>_Example: Amazon's [Athena](https://aws.amazon.com/athena/)_ |
 | Stat | Transactional Database | • Very fast reads/writes<br>• Does not keep history<br>_Example: [Mongo DB](https://www.mongodb.com/)_ |
 
-## Analytics - Code
+## Analytics - code
 
 Effective analytics queries are game-specific, and writing them well takes time. The key is fluency with the schema: knowing not just what data is stored, but what it means for your reporting needs.
 
@@ -98,7 +98,7 @@ This section is designed to provide you with some **out-of-the-box** queries tha
 - Players Spending, Players Spending over time
 - Daily Retention Report that you can use for a cohort chart
 
-### MAU, DAU & Average Session Length
+### MAU, DAU, and average session length
 
 MAU (Monthly Active Users), DAU (Daily Active Users) & Average Session Length are great metrics to measure the engagement of your player base. These are critical metrics needed to see if you are acquiring users and if they are staying in your game and potentially enjoying it.
 
@@ -129,7 +129,7 @@ where
  act_time >= date_add('day', {{days}}, CURRENT_TIMESTAMP);
 ```
 
-### 30 Day Retention Cohort
+### 30 day retention cohort
 
 Now that you have engaged players, it is worth ensuring they are sticky — that is, that they return to play regularly. This report shows how often players come back, and whether retention is declining. High churn (players who stop playing and don't return) is a signal to investigate your retention metrics more closely.
 
@@ -181,7 +181,7 @@ WHERE B.start_time IS NOT NULL AND B.period_number != 0
 ORDER BY 1, 3
 ```
 
-### Monthly Players Spending (Total Revenue Per Month)
+### Monthly players spending (total revenue per month)
 
 When you have an engaged & retained player base and you offer any sort of IAP (in app purchases) then this report will be important for you to understand how much money players are spending and how much money you are making per month. This query will show you how much your players are spending each month as an aggregated total.
 
@@ -198,7 +198,7 @@ where
  act_time >= date_add('day', {{days}}, CURRENT_TIMESTAMP);
 ```
 
-### 30 Day - Daily Spending Report
+### 30 day - daily spending report
 
 Knowing how much money your game is making from IAP each day is highly valuable. If you monitor this over time and you start seeing a dip, this could be a sign that something is wrong in your game. It is also a great success metric to show that your game monetizes well.
 
@@ -217,7 +217,7 @@ group by date(act_time)
 order by date(act_time);
 ```
 
-## Getting Started
+## Getting started
 
 In this guide we will cover how to get setup to query your Athena Database and how to write some simple queries to see that it is working.
 
@@ -239,7 +239,7 @@ In this guide we will cover how to get setup to query your Athena Database and h
 
     All you have to do is email [support@popsql.com](mailto:support@popsql.com) or open up a ticket through our intercom chat widget and provide your Beamable CID.
 
-### Get Access
+### Get access
 
 In order to access the Athena Database you will need 3 key pieces of information. The following can only be provided to you from the Beamable team and we are eager to get you setup! NOTE: You must have a REPORT tier subscription to get access to custom analytics queries. You can find out more at <https://beamable.com/pricing>. We will then provide you with the following:
 
@@ -267,7 +267,7 @@ _Note_: PopSQL settings interface image not available
 
     You may want to Test your connection before Saving & Connecting.
 
-### Your First Query
+### Your first query
 
 I like to start off fairly simple and just get a general list of events to see that things are working properly.
 
@@ -285,7 +285,7 @@ select * from platform_session_session limit 10;
 
 As you can see you already get some very interesting data about your player. Let's take a moment to explore the schema of this table.
 
-### Getting the Table Schema
+### Getting the table schema
 
 ```sql
 SELECT * FROM information_schema.columns WHERE table_schema = '[your de_ID goes here]' and table_name = 'platform_session_session'
@@ -322,7 +322,7 @@ The above query will yield the following results. And as you can see the informa
 | `e.purchases3d`                | varchar(256) | total purchases in the last 3 days                                                    |
 | `e.spend14`                    | varchar(256) | total spend in the last 14 days                                                       |
 
-### What Tables are available?
+### What tables are available?
 
 As you use Beamable, more and more data will be available. That means more tables will also be available. By default there are a select few tables available.
 

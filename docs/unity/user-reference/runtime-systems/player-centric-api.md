@@ -1,10 +1,10 @@
-# Player Centric API
+# Player-centric API
 
 The "Beamable SDK for Unity" provides a main entry point to Beamable functions in your Unity Code and the Beamable Player-Centric API is the recommended way to access Beamable APIs.
 
 This class is designed to support multiple local players, flexible API reference syntax, testability, and lazy initialization. The Beamable Player-Centric API also continues to offer a flexible API reference syntax of Async / Await, Callbacks, Coroutines, as well as **Synchronous**.
 
-## BeamContext Overview
+## BeamContext overview
 
 After that setup, game makers use the `BeamContext` object as the main entry-point to Beamable functionality. Here's a simple example of initializing the `BeamContext`
 
@@ -67,7 +67,7 @@ private void MyMethodViaSynchronous()
 ```
 
 
-## BeamContext Lifecycle
+## BeamContext lifecycle
 
 The Lifecycle of the `BeamContext` instance is very straightforward. You can see the complete list of functions below:
 
@@ -81,7 +81,7 @@ The Lifecycle of the `BeamContext` instance is very straightforward. You can see
 
 _Note_: `BeamContext` API calls will fail if it is stopped in the middle of an async method and will throw an exception. It must be started for these calls to work.
 
-## Attaching Service Callbacks
+## Attaching service callbacks
 
 Here the game maker references the context and subscribes to service changes via callback. The common Beamable services support various callbacks.
 

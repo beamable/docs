@@ -1,8 +1,8 @@
-# Content - Getting Started
+# Content - getting started
 
 Beamable's Content Service allows game makers to create, manage, and distribute game content. Create content in the Beamable Content Manager window in the Unity Editor, then publish it to Beamable's servers. Once published, pull it into your game at runtime via the `ContentService` API.
 
-## Creating Custom Content Types
+## Creating custom content types
 
 In this snippet, the custom `ArmorItem` item type is created. Note that, as a subclass of `ItemContent`, whose content type is already `"items"`, Armor's resulting content type will be `"items.armor"`. In the Content Manager in Unity, this will appear as a nested category under the `items` type.
 
@@ -91,7 +91,7 @@ namespace Beamable.Examples.Services.ContentService
 }
 ```
 
-## Creating New Content
+## Creating new content
 
 Game makers may create new content of _existing_ content types or new content of _custom_ content types. For the purposes of this guide, we will be using the existing "Item" type.
 
@@ -105,7 +105,7 @@ Game makers may create new content of _existing_ content types or new content of
 | 6. Save the Unity Project | • Unity → File → Save Project<br/><br/>_Best Practice: If you are working on a team, commit to version control in this step._                                                                                                |
 | 7. Publish the content | • Press the "Publish" button in the Content Manager Window                                                                                                                                                                   |
 
-## Downloading Content
+## Downloading content
 
 Pull published content from Beamable's `ContentService` via a `ContentLink` or `ContentRef`. Both are shown in this example.
 

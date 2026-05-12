@@ -1,14 +1,14 @@
-# Dependency Injection Overview
+# Dependency injection overview
 
 The Beamable SDK uses a dependency injection system to manage the creation and life cycle of services used throughout the SDK. The dependency injection system is built around the `IDependencyProvider` interface, which is responsible for creating and managing service instances.
 
-## Dependency Service Lifecycle
+## Dependency service lifecycle
 
 Every service in the dependency scope follows a life cycle determined by the service's registration type, and how the dependency scope is disposed.
 
 A service is instantiated **only** when it is requested from a call to the `IDependencyProvider.GetService<T>()`, _or_ because the service is required to construct a requested service.
 
-### Service Types
+### Service types
 
 Every service has a _Service Registration Type_. The type defines the life cycle of the service instance itself. There are only 3 types, _Singleton_, _Scoped_, and _Transient_ .
 
@@ -30,7 +30,7 @@ Similar to singletons, once a scope has created a scoped instance, the instance 
 
 Transient service instances are never cached. Every time a transient service is requested, a new instance will be created.
 
-### Disposing Services
+### Disposing services
 
 A dependency scope can be in one of two states: active or disposed. A scope is active the moment it is built, and is disposed either by calling `IDependencyProviderScope.Dispose()` directly or by stopping the associated `BeamContext`. When a scope is disposed, no calls to `GetService<T>()` are allowed.
 
@@ -50,7 +50,7 @@ public class ExampleService : IBeamableDisposable
 !!! warning "Transient services do not use IBeamableDisposable"
     Any service registered as Transient will not honor the `IBeamableDisposable` interface. Transient services are not meant to contain any state.
 
-### Hierarchical Scopes
+### Hierarchical scopes
 
 A dependency scope represents a group of related services that use each other as internal dependencies. A scope can spawn a new child scope; a process known as "scope forking". A child scope inherits all previously configured service registrations. Additionally, all singleton instances from the parent scope are used in the child scope. However, any service registered as a scoped service will instantiate new instances for the child scope. Transient services (as always), result in new instances.
 
@@ -65,11 +65,11 @@ var child = scope.Fork(builder =>
 });
 ```
 
-## Custom Services
+## Custom services
 
 One benefit of a dependency injection system is the ability to override existing service implementations, or provide new services for custom use cases.
 
-### Adding Services
+### Adding services
 
 The Beamable SDK has a global `IDependencyBuilder` available via `Beam.DependencyBuilder`. Despite the `IDependencyBuilder` being accessible globally, the correct way to modify service registrations is to create a static method that meets the following requirements...
 
@@ -97,7 +97,7 @@ The `origin` option is an enum that is `RegistrationOrigin.RUNTIME` by default. 
 
 The `order` option controls the invocation ordering of `RegisterBeamableDependencies` methods. Ideally, all custom services should be registered in a single `RegisterBeamableDependencies` method. However, sometimes due to logical separation or package separation, it isn't possible to centralize dependency registrations. In this case, there are multiple functions tagged with the `RegisterBeamableDependencies` attribute, and the _order_ they are invoked in can drastically change the outcome. All Beamable services are registered at an effective order value of -1000. The default `order` value for all custom `RegisterBeamableDependencies` methods is 0.
 
-### Modifying Services
+### Modifying services
 
 In a `RegisterBeamableDependencies` method, the `IDependencyBuilder` instance can be used to _remove_ existing registrations. Beamable automatically registers all of the services it needs to operate the base SDK. However, as an advanced developer, it is possible to remove Beamable service classes and replace them with custom implementations. To find the Beamable service registration listings, see the `com.beamable/Runtime/Beam.cs`static constructor. Additionally, look for references of `RegisterBeamableDependencies` to find any special places where services are added.
 
@@ -127,11 +127,11 @@ public class ExampleService : IDeviceIdResolver
 
 The Beamable Unity SDK uses `IDependencyBuilder` and `IDependencyProvider` to manage dependencies. Beamable Microservices use the same structures to manage their dependencies as well. The same concepts from the SDK apply in the Microservices, but some minor details change.
 
-### Life Cycle
+### Life cycle
 
 When a `Microservice` starts, there is one main `IDependencyBuilder` . In order to initialize and connect to Beamable, the `IDependencyBuilder` creates a main `IDependencyProvider`. However, every request sent to a `Microservice` will get a unique `IDependencyProvider`. The main scope is forked and modified with the `RequestContext` information for the request. When the request terminates, the child scope is disposed.
 
-#### Scoped vs Singleton
+#### Scoped vs singleton
 
 In a `Microservice`, a service registered as a singleton will be the only instance of that service between all requests. Use it to store a limited amount of state between service requests.
 
@@ -140,7 +140,7 @@ Remember that a Microservice may be running multiple instances when deployed. Th
 
 A scoped service will be re-instantiated for each request.
 
-### Service Registration
+### Service registration
 
 In order to add or modify service registrations, the `Microservice` class must have a static method that is tagged with the `ConfigureServices` attribute, and accepts an `IServiceBuilder` instance. The `IServiceBuilder` has a `.Builder` accessor that exposes a `IDependencyBuilder`.
 
@@ -152,7 +152,7 @@ public static void Configure(IServiceBuilder builder)
 }
 ```
 
-### Service Resolution
+### Service resolution
 
 In a Microservice, you can access the request's `IDependencyProvider` through the internal class members of the `Microservice` class.
 

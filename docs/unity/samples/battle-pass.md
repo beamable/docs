@@ -5,7 +5,7 @@ Beamable's Custom Content capabilities. This is a quick guide for how to think a
 
 -------------------
 
-## Custom Content
+## Custom content
 First, define a custom content type for the Battle Pass by creating a class that inherits from `ContentObject`.
 Each Battle Pass will have tiers, and each tier can have rewards.
 
@@ -33,7 +33,7 @@ public class Reward
 }
 ```
 
-### Content Setup
+### Content setup
 
 Once the custom type is defined, follow these steps to add a Battle Pass content object in the Beamable
 Content Manager:
@@ -57,7 +57,7 @@ Content Manager:
 
 ------------------------------------------------
 
-## Fetching and Using the Battle Pass at Runtime
+## Fetching and using the battle pass at runtime
 
 After the Battle Pass is defined and published, use Beamable’s features to fetch and use the content at runtime.
 In this example, we'll retrieve the Battle Pass.
@@ -103,7 +103,7 @@ private async Promise DisplayBattlePassDetails()
 }
 ```
 
-## Adding the Battle Pass to Player Inventory
+## Adding the battle pass to player inventory
 You can add the Battle Pass to a player's inventory using Beamable's Inventory system. Here's how you can use the
 `Inventory.Update` method to store the Battle Pass details, such as its name and end date.
 
@@ -126,7 +126,7 @@ private async Task AddBattlepassToInventory()
 }
 ```
 
-## Handling End Date and Expiration Validation in a Microservice
+## Handling end date and expiration validation in a Microservice
 
 You can use Beamable’s Microservices to validate the Battle Pass expiration. Since `Battlepass` is a custom
 `ContentObject`, the type won't be findable by default in Microservices. You can create or move the `Battlepass`
@@ -164,7 +164,7 @@ Download the full sample code from [Beamable Battle Pass Sample](https://github.
 
 ------------------------------
 
-## Season Passes
+## Season passes
 You can also create a season pass that can be used to unlock new content or features.
 Currently, there is no sample for this feature; however, here is how to do it. It is very similar to the Battle Pass.
 

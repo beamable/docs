@@ -1,4 +1,4 @@
-# Beamable Boss Battle - Microservices Sample
+# Beamable Boss Battle - Microservices sample
 
 In the "Beamable Boss Battle" (BBB) sample game, **The Hero has reached the dungeon. Battle the Boss to win.**
 
@@ -14,7 +14,7 @@ The player navigates from the Intro Scene to the Game Scene, where all the actio
 |:------------|:-----------|:--------|
 | ![Intro Scene](../../media/imgs/microservices-bbb-intro-scene.jpg){width="300"} | ![Game Scene](../../media/imgs/microservices-bbb-game-scene.jpg){width="300"} | ![Project View](../../media/imgs/microservices-bbb-project-view.jpg){width="300"} |
 
-## Microservices (BBB) - Guide
+## Microservices (BBB) - guide
 
 This document and the sample project allow game makers to understand and apply the benefits of Microservices in game development. Or watch this video:
 
@@ -33,7 +33,7 @@ Learning Resources:
 |--------|--------|
 | ![Beamable Logo](../../media/imgs/beamable-logo-small.jpg){width="35"} | 1. **Download** the [Microservices BBB Sample Project](https://github.com/beamable/Microservices_BBB_Sample_Project)<br/>2. Open in Unity Editor (Version 2021.3 or later)<br/>3. Open the Beamable Toolbox<br/>4. Sign-In / Register To Beamable. See [Installing Beamable](../getting-started/installing-beamable.md) for more info<br/>5. Complete the Docker setup. See [Microservices](../user-reference/cloud-services/microservices/microservice-framework.md) for more info<br/>6. Click to "Start" the server. See [Microservices](../user-reference/cloud-services/microservices/microservice-framework.md) for more info<br/>7. Publish the Beamable Content to your realm. See [Content Manager](../user-reference/beamable-services/profile-storage/content/content-overview.md#publish) for more info<br/>8. Open the `1.Intro` Scene<br/>9. Play The Scene: Unity → Edit → Play<br/><br/>_Note: Sample projects are compatible with the latest supported Unity versions_ |
 
-### Player Experience Flowchart
+### Player experience flowchart
 
 The player experience flowchart shows the game flow:
 
@@ -42,7 +42,7 @@ The player battles the boss and the workload is appropriately divided between th
 - **StartTheBattle ()** - Public Microservice method to reset the `BossHealth` Stat and randomize `HeroWeaponIndex` Stat
 - **AttackTheBoss ()** - Public Microservice method to reduce the `BossHealth` Stat based on `Weapon` Content
 
-## Game Maker User Experience
+## Game Maker user experience
 
 The game maker user experience shows the development workflow. There are 3 major parts to this game creation process.
 
@@ -56,7 +56,7 @@ Here are the steps to implement the sample:
 
     • [Microservices](../user-reference/cloud-services/microservices/microservice-framework.md) - Server-side code that runs in the cloud to handle game logic, data validation, and real-time multiplayer functionality
 
-### Step 1. Setup Beamable Content
+### Step 1. setup Beamable content
 
 This is a general overview of Beamable's Content flow. For more detailed instructions, see the [Content Manager](../user-reference/beamable-services/profile-storage/content/content-overview.md) doc.
 
@@ -72,7 +72,7 @@ This is a general overview of Beamable's Content flow. For more detailed instruc
 | 8. Save the Unity Project | • Unity → File → Save Project<br/><br/>_Best Practice: If you are working on a team, commit to version control in this step._ |
 | 9. Publish the content | • Press the "Publish" button in the Content Manager Window. See [Content Manager](../user-reference/beamable-services/profile-storage/content/content-overview.md#publish) for more info. |
 
-### Step 2. Create Game Client Code
+### Step 2. create game client code
 
 This step includes the bulk of time and effort the project.
 
@@ -316,7 +316,7 @@ while (!isDone)
 }
 ```
 
-### Step 3. Create Game Server Code (Microservices)
+### Step 3. create game server code (Microservices)
 
 Create the Microservice and the project-specific C# code to meet the game's needs.
 

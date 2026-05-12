@@ -1,4 +1,4 @@
-﻿# Account Manager
+﻿# Account manager
 
 The Account Management Lightbeam can be opened through the Beam Library window.
 

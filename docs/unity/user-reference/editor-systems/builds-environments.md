@@ -1,4 +1,4 @@
-# Builds & Environments
+# Builds and environments
 
 If you run the project in the Unity editor in play mode, the realm that will activate against the play mode will be the realm that is specified in the selector.
 

@@ -11,11 +11,11 @@ You will find the following topics here:
 - What can you do with cohorts of players
 - Guides to show you some examples of creating cohorts of players
 
-## Getting Started
+## Getting started
 
 In this guide we will walk you through segmenting players into cohorts. We'll show you a couple of ways to do that including using the Portal to define rules.
 
-### Creating a Cohort by Stats
+### Creating a cohort by stats
 
 Most of the segmentation in Beamable is to create a cohort by a _stat_. You can learn more about stats in the [Stats](../profile-storage/stats.md) page. However, in this guide we are going to show you how to use a default stat `DAYS_SINCE_INSTALL` to create a cohort that is going to be used in a trial. Trials are [A/B testing](ab-testing-overview.md), which you will learn more about in that section. But this guide will just focus on the part where we create a cohort.
 
@@ -33,7 +33,7 @@ In this trial, we also added these values to complete and save the trial.
 
 What this is doing is creating a trial that can be joined by a cohort. As you will learn in the A/B Testing area, you can use trials in various places to run experiments. The above will create a cohort called "7thDayReturningPlayers" and you can perform all actions on this cohort from various other parts of Beamable.
 
-### Upload CSV to Create a Cohort
+### Upload CSV to create a cohort
 
 Since we now know that you can create a cohort from stats, Beamable provides you with a tool to get players into a cohort by creating stat attribution: **Tagging**.
 
@@ -56,7 +56,7 @@ This is the format your CSV should be in. The first column is a **Gamer_Tag** or
 
     Please note that if you do not put a space between the comma and the key or value, the parser will trim that character. So be sure that your properly format the CSV.
 
-### Custom Segmentation Cohort
+### Custom segmentation cohort
 
 To create a cohort from custom telemetry, run a query against your Athena Database (see [Analytics - Overview](analytics-overview.md)) and export the results as a CSV. Import the CSV to populate the cohort.
 

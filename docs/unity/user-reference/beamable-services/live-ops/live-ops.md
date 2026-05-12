@@ -1,4 +1,4 @@
-# Live Ops
+# Live ops
 
 Beamable offers powerful and flexible solutions for communicating with your players and allowing players to interact with your game.
 
