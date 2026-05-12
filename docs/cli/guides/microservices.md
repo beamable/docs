@@ -2,11 +2,11 @@
 
 Developing Standalone Microservices with the Beam CLI
 
-Beamable offers a rich microservice development workflow using the Beam CLI and .NET. Microservices deploy to the Beamable Cloud, and offer a secure way to handle server-side authoritative logic for your games.
+Beamable offers a rich microservice development workflow using the Beam CLI and Dotnet. Microservices deploy to the Beamable Cloud, and offer a secure way to handle server-side authoritative logic for your games.
 
 ## Dependencies
 
-Before you can develop a Beamable Standalone Microservice, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can develop a Beamable Standalone Microservice, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -15,7 +15,7 @@ dotnet beam version # dotnet beam --version also works.
 ```
 
 ---
-## Quick Start
+## Quick start
 
 Standalone Microservices require a `.beamable/` workspace, so you either need to create one with [beam init](../commands/cli-command-reference/init.md), or use an existing one.
 
@@ -93,7 +93,7 @@ namespace Beamable.HelloWorld
 You can write new functions and tag them with `[ClientCallable]` to make them accessible on the Open API page. Now you know the basics of working with Beamable Standalone Microservices!
 
 ---
-## Project Structure
+## Project structure
 
 Each file in the Standalone Microservice has a valuable function that is important to understand.
 
@@ -107,7 +107,7 @@ Each file in the Standalone Microservice has a valuable function that is importa
 | `MyProject/BeamableServices.sln`       | This file is the .NET solution file, and organizes your services. If you add additional services or storage databases, they will be tracked through the `.sln` file.                                                                                         |
 
 ---
-## Next Steps
+## Next steps
 
 There are many topics to continue learning about Beamable Standalone Microservices,
 

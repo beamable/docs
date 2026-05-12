@@ -1,4 +1,4 @@
-# Notify All Players
+# Notify all players
 To access the Notify All Players feature, navigate to the Communicate section and select "Notify All Players"
 
 ![Notify All Players Interface](../media/imgs/notify-all-players-interface.png)

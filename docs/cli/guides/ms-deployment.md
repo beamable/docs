@@ -1,10 +1,10 @@
-# Microservice Deployment
+# Microservice deployment
 
 Deploy Standalone Microservices to the Beamable Cloud
 
 ## Dependencies
 
-Before you can deploy Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can deploy Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -28,7 +28,7 @@ dotnet beam project new service HelloWorld
 
 ## Deployment
 
-Beamable Standalone Microservices use .NET as the core technology to run locally on your development machine. However, when it is time to release your Microservice to production, the service will be built into an OCI compliant image using [Docker](https://www.docker.com/products/docker-desktop/), and uploaded to the Beamable Cloud. Beamable's internal orchestration platform (sometimes called _BeamO_ ) will deploy containerized instances of the service.
+Beamable Standalone Microservices use Dotnet as the core technology to run locally on your development machine. However, when it is time to release your Microservice to production, the service will be built into an OCI compliant image using [Docker](https://www.docker.com/products/docker-desktop/), and uploaded to the Beamable Cloud. Beamable's internal orchestration platform (sometimes called _BeamO_ ) will deploy containerized instances of the service.
 
 Deploying services is a two-step process. First, you must build the images and generate a **plan file**. Then, you use the CLI to deploy a plan.
 
@@ -43,7 +43,7 @@ dotnet beam deploy release --latest-plan
 dotnet beam deploy plan --plan "path to plan file"
 ```
 
-### Building the Plan
+### Building the plan
 
 The `deploy plan` command validates that your Standalone Microservice can be built and, optionally, that it will start accepting HTTPS traffic.
 
@@ -95,9 +95,9 @@ To release, use `dotnet beam deploy release --plan E:\UnrealProjects\BeamableUnr
 Saved plan: E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json
 ```
 
-As you can see from the example, every `plan` invocation creates a `timestamp.plan.json` file inside your `.beamable\temp\plans` folder.
-#### Merge & Replace Plans
-When planning to release microservices, it is important to think about how to handle existing services. This is especially true of times when you remove a service. For that case, there are two ways of generating a plan: **Replace** and **Merge**.
+As you can see from the example, every `plan` invocation creates a `timestamp.plan.json` file inside your `.beamable/temp/plans` folder.
+#### Merge and replace plans
+When planning to release microservices, its important to think about how to handle existing services. This is especially true of times when you remove a service. For that case, we provide two ways of generating a plan: **Replace** and **Merge**.
 
 **Replace (default)**: Creates a release plan that completely overrides the existing remote services. Existing deployed services that are not present locally will be removed.
 
@@ -107,13 +107,13 @@ By default, the **replace** plan is used as it keeps "whatever is in your reposi
 
 For example, in cases where you want to remove the source code of a service from the repo, but still have the service be available for a while; this can happen if you have multiple *supported* client versions in existence, one dependent on a removed service and the other not.
 
-### Releasing the Plan
+### Releasing the plan
 Calling `deploy release` makes the plan a reality. It'll upload the images the Beamable docker container registry and then publish a _service manifest_ to your current Beamable realm. Upon successfully publishing the manifest, the Beamable Cloud creates the necessary resources to run your services. The services will be enabled, and you can see them available in the Beamable Portal's _Operation/Microservices_ section.
 
 ![Beamable Deployments](https://files.readme.io/55ee363-image.png)
 
 Now that your service is running on the Beamable Cloud, you can send HTTPS traffic to your service. To help test, you can open the dot-dot-dot (`...`) menu on the right side of the `HelloWorld` card, and select "Docs" to open an Open API page.
-#### Redeploying Existing Services
+#### Redeploying existing services
 Another important, albeit not common, usage of the `deploy release` command is to re-deploy your currently deployed services. This may be necessary to deal with bugs in your microservice code (or Beamable itself) that cause instability until you push a fix to them.
 
 Here's how you'd do that:
@@ -131,7 +131,7 @@ dotnet beam deploy ps
 dotnet beam deploy release --from-manifest-id "id from the other command"
 ```
 
-## Enabling/Disabling Services
+## Enabling and disabling services
 After a Standalone Microservice has been deployed, it will continue to be available on the Beamable Cloud until it is disabled. A service can be temporarily disabled through Portal, but they will be re-activated after a fresh `deploy release` command occurs.
 
 To disable a service, you need to modify the configuration of the Microservice source code itself. In the `.csproj` file of your service, set the `<BeamEnabled>` property to `false`. Then, re-run the `deploy plan` command. You will see that the service would become disabled if you were to `deploy release` that plan.
@@ -217,8 +217,8 @@ ENTRYPOINT "dotnet" $BEAM_APP
 # Swap entrypoints if the container is exploding and you want to keep it alive indefinitely so you can go look into it.
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
 ```
-### Local Docker Testing & Debugging
-The recommended developer workflow is to run your micro services using .NET. However, because deployments are running within a container, it may be beneficial to validate that your services work in Docker before deploying them (especially if you've made changes to the default `Dockerfile`).
+### Local Docker testing and debugging
+The recommended developer workflow is to run your micro services using Dotnet. However, because deployments are running within a container, it may be beneficial to validate that your services work in Docker before deploying them (especially if you've made changes to the default `Dockerfile`).
 
 To validate your Docker services, use the `--docker-compose-dir` option for the `beam deploy plan` command. The `plan` command will generate a [docker compose](https://docs.docker.com/compose/) project directory at the given path. The project will have all of your enabled services and storages.
 
@@ -245,7 +245,7 @@ Please note that when validating docker containers this way, the resulting docke
 
 You have full control over the docker-compose file, so if you want to set up persistent storage objects via docker volumes, or set up mongo-express, please reference the Mongo [documentation](https://hub.docker.com/_/mongo).
 
-#### Useful Debugging Practices
+#### Useful debugging practices
 **Running the Docker Container Manually**: If you have a customized Dockerfile or encounter some problems when building/running the image/container, it can be sometimes useful to run the container via docker's CLI directly.
 
 You can do that by running: `dotnet beam deploy plan --logs v` which prints out all docker commands it is using under the hood. You can then use the printed commands as a starting point for your investigation into whatever problem you're solving.

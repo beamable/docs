@@ -1,10 +1,10 @@
-# Microservice Federation
+# Microservice federation
 
 Federate Standalone Microservices with external services
 
 ## Dependencies
 
-Before you can federate using Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can federate using Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -51,7 +51,7 @@ public class MySample : IFederationId { }
 ```
 ---
 
-## CLI Commands
+## CLI commands
 
 The CLI offers a few commands to enable and disable federations for a service. The `beam fed` command suite allows you to read and write federation data. None of the commands will modify your C# source files.
 
@@ -76,9 +76,9 @@ dotnet beam fed list
 
 ---
 
-## Possible Issues and Solutions
+## Possible issues and solutions
 
-### Invalid Federation Id detected
+### Invalid federation ID detected
 
 **Example Code Triggering the Error**:
 ```csharp

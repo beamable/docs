@@ -1,10 +1,10 @@
-# Microservice Configuration
+# Microservice configuration
 
 Configure Standalone Microservices
 
 ## Dependencies
 
-Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -19,9 +19,9 @@ cd MyProject
 dotnet beam project new service HelloWorld
 ```
 
-## Project Configuration
+## Project configuration
 
-Each Standalone Microservice is a .NET project, and can be configured through the dotnet `.csproj`. In most IDEs, the `.csproj` file will be hidden automatically, but you can open it by right-clicking on the project in the IDE and opening the `.csproj` file. As of Beam CLI 3.0.0, the starting `.csproj` has the following structure.
+Each Standalone Microservice is a dotnet project, and can be configured through the dotnet `.csproj`. In most IDEs, the `.csproj` file will be hidden automatically, but you can open it by right-clicking on the project in the IDE and opening the `.csproj` file. As of Beam CLI 3.0.0, the starting `.csproj` has the following structure.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -51,14 +51,14 @@ Each Standalone Microservice is a .NET project, and can be configured through th
 </Project>
 ```
 
-### Code Dependencies
+### Code dependencies
 
-.NET projects use a tool called _NuGet_ to manage dependencies on other code libraries. Each `<PackageReference>` node within an `<ItemGroup>` element declares a NuGet dependency. By default, every Standalone Microservice requires the [Beamable Microservice NuGet Package](https://www.nuget.org/packages/Beamable.Microservice.Runtime). However, you can add whatever packages you require as well.
+Dotnet projects use a tool called _Nuget_ to manage dependencies on other code libraries. Each `<PackageReference>` node within an `<ItemGroup>` element declares a Nuget dependency. By default, every Standalone Microservice requires the [Beamable Microservice Nuget Package](https://www.nuget.org/packages/Beamable.Microservice.Runtime). However, you can add whatever packages you require as well.
 
 
-### Beamable Properties
+### Beamable properties
 
-.NET uses a tool called `msbuild` to compile your code into executable files. When the build happens, `msbuild` accesses various XML based properties within the `<PropertyGroup>` elements of the `.csproj` file.
+Dotnet uses a tool called `msbuild` to compile your code into executable files. When the build happens, `msbuild` accesses various XML based properties within the `<PropertyGroup>` elements of the `.csproj` file.
 
 #### BeamProjectType
 
@@ -108,7 +108,7 @@ The `<BeamPreventOapiGen>` property is a boolean property, only valid on Microse
 | `<BeamPreventOapiGen>` | false         |
 
 #### BeamCollectorVersion
-In version 6.0+, the Microservice uses an open telemetry collector process to send logs from the service to Beamable's log warehouse. The collector is versioned separately from the CLI and Microservice NuGet packages. The version of the collector is embedded into the `BeamCollectorVersion` property, but it can be configured by hand.
+In version 6.0+, the Microservice uses an open telemetry collector process to send logs from the service to Beamable's log warehouse. The collector is versioned separately from the CLI and Microservice nuget packages. The version of the collector is embedded into the `BeamCollectorVersion` property, but it can be configured by hand.
 
 | Property Name            | Default Value                                          |
 | ------------------------ | ------------------------------------------------------ |
@@ -149,7 +149,7 @@ The `<EnableUnrealBlueprintCompatibility>` property is a boolean property, only 
 #### BeamValidateCallableTypesExistInSharedLibraries
 
 The `<BeamValidateCallableTypesExistInSharedLibraries>` property is a boolean property, only valid on Microservice projects.
-When it is enabled, and the `Beamable.Microservice.SourceGen` NuGet package is referenced, the static analyzer will
+When it is enabled, and the `Beamable.Microservice.SourceGen` nuget package is referenced, the static analyzer will
 disallow type references on `[Callable]` methods that are defined _within_ the Microservice assembly.
 The goal is to prevent developers from building `[Callable]` methods that rely on data types inaccessible outside
 of the Microservice assembly.
@@ -187,15 +187,15 @@ If you need to specify multiple values, use a `,` or a `;` to separate values. Y
 | `<BeamServiceGroup>` | empty         |
 
 
-### Telemetry Properties
+### Telemetry properties
 
 In CLI 6.0, the CLI will try to collect usage data and send it to Beamable. You can opt out of this by changing the `BeamCliAllowTelemetry` property to false in the `.beamable/otel-config.json` file.
 
 Additionally, you can completely opt out of usage reporting by setting the `BEAM_NO_TELEMETRY` environment variable.
 
-### .NET Properties
+### Dotnet properties
 
-Common .NET properties may be explored through [.NET's Documentation](https://learn.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2022) . However, there are a few properties that are set automatically through the usage of the [Beamable Microservice NuGet Package](https://www.nuget.org/packages/Beamable.Microservice.Runtime). To view these default settings, you should view the package source code's `.props` file, located here,
+Common Dotnet properties may be explored through [Dotnet's Documentation](https://learn.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2022) . However, there are a few properties that are set automatically through the usage of the [Beamable Microservice Nuget Package](https://www.nuget.org/packages/Beamable.Microservice.Runtime). To view these default settings, you should view the package source code's `.props` file, located here,
 
 [https://github.com/beamable/BeamableProduct/blob/cli-6.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props](https://github.com/beamable/BeamableProduct/blob/cli-2.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props)
 

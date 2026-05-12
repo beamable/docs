@@ -5,7 +5,7 @@ Sharing a Microservice with Unity via UPM
 ## Dependencies
 
 Before you can use Distribute a Microservice with UPM, you need to complete the
-[Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+[Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -119,7 +119,7 @@ So far, your folder structure should at least have these files.
          Dockerfile
    ```
 
-### Preparing the Unity Project
+### Preparing the Unity project
 
 Now that the Microservice is ready, in order to import it into a Unity
 project as a UPM package, follow these steps.
