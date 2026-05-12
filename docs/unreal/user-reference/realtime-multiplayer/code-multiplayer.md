@@ -10,7 +10,7 @@ There are a few components here that you need to know about before you implement
 - `ULocalPlayer::GetGameLoginOptions`: This appends a string of Options to each `ULocalPlayer`'s connection string.
 - `FUniqueNetIdRepl`: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework
 
-### Setting Up your Gameplay Level's Level Blueprint
+### Setting up your gameplay level's Blueprint
 This section is the C++ version of [what is done in the Level Blueprint here](realtime-multiplayer-overview.md#setting-up-your-gameplay-levels-level-blueprint).
 
 In C++, this would usually be done in `AGameMode::BeginPlay` and would look something like this.
@@ -74,7 +74,7 @@ virtual void BeginPlay() override
 
 **The code above still expects you to have the `Easy Enable` node in your level blueprint marked with `Init when Server Build`.**
 
-## Implementing Game Server Authentication
+## Implementing game server authentication
 When using the Beamable SDK, to validate that the user should be allowed to connect to this game server, the SDK needs to verify a few things:
 
 - The User's Auth Token and GamerTag... so that the server can verify the user is who they say they are
@@ -146,7 +146,7 @@ This constraint exists because, for now, the logic in `BeamMultiplayer::Authenti
 
 **_Keep in mind that the default SDK behavior does not need you to care about any of this._**
 
-## User Slots in the Game Server SDK
+## User slots in the game server SDK
 User Slots are a big part of the regular workflow when working with Beamable SDK in game clients. For dedicated servers though they are not used. Any functions containing the `UserSlot` parameter, that parameter can be ignored.
 
 
@@ -159,10 +159,10 @@ This means a few things:
 !!! note "Server Mapping Slots - Experimental"
      By default, if you are implementing the **Game Server Authentication** described here. The server stores the AuthToken for each user inside server mapping slots — this means the Game Server _can_ make requests "as though they were the user itself" but with the Server's admin permissions. This can be useful due to certain legacy API limitations.
 
-### Writing to a User's Stats/Inventory
+### Writing to a user's stats and inventory
 When writing your Game Server code, you generally don't want to be making requests for individual players one at a time (batching is generally better). Sometimes that is fine, but there are cases where you'll want to write several things to several players' Stats/Inventory (processing a match's results, for example). In cases like this, you should write `ServerCallable` functions in Microservices and call those from the Microservice. See [Microservices](../microservices/microservices.md) for more information about the various types of `Callable`.
 
-## Making Beam PIE Faster
+## Making Beam PIE faster
 Iteration time is one of the most important factors in game development, so entering PIE as fast as UE allows — without sacrificing Beamable's guarantees — is worth the extra setup.
 
 A custom `GameInstance` implementation makes this possible.

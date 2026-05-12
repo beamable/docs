@@ -8,18 +8,18 @@ The Beamable **Leaderboards** allow the game makers to track player scores in so
  - Retrieve a specific player rank
  - Retrieve the friends ranks
 
-## Getting Started
+## Getting started
 
 This section covers common leaderboard use cases and how to implement them.
 
-### Creating the Leaderboards
+### Creating the leaderboards
 
 There are two ways to create a new leaderboard, using the Portal or as a content.
 
 !!! note "Type of leaderboard"
 	If you created the leaderboard in the content, it will appear in the Portal as expected. But if you create the leaderboard directly in the Portal, it WON'T appear in the content.
 
-#### Creating via Content
+#### Creating via content
 
 To create leaderboard content, open the **Beamable Window** in the top right and select the **Content** tab.
 
@@ -43,7 +43,7 @@ Before publishing, there are some configurations that can affect how your leader
  - **Cohort Settings**: Specifies criteria for grouping players together
 
 
-### Assign Player to Leaderboard
+### Assign player to leaderboard
 
 There are two ways to assign a player to a leaderboard:
 
@@ -63,11 +63,11 @@ There are two ways to assign a player to a leaderboard:
 !!! note "Non Partitioned Leaderboard"
 	If you use this operation on a non-partitioned leaderboard, it will simply return the original leaderboard ID without any partition suffix.
 
-## Modifying Entries
+## Modifying entries
 
 You can modify metadata and scores for leaderboard entries. On the microservice side, this is more flexible — a client-authoritative leaderboard cannot change entries other than the authenticated player's.
 
-### Adding Score to a Player
+### Adding score to a player
 
 Here is an example of how to add a score for a client-authoritative client.
 
@@ -77,21 +77,21 @@ Stats in the leaderboard are primarily used to cache per-entry information, redu
 
 ![leaderboards-blueprint-set-stats.png](../../../media/imgs/leaderboards-blueprint-set-stats.png)
 
-## Leaderboard Samples
+## Leaderboard samples
 
-### Fetch Top 10 Players
+### Fetch top 10 players
 
 ![leaderboards-blueprint-top10.png](../../../media/imgs/leaderboards-blueprint-top10.png)
 
 With the SDK, you can create leaderboards similar to those in [Brawl Stars](https://supercell.com/en/games/brawlstars/)
 
-### Show the Player Rank
+### Show the player rank
 
 ![leaderboards-blueprint-player-rank.png](../../../media/imgs/leaderboards-blueprint-player-rank.png)
 
 Using the Blueprint shown above, you can get the player rank and display it separately
 
-### Leaderboard Pagination
+### Leaderboard pagination
 
 ![leaderboards-blueprint-pagination.png](../../../media/imgs/leaderboards-blueprint-pagination.png)
 

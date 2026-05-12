@@ -14,7 +14,7 @@ There is support for both local and multiplayer usage. This document focuses on 
 
 A sample that demonstrates the friend subsystem is available in the [GitHub repository](https://github.com/beamable/UnrealSDK). For more details, check out the [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
-## Getting Started
+## Getting started
 To use the friend system, first configure an Unreal PIE session with multiple players.
 
 ???+ Warning "Observation"
@@ -22,12 +22,12 @@ To use the friend system, first configure an Unreal PIE session with multiple pl
 
 Once your environment is set up, the following steps show how to implement the basic functionalities in BP.
 
-### Binding the Friends Events
+### Binding the friends events
 In the SDK, all events can be bound using the custom bind node on the subsystem. The image below shows an example.
 
  ![friends-bind-events.png](../../../media/imgs/friends-bind-all-events.png)
 
-### Inviting a Friend
+### Inviting a friend
 
 1. Open your Level Blueprint (or some other BP)
 2. Call `Operation - Friend - SendFriendInvite` to send a friend invite asynchronously.
@@ -36,7 +36,7 @@ In the SDK, all events can be bound using the custom bind node on the subsystem.
 
 You can listen for received invite changes — for example, alerting the player that a new invite arrived. You will need to bind to the event `OnInviteReceived` shown in the [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
-### Accepting a Friend Invite
+### Accepting a friend invite
 
 1. Open your Level Blueprint (or some other BP)
 2. Call `Operation - Friend - AcceptFriendInvite` to accept a friend invite asynchronously.
@@ -50,7 +50,7 @@ To bind to this event you can use the `OnInviteAccepted` as shown in the section
 ???+ Warning "Local Player Feedback"
     Once the player accepts the invite, if you prefer not to wait for the backend notification to update the friend list, you can directly use the operation for the player who accepted and update the local state either synchronously or asynchronously.
 
-### Declining a Friend Invite
+### Declining a friend invite
 
 1. Open your Level Blueprint (or some other BP)
 2. Call `Operation - Friend - DeclineFriendInvite` to decline a friend invite asynchronously.
@@ -59,7 +59,7 @@ To bind to this event you can use the `OnInviteAccepted` as shown in the section
 
 When the player that received the invite decline it, both receive the `OnInviteDeclined` notification, that can help to update the visuals and the player list. The local state is already updated when the player receive this notification. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
-### Blocking/Unblocking a Player
+### Blocking and unblocking a player
 
 1. Open your Level Blueprint (or some other BP)
 2. Call the `Operation - Friend - BlockPlayer`/`Operation - Friend - Unblock`. This will allow you to block/unblock a player using the gamer tag of this player.
@@ -81,7 +81,7 @@ The unblock flow is very similar: `UBeamFriendsSubsystem` provides `OnPlayerUnbl
 
 To show a friend's presence status, register on `OnFriendPresenceStatusUpdate`; the status is an `EBeamPresenceStatus` value — `Visible`, `Invisible`, `Dnd`, or `Away`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
-### Removing a Friend
+### Removing a friend
 
 1. Open your Level Blueprint (or some other BP)
 2. Call `Operation - Friend - RemoveFriend` to remove a friend asynchronously.
@@ -93,7 +93,7 @@ When a player is removed from the friend list it will trigger this notification.
 The event triggered is `OnFriendRemoved`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 When it triggers, the local state of the friend list will already have been updated.
 
-### How to Update the View Using System State (Invite Sample)
+### How to update the view using system state (invite sample)
 
 The example below shows how to retrieve the user's friend state and use it to update a view or another screen. In this case, the example simply sets a list of all invites in the friend state. There are other ways to handle this, such as adding or removing items based on events, rather than setting the entire list. For simplicity, this example uses that approach.
 

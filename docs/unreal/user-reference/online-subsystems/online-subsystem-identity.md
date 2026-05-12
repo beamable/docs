@@ -1,8 +1,8 @@
-﻿# Identity Using Online Subsystem
+﻿# Identity using Online Subsystem
 
 There are several different styles of signup/login flows games might want to use. This section explores how to set them up.
 
-### Frictionless Login + Attaching Identities
+### Frictionless login and attaching identities
 This flow is useful for when you want to automatically create a user for the player and then, some time in the future, you'll provide your player the opportunity to attach identities to them. Mostly used by mobile games, but can also be used to implement automatic Steam/Epic store logins.
 
 - Use the `IOnlineIdentity::Login` function with a `LoginType` of `BeamOSS::GetIdentityTypeFrictionless()` to create an account (or sign into the locally cached one).
@@ -14,7 +14,7 @@ This flow is useful for when you want to automatically create a user for the pla
 
 	Ex: `User A` is signed into `Player0` and you try to attach an email belonging to `User B` to `Player0`. If `bAutoLoginOnAttach == true`, `User A` will be signed out of `Player0` and `User B` will be signed in and only then the `OnLoginCompleteDelegates` will trigger as a success.
 
-## Manual Sign-Up/Login with Email/Password
+## Manual sign-up or login with email/password
 If your game has a sign-up and/or login screen that the user is expected to choose their sign-up or login flows, this is what you want.
 
 - Use the `IOnlineIdentity::Login` function with a `LoginType` of `BeamOSS::GetIdentityTypeSignUpEmail()`.
@@ -23,7 +23,7 @@ If your game has a sign-up and/or login screen that the user is expected to choo
 !!! note "Attaching Other Identities"
     You can still attach other identities using any of the `BeamOSS::GetIdentityTypeAttach____()`. The same rules around `bAutoLoginOnAttach` apply.
 
-## Automatic Third-Party via Store + Attaching Identities
+## Automatic third-party via store and attaching identities
 If your game uses some third-party store identity such as Steam/Epic Store, you can follow this flow. This requires you to have correctly setup an identity federation for the store (see each federation's How-To guides for [more information](../federation/federated-login.md).
 
 - Use the `IOnlineIdentity::Login` function with a `LoginType` of `BeamOSS::GetIdentityTypeFederated()` with `UOnlineSubsystemBeamableSettings::bAutoSignUpWhenLogin` as `true`.

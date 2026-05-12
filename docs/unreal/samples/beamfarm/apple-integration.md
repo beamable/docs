@@ -1,4 +1,4 @@
-# Apple Login Integration (Unreal + Beamable)
+# Apple login integration (Unreal and Beamable)
 
 This document describes how to integrate **Apple / Game Center login** in an Unreal Engine project and how **Login** and **Attach** federation flows work when linking Apple accounts to Beamable players.
 
@@ -19,13 +19,13 @@ High-level flow:
 
 ## Prerequisites
 
-### Unreal iOS Setup
+### Unreal iOS setup
 
 Follow Unreal’s official documentation to configure iOS builds:
 
 [https://dev.epicgames.com/documentation/en-us/unreal-engine/setting-up-an-unreal-engine-project-for-ios](https://dev.epicgames.com/documentation/en-us/unreal-engine/setting-up-an-unreal-engine-project-for-ios)
 
-### Apple Developer Configuration
+### Apple developer configuration
 
 Enable the following capabilities in your Apple Developer project:
 
@@ -48,7 +48,7 @@ Enable it via **Edit → Plugins** or by copying it from the Engine plugins fold
 API reference:
 [https://dev.epicgames.com/documentation/en-us/unreal-engine/API/PluginIndex/OnlineSubsystemIOS](https://github.com/beamable/UnrealSDK/tree/main/Plugins/BEAMPROJ_BeamFarm/Source/BEAMPROJ_BeamFarm)
 
-### Build.cs Configuration
+### Build.cs configuration
 
 ```csharp
 if (Target.Platform == UnrealTargetPlatform.IOS)
@@ -59,7 +59,7 @@ if (Target.Platform == UnrealTargetPlatform.IOS)
 
 ---
 
-## Apple Login Client Implementation
+## Apple login client implementation
 
 The client authenticates with Game Center and retrieves a unique Apple UserId.
 
@@ -69,7 +69,7 @@ The client authenticates with Game Center and retrieves a unique Apple UserId.
 - Retrieve the Apple UserId
 - Expose the result to Blueprint
 
-### Required Functions
+### Required functions
 
 - Login
 - GetUserId
@@ -79,7 +79,7 @@ Reference implementation:
 
 ---
 
-## Federation Concept (Beamable)
+## Federation concept (Beamable)
 
 Beamable Federation allows external identity providers to authenticate or link accounts.
 
@@ -94,9 +94,9 @@ Federation reference:
 
 ---
 
-## Apple Federation Microservice
+## Apple federation Microservice
 
-### Federation Identifier
+### Federation identifier
 
 ```csharp
 [FederationId("gamecenter")]
@@ -105,7 +105,7 @@ public class GameCenterFederation : IFederationId
 }
 ```
 
-### Federated Login Implementation
+### Federated login implementation
 
 ```csharp
 async Promise<FederatedAuthenticationResponse>
@@ -123,9 +123,9 @@ async Promise<FederatedAuthenticationResponse>
 
 ---
 
-## Login vs Attach Flows
+## Login vs attach flows
 
-### Login Flow (Returning Player)
+### Login flow (returning player)
 
 **Purpose**: Authenticate a player who has already linked Apple.
 
@@ -146,7 +146,7 @@ async Promise<FederatedAuthenticationResponse>
 
 ---
 
-### Attach Flow (First-Time Link)
+### Attach flow (first-time link)
 
 **Purpose**: Link Apple to an existing account.
 
@@ -178,11 +178,11 @@ async Promise<FederatedAuthenticationResponse>
 
 ---
 
-## Required Files for Game Center on iOS
+## Required files for Game Center on iOS
 
 Two additional files must be present in the project for Game Center to work correctly on iOS.
 
-### SSL Certificate (`cacert.pem`)
+### SSL certificate (`cacert.pem`)
 
 Beamable uses secure socket connections on iOS, and the OS requires a trusted CA certificate bundle to validate them. Without this file, Beamable network calls will fail silently on device.
 
@@ -200,7 +200,7 @@ Beamable uses secure socket connections on iOS, and the OS requires a trusted CA
 
 Unreal will include this file in the iOS bundle, allowing Beamable to establish trusted connections at runtime.
 
-### Game Center Entitlements (`GameCenter.entitlements`)
+### Game Center entitlements (`GameCenter.entitlements`)
 
 Unreal must be told about the entitlements file so it can embed the correct Apple capabilities (Game Center and Sign in with Apple) during the build and signing process.
 

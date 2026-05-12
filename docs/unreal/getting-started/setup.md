@@ -2,11 +2,11 @@
 
 This guide walks you through downloading and setting up the Beamable Unreal SDK in your project.
 
-## Signup Requirement
+## Signup requirement
 
 To start using Beamable in your project you need to have a valid Account in the [Beamable Portal](https://portal.beamable.com/signup/registration). Remember your **Alias**, as it is used to log in to the SDK through your editor or the Beamable CLI.
 
-## Project Requirements
+## Project requirements
 Important notes and dependencies:
 
 | Requirement | Version               | Notes                                                                                                                                                                                                     |
@@ -16,16 +16,16 @@ Important notes and dependencies:
 | [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) | **8.0.302+**          | Needed for installing and running Beamable tooling and for running **C# Microservices** through the CLI. Any minor version above the version here should work (barring unintended .NET breaking changes). |
 
 
-## Downloading and Installing the SDK
+## Downloading and installing the SDK
 - Download the latest version of the Beamable Unreal SDK from the [GitHub Repository](https://github.com/beamable/UnrealSDK/releases)
 - Unzip the contents of the downloaded file to a location where you can easily find it
 
 Once the repo and dependencies are set up, follow the next section to set up the SDK in your project.
 
-## Setting Up the SDK in your Project
+## Setting up the SDK in your project
 Now that you have the SDK downloaded, you can set it up in your Unreal Project. The steps to do so are slightly different depending on your OS.
 
-### Running Initialization Script
+### Running initialization script
 Run the `beam_init_game_maker.sh` script to set up the SDK in your project. The script will copy over the necessary files from the UnrealSDK repo to your project and set up some configuration files.
 
 === "Windows"
@@ -39,7 +39,7 @@ Run the `beam_init_game_maker.sh` script to set up the SDK in your project. The 
         1. Run `chmod +x ./beam_init_game_maker.sh` before running the script.
         2. `. beam_init_game_maker.sh "/Users/Me/Path/To/UnrealSDK"`
 
-### Setting Up Modules
+### Setting up modules
 Now that the script has run, you need to set up your project's `Target.cs` and `Build.cs` files to include Beamable's SDK.
 
 **For each of your `Target.cs` files, add the following lines to their constructor:**
@@ -60,7 +60,7 @@ Now that the script has run, you need to set up your project's `Target.cs` and `
 
 Pay attention to the type of module you're adding the SDK to and be sure to call the proper function (you can see the module type in your `uproject` file).
 
-### Verifying Installation and Running
+### Verifying installation and running
 Verify that everything is set up correctly and that you can compile your project.
 
 === "Windows"

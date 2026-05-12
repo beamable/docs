@@ -18,7 +18,7 @@ Here is a high-level diagram of Federations:
 
 Each **Federation** has its own semantics, usage guidelines, performance characteristics, and constraints, described in its individual page.
 
-## Federation Id
+## Federation ID
 Federations are delegate methods in your microservice that the Beamable backend calls at specific points in various flows, to perform tasks that would otherwise be entirely internal to the Beamable backend. A Federation Id is a unique `string` value that designates a specific implementation of Federation.
 
 The combination of the **Federation Id** and the **Federation Type** is comparable to a function name/pointer assigned to an Unreal delegate; in the sense that it is used by the Beamable backend to know which implementation of a federation in your microservice it should talk to, if any.
@@ -31,7 +31,7 @@ Examples:
 
 `FederationId` values are the mechanism Beamable uses to select the correct Federation implementation when your microservice provides more than one of the same type. This is the `FederationId` parameter passed to `LoginFederatedOperation`, `SignUpFederatedOperation`, and `AttachFederatedOperation` on `UBeamRuntime`.
 
-## Adding/Removing Federations
+## Adding/Removing federations
 Federations are tied to interfaces implemented in your `Microservice` inherited class — these Federations and their IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, simply implement its Federation and recompile the microservice project.
 
 ```csharp
@@ -52,7 +52,7 @@ After adding any Federation, your IDE will likely complain that you are not impl
 
 Take a look at each individual Federation's docs page for more information on use-cases and usage guidelines.
 
-## Workflows for Developing Federations
+## Workflows for developing federations
 
 Most Federations are inside complex application paths. Therefore, you need a way to iterate on them locally, much like how you do with `Callables` (see [Microservices](../microservices/microservices.md#common-developer-workflows)).
 
