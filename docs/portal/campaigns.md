@@ -34,7 +34,7 @@ After that, you can create campaigns setting some information through a few step
 
 - Summary: finally there will be a summary of your campaign so you can verify that every information is correct and ready to go
 
-## Client Implementation
+## Client implementation
 
 For the client implementation, it is going to depend on which type your campaign is for. All of the following types have  their own implementation and can be triggered by campaigns as well as other means like custom C# microservices.
 

@@ -1,4 +1,4 @@
-# Beamable Unity SDK Documentation
+# Beamable CLI docs
 
 Welcome to the comprehensive documentation for the Beamable Unity SDK! Beamable provides a complete backend-as-a-service platform that enables game developers to build modern multiplayer games with advanced features like live operations, social networking, game economy, analytics, and cloud services—all without the complexity of managing backend infrastructure.
 

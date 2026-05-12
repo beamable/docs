@@ -1,4 +1,4 @@
-# Microservice Logging
+# Microservice logging
 
 Logging from a Microservice
 ## Dependencies
@@ -46,7 +46,7 @@ public void SampleLog()
 
 	Local microservice logs will not appear in the Portal unless the `BEAM_LOCAL_OTEL` environment variable is set.
 
-### Log Level
+### Log level
 
 Each log has a _level_, or an _importance_ rating. Logs are one of the following,
 - _Critical_
@@ -64,7 +64,7 @@ The `Log` type has methods for each type of log level.
 
 	The default log level is `DEBUG` when you are running a service locally in development. However, deployed services use the `INFO` level by default.
 
-#### Request Dynamic Log Levels
+#### Request dynamic log levels
 
 In version 6.0+, you can override the log level per request based on the player calling your Microservice, or the path being invoked on the service. By default, the log level for the entire service is _Information_, but if there was an error-prone route, or a specific user was experiencing issues, you could set the log level to _Debug_ for that use case, without affecting the log level for anything else.
 
@@ -73,7 +73,7 @@ To set a dynamic log level, go to the Portal's microservice page, and create a n
 ### Attributes
 
 In version 6.0+, Microservice logs include attributes that can be explored in the Portal.
-#### Single Custom Attributes
+#### Single custom attributes
 
 You can add custom attributes per log message by using the standard string formatting approach:
 ```csharp
@@ -91,7 +91,7 @@ attribute 42
 
 However, the attribute, `a`, is available for querying in the Portal. Use a custom search expression for `a:42` to find any log messages with the `a` attribute value of `42`.
 
-#### Scoped Custom Attributes
+#### Scoped custom attributes
 
 You can automatically add attributes to an entire sequence of logs. For example, imagine you wanted to tag a series of log lines as being part of an algorithm.
 
@@ -137,7 +137,7 @@ number is even!
 
 However, the _attributes_ available on the log lines will include the `operation` and `number`, while the attributes on the last log will not.
 
-#### Defined Custom Attributes
+#### Defined custom attributes
 
 In the previous section, the custom log attributes are localized to specific log events. The attributes are searchable in the Portal, but they will not appear as _known_ attributes, because they are not declared at any top level location. In order to define known attributes, you need to use a custom `ITelemetryAttributeProvider`.
 
@@ -188,7 +188,7 @@ The various _CreateAttribute_ functions should add attributes to the current con
 
 The `GetDescriptors()` function must return a description for all attributes you want to be defined. When an attribute is described from the return value, the title and description will appear in the Portal.
 
-### Standard Log Attributes
+### Standard log attributes
 
 There are several standard log attributes that will be included automatically. Some of these are from the Open Telemetry (OTEL) standard, and others are from Beamable's logging middleware.
 
@@ -212,7 +212,7 @@ There are several standard log attributes that will be included automatically. S
 | beam.connection.request.root_trace_id   | The top level trace id from Beamable's internal observability stack                            | Only included when the service is processing a request | BEAM         | VERBOSE |
 | beam.connection.request.parent_trace_id | The most recent parent trace id from Beamable's internal observability stack                   | Only included when the service is processing a request | BEAM         | VERBOSE |
 
-### Third Party Log Hosting
+### Third party log hosting
 
 Starting with version 6.0, you can send Microservice logs to third-party log hosting services. In this example, we will use BetterStack.
 

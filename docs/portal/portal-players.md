@@ -2,7 +2,7 @@
 
 The Admin feature's **Players** section can be managed from the Portal.
 
-## Getting Started
+## Getting started
 
 Follow these steps to manage players:
 
@@ -12,7 +12,7 @@ Follow these steps to manage players:
 | 2. Expand the "Engage" section on the sidebar | • Click "Players"                        |
 | 3. Configure the settings                     | • Enjoy!                                 |
 
-## Game Maker User Experience
+## Game Maker user experience
 
 The players management interface allows you to view and manage player accounts:
 
