@@ -1,4 +1,4 @@
-# Command-Line Output
+# Command-line output
 
 Passing output from the CLI to other processes
 
@@ -35,7 +35,7 @@ dotnet beam config --logs v
 ```
 
 
-## Raw Output Mode
+## Raw output mode
 
 By default, the Beam CLI prints output in a variety of ways. Some commands will print JSON to the Standard Output Buffer (StdOut), and other commands will print conversational messages. However, all commands can be forced to print in a structured JSON format.
 
@@ -107,7 +107,7 @@ dotnet beam config | jq -r .data.cid
 123
 ```
 
-## Piping and Logging
+## Piping and logging
 
 When the `--raw` flag is used, or a command is piped to a file, then the Standard Output Buffer will only receive the `--raw` output data. If the `--logs` flag is set, then logs will be sent to the Standard Error Buffer, such that will appear in the console. However, it can be tricky to emit the process logs to a file.
 
@@ -127,7 +127,7 @@ GET call: /basic/beamo/manifest/current
 ...
 ```
 
-## Error Logging
+## Error logging
 
 The Beam CLI usually creates a temporary log file and emits verbose logs to the file for diagnostic purposes. This can be disabled if the environment variable, `BEAM_CLI_NO_FILE_LOG` is set to anything, or if the `--no-log-file` file is passed.
 

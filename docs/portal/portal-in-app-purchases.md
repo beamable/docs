@@ -1,8 +1,8 @@
-# In-App Purchases
+# In-app purchases
 
 The Store feature's In-App Purchases can be managed and configured through the Portal.
 
-## Getting Started
+## Getting started
 
 Follow these steps to configure In-App Purchases settings:
 
@@ -12,7 +12,7 @@ Follow these steps to configure In-App Purchases settings:
 | 2. Expand "Monetize" section on the sidebar | • Click "Real-Money Transactions"        |
 | 3. Configure the settings                   | • Enjoy!                                 |
 
-## Game Maker User Experience
+## Game Maker user experience
 
 The following screenshot shows the In-App Purchases management interface:
 
