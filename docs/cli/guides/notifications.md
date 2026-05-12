@@ -1,6 +1,6 @@
 # Notifications
 
-## Listening for Notifications
+## Listening for notifications
 
 Beamable provides several player facing and game facing callbacks via WebSockets. The Unity SDK relies on these WebSockets events to manage state and run C# callbacks within the SDK. The CLI provides two useful commands to monitor these WebSockets events, one for [player events](../commands/cli-command-reference/listen/player.md) and a second for [game events](../commands/cli-command-reference/listen/server.md).
 
