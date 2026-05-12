@@ -4,7 +4,7 @@ Debug Standalone Microservices locally
 
 ## Dependencies
 
-Before you can debug Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can debug Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -21,7 +21,7 @@ dotnet beam project new service HelloWorld
 
 ## Debugging
 
-Beamable Standalone Microservices run as vanilla dotnet processes on your machine. That means you can use your favorite IDE to debug the service. You can attach breakpoints and then start the service with Debugging, or attach to existing process using your IDE.
+Beamable Standalone Microservices run as vanilla .NET processes on your machine. That means you can use your favorite IDE to debug the service. You can attach breakpoints and then start the service with Debugging, or attach to existing process using your IDE.
 
 ![A breakpoint in a microservice](https://files.readme.io/88da124-image.png)
 

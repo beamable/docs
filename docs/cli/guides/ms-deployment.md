@@ -4,7 +4,7 @@ Deploy Standalone Microservices to the Beamable Cloud
 
 ## Dependencies
 
-Before you can deploy Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can deploy Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -28,7 +28,7 @@ dotnet beam project new service HelloWorld
 
 ## Deployment
 
-Beamable Standalone Microservices use Dotnet as the core technology to run locally on your development machine. However, when it is time to release your Microservice to production, the service will be built into an OCI compliant image using [Docker](https://www.docker.com/products/docker-desktop/), and uploaded to the Beamable Cloud. Beamable's internal orchestration platform (sometimes called _BeamO_ ) will deploy containerized instances of the service.
+Beamable Standalone Microservices use .NET as the core technology to run locally on your development machine. However, when it is time to release your Microservice to production, the service will be built into an OCI compliant image using [Docker](https://www.docker.com/products/docker-desktop/), and uploaded to the Beamable Cloud. Beamable's internal orchestration platform (sometimes called _BeamO_ ) will deploy containerized instances of the service.
 
 Deploying services is a two-step process. First, you must build the images and generate a **plan file**. Then, you use the CLI to deploy a plan.
 
@@ -218,7 +218,7 @@ ENTRYPOINT "dotnet" $BEAM_APP
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
 ```
 ### Local Docker testing and debugging
-The recommended developer workflow is to run your micro services using Dotnet. However, because deployments are running within a container, it may be beneficial to validate that your services work in Docker before deploying them (especially if you've made changes to the default `Dockerfile`).
+The recommended developer workflow is to run your micro services using .NET. However, because deployments are running within a container, it may be beneficial to validate that your services work in Docker before deploying them (especially if you've made changes to the default `Dockerfile`).
 
 To validate your Docker services, use the `--docker-compose-dir` option for the `beam deploy plan` command. The `plan` command will generate a [docker compose](https://docs.docker.com/compose/) project directory at the given path. The project will have all of your enabled services and storages.
 

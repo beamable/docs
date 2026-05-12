@@ -3,12 +3,12 @@
 The Beamable CLI is a dotnet tool that allows developers to interact with Beamable. It can manage a variety of Beamable technologies, including Microservices, Content, and other services.
 
 ## Dependencies
-You'll need to install [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) before you can get started.
+You'll need to install [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) before you can get started.
 Verify it is installed by running `dotnet --version` from a terminal.
 
-!!! info "Dotnet 8 is also supported."
+!!! info ".NET 8 is also supported."
 
-    If you are using the Beamable CLI before version 7.0, then you should be using [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). Starting with CLI 7.0 and beyond, both versions of dotnet are supported, but `net10.0` is recommended.
+    If you are using the Beamable CLI before version 7.0, then you should be using [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). Starting with CLI 7.0 and beyond, both versions of dotnet are supported, but `net10.0` is recommended.
 
 ## Installing
 
