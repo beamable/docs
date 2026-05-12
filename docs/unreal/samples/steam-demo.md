@@ -1,4 +1,4 @@
-# Steam Integration Sample
+# Steam integration sample
 
 This demo showcases how you can use the **Unreal SDK** and **Beamable Microservices** to integrate with Steam.
 
@@ -19,7 +19,7 @@ To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_SteamDem
 !!! note "Assumptions"
       Instructions below assume that you already have the Steam application created. If that is not the case, be sure to create one first.
 
-## Setting Steam Application
+## Setting Steam application
 
 Since this sample requires several resources, we do not host it ourselves. So, to access the sample we'll go set up a Steam account and setup the sample:
 
@@ -30,7 +30,7 @@ Since this sample requires several resources, we do not host it ourselves. So, t
 	1. Generate a Steam Key.
 	2. Add it to your Steam account so you can access the game.
 
-## Setting up Beamable Systems
+## Setting up Beamable systems
 
 Now, you'll need to configure a Beamable realm so you can use it:
 
@@ -72,13 +72,13 @@ To test the sample:
 - It should automatically try to login to that account.
 - You should see your "Steam" status change to playing.
 
-## Sample Highlights
+## Sample highlights
 
 This is how we initialize the SDK and sign in a user with their Steam account.
 
 ![steam-demo-login.png](../../media/imgs/steam-demo-login.png)
 
-## Can I use it as a Template?
+## Can I use it as a template?
 
 This sample is NOT a template you can start your own repository from. However, its Beamable code components are free for you to copy and use in your own project. Here's what these are:
 

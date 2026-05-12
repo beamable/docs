@@ -1,9 +1,9 @@
-# Cloud Data
+# Cloud data
 
 
 The Cloud Save feature allows you to manage and configure cloud data storage for your game through the Portal.
 
-## Getting Started
+## Getting started
 
 Follow these steps to configure cloud data settings:
 
@@ -13,7 +13,7 @@ Follow these steps to configure cloud data settings:
 | 2. Expand "Operate" section on the sidebar | • Click "Game Base Cloud Data"           |
 | 3. Configure the settings                  | • Enjoy!                                 |
 
-## Game Maker User Experience
+## Game Maker user experience
 
 The following screenshots show the cloud data configuration interface:
 

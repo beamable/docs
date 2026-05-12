@@ -6,7 +6,7 @@
 - [Beamable Portal](portal/)
 - [Beamable CLI](cli/)
 
-# Final Sections after we implement the rest of the docs
+# Final sections after we implement the rest of the docs
 #- [Introduction](index.md)
 #- [Getting Started](unreal/getting-started/)
 #- [Whats New?](unreal/whatsnew/)

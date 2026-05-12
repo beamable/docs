@@ -1,8 +1,8 @@
-# Setting Up The Sample Projects
+# Setting up the sample projects
 
 Beamable provides sample projects for Unreal as part of the Beamable Unreal SDK repository. Each sample is tied to a plugin named `BEAMPROJ_<PluginName>` of a shared `BeamableUnreal` project. The sample you see in the editor is determined by which `BEAMPROJ_` plugin is enabled in the BeamableUnreal.uproject file.
 
-## Preparing the Environment
+## Preparing the environment
 1. Install Dependencies
       - NET 8.0
       - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
@@ -10,13 +10,13 @@ Beamable provides sample projects for Unreal as part of the Beamable Unreal SDK 
       - Clone the [UnrealSDK](https://github.com/Beamable/UnrealSDK) repository if you didn't yet.
       - Run the `prepare_repo.sh` Script. (We recommend using GitBash, but any similar shell should work)
 
-## Select the Sample to Run
+## Select the sample to run
 
 1. Use `dotnet beam unreal select-sample BEAMPROJ_<PluginName>` to switch to the plugin (and thus the sample) you want. During this process all of the content in their `Override` folder will be copied to the `BeamableUnreal` project replacing any previous configuration. This allows us to replace the whole "Context" in which the project will be configured, thus allowing us to have multiple samples in the same project.
 2. For example, `dotnet beam unreal select-sample BEAMPROJ_HathoraDemo` switches the repo to the Hathora Demo sample
 3. If using Rider as IDE and already in the BeamableUnreal.sln project you can alternatively select and run the `SET BEAMPROJ - <PluginName>` in the Configuration Drop Down (Top Right Corner)
 
-## Build and Run in Editor
+## Build and run in editor
 
 1. Open the generated `.sln` file in your IDE (e.g., Visual Studio, Rider...).
 2. Perform a Clean build of the Editor target.
@@ -32,7 +32,7 @@ Beamable provides sample projects for Unreal as part of the Beamable Unreal SDK 
 
 
 
-## Why Using a Single Repository?
+## Why using a single repository?
 We keep all Beamable samples within the main repository so we can:
 
 - Use as QA Tools: We continuously develop and test against our own samples.

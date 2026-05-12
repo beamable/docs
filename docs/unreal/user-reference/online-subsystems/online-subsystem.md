@@ -1,4 +1,4 @@
-# Unreal Online Subsystems
+# Unreal online subsystems
 
 !!! warning "Will Be Discontinued"
     After a thorough evaluation conducted with Beamable's closest game-maker partners and their projects, Beamable has decided to discontinue the `OnlineSubsystemBeamable` Plugin extension.

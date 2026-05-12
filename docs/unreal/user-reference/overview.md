@@ -1,18 +1,18 @@
-# SDK Technical Overview
+# SDK technical overview
 
 The Beamable SDK is a collection of custom UE `Engine`, `Editor` and `GameInstance` Subsystems.
 If you are not familiar with Unreal Subsystems, see the [Unreal Engine Programming Subsystems documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/programming-subsystems-in-unreal-engine).
 
 **Game-Maker Code** (as in, code the Beamable customer writes) can take advantage of various guarantees the SDK provides by understanding how these subsystems work.
 
-## Plugin Modules
+## Plugin modules
 The SDK's Plugin is divided into several modules:
 
 - **BeamableCore** contains the `UEngineSubsystem` implementations shared between `Editor` and `Runtime` executing environments. It also contains the `UBeamContentObject` schema definitions for the [content system](beamable-services/content.md).
 - **BeamableCoreRuntime** contains the `UBeamRuntime` and `UBeamRuntimeSubsystem` implementations and manages the SDK lifecycle at runtime (during PIE and in packaged clients).
 - **BeamableCoreEditor** and **BeamableCoreRuntimeEditor** contain `UBeamEditor` and the editor integration code: custom BlueprintNodes, PropertyCustomizations, etc.
 
-## Core Concepts
+## Core concepts
 
 For any technical lead making system-level decisions, effective use of Beamable and the Beamable Unreal SDK requires you to understand a few core concepts. So, after reading this document, you'll want to start here:
 
@@ -27,7 +27,7 @@ Aside from those core concepts, the links below explain some of the higher-level
 - [**Matchmaking**](beamable-services/matchmaking.md), [**Lobbies**](beamable-services/lobbies.md), [**Friends**](beamable-services/friends.md) and [**Parties**](beamable-services/parties.md) are all part of the suite of services for real-time multiplayer games
 - [**Stores**](beamable-services/stores.md), [**Leaderboards**](beamable-services/leaderboards.md) and [**Announcements**](beamable-services/announcements.md) are all part of the suite of services for live-ops meta-game engagement
 
-## Beamable Runtime SDK
+## Beamable runtime SDK
 `UBeamRuntime` is the entry point for the Beamable SDK at runtime (PIE, packaged game clients, and dedicated servers). It is a `GameInstanceSubsystem` and follows its lifecycle rules. It is responsible for a couple of things:
 
 - Controls the SDK's runtime initialization flow
@@ -44,7 +44,7 @@ The next image shows a high-level description of the authentication flows suppor
 
 **_Every engineer working with Beamable should understand this lifecycle._** It should enable them to make the best use and decisions when designing systems with or on top of Beamable.
 
-### Beamable Runtime Subsystems
+### Beamable runtime subsystems
 `BeamRuntimeSubsystems` are stateful subsystems that aim to provide an extendable baseline of some Beamable functionality. They are built on top of the auto-generated lower-level API (`UBeam____Api` classes) to make it simpler to use the SDK's APIs so that:
 
 1. You don't have to set up the common case.
@@ -63,7 +63,7 @@ All [Blueprint](runtime-systems/blueprints.md) nodes, except the **Low-Level** o
 
 If the exposed hooks on these are not enough for your use case and constraints, you can create your own `UBeamRuntimeSubsystem`. The SDK does not obfuscate its inner-workings from you so you can use the existing `UBeamRuntimeSubsystems` as a reference to understand how to create your own. The documentation on [Lower Level SDK](runtime-systems/lower-level.md) and [Operations & Waits](runtime-systems/operations-and-waits.md) can also be useful when implementing your own `UBeamRuntimeSubsystems`.
 
-#### Advanced - Disabling Runtime Subsystems
+#### Advanced - disabling runtime subsystems
 
 You can also opt out of these entirely by adding them to `UBeamCoreSettings` 's property: `ManuallyInitializedRuntimeSubsystems`. All subsystems in this list, and any other subsystem that depends on it, are not automatically initialized by the SDK. For example, if `UBeamInventorySubsystem` is in this list, this system will not be usable until you manually initialize it.
 
@@ -77,7 +77,7 @@ Keep in mind that the simplest way is to build your features *on top of* these s
 However, there are complex cases where it may be easier to make your own system *instead of* these subsystems.
 This is why the SDK allows enabling and disabling systems at this granularity.
 
-#### Advanced - Beyond Hooks and SDK Modifications
+#### Advanced - beyond hooks and SDK modifications
 
 The Beamable Unreal SDK ships with full source code so you can edit it when needed. The code is organized and commented to make modifications feasible, for a few reasons:
 

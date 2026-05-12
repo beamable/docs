@@ -1,4 +1,4 @@
-# Microservice CLI Workflows
+# Microservice CLI workflows
 
 Managing Microservices from the CLI
 
@@ -12,7 +12,7 @@ dotnet --version
 beam version # beam --version also works.
 ```
 
-## Creating New Projects {#creating-new-projects}
+## Creating new projects {#creating-new-projects}
 
 New Microservices, Storages, and Common projects can be created within an existing `.beamable` folder workspace.
 
@@ -61,7 +61,7 @@ dotnet beam project run --ids HelloWorld
 
 Optionally, you can enable hot-reload by passing the `-w` flag.
 
-## Checking Running Microservices
+## Checking running Microservices
 
 You can use the project ps command to check for _running_ services. If you run the command while no services are running, the output will be empty. However, if the command is executed while a Microservice is running, then it will be displayed.
 
@@ -74,7 +74,7 @@ The `prefix` in the log declares that the service is running locally, and the `d
 
 Optionally, you can pass the `-w` flag to watch for changes to running services.
 
-## Stopping Services
+## Stopping services
 
 If a service is running, then the project stop command may be used to stop the program. If the service is not running, then the command will have no output. However, if the service is running, it will log a stop message.
 
@@ -89,7 +89,7 @@ When a service is stopped this way, you should expect to see a log in the Micros
 [Info] Stopping service through debug-server due to reason=[cli-request]
 ```
 
-## Observing Logs
+## Observing logs
 
 When a service is run, the process that starts the service should receive the log outputs. For example, if the service is run through the IDE, then the IDE should receive the logs from the service. However, it is possible to attach to the logs of a running service from a separate process.
 

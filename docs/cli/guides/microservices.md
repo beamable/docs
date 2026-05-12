@@ -15,7 +15,7 @@ dotnetbeam version # beam --version also works.
 ```
 
 ---
-## Quick Start
+## Quick start
 
 Standalone Microservices require a `.beamable` workspace, so you either need to create one with [beam init](../commands/cli-command-reference/cli-init.md), or use an existing one.
 
@@ -93,7 +93,7 @@ namespace Beamable.HelloWorld
 You can write new functions and tag them with `[ClientCallable]` to make them accessible on the Open API page. And now you know the basics of working with Beamable Standalone Microservices!
 
 ---
-## Project Structure
+## Project structure
 
 Each file in the Standalone Microservice has a valuable function that is important to understand.
 
@@ -107,7 +107,7 @@ Each file in the Standalone Microservice has a valuable function that is importa
 | `MyProject/BeamableServices.sln`       | This file is the .NET solution file, and organizes your services. If you add additional services or storage databases, they will be tracked through the `.sln` file.                                                                                         |
 
 ---
-## Next Steps
+## Next steps
 
 There are many topics to continue learning about Beamable Standalone Microservices,
 

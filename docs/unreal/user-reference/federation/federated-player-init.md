@@ -1,4 +1,4 @@
-# Federated Player Init
+# Federated player init
 Player Init Federation allows you to define logic that runs whenever a new player is created in a realm. This enables you to define your players' starting state BEFORE your login call completes.
 
 To set up this federation in a Microservice, you'll need to do the following in your Microservice:
@@ -33,7 +33,7 @@ public async Promise<PlayerInitResult> CreatePlayer(Account account, Dictionary<
 }
 ```
 
-## Setting up the Client
+## Setting up the client
 
 From Unreal, this federation is triggered by any of the `Operation - Sign-Up` calls OR `Operation - Login - Frictionless` (see [Identity](../beamable-services/identity.md)). The code in this federation will have already run by the time these operations are completed.
 
