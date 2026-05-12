@@ -58,7 +58,7 @@ Logs at
   /var/folders/ys/949qmfy15r7bl8x36s6wmm000000gn/T/beamCliLog.txt
 ```
 
-## Dotnet tool folder
+## .NET tool folder
 
 The Beamable CLI executes as a local dotnet tool installation. That means that there should be a `.config/` folder in your project. There should be a file called `dotnet-tools.json` in the folder, declaring the version of the CLI you are using.
 

@@ -178,7 +178,7 @@ And update it to
 <TargetFramework>net8.0</TargetFramework>
 ```
 
-> 📘 Update Dotnet SDK
+> 📘 Update .NET SDK
 >
 > As of CLI 4.0.0, you must have dotnet8 SDK installed on your development
 > machines, instead of the dotnet6 SDK.

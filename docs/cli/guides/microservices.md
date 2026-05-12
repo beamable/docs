@@ -2,11 +2,11 @@
 
 Developing Standalone Microservices with the Beam CLI
 
-Beamable offers a rich microservice development workflow using the Beam CLI and Dotnet. Microservices deploy to the Beamable Cloud, and offer a secure way to handle server-side authoritative logic for your games.
+Beamable offers a rich microservice development workflow using the Beam CLI and .NET. Microservices deploy to the Beamable Cloud, and offer a secure way to handle server-side authoritative logic for your games.
 
 ## Dependencies
 
-Before you can develop a Beamable Standalone Microservice, you need to complete the [Getting-Started Guide](getting-started.md). That means having [Dotnet 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can develop a Beamable Standalone Microservice, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
