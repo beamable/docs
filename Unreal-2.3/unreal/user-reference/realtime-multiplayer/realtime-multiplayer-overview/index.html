@@ -9106,8 +9106,14 @@
 
 
 
-<h1 id="real-time-multiplayer-overview">Real-Time Multiplayer Overview<a class="headerlink" href="#real-time-multiplayer-overview" title="Permanent link">¶</a></h1>
-<p>There are multiple ways to design real-time multiplayer games: dedicated servers, listen servers in addition to deterministic approaches (such as lockstep or rollback based ones). Unreal has baked in workflows and utilities for the first two. The Beamable Unreal SDK currently only supports dedicated servers officially, though you can probably get listen servers to work too. <!-- TODO(@drewbleam): "listen servers"??? --></p>
+<h1 id="real-time-multiplayer-overview">Real-time multiplayer overview<a class="headerlink" href="#real-time-multiplayer-overview" title="Permanent link">¶</a></h1>
+<p>Real-time multiplayer games are typically built around one of three architectures:</p>
+<ul>
+<li><strong>Dedicated servers</strong>: a standalone server process — usually hosted on cloud infrastructure — runs the authoritative game state, and players connect to it as clients.</li>
+<li><strong>Listen servers</strong>: one player's game client also acts as the host. Other players connect to that machine, which holds authoritative state for the session.</li>
+<li><strong>Deterministic networking</strong> (lockstep, rollback, and similar approaches): clients exchange inputs instead of state, and each client simulates the game forward from those inputs.</li>
+</ul>
+<p>Unreal supports both dedicated and listen servers out of the box. The Beamable Unreal SDK officially supports only dedicated servers: Beamable's matchmaking, lobbies, and Microservices assume server-side game logic running on infrastructure under the operator's control — important for authority, cheat resistance, and graceful handling of players leaving mid-session. Listen servers may work with Beamable but are not officially supported.</p>
 <h2 id="dedicated-servers-in-unreal-with-beamable">Dedicated servers in Unreal with Beamable<a class="headerlink" href="#dedicated-servers-in-unreal-with-beamable" title="Permanent link">¶</a></h2>
 <p>Beamable integrates with Unreal's Gameplay Framework in a couple of different ways; none of those are via an <strong>OnlineSubsystem</strong>.</p>
 <div class="admonition note">
