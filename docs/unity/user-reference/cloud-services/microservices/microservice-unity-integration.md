@@ -76,7 +76,7 @@ public async void Start()
 }
 ```
 
-In the client code, the first step is acquire a `BeamContext`. The `BeamContext` is the root instance for each player in Beamable. If you are not familiar with with `BeamContext`, learn more by reading the Player Centric API - Overview.
+In the client code, the first step is acquire a `BeamContext`. The `BeamContext` is the root instance for each player in Beamable. If you are not familiar with with `BeamContext`, learn more by reading the Player-centric API - Overview.
 
 Every time the Microservice builds, Unity will generate the client code.
 

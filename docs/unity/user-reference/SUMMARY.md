@@ -1,6 +1,6 @@
 - [Technical Overview](technical-overview.md)
 - Runtime Systems
-    - [Player Centric API](runtime-systems/player-centric-api.md)
+    - [Player-centric API](runtime-systems/player-centric-api.md)
     - [Dependency Injection](runtime-systems/di.md)
 - Editor Systems
     - [Editor Login](editor-systems/unity-editor-login.md)
