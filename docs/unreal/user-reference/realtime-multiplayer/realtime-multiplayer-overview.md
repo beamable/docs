@@ -1,6 +1,12 @@
 # Real-time multiplayer overview
 
-Real-time multiplayer games can be built around several architectures: dedicated servers, listen servers, or deterministic approaches such as lockstep or rollback-based networking. Unreal provides built-in workflows and utilities for dedicated and listen servers. The Beamable Unreal SDK officially supports dedicated servers; listen servers may work but are not officially supported.
+Real-time multiplayer games are typically built around one of three architectures:
+
+- **Dedicated servers**: a standalone server process — usually hosted on cloud infrastructure — runs the authoritative game state, and players connect to it as clients.
+- **Listen servers**: one player's game client also acts as the host. Other players connect to that machine, which holds authoritative state for the session.
+- **Deterministic networking** (lockstep, rollback, and similar approaches): clients exchange inputs instead of state, and each client simulates the game forward from those inputs.
+
+Unreal supports both dedicated and listen servers out of the box. The Beamable Unreal SDK officially supports only dedicated servers: Beamable's matchmaking, lobbies, and Microservices assume server-side game logic running on infrastructure under the operator's control — important for authority, cheat resistance, and graceful handling of players leaving mid-session. Listen servers may work with Beamable but are not officially supported.
 
 ## Dedicated servers in Unreal with Beamable
 
