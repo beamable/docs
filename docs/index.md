@@ -1,8 +1,8 @@
-# Beamable Unity SDK Documentation
+# Beamable Unity SDK documentation
 
 Welcome to the comprehensive documentation for the Beamable Unity SDK! Beamable provides a complete backend-as-a-service platform that enables game developers to build modern multiplayer games with advanced features like live operations, social networking, game economy, analytics, and cloud services—all without the complexity of managing backend infrastructure.
 
-## Supported Unity Versions
+## Supported Unity versions
 
 Beamable supports the last 3 major versions of Unity. Today, that means the Beamable Unity SDK is officially supported on the following versions.
 
@@ -10,7 +10,7 @@ Beamable supports the last 3 major versions of Unity. Today, that means the Beam
 - Unity 2022
 - Unity 6
 
-## Quick Start
+## Quick start
 
 New to Beamable? Get up and running in minutes:
 
