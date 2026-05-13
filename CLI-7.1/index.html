@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#beamable-cli-docs" class="md-skip">
+        <a href="#introduction-to-unreal-sdk" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Beamable CLI docs
+              Introduction to Unreal SDK
             
           </span>
         </div>
@@ -6086,6 +6086,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#sdk-design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SDK design principles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform-support-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform support roadmap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beamable-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beamable CLI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to start?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -6101,8 +6153,100 @@
 
 
 
-<h1 id="beamable-cli-docs">Beamable CLI docs<a class="headerlink" href="#beamable-cli-docs" title="Permanent link">¶</a></h1>
-<p>Welcome to the Beamable CLI documentation! This guide will help you get started with using the Beamable Command Line Interface (CLI) to manage your Beamable projects and services.</p>
+<h1 id="introduction-to-unreal-sdk">Introduction to Unreal SDK<a class="headerlink" href="#introduction-to-unreal-sdk" title="Permanent link">¶</a></h1>
+<p><strong>Welcome to the Beamable Unreal SDK Documentation!</strong></p>
+<p>The Beamable Unreal SDK provides all of the functionality to integrate Beamable's systems into your Project. It includes features like Authentication, Content, Events, Inventory, Microservices and much more.</p>
+<h2 id="sdk-design-principles">SDK design principles<a class="headerlink" href="#sdk-design-principles" title="Permanent link">¶</a></h2>
+<ul>
+<li>Source-available and modifiable inside your project</li>
+<li>Simple by default, with clear extension points</li>
+<li>Explicit about assumptions when they exist</li>
+<li>Full parity between Blueprint and C++ APIs (except when otherwise notated in docs)</li>
+</ul>
+<h2 id="platform-support-roadmap">Platform support roadmap<a class="headerlink" href="#platform-support-roadmap" title="Permanent link">¶</a></h2>
+<p>The Beamable Unreal SDK is designed to work across multiple platforms. Below is a table outlining the current support status and estimated time of arrival (ETA) for each platform.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Client Support</th>
+<th>Dedicated Server Support</th>
+<th>ETA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows</td>
+<td>✅</td>
+<td>—</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Android</td>
+<td>✅</td>
+<td>—</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>iOS</td>
+<td>✅</td>
+<td>—</td>
+<td>Released</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>—</td>
+<td>✅</td>
+<td>Released</td>
+</tr>
+</tbody>
+</table>
+<p>Console support is not currently available. If you need it, <a href="https://beamable.com/support">let Beamable know</a>.</p>
+<h2 id="beamable-cli">Beamable CLI<a class="headerlink" href="#beamable-cli" title="Permanent link">¶</a></h2>
+<p>Most Beamable workflows run through the Beamable CLI. Editor integrations use the CLI to create Engine-specific workflows. In general the Beamable CLI is invisible where it needs to be and explicit where needed.</p>
+<p>The SDK is tightly integrated with the CLI, in some ways more than others. For example:</p>
+<ul>
+<li><a href="unreal/user-reference/beamable-services/content.md">Content</a>, being designer-focused, has its own UE-familiar content editing UI so you can edit the various JSON blobs that define your game's content</li>
+<li><a href="unreal/user-reference/microservices/microservices.md">Microservices</a>, more engineer focused, leans more directly on the CLI</li>
+</ul>
+<p>Required Versions for the CLI will be noted in the documentation where relevant, but here is a quick reference for the latest versions:</p>
+<table>
+<thead>
+<tr>
+<th>SDK Version</th>
+<th>CLI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v2.3</td>
+<td>v7.1</td>
+</tr>
+<tr>
+<td>v2.2</td>
+<td>v6.2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="where-to-start">Where to start?<a class="headerlink" href="#where-to-start" title="Permanent link">¶</a></h2>
+<p>New users should start with:</p>
+<ul>
+<li><a href="unreal/getting-started/first-request.md">Your First Request</a></li>
+<li><a href="unreal/user-reference/runtime-systems/blueprints.md">Blueprints Integration</a></li>
+<li><a href="unreal/user-reference/overview.md">Runtime Systems Overview</a></li>
+<li><a href="unreal/user-reference/beamable-services/identity.md">Identity</a></li>
+</ul>
+<p>After this, it depends on what your game is and what you are looking to do.</p>
+<ul>
+<li>The most-used backend systems include: <!-- TODO(@drewbleam): This should lean further into showing off what the SDK can do (maybe Microservice cards like docs.beamable lander) --><ul>
+<li><a href="unreal/user-reference/beamable-services/inventory.md">Inventory</a> for items and currency management</li>
+<li><a href="unreal/user-reference/beamable-services/stats.md">Stats</a> for player-scoped key-value stores</li>
+</ul>
+</li>
+<li>Custom features are explored in the <a href="unreal/user-reference/beamable-services/content.md">Content</a> and <a href="unreal/user-reference/microservices/microservices.md">Microservices</a> documentation with consideration to data structuring and writing custom code with Beamable</li>
+</ul>
+<hr>
+<p><em>For support, email <a href="mailto:support@beamable.com">support@beamable.com</a> or visit the <a href="https://beamable.com/support">Beamable support page</a>.</em></p>
 
 
 
