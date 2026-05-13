@@ -1,4 +1,4 @@
-# Beamball – Matchmaking and Lobby System
+# Beamball – matchmaking and lobby system
 
 The **Beamball** sample demonstrates a basic implementation of the Beamable SDK's **Matchmaking** and **Lobby** services and Edgegap Orchestrators.
 

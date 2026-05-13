@@ -1,4 +1,4 @@
-# User Slots
+# User slots
 
 User Slots are at the core of how the SDK handles local users.
 

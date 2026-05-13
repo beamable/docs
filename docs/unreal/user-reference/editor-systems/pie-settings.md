@@ -1,4 +1,4 @@
-# PIE Settings
+# PIE settings
 
 The new Beamable PIE Settings provide a flexible way to configure your game for Play In Editor (PIE). With this system, you can create, capture, and save player profiles for use at runtime, as well as define custom play presets directly within your Unreal projects.
 

@@ -1,4 +1,4 @@
-# BeamFarm Demo
+# BeamFarm demo
 
 This demo showcases how you can use the **Beamable Unreal SDK** in a mobile game project. Particularly it focuses on the Mobile Link Account Flows in Multiple providers like Google and Apple.
 
