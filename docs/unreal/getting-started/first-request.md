@@ -1,4 +1,4 @@
-# Making your First Request
+# Making your first request
 
 **This page walks through the process of loading the Beamable Window in your project and creating a simple request to retrieve user information.**
 

@@ -1,4 +1,4 @@
-# Beamball – Matchmaking and Lobby System
+# Beamball – matchmaking and lobby system
 
 In the **Beamball** sample we demonstrate a basic implementation of the Beamable SDK's **Matchmaking** and **Lobby** services and Hathora Orchestrators.
 

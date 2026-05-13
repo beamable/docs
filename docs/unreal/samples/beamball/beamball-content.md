@@ -1,4 +1,4 @@
-# Beamball – Store and Content System
+# Beamball – store and content system
 
 ![beamball-content.gif](../../../media/imgs/beamball-content.gif)
 
