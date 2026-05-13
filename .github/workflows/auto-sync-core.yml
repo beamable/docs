@@ -59,7 +59,7 @@ jobs:
               git reset --hard HEAD
               git merge origin/${{ github.ref_name }} --squash -X theirs
               git checkout HEAD -- $PRESERVE_PATHS 2>/dev/null || true
-              if ! git diff --quiet; then
+              if ! git diff --cached --quiet; then
                   git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
               fi
               echo "status=conflict" >> $GITHUB_OUTPUT
