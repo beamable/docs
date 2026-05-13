@@ -2241,7 +2241,7 @@
   <a href="#callback-function" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Callback Function
+        Callback function
       
     </span>
   </a>
@@ -2744,7 +2744,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -9387,7 +9387,7 @@
   <a href="#callback-function" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Callback Function
+        Callback function
       
     </span>
   </a>
@@ -9438,7 +9438,7 @@
 
 
 
-<h1 id="notifications-overview">Notifications - Overview<a class="headerlink" href="#notifications-overview" title="Permanent link">¶</a></h1>
+<h1 id="notifications-overview">Notifications - overview<a class="headerlink" href="#notifications-overview" title="Permanent link">¶</a></h1>
 <p>The Beamable <strong>Notifications</strong> service allows game makers to message players, regardless if the game is running.</p>
 <p>Notifications provide a messaging system that enables communication between different parts of your game through a publish/subscribe pattern. Objects can listen for updates (subscribe) with a certain tag. Other objects can then notify the subscribers (publish) with some context-relevant data.</p>
 <p>The Notification service's functionality is actually used by many other services, providing a foundation for a publish/subscribe pattern. For example, <code>Inventory.Subscribe()</code> uses the NotificationService's <code>Subscribe()</code> function under the hood.</p>
@@ -9488,7 +9488,7 @@
 </div>
 <h2 id="notifications-api">Notifications API<a class="headerlink" href="#notifications-api" title="Permanent link">¶</a></h2>
 <p>The Notifications service can be accessed via the NotificationsService from the Beamable API. Notifications primarily function using a <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">Publish-subscribe pattern</a>, where objects that should react to incoming messages (the "subscribers") listen for messages being sent out by another object (the "publishers"). Following this pattern, the API is quite simple.</p>
-<h3 id="callback-function">Callback Function<a class="headerlink" href="#callback-function" title="Permanent link">¶</a></h3>
+<h3 id="callback-function">Callback function<a class="headerlink" href="#callback-function" title="Permanent link">¶</a></h3>
 <p>When a subscribed object receives a message, the message carries some data with it that can provide extra content about the event that occurred. For the purposes of this document, this function will be used:</p>
 <pre><code class="language-csharp">void CallbackAction(object callbackObject)
 {

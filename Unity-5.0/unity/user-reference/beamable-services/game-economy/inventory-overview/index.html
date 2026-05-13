@@ -2006,7 +2006,7 @@
   <a href="#data-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data Concepts
+        Data concepts
       
     </span>
   </a>
@@ -2029,19 +2029,19 @@
   <a href="#pruning-deprecated-items" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pruning Deprecated Items
+        Pruning deprecated items
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Pruning Deprecated Items">
+    <nav class="md-nav" aria-label="Pruning deprecated items">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#deprecated-items" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deprecated Items
+        Deprecated items
       
     </span>
   </a>
@@ -2052,7 +2052,7 @@
   <a href="#inventory-pruning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inventory Pruning
+        Inventory pruning
       
     </span>
   </a>
@@ -2073,12 +2073,12 @@
   <a href="#federated-inventory" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Federated Inventory
+        Federated inventory
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Federated Inventory">
+    <nav class="md-nav" aria-label="Federated inventory">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2822,7 +2822,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -9453,7 +9453,7 @@
   <a href="#data-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data Concepts
+        Data concepts
       
     </span>
   </a>
@@ -9476,19 +9476,19 @@
   <a href="#pruning-deprecated-items" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pruning Deprecated Items
+        Pruning deprecated items
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Pruning Deprecated Items">
+    <nav class="md-nav" aria-label="Pruning deprecated items">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#deprecated-items" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deprecated Items
+        Deprecated items
       
     </span>
   </a>
@@ -9499,7 +9499,7 @@
   <a href="#inventory-pruning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inventory Pruning
+        Inventory pruning
       
     </span>
   </a>
@@ -9520,12 +9520,12 @@
   <a href="#federated-inventory" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Federated Inventory
+        Federated inventory
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Federated Inventory">
+    <nav class="md-nav" aria-label="Federated inventory">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -9594,30 +9594,30 @@
 
 
 
-<h1 id="inventory-overview">Inventory - Overview<a class="headerlink" href="#inventory-overview" title="Permanent link">¶</a></h1>
+<h1 id="inventory-overview">Inventory - overview<a class="headerlink" href="#inventory-overview" title="Permanent link">¶</a></h1>
 <p>The Beamable <strong>Inventory</strong> service allows game makers to manage owned items per player within the game.</p>
 <p>Beamable's Inventory system is built on the Content feature. This means you can create and publish content via the <a href="../../profile-storage/content/content-unity/#content-manager-editor">Content Manager</a>, then grant it to players through various workflows:
 - Add/Remove inventory items to the active player during the course of gameplay. Ex. the player earns a new "Sword" inventory item based on in-game progress
 - Add inventory items to the active player via the Beamable <a href="../stores-overview/">Store</a>. Ex. the player pays real money to buy a new "Sword" inventory item</p>
-<h2 id="data-concepts">Data Concepts<a class="headerlink" href="#data-concepts" title="Permanent link">¶</a></h2>
+<h2 id="data-concepts">Data concepts<a class="headerlink" href="#data-concepts" title="Permanent link">¶</a></h2>
 <p>The <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Inventory_1_1InventoryService.html#details"><code>InventoryService</code></a> manages items owned by the active player. Whereas the <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Content_1_1ContentService.html#details"><code>ContentService</code></a> manages all items available in the game, regardless if owned or not. Each <strong>Inventory Item</strong> owned by the active player relates to a specific <strong>Content Item</strong>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/inventory-data-concept.png" data-desc-position="bottom"><img alt="Inventory Data Concept" src="../../../../../media/imgs/inventory-data-concept.png"></a></p>
 <h2 id="portal">Portal<a class="headerlink" href="#portal" title="Permanent link">¶</a></h2>
 <p>You can view or edit player inventories on the Portal. More information can be found in the <a href="https://docs.beamable.com/docs/portal-inventory">Portal - Inventory</a> guide.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/portal-inventory-overview.png" data-desc-position="bottom"><img alt="Portal Inventory Overview" src="../../../../../media/imgs/portal-inventory-overview.png" style="height:auto;width:500px"></a></p>
-<h3 id="pruning-deprecated-items">Pruning Deprecated Items<a class="headerlink" href="#pruning-deprecated-items" title="Permanent link">¶</a></h3>
+<h3 id="pruning-deprecated-items">Pruning deprecated items<a class="headerlink" href="#pruning-deprecated-items" title="Permanent link">¶</a></h3>
 <p>Normally inventory item types are meant to be long-lasting, and the corresponding items may be owned by players indefinitely. However, in some styles of game, there are item types that are only meaningful for a limited time, and it makes sense to remove the content definitions when the relevant period ends. This can lead to <strong>Deprecated Items</strong>, described below. To prevent deprecated items from building up, you can enable <strong>Inventory Pruning</strong> on your realm.</p>
-<h4 id="deprecated-items">Deprecated Items<a class="headerlink" href="#deprecated-items" title="Permanent link">¶</a></h4>
+<h4 id="deprecated-items">Deprecated items<a class="headerlink" href="#deprecated-items" title="Permanent link">¶</a></h4>
 <p>When a player owns an item but the content entry defining that item type has been deleted, the item stays in the player's inventory but is considered to be "deprecated". In the Beamable Portal, items' deprecated status will appear in the <em>Permission</em> section of the inventory view.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/inventory-deprecated-items-portal.png" data-desc-position="bottom"><img alt="Inventory Deprecated Items in Portal" src="../../../../../media/imgs/inventory-deprecated-items-portal.png" style="height:auto;width:200px"></a></p>
 <p>Items that are deprecated cannot be used effectively in game code, since the Beamable SDK has no way of knowing what their fields should be. Without the content definition, the SDK cannot determine the schema for those items.</p>
-<h4 id="inventory-pruning">Inventory Pruning<a class="headerlink" href="#inventory-pruning" title="Permanent link">¶</a></h4>
+<h4 id="inventory-pruning">Inventory pruning<a class="headerlink" href="#inventory-pruning" title="Permanent link">¶</a></h4>
 <p>When you know that you will be causing items to become deprecated, you can enable Beamable's optional inventory pruning feature. This feature is enabled by a setting in your realm's configuration, and lazily performs pruning logic when a player's inventory is loaded into memory.</p>
 <p>To enable inventory pruning, go to the <em>Operate</em> &gt; <em>Config</em> section of the Beamable Portal and add two entries in the "inventory" namespace using the <em>Add +</em> button. The two configuration values to add are <code>pruneItems</code> and <code>deprecatedContentTtlDays</code>. Item pruning is turned off by default (that is, the default value for <code>pruneItems</code> is false), and the default time-to-live (TTL) is 10 days.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/inventory-pruning-config-1.png" data-desc-position="bottom"><img alt="Inventory Pruning Configuration 1" src="../../../../../media/imgs/inventory-pruning-config-1.png" style="height:auto;width:400px"></a></p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/inventory-pruning-config-2.png" data-desc-position="bottom"><img alt="Inventory Pruning Configuration 2" src="../../../../../media/imgs/inventory-pruning-config-2.png" style="height:auto;width:400px"></a></p>
 <p><em>Note</em>: Pruning is "lazy": the criteria for inventory pruning will only be evaluated by Beamable services when the player's inventory is loaded into memory. Thus, pruning will <em>NOT</em> occur for players who have not played recently.</p>
-<h2 id="federated-inventory">Federated Inventory<a class="headerlink" href="#federated-inventory" title="Permanent link">¶</a></h2>
+<h2 id="federated-inventory">Federated inventory<a class="headerlink" href="#federated-inventory" title="Permanent link">¶</a></h2>
 <p>Beamable supports custom inventory federation using managed <a href="../../../cloud-services/microservices/microservice-framework/">microservices</a>. You can use this service to extend the Inventory system with items that are managed externally.</p>
 <p>Some use cases:</p>
 <ul>

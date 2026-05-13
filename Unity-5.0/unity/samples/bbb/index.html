@@ -2641,7 +2641,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -3359,7 +3359,7 @@
   <a href="#microservices-bbb-guide" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Microservices (BBB) - Guide
+        Microservices (BBB) - guide
       
     </span>
   </a>
@@ -3382,7 +3382,7 @@
   <a href="#player-experience-flowchart" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Player Experience Flowchart
+        Player experience flowchart
       
     </span>
   </a>
@@ -3398,7 +3398,7 @@
   <a href="#game-maker-user-experience" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Game Maker User Experience
+        Game Maker user experience
       
     </span>
   </a>
@@ -3421,7 +3421,7 @@
   <a href="#step-1-setup-beamable-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1. Setup Beamable Content
+        Step 1. setup Beamable content
       
     </span>
   </a>
@@ -3432,7 +3432,7 @@
   <a href="#step-2-create-game-client-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 2. Create Game Client Code
+        Step 2. create game client code
       
     </span>
   </a>
@@ -3443,7 +3443,7 @@
   <a href="#step-3-create-game-server-code-microservices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3. Create Game Server Code (Microservices)
+        Step 3. create game server code (Microservices)
       
     </span>
   </a>
@@ -9445,7 +9445,7 @@
   <a href="#microservices-bbb-guide" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Microservices (BBB) - Guide
+        Microservices (BBB) - guide
       
     </span>
   </a>
@@ -9468,7 +9468,7 @@
   <a href="#player-experience-flowchart" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Player Experience Flowchart
+        Player experience flowchart
       
     </span>
   </a>
@@ -9484,7 +9484,7 @@
   <a href="#game-maker-user-experience" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Game Maker User Experience
+        Game Maker user experience
       
     </span>
   </a>
@@ -9507,7 +9507,7 @@
   <a href="#step-1-setup-beamable-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1. Setup Beamable Content
+        Step 1. setup Beamable content
       
     </span>
   </a>
@@ -9518,7 +9518,7 @@
   <a href="#step-2-create-game-client-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 2. Create Game Client Code
+        Step 2. create game client code
       
     </span>
   </a>
@@ -9529,7 +9529,7 @@
   <a href="#step-3-create-game-server-code-microservices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3. Create Game Server Code (Microservices)
+        Step 3. create game server code (Microservices)
       
     </span>
   </a>
@@ -9558,7 +9558,7 @@
 
 
 
-<h1 id="beamable-boss-battle-microservices-sample">Beamable Boss Battle - Microservices Sample<a class="headerlink" href="#beamable-boss-battle-microservices-sample" title="Permanent link">¶</a></h1>
+<h1 id="beamable-boss-battle-microservices-sample">Beamable Boss Battle - Microservices sample<a class="headerlink" href="#beamable-boss-battle-microservices-sample" title="Permanent link">¶</a></h1>
 <p>In the "Beamable Boss Battle" (BBB) sample game, <strong>The Hero has reached the dungeon. Battle the Boss to win.</strong></p>
 <div class="admonition info">
 <p class="admonition-title">Related Features</p>
@@ -9582,7 +9582,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="microservices-bbb-guide">Microservices (BBB) - Guide<a class="headerlink" href="#microservices-bbb-guide" title="Permanent link">¶</a></h2>
+<h2 id="microservices-bbb-guide">Microservices (BBB) - guide<a class="headerlink" href="#microservices-bbb-guide" title="Permanent link">¶</a></h2>
 <p>This document and the sample project allow game makers to understand and apply the benefits of Microservices in game development. Or watch this video:</p>
 <div style="position: relative; padding-bottom: 56.25%; height: 0;">
   <iframe src="https://www.youtube.com/embed/NpEGdH7NvnQ?autoplay=0&amp;fs=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen="">
@@ -9605,14 +9605,14 @@
 </tr>
 </tbody>
 </table>
-<h3 id="player-experience-flowchart">Player Experience Flowchart<a class="headerlink" href="#player-experience-flowchart" title="Permanent link">¶</a></h3>
+<h3 id="player-experience-flowchart">Player experience flowchart<a class="headerlink" href="#player-experience-flowchart" title="Permanent link">¶</a></h3>
 <p>The player experience flowchart shows the game flow:</p>
 <p>The player battles the boss and the workload is appropriately divided between the C# game client code and the C# Beamable Microservice code. Goals of using server-authoritative programming include to increase the game's security (against any malicious hackers in the game's community) and to improve live ops workflows.</p>
 <ul>
 <li><strong>StartTheBattle ()</strong> - Public Microservice method to reset the <code>BossHealth</code> Stat and randomize <code>HeroWeaponIndex</code> Stat</li>
 <li><strong>AttackTheBoss ()</strong> - Public Microservice method to reduce the <code>BossHealth</code> Stat based on <code>Weapon</code> Content</li>
 </ul>
-<h2 id="game-maker-user-experience">Game Maker User Experience<a class="headerlink" href="#game-maker-user-experience" title="Permanent link">¶</a></h2>
+<h2 id="game-maker-user-experience">Game Maker user experience<a class="headerlink" href="#game-maker-user-experience" title="Permanent link">¶</a></h2>
 <p>The game maker user experience shows the development workflow. There are 3 major parts to this game creation process.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">¶</a></h2>
 <p>Here are the steps to implement the sample:</p>
@@ -9621,7 +9621,7 @@
 <p>Related Features:</p>
 <p>• <a href="../../user-reference/cloud-services/microservices/microservice-framework/">Microservices</a> - Server-side code that runs in the cloud to handle game logic, data validation, and real-time multiplayer functionality</p>
 </div>
-<h3 id="step-1-setup-beamable-content">Step 1. Setup Beamable Content<a class="headerlink" href="#step-1-setup-beamable-content" title="Permanent link">¶</a></h3>
+<h3 id="step-1-setup-beamable-content">Step 1. setup Beamable content<a class="headerlink" href="#step-1-setup-beamable-content" title="Permanent link">¶</a></h3>
 <p>This is a general overview of Beamable's Content flow. For more detailed instructions, see the <a href="../../user-reference/beamable-services/profile-storage/content/content-overview/">Content Manager</a> doc.</p>
 <table>
 <thead>
@@ -9669,7 +9669,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="step-2-create-game-client-code">Step 2. Create Game Client Code<a class="headerlink" href="#step-2-create-game-client-code" title="Permanent link">¶</a></h3>
+<h3 id="step-2-create-game-client-code">Step 2. create game client code<a class="headerlink" href="#step-2-create-game-client-code" title="Permanent link">¶</a></h3>
 <p>This step includes the bulk of time and effort the project.</p>
 <table>
 <thead>
@@ -9909,7 +9909,7 @@ while (!isDone)
    yield return new WaitForEndOfFrame();
 }
 </code></pre>
-<h3 id="step-3-create-game-server-code-microservices">Step 3. Create Game Server Code (Microservices)<a class="headerlink" href="#step-3-create-game-server-code-microservices" title="Permanent link">¶</a></h3>
+<h3 id="step-3-create-game-server-code-microservices">Step 3. create game server code (Microservices)<a class="headerlink" href="#step-3-create-game-server-code-microservices" title="Permanent link">¶</a></h3>
 <p>Create the Microservice and the project-specific C# code to meet the game's needs.</p>
 <table>
 <thead>

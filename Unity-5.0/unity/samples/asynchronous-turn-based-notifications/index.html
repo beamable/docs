@@ -18,7 +18,7 @@
     
     
       
-        <title>Asynchronous Turn Based Notifications - Unity SDK</title>
+        <title>Asynchronous turn based notifications - Unity SDK</title>
       
     
     
@@ -128,7 +128,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Asynchronous Turn Based Notifications
+              Asynchronous turn based notifications
             
           </span>
         </div>
@@ -2637,7 +2637,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -9268,24 +9268,24 @@
   <a href="#components-breakdown" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Components Breakdown
+        Components breakdown
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Components Breakdown">
+    <nav class="md-nav" aria-label="Components breakdown">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1-turnsystem-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. TurnSystem (Client)
+        1. TurnSystem (client)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. TurnSystem (Client)">
+    <nav class="md-nav" aria-label="1. TurnSystem (client)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -9308,12 +9308,12 @@
   <a href="#2-service-server" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Service (Server)
+        2. Service (server)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Service (Server)">
+    <nav class="md-nav" aria-label="2. Service (server)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -9341,12 +9341,12 @@
   <a href="#beamable-features-used" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Beamable Features Used
+        Beamable features used
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Beamable Features Used">
+    <nav class="md-nav" aria-label="Beamable features used">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -9375,7 +9375,7 @@
   <a href="#3-microstorage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Microstorage
+        3. MicroStorage
       
     </span>
   </a>
@@ -9404,13 +9404,13 @@
 
 
 
-<h1 id="asynchronous-turn-based-notifications">Asynchronous Turn Based Notifications<a class="headerlink" href="#asynchronous-turn-based-notifications" title="Permanent link">¶</a></h1>
+<h1 id="asynchronous-turn-based-notifications">Asynchronous turn based notifications<a class="headerlink" href="#asynchronous-turn-based-notifications" title="Permanent link">¶</a></h1>
 <p>Update players and UI with turn based notifications.</p>
 <p><a href="https://github.com/beamable/beamable-sample-sandbox/tree/ping-pong-system">This sample project</a> demonstrates how to utilize Beamable features to handle turn management and real-time communication between players.</p>
 <p>In this example, we have created a simple turn-based "ping-pong" game where two players take turns pinging each other. The Unity client subscribes to notifications to listen for turn updates, sends pings to the opponent, and checks whose turn it is to update the UI.</p>
 <p>The server maintains the turn state in a shared <code>TurnData</code> document and provides endpoints for the client to ping the opponent and check the current turn.</p>
-<h2 id="components-breakdown">Components Breakdown<a class="headerlink" href="#components-breakdown" title="Permanent link">¶</a></h2>
-<h3 id="1-turnsystem-client">1. TurnSystem (Client)<a class="headerlink" href="#1-turnsystem-client" title="Permanent link">¶</a></h3>
+<h2 id="components-breakdown">Components breakdown<a class="headerlink" href="#components-breakdown" title="Permanent link">¶</a></h2>
+<h3 id="1-turnsystem-client">1. TurnSystem (client)<a class="headerlink" href="#1-turnsystem-client" title="Permanent link">¶</a></h3>
 <p>The <code>TurnSystem</code> class handles the following responsibilities:</p>
 <ul>
 <li>Initializes the player's context and subscribes to ping notifications</li>
@@ -9424,7 +9424,7 @@
 <li><strong><code>HandlePingNotification</code></strong>: When a notification is received indicating the opponent's turn, this function processes the notification and updates the player's UI accordingly</li>
 <li><strong><code>UpdateTurnStatus</code></strong>: Queries the server to check if it is the player's turn and updates the turn indicator UI</li>
 </ul>
-<h3 id="2-service-server">2. Service (Server)<a class="headerlink" href="#2-service-server" title="Permanent link">¶</a></h3>
+<h3 id="2-service-server">2. Service (server)<a class="headerlink" href="#2-service-server" title="Permanent link">¶</a></h3>
 <p>The <code>Service</code> microservice is responsible for:</p>
 <ul>
 <li>Managing the <code>TurnData</code> (which stores the current turn and the two players involved)</li>
@@ -9438,12 +9438,12 @@
 <li><strong><code>GetFromPlayer</code></strong>: Fetches the <code>FromPlayer</code> field from the <code>TurnData</code>, allowing the client to set the opponent player on initialization</li>
 <li>The data is stored in a Microstorage</li>
 </ul>
-<h2 id="beamable-features-used">Beamable Features Used<a class="headerlink" href="#beamable-features-used" title="Permanent link">¶</a></h2>
+<h2 id="beamable-features-used">Beamable features used<a class="headerlink" href="#beamable-features-used" title="Permanent link">¶</a></h2>
 <h3 id="1-notifications">1. Notifications<a class="headerlink" href="#1-notifications" title="Permanent link">¶</a></h3>
 <p>The system uses Beamable's <code>NotificationService</code> to send real-time updates (<code>PingNotification</code>) when the turn switches from one player to another.</p>
 <h3 id="2-microservices">2. Microservices<a class="headerlink" href="#2-microservices" title="Permanent link">¶</a></h3>
 <p>The server-side logic for turn management is encapsulated in Beamable microservices, which provide callable methods (<code>Ping</code>, <code>IsPlayerTurn</code>, <code>GetFromPlayer</code>) for the client to interact with.</p>
-<h3 id="3-microstorage">3. Microstorage<a class="headerlink" href="#3-microstorage" title="Permanent link">¶</a></h3>
+<h3 id="3-microstorage">3. MicroStorage<a class="headerlink" href="#3-microstorage" title="Permanent link">¶</a></h3>
 <p><code>TurnData</code> is stored using Beamable's microstorage to maintain persistent state across player turns.</p>
 
 

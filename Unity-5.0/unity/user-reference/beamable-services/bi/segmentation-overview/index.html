@@ -2647,7 +2647,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -2759,19 +2759,19 @@
   <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Getting started
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Getting Started">
+    <nav class="md-nav" aria-label="Getting started">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#creating-a-cohort-by-stats" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating a Cohort by Stats
+        Creating a cohort by stats
       
     </span>
   </a>
@@ -2782,7 +2782,7 @@
   <a href="#upload-csv-to-create-a-cohort" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Upload CSV to Create a Cohort
+        Upload CSV to create a cohort
       
     </span>
   </a>
@@ -2793,7 +2793,7 @@
   <a href="#custom-segmentation-cohort" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Segmentation Cohort
+        Custom segmentation cohort
       
     </span>
   </a>
@@ -9375,19 +9375,19 @@
   <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Getting started
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Getting Started">
+    <nav class="md-nav" aria-label="Getting started">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#creating-a-cohort-by-stats" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating a Cohort by Stats
+        Creating a cohort by stats
       
     </span>
   </a>
@@ -9398,7 +9398,7 @@
   <a href="#upload-csv-to-create-a-cohort" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Upload CSV to Create a Cohort
+        Upload CSV to create a cohort
       
     </span>
   </a>
@@ -9409,7 +9409,7 @@
   <a href="#custom-segmentation-cohort" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Segmentation Cohort
+        Custom segmentation cohort
       
     </span>
   </a>
@@ -9448,9 +9448,9 @@
 <li>What can you do with cohorts of players</li>
 <li>Guides to show you some examples of creating cohorts of players</li>
 </ul>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
+<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>In this guide we will walk you through segmenting players into cohorts. We'll show you a couple of ways to do that including using the Portal to define rules.</p>
-<h3 id="creating-a-cohort-by-stats">Creating a Cohort by Stats<a class="headerlink" href="#creating-a-cohort-by-stats" title="Permanent link">¶</a></h3>
+<h3 id="creating-a-cohort-by-stats">Creating a cohort by stats<a class="headerlink" href="#creating-a-cohort-by-stats" title="Permanent link">¶</a></h3>
 <p>Most of the segmentation in Beamable is to create a cohort by a <em>stat</em>. You can learn more about stats in the <a href="../../profile-storage/stats/">Stats</a> page. However, in this guide we are going to show you how to use a default stat <code>DAYS_SINCE_INSTALL</code> to create a cohort that is going to be used in a trial. Trials are <a href="../ab-testing-overview/">A/B testing</a>, which you will learn more about in that section. But this guide will just focus on the part where we create a cohort.</p>
 <ul>
 <li>Navigate to the <a href="https://portal.beamable.com">Portal</a> and login</li>
@@ -9463,7 +9463,7 @@
 <p>In this trial, we also added these values to complete and save the trial.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/trail_save.png" data-desc-position="bottom"><img alt="Trial Save" src="../../../../../media/imgs/trail_save.png"></a></p>
 <p>What this is doing is creating a trial that can be joined by a cohort. As you will learn in the A/B Testing area, you can use trials in various places to run experiments. The above will create a cohort called "7thDayReturningPlayers" and you can perform all actions on this cohort from various other parts of Beamable.</p>
-<h3 id="upload-csv-to-create-a-cohort">Upload CSV to Create a Cohort<a class="headerlink" href="#upload-csv-to-create-a-cohort" title="Permanent link">¶</a></h3>
+<h3 id="upload-csv-to-create-a-cohort">Upload CSV to create a cohort<a class="headerlink" href="#upload-csv-to-create-a-cohort" title="Permanent link">¶</a></h3>
 <p>Since we now know that you can create a cohort from stats, Beamable provides you with a tool to get players into a cohort by creating stat attribution: <strong>Tagging</strong>.</p>
 <p>Tagging players with stats in CSV form allows you granular, flexible control over player segmentation.
 You can use data from tools and queries outside of Beamable to inform player segmentation into cohorts.</p>
@@ -9478,7 +9478,7 @@ You can use data from tools and queries outside of Beamable to inform player seg
 <p class="admonition-title">Gotcha: Space the comma</p>
 <p>Please note that if you do not put a space between the comma and the key or value, the parser will trim that character. So be sure that your properly format the CSV.</p>
 </div>
-<h3 id="custom-segmentation-cohort">Custom Segmentation Cohort<a class="headerlink" href="#custom-segmentation-cohort" title="Permanent link">¶</a></h3>
+<h3 id="custom-segmentation-cohort">Custom segmentation cohort<a class="headerlink" href="#custom-segmentation-cohort" title="Permanent link">¶</a></h3>
 <p>To create a cohort from custom telemetry, run a query against your Athena Database (see <a href="../analytics-overview/">Analytics - Overview</a>) and export the results as a CSV. Import the CSV to populate the cohort.</p>
 <pre><code class="language-sql">select distinct gamer_tag, stat_name, stat_value from (
 

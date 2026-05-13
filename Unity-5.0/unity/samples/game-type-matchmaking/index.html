@@ -2641,7 +2641,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -3063,7 +3063,7 @@
   <a href="#project-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project Structure
+        Project structure
       
     </span>
   </a>
@@ -3074,7 +3074,7 @@
   <a href="#step-1-create-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1. Create Content
+        Step 1. create content
       
     </span>
   </a>
@@ -3085,7 +3085,7 @@
   <a href="#step-2-configure-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 2. Configure Content
+        Step 2. configure content
       
     </span>
   </a>
@@ -3096,7 +3096,7 @@
   <a href="#step-3-configure-sample-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3. Configure Sample Data
+        Step 3. configure sample data
       
     </span>
   </a>
@@ -3104,10 +3104,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-run-test" class="md-nav__link">
+  <a href="#step-4-run-and-test" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4. Run &amp; Test
+        Step 4. run and test
       
     </span>
   </a>
@@ -9422,7 +9422,7 @@
   <a href="#project-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project Structure
+        Project structure
       
     </span>
   </a>
@@ -9433,7 +9433,7 @@
   <a href="#step-1-create-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1. Create Content
+        Step 1. create content
       
     </span>
   </a>
@@ -9444,7 +9444,7 @@
   <a href="#step-2-configure-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 2. Configure Content
+        Step 2. configure content
       
     </span>
   </a>
@@ -9455,7 +9455,7 @@
   <a href="#step-3-configure-sample-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3. Configure Sample Data
+        Step 3. configure sample data
       
     </span>
   </a>
@@ -9463,10 +9463,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-run-test" class="md-nav__link">
+  <a href="#step-4-run-and-test" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4. Run &amp; Test
+        Step 4. run and test
       
     </span>
   </a>
@@ -9490,7 +9490,7 @@
 
 
 
-<h1 id="game-type-matchmaking">Game Type Matchmaking<a class="headerlink" href="#game-type-matchmaking" title="Permanent link">¶</a></h1>
+<h1 id="game-type-matchmaking">Game type matchmaking<a class="headerlink" href="#game-type-matchmaking" title="Permanent link">¶</a></h1>
 <p>Match players together based on region of the world</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
 <p>This is a <strong>code-only</strong> sample project demonstrating game type based matchmaking. A core concept of the matchmaking system is game types, and Game Makers have the option to silo matchmaking pools by game type. This can have multiple usages:</p>
@@ -9513,7 +9513,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">¶</a></h2>
+<h2 id="project-structure">Project structure<a class="headerlink" href="#project-structure" title="Permanent link">¶</a></h2>
 <p>In the project's content, you will see a custom content type underneath game_types: <code>geo</code>. This is a simple extension of the SimGameType class, adding in a <code>RegionName</code> string, with the appropriate ContentLink and ContentRef subclasses.</p>
 <pre><code class="language-csharp">using System;
 using Beamable;
@@ -9535,22 +9535,22 @@ namespace MatchmakingExample
     }
 }
 </code></pre>
-<h2 id="step-1-create-content">Step 1. Create Content<a class="headerlink" href="#step-1-create-content" title="Permanent link">¶</a></h2>
+<h2 id="step-1-create-content">Step 1. create content<a class="headerlink" href="#step-1-create-content" title="Permanent link">¶</a></h2>
 <p>For this example, we'll be creating a few game types for some different regions of the world: North America, Europe, and Asia.</p>
 <div class="admonition info">
 <p class="admonition-title">Game Content Designer</p>
 <p>For more info on how to manage content in your project, check out the <a href="../../user-reference/beamable-services/profile-storage/content/content-overview/">Game Content Designer</a> documentation.</p>
 </div>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/gametype-content-creation.png" data-desc-position="bottom"><img alt="Game Type Content Creation" src="../../../media/imgs/gametype-content-creation.png"></a></p>
-<h2 id="step-2-configure-content">Step 2. Configure Content<a class="headerlink" href="#step-2-configure-content" title="Permanent link">¶</a></h2>
+<h2 id="step-2-configure-content">Step 2. configure content<a class="headerlink" href="#step-2-configure-content" title="Permanent link">¶</a></h2>
 <p>Configure the content on the game type with the appropriate region name. Of course, these values can be tweaked for your game's specifications.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/gametype-asia-config.png" data-desc-position="bottom"><img alt="Game Type Asia Configuration" src="../../../media/imgs/gametype-asia-config.png" width="600px"></a></p>
 <p><em>Game type for the Asia region, with a 1 vs 1 configuration.</em></p>
 <p><em>Game type for the Europe region, with a 2 vs 2 configuration.</em></p>
-<h2 id="step-3-configure-sample-data">Step 3. Configure Sample Data<a class="headerlink" href="#step-3-configure-sample-data" title="Permanent link">¶</a></h2>
+<h2 id="step-3-configure-sample-data">Step 3. configure sample data<a class="headerlink" href="#step-3-configure-sample-data" title="Permanent link">¶</a></h2>
 <p>The "Geo" scene in the project is partially configured to test this functionality. The scene contains a dropdown that will be populated with game types at runtime, and buttons to start and stop the matchmaking search. On the MatchmakingSample object (under the Canvas), edit the Geo Matchmaking Sample component and add your matchmaking types to the Game Types Refs list.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/gametype-sample-config.png" data-desc-position="bottom"><img alt="Game Type Sample Configuration" src="../../../media/imgs/gametype-sample-config.png" width="600px"></a></p>
-<h2 id="step-4-run-test">Step 4. Run &amp; Test<a class="headerlink" href="#step-4-run-test" title="Permanent link">¶</a></h2>
+<h2 id="step-4-run-and-test">Step 4. run and test<a class="headerlink" href="#step-4-run-and-test" title="Permanent link">¶</a></h2>
 <p>You will need 2 instances of the project running to test. This can be accomplished in 2 ways:</p>
 <p>• Create a build for your target platform, and run 2 instances of it, or
 • Run 2 instances of the project in the Unity Editor, which may require 2 machines</p>

@@ -1377,7 +1377,7 @@
   <a href="#adding-email" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding Email
+        Adding email
       
     </span>
   </a>
@@ -1388,7 +1388,7 @@
   <a href="#login-user" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Login User
+        Login user
       
     </span>
   </a>
@@ -2727,7 +2727,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -9369,7 +9369,7 @@
   <a href="#adding-email" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding Email
+        Adding email
       
     </span>
   </a>
@@ -9380,7 +9380,7 @@
   <a href="#login-user" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Login User
+        Login user
       
     </span>
   </a>
@@ -9404,7 +9404,7 @@
 
 
 
-<h1 id="username-password-authentication">Username-Password Authentication<a class="headerlink" href="#username-password-authentication" title="Permanent link">¶</a></h1>
+<h1 id="username-password-authentication">Username-password authentication<a class="headerlink" href="#username-password-authentication" title="Permanent link">¶</a></h1>
 <p>Username and Password is a great way to provide cross platform authentication if you do not want social integration. In addition, you can use this method for allowing a player to signup for your game or service.</p>
 <p>Beamable will create a user account for you when you initialize, but you can use this service to also provide additional credentials for sign-in.</p>
 <div class="admonition info">
@@ -9425,7 +9425,7 @@ private async void Start()
     await _beamContext.Accounts.OnReady;
 }
 </code></pre>
-<h2 id="adding-email">Adding Email<a class="headerlink" href="#adding-email" title="Permanent link">¶</a></h2>
+<h2 id="adding-email">Adding email<a class="headerlink" href="#adding-email" title="Permanent link">¶</a></h2>
 <p>The Beamable SDK always has an implicit account after the <code>BeamContext</code> has been created. Various credentials may be added to the account, such as an email and password.</p>
 <pre><code class="language-csharp">public async Promise AddEmail(string email, string password)
 {
@@ -9440,7 +9440,7 @@ private async void Start()
 <p class="admonition-title">Error Handling</p>
 <p>Be sure to properly handle errors that may come from <code>AddEmail</code>. For example, such errors can occur if the email address is not unique.</p>
 </div>
-<h2 id="login-user">Login User<a class="headerlink" href="#login-user" title="Permanent link">¶</a></h2>
+<h2 id="login-user">Login user<a class="headerlink" href="#login-user" title="Permanent link">¶</a></h2>
 <p>If an email and password have been added to an existing account, that account can be recovered by supplying the original credentials. In this code snippet, the <code>RecoverAccountWithEmail</code> function returns a operation handle that shows the recovered account before setting the current <code>BeamContext</code> to that account. The <code>operation.account</code> can be used to show the user information about the account before calling the <code>SwitchToAccount</code> function, which will change the <code>BeamContext</code>'s current account.</p>
 <pre><code class="language-csharp">public async Promise Login(string email, string password)
 {

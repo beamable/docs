@@ -1583,7 +1583,7 @@
   <a href="#apple-sign-in-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Apple Sign-In Integration
+        Apple sign-in integration
       
     </span>
   </a>
@@ -1594,19 +1594,19 @@
   <a href="#handle-various-flow-scenarios" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Handle Various Flow Scenarios
+        Handle various flow scenarios
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Handle Various Flow Scenarios">
+    <nav class="md-nav" aria-label="Handle various flow scenarios">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#should-switch-users" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Should Switch Users
+        Should switch users
       
     </span>
   </a>
@@ -1617,7 +1617,7 @@
   <a href="#should-create-user" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Should Create User
+        Should create user
       
     </span>
   </a>
@@ -1628,7 +1628,7 @@
   <a href="#should-update-current-user" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Should Update Current User
+        Should update current user
       
     </span>
   </a>
@@ -1644,7 +1644,7 @@
   <a href="#apples-app-privacy-questionnaire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Apple's App Privacy Questionnaire
+        Apple's app privacy questionnaire
       
     </span>
   </a>
@@ -2768,7 +2768,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -9399,7 +9399,7 @@
   <a href="#apple-sign-in-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Apple Sign-In Integration
+        Apple sign-in integration
       
     </span>
   </a>
@@ -9410,19 +9410,19 @@
   <a href="#handle-various-flow-scenarios" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Handle Various Flow Scenarios
+        Handle various flow scenarios
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Handle Various Flow Scenarios">
+    <nav class="md-nav" aria-label="Handle various flow scenarios">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#should-switch-users" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Should Switch Users
+        Should switch users
       
     </span>
   </a>
@@ -9433,7 +9433,7 @@
   <a href="#should-create-user" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Should Create User
+        Should create user
       
     </span>
   </a>
@@ -9444,7 +9444,7 @@
   <a href="#should-update-current-user" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Should Update Current User
+        Should update current user
       
     </span>
   </a>
@@ -9460,7 +9460,7 @@
   <a href="#apples-app-privacy-questionnaire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Apple's App Privacy Questionnaire
+        Apple's app privacy questionnaire
       
     </span>
   </a>
@@ -9484,14 +9484,14 @@
 
 
 
-<h1 id="apple-sign-in">Apple Sign-In<a class="headerlink" href="#apple-sign-in" title="Permanent link">¶</a></h1>
+<h1 id="apple-sign-in">Apple sign-in<a class="headerlink" href="#apple-sign-in" title="Permanent link">¶</a></h1>
 <p>The purpose of this guide is for game makers to use Apple Sign-In with the Beamable Accounts service.</p>
 <p>Beamable integrates with Apple Sign-In to make it easy for users to sign in to your apps and websites using their Apple ID. Instead of filling out forms, verifying email addresses, and choosing new passwords, they can use Sign in with Apple to set up an account and start using your app right away. All accounts are protected with two-factor authentication for superior security, and Apple will not track users' activity in your app or website.</p>
 <div class="admonition info">
 <p class="admonition-title">Prerequisites</p>
 <p>Before Apple Sign-In will work properly, configure your Unity project to support Apple as a third-party authentication provider.</p>
 </div>
-<h2 id="apple-sign-in-integration">Apple Sign-In Integration<a class="headerlink" href="#apple-sign-in-integration" title="Permanent link">¶</a></h2>
+<h2 id="apple-sign-in-integration">Apple sign-in integration<a class="headerlink" href="#apple-sign-in-integration" title="Permanent link">¶</a></h2>
 <p>The recommended solution for implementing Apple Sign-In is to build a wrapper on top of SignInWithApple, a Unity package that is installed with Beamable.</p>
 <div class="admonition warning">
 <p class="admonition-title">Preprocessor Directives</p>
@@ -9526,7 +9526,7 @@ private void Start()
     #endif
 }
 </code></pre>
-<h2 id="handle-various-flow-scenarios">Handle Various Flow Scenarios<a class="headerlink" href="#handle-various-flow-scenarios" title="Permanent link">¶</a></h2>
+<h2 id="handle-various-flow-scenarios">Handle various flow scenarios<a class="headerlink" href="#handle-various-flow-scenarios" title="Permanent link">¶</a></h2>
 <p>Depending on the state of the currently logged in user, we may need to attach the credentials to the current user, switch to a different user, or create a new one entirely. The following code covers all 3 cases.</p>
 <pre><code class="language-csharp">//Specify the third party auth provider
 var thirdParty = AuthThirdParty.Apple;
@@ -9541,14 +9541,14 @@ var shouldCreateUser = available &amp;&amp; userHasCredentials;
 //Should we attach the credentials to an existing user?
 var shouldAttachToCurrentUser = available &amp;&amp; !userHasCredentials;
 </code></pre>
-<h3 id="should-switch-users">Should Switch Users<a class="headerlink" href="#should-switch-users" title="Permanent link">¶</a></h3>
+<h3 id="should-switch-users">Should switch users<a class="headerlink" href="#should-switch-users" title="Permanent link">¶</a></h3>
 <p>Here we are authenticating the third party (Apple) with Beamable by logging them in using the LoginThirdParty API.</p>
 <pre><code class="language-csharp">if(shouldSwitchUsers)
 {
     await _beamContext.Api.AuthService.LoginThirdParty(thirdParty, token, false);
 }
 </code></pre>
-<h3 id="should-create-user">Should Create User<a class="headerlink" href="#should-create-user" title="Permanent link">¶</a></h3>
+<h3 id="should-create-user">Should create user<a class="headerlink" href="#should-create-user" title="Permanent link">¶</a></h3>
 <p>Here we create a new user, apply the current token to that user, then register the third party login (Apple) using the RegisterThirdPartyCredentials API. We take the user returned and then update the user data.</p>
 <pre><code class="language-csharp">if(shouldCreateUser)
 {
@@ -9558,7 +9558,7 @@ var shouldAttachToCurrentUser = available &amp;&amp; !userHasCredentials;
     _beamContext.Api.UpdateUserData(user);
 }
 </code></pre>
-<h3 id="should-update-current-user">Should Update Current User<a class="headerlink" href="#should-update-current-user" title="Permanent link">¶</a></h3>
+<h3 id="should-update-current-user">Should update current user<a class="headerlink" href="#should-update-current-user" title="Permanent link">¶</a></h3>
 <p>Here we are attaching to the current user with the Apple token. This scenario is essentially "auto-login". The Apple user has already been linked with the current Beamable user and we can safely apply the token.</p>
 <pre><code class="language-csharp">if(shouldAttachToCurrentUser)
 {
@@ -9566,7 +9566,7 @@ var shouldAttachToCurrentUser = available &amp;&amp; !userHasCredentials;
     _beamContext.Api.UpdateUserData(user);
 }
 </code></pre>
-<h2 id="apples-app-privacy-questionnaire">Apple's App Privacy Questionnaire<a class="headerlink" href="#apples-app-privacy-questionnaire" title="Permanent link">¶</a></h2>
+<h2 id="apples-app-privacy-questionnaire">Apple's app privacy questionnaire<a class="headerlink" href="#apples-app-privacy-questionnaire" title="Permanent link">¶</a></h2>
 <p>Any developer that wants to submit a new application or app update to the Apple App Store is required to submit an application privacy questionnaire specifying which data is collected by their app and the data collected by any SDKs integrated into their app. <a href="https://developer.apple.com/app-store/app-privacy-details/">More information.</a></p>
 <p>If you are using Beamable, and are attempting to fill out the Apple privacy questionnaire, please refer to the details below that explain what forms of data are collected by the Beamable SDK.</p>
 <table>

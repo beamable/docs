@@ -502,7 +502,7 @@
   <a href="#net-10-support" class="md-nav__link">
     <span class="md-ellipsis">
       
-        .NET 10 Support
+        .NET 10 support
       
     </span>
   </a>
@@ -513,7 +513,7 @@
   <a href="#unity-63-support" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unity 6.3 Support
+        Unity 6.3 support
       
     </span>
   </a>
@@ -529,7 +529,7 @@
   <a href="#bug-fixes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bug Fixes
+        Bug fixes
       
     </span>
   </a>
@@ -2762,7 +2762,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -9405,7 +9405,7 @@
   <a href="#net-10-support" class="md-nav__link">
     <span class="md-ellipsis">
       
-        .NET 10 Support
+        .NET 10 support
       
     </span>
   </a>
@@ -9416,7 +9416,7 @@
   <a href="#unity-63-support" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unity 6.3 Support
+        Unity 6.3 support
       
     </span>
   </a>
@@ -9432,7 +9432,7 @@
   <a href="#bug-fixes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bug Fixes
+        Bug fixes
       
     </span>
   </a>
@@ -9481,7 +9481,7 @@
 <h1 id="version-50">Version 5.0<a class="headerlink" href="#version-50" title="Permanent link">¶</a></h1>
 <p>These are the release notes for the Beamable Unity SDK version 5.0</p>
 <h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">¶</a></h2>
-<h3 id="net-10-support">.NET 10 Support<a class="headerlink" href="#net-10-support" title="Permanent link">¶</a></h3>
+<h3 id="net-10-support">.NET 10 support<a class="headerlink" href="#net-10-support" title="Permanent link">¶</a></h3>
 <p>.NET 10 is the latest Long Term Support version of .NET, and it has a lot of <a href="https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-14">language features</a> and <a href="https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-10/">performance improvements</a>. The Beamable Unity SDK 5.0 supports .NET 10 (as well as .NET 8).</p>
 <p>If you are using .NET 8, you will not be required to update to .NET 10. However, if you do not have any .NET installed, the Beamable SDK will prefer to use .NET 10 by default.</p>
 <p>The .NET version is controlled by the <code>global.json</code> file in your Unity project. This file will automatically be created by the Beamable SDK.</p>
@@ -9493,9 +9493,9 @@
 </code></pre>
 <p>You are allowed to use <code>8.0.302</code>, or any of the .NET 10 versions.</p>
 <p>If you decide to update from .NET 8 to .NET 10, then please remember to update the <code>global.json</code> file, as well as the <code>&lt;TargetFramework&gt;</code> option in your Microservice <code>.csproj</code> files. You can view <a href="https://learn.microsoft.com/en-us/dotnet/core/install/upgrade">Microsoft's documentation</a> on how to update a project's .NET version.</p>
-<h3 id="unity-63-support">Unity 6.3 Support<a class="headerlink" href="#unity-63-support" title="Permanent link">¶</a></h3>
+<h3 id="unity-63-support">Unity 6.3 support<a class="headerlink" href="#unity-63-support" title="Permanent link">¶</a></h3>
 <p>Unity 6.3 is the latest Long Term Support version of Unity, and it is officially supported starting in the Beamable SDK 5.0. There are no known compatibility issues with Unity 6.3 starting in SDK 5.0.</p>
-<h2 id="bug-fixes">Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permanent link">¶</a></h2>
+<h2 id="bug-fixes">Bug fixes<a class="headerlink" href="#bug-fixes" title="Permanent link">¶</a></h2>
 <p>There are a variety of bug fixes and quality of life improvements in SDK 5.0. In addition to several <a href="https://changes.beamable.com/?unity#5.0.0-fixed">bug fixes</a>, the Beamable button will not be visible before Beamable has finished initializing, which helps smooth out the user flow of the SDK editor tools.</p>
 <p>On Windows, Microservices have had file-locking related issues since the SDK 2.0 release. The core issue is that .NET locks the <code>/bin</code> and <code>/obj</code> folders of a Microservice while it is running. Any other attempt to access those folders while the service is running can lead to file-lock problems. SDK 5 adopts CLI 7, which introduces mechanisms to find and resolve the file-locks.</p>
 <h2 id="upgrade-to-cli-700">Upgrade to CLI 7.0.0<a class="headerlink" href="#upgrade-to-cli-700" title="Permanent link">¶</a></h2>

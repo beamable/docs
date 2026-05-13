@@ -18,7 +18,7 @@
     
     
       
-        <title>Account Deletion - Unity SDK</title>
+        <title>Account deletion - Unity SDK</title>
       
     
     
@@ -128,7 +128,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Account Deletion
+              Account deletion
             
           </span>
         </div>
@@ -2637,7 +2637,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -9280,7 +9280,7 @@
   <a href="#apple-requirements" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Apple Requirements
+        Apple requirements
       
     </span>
   </a>
@@ -9307,7 +9307,7 @@
   <a href="#option-1-forget-user-via-portal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Option 1. Forget User via Portal
+        Option 1. forget user via Portal
       
     </span>
   </a>
@@ -9318,7 +9318,7 @@
   <a href="#option-2-forget-user-via-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Option 2. Forget User via Code
+        Option 2. forget user via code
       
     </span>
   </a>
@@ -9329,7 +9329,7 @@
   <a href="#unity-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unity Code
+        Unity code
       
     </span>
   </a>
@@ -9340,7 +9340,7 @@
   <a href="#complete-script" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Complete Script
+        Complete script
       
     </span>
   </a>
@@ -9364,11 +9364,11 @@
 
 
 
-<h1 id="account-deletion">Account Deletion<a class="headerlink" href="#account-deletion" title="Permanent link">¶</a></h1>
+<h1 id="account-deletion">Account deletion<a class="headerlink" href="#account-deletion" title="Permanent link">¶</a></h1>
 <p>Allow players to remove personal info from your application</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
 <p>As part of Beamable's efforts to maintain <a href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation">GDPR compliance</a>, a method to remove <strong>Personally identifiable information (PII)</strong> must be made available to users. This ensures that players still have control over their own personal information.</p>
-<h3 id="apple-requirements">Apple Requirements<a class="headerlink" href="#apple-requirements" title="Permanent link">¶</a></h3>
+<h3 id="apple-requirements">Apple requirements<a class="headerlink" href="#apple-requirements" title="Permanent link">¶</a></h3>
 <p>As part of the App Store Review Guideline, Apple requires apps that support account creation to also allow users to delete their accounts, effectively removing any personal info from that platform. Their requirements are effective June 30, 2022. All of this information is available on Apple's documentation for <a href="https://developer.apple.com/support/offering-account-deletion-in-your-app">Offering account deletion in your app</a>.</p>
 <p>For these reasons, Beamable provides the Forget User API. This document outlines the process for removing player info from an account.</p>
 <div class="admonition warning">
@@ -9381,11 +9381,11 @@
 <p>• <strong>Self-Service</strong>: The <a href="https://docs.beamable.com/reference/delete_object-accounts-objectid-admin-forget"><code>object/accounts/{objectId}/admin/forget</code></a> API can be called from a microservice to allow users to initiate their own account info deletion.</p>
 <p>In addition to deleting PII, your app must meet certain requirements around the user interface and experience. Although Beamable provides an API, as well as a Portal flow for deleting PII for a user, the game must still implement its own user flow that conforms to <a href="https://developer.apple.com/support/offering-account-deletion-in-your-app">Apple's Guidelines</a>.</p>
 <p>Methods of account deletion are covered in more detail below.</p>
-<h2 id="option-1-forget-user-via-portal">Option 1. Forget User via Portal<a class="headerlink" href="#option-1-forget-user-via-portal" title="Permanent link">¶</a></h2>
+<h2 id="option-1-forget-user-via-portal">Option 1. forget user via Portal<a class="headerlink" href="#option-1-forget-user-via-portal" title="Permanent link">¶</a></h2>
 <p>User deletion can be done from the Beamable Portal by an admin. This can be found on a player's profile page, at the top right under the "Actions" dropdown. This calls the same admin/forget API as the code example in this guide.</p>
 <p>Based on guidelines for user account deletion, this method should be paired with an easy-to-find option in your app that allows your user to submit a request for deletion.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/portal-forget-user.png" data-desc-position="bottom"><img alt="Portal Forget User" src="../../../media/imgs/portal-forget-user.png" width="600px"></a></p>
-<h2 id="option-2-forget-user-via-code">Option 2. Forget User via Code<a class="headerlink" href="#option-2-forget-user-via-code" title="Permanent link">¶</a></h2>
+<h2 id="option-2-forget-user-via-code">Option 2. forget user via code<a class="headerlink" href="#option-2-forget-user-via-code" title="Permanent link">¶</a></h2>
 <p><strong>The script can be downloaded as a GitHub Gist here:</strong> <a href="https://gist.github.com/beamable-gists/4ee1ecc72475eca5e6f63aecfdba762a">DeletePlayerInfoService.cs</a>
 <em>The full script can also be found at the bottom of this document.</em></p>
 <p>The API is only callable from a privileged context such as a microservice. Therefore, you will need to follow the steps to create a microservice before this script can be called. See the <a href="../../user-reference/cloud-services/microservices/microservice-framework/">Microservice Framework</a> for more info.</p>
@@ -9440,7 +9440,7 @@ public async Task&lt;string&gt; DeleteAccount()
 <p>After publishing the microservice, you can call the DeleteAccount method from the appropriate location in your C# client code. You should see a response similar to the one below, if the deletion was successful:</p>
 <pre><code class="language-json">{"createdTimeMillis":1654639620467,"id":1498288512206848,"gamerTags":[{"projectId":"DE_12345","gamerTag":1234}],"updatedTimeMillis":1654715866882,"thirdParties":[]}
 </code></pre>
-<h2 id="unity-code">Unity Code<a class="headerlink" href="#unity-code" title="Permanent link">¶</a></h2>
+<h2 id="unity-code">Unity code<a class="headerlink" href="#unity-code" title="Permanent link">¶</a></h2>
 <p>For additional thoroughness of erasure, it is recommended to also call <code>ClearAndStopAllContexts</code>, which is a static function from the Beamable SDK intended to clear all access tokens for logged in users, and clean up any subscriptions that were running.</p>
 <pre><code class="language-csharp">//C# client code
 
@@ -9463,7 +9463,7 @@ Debug.Log(response);
 //Clear out the users from the device.
 await Beam.ClearAndStopAllContexts();
 </code></pre>
-<h2 id="complete-script">Complete Script<a class="headerlink" href="#complete-script" title="Permanent link">¶</a></h2>
+<h2 id="complete-script">Complete script<a class="headerlink" href="#complete-script" title="Permanent link">¶</a></h2>
 <p>Create a microservice via the <a href="../../user-reference/cloud-services/microservices/microservice-unity-integration/">Microservice Unity Integration</a>, then paste this script into the C# source file.</p>
 <p>DeletePlayerAccount.cs</p>
 <pre><code class="language-csharp">using System.Linq;

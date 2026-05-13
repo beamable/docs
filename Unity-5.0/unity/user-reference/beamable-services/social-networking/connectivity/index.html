@@ -2408,7 +2408,7 @@
   <a href="#sample-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sample Code
+        Sample code
       
     </span>
   </a>
@@ -2419,7 +2419,7 @@
   <a href="#disable-network-connection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disable Network Connection
+        Disable network connection
       
     </span>
   </a>
@@ -2430,7 +2430,7 @@
   <a href="#custom-connectivity-service" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Connectivity Service
+        Custom connectivity service
       
     </span>
   </a>
@@ -2453,7 +2453,7 @@
   <a href="#dependency-registration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dependency Registration
+        Dependency registration
       
     </span>
   </a>
@@ -2464,7 +2464,7 @@
   <a href="#connectivity-service-override" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Connectivity Service Override
+        Connectivity service override
       
     </span>
   </a>
@@ -2783,7 +2783,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -9426,7 +9426,7 @@
   <a href="#sample-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sample Code
+        Sample code
       
     </span>
   </a>
@@ -9437,7 +9437,7 @@
   <a href="#disable-network-connection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disable Network Connection
+        Disable network connection
       
     </span>
   </a>
@@ -9448,7 +9448,7 @@
   <a href="#custom-connectivity-service" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Connectivity Service
+        Custom connectivity service
       
     </span>
   </a>
@@ -9471,7 +9471,7 @@
   <a href="#dependency-registration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dependency Registration
+        Dependency registration
       
     </span>
   </a>
@@ -9482,7 +9482,7 @@
   <a href="#connectivity-service-override" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Connectivity Service Override
+        Connectivity service override
       
     </span>
   </a>
@@ -9540,7 +9540,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="sample-code">Sample Code<a class="headerlink" href="#sample-code" title="Permanent link">¶</a></h3>
+<h3 id="sample-code">Sample code<a class="headerlink" href="#sample-code" title="Permanent link">¶</a></h3>
 <p>Here are some code examples to help you get started.</p>
 <p>In this <code>ConnectivityServiceExample.cs</code>, the UI shows the current state of the internet connectivity and updates automatically if any changes occur (for example, if the ethernet / Wi-Fi is manually disabled or enabled by the user).</p>
 <p>ConnectivityServiceExample.cs</p>
@@ -9634,7 +9634,7 @@ namespace Beamable.Examples.Services.ConnectivityService
     }
 }
 </code></pre>
-<h3 id="disable-network-connection">Disable Network Connection<a class="headerlink" href="#disable-network-connection" title="Permanent link">¶</a></h3>
+<h3 id="disable-network-connection">Disable network connection<a class="headerlink" href="#disable-network-connection" title="Permanent link">¶</a></h3>
 <p>Game makers can set a global disable to simulate not having Wi-Fi before BeamContext initialization.</p>
 <pre><code class="language-csharp">private static void ForceDisableConnectivity()
 {
@@ -9659,7 +9659,7 @@ private async void SetupBeamable()
     ConnectivityService_OnConnectivityChanged(hasConnectivity);
 }
 </code></pre>
-<h3 id="custom-connectivity-service">Custom Connectivity Service<a class="headerlink" href="#custom-connectivity-service" title="Permanent link">¶</a></h3>
+<h3 id="custom-connectivity-service">Custom connectivity service<a class="headerlink" href="#custom-connectivity-service" title="Permanent link">¶</a></h3>
 <p>From version 1.11 and above, you can override the <code>IConnectivityChecker</code> service via Dependency Injection and change how the connectivity logic works. The default implementation uses a polling approach and sends requests to Beamable's API Gateway.</p>
 <p>In the code sample below, there is a custom implementation of <code>IConnectivityService</code> that pings a local server at <code>"http://127.0.0.1:3000/ping"</code>.</p>
 <p>CustomConnectivityService.cs</p>
@@ -9889,7 +9889,7 @@ public class CustomConnectivityServiceExample : MonoBehaviour
 <li>Beamable will no longer phone home frequently (heartbeat), resulting in noisy numbers of errors in case of a dropped connection</li>
 </ul>
 <p>Overall, users with bad connections will see an error, as they should, but people with fine connections should experience markedly fewer false negatives.</p>
-<h4 id="dependency-registration">Dependency Registration<a class="headerlink" href="#dependency-registration" title="Permanent link">¶</a></h4>
+<h4 id="dependency-registration">Dependency registration<a class="headerlink" href="#dependency-registration" title="Permanent link">¶</a></h4>
 <pre><code class="language-csharp">[BeamContextSystem]
 public class DependencyRegistration
 {
@@ -9902,7 +9902,7 @@ public class DependencyRegistration
   }
 }
 </code></pre>
-<h4 id="connectivity-service-override">Connectivity Service Override<a class="headerlink" href="#connectivity-service-override" title="Permanent link">¶</a></h4>
+<h4 id="connectivity-service-override">Connectivity service override<a class="headerlink" href="#connectivity-service-override" title="Permanent link">¶</a></h4>
 <pre><code class="language-csharp">public class AlwaysConnectivityChecker : IConnectivityChecker
 {
   public bool ConnectivityCheckingEnabled { get; set; } = false;

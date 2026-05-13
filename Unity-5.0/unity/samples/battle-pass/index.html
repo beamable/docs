@@ -2641,7 +2641,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -3125,19 +3125,19 @@
   <a href="#custom-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Content
+        Custom content
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Custom Content">
+    <nav class="md-nav" aria-label="Custom content">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#content-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Content Setup
+        Content setup
       
     </span>
   </a>
@@ -3153,7 +3153,7 @@
   <a href="#fetching-and-using-the-battle-pass-at-runtime" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fetching and Using the Battle Pass at Runtime
+        Fetching and using the battle pass at runtime
       
     </span>
   </a>
@@ -3164,7 +3164,7 @@
   <a href="#adding-the-battle-pass-to-player-inventory" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding the Battle Pass to Player Inventory
+        Adding the battle pass to player inventory
       
     </span>
   </a>
@@ -3175,7 +3175,7 @@
   <a href="#handling-end-date-and-expiration-validation-in-a-microservice" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Handling End Date and Expiration Validation in a Microservice
+        Handling end date and expiration validation in a Microservice
       
     </span>
   </a>
@@ -3186,7 +3186,7 @@
   <a href="#season-passes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Season Passes
+        Season passes
       
     </span>
   </a>
@@ -9395,19 +9395,19 @@
   <a href="#custom-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Content
+        Custom content
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Custom Content">
+    <nav class="md-nav" aria-label="Custom content">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#content-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Content Setup
+        Content setup
       
     </span>
   </a>
@@ -9423,7 +9423,7 @@
   <a href="#fetching-and-using-the-battle-pass-at-runtime" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fetching and Using the Battle Pass at Runtime
+        Fetching and using the battle pass at runtime
       
     </span>
   </a>
@@ -9434,7 +9434,7 @@
   <a href="#adding-the-battle-pass-to-player-inventory" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding the Battle Pass to Player Inventory
+        Adding the battle pass to player inventory
       
     </span>
   </a>
@@ -9445,7 +9445,7 @@
   <a href="#handling-end-date-and-expiration-validation-in-a-microservice" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Handling End Date and Expiration Validation in a Microservice
+        Handling end date and expiration validation in a Microservice
       
     </span>
   </a>
@@ -9456,7 +9456,7 @@
   <a href="#season-passes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Season Passes
+        Season passes
       
     </span>
   </a>
@@ -9484,7 +9484,7 @@
 <p>A battle pass is a common engagement feature for players. You can implement a Battle Pass for your game by utilizing
 Beamable's Custom Content capabilities. This is a quick guide for how to think about using Beamable for this feature.</p>
 <hr>
-<h2 id="custom-content">Custom Content<a class="headerlink" href="#custom-content" title="Permanent link">¶</a></h2>
+<h2 id="custom-content">Custom content<a class="headerlink" href="#custom-content" title="Permanent link">¶</a></h2>
 <p>First, define a custom content type for the Battle Pass by creating a class that inherits from <code>ContentObject</code>.
 Each Battle Pass will have tiers, and each tier can have rewards.</p>
 <pre><code class="language-csharp">[ContentType("battlepass")]
@@ -9509,7 +9509,7 @@ public class Reward
     public int Quantity;
 }
 </code></pre>
-<h3 id="content-setup">Content Setup<a class="headerlink" href="#content-setup" title="Permanent link">¶</a></h3>
+<h3 id="content-setup">Content setup<a class="headerlink" href="#content-setup" title="Permanent link">¶</a></h3>
 <p>Once the custom type is defined, follow these steps to add a Battle Pass content object in the Beamable
 Content Manager:</p>
 <ul>
@@ -9531,7 +9531,7 @@ Content Manager:</p>
   content live.</li>
 </ul>
 <hr>
-<h2 id="fetching-and-using-the-battle-pass-at-runtime">Fetching and Using the Battle Pass at Runtime<a class="headerlink" href="#fetching-and-using-the-battle-pass-at-runtime" title="Permanent link">¶</a></h2>
+<h2 id="fetching-and-using-the-battle-pass-at-runtime">Fetching and using the battle pass at runtime<a class="headerlink" href="#fetching-and-using-the-battle-pass-at-runtime" title="Permanent link">¶</a></h2>
 <p>After the Battle Pass is defined and published, use Beamable’s features to fetch and use the content at runtime.
 In this example, we'll retrieve the Battle Pass.</p>
 <pre><code class="language-csharp">// Fetch the Battle Pass content
@@ -9573,7 +9573,7 @@ private async Promise DisplayBattlePassDetails()
     Debug.Log($"Is Battle Pass Valid: {isValid}");
 }
 </code></pre>
-<h2 id="adding-the-battle-pass-to-player-inventory">Adding the Battle Pass to Player Inventory<a class="headerlink" href="#adding-the-battle-pass-to-player-inventory" title="Permanent link">¶</a></h2>
+<h2 id="adding-the-battle-pass-to-player-inventory">Adding the battle pass to player inventory<a class="headerlink" href="#adding-the-battle-pass-to-player-inventory" title="Permanent link">¶</a></h2>
 <p>You can add the Battle Pass to a player's inventory using Beamable's Inventory system. Here's how you can use the
 <code>Inventory.Update</code> method to store the Battle Pass details, such as its name and end date.</p>
 <p>To access <code>items.battlepass</code>, an item named <code>battlepass</code> should be created and published through the Content Manager.</p>
@@ -9592,7 +9592,7 @@ private async Promise DisplayBattlePassDetails()
     Debug.Log("Battle Pass added to inventory!");
 }
 </code></pre>
-<h2 id="handling-end-date-and-expiration-validation-in-a-microservice">Handling End Date and Expiration Validation in a Microservice<a class="headerlink" href="#handling-end-date-and-expiration-validation-in-a-microservice" title="Permanent link">¶</a></h2>
+<h2 id="handling-end-date-and-expiration-validation-in-a-microservice">Handling end date and expiration validation in a Microservice<a class="headerlink" href="#handling-end-date-and-expiration-validation-in-a-microservice" title="Permanent link">¶</a></h2>
 <p>You can use Beamable’s Microservices to validate the Battle Pass expiration. Since <code>Battlepass</code> is a custom
 <code>ContentObject</code>, the type won't be findable by default in Microservices. You can create or move the <code>Battlepass</code>
 custom content script into the Beamable's <code>Common</code> folder, which is also referenced in the Microservices. The folder
@@ -9624,7 +9624,7 @@ public async Task&lt;bool&gt; IsBattlepassValid(ContentRef&lt;Battlepass&gt; bat
 <p>Download the full sample code from <a href="https://github.com/beamable/battle-pass-example">Beamable Battle Pass Sample</a>.
 <em>Note</em>: This sample uses the latest Beamable SDK V5.0.0.</p>
 <hr>
-<h2 id="season-passes">Season Passes<a class="headerlink" href="#season-passes" title="Permanent link">¶</a></h2>
+<h2 id="season-passes">Season passes<a class="headerlink" href="#season-passes" title="Permanent link">¶</a></h2>
 <p>You can also create a season pass that can be used to unlock new content or features.
 Currently, there is no sample for this feature; however, here is how to do it. It is very similar to the Battle Pass.</p>
 <ol>

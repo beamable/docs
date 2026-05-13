@@ -1394,19 +1394,19 @@
   <a href="#creating-a-custom-federation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating a Custom Federation
+        Creating a custom federation
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Creating a Custom Federation">
+    <nav class="md-nav" aria-label="Creating a custom federation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#creating-a-microservice" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating a microservice
+        Creating a Microservice
       
     </span>
   </a>
@@ -1428,7 +1428,7 @@
   <a href="#implementing-ifederatedlogin-in-your-microservice" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implementing IFederatedLogin in your microservice
+        Implementing IFederatedLogin in your Microservice
       
     </span>
   </a>
@@ -1458,10 +1458,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#running-or-publish-your-microservice" class="md-nav__link">
+  <a href="#running-or-publishing-your-microservice" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Running or Publish your microservice
+        Running or publishing your Microservice
       
     </span>
   </a>
@@ -1477,7 +1477,7 @@
   <a href="#more-samples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        More Samples
+        More samples
       
     </span>
   </a>
@@ -2788,7 +2788,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -9419,19 +9419,19 @@
   <a href="#creating-a-custom-federation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating a Custom Federation
+        Creating a custom federation
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Creating a Custom Federation">
+    <nav class="md-nav" aria-label="Creating a custom federation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#creating-a-microservice" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating a microservice
+        Creating a Microservice
       
     </span>
   </a>
@@ -9453,7 +9453,7 @@
   <a href="#implementing-ifederatedlogin-in-your-microservice" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implementing IFederatedLogin in your microservice
+        Implementing IFederatedLogin in your Microservice
       
     </span>
   </a>
@@ -9483,10 +9483,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#running-or-publish-your-microservice" class="md-nav__link">
+  <a href="#running-or-publishing-your-microservice" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Running or Publish your microservice
+        Running or publishing your Microservice
       
     </span>
   </a>
@@ -9502,7 +9502,7 @@
   <a href="#more-samples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        More Samples
+        More samples
       
     </span>
   </a>
@@ -9526,15 +9526,15 @@
 
 
 
-<h1 id="federated-identity">Federated Identity<a class="headerlink" href="#federated-identity" title="Permanent link">¶</a></h1>
+<h1 id="federated-identity">Federated identity<a class="headerlink" href="#federated-identity" title="Permanent link">¶</a></h1>
 <p>Beamable supports custom authentication federation using managed <a href="https://docs.beamable.com/docs/microservices-feature-overview">microservices</a>. You can use this service to implement an OAuth2, OpenID Connect, or a custom external authentication provider and use it with Beamable. We also support two-way challenge-based flows for PKI-based authentication for Web3/blockchain scenarios. Some use cases:</p>
 <ul>
 <li>Blockchain wallet authentication - Attach a wallet to a player's account and use it for authentication</li>
 <li>External authentication provider integration - Already using something like Auth0? Use it for your game to achieve a Single Sign-On experience</li>
 </ul>
 <p>Here we will go through the steps to create a custom authentication federation.</p>
-<h2 id="creating-a-custom-federation">Creating a Custom Federation<a class="headerlink" href="#creating-a-custom-federation" title="Permanent link">¶</a></h2>
-<h3 id="creating-a-microservice">Creating a microservice<a class="headerlink" href="#creating-a-microservice" title="Permanent link">¶</a></h3>
+<h2 id="creating-a-custom-federation">Creating a custom federation<a class="headerlink" href="#creating-a-custom-federation" title="Permanent link">¶</a></h2>
+<h3 id="creating-a-microservice">Creating a Microservice<a class="headerlink" href="#creating-a-microservice" title="Permanent link">¶</a></h3>
 <p>You should first create a microservice or use an existing one. You can bundle multiple authentication federations in a single microservice using the <code>UniqueName</code> value of cloud identity classes to establish namespaces. This is illustrated by the difference between "tuna" and "haddock" below.</p>
 <h3 id="implementing-an-ifederationid-interface">Implementing an IFederationId interface<a class="headerlink" href="#implementing-an-ifederationid-interface" title="Permanent link">¶</a></h3>
 <p>Create an implementation of IThirdPartyCloudIdentity in Beamable/Common (or any shared assembly).
@@ -9549,7 +9549,7 @@ public class HaddockCloudIdentity : IFederationId
 {
 }
 </code></pre>
-<h3 id="implementing-ifederatedlogin-in-your-microservice">Implementing IFederatedLogin in your microservice<a class="headerlink" href="#implementing-ifederatedlogin-in-your-microservice" title="Permanent link">¶</a></h3>
+<h3 id="implementing-ifederatedlogin-in-your-microservice">Implementing IFederatedLogin in your Microservice<a class="headerlink" href="#implementing-ifederatedlogin-in-your-microservice" title="Permanent link">¶</a></h3>
 <p>Let's say you already have a TunaService that holds all your user's data. We will use it to validate a "token" received by the client and respond with a "user_id".</p>
 <pre><code class="language-csharp">[Microservice("AuthenticationMicroservice")]
 public class AuthenticationMicroservice : IFederatedLogin&lt;TunaCloudIdentity&gt;, IFederatedLogin&lt;HaddockCloudIdentity&gt;, Microservice
@@ -9617,9 +9617,9 @@ var accountRecoveryResponse = await ctx.Accounts
   .RecoverAccountWithExternalIdentity&lt;TunaCloudIdentity, AuthenticationMicroserviceClient&gt;(_authorizationCode);
 await accountRecoveryResponse.SwitchToAccount();
 </code></pre>
-<h3 id="running-or-publish-your-microservice">Running or Publish your microservice<a class="headerlink" href="#running-or-publish-your-microservice" title="Permanent link">¶</a></h3>
+<h3 id="running-or-publishing-your-microservice">Running or publishing your Microservice<a class="headerlink" href="#running-or-publishing-your-microservice" title="Permanent link">¶</a></h3>
 <p>Previous to the Beamable Mercury release (Unity 2.0, CLI 3.0, and UE 1.0), you would need to publish the service to test federation. However, now you can test federations with a locally running service.</p>
-<h2 id="more-samples">More Samples<a class="headerlink" href="#more-samples" title="Permanent link">¶</a></h2>
+<h2 id="more-samples">More samples<a class="headerlink" href="#more-samples" title="Permanent link">¶</a></h2>
 <p>Here are some more examples of federated identity implementations:
 - <a href="https://github.com/beamable/solana-example">Solana/Phantom authentication and inventory federation</a></p>
 

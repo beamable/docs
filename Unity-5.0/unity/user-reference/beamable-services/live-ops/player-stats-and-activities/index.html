@@ -2285,7 +2285,7 @@
   <a href="#creating-a-player-stat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating a Player Stat
+        Creating a player stat
       
     </span>
   </a>
@@ -2296,7 +2296,7 @@
   <a href="#campaign-with-stats" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Campaign with Stats
+        Campaign with stats
       
     </span>
   </a>
@@ -2307,7 +2307,7 @@
   <a href="#player-activities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Player Activities
+        Player activities
       
     </span>
   </a>
@@ -2727,7 +2727,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -9358,7 +9358,7 @@
   <a href="#creating-a-player-stat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating a Player Stat
+        Creating a player stat
       
     </span>
   </a>
@@ -9369,7 +9369,7 @@
   <a href="#campaign-with-stats" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Campaign with Stats
+        Campaign with stats
       
     </span>
   </a>
@@ -9380,7 +9380,7 @@
   <a href="#player-activities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Player Activities
+        Player activities
       
     </span>
   </a>
@@ -9404,9 +9404,9 @@
 
 
 
-<h1 id="player-stats-and-activities">Player Stats and Activities<a class="headerlink" href="#player-stats-and-activities" title="Permanent link">¶</a></h1>
+<h1 id="player-stats-and-activities">Player stats and activities<a class="headerlink" href="#player-stats-and-activities" title="Permanent link">¶</a></h1>
 <p>Stats let game makers create variables to determine which players receive campaigns <a href="doc:campaigns">documentation</a> and other live ops events. Create them in the Portal; see the <a href="doc:stats">documentation</a> for details.</p>
-<h2 id="creating-a-player-stat">Creating a Player Stat<a class="headerlink" href="#creating-a-player-stat" title="Permanent link">¶</a></h2>
+<h2 id="creating-a-player-stat">Creating a player stat<a class="headerlink" href="#creating-a-player-stat" title="Permanent link">¶</a></h2>
 <p>Create a Player Stat through the Portal by navigating to a specific player and using the following popup:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/player-stats-create-popup.png" data-desc-position="bottom"><img alt="Player Stats Create Popup" src="../../../../../media/imgs/player-stats-create-popup.png" style="height:auto;width:400px"></a></p>
 <p>The other way, and easier as well for doing this for all your players, is to set the stat through code, you can do it as in the example below.</p>
@@ -9425,12 +9425,12 @@ public class StatsTest : Microservice
 }
 </code></pre>
 <p>Values for stats are always strings, and you can do simple operations with them like <code>EQUALS</code> and <code>NOT EQUALS</code>. There are some stats that have numeric values, however these can only be set by Beamable's backend.</p>
-<h2 id="campaign-with-stats">Campaign with Stats<a class="headerlink" href="#campaign-with-stats" title="Permanent link">¶</a></h2>
+<h2 id="campaign-with-stats">Campaign with stats<a class="headerlink" href="#campaign-with-stats" title="Permanent link">¶</a></h2>
 <p>You can use Player Stats to define which players are going to receive a campaign. That can be done while creating a new campaign in the Portal. In the following image you can see the stage in which this can be done.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/campaign-stats-configuration.png" data-desc-position="bottom"><img alt="Campaign Stats Configuration" src="../../../../../media/imgs/campaign-stats-configuration.png" style="height:auto;width:600px"></a></p>
 <p>When creating the stat, you will choose between a few automatic stats that are set by the backend. But you can choose to create a custom one, in which you will be prompted to enter the name of the stat and the value to be compared with. This conditional is going to be used to send the campaign only to those who match the stat criteria.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/campaign-custom-stat-creation.png" data-desc-position="bottom"><img alt="Campaign Custom Stat Creation" src="../../../../../media/imgs/campaign-custom-stat-creation.png" style="height:auto;width:400px"></a></p>
-<h2 id="player-activities">Player Activities<a class="headerlink" href="#player-activities" title="Permanent link">¶</a></h2>
+<h2 id="player-activities">Player activities<a class="headerlink" href="#player-activities" title="Permanent link">¶</a></h2>
 <p>These are used to create campaigns using time as parameters. For example, you can use the install date of players as a start point to trigger the campaign, by setting it to happen a few days after that time. The values that can be used as date points are:</p>
 <ul>
 <li>Install date</li>

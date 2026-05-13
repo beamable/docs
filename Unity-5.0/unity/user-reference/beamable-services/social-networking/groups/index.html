@@ -2464,7 +2464,7 @@
   <a href="#creating-groups" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating Groups
+        Creating groups
       
     </span>
   </a>
@@ -2475,7 +2475,7 @@
   <a href="#requesting-group-donation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requesting Group Donation
+        Requesting group donation
       
     </span>
   </a>
@@ -2486,7 +2486,7 @@
   <a href="#make-group-donation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Make Group Donation
+        Make group donation
       
     </span>
   </a>
@@ -2497,7 +2497,7 @@
   <a href="#sample-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sample Code
+        Sample code
       
     </span>
   </a>
@@ -2513,7 +2513,7 @@
   <a href="#adding-group-chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding Group Chat
+        Adding group chat
       
     </span>
   </a>
@@ -2524,7 +2524,7 @@
   <a href="#adding-group-events" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding Group Events
+        Adding group events
       
     </span>
   </a>
@@ -2777,7 +2777,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -9420,7 +9420,7 @@
   <a href="#creating-groups" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating Groups
+        Creating groups
       
     </span>
   </a>
@@ -9431,7 +9431,7 @@
   <a href="#requesting-group-donation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requesting Group Donation
+        Requesting group donation
       
     </span>
   </a>
@@ -9442,7 +9442,7 @@
   <a href="#make-group-donation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Make Group Donation
+        Make group donation
       
     </span>
   </a>
@@ -9453,7 +9453,7 @@
   <a href="#sample-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sample Code
+        Sample code
       
     </span>
   </a>
@@ -9469,7 +9469,7 @@
   <a href="#adding-group-chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding Group Chat
+        Adding group chat
       
     </span>
   </a>
@@ -9480,7 +9480,7 @@
   <a href="#adding-group-events" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding Group Events
+        Adding group events
       
     </span>
   </a>
@@ -9585,20 +9585,20 @@ Here are some common use cases for the Groups service:</p>
 </tr>
 </tbody>
 </table>
-<h3 id="creating-groups">Creating Groups<a class="headerlink" href="#creating-groups" title="Permanent link">¶</a></h3>
+<h3 id="creating-groups">Creating groups<a class="headerlink" href="#creating-groups" title="Permanent link">¶</a></h3>
 <blockquote>
 <p>NOTE: The group tag must be 3 characters or less. Group tags that longer than this will throw an InvalidTag exception.</p>
 </blockquote>
 <pre><code class="language-csharp">var groupCreateRequest= new GroupCreateRequest ("MyGroupName", "tag", "open", 0, 50);
 await _beamContext.Api.GroupsService.CreateGroup (groupCreateRequest);
 </code></pre>
-<h3 id="requesting-group-donation">Requesting Group Donation<a class="headerlink" href="#requesting-group-donation" title="Permanent link">¶</a></h3>
+<h3 id="requesting-group-donation">Requesting group donation<a class="headerlink" href="#requesting-group-donation" title="Permanent link">¶</a></h3>
 <pre><code class="language-csharp">_beamContext.Api.GroupsService.MakeDonationRequest (groupId, currency);
 </code></pre>
-<h3 id="make-group-donation">Make Group Donation<a class="headerlink" href="#make-group-donation" title="Permanent link">¶</a></h3>
+<h3 id="make-group-donation">Make group donation<a class="headerlink" href="#make-group-donation" title="Permanent link">¶</a></h3>
 <pre><code class="language-csharp">_beamContext.Api.GroupsService.Donate (groupId, memberId, 10);
 </code></pre>
-<h3 id="sample-code">Sample Code<a class="headerlink" href="#sample-code" title="Permanent link">¶</a></h3>
+<h3 id="sample-code">Sample code<a class="headerlink" href="#sample-code" title="Permanent link">¶</a></h3>
 <p>In this example, the player can create a group and interact.</p>
 <p>GroupsServiceExample.cs</p>
 <pre><code class="language-csharp">using System.Collections.Generic;
@@ -9856,9 +9856,9 @@ namespace Beamable.Examples.Services.GroupsService
     }
 }
 </code></pre>
-<h2 id="adding-group-chat">Adding Group Chat<a class="headerlink" href="#adding-group-chat" title="Permanent link">¶</a></h2>
+<h2 id="adding-group-chat">Adding group chat<a class="headerlink" href="#adding-group-chat" title="Permanent link">¶</a></h2>
 <p>The chat service includes full functionality for groups. Players can send chat messages within their group. Players can also send chat messages globally, within rooms, and directly to a specific player. See <a href="../chat/">Chat</a> for more info.</p>
-<h2 id="adding-group-events">Adding Group Events<a class="headerlink" href="#adding-group-events" title="Permanent link">¶</a></h2>
+<h2 id="adding-group-events">Adding group events<a class="headerlink" href="#adding-group-events" title="Permanent link">¶</a></h2>
 <p>The events service includes full functionality for groups. Players can collaborate with group members and get group rewards. See <a href="../../live-ops/live-ops/">Events</a> for more info.</p>
 
 

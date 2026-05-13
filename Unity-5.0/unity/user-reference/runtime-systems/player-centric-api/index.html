@@ -733,7 +733,7 @@
   <a href="#beamcontext-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BeamContext Overview
+        BeamContext overview
       
     </span>
   </a>
@@ -744,7 +744,7 @@
   <a href="#beamcontext-lifecycle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BeamContext Lifecycle
+        BeamContext lifecycle
       
     </span>
   </a>
@@ -755,7 +755,7 @@
   <a href="#attaching-service-callbacks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Attaching Service Callbacks
+        Attaching service callbacks
       
     </span>
   </a>
@@ -2747,7 +2747,7 @@
   <span class="md-ellipsis">
     
   
-    A/B Testing
+    A/B testing
   
 
     
@@ -9378,7 +9378,7 @@
   <a href="#beamcontext-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BeamContext Overview
+        BeamContext overview
       
     </span>
   </a>
@@ -9389,7 +9389,7 @@
   <a href="#beamcontext-lifecycle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BeamContext Lifecycle
+        BeamContext lifecycle
       
     </span>
   </a>
@@ -9400,7 +9400,7 @@
   <a href="#attaching-service-callbacks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Attaching Service Callbacks
+        Attaching service callbacks
       
     </span>
   </a>
@@ -9446,10 +9446,10 @@
 
 
 
-<h1 id="player-centric-api">Player Centric API<a class="headerlink" href="#player-centric-api" title="Permanent link">¶</a></h1>
+<h1 id="player-centric-api">Player-centric API<a class="headerlink" href="#player-centric-api" title="Permanent link">¶</a></h1>
 <p>The "Beamable SDK for Unity" provides a main entry point to Beamable functions in your Unity Code and the Beamable Player-Centric API is the recommended way to access Beamable APIs.</p>
 <p>This class is designed to support multiple local players, flexible API reference syntax, testability, and lazy initialization. The Beamable Player-Centric API also continues to offer a flexible API reference syntax of Async / Await, Callbacks, Coroutines, as well as <strong>Synchronous</strong>.</p>
-<h2 id="beamcontext-overview">BeamContext Overview<a class="headerlink" href="#beamcontext-overview" title="Permanent link">¶</a></h2>
+<h2 id="beamcontext-overview">BeamContext overview<a class="headerlink" href="#beamcontext-overview" title="Permanent link">¶</a></h2>
 <p>After that setup, game makers use the <code>BeamContext</code> object as the main entry-point to Beamable functionality. Here's a simple example of initializing the <code>BeamContext</code></p>
 <pre><code class="language-csharp">private async void InitializeBeamContext()
 {
@@ -9512,7 +9512,7 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
     Debug.Log($"beamContext02.PlayerId = {beamContext02.PlayerId}")
 }
 </code></pre>
-<h2 id="beamcontext-lifecycle">BeamContext Lifecycle<a class="headerlink" href="#beamcontext-lifecycle" title="Permanent link">¶</a></h2>
+<h2 id="beamcontext-lifecycle">BeamContext lifecycle<a class="headerlink" href="#beamcontext-lifecycle" title="Permanent link">¶</a></h2>
 <p>The Lifecycle of the <code>BeamContext</code> instance is very straightforward. You can see the complete list of functions below:</p>
 <table>
 <thead>
@@ -9545,7 +9545,7 @@ Here the game maker references 2 (or more) contexts. This is ideal for advanced 
 </tbody>
 </table>
 <p><em>Note</em>: <code>BeamContext</code> API calls will fail if it is stopped in the middle of an async method and will throw an exception. It must be started for these calls to work.</p>
-<h2 id="attaching-service-callbacks">Attaching Service Callbacks<a class="headerlink" href="#attaching-service-callbacks" title="Permanent link">¶</a></h2>
+<h2 id="attaching-service-callbacks">Attaching service callbacks<a class="headerlink" href="#attaching-service-callbacks" title="Permanent link">¶</a></h2>
 <p>Here the game maker references the context and subscribes to service changes via callback. The common Beamable services support various callbacks.</p>
 <p><strong>Currency OnUpdated Callback</strong></p>
 <pre><code class="language-csharp">private async void MyMethodForCurrencyCallback()
