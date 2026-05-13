@@ -10348,7 +10348,7 @@
 
 
 
-<h1 id="c-real-time-multiplayer-systems">C++ Real-Time Multiplayer Systems<a class="headerlink" href="#c-real-time-multiplayer-systems" title="Permanent link">¶</a></h1>
+<h1 id="c-real-time-multiplayer-systems">C++ real-time multiplayer systems<a class="headerlink" href="#c-real-time-multiplayer-systems" title="Permanent link">¶</a></h1>
 <p>In Unreal, there are certain parts of implementing a dedicated server game that MUST be implemented using C++. Namely, <strong>Game Server Authentication</strong>. This means: implementing logic that your Game Server runs to decide whether an incoming connection is allowed in this game server or not.</p>
 <p>By default, Beamable integrates with the Gameplay Framework to give you cross-platform Game Server Authentication (to enable cross-play) WITHOUT going through OnlineSubsystem interfaces. Basically, the <code>FUniqueNetId</code> for each player is the user's <code>GamerTag</code>. More details about disabling this further down in this document (not recommended).</p>
 <p>There are a few components here that you need to know about before you implement this:</p>

@@ -10538,7 +10538,7 @@
 
 
 
-<h1 id="real-time-multiplayer-overview">Real-Time Multiplayer Overview<a class="headerlink" href="#real-time-multiplayer-overview" title="Permanent link">¶</a></h1>
+<h1 id="real-time-multiplayer-overview">Real-time multiplayer overview<a class="headerlink" href="#real-time-multiplayer-overview" title="Permanent link">¶</a></h1>
 <p>There are multiple ways to design real-time multiplayer games: dedicated servers, listen servers in addition to deterministic approaches (such as lockstep or rollback based ones). Unreal has baked in workflows and utilities for the first two. The Beamable Unreal SDK currently only supports dedicated servers officially, though you can probably get listen servers to work too. <!-- TODO(@drewbleam): "listen servers"??? --></p>
 <h2 id="dedicated-servers-in-unreal-with-beamable">Dedicated servers in Unreal with Beamable<a class="headerlink" href="#dedicated-servers-in-unreal-with-beamable" title="Permanent link">¶</a></h2>
 <p>Beamable integrates with Unreal's Gameplay Framework in a couple of different ways; none of those are via an <strong>OnlineSubsystem</strong>.</p>
@@ -10655,7 +10655,7 @@
 <h2 id="preparing-a-build-for-your-game-server-orchestrator">Preparing a build for your game server orchestrator<a class="headerlink" href="#preparing-a-build-for-your-game-server-orchestrator" title="Permanent link">¶</a></h2>
 <p>This section explains what you need to do before you generate a build to upload to any Game Server Orchestrator such as Hathora, GameLyft or Agones. This explanation is Blueprint-based, an equivalent C++ explanation is described in the <a href="../code-multiplayer/">C++ Real-Time Multiplayer Guide</a>.</p>
 <h3 id="setting-up-your-gameplay-levels-blueprint">Setting up your gameplay level's Blueprint<a class="headerlink" href="#setting-up-your-gameplay-levels-blueprint" title="Permanent link">¶</a></h3>
-<h4 id="step-1-turn-on-init-on-server-build"><strong>Step 1 - turn on init on server build</strong><a class="headerlink" href="#step-1-turn-on-init-on-server-build" title="Permanent link">¶</a></h4>
+<h4 id="step-1-turn-on-init-on-server-build">Step 1 - turn on init on server build<a class="headerlink" href="#step-1-turn-on-init-on-server-build" title="Permanent link">¶</a></h4>
 <p>Beamable provides you with an option in its <code>Local State - PIE - Easy Enable - Gameplay</code> node called <code>Init when Server Build</code>:</p>
 <ul>
 <li>When playing inside <abbr title="Play in Editor">PIE</abbr>, turning on this option makes no difference.</li>
@@ -10664,7 +10664,7 @@
 </ul>
 <p>You must also create and bind <code>Custom Events</code> to the <code>OnStarted</code> and <code>OnStartedFailedHandler</code>.</p>
 <p>This makes it so that the server build will initialize the SDK once it starts.</p>
-<h4 id="step-2-extract-information-from-orchestrator"><strong>Step 2 - extract information from orchestrator</strong><a class="headerlink" href="#step-2-extract-information-from-orchestrator" title="Permanent link">¶</a></h4>
+<h4 id="step-2-extract-information-from-orchestrator">Step 2 - extract information from orchestrator<a class="headerlink" href="#step-2-extract-information-from-orchestrator" title="Permanent link">¶</a></h4>
 <p>When configuring a build with your Orchestrator, they will typically allow you to pass in CLArgs or set Environment Vars for the running Game Server process. You'll need to set up the following ones:</p>
 <table>
 <thead>
@@ -10690,21 +10690,21 @@
 </table>
 <p>The exact steps vary by Orchestrator; for every Orchestrator with a known integration, you'll be able to see it in the <strong><a href="../../../samples/beamball/beamball-demo/">Beamball Demo</a></strong>.</p>
 <p>In addition to this, inside the Game Server initialization logic, you'll need to do some things to map the Beamable Lobby to this running instance of the game server. There are two strategies to do this:</p>
-<h5 id="one-lobby-per-process"><strong>One lobby per process</strong><a class="headerlink" href="#one-lobby-per-process" title="Permanent link">¶</a></h5>
+<h5 id="one-lobby-per-process">One lobby per process<a class="headerlink" href="#one-lobby-per-process" title="Permanent link">¶</a></h5>
 <p>The most common way Orchestrators such as Hathora, GameLyft or Agones pass information to the running process is via Command Line Arguments or Environment Variables. If you are only ever running one Lobby per-game-server-process, pass the lobby id this way.</p>
 <p>For this case, the Beamable SDK expects either the <code>CLArg: BeamableDedicatedServerInstanceLobbyId</code> or the <code>EnvVar: BEAMABLE_DEDICATED_SERVER_INSTANCE_LOBBY_ID</code> to be set and contain the Lobby Id for the match. If they do, you can use <code>Local State - Lobby - Get Lobby Id From CLArgs</code> to get this value.</p>
 <p>Each orchestrator has their own way of allowing you to define CLArgs and EnvVars that it'll pass into the running game-server process — see your chosen orchestrator's documentation for how to pass these along; you can also refer to the <a href="../../../samples/beamball/beamball-demo/">Beamball Demo</a> to see how this is done with Hathora (as per Hathora docs, involves a <code>Dockerfile</code> and a <code>sh</code> script).</p>
-<h5 id="multiple-lobby-per-process"><strong>Multiple lobby per process</strong><a class="headerlink" href="#multiple-lobby-per-process" title="Permanent link">¶</a></h5>
+<h5 id="multiple-lobby-per-process">Multiple lobby per process<a class="headerlink" href="#multiple-lobby-per-process" title="Permanent link">¶</a></h5>
 <p>If you are planning on having multiple lobbies per-game-server-process, your orchestrator will either:</p>
 <ul>
 <li>Give you an SDK that allows you to receive notifications whenever a lobby is assigned to a running process.</li>
 <li>Give you an endpoint you can periodically call to check if new lobbies have been assigned to the running process.</li>
 </ul>
 <p>Either way, at that point, your orchestrator will have provided you the Lobby Id.</p>
-<h4 id="step-3-register-the-lobby-with-the-sdk-running-in-the-game-server"><strong>Step 3 - register the lobby with the SDK running in the game server</strong><a class="headerlink" href="#step-3-register-the-lobby-with-the-sdk-running-in-the-game-server" title="Permanent link">¶</a></h4>
+<h4 id="step-3-register-the-lobby-with-the-sdk-running-in-the-game-server">Step 3 - register the lobby with the SDK running in the game server<a class="headerlink" href="#step-3-register-the-lobby-with-the-sdk-running-in-the-game-server" title="Permanent link">¶</a></h4>
 <p>Now that the Lobby Id is known, register this lobby with the Beamable SDK. "Registering a Lobby with the SDK" means that the SDK will fetch the lobby's information and set up the necessary mapping between each user in the lobby and Unreal's Gameplay framework types (<code>FUniqueNetIdRepl</code>).</p>
 <p>To do this, you can call <code>Operation - Lobby - Server - Register Lobby with Server</code>.</p>
-<h4 id="step-4-prepare-for-gameplay-and-notify-clients-they-can-connect"><strong>Step 4 - prepare for gameplay and notify clients they can connect</strong><a class="headerlink" href="#step-4-prepare-for-gameplay-and-notify-clients-they-can-connect" title="Permanent link">¶</a></h4>
+<h4 id="step-4-prepare-for-gameplay-and-notify-clients-they-can-connect">Step 4 - prepare for gameplay and notify clients they can connect<a class="headerlink" href="#step-4-prepare-for-gameplay-and-notify-clients-they-can-connect" title="Permanent link">¶</a></h4>
 <p>Once the lobby is registered, you can use <code>Local State - Lobby - TryGetLobbyById</code> (and <code>Local State - Lobby - TryGetLobbyPlayerDataById</code> and <code>Local State - Lobby - TryGetLobbyGlobalDataById</code>) to read data from the Lobby to initialize your game server.</p>
 <p>This initialization can be preloading assets, making requests to microservices and so on...</p>
 <p>Once this is done and you are ready to accept client connections, you should call <code>Operation - Lobby - Server - Notify Lobby Ready for Clients</code>. This signals your awaiting <strong>Game Server Federation's <code>CreateGameServer</code> implementation</strong> that the game server is ready to accept client connections — allowing it to complete so that Beamable notifies all players in the Lobby forwarding the connection information to them.</p>
