@@ -27,8 +27,14 @@ import sys
 from pathlib import Path
 
 MULTI_WORD = [
+    # Order matters: phrases are stashed sequentially with \b boundaries,
+    # so list longer phrases before shorter overlapping ones (e.g.
+    # "Global Price War 2" before "Global Price War").
+    "Head Adornment Test Scenario", "Turn-based Beamable Fighters",
+    "Beamable Boss Battle", "Global Price War 2", "Global Price War",
+    "King of the Ring",
     "Cloud Save", "Content Manager", "Admin Console", "Beam Library",
-    "Beam CLI", "Unreal Engine", "Visual Studio", "Game Maker",
+    "Beam CLI", "Beam PIE", "Unreal Engine", "Visual Studio", "Game Maker",
     "Photon Fusion", "Google Play Console", "Google Play Store",
     "Google Play Billing", "Google Play Game Services", "Google Play",
     "Google Cloud Console", "Game Content Designer", "Beam Services",
