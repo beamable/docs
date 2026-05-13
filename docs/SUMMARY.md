@@ -1,4 +1,4 @@
-﻿- [Introduction](index.md)
+- [Introduction](index.md)
 - [Getting Started](unreal/getting-started/)
 - [What's New?](unreal/whatsnew/)
 - [SDK User Reference](unreal/user-reference/)

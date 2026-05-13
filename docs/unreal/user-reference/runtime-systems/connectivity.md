@@ -1,4 +1,4 @@
-﻿# Connectivity Management
+# Connectivity Management
 
 Games with live services require access to the internet and an open connection to the backend. In the Beamable SDK, an `FUserSlot` is considered **_connected_**:
 

@@ -1,4 +1,4 @@
-﻿- [Blueprint Integration](blueprints.md)
+- [Blueprint Integration](blueprints.md)
 - [User Slots](user-slots.md)
 - [Operations & Waits](operations/operations-and-waits.md)
     - [Operations Blueprints](operations/operations-blueprints.md)

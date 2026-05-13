@@ -1,4 +1,4 @@
-﻿# Editor Systems Overview
+# Editor Systems Overview
 
 Beamable Unreal SDK provides a set of editor systems that help you manage multiple aspects of your game integration. These systems are designed to integrate with the Unreal Engine editor, giving you direct access to Beamable features from within the editor.
 

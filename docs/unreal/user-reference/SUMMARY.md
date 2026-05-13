@@ -1,4 +1,4 @@
-﻿- [SDK Technical Overview](overview.md)
+- [SDK Technical Overview](overview.md)
 - [Editor Systems](editor-systems/)
 - [Runtime Systems](runtime-systems/)
 - Beamable Services

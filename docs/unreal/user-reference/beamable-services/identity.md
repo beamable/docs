@@ -1,4 +1,4 @@
-﻿# Identity
+# Identity
 
 Identity provides authentication and account management functionality for your game. Through the Identity
 system, players can create accounts, sign in, and manage their credentials across different platforms and devices.

@@ -1,4 +1,4 @@
-﻿- [Setup Sample Projects](intro.md)
+- [Setup Sample Projects](intro.md)
 - Sample Projects
       - [LiveOps](live-ops-demo.md)
       - [Discord](discord-demo.md)
