@@ -37,7 +37,7 @@ Here is a custom, game-specific implementation that matches any 2 players withou
 
 The following shows partial sample code snippets:
 
-### Starting Matchmaking
+### Starting matchmaking
 
 ```csharp
 private async void SetupBeamable()
@@ -57,7 +57,7 @@ private async void SetupBeamable()
 }
 ```
 
-### Handling Matchmaking Success
+### Handling matchmaking success
 
 ```csharp
 private void MyMatchmaking_OnComplete(MyMatchmakingResult myMatchmakingResult)
@@ -69,7 +69,7 @@ private void MyMatchmaking_OnComplete(MyMatchmakingResult myMatchmakingResult)
 }
 ```
 
-### Sample Code
+### Sample code
 The following two scripts demonstrate a simple matchmaking implementation:
 
 MatchmakingServiceExample.cs
@@ -445,7 +445,7 @@ namespace Beamable.Examples.Services.MatchmakingService
 }
 ```
 
-## Getting Started
+## Getting started
 
 To create a **Matchmaking** experience with Beamable, using the `SimGameType` content type is required. It allows deep configuration and customization.
 

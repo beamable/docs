@@ -17,7 +17,7 @@ this is a list of the main concepts used in the Friends service:
 
 Access friends directly through the `ISocialApi` interface, or conveniently through the `BeamContext.Social` accessor. The following samples illustrate how to achieve common use cases by using the `BeamContext`.
 
-### Viewing Social Data
+### Viewing social data
 
 The `BeamContext.Social` returns an instance of `PlayerSocial` which is a serializable object you can view in the Unity inspector. The `PlayerSocial` object is an observable type, which means that Beamable will update it silently in the background as friendships are initiated, made, or broken.
 
@@ -55,7 +55,7 @@ There are 4 main resources associated with a `PlayerSocial`,
 
     Validating friend invites can be hard when you're just one developer on one machine. Luckily, you can create multiple `BeamContext` instances at once in the same gameplay session. These samples all use `BeamContext.Default` for simplicity, but you can change them to use `BeamContext.ForPlayer("player1")`, and `BeamContext.ForPlayer("player2")` to simulate two unique players.
 
-### Sending an Invite
+### Sending an invite
 
 ```csharp
 using Beamable;
@@ -75,7 +75,7 @@ public class FriendsSample : MonoBehaviour
 }
 ```
 
-### Accepting an Invite
+### Accepting an invite
 
 ```csharp
 using Beamable;
@@ -93,7 +93,7 @@ public class FriendsSample : MonoBehaviour
 }
 ```
 
-### Removing a Friend
+### Removing a friend
 
 ```csharp
 using Beamable;
@@ -111,7 +111,7 @@ public class FriendsSample : MonoBehaviour
 }
 ```
 
-### Canceling Sent Invite
+### Canceling sent invite
 
 ```csharp
 using Beamable;
@@ -129,7 +129,7 @@ public class FriendsSample : MonoBehaviour
 }
 ```
 
-### Blocking a Player
+### Blocking a player
 
 ```csharp
 using Beamable;
@@ -149,7 +149,7 @@ public class FriendsSample : MonoBehaviour
 }
 ```
 
-### Unblocking a Player
+### Unblocking a player
 
 ```csharp
 using Beamable;
@@ -168,7 +168,7 @@ public class FriendsSample : MonoBehaviour
 }
 ```
 
-### Importing Friends from Facebook
+### Importing friends from Facebook
 
 A player who has associated a Facebook credential with their account may import Facebook friends in bulk. Facebook friends who have also linked a Facebook credential will be listed as Beamable friends. When one player imports Facebook friends, all imported friends will have the initiating player as a friend as well.
 
@@ -205,14 +205,14 @@ ctx.Social.FriendPresenceChanged += friend =>
 };
 ```
 
-#### Seting Your Current Presence
+#### Seting your current presence
 
 ```csharp
 var ctx = await BeamContext.ForPlayer(code).Instance;
 await ctx.Presence.SetPlayerStatus(PresenceStatus.Away, "away from the computer");
 ```
 
-### Direct Access
+### Direct access
 
 While the previous section is the preferred way to interact with Beamable friends, you can also access the API layer directly. This approach requires much more effort to manage.
 

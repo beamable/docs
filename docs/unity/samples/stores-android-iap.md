@@ -1,10 +1,10 @@
-# Stores - In-App Purchasing (Android)
+# Stores - in-app purchasing (Android)
 
 ## Overview
 
 This document will outline an example of how to allow players to purchase in-app items (IAP) with **real money** on the Google Play Store. The sample project associated with this guide is the [Purchasing Sample Project](https://github.com/beamable/Beamable_Purchasing_Sample). While the steps in this repo assume you are implementing in-app purchasing for the first time in your own project, the sample project demonstrates a "complete" implementation for reference.
 
-## Step 1. Download & Setup Project
+## Step 1. download and setup project
 
 Learning Resources:
 
@@ -12,7 +12,7 @@ Learning Resources:
 |--------|--------|
 | ![Beamable Logo](../../media/imgs/beamable-logo-small.jpg) | 1. **Download** the [Purchasing Sample Project](https://github.com/beamable/Beamable_Purchasing_Sample)<br/>2. Open in Unity Editor (Version 2021.3 or later)<br/>3. Open the Beamable [Toolbox](doc:toolbox)<br/>4. Sign-In / Register To Beamable. See [Installing Beamable](doc:installing-beamable) for more info<br/>5. Switch Target Platform to Android<br/><br/>_Note: This sample project is compatible with Unity 2021.3 and later versions_ |
 
-## Step 2. Enable Unity In-App Purchasing
+## Step 2. enable Unity in-app purchasing
 
 Ensure your target platform is Android before beginning setup. In your Unity project, navigate to Project Settings→Services→In-App Purchasing. Ensure it is enabled with the toggle in the screenshot below. After this is done, you should notice that `BEAMABLE_PURCHASING` has been added to your Scripting Define Symbols.
 
@@ -22,7 +22,7 @@ Ensure your target platform is Android before beginning setup. In your Unity pro
 
 ![Unity IAP Settings](../../media/imgs/unity-iap-settings.png){: style="height:auto;width:500px"}
 
-## Step 3. Setup Google App
+## Step 3. setup Google app
 
 On Android, in-app purchasable items are stored in Google Play, in your app's configuration, meaning you will need to create and configure basic information about your game in the [Google Play Console](https://play.google.com/console/).
 
@@ -38,7 +38,7 @@ You will also need to upload a build of your game to the console, but you do not
 
 ![Google Play Console Dashboard](../../media/imgs/google-play-console-dashboard.png){: style="height:auto;width:500px"}
 
-## Step 4. Setup Products (Google Play Console)
+## Step 4. setup products (Google Play Console)
 
 Once you have a build uploaded to a closed testing track, navigate to Monetize→Products→In-app products. This will display a list of all items available to purchase in your app. First, we can create a new product with the "Create product" button. Then we can fill out various fields on the item. The only one Beamable will utilize is the Product ID, explained below.
 
@@ -48,7 +48,7 @@ For the purposes of the sample, 2 products are created: `small_gem_bundle` and `
 
 ![Google Play Product List](../../media/imgs/google-play-product-list.png){: style="height:auto;width:500px"}
 
-## Step 5. Retrieving Your License Key
+## Step 5. retrieving your license key
 
 Before going back to Unity, take note of your Google Play Billing license key. You will need to enter this key into Unity's purchasing configuration in order for it to function properly, as well as your realm configuration. This can be found under Monetize→Monetization setup on the side menu.
 
@@ -62,7 +62,7 @@ Finally, add your license key to your realm configuration. Under the `payments` 
 
 ![Beamable Realm Config](../../media/imgs/beamable-realm-config.png){: style="height:auto;width:500px"}
 
-## Step 6. Setup Products (Unity)
+## Step 6. setup products (Unity)
 
 Back in Unity, we'll need to set up a store and create listings for the purchasable items. Unlike items that are purchased with virtual currency, real money items use SKUs as the price for the listing. Otherwise, the setup is mostly identical. For more info on virtual currency purchases or basic store setup, see [Stores - Guide](doc:stores-guide).
 
@@ -77,7 +77,7 @@ Back in Unity, we'll need to set up a store and create listings for the purchasa
 | 3. Create listing content | ![Unity Listing Content](../../media/imgs/unity-listing-content.png) |
 | 4. Create store content | ![Unity Store Content](../../media/imgs/unity-store-content.png) |
 
-## Step 7. Scripting
+## Step 7. scripting
 
 Now that our content is setup and our Google Play app is configured properly, we are ready to attempt a purchase. The code below is a snippet from the Purchasing sample.
 
@@ -133,7 +133,7 @@ public class IAPExample : MonoBehaviour
 }
 ```
 
-## Step 8. Run & Test
+## Step 8. run and test
 
 This project can be run in either the Unity editor, or built to an Android device and tested there. Simply press one of the two buttons to initiate a purchase.
 

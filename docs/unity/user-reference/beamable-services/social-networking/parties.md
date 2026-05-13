@@ -6,7 +6,7 @@ The Beamable **Parties** service allows players to form parties for short-lived 
 
 These examples cover common use cases for Parties. The `_beamContext` variable used below is an instance of the `BeamContext` class may be obtained by `BeamContext.Default`:
 
-### Creating a Party
+### Creating a party
 
 The `Create` method will fill the state of a current party which you can access through `_beamContext.Party.State`.
 The `Create` method has a number of optional parameters:
@@ -21,7 +21,7 @@ The `Create` method has a number of optional parameters:
 await _beamContext.Party.Create(PartyRestriction.Unrestricted);
 ```
 
-### Listening for Party Updates
+### Listening for party updates
 
 The following events are available
 
@@ -34,19 +34,19 @@ public Action<PlayerPromotedNotification> OnPlayerPromoted;
 public Action<PlayerKickedNotification> OnPlayerKicked;
 ```
 
-### Joining Party
+### Joining a party
 
 ```csharp
 await _beamContext.Party.Join(partyId);
 ```
 
-### Leaving a Party
+### Leaving a party
 
 ```csharp
 await _beamContext.Party.Leave();
 ```
 
-### Getting Party Invites
+### Getting party invites
 
 There is an observable list of available party invites.
 
@@ -64,11 +64,11 @@ Additionally, this method returns a `InvitesResponse` object which contains pend
 var invites = await _beamContext.Party.GetInvites();
 ```
 
-### Party Leader Methods
+### Party leader methods
 
 Methods below can be called only by a party leader.
 
-#### Updating Party
+#### Updating the party
 
 This method allows to change settings of an already created party. Again `maxSize` parameter is optional. The `State` property is altered by this method.
 
@@ -76,14 +76,14 @@ This method allows to change settings of an already created party. Again `maxSiz
 await _beamContext.Party.Update(PartyRestriction.Unrestricted, 5);
 ```
 
-#### Inviting Player
+#### Inviting a player
 
 ```csharp
 // acquire a playerId from the player social sdk
 await _beamContext.Party.Invite(playerId);
 ```
 
-### Party Member Actions
+### Party member actions
 
 There is an observable structure, `PartyMembers` that contains the list of party members. If the current player is the leader, they can promote or kick players from this list.
 

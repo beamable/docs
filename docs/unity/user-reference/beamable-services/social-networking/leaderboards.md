@@ -6,7 +6,7 @@ Leaderboards provide competitive ranking systems that encourage player engagemen
 
 ## Leaderboards API
 
-### Submiting Score
+### Submitting the score
 
 Here is a snippet from the sample [`LeaderboardFlowInterpolationExample.cs`](https://github.com/beamable/Beamable_SDK_Examples/tree/master/client/Assets/Examples/Runtime/Prefabs/LeaderboardFlowInterpolationExample/Scripts):
 
@@ -44,7 +44,7 @@ private async void SetupBeamable()
 }
 ```
 
-### Rendering Score
+### Rendering the score
 
 Here is a snippet from  the sample [`LeaderboardItemCustom.cs`](https://github.com/beamable/Beamable_SDK_Examples/tree/master/client/Assets/Examples/Runtime/Prefabs/LeaderboardFlowInterpolationExample/Scripts):
 
@@ -64,7 +64,7 @@ public void Update()
 }
 ```
 
-### Getting Board
+### Getting the board
 
 When calling either `GetBoard` or `GetAssignedBoard`, the parameters share the following semantics:
 
@@ -105,7 +105,7 @@ private async Task<List<RankEntry>> LeaderboardServiceGetBoard(string id, long u
     return leaderBoardView.rankings;
 }
 ```
-## WebGL Sample
+## WebGL sample
 
 You can try out this service in the interactive WebGL demo:
 [Unity WebGL Player - Leaderboard Flow Example](https://beamable.github.io/Beamable_SDK_Examples/Builds/WebGL/LeaderboardFlowExample/index.html)

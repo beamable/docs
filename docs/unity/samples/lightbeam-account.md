@@ -1,4 +1,4 @@
-﻿# Player Account Manager Sample
+﻿# Player account manager sample
 
 The Player Account Manager Sample demonstrates Beamable's identity system — a service that lets players create accounts, attach email and password credentials, and manage account aliases and avatars.
 
@@ -12,7 +12,7 @@ There are no prerequisites for this sample. It shows you how to:
 - Create additional player accounts within the same session
 - Switch between multiple player accounts
 
-## Sample Overview
+## Sample overview
 
 When you open the scene, the **Signed-In Player Account** section displays the active account card. Each card shows the player's avatar, display name, email (if registered), Player Id, and a **Web Portal** button that opens the player's record directly in [https://portal.beamable.com](https://portal.beamable.com).
 

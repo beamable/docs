@@ -1,5 +1,5 @@
 
-# Unity Beamable SDK 1.x is End Of Life
+# Unity Beamable SDK 1.x is end of life
 
 The 1.x version of the Unity Beamable SDK will not be officially supported as of **December 15th, 2025**. If you have a project using the 1.x version, then you must take action immediately.
 

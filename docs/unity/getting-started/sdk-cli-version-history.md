@@ -1,4 +1,4 @@
-# SDK/CLI Version History
+# SDK/CLI version history
 
 Every Beamable Unity SDK release and the Beam CLI version it requires.
 

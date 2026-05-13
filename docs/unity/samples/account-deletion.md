@@ -1,4 +1,4 @@
-# Account Deletion
+# Account deletion
 
 Allow players to remove personal info from your application
 
@@ -6,7 +6,7 @@ Allow players to remove personal info from your application
 
 As part of Beamable's efforts to maintain [GDPR compliance](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation), a method to remove **Personally identifiable information (PII)** must be made available to users. This ensures that players still have control over their own personal information.
 
-### Apple Requirements
+### Apple requirements
 
 As part of the App Store Review Guideline, Apple requires apps that support account creation to also allow users to delete their accounts, effectively removing any personal info from that platform. Their requirements are effective June 30, 2022. All of this information is available on Apple's documentation for [Offering account deletion in your app](https://developer.apple.com/support/offering-account-deletion-in-your-app).
 
@@ -28,7 +28,7 @@ In addition to deleting PII, your app must meet certain requirements around the 
 
 Methods of account deletion are covered in more detail below.
 
-## Option 1. Forget User via Portal
+## Option 1. forget user via Portal
 
 User deletion can be done from the Beamable Portal by an admin. This can be found on a player's profile page, at the top right under the "Actions" dropdown. This calls the same admin/forget API as the code example in this guide.
 
@@ -36,7 +36,7 @@ Based on guidelines for user account deletion, this method should be paired with
 
 ![Portal Forget User](../../media/imgs/portal-forget-user.png){width="600px"}
 
-## Option 2. Forget User via Code
+## Option 2. forget user via code
 
 **The script can be downloaded as a GitHub Gist here:** [DeletePlayerInfoService.cs](https://gist.github.com/beamable-gists/4ee1ecc72475eca5e6f63aecfdba762a)
 _The full script can also be found at the bottom of this document._
@@ -114,7 +114,7 @@ After publishing the microservice, you can call the DeleteAccount method from th
 {"createdTimeMillis":1654639620467,"id":1498288512206848,"gamerTags":[{"projectId":"DE_12345","gamerTag":1234}],"updatedTimeMillis":1654715866882,"thirdParties":[]}
 ```
 
-## Unity Code
+## Unity code
 
 For additional thoroughness of erasure, it is recommended to also call `ClearAndStopAllContexts`, which is a static function from the Beamable SDK intended to clear all access tokens for logged in users, and clean up any subscriptions that were running.
 
@@ -141,7 +141,7 @@ Debug.Log(response);
 await Beam.ClearAndStopAllContexts();
 ```
 
-## Complete Script
+## Complete script
 
 Create a microservice via the [Microservice Unity Integration](../user-reference/cloud-services/microservices/microservice-unity-integration.md), then paste this script into the C# source file.
 

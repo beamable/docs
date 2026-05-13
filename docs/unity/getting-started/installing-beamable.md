@@ -8,11 +8,11 @@ Welcome to Beamable! This guide will walk you through the steps required to inst
     • Beamable supports Windows, Mac, iOS, Android, and WebGL platforms
 
 
-## Setting Up an Account in the Beamable Portal
+## Setting up an account in the Beamable Portal
 
 To start using Beamable in your project, you need to have a valid Beamable account. Please create an account via our [Portal](https://portal.beamable.com/signup/registration). Please remember your **Alias** as it'll be used to log into the SDK in your editor or via the Beamable CLI.
 
-## Downloading and Installing the Beamable SDK
+## Downloading and installing the Beamable SDK
 
 You can download the [Beamable SDK Installer Package](https://packages.beamable.com/com.beamable/Beamable_SDK_Installer.unitypackage).
 
@@ -39,7 +39,7 @@ Open the Beamable Login Window by clicking the Beamable button in the Unity tool
 
 Now you're ready to start your first Beamable project!
 
-## Say _Hello_ to Beamable!
+## Say _hello_ to Beamable!
 To confirm that you have a working Beamable setup, we will pull in the default Beamable runtime console prefab and make sure we can access a player account.
 
 Navigate to the _Beam Library_ by finding it from the Beamable Button in the top-right of the Unity editor.
@@ -54,7 +54,7 @@ Enter play-mode, and hit the `~` character (the same key as `` ` ``). This shoul
 
 <try-it-out git-fragment="Assets/Minis/Basics/SetupConsole/Logic.cs" title="Console Access" args="scene=setup_console"/>
 
-## Beam CLI Dependency
+## Beam CLI dependency
 
 The Beamable plugin will automatically install the Beam CLI into your Unity project. The Beam CLI is a developer tool for managing Beamable resources like Microservices, Content, and more. The Beamable Unity plugin relies on the CLI for interacting with Beamable. Your Unity project is a valid Beamable CLI project, which means you can also use the CLI directly if required.
 

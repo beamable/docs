@@ -1,4 +1,4 @@
-# Frictionless Authentication
+# Frictionless authentication
 
 Beamable’s SDK provides frictionless authentication by default when the SDK is initialized. This is completely done for you under the hood. It is quite simple, and thus the Code Sample for it is short. However, this is an opportunity for you to learn more about the Beamable SDK and what it does for you when it is initialized from any prefab, service, or API.
 
@@ -47,7 +47,7 @@ You can _always_ prompt the user to authenticate another way once the above step
 
 ![Beamable Auth Show Login](../../../../media/imgs/faeb11a-2039d7c-beamable_auth_showlogin.png)
 
-## Sample Code
+## Sample code
 
 Below is the easiest and quickest way to provide authentication with Beamable. However, the following does not provide any cross-platform support. It will create a user and log them in with Beamable specifically for the current device.
 

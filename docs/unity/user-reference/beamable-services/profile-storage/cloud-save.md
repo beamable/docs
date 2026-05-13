@@ -1,4 +1,4 @@
-# Cloud Save - Overview
+# Cloud Save - overview
 
 Beamable's **Cloud Save** service provides secure, cross-platform storage for player game data. It enables players to save their progress and access it across multiple devices, ensuring data persistence and continuity throughout their gaming experience.
 
@@ -43,7 +43,7 @@ _Note_: This API is demonstrated in the `CloudSavingServiceExample.cs` below.
 | `Update` | This function allows you to do Update operations to the `CloudSaveService` and apply them only once, reducing API calls to the backend.<br><br>The possible operations for the `CloudDataUpdateBuilder` are:<br><br>- `SaveData`<br>- `ArchiveSaveData`<br>- `RenameSaveData`<br>- `ForgetSaveData` |
 | `SetConflictResolverOverride` | This function allows you to Override the `ConflictResolver` by another `ConflictResolver` delegate. This function is another option than `PlayerCloudSavingConfiguration.HandleConflicts` that allows you to change the Conflict resolution depending on the current application scope. |
 
-## Cloud Data Manifest
+## Cloud data manifest
 
 When changes are detected by the service and finished saving locally, the Local Cloud Data Manifest will be updated. Therefore, after updating data to Cloud Save, The local manifest will be updated to match the manifest from Cloud.
 
@@ -69,7 +69,7 @@ The manifest tracks the MD5 checksum (etag) of the file and the common name (key
 }
 ```
 
-## Changing Service Configuration
+## Changing service configuration
 
 You can override the service to fit your application using `PlayerCloudSavingConfiguration`. By default, the SDK creates a new instance with default values, but you can change these values using Beamable's Dependency Injection system as illustrated below.
 
@@ -123,39 +123,39 @@ public class PlayerCloudSaveCustomRegister
 }
 ```
 
-## Syncing Of Data
+## Syncing of data
 
 The downloading operation uses Unity's [`DownloadHandlerFile`](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Networking.DownloadHandlerFile.html). If the file is new, it will be saved directly to the `/data/` Folder. If the file has a conflict it will first be saved to the `/temp/` folder, if the resolver chooses to use the Cloud Save, it'll be moved to the `/data/` folder, if not, it will be archived.
 
 _Note_: If the destination files are kept open by some unrelated system during the syncing process, the `CloudSavingService` will reattempt several times. Upon any ultimate failure, an `IOException` will be thrown.
 
-## Storage Of Data
+## Storage of data
 
 Data is stored in within Unity's [`Application.persistentDataPath`](https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html) and prefixed with the Customer ID (CID), Project ID (PID), and Player ID (PlayerId). This is to ensure data is scoped to a game and a player. The full path is available at [`ICloudSavingService.LocalDataFullPath`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1CloudSaving_1_1CloudSavingService.html).
 
 There are two options for detecting changes to the Local Save files, the first one, which is the Default, is to detect changes at runtime from the manifest and the other is to use the AutoCloud feature, which detects the folder path directly.
 
-### Detecting Changes from Local Manifest
+### Detecting changes from local manifest
 
 For this option, whenever a File is Saved using the `SaveData` functions through the service, which could be from `ICloudSavingService` or from the `CloudDataUpdateBuilder` it will update the local manifest automatically. After the polling interval taken on the `Init` function, it will automatically upload any changes to the cloud service. If you write a file directly to the `/data/` folder, this option will not detect it automatically.
 
-### Detecting Changes from Data Folder (AutoCloud)
+### Detecting changes from data folder (AutoCloud)
 
 The AutoCloud feature will automatically check the `/data/` folder checking for changes every polling interval and automatically uploading any changes to the cloud service. It also updates the local manifest automatically. This is slightly more expensive than the first option as it needs to keep generating the checksum for the file every polling interval, but it allows you to write the file manually to the data folder.
 
 To enable this option, you will need to add or update the Custom dependency for `PlayerCloudSavingConfiguration` and set the property `UseAutoCloud` to true. Check the section [Changing Service Configuration](#changing-service-configuration) to see how to properly add it.
 
-## Error Handling
+## Error handling
 
 Is possible that some errors occur when trying to download a saved file. The system automatically will try to download the file 10 times, if the 10th retry fails, the system will return an error. Which can be anything from no connection to a file not found. By default, the service will use the `DefaultRecover`, which will not throw an exception if the file cannot be found in storage, ignoring its download and using the local reference as the new one. If there is any other error, it will throw the exception.
 
 If you want to change its behavior, you will need to add or update the Custom dependency for `PlayerCloudSavingConfiguration` and set the property `HandleDownloadFileError`. Check the section [Changing Service Configuration](#changing-service-configuration) to see how to properly add it.
 
-## Data Limitations
+## Data limitations
 
 There is a limit of 5MB per Cloud Save file.
 
-## Data Management Via Portal
+## Data management via Portal
 
 The Beamable Portal allows the game maker to manage player data as well. Search for a player, select the CloudData tab, and navigate to the player data.
 
@@ -183,7 +183,7 @@ Here are the major operations you can perform against the player data.
     • Manually deleting content from the `LocalCloudDataFullPath` is **not supported**
     • [Old Cloud Save Service](doc:cloud-save-code) **doesn't support** multiple files with the **same content**. If you want files with the same content (for example a backup file), please add a tag to **differentiate** them or use the [New Cloud Save Service](doc:player-cloud-save-code).
 
-## Sample Code
+## Sample code
 
 Here is some sample code that demonstrates how to use the Cloud Save Service in Unity. This sample code shows all the different options for using the Cloud Save Service. Note that this is an example for reference only. We do not recommend copying directly the functions used in the sample.
 

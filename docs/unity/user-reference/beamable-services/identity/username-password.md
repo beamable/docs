@@ -1,4 +1,4 @@
-# Username-Password Authentication
+# Username-password authentication
 
 Username and Password is a great way to provide cross platform authentication if you do not want social integration. In addition, you can use this method for allowing a player to signup for your game or service.
 
@@ -28,7 +28,7 @@ private async void Start()
 }
 ```
 
-## Adding Email
+## Adding email
 
 The Beamable SDK always has an implicit account after the `BeamContext` has been created. Various credentials may be added to the account, such as an email and password.
 
@@ -46,7 +46,7 @@ public async Promise AddEmail(string email, string password)
 !!! warning "Error Handling"
     Be sure to properly handle errors that may come from `AddEmail`. For example, such errors can occur if the email address is not unique.
 
-## Login User
+## Login user
 
 If an email and password have been added to an existing account, that account can be recovered by supplying the original credentials. In this code snippet, the `RecoverAccountWithEmail` function returns a operation handle that shows the recovered account before setting the current `BeamContext` to that account. The `operation.account` can be used to show the user information about the account before calling the `SwitchToAccount` function, which will change the `BeamContext`'s current account.
 

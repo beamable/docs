@@ -1,4 +1,4 @@
-# Profile & Storage Overview
+# Profile and storage overview
 
 Beamable offers powerful and flexible solutions for in-game storage and content management.
 

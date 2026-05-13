@@ -1,4 +1,4 @@
-# Stats - Overview
+# Stats - overview
 
 The **Stats** service allows game makers to store and track pieces of data about players. You can use stats to track anything you want about your players, such as how many characters they own, their highest score, or their favorite color. Stats are simple key/value pairs that can be read and written both from the game client and from the Beamable Portal.
 
@@ -12,7 +12,7 @@ The Stats service offers two main entry points:
 - **`StatsService` API** - This has high flexibility
 - **`StatsBehaviour` Component** - This has high ease-of-use
 
-## Custom Stats
+## Custom stats
 Beamable allows game makers to create custom status for the specific needs of the game design. Mind the following rules when creating defining those:
 
 | Category | Type/Option | Description | Examples/Notes |
@@ -29,7 +29,7 @@ Beamable allows game makers to create custom status for the specific needs of th
     - Each stat's visibility (public/private) is defined when first written to and cannot be changed after creation
     - Beamable does not support storing complex data types in stats
 
-## Built-In Stats
+## Built-in stats
 
 Beamable automatically creates a specific set of _game private_ stats for each new player. Game makers may read these values if/when its useful for the project's game design.
 
@@ -73,7 +73,7 @@ Both `GetStats` and `SetStats` methods require specific parameters to define the
 | `id` | `long` | Yes (GetStats only) | Player ID | The numeric user ID of the player who owns the stats<br>_Note: For private stats, must match your login ID_ |
 | `statsDictionary` | `Dictionary<string, string>` | Yes (SetStats only) | Key-value pairs | Dictionary containing stat names as keys and values as strings |
 
-### Usage Examples
+### Usage examples
 
 **Setting Stats (Write)**
 This example demonstrates how to set multiple public stats for the current player.
@@ -114,16 +114,16 @@ if (playerStats.TryGetValue("player_level", out string level))
 
     Private stats can only be retrieved using Beamable Microservices for security reasons. Client code cannot access private stats of other players.
 
-## Viewing Stats in Portal
+## Viewing stats in Portal
 
 The Beamable Portal allows you to view and edit player stats directly through the web interface:
 
 ![Portal Stats Profile Edit](../../../../media/imgs/portal-stats-profile-edit.png)
 
-## Getting Started
+## Getting started
 This section walks through the steps to create a custom stat and then read/write that stat via the `StatBehaviour` and via raw C# coding.
 
-### Creating a Stat Type
+### Creating a stat type
 Custom stats are created on-demand the first time they are written to. However, it is a best practice to create a `Stat` asset in Unity to define the stat's metadata before it is first written to. This ensures that the stat is created with the correct metadata.
 
 | Step | Detail |
@@ -140,7 +140,7 @@ There are two main methods for interacting with Stats:
 
 Game makers can use either/both methods to meet the needs of the game project.
 
-### Using `StatsBehaviour` Component
+### Using `StatsBehaviour` component
 
 This method offers higher ease-of-use using pre made components
 
@@ -260,7 +260,7 @@ namespace Beamable.Examples.Services.StatsService
 }
 ```
 
-## Stats Vs Analytics
+## Stats vs analytics
 
 Beamable offers both analytics events and stats. See [Analytics » Code (Analytics Events vs Stats)](doc:analytics-code#analytics-events-vs-stats) for more info. While the use cases for analytics events and stats are often different, there are indeed common workflows where both are used in concert. For example. Beamable automatically tracks an analytics event (deep history) every time a Stat is changed (fast speed). This is the best of both worlds!
 

@@ -12,7 +12,7 @@ There are no prerequisites for this sample. It shows you how to:
 - View your confirmed friends list and remove friends
 - Block and unblock players
 
-## Sample Overview
+## Sample overview
 
 The sample loads two independent **Player Contexts** side by side (P1 left, P2 right), each representing a separate player. Each panel displays the player's **Player Id** and a **Copy** button for sharing it with the other panel.
 

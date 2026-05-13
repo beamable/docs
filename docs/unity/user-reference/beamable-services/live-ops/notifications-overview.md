@@ -1,4 +1,4 @@
-# Notifications - Overview
+# Notifications - overview
 
 The Beamable **Notifications** service allows game makers to message players, regardless if the game is running.
 
@@ -34,7 +34,7 @@ Beamable offers multiple messaging capabilities to communicate with your player 
 
 The Notifications service can be accessed via the NotificationsService from the Beamable API. Notifications primarily function using a [Publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern), where objects that should react to incoming messages (the "subscribers") listen for messages being sent out by another object (the "publishers"). Following this pattern, the API is quite simple.
 
-### Callback Function
+### Callback function
 
 When a subscribed object receives a message, the message carries some data with it that can provide extra content about the event that occurred. For the purposes of this document, this function will be used:
 

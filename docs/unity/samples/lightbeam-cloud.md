@@ -12,7 +12,7 @@ This sample shows you how to:
 - Perform batched manifest updates using `CloudDataUpdateBuilder`
 - Handle data conflicts between local and cloud saves
 
-## Sample Overview
+## Sample overview
 
 When you open the sample, the home screen displays your **Player Id** and the current **Service Status**. Before exploring any of the file managers, click **Initialize Service** to start the `ICloudSavingService`. The status updates to `Initialized` once the service is ready.
 

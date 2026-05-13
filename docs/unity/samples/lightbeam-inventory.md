@@ -12,7 +12,7 @@ This sample shows you how to:
 
 The Inventory system is content-driven. Before entering Playmode, you must create at least one item in the Content Manager and grant it to the player in Portal.
 
-### 1. Create an Item in the Content Manager
+### 1. Create an item in the Content Manager
 
 ![lightbox-inventory-addItem-content.gif](../../media/imgs/lightbox-inventory-addItem-content.gif){width=800px}
 
@@ -25,7 +25,7 @@ The Inventory system is content-driven. Before entering Playmode, you must creat
 !!! info "Pre-existing content type"
     The `inventoryTestItem` content group, based on the `InventoryTestItem` content type, is already included in the sample project. You only need to add entries within that group.
 
-### 2. Grant the Item to a Player in Portal
+### 2. Grant the item to a player in Portal
 
 ![lightbox-inventory-add-item.gif](../../media/imgs/lightbox-inventory-add-item.gif){width=800px}
 
@@ -39,7 +39,7 @@ The Inventory system is content-driven. Before entering Playmode, you must creat
 !!! info "Try it with currencies too"
     The sample includes a **gems** currency you can experiment with. On the player's Inventory page in Portal, click **+ Add Currency** in the **Currency** section, select `gems`, set an amount, and confirm. Switch to **Show Currencies** in the sample to see the balance reflected.
 
-## Sample Overview
+## Sample overview
 
 When you open the scene, the home screen displays your **Player Id** and an **Open Portal** button that takes you directly to your player record on the Portal.
 

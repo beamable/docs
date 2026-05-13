@@ -1,4 +1,4 @@
-# Offline Mode
+# Offline mode
 
 ## Overview
 
@@ -6,7 +6,7 @@ Beamable requires internet connectivity to offer its full suite of benefits. How
 
 The Connectivity feature drives the heartbeat sent back to the Beamable backend platform. If the game client loses connectivity, the heartbeat will stop and the Beamable API will gracefully wait for reconnection before resuming the full online feature-set.
 
-## Feature Support
+## Feature support
 
 You can find below a table that summarizes the offline support for each Beamable feature.
 
@@ -47,7 +47,7 @@ You can find below a table that summarizes the offline support for each Beamable
 - ⚠️ - Feature offers **partial** support while the game client is offline
 - ❌ - Feature offers **no** support while the game client is offline
 
-## Prefab Support
+## Prefab support
 
 Generally speaking, Beamable feature prefabs will render properly when offline. Beamable uses a local data cache.
 
@@ -57,7 +57,7 @@ Additionally, _some_ feature prefabs are compatible with the Beamable prefab "Of
 
 - Account Management Flow
 
-## REST API Support
+## REST API support
 
 While online, Beamable will cache the game project, game content, the user, and stats for offline use. As long as the only thing performed while "offline" are read operations, those can function without connectivity.
 

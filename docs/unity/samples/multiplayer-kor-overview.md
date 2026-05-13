@@ -1,4 +1,4 @@
-# King of the Ring - Multiplayer Sample
+# King of the Ring - multiplayer sample
 
 Welcome to "King of the Ring" (KOR). You must **Attack with power & dodge with speed! Last player alive, wins.**
 
@@ -23,7 +23,7 @@ The player navigates from the Intro Scene to the Game Scene, where all the actio
 |:------------------|:---------------|
 | ![Leaderboard Scene](../../media/imgs/multiplayer-kor-leaderboard-scene.png){width="425"} | ![Project Window](../../media/imgs/multiplayer-kor-project-window.png){width="425"} |
 
-## Multiplayer (KOR) - Guide
+## Multiplayer (KOR) - guide
 
 This downloadable sample game project showcases the [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) feature in game development. Or watch this video:
 
@@ -42,7 +42,7 @@ Learning Resources:
 |--------|--------|
 | ![Beamable Logo](../../media/imgs/beamable-logo-small.jpg){width="35"} | 1. **Download** the [Multiplayer KOR Sample Project](https://github.com/beamable/Multiplayer_KOR_Sample_Project)<br/>2. Open in Unity Editor (Version 2021.3 or later)<br/>3. Open the Beamable [Toolbox](../user-reference/editor-systems/unity-editor-login.md)<br/>4. Sign-In / Register To Beamable. See [Installing Beamable](../getting-started/installing-beamable.md) for more info<br/>5. Rebuild the Unity [Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@1.3/manual/AddressableAssetsDevelopmentCycle.html): Unity → Window → Asset Management → Groups, then Build → Update a Previous Build<br/>6. Open the `1.Intro` Scene<br/>7. Play The Scene: Unity → Edit → Play<br/>8. Click "Start Game: Human vs Bot" for an easy start. Or do a standalone build of the game and run the build. Then run the Unity Editor. In both running games, choose "Start Game: Human vs Human" to play against yourself<br/>9. Enjoy!<br/><br/>*Note: Sample projects are compatible with the latest supported Unity versions* |
 
-### Rules of the Game
+### Rules of the game
 
 - 2-6 players enter the battle "ring"
 - Tap and hold anywhere in the ring to move your player
@@ -52,12 +52,12 @@ Learning Resources:
 
 _Pro Tip: Earn coins by playing the game. Spend coins in the store to improve your avatar._
 
-### Player Experience Flowchart
+### Player experience flowchart
 
 The player experience flowchart shows the game flow and interactions between different systems.
 ![kor.png](../../media/imgs/kor.png){width="600px"}
 
-## Game Maker User Experience
+## Game Maker user experience
 
 The game maker user experience shows the development workflow. There are several major parts to this game creation process.
 ![kor2.png](../../media/imgs/kor2.png){width="600px"}
@@ -73,7 +73,7 @@ These steps are **already complete** in the sample project. The instructions her
     • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a room
     • [Multiplayer](../user-reference/beamable-services/social-networking/connectivity.md) - Real-time multiplayer game functionality that enables multiple players to interact in shared game sessions
 
-### Step 1. Setup Project
+### Step 1. setup project
 
 Here are instructions to setup the Beamable SDK and "GameType" content.
 
@@ -86,11 +86,11 @@ Here are instructions to setup the Beamable SDK and "GameType" content.
 | 5. Save the Unity Project | • Unity → File → Save Project<br/>_Best Practice: If you are working on a team, commit to version control in this step_ |
 | 6. Publish the content | • Press the "Publish" button in the Content Manager Window |
 
-### Step 2. Plan the Multiplayer Game Design
+### Step 2. plan the multiplayer game design
 
 See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.
 
-### Step 3. Create the Game Code
+### Step 3. create the game code
 
 This step includes the bulk of time and effort the project.
 
@@ -518,7 +518,7 @@ namespace Beamable.Samples.KOR
 }
 ```
 
-### Step 4. Create the Multiplayer Code
+### Step 4. create the multiplayer code
 
 Now that the core game logic is setup, use Beamable to connect 2 (or more) players together. Create the Multiplayer event objects, send outgoing events, and handle incoming events.
 
@@ -529,7 +529,7 @@ Now that the core game logic is setup, use Beamable to connect 2 (or more) playe
 | 3. Enjoy the game! | • Can you beat the opponents? |
 | 4. Stop the Scene | • Unity → Edit → Stop |
 
-## Additional Experiments
+## Additional experiments
 
 Here are some optional experiments game makers can complete in the sample project.
 
@@ -551,14 +551,14 @@ In multiplayer gaming, matchmaking is the process of choosing a room based on cr
 
 See [Matchmaking](../user-reference/beamable-services/social-networking/matchmaking.md) for more info.
 
-## Game Security
+## Game security
 
 See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.
 
-## Playing "Against Yourself"
+## Playing "against yourself"
 
 See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.
 
-## Randomization and Determinism
+## Randomization and determinism
 
 See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.

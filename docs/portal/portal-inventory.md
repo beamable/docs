@@ -2,7 +2,7 @@
 
 The Inventory feature can be managed from the Portal.
 
-## Getting Started
+## Getting started
 
 Follow these steps to manage player inventory:
 
@@ -14,13 +14,13 @@ Follow these steps to manage player inventory:
 | 4. Open the player's Inventory page       | • Click "Inventory" on the navigation panel           |
 | 5. Configure the settings                 | • Enjoy!                                              |
 
-## Game Maker User Experience
+## Game Maker user experience
 
 The inventory management interface allows you to view and modify player inventories:
 
 ![Portal Inventory Interface](../media/imgs/Portal-Inventory-1.png)
 
-## Modifying User Currency
+## Modifying user currency
 
 In the **Currency** section, you can configure how much currency a player has by using the _add currency_ button or by opening the "Edit Currency" menu from the vertical elipses at the end of a currency's row.
 
@@ -28,7 +28,7 @@ In the **Currency** section, you can configure how much currency a player has by
 
 ![Edit Currency Dialog](../media/imgs/Portal-Inventory-2-2-edit-currency.png){width="400px"}
 
-## Modifying User Inventory
+## Modifying user inventory
 
 In the **Items** section, you manage the items in a player's inventory. Click the _add item_ button to grant an item by selecting it from the "Add Item" menu that will pop up. To remove items from a player's inventory, expand an item's details and click _Delete Item_ from the vertical elipses.
 

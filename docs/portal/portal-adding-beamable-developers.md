@@ -1,11 +1,11 @@
-# Adding Developers
+# Adding developers
 Congratulations! You have set up your Beamable account and you are ready for development, but you need to add your fellow developers and testers to the account so that they can make games faster, too! This article aims to walk you through the process of adding another person to your Beamable account.
 
-## Getting Started
+## Getting started
 
 For purposes of privacy and security, when you add someone to your account through the Beamable Portal, their account is inaccessible until they choose a password. This happens through the same password reset flow as someone would use if they forgot their password.
 
-### Creating the Account (Team Admin)
+### Creating the account (team admin)
 
 First, let's create your teammate's new account:
 
@@ -31,7 +31,7 @@ The "User Administration" page features a list of all the admins, developers, an
 
 ![Portal Add Devs A3 Add](../media/imgs/Portal-Add_Devs-A3_Add.png)
 
-### Setting Your Password (New Teammate)
+### Setting your password (new teammate)
 
 Next, your teammate should follow these steps to proceed through the password reset process:
 

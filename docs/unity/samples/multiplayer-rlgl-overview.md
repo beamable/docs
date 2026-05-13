@@ -1,4 +1,4 @@
-# Photon Multiplayer (RLGL) - Overview
+# Photon multiplayer (RLGL) - overview
 
 Welcome to "Red Light, Green Light" (RLGL). In this game, **Race other players to the finish line, but don't get caught moving during a red light! This sample project utilizes several of Beamable's features.**
 
@@ -20,11 +20,11 @@ Welcome to "Red Light, Green Light" (RLGL). In this game, **Race other players t
 | **Login Scene**<br>![Login Scene](../../media/imgs/rlgl-login-scene.png){width="425px"} | **Lobby Scene**<br>![Menu Scene](../../media/imgs/rlgl-menu-scene.png){width="425px"} |
 | **Game Scene**<br>![Game Scene](../../media/imgs/rlgl-game-scene.png){width="425px"} | **Eliminated**<br>![Eliminated Scene](../../media/imgs/rlgl-eliminated-scene.png){width="425px"} |
 
-## Photon Multiplayer (RLGL) - Guide
+## Photon multiplayer (RLGL) - guide
 
 This document and the sample project allow game makers to understand and apply the benefits of both Beamable and [Photon](https://www.photonengine.com/) Fusion to create a realtime multiplayer game.
 
-## Photon Fusion Overview
+## Photon Fusion overview
 
 ![Photon Logo](../../media/imgs/photon-logo.png)
 
@@ -34,9 +34,9 @@ This sample project showcases how Beamable and Photon can work together to provi
 
 To learn more about Photon Fusion, read more on the [official documentation](https://doc.photonengine.com/en-us/fusion/current/getting-started/fusion-intro).
 
-## Project Setup (Required Steps)
+## Project setup (required steps)
 
-### Beamable Setup
+### Beamable setup
 
 | Step | Detail |
 |------|--------|
@@ -46,7 +46,7 @@ To learn more about Photon Fusion, read more on the [official documentation](htt
 | 4. Sign-In / Register To Beamable | See [Installing Beamable](../getting-started/installing-beamable.md) for more info |
 | 5. Open the `Login` Scene | `Assets/_Game/Scenes/Login.unity` |
 
-### Photon Setup
+### Photon setup
 
 |   |   |
 |---|---|
@@ -56,7 +56,7 @@ To learn more about Photon Fusion, read more on the [official documentation](htt
 
 After these steps are complete, the game is ready to test. Open the Login scene, then click Play in the editor. Once you're in the main menu, either click "Find Match", or do a standalone build of the game and run the build. Then run the Unity Editor. In both running games, choose "Find Match" to play against yourself.
 
-## Additional Project Setup (Optional)
+## Additional project setup (optional)
 
 The sample project includes additional features that are not required to run the game.
 
@@ -76,7 +76,7 @@ In the _Red Light, Green Light_ sample project, the Photon Fusion SDK is already
 
 You will need a unique Photon App ID for each of your Beamable games.
 
-### Rules of the Game
+### Rules of the game
 
 The game starts with the players in a waiting area, with a wall blocking them from proceeding until all players are ready. After all players ready up, the wall will disappear and the players can proceed.
 
@@ -86,7 +86,7 @@ Players can pick up various weapons on the field and deal damage to other player
 
 The goal of the game is to make it all the way to the other side of the map without being seen moving by the red light, or being killed by another player. After the round is over, the player will earn currency that can be used to purchase items in the store, and they will earn a spot on the leaderboard based on their performance.
 
-### Player Experience Flowchart
+### Player experience flowchart
 
 The following flowchart shows the player experience through the game:
 
@@ -123,7 +123,7 @@ await _runner.StartGame(new StartGameArgs()
 });
 ```
 
-## Additional Steps
+## Additional steps
 
 Here are the key steps to implement this multiplayer setup:
 
@@ -131,7 +131,7 @@ Here are the key steps to implement this multiplayer setup:
 
     These steps are **already complete** in the sample project. The instructions here explain the process for setting up your own project with these same tools.
 
-### Setup Project
+### Setup project
 
 Here are instructions to setup the Game Type content.
 

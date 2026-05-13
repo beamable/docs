@@ -1,4 +1,4 @@
-# Microservice Routing
+# Microservice routing
 
 Configure Standalone Microservice routing and client generation
 
@@ -19,7 +19,7 @@ cd MyProject
 dotnet beam project new service HelloWorld
 ```
 
-## Microservice Routing
+## Microservice routing
 
 
 Beamable Microservices use a privileged web socket to communicate with Beamable's existing APIs and services. There is a custom Beamable application level protocol, _Thorium_, that allows a Microservice to receive HTTPS traffic sent to `https://api.beamable.com`. However, for the Microservice to receive the traffic, the HTTP request needs to meet the following requirements,
@@ -29,7 +29,7 @@ Beamable Microservices use a privileged web socket to communicate with Beamable'
 3. _Optionally_, the HTTP request should have a `X-BEAM-SERVICE-ROUTING-KEY` header that carries a map of service routing keys, and
 4. _Optionally_, the HTTP request should have an `Authorization` header that carries a Bearer Token.
 
-#### Path Routing
+#### Path routing
 
 The `uri` of the HTTP request destined for a Microservice must follow a strict format. The format is given by the code snippet below.
 
@@ -50,7 +50,7 @@ The variables are described in the following table.
 
 When the `host` (`api.beamable.com`) receives an HTTP request with the following `uri` format, the request will be deconstructed into the variable components, and the contents of the HTTP request will be forwarded to your Microservice via the _Thorium_ web socket protocol. The Microservice receives the request, and uses the `method` component of the original request to invoke the right `[Callable]` method.
 
-#### X-BEAM-SERVICE-ROUTING-KEY Header
+#### X-BEAM-SERVICE-ROUTING-KEY header
 
 When a Microservice is started locally, it may share the same name with a Microservice running in the Beamable cloud. When this happens, and your local development machine is generating traffic for the named service, the _routing key_ defines _which_ Microservice instance (the local or remote) receives the traffic.
 
@@ -64,7 +64,7 @@ The format of the `X-BEAM-SERVICE-ROUTING-KEY` value should be a series of `<ser
 serviceA:routingKeyA,serviceB:routingKeyB
 ```
 
-#### X-DE-SCOPE Header
+#### X-DE-SCOPE header
 
 In addition to specifying the `cid` and `pid` in the `uri` of the HTTP request, those values must also be sent in a special HTTP header, `X-DE-SCOPE`. The value for this header should take the format,
 
@@ -91,7 +91,7 @@ The account information is accessible via the `Context.UserId` property when exe
 | `[AdminOnlyCallable]` | An access token for a player with the admin role.                                                            |
 | `[ServerCallable]`    | This may be used by requests authenticated with signed requests. However, no player is present.              |
 
-## Calling Microservice Code From Unity
+## Calling Microservice code from Unity
 
 !!! info "Use the Unity SDK"
 

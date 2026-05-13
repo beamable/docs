@@ -1,4 +1,4 @@
-# Microservices Overview
+# Microservices overview
 
 Beamable Microservices are small C# projects that can handle web traffic for your Unity game, Unreal game, or custom engine game. The C# project is written with the modern .NET library which means you have full access to the vast majority of .NET features, including NuGet, MSBuild, and the myriad of performance improvements available in recent .NET updates.
 
@@ -22,15 +22,15 @@ public partial class ExampleService : Microservice
 
 The `Add` method will be available as a callable HTTP route on the service. The serialization of the parameters and response types happen automatically as JSON based conversions. Client code is generated for Unity and Unreal as part of our engine integrations. Beamable handles the deployment, routing, and scaling of these services.
 
-## Microservices Framework
+## Microservices framework
 
 The Microservices use a framework for managing user requests and facilitating access to the rest of Beamable's feature suite.
 
-### Request Details
+### Request details
 
 When a `[ClientCallable]` method executes, there is an available class field, `Context`, that contains information about the HTTP request responsible for initiating the `[ClientCallable]`.
 
-#### Access Caller Information
+#### Access caller information
 
 It is common to require a player id for several operations that take place in a Microservice. The Player Id can be acquired through the `Context` property as the `UserId`. The given Player Id will be the Player id for the player that initiated the request. If no `Authorization` header was given to the HTTP call, such as calling a `[Callable]` method, then the `UserId` may be 0, implying there is no player associated with the call.
 
@@ -50,7 +50,7 @@ public void RequestDetails()
     var accountId = Context.AccountId;
     ```
 
-#### Access Unity Version via Headers
+#### Access Unity version via headers
 
 The HTTP headers can be found via the `Context.Headers` property. The `Headers` is a `Dictionary<string, string>`, where the keys represent HTTP header names, and the values represent HTTP header values.
 
@@ -65,7 +65,7 @@ The Unity Beamable SDK sends a few special headers that describe the game's envi
 
 These headers are sent automatically from the Unity SDK. If a request is sent from elsewhere, such as a custom script, the headers may not be present.
 
-#### Handling Request Timeouts
+#### Handling request timeouts
 
 It is possible that a request may timeout while it is executing. Long running loops are one example. In the code below, the `while` loop never completes, so the method never returns a value, so the request will timeout.
 
@@ -93,7 +93,7 @@ public int Example();
 }
 ```
 
-### Organizing Microservices Code
+### Organizing Microservices' code
 
 As your project grows, you may want to split your C#MS code across multiple C#MSs to keep it organized.
 
@@ -149,7 +149,7 @@ If the above is true and you still wish to share code between two different micr
 
 All-in-all, this is a very game-specific decision. Our goal is to provide guidelines and tools to help you make it. Currently, you can see CPU/Memory utilization metrics in the Dev Portal's C#MS section; in the future, we may track more specific metrics to support better decision-making.
 
-### Designing Microservice Methods
+### Designing Microservice methods
 
 When designing each microservice method, a key question is 'Who is allowed access?'. Game makers control this access with Microservice method attributes.
 
@@ -176,7 +176,7 @@ With the Beamable Portal, game makers can view and manage the deployed Microserv
 | 6. New Deployment | Allows game makers to make a new deployment                                                                               |
 | 7. View           | Allows game makers to view new deployment                                                                                 |
 
-### Making Beamable Calls From A Microservice
+### Making Beamable calls from a Microservice
 
 Each custom Microservice created extends the Beamable [`Microservice`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Server_1_1Microservice.html) class.
 
@@ -220,7 +220,7 @@ public async Task<bool> GetLootboxReward()
 }
 ```
 
-### Making External HTTP Calls
+### Making external HTTP calls
 
 This example code will make an external HTTP call from the Beamable Microservice.
 
@@ -243,7 +243,7 @@ public async Task<string> GetCommitDescription()
 
     Learn more: <https://makolyte.com/csharp-how-to-make-concurrent-requests-with-httpclient/>
 
-### Microservice Serialization
+### Microservice serialization
 
 Unity's built-in features use [Unity's serialization](https://docs.unity3d.com/Manual/script-Serialization.html).
 
@@ -255,7 +255,7 @@ However, within a Beamable's Microservice, game makers must rely instead on Beam
 |-----------------|-------------------|
 | [Microservice Serialization Supported Types](https://docs.google.com/spreadsheets/d/1EWGhLQmoDIEAjwHk6Fn0BTJ3u8yAj5B2TxbefuBvZ88/edit?usp=sharing) | All other types |
 
-### Handling Errors
+### Handling errors
 
 When a call to a Beamable service fails, it will throw a `RequesterException`. The exception can be caught using standard C# try/catch practices. In the example below, the call to `SetCurrency` will fail, and the `catch` block will capture a `RequesterException` that exposes details about the failure.
 
@@ -286,7 +286,7 @@ namespace Beamable.Microservices {
 
     The `RequesterException` is the same type of exception that is thrown on the Unity client SDK in the event of a Beamable networking error. You can catch the same type and use the same error handling logic.
 
-### Beamable & Docker
+### Beamable and Docker
 
 Beamable Microservices uses the industry standard Docker technology. Docker simplifies and accelerates your workflow, while giving developers the freedom to innovate with their choice of tools, application stacks, and deployment environments for each project. See Docker's [documentation](https://docs.docker.com/) for more info.
 
@@ -302,11 +302,11 @@ To Publish your Microservices, navigate to the _Beam Services_  window and click
 
 Microservice and storages are published as a single atomic unit, instead of individually. If you have multiple Microservices, a publication will take all Microservices into consideration. However, if the Beamable SDK can determine that the Microservice has not changed, then it will not be re-uploaded.
 
-## Using Published Services
+## Using published services
 
 Once the services have been published, they are viewable on the Beamable Portal. Services logs, metrics, and openAPI specification can be accessed for these remote services.
 
-### Remote Logging
+### Remote logging
 
 By default, Microservices use an INFO log level when published.
 
@@ -330,6 +330,6 @@ If you need to change the default log level, then go to the Realm Config page of
 
 If you configure the service with "fatal", then only log messages at the "fatal" level will be shown. However, if you configure the service with "debug", then all log messages with a log level of "debug" or greater will be shown, including "debug", "info", "warn", "error", and "fatal".
 
-## Deleting a Service
+## Deleting a service
 
 If you have a published service, delete the service locally, and then start a new publication step, then you will be "archiving" the service. The publication step will stop the service in the Beamable Cloud and hide it in the Portal view.

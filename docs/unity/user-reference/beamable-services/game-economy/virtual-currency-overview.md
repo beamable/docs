@@ -1,10 +1,10 @@
-# Virtual Currency - Overview
+# Virtual currency - overview
 
 The Beamable **Currency** service allows game makers to manage in-game currencies for purchasing and economic systems. Virtual Currencies provide a flexible economic foundation for your game, enabling players to earn, spend, and manage various types of in-game money. The Virtual Currency system in Beamable is built on top of the [Content  System](../profile-storage/content/content-overview.md). Currencies exist out of the box in the Beamable SDK as a content type.
 
 ![virtual-currency-experience.png](../../../../media/imgs/virtual-currency-experience.png){: style="height:auto;width:500px"}
 
-## Managing Currencies
+## Managing currencies
 
 Configure currencies from the [Content Manager Editor](../profile-storage/content/content-unity.md#content-manager-editor), with optional parameters for Starting Amount for new players, and "Write Self" under Client Permissions (meaning the client can modify their own currencies). Here is an example of a currency as seen in the inspector:
 
@@ -18,7 +18,7 @@ The currencies for a given player can be managed in several ways, depending on y
 
 **Portal (Development):** Player currencies can also be modified through the Portal; Note that this should only be used during development or to make corrections to a player account.
 
-## Virtual Currency API
+## Virtual currency API
 
 The Beamable API provides helper functions to subscribe to changes in the currency, and modify the currency (if the client can write itself). The basis for the Currency system is built on the `InventoryService`, which is built on the Content service. If you're not familiar with how Content operations work, you can read about them in the [Content](../profile-storage/content/content-overview.md) section.
 
@@ -26,7 +26,7 @@ The main API components are [`InventoryUpdateBuilder`](https://csharp.cdocs.beam
 
 _Note_: This Beamable system handles player inventory of items **and also** currency.
 
-### Adding Currency
+### Adding currency
 
 ```csharp
 public async void AddCurrency()
@@ -46,7 +46,7 @@ public async void AddCurrency()
 }
 ```
 
-### Removing Currency
+### Removing currency
 
 ```csharp
 public async void RemoveCurrency()
@@ -66,7 +66,7 @@ public async void RemoveCurrency()
 }
 ```
 
-### Sample Code
+### Sample code
 This sample code will subscribe to changes in the available currencies, and the player's owned currencies. It also provides methods to add, remove, and trade between two currencies.
 
 InventoryCurrencyExample.cs
