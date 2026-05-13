@@ -1,4 +1,4 @@
-# Possible Issues and Solutions
+# Possible issues and solutions
 
 This page lists possible issues and solutions for common errors that can occur when using the Beam SDK and how to fix them.
 
