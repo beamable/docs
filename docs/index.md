@@ -49,7 +49,7 @@ New users should start with:
 
 After this, it depends on what your game is and what you are looking to do.
 
-- The most-used backend systems include: <!-- TODO(@drewbleam): This should lean further into showing off what the SDK can do (maybe Microservice cards like docs.beamable lander) -->
+- The most-used backend systems include:
     - [Inventory](unreal/user-reference/beamable-services/inventory.md) for items and currency management
     - [Stats](unreal/user-reference/beamable-services/stats.md) for player-scoped key-value stores
 - Custom features are explored in the [Content](unreal/user-reference/beamable-services/content.md) and [Microservices](unreal/user-reference/microservices/microservices.md) documentation with consideration to data structuring and writing custom code with Beamable
