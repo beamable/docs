@@ -65,7 +65,7 @@ Verify that everything is set up correctly and that you can compile your project
 
 === "Windows"
     1. Regenerate project files.
-        1. Right-click the `.uproject` file and select `Generate Visual Studio project files`. <!-- TODO(@drewbleam): Add a note for users that DON'T see this option (need to route to UE files or run a command in terminal) -->
+        1. Right-click the `.uproject` file and select `Generate Visual Studio project files`.
     2. Verify that your project is set up correctly by going to your project's root directory:
         1. Check if there is a `.beamable` folder there.
         2. Check if there is a `.config/dotnet-tools.json` file.
