@@ -1,2 +1,2 @@
-﻿- [Beamable Portal](portal/)
+- [Beamable Portal](portal/)
 - [Beamable CLI](cli/)
