@@ -1,4 +1,4 @@
-# Loot Box Sample
+# Loot box sample
 
 The Loot Box Sample demonstrates a timer-gated reward system backed by a Beamable Microservice.
 

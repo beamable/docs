@@ -1,10 +1,10 @@
-# Unity SDK Technical Overview
+# Unity SDK technical overview
 
 ## Introduction
 
 Modern game development faces numerous challenges: setting up scalable backend infrastructure, implementing secure authentication systems, managing virtual economies, handling real-time multiplayer networking, and analyzing player behavior. Beamable solves these problems by providing a unified platform that enables developers to build modern multiplayer games with advanced features like live operations, social networking, game economy, analytics, and cloud services without the complexity of managing backend infrastructure.
 
-## The Beamable Way
+## The Beamable way
 
 The Beamable Unity SDK allows your Unity Project to connect with the Beamable Services. This addresses the fundamental challenges of modern game development by providing a comprehensive, integrated platform that eliminates the need to build backend infrastructure from scratch. Instead of spending months implementing authentication systems, virtual economies, and multiplayer networking, developers can focus on creating compelling gameplay experiences.
 

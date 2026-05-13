@@ -1,4 +1,4 @@
-# Friends Management Sample
+# Friends management sample
 
 The Friends Management Sample demonstrates Beamable's [Friends](../user-reference/beamable-services/social-networking/friends.md) feature — a social system that lets players connect, manage invitations, and block other players.
 

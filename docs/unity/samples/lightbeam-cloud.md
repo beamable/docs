@@ -1,4 +1,4 @@
-# Cloud Save Sample
+# Cloud Save sample
 
 The Cloud Save Sample demonstrates how to use Beamable's [Cloud Save](../user-reference/beamable-services/profile-storage/cloud-save.md) system to persist and sync player data across devices.
 

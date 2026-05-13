@@ -1,4 +1,4 @@
-# Beam Library Overview
+# Beam Library overview
 
 The Beam Library is a collection of package samples and prefabs to help get you started learning the Unity SDK. To open the Beam Library, click on the Beamable Button (at the top-right of the Unity window), and select _Beam Library_.
 

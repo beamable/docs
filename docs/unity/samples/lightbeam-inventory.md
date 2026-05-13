@@ -1,4 +1,4 @@
-# Inventory Sample
+# Inventory sample
 
 The Inventory Sample demonstrates Beamable's [Inventory](../user-reference/beamable-services/game-economy/inventory-overview.md) system — a service that manages owned items and currencies per player.
 
