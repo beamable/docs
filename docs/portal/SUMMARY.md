@@ -1,4 +1,4 @@
-﻿- [Portal Overview](portal.md)
+- [Portal Overview](portal.md)
 - Managing Accounts
     - [Adding Beamable Developers](portal-adding-beamable-developers.md)
     - [Granting Realm Scoped Developer Permissions](portal-granting-realm-scoped-developer-permissions.md)

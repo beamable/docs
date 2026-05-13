@@ -1,4 +1,4 @@
-﻿# ReadMe.io to MkDocs Conversion Manual
+# ReadMe.io to MkDocs Conversion Manual
 
 This manual documents the step-by-step process for converting ReadMe.io documentation to MkDocs-compatible markdown format.
 
