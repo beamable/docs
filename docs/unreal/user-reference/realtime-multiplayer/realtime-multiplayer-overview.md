@@ -2,7 +2,7 @@
 
 There are multiple ways to design real-time multiplayer games: dedicated servers, listen servers in addition to deterministic approaches (such as lockstep or rollback based ones). Unreal has baked in workflows and utilities for the first two. The Beamable Unreal SDK currently only supports dedicated servers officially, though you can probably get listen servers to work too. <!-- TODO(@drewbleam): "listen servers"??? -->
 
-## Dedicated Servers in Unreal with Beamable
+## Dedicated servers in Unreal with Beamable
 
 Beamable integrates with Unreal's Gameplay Framework in a couple of different ways; none of those are via an **OnlineSubsystem**.
 
@@ -23,7 +23,7 @@ You can see an example of a working implementation of these in the **[Beamball S
 !!! warning "Does Beamable host Game Servers?"
     Beamable does not provide Game Server Orchestration. This means that, while Lobbies and Matchmaking can find matches between players, Beamable does NOT run the actual Game Server. For this, Beamable partners with other companies and provides a simple way to integrate Matchmaking and Lobbies with them (this is **[Game Server Federation](../federation/federated-game-server.md)**).
 
-### Relevant Architecture Terminology
+### Relevant architecture terminology
 This documentation uses a few terms to refer to common parts of the architecture of a Dedicated Server Game.
 
 - **Main Boot Level**: Refers to the Level in which your Client applications start. This usually maps to your title/main menu screens.
@@ -33,7 +33,7 @@ This documentation uses a few terms to refer to common parts of the architecture
 
 There _**are**_ other ways to arrange and organize server-authoritative games but most games do something at least similar to this, and, Unreal helps you more if you are close to this.
 
-## Getting Started - Setting up Gameplay Levels and a PIE Setting
+## Getting started - setting up gameplay levels and a PIE setting
 This guide explains how to use the SDK's **[PIE Support](../editor-systems/pie-settings.md)** to set up your Gameplay Level so you can start experimenting with Beamable immediately.
 
 ![multiplayer-scenes.png](../../../media/imgs/multiplayer-scenes.png)
@@ -102,7 +102,7 @@ The above process guarantees two things:
 
 And... the above guarantees allow you to just use Beamable with much less PIE-specific code.
 
-## Integrating with Game Mode Callbacks & Others
+## Integrating with game mode callbacks and others
 There are several overridable functions and events the Game Mode class exposes to you. There is a very important constraint affecting them:
 
 > Callbacks that happen before the **Player Controller** is fully created (before `PostLogin`), cannot interact with the Beamable SDK and do NOT have the guarantee the SDK is ready.
@@ -114,12 +114,12 @@ This is because initializing the SDK is an Asynchronous Process and takes time â
 
 If you'd like to see an example of this, take a look at the [Beamball Demo](../../samples/beamball/beamball-demo.md).
 
-## Preparing a Build for your Game Server Orchestrator
+## Preparing a build for your game server orchestrator
 This section explains what you need to do before you generate a build to upload to any Game Server Orchestrator such as Hathora, GameLyft or Agones. This explanation is Blueprint-based, an equivalent C++ explanation is described in the [C++ Real-Time Multiplayer Guide](code-multiplayer.md).
 
-### Setting Up your Gameplay Level's Level Blueprint
+### Setting up your gameplay level's Blueprint
 
-#### **Step 1 - Turn on Init on Server Build**
+#### **Step 1 - turn on init on server build**
 Beamable provides you with an option in its `Local State - PIE - Easy Enable - Gameplay` node called `Init when Server Build`:
 
 - When playing inside PIE, turning on this option makes no difference.
@@ -130,7 +130,7 @@ You must also create and bind `Custom Events` to the `OnStarted` and `OnStartedF
 
 This makes it so that the server build will initialize the SDK once it starts.
 
-#### **Step 2 - Extract Information from Orchestrator**
+#### **Step 2 - extract information from orchestrator**
 When configuring a build with your Orchestrator, they will typically allow you to pass in CLArgs or set Environment Vars for the running Game Server process. You'll need to set up the following ones:
 
 | Value        | CLArg/EnvVar                                                                                                                                                                                                                                                                                                                                    |
@@ -143,14 +143,14 @@ The exact steps vary by Orchestrator; for every Orchestrator with a known integr
 
 In addition to this, inside the Game Server initialization logic, you'll need to do some things to map the Beamable Lobby to this running instance of the game server. There are two strategies to do this:
 
-##### **One Lobby Per Process**
+##### **One lobby per process**
 The most common way Orchestrators such as Hathora, GameLyft or Agones pass information to the running process is via Command Line Arguments or Environment Variables. If you are only ever running one Lobby per-game-server-process, pass the lobby id this way.
 
 For this case, the Beamable SDK expects either the `CLArg: BeamableDedicatedServerInstanceLobbyId` or the `EnvVar: BEAMABLE_DEDICATED_SERVER_INSTANCE_LOBBY_ID` to be set and contain the Lobby Id for the match. If they do, you can use `Local State - Lobby - Get Lobby Id From CLArgs` to get this value.
 
 Each orchestrator has their own way of allowing you to define CLArgs and EnvVars that it'll pass into the running game-server process â€” see your chosen orchestrator's documentation for how to pass these along; you can also refer to the [Beamball Demo](../../samples/beamball/beamball-demo.md) to see how this is done with Hathora (as per Hathora docs, involves a `Dockerfile` and a `sh` script).
 
-##### **Multiple Lobby Per Process**
+##### **Multiple lobby per process**
 If you are planning on having multiple lobbies per-game-server-process, your orchestrator will either:
 
 - Give you an SDK that allows you to receive notifications whenever a lobby is assigned to a running process.
@@ -158,12 +158,12 @@ If you are planning on having multiple lobbies per-game-server-process, your orc
 
 Either way, at that point, your orchestrator will have provided you the Lobby Id.
 
-#### **Step 3 - Register the Lobby with the SDK Running in the Game Server**
+#### **Step 3 - register the lobby with the SDK running in the game server**
 Now that the Lobby Id is known, register this lobby with the Beamable SDK. "Registering a Lobby with the SDK" means that the SDK will fetch the lobby's information and set up the necessary mapping between each user in the lobby and Unreal's Gameplay framework types (`FUniqueNetIdRepl`).
 
 To do this, you can call `Operation - Lobby - Server - Register Lobby with Server`.
 
-#### **Step 4 - Prepare for Gameplay and Notify Clients they can Connect**
+#### **Step 4 - prepare for gameplay and notify clients they can connect**
 Once the lobby is registered, you can use `Local State - Lobby - TryGetLobbyById` (and `Local State - Lobby - TryGetLobbyPlayerDataById` and `Local State - Lobby - TryGetLobbyGlobalDataById`) to read data from the Lobby to initialize your game server.
 
 This initialization can be preloading assets, making requests to microservices and so on...

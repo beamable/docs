@@ -2,7 +2,7 @@
 
 This page lists possible issues and solutions for common errors that can occur when using the Beam SDK and how to fix them.
 
-## Multiple Microservice Classes Detected
+## Multiple Microservice classes detected
 
 **Explanation**:
 Only one `Microservice` class should exist per microservice project. Multiple classes marked with the `[Microservice]` attribute will cause conflicts in code generation and runtime behavior.
@@ -32,7 +32,7 @@ public partial class MyMicroservice : Microservice {}
 
 ---
 
-## Non-Partial Microservice Class Detected
+## Non-partial Microservice class detected
 
 **Explanation**:
 Microservice classes must be marked as `partial` to allow code generation tools to extend them.
@@ -59,7 +59,7 @@ public partial class MyMicroservice : Microservice {}
 
 ---
 
-## Microservice Class Missing Microservice Id
+## Microservice class missing Microservice ID
 
 **Explanation**:
 The `Microservice` class must include the `[Microservice("Id")]` attribute to define its identifier.
@@ -85,7 +85,7 @@ public partial class MyMicroservice : Microservice {}
 
 ---
 
-## Async Void Callable Methods
+## Async void callable methods
 
 **Explanation**:
 Methods marked as `[Callable]`, `[ClientCallable]`, `[ServerCallable]` should not be `async void`. Using `async void` makes it impossible to track errors or await completion.
@@ -117,7 +117,7 @@ public partial class MyMicroservice : Microservice
     public async Task CallMicroservice() {}
 }
 ```
-## Invalid Type Usage in Callable Method
+## Invalid type usage in callable method
 
 **Explanation**:
 Types used in `[ClientCallable]` methods must be available to both server and client. Declaring types inside the microservice class makes them inaccessible to the Unity client because the DTO is not regenerated for the client.
@@ -172,7 +172,7 @@ public class DTO
 
 ---
 
-## Callable Method Types usage are Nested
+## Callable method types usage are nested
 
 **Explanation**:
 Types used in `[ClientCallable]` methods must be declared in outer scope so the Source Code Generator can handle it properly.
@@ -217,7 +217,7 @@ public class DTO
 
 ---
 
-## Beam Generated Schema Class is a Nested Type
+## Beam generated schema class is a nested type
 
 **Explanation**:
 Classes that uses the attribute `[BeamGenerateSchema]` cannot be declared as nested type because the Source Generator Cannot handle it.
@@ -313,7 +313,7 @@ Microservice ID: `MyMicroservice` is invalid, it needs to be the same as <BeamId
     ```
 ---
 
-## Static Field in Microservice
+## Static field in Microservice
 
 **Explanation**:
 Non-readonly static fields in Microservices are discouraged because they do not behave reliably in horizontally scaled environments. Their state is not shared across instances.
@@ -344,7 +344,7 @@ Consider making 'ContentId' a readonly field. Otherwise the value may be inconsi
 
 ---
 
-## Missing Serializable Attribute on Type
+## Missing `Serializable` attribute on type
 
 **Explanation**:
 All types used in Microservice method signatures or marked with `[BeamGenerateSchema]` must be annotated with `[Serializable]` to ensure correct serialization and code generation.
@@ -402,7 +402,7 @@ Add the [Serializable] attribute to type 'MyOtherDto'
 
 ---
 
-## Property Found in Serializable Type
+## Property found in `Serializable` type
 
 **Explanation**:
 Properties in types used in Microservice method signatures or marked with `[BeamGenerateSchema]` are ignored by the client code generator. Fields should be used instead.
@@ -434,7 +434,7 @@ Consider changing property 'X' to a field to include it in client-generated code
 
 ---
 
-## Nullable Field in Serializable Type
+## Nullable field in `Serializable` type
 
 **Explanation**:
 Fields with nullable types (e.g., `int?`, `string?`) are not supported in types used in Microservice method signatures or marked with `[BeamGenerateSchema]`. Use `Optional<T>` instead to ensure predictable behavior.
@@ -466,7 +466,7 @@ Change field 'Score' to use Optional<T> instead of a nullable type
 
 ---
 
-## Invalid ContentObject Used
+## Invalid ContentObject used
 
 **Explanation**:
 Using `ContentObject` or its subtypes directly in serializable fields or parameters is discouraged, as it may lead to large data payloads. Instead, prefer using `ContentRef<T>` to reference content objects efficiently.
@@ -505,7 +505,7 @@ public class MyItem : ContentObject {}
 ```
 
 
-## Type Used in BeamGenerateSchema is Missing Attribute
+## Type used in BeamGenerateSchema is missing attribute
 
 **Explanation**:
 When a class is marked with `[BeamGenerateSchema]`, all custom types used in its fields must also be annotated with `[BeamGenerateSchema]`.
@@ -545,7 +545,7 @@ Add the [BeamGenerateSchema] attribute to type 'MyOtherDTO'
     ```
 ---
 
-## Dictionary Key Must Be String on Serializable Types
+## `Dictionary` key must be string on `Serializable` types
 
 **Explanation**:
 When using a `Dictionary` field in a type marked with `[BeamGenerateSchema]`, the key must be of type `string`. Other key types are not supported.
@@ -582,7 +582,7 @@ public class MyDTO
 
 ---
 
-## Field on Serializable Type Is Subtype From Dictionary
+## Field on `Serializable` type is subtype from `Dictionary`
 
 **Explanation**:
 Types that subclass `Dictionary` are not supported as field types in `[BeamGenerateSchema]` annotated classes.
@@ -621,7 +621,7 @@ public class MyDTO
 
 ---
 
-## Field on Serializable Type Is Subtype From List
+## Field on `Serializable` type is subtype from list
 
 **Explanation**:
 Types that subclass `List<T>` are not supported as field types in `[BeamGenerateSchema]` annotated classes.
@@ -660,7 +660,7 @@ public class MyDTO
 
 ---
 
-## Callable Method Declaration Type Is ContentObject Subtype
+## Callable method declaration type is ContentObject subtype
 
 **Explanation**:
 Types used in `Callable` methods cannot inherit from `ContentObject`. Only the base `ContentObject` is supported.
@@ -699,7 +699,7 @@ public class MyMicroservice : Microservice
 
 ---
 
-## Callable Method Declaration Type Is Invalid Dictionary
+## Callable method declaration type is invalid `Dictionary`
 
 **Explanation**:
 Dictionaries in `[Callable]` method parameters are only valid if their keys are of type `string`.
@@ -736,7 +736,7 @@ public class MyMicroservice : Microservice
 
 ---
 
-## Callable Method Declaration Type Is Subtype From Dictionary
+## Callable method declaration type is subtype from `Dictionary`
 
 **Explanation**:
 Types used in `[Callable]` methods that subclass `Dictionary` are not supported.
@@ -775,7 +775,7 @@ public class MyMicroservice : Microservice
 
 ---
 
-## Callable Method Declaration Type Is Subtype From List
+## Callable method declaration type is subtype from list
 
 **Explanation**:
 Types used in `[Callable]` methods that subclass `List<T>` are not supported.
@@ -814,7 +814,7 @@ public class MyMicroservice : Microservice
 
 ---
 
-## Invalid Generic Type in Microservice
+## Invalid generic type in Microservice
 
 **Explanation**:
 Generic types are not supported in Microservice `[Callable]` methods or in classes marked with `[BeamGenerateSchema]`, except for a specific set of allowed generic types. The code generator cannot properly handle custom generic types for client-side code generation. The only permitted generic types are: `List<T>`, `Dictionary<TKey, TValue>`, `Optional<T>`, and `ContentRef<T>`.

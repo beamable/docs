@@ -12,7 +12,7 @@ Beamable provides several types of Blueprint nodes to interact with its systems.
     - You should also select your IDE in `Editor Preferences > Source Code > Source Code Editor` (this may or may not be automatically set depending on your choice of IDE).
 
 
-## Low Level Blueprints
+## Low level Blueprints
 
 `Low Level` Blueprints provide direct access to Beamable's APIs. These nodes make raw API calls to Beamable's backend. They are typically used when you need precise control over the behavior or when building custom systems on top of Beamable's foundation.
 
@@ -32,7 +32,7 @@ Common use cases include:
   <figcaption>Sample of an Operator Blueprint Node that encapsulates the Purchase Operation for a Listing from the Skin Store.</figcaption>
 </figure>
 
-### Configuring Operation Nodes
+### Configuring operation nodes
 Operation nodes can be configured in the following ways:
 
 1. **No BeamFlow Mode**: removes all output pins and reveals the `Delegate` input pin handler for the operation.
@@ -51,7 +51,7 @@ Operation nodes can be configured in the following ways:
 - Matchmaking & Lobby operations
 - Fetching the latest state from the Beamable backend
 
-## Local State Blueprints
+## Local state Blueprints
 
 `Local State` Blueprints manage the player's in-memory (locally cached) version of the data associated with players. None of these are asynchronous operations. They are meant to be used to read in-memory state and display it in UI or for use in your own systems, built on top of Beamable's systems.
 
@@ -68,7 +68,7 @@ There are two different kinds of `Local State` nodes: a single-output version an
 - Player inventory management including items and currencies
 - Access all local cached data of the Beamable `UBeamRuntimeSubsystem` implementations
 
-## Events Bind
+## Events bind
 
 Each subsystem also has an `Events - Bind` node that exposes all events that subsystem emits for binding.
 
@@ -96,7 +96,7 @@ We also provide `Unbind` nodes for cases where the above pattern isn't possible 
 - Notifying the player that a Match was found
 - Reconfiguring a part of the UI whenever an inventory item changed
 
-## Other Utilities
+## Other utilities
 We also provide additional utility Blueprint nodes such as:
 
 - Direct access to Beamable Subsystems (e.g., Identity, Inventory, Stats)
@@ -109,7 +109,7 @@ We also provide additional utility Blueprint nodes such as:
   <figcaption>Sample of a Blueprint graph that accesses the Beamable Inventory Subsystem and retrieves a currency amount from the local cached state.</figcaption>
 </figure>
 
-## Node Customization
+## Node customization
 Multiple Blueprint nodes can be modified in their `Detail` panel. These configurations allow you to change the pin layout of the node for cases where one layout or another is more beneficial.
 
 

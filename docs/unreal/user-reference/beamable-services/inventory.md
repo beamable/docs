@@ -15,7 +15,7 @@ Each player's inventory state can be thought of as:
 In short, Inventory manages two types of data: items and virtual currencies.
 
 
-## Getting Started
+## Getting started
 To use the inventory system, you will need to first:
 
 1. Go to the [Content Window](content.md).
@@ -47,12 +47,12 @@ After running the above function at least once, you should be able to see the re
 
 ![inventory-portal.png](../../../media/imgs/inventory-portal.png)
 
-### Batching Updates
+### Batching updates
 In the getting started example, a new `FBeamInventoryUpdateCommand` is created and committed right away.
 
 It is desirable, for both performance and latency reasons, to batch as many inventory changes as possible as long as it makes sense for your game's design. So, if your game's feature allows for a "edit multiple, commit later" pattern of UX, using this API is the most efficient way to go about it.
 
-### Reading Local State
+### Reading local state
 To read the local state of the player's inventory, you can use the following operations:
 
 ![inventory-local-state.png](../../../media/imgs/inventory-local-state.png)
@@ -80,7 +80,7 @@ In the `UBeamInventorySubsystem`, each item instance inside a player's inventory
 - **UpdatedAt**: last edit date
 - **FederatedId**: See [Inventory Federation](../federation/federated-inventory.md) for more information about this field
 
-## Client Permissions
+## Client permissions
 
 It's up to developers to decide how the content can be added to player inventory by specifying `clientPermission` field:
 
@@ -91,7 +91,7 @@ If not toggled, the content becomes **Server-Authoritative**: trying to add/remo
 !!! note "Edit player Inventory via the Portal"
 	Regardless of the value of the `clientPermission` field you can view and modify players' inventory through the Portal. See the [Portal Inventory documentation](https://docs.beamable.com/docs/portal-inventory).
 
-## Item Instance Properties
+## Item instance properties
 As with most key-value pairs for arbitrary data, try to follow the guidelines below:
 
 **For Keys**:

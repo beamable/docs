@@ -17,7 +17,7 @@ Domain is represented in Unreal by enum `EBeamStatsDomain`, and it describes if 
 - `client`: Can be accessed from both **Unreal** and **Microservices**
 - `game`: Cannot be accessed from **Unreal** directly, but it can still be accessed via **Microservices** using `ClientCallable` calls
 
-## Getting Started
+## Getting started
 
 To write to a `client`/`public` stat from a client, use the `Set Stat Operation` for individual stat changes. For batching multiple stat changes, use the `TryCreateUpdateCommand` to begin building a set of stat changes for the given `UserSlot`, which are later committed via the `Commit Stats Operation`.
 
@@ -45,12 +45,12 @@ In this example, a new `UpdateCommand` is created and committed right away. For 
 
 When it is possible and desirable for your game, this flow reduces the overall latency experienced by your players as well as reducing the number of API calls you make to Beamable.
 
-## Reading Other Players' Public Stats
+## Reading other players' public stats
 You might want to read public stats of some other player to display information about them in your UI. To do that, you can use the following `Operation` and `Local State` calls.
 
 ![stats-reading-other-player-stats.png](../../../media/imgs/stats-reading-other-player-stats.png)
 
-## Stats Keys & Values
+## Stats keys and values
 The SDK does not enforce limitations on stat keys or values. However, the following guidelines are *highly recommended* the following guidelines for project organization and performance reasons.
 
 **For Keys**:

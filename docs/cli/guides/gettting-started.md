@@ -30,7 +30,7 @@ beam version install latest
 
 There may be updates you are required to do, so please check the [migration guide](upgrading.md).
 
-## Getting Started
+## Getting started
 
 Now that Beamable is installed, you can connect to an existing Beamable organization. If you haven't setup an organization yet, [create a Beamable organization](https://beta-portal.beamable.com/signup/registration/) first.
 
@@ -56,7 +56,7 @@ To check that everything is working correctly, you can use the beam me command. 
 
     You can pass the `--help` flag to any command to print out detailed information about the arguments and options for the given command. Also, the `--help-all` flag will include additional information used by internal Beamable developers. You are welcome to use the internal facing commands, but they are not officially supported.
 
-### Next Steps
+### Next steps
 
 From here, you can:
 

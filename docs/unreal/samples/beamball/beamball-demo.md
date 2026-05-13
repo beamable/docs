@@ -1,4 +1,4 @@
-# Beamball Sample
+# Beamball sample
 
 ![beamable-release.gif](../../../media/imgs/beamable-release.gif)
 
@@ -13,7 +13,7 @@ Aside from our `BeamableCore` Plugin, here's what the sample contains:
 
 To set up this sample you'll need a a Beamable Account and a Realm. To configure the repo for the sample run `dotnet beam unreal select-sample BEAMPROJ_Beamball`.
 
-## Setting up the Project
+## Setting up the project
 To set up an organization and realm to run this sample, follow the steps below.
 
 1. Go to the Beamable Portal and create a new Beamable realm called `Beamball`
@@ -31,11 +31,11 @@ To set up an organization and realm to run this sample, follow the steps below.
       5. Select `Publish` to publish those new contents to the realm.
       6. See the [Content System documentation](../../user-reference/beamable-services/content.md)
 
-## Running the Sample in Editor
+## Running the sample in editor
 
 Leveraging the new Beamable PIE Settings, you can run the sample in editor through two entry points: The Main Menu or the Gameplay scene.
 
-## Running from the Main Menu
+## Running from the main menu
 1. Open the Unreal editor.
 2. Open the `L_Beamball_MainScreen` Level if it is not opened yet.
       1. You can find it inside the `BEAMPROJ_Beamball Content` folder.
@@ -47,7 +47,7 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
 4. You don't need select any Play Preset, as the `Beamball_MainScreen` level is the common entry point for the sample. So leave the Play Preset selector to `None`.
 5. Play the `L_Beamball_MainScreen` in the Editor.
 
-### Running from the Gameplay Scene
+### Running from the gameplay scene
 1. Open the Unreal editor.
 2. Open the `L_Beamball_Gameplay` Level if it is not opened yet.
       1. You can find it inside the `BEAMPROJ_Beamball Content` folder.
@@ -65,7 +65,7 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
 7. Select `Play as Client` in the Net Mode settings and set the `Number of players` to 2.
 7. Play the `L_Beamball_Gameplay` in the Editor.
 
-## Can I use it as a Template?
+## Can I use it as a template?
 
 This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here's what these are:
 

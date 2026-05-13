@@ -18,7 +18,7 @@ Here's a high-level diagram of what federations are:
 
 Each of the provided **Federations** has its own semantics, usage guidelines, performance characteristics, and constraints described in their individual pages.
 
-## Federation Calls
+## Federation calls
 There are two types of **Federation Calls** the Beamable Backend makes:
 
 - **In-Band Federation Calls**
@@ -34,7 +34,7 @@ There are two types of **Federation Calls** the Beamable Backend makes:
 
 For more information about the workflow implications of the difference between both **Federation Call** types, see [below.](#workflows-for-developing-federations)
 
-## Federation Id
+## Federation ID
 Federations can be thought of as delegates called by the Beamable server at particular points of various flows. Federation Ids are unique `string`-based identifiers that uniquely identify a particular implementation of a federation.
 
 The combination of the **Federation Id** and the **Federation Type** is comparable to a function name/pointer assigned to an Unreal delegate; in the sense that it is used by the Beamable backend to know which implementation of a federation in your microservice it should talk to, if any.
@@ -47,7 +47,7 @@ Examples:
 
 In other words, an id is just a unique `string` that you pass along in specific places depending on the federation to **choose between one or more federations if any should be used**.
 
-## Adding/Removing Federations
+## Adding/Removing federations
 Federations are tied to interfaces implemented in your `Microservice` inherited class — these federations and its IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, simply implement its federation and recompile the microservice project.
 
 ```csharp
@@ -68,7 +68,7 @@ After adding any federation, your IDE will likely complain that you are not impl
 
 Take a look at each individual federation docs page for more information on use-cases and usage guidelines.
 
-## Workflows for Developing Federations
+## Workflows for developing federations
 Most federations are inside complex application paths. Thus, you need a way to iterate on them locally, much like how you do with `Callables` (see [Microservices](../microservices/microservices.md#common-developer-workflows)). This is why the SDK differentiates between In-Band calls to Federations and Out-of-Band calls to Federations.
 
 For **In-Band Calls** that reach a federated endpoint, the selected [Microservice Target](../microservices/microservices.md#microservice-routing-and-microservice-target) defines which running microservice instance will handle the federated call. In other words, you don't have to think about them. These get the same semantics as `Callables` routing.

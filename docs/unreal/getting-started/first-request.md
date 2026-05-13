@@ -5,7 +5,7 @@
 !!! note "Notice"
     This tutorial assumes you have already set up your Beamable account and integrated the Beamable SDK into your Unreal project. For instructions on doing so, see the [Setup Guide](setup.md).
 
-## Accessing the Beamable Window
+## Accessing the Beamable window
 
 When opening the Unreal Editor of your project, you will see the Beamable Logo in the upper-right, next to the Settings dropdown. This button opens the Beamable Editor Window. Here, you can log in to the account you just created in the Beamable Portal.
 
@@ -35,7 +35,7 @@ Here is a quick tour of the Beamable Window's functions:
 </div>
 
 
-## Your First Blueprint Request
+## Your first Blueprint request
 
 Now that you are familiar with the Beamable Window, you are ready to make your first Beamable request. This guide uses Blueprint, but the same flow works in C++ via calls in your Project's `GameMode` class's `BeginPlay` function.
 
@@ -43,7 +43,7 @@ To get started, open your Level Blueprint and add the following nodes:
 
 ![intro-init-sdk-with-login-frictionless](../../media/imgs/intro-init-sdk-with-login-frictionless.png)
 
-### What Is Happening Above
+### What is happening above
 
 The `BeamRuntime` is a `GameInstanceSubsystem` that is responsible for controlling the SDK's lifecycle and player authentication. Call this function to initialize the SDK. You can find a deep explanation about the Beamable Runtime in the [Technical Overview](../user-reference/overview.md) page.
 
@@ -62,12 +62,12 @@ If this operation succeeds, you will have a guest account signed-into the `Playe
 With the SDK's default configuration and the above setup, enter PIE (Play-In-Editor). You should see several requests' responses written to your Output Log window. After you see the final `GetMe` request, you can exit PIE knowing you have made your first request to Beamable. Congratulations!
 
 
-## Next Steps
+## Next steps
 Now that you have made your first Beamable Request, see the [Technical Overview](../user-reference/overview.md) page to understand more about how the SDK is structured and identify the best path to using it in your game.
 
 Also, take a look at the [Samples](../samples/intro.md), which are a valuable source of practical information and good general reference.
 
-## Issues and Reporting
+## Issues and reporting
 - Use verbose logging `log Category Verbose` when encountering an issue stemming from the SDK (Log Categories can be found in `BeamableCore/BeamLogging.h` file)
 - This verbose logging will print ***a lot more*** information about requests being made and what the SDK is doing. It is meant to aid in diagnosing issues, NOT for production use. To turn it off in the same editor session, run `log Category Display` in the editor console
 - When reporting an issue, try to reproduce it with the logs of the relevant systems set to Verbose and attach them to the report

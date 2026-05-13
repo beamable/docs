@@ -1,4 +1,4 @@
-# Discord Integration Sample
+# Discord integration sample
 
 This demo showcases how you can use the **Unreal SDK** and **Beamable Microservices** to integrate with Discord for community management tools.
 
@@ -19,7 +19,7 @@ To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_DiscordD
 !!! note "Assumptions"
       Instructions below assume that you already have the Discord server that you want to use for integration. If that is not the case, be sure to create one first. Make sure that you have the admin access to the Discord server of choice.
 
-## Setting Discord Application
+## Setting Discord application
 Since this sample requires several resources, we do not host it ourselves. So, to access the sample we'll go set up a Discord account and set up the sample Discord bot:
 
 1. Log into your [Discord.dev](https://discord.com/developers/applications) account.
@@ -62,7 +62,7 @@ Now, you'll need to configure a Beamable realm so you can use it.
 
 Now, you are ready to sign into a game using Discord.
 
-## Playing the sample in Editor
+## Playing the sample in editor
 
 To test the sample:
 
@@ -80,7 +80,7 @@ To test the sample:
 
 To actually gate matchmaking you'll need to set up a rule in your `GameType` content that excludes people from the queue that do not have the role. This is not shown on this demo.
 
-## Can I use it as a Template?
+## Can I use it as a template?
 
 This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here's what these are:
 
