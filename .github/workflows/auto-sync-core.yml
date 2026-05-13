@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout target branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ matrix.branch }}
           token: ${{ secrets.DOCS_PAT }}
@@ -58,7 +58,7 @@ jobs:
           fi
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         id: create_pr
         if: steps.merge.outputs.status == 'conflict'
         with:
