@@ -40,8 +40,15 @@ jobs:
         run: |
           git fetch origin ${{ github.ref_name }}
 
+          # Files that legitimately differ between core and downstream branches
+          # (e.g. unity/unreal each have their own top-level nav and landing
+          # page). Restore the target branch's version after every merge so
+          # core's copy never clobbers them.
+          PRESERVE_PATHS="docs/SUMMARY.md docs/index.md"
+
           # Try a normal squash merge
           if git merge origin/${{ github.ref_name }} --squash; then
+                git checkout HEAD -- $PRESERVE_PATHS 2>/dev/null || true
                 if ! git diff --cached --quiet; then
                   git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
                   git push origin ${{ matrix.branch }}
@@ -51,6 +58,7 @@ jobs:
               # Merge conflict: retry with 'theirs'
               git reset --hard HEAD
               git merge origin/${{ github.ref_name }} --squash -X theirs
+              git checkout HEAD -- $PRESERVE_PATHS 2>/dev/null || true
               if ! git diff --quiet; then
                   git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
               fi
