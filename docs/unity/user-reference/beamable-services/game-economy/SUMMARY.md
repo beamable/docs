@@ -1,3 +1,3 @@
-﻿- [Inventory](inventory-overview.md)
+- [Inventory](inventory-overview.md)
 - [Virtual Currency](virtual-currency-overview.md)
 - [Stores](stores-overview.md)

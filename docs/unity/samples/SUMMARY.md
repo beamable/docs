@@ -1,4 +1,4 @@
-﻿- Lightbeam
+- Lightbeam
     - [LightBeam Overview](lightbeam.md)
     - [Player Account Manager](lightbeam-account.md)
     - [Inventory Management](lightbeam-inventory.md)

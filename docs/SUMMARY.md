@@ -1,4 +1,4 @@
-﻿- [Introduction](index.md)
+- [Introduction](index.md)
 - [Getting Started](unity/getting-started/)
 - [What's New?](unity/whatsnew/)
 - [SDK User Reference](unity/user-reference/)

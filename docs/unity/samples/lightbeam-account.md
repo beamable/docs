@@ -1,4 +1,4 @@
-﻿# Player account manager sample
+# Player account manager sample
 
 The Player Account Manager Sample demonstrates Beamable's identity system — a service that lets players create accounts, attach email and password credentials, and manage account aliases and avatars.
 

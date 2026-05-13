@@ -1,4 +1,4 @@
-﻿# Lobby Sample
+# Lobby Sample
 
 The Lobby Sample demonstrates Beamable's [Lobbies](../user-reference/beamable-services/social-networking/lobbies.md) feature — virtual waiting spaces players join before entering a multiplayer match.
 

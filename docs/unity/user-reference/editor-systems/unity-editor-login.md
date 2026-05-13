@@ -1,4 +1,4 @@
-﻿# Unity Editor Login
+# Unity Editor Login
 
 ## Overview
 

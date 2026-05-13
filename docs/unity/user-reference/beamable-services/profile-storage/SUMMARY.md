@@ -1,4 +1,4 @@
-﻿- [Overview](profile-storage.md)
+- [Overview](profile-storage.md)
 - [Cloud Save](cloud-save.md)
 - [Player Stats](stats.md)
 - Content
