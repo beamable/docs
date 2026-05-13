@@ -1,4 +1,4 @@
-# Game Type Matchmaking
+# Game type matchmaking
 
 Match players together based on region of the world
 
@@ -19,7 +19,7 @@ Learning Resources:
 |--------|--------|
 | ![Beamable Logo](../../media/imgs/beamable-logo.jpg){width="35px"} | 1. **Download** the [Game Type Based Matchmaking Example](https://github.com/beamable/GameTypeBasedMatchmakingExample)<br>2. Open in Unity Editor (Version 2021.3 or later)<br>3. Open the Beamable [Toolbox](../user-reference/editor-systems/unity-editor-login.md)<br>4. Sign-In / Register To Beamable. See [Getting Started](../getting-started/installing-beamable.md) for more info<br>5. Install TextMeshPro in the project. This can be done through the prompt in the Beamable toolbox.<br><br>*Note: Beamable supports Unity versions 2021.3 to 2023.3* |
 
-## Project Structure
+## Project structure
 
 In the project's content, you will see a custom content type underneath game_types: `geo`. This is a simple extension of the SimGameType class, adding in a `RegionName` string, with the appropriate ContentLink and ContentRef subclasses.
 
@@ -45,7 +45,7 @@ namespace MatchmakingExample
 }
 ```
 
-## Step 1. Create Content
+## Step 1. create content
 
 For this example, we'll be creating a few game types for some different regions of the world: North America, Europe, and Asia.
 
@@ -55,7 +55,7 @@ For this example, we'll be creating a few game types for some different regions 
 
 ![Game Type Content Creation](../../media/imgs/gametype-content-creation.png)
 
-## Step 2. Configure Content
+## Step 2. configure content
 
 Configure the content on the game type with the appropriate region name. Of course, these values can be tweaked for your game's specifications.
 
@@ -66,13 +66,13 @@ Configure the content on the game type with the appropriate region name. Of cour
 
 *Game type for the Europe region, with a 2 vs 2 configuration.*
 
-## Step 3. Configure Sample Data
+## Step 3. configure sample data
 
 The "Geo" scene in the project is partially configured to test this functionality. The scene contains a dropdown that will be populated with game types at runtime, and buttons to start and stop the matchmaking search. On the MatchmakingSample object (under the Canvas), edit the Geo Matchmaking Sample component and add your matchmaking types to the Game Types Refs list.
 
 ![Game Type Sample Configuration](../../media/imgs/gametype-sample-config.png){width="600px"}
 
-## Step 4. Run & Test
+## Step 4. run and test
 
 You will need 2 instances of the project running to test. This can be accomplished in 2 ways:
 

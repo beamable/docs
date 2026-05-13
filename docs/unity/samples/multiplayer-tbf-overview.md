@@ -1,4 +1,4 @@
-# Turn-based Beamable Fighters - Multiplayer Sample
+# Turn-based Beamable Fighters - multiplayer sample
 
 Welcome to "Turn-based Beamable Fighters" (TBF). In this game, **Choose strategic attacks to win! Only the bravest knight survives.**
 
@@ -16,7 +16,7 @@ The player navigates from the Intro Scene to the Game Scene, where all the actio
 | **Intro Scene**<br>![Intro Scene](../../media/imgs/tbf-intro-scene.jpg){width="425px"} | **Lobby Scene**<br>![Lobby Scene](../../media/imgs/tbf-lobby-scene.jpg){width="425px"} |
 | **Game Scene**<br>![Game Scene](../../media/imgs/tbf-game-scene.jpg){width="425px"} | **Project Window**<br>![Project Window](../../media/imgs/tbf-project-window.jpg){width="425px"} |
 
-## Multiplayer (TBF) - Guide
+## Multiplayer (TBF) - guide
 
 This document and the sample project allow game makers to understand and apply the benefits of Beamable [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) in game development. Or watch this video:
 
@@ -30,7 +30,7 @@ Learning Resources:
 |--------|--------|
 | ![Beamable Logo](../../media/imgs/beamable-logo.jpg){width="35px"} | 1. **Download** the [Multiplayer TBF Sample Project](https://github.com/beamable/Multiplayer_TBF_Sample_Project/)<br>2. Open in Unity Editor (Version 2021.3 or later)<br>3. Open the Beamable [Toolbox](../user-reference/editor-systems/unity-editor-login.md)<br>4. Sign-In / Register To Beamable. See [Getting Started](../getting-started/installing-beamable.md) for more info<br>5. Open the `1.Intro` Scene<br>6. Play The Scene: Unity → Edit → Play<br>7. Click "Start Game: Human vs Bot" for an easy start. Or do a standalone build of the game and run the build. Then run the Unity Editor. In both running games, choose "Start Game: Human vs Human" to play against yourself<br>8. Enjoy!<br><br>*Note: Beamable supports Unity versions 2021.3 to 2023.3* |
 
-### Rules of the Game
+### Rules of the game
 
 The game has 3 rounds. The player to win the most rounds, wins the game.
 
@@ -55,13 +55,13 @@ The player navigates from the Intro Scene to the Game Scene, where all the actio
 | **Intro Scene**<br>![Intro Scene](../../media/imgs/tbf-intro-scene.jpg){width="425px"} | **Lobby Scene**<br>![Lobby Scene](../../media/imgs/tbf-lobby-scene.jpg){width="425px"} |
 | **Game Scene**<br>![Game Scene](../../media/imgs/tbf-game-scene.jpg){width="425px"} | **Project Window**<br>![Project Window](../../media/imgs/tbf-project-window.jpg){width="425px"} |
 
-### Player Experience Flowchart
+### Player experience flowchart
 
 The following flowchart shows the player experience through the game:
 
 _Note_: Interactive flowchart content from LucidChart is not directly convertible to static markdown. Please refer to the original documentation or recreate as a static diagram.
 
-## Game Maker User Experience
+## Game Maker user experience
 
 Game makers follow a structured process to create multiplayer experiences. There are several major parts to this game creation process.
 
@@ -78,7 +78,7 @@ These steps are **already complete** in the sample project. The instructions her
     • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a match (i.e., a multiplayer "room")
     • [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) - Enable real-time multiplayer gameplay experiences
 
-### Step 1. Setup Project
+### Step 1. setup project
 
 Here are instructions to setup the Beamable SDK and "GameType" content.
 
@@ -94,7 +94,7 @@ Here are instructions to setup the Beamable SDK and "GameType" content.
 | 6. Save the Unity Project | • Unity → File → Save Project<br>*Best Practice: If you are working on a team, commit to version control in this step* |
 | 7. Publish the content | • Press the "Publish" button in the Content Manager Window |
 
-### Step 2. Plan the Game Design
+### Step 2. plan the game design
 
 Multiplayer game development offers additional challenges beyond those of a typical single player game.
 
@@ -124,7 +124,7 @@ Deciding which user interactions require events and how to design the event payl
 
     • See Ruoyu Sun's [Game Networking Article](https://ruoyusun.com/2019/03/29/game-networking-2.html) for more info
 
-### Step 3. Create the Game Code
+### Step 3. create the game code
 
 This step includes the bulk of time and effort the project.
 
@@ -943,7 +943,7 @@ namespace Beamable.Samples.TBF
 }
 ```
 
-### Step 4. Create the Multiplayer Code
+### Step 4. create the multiplayer code
 
 Now that the core game logic is setup, use Beamable to connect 2 (or more) players together. Create the Multiplayer event objects, send outgoing events, and handle incoming events.
 
@@ -1014,7 +1014,7 @@ private async void MultiplayerSession_OnGameMoveEvent(GameMoveEvent gameMoveEven
 }
 ```
 
-## Additional Experiments
+## Additional experiments
 
 Here are some optional experiments game makers can complete in the sample project.
 

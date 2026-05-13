@@ -42,7 +42,7 @@ The main API highlights include [`GroupsService`](https://csharp.cdocs.beamable.
 | Donate | Send a currency donation to group member |
 | SetGroupProps | Sets the [`GroupUpdateProperties`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Api_1_1Groups_1_1GroupUpdateProperties.html) including...<br>• `Name` - Group name<br>• `Slogan` - External-facing group slogan<br>• `Motd` - Internal-facing message for members<br>• `Tag` - Optional 3 letter shorthand for group<br>• `EnrollmentType` - restricted / open / closed<br><br>- Restricted - By invitation or application only<br>- Closed - By invitation only<br>- Open - Anybody can join |
 
-### Creating Groups
+### Creating groups
 
 > NOTE: The group tag must be 3 characters or less. Group tags that longer than this will throw an InvalidTag exception.
 
@@ -51,18 +51,18 @@ var groupCreateRequest= new GroupCreateRequest ("MyGroupName", "tag", "open", 0,
 await _beamContext.Api.GroupsService.CreateGroup (groupCreateRequest);
 ```
 
-### Requesting Group Donation
+### Requesting group donation
 
 ```csharp
 _beamContext.Api.GroupsService.MakeDonationRequest (groupId, currency);
 ```
 
-### Make Group Donation
+### Make group donation
 
 ```csharp
 _beamContext.Api.GroupsService.Donate (groupId, memberId, 10);
 ```
-### Sample Code
+### Sample code
 
 In this example, the player can create a group and interact.
 
@@ -324,9 +324,9 @@ namespace Beamable.Examples.Services.GroupsService
 }
 ```
 
-## Adding Group Chat
+## Adding group chat
 
 The chat service includes full functionality for groups. Players can send chat messages within their group. Players can also send chat messages globally, within rooms, and directly to a specific player. See [Chat](chat.md) for more info.
 
-## Adding Group Events
+## Adding group events
 The events service includes full functionality for groups. Players can collaborate with group members and get group rewards. See [Events](../live-ops/live-ops.md) for more info.

@@ -1,4 +1,4 @@
-# Mail - Overview
+# Mail - overview
 
 The Beamable **Mail** service allows game makers to create and manage in-game mail messaging systems for players.
 
@@ -16,7 +16,7 @@ Unlike many Beamable services, Mail does not have a dedicated feature prefab. Th
 ## Using Microservices
 If you would like to allow players to send messages without granting players Admin privileges, consider using [Microservices](../../cloud-services/microservices/microservice-framework.md). Sending a message via a microservice allows the game maker to validate the message's contents before the final sendoff.
 
-## Mobile Notifications
+## Mobile notifications
 Mobile Notifications are a native part of mobile platforms including iOS and Android. These messages show up as a banner of text, regardless of whether your game is running. See [Notifications](notifications-overview.md) for more info.
 
 ## Mail API
@@ -49,7 +49,7 @@ The following chart describes the core **structure** of mail messages.
 | state | "unread", "read", or "deleted" |
 | expires | The timestamp when expires<br/><br/>_Note: This value is formatted as `2019-03-28T00:00:00Z`_ |
 
-### Sample Code
+### Sample code
 
 Below are code examples demonstrating common mail operations. In this `MailServiceExample` snippet, sending mail from the client and receiving mail through subscription is shown.
 

@@ -15,7 +15,7 @@ Each card represents a Package Sample. When you click the "Open Scene" button, a
 Most of the package samples are entire Scenes that help you get started understanding a topic. However, the _Admin Console_ is unique, because it is a prefab that gets added to your project.The prefab is helpful to dropping into your project, because you can use it to interact with Beamable at runtime.
 
 
-### Admin Console Prefab
+### Admin Console prefab
 
 #### Overview
 
@@ -30,7 +30,7 @@ The Admin Flow can be opened at runtime in multiple ways:
 - Within the Unity Editor, press the "~" key
 - Within a Mobile Build, use a "three-finger swipe-up gesture"
 
-#### The User Interface
+#### The user interface
 
 ![The Beamable "Admin Flow" UI in the Unity Game Window](../../../media/imgs/admin-flow-ui-game-window.png){width="200px"}
 
@@ -38,13 +38,13 @@ The Admin Flow can be opened at runtime in multiple ways:
 
 The Admin Prefab is accessible via the _Beam Library_ window. You can open the _Beam Library_ and add the admin prefab to your scene.
 
-#### Admin Commands
+#### Admin commands
 
 Once the Admin Flow is open, type an admin command into the input field and press return.
 
 There are built-in Beamable admin commands and game makers can create custom admin commands for additional functionality.
 
-##### Using Beamable Admin Commands
+##### Using Beamable admin commands
 
 | Command                                         | Detail                                                                                                               |
 | :---------------------------------------------- | :------------------------------------------------------------------------------------------------------------------- |
@@ -72,7 +72,7 @@ There are built-in Beamable admin commands and game makers can create custom adm
 | `IAP_BUY <listing> <sku>`                       | Invokes the real money transaction flow to purchase the given item_symbol.                                           |
 | `IAP_PENDING`                                   | Displays pending transactions                                                                                        |
 
-#### Force-Enabled
+#### Force-enabled
 
 Within the Unity Editor, press the "~" key to open the in-game console. This always works, regardless of player privileges or "Admin Flow" settings.
 
@@ -89,7 +89,7 @@ The Beamable Portal allows game makers to grant player privileges. This privileg
 
 ### AdminFlow API
 
-#### Creating Custom Admin Commands
+#### Creating custom admin commands
 
 Game makers can create custom admin commands for additional functionality.
 

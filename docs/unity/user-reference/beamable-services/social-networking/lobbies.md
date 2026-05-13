@@ -36,7 +36,7 @@ Other actions provided by the Beamable **Lobbies** service include:
 
 These examples cover common use cases for Lobbies. The `_beamContext` variable used below is an instance of the `BeamContext` class and may be obtained by `BeamContext.Default`:
 
-### Creating a Lobby
+### Creating a lobby
 
 The [Create](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Lobbies_1_1LobbyService.html#a0e8f956a954c74e55f5a26db755e5499) method will create a lobby with specified parameters which you can access through `_beamContext.Lobby.Value`.
 
@@ -65,7 +65,7 @@ public async Task CreateLobbyAsync(CreateLobbyRecord lobbyRecord) =>
             lobbyRecord.Description, lobbyRecord.PlayerTags, lobbyRecord.MaxPlayers, lobbyRecord.PasscodeLength);
 ```
 
-### Updating a Lobby
+### Updating a lobby
 
 The `Update` method will update details about an existing lobby which you can access through `_beamContext.Lobby.Value`.
 
@@ -87,7 +87,7 @@ public async Task UpdateLobbyAsync(UpdateLobbyRecord lobbyRecord) =>
             lobbyRecord.Name, lobbyRecord.Description, lobbyRecord.GameTypeId, lobbyRecord.MaxPlayers);
 ```
 
-### Finding Lobbies
+### Finding lobbies
 
 The [FindLobbies](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Lobbies_1_1LobbyService.html#a0d248fffa2d8cbd3f7a6b50a131a3a17) method will find all open lobbies and will return a [LobbyQueryResponse](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Lobbies_1_1LobbyQueryResponse.html).
 
@@ -95,7 +95,7 @@ The [FindLobbies](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Expe
 public async Task FindLobbiesAsync() => Lobbies = (await _beamContext.Lobby.FindLobbies()).results;
 ```
 
-### Finding Lobbies By Game Type
+### Finding lobbies by game type
 
 The `FindLobbiesOfType` method will find all lobbies of a particular game type and will return a [LobbyQueryResponse](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Lobbies_1_1LobbyQueryResponse.html).
 
@@ -109,7 +109,7 @@ public async Task FindLobbiesOfTypeAsync(string gameType) =>
         Lobbies = (await _beamContext.Lobby.FindLobbiesOfType(gameType)).results;
 ```
 
-### Joining a Lobby
+### Joining a lobby
 
 The [Join](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Lobbies_1_1LobbyService.html#a50417b020ff456f8ee0df398cad0ffa8) method will allow players to join an existing open lobby by `lobbyId`. Optionally, you can send `playerTags` with the join lobby request.
 
@@ -118,7 +118,7 @@ public async Task JoinLobbyAsync(JoinLobbyRecord lobbyRecord) =>
         await _beamContext.Lobby.Join(lobbyRecord.LobbyId, lobbyRecord.PlayerTags);
 ```
 
-### Joining a Lobby By Passcode
+### Joining a lobby by passcode
 
 The [JoinByPasscode](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Lobbies_1_1LobbyService.html#a99ffe1811128c3f86f4d0c03416bb668) method will allow players to join an existing closed lobby by `passcode`. Optionally, you can send `playerTags` with the join lobby by passcode request.
 
@@ -127,7 +127,7 @@ public async Task JoinLobbyByPasscodeAsync(JoinLobbyByPasscodeRecord lobbyRecord
         await _beamContext.Lobby.JoinByPasscode(lobbyRecord.Passcode, lobbyRecord.PlayerTags);
 ```
 
-### Kicking Players Out Of Lobby
+### Kicking players out of a lobby
 
 The [KickPlayer](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Lobbies_1_1LobbyService.html#a6938dd38ff51cf6f93716031d5f42e04) method will allow a host to remove a player with the given playerId from the lobby.
 
@@ -135,7 +135,7 @@ The [KickPlayer](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Exper
 public async Task KickPlayerOutOfLobbyAsync(string playerId) => await _beamContext.Lobby.KickPlayer(playerId);
 ```
 
-### Leaving a Lobby
+### Leaving a lobby
 
 The [Leave](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experimental_1_1Api_1_1Lobbies_1_1LobbyService.html#a1e8f5e43189edabe86e24854a7462387) method will allow a player to leave the lobby and would notify the lobby that the player intends to leave.
 
@@ -143,7 +143,7 @@ The [Leave](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Experiment
 public async Task LeaveLobbyAsync() => await _beamContext.Lobby.Leave();
 ```
 
-### Data Update Event
+### Data update event
 
 The following event is available
 
@@ -151,7 +151,7 @@ The following event is available
 public Action<Lobby> OnDataUpdated;
 ```
 
-### Sample Code
+### Sample code
 
 ```csharp
 using System.Collections.Generic;

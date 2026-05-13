@@ -1,4 +1,4 @@
-# Steam Sign-In
+# Steam sign-in
 
 In order to integrate Steam into any game you have to use the Steamworks SDK and the Steamworks API. This section will show you how to properly integrate the Steamworks SDK into a Unity Game. However, the implementations of Steamworks are relatively the same across various languages.
 
@@ -15,7 +15,7 @@ Primarily we use the Steamworks SDK to acquire the Steam Token for Authenticatio
 
 ![Steam Overview Flow](../../../../../media/imgs/d37037e-steam_overview_flow.png){: style="height:auto;width:500px"}
 
-## Steam AppID Setup
+## Steam AppID setup
 
 You'll need an AppID, which you can acquire from Steam. If you do not have one, you will need to create a new app in the [Steam Partner Portal](https://partner.steamgames.com). Once you've created your app, you can find its AppID, which will be a numeric value after the name of your Steam app.
 
@@ -64,7 +64,7 @@ You should see that your Steam ID is printed to the console.
     Be sure to include the Steamworks.NET SDK in the files you are working with.
     `using Steamworks;`
 
-## Getting Steam Session Ticket
+## Getting Steam session ticket
 
 You'll need to acquire a Steam Session Ticket to validate. In the example below, we are using the `SteamUser.GetAuthSessionTicket()` function of the Steamworks SDK to accomplish this. You can copy and paste the following into your code as-is to get your Steam Session Ticket:
 
@@ -99,7 +99,7 @@ You can then call this promise as an async/await task:
 var ticket = await GetSteamAuthTicket();
 ```
 
-## Using the Steam Auth Session Ticket with Beamable
+## Using the Steam auth session ticket with Beamable
 
 One next step you can take is to validate the Session Ticket with Beamable. Beamable will return whether that ticket is valid or not. You can use the function below as-is:
 
@@ -136,7 +136,7 @@ You can call this promise using async/await:
 var isSteamTicketValid = await BeamableValidateSteamTicket(ticket);
 ```
 
-## Login to Beamable with Third-Party (Steam)
+## Login to Beamable with third-party (Steam)
 
 Much like our other third-party authentication methods, you will use the three main functions in the Beamable SDK: `LoginThirdParty`, `RegisterThirdPartyCredentials`, `CreateUser`.
 
@@ -151,7 +151,7 @@ var token = Convert.ToBase64String(encodedRequest);
 
 In the following sections, you will see that we use the above code to convert the ticket to a Beamable token.
 
-## Handle Various Flow Scenarios
+## Handle various flow scenarios
 
 Now that we have the Steam Session Token, we need to account for 3 different scenarios:
 
@@ -280,6 +280,6 @@ async void Start()
     await SignInWithSteam(steamUserID, ticket);
 }
 ```
-## Purchasing & Payments
+## Purchasing and payments
 
 Beamable also has integrated Purchasing and Payments with Steam. You can issue a request to purchase an item and then pay for that item on the Steam platform. Once the purchase has completed the content is granted to the player from Beamable.

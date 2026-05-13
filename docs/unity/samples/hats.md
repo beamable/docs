@@ -1,4 +1,4 @@
-# Head Adornment Test Scenario - Multiplayer Sample
+# Head Adornment Test Scenario - multiplayer sample
 
 Welcome to "HATS" (Head Adornment Test Scenario). In this game, **Think ahead quickly, because there's absolutely no headroom here. The coolest head prevails.**
 
@@ -11,7 +11,7 @@ Welcome to "HATS" (Head Adornment Test Scenario). In this game, **Think ahead qu
 
 ![HATS Screenshots Collage](../../media/imgs/multiplayer-hats-screenshots-collage.png)
 
-## Multiplayer (HATS) - Guide
+## Multiplayer (HATS) - guide
 
 This downloadable sample game project showcases the Beamable [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) Feature.
 
@@ -23,7 +23,7 @@ Learning Resources:
 |--------|--------|
 | ![Beamable Logo](../../media/imgs/beamable-logo-small.jpg){width="35"} | 1. **Download** the [HATS Sample Game](https://github.com/beamable/Hats_Sample_Game)<br/>2. Open in Unity Editor (Version 2021.3 or later)<br/>3. Open the Beamable [Toolbox](../user-reference/editor-systems/unity-editor-login.md)<br/>4. Sign-In / Register To Beamable. See [Getting Started](../getting-started/installing-beamable.md) for more info<br/>5. Open the `Scene01Intro` Scene<br/>6. Play The Scene: Unity → Edit → Play<br/>7. Click "Play" for an easy start. Or do a standalone build of the game and run the build. Then run the Unity Editor. In both running games, choose "Play" to play against yourself.<br/>_You need to rebuild [Addressable Asset Groups](https://docs.unity3d.com/Packages/com.unity.addressables@1.4/manual/AddressableAssetsGettingStarted.html) before doing a standalone build. To build content in the Editor, open the Addressables Groups window, then select Build > New Build > Default Build Script._<br/>8. Enjoy!<br/><br/>*Note: Sample projects are compatible with the latest supported Unity versions |
 
-### Rules of the Game
+### Rules of the game
 
 - Up to four players enter the hexagonal grid and play one round in a series of turns
 - In each turn, choose between four actions:
@@ -39,7 +39,7 @@ Learning Resources:
 
 _Lava expands! Pay attention to grid cells that are starting to crumble._
 
-## Game Maker User Experience
+## Game Maker user experience
 
 The game maker user experience shows the development workflow. There are several major parts to this game creation process.
 
@@ -54,7 +54,7 @@ These steps are **already complete** in the sample project. The instructions her
     • [Matchmaking](../user-reference/beamable-services/social-networking/connectivity.md) - Connect remote players in a room
     • [Multiplayer](../user-reference/beamable-services/social-networking/connectivity.md) - Real-time multiplayer game functionality that enables multiple players to interact in shared game sessions
 
-### Step 1. Setup Project
+### Step 1. setup project
 
 Here are instructions to setup the Beamable SDK and "GameType" content.
 
@@ -67,11 +67,11 @@ Here are instructions to setup the Beamable SDK and "GameType" content.
 | 5. Save the Unity Project | • Unity → File → Save Project<br/>_Best Practice: If you are working on a team, commit to version control in this step_ |
 | 6. Publish the content | • Press the "Publish" button in the Content Manager Window |
 
-### Step 2. Plan the Multiplayer Game Design
+### Step 2. plan the multiplayer game design
 
 See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.
 
-### Step 3. Create the Game Code
+### Step 3. create the game code
 
 This step includes the bulk of time and effort in the project.
 
@@ -79,7 +79,7 @@ This step includes the bulk of time and effort in the project.
 |------|--------|
 | 1. Create C# game-specific logic | • Implement game logic<br/>• Handle player input<br/>• Render graphics & sounds<br/><br/>_Note: This represents the bulk of the development effort. The details depend on the specifics of the game project._ |
 
-### Step 4. Create the Multiplayer Code
+### Step 4. create the multiplayer code
 
 _In this section you will find some partial code snippets. Download the project to see the complete code._
 
@@ -234,7 +234,7 @@ public static async Task<List<CharacterContent>> GetAvailableCharacters()
 }
 ```
 
-## Additional Experiments
+## Additional experiments
 
 Here are some optional experiments game makers can complete in the sample project.
 
@@ -293,14 +293,14 @@ MatchmakingHandle = await _api.Experimental.MatchmakingService.StartMatchmaking(
 );
 ```
 
-## Game Security
+## Game security
 
 See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.
 
-## Playing "Against Yourself"
+## Playing "against yourself"
 
 See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.
 
-## Randomization and Determinism
+## Randomization and determinism
 
 See [Multiplayer](../user-reference/beamable-services/social-networking/multiplayer.md) for more info.

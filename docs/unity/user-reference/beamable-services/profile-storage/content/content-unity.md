@@ -1,8 +1,8 @@
-# Unity Editor Integration of Beamable Content Services
+# Unity Editor integration of Beamable content services
 
 The Unity SDK has many features to support the Beamable Content Service within the Unity Editor.
 
-## Content Manager Editor
+## Content Manager editor
 
 The new **Content Manager in Unity** now uses the **Beamable CLI Content Manager**, enabling content management even outside Unity.
 
@@ -18,7 +18,7 @@ Here is the user interface of the Beamable "Content Manager" tool window.
 
 ![The Beamable Content Manager](../../../../../media/imgs/content-manager-general.png){: style="height:auto;width:500px"}
 
-### Content Status Bar
+### Content status bar
 Provide quick information about the status of local content compared to remote content.
 
 ![The "Status Bar" indicates the status of local content](../../../../../media/imgs/content-status-bar.png){: style="height:auto;width:600px"}
@@ -34,7 +34,7 @@ The level of the status bar indicates the overall state of local content:
 | Up to Date | • Content local data matches remote data                      |
 | Conflicted | • Content local and remote data is modified and doesn't match |
 
-### Auto-Sync
+### Auto-sync
 
 The Content Manager now supports **Auto-Sync**, which automatically detects remote content changes and downloads them to your local environment. No manual syncing required.
 
@@ -133,7 +133,7 @@ The refresh process has been updated to serve as a system recovery mechanism. Cl
 - An automatic fail-safe when errors occur during content operations
 - A manual recovery option to restart the CLI content management session when needed
 
-## Conflict Handling
+## Conflict handling
 
 When a content conflict is detected in a file, it is marked as **Conflicted** in the Content Manager. This indicates that both local and remote versions have been modified, and the changes are incompatible:
 
@@ -176,7 +176,7 @@ This approach gives teams explicit control over version resolution while maintai
     - Carefully review which content items you publish,
     - Only commit contents that have properties or tags changes, don't need to keep track of all `referenceManifestId` updates
 
-## Content Filtering
+## Content filtering
 
 Content can be filtered by tag, type, or id. The Content Manager Window can filter the viewable content. Content can be filtered from the SDK as well.
 
@@ -211,7 +211,7 @@ Content filter strings can be entered into the Content Manager's search box, or 
 | `t:currency, tag:base` | returns all content elements that are of type "currency", and have the "base" tag          |
 | `gems, tag:a`          | returns all content elements that contain "gems" in their name, and have the "a" tag       |
 
-## Content Validation
+## Content validation
 
 The content system supports optional validation for each field of a `ContentObject` subclass. This allows game makers to easily build tooling to facilitate team members with their content administration tasks.
 
@@ -221,7 +221,7 @@ Beamable provides **built-in validation** and also allows for **custom validatio
 | :-------------------- | :---------------------- |
 | ![Valid](../../../../../media/imgs/valid.png) | ![Invalid](../../../../../media/imgs/invalid.png) |
 
-### Content Validation Types
+### Content validation types
 
 Here are the built-in validation types. Beamable also supports creating custom validation types.
 
@@ -244,7 +244,7 @@ All validation types must descend from [`ValidationAttribute`](https://csharp.cd
 | [`MustReferenceContent`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1Validation_1_1MustReferenceContent.html) | Ensures field value is of type `ContentObject`. |
 
 
-### Content Validation Examples
+### Content validation examples
 
 This `ContentValidationExample.cs` snippet demonstrates the usage of built-in validation and custom validation within a custom subclass of `ContentObject`.
 
@@ -390,14 +390,14 @@ namespace Beamable.Examples.Services.ContentService
 }
 ```
 
-### Optional Values
+### Optional values
 
 Beamable includes a suite of "optional" datatypes. Here the game maker must set the checkbox to true in the inspector before populating the field. The "optional" functionality and the "validation" functionality may be combined too.
 
 ![Optional](../../../../../media/imgs/optional.png)
 
 
-## Version Control Advisory
+## Version control advisory
 
 Each content JSON file contains a `referenceManifestId` representing its last sync state. This identifier is crucial for:
 
@@ -405,7 +405,7 @@ Each content JSON file contains a `referenceManifestId` representing its last sy
 - Identifying potential conflicts
 - Maintaining synchronization integrity
 
-### Why `.beamable/local/` Is Gitignored
+### Why `.beamable/local/` is gitignored
 
 The SDK adds the following entries to `.beamable/.gitignore`:
 
@@ -418,7 +418,7 @@ The `local/**/*` entry intentionally excludes `.beamable/local/` from Git. Becau
 
 You can track the raw local JSON files in Git by removing `local/**/*` from your `.gitignore`, but this is not recommended unless your team is comfortable with the resulting commit noise.
 
-### Version Control Best Practices
+### Version control best practices
 
 1. **Minimize Unnecessary Commits**
    - Avoid committing files when only the referenceManifestId has changed
@@ -431,7 +431,7 @@ You can track the raw local JSON files in Git by removing `local/**/*` from your
    This command keeps your local content modifications and updates the `referenceManifestId` to match the remote version for each conflicted content.
 
 
-## Storage Location of Content Types in Editor
+## Storage location of content types in editor
 
 While each content object inherits from Unity's [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html), these objects exist solely in memory for Unity Editor inspection and are not saved to disk.
 

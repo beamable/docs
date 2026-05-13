@@ -1,4 +1,4 @@
-# Identity Overview
+# Identity overview
 
 Beamable provides a robust identity solution that integrates with third-party providers, supporting multiple authentication methods to suit different game designs.
 
@@ -8,7 +8,7 @@ Authentication often has tricky edge cases that demand forethought and explicit 
 
 ![Identity Flow Diagram](../../../../media/imgs/identity_flow.png){: style="height:auto;width:600px"}
 
-## Login Functions
+## Login functions
 
 The aspects at the core of Identity in Beamable are the RecoverAccount functions, often called Login functions. These are used throughout all the various sign-in methods. `RecoverAccountWithEmail()` is used for email and password verification, and `RecoverAccountWithThirdParty()` is used for third-party authentication providers.
 
