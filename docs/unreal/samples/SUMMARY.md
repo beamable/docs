@@ -1,4 +1,4 @@
-﻿- [Setup Sample Projects](intro.md)
+- [Setup Sample Projects](intro.md)
 - Sample Projects
       - [Steam](steam-demo.md)
       - [LiveOps](live-ops-demo.md)

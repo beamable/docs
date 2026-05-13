@@ -1,4 +1,4 @@
-﻿# Announcements
+# Announcements
 
 The Beamable SDK Announcements service allows players to view and receive game-wide announcements configured by the game makers. A few of the main use cases are:
 

@@ -1,4 +1,4 @@
-﻿# Beamable Blueprint Systems
+# Beamable Blueprint Systems
 
 Beamable provides several types of Blueprint nodes to interact with its systems. These are organized into four main categories: `Low Level`, `Local State`, `Events Bind`, and `Operation`. Each category serves different purposes and complexity levels in your game development workflow. These are all "blueprint syntactic sugar" for the various usage patterns of their backing C++ functions.
 

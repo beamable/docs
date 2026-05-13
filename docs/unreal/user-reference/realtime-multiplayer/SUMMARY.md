@@ -1,2 +1,2 @@
-﻿- [Overview](realtime-multiplayer-overview.md)
+- [Overview](realtime-multiplayer-overview.md)
 - [C++ Multiplayer Systems](code-multiplayer.md)

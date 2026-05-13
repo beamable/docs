@@ -1,4 +1,4 @@
-﻿# Identity using Online Subsystem
+# Identity using Online Subsystem
 
 There are several different styles of signup/login flows games might want to use. This section explores how to set them up.
 

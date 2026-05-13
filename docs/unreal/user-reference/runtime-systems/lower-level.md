@@ -1,4 +1,4 @@
-﻿# Lower-Level SDK
+# Lower-Level SDK
 
 This section talks about lower-level details of how requests to Beamable get made. ***You don't need to read this***, but... you might want to if you plan on implementing your own `UBeamRuntimeSubsystem`.
 
