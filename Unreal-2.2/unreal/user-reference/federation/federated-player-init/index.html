@@ -1617,7 +1617,7 @@
   <a href="#setting-up-the-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setting up the Client
+        Setting up the client
       
     </span>
   </a>
@@ -10213,7 +10213,7 @@
   <a href="#setting-up-the-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setting up the Client
+        Setting up the client
       
     </span>
   </a>
@@ -10248,7 +10248,7 @@
 
 
 
-<h1 id="federated-player-init">Federated Player Init<a class="headerlink" href="#federated-player-init" title="Permanent link">¶</a></h1>
+<h1 id="federated-player-init">Federated player init<a class="headerlink" href="#federated-player-init" title="Permanent link">¶</a></h1>
 <p>Player Init Federation allows you to define logic that runs whenever a new player is created in a realm. This enables you to define your players' starting state BEFORE your login call completes.</p>
 <p>To set up this federation in a Microservice, you'll need to do the following in your Microservice:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// This federation ONLY works with the "default" Federation ID</span>
@@ -10277,7 +10277,7 @@
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">PlayerInitResult</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="w"> </span><span class="p">};</span>
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="setting-up-the-client">Setting up the Client<a class="headerlink" href="#setting-up-the-client" title="Permanent link">¶</a></h2>
+<h2 id="setting-up-the-client">Setting up the client<a class="headerlink" href="#setting-up-the-client" title="Permanent link">¶</a></h2>
 <p>From Unreal, this federation is triggered by any of the <code>Operation - Sign-Up</code> calls OR <code>Operation - Login - Frictionless</code> (see <a href="../../beamable-services/identity/">Identity</a>). The code in this federation will have already run by the time these operations are completed.</p>
 <p>The <code>Account account</code> argument also contains valid email (in case of <code>Sign Up - Email</code>) and External Identity (in case of <code>Sign Up - Federated Identity</code>). This can be used to prefill stat/inventory values for the user based on the identity they used to sign up among other things.</p>
 <p>The <code>Dictionary&lt;string, string&gt; properties</code> argument in the Federation's C# Code is filled by the client. Aside from a few reserved properties listed below, you can pass in any values via the <code>InitProperties</code> parameter of the relevant operations.</p>

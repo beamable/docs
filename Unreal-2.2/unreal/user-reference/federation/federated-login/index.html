@@ -1589,19 +1589,19 @@
   <a href="#federated-login-without-2fa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Federated Login - without 2FA
+        Federated login - without 2FA
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Federated Login - without 2FA">
+    <nav class="md-nav" aria-label="Federated login - without 2FA">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#setting-up-the-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setting up the Client
+        Setting up the client
       
     </span>
   </a>
@@ -1628,19 +1628,19 @@
   <a href="#federated-login-multi-factor-authentication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Federated Login - Multi-Factor Authentication
+        Federated login - multi-factor authentication
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Federated Login - Multi-Factor Authentication">
+    <nav class="md-nav" aria-label="Federated login - multi-factor authentication">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#setting-up-the-client_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setting up the Client
+        Setting up the client
       
     </span>
   </a>
@@ -10269,19 +10269,19 @@
   <a href="#federated-login-without-2fa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Federated Login - without 2FA
+        Federated login - without 2FA
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Federated Login - without 2FA">
+    <nav class="md-nav" aria-label="Federated login - without 2FA">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#setting-up-the-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setting up the Client
+        Setting up the client
       
     </span>
   </a>
@@ -10308,19 +10308,19 @@
   <a href="#federated-login-multi-factor-authentication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Federated Login - Multi-Factor Authentication
+        Federated login - multi-factor authentication
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Federated Login - Multi-Factor Authentication">
+    <nav class="md-nav" aria-label="Federated login - multi-factor authentication">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#setting-up-the-client_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setting up the Client
+        Setting up the client
       
     </span>
   </a>
@@ -10360,7 +10360,7 @@
 
 
 
-<h1 id="federated-login">Federated Login<a class="headerlink" href="#federated-login" title="Permanent link">¶</a></h1>
+<h1 id="federated-login">Federated login<a class="headerlink" href="#federated-login" title="Permanent link">¶</a></h1>
 <p>Login Federation is Beamable's approach to integrating third-party Authentication with various platforms. You can find working examples of this federation in both <a href="../../../samples/steam-demo/">Steam</a> and <a href="../../../samples/discord-demo/">Discord</a> Samples.</p>
 <p>This Federation is always <a href="../federation/#federation-calls">invoked in-band</a> and via the <code>Login_____</code>, <code>SignUp____</code>, and <code>Attach____</code> functions of the <code>UBeamRuntime</code> subsystem class.</p>
 <p>Its interface has a single function called <strong>Authenticate</strong> with the following signature:</p>
@@ -10386,8 +10386,8 @@
 </li>
 </ol>
 <p>After this, the flow goes into your <code>Authenticate</code> function. What that function should do, depends on whether or not you are implementing 2FA or not.</p>
-<h2 id="federated-login-without-2fa">Federated Login - without 2FA<a class="headerlink" href="#federated-login-without-2fa" title="Permanent link">¶</a></h2>
-<h3 id="setting-up-the-client">Setting up the Client<a class="headerlink" href="#setting-up-the-client" title="Permanent link">¶</a></h3>
+<h2 id="federated-login-without-2fa">Federated login - without 2FA<a class="headerlink" href="#federated-login-without-2fa" title="Permanent link">¶</a></h2>
+<h3 id="setting-up-the-client">Setting up the client<a class="headerlink" href="#setting-up-the-client" title="Permanent link">¶</a></h3>
 <p>In the client:</p>
 <ul>
 <li>Initialize the SDK</li>
@@ -10431,8 +10431,8 @@
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FederatedAuthenticationResponse</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my3rdPartyId</span><span class="p">,</span><span class="w"> </span><span class="p">};</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="federated-login-multi-factor-authentication">Federated Login - Multi-Factor Authentication<a class="headerlink" href="#federated-login-multi-factor-authentication" title="Permanent link">¶</a></h2>
-<h3 id="setting-up-the-client_1">Setting up the Client<a class="headerlink" href="#setting-up-the-client_1" title="Permanent link">¶</a></h3>
+<h2 id="federated-login-multi-factor-authentication">Federated login - multi-factor authentication<a class="headerlink" href="#federated-login-multi-factor-authentication" title="Permanent link">¶</a></h2>
+<h3 id="setting-up-the-client_1">Setting up the client<a class="headerlink" href="#setting-up-the-client_1" title="Permanent link">¶</a></h3>
 <p>In the client, start by invoking the <code>Login - Federated Identity</code> operation. This operation has a sub-event that gets invoked when the microservice responds with a <code>challenge</code> string to solve. The SDK provides a <code>UBeamMultiFactorLoginData</code> object you can store and carry around your game state so that your player can solve the challenge.</p>
 <p>Here's an example from the Sui-Wallet integration showcase.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/federated-login-2fa-start.png" data-desc-position="bottom"><img alt="federated-login-2fa-start.png" src="../../../../media/imgs/federated-login-2fa-start.png"></a></p>

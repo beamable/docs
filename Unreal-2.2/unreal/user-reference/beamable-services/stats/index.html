@@ -1143,7 +1143,7 @@
   <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Getting started
       
     </span>
   </a>
@@ -1165,7 +1165,7 @@
   <a href="#reading-other-players-public-stats" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reading Other Players' Public Stats
+        Reading other players' public stats
       
     </span>
   </a>
@@ -1173,10 +1173,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stats-keys-values" class="md-nav__link">
+  <a href="#stats-keys-and-values" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stats Keys &amp; Values
+        Stats keys and values
       
     </span>
   </a>
@@ -10235,7 +10235,7 @@
   <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Getting started
       
     </span>
   </a>
@@ -10257,7 +10257,7 @@
   <a href="#reading-other-players-public-stats" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reading Other Players' Public Stats
+        Reading other players' public stats
       
     </span>
   </a>
@@ -10265,10 +10265,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stats-keys-values" class="md-nav__link">
+  <a href="#stats-keys-and-values" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stats Keys &amp; Values
+        Stats keys and values
       
     </span>
   </a>
@@ -10309,7 +10309,7 @@
 <li><code>client</code>: Can be accessed from both <strong>Unreal</strong> and <strong>Microservices</strong></li>
 <li><code>game</code>: Cannot be accessed from <strong>Unreal</strong> directly, but it can still be accessed via <strong>Microservices</strong> using <code>ClientCallable</code> calls</li>
 </ul>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
+<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>To write to a <code>client</code>/<code>public</code> stat from a client, use the <code>Set Stat Operation</code> for individual stat changes. For batching multiple stat changes, use the <code>TryCreateUpdateCommand</code> to begin building a set of stat changes for the given <code>UserSlot</code>, which are later committed via the <code>Commit Stats Operation</code>.</p>
 <p>These operations are backed by the <code>UBeamRuntimeSubsystem</code>. This is how it looks in <a href="../../runtime-systems/blueprints/">Blueprints</a>:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/stats-create-stats.png" data-desc-position="bottom"><img alt="stats-create-stats.png" src="../../../../media/imgs/stats-create-stats.png"></a></p>
@@ -10332,10 +10332,10 @@
 <li>Commit</li>
 </ul>
 <p>When it is possible and desirable for your game, this flow reduces the overall latency experienced by your players as well as reducing the number of API calls you make to Beamable.</p>
-<h2 id="reading-other-players-public-stats">Reading Other Players' Public Stats<a class="headerlink" href="#reading-other-players-public-stats" title="Permanent link">¶</a></h2>
+<h2 id="reading-other-players-public-stats">Reading other players' public stats<a class="headerlink" href="#reading-other-players-public-stats" title="Permanent link">¶</a></h2>
 <p>You might want to read public stats of some other player to display information about them in your UI. To do that, you can use the following <code>Operation</code> and <code>Local State</code> calls.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/stats-reading-other-player-stats.png" data-desc-position="bottom"><img alt="stats-reading-other-player-stats.png" src="../../../../media/imgs/stats-reading-other-player-stats.png"></a></p>
-<h2 id="stats-keys-values">Stats Keys &amp; Values<a class="headerlink" href="#stats-keys-values" title="Permanent link">¶</a></h2>
+<h2 id="stats-keys-and-values">Stats keys and values<a class="headerlink" href="#stats-keys-and-values" title="Permanent link">¶</a></h2>
 <p>The SDK does not enforce limitations on stat keys or values. However, the following guidelines are <em>highly recommended</em> the following guidelines for project organization and performance reasons.</p>
 <p><strong>For Keys</strong>:
 - 8-20 characters are ideal (purely for human ergonomics)

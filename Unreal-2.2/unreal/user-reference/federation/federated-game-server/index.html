@@ -1673,7 +1673,7 @@
   <a href="#configuring-a-game-server-federation-to-be-called" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuring a Game Server Federation to be Called
+        Configuring a game server federation to be called
       
     </span>
   </a>
@@ -1684,7 +1684,7 @@
   <a href="#developing-with-your-local-microservice-and-pie" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Developing with your Local Microservice and PIE
+        Developing with your local Microservice and PIE
       
     </span>
   </a>
@@ -1695,7 +1695,7 @@
   <a href="#provision-game-server-for-custom-lobby-non-matchmaking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provision Game Server for Custom Lobby (non-Matchmaking)
+        Provision game server for custom lobby (non-matchmaking)
       
     </span>
   </a>
@@ -10224,7 +10224,7 @@
   <a href="#configuring-a-game-server-federation-to-be-called" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuring a Game Server Federation to be Called
+        Configuring a game server federation to be called
       
     </span>
   </a>
@@ -10235,7 +10235,7 @@
   <a href="#developing-with-your-local-microservice-and-pie" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Developing with your Local Microservice and PIE
+        Developing with your local Microservice and PIE
       
     </span>
   </a>
@@ -10246,7 +10246,7 @@
   <a href="#provision-game-server-for-custom-lobby-non-matchmaking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provision Game Server for Custom Lobby (non-Matchmaking)
+        Provision game server for custom lobby (non-matchmaking)
       
     </span>
   </a>
@@ -10270,7 +10270,7 @@
 
 
 
-<h1 id="federated-game-server">Federated Game Server<a class="headerlink" href="#federated-game-server" title="Permanent link">¶</a></h1>
+<h1 id="federated-game-server">Federated game server<a class="headerlink" href="#federated-game-server" title="Permanent link">¶</a></h1>
 <p>Game Server Federation allows you to integrate with third-party Game Server Orchestrators (such as Hathora or Agones) as well as running arbitrary server-authoritative code before a "found match" notifies its players.</p>
 <p>The interface you implement looks like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">ServerInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateGameServer</span><span class="p">(</span><span class="n">Lobby</span><span class="w"> </span><span class="n">lobby</span><span class="p">);</span>
@@ -10281,7 +10281,7 @@
 <li><strong>Provision Game Server for Lobby</strong>: This is an In-Band call where <a href="../../beamable-services/lobbies/">Lobby's Host Player</a> asks Beamable to provision a Game Server for their Lobby.</li>
 <li><strong>Beam <abbr title="Play in Editor">PIE</abbr>'s <abbr title="Play in Editor">PIE</abbr> Lobby</strong>: This is an In-Band call made by <a href="../../editor-systems/pie-settings/">Beam <abbr title="Play in Editor">PIE</abbr>'s <abbr title="Play in Editor">PIE</abbr> Lobby setup</a>. You can read more about this in the <a href="../../realtime-multiplayer/realtime-multiplayer-overview/">Real-Time Multiplayer Guides</a>.</li>
 </ul>
-<h2 id="configuring-a-game-server-federation-to-be-called">Configuring a Game Server Federation to be Called<a class="headerlink" href="#configuring-a-game-server-federation-to-be-called" title="Permanent link">¶</a></h2>
+<h2 id="configuring-a-game-server-federation-to-be-called">Configuring a game server federation to be called<a class="headerlink" href="#configuring-a-game-server-federation-to-be-called" title="Permanent link">¶</a></h2>
 <p>Beamable's Backend uses a Content called <code>UBeamGameTypeContent</code> (<code>game_types</code>). A GameType is essentially a set of rules for how Beamable's Matchmaking should produce matches of this game type (including the federation).</p>
 <ol>
 <li>Implement <code>IFederatedGameServer</code> federation in your microservice with a particular <a href="../federation/#federation-id">Federation Id</a>.</li>
@@ -10333,7 +10333,7 @@
 <a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="p">}</span>
 </code></pre></div>
 <p>Check out the <a href="../../../samples/beamball/beamball-demo/">Beamball Demo</a> for more information on how to use this <code>CreateGameServer</code> function.</p>
-<h2 id="developing-with-your-local-microservice-and-pie">Developing with your Local Microservice and <abbr title="Play in Editor">PIE</abbr><a class="headerlink" href="#developing-with-your-local-microservice-and-pie" title="Permanent link">¶</a></h2>
+<h2 id="developing-with-your-local-microservice-and-pie">Developing with your local Microservice and <abbr title="Play in Editor">PIE</abbr><a class="headerlink" href="#developing-with-your-local-microservice-and-pie" title="Permanent link">¶</a></h2>
 <p>For the In-Band calls (<strong>Provision Game Server for Lobby</strong> and <strong>BeamPIE's <abbr title="Play in Editor">PIE</abbr> Lobby</strong>), as long as your local microservice is running, your <abbr title="Play in Editor">PIE</abbr> clients will invoke it and that's that.</p>
 <p>When testing this from the actual matchmaking queue (as opposed to using BeamPIE to start the gameplay level directly), you'll need to set a content-based filter for which queues you want your locally running microservice to handle when it is running.</p>
 <p>You can do this via the <a href="../federation/#workflows-for-developing-federations">Federation tab of the Microservice</a> window or by using the following Beam CLI commands:
@@ -10343,7 +10343,7 @@
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Sets the content ids filter for the IFederatedGameServer</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>federation<span class="w"> </span>local-settings<span class="w"> </span><span class="nb">set</span><span class="w"> </span>IFederatedGameServer<span class="w"> </span>--beamo-id<span class="w"> </span>HathoraDemo<span class="w"> </span>--fed-id<span class="w"> </span>hathora<span class="w"> </span>--content-ids<span class="w"> </span>game_types.my_queue
 </code></pre></div><p></p>
-<h2 id="provision-game-server-for-custom-lobby-non-matchmaking">Provision Game Server for Custom Lobby (non-Matchmaking)<a class="headerlink" href="#provision-game-server-for-custom-lobby-non-matchmaking" title="Permanent link">¶</a></h2>
+<h2 id="provision-game-server-for-custom-lobby-non-matchmaking">Provision game server for custom lobby (non-matchmaking)<a class="headerlink" href="#provision-game-server-for-custom-lobby-non-matchmaking" title="Permanent link">¶</a></h2>
 <p>Certain games allow players to <a href="../../beamable-services/lobbies/">create custom lobbies</a> manually. If those games also require invoking the federation endpoint to provision a server or run some arbitrary code, they can do so via the following steps:</p>
 <ol>
 <li>Create a <a href="../../beamable-services/lobbies/">Lobby</a> with the <code>UBeamGameTypeContent</code>'s id.<ol>
