@@ -8715,19 +8715,19 @@
   <a href="#step-by-step-conversion-process" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step-by-Step Conversion Process
+        Step-by-step conversion process
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Step-by-Step Conversion Process">
+    <nav class="md-nav" aria-label="Step-by-step conversion process">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1-remove-readmeio-header-metadata-and-add-proper-markdown-headers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Remove ReadMe.io Header Metadata and Add Proper Markdown Headers
+        1. Remove ReadMe.io header metadata and add proper Markdown headers
       
     </span>
   </a>
@@ -8738,7 +8738,7 @@
   <a href="#2-convert-block-quotes-to-mkdocs-callouts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Convert Block Quotes to MkDocs Callouts
+        2. Convert block quotes to MkDocs callouts
       
     </span>
   </a>
@@ -8749,7 +8749,7 @@
   <a href="#3-remove-readmeio-html-blocks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Remove ReadMe.io HTML Blocks
+        3. Remove ReadMe.io HTML blocks
       
     </span>
   </a>
@@ -8760,7 +8760,7 @@
   <a href="#4-convert-parameter-tables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Convert Parameter Tables
+        4. Convert parameter tables
       
     </span>
   </a>
@@ -8771,7 +8771,7 @@
   <a href="#5-convert-blockimage-blocks-to-standard-markdown-images" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Convert [block:image] Blocks to Standard Markdown Images
+        5. Convert [block:image] blocks to standard Markdown images
       
     </span>
   </a>
@@ -8782,7 +8782,7 @@
   <a href="#6-replace-placeholder-syntax" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Replace Placeholder Syntax
+        6. Replace placeholder syntax
       
     </span>
   </a>
@@ -8793,7 +8793,7 @@
   <a href="#7-convert-links-and-remove-special-attributes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Convert Links and Remove Special Attributes
+        7. Convert links and remove special attributes
       
     </span>
   </a>
@@ -8804,7 +8804,7 @@
   <a href="#8-convert-code-block-file-naming-syntax" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Convert Code Block File Naming Syntax
+        8. Convert code block file naming syntax
       
     </span>
   </a>
@@ -8848,8 +8848,8 @@
 <li><strong>Converting code block file naming syntax</strong></li>
 <li>Cleaning up HTML elements and special syntax</li>
 </ol>
-<h2 id="step-by-step-conversion-process">Step-by-Step Conversion Process<a class="headerlink" href="#step-by-step-conversion-process" title="Permanent link">¶</a></h2>
-<h3 id="1-remove-readmeio-header-metadata-and-add-proper-markdown-headers">1. Remove ReadMe.io Header Metadata and Add Proper Markdown Headers<a class="headerlink" href="#1-remove-readmeio-header-metadata-and-add-proper-markdown-headers" title="Permanent link">¶</a></h3>
+<h2 id="step-by-step-conversion-process">Step-by-step conversion process<a class="headerlink" href="#step-by-step-conversion-process" title="Permanent link">¶</a></h2>
+<h3 id="1-remove-readmeio-header-metadata-and-add-proper-markdown-headers">1. Remove ReadMe.io header metadata and add proper Markdown headers<a class="headerlink" href="#1-remove-readmeio-header-metadata-and-add-proper-markdown-headers" title="Permanent link">¶</a></h3>
 <p><strong>Identify</strong>: Look for YAML front matter at the top of ReadMe.io files</p>
 <p><strong>ReadMe.io Header Format</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>---
@@ -8926,7 +8926,7 @@ Some ReadMe.io exports contain multiple documents concatenated together. Handle 
 - <strong>H3 (<code>###</code>)</strong>: Subsections
 - <strong>H4 (<code>####</code>)</strong>: Sub-subsections
 - Never skip header levels (e.g., don't go from H2 directly to H4)</p>
-<h3 id="2-convert-block-quotes-to-mkdocs-callouts">2. Convert Block Quotes to MkDocs Callouts<a class="headerlink" href="#2-convert-block-quotes-to-mkdocs-callouts" title="Permanent link">¶</a></h3>
+<h3 id="2-convert-block-quotes-to-mkdocs-callouts">2. Convert block quotes to MkDocs callouts<a class="headerlink" href="#2-convert-block-quotes-to-mkdocs-callouts" title="Permanent link">¶</a></h3>
 <p><strong>Identify</strong>: Look for sections starting with <code>&gt;</code> (block quotes)</p>
 <p><strong>Convert based on emoji/content type</strong>:</p>
 <ul>
@@ -8947,7 +8947,7 @@ Some ReadMe.io exports contain multiple documents concatenated together. Handle 
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    • Beamable supports Unity versions 2021.3 to 2023.3
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    • Beamable supports Windows, Mac, iOS, Android platforms
 </code></pre></div><p></p>
-<h3 id="3-remove-readmeio-html-blocks">3. Remove ReadMe.io HTML Blocks<a class="headerlink" href="#3-remove-readmeio-html-blocks" title="Permanent link">¶</a></h3>
+<h3 id="3-remove-readmeio-html-blocks">3. Remove ReadMe.io HTML blocks<a class="headerlink" href="#3-remove-readmeio-html-blocks" title="Permanent link">¶</a></h3>
 <p><strong>Identify</strong>: Look for <code>[block:html]</code> sections</p>
 <p><strong>Action</strong>: Remove entire blocks as they contain ReadMe.io-specific CSS that won't work in MkDocs</p>
 <p><strong>Example</strong>:
@@ -8958,7 +8958,7 @@ Some ReadMe.io exports contain multiple documents concatenated together. Handle 
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>[/block]
 </code></pre></div>
 → <strong>DELETE ENTIRELY</strong><p></p>
-<h3 id="4-convert-parameter-tables">4. Convert Parameter Tables<a class="headerlink" href="#4-convert-parameter-tables" title="Permanent link">¶</a></h3>
+<h3 id="4-convert-parameter-tables">4. Convert parameter tables<a class="headerlink" href="#4-convert-parameter-tables" title="Permanent link">¶</a></h3>
 <p><strong>Identify</strong>: Look for <code>[block:parameters]</code> sections</p>
 <p><strong>Convert</strong>: Transform JSON-structured tables to standard markdown tables</p>
 <p><strong>Example Conversion</strong>:</p>
@@ -8984,7 +8984,7 @@ Some ReadMe.io exports contain multiple documents concatenated together. Handle 
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>| Customer Alias | Enter studio name |
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>| Game Name | Enter game project name |
 </code></pre></div><p></p>
-<h3 id="5-convert-blockimage-blocks-to-standard-markdown-images">5. Convert [block:image] Blocks to Standard Markdown Images<a class="headerlink" href="#5-convert-blockimage-blocks-to-standard-markdown-images" title="Permanent link">¶</a></h3>
+<h3 id="5-convert-blockimage-blocks-to-standard-markdown-images">5. Convert [block:image] blocks to standard Markdown images<a class="headerlink" href="#5-convert-blockimage-blocks-to-standard-markdown-images" title="Permanent link">¶</a></h3>
 <p><strong>Identify</strong>: Look for <code>[block:image]</code> sections containing JSON-structured image data</p>
 <p><strong>Process</strong>:
 1. <strong>Extract the image URL</strong> from the JSON structure (first element in the "image" array)
@@ -9071,7 +9071,7 @@ Always optimze this size to fit well within the content layout.</p>
 <a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1"># Verify download</span>
 <a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>ls<span class="w"> </span>-la<span class="w"> </span>docs/media/imgs/unity-editor-realm-selector.png
 </code></pre></div><p></p>
-<h3 id="6-replace-placeholder-syntax">6. Replace Placeholder Syntax<a class="headerlink" href="#6-replace-placeholder-syntax" title="Permanent link">¶</a></h3>
+<h3 id="6-replace-placeholder-syntax">6. Replace placeholder syntax<a class="headerlink" href="#6-replace-placeholder-syntax" title="Permanent link">¶</a></h3>
 <p><strong>Identify</strong>: Look for <code>&lt;&lt;TEXT_*&gt;&gt;</code> and <code>&lt;&lt;glossary:*&gt;&gt;</code> placeholders</p>
 <p><strong>Convert</strong>: Replace with appropriate content or plain text</p>
 <p><strong>Common Replacements</strong>:
@@ -9081,7 +9081,7 @@ Always optimze this size to fit well within the content layout.</p>
 - <code>&lt;&lt;glossary:Login&gt;&gt;</code> → "Login"
 - <code>&lt;&lt;glossary:PlayerId&gt;&gt;</code> → "PlayerId"
 - <code>&lt;&lt;TXT_GOTCHAS&gt;&gt;</code> → "Here are some common issues and solutions:"</p>
-<h3 id="7-convert-links-and-remove-special-attributes">7. Convert Links and Remove Special Attributes<a class="headerlink" href="#7-convert-links-and-remove-special-attributes" title="Permanent link">¶</a></h3>
+<h3 id="7-convert-links-and-remove-special-attributes">7. Convert links and remove special attributes<a class="headerlink" href="#7-convert-links-and-remove-special-attributes" title="Permanent link">¶</a></h3>
 <p><strong>Identify</strong>: HTML anchor tags with special classes</p>
 <p><strong>Example Conversion</strong>:</p>
 <p><strong>Before</strong>:
@@ -9090,7 +9090,7 @@ Always optimze this size to fit well within the content layout.</p>
 <p><strong>After</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>[<span class="nt">choosing a plan</span>](<span class="na">https://www.beamable.com/pricing</span>)
 </code></pre></div><p></p>
-<h3 id="8-convert-code-block-file-naming-syntax">8. Convert Code Block File Naming Syntax<a class="headerlink" href="#8-convert-code-block-file-naming-syntax" title="Permanent link">¶</a></h3>
+<h3 id="8-convert-code-block-file-naming-syntax">8. Convert code block file naming syntax<a class="headerlink" href="#8-convert-code-block-file-naming-syntax" title="Permanent link">¶</a></h3>
 <p><strong>Identify</strong>: Look for code blocks with filenames included after the language identifier</p>
 <p><strong>Issue</strong>: MkDocs does not support including filenames directly after the language identifier in code blocks. The filename must be placed before the code block as a separate line or heading.</p>
 <p><strong>Example Conversion</strong>:</p>
@@ -9126,14 +9126,14 @@ Always optimze this size to fit well within the content layout.</p>
 <a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>- There should be no space between the filename line and the opening ```
 <a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>- This ensures proper syntax highlighting and rendering in MkDocs
 <a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>
-<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>### 9. Clean Up HTML Elements
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>### 9. Clean up HTML elements
 <a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>
 <a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>**Remove or Convert**:
 <a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>- `&lt;br /&gt;` tags (use line breaks instead)
 <a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>- Custom HTML styling
 <a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>- ReadMe.io-specific attributes
 <a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>
-<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>### 10. Fix Table Formatting
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>### 10. Fix table formatting
 <a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>
 <a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>**Ensure proper markdown table syntax**:
 <a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>- Headers separated by `|`
@@ -9141,7 +9141,7 @@ Always optimze this size to fit well within the content layout.</p>
 <a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a>- Consistent column alignment
 <a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a>- Handle multi-line content with `&lt;br&gt;` tags where needed
 <a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a>
-<a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a>## Quality Checklist
+<a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a>## Quality checklist
 <a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a>
 <a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a>After conversion, verify:
 <a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a>
@@ -9157,14 +9157,14 @@ Always optimze this size to fit well within the content layout.</p>
 <a id="__codelineno-22-39" name="__codelineno-22-39" href="#__codelineno-22-39"></a>- [ ] Tables have proper markdown syntax
 <a id="__codelineno-22-40" name="__codelineno-22-40" href="#__codelineno-22-40"></a>- [ ] No ReadMe.io-specific syntax remains
 <a id="__codelineno-22-41" name="__codelineno-22-41" href="#__codelineno-22-41"></a>
-<a id="__codelineno-22-42" name="__codelineno-22-42" href="#__codelineno-22-42"></a>## File Structure Considerations
+<a id="__codelineno-22-42" name="__codelineno-22-42" href="#__codelineno-22-42"></a>## File structure considerations
 <a id="__codelineno-22-43" name="__codelineno-22-43" href="#__codelineno-22-43"></a>
-<a id="__codelineno-22-44" name="__codelineno-22-44" href="#__codelineno-22-44"></a>### Image Organization
+<a id="__codelineno-22-44" name="__codelineno-22-44" href="#__codelineno-22-44"></a>### Image organization
 <a id="__codelineno-22-45" name="__codelineno-22-45" href="#__codelineno-22-45"></a>- Store all images in `docs/media/imgs/` folder
 <a id="__codelineno-22-46" name="__codelineno-22-46" href="#__codelineno-22-46"></a>- Use descriptive filenames (e.g., `step-1-import-package.png`)
 <a id="__codelineno-22-47" name="__codelineno-22-47" href="#__codelineno-22-47"></a>- **CRITICAL: Calculate correct relative paths based on file location depth**
 <a id="__codelineno-22-48" name="__codelineno-22-48" href="#__codelineno-22-48"></a>
-<a id="__codelineno-22-49" name="__codelineno-22-49" href="#__codelineno-22-49"></a>### Calculating Correct Relative Paths to Images
+<a id="__codelineno-22-49" name="__codelineno-22-49" href="#__codelineno-22-49"></a>### Calculating correct relative paths to images
 <a id="__codelineno-22-50" name="__codelineno-22-50" href="#__codelineno-22-50"></a>
 <a id="__codelineno-22-51" name="__codelineno-22-51" href="#__codelineno-22-51"></a>**Important**: The relative path to `media/imgs/` depends on how deep your markdown file is nested within the `docs/` folder structure.
 <a id="__codelineno-22-52" name="__codelineno-22-52" href="#__codelineno-22-52"></a>
