@@ -8,7 +8,6 @@ Here are a few example use cases that Federations as a concept means to solve:
 - Customizing Initial Player Account States
 - Integrating Beamable Inventory with Steam Inventory or Web3 Wallets
 - Integrating with Game Server Orchestrators such as Edgegap, Agones or even a custom stack
-- Etc...
 
 Most implementations of Server-Side Callbacks are fire-and-forget (similar to a webhook). **Federations**, however, don't need to be fire-and-forget. Most **Federations** are calls made to your microservice that happen as part of a particular flow, often with things happening ***before*** and/or ***after the federated call finishes***.
 

@@ -156,7 +156,6 @@ It can sometimes be useful to hand-write a type that would be otherwise generate
 - Changing the generated type from a `UCLASS` to a `USTRUCT`.
 - Adding utility functions to the generated type
 - Writing custom serialization/deserialization logic (you'd have to modify the C# serialization too)
-- Etc...
 
 To do that, use the CLI to register replacement types so that code generation skips a particular schema and uses a type you define instead.
 
