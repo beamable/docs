@@ -1,4 +1,4 @@
-# Microservice Debugging
+# Microservice debugging
 
 Debug Standalone Microservices locally
 
@@ -25,7 +25,7 @@ Beamable Standalone Microservices run as vanilla .NET processes on your machine.
 
 ![A breakpoint in a microservice](https://files.readme.io/88da124-image.png)
 
-## Hot Reload
+## Hot reload
 
 If you run your service with hot reload enabled, then your code will be recompiled automatically as you make changes to your code, and your running service won't need to restart.
 

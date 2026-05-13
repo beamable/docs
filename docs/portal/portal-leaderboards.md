@@ -2,7 +2,7 @@
 
 The Leaderboards feature can be managed from the Portal.
 
-## Getting Started
+## Getting started
 
 Follow these steps to manage leaderboards:
 
@@ -12,7 +12,7 @@ Follow these steps to manage leaderboards:
 | 2. Expand "Engage" section on the sidebar | • Click "Leaderboards"                   |
 | 3. Configure the settings                 | • Enjoy!                                 |
 
-## Game Maker User Experience
+## Game Maker user experience
 
 The leaderboards management interface allows you to view and configure leaderboard settings:
 

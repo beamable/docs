@@ -119,7 +119,7 @@ So far, your folder structure should at least have these files.
          Dockerfile
    ```
 
-### Preparing the Unity Project
+### Preparing the Unity project
 
 Now that the Microservice is ready, in order to import it into a Unity
 project as a UPM package, follow these steps.
