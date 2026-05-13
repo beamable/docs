@@ -4387,19 +4387,19 @@
   <a href="#microservice-routing_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Microservice Routing
+        Microservice routing
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Microservice Routing">
+    <nav class="md-nav" aria-label="Microservice routing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#path-routing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Path Routing
+        Path routing
       
     </span>
   </a>
@@ -4410,7 +4410,7 @@
   <a href="#x-beam-service-routing-key-header" class="md-nav__link">
     <span class="md-ellipsis">
       
-        X-BEAM-SERVICE-ROUTING-KEY Header
+        X-BEAM-SERVICE-ROUTING-KEY header
       
     </span>
   </a>
@@ -4421,7 +4421,7 @@
   <a href="#x-de-scope-header" class="md-nav__link">
     <span class="md-ellipsis">
       
-        X-DE-SCOPE Header
+        X-DE-SCOPE header
       
     </span>
   </a>
@@ -4448,12 +4448,12 @@
   <a href="#calling-microservice-code-from-unity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Calling Microservice Code From Unity
+        Calling Microservice code from Unity
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Calling Microservice Code From Unity">
+    <nav class="md-nav" aria-label="Calling Microservice code from Unity">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -9434,19 +9434,19 @@
   <a href="#microservice-routing_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Microservice Routing
+        Microservice routing
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Microservice Routing">
+    <nav class="md-nav" aria-label="Microservice routing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#path-routing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Path Routing
+        Path routing
       
     </span>
   </a>
@@ -9457,7 +9457,7 @@
   <a href="#x-beam-service-routing-key-header" class="md-nav__link">
     <span class="md-ellipsis">
       
-        X-BEAM-SERVICE-ROUTING-KEY Header
+        X-BEAM-SERVICE-ROUTING-KEY header
       
     </span>
   </a>
@@ -9468,7 +9468,7 @@
   <a href="#x-de-scope-header" class="md-nav__link">
     <span class="md-ellipsis">
       
-        X-DE-SCOPE Header
+        X-DE-SCOPE header
       
     </span>
   </a>
@@ -9495,12 +9495,12 @@
   <a href="#calling-microservice-code-from-unity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Calling Microservice Code From Unity
+        Calling Microservice code from Unity
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Calling Microservice Code From Unity">
+    <nav class="md-nav" aria-label="Calling Microservice code from Unity">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -9536,7 +9536,7 @@
 
 
 
-<h1 id="microservice-routing">Microservice Routing<a class="headerlink" href="#microservice-routing" title="Permanent link">¶</a></h1>
+<h1 id="microservice-routing">Microservice routing<a class="headerlink" href="#microservice-routing" title="Permanent link">¶</a></h1>
 <p>Configure Standalone Microservice routing and client generation</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can configure Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
@@ -9549,7 +9549,7 @@ dotnet beam version # dotnet beam --version also works.
 cd MyProject
 dotnet beam project new service HelloWorld
 </code></pre>
-<h2 id="microservice-routing_1">Microservice Routing<a class="headerlink" href="#microservice-routing_1" title="Permanent link">¶</a></h2>
+<h2 id="microservice-routing_1">Microservice routing<a class="headerlink" href="#microservice-routing_1" title="Permanent link">¶</a></h2>
 <p>Beamable Microservices use a privileged web socket to communicate with Beamable's existing APIs and services. There is a custom Beamable application level protocol, <em>Thorium</em>, that allows a Microservice to receive HTTPS traffic sent to <code>https://api.beamable.com</code>. However, for the Microservice to receive the traffic, the HTTP request needs to meet the following requirements,</p>
 <ol>
 <li>The <code>uri</code> of the HTTP request must have a <code>path</code> that maps to the desired Microservice.</li>
@@ -9557,7 +9557,7 @@ dotnet beam project new service HelloWorld
 <li><em>Optionally</em>, the HTTP request should have a <code>X-BEAM-SERVICE-ROUTING-KEY</code> header that carries a map of service routing keys, and</li>
 <li><em>Optionally</em>, the HTTP request should have an <code>Authorization</code> header that carries a Bearer Token.</li>
 </ol>
-<h3 id="path-routing">Path Routing<a class="headerlink" href="#path-routing" title="Permanent link">¶</a></h3>
+<h3 id="path-routing">Path routing<a class="headerlink" href="#path-routing" title="Permanent link">¶</a></h3>
 <p>The <code>uri</code> of the HTTP request destined for a Microservice must follow a strict format. The format is given by the code snippet below.</p>
 <pre><code class="language-javascript">var uri = 'https://' + host + '/basic/' + cid + '.' + pid + '.' + localPrefix + 'micro_' + serviceName + '/' + method;
 </code></pre>
@@ -9611,14 +9611,14 @@ dotnet beam project new service HelloWorld
 </tbody>
 </table>
 <p>When the <code>host</code> (<code>api.beamable.com</code>) receives an HTTP request with the following <code>uri</code> format, the request will be deconstructed into the variable components, and the contents of the HTTP request will be forwarded to your Microservice via the <em>Thorium</em> web socket protocol. The Microservice receives the request, and uses the <code>method</code> component of the original request to invoke the right <code>[Callable]</code> method.</p>
-<h3 id="x-beam-service-routing-key-header">X-BEAM-SERVICE-ROUTING-KEY Header<a class="headerlink" href="#x-beam-service-routing-key-header" title="Permanent link">¶</a></h3>
+<h3 id="x-beam-service-routing-key-header">X-BEAM-SERVICE-ROUTING-KEY header<a class="headerlink" href="#x-beam-service-routing-key-header" title="Permanent link">¶</a></h3>
 <p>When a Microservice is started locally, it may share the same name with a Microservice running in the Beamable cloud. When this happens, and your local development machine is generating traffic for the named service, the <em>routing key</em> defines <em>which</em> Microservice instance (the local or remote) receives the traffic.</p>
 <p>A Microservice instance may optionally register a routing key, and if they do, then they will only receive traffic that includes the routing key in a custom <code>X-BEAM-SERVICE-ROUTING-KEY</code> header.</p>
 <p>All microservice instances running on the Beamable cloud <em>do not</em> register any routing keys, so they receive traffic that does not include any <code>X-BEAM-SERVICE-ROUTING-KEY</code> value.</p>
 <p>The format of the <code>X-BEAM-SERVICE-ROUTING-KEY</code> value should be a series of <code>&lt;service&gt;:&lt;routingKey&gt;</code> pairs, separated by commas. Here is an example of a routing key header value that routes two services,</p>
 <pre><code>serviceA:routingKeyA,serviceB:routingKeyB
 </code></pre>
-<h3 id="x-de-scope-header">X-DE-SCOPE Header<a class="headerlink" href="#x-de-scope-header" title="Permanent link">¶</a></h3>
+<h3 id="x-de-scope-header">X-DE-SCOPE header<a class="headerlink" href="#x-de-scope-header" title="Permanent link">¶</a></h3>
 <p>In addition to specifying the <code>cid</code> and <code>pid</code> in the <code>uri</code> of the HTTP request, those values must also be sent in a special HTTP header, <code>X-DE-SCOPE</code>. The value for this header should take the format,</p>
 <pre><code class="language-javascript">var scope = cid + '.' + pid;
 </code></pre>
@@ -9654,7 +9654,7 @@ dotnet beam project new service HelloWorld
 </tr>
 </tbody>
 </table>
-<h2 id="calling-microservice-code-from-unity">Calling Microservice Code From Unity<a class="headerlink" href="#calling-microservice-code-from-unity" title="Permanent link">¶</a></h2>
+<h2 id="calling-microservice-code-from-unity">Calling Microservice code from Unity<a class="headerlink" href="#calling-microservice-code-from-unity" title="Permanent link">¶</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Use the Unity SDK</p>
 <p>You should be using the Beamable SDK in your Unity projects that use Standalone Microservices. Otherwise, there will be many compile errors as the Beamable SDK is not available.</p>

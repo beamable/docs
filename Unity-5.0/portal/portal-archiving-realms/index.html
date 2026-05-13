@@ -3652,7 +3652,7 @@
   <a href="#archive-a-realm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Archive a Realm
+        Archive a realm
       
     </span>
   </a>
@@ -3663,7 +3663,7 @@
   <a href="#stop-running-microservices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stop Running Microservices
+        Stop running Microservices
       
     </span>
   </a>
@@ -3674,7 +3674,7 @@
   <a href="#archive-a-games-realm-hierarchy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Archive a Game's Realm Hierarchy
+        Archive a game's realm hierarchy
       
     </span>
   </a>
@@ -9356,7 +9356,7 @@
   <a href="#archive-a-realm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Archive a Realm
+        Archive a realm
       
     </span>
   </a>
@@ -9367,7 +9367,7 @@
   <a href="#stop-running-microservices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stop Running Microservices
+        Stop running Microservices
       
     </span>
   </a>
@@ -9378,7 +9378,7 @@
   <a href="#archive-a-games-realm-hierarchy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Archive a Game's Realm Hierarchy
+        Archive a game's realm hierarchy
       
     </span>
   </a>
@@ -9402,13 +9402,13 @@
 
 
 
-<h1 id="archiving-realms">Archiving Realms<a class="headerlink" href="#archiving-realms" title="Permanent link">¶</a></h1>
+<h1 id="archiving-realms">Archiving realms<a class="headerlink" href="#archiving-realms" title="Permanent link">¶</a></h1>
 <p>Archiving a realm removes it from the active realm hierarchy for a game in the Beamable Portal. Use this workflow when you need to retire a game environment that your team no longer uses</p>
 <p>Only admins can archive realms. Developers and testers can log into Portal, but they cannot complete this action</p>
 <p>*<em>!!! warning "Archive child realms first"</em></p>
 <pre><code>Archive realms from the visual top of the hierarchy display down toward the production realm. This usually means starting with the `-dev` realm, unless your game has additional child realms above it in the hierarchy
 </code></pre>
-<h2 id="archive-a-realm">Archive a Realm<a class="headerlink" href="#archive-a-realm" title="Permanent link">¶</a></h2>
+<h2 id="archive-a-realm">Archive a realm<a class="headerlink" href="#archive-a-realm" title="Permanent link">¶</a></h2>
 <ol>
 <li>
 <p>Log into <a href="https://portal.beamable.com/">Portal</a></p>
@@ -9437,7 +9437,7 @@
 </li>
 <li>Click <em>Archive</em></li>
 </ol>
-<h2 id="stop-running-microservices">Stop Running Microservices<a class="headerlink" href="#stop-running-microservices" title="Permanent link">¶</a></h2>
+<h2 id="stop-running-microservices">Stop running Microservices<a class="headerlink" href="#stop-running-microservices" title="Permanent link">¶</a></h2>
 <p>You cannot archive a realm while it has running Microservices. If <em>Archive Realm</em> is disabled and Portal shows a message that the realm has Microservices running, stop those services before you archive the realm</p>
 <ol>
 <li>
@@ -9464,7 +9464,7 @@
 <p>*<em>!!! tip "Stop services one at a time"</em></p>
 <pre><code>Wait until each Microservice is marked as stopped before stopping the next one. This keeps the Portal state clear and makes the archive flow smoother
 </code></pre>
-<h2 id="archive-a-games-realm-hierarchy">Archive a Game's Realm Hierarchy<a class="headerlink" href="#archive-a-games-realm-hierarchy" title="Permanent link">¶</a></h2>
+<h2 id="archive-a-games-realm-hierarchy">Archive a game's realm hierarchy<a class="headerlink" href="#archive-a-games-realm-hierarchy" title="Permanent link">¶</a></h2>
 <p>To archive a full game hierarchy, repeat the archive workflow for each realm. Start at the visual top of the hierarchy display and move downward until you reach the production realm</p>
 <p>Although Beamable teams often describe development realms as "lower" environments, the Portal hierarchy displays them visually above production. In practice, archive from the least important child realm toward the most important parent realm. The usual order is:</p>
 <ol>

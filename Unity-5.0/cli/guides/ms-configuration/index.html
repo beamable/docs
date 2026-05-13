@@ -4359,19 +4359,19 @@
   <a href="#project-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project Configuration
+        Project configuration
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Project Configuration">
+    <nav class="md-nav" aria-label="Project configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#code-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Code Dependencies
+        Code dependencies
       
     </span>
   </a>
@@ -4382,12 +4382,12 @@
   <a href="#beamable-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Beamable Properties
+        Beamable properties
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Beamable Properties">
+    <nav class="md-nav" aria-label="Beamable properties">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4542,7 +4542,7 @@
   <a href="#telemetry-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Telemetry Properties
+        Telemetry properties
       
     </span>
   </a>
@@ -4553,7 +4553,7 @@
   <a href="#net-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        .NET Properties
+        .NET properties
       
     </span>
   </a>
@@ -9555,19 +9555,19 @@
   <a href="#project-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project Configuration
+        Project configuration
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Project Configuration">
+    <nav class="md-nav" aria-label="Project configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#code-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Code Dependencies
+        Code dependencies
       
     </span>
   </a>
@@ -9578,12 +9578,12 @@
   <a href="#beamable-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Beamable Properties
+        Beamable properties
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Beamable Properties">
+    <nav class="md-nav" aria-label="Beamable properties">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -9738,7 +9738,7 @@
   <a href="#telemetry-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Telemetry Properties
+        Telemetry properties
       
     </span>
   </a>
@@ -9749,7 +9749,7 @@
   <a href="#net-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        .NET Properties
+        .NET properties
       
     </span>
   </a>
@@ -9778,7 +9778,7 @@
 
 
 
-<h1 id="microservice-configuration">Microservice Configuration<a class="headerlink" href="#microservice-configuration" title="Permanent link">¶</a></h1>
+<h1 id="microservice-configuration">Microservice configuration<a class="headerlink" href="#microservice-configuration" title="Permanent link">¶</a></h1>
 <p>Configure Standalone Microservices</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can configure Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
@@ -9791,8 +9791,8 @@ dotnet beam version # dotnet beam --version also works.
 cd MyProject
 dotnet beam project new service HelloWorld
 </code></pre>
-<h2 id="project-configuration">Project Configuration<a class="headerlink" href="#project-configuration" title="Permanent link">¶</a></h2>
-<p>Each Standalone Microservice is a dotnet project, and can be configured through the dotnet <code>.csproj</code>. In most IDEs, the <code>.csproj</code> file will be hidden automatically, but you can open it by right-clicking on the project in the IDE and opening the <code>.csproj</code> file. As of Beam CLI 3.0.0, the starting <code>.csproj</code> has the following structure.</p>
+<h2 id="project-configuration">Project configuration<a class="headerlink" href="#project-configuration" title="Permanent link">¶</a></h2>
+<p>Each Standalone Microservice is a .NET project, and can be configured through the dotnet <code>.csproj</code>. In most IDEs, the <code>.csproj</code> file will be hidden automatically, but you can open it by right-clicking on the project in the IDE and opening the <code>.csproj</code> file. As of Beam CLI 3.0.0, the starting <code>.csproj</code> has the following structure.</p>
 <pre><code class="language-xml">&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
     &lt;PropertyGroup Label="Beamable Settings"&gt;
         &lt;!-- All Microservices must have the value, "service" --&gt;
@@ -9819,9 +9819,9 @@ dotnet beam project new service HelloWorld
     &lt;/ItemGroup&gt;
 &lt;/Project&gt;
 </code></pre>
-<h3 id="code-dependencies">Code Dependencies<a class="headerlink" href="#code-dependencies" title="Permanent link">¶</a></h3>
+<h3 id="code-dependencies">Code dependencies<a class="headerlink" href="#code-dependencies" title="Permanent link">¶</a></h3>
 <p>.NET projects use a tool called <em>NuGet</em> to manage dependencies on other code libraries. Each <code>&lt;PackageReference&gt;</code> node within an <code>&lt;ItemGroup&gt;</code> element declares a NuGet dependency. By default, every Standalone Microservice requires the <a href="https://www.nuget.org/packages/Beamable.Microservice.Runtime">Beamable Microservice NuGet Package</a>. However, you can add whatever packages you require as well.</p>
-<h3 id="beamable-properties">Beamable Properties<a class="headerlink" href="#beamable-properties" title="Permanent link">¶</a></h3>
+<h3 id="beamable-properties">Beamable properties<a class="headerlink" href="#beamable-properties" title="Permanent link">¶</a></h3>
 <p>.NET uses a tool called <code>msbuild</code> to compile your code into executable files. When the build happens, <code>msbuild</code> accesses various XML based properties within the <code>&lt;PropertyGroup&gt;</code> elements of the <code>.csproj</code> file.</p>
 <h4 id="beamprojecttype">BeamProjectType<a class="headerlink" href="#beamprojecttype" title="Permanent link">¶</a></h4>
 <p>The <code>&lt;BeamProjectType&gt;</code> is an enum string that declares the containing <code>.csproj</code> to be either a Microservice, or a Storage object. If a <code>.csproj</code> does not declare the <code>&lt;BeamProjectType&gt;</code> property, then it will not be detected by the beam CLI as a valid Microservice or Storage object.</p>
@@ -10066,10 +10066,10 @@ If you need to specify multiple values, use a <code>,</code> or a <code>;</code>
 </tr>
 </tbody>
 </table>
-<h3 id="telemetry-properties">Telemetry Properties<a class="headerlink" href="#telemetry-properties" title="Permanent link">¶</a></h3>
+<h3 id="telemetry-properties">Telemetry properties<a class="headerlink" href="#telemetry-properties" title="Permanent link">¶</a></h3>
 <p>In CLI 6.0, the CLI will try to collect usage data and send it to Beamable. You can opt out of this by changing the <code>BeamCliAllowTelemetry</code> property to false in the <code>.beamable/otel-config.json</code> file.</p>
 <p>Additionally, you can completely opt out of usage reporting by setting the <code>BEAM_NO_TELEMETRY</code> environment variable.</p>
-<h3 id="net-properties">.NET Properties<a class="headerlink" href="#net-properties" title="Permanent link">¶</a></h3>
+<h3 id="net-properties">.NET properties<a class="headerlink" href="#net-properties" title="Permanent link">¶</a></h3>
 <p>Common .NET properties may be explored through <a href="https://learn.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2022">.NET documentation</a> . However, there are a few properties that are set automatically through the usage of the <a href="https://www.nuget.org/packages/Beamable.Microservice.Runtime">Beamable Microservice NuGet Package</a>. To view these default settings, you should view the package source code's <code>.props</code> file, located here,</p>
 <p><a href="https://github.com/beamable/BeamableProduct/blob/cli-2.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props">https://github.com/beamable/BeamableProduct/blob/cli-6.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props</a></p>
 <div class="admonition info">

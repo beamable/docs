@@ -4539,19 +4539,19 @@
   <a href="#log-level" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Log Level
+        Log level
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Log Level">
+    <nav class="md-nav" aria-label="Log level">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#request-dynamic-log-levels" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Request Dynamic Log Levels
+        Request dynamic log levels
       
     </span>
   </a>
@@ -4579,7 +4579,7 @@
   <a href="#single-custom-attributes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Single Custom Attributes
+        Single custom attributes
       
     </span>
   </a>
@@ -4590,7 +4590,7 @@
   <a href="#scoped-custom-attributes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scoped Custom Attributes
+        Scoped custom attributes
       
     </span>
   </a>
@@ -4601,7 +4601,7 @@
   <a href="#defined-custom-attributes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Defined Custom Attributes
+        Defined custom attributes
       
     </span>
   </a>
@@ -4617,7 +4617,7 @@
   <a href="#standard-log-attributes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Standard Log Attributes
+        Standard log attributes
       
     </span>
   </a>
@@ -4628,7 +4628,7 @@
   <a href="#third-party-log-hosting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Third Party Log Hosting
+        Third party log hosting
       
     </span>
   </a>
@@ -9474,19 +9474,19 @@
   <a href="#log-level" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Log Level
+        Log level
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Log Level">
+    <nav class="md-nav" aria-label="Log level">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#request-dynamic-log-levels" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Request Dynamic Log Levels
+        Request dynamic log levels
       
     </span>
   </a>
@@ -9514,7 +9514,7 @@
   <a href="#single-custom-attributes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Single Custom Attributes
+        Single custom attributes
       
     </span>
   </a>
@@ -9525,7 +9525,7 @@
   <a href="#scoped-custom-attributes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scoped Custom Attributes
+        Scoped custom attributes
       
     </span>
   </a>
@@ -9536,7 +9536,7 @@
   <a href="#defined-custom-attributes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Defined Custom Attributes
+        Defined custom attributes
       
     </span>
   </a>
@@ -9552,7 +9552,7 @@
   <a href="#standard-log-attributes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Standard Log Attributes
+        Standard log attributes
       
     </span>
   </a>
@@ -9563,7 +9563,7 @@
   <a href="#third-party-log-hosting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Third Party Log Hosting
+        Third party log hosting
       
     </span>
   </a>
@@ -9592,7 +9592,7 @@
 
 
 
-<h1 id="microservice-logging">Microservice Logging<a class="headerlink" href="#microservice-logging" title="Permanent link">¶</a></h1>
+<h1 id="microservice-logging">Microservice logging<a class="headerlink" href="#microservice-logging" title="Permanent link">¶</a></h1>
 <p>Logging from a Microservice</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>This guide assumes you have an existing Microservice. You need to complete the
@@ -9626,7 +9626,7 @@ public void SampleLog()
 <p class="admonition-title">Info</p>
 <p>Local microservice logs will not appear in the Portal unless the <code>BEAM_LOCAL_OTEL</code> environment variable is set.</p>
 </div>
-<h3 id="log-level">Log Level<a class="headerlink" href="#log-level" title="Permanent link">¶</a></h3>
+<h3 id="log-level">Log level<a class="headerlink" href="#log-level" title="Permanent link">¶</a></h3>
 <p>Each log has a <em>level</em>, or an <em>importance</em> rating. Logs are one of the following,
 - <em>Critical</em>
 - <em>Error</em>
@@ -9640,12 +9640,12 @@ public void SampleLog()
 <p class="admonition-title">Info</p>
 <p>The default log level is <code>DEBUG</code> when you are running a service locally in development. However, deployed services use the <code>INFO</code> level by default.</p>
 </div>
-<h4 id="request-dynamic-log-levels">Request Dynamic Log Levels<a class="headerlink" href="#request-dynamic-log-levels" title="Permanent link">¶</a></h4>
+<h4 id="request-dynamic-log-levels">Request dynamic log levels<a class="headerlink" href="#request-dynamic-log-levels" title="Permanent link">¶</a></h4>
 <p>In version 6.0+, you can override the log level per request based on the player calling your Microservice, or the path being invoked on the service. By default, the log level for the entire service is <em>Information</em>, but if there was an error-prone route, or a specific user was experiencing issues, you could set the log level to <em>Debug</em> for that use case, without affecting the log level for anything else.</p>
 <p>To set a dynamic log level, go to the Portal's microservice page, and create a new <em>Log Config Rule</em>. Once you create a rule, the Microservice will automatically update to emit logs at the new level. It may take a few seconds for the log level to change.</p>
 <h3 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">¶</a></h3>
 <p>In version 6.0+, Microservice logs include attributes that can be explored in the Portal.</p>
-<h4 id="single-custom-attributes">Single Custom Attributes<a class="headerlink" href="#single-custom-attributes" title="Permanent link">¶</a></h4>
+<h4 id="single-custom-attributes">Single custom attributes<a class="headerlink" href="#single-custom-attributes" title="Permanent link">¶</a></h4>
 <p>You can add custom attributes per log message by using the standard string formatting approach:</p>
 <pre><code class="language-csharp">[ClientCallable]
 public void CustomAttribute(int a)
@@ -9657,7 +9657,7 @@ public void CustomAttribute(int a)
 <pre><code>attribute 42
 </code></pre>
 <p>However, the attribute, <code>a</code>, is available for querying in the Portal. Use a custom search expression for <code>a:42</code> to find any log messages with the <code>a</code> attribute value of <code>42</code>.</p>
-<h4 id="scoped-custom-attributes">Scoped Custom Attributes<a class="headerlink" href="#scoped-custom-attributes" title="Permanent link">¶</a></h4>
+<h4 id="scoped-custom-attributes">Scoped custom attributes<a class="headerlink" href="#scoped-custom-attributes" title="Permanent link">¶</a></h4>
 <p>You can automatically add attributes to an entire sequence of logs. For example, imagine you wanted to tag a series of log lines as being part of an algorithm.</p>
 <pre><code class="language-csharp">[ClientCallable]
 public void CustomAttribute(int a)
@@ -9695,7 +9695,7 @@ number is even!
 42 is odd=False
 </code></pre>
 <p>However, the <em>attributes</em> available on the log lines will include the <code>operation</code> and <code>number</code>, while the attributes on the last log will not.</p>
-<h4 id="defined-custom-attributes">Defined Custom Attributes<a class="headerlink" href="#defined-custom-attributes" title="Permanent link">¶</a></h4>
+<h4 id="defined-custom-attributes">Defined custom attributes<a class="headerlink" href="#defined-custom-attributes" title="Permanent link">¶</a></h4>
 <p>In the previous section, the custom log attributes are localized to specific log events. The attributes are searchable in the Portal, but they will not appear as <em>known</em> attributes, because they are not declared at any top level location. In order to define known attributes, you need to use a custom <code>ITelemetryAttributeProvider</code>.</p>
 <pre><code class="language-csharp">public class CustomAttributes : ITelemetryAttributeProvider
 {
@@ -9737,7 +9737,7 @@ number is even!
 - <code>ConnectionAttributes</code> allow you to add an attribute to every log line that is part of a specific <em>connection</em> to Beamable. When a Microservice runs locally, there is only a single connection, but in a deployed environment, there are <em>10</em> connections
 - <code>RequestAttributes</code> allow you add attributes to every log line per <em>request</em></p>
 <p>The <code>GetDescriptors()</code> function must return a description for all attributes you want to be defined. When an attribute is described from the return value, the title and description will appear in the Portal.</p>
-<h3 id="standard-log-attributes">Standard Log Attributes<a class="headerlink" href="#standard-log-attributes" title="Permanent link">¶</a></h3>
+<h3 id="standard-log-attributes">Standard log attributes<a class="headerlink" href="#standard-log-attributes" title="Permanent link">¶</a></h3>
 <p>There are several standard log attributes that will be included automatically. Some of these are from the Open Telemetry (OTEL) standard, and others are from Beamable's logging middleware.</p>
 <table>
 <thead>
@@ -9871,7 +9871,7 @@ number is even!
 </tr>
 </tbody>
 </table>
-<h3 id="third-party-log-hosting">Third Party Log Hosting<a class="headerlink" href="#third-party-log-hosting" title="Permanent link">¶</a></h3>
+<h3 id="third-party-log-hosting">Third party log hosting<a class="headerlink" href="#third-party-log-hosting" title="Permanent link">¶</a></h3>
 <p>Starting with version 6.0, you can send Microservice logs to third-party log hosting services. In this example, we will use BetterStack.</p>
 <p>This section will assume you have set up a BetterStack account, and created a <em>Source</em> such that you have a <em>source token</em> and an <em>ingesting host</em>.</p>
 <p>To start, we will configure locally running Microservices to send data to BetterStack. To start, create this file called <code>config.yaml</code> next to your <code>BeamableServices.sln</code> file.</p>

@@ -4454,7 +4454,7 @@
   <a href="#cli-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI Commands
+        CLI commands
       
     </span>
   </a>
@@ -4465,19 +4465,19 @@
   <a href="#possible-issues-and-solutions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Possible Issues and Solutions
+        Possible issues and solutions
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Possible Issues and Solutions">
+    <nav class="md-nav" aria-label="Possible issues and solutions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#invalid-federation-id-detected" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Invalid Federation Id detected
+        Invalid federation ID detected
       
     </span>
   </a>
@@ -9428,7 +9428,7 @@
   <a href="#cli-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI Commands
+        CLI commands
       
     </span>
   </a>
@@ -9439,19 +9439,19 @@
   <a href="#possible-issues-and-solutions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Possible Issues and Solutions
+        Possible issues and solutions
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Possible Issues and Solutions">
+    <nav class="md-nav" aria-label="Possible issues and solutions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#invalid-federation-id-detected" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Invalid Federation Id detected
+        Invalid federation ID detected
       
     </span>
   </a>
@@ -9502,7 +9502,7 @@
 
 
 
-<h1 id="microservice-federation">Microservice Federation<a class="headerlink" href="#microservice-federation" title="Permanent link">¶</a></h1>
+<h1 id="microservice-federation">Microservice federation<a class="headerlink" href="#microservice-federation" title="Permanent link">¶</a></h1>
 <p>Federate Standalone Microservices with external services</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can federate using Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
@@ -9535,7 +9535,7 @@ that define the types of functions that they require.
 public class MySample : IFederationId { }
 </code></pre>
 <hr>
-<h2 id="cli-commands">CLI Commands<a class="headerlink" href="#cli-commands" title="Permanent link">¶</a></h2>
+<h2 id="cli-commands">CLI commands<a class="headerlink" href="#cli-commands" title="Permanent link">¶</a></h2>
 <p>The CLI offers a few commands to enable and disable federations for a service. The <code>beam fed</code> command suite allows you to read and write federation data. None of the commands will modify your C# source files.</p>
 <p>The <code>beam fed list</code> command will show all federations for all services.</p>
 <pre><code class="language-sh">dotnet beam fed list
@@ -9555,8 +9555,8 @@ public class MySample : IFederationId { }
 
 </code></pre>
 <hr>
-<h2 id="possible-issues-and-solutions">Possible Issues and Solutions<a class="headerlink" href="#possible-issues-and-solutions" title="Permanent link">¶</a></h2>
-<h3 id="invalid-federation-id-detected">Invalid Federation Id detected<a class="headerlink" href="#invalid-federation-id-detected" title="Permanent link">¶</a></h3>
+<h2 id="possible-issues-and-solutions">Possible issues and solutions<a class="headerlink" href="#possible-issues-and-solutions" title="Permanent link">¶</a></h2>
+<h3 id="invalid-federation-id-detected">Invalid federation ID detected<a class="headerlink" href="#invalid-federation-id-detected" title="Permanent link">¶</a></h3>
 <p><strong>Example Code Triggering the Error</strong>:</p>
 <pre><code class="language-csharp">[FederationId("123-MyFederation")]
 public class MyFederation : IFederationId {}
