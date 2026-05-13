@@ -1,4 +1,4 @@
-# Federated Inventory
+# Federated inventory
 Federated Inventory allows you to integrate with other third-party inventory systems such as Steam's Inventory or Web3 wallets. Because of this intended usage, all `FederatedInventory` implementations are also [Federated Login](federated-login.md) implementations.
 
 Here's how this works at a high-level:

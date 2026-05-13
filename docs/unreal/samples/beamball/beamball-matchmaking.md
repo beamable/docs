@@ -7,7 +7,7 @@ The **Beamball** sample demonstrates a basic implementation of the Beamable SDK'
 </video>
 <center> Beamball Team Match</center>
 
-## Starting a Matchmaking Queue
+## Starting a matchmaking queue
 
 ![beamball-matchmaking.png](../../../media/imgs/beamball-matchmaking.png)
 
@@ -20,11 +20,11 @@ The Player selects **Play** in the main menu then the **`Refresh Hatchora Ping S
     - **`Local State - Matchmaking - IsUserInQueue`**: Checks if the player is currently in a matchmaking queue.
     - **`Local State - Lobby - TryGetCurrentLobby`**: Retrieves the current lobby if the player is in one.
 
-## Matchmaking Events
+## Matchmaking events
 ![beamball-matchmacking3.png](../../../media/imgs/beamball-matchmacking3.png)
 The matchmaking process is asynchronous, and the player is kept informed through event bindings on the **`Events - Matchmaking - Bind`**. The player is notified when they successfully started search for a match, when the Match is ready, canceled or timed out.
 
-## Starting a Match
+## Starting a match
 ![beamball-matchmaking2.png](../../../media/imgs/beamball-matchmaking2.png)
 
 Once the matchmaking system has formed a lobby, the player is notified and can start. The **`Operation - Lobby - Load Level`** operator is called, which signals Beamable's backend to initiate the match using the configured Lobby Data. In this sample the Edgegap Orchestrator handles the server alocation and returns a call to Beamable to start the match, allowing players to transition directly into the game.

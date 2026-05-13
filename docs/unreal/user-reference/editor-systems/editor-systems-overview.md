@@ -2,7 +2,7 @@
 
 Beamable Unreal SDK provides a set of editor systems that help you manage multiple aspects of your game integration. These systems are designed to integrate with the Unreal Engine editor, giving you direct access to Beamable features from within the editor.
 
-## Beamable Editor Panel
+## Beamable editor panel
 
 ![editor-home.png](../../../media/imgs/editor-home.png)
 
@@ -13,16 +13,16 @@ The Beamable Editor Panel is the main interface for interacting with Beamable fe
 * **Microservices**: system for managing and running local microservices that can extend the functionality of your game
 * **PIE Settings**: set of settings that allow you to configure your game for Play In Editor (PIE) mode, including player profiles and custom play presets
 
-### Accessing the Beamable Editor Panel
+### Accessing the Beamable editor panel
 To open the Beamable Editor Panel, select the **Beamable** icon on the right side of the Unreal Engine toolbar. This will open the Beamable Editor Panel, where you can access all available features and settings.
 ![editor-home-opening.png](../../../media/imgs/editor-home-opening.png)
 
-### Home Section
+### Home section
 The Home section allows you to select the current realm for your project and provides quick access to the Beamable Portal. Realm selection is located at the top of the panel, and you can switch between different realms as needed. By using the **Apply to Build** button, you can apply the selected realm to your current build configuration.
 
 In the same section, you can also find the **Home Dashboard** button, which will open the Beamable Portal in your web browser, allowing you to manage your project settings and resources online. There are also other shortcuts to the Portal-specific sections, such as the **Microservices** and **Content**.
 
-### Other Sections
+### Other sections
 You will find specific documentation for each of the editor systems in the following pages:
 
 - [Content](../beamable-services/content.md): tool for managing your game content

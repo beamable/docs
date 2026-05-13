@@ -1,4 +1,4 @@
-# Beamball - Steam Integration
+# Beamball - Steam integration
 
 This page explains how to integrate a Beamable game with Steam using the **Beamable Unreal SDK** and **Beamable Microservices**.
 
@@ -19,7 +19,7 @@ To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_Beamball
 !!! note "Assumptions"
     Instructions below assume that you already have the Steam application created in Steam's Developer portal. If that is not the case, be sure to create one first.
 
-## Configuring the Sample as a Steam Application
+## Configuring the sample as a Steam application
 
 Since this sample requires several resources, it is not pre-hosted. To access it, set up a Steam account and configure the sample:
 
@@ -32,7 +32,7 @@ Since this sample requires several resources, it is not pre-hosted. To access it
     1. Generate a Steam Key.
     2. Add it to your Steam account so you can access the game.
 
-### Setting up Beamable Systems
+### Setting up Beamable systems
 
 Now, you'll need to configure a Beamable realm to work with your Steam App so you can use it:
 
@@ -73,11 +73,11 @@ To test the sample:
 - You should see your "Steam" status change to playing
 - On the login screen, you should see a Steam button. Press it
 
-## Sample Highlights
+## Sample highlights
 
 This sample demonstrates a complete Steam authentication integration using Beamable's federated login system.
 
-### Client-Side Implementation
+### Client-side implementation
 
 The client uses the Steam SDK directly to obtain authentication credentials. The implementation in `BeamableSteam.h` provides a `TryGetSteamData` function that:
 
@@ -90,7 +90,7 @@ In Blueprint, you can invoke the Steam login flow using operation nodes:
 
 ![steam-demo-login.png](../../../media/imgs/steam-demo-login.png)
 
-### Server-Side Implementation (Microservice)
+### Server-side implementation (Microservice)
 
 The `BeamballMs.Steam.cs` microservice implements `IFederatedLogin<SteamId>` to handle authentication:
 
@@ -101,7 +101,7 @@ The `BeamballMs.Steam.cs` microservice implements `IFederatedLogin<SteamId>` to 
 
 This two-phase approach ensures that users are properly authenticated via Steam and their account is enriched with Steam profile data for display in-game.
 
-## Can I use it as a Template?
+## Can I use it as a template?
 
 This sample is NOT a template you can start your own repository from. However, Beamable code components are free for
 you to copy and use in your own project. Here's what these are:
@@ -110,14 +110,14 @@ you to copy and use in your own project. Here's what these are:
 - Beamable code inside `BEAMPROJ_Beamball/**/PlatformIntegrations` except code inside a `ThirdParty` directory.
 - Content inside the `BEAMPROJ_Beamball` except things inside a `ThirdParty` directory.
 
-## Why No Client Build
+## Why no client build
 Clients must be pointed at your `steam-demo` realm, so you need to generate the build yourself by packaging it for any supported platform.
 
 ---
 
-## Required Files for Steam on Mac
+## Required files for Steam on Mac
 
-### SSL Certificate (`cacert.pem`)
+### SSL certificate (`cacert.pem`)
 
 Beamable uses secure socket connections, and on some platforms the OS requires a trusted CA certificate bundle to validate them. Without this file, Beamable network calls may fail silently at runtime.
 
@@ -143,7 +143,7 @@ Unreal will then bundle the certificate with the build, allowing Beamable to est
 
 ---
 
-## macOS Development: Disabling App Sandbox
+## macOS development: disabling app sandbox
 
 When developing on macOS, the App Sandbox may block Steam network calls and Beamable connections. If you are working in a **development build**, you should disable the sandbox by editing the entitlements file.
 

@@ -1,8 +1,8 @@
-# Unreal SDK - Operations & Waits
+# Unreal SDK - operations and waits
 
 The Beamable SDK uses a slight variation on Promises that are named Operations. These provide the same semantics as Promises, but their implementation is slightly different to allow for a BP-compatible API and "sub-events".
 
-## How Operations Work
+## How operations work
 
 They wrap concurrent *operations* (mostly HTTP Requests) under a `FBeamOperationHandle` exposed to some higher-level system. Simply put:
 
@@ -19,7 +19,7 @@ A couple of examples:
 	While possible, avoid creating Operations as Blueprints. It's OK to do so for a quick experimentation session; but shipping with it is *not recommended*.
 	**Calling *Operations* written in C++ is the primary way for Blueprints to interact with the Beamable SDK. The SDK even includes [special nodes](../blueprints.md) for it.**
 
-## Operation Lifecycle
+## Operation lifecycle
 
 Every Operation has an `int64` id called the `FBeamOperationHandle` managed by the `UBeamRequestTracker`, a `UEngineSubsystem`. The SDK uses it to track the operation's state, its emitted events, its current status, and which of Beamable's requests are part of it.
 
@@ -32,7 +32,7 @@ The lifecycle of an operation goes as follows:
 - **Regular Operations**: are just a "Promise"
 - **Operation Hooks**: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work
 
-## Writing and Exposing your Own Regular Operations
+## Writing and exposing your own regular operations
 The SDK exposes all main operations in both BP and C++ flavors. If you'd like to do the same thing, this section is for you. To learn about writing hooks in C++, review the next section.
 
 **The primary trade-off:**
@@ -122,7 +122,7 @@ There are many examples of operations in the SDK. For guidance, look at any of t
 
 Feel free to copy-paste them as a template of how to implement and reason about `Operations`.
 
-### Beam Flow Nodes - Operations
+### Beam flow nodes - operations
 As part of the [Blueprint integration](../blueprints.md), the SDK includes a few custom nodes that make invoking operations from Blueprints much simpler. These look like this:
 
 ![beam-flow-node](../../../../media/imgs/operation-and-waits-beam-flow-nodes.png)
@@ -176,7 +176,7 @@ As long as you have one of these in an `UncookedOnly` module of your game, you'l
 
 This is very useful when designing unique features using [MicroServices and MicroStorages](../../microservices/microservices.md) and other `FBeamOperationHandle` returning functions.
 
-## Writing Hooks
+## Writing hooks
 
 Writing Hooks are callback points that let you customize how the SDK behaves during long-running operations.
 
@@ -196,7 +196,7 @@ If a Delegate or Virtual Function returns one or more `FBeamOperationHandle`, yo
 	1. Rest assured: the Beamable Unreal SDK will never use Hooks internally. They are reserved exclusively for your extensions.
 	2. You can search for `DEFINE_BEAM_OPERATION_HOOK` and find some usages of the macro to better understand these.
 
-### Beam Operation Hooks
+### Beam operation hooks
 **Hooks** have some more context that you should know about how to use them:
 
 1. When calling an Operation the SDK exposes, that Operation does some things and triggers the hooks at some well-known point during their execution.
@@ -267,7 +267,7 @@ SomeSystem->Hook.Add(F____::CreateLambda([this]()
 }));
 ```
 
-## Why not Template-based Promises?
+## Why not template-based promises?
 The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style API just won't work with BPs. The goal was an underlying system providing the same functionality while retaining BP compatibility, even without the template-based interface. The result was this `Operation` system.
 
 !!! info

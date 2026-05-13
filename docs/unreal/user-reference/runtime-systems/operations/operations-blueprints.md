@@ -1,11 +1,11 @@
-## Operations & Blueprints
+## Operations and Blueprints
 
 To improve Blueprint usability when working with **Operations**, the SDK provides a built-in way to manage **dependencies between multiple operations**.
 This approach removes the need for extra “wait” nodes and simplifies execution flow.
 
 ---
 
-## The Wait Node
+## The wait node
 
 The SDK provides a custom **UK2Node Wait** node that can wait on asynchronous operations, events, and similar workflows.
 
@@ -17,13 +17,13 @@ While this works well in many scenarios, it became clear that **most usages of t
 
 ---
 
-## Operation Dependency Pins
+## Operation dependency pins
 
 To solve this, each **Operation Node** now supports **Dependency Pins** via an **Add Pin** button.
 
 Dependency pins allow an operation to explicitly depend on other operations **without requiring a separate Wait node**.
 
-### How It Works
+### How it works
 
 - Each dependency represents another operation that must complete successfully
 - If **any dependency fails**, the current Operation **fails immediately**
@@ -31,7 +31,7 @@ Dependency pins allow an operation to explicitly depend on other operations **wi
 
 ---
 
-## Execution Rules
+## Execution rules
 
 - You can add **any number of dependencies**
 - Dependencies are executed **in parallel** by default

@@ -1,4 +1,4 @@
-# Beamball - Epic Online Services Integration
+# Beamball - Epic Online Services integration
 
 This page explains how to integrate a Beamable game with Epic Online Services (EOS) using the **Beamable Unreal SDK** and **Beamable Microservices**.
 
@@ -19,7 +19,7 @@ To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_Beamball
 !!! note "Assumptions"
     Instructions below assume that you already have the Epic application created in Epic's Developer portal. If that is not the case, be sure to create one first.
 
-## Configuring the Sample as an Epic Application
+## Configuring the sample as an Epic application
 
 Since this sample requires several resources, it is not pre-hosted. To access it, set up an Epic Games account and configure the sample:
 
@@ -39,7 +39,7 @@ Since this sample requires several resources, it is not pre-hosted. To access it
 7. For PIE testing, download and run the [EOS Developer Authentication Tool](https://dev.epicgames.com/docs/epic-account-services/developer-authentication-tool).
    - Configure it with your Application ID and use credentials like `Context_1`, `Context_2`, etc.
 
-### Setting up Beamable Systems
+### Setting up Beamable systems
 
 Now, you'll need to configure a Beamable realm to work with your Epic Application so you can use it:
 
@@ -93,11 +93,11 @@ To test the sample:
 - Launch the game with your Epic account
 - On the login screen, you should see an Epic button. Press it
 
-## Sample Highlights
+## Sample highlights
 
 This sample demonstrates a complete Epic Online Services (EOS) authentication integration using Beamable's federated login system with OpenID Connect JWT validation.
 
-### Client-Side Implementation
+### Client-side implementation
 
 The client uses Unreal's Online Services (not the deprecated Online Subsystem) to authenticate with EOS and obtain an external auth token (JWT ID token). The implementation in `BeamableEOS.cpp` provides a flexible authentication flow with automatic fallback:
 
@@ -113,7 +113,7 @@ In Blueprint, you can invoke the EOS login flow using operation nodes:
 
 ![epic-demo-login.png](../../../media/imgs/epic-demo-login.png)
 
-### Server-Side Implementation (Microservice)
+### Server-side implementation (Microservice)
 
 The `BeamballMs.EpicOnlineServices.cs` microservice implements `IFederatedLogin<EpicOnlineServicesId>` using industry-standard OpenID Connect JWT validation:
 
@@ -130,7 +130,7 @@ The `BeamballMs.EpicOnlineServices.cs` microservice implements `IFederatedLogin<
 
 This implementation follows Epic's official authentication documentation and security best practices for validating third-party tokens using asymmetric cryptography.
 
-## Can I use it as a Template?
+## Can I use it as a template?
 
 This sample is NOT a template you can start your own repository from. However, Beamable code components are free for you to copy and use in your own project. Here's what these are:
 
@@ -138,6 +138,6 @@ This sample is NOT a template you can start your own repository from. However, B
 - Beamable code inside `BEAMPROJ_Beamball/**/PlatformIntegrations` except code inside a `ThirdParty` directory.
 - Content inside the `BEAMPROJ_Beamball` except things inside a `ThirdParty` directory.
 
-## Why No Client Build
+## Why no client build
 
 Clients must be pointed at your realm/Epic application, so you need to generate the build yourself by packaging it for any supported platform.

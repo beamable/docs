@@ -1,4 +1,4 @@
-# Federated Login
+# Federated login
 Login Federation is Beamable's approach to integrating third-party Authentication with various platforms. You can find working examples of this federation in both [Beamball - Steam Integration](../../samples/beamball/steam-integration.md) and [Discord](../../samples/discord-demo.md) Samples.
 
 This Federation is invoked via the `Login_____`, `SignUp____`, and `Attach____` functions of the `UBeamRuntime` subsystem class.
@@ -25,9 +25,9 @@ Most of the time, you achieve this by doing the following:
 
 After this, the flow goes into your `Authenticate` function. What that function should do, depends on whether or not you are implementing 2FA or not.
 
-## Federated Login - without 2FA
+## Federated login - without 2FA
 
-### Setting up the Client
+### Setting up the client
 
 In the client:
 
@@ -76,9 +76,9 @@ public async Promise<FederatedAuthenticationResponse> Authenticate(string token,
 
 ```
 
-## Federated Login - Multi-Factor Authentication
+## Federated login - multi-factor authentication
 
-### Setting up the Client
+### Setting up the client
 
 In the client, start by invoking the `Login - Federated Identity` operation. This operation has a sub-event that fires when the microservice responds with a `challenge` string the authentication mechanism must resolve. The SDK provides a `UBeamMultiFactorLoginData` object carrying the authentication context; persist it in your game state and pass it to `Login - Commit Federated Identity` once the challenge is resolved.
 

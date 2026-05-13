@@ -1,11 +1,11 @@
-# Linux Builds workflow
+# Linux builds workflow
 
 This guide will provide a way to get a working Linux build on Windows.
 
 !!! info "Building from Docker"
 	While you can build a game using Docker, that approach proved suboptimal compared to the one described in this guide.
 
-## Cross Compilation
+## Cross compilation
 
 !!! warning "Windows only"
 	Cross-compiling in Unreal world is limited to **Windows** only. On Linux you can compile only Linux target, same for Mac users.

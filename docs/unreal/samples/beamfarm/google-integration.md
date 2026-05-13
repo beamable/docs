@@ -1,4 +1,4 @@
-# Google Sign-In Integration (Unreal + Beamable)
+# Google sign-in integration (Unreal and Beamable)
 
 This document describes how to integrate **Google Sign-In** in an Unreal Engine project and how **Login** and **Attach** federation flows work when linking Google accounts to Beamable players.
 
@@ -21,7 +21,7 @@ High-level flow:
 
 ## Prerequisites
 
-### Google Developer Console Setup
+### Google developer console setup
 
 Before implementing Google Sign-In, configure a Google Cloud project:
 
@@ -34,7 +34,7 @@ Google documentation:
 
 ---
 
-## Google Sign-In Client Implementation
+## Google sign-in client implementation
 
 The client authenticates the player with Google and retrieves an **ID Token**.
 
@@ -47,7 +47,7 @@ The client authenticates the player with Google and retrieves an **ID Token**.
 
 ---
 
-## Federation Concept (Beamable)
+## Federation concept (Beamable)
 
 Beamable Federation allows external identity providers (such as Google) to authenticate or link accounts.
 
@@ -59,9 +59,9 @@ For Google integration:
 
 ---
 
-## Google Federation Microservice
+## Google federation Microservice
 
-### Federated Login Implementation
+### Federated login implementation
 
 ```csharp
 async Promise<FederatedAuthenticationResponse>
@@ -77,7 +77,7 @@ async Promise<FederatedAuthenticationResponse>
 }
 ```
 
-### Token Validation
+### Token validation
 
 ```csharp
 public async Task<string> GetGoogleUidFromIdTokenAsync(string idToken)
@@ -104,9 +104,9 @@ public async Task<string> GetGoogleUidFromIdTokenAsync(string idToken)
 
 ---
 
-## Login vs Attach Flows
+## Login vs attach flows
 
-### Login Flow (Returning Player)
+### Login flow (returning player)
 
 - Player selects **Sign in with Google**
 - Client retrieves ID Token
@@ -115,7 +115,7 @@ public async Task<string> GetGoogleUidFromIdTokenAsync(string idToken)
 
 ---
 
-### Attach Flow (First-Time Link)
+### Attach flow (first-time link)
 
 - Player is already authenticated
 - Client retrieves ID Token

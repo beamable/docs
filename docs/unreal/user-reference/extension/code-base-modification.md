@@ -1,4 +1,4 @@
-# Plugin Source Modification Guidelines
+# Plugin source modification guidelines
 
 This plugin is intentionally designed to be **modified directly at the source level**, rather than extended through Dependency Injection (DI).
 To keep custom changes maintainable and upgrade-friendly, **all modifications must follow the rules below**.
@@ -13,7 +13,7 @@ To keep custom changes maintainable and upgrade-friendly, **all modifications mu
 
 ---
 
-## 1. Mark All Custom Changes
+## 1. Mark all custom changes
 
 Every modification to the plugin source **must be clearly marked**.
 
@@ -25,7 +25,7 @@ Every modification to the plugin source **must be clearly marked**.
 // === CUSTOM MODIFICATION END ===
 ```
 
-## 2. Group Changes Using Regions (C++)
+## 2. Group changes using regions (c++)
 
 All custom code could be grouped using #pragma region.
 
@@ -37,7 +37,7 @@ All custom code could be grouped using #pragma region.
 
 ```
 
-## 3. Extend, Don’t Erase
+## 3. Extend, don’t erase
 
 Prefer extending or overriding behavior instead of deleting original code.
 
@@ -47,7 +47,7 @@ Prefer extending or overriding behavior instead of deleting original code.
 
  - Preserve context whenever possible
 
-## 4. Keep Changes Small and Focused
+## 4. Keep changes small and focused
 
  - One responsibility per modification block
 
@@ -57,7 +57,7 @@ Prefer extending or overriding behavior instead of deleting original code.
 
 Small, isolated changes are easier to review, revert, and migrate.
 
-## 5. Document Behavioral Impact
+## 5. Document behavioral impact
 
 Any change affecting:
 

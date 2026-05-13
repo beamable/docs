@@ -4,14 +4,14 @@
 
 The Beamable Unreal SDK provides all of the functionality to integrate Beamable's systems into your Project. It includes features like Authentication, Content, Events, Inventory, Microservices and much more.
 
-## SDK Design Principles
+## SDK design principles
 
 - Source-available and modifiable inside your project
 - Simple by default, with clear extension points
 - Explicit about assumptions when they exist
 - Full parity between Blueprint and C++ APIs (except when otherwise notated in docs)
 
-## Platform Support Roadmap
+## Platform support roadmap
 The Beamable Unreal SDK is designed to work across multiple platforms. Below is a table outlining the current support status and estimated time of arrival (ETA) for each platform.
 
 | Platform | Client Support | Dedicated Server Support | ETA            |

@@ -7,18 +7,18 @@ Beamable's Store service enables game-makers to create and manage dynamic in-gam
 - Items and Virtual currency basic implementation
 - Customizable store layouts and content
 
-## Content Types
+## Content types
 In Unreal, Stores are represented by `UBeamStoreContent` class, which includes a store title and a list of links to `UBeamListingContent` types. The `UBeamListingContent` class contains all of the details about the offer, such as player requirements, costs, and benefits.
 
 The [Content System](content.md), as both `UBeamStoreContent` and `UBeamListingContent`, are subclasses of `UBeamContentObject`. <!-- TODO(@drewbleam): Review this sentence for accuracy. -->
 
-### Store Content
+### Store content
 The store content has the following properties:
 
 - **Show Inactive Listings**: shows listing that the user already purchased and that are outside of the availability window or cohort settings
 - **Active Listing Limit**: defaults to 20. The Store will only show the first N listings that are valid. When asking for all active listings for a particular user, the API will return a maximum of whatever is here
 
-### Listing Content
+### Listing content
 You can think of a listing as an entry in a catalog of purchasable products.
 
 - **Price**: Is the amount of `currency` a player must have to acquire this listing.
@@ -29,7 +29,7 @@ You can think of a listing as an entry in a catalog of purchasable products.
 
 Subtypes of `UBeamListingContent` are not supported; use `ClientData` instead.
 
-## Beam Store Subsystem
+## Beam store subsystem
 Purchases are handled through the `UBeamStoreSubsystem`. This subsystem allows you to request the purchase of any available `Listing` on any `Store`. It also provides helper functions to retrieve detailed data from listings, making it easier to interact with store content.
 
 You can fetch a particular player's view of a particular store, via the `RefreshStoresOperation` or `RefreshStoreOperation`. After the view is refreshed, you can access the view for that particular player through `TryGetStoreView`. To make purchases, you can use the `PerformPurchaseOperation`.
