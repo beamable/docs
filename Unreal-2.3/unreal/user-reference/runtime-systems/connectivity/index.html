@@ -939,7 +939,7 @@
   <span class="md-ellipsis">
     
   
-    Unreal SDK - Operations &amp; Waits
+    Unreal SDK - operations and waits
   
 
     
@@ -1059,19 +1059,19 @@
   <a href="#thinking-about-connectivity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Thinking about Connectivity
+        Thinking about connectivity
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Thinking about Connectivity">
+    <nav class="md-nav" aria-label="Thinking about connectivity">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#reconnect-behavior" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reconnect Behavior
+        Reconnect behavior
       
     </span>
   </a>
@@ -1087,7 +1087,7 @@
   <a href="#refreshing-state-after-reconnection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Refreshing State after Reconnection
+        Refreshing state after reconnection
       
     </span>
   </a>
@@ -8798,19 +8798,19 @@
   <a href="#thinking-about-connectivity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Thinking about Connectivity
+        Thinking about connectivity
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Thinking about Connectivity">
+    <nav class="md-nav" aria-label="Thinking about connectivity">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#reconnect-behavior" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reconnect Behavior
+        Reconnect behavior
       
     </span>
   </a>
@@ -8826,7 +8826,7 @@
   <a href="#refreshing-state-after-reconnection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Refreshing State after Reconnection
+        Refreshing state after reconnection
       
     </span>
   </a>
@@ -8856,7 +8856,7 @@
 <p>When there's a signed-in user and the WebSocket connection (see <code>UBeamNotifications</code> and <code>UBeamRuntime</code>) for that user is alive.</p>
 </blockquote>
 <p>The semantics above are also what the servers use to keep track of any user's online status (relevant to real-time services like <a href="../../beamable-services/matchmaking/">Matchmaking</a> and <a href="../../beamable-services/lobbies/">Lobbies</a>).</p>
-<h2 id="thinking-about-connectivity">Thinking about Connectivity<a class="headerlink" href="#thinking-about-connectivity" title="Permanent link">¶</a></h2>
+<h2 id="thinking-about-connectivity">Thinking about connectivity<a class="headerlink" href="#thinking-about-connectivity" title="Permanent link">¶</a></h2>
 <p>The Beamable SDK provides a <code>UBeamConnectivityManager</code> class that keeps the connectivity state for any logged-in <code>FUserSlot</code>.
 - For games that have only a single <em>local</em> player, you can use <code>UBeamRuntime::GetOwnerSlotConnectivity</code> to access the correct manager by default.</p>
 <ul>
@@ -8889,7 +8889,7 @@
 </li>
 </ol>
 <p>While in <code>CONN_Offline</code> mode, the SDK keeps trying to reestablish the <code>FUserSlot</code>'s connection with Beamable. This happens automatically in the background and is a continuous process.</p>
-<h3 id="reconnect-behavior">Reconnect Behavior<a class="headerlink" href="#reconnect-behavior" title="Permanent link">¶</a></h3>
+<h3 id="reconnect-behavior">Reconnect behavior<a class="headerlink" href="#reconnect-behavior" title="Permanent link">¶</a></h3>
 <p>If the connection is reestablished, <code>UBeamConnectivityManager::OnReconnected</code> is broadcast. Then if <code>Project Settings → Beam Runtime → AutomaticallyNotifyFixupComplete</code> is:</p>
 <ul>
 <li>
@@ -8907,7 +8907,7 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="refreshing-state-after-reconnection">Refreshing State after Reconnection<a class="headerlink" href="#refreshing-state-after-reconnection" title="Permanent link">¶</a></h2>
+<h2 id="refreshing-state-after-reconnection">Refreshing state after reconnection<a class="headerlink" href="#refreshing-state-after-reconnection" title="Permanent link">¶</a></h2>
 <p>The <code>UBeamRuntimeSubsystem</code> implementations DO NOT attempt to refresh their local state after reconnecting automatically. This is an intentional design decision due to the following reasons:</p>
 <ul>
 <li>

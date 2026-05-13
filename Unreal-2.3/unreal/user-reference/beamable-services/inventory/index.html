@@ -937,7 +937,7 @@
   <span class="md-ellipsis">
     
   
-    Unreal SDK - Operations &amp; Waits
+    Unreal SDK - operations and waits
   
 
     
@@ -1282,19 +1282,19 @@
   <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Getting started
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Getting Started">
+    <nav class="md-nav" aria-label="Getting started">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#batching-updates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Batching Updates
+        Batching updates
       
     </span>
   </a>
@@ -1305,7 +1305,7 @@
   <a href="#reading-local-state" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reading Local State
+        Reading local state
       
     </span>
   </a>
@@ -1343,7 +1343,7 @@
   <a href="#client-permissions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Client Permissions
+        Client permissions
       
     </span>
   </a>
@@ -1354,7 +1354,7 @@
   <a href="#item-instance-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Item Instance Properties
+        Item instance properties
       
     </span>
   </a>
@@ -8842,19 +8842,19 @@
   <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Getting started
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Getting Started">
+    <nav class="md-nav" aria-label="Getting started">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#batching-updates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Batching Updates
+        Batching updates
       
     </span>
   </a>
@@ -8865,7 +8865,7 @@
   <a href="#reading-local-state" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reading Local State
+        Reading local state
       
     </span>
   </a>
@@ -8903,7 +8903,7 @@
   <a href="#client-permissions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Client Permissions
+        Client permissions
       
     </span>
   </a>
@@ -8914,7 +8914,7 @@
   <a href="#item-instance-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Item Instance Properties
+        Item instance properties
       
     </span>
   </a>
@@ -8951,7 +8951,7 @@
 <li>A list of instances of <code>Items</code> the player owns, each with their own unique <code>InstanceId</code> and Key-Value pair of instance properties.</li>
 </ul>
 <p>In short, Inventory manages two types of data: items and virtual currencies.</p>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
+<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>To use the inventory system, you will need to first:</p>
 <ol>
 <li>Go to the <a href="../content/">Content Window</a>.</li>
@@ -8980,10 +8980,10 @@
 <li>Go to <code>Inventory</code> and see that the appropriate currency and items are inside the user's inventory.</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-portal.png" data-desc-position="bottom"><img alt="inventory-portal.png" src="../../../../media/imgs/inventory-portal.png"></a></p>
-<h3 id="batching-updates">Batching Updates<a class="headerlink" href="#batching-updates" title="Permanent link">¶</a></h3>
+<h3 id="batching-updates">Batching updates<a class="headerlink" href="#batching-updates" title="Permanent link">¶</a></h3>
 <p>In the getting started example, the code creates a new <code>FBeamInventoryUpdateCommand</code> and commits it right away.</p>
 <p>It is desirable, for both performance and latency reasons, to batch as many inventory changes as possible as long as it makes sense for your game's design. So, if your game's feature allows for a "edit multiple, commit later" pattern of UX, using this API is the most efficient way to go about it.</p>
-<h3 id="reading-local-state">Reading Local State<a class="headerlink" href="#reading-local-state" title="Permanent link">¶</a></h3>
+<h3 id="reading-local-state">Reading local state<a class="headerlink" href="#reading-local-state" title="Permanent link">¶</a></h3>
 <p>To read the local state of the player's inventory, you can use the following operations:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-local-state.png" data-desc-position="bottom"><img alt="inventory-local-state.png" src="../../../../media/imgs/inventory-local-state.png"></a></p>
 <p>You can also use the <code>Local State - Inventory - TryGetAllItemsFilter</code> node to iterate over all the items of a particular subtype in the inventory.</p>
@@ -9003,7 +9003,7 @@
 <li><strong>UpdatedAt</strong>: last edit date</li>
 <li><strong>FederatedId</strong>: See <a href="../../federation/federated-inventory/">Inventory Federation</a> for more information about this field</li>
 </ul>
-<h2 id="client-permissions">Client Permissions<a class="headerlink" href="#client-permissions" title="Permanent link">¶</a></h2>
+<h2 id="client-permissions">Client permissions<a class="headerlink" href="#client-permissions" title="Permanent link">¶</a></h2>
 <p>It's up to developers to decide how the content can be added to player inventory by specifying <code>clientPermission</code> field:</p>
 <p>When toggled, the content becomes <strong>Client-Authoritative</strong>: the SDK allows game-clients to add/remove that item or currency to the player inventory directly. If your game does not include networked multiplayer and can tolerate cheating, allowing the client to read and write their own currencies is the simplest option.</p>
 <p>If not toggled, the content becomes <strong>Server-Authoritative</strong>: trying to add/remove that item or currency to the player inventory from a game-client directly results in an error. The item/currencies are still readable in the game-client. To add/remove items and currencies that are <strong>Server-Authoritative</strong>, do so via a Microservice and a <code>ClientCallable</code>.</p>
@@ -9011,7 +9011,7 @@
 <p class="admonition-title">Edit player Inventory via the Portal</p>
 <p>Regardless of the value of the <code>clientPermission</code> field you can view and modify players' inventory through the Portal. See the <a href="https://docs.beamable.com/docs/portal-inventory">Portal Inventory documentation</a>.</p>
 </div>
-<h2 id="item-instance-properties">Item Instance Properties<a class="headerlink" href="#item-instance-properties" title="Permanent link">¶</a></h2>
+<h2 id="item-instance-properties">Item instance properties<a class="headerlink" href="#item-instance-properties" title="Permanent link">¶</a></h2>
 <p>As with most key-value pairs for arbitrary data, try to follow the guidelines below:</p>
 <p><strong>For Keys</strong>:
 - 8-20 characters are ideal (purely for human ergonomics)

@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#operations-blueprints" class="md-skip">
+        <a href="#operations-and-blueprints" class="md-skip">
           Skip to content
         </a>
       
@@ -941,7 +941,7 @@
   <span class="md-ellipsis">
     
   
-    Unreal SDK - Operations &amp; Waits
+    Unreal SDK - operations and waits
   
 
     
@@ -1018,10 +1018,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#operations-blueprints" class="md-nav__link">
+  <a href="#operations-and-blueprints" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Operations &amp; Blueprints
+        Operations and Blueprints
       
     </span>
   </a>
@@ -1032,7 +1032,7 @@
   <a href="#the-wait-node" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Wait Node
+        The wait node
       
     </span>
   </a>
@@ -1043,19 +1043,19 @@
   <a href="#operation-dependency-pins" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Operation Dependency Pins
+        Operation dependency pins
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Operation Dependency Pins">
+    <nav class="md-nav" aria-label="Operation dependency pins">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How It Works
+        How it works
       
     </span>
   </a>
@@ -1071,7 +1071,7 @@
   <a href="#execution-rules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Execution Rules
+        Execution rules
       
     </span>
   </a>
@@ -8824,10 +8824,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#operations-blueprints" class="md-nav__link">
+  <a href="#operations-and-blueprints" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Operations &amp; Blueprints
+        Operations and Blueprints
       
     </span>
   </a>
@@ -8838,7 +8838,7 @@
   <a href="#the-wait-node" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Wait Node
+        The wait node
       
     </span>
   </a>
@@ -8849,19 +8849,19 @@
   <a href="#operation-dependency-pins" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Operation Dependency Pins
+        Operation dependency pins
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Operation Dependency Pins">
+    <nav class="md-nav" aria-label="Operation dependency pins">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How It Works
+        How it works
       
     </span>
   </a>
@@ -8877,7 +8877,7 @@
   <a href="#execution-rules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Execution Rules
+        Execution rules
       
     </span>
   </a>
@@ -8914,28 +8914,28 @@
 
   <h1>Operations Blueprints</h1>
 
-<h2 id="operations-blueprints">Operations &amp; Blueprints<a class="headerlink" href="#operations-blueprints" title="Permanent link">¶</a></h2>
+<h2 id="operations-and-blueprints">Operations and Blueprints<a class="headerlink" href="#operations-and-blueprints" title="Permanent link">¶</a></h2>
 <p>To improve Blueprint usability when working with <strong>Operations</strong>, the SDK provides a built-in way to manage <strong>dependencies between multiple operations</strong>.
 This approach removes the need for extra “wait” nodes and simplifies execution flow.</p>
 <hr>
-<h2 id="the-wait-node">The Wait Node<a class="headerlink" href="#the-wait-node" title="Permanent link">¶</a></h2>
+<h2 id="the-wait-node">The wait node<a class="headerlink" href="#the-wait-node" title="Permanent link">¶</a></h2>
 <p>The SDK provides a custom <strong>UK2Node Wait</strong> node that can wait on asynchronous operations, events, and similar workflows.</p>
 <p>This node enables a clean and explicit pattern where:
 - You wait for an async operation to finish
 - Then continues the execution</p>
 <p>While this works well in many scenarios, it became clear that <strong>most usages of the Wait node existed only to Operations</strong> before moving to the next step.</p>
 <hr>
-<h2 id="operation-dependency-pins">Operation Dependency Pins<a class="headerlink" href="#operation-dependency-pins" title="Permanent link">¶</a></h2>
+<h2 id="operation-dependency-pins">Operation dependency pins<a class="headerlink" href="#operation-dependency-pins" title="Permanent link">¶</a></h2>
 <p>To solve this, each <strong>Operation Node</strong> now supports <strong>Dependency Pins</strong> via an <strong>Add Pin</strong> button.</p>
 <p>Dependency pins allow an operation to explicitly depend on other operations <strong>without requiring a separate Wait node</strong>.</p>
-<h3 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">¶</a></h3>
+<h3 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">¶</a></h3>
 <ul>
 <li>Each dependency represents another operation that must complete successfully</li>
 <li>If <strong>any dependency fails</strong>, the current Operation <strong>fails immediately</strong></li>
 <li>The failure is routed through the Operation’s <strong>Error output pin</strong></li>
 </ul>
 <hr>
-<h2 id="execution-rules">Execution Rules<a class="headerlink" href="#execution-rules" title="Permanent link">¶</a></h2>
+<h2 id="execution-rules">Execution rules<a class="headerlink" href="#execution-rules" title="Permanent link">¶</a></h2>
 <ul>
 <li>You can add <strong>any number of dependencies</strong></li>
 <li>Dependencies are executed <strong>in parallel</strong> by default</li>

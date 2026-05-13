@@ -400,7 +400,7 @@
   <a href="#accessing-the-beamable-window" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Accessing the Beamable Window
+        Accessing the Beamable window
       
     </span>
   </a>
@@ -411,19 +411,19 @@
   <a href="#your-first-blueprint-request" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Your First Blueprint Request
+        Your first Blueprint request
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Your First Blueprint Request">
+    <nav class="md-nav" aria-label="Your first Blueprint request">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#what-is-happening-above" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What Is Happening Above
+        What is happening above
       
     </span>
   </a>
@@ -439,7 +439,7 @@
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next Steps
+        Next steps
       
     </span>
   </a>
@@ -450,7 +450,7 @@
   <a href="#issues-and-reporting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Issues and Reporting
+        Issues and reporting
       
     </span>
   </a>
@@ -1045,7 +1045,7 @@
   <span class="md-ellipsis">
     
   
-    Unreal SDK - Operations &amp; Waits
+    Unreal SDK - operations and waits
   
 
     
@@ -8818,7 +8818,7 @@
   <a href="#accessing-the-beamable-window" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Accessing the Beamable Window
+        Accessing the Beamable window
       
     </span>
   </a>
@@ -8829,19 +8829,19 @@
   <a href="#your-first-blueprint-request" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Your First Blueprint Request
+        Your first Blueprint request
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Your First Blueprint Request">
+    <nav class="md-nav" aria-label="Your first Blueprint request">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#what-is-happening-above" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What Is Happening Above
+        What is happening above
       
     </span>
   </a>
@@ -8857,7 +8857,7 @@
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next Steps
+        Next steps
       
     </span>
   </a>
@@ -8868,7 +8868,7 @@
   <a href="#issues-and-reporting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Issues and Reporting
+        Issues and reporting
       
     </span>
   </a>
@@ -8898,7 +8898,7 @@
 <p class="admonition-title">Notice</p>
 <p>This tutorial assumes you have already set up your Beamable account and integrated the Beamable SDK into your Unreal project. For instructions on doing so, see the <a href="../setup/">Setup Guide</a>.</p>
 </div>
-<h2 id="accessing-the-beamable-window">Accessing the Beamable Window<a class="headerlink" href="#accessing-the-beamable-window" title="Permanent link">¶</a></h2>
+<h2 id="accessing-the-beamable-window">Accessing the Beamable window<a class="headerlink" href="#accessing-the-beamable-window" title="Permanent link">¶</a></h2>
 <p>When opening the Unreal Editor of your project, you will see the Beamable Logo in the upper-right, next to the Settings dropdown. This button opens the Beamable Editor Window. Here, you can log in to the account you just created in the Beamable Portal.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/intro-beamable-window-location.gif" data-desc-position="bottom"><img alt="intro-beamable-window-location.png" src="../../../media/imgs/intro-beamable-window-location.gif"></a></p>
 <p>When the login process is finished, you should see the Beamable Window Editor like this:</p>
@@ -8924,11 +8924,11 @@
 </li>
 </ul>
 </div>
-<h2 id="your-first-blueprint-request">Your First Blueprint Request<a class="headerlink" href="#your-first-blueprint-request" title="Permanent link">¶</a></h2>
+<h2 id="your-first-blueprint-request">Your first Blueprint request<a class="headerlink" href="#your-first-blueprint-request" title="Permanent link">¶</a></h2>
 <p>Now that you are familiar with the Beamable Window, you are ready to make your first Beamable request. This guide uses Blueprint, but the same flow works in C++ via calls in your Project's <code>GameMode</code> class's <code>BeginPlay</code> function.</p>
 <p>To get started, open your Level Blueprint and add the following nodes:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/intro-init-sdk-with-login-frictionless.png" data-desc-position="bottom"><img alt="intro-init-sdk-with-login-frictionless" src="../../../media/imgs/intro-init-sdk-with-login-frictionless.png"></a></p>
-<h3 id="what-is-happening-above">What Is Happening Above<a class="headerlink" href="#what-is-happening-above" title="Permanent link">¶</a></h3>
+<h3 id="what-is-happening-above">What is happening above<a class="headerlink" href="#what-is-happening-above" title="Permanent link">¶</a></h3>
 <p>The <code>BeamRuntime</code> is a <code>GameInstanceSubsystem</code> that is responsible for controlling the SDK's lifecycle and player authentication. Call this function to initialize the SDK. The <a href="../../user-reference/overview/">Technical Overview</a> covers the Beamable Runtime in depth.</p>
 <p>Once the SDK is initialized, you can log in a guest account automatically. To do that, use the <code>Login - Frictionless</code> Operation node, which logs a guest account into the <code>Player0</code> user slot.</p>
 <p>Operation nodes are "purple" Beamable nodes that encapsulate many complex bodies of functionality in an easy-to-use fashion. See <a href="../../user-reference/runtime-systems/blueprints/">Operation Nodes</a> for more information.</p>
@@ -8940,10 +8940,10 @@
 </ul>
 <p>If this operation succeeds, you will have a guest account signed-into the <code>Player0</code> user slot.</p>
 <p>With the SDK's default configuration and the above setup, enter <abbr title="Play in Editor">PIE</abbr> (Play-In-Editor). You should see several requests' responses written to your Output Log window. After you see the final <code>GetMe</code> request, you can exit <abbr title="Play in Editor">PIE</abbr> knowing you have made your first request to Beamable. Congratulations!</p>
-<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
 <p>Now that you have made your first Beamable Request, see the <a href="../../user-reference/overview/">Technical Overview</a> page to understand more about how the SDK is structured and identify the best path to using it in your game.</p>
 <p>The <a href="../../samples/intro/">Samples</a> are also a valuable source of practical information and general reference.</p>
-<h2 id="issues-and-reporting">Issues and Reporting<a class="headerlink" href="#issues-and-reporting" title="Permanent link">¶</a></h2>
+<h2 id="issues-and-reporting">Issues and reporting<a class="headerlink" href="#issues-and-reporting" title="Permanent link">¶</a></h2>
 <ul>
 <li>For issues stemming from the SDK, enable verbose logging with <code>log Category Verbose</code>. Log categories are defined in <code>BeamableCore/BeamLogging.h</code></li>
 <li>Verbose logging prints significantly more information about requests and SDK activity. It is intended for diagnostics only, not production use. To disable it in the same editor session, run <code>log Category Display</code> in the editor console</li>

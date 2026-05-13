@@ -937,7 +937,7 @@
   <span class="md-ellipsis">
     
   
-    Unreal SDK - Operations &amp; Waits
+    Unreal SDK - operations and waits
   
 
     
@@ -1892,10 +1892,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#setting-up-your-gameplay-levels-level-blueprint" class="md-nav__link">
+  <a href="#setting-up-your-gameplay-levels-blueprint" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setting Up your Gameplay Level's Level Blueprint
+        Setting up your gameplay level's Blueprint
       
     </span>
   </a>
@@ -1906,7 +1906,7 @@
   <a href="#implementing-game-server-authentication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implementing Game Server Authentication
+        Implementing game server authentication
       
     </span>
   </a>
@@ -1928,19 +1928,19 @@
   <a href="#user-slots-in-the-game-server-sdk" class="md-nav__link">
     <span class="md-ellipsis">
       
-        User Slots in the Game Server SDK
+        User slots in the game server SDK
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="User Slots in the Game Server SDK">
+    <nav class="md-nav" aria-label="User slots in the game server SDK">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#writing-to-a-users-statsinventory" class="md-nav__link">
+  <a href="#writing-to-a-users-stats-and-inventory" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Writing to a User's Stats/Inventory
+        Writing to a user's stats and inventory
       
     </span>
   </a>
@@ -1956,7 +1956,7 @@
   <a href="#making-beam-pie-faster" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Making Beam PIE Faster
+        Making Beam PIE faster
       
     </span>
   </a>
@@ -8828,10 +8828,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#setting-up-your-gameplay-levels-level-blueprint" class="md-nav__link">
+  <a href="#setting-up-your-gameplay-levels-blueprint" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setting Up your Gameplay Level's Level Blueprint
+        Setting up your gameplay level's Blueprint
       
     </span>
   </a>
@@ -8842,7 +8842,7 @@
   <a href="#implementing-game-server-authentication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implementing Game Server Authentication
+        Implementing game server authentication
       
     </span>
   </a>
@@ -8864,19 +8864,19 @@
   <a href="#user-slots-in-the-game-server-sdk" class="md-nav__link">
     <span class="md-ellipsis">
       
-        User Slots in the Game Server SDK
+        User slots in the game server SDK
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="User Slots in the Game Server SDK">
+    <nav class="md-nav" aria-label="User slots in the game server SDK">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#writing-to-a-users-statsinventory" class="md-nav__link">
+  <a href="#writing-to-a-users-stats-and-inventory" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Writing to a User's Stats/Inventory
+        Writing to a user's stats and inventory
       
     </span>
   </a>
@@ -8892,7 +8892,7 @@
   <a href="#making-beam-pie-faster" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Making Beam PIE Faster
+        Making Beam PIE faster
       
     </span>
   </a>
@@ -8926,7 +8926,7 @@
 <li><code>ULocalPlayer::GetGameLoginOptions</code>: This appends a string of Options to each <code>ULocalPlayer</code>'s connection string.</li>
 <li><code>FUniqueNetIdRepl</code>: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework</li>
 </ul>
-<h3 id="setting-up-your-gameplay-levels-level-blueprint">Setting Up your Gameplay Level's Level Blueprint<a class="headerlink" href="#setting-up-your-gameplay-levels-level-blueprint" title="Permanent link">¶</a></h3>
+<h3 id="setting-up-your-gameplay-levels-blueprint">Setting up your gameplay level's Blueprint<a class="headerlink" href="#setting-up-your-gameplay-levels-blueprint" title="Permanent link">¶</a></h3>
 <p>This section is the C++ version of <a href="../realtime-multiplayer-overview/#setting-up-your-gameplay-levels-level-blueprint">what is done in the Level Blueprint here</a>.</p>
 <p>In C++, this would usually be done in <code>AGameMode::BeginPlay</code> and would look something like this.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">BeginPlay</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
@@ -8985,7 +8985,7 @@
 <a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="p">}</span>
 </code></pre></div>
 <p><strong>The code above still expects you to have the <code>Easy Enable</code> node in your level blueprint marked with <code>Init when Server Build</code>.</strong></p>
-<h2 id="implementing-game-server-authentication">Implementing Game Server Authentication<a class="headerlink" href="#implementing-game-server-authentication" title="Permanent link">¶</a></h2>
+<h2 id="implementing-game-server-authentication">Implementing game server authentication<a class="headerlink" href="#implementing-game-server-authentication" title="Permanent link">¶</a></h2>
 <p>When using the Beamable SDK, to validate that the user should be allowed to connect to this game server, the SDK needs to verify a few things:</p>
 <ul>
 <li>The User's Auth Token and GamerTag... so that the server can verify the user is who they say they are</li>
@@ -9044,7 +9044,7 @@
 <p>As long as you are using the <code>Project Settings &gt; Game &gt; Beamable Runtime &gt; Enable Gameplay Framework Integration</code>, this is all handled automatically for you (in various ways). If, for whatever reason, you want the <code>FUniqueNetId</code> to be something other than the Beamable GamerTag, you <strong><em>MUST</em></strong> also implement Game Server Authentication for these utility functions to work.</p>
 <p>This constraint exists because, for now, the logic in <code>BeamMultiplayer::Authentication::PreLoginAsync</code> is the only place where the SDK will have both the <code>GamerTag</code> (from the <code>Options</code>) AND the <code>UniqueId</code> to map each player correctly.</p>
 <p><strong><em>Keep in mind that the default SDK behavior does not need you to care about any of this.</em></strong></p>
-<h2 id="user-slots-in-the-game-server-sdk">User Slots in the Game Server SDK<a class="headerlink" href="#user-slots-in-the-game-server-sdk" title="Permanent link">¶</a></h2>
+<h2 id="user-slots-in-the-game-server-sdk">User slots in the game server SDK<a class="headerlink" href="#user-slots-in-the-game-server-sdk" title="Permanent link">¶</a></h2>
 <p>User Slots are a big part of the regular workflow when working with Beamable SDK in game clients. For dedicated servers though they are not used. Any functions containing the <code>UserSlot</code> parameter, that parameter can be ignored.</p>
 <p>This means a few things:</p>
 <ul>
@@ -9056,9 +9056,9 @@
 <p class="admonition-title">Server Mapping Slots - Experimental</p>
 <p>By default, if you are implementing the <strong>Game Server Authentication</strong> described here. The server stores the AuthToken for each user inside server mapping slots — this means the Game Server <em>can</em> make requests "as though they were the user itself" but with the Server's admin permissions. This can be useful due to certain legacy API limitations.</p>
 </div>
-<h3 id="writing-to-a-users-statsinventory">Writing to a User's Stats/Inventory<a class="headerlink" href="#writing-to-a-users-statsinventory" title="Permanent link">¶</a></h3>
+<h3 id="writing-to-a-users-stats-and-inventory">Writing to a user's stats and inventory<a class="headerlink" href="#writing-to-a-users-stats-and-inventory" title="Permanent link">¶</a></h3>
 <p>When writing your Game Server code, you generally don't want to be making requests for individual players one at a time (batching is generally better). Sometimes that is fine, but there are cases where you'll want to write several things to several players' Stats/Inventory (processing a match's results, for example). In cases like this, you should write <code>ServerCallable</code> functions in Microservices and call those from the Microservice. See <a href="../../microservices/microservices/">Microservices</a> for more information about the various types of <code>Callable</code>.</p>
-<h2 id="making-beam-pie-faster">Making Beam <abbr title="Play in Editor">PIE</abbr> Faster<a class="headerlink" href="#making-beam-pie-faster" title="Permanent link">¶</a></h2>
+<h2 id="making-beam-pie-faster">Making Beam <abbr title="Play in Editor">PIE</abbr> faster<a class="headerlink" href="#making-beam-pie-faster" title="Permanent link">¶</a></h2>
 <p>Iteration time is one of the most important factors in game development, so entering <abbr title="Play in Editor">PIE</abbr> as fast as UE allows — without sacrificing Beamable's guarantees — is worth the extra setup.</p>
 <p>A custom <code>GameInstance</code> implementation makes this possible.</p>
 <p>Implement the snippet below and configure your custom Game Instance class in <code>Project Settings &gt; Project &gt; Maps &amp; Modes &gt; Game Instance Class</code>.</p>

@@ -937,7 +937,7 @@
   <span class="md-ellipsis">
     
   
-    Unreal SDK - Operations &amp; Waits
+    Unreal SDK - operations and waits
   
 
     
@@ -1672,7 +1672,7 @@
   <a href="#federation-id" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Federation Id
+        Federation ID
       
     </span>
   </a>
@@ -1683,7 +1683,7 @@
   <a href="#addingremoving-federations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding/Removing Federations
+        Adding/Removing federations
       
     </span>
   </a>
@@ -1694,7 +1694,7 @@
   <a href="#workflows-for-developing-federations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Workflows for Developing Federations
+        Workflows for developing federations
       
     </span>
   </a>
@@ -8792,7 +8792,7 @@
   <a href="#federation-id" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Federation Id
+        Federation ID
       
     </span>
   </a>
@@ -8803,7 +8803,7 @@
   <a href="#addingremoving-federations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding/Removing Federations
+        Adding/Removing federations
       
     </span>
   </a>
@@ -8814,7 +8814,7 @@
   <a href="#workflows-for-developing-federations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Workflows for Developing Federations
+        Workflows for developing federations
       
     </span>
   </a>
@@ -8852,7 +8852,7 @@
 <p>Here is a high-level diagram of Federations:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture-federation-general.png" data-desc-position="bottom"><img alt="microservices-architecture-federation-general.png" src="../../../../media/imgs/microservices-architecture-federation-general.png"></a></p>
 <p>Each <strong>Federation</strong> has its own semantics, usage guidelines, performance characteristics, and constraints, described in its individual page.</p>
-<h2 id="federation-id">Federation Id<a class="headerlink" href="#federation-id" title="Permanent link">¶</a></h2>
+<h2 id="federation-id">Federation ID<a class="headerlink" href="#federation-id" title="Permanent link">¶</a></h2>
 <p>Federations are delegate methods in your microservice that the Beamable backend calls at specific points in various flows, to perform tasks that would otherwise be entirely internal to the Beamable backend. A Federation Id is a unique <code>string</code> value that designates a specific implementation of Federation.</p>
 <p>The combination of the <strong>Federation Id</strong> and the <strong>Federation Type</strong> is comparable to a function name/pointer assigned to an Unreal delegate; in the sense that it is used by the Beamable backend to know which implementation of a federation in your microservice it should talk to, if any.</p>
 <p>Examples:</p>
@@ -8862,7 +8862,7 @@
 <li><code>SteamId</code> carries <code>[FederationId("steam")]</code>; <code>EpicId</code> carries <code>[FederationId("epic")]</code> — Beamable uses these strings to route each request to the correct implementation</li>
 </ul>
 <p><code>FederationId</code> values are the mechanism Beamable uses to select the correct Federation implementation when your microservice provides more than one of the same type. This is the <code>FederationId</code> parameter passed to <code>LoginFederatedOperation</code>, <code>SignUpFederatedOperation</code>, and <code>AttachFederatedOperation</code> on <code>UBeamRuntime</code>.</p>
-<h2 id="addingremoving-federations">Adding/Removing Federations<a class="headerlink" href="#addingremoving-federations" title="Permanent link">¶</a></h2>
+<h2 id="addingremoving-federations">Adding/Removing federations<a class="headerlink" href="#addingremoving-federations" title="Permanent link">¶</a></h2>
 <p>Federations are tied to interfaces implemented in your <code>Microservice</code> inherited class — these Federations and their IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, simply implement its Federation and recompile the microservice project.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// FederationIds.cs</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">[FederationId("cool")]</span>
@@ -8878,7 +8878,7 @@
 </code></pre></div>
 <p>After adding any Federation, your IDE will likely complain that you are not implementing the functions of the interfaces above; most IDEs will then offer you the option of generating the function signatures for those interfaces. After that, all you have to do is write the code for it.</p>
 <p>Take a look at each individual Federation's docs page for more information on use-cases and usage guidelines.</p>
-<h2 id="workflows-for-developing-federations">Workflows for Developing Federations<a class="headerlink" href="#workflows-for-developing-federations" title="Permanent link">¶</a></h2>
+<h2 id="workflows-for-developing-federations">Workflows for developing federations<a class="headerlink" href="#workflows-for-developing-federations" title="Permanent link">¶</a></h2>
 <p>Most Federations are inside complex application paths. Therefore, you need a way to iterate on them locally, much like how you do with <code>Callables</code> (see <a href="../../microservices/microservices/#common-developer-workflows">Microservices</a>).</p>
 <p>The selected <a href="../../microservices/microservices/#microservice-routing-and-microservice-target">Microservice Target</a> defines which running microservice instance will handle the federated call. These get the same semantics as <code>Callables</code> routing. If any Federation does not support or requires additional configuration for local testing, it'll be specified in their documentation.</p>
 <div class="admonition warning">

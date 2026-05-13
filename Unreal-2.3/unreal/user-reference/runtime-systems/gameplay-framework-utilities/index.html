@@ -939,7 +939,7 @@
   <span class="md-ellipsis">
     
   
-    Unreal SDK - Operations &amp; Waits
+    Unreal SDK - operations and waits
   
 
     
@@ -1115,19 +1115,19 @@
   <a href="#blueprint-utilities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Blueprint Utilities
+        Blueprint utilities
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Blueprint Utilities">
+    <nav class="md-nav" aria-label="Blueprint utilities">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#playercontroller-utility" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PlayerController Utility
+        PlayerController utility
       
     </span>
   </a>
@@ -1138,7 +1138,7 @@
   <a href="#playerstate-utility" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PlayerState Utility
+        PlayerState utility
       
     </span>
   </a>
@@ -1154,7 +1154,7 @@
   <a href="#server-side-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Server-Side Integration
+        Server-side integration
       
     </span>
   </a>
@@ -1165,7 +1165,7 @@
   <a href="#enabledisable-the-feature" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enable/Disable the Feature
+        Enable/Disable the feature
       
     </span>
   </a>
@@ -8820,19 +8820,19 @@
   <a href="#blueprint-utilities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Blueprint Utilities
+        Blueprint utilities
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Blueprint Utilities">
+    <nav class="md-nav" aria-label="Blueprint utilities">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#playercontroller-utility" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PlayerController Utility
+        PlayerController utility
       
     </span>
   </a>
@@ -8843,7 +8843,7 @@
   <a href="#playerstate-utility" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PlayerState Utility
+        PlayerState utility
       
     </span>
   </a>
@@ -8859,7 +8859,7 @@
   <a href="#server-side-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Server-Side Integration
+        Server-side integration
       
     </span>
   </a>
@@ -8870,7 +8870,7 @@
   <a href="#enabledisable-the-feature" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enable/Disable the Feature
+        Enable/Disable the feature
       
     </span>
   </a>
@@ -8894,25 +8894,25 @@
 
 
 
-<h1 id="gameplay-framework-utilities">Gameplay Framework Utilities<a class="headerlink" href="#gameplay-framework-utilities" title="Permanent link">¶</a></h1>
+<h1 id="gameplay-framework-utilities">Gameplay framework utilities<a class="headerlink" href="#gameplay-framework-utilities" title="Permanent link">¶</a></h1>
 <p>To streamline the integration between the Beamable SDK and the Unreal Engine Gameplay Framework, the SDK provides a set of utilities and helper functions designed to simplify and accelerate your workflow when combining both systems.</p>
 <p>Beamable introduces the concept of <a href="../user-slots/">User Slots</a>, which are used to manage named local players. On the Unreal side, <strong>local players</strong> refers to users who are directly connected to the game instance, while <strong>remote players</strong> are those connected via the network.</p>
 <p>To help bridge the gap between these two models, Beamable automatically handles the mapping of local and remote players on the <strong>client side</strong>. However, if your game includes a <strong>dedicated server</strong>, some additional setup may be required to ensure this mapping works correctly on the server as well.</p>
-<h2 id="blueprint-utilities">Blueprint Utilities<a class="headerlink" href="#blueprint-utilities" title="Permanent link">¶</a></h2>
+<h2 id="blueprint-utilities">Blueprint utilities<a class="headerlink" href="#blueprint-utilities" title="Permanent link">¶</a></h2>
 <p>The SDK provides Blueprint-accessible utilities for retrieving the <strong>User Slot</strong> or <strong>Gamer Tag</strong> from Unreal’s core gameplay classes such as <code>PlayerController</code> and <code>PlayerState</code>.</p>
-<h3 id="playercontroller-utility">PlayerController Utility<a class="headerlink" href="#playercontroller-utility" title="Permanent link">¶</a></h3>
+<h3 id="playercontroller-utility">PlayerController utility<a class="headerlink" href="#playercontroller-utility" title="Permanent link">¶</a></h3>
 <p>Use this utility to access Beamable-specific player data directly from the <code>PlayerController</code>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobby-subsystem-player-controller-utility.png" data-desc-position="bottom"><img alt="PlayerController Utility" src="../../../../media/imgs/lobby-subsystem-player-controller-utility.png"></a></p>
-<h3 id="playerstate-utility">PlayerState Utility<a class="headerlink" href="#playerstate-utility" title="Permanent link">¶</a></h3>
+<h3 id="playerstate-utility">PlayerState utility<a class="headerlink" href="#playerstate-utility" title="Permanent link">¶</a></h3>
 <p>This utility enables you to access Beamable data from within the <code>PlayerState</code> class.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobby-subsystem-player-state-utility.png" data-desc-position="bottom"><img alt="PlayerState Utility" src="../../../../media/imgs/lobby-subsystem-player-state-utility.png"></a></p>
-<h2 id="server-side-integration">Server-Side Integration<a class="headerlink" href="#server-side-integration" title="Permanent link">¶</a></h2>
+<h2 id="server-side-integration">Server-side integration<a class="headerlink" href="#server-side-integration" title="Permanent link">¶</a></h2>
 <p>On the server side, you need to call <code>BeamMultiplayer::Authentication::PreLoginAsync</code> during the <code>PreLogin</code> phase in your custom <code>GameMode</code>.</p>
 <p>This step is required to correctly map Beamable users to Unreal's gameplay framework, ensuring that player identity and session data are synchronized between Beamable and the server.</p>
 <blockquote>
 <p>💡 <strong>Note:</strong> This is only necessary if your game includes a dedicated server or uses server-authoritative logic.</p>
 </blockquote>
-<h2 id="enabledisable-the-feature">Enable/Disable the Feature<a class="headerlink" href="#enabledisable-the-feature" title="Permanent link">¶</a></h2>
+<h2 id="enabledisable-the-feature">Enable/Disable the feature<a class="headerlink" href="#enabledisable-the-feature" title="Permanent link">¶</a></h2>
 <p>If you would like to enable/disable the automatically created link between the Game Framework and Beamable, you can go to <code>Project Settings &gt; Beamable Runtime &gt; Enable Gameplay Framework Integration</code>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamruntime-enable-gameplayframework.png" data-desc-position="bottom"><img alt="PlayerState Utility" src="../../../../media/imgs/beamruntime-enable-gameplayframework.png"></a></p>
 

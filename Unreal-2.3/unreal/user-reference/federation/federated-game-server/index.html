@@ -937,7 +937,7 @@
   <span class="md-ellipsis">
     
   
-    Unreal SDK - Operations &amp; Waits
+    Unreal SDK - operations and waits
   
 
     
@@ -1784,7 +1784,7 @@
   <a href="#configuring-a-game-server-federation-to-be-called" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuring a Game Server Federation to be Called
+        Configuring a game server federation to be called
       
     </span>
   </a>
@@ -1795,7 +1795,7 @@
   <a href="#provision-game-server-for-custom-lobby-non-matchmaking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provision Game Server for Custom Lobby (non-Matchmaking)
+        Provision game server for custom lobby (non-matchmaking)
       
     </span>
   </a>
@@ -8781,7 +8781,7 @@
   <a href="#configuring-a-game-server-federation-to-be-called" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuring a Game Server Federation to be Called
+        Configuring a game server federation to be called
       
     </span>
   </a>
@@ -8792,7 +8792,7 @@
   <a href="#provision-game-server-for-custom-lobby-non-matchmaking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provision Game Server for Custom Lobby (non-Matchmaking)
+        Provision game server for custom lobby (non-matchmaking)
       
     </span>
   </a>
@@ -8816,7 +8816,7 @@
 
 
 
-<h1 id="federated-game-server">Federated Game Server<a class="headerlink" href="#federated-game-server" title="Permanent link">¶</a></h1>
+<h1 id="federated-game-server">Federated game server<a class="headerlink" href="#federated-game-server" title="Permanent link">¶</a></h1>
 <p>Game Server Federation allows you to integrate with Third-Party Game Server Orchestrators (such as Edgegap or Agones) as well as running arbitrary server-authoritative code before a "found match" notifies its players.</p>
 <p>The interface you implement looks like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">ServerInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateGameServer</span><span class="p">(</span><span class="n">Lobby</span><span class="w"> </span><span class="n">lobby</span><span class="p">);</span>
@@ -8827,7 +8827,7 @@
 <li><strong>Provision Game Server for Lobby</strong>: The <a href="../../beamable-services/lobbies/">Lobby's Host Player</a> asks Beamable to provision a Game Server for their Lobby</li>
 <li><strong>Beam <abbr title="Play in Editor">PIE</abbr>'s <abbr title="Play in Editor">PIE</abbr> Lobby</strong>: Made by <a href="../../editor-systems/pie-settings/">Beam <abbr title="Play in Editor">PIE</abbr>'s <abbr title="Play in Editor">PIE</abbr> Lobby setup</a>. See the <a href="../../realtime-multiplayer/realtime-multiplayer-overview/">Real-Time Multiplayer Guides</a> for more information</li>
 </ul>
-<h2 id="configuring-a-game-server-federation-to-be-called">Configuring a Game Server Federation to be Called<a class="headerlink" href="#configuring-a-game-server-federation-to-be-called" title="Permanent link">¶</a></h2>
+<h2 id="configuring-a-game-server-federation-to-be-called">Configuring a game server federation to be called<a class="headerlink" href="#configuring-a-game-server-federation-to-be-called" title="Permanent link">¶</a></h2>
 <p>Beamable's Backend uses a Content called <code>UBeamGameTypeContent</code> (<code>game_types</code>).
 A GameType represents a set of rules for how Beamable's Matchmaking should produce matches of this game type (including the Federation).</p>
 <ol>
@@ -8880,7 +8880,7 @@ A GameType represents a set of rules for how Beamable's Matchmaking should produ
 <a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="p">}</span>
 </code></pre></div>
 <p>See the <a href="../../../samples/beamball/beamball-demo/">Beamball Demo</a> for a working example of this <code>CreateGameServer</code> function.</p>
-<h2 id="provision-game-server-for-custom-lobby-non-matchmaking">Provision Game Server for Custom Lobby (non-Matchmaking)<a class="headerlink" href="#provision-game-server-for-custom-lobby-non-matchmaking" title="Permanent link">¶</a></h2>
+<h2 id="provision-game-server-for-custom-lobby-non-matchmaking">Provision game server for custom lobby (non-matchmaking)<a class="headerlink" href="#provision-game-server-for-custom-lobby-non-matchmaking" title="Permanent link">¶</a></h2>
 <p>Certain games allow players to <a href="../../beamable-services/lobbies/">create custom lobbies</a> manually. If those games also require invoking the federation endpoint to provision a server or run some arbitrary code, they can do so via the following steps:</p>
 <ol>
 <li>Create a <a href="../../beamable-services/lobbies/">Lobby</a> with the <code>UBeamGameTypeContent</code>'s id.<ol>

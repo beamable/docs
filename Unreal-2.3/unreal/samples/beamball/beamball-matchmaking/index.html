@@ -935,7 +935,7 @@
   <span class="md-ellipsis">
     
   
-    Unreal SDK - Operations &amp; Waits
+    Unreal SDK - operations and waits
   
 
     
@@ -8342,7 +8342,7 @@
   <a href="#starting-a-matchmaking-queue" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Starting a Matchmaking Queue
+        Starting a matchmaking queue
       
     </span>
   </a>
@@ -8353,7 +8353,7 @@
   <a href="#matchmaking-events" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Matchmaking Events
+        Matchmaking events
       
     </span>
   </a>
@@ -8364,7 +8364,7 @@
   <a href="#starting-a-match" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Starting a Match
+        Starting a match
       
     </span>
   </a>
@@ -8805,7 +8805,7 @@
   <a href="#starting-a-matchmaking-queue" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Starting a Matchmaking Queue
+        Starting a matchmaking queue
       
     </span>
   </a>
@@ -8816,7 +8816,7 @@
   <a href="#matchmaking-events" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Matchmaking Events
+        Matchmaking events
       
     </span>
   </a>
@@ -8827,7 +8827,7 @@
   <a href="#starting-a-match" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Starting a Match
+        Starting a match
       
     </span>
   </a>
@@ -8869,7 +8869,7 @@
 </video>
 <center> Beamball Team Match</center>
 
-<h2 id="starting-a-matchmaking-queue">Starting a Matchmaking Queue<a class="headerlink" href="#starting-a-matchmaking-queue" title="Permanent link">¶</a></h2>
+<h2 id="starting-a-matchmaking-queue">Starting a matchmaking queue<a class="headerlink" href="#starting-a-matchmaking-queue" title="Permanent link">¶</a></h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-matchmaking.png" data-desc-position="bottom"><img alt="beamball-matchmaking.png" src="../../../../media/imgs/beamball-matchmaking.png"></a></p>
 <p>The Player selects <strong>Play</strong> in the main menu then the <strong><code>Refresh Hatchora Ping Stat Operation</code></strong> updates ping in the player's stats allowing the server to choose the best lobby to this player. The local state is checked with <strong><code>Local State - Matchmaking - IsUserInQueue</code></strong>, leaving the queue if already in. The <strong><code>Local State - Lobby - TryGetCurrentLobby</code></strong> checks if the player is in a lobby, leaving if so. Finally, if there's impediment the player joins the matchmaking queue with <strong><code>Operation - Matchmaking - Join Queue</code></strong>. Beamable services handle the rest of the matchmaking process, forming balanced lobbies and starting the match.</p>
 <div class="admonition note">
@@ -8882,10 +8882,10 @@
 <li><strong><code>Local State - Lobby - TryGetCurrentLobby</code></strong>: Retrieves the current lobby if the player is in one.</li>
 </ul>
 </div>
-<h2 id="matchmaking-events">Matchmaking Events<a class="headerlink" href="#matchmaking-events" title="Permanent link">¶</a></h2>
+<h2 id="matchmaking-events">Matchmaking events<a class="headerlink" href="#matchmaking-events" title="Permanent link">¶</a></h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-matchmacking3.png" data-desc-position="bottom"><img alt="beamball-matchmacking3.png" src="../../../../media/imgs/beamball-matchmacking3.png"></a>
 The matchmaking process is asynchronous, and the player is kept informed through event bindings on the <strong><code>Events - Matchmaking - Bind</code></strong>. The player is notified when they successfully started search for a match, when the Match is ready, canceled or timed out.</p>
-<h2 id="starting-a-match">Starting a Match<a class="headerlink" href="#starting-a-match" title="Permanent link">¶</a></h2>
+<h2 id="starting-a-match">Starting a match<a class="headerlink" href="#starting-a-match" title="Permanent link">¶</a></h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-matchmaking2.png" data-desc-position="bottom"><img alt="beamball-matchmaking2.png" src="../../../../media/imgs/beamball-matchmaking2.png"></a></p>
 <p>Once the matchmaking system has formed a lobby, the player is notified and can start. The <strong><code>Operation - Lobby - Load Level</code></strong> operator is called, which signals Beamable's backend to initiate the match using the configured Lobby Data. In this sample the Edgegap Orchestrator handles the server alocation and returns a call to Beamable to start the match, allowing players to transition directly into the game.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>

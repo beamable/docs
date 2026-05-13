@@ -937,7 +937,7 @@
   <span class="md-ellipsis">
     
   
-    Unreal SDK - Operations &amp; Waits
+    Unreal SDK - operations and waits
   
 
     
@@ -2086,10 +2086,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#frictionless-login-attaching-identities" class="md-nav__link">
+  <a href="#frictionless-login-and-attaching-identities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Frictionless Login + Attaching Identities
+        Frictionless login and attaching identities
       
     </span>
   </a>
@@ -2097,10 +2097,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manual-sign-uplogin-with-emailpassword" class="md-nav__link">
+  <a href="#manual-sign-up-or-login-with-emailpassword" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manual Sign-Up/Login with Email/Password
+        Manual sign-up or login with email/password
       
     </span>
   </a>
@@ -2108,10 +2108,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatic-third-party-via-store-attaching-identities" class="md-nav__link">
+  <a href="#automatic-third-party-via-store-and-attaching-identities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automatic Third-Party via Store + Attaching Identities
+        Automatic third-party via store and attaching identities
       
     </span>
   </a>
@@ -8789,10 +8789,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#frictionless-login-attaching-identities" class="md-nav__link">
+  <a href="#frictionless-login-and-attaching-identities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Frictionless Login + Attaching Identities
+        Frictionless login and attaching identities
       
     </span>
   </a>
@@ -8800,10 +8800,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manual-sign-uplogin-with-emailpassword" class="md-nav__link">
+  <a href="#manual-sign-up-or-login-with-emailpassword" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manual Sign-Up/Login with Email/Password
+        Manual sign-up or login with email/password
       
     </span>
   </a>
@@ -8811,10 +8811,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatic-third-party-via-store-attaching-identities" class="md-nav__link">
+  <a href="#automatic-third-party-via-store-and-attaching-identities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automatic Third-Party via Store + Attaching Identities
+        Automatic third-party via store and attaching identities
       
     </span>
   </a>
@@ -8838,9 +8838,9 @@
 
 
 
-<h1 id="identity-using-online-subsystem">Identity Using Online Subsystem<a class="headerlink" href="#identity-using-online-subsystem" title="Permanent link">¶</a></h1>
+<h1 id="identity-using-online-subsystem">Identity using Online Subsystem<a class="headerlink" href="#identity-using-online-subsystem" title="Permanent link">¶</a></h1>
 <p>There are several different styles of signup/login flows games might want to use. This section explores how to set them up.</p>
-<h3 id="frictionless-login-attaching-identities">Frictionless Login + Attaching Identities<a class="headerlink" href="#frictionless-login-attaching-identities" title="Permanent link">¶</a></h3>
+<h3 id="frictionless-login-and-attaching-identities">Frictionless login and attaching identities<a class="headerlink" href="#frictionless-login-and-attaching-identities" title="Permanent link">¶</a></h3>
 <p>This flow is useful for when you want to automatically create a user for the player and then, some time in the future, you'll provide your player the opportunity to attach identities to them. Mostly used by mobile games, but can also be used to implement automatic Steam/Epic store logins.</p>
 <ul>
 <li>Use the <code>IOnlineIdentity::Login</code> function with a <code>LoginType</code> of <code>BeamOSS::GetIdentityTypeFrictionless()</code> to create an account (or sign into the locally cached one).</li>
@@ -8854,7 +8854,7 @@
 <p>If you have <code>UOnlineSubsystemBeamableSettings::bAutoLoginOnAttach</code> set to <code>true</code>, trying to attach to an already-used identity will sign out of the current user and then sign-in to the given identity. Keep in mind the difference in the semantics of the <code>OnLoginCompleteDelegates</code> because of this.</p>
 <p>Ex: <code>User A</code> is signed into <code>Player0</code> and you try to attach an email belonging to <code>User B</code> to <code>Player0</code>. If <code>bAutoLoginOnAttach == true</code>, <code>User A</code> will be signed out of <code>Player0</code> and <code>User B</code> will be signed in and only then the <code>OnLoginCompleteDelegates</code> will trigger as a success.</p>
 </div>
-<h2 id="manual-sign-uplogin-with-emailpassword">Manual Sign-Up/Login with Email/Password<a class="headerlink" href="#manual-sign-uplogin-with-emailpassword" title="Permanent link">¶</a></h2>
+<h2 id="manual-sign-up-or-login-with-emailpassword">Manual sign-up or login with email/password<a class="headerlink" href="#manual-sign-up-or-login-with-emailpassword" title="Permanent link">¶</a></h2>
 <p>If your game has a sign-up and/or login screen that the user is expected to choose their sign-up or login flows, this is what you want.</p>
 <ul>
 <li>Use the <code>IOnlineIdentity::Login</code> function with a <code>LoginType</code> of <code>BeamOSS::GetIdentityTypeSignUpEmail()</code>.</li>
@@ -8864,7 +8864,7 @@
 <p class="admonition-title">Attaching Other Identities</p>
 <p>You can still attach other identities using any of the <code>BeamOSS::GetIdentityTypeAttach____()</code>. The same rules around <code>bAutoLoginOnAttach</code> apply.</p>
 </div>
-<h2 id="automatic-third-party-via-store-attaching-identities">Automatic Third-Party via Store + Attaching Identities<a class="headerlink" href="#automatic-third-party-via-store-attaching-identities" title="Permanent link">¶</a></h2>
+<h2 id="automatic-third-party-via-store-and-attaching-identities">Automatic third-party via store and attaching identities<a class="headerlink" href="#automatic-third-party-via-store-and-attaching-identities" title="Permanent link">¶</a></h2>
 <p>If your game uses some third-party store identity such as Steam/Epic Store, you can follow this flow. This requires you to have correctly setup an identity federation for the store (see each federation's How-To guides for <a href="../../federation/federated-login/">more information</a>.</p>
 <ul>
 <li>Use the <code>IOnlineIdentity::Login</code> function with a <code>LoginType</code> of <code>BeamOSS::GetIdentityTypeFederated()</code> with <code>UOnlineSubsystemBeamableSettings::bAutoSignUpWhenLogin</code> as <code>true</code>.<ul>

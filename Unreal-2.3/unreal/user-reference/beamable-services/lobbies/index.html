@@ -937,7 +937,7 @@
   <span class="md-ellipsis">
     
   
-    Unreal SDK - Operations &amp; Waits
+    Unreal SDK - operations and waits
   
 
     
@@ -1338,19 +1338,19 @@
   <a href="#getting-started-openclosed-lobbies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started - Open/Closed Lobbies
+        Getting started - Open/Closed lobbies
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Getting Started - Open/Closed Lobbies">
+    <nav class="md-nav" aria-label="Getting started - Open/Closed lobbies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#creating-lobbies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating Lobbies
+        Creating lobbies
       
     </span>
   </a>
@@ -1361,7 +1361,7 @@
   <a href="#leaving-and-kicking-users" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Leaving and Kicking Users
+        Leaving and kicking users
       
     </span>
   </a>
@@ -1372,7 +1372,7 @@
   <a href="#dedicated-servers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dedicated Servers
+        Dedicated servers
       
     </span>
   </a>
@@ -1388,7 +1388,7 @@
   <a href="#reading-and-writing-to-lobbies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reading and Writing to Lobbies
+        Reading and writing to lobbies
       
     </span>
   </a>
@@ -1399,7 +1399,7 @@
   <a href="#synchronizing-across-clients" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Synchronizing Across Clients
+        Synchronizing across clients
       
     </span>
   </a>
@@ -1410,7 +1410,7 @@
   <a href="#lobby-types-and-lobby-schema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lobby Types and Lobby Schema
+        Lobby types and lobby schema
       
     </span>
   </a>
@@ -1421,7 +1421,7 @@
   <a href="#utilities-for-dedicated-server-games" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Utilities for Dedicated Server Games
+        Utilities for dedicated server games
       
     </span>
   </a>
@@ -8853,19 +8853,19 @@
   <a href="#getting-started-openclosed-lobbies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started - Open/Closed Lobbies
+        Getting started - Open/Closed lobbies
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Getting Started - Open/Closed Lobbies">
+    <nav class="md-nav" aria-label="Getting started - Open/Closed lobbies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#creating-lobbies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating Lobbies
+        Creating lobbies
       
     </span>
   </a>
@@ -8876,7 +8876,7 @@
   <a href="#leaving-and-kicking-users" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Leaving and Kicking Users
+        Leaving and kicking users
       
     </span>
   </a>
@@ -8887,7 +8887,7 @@
   <a href="#dedicated-servers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dedicated Servers
+        Dedicated servers
       
     </span>
   </a>
@@ -8903,7 +8903,7 @@
   <a href="#reading-and-writing-to-lobbies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reading and Writing to Lobbies
+        Reading and writing to lobbies
       
     </span>
   </a>
@@ -8914,7 +8914,7 @@
   <a href="#synchronizing-across-clients" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Synchronizing Across Clients
+        Synchronizing across clients
       
     </span>
   </a>
@@ -8925,7 +8925,7 @@
   <a href="#lobby-types-and-lobby-schema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lobby Types and Lobby Schema
+        Lobby types and lobby schema
       
     </span>
   </a>
@@ -8936,7 +8936,7 @@
   <a href="#utilities-for-dedicated-server-games" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Utilities for Dedicated Server Games
+        Utilities for dedicated server games
       
     </span>
   </a>
@@ -8989,23 +8989,23 @@
 </ul>
 </li>
 </ul>
-<h2 id="getting-started-openclosed-lobbies">Getting Started - Open/Closed Lobbies<a class="headerlink" href="#getting-started-openclosed-lobbies" title="Permanent link">¶</a></h2>
+<h2 id="getting-started-openclosed-lobbies">Getting started - Open/Closed lobbies<a class="headerlink" href="#getting-started-openclosed-lobbies" title="Permanent link">¶</a></h2>
 <p>This section describes how to set up and join manually created lobbies. Lobbies created via <a href="../matchmaking/">Matchmaking</a> don't need this setup.</p>
-<h3 id="creating-lobbies">Creating Lobbies<a class="headerlink" href="#creating-lobbies" title="Permanent link">¶</a></h3>
+<h3 id="creating-lobbies">Creating lobbies<a class="headerlink" href="#creating-lobbies" title="Permanent link">¶</a></h3>
 <p>Use the <code>Lobby - Create Open Lobby</code> operation to create an <strong><em>Open Lobby</em></strong>. This Lobby will be visible to all players in the realm. You can use the <code>Lobby - Refresh Lobbies</code> operation to fetch filtered paged lists of Open lobbies in a realm.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-open-lobbies.png" data-desc-position="bottom"><img alt="lobbies-open-lobbies.png" src="../../../../media/imgs/lobbies-open-lobbies.png"></a></p>
 <p>Use the <code>Lobby - Create Closed Lobby</code> operation to create a <strong><em>Closed Lobby</em></strong>. This Lobby is NOT visible to all players in the realm and can only be joined via its <strong>Passcode</strong>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-closed-lobby.png" data-desc-position="bottom"><img alt="lobbies-closed-lobby.png" src="../../../../media/imgs/lobbies-closed-lobby.png"></a></p>
 <p>When in a <a href="../parties/">Party</a>, only the party leader is allowed to join a Lobby. Doing so will also bring all other party members into the Lobby with them. If the Lobby <strong>MaxPlayer</strong> count would be surpassed by the entire party joining, nobody can join.</p>
-<h3 id="leaving-and-kicking-users">Leaving and Kicking Users<a class="headerlink" href="#leaving-and-kicking-users" title="Permanent link">¶</a></h3>
+<h3 id="leaving-and-kicking-users">Leaving and kicking users<a class="headerlink" href="#leaving-and-kicking-users" title="Permanent link">¶</a></h3>
 <p>Once in a Lobby, any player can leave it by using the <code>Lobby - Leave Lobby</code> operation. By default, whenever a host leaves the lobby, Beamable will disband the lobby and notify all players in it. The Lobby's Host also has the ability to kick players via the <code>Lobby - Kick Player</code> operation.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-leave-kick.png" data-desc-position="bottom"><img alt="lobbies-leave-kick.png" src="../../../../media/imgs/lobbies-leave-kick.png"></a></p>
 <p>Optionally, the host can be forced to transfer ownership before leaving a lobby.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-transfer-ownership.png" data-desc-position="bottom"><img alt="lobbies-transfer-ownership.png" src="../../../../media/imgs/lobbies-transfer-ownership.png"></a></p>
-<h3 id="dedicated-servers">Dedicated Servers<a class="headerlink" href="#dedicated-servers" title="Permanent link">¶</a></h3>
+<h3 id="dedicated-servers">Dedicated servers<a class="headerlink" href="#dedicated-servers" title="Permanent link">¶</a></h3>
 <p>For games with dedicated servers, the <code>Lobby - Provision Game Server for Lobby</code> operation triggers <a href="../../federation/federated-game-server/">Game Server Federation</a> to boot up a server instance for the game. If you need to differentiate between matchmaking lobbies and Open/Closed lobbies, you can verify whether the lobby has a host within the federation's logic to properly handle when and which game server to provision.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-provision-federation.png" data-desc-position="bottom"><img alt="lobbies-provision-federation.png" src="../../../../media/imgs/lobbies-provision-federation.png"></a></p>
-<h2 id="reading-and-writing-to-lobbies">Reading and Writing to Lobbies<a class="headerlink" href="#reading-and-writing-to-lobbies" title="Permanent link">¶</a></h2>
+<h2 id="reading-and-writing-to-lobbies">Reading and writing to lobbies<a class="headerlink" href="#reading-and-writing-to-lobbies" title="Permanent link">¶</a></h2>
 <p>For both Matchmaking lobbies and Open/Closed lobbies, the SDK exposes APIs to read/write lobby data that is synchronized between all players in the lobby.</p>
 <p>Updating the Lobby's <code>Global Data</code> and any of its configurations can only be done by the Lobby's host (or a server in case of Matchmaking lobbies).</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-updating-lobby-data.png" data-desc-position="bottom"><img alt="lobbies-updating-lobby-data.png" src="../../../../media/imgs/lobbies-updating-lobby-data.png"></a></p>
@@ -9015,7 +9015,7 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-read-global-data.png" data-desc-position="bottom"><img alt="lobbies-read-global-data.png" src="../../../../media/imgs/lobbies-read-global-data.png"></a></p>
 <p>To read from a specific player's data, you can use any of these nodes:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-read-player-data.png" data-desc-position="bottom"><img alt="lobbies-read-player-data.png" src="../../../../media/imgs/lobbies-read-player-data.png"></a></p>
-<h2 id="synchronizing-across-clients">Synchronizing Across Clients<a class="headerlink" href="#synchronizing-across-clients" title="Permanent link">¶</a></h2>
+<h2 id="synchronizing-across-clients">Synchronizing across clients<a class="headerlink" href="#synchronizing-across-clients" title="Permanent link">¶</a></h2>
 <p>Beamable's Lobby system will automatically notify every player inside a lobby of relevant events. Once you're in a lobby, the SDK keeps track of your local state inside <code>UBeamLobbyState</code> (one per-<code>UserSlot</code>).</p>
 <p>You can use <code>GetCurrentSlotLobbyState</code> to get the <code>UBeamLobbyState</code> and setup various <strong>Delegates</strong> in this object to respond to these events, normally updating your UI or custom system built on top of this subsystem.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-notification-binding.png" data-desc-position="bottom"><img alt="lobbies-notification-binding.png" src="../../../../media/imgs/lobbies-notification-binding.png"></a></p>
@@ -9043,7 +9043,7 @@
 <p><strong>OnLobbyUpdate</strong>: Whenever any property of the lobby changes via <code>CommitLobbyUpdateOperation</code>, <code>UpdatePlayerDataOperation</code> and <code>UpdateSlotPlayerDataOperation</code>, this will be invoked.</p>
 </li>
 </ul>
-<h2 id="lobby-types-and-lobby-schema">Lobby Types and Lobby Schema<a class="headerlink" href="#lobby-types-and-lobby-schema" title="Permanent link">¶</a></h2>
+<h2 id="lobby-types-and-lobby-schema">Lobby types and lobby schema<a class="headerlink" href="#lobby-types-and-lobby-schema" title="Permanent link">¶</a></h2>
 <p>There are two types of lobbies:</p>
 <ul>
 <li><strong>Open</strong> lobbies can be queried via <code>RefreshLobbies</code> and joined without the use of any passcode.</li>
@@ -9079,7 +9079,7 @@
 </li>
 <li><strong>Created</strong>: an ISO 8601 date time string for when the Lobby was created</li>
 </ul>
-<h2 id="utilities-for-dedicated-server-games">Utilities for Dedicated Server Games<a class="headerlink" href="#utilities-for-dedicated-server-games" title="Permanent link">¶</a></h2>
+<h2 id="utilities-for-dedicated-server-games">Utilities for dedicated server games<a class="headerlink" href="#utilities-for-dedicated-server-games" title="Permanent link">¶</a></h2>
 <p>The Lobby subsystem provides you with utilities that help you integrate Beamable into UE's Gameplay Framework.</p>
 <ul>
 <li><code>Local State - Lobby - Open Level</code>: can be used in Game Clients to connect to a Game Server by extracting connection information (URL and Port) from the Lobby's Global Data</li>
