@@ -119,7 +119,7 @@ This section explains what you need to do before you generate a build to upload 
 
 ### Setting up your gameplay level's Blueprint
 
-#### **Step 1 - turn on init on server build**
+#### Step 1 - turn on init on server build
 Beamable provides you with an option in its `Local State - PIE - Easy Enable - Gameplay` node called `Init when Server Build`:
 
 - When playing inside PIE, turning on this option makes no difference.
@@ -130,7 +130,7 @@ You must also create and bind `Custom Events` to the `OnStarted` and `OnStartedF
 
 This makes it so that the server build will initialize the SDK once it starts.
 
-#### **Step 2 - extract information from orchestrator**
+#### Step 2 - extract information from orchestrator
 When configuring a build with your Orchestrator, they will typically allow you to pass in CLArgs or set Environment Vars for the running Game Server process. You'll need to set up the following ones:
 
 | Value        | CLArg/EnvVar                                                                                                                                                                                                                                                                                                                                    |
@@ -143,14 +143,14 @@ The exact steps vary by Orchestrator; for every Orchestrator with a known integr
 
 In addition to this, inside the Game Server initialization logic, you'll need to do some things to map the Beamable Lobby to this running instance of the game server. There are two strategies to do this:
 
-##### **One lobby per process**
+##### One lobby per process
 The most common way Orchestrators such as Hathora, GameLyft or Agones pass information to the running process is via Command Line Arguments or Environment Variables. If you are only ever running one Lobby per-game-server-process, pass the lobby id this way.
 
 For this case, the Beamable SDK expects either the `CLArg: BeamableDedicatedServerInstanceLobbyId` or the `EnvVar: BEAMABLE_DEDICATED_SERVER_INSTANCE_LOBBY_ID` to be set and contain the Lobby Id for the match. If they do, you can use `Local State - Lobby - Get Lobby Id From CLArgs` to get this value.
 
 Each orchestrator has their own way of allowing you to define CLArgs and EnvVars that it'll pass into the running game-server process — see your chosen orchestrator's documentation for how to pass these along; you can also refer to the [Beamball Demo](../../samples/beamball/beamball-demo.md) to see how this is done with Hathora (as per Hathora docs, involves a `Dockerfile` and a `sh` script).
 
-##### **Multiple lobby per process**
+##### Multiple lobby per process
 If you are planning on having multiple lobbies per-game-server-process, your orchestrator will either:
 
 - Give you an SDK that allows you to receive notifications whenever a lobby is assigned to a running process.
@@ -158,12 +158,12 @@ If you are planning on having multiple lobbies per-game-server-process, your orc
 
 Either way, at that point, your orchestrator will have provided you the Lobby Id.
 
-#### **Step 3 - register the lobby with the SDK running in the game server**
+#### Step 3 - register the lobby with the SDK running in the game server
 Now that the Lobby Id is known, register this lobby with the Beamable SDK. "Registering a Lobby with the SDK" means that the SDK will fetch the lobby's information and set up the necessary mapping between each user in the lobby and Unreal's Gameplay framework types (`FUniqueNetIdRepl`).
 
 To do this, you can call `Operation - Lobby - Server - Register Lobby with Server`.
 
-#### **Step 4 - prepare for gameplay and notify clients they can connect**
+#### Step 4 - prepare for gameplay and notify clients they can connect
 Once the lobby is registered, you can use `Local State - Lobby - TryGetLobbyById` (and `Local State - Lobby - TryGetLobbyPlayerDataById` and `Local State - Lobby - TryGetLobbyGlobalDataById`) to read data from the Lobby to initialize your game server.
 
 This initialization can be preloading assets, making requests to microservices and so on...
