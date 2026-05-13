@@ -1,4 +1,4 @@
-﻿# Unity SDK Technical Overview
+# Unity SDK Technical Overview
 
 ## Introduction
 

@@ -1,4 +1,4 @@
-﻿- Lightbeam
+- Lightbeam
     - [LightBeam Overview](lightbeam.md)
     - [Account Manager](lightbeam-account.md)
 - SDK Samples

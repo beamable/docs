@@ -1,4 +1,4 @@
-﻿# Overview of Social & Networking Features
+# Overview of Social & Networking Features
 
 Social networking features are key drivers of engagement in modern games — they give players meaningful ways to collaborate, compete, and connect. Many of the games you already play likely incorporate these features. Most major consoles implement [Groups](groups.md) (typically called a "Party" or "Clan"), competitive online games implement [Matchmaking](matchmaking.md) and networked [Multiplayer](multiplayer.md), and esports-centered games often host in-game [Tournaments](tournaments.md). Beamable offers solutions to many of these with very little workload on the developer, so you can get your game up and running as soon as possible.
 

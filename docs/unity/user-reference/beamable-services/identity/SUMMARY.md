@@ -1,4 +1,4 @@
-﻿- [Identity Overview](identity.md)
+- [Identity Overview](identity.md)
 - [Frictionless Auth](frictionless.md)
 - [Username Auth](username-password.md)
 - [Federated Sign-In](federated-identity.md)
