@@ -75,32 +75,32 @@ Some ReadMe.io exports contain multiple documents concatenated together. Handle 
 **Before** (Multiple document sections):
 ```markdown
 ---
-title: "Player Centric API - Overview"
+title: "Player-centric API - Overview"
 ---
 Content here...
 
 ---
-title: "Player Centric API - Lifecycle Functions"
+title: "Player-centric API - Lifecycle Functions"
 ---
 More content...
 
 ---
-title: "Player Centric API - Code"
+title: "Player-centric API - Code"
 ---
 Even more content...
 ```
 
 **After** (Single document with proper hierarchy):
 ```markdown
-# Player Centric API - Overview
+# Player-centric API - Overview
 
 Content here...
 
-## Player Centric API - Lifecycle Functions
+## Player-centric API - Lifecycle Functions
 
 More content...
 
-## Player Centric API - Code
+## Player-centric API - Code
 
 Even more content...
 ```

@@ -151,4 +151,4 @@ Game makers with existing Beamable projects which are using the legacy Beamable 
 For the simplest migration instructions;
 
 - Replace `var beamableAPI = await Beamable.API.Instance;` with `var beamContext = BeamContext.Default;`
-- APIs and services are accessed very similarly as well, since a `BeamContext` instance has an `Api` variable, with access to all the same services as Beamable.API. This is documented further in the [Player Centric API - Dependency Injection](doc:player-centric-api-dependency-injection) documentation
+- APIs and services are accessed very similarly as well, since a `BeamContext` instance has an `Api` variable, with access to all the same services as Beamable.API. This is documented further in the [Player-centric API - Dependency Injection](doc:player-centric-api-dependency-injection) documentation
