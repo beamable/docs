@@ -1,4 +1,4 @@
-# Building a Battle Pass
+# Building a battle pass
 
 A battle pass is a common engagement feature for players. You can implement a Battle Pass for your game by utilizing
 Beamable's Custom Content capabilities. This is a quick guide for how to think about using Beamable for this feature.
