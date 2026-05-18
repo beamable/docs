@@ -541,7 +541,7 @@ Did you complete all the experiments with success? we'd love to hear about it. [
 | Intermediate | Lobby | Add Lobby Graphics | • The lobby shows text indicating "Player 1/2 joined"<br/>• As each player joins the multiplayer matchmaking session, show the 2D asset onscreen and player's name |
 | Intermediate | Game | Add a new character | • The game includes a character selector and several characters<br/>• Add 2D/3D assets for a new character<br/>• Update Beamable content to define the new character<br/><br/>_Note: No 3D skills? An alternative is to duplicate an existing 3D character prefab and recolor its texture_ |
 | Intermediate | Game | Add "Jump" Input | • The game includes 'tap and hold' input to move the character<br/>• Add a 'Jump' button in the bottom menu<br/>• Apply a physics force upwards on the local player<br/><br/>_Note: Send a new multiplayer game event to all players to keep the game in sync_ |
-| Advanced | Game | Add a collectible pickup | • Spawn an item in to the game world<br/>• A character collides with the item to collect the item<br/>• Collecting the item rewards the player (Shield, Speed, etc...) |
+| Advanced | Game | Add a collectible pickup | • Spawn an item in to the game world<br/>• A character collides with the item to collect the item<br/>• Collecting the item rewards the player (Shield, Speed, or other bonuses) |
 | Advanced | Game | Add a bomb | • Spawn a bomb in to the game world<br/>• After 3 seconds the bomb explodes and disappears<br/>• The explosion causes a physics force to push away players and items |
 
 

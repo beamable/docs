@@ -29,7 +29,7 @@ With **Game Content Designer**, game makers can create where they are most comfo
 
 ### Workflows
 
-Even though GCD is made to work with Beamable, game makers do not have to use the Beamable back-end. GCD converts flat spreadsheet into Json objects with complex structures (arrays, references between objects, multidimensional objects), validation, constraints (min/max), crosstab IDs, etc... that can be load directly into a game via Unity.
+Even though GCD is made to work with Beamable, game makers do not have to use the Beamable back-end. GCD converts a flat spreadsheet into JSON objects with complex structures (arrays, references between objects, multidimensional objects), validation, constraints (min/max), crosstab IDs, and other features that can be loaded directly into a game via Unity.
 
 ![ex.png](../../../../../media/imgs/ex.png)
 
@@ -68,7 +68,7 @@ For **existing** Google Sheets with GCD already installed, the following step ma
 
 | Step | Detail |
 |------|--------|
-| 1. Edit the Google Sheet | • Add cells<br/>• Edit cells<br/>• Delete cells<br/><br/>_Note: Google Sheets support styling of fonts and colors to aid readability, validation to correct newly inputted values, formulas for math operations (e.g., add cells, average cells, etc...), and more..._ |
+| 1. Edit the Google Sheet | • Add cells<br/>• Edit cells<br/>• Delete cells<br/><br/>_Note: Google Sheets support styling of fonts and colors to aid readability, validation to correct newly inputted values, formulas for math operations (e.g., add cells, average cells), and more._ |
 | 2. Save the Google Sheet | _Note: Google Sheets save automatically. The format is versioned, backed-up, and easily shared for collaboration_ |
 
 ## Adding data
