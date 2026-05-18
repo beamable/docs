@@ -107,6 +107,25 @@ The authoritative source is `.github/workflows/auto-sync-core.yml` on the core b
 | `core/v7.1` | — | `unreal/v2.3` | Auto-sync to unreal only |
 | — | `unity/v5.1` | — | No auto-merge from any core branch; apply CLI guide fixes directly or cherry-pick from core |
 
+### Keeping CLAUDE.md in sync across branches
+
+CLAUDE.md lives on every content branch so agents working from any worktree see project-specific instructions. `main` holds the canonical version; all edits land there first.
+
+There is no automation propagating `main` → other branches. After editing CLAUDE.md on main, copy it to each worktree that needs direct propagation and commit in the same session. Branches that auto-sync from a core branch (see **Branch mapping**) receive the change downstream once the core copy is committed, so they need no separate step — every other content branch does.
+
+```bash
+for d in beamable-docs-core-7.0 beamable-docs-core-7.1 \
+         beamable-docs-unity-5.1 beamable-docs-unreal-2.2 \
+         beamable-docs-internal beamable-docs-api-1.0 \
+         beamable-docs-websdk-1.0; do
+  cp ~/src/beamable/docs/CLAUDE.md ~/src/beamable/$d/CLAUDE.md
+  git -C ~/src/beamable/$d add CLAUDE.md
+  git -C ~/src/beamable/$d commit -m "Sync CLAUDE.md from main"
+done
+```
+
+Push these commits per the **Staggered pushes** procedure. The two auto-sync targets (`unity/v5.0` and `unreal/v2.3`) will receive their CLAUDE.md update via auto-sync-core once the core push lands.
+
 ## Setup
 
 Requirements: Python 3.12, git-lfs
