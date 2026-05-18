@@ -3,3 +3,5 @@
 
 # Ignore types of files
 *.bkp
+
+.obsidian/
