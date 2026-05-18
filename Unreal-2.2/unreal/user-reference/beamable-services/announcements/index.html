@@ -10233,7 +10233,7 @@
 <li><strong>Targeting a Subset of Players</strong> with gifts or compensations due to things that happen over the course of your live-game services.</li>
 </ul>
 <p>Announcements can be created via the <a href="https://docs.beamable.com/docs/portal-announcements">portal</a>.</p>
-<p>Once created, announcements stay live during the specified date times. While live, each player has a "view" of that announcement.
+<p>Once created, announcements stay live during the specified dates and times. While live, each player has a "view" of that announcement.
 This view defines whether the player has seen that announcement or claimed any gifts contained in them.</p>
 <p>These are exposed in the <code>UAnnouncementView</code> object which can be accessed by the <code>UBeamAnnouncementsSubsystem::GetAnnouncements</code> method.</p>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
@@ -10242,7 +10242,7 @@ This view defines whether the player has seen that announcement or claimed any g
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/announcements-claiming.png" data-desc-position="bottom"><img alt="announcements-claiming.png" src="../../../../media/imgs/announcements-claiming.png"></a></p>
 <p>Marking announcements as read can be achieved in a similar way but with the <code>MarkAnnouncementsReadOperation</code>. The image below shows how you would mark an announcement as read when a user clicks one and a popup opens displaying its details.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/announcements-mark-read.png" data-desc-position="bottom"><img alt="announcements-mark-read.png" src="../../../../media/imgs/announcements-mark-read.png"></a></p>
-<p>Aside from the <code>Id</code> most other <code>FString</code> fields in the announcement can be used to store whatever data you need. Common practices include:</p>
+<p>Aside from the <code>Id</code>, most other <code>FString</code> fields in the announcement can be used to store whatever data you need. Common practices include:</p>
 <ul>
 <li>Passing in <code>TSoftObjectPath</code> strings to reference in-game assets.</li>
 <li>Passing in some custom string format such that your UI interprets it and changes its behavior accordingly.</li>

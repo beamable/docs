@@ -10363,11 +10363,11 @@ best practices.</p>
 <h2 id="login-semantics">Login semantics<a class="headerlink" href="#login-semantics" title="Permanent link">¶</a></h2>
 <p>Logging in with the Beamable Unreal SDK means:</p>
 <blockquote>
-<p>Authenticating the user, fetching all relevant data from the backend into the <code>UBeamRuntimeSubsystem</code>'s in-memory state and then completes the operation.</p>
+<p>Authenticating the user, fetching all relevant data from the backend into the <code>UBeamRuntimeSubsystem</code>'s in-memory state, and then completing the operation.</p>
 </blockquote>
 <p>This is handled automatically by the <code>Login</code> operations and <code>UBeamRuntimeSubsystem</code> implementations. See the <a href="../../overview/">SDK Overview</a> for how this all works. The short version is: "After calling <code>Login</code> operations, your local state is ready for use."</p>
 <p>Here's a simple example using <code>Login - Frictionless</code> Operation:
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/federations-player-init-login-example.png" data-desc-position="bottom"><img alt="alt text" src="../../../../media/imgs/federations-player-init-login-example.png"></a></p>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/federations-player-init-login-example.png" data-desc-position="bottom"><img alt="Blueprint graph wiring a Login - Frictionless operation node into a success handler that calls Update UI." src="../../../../media/imgs/federations-player-init-login-example.png"></a></p>
 <p>As you can see, in the success handling of the operation, the UI is told to update itself. While not shown in this image, that UI can then use the <a href="../stats/"><code>Local State - Stats</code></a> and <a href="../inventory/"><code>Local State - Inventory</code></a> nodes to read the player's stats and inventory to render itself.</p>
 <div class="admonition note">
 <p class="admonition-title">Customizing the Login Flow</p>
