@@ -37,29 +37,29 @@ Here is a quick tour of the Beamable Window's functions:
 
 ## Your first Blueprint request
 
-Now that you are familiar with the Beamable Window, you are ready to make your first Beamable request. This guide uses Blueprint, but the same flow works in C++ via calls in your Project's `GameMode` class's `BeginPlay` function.
+With the Beamable Window open, make your first Beamable request. This guide uses Blueprint, but the same flow works in C++ via calls in your Project's `GameMode` class's `BeginPlay` function.
 
-To get started, open your Level Blueprint and add the following nodes:
+Open your Level Blueprint and add the following nodes:
 
 ![intro-init-sdk-with-login-frictionless](../../media/imgs/intro-init-sdk-with-login-frictionless.png)
 
-### What is happening above
+### How it works
 
 The `BeamRuntime` is a `GameInstanceSubsystem` that is responsible for controlling the SDK's lifecycle and player authentication. Call this function to initialize the SDK. You can find a deep explanation about the Beamable Runtime in the [Technical Overview](../user-reference/overview.md) page.
 
 Once the SDK is initialized, the `Login - Frictionless` Operation node logs in a guest account automatically into the `Player0` user slot.
 
-Operation nodes are "purple" Beamable nodes that encapsulate many complex bodies of functionality in an easy-to-use fashion. See [Operation Nodes](../user-reference/runtime-systems/blueprints.md) for more information.
+Operation nodes are "purple" Beamable nodes that encapsulate complex bodies of functionality. See [Operation Nodes](../user-reference/runtime-systems/blueprints.md) for more information.
 
 The Frictionless Login node has three flow pins to handle the result of the login operation:
 
 - **On Success**: executes if the login completed successfully
 - **On Error**: executes if any error happens during the login flow
-- **On Cancelled**: used in _very special cases_ and can mostly be ignored for now
+- **On Cancelled**: used in _very special cases_; can mostly be ignored
 
 If this operation succeeds, you will have a guest account signed-into the `Player0` user slot.
 
-With the SDK's default configuration and the above setup, enter PIE (Play-In-Editor). You should see several requests' responses written to your Output Log window. After you see the final `GetMe` request, you can exit PIE knowing you have made your first request to Beamable. Congratulations!
+With the SDK's default configuration and the above setup, enter PIE (Play-In-Editor). Several request responses appear in your Output Log window. After the final `GetMe` request, exit PIE. You have made your first request to Beamable.
 
 
 ## Next steps
@@ -71,4 +71,4 @@ Also, take a look at the [Samples](../samples/intro.md), which are a valuable so
 - Use verbose logging `log Category Verbose` when encountering an issue stemming from the SDK (Log Categories can be found in `BeamableCore/BeamLogging.h` file)
 - This verbose logging will print ***a lot more*** information about requests being made and what the SDK is doing. It is meant to aid in diagnosing issues, NOT for production use. To turn it off in the same editor session, run `log Category Display` in the editor console
 - When reporting an issue, try to reproduce it with the logs of the relevant systems set to Verbose and attach them to the report
-- To contact support or submit suggestions, head to the [Support Portal](https://beamable.com/support)
+- For support or suggestions, see the [Support Portal](https://beamable.com/support)
