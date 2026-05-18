@@ -16,7 +16,7 @@ Beamable Portal, under **Communicate > Campaigns > + Create Campaign.**
 
 After that, you can create campaigns setting some information through a few steps:
 
-- Meta information: This is going to be all the main information about your Campaign. You're going to select which Type the campaign will be, as well as it's name and date.
+- Meta information: This covers the main information about your Campaign. Select the campaign Type, name, and date.
 
 ![Campaign Meta Information](../media/imgs/campaigns-meta-information.png)
 
@@ -32,7 +32,7 @@ After that, you can create campaigns setting some information through a few step
 
 ![Campaign Segment](../media/imgs/campaigns-segment.png)
 
-- Summary: finally there will be a summary of your campaign so you can verify that every information is correct and ready to go.
+- Summary: finally, there will be a summary of your campaign so you can verify that all the information is correct and ready to go.
 
 ## Client implementation
 
