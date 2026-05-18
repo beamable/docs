@@ -2,6 +2,7 @@
 - Runtime Systems
     - [Player-centric API](runtime-systems/player-centric-api.md)
     - [Dependency Injection](runtime-systems/di.md)
+    - [Admin Console](runtime-systems/admin-console.md)
 - Editor Systems
     - [Editor Login](editor-systems/unity-editor-login.md)
     - [Beam Library](editor-systems/beam-library.md)
