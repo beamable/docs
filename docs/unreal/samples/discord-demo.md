@@ -72,9 +72,9 @@ To test the sample:
 4. Start game.
 5. Press the `Sign In with Discord` button following instructions (discord will ask for permission).
 6. After logging in, you should see information about being able to participate in matchmaking.
-7. Adding and/or removing the role to the signed-in user on Discord Server.
+7. Add or remove the role for the signed-in user on your Discord server.
 8. Observe the text on the UI changing to reflect your ability to participate in matchmaking.
-9. Also, if `notify_channel` was specified correctly in configuration bot should inform about status change:
+9. If `notify_channel` was specified correctly in the configuration, the bot also notifies the channel of the status change:
 
 ![discord_sample_notify.png](../../media/imgs/discord_sample_notify.png)
 

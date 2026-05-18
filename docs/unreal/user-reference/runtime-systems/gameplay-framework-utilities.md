@@ -28,7 +28,8 @@ On the server side, you need to call `BeamMultiplayer::Authentication::PreLoginA
 
 This step is required to correctly map Beamable users to Unreal's gameplay framework, ensuring that player identity and session data are synchronized between Beamable and the server.
 
-> 💡 **Note:** This is only necessary if your game includes a dedicated server or uses server-authoritative logic.
+!!! note
+    This is only necessary if your game includes a dedicated server or uses server-authoritative logic.
 
 ## Enable/Disable the feature
 

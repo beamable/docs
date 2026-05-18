@@ -69,7 +69,7 @@ Testing the Steam integration in PIE should be performed in PIE's `Standalone Ga
 
 To test the sample:
 
-- Beamball with Steam open with the account to which you added the game
+- Open Beamball with Steam running on the account to which you added the game
 - You should see your "Steam" status change to playing
 - On the login screen, you should see a Steam button. Press it
 
@@ -106,7 +106,7 @@ This two-phase approach ensures that users are properly authenticated via Steam 
 This sample is NOT a template you can start your own repository from. However, Beamable code components are free for
 you to copy and use in your own project. Here's what these are:
 
-- The `BeamaballMs.Steam.cs` file in the `BeamballMs` Microservice. You can copy/paste it into any of your microservices.
+- The `BeamballMs.Steam.cs` file in the `BeamballMs` Microservice. You can copy/paste it into any of your microservices.
 - Beamable code inside `BEAMPROJ_Beamball/**/PlatformIntegrations` except code inside a `ThirdParty` directory.
 - Content inside the `BEAMPROJ_Beamball` except things inside a `ThirdParty` directory.
 

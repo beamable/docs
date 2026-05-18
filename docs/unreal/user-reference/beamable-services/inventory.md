@@ -82,14 +82,14 @@ In the `UBeamInventorySubsystem`, each item instance inside a player's inventory
 
 ## Client permissions
 
-It's up to developers to decide how the content can be added to player inventory by specifying `clientPermission` field:
+Use the `clientPermission` field on the content to control how items and currencies can be added to a player's inventory:
 
 When toggled, the content becomes **Client-Authoritative**: the SDK allows game-clients to add/remove that item or currency to the player inventory directly. If your game does not include networked multiplayer and can tolerate cheating, allowing the client to read and write their own currencies is the simplest option.
 
 If not toggled, the content becomes **Server-Authoritative**: trying to add/remove that item or currency to the player inventory from a game-client directly results in an error. The item/currencies are still readable in the game-client. To add/remove items and currencies that are **Server-Authoritative**, do so via a Microservice and a `ClientCallable`.
 
-!!! note "Edit player Inventory via the Portal"
-	Regardless of the value of the `clientPermission` field you can view and modify players' inventory through the Portal. See the [Portal Inventory documentation](https://docs.beamable.com/docs/portal-inventory).
+!!! note "Edit player inventory via the Portal"
+	Regardless of the value of the `clientPermission` field, you can view and modify players' inventory through the Portal. See the [Portal Inventory documentation](https://docs.beamable.com/docs/portal-inventory).
 
 ## Item instance properties
 As with most key-value pairs for arbitrary data, try to follow the guidelines below:

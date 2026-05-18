@@ -19,9 +19,9 @@ Party Leaders can:
 
 ## Getting started
 
-This section will bring a simple case for a party system and show how to implement it using the Beamable's party subsystem.
+This section covers a simple party system case and shows how to implement it using Beamable's party subsystem.
 
-To use the party system, first you need to set up your environment with PIE mode, allowing you to play with multiple instances so that you can follow along with this guide.
+To use the party system, first set up your environment with PIE mode, allowing you to play with multiple instances so that you can follow this guide.
 
 With the multiplayer instances set, you can create a Blueprint (BP) function that will do the basic Party operations.
 
@@ -48,7 +48,7 @@ With the multiplayer instances set, you can create a Blueprint (BP) function tha
 ![party-join](../../../media/imgs/party-join.png)
 
 ???+ Warning "Join Unrestricted Party"
-    If the party type is `unrestrict` you can join without receiving an invite from another player.
+    If the party type is `unrestrict`, you can join without receiving an invite from another player.
 
 ### Inviting players (leader only)
 
@@ -93,11 +93,11 @@ With the multiplayer instances set, you can create a Blueprint (BP) function tha
 
 ## Events
 
-Events in the party will be used to react to actions like received an invite, join a party, etc.
+Events in the party are used to react to actions such as receiving an invite or joining a party.
 
 ### Invite events
 
-Invite events will be used mostly to handle updates to the invite list, like show a popup of a invite or update the friend list with a new party invite.
+Invite events are used mostly to handle updates to the invite list, such as showing a popup for an invite or updating the friend list with a new party invite.
 
 ![party-bind-invite-events](../../../media/imgs/party-bind-invite-events.png)
 

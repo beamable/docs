@@ -1,6 +1,6 @@
 # BeamFarm demo
 
-This demo showcases how you can use the **Beamable Unreal SDK** in a mobile game project. Particularly it focuses on the Mobile Link Account Flows in Multiple providers like Google and Apple.
+This demo showcases how you can use the **Beamable Unreal SDK** in a mobile game project. Particularly, it focuses on the Mobile Link Account Flows across multiple providers like Google and Apple.
 
 ## Introduction
 
@@ -12,9 +12,9 @@ Aside from the `BeamableCore` Plugin, here's what the sample contains:
     - `Plugins/BEAMPROJ_BeamFarm/Source/BEAMPROJ_BeamFarm/Public/GameCenterSignIn.h` and `Private/GameCenterSignIn.cpp`: Apple Game Center sign-in flow.
     - `Plugins/BEAMPROJ_BeamFarm/Source/BEAMPROJ_BeamFarm/Public/GoogleSignIn.h` and `Private/GoogleSignIn.cpp`: Google sign-in flow.
     - `Plugins/BEAMPROJ_BeamFarm/Content/UI_BPs`: Blueprint assets used by the sample UI flow.
-- **`Microservice/BeamfarmMs` Microservice**: Microservice containing code that's used by the sample for various matchmaking and stats stuff.
+- **`Microservice/BeamfarmMs` Microservice**: Microservice containing code that's used by the sample for various matchmaking and stats functionality.
 
-To set up this sample you'll need a Beamable Account and a Realm. To configure the repo for the sample run `dotnet beam unreal select-sample BEAMPROJ_Beamfarm`.
+To set up this sample you'll need a Beamable Account and a Realm. To configure the repo for the sample, run `dotnet beam unreal select-sample BEAMPROJ_Beamfarm`.
 
 ## Setting up the project
 To set up an organization and realm to run this sample, follow the steps below.

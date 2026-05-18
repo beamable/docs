@@ -14,9 +14,9 @@ Aside from the `BeamableCore` Plugin, here's what the sample contains:
       - `Plugins/BEAMPROJ_Beamball/Source/BEAMPROJ_Beamball/Public/PlatformIntegrations` and `Private/PlatformIntegrations`: Platform-specific integrations (Edgegap, EOS, Steam).
       - `Plugins/BEAMPROJ_Beamball/Source/BEAMPROJ_BeamballBlueprintNodes`: Blueprint node module (`Public` headers and `Private` implementations).
       - `Plugins/BEAMPROJ_Beamball/Content/UI_BPs`: Blueprint assets used by the sample UI flow.
-- **`Microservice/BeamballMs` Microservice**: Microservice containing code that's used by the sample for various matchmaking and stats stuff.
+- **`Microservice/BeamballMs` Microservice**: Microservice containing code that's used by the sample for various matchmaking and stats functionality.
 
-To set up this sample you'll need a a Beamable Account and a Realm. To configure the repo for the sample run `dotnet beam unreal select-sample BEAMPROJ_Beamball`.
+To set up this sample you'll need a Beamable Account and a Realm. To configure the repo for the sample, run `dotnet beam unreal select-sample BEAMPROJ_Beamball`.
 
 ## Setting up the project
 To set up an organization and realm to run this sample, follow the steps below.
@@ -35,7 +35,7 @@ To set up an organization and realm to run this sample, follow the steps below.
 
 ## Running the sample in editor
 
-Leveraging the new Beamable PIE Settings, you can run the sample in editor through two entry points: The Main Menu or the Gameplay scene.
+Leveraging the new Beamable PIE Settings, you can run the sample in editor through two entry points: the main menu or the gameplay level.
 
 ## Running from the main menu
 1. Open the Unreal editor.
@@ -49,7 +49,7 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
 4. You don't need to select any Play Preset, as the `Beamball_MainScreen` level is the common entry point for the sample. So leave the Play Preset selector to `None`.
 5. Play the `L_Beamball_MainScreen` in the Editor.
 
-### Running from the gameplay scene
+### Running from the gameplay level
 1. Open the Unreal editor.
 2. Open the `L_Beamball_Gameplay` Level if it is not opened yet.
       1. You can find it inside the `BEAMPROJ_Beamball Content` folder.
