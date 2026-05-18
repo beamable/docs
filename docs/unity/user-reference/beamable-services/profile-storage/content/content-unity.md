@@ -231,7 +231,7 @@ All validation types must descend from [`ValidationAttribute`](https://csharp.cd
 |------|--------|
 | [`CannotBeBlank`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1Validation_1_1CannotBeBlank.html) | Ensures field value is NOT blank |
 | [`CannotBeEmpty`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1Validation_1_1CannotBeEmpty.html) | Ensures field value is NOT empty |
-| [`MustBeComparatorString`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1Validation_1_1MustBeComparatorString.html) | Ensures field value is ">", "\<", "=", etc... |
+| [`MustBeComparatorString`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1Validation_1_1MustBeComparatorString.html) | Ensures field value is a comparator string such as `>`, `<`, or `=` |
 | [`MustBeCurrency`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1Validation_1_1MustBeCurrency.html#details) | Ensures field value is a `CurrencyContent` |
 | [`MustBeCurrencyOrItem`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1Validation_1_1MustBeCurrencyOrItem.html#details) | Ensures field value is a `CurrencyContent` or `ItemContent` |
 | [`MustBeDateString`](https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Content_1_1Validation_1_1MustBeDateString.html) | Ensures field value is a date string |
