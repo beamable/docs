@@ -8984,9 +8984,9 @@
 <li>Start game.</li>
 <li>Press the <code>Sign In with Discord</code> button following instructions (discord will ask for permission).</li>
 <li>After logging in, you should see information about being able to participate in matchmaking.</li>
-<li>Adding and/or removing the role to the signed-in user on Discord Server.</li>
+<li>Add or remove the role for the signed-in user on your Discord server.</li>
 <li>Observe the text on the UI changing to reflect your ability to participate in matchmaking.</li>
-<li>Also, if <code>notify_channel</code> was specified correctly in configuration bot should inform about status change:</li>
+<li>If <code>notify_channel</code> was specified correctly in the configuration, the bot also notifies the channel of the status change:</li>
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/discord_sample_notify.png" data-desc-position="bottom"><img alt="discord_sample_notify.png" src="../../../media/imgs/discord_sample_notify.png"></a></p>
 <p>To actually gate matchmaking you'll need to set up a rule in your <code>GameType</code> content that excludes people from the queue that do not have the role. This is not shown on this demo.</p>
