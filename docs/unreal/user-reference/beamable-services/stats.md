@@ -37,7 +37,7 @@ You can check if it is working in the Beamable Portal:
 <center>*View of the stats in the Beamable Portal*</center>
 
 ## Batching updates
-In this example, a new `UpdateCommand` is created and committed right away. For better performance and reduced calls to Beamable, it is encouraged to:
+In this example, a new `UpdateCommand` is created and committed immediately. For better performance and reduced calls to Beamable, it is encouraged to:
 
 - Create `UpdateCommand`
 - Use the other functions in the `UBeamStatsSubsystem` to set up as many changes as possible
@@ -51,7 +51,7 @@ You might want to read public stats of some other player to display information 
 ![stats-reading-other-player-stats.png](../../../media/imgs/stats-reading-other-player-stats.png)
 
 ## Stats keys and values
-The SDK does not enforce limitations on stat keys or values. However, the following guidelines are *highly recommended* the following guidelines for project organization and performance reasons.
+The SDK does not enforce limitations on stat keys or values. However, the following guidelines strongly support project organization and performance.
 
 **For Keys**:
 - 8-20 characters are ideal (purely for human ergonomics)

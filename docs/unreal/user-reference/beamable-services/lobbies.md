@@ -86,7 +86,7 @@ Here's the list of events exposed:
 - **OnLobbyDisbanded**: received whenever the host player leaves.
 	- Every remaining player in the lobby receives this notification. The host does not receive it.<br><br>
 
-- **OnLobbyUpdate**: Whenever any property of the lobby changes via `CommitLobbyUpdateOperation`, `UpdatePlayerDataOperation` and `UpdateSlotPlayerDataOperation`, this will be invoked.
+- **OnLobbyUpdate**: fires whenever any property of the lobby changes via `CommitLobbyUpdateOperation`, `UpdatePlayerDataOperation`, or `UpdateSlotPlayerDataOperation`.
 
 ## Lobby types and lobby schema
 There are two types of lobbies:
@@ -108,7 +108,7 @@ Both lobby types have the same schema and are represented by the `ULobby` class.
 	- When changing this via `CommitLobbyUpdateOperation`, if you have more players than the new **MaxPlayer** value, you'll get an error.
 - **Players**: a list of `ULobbyPlayer` containing data associated to each player in the lobby.
 	- **PlayerId**: the player's `FBeamGamerTag`.
-	- **Joined**: an ISO 8601 date time string for when the player.
+	- **Joined**: an ISO 8601 date-time string for when the player joined.
 	- **Tags**: an array of Key-Value pairs (allows duplicates).
 - **Data**: an arbitrary data store that can be filled and updated by the host of the lobby.
 	- Can be filled via [Federations](../federation/federated-game-server.md) as well.
@@ -119,7 +119,7 @@ The Lobby subsystem provides you with utilities that help you integrate Beamable
 
 - `Local State - Lobby - Open Level`: can be used in Game Clients to connect to a Game Server by extracting connection information (URL and Port) from the Lobby's Global Data.
 - `Local State - Lobby - Client - Prepare Login Options`: can be used in Game Clients to add Beamable's required parameters to the `FString Options` you'll need to pass along to UE's default `Open Level` node.
-- `Local State - Lobby - Get Gamer Tag` and `Local State - Lobby - Get User Slot`: These nodes are meant to map UE constructs, such as `PlayerControllers` and `PlayerState` instances, to Beamable constructs like `GamerTag` and `UserSlots`; refer to their tooltips for a better understanding of the mapping.
+- `Local State - Lobby - Get Gamer Tag` and `Local State - Lobby - Get User Slot`: These nodes are meant to map UE constructs, such as `PlayerControllers` and `PlayerState` instances, to Beamable constructs like `GamerTag` and `UserSlots`; see their tooltips for the full mapping.
 - `Local State - Lobby - Get Lobby Id (by Gamer Tag)`: This returns the LobbyId containing the user of the given `GamerTag`.
 - `Local State - Lobby - Server - Get Lobby Id From CLArgs`: This is meant to help integrate with Game Server Orchestrators — see the [Real-Time Multiplayer Docs](../realtime-multiplayer/realtime-multiplayer-overview.md) for more information.
 

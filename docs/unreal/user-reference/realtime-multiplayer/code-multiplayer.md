@@ -82,7 +82,7 @@ When using the Beamable SDK, to validate that the user should be allowed to conn
 
 These are expected to arrive via the `Options` parameter.
 
-In clients builds', passing these options can be achieved using `UBeamLobbySubsystem::TryOpenLevelFromLobby`. You can also use `UBeamLobbySubsystem::PrepareLoginOptions` to append these to a string you'll pass to the regular `Open Level` calls used to connect to game servers.
+In client builds, passing these options can be achieved using `UBeamLobbySubsystem::TryOpenLevelFromLobby`. You can also use `UBeamLobbySubsystem::PrepareLoginOptions` to append these to a string you'll pass to the regular `Open Level` calls used to connect to game servers.
 
 When implementing `PreLoginAsync`, you need to call two functions:
 
@@ -94,11 +94,11 @@ A simple implementation of that looks like this:
 ```c++
 virtual void PreLoginAsync(const FString& Options, const FString& Address, const FUniqueNetIdRepl& UniqueId, const FOnPreLoginCompleteDelegate& OnComplete) override
 {
-    // This enables us to test the Pre-Login in PIE correctly (it adds options in the expected deterministic order the PIE instances create and connect so that we can their users in order)
+    // This enables us to test the Pre-Login in PIE correctly (it adds options in the expected deterministic order the PIE instances create and connect so that we can map their users in order)
     const auto BeamOptions = BeamPIE::Authentication::GetExpectedClientPIEOptions(this, Options, Address, UniqueId);
 
-    // Validate that the user coming in is really one that exists in a lobby that has been BeamMultiplayer::Orchestrator::RegisterLobbyWithServer.
-    // BeamPIE guarantee's that happens for the lobbies it creats for PIE use.
+    // Validate that the user coming in is really one that exists in a lobby that has been registered with BeamMultiplayer::Orchestrator::RegisterLobbyWithServer.
+    // BeamPIE guarantees that happens for the lobbies it creates for PIE use.
     BeamMultiplayer::Authentication::PreLoginAsync(this, BeamOptions, Address, UniqueId, FBeamOperationEventHandlerCode::CreateLambda([this, OnComplete, BeamOptions, Address, UniqueId](FBeamOperationEvent Evt)
     {
         if (Evt.CompletedWithSuccess())
