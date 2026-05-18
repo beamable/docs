@@ -20,6 +20,29 @@ Two branches have no version component: `main` (shared tooling and CI/CD; the st
 
 To edit documentation, switch to the appropriate versioned branch before making changes.
 
+## Core-owned paths (must not be edited on downstream branches)
+
+These directories are auto-synced from core branches into unity and unreal branches by `.github/workflows/auto-sync-core.yml`:
+
+- `docs/cli/guides/`
+- `docs/includes/` (including `abbreviations.md`)
+- `docs/portal/`
+
+**Edit files in these paths only from a core worktree.** Editing them anywhere else corrupts the auto-sync invariant: the next time core touches one of these files, auto-sync-core's squash-merge collides with whatever drifted on the downstream branch and produces a merge-conflict PR that has to be resolved by hand in the GitHub UI.
+
+The rule applies even during a copyediting sweep that touches every other branch. Skip these paths on unity and unreal — they reach those branches automatically via the next core sync. Past violations have already produced conflict PRs (e.g., #96, #97). The rule is not optional.
+
+Before committing on a unity or unreal worktree, verify nothing staged touches a core-owned path:
+
+```bash
+git diff --cached --name-only | grep -E '^docs/(cli/guides|includes|portal)/' && \
+  echo "STOP: core-only path in staged changes — revert and re-apply on core"
+```
+
+A match means: `git restore --staged <path>`, `git checkout -- <path>`, switch to the relevant core worktree, re-apply the change there, and commit. Auto-sync-core handles propagation downstream.
+
+Everything outside these paths is fair game for direct editing on the relevant downstream branch — unity-only edits on unity, unreal-only edits on unreal.
+
 ## Working with Worktrees
 
 Because content lives on many branches simultaneously, `git worktree` is the recommended workflow. Check out each branch into a sibling directory of the main `docs/` clone, embedding the SDK name and version in the path so multiple versions can coexist on disk at once.
@@ -48,10 +71,6 @@ Adjacent minor versions (e.g. `v5.0` and `v5.1`) typically have little divergenc
 ### Core → Unity pull-after-push
 
 After pushing to a core branch, immediately `git pull` in the corresponding unity and unreal worktrees. The `auto-sync-core.yml` action squash-merges core changes onto downstream branches on push; without pulling afterward, your next push to those branches will be rejected as non-fast-forward.
-
-### CLI guide edits and shared includes
-
-Files under `docs/cli/guides/`, `docs/includes/` (including `abbreviations.md`), and `docs/portal/` are core-owned and auto-synced into unity/unreal. Edit them only in the relevant core worktree — do not copy changes by hand, even during a copyediting pass on a unity or unreal branch. Unity-only edits go directly to the unity worktree; Unreal-only edits (anything not in `docs/cli/guides/`, `docs/includes/`, or `docs/portal/`) go directly to the unreal worktree.
 
 ### Staggered pushes
 
