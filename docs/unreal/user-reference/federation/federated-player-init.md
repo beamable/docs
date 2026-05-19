@@ -1,7 +1,7 @@
 # Federated player init
 Player Init Federation allows you to define logic that runs whenever a new player is created in a realm. This enables you to define your players' starting state BEFORE your login call completes.
 
-To set up this federation in a Microservice, you'll need to do the following in your Microservice:
+To set up this federation, do the following in your Microservice:
 ```csharp
 // This federation ONLY works with the "default" Federation ID
 // and it DOES NOT support multiple implementations of itself.

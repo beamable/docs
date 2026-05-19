@@ -4,7 +4,7 @@ The Beamable SDK uses a slight variation on Promises that are named Operations. 
 
 ## How operations work
 
-They wrap concurrent *operations* (mostly HTTP Requests) under a `FBeamOperationHandle` exposed to some higher-level system. Simply put:
+They wrap concurrent *operations* (mostly HTTP Requests) under a `FBeamOperationHandle` exposed to some higher-level system:
 
 > When you want to expose a single function that makes a bunch of async operations and emits events in the Game Thread, ultimately handling success/failure of the entire sequence of operations, use an `Operation`.
 
@@ -29,7 +29,7 @@ The lifecycle of an operation goes as follows:
 
 **When writing Operations, there are two ways of thinking about them**:
 
-- **Regular Operations**: are just a "Promise"
+- **Regular Operations**: are a "Promise"
 - **Operation Hooks**: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work
 
 ## Writing and exposing your own regular operations
@@ -120,7 +120,7 @@ There are many examples of operations in the SDK. For guidance, look at any of t
 - `UBeamLobbySubsystem`
 - Any other sub-class of `UBeamRuntimeSubsystem`
 
-Feel free to copy-paste them as a template of how to implement and reason about `Operations`.
+Use them as a template for implementing and reasoning about `Operations`.
 
 ### Beam flow nodes - operations
 As part of the [Blueprint integration](blueprints.md), the SDK includes a few custom nodes that make invoking operations from Blueprints much simpler. These look like this:
@@ -268,7 +268,7 @@ SomeSystem->Hook.Add(F____::CreateLambda([this]()
 ```
 
 ## Why not template-based promises?
-The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style API just won't work with BPs. The goal was an underlying system providing the same functionality while retaining BP compatibility, even without the template-based interface. The result was this `Operation` system.
+The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style API won't work with BPs. The goal was an underlying system providing the same functionality while retaining BP compatibility, even without the template-based interface. The result was this `Operation` system.
 
 !!! info
 	In building the Stateful `UBeamRuntimeSubsystems` with this system, the team found the absence of template syntax and `Do().Then()` chaining to be a non-issue in practice. Chaining may be revisited eventually — perhaps as "syntactic sugar" — but template-layer additions are unlikely given the BP-Compatibility requirement.

@@ -32,7 +32,7 @@ Since this sample requires several resources, we do not host it ourselves. So, t
 
 ## Setting up Beamable systems
 
-Now, you'll need to configure a Beamable realm so you can use it:
+Next, configure a Beamable realm to use it:
 
 1. Go to the Beamable Portal and create a new Beamable realm called `steam-demo`.
 2. Go to the Portal (`Account`) and set aside your Customer Id (CID).
@@ -87,4 +87,4 @@ This sample is NOT a template you can start your own repository from. However, i
 - Content inside the `BEAMPROJ_SteamDemo` except things inside a `ThirdParty` directory
 
 ## Why don't we provide a client build?
-Clients must be pointed at your `steam-demo` realm, meaning you will need to generate the build yourself. You can do so by packaging it normally for any of our supported platforms.
+Clients must be pointed at your `steam-demo` realm, so you must generate the build yourself. You can do so by packaging it normally for any of our supported platforms.

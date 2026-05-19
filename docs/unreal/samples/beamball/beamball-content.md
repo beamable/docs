@@ -13,7 +13,7 @@ The Content system in Beamball acts as a bridge between:
 - **The online side** – store listings and offers managed by Beamable services,
 - **The local side** – Local State that is a mirror of the Online state. DataAssets and widgets that define how items are displayed in the game.
 
-This design enables a flexible, dynamic, and content-driven inventory experience. New offers and items can be added without code changes, simply by publishing new Content and updating Store configurations.
+This design enables a flexible, dynamic, and content-driven inventory experience. New offers and items can be added without code changes, by publishing new Content and updating Store configurations.
 
 When the store screen is opened, the client first updates the player’s store state using the operator **`Operation - Store - Refresh Store`**. After the operation completes successfully, the store data is guaranteed to be up-to-date and available in the local State. Then we can retrieve it with **`Local State - Store - TryGetStoreView`**, ensuring that the UI always reflects the latest backend data.
 

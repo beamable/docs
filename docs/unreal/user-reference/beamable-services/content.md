@@ -52,7 +52,7 @@ If the content is not marked with any of these signs, it means it is in sync wit
 1. Select **+** next to any of the content type headers to create a content of that type.
 2. Rename the created content; it cannot contain whitespaces or `.`.
 
-Deleting content can be done simply by pressing `Del` on your keyboard with an item selected or selecting the `[X]` button in the Item Details.
+To delete content, press `Del` on your keyboard with an item selected, or select the `[X]` button in the Item Details.
 
 Items created locally will have a `[+]` sign next to them informing that they are not in the realm yet and will be added in the next publish. Items deleted locally that have counterparts on the realm will have a `[-]` sign next to them informing that they will be removed from the realm in the next publish.
 
@@ -63,7 +63,7 @@ Modifying content can be done via the Details Editor in the **Content Window**. 
 ## Publishing and auto-syncing
 **Publishing** tells the Beamable SDK that you want to send your entire local content state to the realm and make that the source of truth. The source of truth for content in a realm is always whatever manifest was last published to that realm.
 
-To publish content to a realm simply use the Publish button.
+To publish content to a realm, use the Publish button.
 
 !!! note "For Designers"
 	You can think of the realm's published content as a "Dropbox/Google Drive folder" that contains all content objects' serialized JSON files. The manifest is an index that tells the SDK which content exists and where to download their JSON files.
@@ -89,7 +89,7 @@ To enable this workflow, the Beamable SDK:
 To prevent `Designer-B` from overwriting changes made by `Designer-A` the SDK will not allow `Designer-B` to **Publish** until all detected conflicts are resolved. Resolving a conflict can be done in one of two ways:
 
 - **Use Realm**: this will discard all local changes to that content and use whatever was published.
-- **Use Mine**: this will simply ignore the conflict (which means that it will allow you to publish and your publish WILL overwrite the version in the realm).
+- **Use Mine**: this ignores the conflict (which means that it will allow you to publish and your publish WILL overwrite the version in the realm).
 
 ![content-conflict.png](../../../media/imgs/content-conflict.png)
 
@@ -107,7 +107,7 @@ In addition to the workflow above, there are cases where you might want to creat
 - Large features that make use of new custom content definitions developed alongside Microservices.
 - Content schema modifications or equivalents that will require migrating existing content to a new schema.
 
-To achieve this — just create a new realm for the development of that feature.
+To achieve this, create a new realm for the development of that feature.
 
 !!! note "Feature Branches vs Feature Flags"
     If you like working with feature branches, pair this realm with the feature branch. For reducing complexity, only do this for large features that will take a lot of time in development.
@@ -150,7 +150,7 @@ Annotate your `UPROPERTY` with `EditAnywhere` and either:
 - `BlueprintReadWrite` if you are writing utilities to create the objects for you.
 
 !!! note "Microservices"
-	In a lot of cases, you will want to access these content objects in Microservices.	For all of Beamable's own content-types ( `UBeamCurrencyContent` , etc.) you will find equivalents in the Microservice SDK. For your own custom types, you'll need to declare them in C#. To do so, use the serialization table below as reference to know how to map types from C++ to C#.
+	In many cases, you may need to access these content objects in Microservices. For all of Beamable's own content-types (`UBeamCurrencyContent`, etc.), the Microservice SDK provides equivalents. For your own custom types, declare them in C# — use the serialization table below as reference for mapping types from C++ to C#.
 
 ## Supported content serialization
 

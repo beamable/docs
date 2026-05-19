@@ -20,8 +20,8 @@ To set up an organization and realm to run this sample, follow the steps below.
 2. Compile and open the `BeamableUnreal` editor project.
 3. Sign into your Beamable account and go to the `Beamball` realm.
       1. Optionally you can hit `Apply to Build` after the realm change is done.
-5. Let's Setup the Content
-      1. First you will need to run the command `dotnet beam content restore --pid DE_1885450253346843 --name LastPublished-global` to bring all the content from the sample to your current realm.
+5. Set up the Content
+      1. First, run the command `dotnet beam content restore --pid DE_1885450253346843 --name LastPublished-global` to bring all the content from the sample to your current realm.
       2. Open the `Content` window.
       3. Ensure there's a `game_types` content with the name `default`
       3. Ensure there's a `currency` content with the name `coins`

@@ -16,7 +16,7 @@ In short, Inventory manages two types of data: items and virtual currencies.
 
 
 ## Getting started
-To use the inventory system, you will need to first:
+To use the inventory system, first:
 
 1. Go to the [Content Window](content.md).
 2. Select `item` as a type.
@@ -34,7 +34,7 @@ Now that you have items and currencies published, follow the steps below to crea
 4. Call `PrepareAddCurrency` and `PrepareAddItem` selecting the currency and item types you created.
 5. Call the `Commit Inventory Update` operation.
 
-Now, call this function while a user is signed in to grant the currency/item to the player.
+Call this function while a user is signed in to grant the currency/item to the player.
 
 ![inventory-operations.png](../../../media/imgs/inventory-operations.png)
 

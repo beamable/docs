@@ -97,7 +97,7 @@ When declaring `Callable` functions, you should be aware of a few limitations re
 	- Wrap it in a struct/class instead.
 - No overloading of `Callables`.
 	- This is because each of these must map to a unique route so name things accordingly.
-	- Non-`Callable` functions can be overloaded just fine.
+	- Non-`Callable` functions can be overloaded.
 - Avoid calling `Callable` functions from other `Callable` functions.
 	- For code-reuse in the Microservice, write non-`Callable` static functions and call them inside the `Callable` body.
 - Must be an instance method (no `static` keyword).
@@ -189,7 +189,7 @@ Enabling these two cases at the push of a button enables very fast development i
 There are a few different ways to work with Microservices in Unreal, each with their own advantages and disadvantages. These are NOT how-to guides, they are high-level descriptions to help you get a feel regarding how to work with Beamable and how its tools can be used to work alone and as a team.
 
 ### Designing the API
-If you're in the very early stages of solving a problem, you just want to get the features to work. Here's a workflow that doesn't require you to open Unreal at all, allowing you to focus only on getting your `Callables` to work!
+If you're in the very early stages of solving a problem, you want to get the features to work. Here's a workflow that doesn't require you to open Unreal at all, allowing you to focus only on getting your `Callables` to work!
 
 Here are the steps:
 
@@ -240,7 +240,7 @@ To allow your teammates to use the service without needing to run it locally, yo
 Deploying services for the UE integration is 100% CLI-based. The documentation for it can be found here.
 
 !!! info "Why no Deploy Editor UI?"
-	If there's enough demand for it, a deploy UI will be considered. However, deploying services is mostly done by engineers and CI/CD pipelines, and compiling and opening the UE Editor just to do this does not add enough value to the UE workflow.
+	If there's enough demand for it, a deploy UI will be considered. However, deploying services is mostly done by engineers and CI/CD pipelines, and compiling and opening the UE Editor only to do this does not add enough value to the UE workflow.
 
 ### Collaborative debugging
 This one is pretty unique to Beamable's Microservices.
@@ -251,7 +251,7 @@ Imagine the following:
 - The designer does something that reveals a bug in your service.
 - It is unclear what causes it exactly and but the designer can repro it consistently by playing in PIE.
 
-Now, the usual flow for handling this situation would be similar to this:
+The usual flow for handling this situation looks like this:
 
 - Make a ticket.
 - Live with the bug while a ticket/task finds its way to an engineer, impacting designer productivity.
@@ -273,7 +273,7 @@ For smaller teams that like to move fast and can rely on lots of direct communic
 <center>Collaboration Tab of the Microservice Window</center>
 
 ## Micro storages
-Beamable Microservices allow you to store data in Beamable's own managed services such as `Stats`(Per-Player key-value stores) and `Inventory` (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it just makes your particular problem simpler to solve (instead of trying to fit it into the default stores).
+Beamable Microservices allow you to store data in Beamable's own managed services such as `Stats`(Per-Player key-value stores) and `Inventory` (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it makes your particular problem simpler to solve (instead of trying to fit it into the default stores).
 
 For those cases, Beamable offers a `MicroStorage`. This is a wrapper around a database that you can write to from your microservices. At the moment, only `MongoDB` is supported. Like Microservices, these are scoped by realm as well (as in, data from Realm A is only visible in Realm A). [Micro Storages](../microservices/microservices.md#micro-storages).
 

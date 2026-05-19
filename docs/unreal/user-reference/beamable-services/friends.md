@@ -95,7 +95,7 @@ When it triggers, the local state of the friend list will already have been upda
 
 ### How to update the view using system state (invite sample)
 
-The example below shows how to retrieve the user's friend state and use it to update a view or another screen. In this case, the example simply sets a list of all invites in the friend state. There are other ways to handle this, such as adding or removing items based on events, rather than setting the entire list. For simplicity, this example uses that approach.
+The example below shows how to retrieve the user's friend state and use it to update a view or another screen. For simplicity, the example sets a list of all invites in the friend state; alternatives include adding or removing items based on events rather than setting the entire list.
 
 ![friends-local-state-received-invite.png](../../../media/imgs/friends-local-state-received-invite.png)
 

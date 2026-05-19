@@ -76,6 +76,6 @@ For these reasons, we decided to **_NOT_** automatically refresh and instead to 
 !!! warning "Why not do Request-based Heuristics?"
     We have tried estimating internet connectivity via some amount of heuristics over failed requests.
     We have found that having a semantic for connectivity that results in more stability is better.
-    Requests just timeout if you're not connected to the internet and try to make them (or they are made and they can't reach the Beamable servers).
+    Requests timeout if you're not connected to the internet and try to make them (or they are made and they can't reach the Beamable servers).
 
     Connectivity ONLY changes based on the WebSocket connection (which is more stable, at both the protocol level and at our own implementation level). This minimizes problems from broadcasting connectivity-related delegates in quick succession while making downstream code easier to write.
