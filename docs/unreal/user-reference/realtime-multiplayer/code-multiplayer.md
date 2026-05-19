@@ -29,10 +29,10 @@ virtual void BeginPlay() override
             UE_LOG(LogTemp, Warning, TEXT("Setting up my orchestrator!!!!"));
 
 
-            // Let's extract the Lobby Id from the CLArgs.
+            // Extract the Lobby Id from the CLArgs.
             const auto LobbyId = BeamMultiplayer::Orchestrator::GetLobbyIdFromCLArgs(this);
 
-            // Let's call RegisterLobbyWithServer so that the SDK running here becomes aware of this lobby.
+            // Call RegisterLobbyWithServer so that the SDK running here becomes aware of this lobby.
             BeamMultiplayer::Orchestrator::RegisterLobbyWithServer(this, LobbyId, FBeamOperationEventHandlerCode::CreateLambda([this, LobbyId](FBeamOperationEvent Evt)
             {
                 // Failed to get lobby data from Beamable
@@ -152,8 +152,8 @@ User Slots are a big part of the regular workflow when working with Beamable SDK
 
 This means a few things:
 
-- There is no need to `SignUp`/`Login`; just to `InitSDK`.
-- Calling APIs that simply read data from users via their `GamerTag` or other Ids will work fine.
+- There is no need to `SignUp`/`Login`; only to `InitSDK`.
+- Calling APIs that read data from users via their `GamerTag` or other Ids will work fine.
 - Calling APIs that write to user data is not recommended via regular SDK functions (see below for the alternative)
 
 !!! note "Server Mapping Slots - Experimental"

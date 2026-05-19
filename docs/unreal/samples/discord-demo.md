@@ -45,7 +45,7 @@ Since this sample requires several resources, it is not pre-hosted. To access it
 
 ## Setting up Beamable
 
-Now, you'll need to configure a Beamable realm so you can use it.
+Next, configure a Beamable realm to use it.
 
 1. Go to the Beamable Portal and create a new Beamable realm called `discord-demo`.
 2. On the Portal open the Realm Config page of the `discord-demo` realm (`Operate -> Config`).
@@ -78,7 +78,7 @@ To test the sample:
 
 ![discord_sample_notify.png](../../media/imgs/discord_sample_notify.png)
 
-To actually gate matchmaking you'll need to set up a rule in your `GameType` content that excludes people from the queue that do not have the role. This is not shown on this demo.
+To actually gate matchmaking, set up a rule in your `GameType` content that excludes people from the queue who do not have the role. This is not shown in this demo.
 
 ## Can I use it as a template?
 

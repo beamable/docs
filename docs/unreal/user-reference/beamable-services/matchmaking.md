@@ -17,7 +17,7 @@ Once a match is found, the result is a [Lobby](lobbies.md) containing all of the
 - [Beamball Demo](../../samples/beamball/beamball-demo.md)
 
 ## Getting started
-To use `UBeamMatchmakingSubsystem` via blueprints (or C++), you'll need to:
+To use `UBeamMatchmakingSubsystem` via blueprints (or C++):
 
 - Use the [Content Window](content.md) to create a `Beam Game Type Content` with a single team with a Min/Max player count of 1.
 - Publish that content to your realm
@@ -78,7 +78,7 @@ The Matchmaking Subsystem works with the [Lobby Subsystem](lobbies.md) by defaul
 
 - By the time `OnMatchReady` fires, the match Lobby data has been fetched and is available.
     - This means you can use the `Local State - Lobby` nodes to fetch information from the lobby directly on this event.
-    - For example, when used with [Federated Game Server](../federation/federated-game-server.md), you just get the connection string from the global lobby property to proceed
+    - For example, when used with [Federated Game Server](../federation/federated-game-server.md), get the connection string from the global lobby property to proceed
 - When joining a queue, you can optionally pass in a set of key/value pairs called `FBeamTag`.
     - When a match gets made with that particular user/party, these tags end up inside the [Lobby](lobbies.md)'s per-player data
 
@@ -96,7 +96,7 @@ When you join a queue in Beamable's matchmaking, you get back a `FBeamMatchmakin
 
 - **GameType**: queue type
 - **GamerTagsInTicket**: list of players that are in the ticket
-- **SlotsInTicket**: list of local `FUserSlot` that are in the ticket (just the Owner Player, unless your game has multiple local players and matchmaking).
+- **SlotsInTicket**: list of local `FUserSlot` that are in the ticket (only the Owner Player, unless your game has multiple local players and matchmaking).
 - **FoundMatchLobbyId**: only filled inside the `OnMatchReady` callback and has the id for the resulting [Lobby](lobbies.md) for the match. You can use this to retrieve data from the [Lobby Subsystem](lobbies.md) inside the `OnMatchReady` callback to get connection information and more.
 
 To understand these tickets in more depth, see the source code of `UBeamMatchmakingSubsystem` — it is concise and covers the system in full.

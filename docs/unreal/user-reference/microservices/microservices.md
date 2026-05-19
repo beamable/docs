@@ -93,7 +93,7 @@ When declaring `Callable` functions, you should be aware of a few limitations re
 	- Wrap it in a struct/class instead
 - No overloading of `Callables`.
 	- This is because each of these must map to a unique route so name things accordingly
-	- Non-`Callable` functions can be overloaded just fine.
+	- Non-`Callable` functions can be overloaded.
 - Avoid calling `Callable` functions from other `Callable` functions.
 	- For code-reuse in the Microservice, write non-`Callable` static functions and call them inside the `Callable` body.
 - Must be an instance method (no `static` keyword).
@@ -163,7 +163,7 @@ To do that, use the CLI to register replacement types so that code generation sk
 
 1. Write your replacement type inside your Unreal Project.
    1. This must exist inside the `______MicroserviceClients/CustomReplacementTypes` module.
-   2. If you don't have the `____MicroserviceClients` yet, just generate the microservice client code once via `dotnet beam project generate-client "."`.
+   2. If you don't have the `____MicroserviceClients` yet, generate the microservice client code once via `dotnet beam project generate-client "."`.
    3. When writing the replacement type, look at the other generated code to see how to use the `UBeamJsonUtils` library to write the serialization logic.
 2. Use `dotnet beam project add-replacement-type` to add the created type.
    1. The `reference-id` argument is the OpenAPI ReferenceId for the type you want to replace. You can find this inside the `beam_openApi.json` file that lives in your microservice's `bin` directory. `ReferenceIds` are any of the json property names under the `components.schemas.<ReferenceId>` sub-object of this JSON file.
@@ -230,7 +230,7 @@ Here's where you can change your **Microservice Target**.
 There are a few different ways to work with Microservices in Unreal, each with their own advantages and disadvantages. These are NOT how-to guides, they are high-level descriptions to help you get a feel regarding how to work with Beamable and how its tools can be used to work alone and as a team.
 
 ### Designing the API
-If you're in the very early stages of solving a problem, you just want to get the features to work. Here's a workflow that doesn't require you to open Unreal at all, allowing you to focus only on getting your `Callables` to work!
+If you're in the very early stages of solving a problem, you want to get the features to work. Here's a workflow that doesn't require you to open Unreal at all, allowing you to focus only on getting your `Callables` to work!
 
 Here are the steps:
 
@@ -265,7 +265,7 @@ Once you have these, you can:
 If you are using [Federations](../federation/federation.md), there are a few particulars of this workflow of which you should be aware. If not, the above works as described.
 
 ### Deploying to a realm
-Once you have things working locally, you'll likely want to make the Microservice available to other team members working on the realm. If you just push your code up, other team members would also have to run the service locally and that might not always be desirable.
+Once you have things working locally, you'll likely want to make the Microservice available to other team members working on the realm. If you only push your code up, other team members would also have to run the service locally and that might not always be desirable.
 
 Therefore, publish the services to the appropriate realm.
 
@@ -292,7 +292,7 @@ Imagine the following:
 - The designer does something that reveals a bug in your service
 - It is unclear what causes it exactly and but the designer can repro it consistently by playing in PIE
 
-Now, the usual flow for handling this situation would be similar to this:
+The usual flow for handling this situation looks like this:
 
 - Make a ticket
 - Live with the bug while a ticket/task finds its way to an engineer, impacting designer productivity
@@ -314,7 +314,7 @@ For smaller teams that like to move fast and can rely on lots of direct communic
 <center>Collaboration Tab of the Microservice Window</center>
 
 ## Micro storages
-Beamable Microservices allow you to store data in Beamable's own managed services such as `Stats`(Per-Player key-value stores) and `Inventory` (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it just makes your particular problem simpler to solve (instead of trying to fit it into the default stores).
+Beamable Microservices allow you to store data in Beamable's own managed services such as `Stats`(Per-Player key-value stores) and `Inventory` (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it makes your particular problem simpler to solve (instead of trying to fit it into the default stores).
 
 For those cases, Beamable offers a `MicroStorage`. This is a wrapper around a database that you can write to from your microservices. At the moment, only `MongoDB` is supported. Like Microservices, these are scoped by realm as well (as in, data from Realm A is only visible in Realm A). [Micro Storages](../microservices/microservices.md#micro-storages).
 

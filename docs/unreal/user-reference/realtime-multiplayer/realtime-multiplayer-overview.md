@@ -35,7 +35,7 @@ This documentation uses a few terms to refer to common parts of the architecture
 - **Main Boot Level**: Refers to the Level in which your Client applications start. This usually maps to your title/main menu screens
 - **Waiting Room Level**: Some games boot the server into an intermediate level while players connect, before performing a **Server Travel** to the actual gameplay map
 - **Gameplay Level**: This is the Level in which gameplay happens. During development, your designers and gameplay engineers need to enter this level directly using PIE
-- **Game Server Orchestrator** or just **Orchestrator**: whatever tech is running your actual Game Servers; Edgegap, Agones, GameLyft and others exist in this space
+- **Game Server Orchestrator** (or **Orchestrator** for short): whatever tech is running your actual Game Servers; Edgegap, Agones, GameLyft and others exist in this space
 
 There _**are**_ other ways to arrange and organize server-authoritative games but most games do something at least similar to this, and, Unreal helps you more if you are close to this.
 
@@ -106,7 +106,7 @@ The above process guarantees two things:
 - The SDK in both Clients and Servers is guaranteed to be in the same state they'd be if you had entered the Gameplay Level via your normal flows (starting from the **Main Boot Level**): the Beamable SDK is fully initialized in both Server and each Client
 - Every code/blueprint running AFTER the Game Mode's **PostLogin** is guaranteed to have no differences between the PIE flow and the Main Boot Level one
 
-And... the above guarantees allow you to just use Beamable with much less PIE-specific code.
+The above guarantees allow you to use Beamable with much less PIE-specific code.
 
 ## Integrating with game mode callbacks and others
 There are several overridable functions and events the Game Mode class exposes to you. There is a very important constraint affecting them:
@@ -147,7 +147,7 @@ When configuring a build with your Orchestrator, they will typically allow you t
 
 The exact steps vary by orchestrator, but you can see how each is configured in the **[Beamball Demo](../../samples/beamball/beamball-demo.md)**.
 
-In addition to this, inside the Game Server initialization logic, you'll need to do some things to map the Beamable Lobby to this running instance of the game server. There are two strategies to do this:
+Additionally, inside the Game Server initialization logic, you must map the Beamable Lobby to this running instance of the game server. There are two strategies:
 
 ##### One lobby per process
 The most common way Orchestrators such as Edgegap, GameLyft or Agones pass information to the running process is via Command Line Arguments or Environment Variables. If you are only ever running one Lobby per-game-server-process, pass the lobby ID this way.

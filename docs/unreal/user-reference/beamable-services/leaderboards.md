@@ -47,7 +47,7 @@ Before publishing, there are some configurations that can affect how your leader
 
 There are two ways to assign a player to a leaderboard:
 
- - Set a Score Directly: Simply submit a score for the player on the desired leaderboard. This automatically associates the player with that leaderboard
+ - Set a Score Directly: Submit a score for the player on the desired leaderboard. This automatically associates the player with that leaderboard
 
 ![leaderboards-blueprint-update-score.png](../../../media/imgs/leaderboards-blueprint-update-score.png)
 
@@ -61,7 +61,7 @@ There are two ways to assign a player to a leaderboard:
 	Basically the priority is same score, last assigned.
 
 !!! note "Non Partitioned Leaderboard"
-	If you use this operation on a non-partitioned leaderboard, it will simply return the original leaderboard ID without any partition suffix.
+	If you use this operation on a non-partitioned leaderboard, it returns the original leaderboard ID without any partition suffix.
 
 ## Modifying entries
 

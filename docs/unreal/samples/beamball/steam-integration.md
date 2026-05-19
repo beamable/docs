@@ -34,7 +34,7 @@ Since this sample requires several resources, it is not pre-hosted. To access it
 
 ### Setting up Beamable systems
 
-Now, you'll need to configure a Beamable realm to work with your Steam App so you can use it:
+Next, configure a Beamable realm to work with your Steam App:
 
 1. Go to the Beamable Portal and create a new Beamable realm called `beamball-demo`.
 2. Go to the Portal (`Account`) and set aside your Customer Id (CID).

@@ -67,7 +67,7 @@ For that, the SDK provides `Login - Local Cache`.
 ### Local cache and email/password form
 Some games might have builds distributed outside of common platforms and instead might want to ask users to sign-up via Email/Password.
 
-In these cases and builds, you'll want to:
+In these cases and builds:
 
 - Call `Login - Local Cache` to first try logging in as the locally cached user in that slot.
 - Call `Sign Up - Email And Password` with `bAutoLogin` as `true`.
@@ -85,7 +85,7 @@ Beamable has a different approach for supporting third-party Platforms such as S
 
 Platform login flows are usually very simple. You can see this in the [Beamball - Steam Integration](../../samples/beamball/steam-integration.md) sample.
 
-In builds for specific stores and platforms, what you'll want to do is:
+In builds for specific stores and platforms:
 
 - Call `Login - Local Cache` to first try logging in as the locally cached user in that slot.
 - Call `Sign Up - Federated Identity` with `bAutoLogin` as `true` and a properly configured Microservice with [Federated Login](../federation/federated-login.md).

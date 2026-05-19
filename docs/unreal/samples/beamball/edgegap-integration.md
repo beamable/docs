@@ -17,7 +17,7 @@ Overview:
 
 ### Edgegap environment variables required
 
-Once you set up your version, you will need to add the following environment variables to the version.
+Once you set up your version, add the following environment variables to the version.
 
  ![Edgegap Env Variables](../../../media/imgs/edgegap-env-vars.png)
 

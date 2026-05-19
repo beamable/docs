@@ -25,13 +25,13 @@ The combination of the **Federation Id** and the **Federation Type** is comparab
 Examples:
 
 - `IFederatedLogin` would have different implementations for Steam and Epic auth integration
-- `IFederatedLogin<SteamId>` and `IFederatedLogin<EpicId>` are the two interfaces you will need to implement
+- `IFederatedLogin<SteamId>` and `IFederatedLogin<EpicId>` are the two interfaces to implement
 - `SteamId` carries `[FederationId("steam")]`; `EpicId` carries `[FederationId("epic")]` — Beamable uses these strings to route each request to the correct implementation
 
 `FederationId` values are the mechanism Beamable uses to select the correct Federation implementation when your microservice provides more than one of the same type. This is the `FederationId` parameter passed to `LoginFederatedOperation`, `SignUpFederatedOperation`, and `AttachFederatedOperation` on `UBeamRuntime`.
 
 ## Adding/Removing federations
-Federations are tied to interfaces implemented in your `Microservice` inherited class — these Federations and their IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, simply implement its Federation and recompile the microservice project.
+Federations are tied to interfaces implemented in your `Microservice` inherited class — these Federations and their IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, implement its Federation and recompile the microservice project.
 
 ```csharp
 // FederationIds.cs

@@ -10,7 +10,7 @@ Here's why you'd want to do this:
 Unless you are solving one of the two problems above, you will not need to write your own `UBeamRuntimeSubsystem`. If you do, the following concepts are essential.
 
 !!! warning "Low Level Usage"
-    The systems described here are used by various environments the Beamable SDK runs in: PIE, Editor, Dedicated Server Builds and regular game builds. Their code is pretty heavily commented, so feel free to read it and figure things out that way.
+    These systems support the SDK across PIE, Editor, Dedicated Server Builds, and regular game builds. You can read the code to learn how these subsystems work — we commented it thoroughly.
 
 The lowest layer of systems is shared between the SDK's UE Editor integration and the SDK's Runtime integration:
 

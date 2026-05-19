@@ -14,7 +14,7 @@ The SDK's Plugin is divided into several modules:
 
 ## Core concepts
 
-For any technical lead making system-level decisions, effective use of Beamable and the Beamable Unreal SDK requires you to understand a few core concepts. So, after reading this document, you'll want to start here:
+For any technical lead making system-level decisions, effective use of Beamable and the Beamable Unreal SDK requires you to understand a few core concepts. After reading this document, start here:
 
 - [**Content**](beamable-services/content.md): how you define your game's configuration — balancing data, currency and item definitions, etc. Most SDK systems depend on Content, so it is a good place to start
 - [**Identity**](beamable-services/identity.md): the various ways you can manage a player's account and login flows

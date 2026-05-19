@@ -37,7 +37,7 @@ Dependency pins allow an operation to explicitly depend on other operations **wi
 - Dependencies are executed **in parallel** by default
 - If you need **sequential execution**, chain operations by:
   - Adding a dependency to an operation
-  - Then using that operation as a dependency for the next one or depending o the case you can just connect the output pins directly
+  - Then using that operation as a dependency for the next one, or depending on the case, connect the output pins directly
 
 This gives you full control over execution order without additional nodes.
 
