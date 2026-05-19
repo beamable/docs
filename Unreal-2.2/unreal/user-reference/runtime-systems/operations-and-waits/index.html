@@ -10407,7 +10407,7 @@
 <h1 id="unreal-sdk-operations-and-waits">Unreal SDK - operations and waits<a class="headerlink" href="#unreal-sdk-operations-and-waits" title="Permanent link">¶</a></h1>
 <p>The Beamable SDK uses a slight variation on Promises that are named Operations. These provide the same semantics as Promises, but their implementation is slightly different to allow for a BP-compatible API and "sub-events".</p>
 <h2 id="how-operations-work">How operations work<a class="headerlink" href="#how-operations-work" title="Permanent link">¶</a></h2>
-<p>They wrap concurrent <em>operations</em> (mostly HTTP Requests) under a <code>FBeamOperationHandle</code> exposed to some higher-level system. Simply put:</p>
+<p>They wrap concurrent <em>operations</em> (mostly HTTP Requests) under a <code>FBeamOperationHandle</code> exposed to some higher-level system:</p>
 <blockquote>
 <p>When you want to expose a single function that makes a bunch of async operations and emits events in the Game Thread, ultimately handling success/failure of the entire sequence of operations, use an <code>Operation</code>.</p>
 </blockquote>
@@ -10428,7 +10428,7 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/operations-and-waits-lifecycle.png" data-desc-position="bottom"><img alt="operations-and-waits-lifecycle.png" src="../../../../media/imgs/operations-and-waits-lifecycle.png"></a></p>
 <p><strong>When writing Operations, there are two ways of thinking about them</strong>:</p>
 <ul>
-<li><strong>Regular Operations</strong>: are just a "Promise"</li>
+<li><strong>Regular Operations</strong>: are a "Promise"</li>
 <li><strong>Operation Hooks</strong>: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work</li>
 </ul>
 <h2 id="writing-and-exposing-your-own-regular-operations">Writing and exposing your own regular operations<a class="headerlink" href="#writing-and-exposing-your-own-regular-operations" title="Permanent link">¶</a></h2>
@@ -10516,7 +10516,7 @@
 <li><code>UBeamLobbySubsystem</code></li>
 <li>Any other sub-class of <code>UBeamRuntimeSubsystem</code></li>
 </ul>
-<p>Feel free to copy-paste them as a template of how to implement and reason about <code>Operations</code>.</p>
+<p>Use them as a template for implementing and reasoning about <code>Operations</code>.</p>
 <h3 id="beam-flow-nodes-operations">Beam flow nodes - operations<a class="headerlink" href="#beam-flow-nodes-operations" title="Permanent link">¶</a></h3>
 <p>As part of the <a href="../blueprints/">Blueprint integration</a>, the SDK includes a few custom nodes that make invoking operations from Blueprints much simpler. These look like this:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/operation-and-waits-beam-flow-nodes.png" data-desc-position="bottom"><img alt="beam-flow-node" src="../../../../media/imgs/operation-and-waits-beam-flow-nodes.png"></a></p>
@@ -10667,7 +10667,7 @@
 <a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="p">}));</span>
 </code></pre></div>
 <h2 id="why-not-template-based-promises">Why not template-based promises?<a class="headerlink" href="#why-not-template-based-promises" title="Permanent link">¶</a></h2>
-<p>The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style API just won't work with BPs. The goal was an underlying system providing the same functionality while retaining BP compatibility, even without the template-based interface. The result was this <code>Operation</code> system.</p>
+<p>The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style API won't work with BPs. The goal was an underlying system providing the same functionality while retaining BP compatibility, even without the template-based interface. The result was this <code>Operation</code> system.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>In building the Stateful <code>UBeamRuntimeSubsystems</code> with this system, the team found the absence of template syntax and <code>Do().Then()</code> chaining to be a non-issue in practice. Chaining may be revisited eventually — perhaps as "syntactic sugar" — but template-layer additions are unlikely given the BP-Compatibility requirement.</p>

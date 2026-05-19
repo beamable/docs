@@ -10406,7 +10406,7 @@ Handling of this is game specific, but most games will either:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/identity-login-local-cache.png" data-desc-position="bottom"><img alt="Login - Local Cache" src="../../../../media/imgs/identity-login-local-cache.png"></a></p>
 <h3 id="local-cache-and-emailpassword-form">Local cache and email/password form<a class="headerlink" href="#local-cache-and-emailpassword-form" title="Permanent link">¶</a></h3>
 <p>Some games might have builds distributed outside of common platforms and instead might want to ask users to sign-up via Email/Password.</p>
-<p>In these cases and builds, you'll want to:</p>
+<p>In these cases and builds:</p>
 <ul>
 <li>Call <code>Login - Local Cache</code> to first try to login as the locally cached user in that slot.</li>
 <li>Call <code>Sign Up - Email And Password</code> with <code>bAutoLogin</code> as <code>true</code>.<ul>
@@ -10420,7 +10420,7 @@ Handling of this is game specific, but most games will either:</p>
 <h3 id="local-cache-and-federated-identity">Local cache and federated identity<a class="headerlink" href="#local-cache-and-federated-identity" title="Permanent link">¶</a></h3>
 <p>Beamable has a different approach for supporting third-party platforms such as Steam and Epic Online Services. Rather than maintaining a small subset of all existing third-party platforms, Beamable uses <a href="../../federation/federation/">Microservice Federation</a> capabilities to let you implement whichever Platform-specific features you need for your game.</p>
 <p>Platform login flows are usually very simple. You can see that in the working <a href="../../../samples/steam-demo/">Steam Demo</a>.</p>
-<p>In builds for specific stores and platforms, what you'll want to do is:</p>
+<p>In builds for specific stores and platforms:</p>
 <ul>
 <li>Call <code>Login - Local Cache</code> to first try to login as the locally cached user in that slot.</li>
 <li>Call <code>Sign Up - Federated Identity</code> with <code>bAutoLogin</code> as <code>true</code> and a properly configured Microservice with <a href="../../federation/federated-login/">Federated Login</a>.</li>

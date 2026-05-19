@@ -10409,7 +10409,7 @@
 <li><a href="../../../samples/beamball/beamball-demo/">Beamball Demo</a></li>
 </ul>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
-<p>To use <code>UBeamMatchmakingSubsystem</code> via blueprints (or C++), you'll need to:</p>
+<p>To use <code>UBeamMatchmakingSubsystem</code> via blueprints (or C++):</p>
 <ul>
 <li>Use the <a href="../content/">Content Window</a> to create a <code>Beam Game Type Content</code> with a single team with a Min/Max player count of 1.</li>
 <li>Publish that content to your realm.</li>
@@ -10473,7 +10473,7 @@ The semantics for each event are:</p>
 <ul>
 <li>The <code>OnMatchReady</code> callback is ONLY invoked AFTER the match Lobby's data has been fetched.<ul>
 <li>This means you can use the <code>Local State - Lobby</code> nodes to fetch information from the lobby directly on this event.</li>
-<li>For example, when used with <a href="../../federation/federated-game-server/">Federated Game Server</a>, you just get the connection string from the global lobby property to proceed.</li>
+<li>For example, when used with <a href="../../federation/federated-game-server/">Federated Game Server</a>, get the connection string from the global lobby property to proceed.</li>
 </ul>
 </li>
 <li>When joining a queue, you can optionally pass in a set of key/value pairs called <code>FBeamTag</code>.<ul>
@@ -10491,7 +10491,7 @@ The semantics for each event are:</p>
 <ul>
 <li><strong>GameType</strong>: queue type.</li>
 <li><strong>GamerTagsInTicket</strong>: list of players that are in the ticket.</li>
-<li><strong>SlotsInTicket</strong>: list of local <code>FUserSlot</code> that are in the ticket (just the Owner Player, unless your game has multiple local players and matchmaking).</li>
+<li><strong>SlotsInTicket</strong>: list of local <code>FUserSlot</code> that are in the ticket (only the Owner Player, unless your game has multiple local players and matchmaking).</li>
 <li><strong>FoundMatchLobbyId</strong>: only filled inside the <code>OnMatchReady</code> callback and has the id for the resulting <a href="../lobbies/">Lobby</a> for the match. You can use this to retrieve data from the <a href="../lobbies/">Lobby Subsystem</a> inside the <code>OnMatchReady</code> callback to get connection information and more.</li>
 </ul>
 <p>To understand more about these tickets, take a look at the source code of the <code>UBeamMatchmakingSubsystem</code> (it is pretty simple and should give you a lot more confidence in understanding the system).</p>

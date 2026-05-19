@@ -10736,7 +10736,7 @@
 </li>
 <li>No overloading of <code>Callables</code>.<ul>
 <li>This is because each of these must map to a unique route so name things accordingly.</li>
-<li>Non-<code>Callable</code> functions can be overloaded just fine.</li>
+<li>Non-<code>Callable</code> functions can be overloaded.</li>
 </ul>
 </li>
 <li>Avoid calling <code>Callable</code> functions from other <code>Callable</code> functions.<ul>
@@ -10886,7 +10886,7 @@
 <h2 id="common-developer-workflows">Common developer workflows<a class="headerlink" href="#common-developer-workflows" title="Permanent link">¶</a></h2>
 <p>There are a few different ways to work with Microservices in Unreal, each with their own advantages and disadvantages. These are NOT how-to guides, they are high-level descriptions to help you get a feel regarding how to work with Beamable and how its tools can be used to work alone and as a team.</p>
 <h3 id="designing-the-api">Designing the API<a class="headerlink" href="#designing-the-api" title="Permanent link">¶</a></h3>
-<p>If you're in the very early stages of solving a problem, you just want to get the features to work. Here's a workflow that doesn't require you to open Unreal at all, allowing you to focus only on getting your <code>Callables</code> to work!</p>
+<p>If you're in the very early stages of solving a problem, you want to get the features to work. Here's a workflow that doesn't require you to open Unreal at all, allowing you to focus only on getting your <code>Callables</code> to work!</p>
 <p>Here are the steps:</p>
 <ol>
 <li>Write your <code>Callable</code>'s code in your IDE.</li>
@@ -10932,7 +10932,7 @@
 <p>Deploying services for the UE integration is 100% CLI-based. The documentation for it can be found here.</p>
 <div class="admonition info">
 <p class="admonition-title">Why no Deploy Editor UI?</p>
-<p>If there's enough demand for it, a deploy UI will be considered. However, deploying services is mostly done by engineers and CI/CD pipelines, and compiling and opening the UE Editor just to do this does not add enough value to the UE workflow.</p>
+<p>If there's enough demand for it, a deploy UI will be considered. However, deploying services is mostly done by engineers and CI/CD pipelines, and compiling and opening the UE Editor only to do this does not add enough value to the UE workflow.</p>
 </div>
 <h3 id="collaborative-debugging">Collaborative debugging<a class="headerlink" href="#collaborative-debugging" title="Permanent link">¶</a></h3>
 <p>This one is pretty unique to Beamable's Microservices.</p>
@@ -10942,7 +10942,7 @@
 <li>The designer does something that reveals a bug in your service.</li>
 <li>It is unclear what causes it exactly and but the designer can repro it consistently by playing in <abbr title="Play in Editor">PIE</abbr>.</li>
 </ul>
-<p>Now, the usual flow for handling this situation would be similar to this:</p>
+<p>The usual flow for handling this situation looks like this:</p>
 <ul>
 <li>Make a ticket.</li>
 <li>Live with the bug while a ticket/task finds its way to an engineer, impacting designer productivity.</li>
@@ -10963,7 +10963,7 @@
 <center>Collaboration Tab of the Microservice Window</center>
 
 <h2 id="micro-storages">Micro storages<a class="headerlink" href="#micro-storages" title="Permanent link">¶</a></h2>
-<p>Beamable Microservices allow you to store data in Beamable's own managed services such as <code>Stats</code>(Per-Player key-value stores) and <code>Inventory</code> (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it just makes your particular problem simpler to solve (instead of trying to fit it into the default stores).</p>
+<p>Beamable Microservices allow you to store data in Beamable's own managed services such as <code>Stats</code>(Per-Player key-value stores) and <code>Inventory</code> (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it makes your particular problem simpler to solve (instead of trying to fit it into the default stores).</p>
 <p>For those cases, Beamable offers a <code>MicroStorage</code>. This is a wrapper around a database that you can write to from your microservices. At the moment, only <code>MongoDB</code> is supported. Like Microservices, these are scoped by realm as well (as in, data from Realm A is only visible in Realm A). <a href="./#micro-storages">Micro Storages</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Relevancy for API Design and Client-Code Generation</p>
