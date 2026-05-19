@@ -9083,7 +9083,7 @@
 <p>The Lobby subsystem provides you with utilities that help you integrate Beamable into UE's Gameplay Framework.</p>
 <ul>
 <li><code>Local State - Lobby - Open Level</code>: can be used in Game Clients to connect to a Game Server by extracting connection information (URL and Port) from the Lobby's Global Data</li>
-<li><code>Local State - Lobby - Client - Prepare Login Options</code>: can be used in Game Clients to add Beamable's required parameters to the <code>FString Options</code> you'll need to pass along to UE's default <code>Open Level</code> node.</li>
+<li><code>Local State - Lobby - Client - Prepare Login Options</code>: can be used in Game Clients to add Beamable's required parameters to the <code>FString Options</code> you pass to UE's default <code>Open Level</code> node.</li>
 <li><code>Local State - Lobby - Get Gamer Tag</code> and <code>Local State - Lobby - Get User Slot</code>: These nodes are meant to map UE constructs, such as <code>PlayerControllers</code> and <code>PlayerState</code> instances, to Beamable constructs like <code>GamerTag</code> and <code>UserSlots</code>; see their tooltips for the full mapping.</li>
 <li><code>Local State - Lobby - Get Lobby Id (by Gamer Tag)</code>: This returns the LobbyId containing the user of the given <code>GamerTag</code>.</li>
 <li><code>Local State - Lobby - Server - Get Lobby Id From CLArgs</code>: This is meant to help integrate with Game Server Orchestrators — see the <a href="../../realtime-multiplayer/realtime-multiplayer-overview/">Real-Time Multiplayer Docs</a> for more information</li>

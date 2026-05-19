@@ -9152,13 +9152,13 @@
 <li>Select <strong>+</strong> next to any of the content type headers to create a content of that type.</li>
 <li>Rename the created content; it cannot contain whitespaces or <code>.</code>.</li>
 </ol>
-<p>Deleting content can be done simply by pressing <code>Del</code> on your keyboard with an item selected or selecting the <code>[X]</code> button in the Item Details.</p>
+<p>To delete content, press <code>Del</code> on your keyboard with an item selected, or select the <code>[X]</code> button in the Item Details.</p>
 <p>Items created locally will have a <code>[+]</code> sign next to them informing that they are not in the realm yet and will be added in the next publish. Items deleted locally that have counterparts on the realm will have a <code>[-]</code> sign next to them informing that they will be removed from the realm in the next publish.</p>
 <p>Modifying content can be done via the Details Editor in the <strong>Content Window</strong>. Modified content, relative to the latest published manifest, is shown with an <code>[M]</code> icon next to them. They can be reverted to their state at the realm by using the <code>Revert</code> button.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content-revert.png" data-desc-position="bottom"><img alt="content-revert.png" src="../../../../media/imgs/content-revert.png"></a></p>
 <h2 id="publishing-and-auto-syncing">Publishing and auto-syncing<a class="headerlink" href="#publishing-and-auto-syncing" title="Permanent link">¶</a></h2>
 <p><strong>Publishing</strong> tells the Beamable SDK that you want to send your entire local content state to the realm and make that the source of truth. The source of truth for content in a realm is always whatever manifest was last published to that realm.</p>
-<p>To publish content to a realm simply use the Publish button.</p>
+<p>To publish content to a realm, use the Publish button.</p>
 <div class="admonition note">
 <p class="admonition-title">For Designers</p>
 <p>You can think of the realm's published content as a "Dropbox/Google Drive folder" that contains all content objects' serialized JSON files. The manifest is an index that tells the SDK which content exists and where to download their JSON files.</p>
@@ -9186,7 +9186,7 @@
 <p>To prevent <code>Designer-B</code> from overwriting changes made by <code>Designer-A</code> the SDK will not allow <code>Designer-B</code> to <strong>Publish</strong> until all detected conflicts are resolved. Resolving a conflict can be done in one of two ways:</p>
 <ul>
 <li><strong>Use Realm</strong>: this will discard all local changes to that content and use whatever was published</li>
-<li><strong>Use Mine</strong>: this will simply ignore the conflict (which means that it will allow you to publish and your publish WILL overwrite the version in the realm)</li>
+<li><strong>Use Mine</strong>: this ignores the conflict (which means that it will allow you to publish and your publish WILL overwrite the version in the realm)</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content-conflict.png" data-desc-position="bottom"><img alt="content-conflict.png" src="../../../../media/imgs/content-conflict.png"></a></p>
 <p>Therefore, consider these practices:</p>
@@ -9206,7 +9206,7 @@
 <li>Large features that make use of new custom content definitions developed alongside Microservices</li>
 <li>Content schema modifications or equivalents that will require migrating existing content to a new schema</li>
 </ul>
-<p>To achieve this — just create a new realm for the development of that feature.</p>
+<p>To achieve this, create a new realm for the development of that feature.</p>
 <div class="admonition note">
 <p class="admonition-title">Feature Branches vs Feature Flags</p>
 <p>If you like working with feature branches, pair this realm with the feature branch. Limit this to large features that will take a lot of time in development.</p>
@@ -9243,7 +9243,7 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Microservices</p>
-<p>In a lot of cases, you will want to access these content objects in Microservices.  For all of Beamable's own content-types ( <code>UBeamCurrencyContent</code> , etc.) you will find equivalents in the Microservice SDK. For your own custom types, you'll need to declare them in C#. To do so, use the serialization table below as reference to know how to map types from C++ to C#.</p>
+<p>In many cases, you may need to access these content objects in Microservices. For all of Beamable's own content-types (<code>UBeamCurrencyContent</code>, etc.), the Microservice SDK provides equivalents. For your own custom types, declare them in C# — use the serialization table below as reference for mapping types from C++ to C#.</p>
 </div>
 <h2 id="supported-content-serialization">Supported content serialization<a class="headerlink" href="#supported-content-serialization" title="Permanent link">¶</a></h2>
 <table>
@@ -9383,7 +9383,7 @@
 <p>To create a content snapshot, click on the button in the top right corner of the Workspace window. This will create a snapshot of your current local content state. It then will be added to the list of snapshots in the Snapshots Window.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content_snapshot_create.png" data-desc-position="bottom"><img alt="content_snapshot_create.png" src="../../../../media/imgs/content_snapshot_create.png"></a></p>
 <h3 id="applying-content-snapshots">Applying content snapshots<a class="headerlink" href="#applying-content-snapshots" title="Permanent link">¶</a></h3>
-<p>To apply the content of a snapshot to your current workspace, simply select the snapshot in the list and click on the <code>Apply Snapshot</code> button</p>
+<p>To apply the content of a snapshot to your current workspace, select the snapshot in the list and click <code>Apply Snapshot</code></p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content-apply-snapshot.png" data-desc-position="bottom"><img alt="content-apply-snapshot.png" src="../../../../media/imgs/content-apply-snapshot.png"></a></p>
 <p>Additionally you can also select the following options:</p>
 <ul>
@@ -9391,7 +9391,7 @@
 <li>Additive: if checked, the snapshot will be applied on top of your current local content state only adding the new and modified content. If unchecked, the snapshot will replace your current local content state</li>
 </ul>
 <h3 id="sharing-content-snapshots">Sharing content snapshots<a class="headerlink" href="#sharing-content-snapshots" title="Permanent link">¶</a></h3>
-<p>Shared snapshots are stored in the <code>.beamable/shared/contentSnapshot</code> folder, so you can share them with your teammates by sharing that file through git or any other way you like. To save a Local Snapshot as Shared simply click on the <code>Save as Template</code> button.</p>
+<p>Shared snapshots are stored in the <code>.beamable/shared/contentSnapshot</code> folder, so you can share them with your teammates by sharing that file through Git or any other way you like. To save a Local Snapshot as Shared, click <code>Save as Template</code>.</p>
 <p>The Shared Snapshots are identified in the list with a different (orange) icon.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content-shared-snapshot.png" data-desc-position="bottom"><img alt="content-shared-snapshot.png" src="../../../../media/imgs/content-shared-snapshot.png"></a></p>
 <p>Notice that every time you publish content to the realm it will automatically update the shared snapshot called <code>LatestPublished</code> to match the content that was just published. This means that you can always share with your teammates the latest published content by sharing that snapshot.</p>

@@ -8942,10 +8942,10 @@
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="n">UE_LOG</span><span class="p">(</span><span class="n">LogTemp</span><span class="p">,</span><span class="w"> </span><span class="n">Warning</span><span class="p">,</span><span class="w"> </span><span class="n">TEXT</span><span class="p">(</span><span class="s">"Setting up my orchestrator!!!!"</span><span class="p">));</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">            </span><span class="c1">// Let's extract the Lobby Id from the CLArgs.</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">            </span><span class="c1">// Extract the Lobby Id from the CLArgs.</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">LobbyId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamMultiplayer</span><span class="o">::</span><span class="n">Orchestrator</span><span class="o">::</span><span class="n">GetLobbyIdFromCLArgs</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">            </span><span class="c1">// Let's call RegisterLobbyWithServer so that the SDK running here becomes aware of this lobby.</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">            </span><span class="c1">// Call RegisterLobbyWithServer so that the SDK running here becomes aware of this lobby.</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">            </span><span class="n">BeamMultiplayer</span><span class="o">::</span><span class="n">Orchestrator</span><span class="o">::</span><span class="n">RegisterLobbyWithServer</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">LobbyId</span><span class="p">,</span><span class="w"> </span><span class="n">FBeamOperationEventHandlerCode</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">([</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">LobbyId</span><span class="p">](</span><span class="n">FBeamOperationEvent</span><span class="w"> </span><span class="n">Evt</span><span class="p">)</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">            </span><span class="p">{</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">                </span><span class="c1">// Failed to get lobby data from Beamable</span>
@@ -9048,8 +9048,8 @@
 <p>User Slots are a big part of the regular workflow when working with Beamable SDK in game clients. For dedicated servers though they are not used. Any functions containing the <code>UserSlot</code> parameter, that parameter can be ignored.</p>
 <p>This means a few things:</p>
 <ul>
-<li>There is no need to <code>SignUp</code>/<code>Login</code>; just to <code>InitSDK</code>.</li>
-<li>Calling APIs that simply read data from users via their <code>GamerTag</code> or other Ids will work fine.</li>
+<li>There is no need to <code>SignUp</code>/<code>Login</code>; only to <code>InitSDK</code>.</li>
+<li>Calling APIs that read data from users via their <code>GamerTag</code> or other Ids will work fine.</li>
 <li>Calling APIs that write to user data is not recommended via regular SDK functions (see below for the alternative)</li>
 </ul>
 <div class="admonition note">

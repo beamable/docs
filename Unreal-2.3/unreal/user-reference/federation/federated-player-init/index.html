@@ -8818,7 +8818,7 @@
 
 <h1 id="federated-player-init">Federated player init<a class="headerlink" href="#federated-player-init" title="Permanent link">¶</a></h1>
 <p>Player Init Federation allows you to define logic that runs whenever a new player is created in a realm. This enables you to define your players' starting state BEFORE your login call completes.</p>
-<p>To set up this federation in a Microservice, you'll need to do the following in your Microservice:
+<p>To set up this federation, do the following in your Microservice:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// This federation ONLY works with the "default" Federation ID</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">// and it DOES NOT support multiple implementations of itself.</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">[FederationId("default")]</span>

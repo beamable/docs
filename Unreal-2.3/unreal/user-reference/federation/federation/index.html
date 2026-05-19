@@ -8857,12 +8857,12 @@
 <p>Examples:</p>
 <ul>
 <li><code>IFederatedLogin</code> would have different implementations for Steam and Epic auth integration</li>
-<li><code>IFederatedLogin&lt;SteamId&gt;</code> and <code>IFederatedLogin&lt;EpicId&gt;</code> are the two interfaces you will need to implement</li>
+<li><code>IFederatedLogin&lt;SteamId&gt;</code> and <code>IFederatedLogin&lt;EpicId&gt;</code> are the two interfaces to implement</li>
 <li><code>SteamId</code> carries <code>[FederationId("steam")]</code>; <code>EpicId</code> carries <code>[FederationId("epic")]</code> — Beamable uses these strings to route each request to the correct implementation</li>
 </ul>
 <p><code>FederationId</code> values are the mechanism Beamable uses to select the correct Federation implementation when your microservice provides more than one of the same type. This is the <code>FederationId</code> parameter passed to <code>LoginFederatedOperation</code>, <code>SignUpFederatedOperation</code>, and <code>AttachFederatedOperation</code> on <code>UBeamRuntime</code>.</p>
 <h2 id="addingremoving-federations">Adding/Removing federations<a class="headerlink" href="#addingremoving-federations" title="Permanent link">¶</a></h2>
-<p>Federations are tied to interfaces implemented in your <code>Microservice</code> inherited class — these Federations and their IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, simply implement its Federation and recompile the microservice project.</p>
+<p>Federations are tied to interfaces implemented in your <code>Microservice</code> inherited class — these Federations and their IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, implement its Federation and recompile the microservice project.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// FederationIds.cs</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">[FederationId("cool")]</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CoolId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="p">;</span>
