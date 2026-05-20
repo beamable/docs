@@ -18,12 +18,12 @@ You can download the [Beamable SDK Installer Package](https://packages.beamable.
 
 Once downloaded, follow these steps to install the Beamable SDK into your Unity project.
 
-| Step | Detail |
-|------|--------|
-| 1. Import the **Beamable SDK Installer Package** | ![Import Package](../../media/imgs/step-1-import-package.png)<br>• Unity → Assets → Import Package → Custom Package |
-| 2. Verify the import | ![Verify Import](../../media/imgs/step-2-verify-import.png)<br>• Press the "Import" button |
-| 3. Install the **Beamable SDK** | ![Install SDK](./installation-01.png)<br>• Click to continue |
-| 4. Remove the **Beamable SDK Installer Package** | • Now that the installation process is complete, the installer package is no longer needed. You can remove it. |
+| Step | Detail                                                                                                                                                                                                                                                                   |
+|------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1. Import the **Beamable SDK Installer Package** | ![Import Package](../../media/imgs/step-1-import-package.png)<br>• Unity → Assets → Import Package → Custom Package                                                                                                                                                      |
+| 2. Verify the import | ![Verify Import](../../media/imgs/step-2-verify-import.png)<br>• Press the "Import" button                                                                                                                                                                               |
+| 3. Install the **Beamable SDK** | ![Install SDK](./installation-01.png){width=400px}<br>• Click to continue                                                                                                                                                                                                |
+| 4. Remove the **Beamable SDK Installer Package** | • Now that the installation process is complete, the installer package is no longer needed. You can remove it.                                                                                                                                                           |
 | 5. **Install .NET (if required)** | Starting with the Unity 5.0.0 SDK, Beamable requires that you have .NET 10.0.100 or 8.0.302 installed on your machine. If you don't, the Beamable SDK will offer a download option for you, and once you've finished installing it, you can continue through the dialog. |
 
 Congratulations, the Beamable SDK is now installed!
@@ -40,19 +40,20 @@ Open the Beamable Login Window by clicking the Beamable button in the Unity tool
 Now you're ready to start your first Beamable project!
 
 ## Say _hello_ to Beamable!
-To confirm that you have a working Beamable setup, we will pull in the default Beamable runtime console prefab and make sure we can access a player account.
+To confirm that you have a working Beamable setup, we will pull in the `BeamableBehavior` component and make sure we can access a player account using the [Admin Console](../user-reference/runtime-systems/admin-console.md).
 
-Navigate to the _Beam Library_ by finding it from the Beamable Button in the top-right of the Unity editor.
+![getting-started.gif](../../media/imgs/getting-started.gif)
 
-In the _Beam Library_, find the _Admin Console_ card and click the _Add Prefab_ button to add the prefab to an empty scene.
-![Beamable Admin Console](./library-admin-console.png){: style="max-width: 700px;"}
+- Add the `BeamableBehaviour` component to any object of the scene.
+- Enter play-mode, and hit the `~` character (the same key as `` ` ``). This should open up the [Admin Console](../user-reference/runtime-systems/admin-console.md).
+- You can type in a bunch of commands like `help` (list of commands), or `dbid` (current player's id).
+- You're ready to start building!
 
-Enter play-mode, and hit the `~` character (the same key as `` ` ``). This should open up the _Admin Console_. You can type in a bunch of commands like `help`, or `dbid`.
+## Beamable Samples
 
-!!! Note
-    The `dbid` command will print out the current player's id. Learn more in the [frictionless auth section](./../user-reference/beamable-services/identity/frictionless.md).
+You can start exploring the Beamable SDK throuht the samples available in the Beam Samples Window. Also make sure to check out the [Samples Documentation](../samples/lightbeam.md) for more information.
 
-<try-it-out git-fragment="Assets/Minis/Basics/SetupConsole/Logic.cs" title="Console Access" args="scene=setup_console"/>
+![lightbeam-samples.png](../../media/imgs/lightbeam-samples.png){width=700px}
 
 ## Beam CLI dependency
 
@@ -65,16 +66,17 @@ The `.config/` folder has a file called `dotnet-tools.json` that specifies the v
 New versions of the Beamable SDK may depend on different versions of the Beam CLI. This table shows the latest version for each release line; for the complete patch-by-patch history, see [SDK/CLI Version History](./sdk-cli-version-history.md).
 
 | SDK Version | CLI Version |
-| :---------- | :---------- |
-| 5.0.1 | 7.0.1 |
-| 4.0.4 | 6.2.2 |
-| 3.1.7 | 5.4.3 |
-| 3.0.0 | 5.3.0 |
-| 2.4.6 | 4.3.7 |
-| 2.3.0 | 4.3.0 |
-| 2.2.0 | 4.2.0 |
-| 2.1.4 | 4.1.5 |
-| 2.0.3 | 3.0.2 |
+|:------------|:------------|
+| 5.1.0       | 7.2.0       |
+| 5.0.1       | 7.0.1       |
+| 4.0.4       | 6.2.2       |
+| 3.1.7       | 5.4.3       |
+| 3.0.0       | 5.3.0       |
+| 2.4.6       | 4.3.7       |
+| 2.3.0       | 4.3.0       |
+| 2.2.0       | 4.2.0       |
+| 2.1.4       | 4.1.5       |
+| 2.0.3       | 3.0.2       |
 
 
 
