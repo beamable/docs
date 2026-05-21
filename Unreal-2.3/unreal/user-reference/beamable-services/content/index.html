@@ -9349,7 +9349,7 @@
 </table>
 <p>Take a look at <code>UMockBeamContentObject</code> to see the supported types.</p>
 <h2 id="runtime-content-subsystem">Runtime content subsystem<a class="headerlink" href="#runtime-content-subsystem" title="Permanent link">¶</a></h2>
-<p>The SDK fetches the content manifest before the <code>OnBeamableStarted</code> callback is triggered. By default, it downloads the content manifest and each individual piece of content. You can enable and disable this behavior it can be configured to do so inside <code>Project Settings -&gt; Beamable Runtime</code>.</p>
+<p>The SDK fetches the content manifest before the <code>OnBeamableStarted</code> callback fires. It can also download each individual piece of content at startup. Toggle this with <strong>Download Individual Content on Start</strong> in <code>Project Settings -&gt; Beamable Runtime</code>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content-download-individual-on-start.png" data-desc-position="bottom"><img alt="content-download-individual-on-start.png" src="../../../../media/imgs/content-download-individual-on-start.png"></a></p>
 <p>The SDK also supports live content updates (if you publish content while the game client is running):</p>
 <ul>
@@ -9400,30 +9400,23 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/content-history.png" data-desc-position="bottom"><img alt="content-history.png" src="../../../../media/imgs/content-history.png"></a></p>
 <p>You can revert the whole content state to a previous version by clicking on the <code>Revert All</code> button. This will replace your local content state with the content state of that version or revert individual content objects to a previous version by clicking on the <code>Revert Item</code> button in the content details. This will replace your local version of that content object with the version of that content object in that version.</p>
 <h2 id="baking-content">Baking content<a class="headerlink" href="#baking-content" title="Permanent link">¶</a></h2>
-<p>In a couple of cases, you might want to bake content to distribute it with your build:</p>
-<ul>
-<li>If you plan to release a new build every time you want to update your game</li>
-<li>If you want to trade off some binary size for spending less time waiting for the individual content download at initialization time</li>
-</ul>
-<p>To enable those cases, the SDK includes an editor utility that bakes your local content into a <code>UBeamContentCache</code>.
-This is a special asset type that has the <code>UBeamContentObject</code> instances serialized using UE's binary serialization as opposed to JSON.</p>
-<p><strong>Keep in mind that this utility uses your local content, so make sure your content matches the realm's content before running it</strong>.</p>
-<p>The utility is called <code>EBP_BakeContent</code> and can be found in Beamable Core's plugin folder under <code>/Editor/Utility/EBP_BakeContent.EBP_BakeContent</code>. Running this utility goes through your local content and bakes them into a <code>BCC_</code> assets ( <code>UBeamContentCache</code> ) stored in <code>/Game/Beamable/Content/Manifests/Cooked/</code> directory. This directory is configured, by default, to be included in packaged games.</p>
-<p>At runtime, any <code>UBeamContentCache</code> is loaded automatically by the <code>UBeamContentSubsystem</code> if it exists and is configured correctly; so you don't have to do anything to have it work.</p>
+<p>Baking content embeds it in your build as binary-serialized <code>UBeamContentCache</code> assets, trading binary size for faster load times at startup. Baking pays off for content that changes little between builds, since anything that falls out of sync with the realm still has to be downloaded at runtime.</p>
+<p>To bake content, run the <code>EBP_BakeContent</code> editor utility at <code>/Editor/Utility/EBP_BakeContent.EBP_BakeContent</code> in the Beamable Core plugin folder. The utility bakes your <strong>local</strong> content state, so make sure it matches the realm before running it.</p>
 <div class="admonition warning">
 <p class="admonition-title">I can't find the Beamable Core Content in the Content Browser</p>
-<p>UE's Content Browser does not show Plugin content folders by default. If you want to see these, you need to turn it on at <code>Content Browser -&gt; Settings -&gt; Show Plugin Content</code>.</p>
+<p>UE's Content Browser does not show plugin content folders by default. Turn it on at <code>Content Browser -&gt; Settings -&gt; Show Plugin Content</code>.</p>
 </div>
+<p>The baked assets (<code>BCC_</code>-prefixed <code>UBeamContentCache</code> objects) are stored in <code>/Game/Beamable/Content/Manifests/Cooked/</code>, which is included in packaged games by default. At runtime, <code>UBeamContentSubsystem</code> loads any <code>UBeamContentCache</code> automatically if it exists and is configured correctly.</p>
 <h2 id="notes-on-binary-serialization">Notes on binary serialization<a class="headerlink" href="#notes-on-binary-serialization" title="Permanent link">¶</a></h2>
-<p>Unreal's Binary serialization of <code>UObject</code> types works <em>mostly</em> out of the box without any need for you to write any code. There are a few caveats:</p>
+<p>Unreal's binary serialization of <code>UObject</code> types works mostly out of the box. There are a few caveats:</p>
 <ul>
-<li>When referencing assets inside content objects use <code>TSoftObjectPtr</code>.</li>
-<li>When referencing types inside content objects use <code>UClass*</code>.</li>
-<li>When referencing non-asset <code>IBeamJsonSerializableUObject</code> inside content objects use <code>UMyObject*</code> directly and add <code>DefaultToInstanced, EditInlineNew</code> to the <code>UCLASS</code> macro of that type.</li>
+<li>When referencing assets inside content objects, use <code>TSoftObjectPtr</code></li>
+<li>When referencing types inside content objects, use <code>UClass*</code></li>
+<li>When referencing non-asset <code>IBeamJsonSerializableUObject</code> inside content objects, use <code>UMyObject*</code> directly and add <code>DefaultToInstanced, EditInlineNew</code> to the <code>UCLASS</code> macro of that type</li>
 </ul>
-<p>Doing that will make the binary serialization of content for local caching work in each of these cases.</p>
+<p>This ensures binary serialization of content for local caching works in each case.</p>
 <p>For serializing arbitrary data structures, prefer <code>FBeamJsonSerializableUStruct</code> subtypes of <code>UBeamContentObject</code> as these are simpler to set up. Use inlined <code>IBeamJsonSerializableUObject</code> only when you need a recursive type.</p>
-<p>For examples of handling this edge case, you can look at the <code>UBeamGameTypeContent</code> and <code>UBeamStatComparisonRule</code> types shipped with the SDK.</p>
+<p>For examples, see the <code>UBeamGameTypeContent</code> and <code>UBeamStatComparisonRule</code> types shipped with the SDK.</p>
 
 
 
