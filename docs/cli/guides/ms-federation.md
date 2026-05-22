@@ -142,7 +142,7 @@ The following IFederationId must be annotated with a FederationIdAttribute with 
 
 ### Missing routing keys
 
-When calling a local microservice, you may receive this error if the realm is not configured to permit local microservice routing:
+When calling a local microservice, you may see this error:
 
 **Example error message**:
 
@@ -150,8 +150,8 @@ When calling a local microservice, you may receive this error if the realm is no
 {"status":400,"service":"auth","error":"MissingRoutingKeys","message":"Routing keys not configured"}
 ```
 
-Routing keys identify individual local microservice instances. The platform checks the `realms.supportedFilters` realm configuration entry before routing any request to a local microservice. Currently, the only value that enables local routing is `*`; any other value, including a specific service name, has no effect. To resolve this error, add a `realms.supportedFilters` entry with the value `*` for that realm in the Portal.
+This means the realm configuration does not have routing keys configured. To fix this, add a `realms.supportedFilters` config entry with the value `*` in the Portal for that realm. Note that `*` is the only currently accepted value — setting it to anything else has no effect.
 
-Production realms do not have this entry by default, because enabling it allows local microservices to intercept production traffic.
+If your realm lacks this setting, it may predate the setting's introduction. Production realms always omit the setting to ensure local microservices cannot siphon production traffic.
 
 ---
