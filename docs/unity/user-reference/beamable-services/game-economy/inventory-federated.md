@@ -1,4 +1,4 @@
-﻿# Inventory federated
+# Inventory federated
 
 ## Overview
 
