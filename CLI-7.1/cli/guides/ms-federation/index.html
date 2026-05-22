@@ -1398,6 +1398,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#missing-routing-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing routing keys
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6330,6 +6341,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#missing-routing-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing routing keys
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6442,6 +6464,14 @@ that define the types of functions that they require.
   </p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="na">[FederationId("default")]</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">MyFederation</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div><p></p>
+<hr>
+<h3 id="missing-routing-keys">Missing routing keys<a class="headerlink" href="#missing-routing-keys" title="Permanent link">¶</a></h3>
+<p>When calling a local microservice, you may see this error:</p>
+<p><strong>Example error message</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span><span class="nt">"status"</span><span class="p">:</span><span class="mi">400</span><span class="p">,</span><span class="nt">"service"</span><span class="p">:</span><span class="s2">"auth"</span><span class="p">,</span><span class="nt">"error"</span><span class="p">:</span><span class="s2">"MissingRoutingKeys"</span><span class="p">,</span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Routing keys not configured"</span><span class="p">}</span>
+</code></pre></div>
+<p>This means the realm configuration does not have routing keys configured. To fix this, add a <code>realms.supportedFilters</code> config entry with the value <code>*</code> in the Portal for that realm. Note that <code>*</code> is the only currently accepted value — setting it to anything else has no effect.</p>
+<p>If your realm lacks this setting, it may predate the setting's introduction. Production realms always omit the setting to ensure local microservices cannot siphon production traffic.</p>
 <hr>
 
 
