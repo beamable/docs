@@ -75,7 +75,7 @@ dotnet new tool-manifest
 dotnet tool install Beamable.Tools
 ```
 
-The first three commands create the folder and register a `.config/dotnet-tools.json` manifest. The fourth installs the Beam CLI into that manifest. From this folder, `dotnet beam` runs the locally installed CLI.
+These commands establish a tool manifest in a new directory of your choice. You can confirm by looking at `.config/dotnet-tools.json`; when in this directory, or any subdirectory, `dotnet beam` will use this specific Beam CLI.
 
 ### Initialize Beamable and log in
 
@@ -83,7 +83,7 @@ The first three commands create the folder and register a `.config/dotnet-tools.
 dotnet beam init
 ```
 
-`dotnet beam init` prompts for your organization's alias, your credentials, and the realm to use, then writes a `.beamable/` folder alongside the tool manifest. See [`beam init`](../commands/cli-command-reference/init.md) for the full list of arguments and the [Configuration](configuration.md) guide for the layout of `.beamable/`.
+`dotnet beam init` prompts for your organization's alias, your credentials, and the realm to use, then writes a `.beamable/` directory alongside the tool manifest. See [`beam init`](../commands/cli-command-reference/init.md) for the full list of arguments and the [Configuration](configuration.md) guide for the layout of `.beamable/`.
 
 ### Scaffold and run a microservice
 
@@ -93,7 +93,7 @@ dotnet beam project new service NewService
 
 This command generates a `BeamableServices.sln` solution and a `services/NewService/` project containing `NewService.cs`, `Program.cs`, `NewService.csproj`, and a `Dockerfile`. See [`beam project new service`](../commands/cli-command-reference/project/new/service.md) for the available options.
 
-Run the new service through your IDE, with `dotnet run` from the project folder, or with:
+Run the new service through your IDE, with `dotnet run` from the project directory, or with:
 
 ```shell
 dotnet beam project run
