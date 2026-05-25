@@ -128,7 +128,7 @@ public Promise<FederatedInventoryProxyState> StartInventoryTransaction(string id
 }
 ```
 
-The `transaction` argument is a unique transaction id generated in our Inventory service, and you can use it to guard against multiple submissions.
+The `transaction` argument is a unique transaction id generated in the Beamable Inventory service, and you can use it to guard against multiple submissions.
 
 If your transaction processing is too slow to return a timely response, you can use an asynchronous approach.
 Return the current proxy state immediately, process the transaction in the background, and then report the result back
