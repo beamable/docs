@@ -20,7 +20,7 @@ You can view or edit player inventories on the Portal. More information can be f
 
 ![Portal Inventory Overview](../../../../media/imgs/portal-inventory-overview.png){: style="height:auto;width:500px"}
 
-----------------------------------------------------------------------
+---
 
 ## Example Code
 
@@ -146,7 +146,7 @@ private async Task ListenForInventory()
     };
 }
 ```
-----------------------------------------------------------------------
+---
 
 ### Pruning deprecated items
 
