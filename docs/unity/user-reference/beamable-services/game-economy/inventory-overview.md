@@ -4,8 +4,8 @@ The Beamable **Inventory** service allows game makers to manage owned items per 
 
 
 Beamable's Inventory system is built on the Content feature. This means you can create and publish content via the [Content Manager](../profile-storage/content/content-unity.md#content-manager-editor), then grant it to players through various workflows:
-- Add/Remove inventory items to the active player during gameplay. e.g., the player earns a new "Sword" inventory item based on in-game progress
-- Add inventory items to the active player via the Beamable [Store](stores-overview.md). e.g., the player pays real money to buy a new "Sword" inventory item
+- Add/Remove inventory items to the active player during gameplay. For Example, the player earns a new "Sword" inventory item based on in-game progress
+- Add inventory items to the active player via the Beamable [Store](stores-overview.md). For example, the player pays real money to buy a new "Sword" inventory item
 
 ## Data concepts
 

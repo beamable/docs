@@ -1,13 +1,15 @@
-# Inventory federated
+# Inventory federation
 
 ## Overview
 
-Beamable supports custom inventory federation using managed [microservices](../../cloud-services/microservices/microservice-framework.md). You can use this service to extend the Inventory system with items that are managed externally.
+Beamable supports custom inventory federation using managed [microservices](../../cloud-services/microservices/microservice-framework.md). You can use this service to extend
+the Inventory system with items that are managed externally, such as off-chain inventory records, platform-owned assets,
+or NFT-backed items.
 
 Some use cases:
 
-- Crypto assets - use NFTs as inventory items and auto-mint new items
-- Generative AI - add support for granting players AI-generated items
+- Blockchain assets - use NFTs as inventory items and auto-mint new items
+- Generative AI - grant players AI-generated items
 
 **Requirements:**
 
@@ -25,9 +27,9 @@ The diagrams below illustrate the flows for retrieving and granting the Inventor
 ### `IFederatedInventory<T>` interface
 
 To use the Federated Inventory you should start by implementing the `IFederatedInventory<T>` interface in your microservice.
-Note that this interface also implements `IFederatedLogin<T>` because federated authentication is a prerequisite. 
-`T` must be your implementation of the `IThirdPartyCloudIdentity` - a basic interface that 
-requires you to define a unique name/namespace for your federation. This enables you to have multiple federation 
+Note that this interface also implements `IFederatedLogin<T>` because federated authentication is a prerequisite.
+`T` must be your implementation of the `IThirdPartyCloudIdentity` - a basic interface that
+requires you to define a unique name/namespace for your federation. This enables you to have multiple federation
 implementations in a single microservice.
 
 ```csharp
@@ -49,7 +51,9 @@ public class MyFederationService : Microservice, IFederatedInventory<MyFederatio
         throw new System.NotImplementedException();
     }
 
-    public Promise<FederatedInventoryProxyState> StartInventoryTransaction(string id, string transaction, Dictionary<string, long> currencies, List<FederatedItemCreateRequest> newItems, List<FederatedItemDeleteRequest> deleteItems, List<FederatedItemUpdateRequest> updateItems)
+    public Promise<FederatedInventoryProxyState> StartInventoryTransaction(string id, string transaction,
+        Dictionary<string, long> currencies, List<FederatedItemCreateRequest> newItems,
+        List<FederatedItemDeleteRequest> deleteItems, List<FederatedItemUpdateRequest> updateItems)
     {
         throw new System.NotImplementedException();
     }
@@ -58,7 +62,8 @@ public class MyFederationService : Microservice, IFederatedInventory<MyFederatio
 
 ### `GetInventoryState` implementation
 
-You can do any custom logic here. For example, you could AI generate some items, load items from a smart contract, use microstorage, or do anything that satisfies your specific requirements.
+You can perform any custom logic here. For example, you could AI generate some items, load items from a smart contract,
+use microstorage, or perform anything that satisfies your specific requirements.
 Here's a dummy example that will return some static items and currency, just to showcase the response structure:
 
 ```csharp
@@ -82,16 +87,8 @@ public Promise<FederatedInventoryProxyState> GetInventoryState(string id)
                             proxyId = "externalAvatarId1",
                             properties = new List<ItemProperty>
                             {
-                                new()
-                                {
-                                    name = "level",
-                                    value = "20"
-                                },
-                                new()
-                                {
-                                    name = "color",
-                                    value = "blue"
-                                }
+                                new() { name = "level", value = "20" },
+                                new() { name = "color", value = "blue" }
                             }
                         },
                         new()
@@ -99,16 +96,8 @@ public Promise<FederatedInventoryProxyState> GetInventoryState(string id)
                             proxyId = "externalAvatarId2",
                             properties = new List<ItemProperty>
                             {
-                                new()
-                                {
-                                    name = "level",
-                                    value = "30"
-                                },
-                                new()
-                                {
-                                    name = "color",
-                                    value = "red"
-                                }
+                                new() { name = "level", value = "30" },
+                                new() { name = "color", value = "red" }
                             }
                         }
                     }
@@ -119,7 +108,8 @@ public Promise<FederatedInventoryProxyState> GetInventoryState(string id)
 }
 ```
 
-The important thing to emphasize here is the `id` argument. It's the same external account id that you return from the `Authenticate` method. If you want to access the player's id in the Beamable system, you can use `this.Context.UserId`
+The important thing to emphasize here is the `id` argument. It's the same external account id that you return from the
+`Authenticate` method. If you want to access the player's id in the Beamable system, you can use `this.Context.UserId`
 As an example, you can use the wallet address as an external user identifier when implementing blockchain federation.
 
 ### `StartInventoryTransaction` implementation
@@ -127,7 +117,8 @@ As an example, you can use the wallet address as an external user identifier whe
 The Inventory service will forward all the changes against federated currency and items. This method has the same return type as the previous one.
 
 ```csharp
-public Promise<FederatedInventoryProxyState> StartInventoryTransaction(string id, string transaction, Dictionary<string, long> currencies, List<FederatedItemCreateRequest> newItems, List<FederatedItemDeleteRequest> deleteItems, List<FederatedItemUpdateRequest> updateItems)
+public Promise<FederatedInventoryProxyState> StartInventoryTransaction(string id, string transaction, Dictionary<string, long>
+        currencies, List<FederatedItemCreateRequest> newItems, List<FederatedItemDeleteRequest> deleteItems, List<FederatedItemUpdateRequest> updateItems)
 {
     await _myFederation.ApplyCurrency(currencies);
     await _myFederation.AddItems(newItems);
@@ -139,12 +130,62 @@ public Promise<FederatedInventoryProxyState> StartInventoryTransaction(string id
 
 The `transaction` argument is a unique transaction id generated in our Inventory service, and you can use it to guard against multiple submissions.
 
-If your transaction processing is too slow to return a timely response, you can implement the async approach. 
-Process the transaction in the background and return the current state. Once the transaction finishes processing, 
-you can report back the new state like this:
+If your transaction processing is too slow to return a timely response, you can use an asynchronous approach.
+Return the current proxy state immediately, process the transaction in the background, and then report the result back
+to Beamable when the external system has committed the change.
+
+Use `proxy/state` when you want to replace Beamable's cached proxy inventory with a complete snapshot from the external
+system. This is a good fit after a full reconciliation pass, wallet resync, or any case where the external system is the
+source of truth for the player's complete federated inventory.
 
 ```csharp
 await Requester.Request<CommonResponse>(Method.PUT, $"/object/inventory/{_userContext.UserId}/proxy/state", newState);
 ```
 
-The Inventory service will notify the game client to refresh the inventory content if there's a diff.
+Use `proxy/state-delta` when you already know the specific changes that finished processing and do not need to reload
+the full external inventory. This is usually the better fit for game actions such as minting an item, consuming a
+crafting material, granting an async reward, or updating a stat on a federated item after a match.
+
+```csharp
+var delta = new
+{
+    // Currency values are the updated balances for the listed federated currencies.
+    currencies = new Dictionary<string, long>
+    {
+        { "currency.federated-gold", 1250 }
+    },
+    // Upsert by content id and external proxy id.
+    // Existing items are updated; missing items are created.
+    upsertItems = new[]
+    {
+        new
+        {
+            contentId = "items.avatar",
+            proxyId = "externalAvatarId1",
+            properties = new List<ItemProperty>
+            {
+                new() { name = "level", value = "31" },
+                new() { name = "color", value = "blue" }
+            }
+        }
+    },
+    // Delete by content id and external proxy id.
+    deleteItems = new[]
+    {
+        new
+        {
+            contentId = "items.avatar",
+            proxyId = "externalAvatarId2"
+        }
+    }
+};
+
+await Requester.Request<CommonResponse>(
+    Method.PUT,
+    $"/object/inventory/{_userContext.UserId}/proxy/state-delta",
+    delta);
+```
+
+Both callbacks save the updated proxy inventory and notify the game client to refresh inventory content when Beamable
+detects a diff. Keep each delta scoped to one inventory federation; if one gameplay result touches assets owned by
+multiple external systems, send one callback per federation.
