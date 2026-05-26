@@ -21,7 +21,7 @@ Learning Resources:
 
 ## Project structure
 
-In the project's content, you will see a custom content type underneath game_types: `geo`. This is a simple extension of the SimGameType class, adding in a `RegionName` string, with the appropriate ContentLink and ContentRef subclasses.
+In the project's content, you will see a custom content type underneath `game_types`: `geo`. This is a simple extension of the `SimGameType` class, adding in a `RegionName` string, with the appropriate `ContentLink` and `ContentRef` subclasses.
 
 ```csharp
 using System;

@@ -52,7 +52,7 @@ Content Manager:
 ![Battle Pass Content](../../media/imgs/battlepass-content.jpg)
 
 - **Step 4: Publish the content:**
-  - Once the Battle Pass is configured, press the **Publish** button in the Content Manager to push the Battle Pass
+  - Once the Battle Pass is configured, press the "Publish" button in the Content Manager to push the Battle Pass
   content live.
 
 ------------------------------------------------

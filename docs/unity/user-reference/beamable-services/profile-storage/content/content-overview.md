@@ -275,7 +275,7 @@ public class MyCustomContent : ContentObject { ... }
 ```
 
 ### Changing content namespaces
-This sample shows how to switch the default content namespace to "tuna" before resolving a `CurrencyRef`.
+This sample shows how to switch the default content namespace to `"tuna"` before resolving a `CurrencyRef`.
 
 ```csharp
 public class Tester : MonoBehaviour
@@ -303,13 +303,13 @@ Beamable provides a streamlined Content Publishing pipeline. You can deploy your
 
 ![content-management.png](../../../../../media/imgs/content-management.png){: style="height:auto;width:500px"}
 
-When you create your Beamable account, we automatically create a "Development to Production" pipeline of distinct environments for you. These environments are "Dev" → "Staging" → "Production". This is how Beamable enables you to publish your content for the development environment while allowing you the peace of mind to know that the "Production" environment has not been modified.
+When you create your Beamable account, we automatically create a set of distinct environments for you: dev → staging → production. This is how Beamable enables you to publish your content for the development environment while allowing you the peace of mind to know that the production environment has not been modified.
 
-Then, once you have tested that the new content in your environment looks correct, you can go into the Portal to promote the "Dev" content to "Staging" and eventually "Production".
+Then, once you have tested that the new content in your environment looks correct, you can go into the Portal to promote the dev content to staging and eventually production.
 
 ### Storage location of content types and content live refresh
 
-One of the main benefits of our content system is that, when you hit publish and the content updates, we will automatically refresh that content on each game client via a server-to-client message. This allows for the system to be incredibly interactive at development time as well as allowing for over the air updates to players who are playing in "Production" after a content promotion.
+One of the main benefits of our content system is that, when you hit publish and the content updates, we will automatically refresh that content on each game client via a server-to-client message. This allows for the system to be incredibly interactive at development time as well as allowing for over the air updates to players who are playing in production after a content promotion.
 
 While using the Content Manager Editor (Unity Editor) it will be saved locally to your project in the following location:
 

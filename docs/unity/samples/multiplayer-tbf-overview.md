@@ -80,7 +80,7 @@ These steps are **already complete** in the sample project. The instructions her
 
 ### Step 1. setup project
 
-Here are instructions to setup the Beamable SDK and "GameType" content.
+Here are instructions to set up the Beamable SDK and the `game_types` content type.
 
 ![Two Player Game Type](../../media/imgs/tbf-gametype-two-players.png)
 
@@ -88,8 +88,8 @@ Here are instructions to setup the Beamable SDK and "GameType" content.
 |------|--------|
 | 1. Install the Beamable SDK and Register/Login | • See [Step 1 - Getting Started](https://docs.beamable.com/docs/getting-started) for more info. |
 | 2. Open the Content Manager Window | • Unity → Window → Beamable → Open Content Manager |
-| 3. Create the "GameType" content | ![Content Manager Create](../../media/imgs/tbf-content-manager-create.jpg){width="50%" style="float: right; margin: 0px 0px 15px 15px;"}<br><br>• Select the content type in the list<br>• Press the "Create" button<br>• Populate the content name |
-| 4. Configure "GameType" content | ![One Player Game Type](../../media/imgs/tbf-gametype-one-player.png)<br>• Populate the `Max Players` and `Teams` for a **One Player Game**<br>*Note: The other fields are optional and may be needed for advanced use cases* |
+| 3. Create the game type content | ![Content Manager Create](../../media/imgs/tbf-content-manager-create.jpg){width="50%" style="float: right; margin: 0px 0px 15px 15px;"}<br><br>• Select the content type in the list<br>• Press the "Create" button<br>• Populate the content name |
+| 4. Configure the game type content | ![One Player Game Type](../../media/imgs/tbf-gametype-one-player.png)<br>• Populate the `Max Players` and `Teams` for a **One Player Game**<br>*Note: The other fields are optional and may be needed for advanced use cases* |
 | 5. Repeat Steps 3 & 4 | ![Two Player Game Type](../../media/imgs/tbf-gametype-two-players.png)<br>• Populate the `Max Players` and `Teams` for a **Two Player Game**<br>*Note: The other fields are optional and may be needed for advanced use cases* |
 | 6. Save the Unity Project | • Unity → File → Save Project<br>*Best Practice: If you are working on a team, commit to version control in this step* |
 | 7. Publish the content | • Press the "Publish" button in the Content Manager Window |
