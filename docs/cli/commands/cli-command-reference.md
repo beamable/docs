@@ -9,7 +9,7 @@ metadata:
 createdAt: "Wed Jun 14 2023 17:15:04 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Oct 25 2023 20:56:57 GMT+0000 (Coordinated Universal Time)"
 ---
-See the [Getting Started](../guides/gettting-started.md) guide for information on how to get setup with the Beamable CLI.
+See the [Getting Started](../guides/getting-started.md) guide for information on how to get setup with the Beamable CLI.
 
 All of the Beam CLI commands are available in the left navigation bar. This table links directly to some of the most common commands.
 
