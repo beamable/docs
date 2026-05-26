@@ -49,7 +49,7 @@ The `deploy plan` command validates that your Standalone Microservice can be bui
 
 **The command WILL NOT validate the services are booting up correctly by default.** It assumes that you have tested your service locally before deploying it. However, you can pass in the `--health`  argument to make the command, run the built services locally and wait for the service to start responding to health check API calls. This takes longer, but guarantees that the services *at least starts up*. This is especially useful if you're using the `[ConfigureServices]` and/or `[InitializeServices]` attributes to modify the service boot process.
 
-After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local _service manifest_ is built implicitly from configurations inside your project. The built plan is there inform you about the changes you will be making (enabling/disabling existing services, adding new services, etc.) if you decide to `deploy release` it.
+After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local _service manifest_ is built implicitly from configurations inside your project. The built plan is there to inform you about the changes you will be making (enabling/disabling existing services, adding new services) if you decide to `deploy release` it.
 
 As an example, here's the output from a `deploy plan` invocation from inside the `UnrealSDK` project.
 ```
@@ -164,7 +164,7 @@ Standalone Microservices build custom Docker images that are run on the Beamable
 
 You may modify this file to extend the capabilities of your resulting docker image. However, there are a few restrictions about how you may modify the file. Do not edit or remove anything between the `<beamReserved>` tags. This is a special tag that should allow us to programmatically add things to the `Dockerfile` should the need arise.
 
-Beamable has validated that dotnet 8 is stable for all supported platforms. You may change the dotnet framework version at your own peril.
+Beamable has validated that .NET 8 is stable for all supported platforms. You may change the .NET framework version at your own peril.
 
 !!! info "Docker CPU Architecture"
 
@@ -248,7 +248,7 @@ You have full control over the docker-compose file, so if you want to set up per
 #### Useful debugging practices
 **Running the Docker Container Manually**: If you have a customized Dockerfile or encounter some problems when building/running the image/container, it can be sometimes useful to run the container via docker's CLI directly.
 
-You can do that by running: `dotnet beam deploy plan --logs v` which prints out all docker commands it is using under the hood. You can then use the printed commands as a starting point for your investigation into whatever problem you're solving.
+You can do that by running `dotnet beam deploy plan --logs v`, which prints out all docker commands it is using under the hood. You can then use the printed commands as a starting point for your investigation into whatever problem you're solving.
 
 **Debugging Container Structure**: In some cases of customized `Dockerfiles`, the image may fail to build or the container fail to run due to aspects of the container's file structure. Docker will not allow you to easily inspect a container's file structure unless it is running; and the container is removed once its `ENTRYPOINT` process is killed.
 
