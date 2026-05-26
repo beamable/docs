@@ -133,7 +133,7 @@ Here are the key steps to implement this multiplayer setup:
 
 ### Setup project
 
-Here are instructions to setup the Game Type content.
+Here are instructions to set up the `game_types` content type.
 
 ![Game Type Configuration](../../media/imgs/rlgl-gametype-config.png)
 
@@ -143,8 +143,8 @@ _Note_: Since there are no "team" divisions, all the players are placed on the s
 |------|--------|
 | 1. Install the Beamable SDK and Register/Login | • See [Installing Beamable](../getting-started/installing-beamable.md) for more info. |
 | 2. Open the Content Manager Window | • Unity → Window → Beamable → Open Content Manager |
-| 3. Create the "GameType" content | ![Content Manager Create](../../media/imgs/tbf-content-manager-create.jpg){width="50%" style="float: right; margin: 0px 0px 15px 15px;"}<br><br>• Select the content type in the list<br>• Press the "Create" button<br>• Populate the content name |
-| 4. Configure "GameType" content | ![Game Type Config](../../media/imgs/rlgl-gametype-config.png)<br>• Populate the `Max Players` and `Teams`<br>*Note: The other fields are optional and may be needed for advanced use cases* |
-| 5. Configure "GameType" content (continued) | ![Game Type String Rules](../../media/imgs/rlgl-gametype-string-rules.png)<br>• Populate the String Rules pictured here.<br><br>*These are necessary in order for the Red Light, Green Light game to function properly. In your own implementation, these may not be necessary.* |
+| 3. Create the game type content | ![Content Manager Create](../../media/imgs/tbf-content-manager-create.jpg){width="50%" style="float: right; margin: 0px 0px 15px 15px;"}<br><br>• Select the content type in the list<br>• Press the "Create" button<br>• Populate the content name |
+| 4. Configure the game type content | ![Game Type Config](../../media/imgs/rlgl-gametype-config.png)<br>• Populate the `Max Players` and `Teams`<br>*Note: The other fields are optional and may be needed for advanced use cases* |
+| 5. Configure the game type content (continued) | ![Game Type String Rules](../../media/imgs/rlgl-gametype-string-rules.png)<br>• Populate the String Rules pictured here.<br><br>*These are necessary in order for the Red Light, Green Light game to function properly. In your own implementation, these may not be necessary.* |
 | 6. Save the Unity Project | • Unity → File → Save Project<br>*Best Practice: If you are working on a team, commit to version control in this step* |
 | 7. Publish the content | • Press the "Publish" button in the Content Manager Window |
