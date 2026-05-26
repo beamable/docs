@@ -1,26 +1,23 @@
-name: Auto Merge Core
+name: Auto Sync Core
 
 on:
   push:
     branches:
       - 'core/v7.1'
 
-run-name: "Merge ${{ github.ref_name }} into docs"
+run-name: "Sync ${{ github.ref_name }} core-owned paths into docs"
 
 jobs:
-  merge_branches:
+  sync_branches:
     permissions:
       contents: write
-      pull-requests: write
     runs-on: ubuntu-latest
-    name: Merge ${{ github.ref_name }} into ${{ matrix.branch }}
+    name: Sync ${{ github.ref_name }} into ${{ matrix.branch }}
     strategy:
       matrix:
         branch: [unreal/v2.3]
     outputs:
-      success_branches: ${{ steps.aggregate.outputs.success_branches }}
-      conflicted_branches: ${{ steps.aggregate.outputs.conflicted_branches }}
-      conflict_pr_urls: ${{ steps.aggregate.outputs.conflict_pr_urls }}
+      synced_branches: ${{ steps.sync.outputs.synced_branches }}
 
     steps:
       - name: Checkout target branch
@@ -35,112 +32,62 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Attempt merge
-        id: merge
+      - name: Sync core-owned paths
+        id: sync
         run: |
+          # Core owns exactly these paths; they must not be edited on
+          # downstream branches (see CLAUDE.md "Core-owned paths"). We
+          # overwrite the target's copy with core's version rather than
+          # merging the whole branch.
+          #
+          # Why an overwrite and not `git merge --squash`: a squash merge
+          # never records core as an ancestor of the target, so the
+          # core<->target merge-base stays frozen at the original branch
+          # point. Every run then re-merges core's *entire* divergence since
+          # that base against content the target already received via prior
+          # squashes, which collides and produces conflict PRs even for
+          # clean core-owned files. A path-scoped overwrite is conflict-free
+          # by construction and stateless (no merge-base dependence).
+          CORE_OWNED_PATHS="docs/cli/guides docs/includes docs/portal"
+
           git fetch origin ${{ github.ref_name }}
 
-          # Files that legitimately differ between core and downstream branches
-          # (e.g. unity/unreal each have their own top-level nav and landing
-          # page). Restore the target branch's version after every merge so
-          # core's copy never clobbers them.
-          PRESERVE_PATHS="docs/SUMMARY.md docs/index.md"
+          for p in $CORE_OWNED_PATHS; do
+            # Remove first so files deleted on core also disappear here,
+            # then restore core's current version of the path.
+            rm -rf "$p"
+            git checkout origin/${{ github.ref_name }} -- "$p" 2>/dev/null || true
+          done
 
-          # Try a normal squash merge
-          if git merge origin/${{ github.ref_name }} --squash; then
-                git checkout HEAD -- $PRESERVE_PATHS 2>/dev/null || true
-                if ! git diff --cached --quiet; then
-                  git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
-                  git push origin ${{ matrix.branch }}
-                fi
-                echo "status=success" >> $GITHUB_OUTPUT
+          # Stage including deletions of files removed on core.
+          git add -A $CORE_OWNED_PATHS
+
+          if git diff --cached --quiet; then
+            echo "No core-owned changes to sync into ${{ matrix.branch }}."
+            echo "synced_branches=" >> $GITHUB_OUTPUT
           else
-              # Merge conflict: retry with 'theirs'
-              git reset --hard HEAD
-              git merge origin/${{ github.ref_name }} --squash -X theirs
-              git checkout HEAD -- $PRESERVE_PATHS 2>/dev/null || true
-              if ! git diff --cached --quiet; then
-                  git commit -m "Squash merge ${{ github.ref_name }} into ${{ matrix.branch }}"
-              fi
-              echo "status=conflict" >> $GITHUB_OUTPUT
+            git commit -m "Sync ${{ github.ref_name }} core-owned paths into ${{ matrix.branch }}"
+            git push origin ${{ matrix.branch }}
+            echo "synced_branches=${{ matrix.branch }}" >> $GITHUB_OUTPUT
           fi
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v8
-        id: create_pr
-        if: steps.merge.outputs.status == 'conflict'
-        with:
-          token: ${{ secrets.DOCS_PAT }}
-          title: "Merge ${{ github.ref_name }} into ${{ matrix.branch }} (Conflicts)"
-          body: The ${{ github.ref_name }} branch was unable to merge into ${{ matrix.branch }}. Please review the changes. 
-          branch: merge-${{ github.ref_name }}-into-${{ matrix.branch }}
-          delete-branch: true
-          base: ${{ matrix.branch }}
-          labels: bot
-
-      - name: Collect PR URL
-        id: collect_pr
-        run: |
-          conflict_pr_urls=""
-          if [ "${{ steps.merge.outputs.status }}" = "conflict" ]; then
-            safe_branch=$(echo "${{ matrix.branch }}" | tr '/' '_')
-            pr_url="${{ steps.create_pr.outputs.pull-request-url }}"
-            echo "${safe_branch}=${pr_url}" >> $GITHUB_OUTPUT
-            conflict_pr_urls="$safe_branch=$pr_url"
-          fi
-          echo "conflict_pr_urls=${conflict_pr_urls}" >> $GITHUB_OUTPUT
-
-      - name: Aggregate results
-        id: aggregate
-        run: |
-          success_list=""
-          conflict_list=""
-          conflict_urls=""
-
-          if [ "${{ steps.merge.outputs.status }}" = "success" ]; then
-            success_list="${{ matrix.branch }}"
-          elif [ "${{ steps.merge.outputs.status }}" = "conflict" ]; then
-            conflict_list="${{ matrix.branch }}"
-            conflict_urls="${{ steps.collect_pr.outputs.conflict_pr_urls }}"
-          fi
-
-          echo "success_branches=${success_list}" >> $GITHUB_OUTPUT
-          echo "conflicted_branches=${conflict_list}" >> $GITHUB_OUTPUT
-          echo "conflict_pr_urls=${conflict_urls}" >> $GITHUB_OUTPUT
 
   notify_slack:
     runs-on: ubuntu-latest
-    needs: merge_branches
+    needs: sync_branches
     steps:
       - name: Send Slack Summary
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_DOCS_CHANNEL_URL }}
-          SUCCESS: ${{ needs.merge_branches.outputs.success_branches }}
-          CONFLICT: ${{ needs.merge_branches.outputs.conflicted_branches }}
-          PR_URLS: ${{ needs.merge_branches.outputs.conflict_pr_urls }}
+          SYNCED: ${{ needs.sync_branches.outputs.synced_branches }}
         run: |
-          # If both are empty, do nothing
-          if [ -z "$CONFLICT" ]; then
-            echo "No conflicts — skipping Slack notification."
+          # Nothing to report when there were no core-owned changes.
+          if [ -z "$SYNCED" ]; then
+            echo "Nothing synced — skipping Slack notification."
             exit 0
           fi
 
-          SUCCESS_MSG=$( [ -n "$SUCCESS" ] && echo $'Success:\n• '"$SUCCESS" || echo "Success: None" )
-
-          if [ -n "$CONFLICT" ]; then
-            CONFLICT_MSG="Conflicts:"
-            IFS=',' read -ra BRANCHES <<< "$CONFLICT"
-            for b in "${BRANCHES[@]}"; do
-              key="${b//\//_}"   # replace / with _
-              url=$(echo "$PR_URLS" | grep "^$key=" | cut -d= -f2-)
-              CONFLICT_MSG+=$'\n• '"$b: $url"
-            done
-          else
-            CONFLICT_MSG="Conflicts: None"
-          fi
-
-          PAYLOAD=$(jq -n --arg success "$SUCCESS_MSG" --arg conflict "$CONFLICT_MSG" \
-            '{text: "${{ github.ref_name }} auto merge results:\n \($success)\n\($conflict)"}')
+          PAYLOAD=$(jq -n --arg synced "$SYNCED" \
+            '{text: "${{ github.ref_name }} core-owned sync: updated \($synced)"}')
           curl -s -X POST "$SLACK_WEBHOOK_URL" \
             -H "Content-Type: application/json" \
             -d "$PAYLOAD"
