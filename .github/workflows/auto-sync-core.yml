@@ -52,14 +52,14 @@ jobs:
 
           git fetch origin ${{ github.ref_name }}
 
-          for p in $CORE_OWNED_PATHS; do
-            # Remove first so files deleted on core also disappear here,
-            # then restore core's current version of the path.
-            rm -rf "$p"
-            git checkout origin/${{ github.ref_name }} -- "$p" 2>/dev/null || true
-          done
-
-          # Stage including deletions of files removed on core.
+          # Replace the core-owned paths with core's version, deletions
+          # included. `git rm` only touches tracked files inside the repo
+          # working tree (no raw filesystem `rm` on a path variable);
+          # `--ignore-unmatch` makes a path that is absent on this branch a
+          # no-op. The checkout then restores only what core still has, so
+          # files deleted on core stay deleted.
+          git rm -rf --quiet --ignore-unmatch -- $CORE_OWNED_PATHS
+          git checkout origin/${{ github.ref_name }} -- $CORE_OWNED_PATHS
           git add -A $CORE_OWNED_PATHS
 
           if git diff --cached --quiet; then
