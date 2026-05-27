@@ -1,4 +1,4 @@
 - [Inventory](inventory-overview.md)
-  - [Federated Inventory](inventory-federated.md)
+  - [Inventory Federation](inventory-federation.md)
 - [Virtual Currency](virtual-currency-overview.md)
 - [Stores](stores-overview.md)
