@@ -4147,14 +4147,47 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Getting started">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-a-microservice-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try a microservice locally
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Try a microservice locally">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#create-an-isolated-workspace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next steps
+        Create an isolated workspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialize-beamable-and-log-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialize Beamable and log in
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaffold-and-run-a-microservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaffold and run a microservice
       
     </span>
   </a>
@@ -4163,6 +4196,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next steps
+      
+    </span>
+  </a>
   
 </li>
       
@@ -9432,14 +9476,47 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Getting started">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-a-microservice-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try a microservice locally
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Try a microservice locally">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#create-an-isolated-workspace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next steps
+        Create an isolated workspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialize-beamable-and-log-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialize Beamable and log in
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaffold-and-run-a-microservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaffold and run a microservice
       
     </span>
   </a>
@@ -9448,6 +9525,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next steps
+      
+    </span>
+  </a>
   
 </li>
       
@@ -9512,7 +9600,28 @@ beam init
 <p class="admonition-title">Finding Help</p>
 <p>You can pass the <code>--help</code> flag to any command to print out detailed information about the arguments and options for the given command. Also, the <code>--help-all</code> flag will include additional information used by internal Beamable developers. You are welcome to use the internal facing commands, but they are not officially supported.</p>
 </div>
-<h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h3>
+<h2 id="try-a-microservice-locally">Try a microservice locally<a class="headerlink" href="#try-a-microservice-locally" title="Permanent link">¶</a></h2>
+<p>If you want to evaluate a Beamable microservice without integrating an engine SDK, you can scaffold an isolated C# workspace in a few commands. This path uses a local <a href="https://learn.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use">dotnet tool manifest</a>, so the CLI version is pinned to the workspace and nothing is installed globally.</p>
+<h3 id="create-an-isolated-workspace">Create an isolated workspace<a class="headerlink" href="#create-an-isolated-workspace" title="Permanent link">¶</a></h3>
+<pre><code class="language-shell">mkdir MyService
+cd MyService
+dotnet new tool-manifest
+dotnet tool install Beamable.Tools
+</code></pre>
+<p>These commands establish a tool manifest in a new directory of your choice. You can confirm by looking at <code>.config/dotnet-tools.json</code>; when in this directory, or any subdirectory, <code>dotnet beam</code> will use this specific Beam CLI.</p>
+<h3 id="initialize-beamable-and-log-in">Initialize Beamable and log in<a class="headerlink" href="#initialize-beamable-and-log-in" title="Permanent link">¶</a></h3>
+<pre><code class="language-shell">dotnet beam init
+</code></pre>
+<p><code>dotnet beam init</code> prompts for your organization's alias, your credentials, and the realm to use, then writes a <code>.beamable/</code> directory alongside the tool manifest. See <a href="../../commands/cli-command-reference/init/"><code>beam init</code></a> for the full list of arguments and the <a href="../configuration/">Configuration</a> guide for the layout of <code>.beamable/</code>.</p>
+<h3 id="scaffold-and-run-a-microservice">Scaffold and run a microservice<a class="headerlink" href="#scaffold-and-run-a-microservice" title="Permanent link">¶</a></h3>
+<pre><code class="language-shell">dotnet beam project new service NewService
+</code></pre>
+<p>This command generates a <code>BeamableServices.sln</code> solution and a <code>services/NewService/</code> project containing <code>NewService.cs</code>, <code>Program.cs</code>, <code>NewService.csproj</code>, and a <code>Dockerfile</code>. See <a href="../../commands/cli-command-reference/project/new/service/"><code>beam project new service</code></a> for the available options.</p>
+<p>Run the new service through your IDE, with <code>dotnet run</code> from the project directory, or with:</p>
+<pre><code class="language-shell">dotnet beam project run
+</code></pre>
+<p>You should see a log line ending in <code>Service ready for traffic</code> — at that point the service is reachable over HTTP. The <a href="../microservices/">Microservices guide</a> covers the next steps: opening the local OpenAPI page with <code>dotnet beam project open-swagger</code>, calling the generated <code>Add</code> endpoint, and adding your own <code>[ClientCallable]</code> methods.</p>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
 <p>From here, you can:</p>
 <ul>
 <li>Setup <a href="../microservices/">Standalone Microservices</a></li>
