@@ -41,22 +41,7 @@ public class MyFederationIdentity : IThirdPartyCloudIdentity
 [Microservice("MyFederation")]
 public class MyFederationService : Microservice, IFederatedInventory<MyFederationIdentity>
 {
-    public Promise<FederatedAuthenticationResponse> Authenticate(string token, string challenge, string solution)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public Promise<FederatedInventoryProxyState> GetInventoryState(string id)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public Promise<FederatedInventoryProxyState> StartInventoryTransaction(string id, string transaction,
-        Dictionary<string, long> currencies, List<FederatedItemCreateRequest> newItems,
-        List<FederatedItemDeleteRequest> deleteItems, List<FederatedItemUpdateRequest> updateItems)
-    {
-        throw new System.NotImplementedException();
-    }
+   
 }
 ```
 
