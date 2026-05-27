@@ -1,5 +1,5 @@
 # Campaigns
-Beamable's **Campaigns** feature encompasses several ways of sending mass communication to your players. This page aims to describe each available campaign type and give a basic understanding of how to send messages to players using each.
+Beamable's **Campaigns** feature encompasses several ways of sending mass communication to your players. This page aims to describe each of the available campaign types and give a basic understanding of how to send messages to players using each of them.
 
 In brief, the campaign types available are:
 
@@ -36,7 +36,7 @@ After that, you can create campaigns setting some information through a few step
 
 ## Client implementation
 
-For the client implementation, it is going to depend on which type your campaign is for. All of the following types have  their own implementation and can be triggered by campaigns as well as other means like custom C# microservices.
+For the client implementation, it's going to depend on which type your campaign is for. All of the following types have  their own implementation and can be triggered by campaigns as well as other means like custom C# microservices.
 
 - **Email and In-game mail**: Follow the mail documentation for more information on how to implement this
 - **Push Notifications**: Follow the Push Notifications documentation for information on how to implement
