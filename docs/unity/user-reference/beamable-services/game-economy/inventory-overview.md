@@ -1,11 +1,12 @@
-# Inventory - overview
+# Inventory overview
 
 The Beamable **Inventory** service allows game makers to manage owned items per player within the game.
 
+
 Beamable's Inventory system is built on the Content feature. This means you can create and publish content via the [Content Manager](../profile-storage/content/content-unity.md#content-manager-editor), then grant it to players through various workflows:
 
-- Add/Remove inventory items to the active player during the course of gameplay. Ex. the player earns a new `"Sword"` inventory item based on in-game progress
-- Add inventory items to the active player via the Beamable [Store](stores-overview.md). Ex. the player pays real money to buy a new `"Sword"` inventory item
+- Add/Remove inventory items to the active player during gameplay. For Example, the player earns a new "Sword" inventory item based on in-game progress
+- Add inventory items to the active player via the Beamable [Store](stores-overview.md). For example, the player pays real money to buy a new "Sword" inventory item
 
 ## Data concepts
 
@@ -20,6 +21,133 @@ You can view or edit player inventories on the Portal. More information can be f
 
 ![Portal Inventory Overview](../../../../media/imgs/portal-inventory-overview.png){: style="height:auto;width:500px"}
 
+---
+
+## Example Code
+
+### Add Item
+Give the active player a new Inventory Item.
+```csharp
+public async Task AddOneItem()
+{
+  	// acquire a context
+  	var ctx = await BeamContext.Default.Instance;
+  
+    // grant an item
+    await ctx.Inventory.Update(builder => builder.AddItem("item.hat"));
+}
+```
+
+### Get Items
+Get a list for the active player of all owned Inventory Items.
+```csharp
+public async Task GetItems()
+{
+    // acquire a context
+    var ctx = await BeamContext.Default.Instance;
+    
+    // GetItems() allows a ItemRef to specify which type of items to get
+    var items = ctx.Inventory.GetItems(); 
+    
+    // wait for the items to be updated
+    await items.Refresh();
+    foreach (var item in items)
+    {
+      Debug.Log($"item id=[{item.ItemId}] type=[{item.ContentId}]");
+    }
+}
+```
+
+### Subscribe to Inventory Refresh
+Subscribe to events that occur on the Inventory. This includes when items are added, removed, or updated.
+```csharp
+public async void Start()
+{
+    var ctx = await BeamContext.Default.Instance;
+    ctx.Api.InventoryService.Subscribe(InventoryRefreshed);
+}
+
+public void InventoryRefreshed(InventoryView inventoryView)
+{
+    //Act on the received inventory
+}
+```
+
+### Delete Item
+Remove from the active player an Inventory Item.
+```csharp
+public async Task DeleteOneItem()
+{
+    var ctx = await BeamContext.Default.Instance;
+    var items = ctx.Inventory.GetItems();
+    await items.Refresh();
+    
+    var itemToDelete = items[0];
+    await ctx.Inventory.Update(builder => builder.DeleteItem(itemToDelete.ContentId, itemToDelete.ItemId));
+}
+```
+
+### Delayed Updates
+Every time the Update method is called, a network request will be sent to Beamable. In some circumstances this will 
+produce too much network traffic. In the Unity SDK, the UpdateDelayed function can be used to batch requests made in 
+quick succession.
+
+```csharp
+
+public async Task PerformDelayedUpdates()
+{
+    var ctx = await BeamContext.Default.Instance;
+    
+    ctx.Inventory.UpdateDelayed(b => b.CurrencyChange("currency.gems", 3));
+    ctx.Inventory.UpdateDelayed(b => b.CurrencyChange("currency.coins", 3));
+    ctx.Inventory.UpdateDelayed(b => b.CurrencyChange("currency.dollars", 3));
+    
+    await ctx.Inventory.WaitForDelayedUpdate();
+}
+```
+### Subscribe
+Observe changes (ex. add/remove) for the active player of all owned Inventory Items.
+
+```csharp
+private async Task ListenForInventory()
+{
+    var ctx = await BeamContext.Default.Instance;
+    
+    var items = ctx.Inventory.GetItems();
+    await items.Refresh();
+    
+    foreach (var item in items)
+    {
+      item.OnUpdated += () =>
+      {
+        Debug.Log($"Item updated {item.ItemId}");
+      };
+    }
+    
+    items.OnUpdated += () =>
+    {
+      Debug.Log("Inventory updated");
+    };
+    
+    items.OnElementsAdded += newItems =>
+    {
+      Debug.Log("Added items");
+      foreach (var item in newItems)
+      {
+        item.OnUpdated += () =>
+        {
+          Debug.Log($"Item updated {item.ItemId}");
+        };
+      }
+    };
+    
+    items.OnElementRemoved += removedItems =>
+    {
+      Debug.Log($"Removed {removedItems.Count()} items");
+    };
+}
+```
+---
 
 ### Pruning deprecated items
 
@@ -44,148 +172,6 @@ To enable inventory pruning, go to the _Operate_ > _Config_ section of the Beama
 ![Inventory Pruning Configuration 2](../../../../media/imgs/inventory-pruning-config-2.png){: style="height:auto;width:400px"}
 
 _Note_: Pruning is "lazy": the criteria for inventory pruning will only be evaluated by Beamable services when the player's inventory is loaded into memory. Thus, pruning will _NOT_ occur for players who have not played recently.
-
-## Federated inventory
-
-Beamable supports custom inventory federation using managed [microservices](../../cloud-services/microservices/microservice-framework.md). You can use this service to extend the Inventory system with items that are managed externally.
-
-Some use cases:
-
-- Crypto assets - use NFTs as inventory items and auto-mint new items
-- Generative AI - add support for granting players AI-generated items
-
-**Requirements:**
-
-- Federated Inventory depends on the implementation of [Federated Identity](../identity/federated-identity.md). That means that every player first needs to have a federated identity with the same microservice that federates inventory
-- Inventory items are content-driven. To enable federation, content items must be marked as federated to a specific microservice
-
-You can see below the flows when getting and granting the Inventory Items with Federation enabled
-
-![Federated Inventory Get Flow](../../../../media/imgs/federated-inventory-get-flow.png){: style="height:auto;width:400px"}
-
-
-![Federated Inventory Grant Flow](../../../../media/imgs/federated-inventory-grant-flow.png){: style="height:auto;width:400px"}
-
-### `IFederatedInventory<T>` interface
-
-To use the Federated Inventory you should start by implementing the `IFederatedInventory<T>` interface in your microservice. Be aware that this interface also implements `IFederatedLogin<T>` because federated authentication is a prerequisite, as mentioned earlier. `T` must be your implementation of the `IThirdPartyCloudIdentity` - a very simple interface that requires you to define a unique name/namespace for your federation. This enables you to have multiple federation implementations in a single microservice.
-
-```csharp
-public class MyFederationIdentity : IThirdPartyCloudIdentity
-{
-	public string UniqueName => "my-cool-federation";
-}
-
-[Microservice("MyFederation")]
-public class MyFederationService : Microservice, IFederatedInventory<MyFederationIdentity>
-{
-    public Promise<FederatedAuthenticationResponse> Authenticate(string token, string challenge, string solution)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public Promise<FederatedInventoryProxyState> GetInventoryState(string id)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public Promise<FederatedInventoryProxyState> StartInventoryTransaction(string id, string transaction, Dictionary<string, long> currencies, List<FederatedItemCreateRequest> newItems, List<FederatedItemDeleteRequest> deleteItems, List<FederatedItemUpdateRequest> updateItems)
-    {
-        throw new System.NotImplementedException();
-    }
-}
-```
-
-### `GetInventoryState` implementation
-
-You can do any custom logic here. For example, you could AI generate some items, load items from a smart contract, use microstorage, or do anything that satisfies your specific requirements.
-Here's a dummy example that will return some static items and currency, just to showcase the response structure:
-
-```csharp
-public Promise<FederatedInventoryProxyState> GetInventoryState(string id)
-{
-    return Promise<FederatedInventoryProxyState>.Successful(
-        new FederatedInventoryProxyState
-        {
-            currencies = new Dictionary<string, long>
-            {
-                { "currency.federated-gold", 1000 },
-                { "currency.federated-silver", 5000 }
-            },
-            items = new Dictionary<string, List<FederatedItemProxy>>
-            {
-                {
-                    "items.avatar", new List<FederatedItemProxy>
-                    {
-                        new()
-                        {
-                            proxyId = "externalAvatarId1",
-                            properties = new List<ItemProperty>
-                            {
-                                new()
-                                {
-                                    name = "level",
-                                    value = "20"
-                                },
-                                new()
-                                {
-                                    name = "color",
-                                    value = "blue"
-                                }
-                            }
-                        },
-                        new()
-                        {
-                            proxyId = "externalAvatarId2",
-                            properties = new List<ItemProperty>
-                            {
-                                new()
-                                {
-                                    name = "level",
-                                    value = "30"
-                                },
-                                new()
-                                {
-                                    name = "color",
-                                    value = "red"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    );
-}
-```
-
-The important thing to emphasize here is the `id` argument. It's the same external account id that you return from the `Authenticate` method. If you want to access the player's id in the Beamable system, you can use `this.Context.UserId`
-As an example, you can use the wallet address as an external user identifier when implementing blockchain federation.
-
-### `StartInventoryTransaction` implementation
-
-The Inventory service will forward all the changes against federated currency and items. This method has the same return type as the previous one.
-
-```csharp
-public Promise<FederatedInventoryProxyState> StartInventoryTransaction(string id, string transaction, Dictionary<string, long> currencies, List<FederatedItemCreateRequest> newItems, List<FederatedItemDeleteRequest> deleteItems, List<FederatedItemUpdateRequest> updateItems)
-{
-    await _myFederation.ApplyCurrency(currencies);
-    await _myFederation.AddItems(newItems);
-    await _myFederation.UpdateItems(updateItems);
-    await _myFederation.DeleteItems(deleteItems);
-    return await GetInventoryState(id);
-}
-```
-
-The `transaction` argument is a unique transaction id generated in our Inventory service, and you can use it to guard against multiple submissions.
-
-If your transaction processing is to slow to return a timely response, you can implement the async approach. Process the transaction in the background and just return the current state. Once the transaction finishes processing, you can report back the new state like this:
-
-```csharp
-await Requester.Request<CommonResponse>(Method.PUT, $"/object/inventory/{_userContext.UserId}/proxy/state", newState);
-```
-
-The Inventory service will notify the game client to refresh the inventory content if there's a diff.
 
 ## Samples
 
