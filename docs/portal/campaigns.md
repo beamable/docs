@@ -32,7 +32,7 @@ After that, you can create campaigns setting some information through a few step
 
 ![Campaign Segment](../media/imgs/campaigns-segment.png)
 
-- Summary: finally there will be a summary of your campaign so you can verify that every information is correct and ready to go
+- Summary: finally, there will be a summary of your campaign so you can verify that all the information is correct and ready to go
 
 ## Client implementation
 
