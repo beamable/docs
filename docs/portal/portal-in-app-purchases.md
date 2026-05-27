@@ -8,7 +8,7 @@ Follow these steps to configure In-App Purchases settings:
 
 | Step                                        | Detail                                   |
 | :------------------------------------------ | :--------------------------------------- |
-| 1. Open Portal                          | • See Portal documentation for more info |
+| 1. Open the Portal                          | • See Portal documentation for more info |
 | 2. Expand "Monetize" section on the sidebar | • Click "Real-Money Transactions"        |
 | 3. Configure the settings                   | • Enjoy!                                 |
 
