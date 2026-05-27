@@ -90,7 +90,7 @@ cat output.txt
 }
 ```
 
-To print only the `cid` value to console, you can write:
+In order to only print the `cid` value to console, we could write,
 ```sh
 dotnet beam config | jq '.data.cid'
 "123"

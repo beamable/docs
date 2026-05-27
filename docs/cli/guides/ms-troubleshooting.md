@@ -22,7 +22,7 @@ Multiple Microservice classes detected. Make sure only a single class implementi
 ```
 
 **Solutions**:
-- Ensure only one class is marked as a `Microservice` in your project
+- Ensure only one class is marked as a `Microservice` in your project.
 
 **Example of Solved Code**:
 ```csharp
@@ -49,7 +49,7 @@ Non-Partial Microservice class detected. Make sure your Microservice class is ma
 ```
 
 **Solutions**:
-- Add the `partial` modifier to the class
+- Add the `partial` modifier to the class.
 
 **Example of Solved Code**:
 ```csharp
@@ -75,7 +75,7 @@ Microservice class is missing the microservice id
 ```
 
 **Solutions**:
-- Add the `[Microservice("Id")]` attribute to the class
+- Add the `[Microservice("Id")]` attribute to the class.
 
 **Example of Solved Code**:
 ```csharp
@@ -106,7 +106,7 @@ Microservice Callable methods cannot be async voids. Ex: CallMicroservice.
 ```
 
 **Solutions**:
-- Change the return type to `Task`
+- Change the return type to `Task`.
 
 **Example of Solved Code**:
 ```csharp
@@ -147,7 +147,7 @@ Microservice Callable method `CallServiceAsync` uses a Type that cannot be insid
 ```
 
 **Solutions**:
-- Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server
+- Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server.
 
 **Example of Solved Code** (Microservice):
 ```csharp
@@ -198,7 +198,7 @@ public partial class MyMicroservice : Microservice
 ```
 
 **Solutions**:
-- Move named types used by `Callable` methods to a non-nested scope
+- Move named types used by `Callable` methods to a non-nested scope.
 
 **Example of Solved Code**:
 ```csharp
@@ -241,7 +241,7 @@ Type DTO contains [BeamGenerateSchema] attribute and is a Nested type, which is 
 ```
 
 **Solutions**:
-- Move classes that contains `[BeamGenerateSchema]` attribute to a non-nested scope
+- Move classes that contains `[BeamGenerateSchema]` attribute to a non-nested scope.
 
 **Example of Solved Code**:
 ```csharp
@@ -332,7 +332,7 @@ Consider making 'ContentId' a readonly field. Otherwise the value may be inconsi
 ```
 
 **Solutions**:
-- Make the static field `readonly` if it is intended to be constant after initialization
+- Make the static field `readonly` if it's intended to be constant after initialization.
   **Example of Solved Code**:
     ```csharp
     public partial class MyMicroservice : Microservice
@@ -340,7 +340,7 @@ Consider making 'ContentId' a readonly field. Otherwise the value may be inconsi
         public static readonly string ContentId = "coins.gems";
     }
     ```
-- Or convert it to a non-static field if it should be instance-bound
+- Or convert it to a non-static field if it should be instance-bound.
 
 ---
 
@@ -378,7 +378,7 @@ Add the [Serializable] attribute to type 'MyOtherDto'
 ```
 
 **Solution**:
-- Add the `[Serializable]` attribute
+- Add the `[Serializable]` attribute.
   **Example of Solved Code**:
     ```csharp
     [Serializable]
@@ -422,7 +422,7 @@ Consider changing property 'X' to a field to include it in client-generated code
 ```
 
 **Solution**:
-- Use fields instead of properties
+- Use fields instead of properties.
   **Example of Solved Code**:
     ```csharp
     [Serializable]
@@ -454,7 +454,7 @@ Change field 'Score' to use Optional<T> instead of a nullable type
 ```
 
 **Solution**:
-- Use `Optional<T>` instead of nullable types
+- Use `Optional<T>` instead of nullable types.
   **Example of Solved Code**:
     ```csharp
     [Serializable]
@@ -491,7 +491,7 @@ Change 'item' to use ContentRef<MyItem> instead of MyItem
 
 **Solution**:
 
-- Replace the direct `ContentObject` usage with `ContentRef<T>`
+- Replace the direct `ContentObject` usage with `ContentRef<T>`.
 
 **Example of Solved Code**:
 ```csharp
@@ -529,7 +529,7 @@ Add the [BeamGenerateSchema] attribute to type 'MyOtherDTO'
 ```
 
 **Solution**:
-- Add `[BeamGenerateSchema]` to all nested field types
+- Add `[BeamGenerateSchema]` to all nested field types.
   **Example of Solved Code**:
     ```csharp
     [BeamGenerateSchema]
@@ -568,7 +568,7 @@ Change the dictionary key of field 'InvalidDict' to string instead of type 'int'
 
 **Solution**:
 
-- Change the dictionary key type to `string`
+- Change the dictionary key type to `string`.
 
 **Example of Solved Code**:
 
@@ -607,7 +607,7 @@ Replace field 'customDict' to Dictionary instead of type 'MyDict'
 
 **Solution**:
 
-- Use `Dictionary<string, T>` directly instead of a subclass
+- Use `Dictionary<string, T>` directly instead of a subclass.
 
 **Example of Solved Code**:
 
@@ -646,7 +646,7 @@ Replace field 'customList' to List instead of type 'MyList'
 
 **Solution**:
 
-- Use `List<T>` directly instead of a subclass
+- Use `List<T>` directly instead of a subclass.
 
 **Example of Solved Code**:
 
@@ -685,7 +685,7 @@ Change type 'MyContent' to use the base ContentObject type instead of a subtype
 
 **Solution**:
 
-- Use `ContentObject` instead of a derived type
+- Use `ContentObject` instead of a derived type.
 
 **Example of Solved Code**:
 
@@ -722,7 +722,7 @@ Change the dictionary key of 'input' to string instead of type 'int'
 
 **Solution**:
 
-- Change dictionary key to `string`
+- Change dictionary key to `string`.
 
 **Example of Solved Code**:
 
@@ -761,7 +761,7 @@ Replace 'input' to Dictionary instead of type 'MyDict'
 
 **Solution**:
 
-- Use `Dictionary<string, T>` directly
+- Use `Dictionary<string, T>` directly.
 
 **Example of Solved Code**:
 
@@ -800,7 +800,7 @@ Replace 'input' to List instead of type 'MyList'
 
 **Solution**:
 
-- Use `List<T>` directly
+- Use `List<T>` directly.
 
 **Example of Solved Code**:
 
@@ -853,8 +853,8 @@ Generic Types on Microservice Callable methods or classes with [BeamGenerateSche
 
 **Solutions**:
 
-- Replace custom generic types with concrete types
-- Use one of the allowed generic types (`List<T>`, `Dictionary<string,T>`, `Optional<T>`, `ContentRef<T>`) if they fit your use case
+- Replace custom generic types with concrete types.
+- Use one of the allowed generic types (`List<T>`, `Dictionary<string,T>`, `Optional<T>`, `ContentRef<T>`) if they fit your use case.
 
 **Example of Solved Code**:
 

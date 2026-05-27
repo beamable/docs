@@ -11,9 +11,7 @@ Verify it is installed by running `dotnet --version` from a terminal.
     If you are using the Beamable CLI before version 7.0, then you should be using [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). Starting with CLI 7.0 and beyond, both versions of dotnet are supported, but `net10.0` is recommended.
 
 ## Installing
-
 To install the Beamable CLI, run the following command in a shell.
-
 ```shell
 dotnet tool install --global Beamable.Tools
 ```
@@ -110,4 +108,4 @@ From here, you can:
 - Setup [Standalone Microservices](microservices.md)
 - Manage Content,
 - Listen to server events,
-- [learn how the CLI handles data output](ms-command-line.md)
+- [learn how the CLI handles data output](ms-command-line.md).
