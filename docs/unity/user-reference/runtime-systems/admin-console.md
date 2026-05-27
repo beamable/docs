@@ -22,9 +22,10 @@ The console can be opened and closed several ways depending on the target platfo
 
 `ConsoleConfiguration` is a Beamable module configuration ScriptableObject found alongside the other Beamable config assets in your project (under **Beamable** → **Resources** → **ConsoleConfiguration** in the Project window).
 
-| Field | Type | Default | Description |
-|-------|------|---------|-------------|
-| `EnableAdminConsole` | `bool` | `true` | Enables the console overlay in non-editor builds for all players, bypassing the `cli:console` scope requirement |
+| Field                | Type    | Default | Description                                                                                                    |
+|----------------------|---------|---------|----------------------------------------------------------------------------------------------------------------|
+| `UI Size`            | `float` | `1.5`   | Configure the size of the UI                                                                                   |
+| `EnableAdminConsole` | `bool`  | `true`  | Enables the console overlay in non-editor builds for all players, bypassing the `cli:console` scope requirement |
 
 !!! note "Deprecated fields"
     `ForceEnabled` and `ToggleAction` are still present in the asset but only apply to the old prefab-based Admin Console. They have no effect on the built-in integration and can be ignored.
@@ -45,12 +46,11 @@ Players without the `cli:console` scope will not be able to open the console eve
 
 Once the console overlay is open, the following shortcuts are active:
 
-| Key | Action |
-|-----|--------|
-| `Enter` / `Return` | Submit the current input |
+| Key | Action                                                                                |
+|-----|---------------------------------------------------------------------------------------|
+| `Enter` / `Return` | Submit the current input                                                              |
 | `Tab` | Accept the current autocomplete suggestion; press again to cycle through matches |
-| `↑` / `↓` | Navigate command history |
-| `Escape` | Close the console |
+| `↑` / `↓` | Navigate command history                                                              |
 
 ## Running commands
 

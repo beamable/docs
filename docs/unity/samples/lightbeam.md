@@ -11,6 +11,12 @@ Unity Package Samples copy directly into `/Assets`, giving you full control over
 
 Most of the Lightbeams are full `.unity`scene files that offer a greybox UI to explore a feature-set.
 
+!!! info "TextMeshPro Resources"
+    The Lightbeam samples use the TMPro Resouces package. if you don't have it installed, it will be automatically installed when you add a Lightbeam sample to your project.
+
+!!! warning Login Required
+    All Lightbeams require a Beam account to run and you to be logged in to your Beam account in the editor to run them.
+
 ## Common sample structure
 
 When you open a Lightbeam scene, there may be additional configuration to perform before entering Playmode. Check the documentation for each Lightbeam.
