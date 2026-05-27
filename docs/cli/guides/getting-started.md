@@ -62,7 +62,46 @@ To check that everything is working correctly, you can use the beam me command. 
 
     You can pass the `--help` flag to any command to print out detailed information about the arguments and options for the given command. Also, the `--help-all` flag will include additional information used by internal Beamable developers. You are welcome to use the internal facing commands, but they are not officially supported.
 
-### Next steps
+## Try a microservice locally
+
+If you want to evaluate a Beamable microservice without integrating an engine SDK, you can scaffold an isolated C# workspace in a few commands. This path uses a local [dotnet tool manifest](https://learn.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use), so the CLI version is pinned to the workspace and nothing is installed globally.
+
+### Create an isolated workspace
+
+```shell
+mkdir MyService
+cd MyService
+dotnet new tool-manifest
+dotnet tool install Beamable.Tools
+```
+
+These commands establish a tool manifest in a new directory of your choice. You can confirm by looking at `.config/dotnet-tools.json`; when in this directory, or any subdirectory, `dotnet beam` will use this specific Beam CLI.
+
+### Initialize Beamable and log in
+
+```shell
+dotnet beam init
+```
+
+`dotnet beam init` prompts for your organization's alias, your credentials, and the realm to use, then writes a `.beamable/` directory alongside the tool manifest. See [`beam init`](../commands/cli-command-reference/init.md) for the full list of arguments and the [Configuration](configuration.md) guide for the layout of `.beamable/`.
+
+### Scaffold and run a microservice
+
+```shell
+dotnet beam project new service NewService
+```
+
+This command generates a `BeamableServices.sln` solution and a `services/NewService/` project containing `NewService.cs`, `Program.cs`, `NewService.csproj`, and a `Dockerfile`. See [`beam project new service`](../commands/cli-command-reference/project/new/service.md) for the available options.
+
+Run the new service through your IDE, with `dotnet run` from the project directory, or with:
+
+```shell
+dotnet beam project run
+```
+
+You should see a log line ending in `Service ready for traffic` — at that point the service is reachable over HTTP. The [Microservices guide](microservices.md) covers the next steps: opening the local OpenAPI page with `dotnet beam project open-swagger`, calling the generated `Add` endpoint, and adding your own `[ClientCallable]` methods.
+
+## Next steps
 
 From here, you can:
 

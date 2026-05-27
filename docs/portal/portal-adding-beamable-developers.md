@@ -16,7 +16,7 @@ First, let's create your teammate's new account:
 
 2. Click to expand the _Admin_ section in the navigation panel and click the _User Administration_ link.
 
-The "User Administration" page features a list of all the admins, developers, and testers on your project.
+The "User Administration" page features a list of all of the admins, developers, and testers on your project.
 
 ![Portal Add Devs Team](../media/imgs/Portal-Add_Devs-A2_Team.png)
 

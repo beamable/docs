@@ -186,30 +186,30 @@ Content filter strings can be entered into the Content Manager's search box, or 
 
 | Filter String      | Description                                                         |
 | ------------------ | ------------------------------------------------------------------- |
-| `t:currency`       | returns all content elements that are of type "currency"            |
-| `t:currency items` | returns all content elements that are of type "currency" or "items" |
+| `t:currency`       | returns all content elements that are of type `"currency"`            |
+| `t:currency items` | returns all content elements that are of type `"currency"` or `"items"` |
 
 **Tag Filtering:** To filter by content tag, use the `tag` filter constraint. The following table shows examples of tag constraints.
 
 | Filter String | Description                                                        |
 | ------------- | ------------------------------------------------------------------ |
-| `tag:a`       | returns all content elements that have the "a" tag                 |
-| `tag:a b`     | returns all content elements that have the "a" tag and the "b" tag |
+| `tag:a`       | returns all content elements that have the `"a"` tag                 |
+| `tag:a b`     | returns all content elements that have the `"a"` tag and the `"b"` tag |
 
 **Id Filtering:** To filter by content id, use the `id` filter constraint, or use no constraint at all. The `id` filter constraint is the default constraint. The following table shows examples of id constraints.
 
 | Filter String | Description                                                    |
 | ------------- | -------------------------------------------------------------- |
-| `gems`        | returns all content elements that contain "gems" in their name |
-| `id:gems`     | returns all content elements that contain "gems" in their name |
+| `gems`        | returns all content elements that contain `"gems"` in their name |
+| `id:gems`     | returns all content elements that contain `"gems"` in their name |
 
 **Compound Filtering:** Multiple filter constraints may be combined if separated by a `,` character. The following table shows examples of compound constraints.
 
 | Filter String          | Description                                                                                |
 | ---------------------- | ------------------------------------------------------------------------------------------ |
-| `t:currency, gems`     | returns all content elements that are of type "currency", and contain "gems" in their name |
-| `t:currency, tag:base` | returns all content elements that are of type "currency", and have the "base" tag          |
-| `gems, tag:a`          | returns all content elements that contain "gems" in their name, and have the "a" tag       |
+| `t:currency, gems`     | returns all content elements that are of type `"currency"`, and contain `"gems"` in their name |
+| `t:currency, tag:base` | returns all content elements that are of type `"currency"`, and have the `"base"` tag          |
+| `gems, tag:a`          | returns all content elements that contain `"gems"` in their name, and have the `"a"` tag       |
 
 ## Content validation
 
