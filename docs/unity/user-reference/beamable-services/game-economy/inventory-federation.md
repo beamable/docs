@@ -102,7 +102,7 @@ As an example, you can use the wallet address as an external user identifier whe
 The Inventory service will forward all the changes against federated currency and items. This method has the same return type as the previous one.
 
 ```csharp
-public Promise<FederatedInventoryProxyState> StartInventoryTransaction(string id, string transaction, Dictionary<string, long>
+public async Promise<FederatedInventoryProxyState> StartInventoryTransaction(string id, string transaction, Dictionary<string, long>
         currencies, List<FederatedItemCreateRequest> newItems, List<FederatedItemDeleteRequest> deleteItems, List<FederatedItemUpdateRequest> updateItems)
 {
     await _myFederation.ApplyCurrency(currencies);
@@ -115,62 +115,57 @@ public Promise<FederatedInventoryProxyState> StartInventoryTransaction(string id
 
 The `transaction` argument is a unique transaction id generated in the Beamable Inventory service, and you can use it to guard against multiple submissions.
 
-If your transaction processing is too slow to return a timely response, you can use an asynchronous approach.
-Return the current proxy state immediately, process the transaction in the background, and then report the result back
-to Beamable when the external system has committed the change.
+This synchronous approach is the default path: apply the change to the external system before `StartInventoryTransaction`
+returns, then return the new proxy state.
 
-Use `proxy/state` when you want to replace Beamable's cached proxy inventory with a complete snapshot from the external
-system. This is a good fit after a full reconciliation pass, wallet resync, or any case where the external system is the
-source of truth for the player's complete federated inventory.
+If transaction processing is too slow to return a timely response, use an asynchronous approach. In that case,
+`StartInventoryTransaction` still returns a `FederatedInventoryProxyState`; there is no special "pending" value that
+tells Beamable to wait for a later callback. Return the current proxy state immediately, process the transaction in the
+background, and then notify Beamable after the external system commits the change.
+
+Use `proxy/reload` after the external commit when `GetInventoryState` can read the updated state from the external
+system. Beamable calls back into your federation and refreshes its cached proxy inventory from the returned state.
 
 ```csharp
-await Requester.Request<CommonResponse>(Method.PUT, $"/object/inventory/{_userContext.UserId}/proxy/state", newState);
+await Requester.Request<CommonResponse>(
+    Method.PUT,
+    $"/object/inventory/{_userContext.UserId}/proxy/reload");
 ```
 
-Use `proxy/state-delta` when you already know the specific changes that finished processing and do not need to reload
-the full external inventory. This is usually the better fit for game actions such as minting an item, consuming a
-crafting material, granting an async reward, or updating a stat on a federated item after a match.
+Use `proxy/state` when you already have a complete snapshot and want to replace Beamable's cached proxy inventory
+directly. The payload has the same shape as `FederatedInventoryProxyState`.
 
 ```csharp
-var delta = new
+var newState = new FederatedInventoryProxyState
 {
-    // Currency values are the updated balances for the listed federated currencies.
     currencies = new Dictionary<string, long>
     {
         { "currency.federated-gold", 1250 }
     },
-    // Upsert by content id and external proxy id.
-    // Existing items are updated; missing items are created.
-    upsertItems = new[]
+    items = new Dictionary<string, List<FederatedItemProxy>>
     {
-        new
         {
-            contentId = "items.avatar",
-            proxyId = "externalAvatarId1",
-            properties = new List<ItemProperty>
+            "items.avatar", new List<FederatedItemProxy>
             {
-                new() { name = "level", value = "31" },
-                new() { name = "color", value = "blue" }
+                new()
+                {
+                    proxyId = "externalAvatarId1",
+                    properties = new List<ItemProperty>
+                    {
+                        new() { name = "level", value = "31" },
+                        new() { name = "color", value = "blue" }
+                    }
+                }
             }
-        }
-    },
-    // Delete by content id and external proxy id.
-    deleteItems = new[]
-    {
-        new
-        {
-            contentId = "items.avatar",
-            proxyId = "externalAvatarId2"
         }
     }
 };
 
 await Requester.Request<CommonResponse>(
     Method.PUT,
-    $"/object/inventory/{_userContext.UserId}/proxy/state-delta",
-    delta);
+    $"/object/inventory/{_userContext.UserId}/proxy/state",
+    newState);
 ```
 
-Both callbacks save the updated proxy inventory and notify the game client to refresh inventory content when Beamable
-detects a diff. Keep each delta scoped to one inventory federation; if one gameplay result touches assets owned by
-multiple external systems, send one callback per federation.
+Keep each callback scoped to one inventory federation. If one gameplay result touches assets owned by multiple external
+systems, send one callback per federation.
