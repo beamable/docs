@@ -10032,7 +10032,7 @@ private async void GetContent()
 public class MyCustomContent : ContentObject { ... }
 </code></pre>
 <h3 id="changing-content-namespaces">Changing content namespaces<a class="headerlink" href="#changing-content-namespaces" title="Permanent link">¶</a></h3>
-<p>This sample shows how to switch the default content namespace to "tuna" before resolving a <code>CurrencyRef</code>.</p>
+<p>This sample shows how to switch the default content namespace to <code>"tuna"</code> before resolving a <code>CurrencyRef</code>.</p>
 <pre><code class="language-csharp">public class Tester : MonoBehaviour
 {
     public CurrencyRef currency;
@@ -10053,10 +10053,10 @@ public class MyCustomContent : ContentObject { ... }
 <p>Content management is critical to keep the content in your game engaging and reactive, and Beamable provides a number of content management tools. This is a mixture of solutions within the "Beamable SDK for Unity" and Rest API calls. In addition Beamable provides some extended tools that integrate with Google Sheets as a plugin.</p>
 <p>Beamable provides a streamlined Content Publishing pipeline. You can deploy your content across multiple environments that can be tailored to your own internal publishing workflow.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/content-management.png" data-desc-position="bottom"><img alt="content-management.png" src="../../../../../../media/imgs/content-management.png" style="height:auto;width:500px"></a></p>
-<p>When you create your Beamable account, we automatically create a "Development to Production" pipeline of distinct environments for you. These environments are "Dev" → "Staging" → "Production". This is how Beamable enables you to publish your content for the development environment while allowing you the peace of mind to know that the "Production" environment has not been modified.</p>
-<p>Then, once you have tested that the new content in your environment looks correct, you can go into the Portal to promote the "Dev" content to "Staging" and eventually "Production".</p>
+<p>When you create your Beamable account, we automatically create a set of distinct environments for you: dev → staging → production. This is how Beamable enables you to publish your content for the development environment while allowing you the peace of mind to know that the production environment has not been modified.</p>
+<p>Then, once you have tested that the new content in your environment looks correct, you can go into the Portal to promote the dev content to staging and eventually production.</p>
 <h3 id="storage-location-of-content-types-and-content-live-refresh">Storage location of content types and content live refresh<a class="headerlink" href="#storage-location-of-content-types-and-content-live-refresh" title="Permanent link">¶</a></h3>
-<p>One of the main benefits of our content system is that, when you hit publish and the content updates, we will automatically refresh that content on each game client via a server-to-client message. This allows for the system to be incredibly interactive at development time as well as allowing for over the air updates to players who are playing in "Production" after a content promotion.</p>
+<p>One of the main benefits of our content system is that, when you hit publish and the content updates, we will automatically refresh that content on each game client via a server-to-client message. This allows for the system to be incredibly interactive at development time as well as allowing for over the air updates to players who are playing in production after a content promotion.</p>
 <p>While using the Content Manager Editor (Unity Editor) it will be saved locally to your project in the following location:</p>
 <pre><code class="language-csharp">/Assets/Beamable/Editor/content/
 </code></pre>

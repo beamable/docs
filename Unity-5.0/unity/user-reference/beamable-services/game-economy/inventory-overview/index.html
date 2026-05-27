@@ -9597,8 +9597,8 @@
 <h1 id="inventory-overview">Inventory - overview<a class="headerlink" href="#inventory-overview" title="Permanent link">¶</a></h1>
 <p>The Beamable <strong>Inventory</strong> service allows game makers to manage owned items per player within the game.</p>
 <p>Beamable's Inventory system is built on the Content feature. This means you can create and publish content via the <a href="../../profile-storage/content/content-unity/#content-manager-editor">Content Manager</a>, then grant it to players through various workflows:
-- Add/Remove inventory items to the active player during the course of gameplay. Ex. the player earns a new "Sword" inventory item based on in-game progress
-- Add inventory items to the active player via the Beamable <a href="../stores-overview/">Store</a>. Ex. the player pays real money to buy a new "Sword" inventory item</p>
+- Add/Remove inventory items to the active player during the course of gameplay. Ex. the player earns a new <code>"Sword"</code> inventory item based on in-game progress
+- Add inventory items to the active player via the Beamable <a href="../stores-overview/">Store</a>. Ex. the player pays real money to buy a new <code>"Sword"</code> inventory item</p>
 <h2 id="data-concepts">Data concepts<a class="headerlink" href="#data-concepts" title="Permanent link">¶</a></h2>
 <p>The <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Inventory_1_1InventoryService.html#details"><code>InventoryService</code></a> manages items owned by the active player. Whereas the <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Content_1_1ContentService.html#details"><code>ContentService</code></a> manages all items available in the game, regardless if owned or not. Each <strong>Inventory Item</strong> owned by the active player relates to a specific <strong>Content Item</strong>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/inventory-data-concept.png" data-desc-position="bottom"><img alt="Inventory Data Concept" src="../../../../../media/imgs/inventory-data-concept.png"></a></p>

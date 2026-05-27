@@ -10126,11 +10126,11 @@ namespace Beamable.Microservices {
 <p>It is also possible to change the default log level for a service by using Realm Config.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The <em>request</em> level will set the log level for all requests made to your service, but internal background Beamable framework logs will still be set to a default level of INFO (which means very few system logs).</p>
+<p>The <em>request</em> level will set the log level for all requests made to your service, but internal background Beamable framework logs will still be set to a default level of <code>"info"</code> (which means very few system logs).</p>
 </div>
-<p>If you need to change the default log level, then go to the Realm Config page of the Portal, create a new namespace called "service_logs". Then, create an entry in the "service_logs" namespace for each service you want to change the log level for. The entry should be the name of the Microservice. The value should be one of the following, "verbose", "debug", "info", "warn", "error", or "fatal".</p>
+<p>If you need to change the default log level, then go to the Realm Config page of the Portal, create a new namespace called <code>"service_logs"</code>. Then, create an entry in the <code>"service_logs"</code> namespace for each service you want to change the log level for. The entry should be the name of the Microservice. The value should be one of the following, <code>"verbose"</code>, <code>"debug"</code>, <code>"info"</code>, <code>"warn"</code>, <code>"error"</code>, or <code>"fatal"</code>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/service-logs-realm-config.png" data-desc-position="bottom"><img alt="Service Logs Realm Config" src="../../../../../media/imgs/service-logs-realm-config.png"></a></p>
-<p>If you configure the service with "fatal", then only log messages at the "fatal" level will be shown. However, if you configure the service with "debug", then all log messages with a log level of "debug" or greater will be shown, including "debug", "info", "warn", "error", and "fatal".</p>
+<p>If you configure the service with <code>"fatal"</code>, then only log messages at the <code>"fatal"</code> level will be shown. However, if you configure the service with <code>"debug"</code>, then all log messages with a log level of <code>"debug"</code> or greater will be shown, including <code>"debug"</code>, <code>"info"</code>, <code>"warn"</code>, <code>"error"</code>, and <code>"fatal"</code>.</p>
 <h2 id="deleting-a-service">Deleting a service<a class="headerlink" href="#deleting-a-service" title="Permanent link">¶</a></h2>
 <p>If you have a published service, delete the service locally, and then start a new publication step, then you will be "archiving" the service. The publication step will stop the service in the Beamable Cloud and hide it in the Portal view.</p>
 

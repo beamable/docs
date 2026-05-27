@@ -9538,7 +9538,7 @@
 <p>You should first create a microservice or use an existing one. You can bundle multiple authentication federations in a single microservice using the <code>UniqueName</code> value of cloud identity classes to establish namespaces. This is illustrated by the difference between "tuna" and "haddock" below.</p>
 <h3 id="implementing-an-ifederationid-interface">Implementing an IFederationId interface<a class="headerlink" href="#implementing-an-ifederationid-interface" title="Permanent link">¶</a></h3>
 <p>Create an implementation of IThirdPartyCloudIdentity in Beamable/Common (or any shared assembly).
-This will create a "tuna" namespace for your new authentication scheme. Namespace will be a part of the authentication endpoint path. In the following example, TunaCloudIdentity will correspond to <code>/your_microservice/tuna/authenticate</code> and HaddockCloudIdentity will correspond to <code>/your_microservice/haddock/authenticate</code>.</p>
+This will create a <code>"tuna"</code> namespace for your new authentication scheme. Namespace will be a part of the authentication endpoint path. In the following example, <code>TunaCloudIdentity</code> will correspond to <code>/your_microservice/tuna/authenticate</code> and <code>HaddockCloudIdentity</code> will correspond to <code>/your_microservice/haddock/authenticate</code>.</p>
 <pre><code class="language-csharp">[FederationId("tuna")]
 public class TunaCloudIdentity : IFederationId
 {
