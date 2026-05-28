@@ -6109,8 +6109,8 @@
 <p>Beamable's API (and thus also the admin Portal) currently has 4 levels of privilege for any given account. Lowest to highest they are:</p>
 <ol>
 <li>no role     -  No permissions. Most players are at this level.</li>
-<li><code>tester</code>    -  Mostly read-only permissions (with some exceptions).</li>
-<li><code>developer</code> -  Mostly read-write but not able to manage users or team.</li>
+<li><code>tester</code>    -  Mostly read-only permissions (with some exceptions)</li>
+<li><code>developer</code> -  Mostly read-write but not able to manage users or team</li>
 <li><code>admin</code>     -  All access everywhere. Lots of power!</li>
 </ol>
 </div>
@@ -6120,20 +6120,20 @@
 <div class="admonition info">
 <p class="admonition-title">Notes about Realm-Scoped Permissions</p>
 <ul>
-<li>If somebody's Global role is higher than their Realm-scoped role, the Global role will take precedence.</li>
+<li>If somebody's Global role is higher than their Realm-scoped role, the Global role will take precedence</li>
 <li>Realm-scoped roles propagate through the Realm hierarchy. Using a Prod→Staging→Dev setup as an example, if my Global role is "tester" and my team lead set me as a "developer" in staging and an "admin" in dev, then:<ul>
-<li>In <code>Example-prod</code>, I only have tester permissions, because of my Global role.</li>
-<li>In <code>Example-staging</code>, I have developer permissions, because of my Realm-scoped role there.</li>
-<li>In <code>Example-dev</code>, I have administrative permissions, because of my Realm-scoped role there.</li>
-<li>Additionally, if any of my colleagues make a new child realm under <code>Example-dev</code>, I will be an admin there as well.</li>
-<li>Likewise, if someone makes a child realm under <code>Example-staging</code> (that is, a sibling of dev), I will have developer permissions there.</li>
+<li>In <code>Example-prod</code>, I only have tester permissions, because of my Global role</li>
+<li>In <code>Example-staging</code>, I have developer permissions, because of my Realm-scoped role there</li>
+<li>In <code>Example-dev</code>, I have administrative permissions, because of my Realm-scoped role there</li>
+<li>Additionally, if any of my colleagues make a new child realm under <code>Example-dev</code>, I will be an admin there as well</li>
+<li>Likewise, if someone makes a child realm under <code>Example-staging</code> (that is, a sibling of dev), I will have developer permissions there</li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="admonition info">
 <p class="admonition-title">TIP: Finding your <abbr title="customer ID">CID</abbr></p>
-<p>To get your customer ID (<abbr title="customer ID">CID</abbr>), look for <em>config-defaults.txt</em> in your project. The shell snippet below illustrates how to get it from the command line if you are on MacOS.</p>
+<p>To get your customer ID (<abbr title="customer ID">CID</abbr>), look for <em>config-defaults.txt</em> in your project. The shell snippet below illustrates how to get it from the command line if you are on macOS.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>% find . -name config-defaults.txt
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>./Assets/Beamable/Resources/config-defaults.txt
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>% grep cid ./Assets/Beamable/Resources/config-defaults.txt

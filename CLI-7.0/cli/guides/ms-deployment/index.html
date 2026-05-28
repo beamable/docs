@@ -6364,53 +6364,49 @@
 </code></pre></div>
 <h3 id="building-the-plan">Building the plan<a class="headerlink" href="#building-the-plan" title="Permanent link">¶</a></h3>
 <p>The <code>deploy plan</code> command validates that your Standalone Microservice can be built and, optionally, that it will start accepting HTTPS traffic.</p>
-<p><strong>The command WILL NOT validate the services are booting up correctly by default.</strong> It assumes that you have tested your service locally before deploying it. However, you can pass in the <code>--health</code>  argument to make the command, run the built services locally and wait for the service to start responding to health check API calls. This takes longer, but guarantees that the services <em>at least starts up</em>. This is especially useful if you're using our <code>[ConfigureServices]</code> and/or <code>[InitializeServices]</code> attributes to modify the service boot process.</p>
+<p><strong>The command WILL NOT validate the services are booting up correctly by default.</strong> It assumes that you have tested your service locally before deploying it. However, you can pass in the <code>--health</code>  argument to make the command, run the built services locally and wait for the service to start responding to health check API calls. This takes longer, but guarantees that the services <em>at least starts up</em>. This is especially useful if you're using the <code>[ConfigureServices]</code> and/or <code>[InitializeServices]</code> attributes to modify the service boot process.</p>
 <p>After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local <em>service manifest</em> is built implicitly from configurations inside your project. The built plan is there to inform you about the changes you will be making (enabling/disabling existing services, adding new services) if you decide to <code>deploy release</code> it.</p>
-<p>As an example, here's the output from a <code>deploy plan</code> invocation from inside our <code>UnrealSDK</code> project.
+<p>As an example, here's the output from a <code>deploy plan</code> invocation from inside the <code>UnrealSDK</code> project.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ dotnet beam deploy plan
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>      fetching latest ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>build DiscordSampleMs ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    build HathoraDemo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  build LiveOpsDemoMS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>   build MSPlayground ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>      build SteamDemo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>     calculating plan ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>Adding 5 services
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a> - DiscordSampleMs
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a> - HathoraDemo
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a> - LiveOpsDemoMS
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a> - MSPlayground
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a> - SteamDemo
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>Enabling 3 federations
-<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a> - DiscordSampleMs [IFederatedLogin/discord]
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a> - HathoraDemo [IFederatedGameServer/hathora]
-<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a> - SteamDemo [IFederatedLogin/steam]
-<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  build LiveOpsDemoMS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>   build MSPlayground ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>      build SteamDemo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>     calculating plan ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>Adding 5 services
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a> - DiscordSampleMs
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a> - LiveOpsDemoMS
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a> - MSPlayground
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a> - SteamDemo
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>Enabling 3 federations
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a> - DiscordSampleMs [IFederatedLogin/discord]
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a> - SteamDemo [IFederatedLogin/steam]
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>Adding 1 storage
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a> - DBPlayground
 <a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>
-<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>Adding 1 storage
-<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a> - DBPlayground
-<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
-<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>
-<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>Uploading 5 services
-<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a> - HathoraDemo
-<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a> - MSPlayground
-<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a> - LiveOpsDemoMS
-<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a> - SteamDemo
-<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a> - DiscordSampleMs
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>Uploading 5 services
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a> - MSPlayground
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a> - LiveOpsDemoMS
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a> - SteamDemo
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a> - DiscordSampleMs
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>Local Health-checks were not run! Services may work as expected, but they have not been explicitly tested locally.
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>Consider re-running a plan command with the `--health` option.
 <a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>
-<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>
-<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>Local Health-checks were not run! Services may work as expected, but they have not been explicitly tested locally.
-<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>Consider re-running a plan command with the `--health` option.
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>This plan has 14 pending changes!
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>To release, use `dotnet beam deploy release --plan E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json`
 <a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>
-<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>This plan has 14 pending changes!
-<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>
-<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>To release, use `dotnet beam deploy release --plan E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json`
-<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>
-<a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>Saved plan: E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>Saved plan: E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json
 </code></pre></div><p></p>
 <p>As you can see from the example, every <code>plan</code> invocation creates a <code>timestamp.plan.json</code> file inside your <code>.beamable/temp/plans</code> folder.</p>
 <h4 id="merge-and-replace-plans">Merge and replace plans<a class="headerlink" href="#merge-and-replace-plans" title="Permanent link">¶</a></h4>
@@ -6451,7 +6447,7 @@
 <p class="admonition-title">Services Cost Money!</p>
 <p>Remember, Every service running on Beamable Cloud may increase your Beamable Bill. Disable your services to reduce your monthly bill.</p>
 </div>
-<p>A quick-note: we highly recommend you <strong><em>delete services from your repository</em></strong> instead of enabling/disabling them <em>in most cases</em>. This feature exists for use-cases similar to the ones we have for the distribution of our Unreal SDK samples.</p>
+<p>A quick-note: <strong><em>delete services from your repository</em></strong> instead of enabling/disabling them <em>in most cases</em>. This feature exists for use-cases similar to those used for distributing the Unreal SDK samples.</p>
 <p>For game-makers, these are often advanced use-cases. An example could be:</p>
 <blockquote>
 <p>A Microservice containing DevTools that should NEVER be available in your production realm but SHOULD be available in non-production realms. This type of service cannot simply be removed. Instead, you need to control which realms have it deployed or not.</p>
