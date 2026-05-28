@@ -201,7 +201,7 @@ Common .NET properties may be explored through [.NET's Documentation](https://le
 
 !!! info "Make sure to reference the right version!"
 
-    The link above points to the cli-6.0.0 release tag version of the source code. Make sure that you are looking the same version as your `Beamable.Microservice.Runtime` nuget version is using in the `.csproj`.
+    The link above points to the cli-6.0.0 release tag version of the source code. Make sure that you are looking the same version as your `Beamable.Microservice.Runtime` NuGet version is using in the `.csproj`.
 
 
 Other than the default properties set in the `.props` file, a major requirement of Beamable Standalone Microservices the `TargetFramework` property. If you are using CLI 3.0.0 and above, you may target `net8.0` .

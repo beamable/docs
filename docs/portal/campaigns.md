@@ -20,15 +20,15 @@ After that, you can create campaigns setting some information through a few step
 
 ![Campaign Meta Information](../media/imgs/campaigns-meta-information.png)
 
-- Content: The information you want to send to your players, usually just a subject and a description. Depending on the campaing type, you can send this information using many formats, like HTML, Unity TMP, etc.
+- Content: The information you want to send to your players, usually just a subject and a description. Depending on the campaign type, you can send this information using many formats, like HTML, Unity TMP, etc.
 
 !!! info "Important"
 
-    In case the campaign is of the In-game mail type, you will have the option to use Entitlements to grant rewards to players. However, Entitlements are a deprecated legacy system. We strongly recommend using Inventory instead, in conjunction with a different delivery mechanism such as Announcements or a custom C# Microservice.
+    In case the campaign is of the In-game mail type, you will have the option to use Entitlements to grant rewards to players. However, Entitlements are a deprecated legacy system. Use Inventory instead, in conjunction with a different delivery mechanism such as Announcements or a custom C# Microservice.
 
 ![Campaign Content](../media/imgs/campaigns-content.png)
 
-- Segment: In this section you are going to set the conditions required from players to be able to receive your campaign. So if you want to target specific players, you can do it through the use of Players Activities and/or Player Stats.
+- Segment: In this section you are going to set the conditions required from players to be able to receive your campaign. So if you want to target specific players, you can do it through the use of Players Activities and/or Player Stats
 
 ![Campaign Segment](../media/imgs/campaigns-segment.png)
 
@@ -36,8 +36,8 @@ After that, you can create campaigns setting some information through a few step
 
 ## Client implementation
 
-For the client implementation, it is going to depend on which type your campaign is for. All of the following types have  their own implementation and can be triggered by campaigns as well as other means like custom C# microservices.
+For the client implementation, it is going to depend on which type your campaign is for. All of the following types have their own implementation and can be triggered by campaigns as well as other means like custom C# microservices.
 
-- **Email and In-game mail**: Follow the mail documentation for more information on how to implement this.
-- **Push Notifications**: Follow the Push Notifications documentation for information on how to implement.
-- **Announcements**: Follow the Announcements documentation for information on how to implement.
+- **Email and In-game mail**: Follow the mail documentation for more information on how to implement this
+- **Push Notifications**: Follow the Push Notifications documentation for information on how to implement
+- **Announcements**: Follow the Announcements documentation for information on how to implement
