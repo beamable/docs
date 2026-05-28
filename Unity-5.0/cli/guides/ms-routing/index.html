@@ -9724,7 +9724,7 @@ dotnet beam project new service HelloWorld
     --additional-properties=usePromises=true \
     -o /local/out/js
 </code></pre>
-<p>In this example, we need to use <code>browserify</code> to convert the generated client code into a valid browser script.</p>
+<p>In this example, use <code>browserify</code> to convert the generated client code into a valid browser script.</p>
 <pre><code class="language-sh">npm install -g browserify
 browserify ./dist/index.js --standalone helloWorld &gt; ../../app/bundle.js
 </code></pre>

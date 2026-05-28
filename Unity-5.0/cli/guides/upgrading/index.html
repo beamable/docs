@@ -10430,7 +10430,7 @@ cd SomeDrive/ProjectRoot
 <li>Install <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">dotnet 8 SDK</a> in your machine (it is the new recommended version). The old <code>net6.0</code> framework's end-of-life arrived on November 12, 2024.</li>
 <li>Delete the <code>.beamable/local-services-manifest.json</code> file. (It is no longer necessary)</li>
 </ol>
-<p>Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install &amp; re-install specific versions when switching projects, but that is a bad workflow — so... we changed it.</p>
+<p>Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install &amp; re-install specific versions when switching projects, but that is a bad workflow — so that was changed.</p>
 <p>In 3.0.0, the CLI should be installed as a <em>local dotnet tool</em>.</p>
 <p>The steps to change your project from using the global CLI tool to a <em>local dotnet tool</em> are defined below.</p>
 <p>Start by verifying you are in the correct location by running the following command.</p>
@@ -10478,7 +10478,7 @@ cd SomeDrive/ProjectRoot
 <li>You can manually edit this to dodge the version-lock if you want to risk it</li>
 </ul>
 </li>
-<li>It includes a Roslyn Static Analyser to help you out with microservices and federation implementations</li>
+<li>It includes a Roslyn Static Analyzer to help you out with microservices and federation implementations</li>
 <li>It'll target <code>.net8</code></li>
 </ul>
 <p>In every <code>csproj</code> file for <strong>Microservices</strong>, <strong>MicroStorages</strong>, and <strong>Common Libraries</strong>, follow the steps below:</p>
@@ -10547,7 +10547,7 @@ binaries are not compatible with Unity.</p>
 <p>You can run the command described in the error message to register the federation in the code with the <code>federation.json</code> file.</p>
 <blockquote>
 <p>📘 Why is this needed?</p>
-<p>We now support the ability to test federations locally (which was previously impossible due to architecture of 2.0.0). With this new ability, some UX requirements changed for our engine integrations. This change helps the development experience of such cases in the Unity/Unreal editor integrations.</p>
+<p>Beamable now supports testing federations locally (which was previously impossible due to the architecture of 2.0.0). With this new ability, some UX requirements changed for the engine integrations. This change improves the development experience in the Unity/Unreal editor integrations.</p>
 </blockquote>
 <h4 id="updating-each-dockerfile">Updating each <code>Dockerfile</code><a class="headerlink" href="#updating-each-dockerfile" title="Permanent link">¶</a></h4>
 <p>This is very simple: simply replace the contents of each Dockerfile with the following. After replacing it, you can re-add any previous modifications you might've had.</p>

@@ -9900,9 +9900,9 @@ number is even!
 </tbody>
 </table>
 <h3 id="third-party-log-hosting">Third party log hosting<a class="headerlink" href="#third-party-log-hosting" title="Permanent link">¶</a></h3>
-<p>Starting with version 6.0, you can send Microservice logs to third-party log hosting services. In this example, we will use BetterStack.</p>
+<p>Starting with version 6.0, you can send Microservice logs to third-party log hosting services. This example uses BetterStack.</p>
 <p>This section will assume you have set up a BetterStack account, and created a <em>Source</em> such that you have a <em>source token</em> and an <em>ingesting host</em>.</p>
-<p>To start, we will configure locally running Microservices to send data to BetterStack. To start, create this file called <code>config.yaml</code> next to your <code>BeamableServices.sln</code> file.</p>
+<p>First, configure locally running Microservices to send data to BetterStack. Create a file called <code>config.yaml</code> next to your <code>BeamableServices.sln</code> file.</p>
 <pre><code class="language-yml">receivers:
   otlp:
     protocols:
@@ -9962,7 +9962,7 @@ export BEAM_OTEL_EXPORTER_OTLP_PROTOCOL=HttpProtobuf
 </code></pre>
 <p>In a few moments, you should see log data appear in BetterStack.</p>
 <hr>
-<p>To configure a deployed Microservice to report log data to BetterStack, we need to start the collector in the deployed environment. The easiest way to do this is to run the collector as a local process.</p>
+<p>To configure a deployed Microservice to report log data to BetterStack, start the collector in the deployed environment. The easiest way to do this is to run the collector as a local process.</p>
 <p>Modify the <code>Dockerfile</code> to include the collector in the built image. Add these lines right below the <code>WORKDIR /beamApp</code> line,</p>
 <pre><code class="language-dockerfile"># Install utilities
 RUN apk add --no-cache curl tar
@@ -9981,7 +9981,7 @@ COPY config.yaml /otel-contrib/config.yaml
 <p>Add the following functions to your <code>Program.cs</code></p>
 <blockquote>
 <p>[!WARNING]
-This sample hard-codes the BetterStack auth for simplicity. We are working on better solutions for secret management. Please check in soon.</p>
+This sample hard-codes the BetterStack auth for simplicity. Better solutions for secret management are in development.</p>
 </blockquote>
 <pre><code class="language-csharp">
 public static void SetupTelemetry()
