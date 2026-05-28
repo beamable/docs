@@ -118,13 +118,12 @@ echo; echo "All pushes complete."
 
 ### Branch mapping
 
-The authoritative source is `.github/workflows/auto-sync-core.yml` on the core branch — verify there before assuming any auto-merge relationship.
+Auto-sync flows from a core branch into one or more engine branches, but the version numbers do **not** correspond arithmetically — the mapping is explicit and must be read, not inferred (`core/v7.0` → `unity/v5.0`; `core/v7.1` → `unreal/v2.3`). Each core branch declares its own downstream targets in the `matrix.branch` list of `.github/workflows/auto-sync-core.yml` *on that core branch*; that file is the only authoritative source. Check it before assuming any relationship.
 
-| Core branch | Unity branch | Unreal branch | Notes |
-|---|---|---|---|
-| `core/v7.0` | `unity/v5.0` | `unreal/v2.3` | Auto-sync active |
-| `core/v7.1` | — | `unreal/v2.3` | Auto-sync to unreal only |
-| — | `unity/v5.1` | — | No auto-merge from any core branch; apply CLI guide fixes directly or cherry-pick from core |
+Two invariants worth holding in context:
+
+- **Each engine branch is fed by at most one core branch** (the matrices are disjoint), so a core edit never reaches the same file from two directions and auto-sync cannot self-conflict across core branches.
+- **Not every engine branch has a core feed.** Branches with none (currently `unity/v5.1` and `unreal/v2.2`) take core-owned fixes by direct edit or cherry-pick from core.
 
 ### Keeping CLAUDE.md in sync across branches
 
