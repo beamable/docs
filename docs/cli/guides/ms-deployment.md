@@ -47,17 +47,16 @@ dotnet beam deploy plan --plan "path to plan file"
 
 The `deploy plan` command validates that your Standalone Microservice can be built and, optionally, that it will start accepting HTTPS traffic.
 
-**The command WILL NOT validate the services are booting up correctly by default.** It assumes that you have tested your service locally before deploying it. However, you can pass in the `--health`  argument to make the command, run the built services locally and wait for the service to start responding to health check API calls. This takes longer, but guarantees that the services *at least starts up*. This is especially useful if you're using our `[ConfigureServices]` and/or `[InitializeServices]` attributes to modify the service boot process.
+**The command WILL NOT validate the services are booting up correctly by default.** It assumes that you have tested your service locally before deploying it. However, you can pass in the `--health`  argument to make the command, run the built services locally and wait for the service to start responding to health check API calls. This takes longer, but guarantees that the services *at least starts up*. This is especially useful if you're using the `[ConfigureServices]` and/or `[InitializeServices]` attributes to modify the service boot process.
 
 After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local _service manifest_ is built implicitly from configurations inside your project. The built plan is there to inform you about the changes you will be making (enabling/disabling existing services, adding new services) if you decide to `deploy release` it.
 
-As an example, here's the output from a `deploy plan` invocation from inside our `UnrealSDK` project.
+As an example, here's the output from a `deploy plan` invocation from inside the `UnrealSDK` project.
 ```
 $ dotnet beam deploy plan
 
       fetching latest ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
 build DiscordSampleMs ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
-    build HathoraDemo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
   build LiveOpsDemoMS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
    build MSPlayground ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
       build SteamDemo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
@@ -65,7 +64,6 @@ build DiscordSampleMs ━━━━━━━━━━━━━━━━━━━�
 
 Adding 5 services
  - DiscordSampleMs
- - HathoraDemo
  - LiveOpsDemoMS
  - MSPlayground
  - SteamDemo
@@ -73,7 +71,6 @@ Adding 5 services
 
 Enabling 3 federations
  - DiscordSampleMs [IFederatedLogin/discord]
- - HathoraDemo [IFederatedGameServer/hathora]
  - SteamDemo [IFederatedLogin/steam]
 
 
@@ -82,7 +79,6 @@ Adding 1 storage
 
 
 Uploading 5 services
- - HathoraDemo
  - MSPlayground
  - LiveOpsDemoMS
  - SteamDemo
@@ -155,7 +151,7 @@ See the [Microservice Configuration Section](ms-configuration.md) for more detai
 
     Remember, Every service running on Beamable Cloud may increase your Beamable Bill. Disable your services to reduce your monthly bill.
 
-A quick-note: we highly recommend you ***delete services from your repository*** instead of enabling/disabling them *in most cases*. This feature exists for use-cases similar to the ones we have for the distribution of our Unreal SDK samples.
+A quick-note: ***delete services from your repository*** instead of enabling/disabling them *in most cases*. This feature exists for use-cases similar to those used for distributing the Unreal SDK samples.
 
 For game-makers, these are often advanced use-cases. An example could be:
 
@@ -264,7 +260,7 @@ In some cases, it may be useful to not start the actual process and instead use 
 ENTRYPOINT ["tail", "-f", "/dev/null"]
 ```
 
-When you do that, the service will not start --- but the container will look exactly like it does just before the service runs, except it won't be cleaned up by the health-check failing. This means you can easily inspect its file structure via Docker for Windows/Mac's UI or other tools.
+When you do that, the service will not start — but the container will look exactly like it does just before the service runs, except it won't be cleaned up by the health-check failing. This means you can easily inspect its file structure via Docker for Windows/Mac's UI or other tools.
 
 !!! info "Troubleshoot"
 

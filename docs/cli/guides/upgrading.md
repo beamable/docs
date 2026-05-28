@@ -226,7 +226,7 @@ Starting with CLI 3.0.1, you should start by updating the CLI's file structure. 
 1. Install [dotnet 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) in your machine (it is the new recommended version). The old `net6.0` framework's end-of-life arrived on November 12, 2024.
 2. Delete the `.beamable/local-services-manifest.json` file. (It is no longer necessary)
 
-Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install & re-install specific versions when switching projects, but that is a bad workflow --- so... we changed it.
+Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install & re-install specific versions when switching projects, but that is a bad workflow — so that was changed.
 
 In 3.0.0, the CLI should be installed as a _local dotnet tool_.
 
@@ -285,9 +285,9 @@ The next step in this migration is to fix up the `.csproj` files for your micros
 
 - It will version-lock the package versions to the currently local CLI version (the one inside `.config/dotnet-tools.json`).
 	- This means updating the CLI is just changing that version number.
-	- You can manually edit this to dodge the version-lock if you want to risk it.
-- It includes a Roslyn Static Analyser to help you out with microservices and federation implementations.
-- It'll target `.net8`.
+	- You can manually edit this to dodge the version-lock if you want to risk it
+- It includes a Roslyn Static Analyzer to help you out with microservices and federation implementations
+- It'll target `.net8`
 
 In every `csproj` file for **Microservices**, **MicroStorages**, and **Common Libraries**, follow the steps below:
 
@@ -361,7 +361,7 @@ With the introduction of the `Beamable.Microservice.SourceGen` library, all Micr
 If you use any Federated endpoints as part of your Microservices, there a few code-changes you'll have to make:
 
 - Replace all `IThirdPartyCloudIdentity` with `IFederationId`.
-- Add a `FederationId` attribute to the class `IFederationId` --- the `UniqueName` is the property.
+- Add a `FederationId` attribute to the class `IFederationId` — the `UniqueName` is the property.
 - If you were ever accessing the `UniqueName` property as part of your code, you'll need to replace those calls with `GetUniqueName()`.
 
 Once these are in, try to compile your services. The newly referenced Roslyn Static Analyzer should tell you if you made any mistakes.
@@ -375,7 +375,7 @@ You can run the command described in the error message to register the federatio
 
 > 📘 Why is this needed?
 >
-> We now support the ability to test federations locally (which was previously impossible due to architecture of 2.0.0). With this new ability, some UX requirements changed for our engine integrations. This change helps the development experience of such cases in the Unity/Unreal editor integrations.
+> Beamable now supports testing federations locally (which was previously impossible due to the architecture of 2.0.0). With this new ability, some UX requirements changed for the engine integrations. This change improves the development experience in the Unity/Unreal editor integrations.
 
 #### Updating each `Dockerfile`
 This is very simple: simply replace the contents of each Dockerfile with the following. After replacing it, you can re-add any previous modifications you might've had.
