@@ -156,7 +156,7 @@ docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate \
 ```
 
 
-In this example, we need to use `browserify` to convert the generated client code into a valid browser script.
+In this example, use `browserify` to convert the generated client code into a valid browser script.
 ```sh
 npm install -g browserify
 browserify ./dist/index.js --standalone helloWorld > ../../app/bundle.js

@@ -30,25 +30,25 @@ This guide assumes there is already an account for the person whose access you a
     Beamable's API (and thus also the admin Portal) currently has 4 levels of privilege for any given account. Lowest to highest they are:
 
     0. no role     -  No permissions. Most players are at this level.
-    1. `tester`    -  Mostly read-only permissions (with some exceptions).
-    2. `developer` -  Mostly read-write but not able to manage users or team.
+    1. `tester`    -  Mostly read-only permissions (with some exceptions)
+    2. `developer` -  Mostly read-write but not able to manage users or team
     3. `admin`     -  All access everywhere. Lots of power!
 
 7. Click the _Preview Changes_ button on the bottom right of the menu. Review your changes and click _save_ to submit the updates. Changes will take effect only once the action indicators stop spinning and the "Permissions" menu is refreshed.
 
 !!! info "Notes about Realm-Scoped Permissions"
 
-    - If somebody's Global role is higher than their Realm-scoped role, the Global role will take precedence.
+    - If somebody's Global role is higher than their Realm-scoped role, the Global role will take precedence
     - Realm-scoped roles propagate through the Realm hierarchy. Using a Prod→Staging→Dev setup as an example, if my Global role is "tester" and my team lead set me as a "developer" in staging and an "admin" in dev, then:
-        - In `Example-prod`, I only have tester permissions, because of my Global role.
-        - In `Example-staging`, I have developer permissions, because of my Realm-scoped role there.
-        - In `Example-dev`, I have administrative permissions, because of my Realm-scoped role there.
-        - Additionally, if any of my colleagues make a new child realm under `Example-dev`, I will be an admin there as well.
-        - Likewise, if someone makes a child realm under `Example-staging` (that is, a sibling of dev), I will have developer permissions there.
+        - In `Example-prod`, I only have tester permissions, because of my Global role
+        - In `Example-staging`, I have developer permissions, because of my Realm-scoped role there
+        - In `Example-dev`, I have administrative permissions, because of my Realm-scoped role there
+        - Additionally, if any of my colleagues make a new child realm under `Example-dev`, I will be an admin there as well
+        - Likewise, if someone makes a child realm under `Example-staging` (that is, a sibling of dev), I will have developer permissions there
 
 !!! info "TIP: Finding your CID"
 
-    To get your customer ID (CID), look for _config-defaults.txt_ in your project. The shell snippet below illustrates how to get it from the command line if you are on MacOS.
+    To get your customer ID (CID), look for _config-defaults.txt_ in your project. The shell snippet below illustrates how to get it from the command line if you are on macOS.
 
     ```text
     % find . -name config-defaults.txt

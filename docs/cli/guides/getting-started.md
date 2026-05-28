@@ -11,7 +11,9 @@ Verify it is installed by running `dotnet --version` from a terminal.
     If you are using the Beamable CLI before version 7.0, then you should be using [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). Starting with CLI 7.0 and beyond, we support both versions of .NET, but we recommend you use `net10.0`.
 
 ## Installing
+
 To install the Beamable CLI, run the following command in a shell.
+
 ```shell
 dotnet tool install --global Beamable.Tools
 ```
