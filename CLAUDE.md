@@ -129,11 +129,12 @@ Two invariants worth holding in context:
 
 CLAUDE.md lives on every content branch so agents working from any worktree see project-specific instructions. `main` holds the canonical version; all edits land there first.
 
-There is no automation propagating `main` → other branches. After editing CLAUDE.md on main, copy it to each worktree that needs direct propagation and commit in the same session. Branches that auto-sync from a core branch (see **Branch mapping**) receive the change downstream once the core copy is committed, so they need no separate step — every other content branch does.
+There is no automation propagating `main` → other branches. `CLAUDE.md` is **not** a core-owned path, so it does not ride `auto-sync-core` (which syncs only `docs/cli/guides`, `docs/includes`, and `docs/portal`). Every other content branch needs an explicit copy-and-commit — including the auto-sync targets `unity/v5.0` and `unreal/v2.3`, which receive core-owned content downstream but not CLAUDE.md. After editing CLAUDE.md on main, stamp it onto each worktree branch in the same session:
 
 ```bash
 for d in beamable-docs-core-7.0 beamable-docs-core-7.1 \
-         beamable-docs-unity-5.1 beamable-docs-unreal-2.2 \
+         beamable-docs-unity-5.0 beamable-docs-unity-5.1 \
+         beamable-docs-unreal-2.2 beamable-docs-unreal-2.3 \
          beamable-docs-internal beamable-docs-api-1.0 \
          beamable-docs-websdk-1.0; do
   cp ~/src/beamable/docs/CLAUDE.md ~/src/beamable/$d/CLAUDE.md
@@ -142,7 +143,9 @@ for d in beamable-docs-core-7.0 beamable-docs-core-7.1 \
 done
 ```
 
-Push these commits per the **Staggered pushes** procedure. The two auto-sync targets (`unity/v5.0` and `unreal/v2.3`) will receive their CLAUDE.md update via auto-sync-core once the core push lands.
+Push these commits per the **Staggered pushes** procedure.
+
+When the branches already match `main` (the usual case), `git cherry-pick`-ing the main commit onto each branch is a cleaner-history alternative to the `cp` stamp — it preserves the original message and author, and applies without conflict. Fall back to the `cp` stamp if a branch has drifted. `unity/v4.0` is excluded from propagation: the file is gitignored there (no tracked CLAUDE.md), and the branch has no standing worktree.
 
 ## Setup
 
