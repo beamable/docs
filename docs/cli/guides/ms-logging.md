@@ -214,11 +214,11 @@ There are several standard log attributes that will be included automatically. S
 
 ### Third party log hosting
 
-Starting with version 6.0, you can send Microservice logs to third-party log hosting services. In this example, we will use BetterStack.
+Starting with version 6.0, you can send Microservice logs to third-party log hosting services. This example uses BetterStack.
 
 This section will assume you have set up a BetterStack account, and created a _Source_ such that you have a _source token_ and an _ingesting host_.
 
-To start, we will configure locally running Microservices to send data to BetterStack. To start, create this file called `config.yaml` next to your `BeamableServices.sln` file.
+First, configure locally running Microservices to send data to BetterStack. Create a file called `config.yaml` next to your `BeamableServices.sln` file.
 
 ```yml
 receivers:
@@ -292,7 +292,7 @@ In a few moments, you should see log data appear in BetterStack.
 
 ----
 
-To configure a deployed Microservice to report log data to BetterStack, we need to start the collector in the deployed environment. The easiest way to do this is to run the collector as a local process.
+To configure a deployed Microservice to report log data to BetterStack, start the collector in the deployed environment. The easiest way to do this is to run the collector as a local process.
 
 Modify the `Dockerfile` to include the collector in the built image. Add these lines right below the `WORKDIR /beamApp` line,
 
@@ -316,7 +316,7 @@ Copy the `config.yaml` file from before and paste it next to the `Dockerfile`.
 Add the following functions to your `Program.cs`
 
 > [!WARNING]
-> This sample hard-codes the BetterStack auth for simplicity. We are working on better solutions for secret management. Please check in soon.
+> This sample hard-codes the BetterStack auth for simplicity. Better solutions for secret management are in development.
 
 ```csharp
 
