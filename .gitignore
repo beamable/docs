@@ -2,3 +2,6 @@
 # This file is machine-specific and should never be committed; each contributor manages their own.
 # .claude/CLAUDE.md (shared project instructions for Claude) is intentionally not ignored here.
 .claude/settings.local.json
+
+# Personal Claude Code memory (not shared)
+CLAUDE.local.md
