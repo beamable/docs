@@ -8955,7 +8955,7 @@
 </div>
 <h2 id="low-level-blueprints">Low level Blueprints<a class="headerlink" href="#low-level-blueprints" title="Permanent link">¶</a></h2>
 <p><code>Low Level</code> Blueprints provide direct access to Beamable's APIs. These nodes make raw API calls to Beamable's backend. They are typically used when you need precise control over the behavior or when building custom systems on top of Beamable's foundation.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprint-lowlevel.png" data-desc-position="bottom"><img alt="blueprint-lowlevel.png" src="../../../../media/imgs/blueprint-lowlevel.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprint-lowlevel.png" data-desc-position="bottom"><img alt="A low-level Account GetAccount node whose synchronous-flow output drives four branches that each end in a Print String node." src="../../../../media/imgs/blueprint-lowlevel.png"></a></p>
 <p>Common use cases include:</p>
 <ul>
 <li>Direct API requests</li>
@@ -8976,7 +8976,7 @@
 <li><strong>BeamFlow + Success/Error/Cancelled</strong>: exposes one <code>Flow</code> output pin for each of Success/Failure/Cancelled.</li>
 <li><strong>BeamFlow + OnSubEvents</strong>: exposes one <code>Flow</code> output pin for each of Success/Failure/Cancelled <strong><em>PLUS</em></strong> a single <code>Flow</code> output pin for each sub-event emitted by the operation. Sub-events are calls to the Operation <code>Delegate</code> that do not complete the operation (the semantics of each sub-event are explained on their tooltip).</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprints-beam-mode.png" data-desc-position="bottom"><img alt="blueprints-beam-mode.png" src="../../../../media/imgs/blueprints-beam-mode.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprints-beam-mode.png" data-desc-position="bottom"><img alt="Four numbered variants of an Operation - Login - Federated Identity node, each exposing a different BeamFlow pin configuration from no output pins to separate Success, Error, Cancelled, and sub-event flow pins." src="../../../../media/imgs/blueprints-beam-mode.png"></a></p>
 <p><strong>Common use cases include</strong>:</p>
 <ul>
 <li>Player Authentication flows</li>
@@ -9014,9 +9014,9 @@
 <li>Whether to expose the <code>Unbind</code> pin</li>
 </ul>
 <p>Common usages of these are in UIs with the following pattern:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprint-event-bind-unbind.png" data-desc-position="bottom"><img alt="blueprint-event-bind-unbind.png" src="../../../../media/imgs/blueprint-event-bind-unbind.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprint-event-bind-unbind.png" data-desc-position="bottom"><img alt="A Construct event wired into an Events - Inventory - Bind node, and a Destruct event routed through a Sequence into the same node's Unbind input." src="../../../../media/imgs/blueprint-event-bind-unbind.png"></a></p>
 <p>The SDK also provides <code>Unbind</code> nodes for cases where the above pattern is not possible or desirable. In this node, you can select which events you are unbinding:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprint-event-unbind.png" data-desc-position="bottom"><img alt="blueprint-event-unbind.png" src="../../../../media/imgs/blueprint-event-unbind.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprint-event-unbind.png" data-desc-position="bottom"><img alt="An Events - Inventory - Unbind node beside an Events - Inventory - Unbind All Events node, with a Details panel listing OnInventoryRefreshed as the available event." src="../../../../media/imgs/blueprint-event-unbind.png"></a></p>
 <p><strong>Common use cases include</strong>:</p>
 <ul>
 <li>Notifying the player that a Match was found</li>

@@ -9312,7 +9312,7 @@
 <h2 id="why-this-approach-to-cloud-code">Why this approach to cloud code?<a class="headerlink" href="#why-this-approach-to-cloud-code" title="Permanent link">¶</a></h2>
 <p>Many cloud-code solutions sacrifice flexibility, cost-efficiency, performance, or developer experience in exchange for simplifying the simple case. The goal is to focus on the complex cases while keeping the simple case easy to work with.</p>
 <p>The SDK achieves this through the following architecture:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture.png" data-desc-position="bottom"><img alt="microservices-architecture.png" src="../../../../media/imgs/microservices-architecture.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture.png" data-desc-position="bottom"><img alt="Architecture diagram showing developer-machine microservices using locally running MicroStorage while always calling Beamable's managed services (Inventory, Stats, Events, Auth, Account, Lobby) in the current target realm." src="../../../../media/imgs/microservices-architecture.png"></a></p>
 <p>The Microservice is:</p>
 <ul>
 <li>An easy-to-write server that provides a set of APIs you, the Game-Maker, create</li>
@@ -9330,7 +9330,7 @@
 </code></pre></div>
 <h2 id="microservice-window">Microservice window<a class="headerlink" href="#microservice-window" title="Permanent link">¶</a></h2>
 <p>The Microservice Window enables developers to start/stop local services, to read local service logs while in <abbr title="Play in Editor">PIE</abbr> and to configure local server settings for the collaborative workflow and for federations all through the Unreal Editor.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/editor-ms.png" data-desc-position="bottom"><img alt="microservices-window-home.png" src="../../../../media/imgs/editor-ms.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/editor-ms.png" data-desc-position="bottom"><img alt="The Microservices tab of the Beamable Editor showing the BeamballMs service with Run Local, Open Portal, and Show Logs controls and its PIE Settings, Federations, and Dependencies sections." src="../../../../media/imgs/editor-ms.png"></a></p>
 <p>The left side of the window provides you a list of all services in your project with a set of filters based on <strong>Service Groups</strong>. The right side is the <strong>Details Panel</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Service Groups</p>
@@ -9570,9 +9570,9 @@
 <h2 id="microservice-routing-and-microservice-target">Microservice routing and Microservice target<a class="headerlink" href="#microservice-routing-and-microservice-target" title="Permanent link">¶</a></h2>
 <p>When you make a request to a microservice, you're not directly talking to your service. Your request comes in via Beamable's Gateway service, and that service figures out to which running Microservice instance it will forward that request.</p>
 <p>This allows us to integrate microservices running in your local machine "as though they" are part of the realm: requests made from your editor's <abbr title="Play in Editor">PIE</abbr> instance can choose a <strong>Microservice Target</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture-targets.png" data-desc-position="bottom"><img alt="microservices-architecture-targets.png" src="../../../../media/imgs/microservices-architecture-targets.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture-targets.png" data-desc-position="bottom"><img alt="Diagram of microservice request routing: a Developer Email target points PIE instances at a microservice on the developer's machine, while a realm target routes through the Beamable Gateway to the realm's services." src="../../../../media/imgs/microservices-architecture-targets.png"></a></p>
 <p>Here's where you can change your <strong>Microservice Target</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/editor-ms.png" data-desc-position="bottom"><img alt="editor-ms.png" src="../../../../media/imgs/editor-ms.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/editor-ms.png" data-desc-position="bottom"><img alt="The Microservices tab of the Beamable Editor showing the BeamballMs service detail with its Run Local, Open Portal, and Show Logs controls." src="../../../../media/imgs/editor-ms.png"></a></p>
 <h2 id="common-developer-workflows">Common developer workflows<a class="headerlink" href="#common-developer-workflows" title="Permanent link">¶</a></h2>
 <p>There are a few different ways to work with Microservices in Unreal, each with their own advantages and disadvantages. These are NOT how-to guides, they are high-level descriptions to help you get a feel regarding how to work with Beamable and how its tools can be used to work alone and as a team.</p>
 <h3 id="designing-the-api">Designing the API<a class="headerlink" href="#designing-the-api" title="Permanent link">¶</a></h3>
@@ -9649,9 +9649,11 @@
 <li>Quickly diagnose the issue and unblock the designer</li>
 </ul>
 <p>For smaller teams that like to move fast and can rely on lots of direct communication between designers and engineers, this workflow is a <strong>massive improvement to the current available alternatives</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-window-collaboration.png" data-desc-position="bottom"><img alt="microservices-window-collaboration.png" src="../../../../media/imgs/microservices-window-collaboration.png"></a></p>
-<center>Collaboration Tab of the Microservice Window</center>
-
+<figure>
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-window-collaboration.png" data-desc-position="bottom"><img alt="The Collaboration tab of the Microservices window explaining collaborative workflows, with BeamballMs selected and a Selected Target Instance dropdown set to realm." src="../../../../media/imgs/microservices-window-collaboration.png"></a>
+<br>
+<figcaption>Collaboration tab of the Microservice window</figcaption>
+</figure>
 <h2 id="micro-storages">Micro storages<a class="headerlink" href="#micro-storages" title="Permanent link">¶</a></h2>
 <p>Beamable Microservices allow you to store data in Beamable's own managed services such as <code>Stats</code>(Per-Player key-value stores) and <code>Inventory</code> (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it makes your particular problem simpler to solve (instead of trying to fit it into the default stores).</p>
 <p>For those cases, Beamable offers a <code>MicroStorage</code>. This is a wrapper around a database that you can write to from your microservices. At the moment, only <code>MongoDB</code> is supported. Like Microservices, these are scoped by realm as well (as in, data from Realm A is only visible in Realm A). <a href="./#micro-storages">Micro Storages</a>.</p>

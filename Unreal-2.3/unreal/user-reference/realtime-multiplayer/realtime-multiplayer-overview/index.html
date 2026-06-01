@@ -9145,9 +9145,11 @@
 <p>There <em><strong>are</strong></em> other ways to arrange and organize server-authoritative games but most games do something at least similar to this, and, Unreal helps you more if you are close to this.</p>
 <h2 id="getting-started-setting-up-gameplay-levels-and-a-pie-setting">Getting started - setting up gameplay levels and a <abbr title="Play in Editor">PIE</abbr> setting<a class="headerlink" href="#getting-started-setting-up-gameplay-levels-and-a-pie-setting" title="Permanent link">¶</a></h2>
 <p>This guide explains how to use the SDK's <strong><a href="../../editor-systems/pie-settings/"><abbr title="Play in Editor">PIE</abbr> Support</a></strong> to set up your Gameplay Level so you can start experimenting with Beamable immediately.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiplayer-scenes.png" data-desc-position="bottom"><img alt="multiplayer-scenes.png" src="../../../../media/imgs/multiplayer-scenes.png"></a></p>
-<center>Example of PIE Settings for a gameplay level</center>
-
+<figure>
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiplayer-scenes.png" data-desc-position="bottom"><img alt="A PIE Play Preset for a gameplay level, configuring map settings, a Create PIE Lobby game type, lobby global data, and user settings." src="../../../../media/imgs/multiplayer-scenes.png"></a>
+<br>
+<figcaption>Example of PIE settings for a gameplay level</figcaption>
+</figure>
 <ol>
 <li>Enable the Beam <abbr title="Play in Editor">PIE</abbr> in your <code>Project Settings &gt; Engine &gt; Beamable Core</code>.</li>
 <li>Restart your Editor.</li>
@@ -9175,18 +9177,18 @@
 <li>Open your <strong>Gameplay Level</strong>.</li>
 <li>Next to the <abbr title="Play in Editor">PIE</abbr> Start button, you have a Beamable dropdown. Select the <code>My First Preset</code> option from it.</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiplayer-dropdown.png" data-desc-position="bottom"><img alt="multiplayer-dropdown.png" src="../../../../media/imgs/multiplayer-dropdown.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiplayer-dropdown.png" data-desc-position="bottom"><img alt="The Unreal toolbar play-preset dropdown with &quot;My First Preset&quot; selected over &quot;None&quot;." src="../../../../media/imgs/multiplayer-dropdown.png"></a></p>
 <ol>
 <li>Change Unreal's Playmode settings to be: <strong>Play as Client</strong> and <strong>Number of Players = 1</strong> (to match the number of users in the <abbr title="Play in Editor">PIE</abbr> Lobby).</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiplayer-clientcount.png" data-desc-position="bottom"><img alt="multiplayer-clientcount.png" src="../../../../media/imgs/multiplayer-clientcount.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiplayer-clientcount.png" data-desc-position="bottom"><img alt="The Unreal Multiplayer Options menu setting Number of Players to 1 and Net Mode to Play As Client." src="../../../../media/imgs/multiplayer-clientcount.png"></a></p>
 <ol>
 <li>Open your Gameplay Level's <strong>Level Blueprint</strong>.<ol>
 <li>In its <strong>Begin Play</strong>, add a <code>Local State - PIE - Easy Enable</code> node <strong><em>as the first thing it does</em></strong>.</li>
 </ol>
 </li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiplayer-pie.png" data-desc-position="bottom"><img alt="multiplayer-pie.png" src="../../../../media/imgs/multiplayer-pie.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiplayer-pie.png" data-desc-position="bottom"><img alt="An Event BeginPlay node wired into a Local State - PIE - Easy Enable - Gameplay node with Init when Server Build enabled." src="../../../../media/imgs/multiplayer-pie.png"></a></p>
 <p>At this point, <code>BeamPIE</code> is configured. The next couple of steps are here so you can see that the Preset you configured actually created the lobby with the data you defined.</p>
 <p>Create and/or open your <strong><em>GameMode</em></strong> Blueprint for this level.</p>
 <ol>
@@ -9196,7 +9198,7 @@
 <li>Finally, add a <code>Print String</code> node that prints the returned value (it should be <code>my_value</code>).</li>
 <li>Don't forget to set this <code>Game Mode</code> in UE's <code>World Settings &gt; Game Mode Override</code>.</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiplayer-postlogin.png" data-desc-position="bottom"><img alt="multiplayer-postlogin.png" src="../../../../media/imgs/multiplayer-postlogin.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiplayer-postlogin.png" data-desc-position="bottom"><img alt="An Event OnPostLogin chain that gets a new player's GamerTag, looks up the lobby ID, reads global lobby data by key, and prints it." src="../../../../media/imgs/multiplayer-postlogin.png"></a></p>
 <p>If you enter <abbr title="Play in Editor">PIE</abbr> now, here's what happens under the hood:</p>
 <ul>
 <li>The Beamable SDK's Easy <abbr title="Play in Editor">PIE</abbr> node will move the server to a development-only <strong>Waiting Room Level</strong> and wait for all <abbr title="Play in Editor">PIE</abbr> clients to connect</li>
@@ -9283,9 +9285,11 @@
 <p>This initialization can be preloading assets, making requests to microservices and so on...</p>
 <p>Once this is done and you are ready to accept client connections, you should call <code>Operation - Lobby - Server - Notify Lobby Ready for Clients</code>. This signals your awaiting <strong>Game Server Federation's <code>CreateGameServer</code> implementation</strong> that the game server is ready to accept client connections — allowing it to complete so that Beamable notifies all players in the Lobby forwarding the connection information to them.</p>
 <p>After these steps are completed, you'll begin receiving connections — in UE, handling player connection and initialization is done in a Game Mode implementation (see <a href="#preparing-a-build-for-your-game-server-orchestrator">the section below</a>).</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiplayer-build.png" data-desc-position="bottom"><img alt="multiplayer-build.png" src="../../../../media/imgs/multiplayer-build.png"></a></p>
-<center>Example of Level Blueprint for a Game Server Build</center>
-
+<figure>
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/multiplayer-build.png" data-desc-position="bottom"><img alt="A Level Blueprint graph wiring server-build initialization for a dedicated game server." src="../../../../media/imgs/multiplayer-build.png"></a>
+<br>
+<figcaption>Example of a Level Blueprint for a game server build</figcaption>
+</figure>
 <h2 id="whats-next">What's next?<a class="headerlink" href="#whats-next" title="Permanent link">¶</a></h2>
 <p>With this, you are set up to begin experimenting with your gameplay systems in <abbr title="Play in Editor">PIE</abbr>. In early development, use this to figure out which Key-Value pairs you'll need in the Beamable Lobby structure. This should allow you to work on your gameplay development directly in <abbr title="Play in Editor">PIE</abbr> before doing the work to integrate with your <strong><a href="../../federation/federated-game-server/">Game Server Orchestrator using the Federation system</a></strong>.</p>
 <p>When you decide to implement <strong>Game Server Authentication</strong>, take a look at the <strong><a href="../code-multiplayer/">C++ Real-Time Multiplayer docs</a></strong> — Unreal does not allow for a BP-only authentication flow (it needs <code>PreLoginAsync</code> which is a C++ only callback in the Game Mode).</p>

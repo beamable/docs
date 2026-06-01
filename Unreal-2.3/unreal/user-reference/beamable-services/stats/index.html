@@ -8880,7 +8880,7 @@
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>To write to a <code>client</code>/<code>public</code> stat from a client, use the <code>Set Stat Operation</code> for individual stat changes. For batching multiple stat changes, use the <code>TryCreateUpdateCommand</code> to begin building a set of stat changes for the given <code>UserSlot</code>, which are later committed via the <code>Commit Stats Operation</code>.</p>
 <p>These operations are backed by the <code>UBeamRuntimeSubsystem</code>. This is how it looks in <a href="../../runtime-systems/blueprints/">Blueprints</a>:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/stats-create-stats.png" data-desc-position="bottom"><img alt="stats-create-stats.png" src="../../../../media/imgs/stats-create-stats.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/stats-create-stats.png" data-desc-position="bottom"><img alt="Two Blueprint graphs: a single Operation - Stats - SetStatOperation node for modifying one stat, and a Local State - Stats - TryCreateUpdateCommand feeding an Operation - Stats - CommitStatsOperation for batch updates." src="../../../../media/imgs/stats-create-stats.png"></a></p>
 <p>You can check if it is working in the Beamable Portal:</p>
 <ul>
 <li>Copy the <code>Gamertag/UserId</code> from the Unreal Engine logs.</li>
@@ -8889,9 +8889,11 @@
 <li>Go to <code>Stats</code> and search for <code>NewStatKey</code>.</li>
 <li>You should see that it exists with correct value</li>
 </ul>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/stats-portal.png" data-desc-position="bottom"><img alt="stats-portal.png" src="../../../../media/imgs/stats-portal.png"></a></p>
-<center>*View of the stats in the Beamable Portal*</center>
-
+<figure>
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/stats-portal.png" data-desc-position="bottom"><img alt="The Portal Stats page showing a client-write, public stat named NewStatKey with the value NewValue." src="../../../../media/imgs/stats-portal.png"></a>
+<br>
+<figcaption>View of the stats in the Beamable Portal</figcaption>
+</figure>
 <h2 id="batching-updates">Batching updates<a class="headerlink" href="#batching-updates" title="Permanent link">¶</a></h2>
 <p>In this example, a new <code>UpdateCommand</code> is created and committed immediately. For better performance and reduced calls to Beamable, it is encouraged to:</p>
 <ul>
@@ -8902,7 +8904,7 @@
 <p>When it is possible (and desirable) for your game, this flow reduces the overall latency your players experience and reduces the number of API calls you make to Beamable.</p>
 <h2 id="reading-other-players-public-stats">Reading other players' public stats<a class="headerlink" href="#reading-other-players-public-stats" title="Permanent link">¶</a></h2>
 <p>You might want to read public stats of some other player to display information about them in your UI. To do that, you can use the following <code>Operation</code> and <code>Local State</code> calls.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/stats-reading-other-player-stats.png" data-desc-position="bottom"><img alt="stats-reading-other-player-stats.png" src="../../../../media/imgs/stats-reading-other-player-stats.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/stats-reading-other-player-stats.png" data-desc-position="bottom"><img alt="Blueprint graph that fetches another player's stats by GamerTag and iterates over that player's locally cached stats." src="../../../../media/imgs/stats-reading-other-player-stats.png"></a></p>
 <h2 id="stats-keys-and-values">Stats keys and values<a class="headerlink" href="#stats-keys-and-values" title="Permanent link">¶</a></h2>
 <p>The SDK does not enforce limitations on stat keys or values. However, the following guidelines strongly support project organization and performance.</p>
 <p><strong>For Keys</strong>:
