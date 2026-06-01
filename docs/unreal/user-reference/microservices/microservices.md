@@ -8,7 +8,7 @@ Many cloud-code solutions sacrifice flexibility, cost-efficiency, performance, o
 
 The SDK achieves this through the following architecture:
 
-![microservices-architecture.png](../../../media/imgs/microservices-architecture.png)
+![Architecture diagram showing developer-machine microservices using locally running MicroStorage while always calling Beamable's managed services (Inventory, Stats, Events, Auth, Account, Lobby) in the current target realm.](../../../media/imgs/microservices-architecture.png)
 
 The Microservice is:
 
@@ -32,7 +32,7 @@ public int Add(int a, int b)
 ## Microservice window
 The Microservice Window enables developers to start/stop local services, to read local service logs while in PIE and to configure local server settings for the collaborative workflow and for federations all through the Unreal Editor.
 
-![microservices-window-home.png](../../../media/imgs/editor-ms.png)
+![The Microservices tab of the Beamable Editor showing the BeamballMs service with Run Local, Open Portal, and Show Logs controls and its PIE Settings, Federations, and Dependencies sections.](../../../media/imgs/editor-ms.png)
 
 The left side of the window provides you a list of all services in your project with a set of filters based on **Service Groups**. The right side is the **Details Panel**.
 
@@ -220,11 +220,11 @@ When you make a request to a microservice, you're not directly talking to your s
 
 This allows us to integrate microservices running in your local machine "as though they" are part of the realm: requests made from your editor's PIE instance can choose a **Microservice Target**.
 
-![microservices-architecture-targets.png](../../../media/imgs/microservices-architecture-targets.png)
+![Diagram of microservice request routing: a Developer Email target points PIE instances at a microservice on the developer's machine, while a realm target routes through the Beamable Gateway to the realm's services.](../../../media/imgs/microservices-architecture-targets.png)
 
 Here's where you can change your **Microservice Target**.
 
-![editor-ms.png](../../../media/imgs/editor-ms.png)
+![The Microservices tab of the Beamable Editor showing the BeamballMs service detail with its Run Local, Open Portal, and Show Logs controls.](../../../media/imgs/editor-ms.png)
 
 ## Common developer workflows
 There are a few different ways to work with Microservices in Unreal, each with their own advantages and disadvantages. These are NOT how-to guides, they are high-level descriptions to help you get a feel regarding how to work with Beamable and how its tools can be used to work alone and as a team.
@@ -310,8 +310,10 @@ Or... you could instead use Beamable's Collaborative Debugging workflow:
 
 For smaller teams that like to move fast and can rely on lots of direct communication between designers and engineers, this workflow is a **massive improvement to the current available alternatives**.
 
-![microservices-window-collaboration.png](../../../media/imgs/microservices-window-collaboration.png)
-<center>Collaboration Tab of the Microservice Window</center>
+<figure markdown="span">
+  ![The Collaboration tab of the Microservices window explaining collaborative workflows, with BeamballMs selected and a Selected Target Instance dropdown set to realm.](../../../media/imgs/microservices-window-collaboration.png)
+  <figcaption>Collaboration tab of the Microservice window</figcaption>
+</figure>
 
 ## Micro storages
 Beamable Microservices allow you to store data in Beamable's own managed services such as `Stats`(Per-Player key-value stores) and `Inventory` (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it makes your particular problem simpler to solve (instead of trying to fit it into the default stores).

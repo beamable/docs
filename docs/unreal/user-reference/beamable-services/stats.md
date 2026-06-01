@@ -23,7 +23,7 @@ To write to a `client`/`public` stat from a client, use the `Set Stat Operation`
 
 These operations are backed by the `UBeamRuntimeSubsystem`. This is how it looks in [Blueprints](../runtime-systems/blueprints.md):
 
-![stats-create-stats.png](../../../media/imgs/stats-create-stats.png)
+![Two Blueprint graphs: a single Operation - Stats - SetStatOperation node for modifying one stat, and a Local State - Stats - TryCreateUpdateCommand feeding an Operation - Stats - CommitStatsOperation for batch updates.](../../../media/imgs/stats-create-stats.png)
 
 You can check if it is working in the Beamable Portal:
 
@@ -33,8 +33,10 @@ You can check if it is working in the Beamable Portal:
 - Go to `Stats` and search for `NewStatKey`.
 - You should see that it exists with correct value
 
-![stats-portal.png](../../../media/imgs/stats-portal.png)
-<center>*View of the stats in the Beamable Portal*</center>
+<figure markdown="span">
+  ![The Portal Stats page showing a client-write, public stat named NewStatKey with the value NewValue.](../../../media/imgs/stats-portal.png)
+  <figcaption>View of the stats in the Beamable Portal</figcaption>
+</figure>
 
 ## Batching updates
 In this example, a new `UpdateCommand` is created and committed immediately. For better performance and reduced calls to Beamable, it is encouraged to:
@@ -48,7 +50,7 @@ When it is possible (and desirable) for your game, this flow reduces the overall
 ## Reading other players' public stats
 You might want to read public stats of some other player to display information about them in your UI. To do that, you can use the following `Operation` and `Local State` calls.
 
-![stats-reading-other-player-stats.png](../../../media/imgs/stats-reading-other-player-stats.png)
+![Blueprint graph that fetches another player's stats by GamerTag and iterates over that player's locally cached stats.](../../../media/imgs/stats-reading-other-player-stats.png)
 
 ## Stats keys and values
 The SDK does not enforce limitations on stat keys or values. However, the following guidelines strongly support project organization and performance.
