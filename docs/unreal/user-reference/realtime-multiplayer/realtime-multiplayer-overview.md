@@ -42,8 +42,10 @@ There _**are**_ other ways to arrange and organize server-authoritative games bu
 ## Getting started - setting up gameplay levels and a PIE setting
 This guide explains how to use the SDK's **[PIE Support](../editor-systems/pie-settings.md)** to set up your Gameplay Level so you can start experimenting with Beamable immediately.
 
-![multiplayer-scenes.png](../../../media/imgs/multiplayer-scenes.png)
-<center>Example of PIE Settings for a gameplay level</center>
+<figure markdown="span">
+  ![A PIE Play Preset for a gameplay level, configuring map settings, a Create PIE Lobby game type, lobby global data, and user settings.](../../../media/imgs/multiplayer-scenes.png)
+  <figcaption>Example of PIE settings for a gameplay level</figcaption>
+</figure>
 
 1. Enable the Beam PIE in your `Project Settings > Engine > Beamable Core`.
 2. Restart your Editor.
@@ -65,16 +67,16 @@ Now that you have a preset, you can set up your Gameplay Level to use it:
 1. Open your **Gameplay Level**.
 2. Next to the PIE Start button, you have a Beamable dropdown. Select the `My First Preset` option from it.
 
-![multiplayer-dropdown.png](../../../media/imgs/multiplayer-dropdown.png)
+![The Unreal toolbar play-preset dropdown with "My First Preset" selected over "None".](../../../media/imgs/multiplayer-dropdown.png)
 
 3. Change Unreal's Playmode settings to be: **Play as Client** and **Number of Players = 1** (to match the number of users in the PIE Lobby).
 
-![multiplayer-clientcount.png](../../../media/imgs/multiplayer-clientcount.png)
+![The Unreal Multiplayer Options menu setting Number of Players to 1 and Net Mode to Play As Client.](../../../media/imgs/multiplayer-clientcount.png)
 
 4. Open your Gameplay Level's **Level Blueprint**.
     1. In its **Begin Play**, add a `Local State - PIE - Easy Enable` node **_as the first thing it does_**.
 
-![multiplayer-pie.png](../../../media/imgs/multiplayer-pie.png)
+![An Event BeginPlay node wired into a Local State - PIE - Easy Enable - Gameplay node with Init when Server Build enabled.](../../../media/imgs/multiplayer-pie.png)
 
 
 
@@ -88,7 +90,7 @@ Create and/or open your **_GameMode_** Blueprint for this level.
 4. Finally, add a `Print String` node that prints the returned value (it should be `my_value`).
 5. Don't forget to set this `Game Mode` in UE's `World Settings > Game Mode Override`.
 
-![multiplayer-postlogin.png](../../../media/imgs/multiplayer-postlogin.png)
+![An Event OnPostLogin chain that gets a new player's GamerTag, looks up the lobby ID, reads global lobby data by key, and prints it.](../../../media/imgs/multiplayer-postlogin.png)
 
 If you enter PIE now, here's what happens under the hood:
 
@@ -178,8 +180,10 @@ Once this is done and you are ready to accept client connections, you should cal
 
 After these steps are completed, you'll begin receiving connections — in UE, handling player connection and initialization is done in a Game Mode implementation (see [the section below](#preparing-a-build-for-your-game-server-orchestrator)).
 
-![multiplayer-build.png](../../../media/imgs/multiplayer-build.png)
-<center>Example of Level Blueprint for a Game Server Build</center>
+<figure markdown="span">
+  ![A Level Blueprint graph wiring server-build initialization for a dedicated game server.](../../../media/imgs/multiplayer-build.png)
+  <figcaption>Example of a Level Blueprint for a game server build</figcaption>
+</figure>
 
 ## What's next?
 

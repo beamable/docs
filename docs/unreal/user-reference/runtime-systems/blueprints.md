@@ -16,7 +16,7 @@ Beamable provides several types of Blueprint nodes to interact with its systems.
 
 `Low Level` Blueprints provide direct access to Beamable's APIs. These nodes make raw API calls to Beamable's backend. They are typically used when you need precise control over the behavior or when building custom systems on top of Beamable's foundation.
 
-![blueprint-lowlevel.png](../../../media/imgs/blueprint-lowlevel.png)
+![A low-level Account GetAccount node whose synchronous-flow output drives four branches that each end in a Print String node.](../../../media/imgs/blueprint-lowlevel.png)
 
 Common use cases include:
 
@@ -40,7 +40,7 @@ Operation nodes can be configured in the following ways:
 3. **BeamFlow + Success/Error/Cancelled**: exposes one `Flow` output pin for each of Success/Failure/Cancelled.
 4. **BeamFlow + OnSubEvents**: exposes one `Flow` output pin for each of Success/Failure/Cancelled **_PLUS_** a single `Flow` output pin for each sub-event emitted by the operation. Sub-events are calls to the Operation `Delegate` that do not complete the operation (the semantics of each sub-event are explained on their tooltip).
 
-![blueprints-beam-mode.png](../../../media/imgs/blueprints-beam-mode.png)
+![Four numbered variants of an Operation - Login - Federated Identity node, each exposing a different BeamFlow pin configuration from no output pins to separate Success, Error, Cancelled, and sub-event flow pins.](../../../media/imgs/blueprints-beam-mode.png)
 
 **Common use cases include**:
 
@@ -85,11 +85,11 @@ In the `Details` view you can configure:
 
 Common usages of these are in UIs with the following pattern:
 
-![blueprint-event-bind-unbind.png](../../../media/imgs/blueprint-event-bind-unbind.png)
+![A Construct event wired into an Events - Inventory - Bind node, and a Destruct event routed through a Sequence into the same node's Unbind input.](../../../media/imgs/blueprint-event-bind-unbind.png)
 
 We also provide `Unbind` nodes for cases where the above pattern isn't possible or desirable. In this node, you can select which events you are unbinding:
 
-![blueprint-event-unbind.png](../../../media/imgs/blueprint-event-unbind.png)
+![An Events - Inventory - Unbind node beside an Events - Inventory - Unbind All Events node, with a Details panel listing OnInventoryRefreshed as the available event.](../../../media/imgs/blueprint-event-unbind.png)
 
 **Common use cases include**:
 

@@ -8,7 +8,7 @@ Many cloud-code solutions sacrifice flexibility, cost-efficiency, performance, o
 
 We do so through this architecture:
 
-![microservices-architecture.png](../../../media/imgs/microservices-architecture.png)
+![Architecture diagram showing developer-machine microservices using locally running MicroStorage while always calling Beamable's managed services (Inventory, Stats, Events, Auth, Account, Lobby) in the current target realm.](../../../media/imgs/microservices-architecture.png)
 
 The Microservice is:
 
@@ -32,7 +32,7 @@ public int Add(int a, int b)
 ## Microservice window
 The Microservice Window enables developers to start/stop local services, to read local service logs while in PIE and to configure local server settings for the collaborative workflow and for federations all through the Unreal Editor.
 
-![microservices-window-home.png](../../../media/imgs/microservices-window-home.png)
+![The Microservices tab of the Beamable Editor listing services with Run and Open Portal API controls and Federations, Logs, and Collaboration tabs, showing the Federations tab of the selected DiscordSampleMs service.](../../../media/imgs/microservices-window-home.png)
 
 The left side of the window provides you a list of all services in your project with a set of filters based on **Service Groups**. The right side is the **Details Panel**.
 
@@ -55,7 +55,7 @@ The Details panel provides a detailed view of the microservices and access to a 
 ### Local - logs tab
 Here you can explore the logs for any running Microservice. You can filter by **Log Level**, substring search and also clear stored logs.
 
-![microservices-window-logs.png](../../../media/imgs/microservices-window-logs.png)
+![The Logs tab of the Microservices window showing a filterable local log stream for the selected BeamballMs service.](../../../media/imgs/microservices-window-logs.png)
 
 ## Microservice coding
 Microservices are developed in C# and in their own solution. They inherit from the `Microservice` base class and are `partial` by default. Inside each Microservice class, you can annotate instance methods with the following attributes to various effects:
@@ -181,7 +181,7 @@ This allows us to integrate microservices running in your local machine "as thou
 - Requests made from this editor's PIE instance can choose a **Microservice Target**.
 - [Out-of-band Federations can be configured with opt-in filters that "steal" traffic](../federation/federation.md).
 
-![microservices-architecture-targets.png](../../../media/imgs/microservices-architecture-targets.png)
+![Diagram of microservice request routing: a Developer Email target points PIE instances at a microservice on the developer's machine, while a realm target routes through the Beamable Gateway to the realm's services.](../../../media/imgs/microservices-architecture-targets.png)
 
 Enabling these two cases at the push of a button enables very fast development iteration speed.
 
@@ -269,8 +269,10 @@ Or... you could instead use Beamable's Collaborative Debugging workflow:
 
 For smaller teams that like to move fast and can rely on lots of direct communication between designers and engineers, this workflow is a **massive improvement to the current available alternatives**.
 
-![microservices-window-collaboration.png](../../../media/imgs/microservices-window-collaboration.png)
-<center>Collaboration Tab of the Microservice Window</center>
+<figure markdown="span">
+  ![The Collaboration tab of the Microservices window explaining collaborative workflows, with BeamballMs selected and a Selected Target Instance dropdown set to realm.](../../../media/imgs/microservices-window-collaboration.png)
+  <figcaption>Collaboration tab of the Microservice window</figcaption>
+</figure>
 
 ## Micro storages
 Beamable Microservices allow you to store data in Beamable's own managed services such as `Stats`(Per-Player key-value stores) and `Inventory` (Per-Player fungible and non-fungible data tracking). However, there are cases where you want to control your own data-model and database. It might be necessary to hit your performance targets OR maybe it makes your particular problem simpler to solve (instead of trying to fit it into the default stores).
