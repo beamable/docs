@@ -9571,321 +9571,616 @@
 <h3 id="sample-code">Sample code<a class="headerlink" href="#sample-code" title="Permanent link">¶</a></h3>
 <p>Here are some code examples to help you get started.</p>
 <p>In this <code>ConnectivityServiceExample.cs</code>, the UI shows the current state of the internet connectivity and updates automatically if any changes occur (for example, if the ethernet / Wi-Fi is manually disabled or enabled by the user).</p>
-<p>ConnectivityServiceExample.cs</p>
-<pre><code class="language-csharp">using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+<p>ConnectivityServiceExample.cs
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine.Events</span><span class="p">;</span>
 
-namespace Beamable.Examples.Services.ConnectivityService
-{
-    /// &lt;summary&gt;
-    /// Holds data for use in the &lt;see cref="ConnectivityServiceExampleUI"/&gt;.
-    /// &lt;/summary&gt;
-    [System.Serializable]
-    public class ConnectivityServiceExampleData
-    {
-        public List&lt;string&gt; OutputLogs = new List&lt;string&gt;();
-        public bool HasConnectivity = false;
-    }
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.ConnectivityService</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">    </span><span class="c1">/// Holds data for use in the &lt;see cref="ConnectivityServiceExampleUI"/&gt;.</span>
+<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">    </span><span class="na">[System.Serializable]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ConnectivityServiceExampleData</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OutputLogs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">HasConnectivity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    [System.Serializable]
-    public class RefreshedUnityEvent : UnityEvent&lt;ConnectivityServiceExampleData&gt; { }
+<span class="w">    </span><span class="na">[System.Serializable]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">RefreshedUnityEvent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">UnityEvent</span><span class="o">&lt;</span><span class="n">ConnectivityServiceExampleData</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 
-    /// &lt;summary&gt;
-    /// Demonstrates &lt;see cref="ConnectivityService"/&gt;.
-    /// &lt;/summary&gt;
-    public class ConnectivityServiceExample : MonoBehaviour
-    {
-        //  Events  ---------------------------------------
-        [HideInInspector]
-        public RefreshedUnityEvent OnRefreshed = new RefreshedUnityEvent();
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">    </span><span class="c1">/// Demonstrates &lt;see cref="ConnectivityService"/&gt;.</span>
+<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ConnectivityServiceExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//  Events  ---------------------------------------</span>
+<span class="w">        </span><span class="na">[HideInInspector]</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">RefreshedUnityEvent</span><span class="w"> </span><span class="n">OnRefreshed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RefreshedUnityEvent</span><span class="p">();</span>
 
-        //  Fields  ---------------------------------------
-        private BeamContext _beamContext;
-        private ConnectivityServiceExampleData _data = new ConnectivityServiceExampleData();
+<span class="w">        </span><span class="c1">//  Fields  ---------------------------------------</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">BeamContext</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">;</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">ConnectivityServiceExampleData</span><span class="w"> </span><span class="n">_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConnectivityServiceExampleData</span><span class="p">();</span>
 
-        //  Unity Methods  --------------------------------
-        protected void Start()
-        {
-            Debug.Log($"Start() Instructions...\n\n" +
-                      " * Ensure Computer's Internet Is Active\n" +
-                      " * Run The Scene\n" +
-                      " * See Onscreen UI Show HasConnectivity = true\n" +
-                      " * Ensure Computer's Internet Is NOT Active (e.g. Turn off wifi/ethernet)\n" +
-                      " * See Onscreen UI Show HasConnectivity = false\n");
+<span class="w">        </span><span class="c1">//  Unity Methods  --------------------------------</span>
+<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start() Instructions...\n\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                      </span><span class="s">" * Ensure Computer's Internet Is Active\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                      </span><span class="s">" * Run The Scene\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                      </span><span class="s">" * See Onscreen UI Show HasConnectivity = true\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                      </span><span class="s">" * Ensure Computer's Internet Is NOT Active (e.g. Turn off wifi/ethernet)\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                      </span><span class="s">" * See Onscreen UI Show HasConnectivity = false\n"</span><span class="p">);</span>
 
-            SetupBeamable();
-        }
+<span class="w">            </span><span class="n">SetupBeamable</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
 
-        //  Methods  --------------------------------------
-        private async void SetupBeamable()
-        {
-            _beamContext = BeamContext.Default;
-            await _beamContext.OnReady;
+<span class="w">        </span><span class="c1">//  Methods  --------------------------------------</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-            Debug.Log($"beamContext.PlayerId = {_beamContext.PlayerId}");
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"beamContext.PlayerId = {_beamContext.PlayerId}"</span><span class="p">);</span>
 
-            // Observe ConnectivityService Changes
-            _beamContext.Api.ConnectivityService.OnConnectivityChanged += ConnectivityService_OnConnectivityChanged;
+<span class="w">            </span><span class="c1">// Observe ConnectivityService Changes</span>
+<span class="w">            </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ConnectivityService</span><span class="p">.</span><span class="n">OnConnectivityChanged</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">ConnectivityService_OnConnectivityChanged</span><span class="p">;</span>
 
-            // Update UI Immediately
-            bool hasConnectivity = _beamContext.Api.ConnectivityService.HasConnectivity;
-            ConnectivityService_OnConnectivityChanged(hasConnectivity);
-        }
+<span class="w">            </span><span class="c1">// Update UI Immediately</span>
+<span class="w">            </span><span class="kt">bool</span><span class="w"> </span><span class="n">hasConnectivity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ConnectivityService</span><span class="p">.</span><span class="n">HasConnectivity</span><span class="p">;</span>
+<span class="w">            </span><span class="n">ConnectivityService_OnConnectivityChanged</span><span class="p">(</span><span class="n">hasConnectivity</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        public void ToggleHasInternet()
-        {
-            _beamContext.Api.ConnectivityService.SetHasInternet(!_data.HasConnectivity);
-        }
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ToggleHasInternet</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ConnectivityService</span><span class="p">.</span><span class="n">SetHasInternet</span><span class="p">(</span><span class="o">!</span><span class="n">_data</span><span class="p">.</span><span class="n">HasConnectivity</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        public void Refresh()
-        {
-            string refreshLog = $"Refresh() ..." +
-                                $"\n * HasConnectivity = {_data.HasConnectivity}" +
-                                $"\n * OutputLogs = {_data.OutputLogs.Count}\n\n";
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Refresh</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">refreshLog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"Refresh() ..."</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                                </span><span class="s">$"\n * HasConnectivity = {_data.HasConnectivity}"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                                </span><span class="s">$"\n * OutputLogs = {_data.OutputLogs.Count}\n\n"</span><span class="p">;</span>
 
-            //Debug.Log(refreshLog);
+<span class="w">            </span><span class="c1">//Debug.Log(refreshLog);</span>
 
-            // Send relevant data to the UI for rendering
-            OnRefreshed?.Invoke(_data);
-        }
+<span class="w">            </span><span class="c1">// Send relevant data to the UI for rendering</span>
+<span class="w">            </span><span class="n">OnRefreshed</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">_data</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        //  Event Handlers  -------------------------------
-        private void ConnectivityService_OnConnectivityChanged(bool hasConnectivity)
-        {
-            _data.HasConnectivity = hasConnectivity;
+<span class="w">        </span><span class="c1">//  Event Handlers  -------------------------------</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ConnectivityService_OnConnectivityChanged</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">hasConnectivity</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">_data</span><span class="p">.</span><span class="n">HasConnectivity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hasConnectivity</span><span class="p">;</span>
 
-            _data.OutputLogs.Add($"HasConnectivity = {_data.HasConnectivity}");
+<span class="w">            </span><span class="n">_data</span><span class="p">.</span><span class="n">OutputLogs</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"HasConnectivity = {_data.HasConnectivity}"</span><span class="p">);</span>
 
-            Refresh();
-        }
-    }
-}
-</code></pre>
+<span class="w">            </span><span class="n">Refresh</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <h3 id="disable-network-connection">Disable network connection<a class="headerlink" href="#disable-network-connection" title="Permanent link">¶</a></h3>
 <p>Game makers can set a global disable to simulate not having Wi-Fi before BeamContext initialization.</p>
-<pre><code class="language-csharp">private static void ForceDisableConnectivity()
-{
-    // to simulate network outage even if the device is online
-    IConnectivityServiceExtensions.GlobalForceDisabled = true;
-}
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ForceDisableConnectivity</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// to simulate network outage even if the device is online</span>
+<span class="w">    </span><span class="n">IConnectivityServiceExtensions</span><span class="p">.</span><span class="n">GlobalForceDisabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="p">}</span>
 
-private async void SetupBeamable()
-{
-    ForceDisableConnectivity();
+<span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">ForceDisableConnectivity</span><span class="p">();</span>
 
-    _beamContext = BeamContext.Default;
-    await _beamContext.OnReady;
+<span class="w">    </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-    Debug.Log($"beamContext.PlayerId = {_beamContext.PlayerId}");
+<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"beamContext.PlayerId = {_beamContext.PlayerId}"</span><span class="p">);</span>
 
-    // Observe ConnectivityService Changes
-    _beamContext.Api.ConnectivityService.OnConnectivityChanged += ConnectivityService_OnConnectivityChanged;
+<span class="w">    </span><span class="c1">// Observe ConnectivityService Changes</span>
+<span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ConnectivityService</span><span class="p">.</span><span class="n">OnConnectivityChanged</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">ConnectivityService_OnConnectivityChanged</span><span class="p">;</span>
 
-    // Update UI Immediately
-    bool hasConnectivity = _beamContext.Api.ConnectivityService.HasConnectivity;
-    ConnectivityService_OnConnectivityChanged(hasConnectivity);
-}
-</code></pre>
+<span class="w">    </span><span class="c1">// Update UI Immediately</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">hasConnectivity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ConnectivityService</span><span class="p">.</span><span class="n">HasConnectivity</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ConnectivityService_OnConnectivityChanged</span><span class="p">(</span><span class="n">hasConnectivity</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="custom-connectivity-service">Custom connectivity service<a class="headerlink" href="#custom-connectivity-service" title="Permanent link">¶</a></h3>
 <p>From version 1.11 and above, you can override the <code>IConnectivityChecker</code> service via Dependency Injection and change how the connectivity logic works. The default implementation uses a polling approach and sends requests to Beamable's API Gateway.</p>
 <p>In the code sample below, there is a custom implementation of <code>IConnectivityService</code> that pings a local server at <code>"http://127.0.0.1:3000/ping"</code>.</p>
-<p>CustomConnectivityService.cs</p>
-<pre><code class="language-csharp">using System;
-using System.Collections;
-using Beamable.Api.Connectivity;
-using Beamable.Common;
-using UnityEngine;
-using UnityEngine.Networking;
+<p>CustomConnectivityService.cs
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Api.Connectivity</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine.Networking</span><span class="p">;</span>
 
-public class CustomConnectivityService : IConnectivityService
-{
-    private bool _isConnected = true;
-    public float PollingInterval =&gt; 5f;
-    public bool HasConnectivity =&gt; _isConnected &amp;&amp; !Disabled;
-    public bool ForceDisabled { get; set; }
-    public bool Disabled =&gt; ForceDisabled || IConnectivityServiceExtensions.GlobalForceDisabled;
-    public event Action&lt;bool&gt; OnConnectivityChanged;
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomConnectivityService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IConnectivityService</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">_isConnected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">PollingInterval</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">5f</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">HasConnectivity</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_isConnected</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">Disabled</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">ForceDisabled</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">Disabled</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ForceDisabled</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">IConnectivityServiceExtensions</span><span class="p">.</span><span class="n">GlobalForceDisabled</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">event</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OnConnectivityChanged</span><span class="p">;</span>
 
-    public  Promise SetHasInternet(bool hasInternet)
-    {
-        var promise = new Promise();
+<span class="w">    </span><span class="k">public</span><span class="w">  </span><span class="n">Promise</span><span class="w"> </span><span class="nf">SetHasInternet</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">hasInternet</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">promise</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Promise</span><span class="p">();</span>
 
-        if (!Disabled)
-        {
-            _isConnected = hasInternet;
-            OnConnectivityChanged?.Invoke(hasInternet);
-        }
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Disabled</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">_isConnected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hasInternet</span><span class="p">;</span>
+<span class="w">            </span><span class="n">OnConnectivityChanged</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">hasInternet</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        promise.CompleteSuccess();
-        return promise;
-    }
+<span class="w">        </span><span class="n">promise</span><span class="p">.</span><span class="n">CompleteSuccess</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">promise</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    public Promise ReportInternetLoss()
-    {
-        Debug.LogError("Internet connection lost");
-        return SetHasInternet(false);
-    }
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Promise</span><span class="w"> </span><span class="nf">ReportInternetLoss</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">"Internet connection lost"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">SetHasInternet</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    public void OnReconnectOnce(Action onReconnection)
-    {
-        if (HasConnectivity) onReconnection.Invoke();
-    }
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnReconnectOnce</span><span class="p">(</span><span class="n">Action</span><span class="w"> </span><span class="n">onReconnection</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">HasConnectivity</span><span class="p">)</span><span class="w"> </span><span class="n">onReconnection</span><span class="p">.</span><span class="n">Invoke</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
-    public void OnReconnectOnce(ConnectionCallback promise, int order = 0)
-    {
-        if (HasConnectivity) _ = promise();
-    }
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnReconnectOnce</span><span class="p">(</span><span class="n">ConnectionCallback</span><span class="w"> </span><span class="n">promise</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">HasConnectivity</span><span class="p">)</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">promise</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
-    // For testing locally, go to Edit &gt; Project Settings &gt; Player &gt; Other Settings
-    // Then set Allow downloads over HTTP = Allowed in development builds
-    public IEnumerator PingServer()
-    {
-        const string url = "http://127.0.0.1:3000/ping";
-        using var webRequest = UnityWebRequest.Get(url);
+<span class="w">    </span><span class="c1">// For testing locally, go to Edit &gt; Project Settings &gt; Player &gt; Other Settings</span>
+<span class="w">    </span><span class="c1">// Then set Allow downloads over HTTP = Allowed in development builds</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">IEnumerator</span><span class="w"> </span><span class="nf">PingServer</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"http://127.0.0.1:3000/ping"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">webRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UnityWebRequest</span><span class="p">.</span><span class="n">Get</span><span class="p">(</span><span class="n">url</span><span class="p">);</span>
 
-        // Send the request asynchronously
-        yield return webRequest.SendWebRequest();
+<span class="w">        </span><span class="c1">// Send the request asynchronously</span>
+<span class="w">        </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">webRequest</span><span class="p">.</span><span class="n">SendWebRequest</span><span class="p">();</span>
 
-        if (webRequest.result == UnityWebRequest.Result.Success)
-        {
-            // Request was successful, and you can handle the response data here.
-            var responseText = webRequest.downloadHandler.text;
-            Debug.Log("Response: " + responseText);
-            // raise connectivity event status to true
-            OnConnectivityChanged?.Invoke(!Disabled);
-        }
-        else
-        {
-            // Request failed; handle the error.
-            Debug.LogError("Request failed: " + webRequest.error);
-            // raise connectivity event status to false
-            if (!Disabled) OnConnectivityChanged?.Invoke(false);
-        }
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">webRequest</span><span class="p">.</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">UnityWebRequest</span><span class="p">.</span><span class="n">Result</span><span class="p">.</span><span class="n">Success</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Request was successful, and you can handle the response data here.</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">responseText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">webRequest</span><span class="p">.</span><span class="n">downloadHandler</span><span class="p">.</span><span class="n">text</span><span class="p">;</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Response: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">responseText</span><span class="p">);</span>
+<span class="w">            </span><span class="c1">// raise connectivity event status to true</span>
+<span class="w">            </span><span class="n">OnConnectivityChanged</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="o">!</span><span class="n">Disabled</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Request failed; handle the error.</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">"Request failed: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">webRequest</span><span class="p">.</span><span class="n">error</span><span class="p">);</span>
+<span class="w">            </span><span class="c1">// raise connectivity event status to false</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Disabled</span><span class="p">)</span><span class="w"> </span><span class="n">OnConnectivityChanged</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p>This code demonstrated how to override the existing <code>IConnectivityService</code></p>
-<pre><code class="language-csharp">[BeamContextSystem]
-public class Registrations
-{
-    [RegisterBeamableDependencies]
-    public static void Build(IDependencyBuilder builder)
-    {
-        builder.RemoveIfExists&lt;IConnectivityChecker&gt;();
-        builder.AddSingleton&lt;IConnectivityChecker, CustomConnectivityService&gt;();
-    }
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamContextSystem]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Registrations</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[RegisterBeamableDependencies]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Build</span><span class="p">(</span><span class="n">IDependencyBuilder</span><span class="w"> </span><span class="n">builder</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="n">RemoveIfExists</span><span class="o">&lt;</span><span class="n">IConnectivityChecker</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="n">AddSingleton</span><span class="o">&lt;</span><span class="n">IConnectivityChecker</span><span class="p">,</span><span class="w"> </span><span class="n">CustomConnectivityService</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>Load this code into a scene to see the custom implementation in action.</p>
-<p>CustomConnectivityServiceExample.cs</p>
-<pre><code class="language-csharp">using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Beamable;
-using Beamable.Api.Connectivity; // add this to docs
-using UnityEngine;
-using UnityEngine.Events;
+<p>CustomConnectivityServiceExample.cs
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Api.Connectivity</span><span class="p">;</span><span class="w"> </span><span class="c1">// add this to docs</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine.Events</span><span class="p">;</span>
 
-/// &lt;summary&gt;
-/// Holds data for use in the &lt;see cref="ConnectivityServiceUI"/&gt;.
-/// &lt;/summary&gt;
-[Serializable]
-public class ConnectivityServiceData
-{
-    public List&lt;string&gt; OutputLogs = new List&lt;string&gt;();
-    public bool HasConnectivity = false;
-}
+<span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Holds data for use in the &lt;see cref="ConnectivityServiceUI"/&gt;.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="na">[Serializable]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ConnectivityServiceData</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OutputLogs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">HasConnectivity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="p">}</span>
 
-[Serializable]
-public class RefreshedUnityEvent : UnityEvent&lt;ConnectivityServiceData&gt; { }
+<span class="na">[Serializable]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">RefreshedUnityEvent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">UnityEvent</span><span class="o">&lt;</span><span class="n">ConnectivityServiceData</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 
-/// &lt;summary&gt;
-/// Demonstrates &lt;see cref="CustomConnectivityService"/&gt;.
-/// &lt;/summary&gt;
-public class CustomConnectivityServiceExample : MonoBehaviour
-{
-    //  Events  ---------------------------------------
-    [HideInInspector]
-    public RefreshedUnityEvent OnRefreshed = new();
+<span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Demonstrates &lt;see cref="CustomConnectivityService"/&gt;.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomConnectivityServiceExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">//  Events  ---------------------------------------</span>
+<span class="w">    </span><span class="na">[HideInInspector]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">RefreshedUnityEvent</span><span class="w"> </span><span class="n">OnRefreshed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
 
-    //  Fields  ---------------------------------------
-    private BeamContext _beamContext;
-    private ConnectivityServiceData _data = new();
-    private IConnectivityService _connectivityService;
+<span class="w">    </span><span class="c1">//  Fields  ---------------------------------------</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">BeamContext</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">ConnectivityServiceData</span><span class="w"> </span><span class="n">_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">IConnectivityService</span><span class="w"> </span><span class="n">_connectivityService</span><span class="p">;</span>
 
-    //  Properties  -----------------------------------
-    public ConnectivityServiceData Data =&gt; _data;
+<span class="w">    </span><span class="c1">//  Properties  -----------------------------------</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">ConnectivityServiceData</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_data</span><span class="p">;</span>
 
-    //  Unity Methods  --------------------------------
-    protected async void Start()
-    {
-        Debug.Log($"Start() Instructions...\n\n" +
-                  " * Ensure Computer's Internet Is Active\n" +
-                  " * Run The Scene\n" +
-                  " * See Onscreen UI Show HasConnectivity = true\n" +
-                  " * Ensure Computer's Internet Is NOT Active (e.g. Turn off wifi/ethernet)\n" +
-                  " * See Onscreen UI Show HasConnectivity = false\n");
+<span class="w">    </span><span class="c1">//  Unity Methods  --------------------------------</span>
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start() Instructions...\n\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                  </span><span class="s">" * Ensure Computer's Internet Is Active\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                  </span><span class="s">" * Run The Scene\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                  </span><span class="s">" * See Onscreen UI Show HasConnectivity = true\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                  </span><span class="s">" * Ensure Computer's Internet Is NOT Active (e.g. Turn off wifi/ethernet)\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                  </span><span class="s">" * See Onscreen UI Show HasConnectivity = false\n"</span><span class="p">);</span>
 
-        SetupConnectivityService(new CustomConnectivityService());
-        await SetupBeamable();
-        StartCoroutine(PingCustomServerPolling());
-    }
+<span class="w">        </span><span class="n">SetupConnectivityService</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">CustomConnectivityService</span><span class="p">());</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">StartCoroutine</span><span class="p">(</span><span class="n">PingCustomServerPolling</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
 
-    private IEnumerator PingCustomServerPolling()
-    {
-        if (_connectivityService is not CustomConnectivityService service) yield break;
-        while (true)
-        {
-            StartCoroutine(service.PingServer());
-            yield return new WaitForSeconds(service.PollingInterval);
-        }
-    }
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">IEnumerator</span><span class="w"> </span><span class="nf">PingCustomServerPolling</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_connectivityService</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">CustomConnectivityService</span><span class="w"> </span><span class="n">service</span><span class="p">)</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">StartCoroutine</span><span class="p">(</span><span class="n">service</span><span class="p">.</span><span class="n">PingServer</span><span class="p">());</span>
+<span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">WaitForSeconds</span><span class="p">(</span><span class="n">service</span><span class="p">.</span><span class="n">PollingInterval</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-    //  Methods  --------------------------------------
-    private void SetupConnectivityService(IConnectivityService connectivityService) =&gt;
-        _connectivityService = connectivityService;
+<span class="w">    </span><span class="c1">//  Methods  --------------------------------------</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupConnectivityService</span><span class="p">(</span><span class="n">IConnectivityService</span><span class="w"> </span><span class="n">connectivityService</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="n">_connectivityService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connectivityService</span><span class="p">;</span>
 
-    private async Task SetupBeamable()
-    {
-        _beamContext = BeamContext.Default;
-        await _beamContext.OnReady;
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-        Debug.Log($"beamContext.PlayerId = {_beamContext.PlayerId}");
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"beamContext.PlayerId = {_beamContext.PlayerId}"</span><span class="p">);</span>
 
-        // Observe ConnectivityService Changes
-        _connectivityService.OnConnectivityChanged += ConnectivityService_OnConnectivityChanged;
-    }
+<span class="w">        </span><span class="c1">// Observe ConnectivityService Changes</span>
+<span class="w">        </span><span class="n">_connectivityService</span><span class="p">.</span><span class="n">OnConnectivityChanged</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">ConnectivityService_OnConnectivityChanged</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    public void ToggleHasInternet()
-    {
-        _connectivityService.SetHasInternet(!_data.HasConnectivity);
-    }
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ToggleHasInternet</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_connectivityService</span><span class="p">.</span><span class="n">SetHasInternet</span><span class="p">(</span><span class="o">!</span><span class="n">_data</span><span class="p">.</span><span class="n">HasConnectivity</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    public void Refresh()
-    {
-        string refreshLog = $"Refresh() ..." +
-                            $"\n * HasConnectivity = {_data.HasConnectivity}" +
-                            $"\n * OutputLogs = {_data.OutputLogs.Count}\n\n";
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Refresh</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">refreshLog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"Refresh() ..."</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                            </span><span class="s">$"\n * HasConnectivity = {_data.HasConnectivity}"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                            </span><span class="s">$"\n * OutputLogs = {_data.OutputLogs.Count}\n\n"</span><span class="p">;</span>
 
-        Debug.Log(refreshLog);
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">refreshLog</span><span class="p">);</span>
 
-        // Send relevant data to the UI for rendering
-        OnRefreshed?.Invoke(_data);
-    }
+<span class="w">        </span><span class="c1">// Send relevant data to the UI for rendering</span>
+<span class="w">        </span><span class="n">OnRefreshed</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">_data</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    //  Event Handlers  -------------------------------
-    private void ConnectivityService_OnConnectivityChanged(bool hasConnectivity)
-    {
-        _data.HasConnectivity = hasConnectivity;
+<span class="w">    </span><span class="c1">//  Event Handlers  -------------------------------</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ConnectivityService_OnConnectivityChanged</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">hasConnectivity</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_data</span><span class="p">.</span><span class="n">HasConnectivity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hasConnectivity</span><span class="p">;</span>
 
-        _data.OutputLogs.Add($"HasConnectivity = {_data.HasConnectivity}");
+<span class="w">        </span><span class="n">_data</span><span class="p">.</span><span class="n">OutputLogs</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"HasConnectivity = {_data.HasConnectivity}"</span><span class="p">);</span>
 
-        Refresh();
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="n">Refresh</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <h3 id="reduce-noconnectivityexception">Reduce NoConnectivityException<a class="headerlink" href="#reduce-noconnectivityexception" title="Permanent link">¶</a></h3>
 <p>A few noteworthy clarifications:</p>
 <ol>
@@ -9918,72 +10213,133 @@ public class CustomConnectivityServiceExample : MonoBehaviour
 </ul>
 <p>Overall, users with bad connections will see an error, as they should, but people with fine connections should experience markedly fewer false negatives.</p>
 <h4 id="dependency-registration">Dependency registration<a class="headerlink" href="#dependency-registration" title="Permanent link">¶</a></h4>
-<pre><code class="language-csharp">[BeamContextSystem]
-public class DependencyRegistration
-{
-  [RegisterBeamableDependencies]
-  public static void Register(IDependencyBuilder builder)
-  {
-    builder.ReplaceSingleton&lt;IConnectivityChecker, AlwaysConnectivityChecker&gt;();
-    builder.ReplaceSingleton&lt;IConnectivityService, AlwaysConnectivityService&gt;();
-    Debug.Log("Registered custom Beamable dependencies.");
-  }
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[BeamContextSystem]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DependencyRegistration</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="na">[RegisterBeamableDependencies]</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Register</span><span class="p">(</span><span class="n">IDependencyBuilder</span><span class="w"> </span><span class="n">builder</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">builder</span><span class="p">.</span><span class="n">ReplaceSingleton</span><span class="o">&lt;</span><span class="n">IConnectivityChecker</span><span class="p">,</span><span class="w"> </span><span class="n">AlwaysConnectivityChecker</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="n">builder</span><span class="p">.</span><span class="n">ReplaceSingleton</span><span class="o">&lt;</span><span class="n">IConnectivityService</span><span class="p">,</span><span class="w"> </span><span class="n">AlwaysConnectivityService</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Registered custom Beamable dependencies."</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h4 id="connectivity-service-override">Connectivity service override<a class="headerlink" href="#connectivity-service-override" title="Permanent link">¶</a></h4>
-<pre><code class="language-csharp">public class AlwaysConnectivityChecker : IConnectivityChecker
-{
-  public bool ConnectivityCheckingEnabled { get; set; } = false;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AlwaysConnectivityChecker</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IConnectivityChecker</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">ConnectivityCheckingEnabled</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
 
-  public Promise&lt;bool&gt; ForceCheck()
-  {
-    return Promise&lt;bool&gt;.Successful(true);
-  }
-}
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ForceCheck</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Successful</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 
-public class AlwaysConnectivityService : IConnectivityService
-{
-  public Promise SetHasInternet(bool hasInternet)
-  {
-    // SetHasInternet(true) gets called frequently, so not logging it here.
-    if (!hasInternet)
-    {
-      Debug.Log("Ignoring SetHasInternet(false) in AlwaysConnectivityService");
-    }
-    return Promise.Success;
-  }
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AlwaysConnectivityService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IConnectivityService</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">Promise</span><span class="w"> </span><span class="nf">SetHasInternet</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">hasInternet</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// SetHasInternet(true) gets called frequently, so not logging it here.</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">hasInternet</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Ignoring SetHasInternet(false) in AlwaysConnectivityService"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Promise</span><span class="p">.</span><span class="n">Success</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  public Promise ReportInternetLoss()
-  {
-    // ReportInternetLoss may be overly verbose, so this Debug.Log is commented out.
-    // Debug.Log("Ignoring ReportInternetLoss in AlwaysConnectivityService");
-    return Promise.Success;
-  }
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">Promise</span><span class="w"> </span><span class="nf">ReportInternetLoss</span><span class="p">()</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// ReportInternetLoss may be overly verbose, so this Debug.Log is commented out.</span>
+<span class="w">    </span><span class="c1">// Debug.Log("Ignoring ReportInternetLoss in AlwaysConnectivityService");</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Promise</span><span class="p">.</span><span class="n">Success</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-  public void OnReconnectOnce(Action onReconnection)
-  {
-    Debug.Log("Immediately calling Action for OnReconnectOnce in AlwaysConnectivityService");
-    onReconnection();
-  }
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnReconnectOnce</span><span class="p">(</span><span class="n">Action</span><span class="w"> </span><span class="n">onReconnection</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Immediately calling Action for OnReconnectOnce in AlwaysConnectivityService"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">onReconnection</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
 
-  public void OnReconnectOnce(ConnectionCallback promise, int order = 0)
-  {
-    Debug.Log("Immediately calling ConnectionCallback for OnReconnectOnce in AlwaysConnectivityService");
-  }
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnReconnectOnce</span><span class="p">(</span><span class="n">ConnectionCallback</span><span class="w"> </span><span class="n">promise</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Immediately calling ConnectionCallback for OnReconnectOnce in AlwaysConnectivityService"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  public bool HasConnectivity =&gt; true;
-  public bool ForceDisabled
-  {
-    get =&gt; false;
-    set =&gt; Debug.Log("Ignoring ForceDisabled.set in AlwaysConnectivityService");
-  }
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">HasConnectivity</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">ForceDisabled</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">get</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Ignoring ForceDisabled.set in AlwaysConnectivityService"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-  public bool Disabled =&gt; false;
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">Disabled</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
 
-  // In AlwaysConnectivityService, we never invoke OnConnectivityChanged.
-  public event Action&lt;bool&gt; OnConnectivityChanged;
-}
-</code></pre>
+<span class="w">  </span><span class="c1">// In AlwaysConnectivityService, we never invoke OnConnectivityChanged.</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">event</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OnConnectivityChanged</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 
 
 

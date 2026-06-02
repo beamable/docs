@@ -9583,44 +9583,77 @@
 <p>Make sure that your game flow takes into account the fact that iOS is not a supported platform by Google Play Game Services.</p>
 <h2 id="google-play-game-services-integration">Google Play Game Services integration<a class="headerlink" href="#google-play-game-services-integration" title="Permanent link">¶</a></h2>
 <p>The Beamable SDK contains a wrapper for GPGS behavior on Android (iOS is not supported). The provided class is called SignInWithGPG, which can be initialized after following steps from <a href="https://developers.google.com/games/services/console/enabling">Google documentation</a>. It does contain two Actions that developer can subscribe to: <code>OnLoginResult</code> and <code>OnRequestServerSideAccessResult</code>. To perform login as third party to Beamable, both must return successfully. The first returns info about local login, and the second about getting the server-side access token that is required for the Beamable backend.</p>
-<pre><code class="language-csharp">SignInWithGPG _gpg;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">SignInWithGPG</span><span class="w"> </span><span class="n">_gpg</span><span class="p">;</span>
 
-/// &lt;summary&gt;
-/// Starts Google Login process, then calls `HandleLoginResult` and/or `HandleRequestServerSideAccessResult` with a results.
-/// &lt;/summary&gt;
-public void StartLogin()
-{
-    _gpg = new SignInWithGPG();
-    _gpg.OnLoginResult += HandleLoginResult;
-    _gpg.OnRequestServerSideAccessResult += HandleRequestServerSideAccessResult;
-    _gpg.Login();
-}
-</code></pre>
+<span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Starts Google Login process, then calls `HandleLoginResult` and/or `HandleRequestServerSideAccessResult` with a results.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">StartLogin</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">_gpg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SignInWithGPG</span><span class="p">();</span>
+<span class="w">    </span><span class="n">_gpg</span><span class="p">.</span><span class="n">OnLoginResult</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">HandleLoginResult</span><span class="p">;</span>
+<span class="w">    </span><span class="n">_gpg</span><span class="p">.</span><span class="n">OnRequestServerSideAccessResult</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">HandleRequestServerSideAccessResult</span><span class="p">;</span>
+<span class="w">    </span><span class="n">_gpg</span><span class="p">.</span><span class="n">Login</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>After the Login process is started, the callback functions (<code>HandleLoginResult</code> and <code>HandleRequestServerSideAccessResult</code>) will be invoked with results:</p>
-<pre><code class="language-csharp">/// &lt;summary&gt;
-/// Callback to be invoked with information about if local login did succeed.
-/// &lt;/summary&gt;
-/// &lt;param name="success"&gt;returns bool value that informs about local login success&lt;/param&gt;
-private void HandleLoginResult(bool success)
-{
-    if(!success)
-    {
-        //Login failed or was canceled
-    }
-}
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Callback to be invoked with information about if local login did succeed.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="c1">/// &lt;param name="success"&gt;returns bool value that informs about local login success&lt;/param&gt;</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">HandleLoginResult</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">success</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//Login failed or was canceled</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-private void HandleRequestServerSideAccessResult(bool success, string token)
-{
-    if(!success)
-    {
-        // Cannot get server token from GPGS, please check if your configuration is correct.
-    }
-    else
-    {
-        //Login successful, see additional functions below
-    }
-}
-</code></pre>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">HandleRequestServerSideAccessResult</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">success</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Cannot get server token from GPGS, please check if your configuration is correct.</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//Login successful, see additional functions below</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h2 id="handle-various-flow-scenarios">Handle various flow scenarios<a class="headerlink" href="#handle-various-flow-scenarios" title="Permanent link">¶</a></h2>
 <p>Now that we have the Google credential (token), we need to account for 3 different scenarios:</p>
 <ul>
@@ -9637,24 +9670,36 @@ private void HandleRequestServerSideAccessResult(bool success, string token)
 <div class="admonition info">
 <p class="admonition-title">Beamable SDK Initialization</p>
 <p>The following assumes that you have initialized the Beamable SDK and it is stored in _beamContext variable.</p>
-<p><code>csharp
-_beamContext = BeamContext.Default;
-await _beamContext.OnReady;</code></p>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
 </div>
 <p>The following code will establish conditions for various flow scenarios.</p>
-<pre><code class="language-csharp">//Specify the third party auth provider
-var thirdParty = AuthThirdParty.GoogleGamesServices;
-//Get information about the user's third party credential
-var available = await _beamContext.Api.AuthService.IsThirdPartyAvailable(thirdParty, token);
-var userHasCredentials = _beamContext.Api.User.HasThirdPartyAssociation(thirdParty);
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//Specify the third party auth provider</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">thirdParty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">GoogleGamesServices</span><span class="p">;</span>
+<span class="c1">//Get information about the user's third party credential</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">IsThirdPartyAvailable</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">HasThirdPartyAssociation</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">);</span>
 
-//Should we switch to a user that's not currently logged in?
-var shouldSwitchUsers = !available;
-//Should we create a brand new user with these credentials?
-var shouldCreateUser = available &amp;&amp; userHasCredentials;
-//Should we attach the credentials to an existing user?
-var shouldAttachToCurrentUser = available &amp;&amp; !userHasCredentials;
-</code></pre>
+<span class="c1">//Should we switch to a user that's not currently logged in?</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">shouldSwitchUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">available</span><span class="p">;</span>
+<span class="c1">//Should we create a brand new user with these credentials?</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">shouldCreateUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="p">;</span>
+<span class="c1">//Should we attach the credentials to an existing user?</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">shouldAttachToCurrentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">userHasCredentials</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
 <ul>
 <li>Players can edit account details (name, avatar)</li>

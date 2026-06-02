@@ -9721,34 +9721,57 @@
 <h2 id="auto-generated-code">Auto generated code<a class="headerlink" href="#auto-generated-code" title="Permanent link">¶</a></h2>
 <p>Beamable will auto generate Unity csharp code to interact with your Microservice. Below is an example of a simple Microservice, and how to access the auto-generated client.</p>
 <p><strong>Server Code</strong></p>
-<pre><code class="language-csharp">using Beamable.Server;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Server</span><span class="p">;</span>
 
-namespace Beamable.DemoService
-{
-    [Microservice("DemoService")]
-    public partial class DemoService : Microservice
-    {
-        [ClientCallable]
-        public int Add(int a, int b)
-        {
-            return a + b;
-        }
-    }
-}
-</code></pre>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.DemoService</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[Microservice("DemoService")]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DemoService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="na">[ClientCallable]</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p><strong>Client Code</strong></p>
-<pre><code class="language-csharp">public async void Start()
-{
-    // get access to Beamable
-    var ctx = await BeamContext.Default.Instance;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// get access to Beamable</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
 
-    // use extension methods to access a pre-configured client
-    var demoClient = ctx.Microservices().DemoService();
+<span class="w">    </span><span class="c1">// use extension methods to access a pre-configured client</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">demoClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Microservices</span><span class="p">().</span><span class="n">DemoService</span><span class="p">();</span>
 
-    // use the auto-generated Add client method
-    var sum = await demoClient.Add(1, 2);
-}
-</code></pre>
+<span class="w">    </span><span class="c1">// use the auto-generated Add client method</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">demoClient</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>In the client code, the first step is acquire a <code>BeamContext</code>. The <code>BeamContext</code> is the root instance for each player in Beamable. If you are not familiar with with <code>BeamContext</code>, learn more by reading the Player-centric API - Overview.</p>
 <p>Every time the Microservice builds, Unity will generate the client code.</p>
 <h2 id="serialization-constraints">Serialization constraints<a class="headerlink" href="#serialization-constraints" title="Permanent link">¶</a></h2>
@@ -9817,21 +9840,34 @@ namespace Beamable.DemoService
 </div>
 <p>After the Microservice has been created, the <em>Beam Services</em> window will focus on the service, showing the logs of the service and various buttons to interact with the service. Refer to the Beam Services page for how to navigate the <em>Beam Services</em> window.</p>
 <p>When you open the code for the new service (using the folder icon button), you will see the standard boilerplate Beamable Microservice code snippet.</p>
-<pre><code class="language-csharp">using Beamable.Server;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Server</span><span class="p">;</span>
 
-namespace Beamable.DemoService
-{
-    [Microservice("DemoService")]
-    public partial class DemoService : Microservice
-    {
-        [ClientCallable]
-        public int Add(int a, int b)
-        {
-            return a + b;
-        }
-    }
-}
-</code></pre>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.DemoService</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[Microservice("DemoService")]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DemoService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="na">[ClientCallable]</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>Before you start the service, choose a non-production realm.</p>
 <div class="admonition danger">
 <p class="admonition-title">Be careful running local Microservices on production realms!</p>
@@ -9842,8 +9878,8 @@ namespace Beamable.DemoService
 <p>Realms are your game's individual environments, arranged in a parent/child hierarchy. The root realm is always production; all child realms are non-production.</p>
 </div>
 <p>Back in Unity, in the <em>Beam Services</em> window, press the play button to start the service. You can also run the service directly from your IDE using the IDE's play or debugging buttons. Log messages will appear in the <em>Beam Services</em> window, and eventually when the service has successfully initialized, this log message will appear.</p>
-<pre><code>Service ready for traffic
-</code></pre>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Service ready for traffic
+</code></pre></div></td></tr></tbody></table></div>
 <p>Congratulations! You have a locally running Microservice!</p>
 <h3 id="testing-the-microservice">Testing the Microservice<a class="headerlink" href="#testing-the-microservice" title="Permanent link">¶</a></h3>
 <p>As you write Microservices, you need to test the code you are writing. This is done is a few ways, through in-game testing, and by manually calling the Microservice methods from the auto generated Portal testing page. The easiest way to check your Microservice methods is to use the Portal testing page. In the <em>Beam Services</em> window, click the globe icon in the top-right of the Microservice log section. This will open the Beamable Portal website to a section directly targeting your locally running Microservice.</p>

@@ -9542,96 +9542,165 @@
 <p>Retrieving announcements via C# code is quite simple, and resembles the <a href="../../profile-storage/content/content-overview/">Content</a> syntax. This is a more flexible solution, since game makers can fit the announcement content to their own UI, rather than using the UI packaged with the Announcements Prefab.</p>
 <h3 id="initializing-the-beamcontext">Initializing the BeamContext<a class="headerlink" href="#initializing-the-beamcontext" title="Permanent link">¶</a></h3>
 <p>Before we can perform any actions, the current player must be logged in and Beamable must be initialized.</p>
-<pre><code class="language-csharp">private BeamContext _beamContext;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="n">BeamContext</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">;</span>
 
-private async void Start()
-{
-    _beamContext = BeamContext.Default;
-    await _beamContext.OnReady;
-    Debug.Log($"User Id: {_beamContext.PlayerId}");
-}
-</code></pre>
+<span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"User Id: {_beamContext.PlayerId}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="retrieving-announcements-via-getcurrent">Retrieving announcements via GetCurrent<a class="headerlink" href="#retrieving-announcements-via-getcurrent" title="Permanent link">¶</a></h3>
 <p>The simplest way to retrieve announcements is via the <code>GetCurrent()</code> method from the <code>AnnouncementService</code>. This will return an <code>AnnouncementQueryResponse</code>, which contains a list of Announcements.</p>
-<pre><code class="language-csharp">private async Task&lt;List&lt;AnnouncementView&gt;&gt; GetAnnouncements()
-{
-    var response = await _beamContext.Api.AnnouncementService.GetCurrent();
-    return response?.announcements;
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">AnnouncementView</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">GetAnnouncements</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AnnouncementService</span><span class="p">.</span><span class="n">GetCurrent</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="o">?.</span><span class="n">announcements</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="retrieving-announcements-via-subscription">Retrieving announcements via subscription<a class="headerlink" href="#retrieving-announcements-via-subscription" title="Permanent link">¶</a></h3>
 <p>The <code>AnnouncementService</code> also features a <code>Subscribe</code> method, allowing the game client to react to new announcements as they are published.</p>
-<pre><code class="language-csharp">private void SubscribeToAnnouncements()
-{
-    _beamContext.Api.AnnouncementService.Subscribe(response =&gt;
-    {
-        PrintAnnouncements(response?.announcements);
-    });
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SubscribeToAnnouncements</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AnnouncementService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">response</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PrintAnnouncements</span><span class="p">(</span><span class="n">response</span><span class="o">?.</span><span class="n">announcements</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="displaying-announcements">Displaying announcements<a class="headerlink" href="#displaying-announcements" title="Permanent link">¶</a></h3>
 <p>Once you have retrieved the announcements, display them in the app. The function below simply reads the title and body of the content and logs them to the console, but the specific game implementation will require some custom solution.</p>
-<pre><code class="language-csharp">private void PrintAnnouncements(List&lt;AnnouncementView&gt; announcements)
-{
-    foreach (var announcement in announcements)
-    {
-        Debug.Log(announcement.title);
-        Debug.Log(announcement.body);
-    }
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PrintAnnouncements</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">AnnouncementView</span><span class="o">&gt;</span><span class="w"> </span><span class="n">announcements</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">announcement</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">announcements</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">announcement</span><span class="p">.</span><span class="n">title</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">announcement</span><span class="p">.</span><span class="n">body</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="validating-the-implementation">Validating the implementation<a class="headerlink" href="#validating-the-implementation" title="Permanent link">¶</a></h3>
 <p>Call either the <code>SubscribeToAnnouncements()</code> or <code>GetAnnouncements()</code> functions and inspect the Unity console to validate that your functions are working. Below is the console for a successful run.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../media/imgs/announcements-test-console.png" data-desc-position="bottom"><img alt="Announcement Test Results" src="../../../../../media/imgs/announcements-test-console.png" style="height:auto;width:400px"></a></p>
 <h3 id="sample-code">Sample code<a class="headerlink" href="#sample-code" title="Permanent link">¶</a></h3>
 <p>Below is the full script that shows how to initialize Beamable, retrieve announcements, and print them to the console.</p>
-<pre><code class="language-csharp">using System.Collections.Generic;
-using System.Threading.Tasks;
-using Beamable;
-using Beamable.Common.Api.Announcements;
-using UnityEngine;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Api.Announcements</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class AnnouncementsTest : MonoBehaviour
-{
-    private BeamContext _beamContext;
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AnnouncementsTest</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">BeamContext</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">;</span>
 
-    private async void Start()
-    {
-        _beamContext = BeamContext.Default;
-        await _beamContext.OnReady;
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-        Debug.Log($"User Id: {_beamContext.PlayerId}");
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"User Id: {_beamContext.PlayerId}"</span><span class="p">);</span>
 
-        var announcements = await GetAnnouncements();
-        PrintAnnouncements(announcements);
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">announcements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">GetAnnouncements</span><span class="p">();</span>
+<span class="w">        </span><span class="n">PrintAnnouncements</span><span class="p">(</span><span class="n">announcements</span><span class="p">);</span>
 
-        SubscribeToAnnouncements();
-    }
+<span class="w">        </span><span class="n">SubscribeToAnnouncements</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
-    private async Task&lt;List&lt;AnnouncementView&gt;&gt; GetAnnouncements()
-    {
-        var response = await _beamContext.Api.AnnouncementService.GetCurrent();
-        return response?.announcements;
-    }
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">AnnouncementView</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">GetAnnouncements</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AnnouncementService</span><span class="p">.</span><span class="n">GetCurrent</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="o">?.</span><span class="n">announcements</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    private void SubscribeToAnnouncements()
-    {
-        _beamContext.Api.AnnouncementService.Subscribe(response =&gt;
-        {
-            PrintAnnouncements(response?.announcements);
-        });
-    }
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SubscribeToAnnouncements</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AnnouncementService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">response</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">PrintAnnouncements</span><span class="p">(</span><span class="n">response</span><span class="o">?.</span><span class="n">announcements</span><span class="p">);</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
 
-    private void PrintAnnouncements(List&lt;AnnouncementView&gt; announcements)
-    {
-        foreach (var announcement in announcements)
-        {
-            Debug.Log(announcement.title);
-            Debug.Log(announcement.body);
-        }
-    }
-}
-</code></pre>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PrintAnnouncements</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">AnnouncementView</span><span class="o">&gt;</span><span class="w"> </span><span class="n">announcements</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">announcement</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">announcements</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">announcement</span><span class="p">.</span><span class="n">title</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">announcement</span><span class="p">.</span><span class="n">body</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 
 
 

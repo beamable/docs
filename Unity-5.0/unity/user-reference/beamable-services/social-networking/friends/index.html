@@ -9714,21 +9714,34 @@
 <p class="admonition-title">Beamable Observables</p>
 <p>You can use C# events to listen for changes to the <code>PlayerSocial</code> object. Use the <code>ctx.Social.OnUpdated</code> event to receive any update. The fields themselves also have events, such as <code>ctx.Social.Friends.OnDataUpdated</code>.</p>
 </div>
-<pre><code class="language-csharp">using Beamable.Player;
-using UnityEngine;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Player</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class FriendsSample : MonoBehaviour
-{
-    public PlayerSocial social;
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FriendsSample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">PlayerSocial</span><span class="w"> </span><span class="n">social</span><span class="p">;</span>
 
-    async void Start()
-    {
-        var ctx = BeamContext.Default;
-        await ctx.OnReady;
-        social = ctx.Social;
-    }
-}
-</code></pre>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<span class="w">        </span><span class="n">social</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>There are 4 main resources associated with a <code>PlayerSocial</code>,</p>
 <ol>
 <li>The <code>PlayerSocial.Friends</code> list, which is an observable list of friends.</li>
@@ -9742,147 +9755,255 @@ public class FriendsSample : MonoBehaviour
 <p>Validating friend invites can be hard when you're just one developer on one machine. Luckily, you can create multiple <code>BeamContext</code> instances at once in the same gameplay session. These samples all use <code>BeamContext.Default</code> for simplicity, but you can change them to use <code>BeamContext.ForPlayer("player1")</code>, and <code>BeamContext.ForPlayer("player2")</code> to simulate two unique players.</p>
 </div>
 <h3 id="sending-an-invite">Sending an invite<a class="headerlink" href="#sending-an-invite" title="Permanent link">¶</a></h3>
-<pre><code class="language-csharp">using Beamable;
-using UnityEngine;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class FriendsSample : MonoBehaviour
-{
-    public long playerToBefriend;
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FriendsSample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">playerToBefriend</span><span class="p">;</span>
 
-    [ContextMenu("Invite")]
-    async void Invite()
-    {
-        var ctx = BeamContext.Default;
-        await ctx.OnReady;
-        await ctx.Social.Invite(playerToBefriend);
-    }
-}
-</code></pre>
+<span class="w">    </span><span class="na">[ContextMenu("Invite")]</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Invite</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">Invite</span><span class="p">(</span><span class="n">playerToBefriend</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="accepting-an-invite">Accepting an invite<a class="headerlink" href="#accepting-an-invite" title="Permanent link">¶</a></h3>
-<pre><code class="language-csharp">using Beamable;
-using UnityEngine;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class FriendsSample : MonoBehaviour
-{
-    [ContextMenu("Accept")]
-    async void Accept()
-    {
-        var ctx = BeamContext.Default;
-        await ctx.OnReady;
-        await ctx.Social.ReceivedInvites[0].AcceptInvite();
-    }
-}
-</code></pre>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FriendsSample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[ContextMenu("Accept")]</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Accept</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">ReceivedInvites</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">AcceptInvite</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="removing-a-friend">Removing a friend<a class="headerlink" href="#removing-a-friend" title="Permanent link">¶</a></h3>
-<pre><code class="language-csharp">using Beamable;
-using UnityEngine;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class FriendsSample : MonoBehaviour
-{
-    [ContextMenu("RemoveFriend")]
-    async void RemoveFriend()
-    {
-        var ctx = BeamContext.Default;
-        await ctx.OnReady;
-        await ctx.Social.Friends[0].Unfriend();
-    }
-}
-</code></pre>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FriendsSample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[ContextMenu("RemoveFriend")]</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RemoveFriend</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">Friends</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Unfriend</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="canceling-sent-invite">Canceling sent invite<a class="headerlink" href="#canceling-sent-invite" title="Permanent link">¶</a></h3>
-<pre><code class="language-csharp">using Beamable;
-using UnityEngine;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class FriendsSample : MonoBehaviour
-{
-    [ContextMenu("Cancel")]
-    async void Cancel()
-    {
-        var ctx = BeamContext.Default;
-        await ctx.OnReady;
-        await ctx.Social.SentInvites[0].Cancel();
-    }
-}
-</code></pre>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FriendsSample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[ContextMenu("Cancel")]</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Cancel</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">SentInvites</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Cancel</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="blocking-a-player">Blocking a player<a class="headerlink" href="#blocking-a-player" title="Permanent link">¶</a></h3>
-<pre><code class="language-csharp">using Beamable;
-using UnityEngine;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class FriendsSample : MonoBehaviour
-{
-    public long playerIdToBlock;
-    [ContextMenu("Block")]
-    async void Block()
-    {
-        var ctx = BeamContext.Default;
-        await ctx.OnReady;
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FriendsSample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">playerIdToBlock</span><span class="p">;</span>
+<span class="w">    </span><span class="na">[ContextMenu("Block")]</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Block</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-        await ctx.Social.BlockPlayer(playerIdToBlock);
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">BlockPlayer</span><span class="p">(</span><span class="n">playerIdToBlock</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="unblocking-a-player">Unblocking a player<a class="headerlink" href="#unblocking-a-player" title="Permanent link">¶</a></h3>
-<pre><code class="language-csharp">using Beamable;
-using UnityEngine;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class FriendsSample : MonoBehaviour
-{
-    [ContextMenu("Unblock")]
-    async void Unblock()
-    {
-        var ctx = BeamContext.Default;
-        await ctx.OnReady;
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FriendsSample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[ContextMenu("Unblock")]</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Unblock</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-        await ctx.Social.Blocked[0].Unblock();
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">Blocked</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Unblock</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="importing-friends-from-facebook">Importing friends from Facebook<a class="headerlink" href="#importing-friends-from-facebook" title="Permanent link">¶</a></h3>
 <p>A player who has associated a Facebook credential with their account may import Facebook friends in bulk. Facebook friends who have also linked a Facebook credential will be listed as Beamable friends. When one player imports Facebook friends, all imported friends will have the initiating player as a friend as well.</p>
-<pre><code class="language-csharp">using Beamable;
-using UnityEngine;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class FriendsSample : MonoBehaviour
-{
-    public string facebookAuthToken;
-    [ContextMenu("ImportFriends")]
-    async void ImportFriends()
-    {
-        var ctx = BeamContext.Default;
-        await ctx.OnReady;
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FriendsSample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">facebookAuthToken</span><span class="p">;</span>
+<span class="w">    </span><span class="na">[ContextMenu("ImportFriends")]</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ImportFriends</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-        await ctx.Social.ImportThirdPartyFriends(facebookAuthToken);
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">ImportThirdPartyFriends</span><span class="p">(</span><span class="n">facebookAuthToken</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="presence">Presence<a class="headerlink" href="#presence" title="Permanent link">¶</a></h3>
 <p>A friend may have a presence object that describes the friend's online status. Friend presence is accessible directly from the <code>PlayerFriend</code> structure, or by using the <code>ctx.Presence</code> SDK.</p>
 <h4 id="listening-for-friend-presence-changes">Listening for friend presence changes<a class="headerlink" href="#listening-for-friend-presence-changes" title="Permanent link">¶</a></h4>
-<pre><code class="language-csharp">var ctx = await BeamContext.ForPlayer(code).Instance;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">ForPlayer</span><span class="p">(</span><span class="n">code</span><span class="p">).</span><span class="n">Instance</span><span class="p">;</span>
 
-ctx.Social.FriendPresenceChanged += friend =&gt;
-{
-  Debug.Log($"{ctx.UserId} saw friend {friend.UserId} go online=[{friend.Presence.status}] - desc=[{friend.Presence.description}]");
-};
-</code></pre>
+<span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">FriendPresenceChanged</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">friend</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"{ctx.UserId} saw friend {friend.UserId} go online=[{friend.Presence.status}] - desc=[{friend.Presence.description}]"</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h4 id="seting-your-current-presence">Seting your current presence<a class="headerlink" href="#seting-your-current-presence" title="Permanent link">¶</a></h4>
-<pre><code class="language-csharp">var ctx = await BeamContext.ForPlayer(code).Instance;
-await ctx.Presence.SetPlayerStatus(PresenceStatus.Away, "away from the computer");
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">ForPlayer</span><span class="p">(</span><span class="n">code</span><span class="p">).</span><span class="n">Instance</span><span class="p">;</span>
+<span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Presence</span><span class="p">.</span><span class="n">SetPlayerStatus</span><span class="p">(</span><span class="n">PresenceStatus</span><span class="p">.</span><span class="n">Away</span><span class="p">,</span><span class="w"> </span><span class="s">"away from the computer"</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="direct-access">Direct access<a class="headerlink" href="#direct-access" title="Permanent link">¶</a></h3>
 <p>While the previous section is the preferred way to interact with Beamable friends, you can also access the API layer directly. This approach requires much more effort to manage.</p>
-<pre><code class="language-csharp">using Beamable;
-using Beamable.Common.Api.Social;
-using UnityEngine;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Api.Social</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class FriendsSample : MonoBehaviour
-{
-    void Direct()
-    {
-        var ctx = BeamContext.Default;
-        var socialApi = ctx.ServiceProvider.GetService&lt;ISocialApi&gt;();
-    }
-}
-</code></pre>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FriendsSample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Direct</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">socialApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">ServiceProvider</span><span class="p">.</span><span class="n">GetService</span><span class="o">&lt;</span><span class="n">ISocialApi</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 
 
 

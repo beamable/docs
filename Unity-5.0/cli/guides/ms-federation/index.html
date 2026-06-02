@@ -4479,6 +4479,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#1-2federationidmyid-public-class-mysample-ifederationid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 2[FederationId("myId")] public class MySample : IFederationId { }
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cli-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -9464,6 +9475,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#1-2federationidmyid-public-class-mysample-ifederationid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 2[FederationId("myId")] public class MySample : IFederationId { }
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cli-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -9556,15 +9578,18 @@
 <p>Federate Standalone Microservices with external services</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can federate using Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
-<p>You can confirm you have everything installed checking the versions of the tools.</p>
-<pre><code class="language-sh">dotnet --version
-dotnet beam version # dotnet beam --version also works.
-</code></pre>
+<p>You can confirm you have everything installed checking the versions of the tools.
+</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>--version
+dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p>In order to federate using a Microservice, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.</p>
-<pre><code class="language-sh">dotnet beam init MyProject
-cd MyProject
-dotnet beam project new service HelloWorld
-</code></pre>
+<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>init<span class="w"> </span>MyProject
+<span class="nb">cd</span><span class="w"> </span>MyProject
+dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
+</code></pre></div></td></tr></tbody></table></div>
 <h2 id="federation">Federation<a class="headerlink" href="#federation" title="Permanent link">¶</a></h2>
 <p>Microservice <em>Federation</em> is the ability to inject custom server logic in the middle of existing Beamable server functionality. Federation can be used to add custom behavior to your game like supporting external identity auth providers, using a block chain as the backing data provider for player inventory, managing how match making works, and more.</p>
 <p>There are 4 types of federation. All of these federations have C# interfaces
@@ -9575,81 +9600,101 @@ that define the types of functions that they require.
 4. <code>IFederatedPlayerInit</code></p>
 <p>A Microservice supports these federations when The <code>Microservice</code> class includes the associated federation interface</p>
 <p>A service that federates login functionality may have a class signature like the following.</p>
-<pre><code class="language-csharp">public partial class ExampleService : IFederatedLogin&lt;MySample&gt;
-{
-    // implementation
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ExampleService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederatedLogin</span><span class="o">&lt;</span><span class="n">MySample</span><span class="o">&gt;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// implementation</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>The <code>MySample</code> class included as the generic type in the <code>IFederatedLogin</code> interface specifies the id for the federated login. The class signature for these types must implement the <code>IFederationId</code> type and include a <code>FederationId</code> attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.</p>
-<pre><code class="language-csharp">[FederationId("myId")]
-public class MySample : IFederationId { }
-</code></pre>
-<hr>
+<h2 id="1-2federationidmyid-public-class-mysample-ifederationid"><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[FederationId("myId")]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MySample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><a class="headerlink" href="#1-2federationidmyid-public-class-mysample-ifederationid" title="Permanent link">¶</a></h2>
 <h2 id="cli-commands">CLI commands<a class="headerlink" href="#cli-commands" title="Permanent link">¶</a></h2>
 <p>The CLI offers a few commands to enable and disable federations for a service. The <code>beam fed</code> command suite allows you to read and write federation data. None of the commands will modify your C# source files.</p>
-<p>The <code>beam fed list</code> command will show all federations for all services.</p>
-<pre><code class="language-sh">dotnet beam fed list
- {
-    "cid": "1338004997867618",
-    "pid": "DE_1754280032981028",
-    "services": [
-       {
-          "beamoName": "ExampleService",
-          "routingKey": "chriss-macbook-pro-2_59e8e38ad189aefe093dfa7d74e18841",
-          "federations": {
-             "myId": [
-                {
-                   "interface": "IFederatedLogin"
-                }
-             ]
-
-</code></pre>
+<p>The <code>beam fed list</code> command will show all federations for all services.
+</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>fed<span class="w"> </span>list
+<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">"cid"</span>:<span class="w"> </span><span class="s2">"1338004997867618"</span>,
+<span class="w">    </span><span class="s2">"pid"</span>:<span class="w"> </span><span class="s2">"DE_1754280032981028"</span>,
+<span class="w">    </span><span class="s2">"services"</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">       </span><span class="o">{</span>
+<span class="w">          </span><span class="s2">"beamoName"</span>:<span class="w"> </span><span class="s2">"ExampleService"</span>,
+<span class="w">          </span><span class="s2">"routingKey"</span>:<span class="w"> </span><span class="s2">"chriss-macbook-pro-2_59e8e38ad189aefe093dfa7d74e18841"</span>,
+<span class="w">          </span><span class="s2">"federations"</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">             </span><span class="s2">"myId"</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">                </span><span class="o">{</span>
+<span class="w">                   </span><span class="s2">"interface"</span>:<span class="w"> </span><span class="s2">"IFederatedLogin"</span>
+<span class="w">                </span><span class="o">}</span>
+<span class="w">             </span><span class="o">]</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <hr>
 <h2 id="possible-issues-and-solutions">Possible issues and solutions<a class="headerlink" href="#possible-issues-and-solutions" title="Permanent link">¶</a></h2>
 <h3 id="invalid-federation-id-detected">Invalid federation ID detected<a class="headerlink" href="#invalid-federation-id-detected" title="Permanent link">¶</a></h3>
-<p><strong>Example Code Triggering the Error</strong>:</p>
-<pre><code class="language-csharp">[FederationId("123-MyFederation")]
-public class MyFederation : IFederationId {}
+<p><strong>Example Code Triggering the Error</strong>:
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[FederationId("123-MyFederation")]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyFederation</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="w"> </span><span class="p">{}</span>
 
-public partial class MyMicroservice : Microservice, IFederatedInventory&lt;MyFederation&gt; {}
-</code></pre>
-<p><strong>Example Error Message</strong>:</p>
-<pre><code>The following IFederationId is invalid. They must: Start with a letter. Contain only alphanumeric characters and/or `_`. Microservice=MyMicroservice, Id=123-MyFederation.
-</code></pre>
+<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="p">,</span><span class="w"> </span><span class="n">IFederatedInventory</span><span class="o">&lt;</span><span class="n">MyFederation</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example Error Message</strong>:
+</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>The following IFederationId is invalid. They must: Start with a letter. Contain only alphanumeric characters and/or `_`. Microservice=MyMicroservice, Id=123-MyFederation.
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solutions</strong>:
 - Rename the federation ID to follow the format, e.g., <code>MyFederation</code></p>
 <hr>
 <h3 id="ifederationid-is-missing-federationidattribute">IFederationId is missing FederationIdAttribute<a class="headerlink" href="#ifederationid-is-missing-federationidattribute" title="Permanent link">¶</a></h3>
-<p><strong>Example Code Triggering the Error</strong>:</p>
-<pre><code class="language-csharp">public class MyFederation : IFederationId {}
-</code></pre>
-<p><strong>Example Error Message</strong>:</p>
-<pre><code>IFederationId is missing FederationIdAttribute
-</code></pre>
+<p><strong>Example Code Triggering the Error</strong>:
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyFederation</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example Error Message</strong>:
+</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>IFederationId is missing FederationIdAttribute
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solutions</strong>:
 - Add the attribute to your federation class:
-  <code>csharp
-  [FederationId("MyFederation")]
-  public class MyFederation : IFederationId {}</code></p>
+  </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[FederationId("MyFederation")]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyFederation</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <hr>
 <h3 id="ifederationid-must-be-default">IFederationId must be default<a class="headerlink" href="#ifederationid-must-be-default" title="Permanent link">¶</a></h3>
-<p><strong>Example Code Triggering the Error</strong>:</p>
-<pre><code class="language-csharp">public class MyFederation : IFederationId {}
-</code></pre>
-<p><strong>Example Message</strong>:</p>
-<pre><code>The following IFederationId must be annotated with a FederationIdAttribute with a value of "default", Id=MyFederation
-</code></pre>
+<p><strong>Example Code Triggering the Error</strong>:
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyFederation</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>Example Message</strong>:
+</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>The following IFederationId must be annotated with a FederationIdAttribute with a value of "default", Id=MyFederation
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solutions</strong>:
 - Update the federation interface:
-  <code>csharp
-  [FederationId("default")]
-  public interface MyFederation : IFederationId {}</code></p>
+  </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[FederationId("default")]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">MyFederation</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <hr>
 <h3 id="missing-routing-keys">Missing routing keys<a class="headerlink" href="#missing-routing-keys" title="Permanent link">¶</a></h3>
 <p>When calling a local microservice, you may see this error:</p>
 <p><strong>Example error message</strong>:</p>
-<pre><code class="language-json">{"status":400,"service":"auth","error":"MissingRoutingKeys","message":"Routing keys not configured"}
-</code></pre>
+<div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="nt">"status"</span><span class="p">:</span><span class="mi">400</span><span class="p">,</span><span class="nt">"service"</span><span class="p">:</span><span class="s2">"auth"</span><span class="p">,</span><span class="nt">"error"</span><span class="p">:</span><span class="s2">"MissingRoutingKeys"</span><span class="p">,</span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Routing keys not configured"</span><span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>This means the realm configuration does not have routing keys configured. To fix this, add a <code>realms.supportedFilters</code> config entry with the value <code>*</code> in the Portal for that realm. Note that <code>*</code> is the only currently accepted value — setting it to anything else has no effect.</p>
 <p>If your realm lacks this setting, it may predate the setting's introduction. Production realms always omit the setting to ensure local microservices cannot siphon production traffic.</p>
 <hr>

@@ -9832,34 +9832,55 @@
 </table>
 <h3 id="usage-examples">Usage examples<a class="headerlink" href="#usage-examples" title="Permanent link">¶</a></h3>
 <p><strong>Setting Stats (Write)</strong>
-This example demonstrates how to set multiple public stats for the current player.</p>
-<pre><code class="language-csharp">var beamContext = BeamContext.Default;
-await beamContext.OnReady;
+This example demonstrates how to set multiple public stats for the current player.
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-Dictionary&lt;string, string&gt; statsToSet = new Dictionary&lt;string, string&gt;
-{
-    { "player_level", "25" },
-    { "total_score", "15000" },
-    { "favorite_character", "warrior" }
-};
+<span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">statsToSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">"player_level"</span><span class="p">,</span><span class="w"> </span><span class="s">"25"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">"total_score"</span><span class="p">,</span><span class="w"> </span><span class="s">"15000"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">"favorite_character"</span><span class="p">,</span><span class="w"> </span><span class="s">"warrior"</span><span class="w"> </span><span class="p">}</span>
+<span class="p">};</span>
 
-await beamContext.Api.StatsService.SetStats("public", statsToSet);
-</code></pre>
+<span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">StatsService</span><span class="p">.</span><span class="n">SetStats</span><span class="p">(</span><span class="s">"public"</span><span class="p">,</span><span class="w"> </span><span class="n">statsToSet</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Getting Public Stats (Read)</strong>
-This example shows how to retrieve public stats for a specific player.</p>
-<pre><code class="language-csharp">var beamContext = BeamContext.Default;
-await beamContext.OnReady;
+This example shows how to retrieve public stats for a specific player.
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-long targetPlayerId = beamContext.PlayerId; // or any other player's ID
-Dictionary&lt;string, string&gt; playerStats = await beamContext.Api.StatsService
-    .GetStats("client", "public", "player", targetPlayerId);
+<span class="kt">long</span><span class="w"> </span><span class="n">targetPlayerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">PlayerId</span><span class="p">;</span><span class="w"> </span><span class="c1">// or any other player's ID</span>
+<span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">playerStats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">StatsService</span>
+<span class="w">    </span><span class="p">.</span><span class="n">GetStats</span><span class="p">(</span><span class="s">"client"</span><span class="p">,</span><span class="w"> </span><span class="s">"public"</span><span class="p">,</span><span class="w"> </span><span class="s">"player"</span><span class="p">,</span><span class="w"> </span><span class="n">targetPlayerId</span><span class="p">);</span>
 
-// Access specific stats
-if (playerStats.TryGetValue("player_level", out string level))
-{
-    Debug.Log($"Player level: {level}");
-}
-</code></pre>
+<span class="c1">// Access specific stats</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">playerStats</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="s">"player_level"</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">level</span><span class="p">))</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Player level: {level}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Getting Private Stats (Microservices Only)</strong></p>
 <div class="admonition warning">
 <p class="admonition-title">Security Restriction</p>
@@ -9920,46 +9941,83 @@ if (playerStats.TryGetValue("player_level", out string level))
 </tr>
 </tbody>
 </table>
-<p>StatBehaviourExample.cs</p>
-<pre><code class="language-csharp">using Beamable.Stats;
-using UnityEngine;
+<p>StatBehaviourExample.cs
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Stats</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-namespace Beamable.Examples.Services.StatsService
-{
-   /// &lt;summary&gt;
-   /// Demonstrates &lt;see cref="StatsService"/&gt;.
-   /// &lt;/summary&gt;
-   public class StatBehaviourExample : MonoBehaviour
-   {
-      //  Fields  ---------------------------------------
-      [SerializeField]
-      private StatBehaviour _myStatBehaviour = null;
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.StatsService</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">   </span><span class="c1">/// Demonstrates &lt;see cref="StatsService"/&gt;.</span>
+<span class="w">   </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">StatBehaviourExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">//  Fields  ---------------------------------------</span>
+<span class="w">      </span><span class="na">[SerializeField]</span>
+<span class="w">      </span><span class="k">private</span><span class="w"> </span><span class="n">StatBehaviour</span><span class="w"> </span><span class="n">_myStatBehaviour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
 
-      //  Unity Methods  --------------------------------
-      protected void Start()
-      {
-         Debug.Log($"Start()");
+<span class="w">      </span><span class="c1">//  Unity Methods  --------------------------------</span>
+<span class="w">      </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start()"</span><span class="p">);</span>
 
-         //Async refresh value
-         _myStatBehaviour.OnStatReceived.AddListener(MyStatBehaviour_OnStatReceived);
+<span class="w">         </span><span class="c1">//Async refresh value</span>
+<span class="w">         </span><span class="n">_myStatBehaviour</span><span class="p">.</span><span class="n">OnStatReceived</span><span class="p">.</span><span class="n">AddListener</span><span class="p">(</span><span class="n">MyStatBehaviour_OnStatReceived</span><span class="p">);</span>
 
-         // Set Value
-         _myStatBehaviour.SetCurrentValue("0");
-         _myStatBehaviour.SetCurrentValue("1");
+<span class="w">         </span><span class="c1">// Set Value</span>
+<span class="w">         </span><span class="n">_myStatBehaviour</span><span class="p">.</span><span class="n">SetCurrentValue</span><span class="p">(</span><span class="s">"0"</span><span class="p">);</span>
+<span class="w">         </span><span class="n">_myStatBehaviour</span><span class="p">.</span><span class="n">SetCurrentValue</span><span class="p">(</span><span class="s">"1"</span><span class="p">);</span>
 
-         // Get Value
-         Debug.Log($"_statsBehaviour.value = {_myStatBehaviour.Value}");
-      }
+<span class="w">         </span><span class="c1">// Get Value</span>
+<span class="w">         </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_statsBehaviour.value = {_myStatBehaviour.Value}"</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
 
-      //  Event Handlers  -------------------------------
-      private void MyStatBehaviour_OnStatReceived(string value)
-      {
-         // Observe Value Change
-         Debug.Log($"MyStatBehaviour_OnStatReceived() value = {_myStatBehaviour.Value}");
-      }
-   }
-}
-</code></pre>
+<span class="w">      </span><span class="c1">//  Event Handlers  -------------------------------</span>
+<span class="w">      </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">MyStatBehaviour_OnStatReceived</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="k">value</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="c1">// Observe Value Change</span>
+<span class="w">         </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"MyStatBehaviour_OnStatReceived() value = {_myStatBehaviour.Value}"</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <h3 id="using-the-statsservice-api">Using the <code>StatsService</code> API<a class="headerlink" href="#using-the-statsservice-api" title="Permanent link">¶</a></h3>
 <p>This method offers higher flexibility using raw C# coding using the <code>StatsService</code></p>
 <table>
@@ -10003,57 +10061,105 @@ namespace Beamable.Examples.Services.StatsService
 </tr>
 </tbody>
 </table>
-<p>StatCodingExample.cs</p>
-<pre><code class="language-csharp">using System.Collections.Generic;
-using UnityEngine;
+<p>StatCodingExample.cs
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-namespace Beamable.Examples.Services.StatsService
-{
-    /// &lt;summary&gt;
-    /// Demonstrates &lt;see cref="StatsService"/&gt;.
-    /// &lt;/summary&gt;
-    public class StatCodingExample : MonoBehaviour
-    {
-        //  Unity Methods  --------------------------------
-        protected void Start()
-        {
-            Debug.Log($"Start()");
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.StatsService</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">    </span><span class="c1">/// Demonstrates &lt;see cref="StatsService"/&gt;.</span>
+<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">StatCodingExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//  Unity Methods  --------------------------------</span>
+<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start()"</span><span class="p">);</span>
 
-            SetupBeamable();
-        }
+<span class="w">            </span><span class="n">SetupBeamable</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
 
-        //  Other Methods   ------------------------------
-        private async void SetupBeamable()
-        {
-            var context = BeamContext.Default;
-            await context.OnReady;
+<span class="w">        </span><span class="c1">//  Other Methods   ------------------------------</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-            Debug.Log($"context.PlayerId = {context.PlayerId}");
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"context.PlayerId = {context.PlayerId}"</span><span class="p">);</span>
 
-            string statKey = "MyExampleStat";
-            string access = "public";
-            string domain = "client";
-            string type = "player";
-            long id = context.PlayerId;
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">statKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"MyExampleStat"</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"public"</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"client"</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"player"</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">PlayerId</span><span class="p">;</span>
 
-            // Set Value
-            Dictionary&lt;string, string&gt; setStats =
-                new Dictionary&lt;string, string&gt;() { { statKey, "99" } };
+<span class="w">            </span><span class="c1">// Set Value</span>
+<span class="w">            </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">setStats</span><span class="w"> </span><span class="o">=</span>
+<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">statKey</span><span class="p">,</span><span class="w"> </span><span class="s">"99"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
 
-            await context.Api.StatsService.SetStats(access, setStats);
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">StatsService</span><span class="p">.</span><span class="n">SetStats</span><span class="p">(</span><span class="n">access</span><span class="p">,</span><span class="w"> </span><span class="n">setStats</span><span class="p">);</span>
 
-            // Get Value
-            Dictionary&lt;string, string&gt; getStats =
-                await context.Api.StatsService.GetStats(domain, access, type, id);
+<span class="w">            </span><span class="c1">// Get Value</span>
+<span class="w">            </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">getStats</span><span class="w"> </span><span class="o">=</span>
+<span class="w">                </span><span class="k">await</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">StatsService</span><span class="p">.</span><span class="n">GetStats</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="w"> </span><span class="n">access</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
 
-            string myExampleStatValue = "";
-            getStats.TryGetValue(statKey, out myExampleStatValue);
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">myExampleStatValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<span class="w">            </span><span class="n">getStats</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">statKey</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">myExampleStatValue</span><span class="p">);</span>
 
-            Debug.Log($"myExampleStatValue = {myExampleStatValue}");
-        }
-    }
-}
-</code></pre>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"myExampleStatValue = {myExampleStatValue}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <h2 id="stats-vs-analytics">Stats vs analytics<a class="headerlink" href="#stats-vs-analytics" title="Permanent link">¶</a></h2>
 <p>Beamable offers both analytics events and stats. See <a href="doc:analytics-code#analytics-events-vs-stats">Analytics » Code (Analytics Events vs Stats)</a> for more info. While the use cases for analytics events and stats are often different, there are indeed common workflows where both are used in concert. For example. Beamable automatically tracks an analytics event (deep history) every time a Stat is changed (fast speed). This is the best of both worlds!</p>
 <p><em>Note</em>: The <code>source</code> value is set automatically with each Analytics event and stats</p>

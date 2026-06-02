@@ -9457,59 +9457,79 @@
 <p>Beamable offers a rich microservice development workflow using the Beam CLI and .NET. Microservices deploy to the Beamable Cloud, and offer a secure way to handle server-side authoritative logic for your games.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can develop a Beamable Standalone Microservice, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
-<p>You can confirm you have everything installed checking the versions of the tools.</p>
-<pre><code class="language-sh">dotnet --version
-dotnet beam version # dotnet beam --version also works.
-</code></pre>
+<p>You can confirm you have everything installed checking the versions of the tools.
+</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>--version
+dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <hr>
 <h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">¶</a></h2>
 <p>Standalone Microservices require a <code>.beamable/</code> workspace, so you either need to create one with <a href="../../commands/cli-command-reference/init/">beam init</a>, or use an existing one.</p>
-<pre><code class="language-sh">dotnet beam init MyProject
-cd MyProject
-</code></pre>
+<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>init<span class="w"> </span>MyProject
+<span class="nb">cd</span><span class="w"> </span>MyProject
+</code></pre></div></td></tr></tbody></table></div>
 <p>Once you have a <code>.beamable/</code> workspace, you can create a new Standalone Microservice using the <a href="../ms-workflow/#creating-new-projects">project new</a> command.</p>
-<pre><code class="language-sh"># run this inside your .beamable workspace
-dotnet beam project new service HelloWorld
-</code></pre>
+<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># run this inside your .beamable workspace</span>
+dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
+</code></pre></div></td></tr></tbody></table></div>
 <p>A new file, <code>BeamableServices.sln</code> has been created in <code>/MyProject</code>. Open it in your IDE of choice (Visual Studio Code, Rider, or Visual Studio).</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://files.readme.io/751b491-image.png" data-desc-position="bottom"><img alt="Project Structure" src="https://files.readme.io/751b491-image.png"></a></p>
 <p>Congratulations, you have a local Beamable Standalone Microservice! To run it, you can use the IDE tooling to start the <code>HelloWorld</code> project, or you can use the project run command. If you're familiar with <code>dotnet</code>, you can also use the normal <code>dotnet run</code> command as well.</p>
 <p>However you decide to run the project, you should see a stream of logs similar to the snippet below,</p>
-<pre><code>13:25:33.077 [DBUG] Service provider initialized
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>13:25:33.077 [DBUG] Service provider initialized
 13:25:33.307 [DBUG] Event provider initialized
 13:25:33.308 [INFO] Service ready for traffic.baseVersion=2.0.0-PREVIEW.RC2 executionVersion= portalURL=https://portal.beamable.com/cid/games/DE_1751365810229268/realms/pid/microservices/HelloWorld/docs?refresh_token=redacted&amp;prefix=redacted
-
-</code></pre>
+</code></pre></div></td></tr></tbody></table></div>
 <p>The service is running! You can send requests to the service over HTTP. To verify, you can open the local Open API documentation by using the project open-swagger command.</p>
-<pre><code class="language-sh">dotnet beam project open-swagger
-</code></pre>
+<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>open-swagger
+</code></pre></div></td></tr></tbody></table></div>
 <p>Your local web browser should open to the Beamable Portal, showing the local Open API documentation,
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://files.readme.io/6c000ac-image.png" data-desc-position="bottom"><img alt="local swagger docs" src="https://files.readme.io/6c000ac-image.png"></a></p>
 <p>Click on the last green button that says, "<code>POST</code> /Add", and then select the "Try It Out" button. In the Request Body, enter some sample JSON,</p>
-<pre><code class="language-json">{
-  "a": 2,
-  "b": 3
-}
-</code></pre>
-<p>And then click the Execute button! In your Standalone Microservice project, you should see some logs appear indicating the service was invoked.</p>
-<pre><code>13:30:18.945 [DBUG] Handling Add
-</code></pre>
+<p></p><div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+And then click the Execute button! In your Standalone Microservice project, you should see some logs appear indicating the service was invoked.<p></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>13:30:18.945 [DBUG] Handling Add
+</code></pre></div></td></tr></tbody></table></div>
 <p>The <code>Add</code> function is defined in the <code>HelloWorld.cs</code> file.</p>
-<pre><code class="language-csharp">using Beamable.Server;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Server</span><span class="p">;</span>
 
-namespace Beamable.HelloWorld
-{
-    [Microservice("HelloWorld")]
-    public class HelloWorld : Microservice
-    {
-       [ClientCallable]
-       public int Add(int a, int b)
-       {
-           return a + b;
-       }
-    }
-}
-</code></pre>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.HelloWorld</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[Microservice("HelloWorld")]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">HelloWorld</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">       </span><span class="na">[ClientCallable]</span>
+<span class="w">       </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">       </span><span class="p">{</span>
+<span class="w">           </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">       </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>You can write new functions and tag them with <code>[ClientCallable]</code> to make them accessible on the Open API page. Now you know the basics of working with Beamable Standalone Microservices!</p>
 <hr>
 <h2 id="project-structure">Project structure<a class="headerlink" href="#project-structure" title="Permanent link">¶</a></h2>

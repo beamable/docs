@@ -9694,23 +9694,34 @@
 <h2 id="implementation-guide">Implementation guide<a class="headerlink" href="#implementation-guide" title="Permanent link">¶</a></h2>
 <p>This sample demonstrates key Beamable integration patterns for leaderboards and stats.</p>
 <h3 id="key-components">Key components<a class="headerlink" href="#key-components" title="Permanent link">¶</a></h3>
-<p><strong>IntroSceneManager.cs</strong> - Handles Beamable SDK initialization and connectivity checks</p>
-<pre><code class="language-csharp">private async void SetupBeamable()
-{
-    _beamContext = BeamContext.Default;
-    await _beamContext.OnReady;
+<p><strong>IntroSceneManager.cs</strong> - Handles Beamable SDK initialization and connectivity checks
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-    // Handle connectivity changes
-    _beamContext.Api.ConnectivityService.OnConnectivityChanged +=
-        ConnectivityService_OnConnectivityChanged;
-}
-</code></pre>
-<p><strong>GameSceneManager.cs</strong> - Manages game logic and leaderboard score submission</p>
-<pre><code class="language-csharp">private void SetLeaderboardScore(LeaderboardContent leaderboardContent, double score)
-{
-    _beamableAPI.LeaderboardService.SetScore(leaderboardContent.Id, score);
-}
-</code></pre>
+<span class="w">    </span><span class="c1">// Handle connectivity changes</span>
+<span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ConnectivityService</span><span class="p">.</span><span class="n">OnConnectivityChanged</span><span class="w"> </span><span class="o">+=</span>
+<span class="w">        </span><span class="n">ConnectivityService_OnConnectivityChanged</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong>GameSceneManager.cs</strong> - Manages game logic and leaderboard score submission
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetLeaderboardScore</span><span class="p">(</span><span class="n">LeaderboardContent</span><span class="w"> </span><span class="n">leaderboardContent</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">score</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">_beamableAPI</span><span class="p">.</span><span class="n">LeaderboardService</span><span class="p">.</span><span class="n">SetScore</span><span class="p">(</span><span class="n">leaderboardContent</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <h2 id="additional-experiments">Additional experiments<a class="headerlink" href="#additional-experiments" title="Permanent link">¶</a></h2>
 <p>Try these optional experiments to extend the sample:</p>
 <table>

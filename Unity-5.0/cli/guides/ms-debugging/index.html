@@ -9490,15 +9490,18 @@
 <p>Debug Standalone Microservices locally</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can debug Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
-<p>You can confirm you have everything installed checking the versions of the tools.</p>
-<pre><code class="language-sh">dotnet --version
-dotnet beam version # dotnet beam --version also works.
-</code></pre>
-<p>In order to debug a Microservice, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.</p>
-<pre><code class="language-sh">dotnet beam init MyProject
-cd MyProject
-dotnet beam project new service HelloWorld
-</code></pre>
+<p>You can confirm you have everything installed checking the versions of the tools.
+</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>--version
+dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>In order to debug a Microservice, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
+</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>init<span class="w"> </span>MyProject
+<span class="nb">cd</span><span class="w"> </span>MyProject
+dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">¶</a></h2>
 <p>Beamable Standalone Microservices run as vanilla .NET processes on your machine. That means you can use your favorite IDE to debug the service. You can attach breakpoints and then start the service with Debugging, or attach to existing process using your IDE.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://files.readme.io/88da124-image.png" data-desc-position="bottom"><img alt="A breakpoint in a microservice" src="https://files.readme.io/88da124-image.png"></a></p>
@@ -9508,21 +9511,31 @@ dotnet beam project new service HelloWorld
 <p>Not all types of source code changes will work with hot reload. Only changes to the <code>.cs</code> files will be acceptable. No changes to the <code>.csproj</code> or other build-time configuration options will be reloaded.</p>
 <h3 id="net-cli">.NET CLI<a class="headerlink" href="#net-cli" title="Permanent link">¶</a></h3>
 <p>You can run your service with hot reload by using the vanilla .NET CLI.</p>
-<pre><code class="language-sh"> MyProject % dotnet watch --project ./services/HelloWorld
-dotnet watch 🔥 Hot reload enabled. For a list of supported edits, see https://aka.ms/dotnet/hot-reload.
-  💡 Press "Ctrl + R" to restart.
-dotnet watch 🔧 Building...
-  Determining projects to restore...
-  All projects are up-to-date for restore.
-  HelloWorld -&gt; /MyProject/services/HelloWorld/bin/Debug/net6.0/HelloWorld.dll
-  Creating beamable version file...
-  Generating client files...
-dotnet watch 🚀 Started
-</code></pre>
-<p>Once you make an edit to your source code, you should see some logs that indicate the change.</p>
-<pre><code>dotnet watch ⌚ File changed: ./services/HelloWorld/HelloWorld.cs.
+<p></p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>MyProject<span class="w"> </span>%<span class="w"> </span>dotnet<span class="w"> </span>watch<span class="w"> </span>--project<span class="w"> </span>./services/HelloWorld
+dotnet<span class="w"> </span>watch<span class="w"> </span>🔥<span class="w"> </span>Hot<span class="w"> </span>reload<span class="w"> </span>enabled.<span class="w"> </span>For<span class="w"> </span>a<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>supported<span class="w"> </span>edits,<span class="w"> </span>see<span class="w"> </span>https://aka.ms/dotnet/hot-reload.
+<span class="w">  </span>💡<span class="w"> </span>Press<span class="w"> </span><span class="s2">"Ctrl + R"</span><span class="w"> </span>to<span class="w"> </span>restart.
+dotnet<span class="w"> </span>watch<span class="w"> </span>🔧<span class="w"> </span>Building...
+<span class="w">  </span>Determining<span class="w"> </span>projects<span class="w"> </span>to<span class="w"> </span>restore...
+<span class="w">  </span>All<span class="w"> </span>projects<span class="w"> </span>are<span class="w"> </span>up-to-date<span class="w"> </span><span class="k">for</span><span class="w"> </span>restore.
+<span class="w">  </span>HelloWorld<span class="w"> </span>-&gt;<span class="w"> </span>/MyProject/services/HelloWorld/bin/Debug/net6.0/HelloWorld.dll
+<span class="w">  </span>Creating<span class="w"> </span>beamable<span class="w"> </span>version<span class="w"> </span>file...
+<span class="w">  </span>Generating<span class="w"> </span>client<span class="w"> </span>files...
+dotnet<span class="w"> </span>watch<span class="w"> </span>🚀<span class="w"> </span>Started
+</code></pre></div></td></tr></tbody></table></div>
+Once you make an edit to your source code, you should see some logs that indicate the change.<p></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet watch ⌚ File changed: ./services/HelloWorld/HelloWorld.cs.
 dotnet watch 🔥 Hot reload of changes succeeded.
-</code></pre>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="beam-cli">Beam CLI<a class="headerlink" href="#beam-cli" title="Permanent link">¶</a></h3>
 <p>The Beam CLI no longer supports hot reload natively. It was supported in 2.0.1, but due to technical limitations, support was removed in 3.0.0</p>
 

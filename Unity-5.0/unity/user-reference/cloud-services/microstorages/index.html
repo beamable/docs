@@ -9414,139 +9414,259 @@
 <p>The gist of a common example Microstorage and Microservice is below.</p>
 <p><strong>UserDataStorage</strong></p>
 <p>A custom child of <code>MongoStorageObject</code> is defined to wrap the database. The <code>UserMessage</code> is added as the high-level object to be stored in the database.</p>
-<p>UserDataStorage.cs</p>
-<pre><code class="language-csharp">using Beamable.Server;
-using MongoDB.Bson;
+<p>UserDataStorage.cs
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Server</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">MongoDB.Bson</span><span class="p">;</span>
 
-namespace Beamable.Server
-{
-    [StorageObject("UserDataStorage")]
-    public class UserDataStorage : MongoStorageObject
-    {
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Server</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[StorageObject("UserDataStorage")]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">UserDataStorage</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MongoStorageObject</span>
+<span class="w">    </span><span class="p">{</span>
 
-    }
+<span class="w">    </span><span class="p">}</span>
 
-    public class UserMessage
-    {
-        public ObjectId Id;
-        public string Message;
-        public int X;
-        public int Y;
-    }
-}
-</code></pre>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">UserMessage</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">ObjectId</span><span class="w"> </span><span class="n">Id</span><span class="p">;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Message</span><span class="p">;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="p">;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Y</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>UserDataService</strong></p>
 <p>The Beamable Microservice <code>UserDataService</code> is created to wrap all calls to the database.</p>
 <p>See <a href="doc:microservices-feature-overview">Microservices</a> for more info.</p>
-<p>UserDataService.cs</p>
-<pre><code class="language-csharp">using System;
-using System.Collections.Generic;
-using System.Linq;
-using MongoDB.Driver;
-using UnityEngine;
+<p>UserDataService.cs
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">MongoDB.Driver</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-namespace Beamable.Server
-{
-   [Microservice("UserDataService")]
-   public class UserDataService : Microservice
-   {
-      [ClientCallable]
-      public async Promise&lt;bool&gt; SaveMessage(string message, int x, int y)
-      {
-         bool isSuccess = false;
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Server</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="na">[Microservice("UserDataService")]</span>
+<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">UserDataService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="na">[ClientCallable]</span>
+<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">SaveMessage</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="kt">bool</span><span class="w"> </span><span class="n">isSuccess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
 
-         try
-         {
-            var db = await Storage.GetDatabase&lt;UserDataStorage&gt;();
-            var collection = db.GetCollection&lt;UserMessage&gt;("messages");
-            collection.InsertOne( new UserMessage()
-            {
-               Message = message,
-               X = x,
-               Y = y
-            });
+<span class="w">         </span><span class="k">try</span>
+<span class="w">         </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Storage</span><span class="p">.</span><span class="n">GetDatabase</span><span class="o">&lt;</span><span class="n">UserDataStorage</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">collection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">db</span><span class="p">.</span><span class="n">GetCollection</span><span class="o">&lt;</span><span class="n">UserMessage</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"messages"</span><span class="p">);</span>
+<span class="w">            </span><span class="n">collection</span><span class="p">.</span><span class="n">InsertOne</span><span class="p">(</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserMessage</span><span class="p">()</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">               </span><span class="n">Message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">message</span><span class="p">,</span>
+<span class="w">               </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">,</span>
+<span class="w">               </span><span class="n">Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span>
+<span class="w">            </span><span class="p">});</span>
 
-            isSuccess = true;
-         }
-         catch (Exception e)
-         {
-            Debug.LogError(e.Message);
-         }
+<span class="w">            </span><span class="n">isSuccess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">         </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">         </span><span class="p">}</span>
 
-         return isSuccess;
-      }
+<span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="n">isSuccess</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
 
-      [ClientCallable]
-      public async Promise&lt;List&lt;string&gt;&gt; GetMessage(int x, int y)
-      {
-         var db = await Storage.GetDatabase&lt;UserDataStorage&gt;();
-         var collection = db.GetCollection&lt;UserMessage&gt;("messages");
-         var messages = collection
-            .Find(document =&gt; document.X == x &amp;&amp; document.Y == y)
-            .ToList();
+<span class="w">      </span><span class="na">[ClientCallable]</span>
+<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">GetMessage</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="kt">var</span><span class="w"> </span><span class="n">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Storage</span><span class="p">.</span><span class="n">GetDatabase</span><span class="o">&lt;</span><span class="n">UserDataStorage</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">         </span><span class="kt">var</span><span class="w"> </span><span class="n">collection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">db</span><span class="p">.</span><span class="n">GetCollection</span><span class="o">&lt;</span><span class="n">UserMessage</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"messages"</span><span class="p">);</span>
+<span class="w">         </span><span class="kt">var</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collection</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">document</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">document</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">document</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
 
-         return messages.Select(m =&gt; m.Message).ToList();
-      }
-   }
-}
-</code></pre>
+<span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="n">messages</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">Message</span><span class="p">).</span><span class="n">ToList</span><span class="p">();</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>UserDataMicroServiceExample</strong></p>
-<p>UserDataMicroServiceExample.cs</p>
-<pre><code class="language-csharp">using System.Collections.Generic;
-using UnityEngine;
-using Beamable.Server.Clients;
+<p>UserDataMicroServiceExample.cs
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Server.Clients</span><span class="p">;</span>
 
-namespace Beamable.Examples.Features.Microservices.UserDataMicroServiceExample
-{
-    /// &lt;summary&gt;
-    /// Demonstrates &lt;see cref="Microservices"/&gt;.
-    /// &lt;/summary&gt;
-public class UserDataMicroServiceExample : MonoBehaviour
-{
-    //  Properties  -----------------------------------
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Features.Microservices.UserDataMicroServiceExample</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">    </span><span class="c1">/// Demonstrates &lt;see cref="Microservices"/&gt;.</span>
+<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">UserDataMicroServiceExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">//  Properties  -----------------------------------</span>
 
-    //  Fields  ---------------------------------------
-    private UserDataServiceClient _userDataServiceClient = null;
+<span class="w">    </span><span class="c1">//  Fields  ---------------------------------------</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">UserDataServiceClient</span><span class="w"> </span><span class="n">_userDataServiceClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
 
-    //  Unity Methods  --------------------------------
+<span class="w">    </span><span class="c1">//  Unity Methods  --------------------------------</span>
 
-    protected void Start()
-    {
-        Debug.Log("Start() Instructions...\n" +
-        "* Complete docker setup per https://docs.beamable.com/docs/microservices-feature-overview\n" +
-        "* Start the server per https://docs.beamable.com/docs/microservices-feature-overview\n" +
-        "* Play This Scene\n" +
-        "* View the Unity Console output\n" +
-        "* Enjoy!\n\n\n");
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Start() Instructions...\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">        </span><span class="s">"* Complete docker setup per https://docs.beamable.com/docs/microservices-feature-overview\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">        </span><span class="s">"* Start the server per https://docs.beamable.com/docs/microservices-feature-overview\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">        </span><span class="s">"* Play This Scene\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">        </span><span class="s">"* View the Unity Console output\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">        </span><span class="s">"* Enjoy!\n\n\n"</span><span class="p">);</span>
 
-        SetupBeamable();
-    }
+<span class="w">        </span><span class="n">SetupBeamable</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
-        //  Methods  --------------------------------------
-        private async void SetupBeamable()
-        {
-            var beamContext = BeamContext.Default;
-            await beamContext.OnReady;
+<span class="w">        </span><span class="c1">//  Methods  --------------------------------------</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-            Debug.Log($"beamContext.PlayerId = {beamContext.PlayerId}");
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"beamContext.PlayerId = {beamContext.PlayerId}"</span><span class="p">);</span>
 
-            _userDataServiceClient = new UserDataServiceClient();
+<span class="w">            </span><span class="n">_userDataServiceClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserDataServiceClient</span><span class="p">();</span>
 
-            // #1 - Call Microservice
-            bool isSuccess = await _userDataServiceClient.SaveMessage("Hello World!", 0, 0);
+<span class="w">            </span><span class="c1">// #1 - Call Microservice</span>
+<span class="w">            </span><span class="kt">bool</span><span class="w"> </span><span class="n">isSuccess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_userDataServiceClient</span><span class="p">.</span><span class="n">SaveMessage</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
 
-            // #2 - Result = true
-            Debug.Log ($"SaveMessage() isSuccess = {isSuccess}");
+<span class="w">            </span><span class="c1">// #2 - Result = true</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="w"> </span><span class="p">(</span><span class="s">$"SaveMessage() isSuccess = {isSuccess}"</span><span class="p">);</span>
 
-            // #3 - Call Microservice
-            List&lt;string&gt; messages = await _userDataServiceClient.GetMessage(0, 0);
+<span class="w">            </span><span class="c1">// #3 - Call Microservice</span>
+<span class="w">            </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_userDataServiceClient</span><span class="p">.</span><span class="n">GetMessage</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
 
-            // #4 - Result = true
-            Debug.Log ($"GetMessage() messages.Count = {messages.Count}, messages[0] = {messages[0]}");
-        }
-    }
-}
-</code></pre>
+<span class="w">            </span><span class="c1">// #4 - Result = true</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="w"> </span><span class="p">(</span><span class="s">$"GetMessage() messages.Count = {messages.Count}, messages[0] = {messages[0]}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <h2 id="mongocrudextensions-api">MongoCrudExtensions API<a class="headerlink" href="#mongocrudextensions-api" title="Permanent link">¶</a></h2>
 <p>To make interactions with mongo storage feature easier and more affordable we've introduced <code>MongoCrudExtensions</code> class that contains following methods:</p>
 <ul>
@@ -9556,74 +9676,131 @@ public class UserDataMicroServiceExample : MonoBehaviour
 <li>Delete</li>
 </ul>
 <p>In the example, there is a <code>TestDocument</code> storage document as described below.</p>
-<p>TestDocument.cs</p>
-<pre><code class="language-csharp">namespace Beamable.Server
-{
-    public class TestDocument : StorageDocument
-    {
-        public int IntValue;
-        public string StringValue;
-    }
-}
-</code></pre>
+<p>TestDocument.cs
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Server</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TestDocument</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">StorageDocument</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">IntValue</span><span class="p">;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">StringValue</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p>The example targets the <code>TestStorage</code> StorageObject class.</p>
-<p>TestStorage.cs</p>
-<pre><code class="language-csharp">using Beamable.Common;
-using MongoDB.Driver;
+<p>TestStorage.cs
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">MongoDB.Driver</span><span class="p">;</span>
 
-namespace Beamable.Server
-{
-    [StorageObject("TestStorage")]
-    public class TestStorage : MongoStorageObject
-    {
-    }
-}
-</code></pre>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Server</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[StorageObject("TestStorage")]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TestStorage</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MongoStorageObject</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p>Then, in a <code>Microservice</code>, you can create, read, update, and delete the <code>TestDocument</code> as shown below.</p>
-<p>TestMicroservice.cs</p>
-<pre><code class="language-csharp">using Beamable.Mongo;
-using Beamable.Server;
-using MongoDB.Driver;
-using System.Collections.Generic;
+<p>TestMicroservice.cs
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Mongo</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Server</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">MongoDB.Driver</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 
-namespace Beamable.Microservices
-{
-    [Microservice("TestMicroservice")]
-    public class TestMicroservice : Microservice
-    {
-        [ClientCallable]
-        public async void Get(string id)
-        {
-            TestDocument document = await Storage.Get&lt;TestStorage, TestDocument&gt;(id);
-        }
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Microservices</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[Microservice("TestMicroservice")]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TestMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="na">[ClientCallable]</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Get</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">TestDocument</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Storage</span><span class="p">.</span><span class="n">Get</span><span class="o">&lt;</span><span class="n">TestStorage</span><span class="p">,</span><span class="w"> </span><span class="n">TestDocument</span><span class="o">&gt;</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        [ClientCallable]
-        public async void Create(int intValue, string stringValue)
-        {
-            await Storage.Create&lt;TestStorage, TestDocument&gt;(new TestDocument
-            {
-                IntValue = intValue, StringValue = stringValue,
-            });
-        }
+<span class="w">        </span><span class="na">[ClientCallable]</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Create</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">intValue</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">stringValue</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">Storage</span><span class="p">.</span><span class="n">Create</span><span class="o">&lt;</span><span class="n">TestStorage</span><span class="p">,</span><span class="w"> </span><span class="n">TestDocument</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">TestDocument</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">IntValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intValue</span><span class="p">,</span><span class="w"> </span><span class="n">StringValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringValue</span><span class="p">,</span>
+<span class="w">            </span><span class="p">});</span>
+<span class="w">        </span><span class="p">}</span>
 
-        [ClientCallable]
-        public async void Update(string id, int intValue, string stringValue)
-        {
-            await Storage.Update&lt;TestStorage, TestDocument&gt;(id, new TestDocument
-            {
-                IntValue = intValue,
-                StringValue = stringValue
-            });
-        }
+<span class="w">        </span><span class="na">[ClientCallable]</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Update</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">intValue</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">stringValue</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">Storage</span><span class="p">.</span><span class="n">Update</span><span class="o">&lt;</span><span class="n">TestStorage</span><span class="p">,</span><span class="w"> </span><span class="n">TestDocument</span><span class="o">&gt;</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TestDocument</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">IntValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intValue</span><span class="p">,</span>
+<span class="w">                </span><span class="n">StringValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringValue</span>
+<span class="w">            </span><span class="p">});</span>
+<span class="w">        </span><span class="p">}</span>
 
-        [ClientCallable]
-        public async void Delete(string id)
-        {
-            await Storage.Delete&lt;TestStorage, TestDocument&gt;(id);
-        }
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="na">[ClientCallable]</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Delete</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">Storage</span><span class="p">.</span><span class="n">Delete</span><span class="o">&lt;</span><span class="n">TestStorage</span><span class="p">,</span><span class="w"> </span><span class="n">TestDocument</span><span class="o">&gt;</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <div class="admonition info">
 <p class="admonition-title">The Collection Name is the Class Name</p>
 <p>When you use these helper methods, the Mongo Collection for the <code>TestDocument</code> class will be called <code>"TestDocument"</code>.</p>

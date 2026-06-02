@@ -9444,46 +9444,72 @@
 <p>Using username and password for logins is easy. There are just a few APIs you need to know about to be ready to go. Read more here to learn how to use <code>AddEmail</code> and <code>RecoverAccountWithEmail</code> methods of the <code>PlayerAccounts</code> SDK.</p>
 <h2 id="declarations">Declarations<a class="headerlink" href="#declarations" title="Permanent link">¶</a></h2>
 <p>The following code samples assume that you have already initialized the SDK.</p>
-<pre><code class="language-csharp">private BeamContext _beamContext;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="n">BeamContext</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">;</span>
 
-private async void Start()
-{
-    _beamContext = BeamContext.Default;
-    await _beamContext.OnReady;
-    await _beamContext.Accounts.OnReady;
-}
-</code></pre>
+<span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Accounts</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h2 id="adding-email">Adding email<a class="headerlink" href="#adding-email" title="Permanent link">¶</a></h2>
 <p>The Beamable SDK always has an implicit account after the <code>BeamContext</code> has been created. Various credentials may be added to the account, such as an email and password.</p>
-<pre><code class="language-csharp">public async Promise AddEmail(string email, string password)
-{
-    var result = await _beamContext.Accounts.AddEmail(email, password);
-    if (!result.isSuccess)
-    {
-        Debug.LogError($"Failed to add email, reason=[{result.error}]");
-    }
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="w"> </span><span class="nf">AddEmail</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">password</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Accounts</span><span class="p">.</span><span class="n">AddEmail</span><span class="p">(</span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">result</span><span class="p">.</span><span class="n">isSuccess</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"Failed to add email, reason=[{result.error}]"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <div class="admonition warning">
 <p class="admonition-title">Error Handling</p>
 <p>Be sure to properly handle errors that may come from <code>AddEmail</code>. For example, such errors can occur if the email address is not unique.</p>
 </div>
 <h2 id="login-user">Login user<a class="headerlink" href="#login-user" title="Permanent link">¶</a></h2>
 <p>If an email and password have been added to an existing account, that account can be recovered by supplying the original credentials. In this code snippet, the <code>RecoverAccountWithEmail</code> function returns a operation handle that shows the recovered account before setting the current <code>BeamContext</code> to that account. The <code>operation.account</code> can be used to show the user information about the account before calling the <code>SwitchToAccount</code> function, which will change the <code>BeamContext</code>'s current account.</p>
-<pre><code class="language-csharp">public async Promise Login(string email, string password)
-{
-    var operation = await _beamContext.Accounts.RecoverAccountWithEmail(email, password);
-    if (operation.isSuccess)
-    {
-        Debug.Log($"Found existing account, playerId=[{operation.account.GamerTag}]");
-        operation.SwitchToAccount();
-    }
-    else
-    {
-        Debug.LogError($"Failed to recovery account via email, reason=[{operation.error}]");
-    }
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="w"> </span><span class="nf">Login</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">password</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Accounts</span><span class="p">.</span><span class="n">RecoverAccountWithEmail</span><span class="p">(</span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">operation</span><span class="p">.</span><span class="n">isSuccess</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Found existing account, playerId=[{operation.account.GamerTag}]"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">operation</span><span class="p">.</span><span class="n">SwitchToAccount</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"Failed to recovery account via email, reason=[{operation.error}]"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <div class="admonition warning">
 <p class="admonition-title">Error Handling</p>
 <p>If login fails, you will get an error that you must handle appropriately. This can happen if the username and/or password are incorrect. More than likely, you would want to surface this error to the player via the UI.</p>

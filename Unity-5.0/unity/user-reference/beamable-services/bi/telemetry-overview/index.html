@@ -9410,58 +9410,99 @@
 <p>See the <a href="../analytics-overview/">Analytics - Guide</a> to learn more about how to query your custom telemetry data.</p>
 </div>
 <p>Start off by creating a custom event data structure. This holds the <strong>payload</strong> to be sent to Beamable.</p>
-<pre><code class="language-csharp">public class MyExampleEvent : CoreEvent
-    {
-        public MyExampleEvent(string foo, string bar) : base (
-            "example",
-            "my_example_event",
-            new Dictionary&lt;string, object&gt;
-            {
-                ["foo"] = foo,
-                ["bar"] = bar,
-                ["hello_world"] = "Hello World."
-            })
-        {
-        }
-    }
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyExampleEvent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">CoreEvent</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">MyExampleEvent</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="s">"example"</span><span class="p">,</span>
+<span class="w">            </span><span class="s">"my_example_event"</span><span class="p">,</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="na">["foo"]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span>
+<span class="w">                </span><span class="na">["bar"]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bar</span><span class="p">,</span>
+<span class="w">                </span><span class="na">["hello_world"]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello World."</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>Now that you have defined what data you want to send, you can then send that event using the <code>AnalyticsTracker.TrackEvent()</code> API. This takes your <code>CoreEvent</code> and a flag for whether you want to send it immediately or queued, which we'll talk about in the next section.</p>
-<pre><code class="language-csharp">var beamContext = BeamContext.Default;
-await beamContext.OnReady;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-//Create an instance of the data you want to send
-var foo = "lorem ipsum 1";
-var bar = "lorem ipsum 2";
-var myExampleEvent = new MyExampleEvent(foo, bar);
+<span class="c1">//Create an instance of the data you want to send</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"lorem ipsum 1"</span><span class="p">;</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"lorem ipsum 2"</span><span class="p">;</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">myExampleEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyExampleEvent</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span>
 
-//Send Immediately
-var sendImmediately = true;
-//Send the event to Beamable's Analytics Database (Athena)
-beamContext.Api.AnalyticsTracker.TrackEvent(myExampleEvent, sendImmediately);
-</code></pre>
+<span class="c1">//Send Immediately</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">sendImmediately</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="c1">//Send the event to Beamable's Analytics Database (Athena)</span>
+<span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AnalyticsTracker</span><span class="p">.</span><span class="n">TrackEvent</span><span class="p">(</span><span class="n">myExampleEvent</span><span class="p">,</span><span class="w"> </span><span class="n">sendImmediately</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>The API supports batching together multiple analytics calls (default max limit is 100) within a single client-server communication as an optimization. You will especially want to use the batching feature when you need to write high volumes of data during gameplay. The only difference here is the second parameter of TrackEvent: <code>sendImmediately</code>.</p>
-<pre><code class="language-csharp">var beamContext = BeamContext.Default;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
 
-var eventOne = new MyExampleEvent("foo1", "bar1");
-var eventTwo = new MyExampleEvent("foo2", "bar2");
-var eventThree = new MyExampleEvent("foo3", "bar3");
+<span class="kt">var</span><span class="w"> </span><span class="n">eventOne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyExampleEvent</span><span class="p">(</span><span class="s">"foo1"</span><span class="p">,</span><span class="w"> </span><span class="s">"bar1"</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">eventTwo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyExampleEvent</span><span class="p">(</span><span class="s">"foo2"</span><span class="p">,</span><span class="w"> </span><span class="s">"bar2"</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">eventThree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyExampleEvent</span><span class="p">(</span><span class="s">"foo3"</span><span class="p">,</span><span class="w"> </span><span class="s">"bar3"</span><span class="p">);</span>
 
-//Tracking them batch-style, passing sendImmediately as false
-beamContext.Api.AnalyticsTracker.TrackEvent(eventOne, false);
-beamContext.Api.AnalyticsTracker.TrackEvent(eventTwo, false);
-beamContext.Api.AnalyticsTracker.TrackEvent(eventThree, false);
-</code></pre>
+<span class="c1">//Tracking them batch-style, passing sendImmediately as false</span>
+<span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AnalyticsTracker</span><span class="p">.</span><span class="n">TrackEvent</span><span class="p">(</span><span class="n">eventOne</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">);</span>
+<span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AnalyticsTracker</span><span class="p">.</span><span class="n">TrackEvent</span><span class="p">(</span><span class="n">eventTwo</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">);</span>
+<span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AnalyticsTracker</span><span class="p">.</span><span class="n">TrackEvent</span><span class="p">(</span><span class="n">eventThree</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>Analytics event requests will be batched together into a list, then sent off as one API call either when a certain amount of requests has been reached, or after a certain amount of time passes. These values are configurable through the BatchSettings, which can be updated with <code>UpdateBatchSettings</code>. The default settings are a 1 second heartbeat, 60 second timeout, and 100 event batch size.</p>
-<pre><code class="language-csharp">var beamContext = BeamContext.Default;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
 
-beamContext.Api.AnalyticsTracker.UpdateBatchSettings(
-    new BatchSettings
-    {
-        HeartbeatInterval = 1,
-        MaxSize = 100,
-        TimeoutSeconds = 60
-    });
-</code></pre>
+<span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AnalyticsTracker</span><span class="p">.</span><span class="n">UpdateBatchSettings</span><span class="p">(</span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">BatchSettings</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">HeartbeatInterval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span>
+<span class="w">        </span><span class="n">MaxSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span>
+<span class="w">        </span><span class="n">TimeoutSeconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">60</span>
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div></td></tr></tbody></table></div>
 
 
 

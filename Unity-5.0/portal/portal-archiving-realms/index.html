@@ -9434,8 +9434,8 @@
 <p>Archiving a realm removes it from the active realm hierarchy for a game in the Beamable Portal. Use this workflow when you need to retire a game environment that your team no longer uses</p>
 <p>Only admins can archive realms. Developers and testers can log into Portal, but they cannot complete this action</p>
 <p>*<em>!!! warning "Archive child realms first"</em></p>
-<pre><code>Archive realms from the visual top of the hierarchy display down toward the production realm. This usually means starting with the `-dev` realm, unless your game has additional child realms above it in the hierarchy
-</code></pre>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Archive realms from the visual top of the hierarchy display down toward the production realm. This usually means starting with the `-dev` realm, unless your game has additional child realms above it in the hierarchy
+</code></pre></div></td></tr></tbody></table></div>
 <h2 id="archive-a-realm">Archive a realm<a class="headerlink" href="#archive-a-realm" title="Permanent link">¶</a></h2>
 <ol>
 <li>
@@ -9490,8 +9490,8 @@
 </ol>
 <p>After all Microservices in the realm are stopped, return to the realm card and archive the realm</p>
 <p>*<em>!!! tip "Stop services one at a time"</em></p>
-<pre><code>Wait until each Microservice is marked as stopped before stopping the next one. This keeps the Portal state clear and makes the archive flow smoother
-</code></pre>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Wait until each Microservice is marked as stopped before stopping the next one. This keeps the Portal state clear and makes the archive flow smoother
+</code></pre></div></td></tr></tbody></table></div>
 <h2 id="archive-a-games-realm-hierarchy">Archive a game's realm hierarchy<a class="headerlink" href="#archive-a-games-realm-hierarchy" title="Permanent link">¶</a></h2>
 <p>To archive a full game hierarchy, repeat the archive workflow for each realm. Start at the visual top of the hierarchy display and move downward until you reach the production realm</p>
 <p>Although Beamable teams often describe development realms as "lower" environments, the Portal hierarchy displays them visually above production. In practice, archive from the least important child realm toward the most important parent realm. The usual order is:</p>
@@ -9508,8 +9508,8 @@
 </ol>
 <p>The production realm's <em>Archive</em> button may appear grayed out. You can still click it after the child realms have been archived</p>
 <p>*<em>!!! note "If you cannot archive a realm"</em></p>
-<pre><code>Confirm that your account has the admin role for the game. If you have a developer or tester role, Portal will not let you archive realms
-</code></pre>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Confirm that your account has the admin role for the game. If you have a developer or tester role, Portal will not let you archive realms
+</code></pre></div></td></tr></tbody></table></div>
 
 
 

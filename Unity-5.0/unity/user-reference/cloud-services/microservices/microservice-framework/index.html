@@ -9829,16 +9829,24 @@
 <p>To use Microservices, you will need to install <a href="https://dotnet.microsoft.com/en-us/download">.NET 8</a> onto your machine. In order to publish services, you will need to install <a href="https://www.docker.com/products/docker-desktop/">Docker</a>. (You <em>do not</em> need to create a Docker account). These are only development dependencies.</p>
 </div>
 <p>The basic gist of a Beamable Microservice is a simple class like the one below,</p>
-<pre><code class="language-csharp">[Microservice("ExampleService")]
-public partial class ExampleService : Microservice
-{
-    [ClientCallable]
-    public int Add(int a, int b)
-    {
-        return a + b;
-    }
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Microservice("ExampleService")]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ExampleService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[ClientCallable]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>The <code>Add</code> method will be available as a callable HTTP route on the service. The serialization of the parameters and response types happen automatically as JSON based conversions. Client code is generated for Unity and Unreal as part of our engine integrations. Beamable handles the deployment, routing, and scaling of these services.</p>
 <h2 id="microservices-framework">Microservices framework<a class="headerlink" href="#microservices-framework" title="Permanent link">¶</a></h2>
 <p>The Microservices use a framework for managing user requests and facilitating access to the rest of Beamable's feature suite.</p>
@@ -9846,17 +9854,21 @@ public partial class ExampleService : Microservice
 <p>When a <code>[ClientCallable]</code> method executes, there is an available class field, <code>Context</code>, that contains information about the HTTP request responsible for initiating the <code>[ClientCallable]</code>.</p>
 <h4 id="access-caller-information">Access caller information<a class="headerlink" href="#access-caller-information" title="Permanent link">¶</a></h4>
 <p>It is common to require a player id for several operations that take place in a Microservice. The Player Id can be acquired through the <code>Context</code> property as the <code>UserId</code>. The given Player Id will be the Player id for the player that initiated the request. If no <code>Authorization</code> header was given to the HTTP call, such as calling a <code>[Callable]</code> method, then the <code>UserId</code> may be 0, implying there is no player associated with the call.</p>
-<pre><code class="language-csharp">[ClientCallable]
-public void RequestDetails()
-{
-  var playerId = Context.UserId;
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ClientCallable]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RequestDetails</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">var</span><span class="w"> </span><span class="n">playerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Context</span><span class="p">.</span><span class="n">UserId</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <div class="admonition info">
 <p class="admonition-title">Account Id</p>
 <p>Sometimes, Beamable features require an Account Id instead of a Player Id. If a player signs up on a single realm, they get a <em>Player Id</em> for that realm, and a global <em>Account Id</em>. When they sign up on a <em>second</em> realm (perhaps a developer account, or on a second game), they get a new <em>Player Id</em> for the new realm, but they use the same global <em>Account Id</em> as before.</p>
-<p><code>csharp
-var accountId = Context.AccountId;</code></p>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">accountId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Context</span><span class="p">.</span><span class="n">AccountId</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
 </div>
 <h4 id="access-unity-version-via-headers">Access Unity version via headers<a class="headerlink" href="#access-unity-version-via-headers" title="Permanent link">¶</a></h4>
 <p>The HTTP headers can be found via the <code>Context.Headers</code> property. The <code>Headers</code> is a <code>Dictionary&lt;string, string&gt;</code>, where the keys represent HTTP header names, and the values represent HTTP header values.</p>
@@ -9900,25 +9912,39 @@ var accountId = Context.AccountId;</code></p>
 <p>These headers are sent automatically from the Unity SDK. If a request is sent from elsewhere, such as a custom script, the headers may not be present.</p>
 <h4 id="handling-request-timeouts">Handling request timeouts<a class="headerlink" href="#handling-request-timeouts" title="Permanent link">¶</a></h4>
 <p>It is possible that a request may timeout while it is executing. Long running loops are one example. In the code below, the <code>while</code> loop never completes, so the method never returns a value, so the request will timeout.</p>
-<pre><code class="language-csharp">[ClientCallable]
-public int Example();
-{
-  while (true) { }
-  return 1;
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ClientCallable]</span>
+<span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Example</span><span class="p">();</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>However, despite the request timing out and the client receiving an HTTP 504 error, the Microservice will <em>still be processing the loop</em>. This is a major performance problem, because the CPU will never yield control to other request executions. Essentially, anytime a request is caught in a non terminating loop, the entire Microservice performance profile suffers dramatically. Ensure loops always terminate. In Beamable 1.9, the <code>Context</code> variable has a property, <code>Context.IsCancelled</code>, that returns <code>true</code> if the request has timed out. There is also a <code>Context.ThrowIfCancelled()</code> method that will throw a task cancellation exception. Always include the <code>ThrowIfCancelled()</code> method in long-running loops, as shown below.</p>
-<pre><code class="language-csharp">[ClientCallable]
-public int Example();
-{
-  while (true)
-  {
-     // if the request has not been canceled, this is a no-op.
-     Context.ThrowIfCancelled();
-  }
-  return 1;
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ClientCallable]</span>
+<span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Example</span><span class="p">();</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">     </span><span class="c1">// if the request has not been canceled, this is a no-op.</span>
+<span class="w">     </span><span class="n">Context</span><span class="p">.</span><span class="n">ThrowIfCancelled</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="organizing-microservices-code">Organizing Microservices' code<a class="headerlink" href="#organizing-microservices-code" title="Permanent link">¶</a></h3>
 <p>As your project grows, you may want to split your C#MS code across multiple C#MSs to keep it organized.</p>
 <p>However, doing so has implications you should take into consideration when deciding things for your project. In many cases, it is possible to simplify C#MS and reduce the quantity without sacrificing functionality.</p>
@@ -9935,23 +9961,38 @@ public int Example();
 </ul>
 <p>So, what can you do to share and organize code without incurring costs or adding complexity to your C#MS?</p>
 <p>You can leverage C# partial classes, which we support when detecting <code>ClientCallables</code>. The following snippets will define a single C#MS called <code>MyPartialMs</code> with two <code>ClientCallables</code>: <code>DoSomethingRelatedToA()</code> and <code>DoSomethingRelatedToB()</code>.</p>
-<pre><code class="language-csharp">// MyPartialMs.A.cs
-[Microservice("MyPartialMs")]
-public partial class MyPartialMs : Microservice {
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// MyPartialMs.A.cs</span>
+<span class="na">[Microservice("MyPartialMs")]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyPartialMs</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{</span>
 
-    [ClientCallable]
-    public void DoSomethingRelatedToA(){
-    }
-}
+<span class="w">    </span><span class="na">[ClientCallable]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DoSomethingRelatedToA</span><span class="p">(){</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-// MyPartialMs.B.cs
-public partial class MyPartialMs {
+<span class="c1">// MyPartialMs.B.cs</span>
+<span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyPartialMs</span><span class="w"> </span><span class="p">{</span>
 
-    [ClientCallable]
-    public void DoSomethingRelatedToB(){
-    }
-}
-</code></pre>
+<span class="w">    </span><span class="na">[ClientCallable]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DoSomethingRelatedToB</span><span class="p">(){</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>The result is that you have two <code>ClientCallables</code> in the same <code>MyPartialMs</code> but in separate files. The same thing works for utility functions and other similar things.</p>
 <h4 id="what-should-i-use-different-cmss-for">What should I use different C#MSs for?<a class="headerlink" href="#what-should-i-use-different-cmss-for" title="Permanent link">¶</a></h4>
 <p>Basically, the decision for this has to do with expected traffic hitting that feature/service and how its resources are expected to scale. When reasoning about this, here are a couple of things to keep in mind:</p>
@@ -9971,7 +10012,7 @@ public partial class MyPartialMs {
 <li>Code organization should not factor into this decision if you want the maximum bang for your buck while using Beamable C# Microservices</li>
 </ul>
 <p>If the above is true and you still wish to share code between two different microservices, architect your code and functions so that the parts that are worth sharing can be pulled into a separate AssemblyDefinition both services reference. Keep in mind that you should only do this if the complexity is worth the code reuse — over-using AssemblyDefinitions can increase overall project complexity for not that much gain.</p>
-<p>All-in-all, this is a very game-specific decision. Our goal is to provide guidelines and tools to help you make it. Currently, you can see CPU/Memory utilization metrics in the Dev Portal's C#MS section; in the future, we may track more specific metrics to support better decision-making.</p>
+<p>All-in-all, this is a very game-specific decision. Our goal is to provide guidelines and tools to help you make it. Currently, you can see CPU/Memory utilization metrics in the Portal's C#MS section; in the future, we may track more specific metrics to support better decision-making.</p>
 <h3 id="designing-microservice-methods">Designing Microservice methods<a class="headerlink" href="#designing-microservice-methods" title="Permanent link">¶</a></h3>
 <p>When designing each microservice method, a key question is 'Who is allowed access?'. Game makers control this access with Microservice method attributes.</p>
 <p><strong>Microservice Method Attributes</strong></p>
@@ -10049,39 +10090,62 @@ public partial class MyPartialMs {
 <p>Below are two versions of the same method call with varied implementations. Notice that #2 handles more functionality on the Microservice-side and is thus more secure.</p>
 <p><strong>#1. Method Without Beamable Services</strong></p>
 <p>Here the eligibility of reward is evaluated and the amount is calculated. This assumes the client will handle the rewarding of the currency.</p>
-<pre><code class="language-csharp">[ClientCallable]
-public int GetLootboxReward()
-{
-  // if (IsAllowed), then reward 100 gold
-  return 100;
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ClientCallable]</span>
+<span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">GetLootboxReward</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// if (IsAllowed), then reward 100 gold</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="m">100</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p><strong>#2. Method With Beamable Services</strong></p>
 <p>Here the eligibility of reward is evaluated, the amount is calculated, and the currency is rewarded.</p>
-<pre><code class="language-csharp">[ClientCallable]
-public async Task&lt;bool&gt; GetLootboxReward()
-{
-  // if (IsAllowed), then reward 100 gold
-  await Services.Inventory.AddCurrencies(
-    new Dictionary&lt;string, long&gt; {{"currencies.gold", 100}});
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ClientCallable]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetLootboxReward</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// if (IsAllowed), then reward 100 gold</span>
+<span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Inventory</span><span class="p">.</span><span class="n">AddCurrencies</span><span class="p">(</span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{{</span><span class="s">"currencies.gold"</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">}});</span>
 
-  // Optional: Return success, if needed
-  return true;
-}
-</code></pre>
+<span class="w">  </span><span class="c1">// Optional: Return success, if needed</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="making-external-http-calls">Making external HTTP calls<a class="headerlink" href="#making-external-http-calls" title="Permanent link">¶</a></h3>
 <p>This example code will make an external HTTP call from the Beamable Microservice.</p>
-<pre><code class="language-csharp">[ClientCallable]
-public async Task&lt;string&gt; GetCommitDescription()
-{
-  var service = Provider.GetService&lt;IHttpRequester&gt;();
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[ClientCallable]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetCommitDescription</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">var</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Provider</span><span class="p">.</span><span class="n">GetService</span><span class="o">&lt;</span><span class="n">IHttpRequester</span><span class="o">&gt;</span><span class="p">();</span>
 
-  var commit = await service.ManualRequest(Method.GET,"https://whatthecommit.com/index.txt", parser: s =&gt; s);
-  BeamableLogger.Log(commit);
+<span class="w">  </span><span class="kt">var</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="n">ManualRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">,</span><span class="s">"https://whatthecommit.com/index.txt"</span><span class="p">,</span><span class="w"> </span><span class="n">parser</span><span class="p">:</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+<span class="w">  </span><span class="n">BeamableLogger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">commit</span><span class="p">);</span>
 
-  return commit;
-}
-</code></pre>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">commit</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <div class="admonition info">
 <p class="admonition-title">Custom HttpClient Implementation</p>
 <p>You can also implement your own services that will handle calling other sites.</p>
@@ -10107,27 +10171,46 @@ public async Task&lt;string&gt; GetCommitDescription()
 </table>
 <h3 id="handling-errors">Handling errors<a class="headerlink" href="#handling-errors" title="Permanent link">¶</a></h3>
 <p>When a call to a Beamable service fails, it will throw a <code>RequesterException</code>. The exception can be caught using standard C# try/catch practices. In the example below, the call to <code>SetCurrency</code> will fail, and the <code>catch</code> block will capture a <code>RequesterException</code> that exposes details about the failure.</p>
-<pre><code class="language-csharp">using Beamable.Common.Api;
-using Beamable.Server;
-using System.Threading.Tasks;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Api</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Server</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
 
-namespace Beamable.Microservices {
-  [Microservice("ErrorDemo")]
-  public class ErrorDemo: Microservice {
-    [ClientCallable]
-    public async Task &lt; string &gt; ServerCall() {
-      try {
-        // do something that will trigger a failure, like trying to reference a piece of content that doesn't exist.
-        await Services.Inventory.SetCurrency("does-not-exist-so-it-will-trigger-a-400", 0);
-      } catch (RequesterException ex) {
-        return $ "{ex.Method.ToReadableString()} / {ex.Payload} / {ex.Prefix} / {ex.Status} / {ex.Uri} / {ex.RequestError.error} / {ex.RequestError.message} / {ex.RequestError.service}";
-      }
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Microservices</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">[Microservice("ErrorDemo")]</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ErrorDemo</span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">[ClientCallable]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">ServerCall</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// do something that will trigger a failure, like trying to reference a piece of content that doesn't exist.</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Inventory</span><span class="p">.</span><span class="n">SetCurrency</span><span class="p">(</span><span class="s">"does-not-exist-so-it-will-trigger-a-400"</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">RequesterException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="s">"{ex.Method.ToReadableString()} / {ex.Payload} / {ex.Prefix} / {ex.Status} / {ex.Uri} / {ex.RequestError.error} / {ex.RequestError.message} / {ex.RequestError.service}"</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
 
-      return "okay";
-    }
-  }
-}
-</code></pre>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"okay"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <div class="admonition info">
 <p class="admonition-title">Share Exception code with Unity</p>
 <p>The <code>RequesterException</code> is the same type of exception that is thrown on the Unity client SDK in the event of a Beamable networking error. You can catch the same type and use the same error handling logic.</p>
@@ -10143,13 +10226,13 @@ namespace Beamable.Microservices {
 <h2 id="using-published-services">Using published services<a class="headerlink" href="#using-published-services" title="Permanent link">¶</a></h2>
 <p>Once the services have been published, they are viewable on the Beamable Portal. Services logs, metrics, and openAPI specification can be accessed for these remote services.</p>
 <h3 id="remote-logging">Remote logging<a class="headerlink" href="#remote-logging" title="Permanent link">¶</a></h3>
-<p>By default, Microservices use an INFO log level when published.</p>
+<p>By default, Microservices use an <code>"info"</code> log level when published.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>However, Microservices use a DEBUG log level when running locally.</p>
+<p>However, Microservices use a <code>"debug"</code> log level when running locally.</p>
 </div>
 <p>If you need to change the log level, consider first using request based log level controls. Navigate to the microservice section of the Portal, and create a Log Config Rule for your desired service. You can change the log level dynamically per request based on what player is requesting the service, or which route is being invoked.</p>
-<p>For example, you could enable DEBUG logging for a player that called into your customer support line, or enable DEBUG logs for a particularly sensitive route.</p>
+<p>For example, you could enable <code>"debug"</code> logging for a player that called into your customer support line, or enable <code>"debug"</code> logs for a particularly sensitive route.</p>
 <p>You can also use the Log Config section to change the default request level.</p>
 <p>It is also possible to change the default log level for a service by using Realm Config.</p>
 <div class="admonition tip">

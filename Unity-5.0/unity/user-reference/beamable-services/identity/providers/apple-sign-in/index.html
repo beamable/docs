@@ -9526,74 +9526,121 @@
 <p>Since Apple Sign-In is only supported on Apple devices, it is recommended to wrap your core functionality in <code>#if UNITY_IOS</code> and a matching <code>#endif</code> to prevent compilation on non-iOS devices.</p>
 </div>
 <p>The first step is to initialize a new instance of SignInWithApple:</p>
-<pre><code class="language-csharp">private SignInWithApple signInWithApple;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="n">SignInWithApple</span><span class="w"> </span><span class="n">signInWithApple</span><span class="p">;</span>
 
-private void Start()
-{
-    signInWithApple = new SignInWithApple();
-}
-</code></pre>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">signInWithApple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SignInWithApple</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>Call the next function from a UI button or interface where the user intends to start the sign-in process. Similar to the other third party login code, we just need to retrieve the token for the user then add a third party credential to a new or existing user.</p>
-<pre><code class="language-csharp">public void StartAppleLogin()
-{
-    #if UNITY_IOS
-    signInWithApple.Login(callbackArgs =&gt;
-    {
-        if (!string.IsNullOrEmpty(callbackArgs.error))
-        {
-            //An error happened, notify user
-        }
-        else
-        {
-            var token = callbackArgs.userInfo.idToken;
-            //We have the token, see below functions
-        }
-    });
-    #else
-    // We aren't on an Apple device, so don't do anything
-    #endif
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">StartAppleLogin</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cp">#if UNITY_IOS</span>
+<span class="w">    </span><span class="n">signInWithApple</span><span class="p">.</span><span class="n">Login</span><span class="p">(</span><span class="n">callbackArgs</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">callbackArgs</span><span class="p">.</span><span class="n">error</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">//An error happened, notify user</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">callbackArgs</span><span class="p">.</span><span class="n">userInfo</span><span class="p">.</span><span class="n">idToken</span><span class="p">;</span>
+<span class="w">            </span><span class="c1">//We have the token, see below functions</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">    </span><span class="cp">#else</span>
+<span class="w">    </span><span class="c1">// We aren't on an Apple device, so don't do anything</span>
+<span class="w">    </span><span class="cp">#endif</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h2 id="handle-various-flow-scenarios">Handle various flow scenarios<a class="headerlink" href="#handle-various-flow-scenarios" title="Permanent link">¶</a></h2>
 <p>Depending on the state of the currently logged in user, we may need to attach the credentials to the current user, switch to a different user, or create a new one entirely. The following code covers all 3 cases.</p>
-<pre><code class="language-csharp">//Specify the third party auth provider
-var thirdParty = AuthThirdParty.Apple;
-//Get information about the user's third party credential
-var available = await _beamContext.Api.AuthService.IsThirdPartyAvailable(thirdParty, token);
-var userHasCredentials = _beamContext.Api.User.HasThirdPartyAssociation(thirdParty);
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//Specify the third party auth provider</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">thirdParty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">Apple</span><span class="p">;</span>
+<span class="c1">//Get information about the user's third party credential</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">IsThirdPartyAvailable</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">HasThirdPartyAssociation</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">);</span>
 
-//Should we switch to a user that's not currently logged in?
-var shouldSwitchUsers = !available;
-//Should we create a brand new user with these credentials?
-var shouldCreateUser = available &amp;&amp; userHasCredentials;
-//Should we attach the credentials to an existing user?
-var shouldAttachToCurrentUser = available &amp;&amp; !userHasCredentials;
-</code></pre>
+<span class="c1">//Should we switch to a user that's not currently logged in?</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">shouldSwitchUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">available</span><span class="p">;</span>
+<span class="c1">//Should we create a brand new user with these credentials?</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">shouldCreateUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="p">;</span>
+<span class="c1">//Should we attach the credentials to an existing user?</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">shouldAttachToCurrentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">userHasCredentials</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="should-switch-users">Should switch users<a class="headerlink" href="#should-switch-users" title="Permanent link">¶</a></h3>
 <p>Here we are authenticating the third party (Apple) with Beamable by logging them in using the LoginThirdParty API.</p>
-<pre><code class="language-csharp">if(shouldSwitchUsers)
-{
-    await _beamContext.Api.AuthService.LoginThirdParty(thirdParty, token, false);
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">shouldSwitchUsers</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">LoginThirdParty</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="should-create-user">Should create user<a class="headerlink" href="#should-create-user" title="Permanent link">¶</a></h3>
 <p>Here we create a new user, apply the current token to that user, then register the third party login (Apple) using the RegisterThirdPartyCredentials API. We take the user returned and then update the user data.</p>
-<pre><code class="language-csharp">if(shouldCreateUser)
-{
-    var tokenResponse = await _beamContext.Api.AuthService.CreateUser();
-    _beamContext.Api.ApplyToken(tokenResponse);
-    var user = await _beamContext.Api.AuthService.RegisterThirdPartyCredentials(thirdParty, token);
-    _beamContext.Api.UpdateUserData(user);
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">shouldCreateUser</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">tokenResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">CreateUser</span><span class="p">();</span>
+<span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ApplyToken</span><span class="p">(</span><span class="n">tokenResponse</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">RegisterThirdPartyCredentials</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
+<span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">UpdateUserData</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="should-update-current-user">Should update current user<a class="headerlink" href="#should-update-current-user" title="Permanent link">¶</a></h3>
 <p>Here we are attaching to the current user with the Apple token. This scenario is essentially "auto-login". The Apple user has already been linked with the current Beamable user and we can safely apply the token.</p>
-<pre><code class="language-csharp">if(shouldAttachToCurrentUser)
-{
-    var user = await _beamContext.Api.AuthService.RegisterThirdPartyCredentials(thirdParty, token);
-    _beamContext.Api.UpdateUserData(user);
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">shouldAttachToCurrentUser</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">RegisterThirdPartyCredentials</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
+<span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">UpdateUserData</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h2 id="apples-app-privacy-questionnaire">Apple's app privacy questionnaire<a class="headerlink" href="#apples-app-privacy-questionnaire" title="Permanent link">¶</a></h2>
 <p>Any developer that wants to submit a new application or app update to the Apple App Store is required to submit an application privacy questionnaire specifying which data is collected by their app and the data collected by any SDKs integrated into their app. <a href="https://developer.apple.com/app-store/app-privacy-details/">More information.</a></p>
 <p>If you are using Beamable, and are attempting to fill out the Apple privacy questionnaire, please refer to the details below that explain what forms of data are collected by the Beamable SDK.</p>

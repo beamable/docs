@@ -9632,7 +9632,7 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/google-play-license-key.png" data-desc-position="bottom"><img alt="Google Play License Key" src="../../../media/imgs/google-play-license-key.png" style="height:auto;width:500px"></a></p>
 <p>Add the license key from the Google Play Console into the project settings. If your license key is recognized, you should see the success message under the textbox input.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/unity-project-settings-license.png" data-desc-position="bottom"><img alt="Unity Project Settings License" src="../../../media/imgs/unity-project-settings-license.png" style="height:auto;width:500px"></a></p>
-<p>Finally, add your license key to your realm configuration. Under the <code>payments</code> namespace, create a new key called <code>googleplay.key</code>, with the value being your license key.</p>
+<p>Finally, add your license key to your realm configuration. Under the <code>"payments"</code> namespace, create a new key called <code>"googleplay.key"</code>, with the value being your license key.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/beamable-realm-config.png" data-desc-position="bottom"><img alt="Beamable Realm Config" src="../../../media/imgs/beamable-realm-config.png" style="height:auto;width:500px"></a></p>
 <h2 id="step-6-setup-products-unity">Step 6. setup products (Unity)<a class="headerlink" href="#step-6-setup-products-unity" title="Permanent link">¶</a></h2>
 <p>Back in Unity, we'll need to set up a store and create listings for the purchasable items. Unlike items that are purchased with virtual currency, real money items use SKUs as the price for the listing. Otherwise, the setup is mostly identical. For more info on virtual currency purchases or basic store setup, see <a href="doc:stores-guide">Stores - Guide</a>.</p>
@@ -9668,56 +9668,104 @@
 </table>
 <h2 id="step-7-scripting">Step 7. scripting<a class="headerlink" href="#step-7-scripting" title="Permanent link">¶</a></h2>
 <p>Now that our content is setup and our Google Play app is configured properly, we are ready to attempt a purchase. The code below is a snippet from the Purchasing sample.</p>
-<pre><code class="language-csharp">using Beamable;
-using Beamable.Common.Shop;
-using UnityEngine;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Shop</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-public class IAPExample : MonoBehaviour
-{
-    private BeamContext _context;
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">IAPExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">BeamContext</span><span class="w"> </span><span class="n">_context</span><span class="p">;</span>
 
-    private async void Start()
-    {
-        _context = BeamContext.Default;
-        await _context.OnReady;
-        Debug.Log($"Beamable finished initialization, PlayerId: {_context.PlayerId}");
-    }
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">_context</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Beamable finished initialization, PlayerId: {_context.PlayerId}"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    public async void MakePurchase(string listingId)
-    {
-        // We're creating a new ListingRef and resolving it just so we can continue
-        // using this function with a string parameter from the Unity inspector.
-        // This could just as easily work passing in a ListingRef as well, and
-        // skipping the construction of a new one.
-        var listing = await new ListingRef {Id = listingId}.Resolve();
-        var skuId = listing.price.symbol;
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">MakePurchase</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">listingId</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// We're creating a new ListingRef and resolving it just so we can continue</span>
+<span class="w">        </span><span class="c1">// using this function with a string parameter from the Unity inspector.</span>
+<span class="w">        </span><span class="c1">// This could just as easily work passing in a ListingRef as well, and</span>
+<span class="w">        </span><span class="c1">// skipping the construction of a new one.</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">listing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListingRef</span><span class="w"> </span><span class="p">{</span><span class="n">Id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listingId</span><span class="p">}.</span><span class="n">Resolve</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">skuId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listing</span><span class="p">.</span><span class="n">price</span><span class="p">.</span><span class="n">symbol</span><span class="p">;</span>
 
-        // This validates the existence of the SKU. Since the content service won't allow you to assign an
-        // invalid SKU to a Listing, this shouldn't really be necessary, but you can at least validate
-        // that your content is set up properly.
-        var skusResponse = await _context.Api.PaymentService.GetSKUs();
-        var sku = skusResponse.skus.definitions.Find(i =&gt; i.name == skuId);
-        if (sku == null)
-        {
-            Debug.LogError("Sku not found.");
-            return;
-        }
+<span class="w">        </span><span class="c1">// This validates the existence of the SKU. Since the content service won't allow you to assign an</span>
+<span class="w">        </span><span class="c1">// invalid SKU to a Listing, this shouldn't really be necessary, but you can at least validate</span>
+<span class="w">        </span><span class="c1">// that your content is set up properly.</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">skusResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_context</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">PaymentService</span><span class="p">.</span><span class="n">GetSKUs</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">sku</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">skusResponse</span><span class="p">.</span><span class="n">skus</span><span class="p">.</span><span class="n">definitions</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">skuId</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sku</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">"Sku not found."</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 
-        // These are the two parameters necessary for purchasing using Beamable IAP.
-        Debug.Log($"listingSymbol {listing.Id}, skuSymbol: {sku.name}");
+<span class="w">        </span><span class="c1">// These are the two parameters necessary for purchasing using Beamable IAP.</span>
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"listingSymbol {listing.Id}, skuSymbol: {sku.name}"</span><span class="p">);</span>
 
-        // In editor, BeamableIAP will be a test purchaser. On device, this will defer to whichever purchasing
-        // service your platform uses (Android -&gt; Google Play, Apple -&gt; iTunes Store, etc)
-        var purchaser = await _context.Api.BeamableIAP;
-        var purchaseResult = await purchaser.StartPurchase(listing.Id, sku.name)
-            .Error(Debug.LogError);
+<span class="w">        </span><span class="c1">// In editor, BeamableIAP will be a test purchaser. On device, this will defer to whichever purchasing</span>
+<span class="w">        </span><span class="c1">// service your platform uses (Android -&gt; Google Play, Apple -&gt; iTunes Store, etc)</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">purchaser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_context</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">BeamableIAP</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">purchaseResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">purchaser</span><span class="p">.</span><span class="n">StartPurchase</span><span class="p">(</span><span class="n">listing</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="n">sku</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">);</span>
 
-        if (string.IsNullOrEmpty(purchaseResult.Receipt)) return;
-        Debug.Log(purchaseResult.Receipt);
-        Debug.Log("Purchase successful!");
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">purchaseResult</span><span class="p">.</span><span class="n">Receipt</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">purchaseResult</span><span class="p">.</span><span class="n">Receipt</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Purchase successful!"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h2 id="step-8-run-and-test">Step 8. run and test<a class="headerlink" href="#step-8-run-and-test" title="Permanent link">¶</a></h2>
 <p>This project can be run in either the Unity editor, or built to an Android device and tested there. Simply press one of the two buttons to initiate a purchase.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/android-iap-game-view.png" data-desc-position="bottom"><img alt="Android IAP Game View" src="../../../media/imgs/android-iap-game-view.png" style="height:auto;width:200px"></a></p>

@@ -9503,245 +9503,474 @@
 <p>The main API components are <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Common_1_1Api_1_1Inventory_1_1InventoryUpdateBuilder.html#details"><code>InventoryUpdateBuilder</code></a> which builds a list of one or more currency operations to execute, and <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1Inventory_1_1InventoryService.html#details"><code>InventoryService</code></a> which executes the currency operations.</p>
 <p><em>Note</em>: This Beamable system handles player inventory of items <strong>and also</strong> currency.</p>
 <h3 id="adding-currency">Adding currency<a class="headerlink" href="#adding-currency" title="Permanent link">¶</a></h3>
-<pre><code class="language-csharp">public async void AddCurrency()
-{
-   // Resolve Reference
-   var currencyContentPrimary =  await _currencyRefPrimary.Resolve();
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddCurrency</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="c1">// Resolve Reference</span>
+<span class="w">   </span><span class="kt">var</span><span class="w"> </span><span class="n">currencyContentPrimary</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="n">_currencyRefPrimary</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
 
-   // List the operations
-   InventoryUpdateBuilder inventoryUpdateBuilder = new InventoryUpdateBuilder();
-   inventoryUpdateBuilder.CurrencyChange(currencyContentPrimary.Id, +1);
+<span class="w">   </span><span class="c1">// List the operations</span>
+<span class="w">   </span><span class="n">InventoryUpdateBuilder</span><span class="w"> </span><span class="n">inventoryUpdateBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InventoryUpdateBuilder</span><span class="p">();</span>
+<span class="w">   </span><span class="n">inventoryUpdateBuilder</span><span class="p">.</span><span class="n">CurrencyChange</span><span class="p">(</span><span class="n">currencyContentPrimary</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="o">+</span><span class="m">1</span><span class="p">);</span>
 
-   // Execute the operations
-   await _beamContext.Inventory.Update(inventoryUpdateBuilder).Then(obj =&gt;
-   {
-      Debug.Log($"AddCurrency() success.");
-   });
-}
-</code></pre>
+<span class="w">   </span><span class="c1">// Execute the operations</span>
+<span class="w">   </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Inventory</span><span class="p">.</span><span class="n">Update</span><span class="p">(</span><span class="n">inventoryUpdateBuilder</span><span class="p">).</span><span class="n">Then</span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"AddCurrency() success."</span><span class="p">);</span>
+<span class="w">   </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="removing-currency">Removing currency<a class="headerlink" href="#removing-currency" title="Permanent link">¶</a></h3>
-<pre><code class="language-csharp">public async void RemoveCurrency()
-{
-   // Resolve Reference
-   var currencyContentPrimary =  await _currencyRefPrimary.Resolve();
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RemoveCurrency</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="c1">// Resolve Reference</span>
+<span class="w">   </span><span class="kt">var</span><span class="w"> </span><span class="n">currencyContentPrimary</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="n">_currencyRefPrimary</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
 
-   // List the operations
-   InventoryUpdateBuilder inventoryUpdateBuilder = new InventoryUpdateBuilder();
-   inventoryUpdateBuilder.CurrencyChange(currencyContentPrimary.Id, -1);
+<span class="w">   </span><span class="c1">// List the operations</span>
+<span class="w">   </span><span class="n">InventoryUpdateBuilder</span><span class="w"> </span><span class="n">inventoryUpdateBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InventoryUpdateBuilder</span><span class="p">();</span>
+<span class="w">   </span><span class="n">inventoryUpdateBuilder</span><span class="p">.</span><span class="n">CurrencyChange</span><span class="p">(</span><span class="n">currencyContentPrimary</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">);</span>
 
-   // Execute the operations
-   await _beamContext.Inventory.Update(inventoryUpdateBuilder).Then(obj =&gt;
-   {
-      Debug.Log($"RemoveCurrency() success.");
-   });
-}
-</code></pre>
+<span class="w">   </span><span class="c1">// Execute the operations</span>
+<span class="w">   </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Inventory</span><span class="p">.</span><span class="n">Update</span><span class="p">(</span><span class="n">inventoryUpdateBuilder</span><span class="p">).</span><span class="n">Then</span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"RemoveCurrency() success."</span><span class="p">);</span>
+<span class="w">   </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="sample-code">Sample code<a class="headerlink" href="#sample-code" title="Permanent link">¶</a></h3>
 <p>This sample code will subscribe to changes in the available currencies, and the player's owned currencies. It also provides methods to add, remove, and trade between two currencies.</p>
-<p>InventoryCurrencyExample.cs</p>
-<pre><code class="language-csharp">using System.Collections.Generic;
-using System.Linq;
-using Beamable.Common.Api.Inventory;
-using Beamable.Common.Content;
-using Beamable.Common.Inventory;
-using Beamable.Examples.Shared;
-using UnityEngine;
-using UnityEngine.Events;
+<p>InventoryCurrencyExample.cs
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Api.Inventory</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Inventory</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Examples.Shared</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine.Events</span><span class="p">;</span>
 
-namespace Beamable.Examples.Services.InventoryService.InventoryCurrencyExample
-{
-   [System.Serializable]
-   public class InventoryCurrencyExampleEvent : UnityEvent&lt;InventoryCurrencyExampleData&gt; { }
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.InventoryService.InventoryCurrencyExample</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="na">[System.Serializable]</span>
+<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">InventoryCurrencyExampleEvent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">UnityEvent</span><span class="o">&lt;</span><span class="n">InventoryCurrencyExampleData</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 
-   /// &lt;summary&gt;
-   /// Demonstrates &lt;see cref="InventoryService"/&gt;.
-   /// &lt;/summary&gt;
-   public class InventoryCurrencyExample : MonoBehaviour
-   {
-      //  Events  ---------------------------------------
-      [HideInInspector]
-      public InventoryCurrencyExampleEvent OnRefreshed = new InventoryCurrencyExampleEvent();
+<span class="w">   </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">   </span><span class="c1">/// Demonstrates &lt;see cref="InventoryService"/&gt;.</span>
+<span class="w">   </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">InventoryCurrencyExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">//  Events  ---------------------------------------</span>
+<span class="w">      </span><span class="na">[HideInInspector]</span>
+<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="n">InventoryCurrencyExampleEvent</span><span class="w"> </span><span class="n">OnRefreshed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InventoryCurrencyExampleEvent</span><span class="p">();</span>
 
-      //  Fields  ---------------------------------------
-      [SerializeField] private CurrencyRef _currencyRefPrimary = null;
-      [SerializeField] private CurrencyRef _currencyRefSecondary = null;
+<span class="w">      </span><span class="c1">//  Fields  ---------------------------------------</span>
+<span class="w">      </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">CurrencyRef</span><span class="w"> </span><span class="n">_currencyRefPrimary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<span class="w">      </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">CurrencyRef</span><span class="w"> </span><span class="n">_currencyRefSecondary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
 
-      private BeamContext _beamContext;
-      private const int CurrencyDeltaPerClick = 1;
-      private const string ContentType = "currency";
-      private readonly InventoryCurrencyExampleData _inventoryCurrencyExampleData = new
-          InventoryCurrencyExampleData();
+<span class="w">      </span><span class="k">private</span><span class="w"> </span><span class="n">BeamContext</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">;</span>
+<span class="w">      </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">CurrencyDeltaPerClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<span class="w">      </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">ContentType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"currency"</span><span class="p">;</span>
+<span class="w">      </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">InventoryCurrencyExampleData</span><span class="w"> </span><span class="n">_inventoryCurrencyExampleData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span>
+<span class="w">          </span><span class="n">InventoryCurrencyExampleData</span><span class="p">();</span>
 
-      //  Unity Methods  --------------------------------
-      protected void Start()
-      {
-         Debug.Log($"Start()");
+<span class="w">      </span><span class="c1">//  Unity Methods  --------------------------------</span>
+<span class="w">      </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start()"</span><span class="p">);</span>
 
-         SetupBeamable();
-      }
-
-
-      //  Methods  --------------------------------------
-      private async void SetupBeamable()
-      {
-
-         _beamContext = await BeamContext.Default.Instance;
-
-         Debug.Log($"_beamContext.PlayerId = {_beamContext.PlayerId}");
-
-         _inventoryCurrencyExampleData.CurrencyContentPrimary =
-            await _currencyRefPrimary.Resolve();
-
-         _inventoryCurrencyExampleData.CurrencyContentSecondary =
-            await _currencyRefSecondary.Resolve();
-
-         // All currencies (Available in game)
-         _beamContext.Api.ContentService.Subscribe(ContentService_OnChanged);
-
-         // Filtered currencies (Owned by current player)
-         _beamContext.Api.InventoryService.Subscribe(ContentType, InventoryService_OnChanged);
-
-      }
+<span class="w">         </span><span class="n">SetupBeamable</span><span class="p">();</span>
+<span class="w">      </span><span class="p">}</span>
 
 
-      public void Refresh()
-      {
-         string refreshLog = $"Refresh() ...\n" +
-                             $"\n * ContentType = {ContentType}" +
-                             $"\n * ContentCurrencyNames.Count =
-                             {_inventoryCurrencyExampleData.ContentCurrencyNames.Count}" +
-                             $"\n * InventoryCurrencyNames.Count =
-                             {_inventoryCurrencyExampleData.InventoryCurrencyNames.Count}\n\n";
+<span class="w">      </span><span class="c1">//  Methods  --------------------------------------</span>
+<span class="w">      </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
+<span class="w">      </span><span class="p">{</span>
 
-         //Debug.Log(refreshLog);
+<span class="w">         </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
 
-         OnRefreshed?.Invoke(_inventoryCurrencyExampleData);
-      }
+<span class="w">         </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_beamContext.PlayerId = {_beamContext.PlayerId}"</span><span class="p">);</span>
 
+<span class="w">         </span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">CurrencyContentPrimary</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_currencyRefPrimary</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
 
-      public async void AddPrimaryCurrency()
-      {
-         InventoryUpdateBuilder inventoryUpdateBuilder = new InventoryUpdateBuilder();
-         inventoryUpdateBuilder.CurrencyChange(_inventoryCurrencyExampleData.CurrencyContentPrimary.Id,
-            CurrencyDeltaPerClick);
+<span class="w">         </span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">CurrencyContentSecondary</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_currencyRefSecondary</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
 
-         // Add
-         await _beamContext.Api.InventoryService.Update(inventoryUpdateBuilder).Then(obj =&gt;
-         {
-            Debug.Log($"#1. PLAYER AddPrimaryCurrency2() success.");
+<span class="w">         </span><span class="c1">// All currencies (Available in game)</span>
+<span class="w">         </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ContentService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">ContentService_OnChanged</span><span class="p">);</span>
 
-         });
-      }
+<span class="w">         </span><span class="c1">// Filtered currencies (Owned by current player)</span>
+<span class="w">         </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">InventoryService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">ContentType</span><span class="p">,</span><span class="w"> </span><span class="n">InventoryService_OnChanged</span><span class="p">);</span>
+
+<span class="w">      </span><span class="p">}</span>
 
 
-      public async void RemovePrimaryCurrency()
-      {
-         InventoryUpdateBuilder inventoryUpdateBuilder = new InventoryUpdateBuilder();
+<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Refresh</span><span class="p">()</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="kt">string</span><span class="w"> </span><span class="n">refreshLog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"Refresh() ...\n"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                             </span><span class="s">$"\n * ContentType = {ContentType}"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                             </span><span class="s">$"\n * ContentCurrencyNames.Count =</span>
+<span class="w">                             </span><span class="p">{</span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">ContentCurrencyNames</span><span class="p">.</span><span class="n">Count</span><span class="p">}</span><span class="s">" +</span>
+<span class="w">                             </span><span class="s">$"\n * InventoryCurrencyNames.Count =</span>
+<span class="w">                             </span><span class="p">{</span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">InventoryCurrencyNames</span><span class="p">.</span><span class="n">Count</span><span class="p">}</span><span class="err">\</span><span class="n">n</span><span class="err">\</span><span class="n">n</span><span class="s">";</span>
 
-         // Remove
-         inventoryUpdateBuilder.CurrencyChange(_inventoryCurrencyExampleData.CurrencyContentPrimary.Id,
-            -CurrencyDeltaPerClick);
+<span class="w">         </span><span class="c1">//Debug.Log(refreshLog);</span>
 
-         await _beamContext.Api.InventoryService.Update(inventoryUpdateBuilder).Then(obj =&gt;
-         {
-            Debug.Log($"#2. PLAYER RemovePrimaryCurrency() success.");
-
-         });
-      }
-
-
-      public async void TradePrimaryToSecondary()
-      {
-         InventoryUpdateBuilder inventoryUpdateBuilder = new InventoryUpdateBuilder();
-
-         // Remove Primary
-         inventoryUpdateBuilder.CurrencyChange(_inventoryCurrencyExampleData.CurrencyContentPrimary.Id,
-            -CurrencyDeltaPerClick);
-
-         // Add Secondary
-         inventoryUpdateBuilder.CurrencyChange(_inventoryCurrencyExampleData.CurrencyContentSecondary.Id,
-            CurrencyDeltaPerClick);
-
-         await _beamContext.Api.InventoryService.Update(inventoryUpdateBuilder).Then(obj =&gt;
-         {
-            Debug.Log($"#3. PLAYER TradePrimaryToSecondary() success.");
-
-         });
-      }
+<span class="w">         </span><span class="n">OnRefreshed</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">_inventoryCurrencyExampleData</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
 
 
-      public async void TradeSecondaryToPrimary()
-      {
-         InventoryUpdateBuilder inventoryUpdateBuilder = new InventoryUpdateBuilder();
+<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddPrimaryCurrency</span><span class="p">()</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="n">InventoryUpdateBuilder</span><span class="w"> </span><span class="n">inventoryUpdateBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InventoryUpdateBuilder</span><span class="p">();</span>
+<span class="w">         </span><span class="n">inventoryUpdateBuilder</span><span class="p">.</span><span class="n">CurrencyChange</span><span class="p">(</span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">CurrencyContentPrimary</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span>
+<span class="w">            </span><span class="n">CurrencyDeltaPerClick</span><span class="p">);</span>
 
-         // Remove Secondary
-         inventoryUpdateBuilder.CurrencyChange(_inventoryCurrencyExampleData.CurrencyContentSecondary.Id,
-            -CurrencyDeltaPerClick);
+<span class="w">         </span><span class="c1">// Add</span>
+<span class="w">         </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">InventoryService</span><span class="p">.</span><span class="n">Update</span><span class="p">(</span><span class="n">inventoryUpdateBuilder</span><span class="p">).</span><span class="n">Then</span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">         </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"#1. PLAYER AddPrimaryCurrency2() success."</span><span class="p">);</span>
 
-         // Add Primary
-         inventoryUpdateBuilder.CurrencyChange(_inventoryCurrencyExampleData.CurrencyContentPrimary.Id,
-            CurrencyDeltaPerClick);
-
-         await _beamContext.Api.InventoryService.Update(inventoryUpdateBuilder).Then(obj =&gt;
-         {
-            Debug.Log($"#4. PLAYER TradeSecondaryToPrimary() success.");
-
-         });
-      }
+<span class="w">         </span><span class="p">});</span>
+<span class="w">      </span><span class="p">}</span>
 
 
-      //  Event Handlers  -------------------------------
-      private void ContentService_OnChanged(ClientManifest clientManifest)
-      {
-         _inventoryCurrencyExampleData.IsChangedContentService = true;
+<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RemovePrimaryCurrency</span><span class="p">()</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="n">InventoryUpdateBuilder</span><span class="w"> </span><span class="n">inventoryUpdateBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InventoryUpdateBuilder</span><span class="p">();</span>
 
-         // Filter to ONLY CurrencyContent
-         List&lt;ClientContentInfo&gt; clientContentInfos =  clientManifest.entries.Where((clientContentInfo, i)
-               =&gt;
-               ExampleProjectHelper.IsMatchingClientContentInfo(clientContentInfo, ContentType)).ToList();
+<span class="w">         </span><span class="c1">// Remove</span>
+<span class="w">         </span><span class="n">inventoryUpdateBuilder</span><span class="p">.</span><span class="n">CurrencyChange</span><span class="p">(</span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">CurrencyContentPrimary</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span>
+<span class="w">            </span><span class="o">-</span><span class="n">CurrencyDeltaPerClick</span><span class="p">);</span>
 
-         Debug.Log($"GAME - ContentService_OnChanged, " +
-                   $"currencies.Count = {clientContentInfos.Count}");
+<span class="w">         </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">InventoryService</span><span class="p">.</span><span class="n">Update</span><span class="p">(</span><span class="n">inventoryUpdateBuilder</span><span class="p">).</span><span class="n">Then</span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">         </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"#2. PLAYER RemovePrimaryCurrency() success."</span><span class="p">);</span>
 
-         _inventoryCurrencyExampleData.ContentCurrencyNames.Clear();
-         foreach (ClientContentInfo clientContentInfo in clientContentInfos)
-         {
-            string currencyName =
-                ExampleProjectHelper.GetDisplayNameFromContentId(clientContentInfo.contentId);
-            string currencyNameFormatted = $"{currencyName}";
-            _inventoryCurrencyExampleData.ContentCurrencyNames.Add(currencyNameFormatted);
-         }
-
-         // Alphabetize
-         _inventoryCurrencyExampleData.ContentCurrencyNames.Sort();
-
-         Refresh();
-      }
+<span class="w">         </span><span class="p">});</span>
+<span class="w">      </span><span class="p">}</span>
 
 
-      private void InventoryService_OnChanged(InventoryView inventoryView)
-      {
-         _inventoryCurrencyExampleData.IsChangedInventoryService = true;
+<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TradePrimaryToSecondary</span><span class="p">()</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="n">InventoryUpdateBuilder</span><span class="w"> </span><span class="n">inventoryUpdateBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InventoryUpdateBuilder</span><span class="p">();</span>
 
-         Debug.Log($"PLAYER - InventoryService_OnChanged, " +
-                   $"currencies.Count = {inventoryView.currencies.Count}");
+<span class="w">         </span><span class="c1">// Remove Primary</span>
+<span class="w">         </span><span class="n">inventoryUpdateBuilder</span><span class="p">.</span><span class="n">CurrencyChange</span><span class="p">(</span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">CurrencyContentPrimary</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span>
+<span class="w">            </span><span class="o">-</span><span class="n">CurrencyDeltaPerClick</span><span class="p">);</span>
 
-         _inventoryCurrencyExampleData.InventoryCurrencyNames.Clear();
-         foreach (KeyValuePair&lt;string, long&gt; kvp in inventoryView.currencies)
-         {
-            string currencyName = ExampleProjectHelper.GetDisplayNameFromContentId(kvp.Key);
-            string currencyNameFormatted = $"{currencyName} x {kvp.Value}";
-            _inventoryCurrencyExampleData.InventoryCurrencyNames.Add(currencyNameFormatted);
-         }
+<span class="w">         </span><span class="c1">// Add Secondary</span>
+<span class="w">         </span><span class="n">inventoryUpdateBuilder</span><span class="p">.</span><span class="n">CurrencyChange</span><span class="p">(</span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">CurrencyContentSecondary</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span>
+<span class="w">            </span><span class="n">CurrencyDeltaPerClick</span><span class="p">);</span>
 
-         // Alphabetize
-         _inventoryCurrencyExampleData.InventoryCurrencyNames.Sort();
+<span class="w">         </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">InventoryService</span><span class="p">.</span><span class="n">Update</span><span class="p">(</span><span class="n">inventoryUpdateBuilder</span><span class="p">).</span><span class="n">Then</span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">         </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"#3. PLAYER TradePrimaryToSecondary() success."</span><span class="p">);</span>
 
-         Refresh();
-      }
-   }
-}
-</code></pre>
+<span class="w">         </span><span class="p">});</span>
+<span class="w">      </span><span class="p">}</span>
+
+
+<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TradeSecondaryToPrimary</span><span class="p">()</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="n">InventoryUpdateBuilder</span><span class="w"> </span><span class="n">inventoryUpdateBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InventoryUpdateBuilder</span><span class="p">();</span>
+
+<span class="w">         </span><span class="c1">// Remove Secondary</span>
+<span class="w">         </span><span class="n">inventoryUpdateBuilder</span><span class="p">.</span><span class="n">CurrencyChange</span><span class="p">(</span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">CurrencyContentSecondary</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span>
+<span class="w">            </span><span class="o">-</span><span class="n">CurrencyDeltaPerClick</span><span class="p">);</span>
+
+<span class="w">         </span><span class="c1">// Add Primary</span>
+<span class="w">         </span><span class="n">inventoryUpdateBuilder</span><span class="p">.</span><span class="n">CurrencyChange</span><span class="p">(</span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">CurrencyContentPrimary</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span>
+<span class="w">            </span><span class="n">CurrencyDeltaPerClick</span><span class="p">);</span>
+
+<span class="w">         </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">InventoryService</span><span class="p">.</span><span class="n">Update</span><span class="p">(</span><span class="n">inventoryUpdateBuilder</span><span class="p">).</span><span class="n">Then</span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">         </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"#4. PLAYER TradeSecondaryToPrimary() success."</span><span class="p">);</span>
+
+<span class="w">         </span><span class="p">});</span>
+<span class="w">      </span><span class="p">}</span>
+
+
+<span class="w">      </span><span class="c1">//  Event Handlers  -------------------------------</span>
+<span class="w">      </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ContentService_OnChanged</span><span class="p">(</span><span class="n">ClientManifest</span><span class="w"> </span><span class="n">clientManifest</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">IsChangedContentService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+
+<span class="w">         </span><span class="c1">// Filter to ONLY CurrencyContent</span>
+<span class="w">         </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ClientContentInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">clientContentInfos</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">clientManifest</span><span class="p">.</span><span class="n">entries</span><span class="p">.</span><span class="n">Where</span><span class="p">((</span><span class="n">clientContentInfo</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+<span class="w">               </span><span class="o">=&gt;</span>
+<span class="w">               </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">IsMatchingClientContentInfo</span><span class="p">(</span><span class="n">clientContentInfo</span><span class="p">,</span><span class="w"> </span><span class="n">ContentType</span><span class="p">)).</span><span class="n">ToList</span><span class="p">();</span>
+
+<span class="w">         </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"GAME - ContentService_OnChanged, "</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                   </span><span class="s">$"currencies.Count = {clientContentInfos.Count}"</span><span class="p">);</span>
+
+<span class="w">         </span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">ContentCurrencyNames</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<span class="w">         </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">ClientContentInfo</span><span class="w"> </span><span class="n">clientContentInfo</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">clientContentInfos</span><span class="p">)</span>
+<span class="w">         </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">currencyName</span><span class="w"> </span><span class="o">=</span>
+<span class="w">                </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetDisplayNameFromContentId</span><span class="p">(</span><span class="n">clientContentInfo</span><span class="p">.</span><span class="n">contentId</span><span class="p">);</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">currencyNameFormatted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"{currencyName}"</span><span class="p">;</span>
+<span class="w">            </span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">ContentCurrencyNames</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">currencyNameFormatted</span><span class="p">);</span>
+<span class="w">         </span><span class="p">}</span>
+
+<span class="w">         </span><span class="c1">// Alphabetize</span>
+<span class="w">         </span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">ContentCurrencyNames</span><span class="p">.</span><span class="n">Sort</span><span class="p">();</span>
+
+<span class="w">         </span><span class="n">Refresh</span><span class="p">();</span>
+<span class="w">      </span><span class="p">}</span>
+
+
+<span class="w">      </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">InventoryService_OnChanged</span><span class="p">(</span><span class="n">InventoryView</span><span class="w"> </span><span class="n">inventoryView</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">IsChangedInventoryService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+
+<span class="w">         </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"PLAYER - InventoryService_OnChanged, "</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                   </span><span class="s">$"currencies.Count = {inventoryView.currencies.Count}"</span><span class="p">);</span>
+
+<span class="w">         </span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">InventoryCurrencyNames</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<span class="w">         </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">KeyValuePair</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">kvp</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">inventoryView</span><span class="p">.</span><span class="n">currencies</span><span class="p">)</span>
+<span class="w">         </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">currencyName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExampleProjectHelper</span><span class="p">.</span><span class="n">GetDisplayNameFromContentId</span><span class="p">(</span><span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">);</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">currencyNameFormatted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"{currencyName} x {kvp.Value}"</span><span class="p">;</span>
+<span class="w">            </span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">InventoryCurrencyNames</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">currencyNameFormatted</span><span class="p">);</span>
+<span class="w">         </span><span class="p">}</span>
+
+<span class="w">         </span><span class="c1">// Alphabetize</span>
+<span class="w">         </span><span class="n">_inventoryCurrencyExampleData</span><span class="p">.</span><span class="n">InventoryCurrencyNames</span><span class="p">.</span><span class="n">Sort</span><span class="p">();</span>
+
+<span class="w">         </span><span class="n">Refresh</span><span class="p">();</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 
 
 

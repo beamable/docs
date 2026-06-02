@@ -9755,85 +9755,145 @@
 <h2 id="tournaments-api">Tournaments API<a class="headerlink" href="#tournaments-api" title="Permanent link">¶</a></h2>
 <h3 id="initializing-beamcontext">Initializing BeamContext<a class="headerlink" href="#initializing-beamcontext" title="Permanent link">¶</a></h3>
 <p>This code sample is very similar to most other code guides. Note that we are saving the User ID to a variable for use in later functions.</p>
-<pre><code class="language-csharp">private BeamContext _beamContext;
-private long _userId;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="n">BeamContext</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">;</span>
+<span class="k">private</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">_userId</span><span class="p">;</span>
 
-private async void Start()
-{
-    _beamContext = BeamContext.Default;
-    await _beamContext.OnReady;
-    _userId = _beamContext.PlayerId;
+<span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<span class="w">    </span><span class="n">_userId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">PlayerId</span><span class="p">;</span>
 
-    Debug.Log($"User Id: {_userId}");
-}
-</code></pre>
+<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"User Id: {_userId}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="getting-tournaments">Getting tournaments<a class="headerlink" href="#getting-tournaments" title="Permanent link">¶</a></h3>
 <p>This function will return all tournaments in your game's content database.</p>
-<pre><code class="language-csharp">private async Task&lt;List&lt;TournamentInfo&gt;&gt; GetTournaments()
-{
-    var response = await _beamContext.Api.TournamentsService.GetAllTournaments();
-    return response?.tournaments;
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">TournamentInfo</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">GetTournaments</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">TournamentsService</span><span class="p">.</span><span class="n">GetAllTournaments</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="o">?.</span><span class="n">tournaments</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="joining-a-tournament">Joining a tournament<a class="headerlink" href="#joining-a-tournament" title="Permanent link">¶</a></h3>
 <p>Before a score can be posted in a tournament, the player must join the tournament using this function.</p>
-<pre><code class="language-csharp">private async Task JoinTournament(string tournamentId)
-{
-    await _beamContext.Api.TournamentsService.JoinTournament(tournamentId);
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">JoinTournament</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">tournamentId</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">TournamentsService</span><span class="p">.</span><span class="n">JoinTournament</span><span class="p">(</span><span class="n">tournamentId</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="setting-a-score">Setting a score<a class="headerlink" href="#setting-a-score" title="Permanent link">¶</a></h3>
 <p>The following function sets the user's score in the tournament. The <code>_userId</code> variable comes from BeamContext in the "Initialize BeamContext" example above.</p>
-<pre><code class="language-csharp">private async Task SetScore(string tournamentId, double score)
-{
-    await _beamContext.Api.TournamentsService.SetScore(tournamentId, _userId, score);
-}
-</code></pre>
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">SetScore</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">tournamentId</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">score</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">TournamentsService</span><span class="p">.</span><span class="n">SetScore</span><span class="p">(</span><span class="n">tournamentId</span><span class="p">,</span><span class="w"> </span><span class="n">_userId</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="sample-code">Sample code<a class="headerlink" href="#sample-code" title="Permanent link">¶</a></h3>
 <p>This sample code demonstrates how to use the TournamentService to join a tournament and set a score for the current player.
-TournamentServiceExample.cs</p>
-<pre><code class="language-csharp">using Beamable.Common.Tournaments;
-using UnityEngine;
+TournamentServiceExample.cs
+</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Tournaments</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
 
-namespace Beamable.Examples.Services.TournamentService
-{
-    /// &lt;summary&gt;
-    /// Demonstrates &lt;see cref="TournamentService"/&gt;.
-    /// &lt;/summary&gt;
-    public class TournamentServiceExample : MonoBehaviour
-    {
-        [SerializeField] private TournamentRef _tournamentRef = null;
-        [SerializeField] private double _score = 100;
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.TournamentService</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">    </span><span class="c1">/// Demonstrates &lt;see cref="TournamentService"/&gt;.</span>
+<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TournamentServiceExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">TournamentRef</span><span class="w"> </span><span class="n">_tournamentRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">_score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">;</span>
 
-        protected void Start()
-        {
-            Debug.Log("Start()");
+<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Start()"</span><span class="p">);</span>
 
-            TournamentsSetScore(_tournamentRef.GetId(), _score);
-        }
+<span class="w">            </span><span class="n">TournamentsSetScore</span><span class="p">(</span><span class="n">_tournamentRef</span><span class="p">.</span><span class="n">GetId</span><span class="p">(),</span><span class="w"> </span><span class="n">_score</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        private async void TournamentsSetScore(string id, double score)
-        {
-            var beamContext = BeamContext.Default;
-            await beamContext.OnReady;
-            var userId = beamContext.PlayerId;
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TournamentsSetScore</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">score</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">userId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">PlayerId</span><span class="p">;</span>
 
-            Debug.Log($"beamContext.PlayerId = {userId}");
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"beamContext.PlayerId = {userId}"</span><span class="p">);</span>
 
-            // Need to fetch the status for the current tournament cycle to set the score.
-            var current = await beamContext.Api.TournamentsService.GetTournamentInfo(id);
+<span class="w">            </span><span class="c1">// Need to fetch the status for the current tournament cycle to set the score.</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">TournamentsService</span><span class="p">.</span><span class="n">GetTournamentInfo</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
 
-            // This allows the currently logged in user to join the tournament by its content id.
-            await beamContext.Api.TournamentsService.JoinTournament(current.tournamentId, 0);
+<span class="w">            </span><span class="c1">// This allows the currently logged in user to join the tournament by its content id.</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">TournamentsService</span><span class="p">.</span><span class="n">JoinTournament</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">tournamentId</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
 
-            // Let's set the score for this player!
-            await beamContext.Api.TournamentsService.SetScore(current.tournamentId, userId, score);
+<span class="w">            </span><span class="c1">// Let's set the score for this player!</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">TournamentsService</span><span class="p">.</span><span class="n">SetScore</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">tournamentId</span><span class="p">,</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">);</span>
 
-            Debug.Log($"Tournaments.SetScore({id},{userId},{score})");
-        }
-    }
-}
-</code></pre>
+<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Tournaments.SetScore({id},{userId},{score})"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>The <strong>Beamable Tournaments</strong> service provides a system for recurring social competitions where players get promoted and demoted between competitive tiers (for example: Bronze, Silver, and Gold). Players begin in the lowest tier by submitting scores, leveraging the existing Beamable Leaderboard system. Tournaments have recurring cycles on a fixed period of your choice (such as daily or weekly).</p>
 <p>Tournaments become active after publishing the content to a realm. Once published, the tournament runs on its defined cycle schedule. Players participate by submitting scores, and all players initially start in the bottom stage of the bottom tier.</p>

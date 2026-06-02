@@ -9494,54 +9494,96 @@
 <h2 id="leaderboards-api">Leaderboards API<a class="headerlink" href="#leaderboards-api" title="Permanent link">¶</a></h2>
 <h3 id="submitting-the-score">Submitting the score<a class="headerlink" href="#submitting-the-score" title="Permanent link">¶</a></h3>
 <p>Here is a snippet from the sample <a href="https://github.com/beamable/Beamable_SDK_Examples/tree/master/client/Assets/Examples/Runtime/Prefabs/LeaderboardFlowInterpolationExample/Scripts"><code>LeaderboardFlowInterpolationExample.cs</code></a>:</p>
-<pre><code class="language-csharp">private async void SetupBeamable()
-{
-    _beamContext = BeamContext.Default;
-    await _beamContext.OnReady;
-    Debug.Log($"_beamContext.PlayerId = {_beamContext.PlayerId}");
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_beamContext.PlayerId = {_beamContext.PlayerId}"</span><span class="p">);</span>
 
-    LeaderboardContent leaderboardContent =
-    await _leaderboardMainMenuCustom.LeaderboardBehavior.Leaderboard.Resolve();
+<span class="w">    </span><span class="n">LeaderboardContent</span><span class="w"> </span><span class="n">leaderboardContent</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_leaderboardMainMenuCustom</span><span class="p">.</span><span class="n">LeaderboardBehavior</span><span class="p">.</span><span class="n">Leaderboard</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
 
-    Debug.Log($"PopulateLeaderboard Starting. Wait &lt; 30 seconds... ");
-    int leaderboardRowCountMin = 10;
-    int leaderboardScoreMin = 99;
-    int leaderboardScoreMax = 99999;
+<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"PopulateLeaderboard Starting. Wait &lt; 30 seconds... "</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">leaderboardRowCountMin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">leaderboardScoreMin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">99</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">leaderboardScoreMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">99999</span><span class="p">;</span>
 
-    // Populate with custom values
-    Dictionary&lt;string, object&gt; leaderboardStats = new Dictionary&lt;string, object&gt;();
-    leaderboardStats.Add("leaderboard_score_timestamp", new
-    DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds());
-    leaderboardStats.Add("leaderboard_score_velocity", 99); // 99 score delta per second
+<span class="w">    </span><span class="c1">// Populate with custom values</span>
+<span class="w">    </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">leaderboardStats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="n">leaderboardStats</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"leaderboard_score_timestamp"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span>
+<span class="w">    </span><span class="n">DateTimeOffset</span><span class="p">(</span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">).</span><span class="n">ToUnixTimeMilliseconds</span><span class="p">());</span>
+<span class="w">    </span><span class="n">leaderboardStats</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"leaderboard_score_velocity"</span><span class="p">,</span><span class="w"> </span><span class="m">99</span><span class="p">);</span><span class="w"> </span><span class="c1">// 99 score delta per second</span>
 
-    // Populates mock "alias" and "score" for each leaderboard row
-    string loggingResult = await MockDataCreator.PopulateLeaderboardWithMockData(
-    _beamContext,
-    leaderboardContent,
-    leaderboardRowCountMin,
-    leaderboardScoreMin,
-    leaderboardScoreMax,
-    leaderboardStats);
+<span class="w">    </span><span class="c1">// Populates mock "alias" and "score" for each leaderboard row</span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="n">loggingResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">MockDataCreator</span><span class="p">.</span><span class="n">PopulateLeaderboardWithMockData</span><span class="p">(</span>
+<span class="w">    </span><span class="n">_beamContext</span><span class="p">,</span>
+<span class="w">    </span><span class="n">leaderboardContent</span><span class="p">,</span>
+<span class="w">    </span><span class="n">leaderboardRowCountMin</span><span class="p">,</span>
+<span class="w">    </span><span class="n">leaderboardScoreMin</span><span class="p">,</span>
+<span class="w">    </span><span class="n">leaderboardScoreMax</span><span class="p">,</span>
+<span class="w">    </span><span class="n">leaderboardStats</span><span class="p">);</span>
 
-    Debug.Log($"PopulateLeaderboard Finish. Result = {loggingResult}");
-}
-</code></pre>
+<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"PopulateLeaderboard Finish. Result = {loggingResult}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="rendering-the-score">Rendering the score<a class="headerlink" href="#rendering-the-score" title="Permanent link">¶</a></h3>
 <p>Here is a snippet from  the sample <a href="https://github.com/beamable/Beamable_SDK_Examples/tree/master/client/Assets/Examples/Runtime/Prefabs/LeaderboardFlowInterpolationExample/Scripts"><code>LeaderboardItemCustom.cs</code></a>:</p>
-<pre><code class="language-csharp">public void Update()
-{
-    // Prepare value
-    long scoreTimestamp = long.Parse(_rankEntry.GetStat("leaderboard_score_timestamp"));
-    long scoreVelocity = long.Parse(_rankEntry.GetStat("leaderboard_score_velocity"));
-    long currentTimestamp = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds();
-    long millisecondsSinceSubmission = currentTimestamp - scoreTimestamp;
-    long scoreSinceSubmission = (millisecondsSinceSubmission * scoreVelocity) / 1000;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Update</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Prepare value</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">scoreTimestamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">long</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">_rankEntry</span><span class="p">.</span><span class="n">GetStat</span><span class="p">(</span><span class="s">"leaderboard_score_timestamp"</span><span class="p">));</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">scoreVelocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">long</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">_rankEntry</span><span class="p">.</span><span class="n">GetStat</span><span class="p">(</span><span class="s">"leaderboard_score_velocity"</span><span class="p">));</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">currentTimestamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DateTimeOffset</span><span class="p">(</span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">).</span><span class="n">ToUnixTimeMilliseconds</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">millisecondsSinceSubmission</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentTimestamp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">scoreTimestamp</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">scoreSinceSubmission</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">millisecondsSinceSubmission</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">scoreVelocity</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">1000</span><span class="p">;</span>
 
-    // Render value
-    double score = _rankEntry.score + scoreSinceSubmission;
-    TxtScore.text = $"{score:00000}";
-}
-</code></pre>
+<span class="w">    </span><span class="c1">// Render value</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_rankEntry</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">scoreSinceSubmission</span><span class="p">;</span>
+<span class="w">    </span><span class="n">TxtScore</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"{score:00000}"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="getting-the-board">Getting the board<a class="headerlink" href="#getting-the-board" title="Permanent link">¶</a></h3>
 <p>When calling either <code>GetBoard</code> or <code>GetAssignedBoard</code>, the parameters share the following semantics:</p>
 <table>
@@ -9575,32 +9617,56 @@
 </tbody>
 </table>
 <p>Here is a snippet from <a href="https://github.com/beamable/Beamable_SDK_Examples/blob/master/client/Assets/Examples/Runtime/Services/LeaderboardService/LeaderboardServiceExample/Scripts/"><code>LeaderboardServiceExample.cs</code></a>:</p>
-<pre><code class="language-csharp">private async Task&lt;List&lt;RankEntry&gt;&gt; LeaderboardServiceGetBoard(string id, long userId)
-{
-    LeaderBoardView leaderBoardView = await _beamContext.Api.LeaderboardService.GetBoard(id, 0, 100,
-    userId);
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">RankEntry</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">LeaderboardServiceGetBoard</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">userId</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">LeaderBoardView</span><span class="w"> </span><span class="n">leaderBoardView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">LeaderboardService</span><span class="p">.</span><span class="n">GetBoard</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">,</span>
+<span class="w">    </span><span class="n">userId</span><span class="p">);</span>
 
-    foreach (RankEntry rankEntry in leaderBoardView.rankings)
-    {
-        // Get alias for userId of rankEntry
-        long nextUserId = rankEntry.gt;
-        var stats =
-                await _beamContext.Api.StatsService.GetStats("client", "public", "player", nextUserId );
+<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">RankEntry</span><span class="w"> </span><span class="n">rankEntry</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">leaderBoardView</span><span class="p">.</span><span class="n">rankings</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Get alias for userId of rankEntry</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">nextUserId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rankEntry</span><span class="p">.</span><span class="n">gt</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">stats</span><span class="w"> </span><span class="o">=</span>
+<span class="w">                </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">StatsService</span><span class="p">.</span><span class="n">GetStats</span><span class="p">(</span><span class="s">"client"</span><span class="p">,</span><span class="w"> </span><span class="s">"public"</span><span class="p">,</span><span class="w"> </span><span class="s">"player"</span><span class="p">,</span><span class="w"> </span><span class="n">nextUserId</span><span class="w"> </span><span class="p">);</span>
 
-        string alias = "";
-        stats.TryGetValue(alias, out alias);
-        if (string.IsNullOrEmpty(alias))
-        {
-            alias = "Unknown Alias";
-        }
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="k">alias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<span class="w">        </span><span class="n">stats</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="k">alias</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="k">alias</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="k">alias</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">alias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Unknown Alias"</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 
-        // Log
-        Debug.Log($"Rank = {rankEntry.rank}, Alias = {alias}, Score = {rankEntry.score}");
-    }
+<span class="w">        </span><span class="c1">// Log</span>
+<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Rank = {rankEntry.rank}, Alias = {alias}, Score = {rankEntry.score}"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    return leaderBoardView.rankings;
-}
-</code></pre>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">leaderBoardView</span><span class="p">.</span><span class="n">rankings</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h2 id="webgl-sample">WebGL sample<a class="headerlink" href="#webgl-sample" title="Permanent link">¶</a></h2>
 <p>You can try out this service in the interactive WebGL demo:
 <a href="https://beamable.github.io/Beamable_SDK_Examples/Builds/WebGL/LeaderboardFlowExample/index.html">Unity WebGL Player - Leaderboard Flow Example</a></p>

@@ -9543,26 +9543,44 @@
 </table>
 <h2 id="project-structure">Project structure<a class="headerlink" href="#project-structure" title="Permanent link">¶</a></h2>
 <p>In the project's content, you will see a custom content type underneath <code>game_types</code>: <code>geo</code>. This is a simple extension of the <code>SimGameType</code> class, adding in a <code>RegionName</code> string, with the appropriate <code>ContentLink</code> and <code>ContentRef</code> subclasses.</p>
-<pre><code class="language-csharp">using System;
-using Beamable;
-using Beamable.Common.Content;
+<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
 
-namespace MatchmakingExample
-{
-    [Serializable]
-    public class GeoGameTypeLink : ContentLink&lt;GeoGameType&gt;{}
+<span class="k">namespace</span><span class="w"> </span><span class="nn">MatchmakingExample</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[Serializable]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GeoGameTypeLink</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentLink</span><span class="o">&lt;</span><span class="n">GeoGameType</span><span class="o">&gt;</span><span class="p">{}</span>
 
-    [Serializable]
-    public class GeoGameTypeRef : ContentRef&lt;GeoGameType&gt; {}
+<span class="w">    </span><span class="na">[Serializable]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GeoGameTypeRef</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentRef</span><span class="o">&lt;</span><span class="n">GeoGameType</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
 
-    [ContentType("geo")]
-    [Serializable]
-    public class GeoGameType : SimGameType
-    {
-        public string RegionName;
-    }
-}
-</code></pre>
+<span class="w">    </span><span class="na">[ContentType("geo")]</span>
+<span class="w">    </span><span class="na">[Serializable]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GeoGameType</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">SimGameType</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">RegionName</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h2 id="step-1-create-content">Step 1. create content<a class="headerlink" href="#step-1-create-content" title="Permanent link">¶</a></h2>
 <p>For this example, we'll be creating a few game types for some different regions of the world: North America, Europe, and Asia.</p>
 <div class="admonition info">
