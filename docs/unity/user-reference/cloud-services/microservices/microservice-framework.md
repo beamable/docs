@@ -147,7 +147,7 @@ To keep things a bit simpler, here are general rules of thumb:
 
 If the above is true and you still wish to share code between two different microservices, architect your code and functions so that the parts that are worth sharing can be pulled into a separate AssemblyDefinition both services reference. Keep in mind that you should only do this if the complexity is worth the code reuse — over-using AssemblyDefinitions can increase overall project complexity for not that much gain.
 
-All-in-all, this is a very game-specific decision. Our goal is to provide guidelines and tools to help you make it. Currently, you can see CPU/Memory utilization metrics in the Dev Portal's C#MS section; in the future, we may track more specific metrics to support better decision-making.
+All-in-all, this is a very game-specific decision. Our goal is to provide guidelines and tools to help you make it. Currently, you can see CPU/Memory utilization metrics in the Portal's C#MS section; in the future, we may track more specific metrics to support better decision-making.
 
 ### Designing Microservice methods
 
@@ -308,14 +308,14 @@ Once the services have been published, they are viewable on the Beamable Portal.
 
 ### Remote logging
 
-By default, Microservices use an INFO log level when published.
+By default, Microservices use an `"info"` log level when published.
 
 !!! tip
-    However, Microservices use a DEBUG log level when running locally.
+    However, Microservices use a `"debug"` log level when running locally.
 
 If you need to change the log level, consider first using request based log level controls. Navigate to the microservice section of the Portal, and create a Log Config Rule for your desired service. You can change the log level dynamically per request based on what player is requesting the service, or which route is being invoked.
 
-For example, you could enable DEBUG logging for a player that called into your customer support line, or enable DEBUG logs for a particularly sensitive route.
+For example, you could enable `"debug"` logging for a player that called into your customer support line, or enable `"debug"` logs for a particularly sensitive route.
 
 You can also use the Log Config section to change the default request level.
 

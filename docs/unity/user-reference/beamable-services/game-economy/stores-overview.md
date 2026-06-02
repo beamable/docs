@@ -431,7 +431,7 @@ As a game maker you will find that in some cases you need to be able to report p
 
 As shown in the above example, you will need to set a key in your Realm configuration to override purchase reporting to enable this functionality. Without this configuration change the API will error and not report anything.
 
-Here we are setting the namespace to **payments** and then the key is **client_audits** and we will set the value to **true**.
+Here we are setting the namespace to `"payments"` and then the key is `"client_audits"` and we will set the value to `"true"`.
 
 !!! danger "Security Warning"
 

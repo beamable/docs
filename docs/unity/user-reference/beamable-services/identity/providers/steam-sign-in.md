@@ -41,7 +41,7 @@ Follow these steps in the Beamable Portal:
 |------|--------|
 | 1 | Log in to Beamable Portal |
 | 2 | Navigate to the _Realm Configuration_ page |
-| 3 | Create a new Key in the configuration by clicking on +Config and name it "steam" (all lower-case) in the namespace field |
+| 3 | Create a new Key in the configuration by clicking on +Config and name it `"steam"` (all lower-case) in the namespace field |
 | 4 | Create 3 KVP values: **sandbox**, **appid**, **key** |
 | 5 | Enter "true" for the **sandbox** value |
 | 6 | Use your Steam AppID for the **appid** value |

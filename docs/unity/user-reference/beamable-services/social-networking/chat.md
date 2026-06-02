@@ -24,7 +24,7 @@ work with Beamable Chat).
 
 1. Sign up for a PubNub account at https://admin.pubnub.com/
 2. Create an App for use with Beamable Chat. You may name this as you like, possibly something like "Beamable Chat Integration".
-3. Add a Keyset to your PubNub App. Note that this keyset _MUST_ be for the Production environment.
+3. Add a Keyset to your PubNub App. Note that this keyset _MUST_ be for the production environment.
 
 When you have created your Keyset, you should have a publish key and a
 subscribe key. Both of these will be needed by Beamable Chat, but you
@@ -37,14 +37,14 @@ Beamable Realm Configuration
 ----------------------------
 
 There are three realm config settings that need to be added in order
-to use your own PubNub keys with Beamable: `notification|publisher`,
-`pubnub|publishKey`, and `pubnub|subscribeKey`.
+to use your own PubNub keys with Beamable: `"notification|publisher"`,
+`"pubnub|publishKey"`, and `"pubnub|subscribeKey"`.
 
 To add realm config values, go to the Beamable Portal at
 https://portal.beamable.com/ and, after choosing the desired
 realm, use Operate > Config to navigate to Realm Config. From there,
-you can add or modify configuration values in the `notification` and
-`pubnub` namespaces. If you do not already have values in those
+you can add or modify configuration values in the `"notification"` and
+`"pubnub"` namespaces. If you do not already have values in those
 namespaces, use the _+ Add Config_ button to add them.
 
 1. Go to https://portal.beamable.com/
@@ -56,9 +56,9 @@ namespaces, use the _+ Add Config_ button to add them.
 
 | namespace | key | value |
 | --------- | --- | ----- |
-| `notification` | `publisher` | `pubnub` |
-| `pubnub` | `publishKey` | the pub-c key from your PubNub account setup |
-| `pubnub` | `subscribeKey` | the sub-c key from your PubNub account setup |
+| `"notification"` | `"publisher"` | `"pubnub"` |
+| `"pubnub"` | `"publishKey"` | the pub-c key from your PubNub account setup |
+| `"pubnub"` | `"subscribeKey"` | the sub-c key from your PubNub account setup |
 
 Legacy Chat Documentation
 -------------------------
