@@ -303,9 +303,9 @@ Beamable provides a streamlined Content Publishing pipeline. You can deploy your
 
 ![content-management.png](../../../../../media/imgs/content-management.png){: style="height:auto;width:500px"}
 
-When you create your Beamable account, we automatically create a set of distinct environments for you: dev → staging → production. This is how Beamable enables you to publish your content for the development environment while allowing you the peace of mind to know that the production environment has not been modified.
+When you create your Beamable account, we automatically create three distinct environments: dev → staging → prod. This lets you publish and test content in dev without affecting prod.
 
-Then, once you have tested that the new content in your environment looks correct, you can go into the Portal to promote the dev content to staging and eventually production.
+Then, once you have tested that the new content in your environment looks correct, you can go into the Portal to promote the dev content to staging and eventually prod.
 
 ### Storage location of content types and content live refresh
 

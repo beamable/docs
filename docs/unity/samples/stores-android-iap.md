@@ -58,7 +58,7 @@ Add the license key from the Google Play Console into the project settings. If y
 
 ![Unity Project Settings License](../../media/imgs/unity-project-settings-license.png){: style="height:auto;width:500px"}
 
-Finally, add your license key to your realm configuration. Under the `payments` namespace, create a new key called `googleplay.key`, with the value being your license key.
+Finally, add your license key to your realm configuration. Under the `"payments"` namespace, create a new key called `"googleplay.key"`, with the value being your license key.
 
 ![Beamable Realm Config](../../media/imgs/beamable-realm-config.png){: style="height:auto;width:500px"}
 

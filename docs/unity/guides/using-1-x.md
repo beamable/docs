@@ -11,7 +11,7 @@ The preferred approach is to upgrade your projects to later versions of the Beam
 However, if you cannot update the SDK version number, you can apply a small code change to your project to enable continued longevity.
 
 1. You must add [this file](https://gist.github.com/cdhanna/19cf0c4b0eaaf36b1eabc898224c1d4c) to your `/Assets` folder.
-2. You must verify that your realm configuration settings in the Beamable Portal do not have a `notification/publisher` value set to `pubnub`. If you do have this setting enabled, then remove it, or change the value to `beamable`.
+2. You must verify that your realm configuration settings in the Beamable Portal do not have a `"notification/publisher"` value set to `"pubnub"`. If you do have this setting enabled, then remove it, or change the value to `"beamable"`.
 
 Once these two steps are taken, please validate that your game continues to function. Once you have validated your game is working, release the new build to your players.
 
