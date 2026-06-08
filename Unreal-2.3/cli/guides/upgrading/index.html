@@ -9771,7 +9771,7 @@ parameter with the new namespace, and then use a conversion tool to get back the
 generated when the Microservices were built. However, in CLI 5+, the engine integrations themselves
 are responsible for generating the client code, and the default behavior is that a standalone
 Microservice project will <em>no longer generate client code automatically</em>.</p>
-<p>It is possible to generate a unity client by hand using the following command,
+<p>You can generate a Unity client by hand using the following command,
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>generate-client-oapi<span class="w"> </span>--output-dir<span class="w"> </span>./Path/To/Your/Unity/Folder/To/Put/Clients/In
 </code></pre></div><p></p>
 <p>If you want to revert to the old method of producing client-code, you'll need to copy/paste the old target
@@ -9792,9 +9792,7 @@ commands from the CLI, please reach out to Beamable for guidance.</p>
 releases.</p>
 <h4 id="removed-net60-and-net70-support">Removed <code>net6.0</code> and <code>net7.0</code> support<a class="headerlink" href="#removed-net60-and-net70-support" title="Permanent link">¶</a></h4>
 <p>Unfortunately, <code>net6.0</code> and <code>net7.0</code> have reached their <a href="https://devblogs.microsoft.com/dotnet/dotnet-6-end-of-support/">End-Of-Life phases</a>.
-The CLI 4.0 release officially drops Beamable support for these EOL dotnet
-versions. As such, when you update your projects, you must update your
-<code>.csproj</code> files to use <code>net8.0</code>.</p>
+The CLI 4.0 release officially drops Beamable support for these EOL .NET versions; when you update your projects, you must update your <code>.csproj</code> files to use <code>net8.0</code>.</p>
 <p>In all your <code>.csproj</code> files, find the line with the <code>&lt;TargetFramework&gt;</code>
 declaration,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">&lt;TargetFramework&gt;</span>net6.0<span class="nt">&lt;/TargetFramework&gt;</span>
@@ -9809,7 +9807,7 @@ machines, instead of the dotnet6 SDK.</p>
 </blockquote>
 <h4 id="mongodbdriver-package-vulnerability"><code>MongoDb.Driver</code> package vulnerability<a class="headerlink" href="#mongodbdriver-package-vulnerability" title="Permanent link">¶</a></h4>
 <p>Previous versions of Beamable relied on version 2.15.1 of the <code>MongoDb.
-Driver</code> nuget package. If your project does not include any storage objects,
+Driver</code> NuGet package. If your project does not include any storage objects,
 you can ignore this step. However, if you do have storage objects, then
 those projects likely include this reference in the <code>.csproj</code> files,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"MongoDB.Driver"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.15.1"</span><span class="nt">/&gt;</span>
@@ -9840,7 +9838,7 @@ following line to the end of the file.
 <li>Install <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">dotnet 8 SDK</a> in your machine (it is the new recommended version). The old <code>net6.0</code> framework's end-of-life arrived on November 12, 2024.</li>
 <li>Delete the <code>.beamable/local-services-manifest.json</code> file. (It is no longer necessary)</li>
 </ol>
-<p>Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install &amp; re-install specific versions when switching projects, but that is a bad workflow — so that was changed.</p>
+<p>Before 3.0.0, the CLI was always installed globally, so every Beamable CLI project on your machine had to share the same CLI version. Switching projects meant uninstalling and reinstalling specific versions — a poor workflow.</p>
 <p>In 3.0.0, the CLI should be installed as a <em>local dotnet tool</em>.</p>
 <p>The steps to change your project from using the global CLI tool to a <em>local dotnet tool</em> are defined below.</p>
 <p>Start by verifying you are in the correct location by running the following command.
@@ -9883,8 +9881,8 @@ following line to the end of the file.
 <h4 id="updating-the-csproj-files">Updating the <code>.csproj</code> files<a class="headerlink" href="#updating-the-csproj-files" title="Permanent link">¶</a></h4>
 <p>The next step in this migration is to fix up the <code>.csproj</code> files for your microservices. The new <code>.csproj</code> file structure comes with a few new things:</p>
 <ul>
-<li>It will version-lock the package versions to the currently local CLI version (the one inside <code>.config/dotnet-tools.json</code>).<ul>
-<li>This means updating the CLI is just changing that version number.</li>
+<li>It will version-lock the package versions to the currently local CLI version (the one inside <code>.config/dotnet-tools.json</code>)<ul>
+<li>This means updating the CLI is just changing that version number</li>
 <li>You can manually edit this to dodge the version-lock if you want to risk it</li>
 </ul>
 </li>
@@ -9945,9 +9943,9 @@ binaries are not compatible with Unity.</p>
 <p>With the introduction of the <code>Beamable.Microservice.SourceGen</code> library, all Microservice classes must be marked with the <code>partial</code> keyword. This will allow the source-generator to add custom implementations to Microservices in future releases.</p>
 <p>If you use any Federated endpoints as part of your Microservices, there a few code-changes you'll have to make:</p>
 <ul>
-<li>Replace all <code>IThirdPartyCloudIdentity</code> with <code>IFederationId</code>.</li>
-<li>Add a <code>FederationId</code> attribute to the class <code>IFederationId</code> — the <code>UniqueName</code> is the property.</li>
-<li>If you were ever accessing the <code>UniqueName</code> property as part of your code, you'll need to replace those calls with <code>GetUniqueName()</code>.</li>
+<li>Replace all <code>IThirdPartyCloudIdentity</code> with <code>IFederationId</code></li>
+<li>Add a <code>FederationId</code> attribute to the class <code>IFederationId</code> — the <code>UniqueName</code> is the property</li>
+<li>If you were ever accessing the <code>UniqueName</code> property as part of your code, you'll need to replace those calls with <code>GetUniqueName()</code></li>
 </ul>
 <p>Once these are in, try to compile your services. The newly referenced Roslyn Static Analyzer should tell you if you made any mistakes.</p>
 <p>Finally, the analyzer will inform you that the federations you have in code are not in the <code>federation.json</code> file. The error will look something like this:
@@ -10009,17 +10007,17 @@ After you upgrade your global CLI to 2.0.1, run the following command in your pr
 </code></pre></div>
 <p>If you forgot to the run the command, or would like to verify that the upgrade happened correctly, follow the bullets below.</p>
 <ul>
-<li>The <code>.beamable/beamoLocalManifest.json</code> file should no longer exist.</li>
-<li>The <code>.beamable/beamoLocalRuntime.json</code> file should no longer exist.</li>
-<li>The <code>.beamable/config-defaults.json</code> file should no longer exist.</li>
-<li>The <code>.beamable/user-token.json</code> file should no longer exist.</li>
+<li>The <code>.beamable/beamoLocalManifest.json</code> file should no longer exist</li>
+<li>The <code>.beamable/beamoLocalRuntime.json</code> file should no longer exist</li>
+<li>The <code>.beamable/config-defaults.json</code> file should no longer exist</li>
+<li>The <code>.beamable/user-token.json</code> file should no longer exist</li>
 </ul>
 <p>Instead, you should expect to see (at least),
 - <code>.beamable/connection-configuration.json</code> <em>(this replaces the old <code>config-defaults</code> file. )</em>
 - <code>.beamable/temp/connection-auth.json</code> <em>(this replaces the old <code>user-token</code> file)</em></p>
 <h4 id="csproj-files"><code>.csproj</code> files<a class="headerlink" href="#csproj-files" title="Permanent link">¶</a></h4>
 <h5 id="sdk-version">SDK version<a class="headerlink" href="#sdk-version" title="Permanent link">¶</a></h5>
-<p>Unfortunately, the upgrade flow between major version 1 and 2 does not automatically upgrade the nuget dependency on Beamable. All of the <code>.csproj</code> files you may have will need to be manually upgraded to Beamable 2.0.1. Remember, every service, common library, and storage have their own <code>.csproj</code> files.</p>
+<p>Unfortunately, the upgrade flow between major version 1 and 2 does not automatically upgrade the NuGet dependency on Beamable. All of the <code>.csproj</code> files you may have will need to be manually upgraded to Beamable 2.0.1. Remember, every service, common library, and storage have their own <code>.csproj</code> files.</p>
 <p>Open each <code>csproj</code> file, and find the <code>&lt;PackageReference&gt;</code> for Beamable.
 For a service, it will likely look like this,
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"1.19.22"</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -10034,7 +10032,7 @@ For a service, it will likely look like this,
 <h5 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">¶</a></h5>
 <p>In addition, different project types have the following upgrade requirements...</p>
 <h6 id="services">Services<a class="headerlink" href="#services" title="Permanent link">¶</a></h6>
-<p>For services, the <code>csproj</code> file has been simplified between major versions 1 and 2. You can remove all of the tasks and extraneous nuget references.</p>
+<p>For services, the <code>csproj</code> file has been simplified between major versions 1 and 2. You can remove all the tasks and extraneous NuGet references.</p>
 <p>This snippet can (and should) be removed from a 1.19.22 service's <code>csproj</code> file.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"EmbedIO"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"3.4.*"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"LoxSmoke.DocXml"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"3.4.*"</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -10137,7 +10135,7 @@ For a service, it will likely look like this,
 <a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="w">        </span><span class="cm">&lt;!-- net8.0 is the LTS version until 2026. To update your net version, update the &lt;TargetFramework&gt; when Beamable announces support. --&gt;</span>
 <a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="w">        </span><span class="nt">&lt;TargetFramework&gt;</span>net6.0<span class="nt">&lt;/TargetFramework&gt;</span>
 <a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a><span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span>
-<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="w">    </span><span class="nt">&lt;ItemGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Nuget References"</span><span class="nt">&gt;</span>
+<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="w">    </span><span class="nt">&lt;ItemGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"NuGet References"</span><span class="nt">&gt;</span>
 <a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a><span class="w">        </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.0.1"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a><span class="w">    </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a><span class="nt">&lt;/Project&gt;</span>

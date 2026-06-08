@@ -8975,7 +8975,7 @@
 <h1 id="microservice-routing">Microservice routing<a class="headerlink" href="#microservice-routing" title="Permanent link">¶</a></h1>
 <p>Configure Standalone Microservice routing and client generation</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>Before you can configure Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
+<p>Before you can configure Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
@@ -9059,7 +9059,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">var</span><span class="w"> </span><span class="nx">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'.'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">pid</span><span class="p">;</span>
 </code></pre></div>
 <h3 id="authorization">Authorization<a class="headerlink" href="#authorization" title="Permanent link">¶</a></h3>
-<p>Finally, while not required, it is important to send an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project.</p>
+<p>Finally, while not required, we recommend sending an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cat<span class="w"> </span>.beamable/temp/auth.beam.json
 </code></pre></div>
 <p>Beamable does not require that any access token be provided via an authorization header. However, if an authorization header is provided, then Beamable will decorate the request with account information before the request is forwarded to the Microservice. The Microservice itself may enforce the account details to have minimal access permissions. These constraints vary based on the type of <code>[Callable]</code> attribute you use.</p>
@@ -9095,7 +9095,7 @@
 <p class="admonition-title">Use the Unity SDK</p>
 <p>You should be using the Beamable SDK in your Unity projects that use Standalone Microservices. Otherwise, there will be many compile errors as the Beamable SDK is not available.</p>
 </div>
-<p>Microservices can automatically generate client code for the Unity game engine. First, a Unity project needs to be linked to the <code>.beamable/</code> workspace. To do this, use the project add-unity-project command.</p>
+<p>Microservices can automatically generate client code for the Unity game engine. First, link a Unity project to the <code>.beamable/</code> workspace using the project add-unity-project command.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>add-unity-project<span class="w"> </span>&lt;relative-path-to-unity-project&gt;
 </code></pre></div>
 <p>Provide the relative path to the Unity project. If it isn't right, the CLI will offer an explorative search flow to identify a valid Unity project.</p>
@@ -9117,7 +9117,7 @@
 </code></pre></div>
 <p>The automatic client code generation can be disabled when a project builds by modifying the <code>&lt;GenerateClientCode&gt;</code> option. Learn more in the <a href="../ms-configuration/#GenerateClientCode">configuration guide</a>.</p>
 <h3 id="open-api">Open API<a class="headerlink" href="#open-api" title="Permanent link">¶</a></h3>
-<p>It is possible to use the project oapi command to generate an Open API document and then use open source tools to transpile the document into a client in some other programming language.</p>
+<p>You can use the project oapi command to generate an Open API document and then use open source tools to transpile the document into a client in some other programming language.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>oapi<span class="w"> </span>--output<span class="w"> </span>example.json<span class="w"> </span>--ids<span class="w"> </span>MyService
 </code></pre></div>
 <p>In fact, that command can baked into the Microservice's <code>.csproj</code> file with a custom build target. This requires that the <code>&lt;SolutionDir&gt;</code> property is set, which only happens when you run the project from the IDE. See the generate-props command to extend the <code>&lt;SolutionDir&gt;</code> property outside of IDE use cases.

@@ -9217,7 +9217,7 @@
 <h1 id="microservice-configuration">Microservice configuration<a class="headerlink" href="#microservice-configuration" title="Permanent link">¶</a></h1>
 <p>Configure Standalone Microservices</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>Before you can configure Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
+<p>Before you can configure Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
@@ -9249,7 +9249,7 @@
 <a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="cm">&lt;!-- net8.0 is the LTS version until 2026. To update your net version, update the &lt;TargetFramework&gt; when Beamable announces support. --&gt;</span>
 <a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="nt">&lt;TargetFramework&gt;</span>net8.0<span class="nt">&lt;/TargetFramework&gt;</span>
 <a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="nt">&lt;/PropertyGroup&gt;</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="nt">&lt;ItemGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Nuget References"</span><span class="nt">&gt;</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="nt">&lt;ItemGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"NuGet References"</span><span class="nt">&gt;</span>
 <a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">        </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"$(BeamableVersion)"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.SourceGen"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"$(BeamableVersion)"</span><span class="w"> </span><span class="na">OutputItemType=</span><span class="s">"Analyzer"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="nt">&lt;/ItemGroup&gt;</span>
@@ -9327,8 +9327,8 @@
 </tbody>
 </table>
 <h4 id="beamenabled">BeamEnabled<a class="headerlink" href="#beamenabled" title="Permanent link">¶</a></h4>
-<p>The <code>&lt;BeamEnabled&gt;</code> is a boolean property. When <code>false</code>, when services are <a href="../ms-deployment/">deployed</a> , the service will not be enabled, and will not cost Beamable Cloud resources.
-Set this option using the project enable or the project disable commands.</p>
+<p>The <code>&lt;BeamEnabled&gt;</code> is a boolean property. If set to <code>false</code>, the service will not be enabled when <a href="../ms-deployment/">deployed</a>, and will not cost Beamable Cloud resources.
+Set this option using the project enable or project disable commands.</p>
 <table>
 <thead>
 <tr>
@@ -9360,7 +9360,7 @@ Set this option using the project enable or the project disable commands.</p>
 </tbody>
 </table>
 <h4 id="beamcollectorversion">BeamCollectorVersion<a class="headerlink" href="#beamcollectorversion" title="Permanent link">¶</a></h4>
-<p>In version 6.0+, the Microservice uses an open telemetry collector process to send logs from the service to Beamable's log warehouse. The collector is versioned separately from the CLI and Microservice nuget packages. The version of the collector is embedded into the <code>BeamCollectorVersion</code> property, but it can be configured by hand.</p>
+<p>In version 6.0+, the Microservice uses an open telemetry collector process to send logs from the service to Beamable's log warehouse. The collector is versioned separately from the CLI and Microservice NuGet packages. The version of the collector is embedded into the <code>BeamCollectorVersion</code> property, but it can be configured by hand.</p>
 <table>
 <thead>
 <tr>
@@ -9392,7 +9392,7 @@ Set this option using the project enable or the project disable commands.</p>
 </tbody>
 </table>
 <h4 id="beampreventbuildcacheinvalidation">BeamPreventBuildCacheInvalidation<a class="headerlink" href="#beampreventbuildcacheinvalidation" title="Permanent link">¶</a></h4>
-<p>The <code>&lt;BeamPreventBuildCacheInvalidation&gt;</code> property is a boolean, only valid on Microservice projects. In version 6+, anytime you build the service, there is a custom build step that will invalidate the file timestamp on the <code>.csproj</code> file, in order to break aggressive IDE cache optimizations. Specifically, the Rider IDE, has a cache that will prevent <code>msbuild</code> from running if it thinks your service has not changed.</p>
+<p>The <code>&lt;BeamPreventBuildCacheInvalidation&gt;</code> property is a boolean, only valid on Microservice projects. In version 6+, anytime you build the service, there is a custom build step that will invalidate the file timestamp on the <code>.csproj</code> file, to break aggressive IDE cache optimizations. Specifically, the Rider IDE, has a cache that will prevent <code>msbuild</code> from running if it thinks your service has not changed.</p>
 <p>You can disable the cache invalidation by setting this property to <code>true</code>.</p>
 <table>
 <thead>
@@ -9444,7 +9444,7 @@ Set this option using the project enable or the project disable commands.</p>
 </table>
 <h4 id="beamvalidatecallabletypesexistinsharedlibraries">BeamValidateCallableTypesExistInSharedLibraries<a class="headerlink" href="#beamvalidatecallabletypesexistinsharedlibraries" title="Permanent link">¶</a></h4>
 <p>The <code>&lt;BeamValidateCallableTypesExistInSharedLibraries&gt;</code> property is a boolean property, only valid on Microservice projects.
-When it is enabled, and the <code>Beamable.Microservice.SourceGen</code> nuget package is referenced, the static analyzer will
+When it is enabled, and the <code>Beamable.Microservice.SourceGen</code> NuGet package is referenced, the static analyzer will
 disallow type references on <code>[Callable]</code> methods that are defined <em>within</em> the Microservice assembly.
 The goal is to prevent developers from building <code>[Callable]</code> methods that rely on data types inaccessible outside
 of the Microservice assembly.</p>
@@ -9506,7 +9506,7 @@ If you need to specify multiple values, use a <code>,</code> or a <code>;</code>
 <p>In CLI 6.0, the CLI will try to collect usage data and send it to Beamable. You can opt out of this by changing the <code>BeamCliAllowTelemetry</code> property to false in the <code>.beamable/otel-config.json</code> file.</p>
 <p>Additionally, you can completely opt out of usage reporting by setting the <code>BEAM_NO_TELEMETRY</code> environment variable.</p>
 <h3 id="net-properties">.NET properties<a class="headerlink" href="#net-properties" title="Permanent link">¶</a></h3>
-<p>Common .NET properties may be explored through <a href="https://learn.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2022">.NET's Documentation</a> . However, there are a few properties that are set automatically through the usage of the <a href="https://www.nuget.org/packages/Beamable.Microservice.Runtime">Beamable Microservice NuGet Package</a>. To view these default settings, you should view the package source code's <code>.props</code> file, located here,</p>
+<p>Common .NET properties may be explored through <a href="https://learn.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2022">.NET documentation</a> . However, there are a few properties that are set automatically through the usage of the <a href="https://www.nuget.org/packages/Beamable.Microservice.Runtime">Beamable Microservice NuGet Package</a>. To view these default settings, you should view the package source code's <code>.props</code> file, located here,</p>
 <p><a href="https://github.com/beamable/BeamableProduct/blob/cli-2.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props">https://github.com/beamable/BeamableProduct/blob/cli-6.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props</a></p>
 <div class="admonition info">
 <p class="admonition-title">Make sure to reference the right version!</p>
