@@ -4,7 +4,7 @@ Passing output from the CLI to other processes
 
 ## Dependencies
 
-Before you can use the Beamable CLI, you need to complete the [Getting-Started Guide](doc:cli-guide-getting-started). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can use the Beamable CLI, you need to complete the [Getting-Started Guide](doc:cli-guide-getting-started). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -96,7 +96,7 @@ dotnet beam config | jq '.data.cid'
 "123"
 ```
 
-Sometimes it is important to get the unescaped JSON, so the `fromjson` component of JQ can be used. To get the `cid` value without quotes:
+Sometimes you need the unescaped JSON; the `fromjson` component of JQ can be used. To get the `cid` value without quotes:
 
 ```sh
 dotnet beam config | jq '.data.cid | fromjson'

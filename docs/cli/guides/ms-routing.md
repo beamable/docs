@@ -4,7 +4,7 @@ Configure Standalone Microservice routing and client generation
 
 ## Dependencies
 
-Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -73,7 +73,7 @@ var scope = cid + '.' + pid;
 ```
 ### Authorization
 
-Finally, while not required, it is important to send an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project.
+Finally, while not required, we recommend sending an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project.
 
 ```sh
 cat .beamable/temp/auth.beam.json
@@ -97,7 +97,7 @@ The account information is accessible via the `Context.UserId` property when exe
 
     You should be using the Beamable SDK in your Unity projects that use Standalone Microservices. Otherwise, there will be many compile errors as the Beamable SDK is not available.
 
-Microservices can automatically generate client code for the Unity game engine. First, a Unity project needs to be linked to the `.beamable/` workspace. To do this, use the project add-unity-project command.
+Microservices can automatically generate client code for the Unity game engine. First, link a Unity project to the `.beamable/` workspace using the project add-unity-project command.
 
 ```sh
 dotnet beam project add-unity-project <relative-path-to-unity-project>
@@ -132,7 +132,7 @@ The automatic client code generation can be disabled when a project builds by mo
 
 ### Open API
 
-It is possible to use the project oapi command to generate an Open API document and then use open source tools to transpile the document into a client in some other programming language.
+You can use the project oapi command to generate an Open API document and then use open source tools to transpile the document into a client in some other programming language.
 
 ```sh
 dotnet beam project oapi --output example.json --ids MyService

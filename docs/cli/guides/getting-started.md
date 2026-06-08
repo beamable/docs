@@ -1,14 +1,14 @@
 # Get up and running with the Beamable CLI
 
-The Beamable CLI is a dotnet tool that allows developers to interact with Beamable. It can manage a variety of Beamable technologies, including Microservices, Content, and other services.
+The Beamable CLI is a .NET tool that allows developers to interact with Beamable. It can manage a variety of Beamable technologies, including Microservices, Content, and other services.
 
 ## Dependencies
 You'll need to install [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) before you can get started.
 Verify it is installed by running `dotnet --version` from a terminal.
 
-!!! info ".NET 8 is also supported."
+!!! info "We support .NET 8 as well."
 
-    If you are using the Beamable CLI before version 7.0, then you should be using [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). Starting with CLI 7.0 and beyond, both versions of dotnet are supported, but `net10.0` is recommended.
+    If you are using the Beamable CLI before version 7.0, then you should be using [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). Starting with CLI 7.0 and beyond, we support both versions of .NET, but we recommend you use `net10.0`.
 
 ## Installing
 
@@ -34,7 +34,7 @@ beam version install latest
 
 !!! info "Check Versions on NuGet"
 
-    Remember, Beamable.Tools is a dotnet tool available through NuGet. As such, you can find all available versions at [nuget.org](https://www.nuget.org/packages/Beamable.Tools)
+    Remember, Beamable.Tools is a .NET tool available through NuGet. You can find all available versions at [nuget.org](https://www.nuget.org/packages/Beamable.Tools)
 
 There may be updates you are required to do, so please check the [migration guide](upgrading.md).
 
@@ -49,14 +49,14 @@ mkdir MyProject
 beam init
 ```
 
-This command will prompt you for your organization's alias, your credentials, and which realm to use. When it is complete, you should see a `./beamable` folder in the current directory. See the [Configuration](configuration.md) for details about this folder. Now, you can run a [beam config](../commands/cli-command-reference/config/config.md) command to verify your project is set up.
+This command will prompt you for your organization's alias, your credentials, and which realm to use. When it is complete, you should see a `.beamable/` folder in the current directory. See the [Configuration](configuration.md) for details about this folder. Now, you can run a [beam config](../commands/cli-command-reference/config/config.md) command to verify your project is set up.
 
 ```shell
 dotnet beam config
 ```
 You should expect to see your CID/PID printed out.
 
-As of CLI 3.0.0, anytime you create a Beamable workspace, the CLI will be installed as a local tool next to the workspace's `.beamable/` folder. This means that you can run the local tool with `dotnet beam`. If you continue to use `beam` in the workspace, the global installation will automatically forward your command to the local tool. This will be inefficient and lead to poor performance. Use `dotnet beam` wherever possible.
+As of CLI 3.0.0, anytime you create a Beamable workspace, the CLI will be installed as a local tool next to the workspace's `.beamable/` folder. This means that you can run the local tool with `dotnet beam`. If you continue to use `beam` in the workspace, the global installation will automatically forward your command to the local tool. This will be inefficient and lead to poor performance. We recommend you use `dotnet beam` wherever possible.
 
 To check that everything is working correctly, you can use the beam me command. Now you have a configured CLI project!
 

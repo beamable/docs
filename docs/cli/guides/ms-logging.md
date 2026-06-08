@@ -5,7 +5,7 @@ Logging from a Microservice
 
 This guide assumes you have an existing Microservice. You need to complete the
 [Getting-Started Guide]
-(getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+(getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -78,7 +78,7 @@ For more information on ZLogger's `DebugLogProcessor` and async log processing, 
 
 !!! info
 
-	Local microservice logs will not appear in Portal unless the `BEAM_LOCAL_OTEL` environment variable is set.
+	Local microservice logs will not appear in the Portal unless the `BEAM_LOCAL_OTEL` environment variable is set.
 
 ### Log level
 
@@ -90,7 +90,7 @@ Each log has a _level_, or an _importance_ rating. Logs are one of the following
 - _Debug_
 - _Verbose_
 
-When you run a Microservice locally, you will see log messages at the _Debug_ level and above. However, in a deployed Microservice, you will only see **Information** and above. This is called the _Log Level_. It is considered best practice to avoid logging _Debug_ and _Verbose_ logs in production, because they negatively impact performance.
+When you run a Microservice locally, you will see log messages at the _Debug_ level and above. However, in a deployed Microservice, you will only see **Information** and above. This is called the _Log Level_. Best practice is to avoid logging _Debug_ and _Verbose_ logs in production, as they negatively impact performance.
 
 The `Log` type has methods for each type of log level.
 
@@ -106,7 +106,7 @@ To set a dynamic log level, go to the Portal's microservice page, and create a n
 
 ### Attributes
 
-In version 6.0+, Microservice logs include attributes that can be explored in Portal.
+In version 6.0+, Microservice logs include attributes that can be explored in the Portal.
 #### Single custom attributes
 
 You can add custom attributes per log message by using the standard string formatting approach:
@@ -123,11 +123,11 @@ If the method was invoked with `a` equal to `42`, then the rendered log message 
 attribute 42
 ```
 
-However, the attribute, `a`, is available for querying in Portal. Use a custom search expression for `a:42` to find any log messages with the `a` attribute value of `42`.
+However, the attribute, `a`, is available for querying in the Portal. Use a custom search expression for `a:42` to find any log messages with the `a` attribute value of `42`.
 
 #### Scoped custom attributes
 
-It is possible to automatically add attributes to an entire sequence of logs. For example, imagine you wanted to tag a series of log lines as being part of an algorithm.
+You can automatically add attributes to an entire sequence of logs. For example, imagine you wanted to tag a series of log lines as being part of an algorithm.
 
 ```csharp
 [ClientCallable]
@@ -173,7 +173,7 @@ However, the _attributes_ available on the log lines will include the `operation
 
 #### Defined custom attributes
 
-In the previous section, the custom log attributes are localized to specific log events. The attributes are searchable in Portal, but they will not appear as _known_ attributes, because they are not declared at any top level location. In order to define known attributes, you need to use a custom `ITelemetryAttributeProvider`.
+In the previous section, the custom log attributes are localized to specific log events. The attributes are searchable in the Portal, but they will not appear as _known_ attributes, because they are not declared at any top level location. In order to define known attributes, you need to use a custom `ITelemetryAttributeProvider`.
 
 ```csharp
 public class CustomAttributes : ITelemetryAttributeProvider
@@ -216,11 +216,11 @@ public static async Task Main()
 ```
 
 The various _CreateAttribute_ functions should add attributes to the current context of a request.
-- `DefaultAttributes` allow you to add an attribute to _every_ log line.
-- `ConnectionAttributes` allow you to add an attribute to every log line that is part of a specific _connection_ to Beamable. When a Microservice runs locally, there is only a single connection, but in a deployed environment, there are _10_ connections.
-- `RequestAttributes` allow you add attributes to every log line per _request_.
+- `DefaultAttributes` allow you to add an attribute to _every_ log line
+- `ConnectionAttributes` allow you to add an attribute to every log line that is part of a specific _connection_ to Beamable. When a Microservice runs locally, there is only a single connection, but in a deployed environment, there are _10_ connections
+- `RequestAttributes` allow you add attributes to every log line per _request_
 
-The `GetDescriptors()` function must return a description for all attributes you want to be defined. When an attribute is described from the return value, the title and description will appear in Portal.
+The `GetDescriptors()` function must return a description for all attributes you want to be defined. When an attribute is described from the return value, the title and description will appear in the Portal.
 
 ### Standard log attributes
 
@@ -248,9 +248,9 @@ There are several standard log attributes that will be included automatically. S
 
 ### Third party log hosting
 
-Starting with version 6.0, it is possible to send Microservice logs to third parties. This example uses BetterStack.
+Starting with version 6.0, you can send Microservice logs to third-party log hosting services. This example uses BetterStack.
 
-This section assumes you have set up a BetterStack account and created a _Source_ such that you have a _source token_ and an _ingesting host_.
+This section will assume you have set up a BetterStack account, and created a _Source_ such that you have a _source token_ and an _ingesting host_.
 
 First, configure locally running Microservices to send data to BetterStack. Create a file called `config.yaml` next to your `BeamableServices.sln` file.
 

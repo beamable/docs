@@ -4,7 +4,7 @@ Configure Standalone Microservices
 
 ## Dependencies
 
-Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -44,7 +44,7 @@ Each Standalone Microservice is a .NET project, and can be configured through th
         <!-- net8.0 is the LTS version until 2026. To update your net version, update the <TargetFramework> when Beamable announces support. -->
         <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
-    <ItemGroup Label="Nuget References">
+    <ItemGroup Label="NuGet References">
         <PackageReference Include="Beamable.Microservice.Runtime" Version="$(BeamableVersion)" />
         <PackageReference Include="Beamable.Microservice.SourceGen" Version="$(BeamableVersion)" OutputItemType="Analyzer" />
     </ItemGroup>
@@ -93,8 +93,8 @@ The `<BeamLogProvider>` determines which log provider the microservice will use.
 
 #### BeamEnabled
 
-The `<BeamEnabled>` is a boolean property. When `false`, when services are [deployed](ms-deployment.md) , the service will not be enabled, and will not cost Beamable Cloud resources.
-Set this option using the project enable or the project disable commands.
+The `<BeamEnabled>` is a boolean property. If set to `false`, the service will not be enabled when [deployed](ms-deployment.md), and will not cost Beamable Cloud resources.
+Set this option using the project enable or project disable commands.
 
 | Property Name   | Default Value |
 | --------------- | ------------- |
@@ -108,7 +108,7 @@ The `<BeamPreventOapiGen>` property is a boolean property, only valid on Microse
 | `<BeamPreventOapiGen>` | false         |
 
 #### BeamCollectorVersion
-In version 6.0+, the Microservice uses an open telemetry collector process to send logs from the service to Beamable's log warehouse. The collector is versioned separately from the CLI and Microservice nuget packages. The version of the collector is embedded into the `BeamCollectorVersion` property, but it can be configured by hand.
+In version 6.0+, the Microservice uses an open telemetry collector process to send logs from the service to Beamable's log warehouse. The collector is versioned separately from the CLI and Microservice NuGet packages. The version of the collector is embedded into the `BeamCollectorVersion` property, but it can be configured by hand.
 
 | Property Name            | Default Value                                          |
 | ------------------------ | ------------------------------------------------------ |
@@ -123,7 +123,7 @@ In version 6.0+, the Microservice uses an open telemetry collector process to se
 
 #### BeamPreventBuildCacheInvalidation
 
-The `<BeamPreventBuildCacheInvalidation>` property is a boolean, only valid on Microservice projects. In version 6+, anytime you build the service, there is a custom build step that will invalidate the file timestamp on the `.csproj` file, in order to break aggressive IDE cache optimizations. Specifically, the Rider IDE, has a cache that will prevent `msbuild` from running if it thinks your service has not changed.
+The `<BeamPreventBuildCacheInvalidation>` property is a boolean, only valid on Microservice projects. In version 6+, anytime you build the service, there is a custom build step that will invalidate the file timestamp on the `.csproj` file, to break aggressive IDE cache optimizations. Specifically, the Rider IDE, has a cache that will prevent `msbuild` from running if it thinks your service has not changed.
 
 You can disable the cache invalidation by setting this property to `true`.
 
@@ -149,7 +149,7 @@ The `<EnableUnrealBlueprintCompatibility>` property is a boolean property, only 
 #### BeamValidateCallableTypesExistInSharedLibraries
 
 The `<BeamValidateCallableTypesExistInSharedLibraries>` property is a boolean property, only valid on Microservice projects.
-When it is enabled, and the `Beamable.Microservice.SourceGen` nuget package is referenced, the static analyzer will
+When it is enabled, and the `Beamable.Microservice.SourceGen` NuGet package is referenced, the static analyzer will
 disallow type references on `[Callable]` methods that are defined _within_ the Microservice assembly.
 The goal is to prevent developers from building `[Callable]` methods that rely on data types inaccessible outside
 of the Microservice assembly.
@@ -195,7 +195,7 @@ Additionally, you can completely opt out of usage reporting by setting the `BEAM
 
 ### .NET properties
 
-Common .NET properties may be explored through [.NET's Documentation](https://learn.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2022) . However, there are a few properties that are set automatically through the usage of the [Beamable Microservice NuGet Package](https://www.nuget.org/packages/Beamable.Microservice.Runtime). To view these default settings, you should view the package source code's `.props` file, located here,
+Common .NET properties may be explored through [.NET documentation](https://learn.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2022) . However, there are a few properties that are set automatically through the usage of the [Beamable Microservice NuGet Package](https://www.nuget.org/packages/Beamable.Microservice.Runtime). To view these default settings, you should view the package source code's `.props` file, located here,
 
 [https://github.com/beamable/BeamableProduct/blob/cli-6.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props](https://github.com/beamable/BeamableProduct/blob/cli-2.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props)
 
