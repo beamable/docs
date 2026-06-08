@@ -78,7 +78,7 @@ cat output.txt
 
 A common workflow is to use the [JQ](https://jqlang.github.io/jq/download/) tool to navigate the piped `--raw` output. Below are some common examples.
 
-In order to pipe the `data` to a file, we could write,
+To pipe the `data` to a file, you can write:
 ```sh
 dotnet beam config | jq '.data' > output.txt
 cat output.txt
@@ -96,7 +96,7 @@ dotnet beam config | jq '.data.cid'
 "123"
 ```
 
-Sometimes you need the unescaped JSON; the `fromjson` component of JQ can be used. For example, if we wanted the `cid` value, but without quotes,
+Sometimes you need the unescaped JSON; the `fromjson` component of JQ can be used. To get the `cid` value without quotes:
 
 ```sh
 dotnet beam config | jq '.data.cid | fromjson'
