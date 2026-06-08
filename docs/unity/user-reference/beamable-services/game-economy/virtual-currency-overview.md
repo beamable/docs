@@ -2,7 +2,7 @@
 
 The Beamable **Currency** service allows game makers to manage in-game currencies for purchasing and economic systems. Virtual Currencies provide a flexible economic foundation for your game, enabling players to earn, spend, and manage various types of in-game money. The Virtual Currency system in Beamable is built on top of the [Content  System](../profile-storage/content/content-overview.md). Currencies exist out of the box in the Beamable SDK as a content type.
 
-![virtual-currency-experience.png](../../../../media/imgs/virtual-currency-experience.png){: style="height:auto;width:500px"}
+![Flowchart for using virtual currency: create a currency in the Content Manager, then grant it to players either through the Portal or in C# through the inventory service.](../../../../media/imgs/virtual-currency-experience.png){: style="height:auto;width:500px"}
 
 ## Managing currencies
 

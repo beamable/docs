@@ -67,7 +67,7 @@ Analytics events are namespaced by the source to limit name collision (Ex: `Clie
 
 The payload may include custom data set by the game maker. This is a flat set of key/value pairs.
 
-![Analytics Schema.png](../../../../media/imgs/Analytics%20Schema.png){width="600px"}
+![The analytics event schema: an event carries a source, category, name, and payload, and the payload holds the event ID, date, time, gamer tag, and custom data.](../../../../media/imgs/Analytics%20Schema.png){width="600px"}
 
 The source value is set automatically for each Analytics event and [Stats](../profile-storage/stats.md).
 

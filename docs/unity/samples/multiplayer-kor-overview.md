@@ -55,12 +55,12 @@ _Pro Tip: Earn coins by playing the game. Spend coins in the store to improve yo
 ### Player experience flowchart
 
 The player experience flowchart shows the game flow and interactions between different systems.
-![kor.png](../../media/imgs/kor.png){width="600px"}
+![A diagram mapping the game client's scenes and buttons to Beamable server services such as connectivity, matchmaking, multiplayer, inventory, commerce, and leaderboards.](../../media/imgs/kor.png){width="600px"}
 
 ## Game Maker user experience
 
 The game maker user experience shows the development workflow. There are several major parts to this game creation process.
-![kor2.png](../../media/imgs/kor2.png){width="600px"}
+![The game-maker workflow: set up the project, plan the game design, create the game code, then create the multiplayer code.](../../media/imgs/kor2.png){width="600px"}
 
 ## Steps
 

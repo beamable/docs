@@ -13,7 +13,7 @@ Beamable offers two main types of live events to engage your player community:
 
 Events provide an engaging user experience through time-limited activities that encourage regular gameplay and community participation.
 
-![events-experience.png](../../../../media/imgs/events-experience.png)
+![The events cycle: players compete to update scores, claim score rewards, are ranked, advance to the next phase, and claim rank rewards as each phase begins anew.](../../../../media/imgs/events-experience.png)
 
 Here is the glossary of Events competition terms:
 
