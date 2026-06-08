@@ -9739,7 +9739,7 @@
 <p>Live games often have frequent changes to their structured and unstructured data: the definition of items and merchandise, virtual goods, currencies, inventory, items, world data, and stories are just a few examples.</p>
 <p>Managing these data structures is usually a pain, requiring special forms, processes, or direct-editing of source code files that contain data definitions.</p>
 <p>Game makers know that these problems only get worse when the game goes live -- because the desire is to change this data on the fly, without interfering with update, deployment, or live operations — or requiring engineering intervention. <strong>That's why we created the Game Content Designer (GCD). This Google Sheets Add-On allows game makers to manage all the game's live data with the simplicity of a Google Sheet.</strong></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/content-designer-experience.png" data-desc-position="bottom"><img alt="content-designer-experience.png" src="../../../../../../media/imgs/content-designer-experience.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/content-designer-experience.png" data-desc-position="bottom"><img alt="Game Content Designer workflow: create a sheet, install GCD from the Google marketplace, manage the data with CRUD operations, then bring the data into the game." src="../../../../../../media/imgs/content-designer-experience.png"></a></p>
 <div class="admonition warning">
 <p class="admonition-title">Beamable Labs Feature</p>
 <p>This is an experimental feature currently in development. Features may change or be removed in future releases.</p>
@@ -9757,7 +9757,7 @@
 </div>
 <h3 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">¶</a></h3>
 <p>Even though GCD is made to work with Beamable, game makers do not have to use the Beamable back-end. GCD converts a flat spreadsheet into JSON objects with complex structures (arrays, references between objects, multidimensional objects), validation, constraints (min/max), crosstab IDs, and other features that can be loaded directly into a game via Unity.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/ex.png" data-desc-position="bottom"><img alt="ex.png" src="../../../../../../media/imgs/ex.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/ex.png" data-desc-position="bottom"><img alt="A Google Sheet with the Game Content Designer add-on menu open, showing the Import/Export submenu with Export, Re-Export, and Import options." src="../../../../../../media/imgs/ex.png"></a></p>
 <h3 id="exports">Exports<a class="headerlink" href="#exports" title="Permanent link">¶</a></h3>
 <p>Schema headers are initially defined in the first row of a GCD sheet. For complex data structures that include nested data, the headers will span across multiple rows to represent the data hierarchy. The schema headers provide the mapping information for exporting data from a spreadsheet.</p>
 <ul>

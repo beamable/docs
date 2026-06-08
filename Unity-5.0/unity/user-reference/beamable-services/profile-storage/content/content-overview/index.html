@@ -9758,7 +9758,7 @@
 
 <h1 id="content-overview">Content - overview<a class="headerlink" href="#content-overview" title="Permanent link">¶</a></h1>
 <p>The <strong>Content</strong> service allows game maker to store project-specific data objects. It is embedded into many other Beamable services, such as Inventory, Store, Leaderboards, and Tournaments. For simplicity, some Beamable data structures may be omitted from this diagram.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/content-data-concepts.png" data-desc-position="bottom"><img alt="content-data-concepts.png" src="../../../../../../media/imgs/content-data-concepts.png" style="height:auto;width:500px"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/content-data-concepts.png" data-desc-position="bottom"><img alt="Content data hierarchy: an account contains games and realms, and each realm holds player data and content types such as announcements, currencies, leaderboards, and stores." src="../../../../../../media/imgs/content-data-concepts.png" style="height:auto;width:500px"></a></p>
 <h2 id="content-id">Content ID<a class="headerlink" href="#content-id" title="Permanent link">¶</a></h2>
 <p>The content ID is assigned at creation of a new content, and is composed of content <code>type</code> and content <code>id</code>. A content ID always starts with the content type. For example, a currency content for dollars would be:
 <code>currency.dollars</code>.</p>
@@ -10230,7 +10230,7 @@
 <h2 id="content-management">Content management<a class="headerlink" href="#content-management" title="Permanent link">¶</a></h2>
 <p>Content management is critical to keep the content in your game engaging and reactive, and Beamable provides a number of content management tools. This is a mixture of solutions within the "Beamable SDK for Unity" and Rest API calls. In addition Beamable provides some extended tools that integrate with Google Sheets as a plugin.</p>
 <p>Beamable provides a streamlined Content Publishing pipeline. You can deploy your content across multiple environments that can be tailored to your own internal publishing workflow.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/content-management.png" data-desc-position="bottom"><img alt="content-management.png" src="../../../../../../media/imgs/content-management.png" style="height:auto;width:500px"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/content-management.png" data-desc-position="bottom"><img alt="The content publishing pipeline: create content, then publish it to the dev, staging, and production environments in turn." src="../../../../../../media/imgs/content-management.png" style="height:auto;width:500px"></a></p>
 <p>When you create your Beamable account, we automatically create three distinct environments: dev → staging → prod. This lets you publish and test content in dev without affecting prod.</p>
 <p>Then, once you have tested that the new content in your environment looks correct, you can go into the Portal to promote the dev content to staging and eventually prod.</p>
 <h3 id="storage-location-of-content-types-and-content-live-refresh">Storage location of content types and content live refresh<a class="headerlink" href="#storage-location-of-content-types-and-content-live-refresh" title="Permanent link">¶</a></h3>
