@@ -10064,7 +10064,7 @@ Learn more about this file by reading the <a href="https://opentelemetry.io/docs
 <span class="w">    </span>-e<span class="w"> </span><span class="nv">BETTERSTACK_AUTH</span><span class="o">=</span><span class="nv">$BETTERSTACK_AUTH</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.125.0
 </code></pre></div></td></tr></tbody></table></div><p></p>
-<p>Now you have a locally running telemetry collector. We need to configure your local Microservice to <em>use</em> the collector. Prepare the following environment variables,</p>
+<p>Now you have a locally running telemetry collector. Next, configure your local Microservice to <em>use</em> the collector. Prepare the following environment variables:</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_DISABLE_STANDARD_OTEL</span><span class="o">=</span><span class="m">1</span>

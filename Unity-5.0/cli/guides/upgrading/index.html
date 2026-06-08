@@ -10421,7 +10421,7 @@ following line to the end of the file.
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <h3 id="from-202-to-301">From 2.0.2 to 3.0.1<a class="headerlink" href="#from-202-to-301" title="Permanent link">¶</a></h3>
 <p>The upgrade from 2.0.x to 3.0.1 brings a few critical updates to the <code>csproj</code> file, how the Beam CLI tool is managed, and the version of <code>dotnet</code>.</p>
-<p><strong>To start this process, let's open a terminal and navigate to the directory containing your <code>.beamable/</code> folder. All commands are written as though invoked from this directory.</strong></p>
+<p><strong>To start this process, open a terminal and navigate to the directory containing your <code>.beamable/</code> folder. All commands are written as though invoked from this directory.</strong></p>
 <div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -10442,7 +10442,7 @@ SomeDrive
 <li>Install <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">dotnet 8 SDK</a> in your machine (it is the new recommended version). The old <code>net6.0</code> framework's end-of-life arrived on November 12, 2024.</li>
 <li>Delete the <code>.beamable/local-services-manifest.json</code> file. (It is no longer necessary)</li>
 </ol>
-<p>Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install &amp; re-install specific versions when switching projects, but that is a bad workflow — so that was changed.</p>
+<p>Before 3.0.0, the CLI was always installed globally, so every Beamable CLI project on your machine had to share the same CLI version. Switching projects meant uninstalling and reinstalling specific versions — a poor workflow.</p>
 <p>In 3.0.0, the CLI should be installed as a <em>local dotnet tool</em>.</p>
 <p>The steps to change your project from using the global CLI tool to a <em>local dotnet tool</em> are defined below.</p>
 <p>Start by verifying you are in the correct location by running the following command.
@@ -10536,8 +10536,7 @@ SomeDrive
 <span class="w">  </span><span class="cm">&lt;!-- When running from inside docker, this gets injected via the Dockerfile at build-time. --&gt;</span>
 <span class="nt">&lt;/PropertyGroup&gt;</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
-<p>If the project is targeting <code>net6.0</code> or <code>net7.0</code>, then, we recommend you
-upgrade the <code>TargetFramework</code> to <code>.net8.0</code>.
+<p>If the project is targeting <code>net6.0</code> or <code>net7.0</code>, upgrade the <code>TargetFramework</code> to <code>.net8.0</code>.
 </p><div class="language-xml highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
