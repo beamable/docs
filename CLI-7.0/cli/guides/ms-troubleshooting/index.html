@@ -6617,7 +6617,7 @@ Methods marked as <code>[Callable]</code>, <code>[ClientCallable]</code>, <code>
 </code></pre></div><p></p>
 <h2 id="invalid-type-usage-in-callable-method">Invalid type usage in callable method<a class="headerlink" href="#invalid-type-usage-in-callable-method" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
-Types used in <code>[ClientCallable]</code> methods must be available to both server and client. Declaring types inside the microservice class makes them inaccessible to the Unity client as we're not regenerating DTO for Client.</p>
+Types used in <code>[ClientCallable]</code> methods must be available to both server and client. Declaring types inside the microservice class makes them inaccessible to the Unity client, as the SDK does not regenerate DTOs for the client in that case.</p>
 <p><strong>Example Code Triggering the Error</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>

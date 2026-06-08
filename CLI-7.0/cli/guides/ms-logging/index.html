@@ -6640,7 +6640,7 @@ Learn more about this file by reading the <a href="https://opentelemetry.io/docs
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">BETTERSTACK_AUTH</span><span class="o">=</span><span class="nv">$BETTERSTACK_AUTH</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span>ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.125.0
 </code></pre></div><p></p>
-<p>Now you have a locally running telemetry collector. We need to configure your local Microservice to <em>use</em> the collector. Prepare the following environment variables,</p>
+<p>Now you have a locally running telemetry collector. Next, configure your local Microservice to <em>use</em> the collector. Prepare the following environment variables:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_DISABLE_STANDARD_OTEL</span><span class="o">=</span><span class="m">1</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_OTEL_EXPORTER_OTLP_ENDPOINT</span><span class="o">=</span>http://127.0.0.1:4318
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_OTEL_EXPORTER_OTLP_PROTOCOL</span><span class="o">=</span>HttpProtobuf

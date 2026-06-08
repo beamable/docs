@@ -6277,7 +6277,7 @@
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="o">{</span><span class="s2">"ts"</span>:1716908709811,<span class="s2">"type"</span>:<span class="s2">"stream"</span>,<span class="s2">"data"</span>:<span class="o">{</span><span class="s2">"host"</span>:<span class="s2">"https://api.beamable.com"</span>,<span class="s2">"cid"</span>:<span class="s2">"123"</span>,<span class="s2">"pid"</span>:<span class="s2">"DE_123"</span>,<span class="s2">"configPath"</span>:<span class="s2">"/Users/Test/MyProject/.beamable"</span><span class="o">}}</span>
 </code></pre></div>
 <p>A common workflow is to use the <a href="https://jqlang.github.io/jq/download/">JQ</a> tool to navigate the piped <code>--raw</code> output. Below are some common examples.</p>
-<p>In order to pipe the <code>data</code> to a file, we could write,
+<p>To pipe the <code>data</code> to a file, you can write:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.data'</span><span class="w"> </span>&gt;<span class="w"> </span>output.txt
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cat<span class="w"> </span>output.txt
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="o">{</span>
@@ -6291,7 +6291,7 @@
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.data.cid'</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s2">"123"</span>
 </code></pre></div><p></p>
-<p>Sometimes you need the unescaped JSON; the <code>fromjson</code> component of JQ can be used. For example, if we wanted the <code>cid</code> value, but without quotes,</p>
+<p>Sometimes you need the unescaped JSON; the <code>fromjson</code> component of JQ can be used. To get the <code>cid</code> value without quotes:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.data.cid | fromjson'</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="m">123</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
