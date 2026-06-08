@@ -224,7 +224,7 @@ Starting with CLI 3.0.1, you should start by updating the CLI's file structure. 
 1. Install [dotnet 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) in your machine (it is the new recommended version). The old `net6.0` framework's end-of-life arrived on November 12, 2024.
 2. Delete the `.beamable/local-services-manifest.json` file. (It is no longer necessary)
 
-Previous to 3.0.0, the CLI was always installed globally and all Beamable CLI projects on your computer had to share the same CLI version. You could un-install & re-install specific versions when switching projects, but that is a bad workflow — so... we changed it.
+Before 3.0.0, the CLI was always installed globally, so every Beamable CLI project on your machine had to share the same CLI version. Switching projects meant uninstalling and reinstalling specific versions — a poor workflow.
 
 In 3.0.0, the CLI should be installed as a _local dotnet tool_.
 

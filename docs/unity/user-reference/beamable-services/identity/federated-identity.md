@@ -115,7 +115,7 @@ await accountRecoveryResponse.SwitchToAccount();
 
 ### Running or publishing your Microservice
 
-Previous to the Beamable Mercury release (Unity 2.0, CLI 3.0, and UE 1.0), you would need to publish the service to test federation. However, now you can test federations with a locally running service.
+Before the Beamable Mercury release (Unity 2.0, CLI 3.0, and UE 1.0), you needed to publish the service to test federation. Now you can test federations with a locally running service.
 
 ## More samples
 Here are some more examples of federated identity implementations:
