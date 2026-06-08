@@ -4,7 +4,7 @@ Federate Standalone Microservices with external services
 
 ## Dependencies
 
-Before you can federate using Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
+Before you can federate using Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
 ```sh
@@ -43,7 +43,7 @@ public partial class ExampleService : IFederatedLogin<MySample>
 }
 ```
 
-The `MySample` class included as the generic type in the `IFederatedLogin` interface specifies the id for the federated login. The class signature for these types must implement the `IFederationId` type, and be annotated with a `FederationId` attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.
+The `MySample` class included as the generic type in the `IFederatedLogin` interface specifies the id for the federated login. The class signature for these types must implement the `IFederationId` type and include a `FederationId` attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.
 
 ```csharp
 [FederationId("myId")]
@@ -94,7 +94,7 @@ The following IFederationId is invalid. They must: Start with a letter. Contain 
 ```
 
 **Solutions**:
-- Rename the federation ID to follow the format, e.g. `MyFederation`.
+- Rename the federation ID to follow the format, e.g., `MyFederation`
 
 ---
 

@@ -103,7 +103,7 @@ When planning to release microservices, its important to think about how to hand
 
 **Merge**: Creates a release plan that merges your current local environment to the existing remote services. In other words, existing deployed services that are not present locally will remain unaffected.
 
-By default, the **replace** plan is used as it keeps "whatever is in your repository" as the source of truth. That being said, there are cases where **merge** can be useful.
+By default, we use the **replace** plan as it keeps "whatever is in your repository" as the source of truth. That being said, there are cases where **merge** can be useful.
 
 For example, in cases where you want to remove the source code of a service from the repo, but still have the service be available for a while; this can happen if you have multiple *supported* client versions in existence, one dependent on a removed service and the other not.
 
@@ -132,7 +132,7 @@ dotnet beam deploy release --from-manifest-id "id from the other command"
 ```
 
 ## Enabling and disabling services
-After a Standalone Microservice has been deployed, it will continue to be available on the Beamable Cloud until it is disabled. A service can be temporarily disabled through Portal, but they will be re-activated after a fresh `deploy release` command occurs.
+After a Standalone Microservice has been deployed, it will continue to be available on the Beamable Cloud until it is disabled. A service can be temporarily disabled through the Portal, but they will be re-activated after a fresh `deploy release` command occurs.
 
 To disable a service, you need to modify the configuration of the Microservice source code itself. In the `.csproj` file of your service, set the `<BeamEnabled>` property to `false`. Then, re-run the `deploy plan` command. You will see that the service would become disabled if you were to `deploy release` that plan.
 
