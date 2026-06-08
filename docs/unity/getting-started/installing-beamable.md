@@ -42,7 +42,7 @@ Now you're ready to start your first Beamable project!
 ## Say _hello_ to Beamable!
 To confirm that you have a working Beamable setup, we will pull in the `BeamableBehavior` component and make sure we can access a player account using the [Admin Console](../user-reference/runtime-systems/admin-console.md).
 
-![getting-started.gif](../../media/imgs/getting-started.gif)
+![Animated walkthrough of the Unity Editor in play mode: the Beamable runtime initializes in the Console, then the Admin Console opens to confirm access to a player account.](../../media/imgs/getting-started.gif)
 
 - Add the `BeamableBehaviour` component to any object of the scene.
 - Enter play-mode, and hit the `~` character (the same key as `` ` ``). This should open up the [Admin Console](../user-reference/runtime-systems/admin-console.md).
@@ -53,7 +53,7 @@ To confirm that you have a working Beamable setup, we will pull in the `Beamable
 
 You can start exploring the Beamable SDK throuht the samples available in the Beam Samples Window. Also make sure to check out the [Samples Documentation](../samples/lightbeam.md) for more information.
 
-![lightbeam-samples.png](../../media/imgs/lightbeam-samples.png){width=700px}
+![The Welcome to the Lightbeam Samples screen with cards for player account, inventory, friends, lobby, loot box, and cloud saving management.](../../media/imgs/lightbeam-samples.png){width=700px}
 
 ## Beam CLI dependency
 

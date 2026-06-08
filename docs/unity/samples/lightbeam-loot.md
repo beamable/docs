@@ -2,7 +2,7 @@
 
 The Loot Box Sample demonstrates a timer-gated reward system backed by a Beamable Microservice.
 
-![lightbeam-lootbox.png](../../media/imgs/lightbeam-lootbox.png){width=800px}
+![The Loot Box sample screen showing a countdown timer at zero above a Claim Reward button.](../../media/imgs/lightbeam-lootbox.png){width=800px}
 
 This sample shows you how to:
 

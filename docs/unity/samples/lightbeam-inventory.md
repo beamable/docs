@@ -2,7 +2,7 @@
 
 The Inventory Sample demonstrates Beamable's [Inventory](../user-reference/beamable-services/game-economy/inventory-overview.md) system — a service that manages owned items and currencies per player.
 
-![lightbeam-inventory.png](../../media/imgs/lightbeam-inventory.png){width=800px}
+![The Inventory sample screen showing a player's gems currency with Show Items and Show Currencies buttons.](../../media/imgs/lightbeam-inventory.png){width=800px}
 
 This sample shows you how to:
 
@@ -14,7 +14,7 @@ The Inventory system is content-driven. Before entering Playmode, you must creat
 
 ### 1. Create an item in the Content Manager
 
-![lightbox-inventory-addItem-content.gif](../../media/imgs/lightbox-inventory-addItem-content.gif){width=800px}
+![The Beam Content window in the Unity Editor, listing content groups such as announcements, currency, and game_types while a new inventory item is added.](../../media/imgs/lightbox-inventory-addItem-content.gif){width=800px}
 
 1. Open the Content Manager (**Beamable → Open Beam Content**).
 3. Click the **+** button next to **inventoryTestItem** type to add a new entry of this type.
@@ -27,7 +27,7 @@ The Inventory system is content-driven. Before entering Playmode, you must creat
 
 ### 2. Grant the item to a player in Portal
 
-![lightbox-inventory-add-item.gif](../../media/imgs/lightbox-inventory-add-item.gif){width=800px}
+![The player's Inventory page in the Portal, showing a gems currency entry and an empty items table while an item is granted.](../../media/imgs/lightbox-inventory-add-item.gif){width=800px}
 
 1. Enter Playmode and click **Open Portal** — this takes you directly to the player's Inventory page on the portal.
 2. Click **Actions → Add Item** in the **Items** section.

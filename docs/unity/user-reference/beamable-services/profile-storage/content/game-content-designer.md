@@ -8,7 +8,7 @@ Managing these data structures is usually a pain, requiring special forms, proce
 
 Game makers know that these problems only get worse when the game goes live -- because the desire is to change this data on the fly, without interfering with update, deployment, or live operations — or requiring engineering intervention. **That's why we created the Game Content Designer (GCD). This Google Sheets Add-On allows game makers to manage all the game's live data with the simplicity of a Google Sheet.**
 
-![content-designer-experience.png](../../../../../media/imgs/content-designer-experience.png)
+![Game Content Designer workflow: create a sheet, install GCD from the Google marketplace, manage the data with CRUD operations, then bring the data into the game.](../../../../../media/imgs/content-designer-experience.png)
 
 !!! warning "Beamable Labs Feature"
 
@@ -31,7 +31,7 @@ With **Game Content Designer**, game makers can create where they are most comfo
 
 Even though GCD is made to work with Beamable, game makers do not have to use the Beamable back-end. GCD converts a flat spreadsheet into JSON objects with complex structures (arrays, references between objects, multidimensional objects), validation, constraints (min/max), crosstab IDs, and other features that can be loaded directly into a game via Unity.
 
-![ex.png](../../../../../media/imgs/ex.png)
+![A Google Sheet with the Game Content Designer add-on menu open, showing the Import/Export submenu with Export, Re-Export, and Import options.](../../../../../media/imgs/ex.png)
 
 ### Exports
 

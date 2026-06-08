@@ -2,7 +2,7 @@
 
 The Lobby Sample demonstrates Beamable's [Lobbies](../user-reference/beamable-services/social-networking/lobbies.md) feature — virtual waiting spaces players join before entering a multiplayer match.
 
-![lightbeam-lobby.png](../../media/imgs/lightbeam-lobby.png){width=800px}
+![The Lobby Management sample screen showing four player contexts, each with Create, Find, Join, and Info controls.](../../media/imgs/lightbeam-lobby.png){width=800px}
 
 There are no prerequisites for this sample. It shows you how to:
 

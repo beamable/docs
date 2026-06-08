@@ -2,7 +2,7 @@
 
 The Admin Console is a runtime overlay that lets developers and QA engineers run commands against a live Beamable game session without stopping play mode or redeploying. It renders an window over the scene and accepts typed commands, with autocomplete and history navigation built in.
 
-![admin-console.gif](../../../media/imgs/admin-console.gif){width=800px}
+![The Beamable Admin Console overlay rendered over a running game scene, showing a Console ready prompt above a command input line.](../../../media/imgs/admin-console.gif){width=800px}
 
 As of this version, the Admin Console is a built-in integration managed directly by the Beamable runtime — no manual prefab setup is required. The previous prefab-based Admin Console is deprecated and will be removed in a future release. Migrate to the built-in integration described on this page.
 

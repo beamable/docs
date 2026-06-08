@@ -16,7 +16,7 @@ In order to setup the Unity Project you need to configure the Facebook Dashboard
 - Connect the app to a Facebook-verified business
 - Since we are using email you need to add its permissions: Dashboard / Use Cases / Customize the `Authenticate and request data from users with Facebook Login / Permissions and Features => add email
 
-![facebook-app.png](../../../../../media/imgs/facebook-app.png)
+![The Facebook Login use-case customization page, listing permissions such as email and public_profile alongside their status and API call counts.](../../../../../media/imgs/facebook-app.png)
 
 ## Facebook sign-in
 

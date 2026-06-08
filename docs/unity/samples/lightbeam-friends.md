@@ -2,7 +2,7 @@
 
 The Friends Management Sample demonstrates Beamable's [Friends](../user-reference/beamable-services/social-networking/friends.md) feature — a social system that lets players connect, manage invitations, and block other players.
 
-![lightbeam-friends.png](../../media/imgs/lightbox-friends.png){width=800px}
+![The Friends Management sample screen showing two player panels, each with a friend Id field, an Invite button, and an empty friends list.](../../media/imgs/lightbox-friends.png){width=800px}
 
 There are no prerequisites for this sample. It shows you how to:
 

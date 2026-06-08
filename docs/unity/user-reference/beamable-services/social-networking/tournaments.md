@@ -11,7 +11,7 @@ Beamable offers two types of recurring live events to increase player engagement
 - **1. Events** - Scheduled competitions with specific start and end times. See [Events](../live-ops/events-overview.md) for more info
 - **2. Tournaments** - Recurring competitions with automatic tier-based progression. Continue reading below for more info
 
-![tournments-experience.png](../../../../media/imgs/tournments-experience.png){width="600px" height="auto"}
+![The tournament cycle: players compete and update their scores, ranks update, players are rewarded by rank, and ranks reset before the next cycle begins.](../../../../media/imgs/tournments-experience.png){width="600px" height="auto"}
 
 Here is the glossary of Tournament terms.
 

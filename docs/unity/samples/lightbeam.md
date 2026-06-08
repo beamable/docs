@@ -2,7 +2,7 @@
 
 Lightbeams are Unity Package Samples that teach you various parts of the Beamable SDK. You can access them from the Beam Samples Window in the Unity Editor. 
 
-![lightbeam samples.png](../../media/imgs/lightbeam-samples.png){width=600px}
+![The Welcome to the Lightbeam Samples screen with cards for player account, inventory, friends, lobby, loot box, and cloud saving management.](../../media/imgs/lightbeam-samples.png){width=600px}
 
 
 All Lightbeams share a common architectural design pattern and are versioned with each SDK release, letting you install multiple versions side by side in your `/Assets` folder.

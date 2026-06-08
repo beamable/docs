@@ -3,7 +3,7 @@
 The Player Account Manager Sample demonstrates Beamable's identity system — a service that lets players create accounts, attach email and password credentials, and manage account aliases and avatars.
 
 
-![lightbeam-player-account.png](../../media/imgs/lightbeam-player-account.png){width=800px}
+![The Player Account Manager sample screen showing the signed-in anonymous player's account with its player Id and buttons to change, register, or create an account.](../../media/imgs/lightbeam-player-account.png){width=800px}
 
 There are no prerequisites for this sample. It shows you how to:
 

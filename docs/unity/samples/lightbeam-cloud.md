@@ -2,7 +2,7 @@
 
 The Cloud Save Sample demonstrates how to use Beamable's [Cloud Save](../user-reference/beamable-services/profile-storage/cloud-save.md) system to persist and sync player data across devices.
 
-![lightbeam-cloud.png](../../media/imgs/lightbeam-cloud.png){width=800px}
+![The Cloud Save sample screen with an Initialize Service button and String, Byte, and Serializable file manager options.](../../media/imgs/lightbeam-cloud.png){width=800px}
 
 This sample shows you how to:
 

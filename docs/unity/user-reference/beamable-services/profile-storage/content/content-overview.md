@@ -2,7 +2,7 @@
 
 The **Content** service allows game maker to store project-specific data objects. It is embedded into many other Beamable services, such as Inventory, Store, Leaderboards, and Tournaments. For simplicity, some Beamable data structures may be omitted from this diagram.
 
-![content-data-concepts.png](../../../../../media/imgs/content-data-concepts.png){: style="height:auto;width:500px"}
+![Content data hierarchy: an account contains games and realms, and each realm holds player data and content types such as announcements, currencies, leaderboards, and stores.](../../../../../media/imgs/content-data-concepts.png){: style="height:auto;width:500px"}
 
 ## Content ID
 
@@ -301,7 +301,7 @@ Content management is critical to keep the content in your game engaging and rea
 
 Beamable provides a streamlined Content Publishing pipeline. You can deploy your content across multiple environments that can be tailored to your own internal publishing workflow.
 
-![content-management.png](../../../../../media/imgs/content-management.png){: style="height:auto;width:500px"}
+![The content publishing pipeline: create content, then publish it to the dev, staging, and production environments in turn.](../../../../../media/imgs/content-management.png){: style="height:auto;width:500px"}
 
 When you create your Beamable account, we automatically create three distinct environments: dev → staging → prod. This lets you publish and test content in dev without affecting prod.
 
