@@ -250,7 +250,7 @@ You have full control over the docker-compose file, so if you want to set up per
 
 You can do that by running `dotnet beam deploy plan --logs v`, which prints out all docker commands it is using under the hood. You can then use the printed commands as a starting point for your investigation into whatever problem you're solving.
 
-**Debugging Container Structure**: In some cases of customized `Dockerfiles`, the image may fail to build or the container fail to run due to aspects of the container's file structure. Docker will not allow you to easily inspect a container's file structure unless its running; and we cleanup the container once its `ENTRYPOINT` process is killed.
+**Debugging Container Structure**: In some cases of customized `Dockerfiles`, the image may fail to build or the container fail to run due to aspects of the container's file structure. Docker will not allow you to easily inspect a container's file structure unless it is running; and the container is removed once its `ENTRYPOINT` process is killed.
 
 This means that if SAMS code depends on local file structure (DLLs not existing where they should being the most common thing) and it fails because of a malformation of that structure you'll have a hard time debugging it.
 

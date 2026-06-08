@@ -274,7 +274,7 @@ docker run -p 4317:4317 -p 4318:4318 \
 	ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.125.0
 ```
 
-Now you have a locally running telemetry collector. We need to configure your local Microservice to _use_ the collector. Prepare the following environment variables,
+Now you have a locally running telemetry collector. Next, configure your local Microservice to _use_ the collector. Prepare the following environment variables:
 
 ```sh
 export BEAM_DISABLE_STANDARD_OTEL=1
