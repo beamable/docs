@@ -51,7 +51,7 @@ MyProject % dotnet beam project list
 Microservices can be run in several ways,
 1. using the IDE,
 2. using `dotnet` commands directly, or
-3. using `beam` commands.
+3. using `beam` commands
 
 The project run command will turn on a service.
 
