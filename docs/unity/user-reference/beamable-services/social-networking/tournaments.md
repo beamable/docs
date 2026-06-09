@@ -147,11 +147,11 @@ The **Beamable Tournaments** system automatically creates leaderboards for tourn
 
 ### Steps to setup
 
-1. Have a Beamable account, and the Beamable Unity SDK installed.
-2. Create a new Tournament by setting up Tournament Content.
-3. Publish the Tournament Content via Content Manager.
-4. Players submit scores. All players begin at the lowest ranking.
-5. Player tiers are maintained for the duration of a cycle. Scores are submitted via the Tournament system and stored in the Leaderboard system. Scores dictate stage progression and are fully reset between Tournament cycles.
+1. Have a Beamable account, and the Beamable Unity SDK installed
+2. Create a new Tournament by setting up Tournament Content
+3. Publish the Tournament Content via Content Manager
+4. Players submit scores. All players begin at the lowest ranking
+5. Player tiers are maintained for the duration of a cycle. Scores are submitted via the Tournament system and stored in the Leaderboard system. Scores dictate stage progression and are fully reset between Tournament cycles
 
 ### Key elements
 

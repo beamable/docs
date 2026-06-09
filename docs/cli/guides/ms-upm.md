@@ -36,7 +36,7 @@ Follow these steps to convert an existing Standalone Microservice into a UPM
 compatible Microservice.
 
 1. Rename "services" folder to "services~"
-2. Modify the `.sln` file to mirror the folder name change.
+2. Modify the `.sln` file to mirror the folder name change
 3. Create a local `Assets` folder next to the `.beamable/` folder
 4. Create a `Runtime` folder and a `Runtime/Client` folder next to the `.beamable/` folder
 5. Create a file in the `.beamable/` folder called `linked-projects.json`,
@@ -64,7 +64,7 @@ compatible Microservice.
          Dockerfile
    ```
 
-6. In the `Runtime/Client` folder, create a file called `Service.Client.
+6. In the `Runtime/Client` folder, create a file called `Service.Client
 asmdef` (replace `"Service"` with your service name), and paste the following,
    ```json
    {
@@ -124,7 +124,7 @@ So far, your folder structure should at least have these files.
 Now that the Microservice is ready, to import it into a Unity
 project as a UPM package, follow these steps.
 
-1. Ensure that the Unity project is referencing Beamable's packages.
+1. Ensure that the Unity project is referencing Beamable's packages
    At least Beamable version `com.beamable` and `com.beamable.server` 2.1.3 is
    required.
 2. In Unity Package Manager, add a package from disk, and select the path to

@@ -44,9 +44,9 @@ To confirm that you have a working Beamable setup, we will pull in the `Beamable
 
 ![Animated walkthrough of the Unity Editor in play mode: the Beamable runtime initializes in the Console, then the Admin Console opens to confirm access to a player account.](../../media/imgs/getting-started.gif)
 
-- Add the `BeamableBehaviour` component to any object of the scene.
-- Enter play-mode, and hit the `~` character (the same key as `` ` ``). This should open up the [Admin Console](../user-reference/runtime-systems/admin-console.md).
-- You can type in a bunch of commands like `help` (list of commands), or `dbid` (current player's id).
+- Add the `BeamableBehaviour` component to any object of the scene
+- Enter play-mode, and hit the `~` character (the same key as `` ` ``). This should open up the [Admin Console](../user-reference/runtime-systems/admin-console.md)
+- You can type in a bunch of commands like `help` (list of commands), or `dbid` (current player's id)
 - You're ready to start building!
 
 ## Beamable Samples

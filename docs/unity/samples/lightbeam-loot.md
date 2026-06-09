@@ -15,9 +15,9 @@ This sample shows you how to:
 
 This sample requires the `LootboxService` Microservice to be running locally. Before entering Playmode:
 
-1. Open the **Beam Services** window (**Beamable → Open Beam Services**).
-2. Select **LootboxService** from the service dropdown.
-3. Click the **Run** button and wait until the service status turns active.
+1. Open the **Beam Services** window (**Beamable → Open Beam Services**)
+2. Select **LootboxService** from the service dropdown
+3. Click the **Run** button and wait until the service status turns active
 
 !!! warning "Service must be running"
     Without the `LootboxService` running, the timer will not load and the **Claim Reward** button will not function.

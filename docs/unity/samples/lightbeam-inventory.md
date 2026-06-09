@@ -16,11 +16,11 @@ The Inventory system is content-driven. Before entering Playmode, you must creat
 
 ![The Beam Content window in the Unity Editor, listing content groups such as announcements, currency, and game_types while a new inventory item is added.](../../media/imgs/lightbox-inventory-addItem-content.gif){width=800px}
 
-1. Open the Content Manager (**Beamable → Open Beam Content**).
-3. Click the **+** button next to **inventoryTestItem** type to add a new entry of this type.
-4. Give the item a name (for example, `MyItem`) — the full content Id is generated automatically as `items.inventoryTestItem.MyItem`.
-5. Add a Icon if you wish. Icons are displayed in the inventory list.
-6. Click **Publish** to push the new content to your realm.
+1. Open the Content Manager (**Beamable → Open Beam Content**)
+3. Click the **+** button next to **inventoryTestItem** type to add a new entry of this type
+4. Give the item a name (for example, `MyItem`) — the full content Id is generated automatically as `items.inventoryTestItem.MyItem`
+5. Add a Icon if you wish. Icons are displayed in the inventory list
+6. Click **Publish** to push the new content to your realm
 
 !!! info "Pre-existing content type"
     The `inventoryTestItem` content group, based on the `InventoryTestItem` content type, is already included in the sample project. You only need to add entries within that group.
@@ -29,9 +29,9 @@ The Inventory system is content-driven. Before entering Playmode, you must creat
 
 ![The player's Inventory page in the Portal, showing a gems currency entry and an empty items table while an item is granted.](../../media/imgs/lightbox-inventory-add-item.gif){width=800px}
 
-1. Enter Playmode and click **Open Portal** — this takes you directly to the player's Inventory page on the portal.
-2. Click **Actions → Add Item** in the **Items** section.
-3. Choose the content item you published in the previous step and confirm.
+1. Enter Playmode and click **Open Portal** — this takes you directly to the player's Inventory page on the portal
+2. Click **Actions → Add Item** in the **Items** section
+3. Choose the content item you published in the previous step and confirm
 
 !!! warning "Publish before granting"
     The item must be published from the Content Manager before it appears in Portal's item picker. Unpublished content is unavailable on the server.

@@ -23,8 +23,8 @@ that your account is in paid production mode (Testing keys will not
 work with Beamable Chat).
 
 1. Sign up for a PubNub account at https://admin.pubnub.com/
-2. Create an App for use with Beamable Chat. You may name this as you like, possibly something like "Beamable Chat Integration".
-3. Add a Keyset to your PubNub App. Note that this keyset _MUST_ be for the production environment.
+2. Create an App for use with Beamable Chat. You may name this as you like, possibly something like "Beamable Chat Integration"
+3. Add a Keyset to your PubNub App. Note that this keyset _MUST_ be for the production environment
 
 When you have created your Keyset, you should have a publish key and a
 subscribe key. Both of these will be needed by Beamable Chat, but you

@@ -44,10 +44,10 @@ public class FriendsSample : MonoBehaviour
 
 There are 4 main resources associated with a `PlayerSocial`,
 
-1. The `PlayerSocial.Friends` list, which is an observable list of friends.
-2. The `PlayerSocial.Blocked`list, which is an observable list of blocked players.
-3. The `PlayerSocial.SentInvites` list, which is an observable list of friend invites sent from the current player.
-4. The `PlayerSocial.ReceivedInvites` list, which is an observable list of friend invites sent to the current player.
+1. The `PlayerSocial.Friends` list, which is an observable list of friends
+2. The `PlayerSocial.Blocked`list, which is an observable list of blocked players
+3. The `PlayerSocial.SentInvites` list, which is an observable list of friend invites sent from the current player
+4. The `PlayerSocial.ReceivedInvites` list, which is an observable list of friend invites sent to the current player
 
 ![The PlayerSocial object is serializable, so you can view the data in the inspector](../../../../media/imgs/player-social-inspector.png){ width="300px"}
 
