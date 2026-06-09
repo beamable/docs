@@ -10425,7 +10425,7 @@
 <h2 id="operation-lifecycle">Operation lifecycle<a class="headerlink" href="#operation-lifecycle" title="Permanent link">¶</a></h2>
 <p>Every Operation has an <code>int64</code> identifier called the <code>FBeamOperationHandle</code> managed by the <code>UBeamRequestTracker</code>, a <code>UEngineSubsystem</code>. The SDK uses it to track the operation's state, its emitted events, its current status, and which of Beamable's requests are part of it.</p>
 <p>The lifecycle of an operation goes as follows:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/operations-and-waits-lifecycle.png" data-desc-position="bottom"><img alt="operations-and-waits-lifecycle.png" src="../../../../media/imgs/operations-and-waits-lifecycle.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/operations-and-waits-lifecycle.png" data-desc-position="bottom"><img alt="A flowchart of an operation's lifecycle starting at UBeamRequestTracker::BeginOperation, then branching into a sub-events path (TriggerOperationEvent with a non-NAME_None EventId, keeping the operation ONGOING) and a single-event path, both ending at TriggerOperation for the Success, Error, or Cancelled final event." src="../../../../media/imgs/operations-and-waits-lifecycle.png"></a></p>
 <p><strong>When writing Operations, there are two ways of thinking about them</strong>:</p>
 <ul>
 <li><strong>Regular Operations</strong>: are a "Promise"</li>
@@ -10531,9 +10531,9 @@
 <p><strong>However, there are a few restrictions</strong>:</p>
 <ul>
 <li>The function must be a <code>UFUNCTION</code> that returns a <code>FBeamOperationHandle</code> and contains the following named parameters:<ul>
-<li><code>FUserSlot UserSlot</code> if a single user is involved in the operation or <code>TArray&lt;FUserSlot&gt; UserSlot</code> if multiple users are involved in the operation.</li>
+<li><code>FUserSlot UserSlot</code> if a single user is involved in the operation or <code>TArray&lt;FUserSlot&gt; UserSlot</code> if multiple users are involved in the operation</li>
 <li>If multiple users, the <code>UFUNCTION</code> must also add <code>meta=(BeamOperationMultiUser)</code></li>
-<li><code>FBeamOperationEventHandler OnOperationEvent</code> to be the event handler that will handle all events raised by the operation.</li>
+<li><code>FBeamOperationEventHandler OnOperationEvent</code> to be the event handler that will handle all events raised by the operation</li>
 <li>The function can have any other parameters you want in any order as long as the above parameters are there</li>
 </ul>
 </li>
@@ -10571,23 +10571,23 @@
 <p><strong>There are a few flavors of this around the SDK</strong>:</p>
 <ol>
 <li>
-<p><strong>Delayed Operation</strong>: a simple callback with no parameters that returns a <code>FBeamOperationHandle</code> the SDK waits for.</p>
+<p><strong>Delayed Operation</strong>: a simple callback with no parameters that returns a <code>FBeamOperationHandle</code> the SDK waits for</p>
 <ol>
 <li>See <code>UBeamRuntime::LoginGuest</code> for an example of this.<br><br></li>
 </ol>
 </li>
 <li>
-<p><strong>Runtime Subsystem Implementation</strong>: implementations of virtual functions in one of the SDK's base classes such as <code>UBeamRuntimeSubsystem</code>.</p>
+<p><strong>Runtime Subsystem Implementation</strong>: implementations of virtual functions in one of the SDK's base classes such as <code>UBeamRuntimeSubsystem</code></p>
 <ol>
-<li>This is for when you wish to make a system that ties into the Beamable life-cycle like the SDK's <code>UBeamRuntimeSubsystem</code> implementations do.</li>
+<li>This is for when you wish to make a system that ties into the Beamable life-cycle like the SDK's <code>UBeamRuntimeSubsystem</code> implementations do</li>
 <li>This is rarely needed, but in unique custom use-cases it is likely to be the best way to accomplish your goals.<br><br></li>
 </ol>
 </li>
 <li>
-<p><strong>Hooks</strong>: these bind into delegates created via <code>DEFINE_BEAM_OPERATION_HOOK</code>.</p>
+<p><strong>Hooks</strong>: these bind into delegates created via <code>DEFINE_BEAM_OPERATION_HOOK</code></p>
 <ol>
-<li>Rest assured: the Beamable Unreal SDK will never use Hooks internally. They are reserved exclusively for your extensions.</li>
-<li>You can search for <code>DEFINE_BEAM_OPERATION_HOOK</code> and find some usages of the macro to better understand these.</li>
+<li>Rest assured: the Beamable Unreal SDK will never use Hooks internally. They are reserved exclusively for your extensions</li>
+<li>You can search for <code>DEFINE_BEAM_OPERATION_HOOK</code> and find some usages of the macro to better understand these</li>
 </ol>
 </li>
 </ol>
@@ -10595,7 +10595,7 @@
 <p><strong>Hooks</strong> have some more context that you should know about how to use them:</p>
 <ol>
 <li>
-<p>When calling an Operation the SDK exposes, that Operation does some things and triggers the hooks at some well-known point during their execution.</p>
+<p>When calling an Operation the SDK exposes, that Operation does some things and triggers the hooks at some well-known point during their execution</p>
 <ol>
 <li>Since you have the source code, you can look into these functions and see the exact semantics of the trigger, but call-site comments document the exact trigger semantics.<br><br></li>
 </ol>
@@ -10603,11 +10603,11 @@
 <li>
 <p>Whenever a set of hooks are triggered, what actually happens is:</p>
 <ol>
-<li>The returned <code>FBeamOperationHandles</code> from the hooks are fed into a <code>UBeamRequestTracker::WaitAll</code> call.</li>
-<li>The SDK operation waits for all your hooks to complete; successfully or otherwise.</li>
-<li>If registered operations fail, the errors that exist inside those operations are logged so that there is a clear trail of where the problem occurred.</li>
-<li>If your operations succeeded, the SDK continues with the operation and eventually triggers it as a success.</li>
-<li>The semantics of what happens in case of a failure change from hook to hook, but for the most part the SDK fails the operation if any hooks fail.</li>
+<li>The returned <code>FBeamOperationHandles</code> from the hooks are fed into a <code>UBeamRequestTracker::WaitAll</code> call</li>
+<li>The SDK operation waits for all your hooks to complete; successfully or otherwise</li>
+<li>If registered operations fail, the errors that exist inside those operations are logged so that there is a clear trail of where the problem occurred</li>
+<li>If your operations succeeded, the SDK continues with the operation and eventually triggers it as a success</li>
+<li>The semantics of what happens in case of a failure change from hook to hook, but for the most part the SDK fails the operation if any hooks fail</li>
 </ol>
 </li>
 </ol>

@@ -10372,16 +10372,16 @@
 </blockquote>
 <p>Most of the time, you achieve this by doing the following:</p>
 <ol>
-<li>[<strong>Game Client</strong>]: Use the third-party Client SDK to get a token of sorts.<ol>
-<li>See the <a href="../../../samples/steam-demo/">Steam</a> and <a href="../../../samples/discord-demo/">Discord</a> Samples for examples of this.</li>
+<li>[<strong>Game Client</strong>]: Use the third-party Client SDK to get a token of sorts<ol>
+<li>See the <a href="../../../samples/steam-demo/">Steam</a> and <a href="../../../samples/discord-demo/">Discord</a> Samples for examples of this</li>
 </ol>
 </li>
 <li>[<strong>Game Client</strong>]: Invoke a <code>Login</code>/<code>SignUp</code>/<code>Attach</code> <strong>Operation</strong> and pass the following parameters:<ol>
-<li><strong>MicroserviceName</strong>: this is the name of the Microservice (the <strong>csproj</strong> file name, in the default case).</li>
-<li><strong>IdentityNamespace</strong>: this is the Federation's <strong><a href="../federation/#federation-id">Federation Id</a></strong>. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.</li>
-<li><strong>IdentityUserId</strong>: this is the third party's <code>UserId</code> for the user trying to login. Beamable uses this to determine if there's already a Beamable account mapped to this third-party Id.</li>
-<li><strong>IdentityAuthToken</strong>: this is a token that for the user that can be used by the <code>Authenticate</code> function to map it back to a <code>UserId</code>.</li>
-<li><strong>Federation Id</strong>: this is the Federation's <strong><a href="../federation/#federation-id">Federation Id</a></strong>. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow.</li>
+<li><strong>MicroserviceName</strong>: this is the name of the Microservice (the <strong>csproj</strong> file name, in the default case)</li>
+<li><strong>IdentityNamespace</strong>: this is the Federation's <strong><a href="../federation/#federation-id">Federation Id</a></strong>. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow</li>
+<li><strong>IdentityUserId</strong>: this is the third party's <code>UserId</code> for the user trying to login. Beamable uses this to determine if there's already a Beamable account mapped to this third-party Id</li>
+<li><strong>IdentityAuthToken</strong>: this is a token that for the user that can be used by the <code>Authenticate</code> function to map it back to a <code>UserId</code></li>
+<li><strong>Federation Id</strong>: this is the Federation's <strong><a href="../federation/#federation-id">Federation Id</a></strong>. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow</li>
 </ol>
 </li>
 </ol>
@@ -10400,7 +10400,7 @@
 </li>
 </ul>
 <p>It looks like this:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/steam-demo-login.png" data-desc-position="bottom"><img alt="steam-demo-login.png" src="../../../../media/imgs/steam-demo-login.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/steam-demo-login.png" data-desc-position="bottom"><img alt="A Blueprint graph in two labelled stages: &quot;Initialize the Beamable SDK&quot; running Beam Runtime initialization, and &quot;Set up Federated Login Via Steam&quot; passing the Steam credentials into a Login - Federated Identity operation." src="../../../../media/imgs/steam-demo-login.png"></a></p>
 <h3 id="writing-the-microservice">Writing the Microservice<a class="headerlink" href="#writing-the-microservice" title="Permanent link">¶</a></h3>
 <p>Semantically, there are two ways the <code>Authenticate</code> function can be called:</p>
 <ul>
@@ -10409,9 +10409,9 @@
 </ul>
 <p>In both cases, what you want to do is:</p>
 <ol>
-<li>Use the third-party APIs or C# SDKs to validate the provided <code>token</code>.</li>
-<li>Use the third-party APIs or C# SDKs to get the <code>UserId</code> for that <code>token</code>'s user.</li>
-<li>Return <code>UserId</code> the <code>FederatedAuthenticationResponse</code> .</li>
+<li>Use the third-party APIs or C# SDKs to validate the provided <code>token</code></li>
+<li>Use the third-party APIs or C# SDKs to get the <code>UserId</code> for that <code>token</code>'s user</li>
+<li>Return <code>UserId</code> the <code>FederatedAuthenticationResponse</code></li>
 </ol>
 <p>The main difference:</p>
 <ul>
@@ -10435,24 +10435,24 @@
 <h3 id="setting-up-the-client_1">Setting up the client<a class="headerlink" href="#setting-up-the-client_1" title="Permanent link">¶</a></h3>
 <p>In the client, start by invoking the <code>Login - Federated Identity</code> operation. This operation has a sub-event that gets invoked when the microservice responds with a <code>challenge</code> string to solve. The SDK provides a <code>UBeamMultiFactorLoginData</code> object you can store and carry around your game state so that your player can solve the challenge.</p>
 <p>Here's an example from the Sui-Wallet integration showcase.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/federated-login-2fa-start.png" data-desc-position="bottom"><img alt="federated-login-2fa-start.png" src="../../../../media/imgs/federated-login-2fa-start.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/federated-login-2fa-start.png" data-desc-position="bottom"><img alt="A Blueprint graph from the Sui-Wallet showcase invoking the Operation - Login - Federated Identity node and storing the UBeamMultiFactorLoginData it returns from the challenge sub-event." src="../../../../media/imgs/federated-login-2fa-start.png"></a></p>
 <p>Once the player has solved the challenge, send it to the Microservice by calling <code>Login - Commit Federated Identity</code>. The example below shows signing the challenge before sending the solution to the microservice.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/federated-login-2fa-commit.png" data-desc-position="bottom"><img alt="federated-login-2fa-commit.png" src="../../../../media/imgs/federated-login-2fa-commit.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/federated-login-2fa-commit.png" data-desc-position="bottom"><img alt="A Blueprint graph that gets the challenge solution, signs the message, and passes the multi-factor data into an Operation - Login - Commit Federated Identity node." src="../../../../media/imgs/federated-login-2fa-commit.png"></a></p>
 <p>The <code>Login - Federated Identity</code> operation's Success/Error flows will run <strong><em>after</em></strong> the Success/Error flows of the <code>Login - Commit Federated Identity</code> operation.</p>
 <h3 id="writing-the-microservice_1">Writing the Microservice<a class="headerlink" href="#writing-the-microservice_1" title="Permanent link">¶</a></h3>
 <p>Semantically, there are an additional two ways that the Authenticate function can be called:</p>
 <ul>
 <li><strong>Without a <code>challenge</code>/<code>solution</code></strong>: This is the first part of the flow<ul>
-<li>Here, your function should generate a <code>challenge</code> and return it in the <code>FederatedAuthenticationResponse</code>.</li>
-<li>The <code>UserId</code> in <code>FederatedAuthenticationResponse</code> should be empty in this first step.</li>
-<li>Third-party SDKs that support/require 2FA will typically provide you a function to generate said challenge.</li>
-<li>The <code>challenge</code> is sent back to the client who should then solve it.</li>
-<li>After solving the challenge, the client must invoke <code>Login</code>/<code>Attach</code> again, but now passing in the <code>challenge</code> and <code>solution</code>.</li>
+<li>Here, your function should generate a <code>challenge</code> and return it in the <code>FederatedAuthenticationResponse</code></li>
+<li>The <code>UserId</code> in <code>FederatedAuthenticationResponse</code> should be empty in this first step</li>
+<li>Third-party SDKs that support/require 2FA will typically provide you a function to generate said challenge</li>
+<li>The <code>challenge</code> is sent back to the client who should then solve it</li>
+<li>After solving the challenge, the client must invoke <code>Login</code>/<code>Attach</code> again, but now passing in the <code>challenge</code> and <code>solution</code></li>
 </ul>
 </li>
 <li><strong>With a <code>challenge</code>/<code>solution</code></strong>: This is the second part of the flow<ul>
-<li>If the <code>solution</code> is not empty, the <code>Authenticate</code> function should validate it against the <code>challenge</code>.</li>
-<li>If successful, the function should return a valid <code>UserId</code> in <code>FederatedAuthenticationResponse</code>.</li>
+<li>If the <code>solution</code> is not empty, the <code>Authenticate</code> function should validate it against the <code>challenge</code></li>
+<li>If successful, the function should return a valid <code>UserId</code> in <code>FederatedAuthenticationResponse</code></li>
 </ul>
 </li>
 </ul>

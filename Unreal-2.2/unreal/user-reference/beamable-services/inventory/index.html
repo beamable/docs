@@ -10386,24 +10386,24 @@
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>To use the inventory system, first:</p>
 <ol>
-<li>Go to the <a href="../content/">Content Window</a>.</li>
-<li>Select <code>item</code> as a type.</li>
-<li>Create an item content definition.</li>
-<li>Select <code>currency</code> as a type.</li>
-<li>Create a currency content definition.</li>
-<li>For this guide, make sure their <code>Client Permission</code> property is set to <code>true</code>.</li>
-<li>Publish this content to the realm.</li>
+<li>Go to the <a href="../content/">Content Window</a></li>
+<li>Select <code>item</code> as a type</li>
+<li>Create an item content definition</li>
+<li>Select <code>currency</code> as a type</li>
+<li>Create a currency content definition</li>
+<li>For this guide, make sure their <code>Client Permission</code> property is set to <code>true</code></li>
+<li>Publish this content to the realm</li>
 </ol>
 <p>Now that you have items and currencies published, follow the steps below to create a BP function that adds some currencies and grants an item to the player:</p>
 <ol>
-<li>Open your Level Blueprint (or some other BP).</li>
+<li>Open your Level Blueprint (or some other BP)</li>
 <li>Get the <code>BeamInventorySubsystem</code></li>
-<li>Call <code>BeginInventoryUpdate</code>. This begins building a set of changes to submit to the Beamable backend.</li>
-<li>Call <code>PrepareAddCurrency</code> and <code>PrepareAddItem</code> selecting the currency and item types you created.</li>
-<li>Call the <code>Commit Inventory Update</code> operation.</li>
+<li>Call <code>BeginInventoryUpdate</code>. This begins building a set of changes to submit to the Beamable backend</li>
+<li>Call <code>PrepareAddCurrency</code> and <code>PrepareAddItem</code> selecting the currency and item types you created</li>
+<li>Call the <code>Commit Inventory Update</code> operation</li>
 </ol>
 <p>Call this function while a user is signed in to grant the currency/item to the player.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-operations.png" data-desc-position="bottom"><img alt="inventory-operations.png" src="../../../../media/imgs/inventory-operations.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-operations.png" data-desc-position="bottom"><img alt="A Blueprint graph in two labelled stages — &quot;Prepare the set of changes to make&quot; wiring BeginInventoryUpdate, an AddCurrency node, and PrepareCommit, then &quot;Commit changes to Beamable&quot; feeding a Commit Inventory Update operation." src="../../../../media/imgs/inventory-operations.png"></a></p>
 <p>After running the above function at least once, you should be able to see the results of these calls in the Beamable Portal. To do so:</p>
 <ul>
 <li>Copy the <code>Gamertag/UserId</code> from the Unreal Engine logs</li>
@@ -10411,15 +10411,15 @@
 <li>Go to <code>Engage-&gt;Players</code> and search for the player via <code>Gamertag/UserId</code></li>
 <li>Go to <code>Inventory</code> and see that the appropriate currency and items are inside the user's inventory</li>
 </ul>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-portal.png" data-desc-position="bottom"><img alt="inventory-portal.png" src="../../../../media/imgs/inventory-portal.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-portal.png" data-desc-position="bottom"><img alt="The Portal Inventory page listing a Currency section with coins and gems rows and an Items section with a super_item row, each showing its content ID, amount, and Client- or Server-Authoritative permission." src="../../../../media/imgs/inventory-portal.png"></a></p>
 <h3 id="batching-updates">Batching updates<a class="headerlink" href="#batching-updates" title="Permanent link">¶</a></h3>
 <p>In the getting started example, a new <code>FBeamInventoryUpdateCommand</code> is created and committed right away.</p>
 <p>It is desirable, for both performance and latency reasons, to batch as many inventory changes as possible as long as it makes sense for your game's design. So, if your game's feature allows for a "edit multiple, commit later" pattern of UX, using this API is the most efficient way to go about it.</p>
 <h3 id="reading-local-state">Reading local state<a class="headerlink" href="#reading-local-state" title="Permanent link">¶</a></h3>
 <p>To read the local state of the player's inventory, you can use the following operations:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-local-state.png" data-desc-position="bottom"><img alt="inventory-local-state.png" src="../../../../media/imgs/inventory-local-state.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-local-state.png" data-desc-position="bottom"><img alt="A Local State - Inventory - TryGetAllCurrencies node above a Local State - Inventory - TryGetAllItems node, each exposing a Loop Body, Return Value, per-element output, Array Index, and Completed pin." src="../../../../media/imgs/inventory-local-state.png"></a></p>
 <p>You can also use the <code>Local State - Inventory - TryGetAllItemsFilter</code> node to iterate over all the items of a particular subtype in the inventory.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-auto-casting.png" data-desc-position="bottom"><img alt="inventory-auto-casting.png" src="../../../../media/imgs/inventory-auto-casting.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/inventory-auto-casting.png" data-desc-position="bottom"><img alt="A Local State - Inventory - TryGetAllItemsFilter node with its content-type filter dropdown open and its already-cast Contents element pin feeding a Skin Data target pin." src="../../../../media/imgs/inventory-auto-casting.png"></a></p>
 <h2 id="currencies">Currencies<a class="headerlink" href="#currencies" title="Permanent link">¶</a></h2>
 <p>Currencies are used to buy items with the <a href="../stores/">Store system</a> (for example, Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP) depending on the specifics of your game system.</p>
 <p>In the Beamable Unreal SDK, currencies are represented by the <code>UBeamCurrencyContent</code>. Each currency can specify a <code>startingAmount</code> that is used to pre-seed player accounts with that amount of currency for very simple cases. For more control over each player's starting state, use <a href="../../federation/federated-player-init/">Federated Player Init</a>.</p>
@@ -10450,7 +10450,7 @@
 - Keeping them under a few hundred characters is best for performance
 - Use enforceable and recognizable patterns for your keys
     - Bad: <code>ItemEnhancementName</code> and <code>ENH_Count</code>
-    - Good: <code>ENHANCE_Name</code> and <code>ENHANCE_Count</code> OR <code>ItemEnhancementName</code> and <code>ItemEnhancementCount</code>.</p>
+    - Good: <code>ENHANCE_Name</code> and <code>ENHANCE_Count</code> OR <code>ItemEnhancementName</code> and <code>ItemEnhancementCount</code></p>
 <p><strong>For Values</strong>: Values should be no more than a few hundred characters long.</p>
 <p><strong>For larger, complex data structures</strong>: use <a href="../../microservices/microservices/#micro-storages">Micro Storages</a> instead of this key-value store.</p>
 <p>This is especially true if you do NOT need to use the data in these properties at the same time as you need the list of items (for example, a list view which then opens some sort of details view). This reduces pressure on the inventory service and can help reduce latency of inventory query requests.</p>

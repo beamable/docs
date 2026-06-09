@@ -11061,7 +11061,7 @@
 <h4 id="services-command-removed"><code>services</code> command removed<a class="headerlink" href="#services-command-removed" title="Permanent link">¶</a></h4>
 <p>The <code>beam services</code> command suite has been removed in CLI 6.0. The <code>service</code> command group were about managing various <em>Docker</em> related tasks, but most of the commands had fallen into disuse. There were two common use cases for the <code>service</code> commands,
 1. running Microservice projects locally,
-2. building Microservice <em>Docker</em> images and testing the containers.</p>
+2. building Microservice <em>Docker</em> images and testing the containers</p>
 <p>To run a Microservice, please use the <code>dotnet beam project run</code> command, or simply run the service from your IDE, or with <code>dotnet run</code>.</p>
 <p>To build and validate <em>Docker</em> images locally, there is a new option on the <code>beam deploy plan</code> command that will generate a <a href="https://docs.docker.com/compose/">docker compose</a> project out of the <em>Docker</em> images. Use the <code>--docker-compose-dir</code> option to create a docker compose workspace, and then use docker compose directly to turn on and off the docker containers.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>plan<span class="w"> </span>--docker-compose-dir<span class="w"> </span>Example
@@ -11184,7 +11184,7 @@ following line to the end of the file.
 <h4 id="cli-file-structure">CLI file structure<a class="headerlink" href="#cli-file-structure" title="Permanent link">¶</a></h4>
 <p>Starting with CLI 3.0.1, you should start by updating the CLI's file structure. The steps required are defined below:</p>
 <ol>
-<li>Install <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">dotnet 8 SDK</a> in your machine (it is the new recommended version). The old <code>net6.0</code> framework's end-of-life arrived on November 12, 2024.</li>
+<li>Install <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">dotnet 8 SDK</a> in your machine (it is the new recommended version). The old <code>net6.0</code> framework's end-of-life arrived on November 12, 2024</li>
 <li>Delete the <code>.beamable/local-services-manifest.json</code> file. (It is no longer necessary)</li>
 </ol>
 <p>Before 3.0.0, the CLI was always installed globally, so every Beamable CLI project on your machine had to share the same CLI version. Switching projects meant uninstalling and reinstalling specific versions — a poor workflow.</p>
@@ -11572,7 +11572,7 @@ For a service, it will likely look like this,
 <p>Finally, on the last line (the <code>ENTRYPOINT</code>), replace the <code>/subapp</code> with <code>/beamApp</code></p>
 <p>Here is a Dockerfile that was adapted from 2.0.1. There are two important things to note,
 1. this file is for a service called <code>Example3</code>, which justifies the <code>ENTRYPOINT</code>, and
-2. when you run <code>beam services run</code>, the CLI will <em>inject</em> content into the file between on the <code>BEAM-CLI-</code> tags. After the command runs, you should see <code>ENV</code>, <code>RUN</code>, and <code>COPY</code> statements between the beamable tags. This is how the <code>${BEAM_CSPROJ_PATH}</code> reference will be resolved.</p>
+2. when you run <code>beam services run</code>, the CLI will <em>inject</em> content into the file between on the <code>BEAM-CLI-</code> tags. After the command runs, you should see <code>ENV</code>, <code>RUN</code>, and <code>COPY</code> statements between the beamable tags. This is how the <code>${BEAM_CSPROJ_PATH}</code> reference will be resolved</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="c"># use the dotnet sdk as a build stage</span>
 <a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">mcr.microsoft.com/dotnet/sdk:6.0-alpine</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">build-env</span>
 <a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>

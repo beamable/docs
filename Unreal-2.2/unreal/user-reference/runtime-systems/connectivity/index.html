@@ -10290,31 +10290,31 @@
 <p>The semantics above are also what our servers use to keep track of any user's online status (relevant to our real-time services like <a href="../../beamable-services/matchmaking/">Matchmaking</a> and <a href="../../beamable-services/lobbies/">Lobbies</a>).</p>
 <h2 id="thinking-about-connectivity">Thinking about connectivity<a class="headerlink" href="#thinking-about-connectivity" title="Permanent link">¶</a></h2>
 <p>The Beamable SDK provides a <code>UBeamConnectivityManager</code> class that keeps the connectivity state for any logged-in <code>FUserSlot</code>.
-- For games that have only a single <em>local</em> player, you can use <code>UBeamRuntime::GetOwnerSlotConnectivity</code> to access the correct manager by default.</p>
+- For games that have only a single <em>local</em> player, you can use <code>UBeamRuntime::GetOwnerSlotConnectivity</code> to access the correct manager by default</p>
 <ul>
-<li>For games with multiple <em>local</em> players, you can get the managers from <code>UBeamRuntime::GetSlotConnectivity</code> for each user (for the most part, they shouldn't differ in status).</li>
+<li>For games with multiple <em>local</em> players, you can get the managers from <code>UBeamRuntime::GetSlotConnectivity</code> for each user (for the most part, they shouldn't differ in status)</li>
 </ul>
 <p>In Blueprints, we have a few <a href="../blueprints/">special nodes</a> for accessing this data:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/connectivity-local-state-nodes.png" data-desc-position="bottom"><img alt="connectivity-local-state-nodes.png" src="../../../../media/imgs/connectivity-local-state-nodes.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/connectivity-local-state-nodes.png" data-desc-position="bottom"><img alt="Local State - Auth nodes for IsLoggedIn, GetOwnerSlotConnectivity, and GetSlotConnectivity, with their return values feeding Beam Connectivity Manager checks such as Is Disconnected, Is Authenticated, and Has Never Connected This Session." src="../../../../media/imgs/connectivity-local-state-nodes.png"></a></p>
 <p>After a user is logged into a <code>FUserSlot</code>, losing the connection to the Beamable backend (due to internet access loss or otherwise) will have the <code>UBeamConnectivityManager</code> go into the <code>CONN_Offline</code> state.</p>
 <p><strong>The details of this process are</strong>:</p>
 <ul>
-<li>The WebSocket connection fails.</li>
-<li>We attempt to reconnect <strong>X</strong> times before going into <code>CONN_Offline</code> to avoid jittery short-lived instability.</li>
-<li>See <code>Project Settings -&gt; Beam Runtime -&gt; ConnectivityRetryCountBeforeOffline</code> for <strong>X</strong>.</li>
-<li>If all of these attempts fail, we go into <code>CONN_Offline</code>.</li>
-<li>If any of these attempts succeed, the game proceeds as normal without <em>any</em> callbacks being triggered.</li>
+<li>The WebSocket connection fails</li>
+<li>We attempt to reconnect <strong>X</strong> times before going into <code>CONN_Offline</code> to avoid jittery short-lived instability</li>
+<li>See <code>Project Settings -&gt; Beam Runtime -&gt; ConnectivityRetryCountBeforeOffline</code> for <strong>X</strong></li>
+<li>If all of these attempts fail, we go into <code>CONN_Offline</code></li>
+<li>If any of these attempts succeed, the game proceeds as normal without <em>any</em> callbacks being triggered</li>
 </ul>
 <p>Once we go into <code>CONN_Offline</code>, two things happen:</p>
 <ol>
 <li>
-<p>We trigger <code>UBeamConnectivityManager::OnConnectionLost</code> once (per-connection loss).</p>
+<p>We trigger <code>UBeamConnectivityManager::OnConnectionLost</code> once (per-connection loss)</p>
 <ul>
 <li>Provides simplicity for games that want to handle connectivity loss in fire-and-forget ways such as doing a game reset, displaying a blocking pop-up, etc. <br><br></li>
 </ul>
 </li>
 <li>
-<p>We set up a Tick (<code>UBeamConnectivityManager::ReconnectionTick</code>) function to run while you are in <code>CONN_Offline</code> mode.</p>
+<p>We set up a Tick (<code>UBeamConnectivityManager::ReconnectionTick</code>) function to run while you are in <code>CONN_Offline</code> mode</p>
 <ul>
 <li>Provides more flexibility for games that want to handle connectivity loss in complex ways such as waiting for X amount of time before booting the player out, reducing available feature set, etc.</li>
 </ul>
@@ -10330,8 +10330,8 @@
 <li>
 <p><code>false</code>: we enter <code>CONN_Fixup</code> and start ticking <code>UBeamConnectivityManager::FixupTick</code> until your game calls <code>UBeamConnectivityManager::NotifyFixupComplete()</code> (which returns to <code>CONN_Online</code> and stops the tick).<br><br></p>
 <p>You'll need to use the tick function to prepare your game to return to online mode. You could:
-- Wait until your game state would function if you were to refresh the <code>UBeamRuntimeSubsystem</code> implementations.
-- Refresh the <code>UBeamRuntimeSubsystem</code> implementations.
+- Wait until your game state would function if you were to refresh the <code>UBeamRuntimeSubsystem</code> implementations
+- Refresh the <code>UBeamRuntimeSubsystem</code> implementations
 - Call Microservices <code>ClientCallables</code> before resuming your game's flow.<br><br></p>
 <p>At this point, you are connected and everything will function just as though you were in CONN_Online mode.</p>
 <blockquote>
@@ -10343,7 +10343,7 @@
 <p>The <code>UBeamRuntimeSubsystem</code> implementations DO NOT attempt to refresh their local state after reconnecting automatically. This is an intentional design decision due to the following reasons:</p>
 <ul>
 <li>
-<p>The <code>UBeamRuntimeSubsystem</code> implementations are stateful systems that expose delegates to which you, the game-maker, bind events and functions.</p>
+<p>The <code>UBeamRuntimeSubsystem</code> implementations are stateful systems that expose delegates to which you, the game-maker, bind events and functions</p>
 </li>
 <li>
 <p>Connectivity can be lost and/or regained at <em>any time in your game's flow</em>. It can happen mid-cutscene, mid-gameplay, mid-pause menu, etc.</p>
@@ -10352,12 +10352,12 @@
 <p>If we automatically refreshed the subsystem's state after a reconnection, the callbacks throughout the refresh process would trigger. This means that one of the below would have to be true:</p>
 <ul>
 <li>Upon going offline, we could unbind all callbacks (which is overeager and makes your binding code more complex)</li>
-<li>You have to write code for those delegates assuming it could run at any time (which makes it a lot harder to write that code).</li>
-<li>You have to respond by any loss of connection by restarting the game (thus unbinding all delegates).</li>
+<li>You have to write code for those delegates assuming it could run at any time (which makes it a lot harder to write that code)</li>
+<li>You have to respond by any loss of connection by restarting the game (thus unbinding all delegates)</li>
 </ul>
 </li>
-<li>Our previous experience with automatic refreshing has been that it is just not worth it.<ul>
-<li>For every game-maker for whom our refreshing worked out of the box, it caused significant problems for another.</li>
+<li>Our previous experience with automatic refreshing has been that it is just not worth it<ul>
+<li>For every game-maker for whom our refreshing worked out of the box, it caused significant problems for another</li>
 </ul>
 </li>
 </ul>

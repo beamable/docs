@@ -10695,21 +10695,21 @@
 <h2 id="microservice-coding">Microservice coding<a class="headerlink" href="#microservice-coding" title="Permanent link">¶</a></h2>
 <p>Microservices are developed in C# and in their own solution. They inherit from the <code>Microservice</code> base class and are <code>partial</code> by default. Inside each Microservice class, you can annotate instance methods with the following attributes to various effects:</p>
 <ul>
-<li><code>Callable</code>: This is the equivalent of a public endpoint. Any non-authenticated caller is allowed to invoke this function via a request. In Unreal, these will not require a <code>FUserSlot</code> (authenticated user).</li>
-<li><code>ClientCallable</code>: This is equivalent to an authenticated request. Any authenticated user in the same realm as the microservice is able to run this.</li>
-<li><code>AdminOnlyCallable</code>: These are similar to <code>ClientCallables</code> but requires the user to have admin privileges. They are useful for making utility endpoints called by internal developer tools.</li>
-<li><code>ServerCallable</code>: This is equivalent to a trusted-server request. It requires authentication in the form of a Signed Request. Primarily, these are callable from your game's Dedicated Server builds.</li>
-<li><code>Federated Endpoints</code>: <a href="../../federation/federation/">Federations</a> generate routes implicitly and <strong>do not need any <code>Callable</code> attributes</strong>.</li>
+<li><code>Callable</code>: This is the equivalent of a public endpoint. Any non-authenticated caller is allowed to invoke this function via a request. In Unreal, these will not require a <code>FUserSlot</code> (authenticated user)</li>
+<li><code>ClientCallable</code>: This is equivalent to an authenticated request. Any authenticated user in the same realm as the microservice is able to run this</li>
+<li><code>AdminOnlyCallable</code>: These are similar to <code>ClientCallables</code> but requires the user to have admin privileges. They are useful for making utility endpoints called by internal developer tools</li>
+<li><code>ServerCallable</code>: This is equivalent to a trusted-server request. It requires authentication in the form of a Signed Request. Primarily, these are callable from your game's Dedicated Server builds</li>
+<li><code>Federated Endpoints</code>: <a href="../../federation/federation/">Federations</a> generate routes implicitly and <strong>do not need any <code>Callable</code> attributes</strong></li>
 </ul>
 <p>Inside the method body, there are a few concepts that are relevant:</p>
 <ul>
-<li><code>Context</code>: This field of the Microservice class has information about the request.<ul>
-<li><code>Context.Cid</code> | <code>Context.Pid</code>: Contain the relevant realm information for the microservice.</li>
-<li><code>Context.UserId</code>: Contains the <code>GamerTag</code> for the account making the call. This is <code>0</code> for non-authenticated endpoints such as <code>Callables</code> and <code>ServerCallables</code>.</li>
-<li><code>Context.Body</code>: Contains the raw body (typically JSON) of the request, if any.</li>
+<li><code>Context</code>: This field of the Microservice class has information about the request<ul>
+<li><code>Context.Cid</code> | <code>Context.Pid</code>: Contain the relevant realm information for the microservice</li>
+<li><code>Context.UserId</code>: Contains the <code>GamerTag</code> for the account making the call. This is <code>0</code> for non-authenticated endpoints such as <code>Callables</code> and <code>ServerCallables</code></li>
+<li><code>Context.Body</code>: Contains the raw body (typically JSON) of the request, if any</li>
 </ul>
 </li>
-<li><code>Services</code>: This field of the Microservice class gives you access to Beamable's Services from your microservice.<ul>
+<li><code>Services</code>: This field of the Microservice class gives you access to Beamable's Services from your microservice<ul>
 <li><code>Services.Inventory</code>: Access the inventory service...</li>
 <li><code>Services.Stats</code>: Access the stats service...</li>
 <li>So on and so forth...</li>
@@ -10727,28 +10727,28 @@
 <h3 id="signature-constraints">Signature constraints<a class="headerlink" href="#signature-constraints" title="Permanent link">¶</a></h3>
 <p>When declaring <code>Callable</code> functions, you should be aware of a few limitations regarding its signatures.</p>
 <ul>
-<li>No <code>void</code> return.</li>
-<li>Can be <code>async</code> or not.</li>
-<li>Cannot return container types directly.<ul>
+<li>No <code>void</code> return</li>
+<li>Can be <code>async</code> or not</li>
+<li>Cannot return container types directly<ul>
 <li><code>List&lt;&gt;</code> / <code>Dictionary&lt;string,&gt;</code></li>
-<li>Wrap it in a struct/class instead.</li>
+<li>Wrap it in a struct/class instead</li>
 </ul>
 </li>
-<li>No overloading of <code>Callables</code>.<ul>
-<li>This is because each of these must map to a unique route so name things accordingly.</li>
-<li>Non-<code>Callable</code> functions can be overloaded.</li>
+<li>No overloading of <code>Callables</code><ul>
+<li>This is because each of these must map to a unique route so name things accordingly</li>
+<li>Non-<code>Callable</code> functions can be overloaded</li>
 </ul>
 </li>
-<li>Avoid calling <code>Callable</code> functions from other <code>Callable</code> functions.<ul>
-<li>For code-reuse in the Microservice, write non-<code>Callable</code> static functions and call them inside the <code>Callable</code> body.</li>
+<li>Avoid calling <code>Callable</code> functions from other <code>Callable</code> functions<ul>
+<li>For code-reuse in the Microservice, write non-<code>Callable</code> static functions and call them inside the <code>Callable</code> body</li>
 </ul>
 </li>
-<li>Must be an instance method (no <code>static</code> keyword).<ul>
-<li>Currently, every request is handled by a unique instance of the Microservice class.</li>
+<li>Must be an instance method (no <code>static</code> keyword)<ul>
+<li>Currently, every request is handled by a unique instance of the Microservice class</li>
 <li>This also means that it is highly discouraged to put member fields in the instance itself</li>
 </ul>
 </li>
-<li>If you are using <a href="../../federation/federation/">Federations</a>, you should be aware that each federation introduces certain reserved routes that you are then NOT allowed to use.</li>
+<li>If you are using <a href="../../federation/federation/">Federations</a>, you should be aware that each federation introduces certain reserved routes that you are then NOT allowed to use</li>
 </ul>
 <p>Keep in mind that only a few things actually affect the shape of any particular <code>Callable</code>'s generated client code. This means that different signatures can effectively represent the same endpoint.</p>
 <p><strong>The lists below all produce the same exposed API and generated client code</strong>:</p>
@@ -10840,13 +10840,13 @@
 </table>
 <p>A few things to note:</p>
 <ul>
-<li>Unreal's lack of Namespaces in Blueprint-Compatible-land makes auto-generated code pretty verbose.<ul>
-<li>When using these APIs, use <code>auto</code> liberally <em>but carefully</em>.</li>
+<li>Unreal's lack of Namespaces in Blueprint-Compatible-land makes auto-generated code pretty verbose<ul>
+<li>When using these APIs, use <code>auto</code> liberally <em>but carefully</em></li>
 </ul>
 </li>
-<li>The code for <strong>all</strong> microservices in the solution is generated at once.<ul>
-<li>This means that, if you have multiple Microservices, you cannot generate a single service's bindings.</li>
-<li>This is also a result of the Namespaces constraint.</li>
+<li>The code for <strong>all</strong> microservices in the solution is generated at once<ul>
+<li>This means that, if you have multiple Microservices, you cannot generate a single service's bindings</li>
+<li>This is also a result of the Namespaces constraint</li>
 </ul>
 </li>
 </ul>
@@ -10863,10 +10863,10 @@
 <h2 id="multiple-microservices-and-organizing-code">Multiple Microservices and organizing code<a class="headerlink" href="#multiple-microservices-and-organizing-code" title="Permanent link">¶</a></h2>
 <p>The first impulse a lot of people have is to separate microservices semantically; one-per-feature. <strong>We do not recommend this.</strong> Here's why:</p>
 <ul>
-<li>Having a lot of microservices will increase your cost for no benefit (<em>in most cases</em>).</li>
-<li>Having a lot of microservices increases project complexity (which impact development costs).</li>
-<li>Having a lot of microservices makes you add latency to things that otherwise wouldn't have it (cross microservice communication is possible, but rarely actually needed).</li>
-<li>Having a lot of microservices increases deployment times.</li>
+<li>Having a lot of microservices will increase your cost for no benefit (<em>in most cases</em>)</li>
+<li>Having a lot of microservices increases project complexity (which impact development costs)</li>
+<li>Having a lot of microservices makes you add latency to things that otherwise wouldn't have it (cross microservice communication is possible, but rarely actually needed)</li>
+<li>Having a lot of microservices increases deployment times</li>
 </ul>
 <p>The key metric you should use to consider creating additional microservices is <strong><em>different load profiles at runtime</em></strong>. Basically, if you have a set of features with similar expected load profiles, you can keep them together as the auto-scaling will work uniformly to handle the increased load. If you have services with "spike-y" load profiles (either in memory usage or CPU), then consider putting each of them in their own service so that they can be scaled independently and faster than your other larger services.</p>
 <blockquote>
@@ -10878,8 +10878,8 @@
 <p>When you make a request to a microservice, you're not actually directly talking to your service. Your request comes in via Beamable's Gateway service and that service figures out to which running Microservice instance it will forward that request.</p>
 <p>This allows us to integrate microservices running in your local machine "as though they" are part of the realm in two specific ways:</p>
 <ul>
-<li>Requests made from this editor's <abbr title="Play in Editor">PIE</abbr> instance can choose a <strong>Microservice Target</strong>.</li>
-<li><a href="../../federation/federation/">Out-of-band Federations can be configured with opt-in filters that "steal" traffic</a>.</li>
+<li>Requests made from this editor's <abbr title="Play in Editor">PIE</abbr> instance can choose a <strong>Microservice Target</strong></li>
+<li><a href="../../federation/federation/">Out-of-band Federations can be configured with opt-in filters that "steal" traffic</a></li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture-targets.png" data-desc-position="bottom"><img alt="Diagram of microservice request routing: a Developer Email target points PIE instances at a microservice on the developer's machine, while a realm target routes through the Beamable Gateway to the realm's services." src="../../../../media/imgs/microservices-architecture-targets.png"></a></p>
 <p>Enabling these two cases at the push of a button enables very fast development iteration speed.</p>
@@ -10889,15 +10889,15 @@
 <p>If you're in the very early stages of solving a problem, you want to get the features to work. Here's a workflow that doesn't require you to open Unreal at all, allowing you to focus only on getting your <code>Callables</code> to work!</p>
 <p>Here are the steps:</p>
 <ol>
-<li>Write your <code>Callable</code>'s code in your IDE.</li>
-<li>Press the Debug or Run button on the IDE.</li>
-<li>Wait for the Service to Start.<ol>
+<li>Write your <code>Callable</code>'s code in your IDE</li>
+<li>Press the Debug or Run button on the IDE</li>
+<li>Wait for the Service to Start<ol>
 <li>The service will print out <code>Service ready for traffic.</code></li>
 </ol>
 </li>
-<li>The service prints out a Portal URL for you or you can use the <code>dotnet beam project open-swagger MicroserviceName</code> command to open the Portal.</li>
-<li>From that page, you can make requests to your service as though your own developer account was a player in your realm.</li>
-<li>Iterate quickly.</li>
+<li>The service prints out a Portal URL for you or you can use the <code>dotnet beam project open-swagger MicroserviceName</code> command to open the Portal</li>
+<li>From that page, you can make requests to your service as though your own developer account was a player in your realm</li>
+<li>Iterate quickly</li>
 </ol>
 <p>This allows you to get services that might have complex logic working first and integrating them into Unreal later. <a href="#constraints-on-callable-functions">Keep in mind the type restrictions on method signatures mentioned here</a>.</p>
 <h3 id="integrating-with-unreal">Integrating with Unreal<a class="headerlink" href="#integrating-with-unreal" title="Permanent link">¶</a></h3>
@@ -10912,11 +10912,11 @@
 </div>
 <p>Once you have these, you can:</p>
 <ol>
-<li>Write code that uses the bindings to communicate with your service.</li>
-<li>Recompile your UE editor (or Blueprint).</li>
-<li>Run/Debug your local microservice (via the Microservice Window, IDE or <code>dotnet beam project run</code>).</li>
-<li>Run <abbr title="Play in Editor">PIE</abbr> and hit the point where you call your microservice.</li>
-<li>See your local service's <code>Callable</code>'s be hit.</li>
+<li>Write code that uses the bindings to communicate with your service</li>
+<li>Recompile your UE editor (or Blueprint)</li>
+<li>Run/Debug your local microservice (via the Microservice Window, IDE or <code>dotnet beam project run</code>)</li>
+<li>Run <abbr title="Play in Editor">PIE</abbr> and hit the point where you call your microservice</li>
+<li>See your local service's <code>Callable</code>'s be hit</li>
 </ol>
 <p>If you are using <a href="../../federation/federation/">Federations</a>, there are a few particulars of this workflow of which you should be aware. If not, the above works as described.</p>
 <h3 id="deploying-to-a-realm">Deploying to a realm<a class="headerlink" href="#deploying-to-a-realm" title="Permanent link">¶</a></h3>
@@ -10938,25 +10938,25 @@
 <p>This one is pretty unique to Beamable's Microservices.</p>
 <p>Imagine the following:</p>
 <ul>
-<li>You have a service published in a realm with your designer working and testing against it.</li>
-<li>The designer does something that reveals a bug in your service.</li>
-<li>It is unclear what causes it exactly and but the designer can repro it consistently by playing in <abbr title="Play in Editor">PIE</abbr>.</li>
+<li>You have a service published in a realm with your designer working and testing against it</li>
+<li>The designer does something that reveals a bug in your service</li>
+<li>It is unclear what causes it exactly and but the designer can repro it consistently by playing in <abbr title="Play in Editor">PIE</abbr></li>
 </ul>
 <p>The usual flow for handling this situation looks like this:</p>
 <ul>
-<li>Make a ticket.</li>
-<li>Live with the bug while a ticket/task finds its way to an engineer, impacting designer productivity.</li>
-<li>Hope the engineer can repro it as consistently as the designer... or do it at all.</li>
-<li>Try to fix it in the future.</li>
+<li>Make a ticket</li>
+<li>Live with the bug while a ticket/task finds its way to an engineer, impacting designer productivity</li>
+<li>Hope the engineer can repro it as consistently as the designer... or do it at all</li>
+<li>Try to fix it in the future</li>
 </ul>
 <p>Or... you could instead use Beamable's Collaborative Debugging workflow:</p>
 <ul>
-<li>As the engineer, hop on a voice chat with the designer and make sure you're in the same realm as them.</li>
-<li>As the engineer, boot up your local service with a debugger attached and a breakpoint.</li>
-<li>As the designer, open the editor and the <strong>Microservice Window's Collaboration tab</strong> for the service and select your engineer's email from the drop-down.</li>
-<li>As the designer, enter <abbr title="Play in Editor">PIE</abbr> and do what you do to repro the bug.</li>
-<li>As the engineer, observe your (conditional or data) breakpoint is hit or read your additional <code>BeamableLogger</code> log lines.</li>
-<li>Quickly diagnose the issue and unblock the designer.</li>
+<li>As the engineer, hop on a voice chat with the designer and make sure you're in the same realm as them</li>
+<li>As the engineer, boot up your local service with a debugger attached and a breakpoint</li>
+<li>As the designer, open the editor and the <strong>Microservice Window's Collaboration tab</strong> for the service and select your engineer's email from the drop-down</li>
+<li>As the designer, enter <abbr title="Play in Editor">PIE</abbr> and do what you do to repro the bug</li>
+<li>As the engineer, observe your (conditional or data) breakpoint is hit or read your additional <code>BeamableLogger</code> log lines</li>
+<li>Quickly diagnose the issue and unblock the designer</li>
 </ul>
 <p>For smaller teams that like to move fast and can rely on lots of direct communication between designers and engineers, this workflow is a <strong>massive improvement to the current available alternatives</strong>.</p>
 <figure>

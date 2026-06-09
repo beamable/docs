@@ -10378,10 +10378,10 @@
 <p>To make sure this works, you can verify that:</p>
 <ul>
 <li>
-<p><code>Editor Preferences &gt; Blueprint Editor Settings &gt; Navigate to Native Functions from Call Nodes</code> is <code>true</code> (this should be <code>true</code> by default).</p>
+<p><code>Editor Preferences &gt; Blueprint Editor Settings &gt; Navigate to Native Functions from Call Nodes</code> is <code>true</code> (this should be <code>true</code> by default)</p>
 </li>
 <li>
-<p>You should also select your IDE in <code>Editor Preferences &gt; Source Code &gt; Source Code Editor</code> (this may or may not be automatically set depending on your choice of IDE).</p>
+<p>You should also select your IDE in <code>Editor Preferences &gt; Source Code &gt; Source Code Editor</code> (this may or may not be automatically set depending on your choice of IDE)</p>
 </li>
 </ul>
 </div>
@@ -10391,7 +10391,7 @@
 <p>Common use cases include:</p>
 <ul>
 <li>Direct API requests</li>
-<li>Customized behaviors not captured by our <code>UBeamRuntimeSubsystem</code> implementations.</li>
+<li>Customized behaviors not captured by our <code>UBeamRuntimeSubsystem</code> implementations</li>
 </ul>
 <h2 id="operation-blueprints">Operation Blueprints<a class="headerlink" href="#operation-blueprints" title="Permanent link">¶</a></h2>
 <p><code>Operations</code> provide high-level Blueprint nodes for asynchronous communication with Beamable services. They are designed to simplify common game development tasks by combining multiple low-level operations into single, easy-to-use nodes that handle complex workflows automatically. They are well suited to rapid development and standard game features.</p>
@@ -10403,10 +10403,10 @@
 <h3 id="configuring-operation-nodes">Configuring operation nodes<a class="headerlink" href="#configuring-operation-nodes" title="Permanent link">¶</a></h3>
 <p>Operation nodes can be configured in the following ways:</p>
 <ol>
-<li><strong>No BeamFlow Mode</strong>: removes all output pins and reveals the <code>Delegate</code> input pin handler for the operation.</li>
-<li><strong>BeamFlow + OnCompleted</strong>: exposes a single <code>Flow</code> output pin that allows you to handle Success/Failure/Cancelled and any sub-events in the same way.</li>
-<li><strong>BeamFlow + Success/Error/Cancelled</strong>: exposes one <code>Flow</code> output pin for each of Success/Failure/Cancelled.</li>
-<li><strong>BeamFlow + OnSubEvents</strong>: exposes one <code>Flow</code> output pin for each of Success/Failure/Cancelled <strong><em>PLUS</em></strong> a single <code>Flow</code> output pin for each sub-event emitted by the operation. Sub-events are calls to the Operation <code>Delegate</code> that do not complete the operation (the semantics of each sub-event are explained on their tooltip).</li>
+<li><strong>No BeamFlow Mode</strong>: removes all output pins and reveals the <code>Delegate</code> input pin handler for the operation</li>
+<li><strong>BeamFlow + OnCompleted</strong>: exposes a single <code>Flow</code> output pin that allows you to handle Success/Failure/Cancelled and any sub-events in the same way</li>
+<li><strong>BeamFlow + Success/Error/Cancelled</strong>: exposes one <code>Flow</code> output pin for each of Success/Failure/Cancelled</li>
+<li><strong>BeamFlow + OnSubEvents</strong>: exposes one <code>Flow</code> output pin for each of Success/Failure/Cancelled <strong><em>PLUS</em></strong> a single <code>Flow</code> output pin for each sub-event emitted by the operation. Sub-events are calls to the Operation <code>Delegate</code> that do not complete the operation (the semantics of each sub-event are explained on their tooltip)</li>
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprints-beam-mode.png" data-desc-position="bottom"><img alt="Four numbered variants of an Operation - Login - Federated Identity node, each exposing a different BeamFlow pin configuration from no output pins to separate Success, Error, Cancelled, and sub-event flow pins." src="../../../../media/imgs/blueprints-beam-mode.png"></a></p>
 <p><strong>Common use cases include</strong>:</p>
@@ -10441,9 +10441,9 @@
 </figure>
 <p>In the <code>Details</code> view you can configure:</p>
 <ul>
-<li>Which events are exposed by the Inventory <code>UBeamRuntimeSubsystem</code>.</li>
-<li>If we expose them as <code>Delegate</code> input pins or as <code>Flow</code> output execution pins.</li>
-<li>If we expose the <code>Unbind</code> input flow pin.</li>
+<li>Which events are exposed by the Inventory <code>UBeamRuntimeSubsystem</code></li>
+<li>If we expose them as <code>Delegate</code> input pins or as <code>Flow</code> output execution pins</li>
+<li>If we expose the <code>Unbind</code> input flow pin</li>
 </ul>
 <p>Common usages of these are in UIs with the following pattern:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/blueprint-event-bind-unbind.png" data-desc-position="bottom"><img alt="A Construct event wired into an Events - Inventory - Bind node, and a Destruct event routed through a Sequence into the same node's Unbind input." src="../../../../media/imgs/blueprint-event-bind-unbind.png"></a></p>

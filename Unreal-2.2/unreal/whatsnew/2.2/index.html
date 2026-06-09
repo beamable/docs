@@ -10491,7 +10491,7 @@
 <p>This is a minor release that includes support for Unreal Engine 5.6 and some other fixes and small improvements.</p>
 <h3 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">¶</a></h3>
 <h4 id="support-for-unreal-engine-56">Support for Unreal Engine 5.6<a class="headerlink" href="#support-for-unreal-engine-56" title="Permanent link">¶</a></h4>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/UELogo.png" data-desc-position="bottom"><img alt="UELogo.png" src="../../../media/imgs/UELogo.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/UELogo.png" data-desc-position="bottom"><img alt="The Unreal Engine logo." src="../../../media/imgs/UELogo.png"></a></p>
 <p>The Beamable Unreal SDK now supports Unreal Engine 5.6 officially, allowing you to take advantage of the latest features and improvements in the engine.</p>
 <h3 id="other-changes_1">Other changes<a class="headerlink" href="#other-changes_1" title="Permanent link">¶</a></h3>
 <ul>
@@ -10512,26 +10512,26 @@
 <h4 id="fixing-android-packagingdeployment-issues-in-ue-56">Fixing Android Packaging/Deployment issues in UE 5.6<a class="headerlink" href="#fixing-android-packagingdeployment-issues-in-ue-56" title="Permanent link">¶</a></h4>
 <p>In Unreal Engine 5.6, you can find Android packaging and deployment <a href="https://dev.epicgames.com/community/learning/tutorials/d6ne/how-to-fix-unreal-engine-5-6-1-error-undefined-symbol-std-__ndk1-__libcpp_verbose_abort-when-packaging-apk">issues</a> occurring due to a conflict between Unreal and certain internal Android NDK libraries. This problem affects projects using NDK versions 28 or above. The root cause is the mismatch introduced in how UE 5.6 interacts with the newer NDK libraries, and resolving it requires adjusting your setup following these steps:</p>
 <ol>
-<li>Close your Unreal project completely.</li>
+<li>Close your Unreal project completely</li>
 <li>Delete the following folders from your project directory: <code>Intermediate</code>, <code>Saved</code>, <code>DerivedDataCache</code>, <code>Binaries</code>, <code>Build</code></li>
 <li>
 <p>Run the Android setup script:</p>
 <ol>
 <li>Navigate to: <code>C:\Program Files\Epic Games\UE5.6\Engine\Extras\Android\</code></li>
 <li>Run the file: <code>SetupAndroid.bat</code></li>
-<li>Wait for the script to finish unzipping and installing dependencies.</li>
-<li>Once prompted, press <code>Enter</code> to complete the process.</li>
+<li>Wait for the script to finish unzipping and installing dependencies</li>
+<li>Once prompted, press <code>Enter</code> to complete the process</li>
 </ol>
 </li>
 <li>
-<p>Reopen your project in Unreal Engine.</p>
+<p>Reopen your project in Unreal Engine</p>
 <ol>
-<li>The Android functionality should now be restored.</li>
+<li>The Android functionality should now be restored</li>
 </ol>
 </li>
 </ol>
 <p>Now it would look like this in your project:
- <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/what-is-new-android-sdk-state.png" data-desc-position="bottom"><img alt="android-state.png" src="../../../media/imgs/what-is-new-android-sdk-state.png"></a></p>
+ <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/what-is-new-android-sdk-state.png" data-desc-position="bottom"><img alt="The Unreal Platforms menu with Android selected, its SDK Management section highlighting the allowed SDK versions r25b through r29 with r27c installed." src="../../../media/imgs/what-is-new-android-sdk-state.png"></a></p>
 <h4 id="changes-to-ini-files-in-the-new-unreal-version">Changes to <code>.ini</code> files in the new Unreal version<a class="headerlink" href="#changes-to-ini-files-in-the-new-unreal-version" title="Permanent link">¶</a></h4>
 <p>Previously, our custom configurations were included in Unreal’s default configuration files, Now, these settings have been moved into separate files with the <strong>"Beam"</strong> prefix, allowing for a clearer separation between base project settings and Beam-specific settings.</p>
 <p>If you have customized the default Beamable settings, copy them into the corresponding new files according to the table below:</p>

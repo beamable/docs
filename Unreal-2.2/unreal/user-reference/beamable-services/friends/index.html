@@ -10435,20 +10435,20 @@
 <p>Once your environment is set up, the following steps show how to implement the basic functionalities in BP.</p>
 <h3 id="binding-the-friends-events">Binding the friends events<a class="headerlink" href="#binding-the-friends-events" title="Permanent link">¶</a></h3>
 <p>In the SDK, all events can be bound using the custom bind node on the subsystem. The image below shows an example.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-bind-all-events.png" data-desc-position="bottom"><img alt="friends-bind-events.png" src="../../../../media/imgs/friends-bind-all-events.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-bind-all-events.png" data-desc-position="bottom"><img alt="An Events - Friends - Bind node exposing event pins such as On Invite Received, On Invite Accepted, On Friend Removed, and On Player Blocked, with two Create Event nodes wiring OnUpdateFriendInvite and OnUpdateFriendsInfo handlers into it." src="../../../../media/imgs/friends-bind-all-events.png"></a></p>
 <h3 id="inviting-a-friend">Inviting a friend<a class="headerlink" href="#inviting-a-friend" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call <code>Operation - Friend - SendFriendInvite</code> to send a friend invite asynchronously.</li>
+<li>Call <code>Operation - Friend - SendFriendInvite</code> to send a friend invite asynchronously</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-send-invite.png" data-desc-position="bottom"><img alt="friends-send-invite.png" src="../../../../media/imgs/friends-send-invite.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-send-invite.png" data-desc-position="bottom"><img alt="A Send Invite button's On Clicked event running an Operation - Friend - SendFriendInvite node, whose Friend Gamer Tag input is fed by a UI Input Player ID field's text." src="../../../../media/imgs/friends-send-invite.png"></a></p>
 <p>You can listen for received invite changes — for example, alerting the player that a new invite arrived. You will need to bind to the event <code>OnInviteReceived</code> shown in the <a href="#how-to-bind-the-friends-events">How to Bind the Friends Events</a>.</p>
 <h3 id="accepting-a-friend-invite">Accepting a friend invite<a class="headerlink" href="#accepting-a-friend-invite" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call <code>Operation - Friend - AcceptFriendInvite</code> to accept a friend invite asynchronously.</li>
+<li>Call <code>Operation - Friend - AcceptFriendInvite</code> to accept a friend invite asynchronously</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-accept-invite.png" data-desc-position="bottom"><img alt="friends-accept-invite.png" src="../../../../media/imgs/friends-accept-invite.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-accept-invite.png" data-desc-position="bottom"><img alt="An Accept button's On Clicked event running an Operation - Friend - AcceptFriendInvite node whose Friend Gamer Tag input is supplied by a Friend Gamer Tag variable." src="../../../../media/imgs/friends-accept-invite.png"></a></p>
 <p>When the player that received the invite accepts it, both receive the invite accepted event, it could be used for updates in the invite list or to start to show the new friend in the friend list.</p>
 <p>To bind to this event you can use the <code>OnInviteAccepted</code> as shown in the section above <a href="#how-to-bind-the-friends-events">How to Bind the Friends Events</a>.</p>
 <details class="warning" open="open">
@@ -10458,14 +10458,14 @@
 <h3 id="declining-a-friend-invite">Declining a friend invite<a class="headerlink" href="#declining-a-friend-invite" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call <code>Operation - Friend - DeclineFriendInvite</code> to decline a friend invite asynchronously.</li>
+<li>Call <code>Operation - Friend - DeclineFriendInvite</code> to decline a friend invite asynchronously</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-decline-invite.png" data-desc-position="bottom"><img alt="friends-decline-invite.png" src="../../../../media/imgs/friends-decline-invite.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-decline-invite.png" data-desc-position="bottom"><img alt="A Decline button's On Clicked event running an Operation - Friend - DeclineFriendInvite node whose Friend Gamer Tag input is supplied by a Friend Gamer Tag variable." src="../../../../media/imgs/friends-decline-invite.png"></a></p>
 <p>When the player that received the invite decline it, both receive the <code>OnInviteDeclined</code> notification, that can help to update the visuals and the player list. The local state is already updated when the player receive this notification. As shown in the section above <a href="#how-to-bind-the-friends-events">How to Bind the Friends Events</a>.</p>
 <h3 id="blocking-and-unblocking-a-player">Blocking and unblocking a player<a class="headerlink" href="#blocking-and-unblocking-a-player" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call the <code>Operation - Friend - BlockPlayer</code>/<code>Operation - Friend - Unblock</code>. This will allow you to block/unblock a player using the gamer tag of this player.</li>
+<li>Call the <code>Operation - Friend - BlockPlayer</code>/<code>Operation - Friend - Unblock</code>. This will allow you to block/unblock a player using the gamer tag of this player</li>
 </ol>
 <details class="warning" open="open">
 <summary>Observations</summary>
@@ -10476,7 +10476,7 @@
 <li>If you block a friend and then unblock them, this does not restore the friendship — a new friend invite is required</li>
 </ul>
 </details>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-block-player.png" data-desc-position="bottom"><img alt="friends-block-player.png" src="../../../../media/imgs/friends-block-player.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-block-player.png" data-desc-position="bottom"><img alt="A Block button's On Clicked event running an Operation - Friend - BlockPlayer node whose Player Gamer Tag input is supplied by a Friend Gamer Tag variable." src="../../../../media/imgs/friends-block-player.png"></a></p>
 <p>There are two events related to blocking players: one for the player who initiates the block and one for the player who is blocked. The first event, <code>OnPlayerBlocked</code>, is triggered only for the player who blocks another player. The blocked player does not receive this event, as it is typically not necessary to handle the blocked player in this case. Instead, the blocked player will receive the second event, <code>OnPlayerBeenBlocked</code>. As shown in the section above <a href="#how-to-bind-the-friends-events">How to Bind the Friends Events</a>.</p>
 <details class="warning" open="open">
 <summary>Removed Friend Event</summary>
@@ -10487,15 +10487,15 @@
 <h3 id="removing-a-friend">Removing a friend<a class="headerlink" href="#removing-a-friend" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call <code>Operation - Friend - RemoveFriend</code> to remove a friend asynchronously.</li>
+<li>Call <code>Operation - Friend - RemoveFriend</code> to remove a friend asynchronously</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-remove-friend.png" data-desc-position="bottom"><img alt="friends-remove-friend.png" src="../../../../media/imgs/friends-remove-friend.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-remove-friend.png" data-desc-position="bottom"><img alt="A Remove button's On Clicked event running an Operation - Friend - RemoveFriend node whose Friend Gamer Tag input is supplied by a Friend Gamer Tag variable." src="../../../../media/imgs/friends-remove-friend.png"></a></p>
 <p>When a player is removed from the friend list it will trigger this notification. You will be able to register on this to treat the behavior in your game.</p>
 <p>The event triggered is <code>OnFriendRemoved</code>. As shown in the section above <a href="#how-to-bind-the-friends-events">How to Bind the Friends Events</a>.
 When it triggers, the local state of the friend list will already have been updated.</p>
 <h3 id="how-to-update-the-view-using-system-state-invite-sample">How to update the view using system state (invite sample)<a class="headerlink" href="#how-to-update-the-view-using-system-state-invite-sample" title="Permanent link">¶</a></h3>
 <p>The example below shows how to retrieve the user's friend state and use it to update a view or another screen. For simplicity, the example sets a list of all invites in the friend state; alternatives include adding or removing items based on events rather than setting the entire list.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-local-state-received-invite.png" data-desc-position="bottom"><img alt="friends-local-state-received-invite.png" src="../../../../media/imgs/friends-local-state-received-invite.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/friends-local-state-received-invite.png" data-desc-position="bottom"><img alt="A wide Blueprint graph that retrieves the user's friend state and loops over its received invites to populate a list in the UI view." src="../../../../media/imgs/friends-local-state-received-invite.png"></a></p>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h2>
 <p>This is a brief document that describes the basic usage of the Friend Subsystem, once you implement those features, consider testing with multiple users or adding more complex interactions.</p>
 

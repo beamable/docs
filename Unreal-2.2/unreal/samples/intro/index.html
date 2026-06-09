@@ -10300,24 +10300,24 @@
 </ul>
 </li>
 <li>Clone the UnrealSDK Repository<ul>
-<li>Clone the <a href="https://github.com/Beamable/UnrealSDK">UnrealSDK</a> repository if you have not already.</li>
+<li>Clone the <a href="https://github.com/Beamable/UnrealSDK">UnrealSDK</a> repository if you have not already</li>
 <li>Run the <code>prepare_repo.sh</code> Script. (We recommend using GitBash, but any similar shell should work)</li>
 </ul>
 </li>
 </ol>
 <h2 id="select-the-sample-to-run">Select the sample to run<a class="headerlink" href="#select-the-sample-to-run" title="Permanent link">¶</a></h2>
 <ol>
-<li>Use <code>dotnet beam unreal select-sample BEAMPROJ_&lt;PluginName&gt;</code> to switch to the plugin (and thus the sample) you want. During this process all of the content in their <code>Override</code> folder will be copied to the <code>BeamableUnreal</code> project replacing any previous configuration. This allows us to replace the whole "Context" in which the project will be configured, thus allowing us to have multiple samples in the same project.</li>
+<li>Use <code>dotnet beam unreal select-sample BEAMPROJ_&lt;PluginName&gt;</code> to switch to the plugin (and thus the sample) you want. During this process all of the content in their <code>Override</code> folder will be copied to the <code>BeamableUnreal</code> project replacing any previous configuration. This allows us to replace the whole "Context" in which the project will be configured, thus allowing us to have multiple samples in the same project</li>
 <li>For example, <code>dotnet beam unreal select-sample BEAMPROJ_HathoraDemo</code> switches the repo to the Hathora Demo sample</li>
 <li>If using Rider as IDE and already in the BeamableUnreal.sln project you can alternatively select and run the <code>SET BEAMPROJ - &lt;PluginName&gt;</code> in the Configuration Drop Down (Top Right Corner)</li>
 </ol>
 <h2 id="build-and-run-in-editor">Build and run in editor<a class="headerlink" href="#build-and-run-in-editor" title="Permanent link">¶</a></h2>
 <ol>
-<li>Open the generated <code>.sln</code> file in your IDE (e.g., Visual Studio, Rider...).</li>
-<li>Perform a Clean build of the Editor target.</li>
-<li>Run the <code>BeamableUnreal</code> Project and in the editor, go to Project Settings → Beamable Core → Beamable Environment and verify it’s set to <code>BeamProdEnv</code>.</li>
-<li>Sign in to your Beamable account in the Beamable Window.</li>
-<li>Follow Sample-Specific Instructions. Each sample has its own documentation for additional steps or guidance.</li>
+<li>Open the generated <code>.sln</code> file in your IDE (e.g., Visual Studio, Rider...)</li>
+<li>Perform a Clean build of the Editor target</li>
+<li>Run the <code>BeamableUnreal</code> Project and in the editor, go to Project Settings → Beamable Core → Beamable Environment and verify it’s set to <code>BeamProdEnv</code></li>
+<li>Sign in to your Beamable account in the Beamable Window</li>
+<li>Follow Sample-Specific Instructions. Each sample has its own documentation for additional steps or guidance</li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">I can't find the Beamable Core Content in the Content Browser</p>
@@ -10330,14 +10330,14 @@
 <h2 id="why-using-a-single-repository">Why using a single repository?<a class="headerlink" href="#why-using-a-single-repository" title="Permanent link">¶</a></h2>
 <p>We keep all Beamable samples within the main repository so we can:</p>
 <ul>
-<li>Use as QA Tools: We continuously develop and test against our own samples.</li>
-<li>Ensure Up-to-Date Samples: Whenever we update the SDK, the sample projects are updated too. Maintaining samples alongside core features makes it easier to keep everything stable and consistent.</li>
+<li>Use as QA Tools: We continuously develop and test against our own samples</li>
+<li>Ensure Up-to-Date Samples: Whenever we update the SDK, the sample projects are updated too. Maintaining samples alongside core features makes it easier to keep everything stable and consistent</li>
 </ul>
 <p>To make this work as should we keep the <code>Config</code> and <code>.beamable</code> folders in sync. This is done by:</p>
 <ul>
-<li>Our custom <code>Target.cs</code> code that will make the <code>Config</code> and <code>.beamable</code> folders at the root level of the repo be exact copies of the folders inside the <code>Overrides</code> directory of each <code>BEAMPROJ_</code> folder. In other words, the contents of those folders at the root level is defined by the selected <code>BEAMPROJ</code>.</li>
-<li>An editor subsystem called <code>BeamProjSync</code> that, while the editor is running, file-watches those directories and copies changes made over to the appropriate <code>BEAMPROJ_</code> <code>Overrides</code> folder.</li>
-<li>Those implementations are only related to the specificity of this sample configuration; they are not related to the samples' content.</li>
+<li>Our custom <code>Target.cs</code> code that will make the <code>Config</code> and <code>.beamable</code> folders at the root level of the repo be exact copies of the folders inside the <code>Overrides</code> directory of each <code>BEAMPROJ_</code> folder. In other words, the contents of those folders at the root level is defined by the selected <code>BEAMPROJ</code></li>
+<li>An editor subsystem called <code>BeamProjSync</code> that, while the editor is running, file-watches those directories and copies changes made over to the appropriate <code>BEAMPROJ_</code> <code>Overrides</code> folder</li>
+<li>Those implementations are only related to the specificity of this sample configuration; they are not related to the samples' content</li>
 </ul>
 
 

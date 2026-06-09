@@ -10516,8 +10516,8 @@ options for player collaboration and team organization.</p>
 <h3 id="creating-a-party">Creating a party<a class="headerlink" href="#creating-a-party" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call <code>Operation - Party - CreateParty</code>. It will create a party and put the user slot that called it inside the party.</li>
-<li>Get the state of the current party that the user is party of.</li>
+<li>Call <code>Operation - Party - CreateParty</code>. It will create a party and put the user slot that called it inside the party</li>
+<li>Get the state of the current party that the user is party of</li>
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/party-create.png" data-desc-position="bottom"><img alt="party-create" src="../../../../media/imgs/party-create.png"></a></p>
 <details class="warning" open="open">
@@ -10528,12 +10528,12 @@ options for player collaboration and team organization.</p>
 <h3 id="joining-a-party">Joining a party<a class="headerlink" href="#joining-a-party" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call <code>TryGetUserPartyState</code> from the <code>BeamPartySubsystem</code>.<ul>
+<li>Call <code>TryGetUserPartyState</code> from the <code>BeamPartySubsystem</code><ul>
 <li>If the player is already in a party, it will return <code>true</code></li>
 <li>A player must be removed from their current party before joining another. Trying to join without doing so will return an error</li>
 </ul>
 </li>
-<li>After verifying and removing the player from their existing party if necessary, call the operation: <code>Operation - Party - JoinPlayerParty</code>.</li>
+<li>After verifying and removing the player from their existing party if necessary, call the operation: <code>Operation - Party - JoinPlayerParty</code></li>
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/party-join.png" data-desc-position="bottom"><img alt="party-join" src="../../../../media/imgs/party-join.png"></a></p>
 <details class="warning" open="open">
@@ -10543,7 +10543,7 @@ options for player collaboration and team organization.</p>
 <h3 id="inviting-players-leader-only">Inviting players (leader only)<a class="headerlink" href="#inviting-players-leader-only" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call <code>Operation - Party - InvitePlayerToMyParty</code>. It will send an invite to a given <code>FBeamGamerTag</code>.</li>
+<li>Call <code>Operation - Party - InvitePlayerToMyParty</code>. It will send an invite to a given <code>FBeamGamerTag</code></li>
 </ol>
 <details class="warning" open="open">
 <summary>Friends</summary>
@@ -10553,25 +10553,25 @@ options for player collaboration and team organization.</p>
 <h3 id="declining-invites">Declining invites<a class="headerlink" href="#declining-invites" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call <code>Operation - Party - DeclinePlayerInvite</code>. It will remove the received invite from the invite list of the player.</li>
+<li>Call <code>Operation - Party - DeclinePlayerInvite</code>. It will remove the received invite from the invite list of the player</li>
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/party-decline.png" data-desc-position="bottom"><img alt="party-decline" src="../../../../media/imgs/party-decline.png"></a></p>
 <h3 id="canceling-invite-leader-only">Canceling invite (leader only)<a class="headerlink" href="#canceling-invite-leader-only" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call <code>Operation - Party - CancelPlayerPartyInvite</code>. It will cancel the invite sent to another player.</li>
+<li>Call <code>Operation - Party - CancelPlayerPartyInvite</code>. It will cancel the invite sent to another player</li>
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/party-promote-leader.png" data-desc-position="bottom"><img alt="party-promote-leader" src="../../../../media/imgs/party-promote-leader.png"></a></p>
 <h3 id="kicking-a-player-leader-only">Kicking a player (leader only)<a class="headerlink" href="#kicking-a-player-leader-only" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call <code>Operation - Party - Kick Player From My Party</code>. It will remove a player from the party.</li>
+<li>Call <code>Operation - Party - Kick Player From My Party</code>. It will remove a player from the party</li>
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/party-kick.png" data-desc-position="bottom"><img alt="party-party-kick" src="../../../../media/imgs/party-kick.png"></a></p>
 <h3 id="promoting-player-to-leader-leader-only">Promoting player to leader (leader only)<a class="headerlink" href="#promoting-player-to-leader-leader-only" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open your Level Blueprint (or some other BP)</li>
-<li>Call <code>Operation - Party - Promote Player As My Party Leader</code>. It will promote another player as the party leader.</li>
+<li>Call <code>Operation - Party - Promote Player As My Party Leader</code>. It will promote another player as the party leader</li>
 </ol>
 <details class="warning" open="open">
 <summary>Leader Leaving Party</summary>

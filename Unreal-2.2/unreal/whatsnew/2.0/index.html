@@ -10609,47 +10609,47 @@
 <p><strong>Follow the <a href="../../getting-started/setup/#upgrading-the-sdk">Upgrade Steps</a></strong>.</p>
 <p>Then do the following:</p>
 <ul>
-<li>If you are upgrading from <code>1.X.X</code>, follow any instructions in the <a href="#version-200">version 2.0.0 upgrade guide</a>.</li>
+<li>If you are upgrading from <code>1.X.X</code>, follow any instructions in the <a href="#version-200">version 2.0.0 upgrade guide</a></li>
 <li>To fix a bug, this hotfix requires that you regenerate your microservice clients after rebuilding the microservice projects, if you have any. So you'll need to run: <code>dotnet beam project generate-client "."</code></li>
-<li>Recompile your editor.</li>
+<li>Recompile your editor</li>
 </ul>
 <h3 id="changes">Changes<a class="headerlink" href="#changes" title="Permanent link">¶</a></h3>
 <ul>
-<li>Added an override to the path to <code>dotnet</code> (found in <code>Project Settings -&gt; Beam Editor</code>) so that non-default <code>dotnet</code> setups can be used.<ul>
-<li>In some dev's setups, <code>dotnet</code> might be installed in non-default locations — you can now override where we look for the <code>dotnet</code> executable when invoking our CLI (from within the editor integration).</li>
-<li>This changes nothing about the runtime of your program; it only affects how we use the CLI (which is not used outside the Unreal Editor integration).</li>
-<li>After changing this setting, restart the editor.</li>
+<li>Added an override to the path to <code>dotnet</code> (found in <code>Project Settings -&gt; Beam Editor</code>) so that non-default <code>dotnet</code> setups can be used<ul>
+<li>In some dev's setups, <code>dotnet</code> might be installed in non-default locations — you can now override where we look for the <code>dotnet</code> executable when invoking our CLI (from within the editor integration)</li>
+<li>This changes nothing about the runtime of your program; it only affects how we use the CLI (which is not used outside the Unreal Editor integration)</li>
+<li>After changing this setting, restart the editor</li>
 </ul>
 </li>
-<li>Added null guard to all <code>U[BeamJsonSerializableUObject]Library::Break</code> functions (change between ensure/silent-skip in <code>Project Settings -&gt; Beamable Core -&gt; bSilenceBreakGuardEnsures</code>).<ul>
-<li>This allows you to configure how <code>Break</code> nodes for this type respond to being given a null <code>UObject</code>. In most cases, however, we recommend you organize your program in a way that you can guarantee this is never null and keep the default ensure settings.</li>
+<li>Added null guard to all <code>U[BeamJsonSerializableUObject]Library::Break</code> functions (change between ensure/silent-skip in <code>Project Settings -&gt; Beamable Core -&gt; bSilenceBreakGuardEnsures</code>)<ul>
+<li>This allows you to configure how <code>Break</code> nodes for this type respond to being given a null <code>UObject</code>. In most cases, however, we recommend you organize your program in a way that you can guarantee this is never null and keep the default ensure settings</li>
 </ul>
 </li>
 </ul>
 <h3 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">¶</a></h3>
 <ul>
-<li>Fixed linux compilation problem when compiling with stricter options.</li>
-<li>Fixed default <code>dotnet</code> path for macOS.</li>
+<li>Fixed linux compilation problem when compiling with stricter options</li>
+<li>Fixed default <code>dotnet</code> path for macOS</li>
 <li>Fixed issue where <code>CallingContext</code> wasn't being passed along in <code>Authenticate</code> calls in certain edge-cases</li>
-<li>Updated Auto Generated <code>UBeam___Api</code> classes code to fix a problem that would cause multiple <abbr title="Play in Editor">PIE</abbr> instances to behave incorrectly when running in non-standalone process mode.</li>
+<li>Updated Auto Generated <code>UBeam___Api</code> classes code to fix a problem that would cause multiple <abbr title="Play in Editor">PIE</abbr> instances to behave incorrectly when running in non-standalone process mode</li>
 </ul>
 <h2 id="version-200">Version 2.0.0<a class="headerlink" href="#version-200" title="Permanent link">¶</a></h2>
 <p>This is the release notes for the Beamable Unreal SDK version 2.0.0</p>
 <p>This is a major release in our release cycle, it brings a lot of new features and improvements to the Beamable Unreal SDK support and user experience in general including a new Content Editor, a complete overhaull of our blueprint nodes, support for Friends and Parties, new support for Android and many others.</p>
 <p>Follow the <a href="../../getting-started/setup/#upgrading-the-sdk">Upgrade Steps</a>. Then do the following:</p>
 <ul>
-<li>Go into your <code>Saved/Config/WindowsEditor/EditorPerProjectUserSettings</code> and remove any setting referencing a <code>BeamEditorBootstrapper</code> (or <code>UBeamEditorBootstrapper</code>).</li>
-<li>We changed the way the Editor environment is initialized and having this here will cause the initialization to run twice which can lead to instability.</li>
+<li>Go into your <code>Saved/Config/WindowsEditor/EditorPerProjectUserSettings</code> and remove any setting referencing a <code>BeamEditorBootstrapper</code> (or <code>UBeamEditorBootstrapper</code>)</li>
+<li>We changed the way the Editor environment is initialized and having this here will cause the initialization to run twice which can lead to instability</li>
 </ul>
 <h3 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">¶</a></h3>
 <h4 id="unreal-engine-55x-support">Unreal Engine 5.5.x support<a class="headerlink" href="#unreal-engine-55x-support" title="Permanent link">¶</a></h4>
 <p>The Beamable Unreal SDK now supports Unreal Engine 5.5.x as it minimum version. Older versions of Unreal Engine are no longer officially supported. If you are using an older version of Unreal Engine, we recommend you upgrade to 5.5.x to take advantage of the latest features and improvements os stay in the 1.x versions of the Beamable Unreal SDK.</p>
 <h4 id="android-support">Android support<a class="headerlink" href="#android-support" title="Permanent link">¶</a></h4>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/android.png" data-desc-position="bottom"><img alt="android.png" src="../../../media/imgs/android.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/android.png" data-desc-position="bottom"><img alt="The Android robot mascot logo with the &quot;android&quot; wordmark beneath it." src="../../../media/imgs/android.png"></a></p>
 <p>The Beamable Unreal SDK now supports Android builds officially, allowing you to build and deploy your games on Android devices. This includes support for the Beamable services, as well as the ability to use the Unreal Engine's native Beamable features.</p>
 <h4 id="new-content-editor-system">New content editor system<a class="headerlink" href="#new-content-editor-system" title="Permanent link">¶</a></h4>
 <p>The Content Editor received yet another rework based your feedback with additional filtering capabilities and an improved CLI-based backend that is faster, handles file-system operations better and enforces less blocking operations.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/contentv2-window.png" data-desc-position="bottom"><img alt="contentv2-window.png" src="../../../media/imgs/contentv2-window.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/contentv2-window.png" data-desc-position="bottom"><img alt="The reworked CLI-backed Content window listing content types such as BeamCurrencyContent and BeamItemContent, with the currency.gems object selected and its properties in the right-hand detail panel." src="../../../media/imgs/contentv2-window.png"></a></p>
 <p>The new CLI-backend also enables new <a href="../../user-reference/beamable-services/content/">workflows for designers</a> that might want to share a stable realm while working directly with content. Details can be found in the updated Content documentation.</p>
 <div class="admonition warning">
 <p class="admonition-title">Detected Changes</p>
@@ -10659,11 +10659,11 @@
 <p>The Beamable Unreal SDK now supports the <a href="../../user-reference/beamable-services/friends/">Friends</a> and <a href="../../user-reference/beamable-services/parties/">Parties</a> features of Beamable. This includes the ability to send and receive friend requests, manage your friends list, and create and join parties.</p>
 <h4 id="blueprint-nodes-rework">Blueprint nodes rework<a class="headerlink" href="#blueprint-nodes-rework" title="Permanent link">¶</a></h4>
 <p>The Blueprint nodes have undergone a comprehensive overhaul to enhance consistency and ease of use. Updates include clearer node naming, refined input and output types, and significant improvements to overall usability. Additionally, we have introduced a <a href="../../user-reference/runtime-systems/blueprints/">dedicated section</a> to help users better understand how to effectively utilize Blueprints with the Beamable Unreal SDK.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/blueprint-operators.png" data-desc-position="bottom"><img alt="blueprint-operators.png" src="../../../media/imgs/blueprint-operators.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/blueprint-operators.png" data-desc-position="bottom"><img alt="An On Clicked event on a Purchase button wired into an Operation - Store - Perform Purchase node with a Store Id of stores.SkinStore and a Listing Id input, exposing On Success, On Error, On Cancelled, and operation-event output pins." src="../../../media/imgs/blueprint-operators.png"></a></p>
 <p>As part of this overhaul, a lot of <code>Operations</code> had to be slightly renamed to aid with discoverability and API consistency. We highly recommend a few things:</p>
 <ul>
-<li>In Blueprints, replace all direct calls to <code>UBeamRuntimeSubsystems</code> with the new custom nodes that affect those systems.</li>
-<li>For C++, since semantics remain un-changed, the compiler is your friend. It is a simple matter of changing the function being called to the appropriate one.</li>
+<li>In Blueprints, replace all direct calls to <code>UBeamRuntimeSubsystems</code> with the new custom nodes that affect those systems</li>
+<li>For C++, since semantics remain un-changed, the compiler is your friend. It is a simple matter of changing the function being called to the appropriate one</li>
 </ul>
 <h4 id="player-initialization-federations">Player initialization federations<a class="headerlink" href="#player-initialization-federations" title="Permanent link">¶</a></h4>
 <p>A common use-case for live-services game is to define a starting state for user accounts. The way to do that within Beamable is via the <a href="../../user-reference/federation/federated-player-init/">Player Init Federation</a> interface in your microservice.</p>
@@ -10673,8 +10673,8 @@
 <p>This is no longer possible.</p>
 <p>We made this change for a few reasons:</p>
 <ul>
-<li>For projects with multiple microservices, a solution-wide rebuild triggers one generation process per-project rebuild. As each code-gen must take into account ALL services due to Unreal's namespacing limitations, this is not always desireable and can cause an entire class of complex problems.</li>
-<li>It would trigger at inconvenient times (that is, with the UE editor open) which could sometimes cause UE-related issues.</li>
+<li>For projects with multiple microservices, a solution-wide rebuild triggers one generation process per-project rebuild. As each code-gen must take into account ALL services due to Unreal's namespacing limitations, this is not always desireable and can cause an entire class of complex problems</li>
+<li>It would trigger at inconvenient times (that is, with the UE editor open) which could sometimes cause UE-related issues</li>
 </ul>
 <p>Keep in mind that if you and your team like the old automatic post-build process, you can achieve that for your team by using IDE run configurations that run this command as a post-build/run process.</p>
 <p>In this version of the SDK, this is a manual process. Just run the following command line from inside your Unreal project's directory whenever you wish to generate your latest client code. You can also add a run configuration in your IDE if you prefer to just press a button to trigger the regeneration.</p>
@@ -10682,19 +10682,19 @@
 </code></pre></div>
 <h3 id="other-changes">Other changes<a class="headerlink" href="#other-changes" title="Permanent link">¶</a></h3>
 <ul>
-<li>It is now possible to use local microservices when running in from the Editor as a Standalone Game OR against a build. Useful for games that want to test their Steam/Beamable integration for example.<ul>
+<li>It is now possible to use local microservices when running in from the Editor as a Standalone Game OR against a build. Useful for games that want to test their Steam/Beamable integration for example<ul>
 <li>CLArg: <code>beamable-routing-key-map</code></li>
 <li>EnvVar: <code>BEAMABLE_ROUTING_KEY_MAP</code></li>
-<li>In the editor, this is automatically kept in sync with the selected microservice target and <code>Editor Preferences -&gt; Play -&gt; Play in Standalone Game -&gt; Additional Launch Parameters</code> so you can use the editor's <code>Standalone Game</code> <abbr title="Play in Editor">PIE</abbr>-mode option (useful for when testing Steam, for example).</li>
+<li>In the editor, this is automatically kept in sync with the selected microservice target and <code>Editor Preferences -&gt; Play -&gt; Play in Standalone Game -&gt; Additional Launch Parameters</code> so you can use the editor's <code>Standalone Game</code> <abbr title="Play in Editor">PIE</abbr>-mode option (useful for when testing Steam, for example)</li>
 </ul>
 </li>
-<li>All non-frictionless <code>SignUp</code> functions now have auto-login option; which will automatically try to login into the given account should the identity being signed up as be already in use.</li>
-<li>CLI is now optionally installed — none of the beamable editor functionality will be available and the project will always set the TargetRealm to the branch-wise realm; not the local override.<ul>
-<li>Basically, if you want to have a subset of your team work without the ability to swap realms and/or interact with Beamable's editor workflows at all; you no longer need to install the CLI for that subset.</li>
-<li>In most cases and for most teams, we recommend you <strong>don't</strong> do this and instead just have .NET and the CLI installed for everyone though.</li>
+<li>All non-frictionless <code>SignUp</code> functions now have auto-login option; which will automatically try to login into the given account should the identity being signed up as be already in use</li>
+<li>CLI is now optionally installed — none of the beamable editor functionality will be available and the project will always set the TargetRealm to the branch-wise realm; not the local override<ul>
+<li>Basically, if you want to have a subset of your team work without the ability to swap realms and/or interact with Beamable's editor workflows at all; you no longer need to install the CLI for that subset</li>
+<li>In most cases and for most teams, we recommend you <strong>don't</strong> do this and instead just have .NET and the CLI installed for everyone though</li>
 </ul>
 </li>
-<li><code>UBeamContentObject</code> now supports <code>FText</code> usage with <code>StringTable</code>.</li>
+<li><code>UBeamContentObject</code> now supports <code>FText</code> usage with <code>StringTable</code></li>
 </ul>
 <h4 id="climicroservices-upgrade-instructions">CLI/Microservices - upgrade instructions<a class="headerlink" href="#climicroservices-upgrade-instructions" title="Permanent link">¶</a></h4>
 <p>If you were using the <code>FederatedGameServer</code> interface, you'll also have to do this.</p>
@@ -10711,15 +10711,15 @@
 <p>We made a few changes to our authentication flow to make realm changing a faster and simpler process. In light of that, you'll need to re-authenticate with the CLI. So, run <code>dotnet beam login</code> and re-authenticate into your organization.</p>
 <h3 id="fixes_1">Fixes<a class="headerlink" href="#fixes_1" title="Permanent link">¶</a></h3>
 <ul>
-<li><code>ENotificationMessageType</code> names are now prefixed by <code>BEAM_</code> to avoid enum name conflicts with user declared enums in Linux builds.</li>
-<li><code>UBeamContentObject</code> serialization now correctly sorts the json's properties by name to ensure the generated JSON is deterministic and therefore the hash we use to decide whether its changed/unchanged is kept deterministic too.</li>
+<li><code>ENotificationMessageType</code> names are now prefixed by <code>BEAM_</code> to avoid enum name conflicts with user declared enums in Linux builds</li>
+<li><code>UBeamContentObject</code> serialization now correctly sorts the json's properties by name to ensure the generated JSON is deterministic and therefore the hash we use to decide whether its changed/unchanged is kept deterministic too</li>
 <li>Fixed issue that caused double deletion of <code>UBeamContentObject</code> map property's entries when modifying them via the details view of the <code>Content Window</code></li>
 </ul>
 <h3 id="known-issues">Known issues<a class="headerlink" href="#known-issues" title="Permanent link">¶</a></h3>
 <ul>
-<li>When creating a custom event by hand, adding a <code>FUserSlot</code> parameter pin to that event can sometimes crash the engine. This also seems to happen with <em>some</em> Unreal types that have custom pins (the same crash happens with <code>bool</code> pins, though less frequently).<ul>
-<li>This does NOT happen if you create the event using the functionality in the <code>CreateEvent</code> node OR by any other means of creating a custom event with all the pins it knows it should have.</li>
-<li>This crash also seems less likely to happen the longer the editor stays open.</li>
+<li>When creating a custom event by hand, adding a <code>FUserSlot</code> parameter pin to that event can sometimes crash the engine. This also seems to happen with <em>some</em> Unreal types that have custom pins (the same crash happens with <code>bool</code> pins, though less frequently)<ul>
+<li>This does NOT happen if you create the event using the functionality in the <code>CreateEvent</code> node OR by any other means of creating a custom event with all the pins it knows it should have</li>
+<li>This crash also seems less likely to happen the longer the editor stays open</li>
 </ul>
 </li>
 </ul>

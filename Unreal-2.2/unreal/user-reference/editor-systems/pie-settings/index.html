@@ -10389,12 +10389,12 @@
 <p class="admonition-title"><abbr title="Play in Editor">PIE</abbr> Settings are Experimental</p>
 <p><abbr title="Play in Editor">PIE</abbr> Settings are currently marked as Experimental under <code>Project Settings &gt; Engine &gt; Beamable Core</code> and are disabled by default.
 To enable them, go to the Beamable Core section in the Unreal Engine editor settings. Once enabled, restart the editor and the <abbr title="Play in Editor">PIE</abbr> Settings UI will be available.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-enable.png" data-desc-position="bottom"><img alt="pie-enable.png" src="../../../../media/imgs/pie-enable.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-enable.png" data-desc-position="bottom"><img alt="The Engine - Beamable Core settings page with the Experimental section expanded and the &quot;Enable Beam PIE&quot; checkbox being toggled to true." src="../../../../media/imgs/pie-enable.png"></a></p>
 </div>
 <h2 id="player-manager">Player manager<a class="headerlink" href="#player-manager" title="Permanent link">¶</a></h2>
 <p>The Player Manager lets you manage player profiles and settings for your game. It provides an easy-to-use interface to create, capture (from <abbr title="Play in Editor">PIE</abbr>), and save player profiles that can be used at runtime.</p>
 <p>Profiles with a name become available in Play Presets, making it simple to switch between different players during development and testing.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-user.png" data-desc-position="bottom"><img alt="pie-user.png" src="../../../../media/imgs/pie-user.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-user.png" data-desc-position="bottom"><img alt="The PIE tab's Player Manager listing captured and saved players on the left, with the selected &quot;Local User 2&quot; profile's General Settings — Id, Name, Description — and Tags shown on the right alongside Save as Local, Save as Template, and Delete User actions." src="../../../../media/imgs/pie-user.png"></a></p>
 <h3 id="capturing-and-saving-players">Capturing and saving players<a class="headerlink" href="#capturing-and-saving-players" title="Permanent link">¶</a></h3>
 <p>Whenever you run the game in the editor with <abbr title="Play in Editor">PIE</abbr>, the Player Manager records any logged-in players. This creates a new profile in the list, which can be inspected using the Open Portal button.</p>
 <p>Player profiles can then be saved as either Local or Template, making them reusable in Play Presets:</p>
@@ -10415,17 +10415,17 @@ You can also add descriptions and tags to profiles to provide extra context for 
 <li>Whether it should create a lobby for the <abbr title="Play in Editor">PIE</abbr> session</li>
 <li>Which players will be logged into the session (and be placed into the lobby, if creating one)</li>
 </ul>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-settings.png" data-desc-position="bottom"><img alt="pie-settings.png" src="../../../../media/imgs/pie-settings.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-settings.png" data-desc-position="bottom"><img alt="The PIE tab's Play Presets view with the Gameplay Settings preset selected, showing its Map Settings, a Fake Lobby Settings section with a Game Type, and a User Settings section assigning two PIE clients to players." src="../../../../media/imgs/pie-settings.png"></a></p>
 <h2 id="creating-and-using-play-presets">Creating and using play presets<a class="headerlink" href="#creating-and-using-play-presets" title="Permanent link">¶</a></h2>
 <p>To create a new Play Preset, click the <strong>Create New Preset</strong> button. You can then configure the preset with the desired settings. Once created, you can select a preset from tuhe dropdown men in the Main Toolbar UI to apply it to the current map.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-use-preset.png" data-desc-position="bottom"><img alt="pie-use-preset.png" src="../../../../media/imgs/pie-use-preset.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-use-preset.png" data-desc-position="bottom"><img alt="The Unreal main toolbar's play-settings dropdown open with a Gameplay Settings preset highlighted below None, next to the Play Presets panel." src="../../../../media/imgs/pie-use-preset.png"></a></p>
 <div class="admonition warning">
 <p class="admonition-title">IMPORTANT</p>
 <p>When "None" is selected, the entire system is disabled, including the automatic Beamable SDK initialization.</p>
 </div>
 <h3 id="map-settings">Map settings<a class="headerlink" href="#map-settings" title="Permanent link">¶</a></h3>
 <p>Play Presets can be configured to apply to specific maps or a list of maps which match the name rule requirement (Regex). This allows you to have different presets for different levels or game modes. You can specify the maps in the <strong>Available Maps</strong> list of the preset editor and/or add a name rule in the Map Name Pattern in case you have a lot of maps.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-map-settings.png" data-desc-position="bottom"><img alt="pie-map-settings.png" src="../../../../media/imgs/pie-map-settings.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-map-settings.png" data-desc-position="bottom"><img alt="A preset's Map Settings showing a Map Name Pattern of &quot;.*&quot; and an Available Maps list containing L_Beamball_Gameplay with an Add Map button." src="../../../../media/imgs/pie-map-settings.png"></a></p>
 <h3 id="fake-lobbies">Fake lobbies<a class="headerlink" href="#fake-lobbies" title="Permanent link">¶</a></h3>
 <p>Play Presets can be configured to initialize lobbies for <abbr title="Play in Editor">PIE</abbr>, allowing you to test multiplayer scenarios with real Beamable accounts <strong><em>directly in <abbr title="Play in Editor">PIE</abbr> from the Gameplay Level</em></strong>. This is especially useful when testing games that use the <strong>Gameplay Level</strong> as the entry point, since it ensures the initialization of Beamable systems and lobby setup. Normally, this initialization would occur in earlier Levels, such as the <strong>Main Boot Level</strong> (Main Menu/Title Screen/etc.).</p>
 <div class="admonition warning">
@@ -10439,7 +10439,7 @@ You can also add descriptions and tags to profiles to provide extra context for 
 <li><strong>Game Type</strong>: Game Type content that will be used for the <abbr title="Play in Editor">PIE</abbr> Lobby Level. If there is a federation configured here, the federation does run too</li>
 <li><strong>Lobby Global Data</strong>: Custom Global Key-Value pairs that will be used to initialize the <abbr title="Play in Editor">PIE</abbr> Lobby. This data is available in the Gameplay Level and can be used to simulate different scenarios</li>
 </ul>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-fake-lobby.png" data-desc-position="bottom"><img alt="pie-fake-lobby.png" src="../../../../media/imgs/pie-fake-lobby.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie-fake-lobby.png" data-desc-position="bottom"><img alt="The Fake Lobby Settings section enabled by its header checkbox, with a Server Map Override of L_Beamball_Gameplay, a Game Type of game_types.default, and a Lobby Global Data entry whose key is machTime and value is 60." src="../../../../media/imgs/pie-fake-lobby.png"></a></p>
 <h3 id="user-settings">User settings<a class="headerlink" href="#user-settings" title="Permanent link">¶</a></h3>
 <p>The User Settings section allows you to configure per-player settings for the users that will be automatically logged in this session. The mapping goes as follows:</p>
 <ul>
@@ -10454,7 +10454,7 @@ You can also add descriptions and tags to profiles to provide extra context for 
 <li><strong>Users from realms other than your current one</strong> will also always <code>Copy on PIE</code>. This is because <code>BeamPIE</code> cannot sign in with a user from another realm into a different one. The SDK copies it instead</li>
 </ul>
 <p>When Fake Lobbies are enabled, the Add Lobby Data will be available to add custom Key-Value pairs that will be used to initialize the per-player key-value store lobby itself. This data is accessible in the Gameplay Level and can be used to simulate various scenarios such as the selection of which skin the player chose or many other parameters that would get put into the lobby either via Federation or Matchmaking/Lobby systems themselves.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie_play_users.png" data-desc-position="bottom"><img alt="pie_play_users.png" src="../../../../media/imgs/pie_play_users.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/pie_play_users.png" data-desc-position="bottom"><img alt="A User Settings section with two PIE clients, each assigned a player and User Slot Player0, and each carrying a Lobby Data entry whose key is skinID_selected with values skin_03 and skin_01." src="../../../../media/imgs/pie_play_users.png"></a></p>
 <div class="admonition warning">
 <p class="admonition-title">Player Profiles</p>
 <p>Notice that only named profiles will appear in Play Presets to be selected.</p>
