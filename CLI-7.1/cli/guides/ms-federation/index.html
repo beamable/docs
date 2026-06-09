@@ -1514,6 +1514,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ms-command-line/" class="md-nav__link">
         
   
@@ -6377,7 +6405,7 @@
 <h1 id="microservice-federation">Microservice federation<a class="headerlink" href="#microservice-federation" title="Permanent link">¶</a></h1>
 <p>Federate Standalone Microservices with external services</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>Before you can federate using Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
+<p>Before you can federate using Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
@@ -6402,7 +6430,7 @@ that define the types of functions that they require.
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// implementation</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
 </code></pre></div>
-<p>The <code>MySample</code> class included as the generic type in the <code>IFederatedLogin</code> interface specifies the id for the federated login. The class signature for these types must implement the <code>IFederationId</code> type, and be annotated with a <code>FederationId</code> attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.</p>
+<p>The <code>MySample</code> class included as the generic type in the <code>IFederatedLogin</code> interface specifies the id for the federated login. The class signature for these types must implement the <code>IFederationId</code> type and include a <code>FederationId</code> attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.</p>
 <h2 id="federationidmyid-public-class-mysample-ifederationid"><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[FederationId("myId")]</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MySample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div><a class="headerlink" href="#federationidmyid-public-class-mysample-ifederationid" title="Permanent link">¶</a></h2>
@@ -6437,7 +6465,7 @@ that define the types of functions that they require.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>The following IFederationId is invalid. They must: Start with a letter. Contain only alphanumeric characters and/or `_`. Microservice=MyMicroservice, Id=123-MyFederation.
 </code></pre></div><p></p>
 <p><strong>Solutions</strong>:
-- Rename the federation ID to follow the format, e.g. <code>MyFederation</code>.</p>
+- Rename the federation ID to follow the format, e.g., <code>MyFederation</code></p>
 <hr>
 <h3 id="ifederationid-is-missing-federationidattribute">IFederationId is missing FederationIdAttribute<a class="headerlink" href="#ifederationid-is-missing-federationidattribute" title="Permanent link">¶</a></h3>
 <p><strong>Example Code Triggering the Error</strong>:

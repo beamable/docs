@@ -5,27 +5,31 @@
       
       
       
-        <link rel="canonical" href="https://beamable.github.io/Docs/CLI-7.1/cli/commands/cli-command-reference/federation/local-settings/get/ifederatedgameserver/">
+        <link rel="canonical" href="https://beamable.github.io/Docs/CLI-7.1/cli/guides/ms-analytics/">
       
       
+        <link rel="prev" href="../ms-logging/">
+      
+      
+        <link rel="next" href="../ms-command-line/">
       
       
         
       
       
-      <link rel="icon" href="../../../../../../../assets/images/beamable-badge.png">
+      <link rel="icon" href="../../../assets/images/beamable-badge.png">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
-        <title>Ifederatedgameserver - Beamable Docs</title>
+        <title>Analytics - Beamable Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -44,15 +48,15 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../../../assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  <link href="../../../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -81,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#about" class="md-skip">
+        <a href="#microservice-analytics" class="md-skip">
           Skip to content
         </a>
       
@@ -101,9 +105,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../../../.." title="Beamable Docs" class="md-header__button md-logo" aria-label="Beamable Docs" data-md-component="logo">
+    <a href="../../.." title="Beamable Docs" class="md-header__button md-logo" aria-label="Beamable Docs" data-md-component="logo">
       
-  <img src="../../../../../../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -120,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ifederatedgameserver
+              Analytics
             
           </span>
         </div>
@@ -212,9 +216,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../../../.." title="Beamable Docs" class="md-nav__button md-logo" aria-label="Beamable Docs" data-md-component="logo">
+    <a href="../../.." title="Beamable Docs" class="md-nav__button md-logo" aria-label="Beamable Docs" data-md-component="logo">
       
-  <img src="../../../../../../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     Beamable Docs
@@ -276,7 +280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/portal/" class="md-nav__link">
+      <a href="../../../portal/portal/" class="md-nav__link">
         
   
   
@@ -351,7 +355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/portal-adding-beamable-developers/" class="md-nav__link">
+      <a href="../../../portal/portal-adding-beamable-developers/" class="md-nav__link">
         
   
   
@@ -379,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/portal-granting-realm-scoped-developer-permissions/" class="md-nav__link">
+      <a href="../../../portal/portal-granting-realm-scoped-developer-permissions/" class="md-nav__link">
         
   
   
@@ -462,7 +466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/portal-archiving-realms/" class="md-nav__link">
+      <a href="../../../portal/portal-archiving-realms/" class="md-nav__link">
         
   
   
@@ -545,7 +549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/portal-players/" class="md-nav__link">
+      <a href="../../../portal/portal-players/" class="md-nav__link">
         
   
   
@@ -573,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/portal-groups/" class="md-nav__link">
+      <a href="../../../portal/portal-groups/" class="md-nav__link">
         
   
   
@@ -601,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/portal-stats/" class="md-nav__link">
+      <a href="../../../portal/portal-stats/" class="md-nav__link">
         
   
   
@@ -629,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/portal-announcements/" class="md-nav__link">
+      <a href="../../../portal/portal-announcements/" class="md-nav__link">
         
   
   
@@ -657,7 +661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/campaigns/" class="md-nav__link">
+      <a href="../../../portal/campaigns/" class="md-nav__link">
         
   
   
@@ -685,7 +689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/notify-all-players/" class="md-nav__link">
+      <a href="../../../portal/notify-all-players/" class="md-nav__link">
         
   
   
@@ -713,7 +717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/portal-in-app-purchases/" class="md-nav__link">
+      <a href="../../../portal/portal-in-app-purchases/" class="md-nav__link">
         
   
   
@@ -741,7 +745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/portal-inventory/" class="md-nav__link">
+      <a href="../../../portal/portal-inventory/" class="md-nav__link">
         
   
   
@@ -769,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/portal-leaderboards/" class="md-nav__link">
+      <a href="../../../portal/portal-leaderboards/" class="md-nav__link">
         
   
   
@@ -797,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/portal-tournaments/" class="md-nav__link">
+      <a href="../../../portal/portal-tournaments/" class="md-nav__link">
         
   
   
@@ -825,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../portal/portal-cloud-data/" class="md-nav__link">
+      <a href="../../../portal/portal-cloud-data/" class="md-nav__link">
         
   
   
@@ -865,18 +869,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -897,7 +903,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -915,7 +921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/getting-started/" class="md-nav__link">
+      <a href="../getting-started/" class="md-nav__link">
         
   
   
@@ -943,7 +949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -971,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/upgrading/" class="md-nav__link">
+      <a href="../upgrading/" class="md-nav__link">
         
   
   
@@ -999,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/notifications/" class="md-nav__link">
+      <a href="../notifications/" class="md-nav__link">
         
   
   
@@ -1024,18 +1030,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked="">
         
           
           <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
@@ -1056,7 +1064,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1074,7 +1082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/microservices/" class="md-nav__link">
+      <a href="../microservices/" class="md-nav__link">
         
   
   
@@ -1102,7 +1110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/ms-deployment/" class="md-nav__link">
+      <a href="../ms-deployment/" class="md-nav__link">
         
   
   
@@ -1130,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/ms-debugging/" class="md-nav__link">
+      <a href="../ms-debugging/" class="md-nav__link">
         
   
   
@@ -1158,7 +1166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/ms-configuration/" class="md-nav__link">
+      <a href="../ms-configuration/" class="md-nav__link">
         
   
   
@@ -1186,7 +1194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/ms-routing/" class="md-nav__link">
+      <a href="../ms-routing/" class="md-nav__link">
         
   
   
@@ -1214,7 +1222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/ms-storage/" class="md-nav__link">
+      <a href="../ms-storage/" class="md-nav__link">
         
   
   
@@ -1242,7 +1250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/ms-federation/" class="md-nav__link">
+      <a href="../ms-federation/" class="md-nav__link">
         
   
   
@@ -1270,7 +1278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/ms-workflow/" class="md-nav__link">
+      <a href="../ms-workflow/" class="md-nav__link">
         
   
   
@@ -1298,7 +1306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/ms-upm/" class="md-nav__link">
+      <a href="../ms-upm/" class="md-nav__link">
         
   
   
@@ -1326,7 +1334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/ms-logging/" class="md-nav__link">
+      <a href="../ms-logging/" class="md-nav__link">
         
   
   
@@ -1351,10 +1359,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../../../guides/ms-analytics/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1370,6 +1405,76 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emitting-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emitting events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Emitting events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source domain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying events
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1382,7 +1487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/ms-command-line/" class="md-nav__link">
+      <a href="../ms-command-line/" class="md-nav__link">
         
   
   
@@ -1410,7 +1515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../guides/ms-troubleshooting/" class="md-nav__link">
+      <a href="../ms-troubleshooting/" class="md-nav__link">
         
   
   
@@ -1493,7 +1598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/" class="md-nav__link">
         
   
   
@@ -1615,7 +1720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../checks/locked-files.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/checks/locked-files.md" class="md-nav__link">
         
   
   
@@ -1643,7 +1748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../checks/scan.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/checks/scan.md" class="md-nav__link">
         
   
   
@@ -1726,7 +1831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../config/config.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/config/config.md" class="md-nav__link">
         
   
   
@@ -1801,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../config/realm/realm.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/config/realm/realm.md" class="md-nav__link">
         
   
   
@@ -1829,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../config/realm/remove.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/config/realm/remove.md" class="md-nav__link">
         
   
   
@@ -1857,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../config/realm/set.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/config/realm/set.md" class="md-nav__link">
         
   
   
@@ -1893,7 +1998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../config/routes.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/config/routes.md" class="md-nav__link">
         
   
   
@@ -1921,7 +2026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../config/secret.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/config/secret.md" class="md-nav__link">
         
   
   
@@ -1949,7 +2054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../config/set.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/config/set.md" class="md-nav__link">
         
   
   
@@ -2032,7 +2137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/archive-manifest.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/archive-manifest.md" class="md-nav__link">
         
   
   
@@ -2060,7 +2165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/list-manifests.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/list-manifests.md" class="md-nav__link">
         
   
   
@@ -2088,7 +2193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/new-manifest.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/new-manifest.md" class="md-nav__link">
         
   
   
@@ -2116,7 +2221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/open.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/open.md" class="md-nav__link">
         
   
   
@@ -2144,7 +2249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/ps.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/ps.md" class="md-nav__link">
         
   
   
@@ -2172,7 +2277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/publish.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/publish.md" class="md-nav__link">
         
   
   
@@ -2200,7 +2305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/replace-local.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/replace-local.md" class="md-nav__link">
         
   
   
@@ -2228,7 +2333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/resolve.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/resolve.md" class="md-nav__link">
         
   
   
@@ -2256,7 +2361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/restore.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/restore.md" class="md-nav__link">
         
   
   
@@ -2284,7 +2389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/save.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/save.md" class="md-nav__link">
         
   
   
@@ -2312,7 +2417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/snapshot.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/snapshot.md" class="md-nav__link">
         
   
   
@@ -2340,7 +2445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/snapshot-list.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/snapshot-list.md" class="md-nav__link">
         
   
   
@@ -2368,7 +2473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/status.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/status.md" class="md-nav__link">
         
   
   
@@ -2396,7 +2501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/sync.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/sync.md" class="md-nav__link">
         
   
   
@@ -2471,7 +2576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/tag/add.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/tag/add.md" class="md-nav__link">
         
   
   
@@ -2499,7 +2604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/tag/rm.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/tag/rm.md" class="md-nav__link">
         
   
   
@@ -2527,7 +2632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../content/tag/set.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/content/tag/set.md" class="md-nav__link">
         
   
   
@@ -2618,7 +2723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../deployment/get.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/deployment/get.md" class="md-nav__link">
         
   
   
@@ -2646,7 +2751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../deployment/list.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/deployment/list.md" class="md-nav__link">
         
   
   
@@ -2674,7 +2779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../deployment/plan.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/deployment/plan.md" class="md-nav__link">
         
   
   
@@ -2702,7 +2807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../deployment/release.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/deployment/release.md" class="md-nav__link">
         
   
   
@@ -2730,7 +2835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../deployment/status.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/deployment/status.md" class="md-nav__link">
         
   
   
@@ -2813,7 +2918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../developer-user-manager/clean-captured-user-buffer.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/developer-user-manager/clean-captured-user-buffer.md" class="md-nav__link">
         
   
   
@@ -2841,7 +2946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../developer-user-manager/copy-state.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/developer-user-manager/copy-state.md" class="md-nav__link">
         
   
   
@@ -2869,7 +2974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../developer-user-manager/create-user.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/developer-user-manager/create-user.md" class="md-nav__link">
         
   
   
@@ -2897,7 +3002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../developer-user-manager/create-user-batch.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/developer-user-manager/create-user-batch.md" class="md-nav__link">
         
   
   
@@ -2925,7 +3030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../developer-user-manager/ps.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/developer-user-manager/ps.md" class="md-nav__link">
         
   
   
@@ -2953,7 +3058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../developer-user-manager/remove-user.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/developer-user-manager/remove-user.md" class="md-nav__link">
         
   
   
@@ -2981,7 +3086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../developer-user-manager/save-user.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/developer-user-manager/save-user.md" class="md-nav__link">
         
   
   
@@ -3009,7 +3114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../developer-user-manager/update-info.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/developer-user-manager/update-info.md" class="md-nav__link">
         
   
   
@@ -3092,7 +3197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../disable.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/federation/disable.md" class="md-nav__link">
         
   
   
@@ -3120,7 +3225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../enable.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/federation/enable.md" class="md-nav__link">
         
   
   
@@ -3148,7 +3253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../list.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/federation/list.md" class="md-nav__link">
         
   
   
@@ -3176,7 +3281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-key.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/federation/local-key.md" class="md-nav__link">
         
   
   
@@ -3298,7 +3403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ifederatedgameserver.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/federation/local-settings/get/ifederatedgameserver.md" class="md-nav__link">
         
   
   
@@ -3381,7 +3486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../set/ifederatedgameserver.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/federation/local-settings/set/ifederatedgameserver.md" class="md-nav__link">
         
   
   
@@ -3433,7 +3538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../init/" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/init/" class="md-nav__link">
         
   
   
@@ -3508,7 +3613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../listen/player.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/listen/player.md" class="md-nav__link">
         
   
   
@@ -3536,7 +3641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../listen/server.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/listen/server.md" class="md-nav__link">
         
   
   
@@ -3572,7 +3677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../login/" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/login/" class="md-nav__link">
         
   
   
@@ -3600,7 +3705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../logout/" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/logout/" class="md-nav__link">
         
   
   
@@ -3628,7 +3733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../me/" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/me/" class="md-nav__link">
         
   
   
@@ -3703,7 +3808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../oapi/download.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/oapi/download.md" class="md-nav__link">
         
   
   
@@ -3786,7 +3891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../org/games.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/org/games.md" class="md-nav__link">
         
   
   
@@ -3814,7 +3919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../org/new.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/org/new.md" class="md-nav__link">
         
   
   
@@ -3842,7 +3947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../org/realms.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/org/realms.md" class="md-nav__link">
         
   
   
@@ -3925,7 +4030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../portal/player.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/portal/player.md" class="md-nav__link">
         
   
   
@@ -4008,7 +4113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/add-paths.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/add-paths.md" class="md-nav__link">
         
   
   
@@ -4036,7 +4141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/add-replacement-type.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/add-replacement-type.md" class="md-nav__link">
         
   
   
@@ -4064,7 +4169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/add-unity-project.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/add-unity-project.md" class="md-nav__link">
         
   
   
@@ -4092,7 +4197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/add-unreal-project.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/add-unreal-project.md" class="md-nav__link">
         
   
   
@@ -4120,7 +4225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/build.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/build.md" class="md-nav__link">
         
   
   
@@ -4148,7 +4253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/dependencies.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/dependencies.md" class="md-nav__link">
         
   
   
@@ -4223,7 +4328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/deps/deps.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/deps/deps.md" class="md-nav__link">
         
   
   
@@ -4251,7 +4356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/deps/add.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/deps/add.md" class="md-nav__link">
         
   
   
@@ -4279,7 +4384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/deps/list.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/deps/list.md" class="md-nav__link">
         
   
   
@@ -4307,7 +4412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/deps/remove.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/deps/remove.md" class="md-nav__link">
         
   
   
@@ -4343,7 +4448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/disable.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/disable.md" class="md-nav__link">
         
   
   
@@ -4371,7 +4476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/enable.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/enable.md" class="md-nav__link">
         
   
   
@@ -4446,7 +4551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/generate/web-client.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/generate/web-client.md" class="md-nav__link">
         
   
   
@@ -4482,7 +4587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/generate-client-oapi.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/generate-client-oapi.md" class="md-nav__link">
         
   
   
@@ -4510,7 +4615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/generate-ignore-file.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/generate-ignore-file.md" class="md-nav__link">
         
   
   
@@ -4538,7 +4643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/generate-properties.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/generate-properties.md" class="md-nav__link">
         
   
   
@@ -4613,7 +4718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/group/add.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/group/add.md" class="md-nav__link">
         
   
   
@@ -4641,7 +4746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/group/rm.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/group/rm.md" class="md-nav__link">
         
   
   
@@ -4677,7 +4782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/list.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/list.md" class="md-nav__link">
         
   
   
@@ -4705,7 +4810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/list-replacement-type.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/list-replacement-type.md" class="md-nav__link">
         
   
   
@@ -4733,7 +4838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/logs.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/logs.md" class="md-nav__link">
         
   
   
@@ -4808,7 +4913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/new/common-lib.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/new/common-lib.md" class="md-nav__link">
         
   
   
@@ -4836,7 +4941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/new/portal-extension.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/new/portal-extension.md" class="md-nav__link">
         
   
   
@@ -4864,7 +4969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/new/service.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/new/service.md" class="md-nav__link">
         
   
   
@@ -4892,7 +4997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/new/storage.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/new/storage.md" class="md-nav__link">
         
   
   
@@ -4928,7 +5033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/oapi.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/oapi.md" class="md-nav__link">
         
   
   
@@ -4956,7 +5061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/open.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/open.md" class="md-nav__link">
         
   
   
@@ -4984,7 +5089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/open-mongo.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/open-mongo.md" class="md-nav__link">
         
   
   
@@ -5012,7 +5117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/open-swagger.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/open-swagger.md" class="md-nav__link">
         
   
   
@@ -5040,7 +5145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/ps.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/ps.md" class="md-nav__link">
         
   
   
@@ -5068,7 +5173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/regenerate.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/regenerate.md" class="md-nav__link">
         
   
   
@@ -5096,7 +5201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/remove.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/remove.md" class="md-nav__link">
         
   
   
@@ -5124,7 +5229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/remove-replacement-type.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/remove-replacement-type.md" class="md-nav__link">
         
   
   
@@ -5152,7 +5257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/run.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/run.md" class="md-nav__link">
         
   
   
@@ -5180,7 +5285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/share-code.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/share-code.md" class="md-nav__link">
         
   
   
@@ -5208,7 +5313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/stop.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/stop.md" class="md-nav__link">
         
   
   
@@ -5283,7 +5388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/storage/erase.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/storage/erase.md" class="md-nav__link">
         
   
   
@@ -5311,7 +5416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/storage/restore.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/storage/restore.md" class="md-nav__link">
         
   
   
@@ -5339,7 +5444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/storage/snapshot.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/storage/snapshot.md" class="md-nav__link">
         
   
   
@@ -5375,7 +5480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../project/update-unity-beam-package.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/project/update-unity-beam-package.md" class="md-nav__link">
         
   
   
@@ -5505,7 +5610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../telemetry/collector/collector.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/telemetry/collector/collector.md" class="md-nav__link">
         
   
   
@@ -5533,7 +5638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../telemetry/collector/get.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/telemetry/collector/get.md" class="md-nav__link">
         
   
   
@@ -5561,7 +5666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../telemetry/collector/ps.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/telemetry/collector/ps.md" class="md-nav__link">
         
   
   
@@ -5589,7 +5694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../telemetry/collector/start.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/telemetry/collector/start.md" class="md-nav__link">
         
   
   
@@ -5617,7 +5722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../telemetry/collector/stop.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/telemetry/collector/stop.md" class="md-nav__link">
         
   
   
@@ -5653,7 +5758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../telemetry/config.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/telemetry/config.md" class="md-nav__link">
         
   
   
@@ -5681,7 +5786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../telemetry/logs.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/telemetry/logs.md" class="md-nav__link">
         
   
   
@@ -5709,7 +5814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../telemetry/prune.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/telemetry/prune.md" class="md-nav__link">
         
   
   
@@ -5737,7 +5842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../telemetry/push.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/telemetry/push.md" class="md-nav__link">
         
   
   
@@ -5765,7 +5870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../telemetry/set-config.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/telemetry/set-config.md" class="md-nav__link">
         
   
   
@@ -5895,7 +6000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../temp/clear/logs.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/temp/clear/logs.md" class="md-nav__link">
         
   
   
@@ -5986,7 +6091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../version/version.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/version/version.md" class="md-nav__link">
         
   
   
@@ -6014,7 +6119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../version/install.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/version/install.md" class="md-nav__link">
         
   
   
@@ -6042,7 +6147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../version/list.md" class="md-nav__link">
+      <a href="../../commands/cli-command-reference/version/list.md" class="md-nav__link">
         
   
   
@@ -6111,6 +6216,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -6119,10 +6226,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#about" class="md-nav__link">
+  <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        About
+        Dependencies
       
     </span>
   </a>
@@ -6130,22 +6237,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
+  <a href="#emitting-events" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Options
+        Emitting events
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Options">
+    <nav class="md-nav" aria-label="Emitting events">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#parent-command" class="md-nav__link">
+  <a href="#source-domain" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Parent Command
+        Source domain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying events
       
     </span>
   </a>
@@ -6174,151 +6292,57 @@
 
 
 
-  <h1>Ifederatedgameserver</h1>
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>beam<span class="w"> </span>federation<span class="w"> </span>local-settings<span class="w"> </span>get<span class="w"> </span>IFederatedGameServer<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+<h1 id="microservice-analytics">Microservice analytics<a class="headerlink" href="#microservice-analytics" title="Permanent link">¶</a></h1>
+<p>Emit custom analytics events from a Beamable Standalone Microservice.</p>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
+<p>This guide assumes you have an existing Microservice. You need to complete the
+<a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
+<p>You can confirm you have everything installed by checking the versions of the tools.
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
+</code></pre></div><p></p>
+<p>In order to emit analytics events, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>beam<span class="w"> </span>init<span class="w"> </span>MyProject
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>MyProject
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
+</code></pre></div><p></p>
+<h2 id="emitting-events">Emitting events<a class="headerlink" href="#emitting-events" title="Permanent link">¶</a></h2>
+<p>Microservices can emit custom analytics events using the <code>Services.Analytics</code> API.</p>
+<p>Define a subclass of <code>CoreEvent</code> to describe your event. The constructor takes a category string, a snake_case event name, and a flat payload dictionary.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Api.Analytics</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MatchResultEvent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">CoreEvent</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MatchResultEvent</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">outcome</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">score</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="s">"gameplay"</span><span class="p">,</span><span class="w"> </span><span class="s">"match_result"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">            </span><span class="na">["outcome"]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">outcome</span><span class="p">,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">            </span><span class="na">["score"]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">score</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="p">})</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="about">About<a class="headerlink" href="#about" title="Permanent link">¶</a></h2>
-<p>Get the local settings for the Beamable.Common.IFederatedGameServer`1[T]  local routing key</p>
-<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">¶</a></h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>--beamo-id</td>
-<td>String</td>
-<td>The Beamo ID for the microservice whose federation you want to configure</td>
-</tr>
-<tr>
-<td>--fed-id</td>
-<td>String</td>
-<td>The Federation ID for the federation instance you want to configure</td>
-</tr>
-<tr>
-<td>--dryrun</td>
-<td>Boolean</td>
-<td>[DEPRECATED] Run as much of the command as possible without making any network calls</td>
-</tr>
-<tr>
-<td>--cid</td>
-<td>String</td>
-<td><abbr title="customer ID">CID</abbr> (CustomerId) to use (found in Portal-&gt;Account); defaults to whatever is in '.beamable/config.beam.json'</td>
-</tr>
-<tr>
-<td>--engine</td>
-<td>String</td>
-<td>If passed, sets the engine integration that is calling for the command</td>
-</tr>
-<tr>
-<td>--engine-sdk-version</td>
-<td>String</td>
-<td>The version of the Beamable's SDK running in that Engine</td>
-</tr>
-<tr>
-<td>--engine-version</td>
-<td>String</td>
-<td>The version of the engine that is calling the CLI</td>
-</tr>
-<tr>
-<td>--pid</td>
-<td>String</td>
-<td><abbr title="realm identifier">PID</abbr> (Realm ID) to use (found in Portal -&gt; Games -&gt; Any Realm's details); defaults to whatever is in '.beamable/config.beam.json'</td>
-</tr>
-<tr>
-<td>--quiet</td>
-<td>Boolean</td>
-<td>When true, skip input waiting and use default arguments (or error if no defaults are possible)</td>
-</tr>
-<tr>
-<td>--host</td>
-<td>String</td>
-<td>This option defines the target Beamable environment. Needed for private cloud customers to target their exclusive Beamable environment. Ignorable by everyone else. Stored in '.beamable/config.beam.json'</td>
-</tr>
-<tr>
-<td>--access-token</td>
-<td>String</td>
-<td>The access token to use for the requests. It overwrites the logged in user stored in auth.beam.json for THIS INVOCATION ONLY</td>
-</tr>
-<tr>
-<td>--refresh-token</td>
-<td>String</td>
-<td>A Refresh Token to use for the requests. It overwrites the logged in user stored in auth.beam.json for THIS INVOCATION ONLY</td>
-</tr>
-<tr>
-<td>--log</td>
-<td>String</td>
-<td>Extra logs gets printed out</td>
-</tr>
-<tr>
-<td>--no-redirect</td>
-<td>Boolean</td>
-<td>If there is a local dotnet tool installation (with a ./config/dotnet-tools.json file) for the beam tool, then any global invocation of the beam tool will automatically redirect and call the local version. However, there will be a performance penalty due to the extra process invocation. This option flag will cause an error to occur instead of automatically redirecting the execution to a new process invocation.</td>
-</tr>
-<tr>
-<td>--prefer-remote-federation</td>
-<td>Boolean</td>
-<td>By default, any local CLI invocation that should trigger a Federation of any type will prefer locally running Microservices. However, if you need the CLI to use the remotely running Microservices, use this option to ignore locally running services.</td>
-</tr>
-<tr>
-<td>--unmask-logs</td>
-<td>Boolean</td>
-<td>By default, logs will automatically mask tokens. However, when this option is enabled, tokens will be visible in their full text. This is a security risk.</td>
-</tr>
-<tr>
-<td>--no-log-file</td>
-<td>Boolean</td>
-<td>By default, logs are automatically written to a temp file so that they can be used in an error case. However, when this option is enabled, logs are not written. Also, if the BEAM_CLI_NO_FILE_LOG environment variable is set, no log file will be written.</td>
-</tr>
-<tr>
-<td>--docker-cli-path</td>
-<td>String</td>
-<td>a custom location for docker. By default, the CLI will attempt to resolve docker through its usual install locations. You can also use the BEAM_DOCKER_EXE environment variable to specify. <br>Currently, a docker path has been automatically identified.</td>
-</tr>
-<tr>
-<td>--emit-log-streams</td>
-<td>Boolean</td>
-<td>Out all log messages as data payloads in addition to however they are logged</td>
-</tr>
-<tr>
-<td>--add-project-path</td>
-<td>Set[String]</td>
-<td>additional file paths to be included when building a local project manifest.</td>
-</tr>
-<tr>
-<td>--raw</td>
-<td>Boolean</td>
-<td>Output raw JSON to standard out. This happens by default when the command is being piped</td>
-</tr>
-<tr>
-<td>--pretty</td>
-<td>Boolean</td>
-<td>Output syntax highlighted box text. This happens by default when the command is not piped</td>
-</tr>
-<tr>
-<td>--dotnet-path</td>
-<td>String</td>
-<td>a custom location for dotnet</td>
-</tr>
-<tr>
-<td>--version</td>
-<td>Boolean</td>
-<td>Show version information</td>
-</tr>
-<tr>
-<td>--help</td>
-<td>Boolean</td>
-<td>Show help and usage information</td>
-</tr>
-</tbody>
-</table>
-<h3 id="parent-command">Parent Command<a class="headerlink" href="#parent-command" title="Permanent link">¶</a></h3>
-<p><a href="../get/">federation local-settings get</a></p>
+<p>Keep the number of distinct categories small - a handful such as <code>"gameplay"</code>, <code>"funnel"</code>, and <code>"monetization"</code> is typical. Event names within a category can be more numerous; a single <code>"gameplay"</code> category might contain many sibling event types beyond just <code>"match_result"</code>.</p>
+<p>Then build and send the event from a callable method using <code>Services.Analytics</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[ClientCallable]</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">RecordMatchResult</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">outcome</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">score</span><span class="p">)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">evt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MatchResultEvent</span><span class="p">(</span><span class="n">outcome</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">);</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Analytics</span><span class="p">.</span><span class="n">BuildRequest</span><span class="p">(</span><span class="n">evt</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="n">Services</span><span class="p">.</span><span class="n">Analytics</span><span class="p">.</span><span class="n">SendAnalyticsEvent</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"OK"</span><span class="p">;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="source-domain">Source domain<a class="headerlink" href="#source-domain" title="Permanent link">¶</a></h3>
+<p>The Microservice analytics API uses the same channel as client-side telemetry. Events emitted from a Microservice therefore appear as <strong>client</strong> records in Athena, not as a separate server or game source.</p>
+<p>The Athena table name follows the pattern <code>client_{category}_{event_name}</code>. For the example above, the table is <code>client_gameplay_match_result</code>.</p>
+<h3 id="verifying-events">Verifying events<a class="headerlink" href="#verifying-events" title="Permanent link">¶</a></h3>
+<p>After invoking your Microservice method, the event should appear in Athena within a few minutes. You can confirm it with a query like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">client_gameplay_match_result</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
+<p>Individual player analytics events are also visible on the player profile page in the Beamable Portal.</p>
 
 
 
@@ -6445,12 +6469,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../../..", "features": ["header.autohide", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["header.autohide", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../../../../../../assets/javascripts/extra.js"></script>
+        <script src="../../../assets/javascripts/extra.js"></script>
       
     
   

@@ -8,7 +8,7 @@
         <link rel="canonical" href="https://beamable.github.io/Docs/CLI-7.1/cli/guides/ms-command-line/">
       
       
-        <link rel="prev" href="../ms-logging/">
+        <link rel="prev" href="../ms-analytics/">
       
       
         <link rel="next" href="../ms-troubleshooting/">
@@ -1342,6 +1342,34 @@
     
   
     Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
   
 
     
@@ -6299,7 +6327,7 @@
 <h1 id="command-line-output">Command-line output<a class="headerlink" href="#command-line-output" title="Permanent link">¶</a></h1>
 <p>Passing output from the CLI to other processes</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>Before you can use the Beamable CLI, you need to complete the <a href="doc:cli-guide-getting-started">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
+<p>Before you can use the Beamable CLI, you need to complete the <a href="doc:cli-guide-getting-started">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
@@ -6403,7 +6431,7 @@
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.data.cid'</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s2">"123"</span>
 </code></pre></div><p></p>
-<p>Sometimes it is important to get the unescaped JSON, so the <code>fromjson</code> component of JQ can be used. To get the <code>cid</code> value without quotes:</p>
+<p>Sometimes you need the unescaped JSON; the <code>fromjson</code> component of JQ can be used. To get the <code>cid</code> value without quotes:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.data.cid | fromjson'</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="m">123</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>

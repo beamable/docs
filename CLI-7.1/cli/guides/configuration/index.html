@@ -1468,6 +1468,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../ms-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ms-command-line/" class="md-nav__link">
         
   
@@ -6349,7 +6377,7 @@ Every time you execute a <code>beam</code> command, it searches for the nearest 
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">&nbsp; </span>/var/folders/ys/949qmfy15r7bl8x36s6wmm000000gn/T/beamCliLog.txt
 </code></pre></div>
 <h2 id="net-tool-folder">.NET tool folder<a class="headerlink" href="#net-tool-folder" title="Permanent link">¶</a></h2>
-<p>The Beamable CLI executes as a local dotnet tool installation. That means that there should be a <code>.config/</code> folder in your project. There should be a file called <code>dotnet-tools.json</code> in the folder, declaring the version of the CLI you are using.</p>
+<p>The Beamable CLI executes as a local .NET tool installation. That means that there should be a <code>.config/</code> folder in your project. There should be a file called <code>dotnet-tools.json</code> in the folder, declaring the version of the CLI you are using.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">"isRoot"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
@@ -6365,7 +6393,7 @@ Every time you execute a <code>beam</code> command, it searches for the nearest 
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">The folder can exist in a higher folder.</p>
-<p>Normally the <code>.config/</code> folder exists as a sibling of the <code>.beamable/</code> folder. However, the <code>.config/</code> folder <em>may</em> exist in a parent folder. The closest <code>.config/</code> folder will be used. See the <a href="https://learn.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use">dotnet tool documentation</a> for more information.</p>
+<p>Normally the <code>.config/</code> folder exists as a sibling of the <code>.beamable/</code> folder. However, the <code>.config/</code> folder <em>may</em> exist in a parent folder. The closest <code>.config/</code> folder will be used. See the <a href="https://learn.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use">.NET tool documentation</a> for more information.</p>
 </div>
 <h2 id="workspace-overview">Workspace overview<a class="headerlink" href="#workspace-overview" title="Permanent link">¶</a></h2>
 <p>A Beamable workspace is defined by the existence of a <code>.beamable/</code> folder.</p>
