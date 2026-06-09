@@ -13,7 +13,7 @@ Most implementations of Server-Side Callbacks are fire-and-forget (similar to a 
 
 Here's a high-level diagram of what federations are:
 
-![microservices-architecture-federation-general.png](../../../media/imgs/microservices-architecture-federation-general.png)
+![A diagram showing Play-In-Editor instances on developer machines making a request to the Beamable Gateway in the current target realm, which forwards it to a managed Auth or Matchmaking service that then calls a federated endpoint on one of the deployed or local microservices known in the realm.](../../../media/imgs/microservices-architecture-federation-general.png)
 
 Each of the provided **Federations** has its own semantics, usage guidelines, performance characteristics, and constraints described in their individual pages.
 
@@ -25,11 +25,11 @@ There are two types of **Federation Calls** the Beamable Backend makes:
 
 **In-Band Federations** are any Federation call that **is in the path of a request originating from a game's client or real-time game server**. Examples of these are `IFederatedLogin`, `IFederatedInventory` or `IFederatedGameServer` (when called via the Lobby system's `ProvisionGameServer` from a client).
 
-![microservices-architecture-federations-in-band.png](../../../media/imgs/microservices-architecture-federations-in-band.png)
+![A diagram of an in-band federation call: a developer machine's Play-In-Editor request reaches the Beamable Gateway, which forwards it to a managed service that then routes the federated call either to a developer's local microservice when the Microservice Target is an email, or to a realm service when the target is "realm".](../../../media/imgs/microservices-architecture-federations-in-band.png)
 
 **Out-of-Band Federations** are any Federation calls that **are triggered by some server event that originates from inside the Beamable's Managed Services**. The most obvious example is `IFederatedGameServer` (when called for each match found as part of a matchmaking queue tick).
 
-![microservices-architecture-federations-out-of-band.png](../../../media/imgs/microservices-architecture-federations-out-of-band.png)
+![A diagram of an out-of-band federation call: an event inside a managed service routes the federated call to a developer's local microservice when a filter matches the service, or to a realm service when no filter matches.](../../../media/imgs/microservices-architecture-federations-out-of-band.png)
 
 For more information about the workflow implications of the difference between both **Federation Call** types, see [below.](#workflows-for-developing-federations)
 
@@ -80,4 +80,4 @@ For **In-Band Calls** that reach a federated endpoint, the selected [Microservic
 To configure these filters, you can use the **Local - Federations** tab of your **[Microservice Inspector](../microservices/microservices.md#microservice-window)**. The filters, when out-of-band calls can be made to a particular federated endpoint, are described in each federation's own pages (for an example, [see here](federated-game-server.md)).
 
 
-![microservices-window-federation.png](../../../media/imgs/microservices-window-federation.png)
+![The Beamable Editor's Microservices tab with HathoraDemo selected and its Federations (Local) tab open, showing the Federated Game Server - hathora federation and a Content Ids filter list with a Save button.](../../../media/imgs/microservices-window-federation.png)

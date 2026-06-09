@@ -28,8 +28,8 @@ With the multiplayer instances set, create a Blueprint (BP) function that will p
 ### Creating a party
 
 1. Open your Level Blueprint (or some other BP)
-2. Call `Operation - Party - CreateParty`. It will create a party and put the user slot that called it inside the party.
-3. Get the state of the current party that the user is party of.
+2. Call `Operation - Party - CreateParty`. It will create a party and put the user slot that called it inside the party
+3. Get the state of the current party that the user is party of
 
 ![party-create](../../../media/imgs/party-create.png)
 
@@ -40,10 +40,10 @@ With the multiplayer instances set, create a Blueprint (BP) function that will p
 ### Joining a party
 
 1. Open your Level Blueprint (or some other BP)
-2. Call `TryGetUserPartyState` from the `BeamPartySubsystem`.
+2. Call `TryGetUserPartyState` from the `BeamPartySubsystem`
     - If the player is already in a party, it will return `true`
     - A player must be removed from their current party before joining another. Trying to join without doing so will return an error
-3. After verifying and removing the player from their existing party if necessary, call the operation: `Operation - Party - JoinPlayerParty`.
+3. After verifying and removing the player from their existing party if necessary, call the operation: `Operation - Party - JoinPlayerParty`
 
 ![party-join](../../../media/imgs/party-join.png)
 
@@ -53,7 +53,7 @@ With the multiplayer instances set, create a Blueprint (BP) function that will p
 ### Inviting players (leader only)
 
 1. Open your Level Blueprint (or some other BP)
-2. Call `Operation - Party - InvitePlayerToMyParty`. It will send an invite to a given `FBeamGamerTag`.
+2. Call `Operation - Party - InvitePlayerToMyParty`. It will send an invite to a given `FBeamGamerTag`
 
 ???+ Warning "Friends"
     It is **NOT** required to be a friend to receive/send a party invite.
@@ -63,28 +63,28 @@ With the multiplayer instances set, create a Blueprint (BP) function that will p
 ### Declining invites
 
 1. Open your Level Blueprint (or some other BP)
-2. Call `Operation - Party - DeclinePlayerInvite`. It will remove the received invite from the invite list of the player.
+2. Call `Operation - Party - DeclinePlayerInvite`. It will remove the received invite from the invite list of the player
 
 ![party-decline](../../../media/imgs/party-decline.png)
 
 ### Canceling invite (leader only)
 
 1. Open your Level Blueprint (or some other BP)
-2. Call `Operation - Party - CancelPlayerPartyInvite`. It will cancel the invite sent to another player.
+2. Call `Operation - Party - CancelPlayerPartyInvite`. It will cancel the invite sent to another player
 
 ![party-promote-leader](../../../media/imgs/party-promote-leader.png)
 
 ### Kicking a player (leader only)
 
 1. Open your Level Blueprint (or some other BP)
-2. Call `Operation - Party - Kick Player From My Party`. It will remove a player from the party.
+2. Call `Operation - Party - Kick Player From My Party`. It will remove a player from the party
 
 ![party-party-kick](../../../media/imgs/party-kick.png)
 
 ### Promoting player to leader (leader only)
 
 1. Open your Level Blueprint (or some other BP)
-2. Call `Operation - Party - Promote Player As My Party Leader`. It will promote another player as the party leader.
+2. Call `Operation - Party - Promote Player As My Party Leader`. It will promote another player as the party leader
 
 ???+ Warning "Leader Leaving Party"
     When the leader leaves the party, another player will automatically be selected as the party leader.

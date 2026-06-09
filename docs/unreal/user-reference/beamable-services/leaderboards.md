@@ -25,17 +25,17 @@ To create leaderboard content, open the **Beamable Window** in the top right and
 
 Then select the leaderboard content type as shown in the image below.
 
-![leaderboards-select-content-type.png](../../../media/imgs/leaderboards-select-content-type.png)
+![The Content window's Type dropdown open with BeamLeaderboardContent highlighted among the content type options.](../../../media/imgs/leaderboards-select-content-type.png)
 
 After selecting the leaderboard content type, you will type the name of the leaderboard using the input field.
 
-![leaderboards-content-create.png](../../../media/imgs/leaderboards-content-create.png)
+![The Content window with the Type set to BeamLeaderboard and the Name field holding "new-leaderboard" next to a Create button, all highlighted.](../../../media/imgs/leaderboards-content-create.png)
 
 You will be able to see the leaderboard as a new content in the content list. That means it was created successfully, but it still needs to be published.
 
 Before publishing, there are some configurations that can affect how your leaderboard works.
 
-![leaderboards-content-details.png](../../../media/imgs/leaderboards-content-details.png)
+![The newly created leaderboards.new-leaderboard content selected in the Content window, its detail panel exposing Client Permission, Partitioned, Max Entries, and Cohort Settings fields.](../../../media/imgs/leaderboards-content-details.png)
 
  - **Client Permission**: Allow the clients to update their score in the leaderboard. **Warning:** This is a potential vulnerability in your game
  - **Partitioned**: Determines whether this leaderboard automatically partitions into smaller leaderboards
@@ -49,11 +49,11 @@ There are two ways to assign a player to a leaderboard:
 
  - Set a Score Directly: Submit a score for the player on the desired leaderboard. This automatically associates the player with that leaderboard
 
-![leaderboards-blueprint-update-score.png](../../../media/imgs/leaderboards-blueprint-update-score.png)
+![An Operation - Leaderboards - UpdateLeaderboardScoreOperation node with a Player Gamer Tag and a Score of 10 feeding, through its On Operation Event pin, an Operation - Leaderboards - FetchLeaderboardOperation node.](../../../media/imgs/leaderboards-blueprint-update-score.png)
 
  - Use `FetchAssignedLeaderboardOperation` with `Join` = `true`: This operation is particularly useful for partitioned leaderboards. By passing the base leaderboard ID, this operation returns the specific partitioned leaderboard ID (e.g., "leaderboards.my_partitioned_board" becomes "leaderboards.my_partitioned_board#0")
 
-![leaderboards-blueprint-fetchassigned.png](../../../media/imgs/leaderboards-blueprint-fetchassigned.png)
+![An Operation - Leaderboards - FetchAssignedLeaderboardOperation node with its Join input checked, feeding a Local State - Leaderboards - TryGetAssignedLeaderboard node that outputs the partitioned leaderboard ID.](../../../media/imgs/leaderboards-blueprint-fetchassigned.png)
 
 
 !!! warning "If you assign a player without a score"
@@ -71,29 +71,29 @@ You can modify metadata and scores for leaderboard entries. On the microservice 
 
 Here is an example of how to add a score for a client-authoritative client.
 
-![leaderboards-blueprint-update-score.png](../../../media/imgs/leaderboards-blueprint-update-score.png)
+![An Operation - Leaderboards - UpdateLeaderboardScoreOperation node with a Player Gamer Tag and a Score of 10 feeding, through its On Operation Event pin, an Operation - Leaderboards - FetchLeaderboardOperation node.](../../../media/imgs/leaderboards-blueprint-update-score.png)
 
 Stats in the leaderboard are primarily used to cache per-entry information, reducing API requests. You can only set stats when updating the score; here is an example.
 
-![leaderboards-blueprint-set-stats.png](../../../media/imgs/leaderboards-blueprint-set-stats.png)
+![A Make Map node holding the key player_top_kills with value 150, fed through a Set node into the Stats input of an Operation - Leaderboards - UpdateLeaderboardScoreOperation node with a Score of 30.](../../../media/imgs/leaderboards-blueprint-set-stats.png)
 
 ## Leaderboard samples
 
 ### Fetch top 10 players
 
-![leaderboards-blueprint-top10.png](../../../media/imgs/leaderboards-blueprint-top10.png)
+![An Operation - Leaderboards - FetchLeaderboardOperation node with From 1 and Max 10 inputs feeding a Local State - Leaderboards - TryGetAllRankEntries node that loops over the returned rank entries.](../../../media/imgs/leaderboards-blueprint-top10.png)
 
 The SDK supports leaderboard patterns like the one in [Brawl Stars](https://supercell.com/en/games/brawlstars/)
 
 ### Show the player rank
 
-![leaderboards-blueprint-player-rank.png](../../../media/imgs/leaderboards-blueprint-player-rank.png)
+![An Operation - Leaderboards - FetchPlayerRankOperation node feeding a Local State - Leaderboards - TryGetPlayerRankEntry node that outputs the player's rank, score, and stats.](../../../media/imgs/leaderboards-blueprint-player-rank.png)
 
 Using the Blueprint shown above, you can get the player rank and display it separately
 
 ### Leaderboard pagination
 
-![leaderboards-blueprint-pagination.png](../../../media/imgs/leaderboards-blueprint-pagination.png)
+![A Blueprint graph where a FetchLeaderboardPageOperation node's result feeds a Local State - Leaderboards - IsLeaderboardPageCached check that branches into either a TryGetPageRankEntries node or another FetchLeaderboardPageOperation, implementing paged leaderboard fetching.](../../../media/imgs/leaderboards-blueprint-pagination.png)
 
 The blueprint shown above is a part of how to have pagination in your leaderboards.
 

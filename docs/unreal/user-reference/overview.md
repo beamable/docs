@@ -8,8 +8,8 @@ If you are not familiar with Unreal Subsystems, see the [Unreal Engine Programmi
 ## Plugin modules
 The SDK's Plugin is divided into several modules:
 
-- **BeamableCore** contains the `UEngineSubsystem` implementations shared between `Editor` and `Runtime` executing environments. It also contains the `UBeamContentObject` schema definitions for the [content system](beamable-services/content.md).
-- **BeamableCoreRuntime** contains the `UBeamRuntime` and `UBeamRuntimeSubsystem` implementations and manages the SDK lifecycle at runtime (during PIE and in packaged clients).
+- **BeamableCore** contains the `UEngineSubsystem` implementations shared between `Editor` and `Runtime` executing environments. It also contains the `UBeamContentObject` schema definitions for the [content system](beamable-services/content.md)
+- **BeamableCoreRuntime** contains the `UBeamRuntime` and `UBeamRuntimeSubsystem` implementations and manages the SDK lifecycle at runtime (during PIE and in packaged clients)
 - **BeamableCoreEditor** and **BeamableCoreRuntimeEditor** contain `UBeamEditor` and the editor integration code: custom BlueprintNodes, PropertyCustomizations, etc.
 
 ## Core concepts
@@ -32,30 +32,30 @@ Aside from those core concepts, the links below explain some of the higher-level
 
 - Controls the SDK's runtime initialization flow
 - Controls the various SDK's user \[un\]-authentication flows
-- Controls `UBeamRuntimeSubsystems'` lifecycle with respect to the SDK's initialization flow itself and `FUserSlot` authentication.
+- Controls `UBeamRuntimeSubsystems'` lifecycle with respect to the SDK's initialization flow itself and `FUserSlot` authentication
 
 The image below describes how the SDK's lifecycle injects itself into UE's lifecycle:
 
-![overview-sdk-lifecycle.png](../../media/imgs/overview-sdk-lifecycle.png)
+![A top-to-bottom flowchart mapping the Beamable SDK initialization stages onto Unreal's startup, from EngineSubsystem creation through UBeamRuntime::InitSDK and the UBeamRuntimeSubsystem callbacks to the final success callback.](../../media/imgs/overview-sdk-lifecycle.png)
 
 The next image shows a high-level description of the authentication flows supported by the SDK:
 
-![overview-sdk-auth-flow.png](../../media/imgs/overview-sdk-auth-flow.png)
+![A flowchart of the authentication flow branching from a UBeamRuntime Login or SignUp call into a successful path through OnUserSignedIn and OnPostUserSignedIn and an error-handling path that clears the UserSlot, both converging on OnUserReady.](../../media/imgs/overview-sdk-auth-flow.png)
 
 **_Every engineer working with Beamable should understand this lifecycle._** It should enable them to make the best use and decisions when designing systems with or on top of Beamable.
 
 ### Beamable runtime subsystems
 `BeamRuntimeSubsystems` are stateful subsystems that aim to provide an extendable baseline of some Beamable functionality. They are built on top of the auto-generated lower-level API (`UBeam____Api` classes) to make it simpler to use the SDK's APIs so that:
 
-1. You don't have to set up the common case.
-2. You can use them and their extension points for variations of the common case.
-3. You can use them as reference implementations to implement your own custom use cases.
+1. You don't have to set up the common case
+2. You can use them and their extension points for variations of the common case
+3. You can use them as reference implementations to implement your own custom use cases
 
 These are handwritten and maintained by the Beamable SDK team. Here are a few examples:
 
-- `UBeamStatsSubsystem`: enables you to store arbitrary key-value pairs associated to a player's account.
-- `UBeamInventorySubsystem`: provides builder functions around the Inventory APIs that allow you to combine what would be multiple API requests into a single batched inventory update. It also receives inventory notifications coming from the server and keeps in-memory player state in sync.
-- `UBeamMatchmakingSubsystem`: provides a stateful way of joining/canceling a matchmaking queue and receiving updates when a match is found.
+- `UBeamStatsSubsystem`: enables you to store arbitrary key-value pairs associated to a player's account
+- `UBeamInventorySubsystem`: provides builder functions around the Inventory APIs that allow you to combine what would be multiple API requests into a single batched inventory update. It also receives inventory notifications coming from the server and keeps in-memory player state in sync
+- `UBeamMatchmakingSubsystem`: provides a stateful way of joining/canceling a matchmaking queue and receiving updates when a match is found
 
 These systems make use of the various `UBeamRuntimeSubsystem` callbacks to keep their state correct and expose callbacks and configuration options for **Game-Maker Code** to run with semantically relevant guarantees. Coupled with [Federations](federation/federation.md), these guarantees can be used to greatly simplify the complexity of client implementations — usually reducing the complexity and cost of your game's systems implementation.
 
@@ -82,7 +82,7 @@ This is why the SDK allows enabling and disabling systems at this granularity.
 The Beamable Unreal SDK ships with full source code so you can edit it when needed. The code is organized and commented to make modifications feasible, for a few reasons:
 
 - **Owning Dependencies**: The Beamable UE team's philosophy is that dependencies should be managed explicitly and, whenever possible, committed to your VCS. Since the Beamable SDK is a significant dependency of your project, we want you to have as much control over it as possible
-- **Visibility**: SDK internals are subject to change, so avoid depending on them directly — but having access to them can better inform design choices. You can use the details of `UBeamRuntimeSubsystem` implementations as guides when designing custom systems on top of Beamable.
+- **Visibility**: SDK internals are subject to change, so avoid depending on them directly — but having access to them can better inform design choices. You can use the details of `UBeamRuntimeSubsystem` implementations as guides when designing custom systems on top of Beamable
 - **Debuggability**: Having the SDK source lets you investigate it, find issues stemming from incorrect usage or SDK bugs, and report them to Beamable
 
 The goal is to help you get a head start in development, but if the SDK's systems are not working for you, you are free to adjust or replace them.

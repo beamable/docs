@@ -9,11 +9,11 @@
 
 When opening the Unreal Editor of your project, you will see the Beamable Logo in the upper-right, next to the Settings dropdown. This button opens the Beamable Editor Window. Here, you can log in to the account you just created in the Beamable Portal.
 
-![intro-beamable-window-location.png](../../media/imgs/intro-beamable-window-location.gif)
+![An animation locating the Beamable logo button in the upper-right of the Unreal Editor toolbar and opening the Beamable Editor Window to the login screen.](../../media/imgs/intro-beamable-window-location.gif)
 
 When the login process is finished, you should see the Beamable Window Editor like this:
 
-![intro-beamable-window-opened.png](../../media/imgs/intro-beamable-window-opened.png)
+![The Beamable Editor Window on its Home tab after login, showing the organization, game, and realm selectors, a Beamable Web Portal section of shortcuts, and Editor Utilities for resetting PIE users and deleting cached content.](../../media/imgs/intro-beamable-window-opened.png)
 
 Here is a quick tour of the Beamable Window's functions:
 

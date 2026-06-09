@@ -45,13 +45,13 @@ To avoid that, players can "attach" some persistent identity information to that
 
 Attaching an identity can succeed or fail:
 
-- After a successful `Attach` call, a player will be able to log in via the corresponding `Login` operation.
+- After a successful `Attach` call, a player will be able to log in via the corresponding `Login` operation
     - For example, if you `Attach - EmailAndPassword` you'll be able to `Login - EmailAndPassword` to sign back into the account. <br><br>
 
-- If it fails with an `_IN_USE` error code, it means that the identity is already in use.
+- If it fails with an `_IN_USE` error code, it means that the identity is already in use
 Handling of this is game specific, but most games will either:
-    - Call the `Login` operation and log in with the in-use identity, discarding the guest account (this is the most common way to handle this).
-    - Detect progress on the guest account and, if above a particular threshold, use microservices to try and do some progress merging should the user want it. This is non-trivial and not a lot of games do it since cost-benefit isn't there in most cases (but it is _possible_).
+    - Call the `Login` operation and log in with the in-use identity, discarding the guest account (this is the most common way to handle this)
+    - Detect progress on the guest account and, if above a particular threshold, use microservices to try and do some progress merging should the user want it. This is non-trivial and not a lot of games do it since cost-benefit isn't there in most cases (but it is _possible_)
 
 Check out the [Discord sample](../../samples/discord-demo.md) for an example of this flow.
 
@@ -69,9 +69,9 @@ Some games might have builds distributed outside of common platforms and instead
 
 In these cases and builds:
 
-- Call `Login - Local Cache` to first try to login as the locally cached user in that slot.
-- Call `Sign Up - Email And Password` with `bAutoLogin` as `true`.
-    - You can optionally make use of properly configured Microservice with [Federated Player Initialization](../federation/federated-player-init.md) and the `InitProperties` in the `SignUp` node to pass in additional data to influence initial player state.
+- Call `Login - Local Cache` to first try to login as the locally cached user in that slot
+- Call `Sign Up - Email And Password` with `bAutoLogin` as `true`
+    - You can optionally make use of properly configured Microservice with [Federated Player Initialization](../federation/federated-player-init.md) and the `InitProperties` in the `SignUp` node to pass in additional data to influence initial player state
 
 Here's what you would do once the user confirms the form:
 
@@ -87,9 +87,9 @@ Platform login flows are usually very simple. You can see that in the working [S
 
 In builds for specific stores and platforms:
 
-- Call `Login - Local Cache` to first try to login as the locally cached user in that slot.
-- Call `Sign Up - Federated Identity` with `bAutoLogin` as `true` and a properly configured Microservice with [Federated Login](../federation/federated-login.md).
-- Both the success of the `Login - Local Cache` as well as the `Sign Up - Federated Identity` calls mean you have logged in successfully.
+- Call `Login - Local Cache` to first try to login as the locally cached user in that slot
+- Call `Sign Up - Federated Identity` with `bAutoLogin` as `true` and a properly configured Microservice with [Federated Login](../federation/federated-login.md)
+- Both the success of the `Login - Local Cache` as well as the `Sign Up - Federated Identity` calls mean you have logged in successfully
 
 Here's how that looks in the client side:
 

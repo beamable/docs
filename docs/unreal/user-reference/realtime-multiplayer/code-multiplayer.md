@@ -5,10 +5,10 @@ By default, Beamable integrates with the Gameplay Framework to give you cross-pl
 
 There are a few components here that you need to know about before you implement this:
 
-- `AGameMode::BeginPlay`: In most C++-based implementations, this is your server's "entry point".
-- `AGameMode::PreLoginAsync`: This is what UE calls whenever a client attempts to connect to a game server — once you invoke a callback it provides, the user is either accepted or rejected. This will be invoked on the server once per-player (if you have multiple players per-client, this is an important distinction).
-- `ULocalPlayer::GetGameLoginOptions`: This appends a string of Options to each `ULocalPlayer`'s connection string.
-- `FUniqueNetIdRepl`: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework.
+- `AGameMode::BeginPlay`: In most C++-based implementations, this is your server's "entry point"
+- `AGameMode::PreLoginAsync`: This is what UE calls whenever a client attempts to connect to a game server — once you invoke a callback it provides, the user is either accepted or rejected. This will be invoked on the server once per-player (if you have multiple players per-client, this is an important distinction)
+- `ULocalPlayer::GetGameLoginOptions`: This appends a string of Options to each `ULocalPlayer`'s connection string
+- `FUniqueNetIdRepl`: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework
 
 ### Setting up your gameplay level's Blueprint
 This section is the C++ version of [what is done in the Level Blueprint here](realtime-multiplayer-overview.md#setting-up-your-gameplay-levels-level-blueprint).
@@ -77,8 +77,8 @@ virtual void BeginPlay() override
 ## Implementing game server authentication
 When using the Beamable SDK, to validate that the user should be allowed to connect to this game server, the server needs to know a few things:
 
-- The User's Auth Token and GamerTag... so that the server can verify the user is who they say they are.
-- Optionally, the Lobby Id for the lobby the user is in... to verify that the user is in a lobby registered with this Game Server.
+- The User's Auth Token and GamerTag... so that the server can verify the user is who they say they are
+- Optionally, the Lobby Id for the lobby the user is in... to verify that the user is in a lobby registered with this Game Server
 
 These are expected to arrive via the `Options` parameter.
 
@@ -86,8 +86,8 @@ In client builds, passing these options can be achieved using `UBeamLobbySubsyst
 
 When implementing `PreLoginAsync`, you need to call two functions:
 
-- `BeamPIE::Authentication::GetExpectedClientPIEOptions` — this enables the PIE integration to work with Game Server Authentication (it gets around UE limitations — see further down for more information on this).
-- `BeamMultiplayer::Authentication::PreLoginAsync` — this uses the `Options` to validate the user is in fact inside a lobby that has been registered with this server.
+- `BeamPIE::Authentication::GetExpectedClientPIEOptions` — this enables the PIE integration to work with Game Server Authentication (it gets around UE limitations — see further down for more information on this)
+- `BeamMultiplayer::Authentication::PreLoginAsync` — this uses the `Options` to validate the user is in fact inside a lobby that has been registered with this server
 
 A simple implementation of that looks like this:
 
@@ -152,9 +152,9 @@ User Slots are a big part of the regular workflow when working with Beamable SDK
 
 This means a few things:
 
-- There is no need to `SignUp`/`Login`; only to `InitSDK`.
-- Calling APIs that read data from users via their `GamerTag` or other Ids will work fine.
-- Calling APIs that write to user data is not recommended via regular SDK functions (see below for the alternative).
+- There is no need to `SignUp`/`Login`; only to `InitSDK`
+- Calling APIs that read data from users via their `GamerTag` or other Ids will work fine
+- Calling APIs that write to user data is not recommended via regular SDK functions (see below for the alternative)
 
 !!! note "Server Mapping Slots - Experimental"
      By default, if you are implementing the **Game Server Authentication** described here. The server stores the AuthToken for each user inside server mapping slots — this means the Game Server _can_ make requests "as though they were the user itself" but with the Server's admin permissions. This can be useful due to certain legacy API limitations.

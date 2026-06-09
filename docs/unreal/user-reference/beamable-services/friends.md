@@ -25,23 +25,23 @@ Once your environment is set up, the following steps show how to implement the b
 ### Binding the friends events
 In the SDK, all events can be bound using the custom bind node on the subsystem. The image below shows an example.
 
- ![friends-bind-events.png](../../../media/imgs/friends-bind-all-events.png)
+ ![An Events - Friends - Bind node exposing event pins such as On Invite Received, On Invite Accepted, On Friend Removed, and On Player Blocked, with two Create Event nodes wiring OnUpdateFriendInvite and OnUpdateFriendsInfo handlers into it.](../../../media/imgs/friends-bind-all-events.png)
 
 ### Inviting a friend
 
 1. Open your Level Blueprint (or some other BP)
-2. Call `Operation - Friend - SendFriendInvite` to send a friend invite asynchronously.
+2. Call `Operation - Friend - SendFriendInvite` to send a friend invite asynchronously
 
-![friends-send-invite.png](../../../media/imgs/friends-send-invite.png)
+![A Send Invite button's On Clicked event running an Operation - Friend - SendFriendInvite node, whose Friend Gamer Tag input is fed by a UI Input Player ID field's text.](../../../media/imgs/friends-send-invite.png)
 
 You can listen for received invite changes — for example, alerting the player that a new invite arrived. You will need to bind to the event `OnInviteReceived` shown in the [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
 ### Accepting a friend invite
 
 1. Open your Level Blueprint (or some other BP)
-2. Call `Operation - Friend - AcceptFriendInvite` to accept a friend invite asynchronously.
+2. Call `Operation - Friend - AcceptFriendInvite` to accept a friend invite asynchronously
 
-![friends-accept-invite.png](../../../media/imgs/friends-accept-invite.png)
+![An Accept button's On Clicked event running an Operation - Friend - AcceptFriendInvite node whose Friend Gamer Tag input is supplied by a Friend Gamer Tag variable.](../../../media/imgs/friends-accept-invite.png)
 
 When the player that received the invite accepts it, both receive the invite accepted event, it could be used for updates in the invite list or to start to show the new friend in the friend list.
 
@@ -53,16 +53,16 @@ To bind to this event you can use the `OnInviteAccepted` as shown in the section
 ### Declining a friend invite
 
 1. Open your Level Blueprint (or some other BP)
-2. Call `Operation - Friend - DeclineFriendInvite` to decline a friend invite asynchronously.
+2. Call `Operation - Friend - DeclineFriendInvite` to decline a friend invite asynchronously
 
-![friends-decline-invite.png](../../../media/imgs/friends-decline-invite.png)
+![A Decline button's On Clicked event running an Operation - Friend - DeclineFriendInvite node whose Friend Gamer Tag input is supplied by a Friend Gamer Tag variable.](../../../media/imgs/friends-decline-invite.png)
 
 When the player that received the invite decline it, both receive the `OnInviteDeclined` notification, that can help to update the visuals and the player list. The local state is already updated when the player receive this notification. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
 ### Blocking and unblocking a player
 
 1. Open your Level Blueprint (or some other BP)
-2. Call the `Operation - Friend - BlockPlayer`/`Operation - Friend - Unblock`. This will allow you to block/unblock a player using the gamer tag of this player.
+2. Call the `Operation - Friend - BlockPlayer`/`Operation - Friend - Unblock`. This will allow you to block/unblock a player using the gamer tag of this player
 
 ???+ Warning "Observations"
     - You can block any player — friend or not
@@ -70,7 +70,7 @@ When the player that received the invite decline it, both receive the `OnInviteD
     - If you are already friends with a player and block them, the friendship is removed automatically
     - If you block a friend and then unblock them, this does not restore the friendship — a new friend invite is required
 
-![friends-block-player.png](../../../media/imgs/friends-block-player.png)
+![A Block button's On Clicked event running an Operation - Friend - BlockPlayer node whose Player Gamer Tag input is supplied by a Friend Gamer Tag variable.](../../../media/imgs/friends-block-player.png)
 
 There are two events related to blocking players: one for the player who initiates the block and one for the player who is blocked. The first event, `OnPlayerBlocked`, is triggered only for the player who blocks another player. The blocked player does not receive this event, as it is typically not necessary to handle the blocked player in this case. Instead, the blocked player will receive the second event, `OnPlayerBeenBlocked`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 
@@ -84,9 +84,9 @@ To show a friend's presence status, register on `OnFriendPresenceStatusUpdate`; 
 ### Removing a friend
 
 1. Open your Level Blueprint (or some other BP)
-2. Call `Operation - Friend - RemoveFriend` to remove a friend asynchronously.
+2. Call `Operation - Friend - RemoveFriend` to remove a friend asynchronously
 
-![friends-remove-friend.png](../../../media/imgs/friends-remove-friend.png)
+![A Remove button's On Clicked event running an Operation - Friend - RemoveFriend node whose Friend Gamer Tag input is supplied by a Friend Gamer Tag variable.](../../../media/imgs/friends-remove-friend.png)
 
 When a player is removed from the friend list it will trigger this notification. You will be able to register on this to treat the behavior in your game.
 
@@ -97,7 +97,7 @@ When it triggers, the local state of the friend list will already have been upda
 
 The example below shows how to retrieve the user's friend state and use it to update a view or another screen. For simplicity, the example sets a list of all invites in the friend state; alternatives include adding or removing items based on events rather than setting the entire list.
 
-![friends-local-state-received-invite.png](../../../media/imgs/friends-local-state-received-invite.png)
+![A wide Blueprint graph that retrieves the user's friend state and loops over its received invites to populate a list in the UI view.](../../../media/imgs/friends-local-state-received-invite.png)
 
 ## Conclusion
 

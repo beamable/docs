@@ -43,4 +43,4 @@ The `UBeamUserSlots` Engine Subsystem is responsible for:
 
 [After logging in](../beamable-services/identity.md), you can use [these Blueprint nodes](blueprints.md) to get information about the account logged into the given slot.
 
-![user-slots-get-user-data.png](../../../media/imgs/user-slots-get-user-data.png)
+![Two Local State - Auth - Try Get Slot User Data nodes: one with a collapsed Data pin showing the Split Struct Pin context option, the other with the Data pin split into Account Id, Gamer Tag, Email, Realm Handle, Auth Token, and External Identities pins.](../../../media/imgs/user-slots-get-user-data.png)

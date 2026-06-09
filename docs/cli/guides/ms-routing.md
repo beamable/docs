@@ -24,10 +24,10 @@ dotnet beam project new service HelloWorld
 
 Beamable Microservices use a privileged web socket to communicate with Beamable's existing APIs and services. There is a custom Beamable application level protocol, _Thorium_, that allows a Microservice to receive HTTPS traffic sent to `https://api.beamable.com`. However, for the Microservice to receive the traffic, the HTTP request needs to meet the following requirements,
 
-1. The `uri` of the HTTP request must have a `path` that maps to the desired Microservice.
+1. The `uri` of the HTTP request must have a `path` that maps to the desired Microservice
 2. The HTTP request must have an `X-DE-SCOPE` header, and
 3. _Optionally_, the HTTP request should have a `X-BEAM-SERVICE-ROUTING-KEY` header that carries a map of service routing keys, and
-4. _Optionally_, the HTTP request should have an `Authorization` header that carries a Bearer Token.
+4. _Optionally_, the HTTP request should have an `Authorization` header that carries a Bearer Token
 
 #### Path routing
 

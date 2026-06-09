@@ -68,7 +68,7 @@ The generated microservice clients are implementations of `UBeamMicroserviceClie
 
 To call microservices in Blueprints, you use `Low Level - Microservice Name` nodes.
 
-![microservices-example-blueprint-node.png](../../../media/imgs/microservices-example-blueprint-node.png)
+![A LowLevel - MSPlayground - Add node with integer A and B inputs whose On Success and Response pins feed a Break MSPlaygroundAddResponse node and a Print String node.](../../../media/imgs/microservices-example-blueprint-node.png)
 
 In C++ this is what calling a microservice looks like:
 

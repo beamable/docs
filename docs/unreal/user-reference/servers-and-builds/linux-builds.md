@@ -11,11 +11,11 @@ This guide will provide a way to get a working Linux build on Windows.
 	Cross-compiling in Unreal world is limited to **Windows** only. On Linux you can compile only Linux target, same for Mac users.
 
 To get cross compilation to work, it requires:
-1. Go to [Unreal docs](https://dev.epicgames.com/documentation/en-us/unreal-engine/linux-development-requirements-for-unreal-engine?application_version=5.3#versionhistory) page that contains toolchains, download and install the `Cross-Compile Toolchain` that matches version of Unreal Engine you are using.
-2. Update environment variables by adding new variable `LINUX_MULTIARCH_ROOT` with value being the path to the newly installed toolchain. It should be something like `F:\UnrealToolchains\v22_clang-16.0.6-centos7`.
+1. Go to [Unreal docs](https://dev.epicgames.com/documentation/en-us/unreal-engine/linux-development-requirements-for-unreal-engine?application_version=5.3#versionhistory) page that contains toolchains, download and install the `Cross-Compile Toolchain` that matches version of Unreal Engine you are using
+2. Update environment variables by adding new variable `LINUX_MULTIARCH_ROOT` with value being the path to the newly installed toolchain. It should be something like `F:\UnrealToolchains\v22_clang-16.0.6-centos7`
 3. Now when the game is open in the editor it should be possible to build for the `Linux` Target platform:
 
-![linux-builds-editor.png](../../../media/imgs/linux-builds-editor.png)
+![The Unreal toolbar's Platforms menu expanded with Linux selected, showing the installed cross-compile SDK version and Package Project and build-configuration options for the Linux target.](../../../media/imgs/linux-builds-editor.png)
 
 ## Testing the build
 
@@ -29,11 +29,11 @@ For the server ones it is easy to test them on Windows machine in two different 
 !!! note "WSL"
     This part of tutorial is written with assumption that [WSL](https://learn.microsoft.com/en-us/windows/wsl/about) is installed and operational.
 
-1. Build Linux Server target build of the game.
-2. Open `Windows Subsystem for Linux` console in `LinuxServer` directory of the build.
-	1. It should contain an `Engine` folder, a `ProjectName` folder and a script file with filename in format: `{ProjectName}Server.sh`.
-3. Run the script file: `./{ProjectName}Server.sh`.
-4. Server should be up and running.
+1. Build Linux Server target build of the game
+2. Open `Windows Subsystem for Linux` console in `LinuxServer` directory of the build
+	1. It should contain an `Engine` folder, a `ProjectName` folder and a script file with filename in format: `{ProjectName}Server.sh`
+3. Run the script file: `./{ProjectName}Server.sh`
+4. Server should be up and running
 
 ### Docker
 
@@ -42,11 +42,11 @@ Docker is often used by Game Server Orchestrators for running built Game Servers
 !!! note "Assumption"
     This part of tutorial is written with assumption that Docker is installed and operational.
 
-1. Build the game's **Linux Server** target.
-2. Open `LinuxServer` directory of the build.
-	1. It should contain an `Engine` folder, a `ProjectName` folder and a script file with filename in format: `{ProjectName}Server.sh`.
-3. Create `Dockerfile` file in `LinuxServer` directory.
-4. Copy the file contents below to the created `Dockerfile`.
+1. Build the game's **Linux Server** target
+2. Open `LinuxServer` directory of the build
+	1. It should contain an `Engine` folder, a `ProjectName` folder and a script file with filename in format: `{ProjectName}Server.sh`
+3. Create `Dockerfile` file in `LinuxServer` directory
+4. Copy the file contents below to the created `Dockerfile`
 	1. **Don't forget to update the paths to match your project!**
 
 ```dockerfile
@@ -75,5 +75,5 @@ EXPOSE 7777/udp
 ENTRYPOINT [ "./{ProjectName}Server.sh", "-custom_parameter=SOME_VALUE" ]
 ```
 
-5. Open command line in `LinuxServer` directory and run this command: `docker build -t my_server .`.
-6. Run the server build: `docker run -t my_server`.
+5. Open command line in `LinuxServer` directory and run this command: `docker build -t my_server .`
+6. Run the server build: `docker run -t my_server`

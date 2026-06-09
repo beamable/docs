@@ -40,7 +40,7 @@ Additionally, you can completely opt out of usage reporting by setting the `BEAM
 
 The `beam services` command suite has been removed in CLI 6.0. The `service` command group were about managing various _Docker_ related tasks, but most of the commands had fallen into disuse. There were two common use cases for the `service` commands,
 1. running Microservice projects locally,
-2. building Microservice _Docker_ images and testing the containers.
+2. building Microservice _Docker_ images and testing the containers
 
 To run a Microservice, please use the `dotnet beam project run` command, or simply run the service from your IDE, or with `dotnet run`.
 
@@ -212,7 +212,7 @@ cd SomeDrive/ProjectRoot
 #### CLI file structure
 Starting with CLI 3.0.1, you should start by updating the CLI's file structure. The steps required are defined below:
 
-1. Install [dotnet 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) in your machine (it is the new recommended version). The old `net6.0` framework's end-of-life arrived on November 12, 2024.
+1. Install [dotnet 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) in your machine (it is the new recommended version). The old `net6.0` framework's end-of-life arrived on November 12, 2024
 2. Delete the `.beamable/local-services-manifest.json` file. (It is no longer necessary)
 
 Before 3.0.0, the CLI was always installed globally, so every Beamable CLI project on your machine had to share the same CLI version. Switching projects meant uninstalling and reinstalling specific versions — a poor workflow.
@@ -691,7 +691,7 @@ Finally, on the last line (the `ENTRYPOINT`), replace the `/subapp` with `/beamA
 
 Here is a Dockerfile that was adapted from 2.0.1. There are two important things to note,
 1. this file is for a service called `Example3`, which justifies the `ENTRYPOINT`, and
-2. when you run `beam services run`, the CLI will _inject_ content into the file between on the `BEAM-CLI-` tags. After the command runs, you should see `ENV`, `RUN`, and `COPY` statements between the beamable tags. This is how the `${BEAM_CSPROJ_PATH}` reference will be resolved.
+2. when you run `beam services run`, the CLI will _inject_ content into the file between on the `BEAM-CLI-` tags. After the command runs, you should see `ENV`, `RUN`, and `COPY` statements between the beamable tags. This is how the `${BEAM_CSPROJ_PATH}` reference will be resolved
 
 ```Dockerfile
 # use the dotnet sdk as a build stage
