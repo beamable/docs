@@ -9682,10 +9682,10 @@
 
 <p>If you have a Unity project using the Beamable 1.x SDK, we strongly recommend you consider upgrading to the 2.0 release. Version 2 brings several massive improvements to the SDK.</p>
 <ol>
-<li>Microservices use our latest "Standalone" model, which means you can leverage many more features than previously possible in version 1.</li>
-<li>Microservices are more performant, uploads are faster, and debugging is way easier than before.</li>
-<li>The Unity Editor uses the Beam CLI behind the scenes, and you can also take advantage of the CLI for your own use cases.</li>
-<li>Beamable Prefabs and Skinning have been replaced with Lightbeam Package samples.</li>
+<li>Microservices use our latest "Standalone" model, which means you can leverage many more features than previously possible in version 1</li>
+<li>Microservices are more performant, uploads are faster, and debugging is way easier than before</li>
+<li>The Unity Editor uses the Beam CLI behind the scenes, and you can also take advantage of the CLI for your own use cases</li>
+<li>Beamable Prefabs and Skinning have been replaced with Lightbeam Package samples</li>
 </ol>
 <p>To start the upgrade, update your <code>com.beamable</code> and <code>com.beamable.server</code> packages to <code>2.0.0</code>. This can be done in the Unity Package Manager, or by modifying the <code>manifest.json</code> file directly.</p>
 <blockquote>
@@ -9702,13 +9702,13 @@
 </ul>
 <h4 id="steps-in-the-planning-stage">Steps in the planning stage<a class="headerlink" href="#steps-in-the-planning-stage" title="Permanent link">¶</a></h4>
 <ol>
-<li>Open the Beam Services window.</li>
+<li>Open the Beam Services window</li>
 <li>Review the migration plan displayed. This includes:</li>
-<li>A list of all Microservices and Storages to be migrated.</li>
-<li>Detailed steps for the migration process.</li>
+<li>A list of all Microservices and Storages to be migrated</li>
+<li>Detailed steps for the migration process</li>
 <li>Verify the list:</li>
-<li>Ensure all your services and storages are included.</li>
-<li>If anything is missing, contact our support channels for assistance.</li>
+<li>Ensure all your services and storages are included</li>
+<li>If anything is missing, contact our support channels for assistance</li>
 </ol>
 <p><br></p>
 <h3 id="2-new-services-organization">2 - new services organization<a class="headerlink" href="#2-new-services-organization" title="Permanent link">¶</a></h3>
@@ -9736,14 +9736,14 @@
 <p>The migration process is divided into <strong>two main parts</strong>: <strong>Storages</strong> and <strong>Microservices</strong>. Storages must be migrated first to resolve dependencies later.</p>
 <p><strong>Storage Migration Steps</strong></p>
 <ol>
-<li><strong>Creating the storage</strong>: New storages are created with the same names as the old ones.</li>
+<li><strong>Creating the storage</strong>: New storages are created with the same names as the old ones</li>
 <li><strong>Copying the code:</strong></li>
-<li>Old code is transferred to the new storage location.</li>
-<li>Additional files in the old storage folder are also copied.</li>
-<li><strong>Adding references</strong>: References from the old storage are checked and added to the new storage. This step first runs through all assembly definition references in the storage <code>asmdef</code> and check if those are valid assemblies, if so, they are added to that storage as a separate project.</li>
+<li>Old code is transferred to the new storage location</li>
+<li>Additional files in the old storage folder are also copied</li>
+<li><strong>Adding references</strong>: References from the old storage are checked and added to the new storage. This step first runs through all assembly definition references in the storage <code>asmdef</code> and check if those are valid assemblies, if so, they are added to that storage as a separate project</li>
 <li><strong>Removing old code</strong>:</li>
-<li>Old files are deleted if previous steps were successful.</li>
-<li>If errors occur, deletion is skipped to preserve data.</li>
+<li>Old files are deleted if previous steps were successful</li>
+<li>If errors occur, deletion is skipped to preserve data</li>
 </ol>
 <p><strong>Microservice Migration Steps</strong></p>
 <p>Microservices follow the same steps as storages with an additional step:</p>
@@ -9766,18 +9766,18 @@
 <ol>
 <li><strong>Duplicate Assembly References</strong></li>
 <li>Error: "There are duplicates of an assembly reference in the list."</li>
-<li>Solution: Open the "Config" tab in <code>Beam Services</code> and remove duplicate entries from the <code>Assembly Definitions</code> list.</li>
+<li>Solution: Open the "Config" tab in <code>Beam Services</code> and remove duplicate entries from the <code>Assembly Definitions</code> list</li>
 <li><strong>Reappearance of the migration window</strong></li>
-<li>Cause: Incomplete file creation during Unity's domain reload or an error during the migration of one or more of the services.</li>
-<li>Solution: Clicking on <code>Migrate Services</code> again should fix it in the most cases.</li>
+<li>Cause: Incomplete file creation during Unity's domain reload or an error during the migration of one or more of the services</li>
+<li>Solution: Clicking on <code>Migrate Services</code> again should fix it in the most cases</li>
 <li><strong>Non-functional Microservice</strong></li>
-<li>Check the <code>.csproj</code> file for missing assembly references.</li>
-<li>Ensure Docker is running if the service requires a storage dependency.</li>
+<li>Check the <code>.csproj</code> file for missing assembly references</li>
+<li>Ensure Docker is running if the service requires a storage dependency</li>
 <li><code>UniqueName</code> <strong>Property Not Found</strong></li>
 <li>Replace all occurrences of <code>UniqueName</code> with <code>GetUniqueName()</code></li>
 <li><strong>Firewall Permissions on Windows</strong></li>
-<li>During the installation, your OS may prompt a pop-up for asking for firewall access.</li>
-<li>Grant permission to avoid functionality issues.</li>
+<li>During the installation, your OS may prompt a pop-up for asking for firewall access</li>
+<li>Grant permission to avoid functionality issues</li>
 <li><strong>Types aren't working in the IDE</strong>
    Its possible in some cases where the BeamableServices solution won't recognize any of the Beamable types. To fix this, use the IDE to unload and reload the entire solution.</li>
 </ol>

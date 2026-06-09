@@ -10185,13 +10185,13 @@
 <p>A few noteworthy clarifications:</p>
 <ol>
 <li>There are two services responsible for connectivity:</li>
-<li><strong>ConnectivityChecker</strong>: This service implements the call that determines whether Beamable is reachable.</li>
+<li><strong>ConnectivityChecker</strong>: This service implements the call that determines whether Beamable is reachable</li>
 <li><strong>ConnectivityService</strong>: This service maintains the state on whether internet connectivity is currently available, and is also responsible for invoking any reconnect hooks and so forth</li>
 <li>The NoConnectivityException errors can occur as a result of a couple of conditions:</li>
 <li>The <strong>ConnectivityChecker</strong>, which checks connectivity every 3 seconds, experiences a failure <strong>OR</strong></li>
 <li>A request to Beamable experiences a timeout or HTTP status code 0 from Unity
      Beamable also makes regular heartbeat calls which may also fall into this class</li>
-<li>When a NoConnectivityException is encountered, the <strong>ConnectivityService</strong> is notified that the internet connection has been lost, and the <strong>ConnectivityService</strong> then invokes any relevant hooks for reconnecting when the service is restored.</li>
+<li>When a NoConnectivityException is encountered, the <strong>ConnectivityService</strong> is notified that the internet connection has been lost, and the <strong>ConnectivityService</strong> then invokes any relevant hooks for reconnecting when the service is restored</li>
 </ol>
 <p>This can result in spurious disconnection reports — the <strong>ConnectivityService</strong> may report that connectivity has been lost if a single non-critical request times out.</p>
 <p>The below changes (dependency registration and connectivity service override) alter this behavior:</p>

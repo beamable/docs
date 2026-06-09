@@ -9900,11 +9900,11 @@ TournamentServiceExample.cs
 <p>The <strong>Beamable Tournaments</strong> system automatically creates leaderboards for tournaments based on the tournament content. The only setup required for a working tournament is the Beamable SDK, a realm, and published tournament content. Player score submission to the Tournaments system is server-authoritative: it requires C# microservices or a similarly privileged context.</p>
 <h3 id="steps-to-setup">Steps to setup<a class="headerlink" href="#steps-to-setup" title="Permanent link">¶</a></h3>
 <ol>
-<li>Have a Beamable account, and the Beamable Unity SDK installed.</li>
-<li>Create a new Tournament by setting up Tournament Content.</li>
-<li>Publish the Tournament Content via Content Manager.</li>
-<li>Players submit scores. All players begin at the lowest ranking.</li>
-<li>Player tiers are maintained for the duration of a cycle. Scores are submitted via the Tournament system and stored in the Leaderboard system. Scores dictate stage progression and are fully reset between Tournament cycles.</li>
+<li>Have a Beamable account, and the Beamable Unity SDK installed</li>
+<li>Create a new Tournament by setting up Tournament Content</li>
+<li>Publish the Tournament Content via Content Manager</li>
+<li>Players submit scores. All players begin at the lowest ranking</li>
+<li>Player tiers are maintained for the duration of a cycle. Scores are submitted via the Tournament system and stored in the Leaderboard system. Scores dictate stage progression and are fully reset between Tournament cycles</li>
 </ol>
 <h3 id="key-elements">Key elements<a class="headerlink" href="#key-elements" title="Permanent link">¶</a></h3>
 <p>Game Makers set up tournaments by defining their content. This content includes the tournament name, the number of tiers, colors for each tier, and specific promotion and demotion rules. Rewards, if specified, are granted as Beamable Inventory items and currencies and are evaluated at the end of each competition cycle. All tournament definitions are created as structured data using the Unity Content Manager with the Beamable SDK.</p>
