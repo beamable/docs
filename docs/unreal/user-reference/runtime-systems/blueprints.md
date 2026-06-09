@@ -7,9 +7,9 @@ Beamable provides several types of Blueprint nodes to interact with its systems.
 
     To make sure this works, you can verify that:
 
-    - `Editor Preferences > Blueprint Editor Settings > Navigate to Native Functions from Call Nodes` is `true` (this should be `true` by default).
+    - `Editor Preferences > Blueprint Editor Settings > Navigate to Native Functions from Call Nodes` is `true` (this should be `true` by default)
 
-    - You should also select your IDE in `Editor Preferences > Source Code > Source Code Editor` (this may or may not be automatically set depending on your choice of IDE).
+    - You should also select your IDE in `Editor Preferences > Source Code > Source Code Editor` (this may or may not be automatically set depending on your choice of IDE)
 
 
 ## Low level Blueprints
@@ -21,7 +21,7 @@ Beamable provides several types of Blueprint nodes to interact with its systems.
 Common use cases include:
 
 - Direct API requests
-- Customized behaviors not captured by `UBeamRuntimeSubsystem` implementations.
+- Customized behaviors not captured by `UBeamRuntimeSubsystem` implementations
 
 ## Operation Blueprints
 
@@ -35,10 +35,10 @@ Common use cases include:
 ### Configuring operation nodes
 Operation nodes can be configured in the following ways:
 
-1. **No BeamFlow Mode**: removes all output pins and reveals the `Delegate` input pin handler for the operation.
-2. **BeamFlow + OnCompleted**: exposes a single `Flow` output pin that allows you to handle Success/Failure/Cancelled and any sub-events in the same way.
-3. **BeamFlow + Success/Error/Cancelled**: exposes one `Flow` output pin for each of Success/Failure/Cancelled.
-4. **BeamFlow + OnSubEvents**: exposes one `Flow` output pin for each of Success/Failure/Cancelled **_PLUS_** a single `Flow` output pin for each sub-event emitted by the operation. Sub-events are calls to the Operation `Delegate` that do not complete the operation (the semantics of each sub-event are explained on their tooltip).
+1. **No BeamFlow Mode**: removes all output pins and reveals the `Delegate` input pin handler for the operation
+2. **BeamFlow + OnCompleted**: exposes a single `Flow` output pin that allows you to handle Success/Failure/Cancelled and any sub-events in the same way
+3. **BeamFlow + Success/Error/Cancelled**: exposes one `Flow` output pin for each of Success/Failure/Cancelled
+4. **BeamFlow + OnSubEvents**: exposes one `Flow` output pin for each of Success/Failure/Cancelled **_PLUS_** a single `Flow` output pin for each sub-event emitted by the operation. Sub-events are calls to the Operation `Delegate` that do not complete the operation (the semantics of each sub-event are explained on their tooltip)
 
 ![Four numbered variants of an Operation - Login - Federated Identity node, each exposing a different BeamFlow pin configuration from no output pins to separate Success, Error, Cancelled, and sub-event flow pins.](../../../media/imgs/blueprints-beam-mode.png)
 

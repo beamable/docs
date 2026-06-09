@@ -1,12 +1,12 @@
 # Beamball – store and content system
 
-![beamball-content.gif](../../../media/imgs/beamball-content.gif)
+![An animation of the Beamball sample's store screen, where the player browses skin listings and purchases one to add it to their inventory.](../../../media/imgs/beamball-content.gif)
 
 The **Beamball** sample includes a basic implementation of the Store and Inventory Systems. Those are built using the Beamable’s **Store** and **Content** services. The flow combines backend data (listings and offers) with **local DataAssets** that define the visual presentation of each item.
 
 ## Loading and displaying store items
 
-![beamball-content-blueprint.png](../../../media/imgs/beamball-content-blueprint.png)
+![A wide widget Blueprint graph that refreshes the store, retrieves the store view from local state, and builds an item widget for each listing into a grid layout.](../../../media/imgs/beamball-content-blueprint.png)
 
 The Content system in Beamball acts as a bridge between:
 
@@ -31,12 +31,12 @@ Widgets are then placed dynamically into a **grid layout**, with positioning cal
 
 
 !!! note "Main Operators to be aware of:"
-    - **`Operation - Store - Refresh Store`**: Refreshes the player’s store state from the backend.
-    - **`Local State - Store - TryGetStoreView`**: Retrieves the updated StoreView from the local Beamable state.
+    - **`Operation - Store - Refresh Store`**: Refreshes the player’s store state from the backend
+    - **`Local State - Store - TryGetStoreView`**: Retrieves the updated StoreView from the local Beamable state
 
 ## Purchasing items
 
-![beamball-purchase.png](../../../media/imgs/beamball-purchase.png)
+![A WBP_MainMenu event graph where a Purchase button's On Clicked event runs an Operation - Store - Perform Purchase node with a Store Id of stores.SkinStore and a Listing Id fed by the selected purchase listing.](../../../media/imgs/beamball-purchase.png)
 
 When the player selects an item to purchase, the corresponding widget calls the **`Operation - Store - Perform Purchase`** operator. This operator takes care of the entire purchase flow, including:
 
@@ -47,8 +47,8 @@ When the player selects an item to purchase, the corresponding widget calls the 
 
 Upon successful completion of the purchase operation, the player’s inventory changes with the addition of the item. It triggers a redraw from scratch from the UI so it can include the newly acquired item.
 
-![beamball-pruchase2.png](../../../media/imgs/beamball-pruchase2.png)
+![A WBP_MainMenu event graph where an Events - Inventory - Bind node's On Inventory Refreshed event reloads the shop UI and updates the main menu to show the newly purchased skin.](../../../media/imgs/beamball-pruchase2.png)
 
 !!! note "Main Operators to be aware of:"
-    - **`Operation - Store - Perform Purchase`**: Purchase a listing in the player's account.
-    - **`Events - Inventory - Bind`**: Trigger an event when the inventory is refreshed (Updated) in the server.
+    - **`Operation - Store - Perform Purchase`**: Purchase a listing in the player's account
+    - **`Events - Inventory - Bind`**: Trigger an event when the inventory is refreshed (Updated) in the server

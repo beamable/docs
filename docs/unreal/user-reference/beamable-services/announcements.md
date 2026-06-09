@@ -18,16 +18,16 @@ It is common to attach gifts to announcements so that players can claim them. To
 
 The image below shows how this can be done in blueprints.
 
-![announcements-claiming.png](../../../media/imgs/announcements-claiming.png)
+![A widget Blueprint where a Claim button's On Clicked event disables the button and feeds the current announcement's Id, broken out of a Beam - Break AnnouncementView node, into an Operation - Announcement - Claim Single Announcement Gift node.](../../../media/imgs/announcements-claiming.png)
 
 Marking announcements as read can be achieved in a similar way but with the `MarkAnnouncementsReadOperation`. The image below shows how you would mark an announcement as read when a user clicks one and a popup opens displaying its details.
 
-![announcements-mark-read.png](../../../media/imgs/announcements-mark-read.png)
+![A wide Blueprint graph chaining a click event through a Break AnnouncementView node into a Mark Announcements Read operation that opens the announcement's detail popup.](../../../media/imgs/announcements-mark-read.png)
 
 Aside from the `Id`, most other `FString` fields in the announcement can be used to store whatever data you need. Common practices include:
 
-- Passing in `TSoftObjectPath` strings to reference in-game assets.
+- Passing in `TSoftObjectPath` strings to reference in-game assets
 - Passing in some custom string format such that your UI interprets it and changes its behavior accordingly
-- Use `ClientDataList` to pass in key-value pairs of arbitrary string data based on your game's context.
+- Use `ClientDataList` to pass in key-value pairs of arbitrary string data based on your game's context
 
 The `Title`, `Summary`, and `Body` fields are format-agnostic — treat them as semantic suggestions and populate them however your game requires.

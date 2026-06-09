@@ -17,9 +17,9 @@ There are 3 calls that eventually invoke this function:
 Beamable's Backend uses a Content called `UBeamGameTypeContent` (`game_types`).
 A GameType represents a set of rules for how Beamable's Matchmaking should produce matches of this game type (including the Federation).
 
-1. Implement the `IFederatedGameServer` Federation in your microservice with a particular [Federation Id](federation.md#federation-id).
-2. Set up that [Federation Id](federation.md#federation-id) in any `UBeamGameTypeContent`'s `federation` field.
-3. Publish the Content.
+1. Implement the `IFederatedGameServer` Federation in your microservice with a particular [Federation Id](federation.md#federation-id)
+2. Set up that [Federation Id](federation.md#federation-id) in any `UBeamGameTypeContent`'s `federation` field
+3. Publish the Content
 
 The **Create Game Server** function is a blocking call with a long default timeout. This means Beamable's Backend waits on a response before notifying the users they were put into the lobby. However, implementing this correctly for all cases can be challenging; the SDK provides a few utilities:
 
@@ -73,13 +73,13 @@ See the [Beamball Demo](../../samples/beamball/beamball-demo.md) for a working e
 ## Provision game server for custom lobby (non-matchmaking)
 Certain games allow players to [create custom lobbies](../beamable-services/lobbies.md) manually. If those games also require invoking the federation endpoint to provision a server or run some arbitrary code, they can do so via the following steps:
 
-1. Create a [Lobby](../beamable-services/lobbies.md) with the `UBeamGameTypeContent`'s id.
-    1. Closed/Open lobbies both work with federation.
-2. Players will join the lobby and eventually become ready.
-    1. Most custom lobby implementations use `UBeamLobbySubsystem`'s `UpdatePlayerTags` function to update each individual player's ready state.
-3. Once all players are ready, the lobby host can invoke the `UBeamLobbySubsystem`'s `ProvisionGameServerForLobby` function.
-4. This function requests that the configured Federation on the `UBeamGameTypeContent` be run.
-5. Once it does, it'll trigger `UBeamLobbyState`'s `OnLobbyUpdated` callback for the lobby each particular player is in.
-    1. You can then use `Local State - Lobby - Open Level` and, if you've set the connection information in the lobby's data (`ULobby::Data`), this node will connect and travel accordingly.
+1. Create a [Lobby](../beamable-services/lobbies.md) with the `UBeamGameTypeContent`'s id
+    1. Closed/Open lobbies both work with federation
+2. Players will join the lobby and eventually become ready
+    1. Most custom lobby implementations use `UBeamLobbySubsystem`'s `UpdatePlayerTags` function to update each individual player's ready state
+3. Once all players are ready, the lobby host can invoke the `UBeamLobbySubsystem`'s `ProvisionGameServerForLobby` function
+4. This function requests that the configured Federation on the `UBeamGameTypeContent` be run
+5. Once it does, it'll trigger `UBeamLobbyState`'s `OnLobbyUpdated` callback for the lobby each particular player is in
+    1. You can then use `Local State - Lobby - Open Level` and, if you've set the connection information in the lobby's data (`ULobby::Data`), this node will connect and travel accordingly
 
 No sample covers this exact case, but the [Beamball Demo](../../samples/beamball/beamball-demo.md) demonstrates the relevant patterns.

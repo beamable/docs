@@ -24,16 +24,16 @@ The last part of the ID is the only one you edit through the **Content Window**.
 ## Content window
 The Content Window is the main tool to create, edit, and publish new content to your project.
 
-![contentv2-window.png](../../../media/imgs/contentv2-window.png)
+![The Content window's Workspace tab listing content types such as BeamCurrencyContent and BeamGameTypeContent in the center, with the currency.coins object selected and its properties shown in the right-hand detail panel.](../../../media/imgs/contentv2-window.png)
 
 The list of content objects displayed in the content window is very similar to a "Status" window in Git or some other version control systems. Besides showing your local content, it also presents the differences between your local state and the state in your currently targeted `Realm`.
 
 These differences are represented by the `[+]`,`[-]` and `[M]` signs.
 
-- `[+]`: Means the content exists locally but NOT in the realm.
-- `[M]`: Means the content exists BOTH locally and in the realm AND that it is modified relative to the one in the realm.
-    - `[!]`: Means the content had changes locally when someone else published to the realm. This means that your changes would overwrite the published changes. This is called a **Conflict**. You MUST resolve conflicts before changes can be published.
-- `[-]`: Means the content DOES NOT exist locally but DOES exist in the realm.
+- `[+]`: Means the content exists locally but NOT in the realm
+- `[M]`: Means the content exists BOTH locally and in the realm AND that it is modified relative to the one in the realm
+    - `[!]`: Means the content had changes locally when someone else published to the realm. This means that your changes would overwrite the published changes. This is called a **Conflict**. You MUST resolve conflicts before changes can be published
+- `[-]`: Means the content DOES NOT exist locally but DOES exist in the realm
 
 If the content is not marked with any of these signs, it means it is in sync with the realm.
 
@@ -45,12 +45,12 @@ If the content is not marked with any of these signs, it means it is in sync wit
 
 ## Creating, modifying, and deleting content
 
-![content-add-content.gif](../../../media/imgs/content-add-content.gif)
+![An animation of the Content window adding a BeamGameTypeContent object named dynamic_match and editing its detail panel, setting the team's Min and Max player counts and the federated game server.](../../../media/imgs/content-add-content.gif)
 
 **To create a new piece of content locally:**
 
-1. Select **+** next to any of the content type headers to create a content of that type.
-2. Rename the created content; it cannot contain whitespaces or `.`.
+1. Select **+** next to any of the content type headers to create a content of that type
+2. Rename the created content; it cannot contain whitespaces or `.`
 
 To delete content, press `Del` on your keyboard with an item selected, or select the `[X]` button in the Item Details.
 
@@ -58,7 +58,7 @@ Items created locally will have a `[+]` sign next to them informing that they ar
 
 Modifying content can be done via the Details Editor in the **Content Window**. Modified content, relative to the latest published manifest, is shown with an `[M]` icon next to them. They can be reverted to their state at the realm by using the `Revert` button.
 
-![content-revert.png](../../../media/imgs/content-revert.png)
+![The Content window with the modified dynamic_match object marked by an [M] icon and selected, its detail panel showing a Revert button next to Duplicate.](../../../media/imgs/content-revert.png)
 
 ## Publishing and auto-syncing
 **Publishing** tells the Beamable SDK that you want to send your entire local content state to the realm and make that the source of truth. The source of truth for content in a realm is always whatever manifest was last published to that realm.
@@ -78,18 +78,18 @@ To enable this workflow, the Beamable SDK:
 - Listens for whenever any developer publishes content to a realm and notifies other developers working on that same realm
 	- If `Designer-A` publishes changes, `Designer-B` will see a UE-notification informing them that `Designer-A` has just published. <br><br>
 - Automatically keeps any un-modified local files up-to-date with the latest version of that file published to the realm
-    - If `Designer-A` publishes changes to `Content-1` and `Designer-B` had no changes made to that file in their machine, the SDK in `Designer-B`'s machine will automatically update their `Content-1` file to match the newest version of it published by `Designer-A`.
+    - If `Designer-A` publishes changes to `Content-1` and `Designer-B` had no changes made to that file in their machine, the SDK in `Designer-B`'s machine will automatically update their `Content-1` file to match the newest version of it published by `Designer-A`
     - The notification tells you what content was automatically synchronized. <br><br>
 - Informs you that you had made changes to a file that was modified in the published manifest. This is called a **Conflict**
-	- If `Designer-A` publishes changes to `Content-1` and `Designer-B` had made changes to that file in their machine, the SDK in `Designer-B`'s machine will NOT automatically update their `Content-1` file. Instead, it'll accuse a **Conflict**.
+	- If `Designer-A` publishes changes to `Content-1` and `Designer-B` had made changes to that file in their machine, the SDK in `Designer-B`'s machine will NOT automatically update their `Content-1` file. Instead, it'll accuse a **Conflict**
     - The notification informs you if a conflict happened
 
 To prevent `Designer-B` from overwriting changes made by `Designer-A` the SDK will not allow `Designer-B` to **Publish** until all detected conflicts are resolved. Resolving a conflict can be done in one of two ways:
 
 - **Use Realm**: this will discard all local changes to that content and use whatever was published
-- **Use Mine**: this ignores the conflict (which means that it will allow you to publish and your publish WILL overwrite the version in the realm)
+- **Use Local**: this ignores the conflict (which means that it will allow you to publish and your publish WILL overwrite the version in the realm)
 
-![content-conflict.png](../../../media/imgs/content-conflict.png)
+![The Content window showing the coins object flagged with a conflict warning icon; its detail panel offers numbered Use Local and Use Realm buttons for resolving the conflict.](../../../media/imgs/content-conflict.png)
 
 Therefore, consider these practices:
 
@@ -144,8 +144,8 @@ public:
 
 Annotate your `UPROPERTY` with `EditAnywhere` and either:
 
-- `BlueprintReadOnly` if you are not writing utilities to create the objects for you.
-- `BlueprintReadWrite` if you are writing utilities to create the objects for you.
+- `BlueprintReadOnly` if you are not writing utilities to create the objects for you
+- `BlueprintReadWrite` if you are writing utilities to create the objects for you
 
 !!! note "Microservices"
 	In many cases, you may need to access these content objects in Microservices. For all of Beamable's own content-types (`UBeamCurrencyContent`, etc.), the Microservice SDK provides equivalents. For your own custom types, declare them in C# — use the serialization table below as reference for mapping types from C++ to C#.
@@ -179,28 +179,28 @@ Take a look at `UMockBeamContentObject` to see the supported types.
 ## Runtime content subsystem
 The SDK fetches the content manifest before the `OnBeamableStarted` callback fires. It can also download each individual piece of content at startup. Toggle this with **Download Individual Content on Start** in `Project Settings -> Beamable Runtime`.
 
-![content-download-individual-on-start.png](../../../media/imgs/content-download-individual-on-start.png)
+![The Unreal Project Settings window on the Beamable Runtime page, with the Content section's "Download Individual Content on Start" checkbox enabled and highlighted.](../../../media/imgs/content-download-individual-on-start.png)
 
 The SDK also supports live content updates (if you publish content while the game client is running):
 
-- While the [`OwnerUserSlot`](../runtime-systems/user-slots.md) is signed in to Beamable, `UBeamContentSubsystem` listens for notifications that the realm's content manifest has been updated.
+- While the [`OwnerUserSlot`](../runtime-systems/user-slots.md) is signed in to Beamable, `UBeamContentSubsystem` listens for notifications that the realm's content manifest has been updated
 - When that happens, the SDK re-downloads the manifest
 - If `bDownloadIndividualContentAtStart` is `true`:
     - The SDK downloads and caches all updated content objects relative to the last manifest downloaded in this client
-    - These updates are cached locally inside the `Saved` directory in binary form such that a user does not need to re-download content in subsequent runs of your game unless the published manifest changes.
+    - These updates are cached locally inside the `Saved` directory in binary form such that a user does not need to re-download content in subsequent runs of your game unless the published manifest changes
     - This cache is invalidated if your game-version changes, the SDK version changes or the UE version changes
 - If `bDownloadIndividualContentAtStart` is `false`:
-    - You are then responsible for downloading each individual content via the APIs: `FetchIndividualContentBatchOperation` and `FetchIndividualContentOperation`.
+    - You are then responsible for downloading each individual content via the APIs: `FetchIndividualContentBatchOperation` and `FetchIndividualContentOperation`
     - Caching will still occur automatically when manually downloading content
 
 Accessing content at runtime is fairly simple:
 
-![content-accessing.png](../../../media/imgs/content-accessing.png)
+![A Local State - Content - GetContent node with its Content Id set to the BeamballSkinItem items.itemskin.skin2 object, its Out Content pin feeding a Skin Data target.](../../../media/imgs/content-accessing.png)
 
 ## Content snapshots
 The content snapshot system allows you to save the state of your local content at any given time and restore it later.
 
-![content-snapshots-window.png](../../../media/imgs/content-snapshots-window.png)
+![The Content window's Snapshots tab listing saved snapshots on the left and, for the selected one, its name, author, timestamp, and a Change List diffing added and modified content against the workspace.](../../../media/imgs/content-snapshots-window.png)
 
 This is useful for a couple of workflows:
 
@@ -213,12 +213,12 @@ Content snapshots can be local or shared between users. The local ones are kept 
 ### Creating content snapshots
 To create a content snapshot, click on the button in the top right corner of the Workspace window. This will create a snapshot of your current local content state. It then will be added to the list of snapshots in the Snapshots Window.
 
-![content_snapshot_create.png](../../../media/imgs/content_snapshot_create.png)
+![The top toolbar of the Content window's Workspace tab with the Save Snapshot button highlighted, next to the Publish button.](../../../media/imgs/content_snapshot_create.png)
 
 ### Applying content snapshots
 To apply the content of a snapshot to your current workspace, select the snapshot in the list and click `Apply Snapshot`
 
-![content-apply-snapshot.png](../../../media/imgs/content-apply-snapshot.png)
+![The Snapshots tab toolbar with a snapshot selected and the Delete Preset checkbox, Additive checkbox, and Apply Snapshot button highlighted.](../../../media/imgs/content-apply-snapshot.png)
 
 Additionally you can also select the following options:
 
@@ -230,14 +230,14 @@ Shared snapshots are stored in the `.beamable/shared/contentSnapshot` folder, so
 
 The Shared Snapshots are identified in the list with a different (orange) icon.
 
-![content-shared-snapshot.png](../../../media/imgs/content-shared-snapshot.png)
+![The Snapshots tab with the Save as Shared button highlighted; the LastPublished-global snapshot at the top of the list carries a distinct orange shared icon.](../../../media/imgs/content-shared-snapshot.png)
 
 Notice that every time you publish content to the realm it will automatically update the shared snapshot called `LatestPublished` to match the content that was just published. This means that you can always share with your teammates the latest published content by sharing that snapshot.
 
 ## Content history
 The content history system allows you to see the history of your content publishing and revert to any previous version of your content.
 
-![content-history.png](../../../media/imgs/content-history.png)
+![The Content window's History tab listing past publishes with their version hash, timestamp, and author; the selected version's changed objects appear below with Revert All and Revert Item buttons.](../../../media/imgs/content-history.png)
 
 You can revert the whole content state to a previous version by clicking on the `Revert All` button. This will replace your local content state with the content state of that version or revert individual content objects to a previous version by clicking on the `Revert Item` button in the content details. This will replace your local version of that content object with the version of that content object in that version.
 

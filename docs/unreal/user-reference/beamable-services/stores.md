@@ -21,7 +21,7 @@ The store content has the following properties:
 ### Listing content
 You can think of a listing as an entry in a catalog of purchasable products.
 
-- **Price**: Is the amount of `currency` a player must have to acquire this listing.
+- **Price**: Is the amount of `currency` a player must have to acquire this listing
 - **Offer**: Describes what will be added to the player's inventory once the purchase is completed
 - **Client Data**: Use this to store information specific to your game's UI in a way that you can parse and display
 - **DateTime**: Is an active period as an ISO 8601 string

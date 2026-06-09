@@ -56,19 +56,19 @@ The Details panel provides a detailed view of the microservices and access to a 
 ## Microservice coding
 Microservices are developed in C# and in their own solution. They inherit from the `Microservice` base class and are `partial` by default. Inside each Microservice class, you can annotate instance methods with the following attributes to various effects:
 
-- `Callable`: This is the equivalent of a public endpoint. Any non-authenticated caller is allowed to invoke this function via a request. In Unreal, these will not require a `FUserSlot` (authenticated user).
-- `ClientCallable`: This is equivalent to an authenticated request. Any authenticated user in the same realm as the microservice is able to run this.
-- `AdminOnlyCallable`: These are similar to `ClientCallables` but requires the user to have admin privileges. They are useful for making utility endpoints called by internal developer tools.
-- `ServerCallable`: This is equivalent to a trusted-server request. It requires authentication in the form of a Signed Request. Primarily, these are callable from your game's Dedicated Server builds.
-- `Federated Endpoints`: [Federations](../federation/federation.md) generate routes implicitly and **do not need any `Callable` attributes**.
+- `Callable`: This is the equivalent of a public endpoint. Any non-authenticated caller is allowed to invoke this function via a request. In Unreal, these will not require a `FUserSlot` (authenticated user)
+- `ClientCallable`: This is equivalent to an authenticated request. Any authenticated user in the same realm as the microservice is able to run this
+- `AdminOnlyCallable`: These are similar to `ClientCallables` but requires the user to have admin privileges. They are useful for making utility endpoints called by internal developer tools
+- `ServerCallable`: This is equivalent to a trusted-server request. It requires authentication in the form of a Signed Request. Primarily, these are callable from your game's Dedicated Server builds
+- `Federated Endpoints`: [Federations](../federation/federation.md) generate routes implicitly and **do not need any `Callable` attributes**
 
 Inside the method body, you can access properties inherited from the `Microservice` base class. Here are the most relevant:
 
-- `Context`: This field of the Microservice class has information about the request.
-	- `Context.Cid` | `Context.Pid`: Contain the relevant realm information for the microservice.
-	- `Context.UserId`: Contains the `GamerTag` for the account making the call. This is `0` for non-authenticated endpoints such as `Callables` and `ServerCallables`.
-	- `Context.Body`: Contains the raw body (typically JSON) of the request, if any; which can be useful if you want to do your own parsing.
-- `Services`: This field of the Microservice class gives you access to Beamable's Services from your microservice.
+- `Context`: This field of the Microservice class has information about the request
+	- `Context.Cid` | `Context.Pid`: Contain the relevant realm information for the microservice
+	- `Context.UserId`: Contains the `GamerTag` for the account making the call. This is `0` for non-authenticated endpoints such as `Callables` and `ServerCallables`
+	- `Context.Body`: Contains the raw body (typically JSON) of the request, if any; which can be useful if you want to do your own parsing
+- `Services`: This field of the Microservice class gives you access to Beamable's Services from your microservice
 	- `Services.Inventory`: Access the inventory service...
 	- `Services.Stats`: Access the stats service...
 	- So on and so forth...
@@ -86,17 +86,17 @@ Each `Callable` generates at least two `UObject` classes, one representing reque
 ### Signature constraints
 When declaring `Callable` functions, you should be aware of a few limitations regarding its signatures.
 
-- No `void` return.
-- Can be `async` or not.
+- No `void` return
+- Can be `async` or not
 - Cannot return container types directly
 	- `List<>` / `Dictionary<string,>`
 	- Wrap it in a struct/class instead
-- No overloading of `Callables`.
+- No overloading of `Callables`
 	- This is because each of these must map to a unique route so name things accordingly
-	- Non-`Callable` functions can be overloaded.
-- Avoid calling `Callable` functions from other `Callable` functions.
-	- For code-reuse in the Microservice, write non-`Callable` static functions and call them inside the `Callable` body.
-- Must be an instance method (no `static` keyword).
+	- Non-`Callable` functions can be overloaded
+- Avoid calling `Callable` functions from other `Callable` functions
+	- For code-reuse in the Microservice, write non-`Callable` static functions and call them inside the `Callable` body
+- Must be an instance method (no `static` keyword)
 	- Currently, every request is handled by a unique instance of the Microservice class
 	- This also means that it is highly discouraged to put member fields in the instance itself
 - If you are using [Federations](../federation/federation.md), you should be aware that each federation introduces certain reserved routes that you are then NOT allowed to use
@@ -138,7 +138,7 @@ When you write types in C# and use them in `Callable` method signatures, you sho
 A few things to note:
 
 - Unreal's lack of Namespaces in Blueprint-Compatible-land makes auto-generated code pretty verbose
-	- When using these APIs, use `auto` liberally *but carefully*.
+	- When using these APIs, use `auto` liberally *but carefully*
 - The code for **all** microservices in the solution is generated at once
 	- This means that, if you have multiple Microservices, you cannot generate a single service's bindings
 	- This is also a result of the Namespaces constraint
@@ -153,7 +153,7 @@ The Microservice Client's code generation allows for a few different ways to cus
 
 It can sometimes be useful to hand-write a type that would be otherwise generated by the Microservice Client code generation. These use-cases are things like:
 
-- Changing the generated type from a `UCLASS` to a `USTRUCT`.
+- Changing the generated type from a `UCLASS` to a `USTRUCT`
 - Adding utility functions to the generated type
 - Writing custom serialization/deserialization logic (you'd have to modify the C# serialization too)
 
@@ -161,16 +161,16 @@ To do that, use the CLI to register replacement types so that code generation sk
 
 #### Adding a replacement type
 
-1. Write your replacement type inside your Unreal Project.
-   1. This must exist inside the `______MicroserviceClients/CustomReplacementTypes` module.
-   2. If you don't have the `____MicroserviceClients` yet, generate the microservice client code once via `dotnet beam project generate-client "."`.
-   3. When writing the replacement type, look at the other generated code to see how to use the `UBeamJsonUtils` library to write the serialization logic.
-2. Use `dotnet beam project add-replacement-type` to add the created type.
-   1. The `reference-id` argument is the OpenAPI ReferenceId for the type you want to replace. You can find this inside the `beam_openApi.json` file that lives in your microservice's `bin` directory. `ReferenceIds` are any of the json property names under the `components.schemas.<ReferenceId>` sub-object of this JSON file.
-   2. The `replacement-type` argument is the name of the replacement type you've written.
-   3. The `engine-import` argument is the `"#include \"FileName.h\""` string for the type.
-   4. The `optional-replacement-type` argument is the name for the `FBeamOptional` wrapper for the replacement type you've written (this type is automatically generated – you don't need to write it).
-   5. The project name is your UnrealProject's name (the `.uproject` file name).
+1. Write your replacement type inside your Unreal Project
+   1. This must exist inside the `______MicroserviceClients/CustomReplacementTypes` module
+   2. If you don't have the `____MicroserviceClients` yet, generate the microservice client code once via `dotnet beam project generate-client "."`
+   3. When writing the replacement type, look at the other generated code to see how to use the `UBeamJsonUtils` library to write the serialization logic
+2. Use `dotnet beam project add-replacement-type` to add the created type
+   1. The `reference-id` argument is the OpenAPI ReferenceId for the type you want to replace. You can find this inside the `beam_openApi.json` file that lives in your microservice's `bin` directory. `ReferenceIds` are any of the json property names under the `components.schemas.<ReferenceId>` sub-object of this JSON file
+   2. The `replacement-type` argument is the name of the replacement type you've written
+   3. The `engine-import` argument is the `"#include \"FileName.h\""` string for the type
+   4. The `optional-replacement-type` argument is the name for the `FBeamOptional` wrapper for the replacement type you've written (this type is automatically generated – you don't need to write it)
+   5. The project name is your UnrealProject's name (the `.uproject` file name)
 
 Here's an example:
 
@@ -234,13 +234,13 @@ If you're in the very early stages of solving a problem, you want to get the fea
 
 Here are the steps:
 
-1. Write your `Callable`'s code in your IDE.
-2. Press the Debug or Run button on the IDE.
-3. Wait for the Service to Start.
+1. Write your `Callable`'s code in your IDE
+2. Press the Debug or Run button on the IDE
+3. Wait for the Service to Start
 	1. The service will print out `Service ready for traffic.`
-4. The service prints out a Portal URL for you or you can use the `dotnet beam project open-swagger MicroserviceName` command to open the Portal.
-5. From that page, you can make requests to your service as though your own developer account was a player in your realm.
-6. Iterate quickly.
+4. The service prints out a Portal URL for you or you can use the `dotnet beam project open-swagger MicroserviceName` command to open the Portal
+5. From that page, you can make requests to your service as though your own developer account was a player in your realm
+6. Iterate quickly
 
 This allows you to get services that might have complex logic working first and integrating them into Unreal later. [Keep in mind the type restrictions on method signatures mentioned here](#constraints-on-callable-functions).
 
@@ -256,11 +256,11 @@ The CLI generates both C++ and Blueprint Bindings for every microservice `Callab
 
 Once you have these, you can:
 
-1. Write code that uses the bindings to communicate with your service.
-2. Recompile your UE editor (or Blueprint).
-3. Run/Debug your local microservice (via the Microservice Window, IDE or `dotnet beam project run`).
-4. Run PIE and hit the point where you call your microservice.
-5. See your local service's `Callable`'s be hit.
+1. Write code that uses the bindings to communicate with your service
+2. Recompile your UE editor (or Blueprint)
+3. Run/Debug your local microservice (via the Microservice Window, IDE or `dotnet beam project run`)
+4. Run PIE and hit the point where you call your microservice
+5. See your local service's `Callable`'s be hit
 
 If you are using [Federations](../federation/federation.md), there are a few particulars of this workflow of which you should be aware. If not, the above works as described.
 
@@ -305,7 +305,7 @@ Or... you could instead use Beamable's Collaborative Debugging workflow:
 - As the engineer, boot up your local service with a debugger attached and a breakpoint
 - As the designer, open the editor and the **Microservice Window's Collaboration tab** for the service and select your engineer's email from the drop-down
 - As the designer, enter PIE and do what you do to repro the bug
-- As the engineer, observe your (conditional or data) breakpoint is hit or read your additional `BeamableLogger` log lines.
+- As the engineer, observe your (conditional or data) breakpoint is hit or read your additional `BeamableLogger` log lines
 - Quickly diagnose the issue and unblock the designer
 
 For smaller teams that like to move fast and can rely on lots of direct communication between designers and engineers, this workflow is a **massive improvement to the current available alternatives**.

@@ -58,17 +58,17 @@ dotnet beam project generate-client "."
 
 After generating the client in your Unreal project, these are the next steps:
 
-- Add the generated plugin (`ProjectNameMicroserviceClients`) to your `uproject` file and enable it.
-- Add the `ProjectNameMicroserviceClients` modules to your `Target.cs` files.
+- Add the generated plugin (`ProjectNameMicroserviceClients`) to your `uproject` file and enable it
+- Add the `ProjectNameMicroserviceClients` modules to your `Target.cs` files
     - `MyProject.Target.cs` and `MyProjectEditor.Target.cs`
-    - `MyProjectServer.Target.cs`, if you have a dedicated server build.
-- Add `ProjectNameMicroserviceClients.AddMicroserviceClients(this)` line to your game module's `Build.cs` files.
+    - `MyProjectServer.Target.cs`, if you have a dedicated server build
+- Add `ProjectNameMicroserviceClients.AddMicroserviceClients(this)` line to your game module's `Build.cs` files
 
 The generated microservice clients are implementations of `UBeamMicroserviceClientSubsystem` which are `UEngineSubsystem`. The client exposes functions for each microservice request that are essentially the same as the [UBeam_____Api](../runtime-systems/lower-level.md) Lower Level API.
 
 To call microservices in Blueprints, you use `Low Level - Microservice Name` nodes.
 
-![microservices-example-blueprint-node.png](../../../media/imgs/microservices-example-blueprint-node.png)
+![A LowLevel - MSPlayground - Add node with integer A and B inputs whose On Success and Response pins feed a Break MSPlaygroundAddResponse node and a Print String node.](../../../media/imgs/microservices-example-blueprint-node.png)
 
 In C++ this is what calling a microservice looks like:
 

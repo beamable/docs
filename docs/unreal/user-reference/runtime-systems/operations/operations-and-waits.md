@@ -25,7 +25,7 @@ Every Operation has an `int64` id called the `FBeamOperationHandle` managed by t
 
 The lifecycle of an operation goes as follows:
 
-![operations-and-waits-lifecycle.png](../../../../media/imgs/operations-and-waits-lifecycle.png)
+![A flowchart of an operation's lifecycle starting at UBeamRequestTracker::BeginOperation, then branching into a sub-events path (TriggerOperationEvent with a non-NAME_None EventId, keeping the operation ONGOING) and a single-event path, both ending at TriggerOperation for the Success, Error, or Cancelled final event.](../../../../media/imgs/operations-and-waits-lifecycle.png)
 
 **When writing Operations, there are two ways of thinking about them:**
 
@@ -118,7 +118,7 @@ There are many examples of operations in the SDK. For guidance, look at any of t
 - `UBeamStatsSubsystem`
 - `UBeamInventorySubsystem`
 - `UBeamLobbySubsystem`
-- Any other sub-class of `UBeamRuntimeSubsystem`.
+- Any other sub-class of `UBeamRuntimeSubsystem`
 
 Use them as a template for implementing and reasoning about `Operations`.
 
@@ -129,21 +129,21 @@ As part of the [Blueprint integration](../blueprints.md), the SDK includes a few
 
 **Beamable Operation Flow Nodes assume a few things:**
 
-- One or more participating `UserSlots` (see [User Slots](../user-slots.md) for more information).
+- One or more participating `UserSlots` (see [User Slots](../user-slots.md) for more information)
 - An event handler for handling any of the events
-- Events can be: `OET_SUCCESS`, `OET_ERROR` and `OET_CANCELLED` plus a `FName EventId`.
-- Events can contain some arbitrary data associated with them (implementations of `IBeamOperationEventData`).
+- Events can be: `OET_SUCCESS`, `OET_ERROR` and `OET_CANCELLED` plus a `FName EventId`
+- Events can contain some arbitrary data associated with them (implementations of `IBeamOperationEventData`)
 
 To create these nodes for your own operations, look at any of the SDK's nodes (inside the `UncookedOnly` module: `BeamableCoreBlueprintNodes`) and copy/paste one implementation changing the values accordingly.
 
 **However, there are a few restrictions:**
 
 - The function must be a `UFUNCTION` that returns a `FBeamOperationHandle` and contains the following named parameters:
-	- `FUserSlot UserSlot` if a single user is involved in the operation or `TArray<FUserSlot> UserSlot` if multiple users are involved in the operation.
-      - If multiple users, the `UFUNCTION` must also add `meta=(BeamOperationMultiUser)`.
-	- `FBeamOperationEventHandler OnOperationEvent` to be the event handler that will handle all events raised by the operation.
+	- `FUserSlot UserSlot` if a single user is involved in the operation or `TArray<FUserSlot> UserSlot` if multiple users are involved in the operation
+      - If multiple users, the `UFUNCTION` must also add `meta=(BeamOperationMultiUser)`
+	- `FBeamOperationEventHandler OnOperationEvent` to be the event handler that will handle all events raised by the operation
     - The function can have any other parameters you want in any order as long as the above parameters are there
-- The function must be declared from inside any `UWorldSubsystem`, `UGameInstanceSubsystem`, or `UBeamRuntimeSubsystem` subclass with a `static UMySubsystem* GetSelf(const UObject* CallingContext)` `UFUNCTION` that returns the instance of itself.
+- The function must be declared from inside any `UWorldSubsystem`, `UGameInstanceSubsystem`, or `UBeamRuntimeSubsystem` subclass with a `static UMySubsystem* GetSelf(const UObject* CallingContext)` `UFUNCTION` that returns the instance of itself
 
 **Example declaration** — the SDK source is more up to date than the docs; prefer it over this snippet.
 
@@ -185,29 +185,29 @@ If a Delegate or Virtual Function returns one or more `FBeamOperationHandle`, yo
 
 **There are a few flavors of this around the SDK:**
 
-1. **Delayed Operation**: a simple callback with no parameters that returns a `FBeamOperationHandle` the SDK waits for.
+1. **Delayed Operation**: a simple callback with no parameters that returns a `FBeamOperationHandle` the SDK waits for
 	1. See `UBeamRuntime::LoginGuest` for an example of this.<br><br>
 
-2. **Runtime Subsystem Implementation**: implementations of virtual functions in one of the SDK's base classes such as `UBeamRuntimeSubsystem`.
-	1. This is for when you wish to make a system that ties into the Beamable life-cycle like the SDK's `UBeamRuntimeSubsystem` implementations do.
+2. **Runtime Subsystem Implementation**: implementations of virtual functions in one of the SDK's base classes such as `UBeamRuntimeSubsystem`
+	1. This is for when you wish to make a system that ties into the Beamable life-cycle like the SDK's `UBeamRuntimeSubsystem` implementations do
 	2. This is rarely needed, but in unique custom use-cases it is likely to be the best way to accomplish your goals.<br><br>
 
-3. **Hooks**: bind into delegates created via `DEFINE_BEAM_OPERATION_HOOK`.
-	1. Rest assured: the Beamable Unreal SDK will never use Hooks internally. They are reserved exclusively for your extensions.
-	2. You can search for `DEFINE_BEAM_OPERATION_HOOK` and find some usages of the macro to better understand these.
+3. **Hooks**: bind into delegates created via `DEFINE_BEAM_OPERATION_HOOK`
+	1. Rest assured: the Beamable Unreal SDK will never use Hooks internally. They are reserved exclusively for your extensions
+	2. You can search for `DEFINE_BEAM_OPERATION_HOOK` and find some usages of the macro to better understand these
 
 ### Beam operation hooks
 **Hooks** have some more context that you should know about how to use them:
 
-1. When calling an Operation the SDK exposes, that Operation does some things and triggers the hooks at some well-known point during their execution.
+1. When calling an Operation the SDK exposes, that Operation does some things and triggers the hooks at some well-known point during their execution
 	1. Within the SDK, triggers are usually documented with call-site comments. You can also consult the SDK source directly for the exact semantics.<br><br>
 
 2. Whenever a set of hooks are triggered, what actually happens is:
-	1. The returned `FBeamOperationHandles` from the hooks are fed into a `UBeamRequestTracker::WaitAll` call.
-	2. The SDK operation waits for all your hooks to complete; successfully or otherwise.
-	3. If registered operations fail, the errors that exist inside those operations are logged so that there is a clear trail of where the problem occurred.
-	4. If your operations succeeded, the SDK continues with the operation and eventually triggers it as a success.
-	5. The semantics of what happens in case of a failure change from hook to hook, but for the most part the SDK fails the operation if any hooks fail.
+	1. The returned `FBeamOperationHandles` from the hooks are fed into a `UBeamRequestTracker::WaitAll` call
+	2. The SDK operation waits for all your hooks to complete; successfully or otherwise
+	3. If registered operations fail, the errors that exist inside those operations are logged so that there is a clear trail of where the problem occurred
+	4. If your operations succeeded, the SDK continues with the operation and eventually triggers it as a success
+	5. The semantics of what happens in case of a failure change from hook to hook, but for the most part the SDK fails the operation if any hooks fail
 
 **Here's a "template example" of how this will typically look:**
 
@@ -280,8 +280,8 @@ This function takes arrays of `FBeamRequestContext`, `FBeamOperationHandle` and/
 
 Examples are available in the SDK. The most common are:
 
-- `UBeamRuntime`'s Initialization and Login's Lifecycle, defined as a multi-step operation with several wait points.
-- `UBeamContentSubsystem` also has an example of fetching content updates.
+- `UBeamRuntime`'s Initialization and Login's Lifecycle, defined as a multi-step operation with several wait points
+- `UBeamContentSubsystem` also has an example of fetching content updates
 
 ---
 

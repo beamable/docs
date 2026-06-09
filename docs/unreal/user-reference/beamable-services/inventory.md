@@ -2,15 +2,15 @@
 
 The Beamable Inventory system is designed to manage player inventories, allowing for the addition and removal of items and currencies. It supports both **Fungible** and **Non-Fungible** content types:
 
-- **Fungible** means that each instance of that content is not unique. The simplest example is a Soft/Hard Currency in a live-services game. Each coin you grant the player is not unique. In Beamable, this type of content is represented as a `UBeamCurrencyContent`.
-- **Non-Fungible** means that each instance of that content is unique. The simplest example is an item in an MMORPG. Each instance of that item is unique and can have its own properties. In Beamable, this type of content is represented as a `UBeamItemContent`.
+- **Fungible** means that each instance of that content is not unique. The simplest example is a Soft/Hard Currency in a live-services game. Each coin you grant the player is not unique. In Beamable, this type of content is represented as a `UBeamCurrencyContent`
+- **Non-Fungible** means that each instance of that content is unique. The simplest example is an item in an MMORPG. Each instance of that item is unique and can have its own properties. In Beamable, this type of content is represented as a `UBeamItemContent`
 
 The Inventory system is built on top of Beamable's [Content Feature](content.md). `Currency` and `Item` content is created via the content window. You can also inherit from their base types to define additional read-only properties for custom items/currencies in your game.
 
 Each player's inventory state can be thought of as:
 
-- A mapping of how much of each defined `Currency` the player currently has.
-- A list of instances of `Items` the player owns, each with their own unique `InstanceId` and Key-Value pair of instance properties.
+- A mapping of how much of each defined `Currency` the player currently has
+- A list of instances of `Items` the player owns, each with their own unique `InstanceId` and Key-Value pair of instance properties
 
 In short, Inventory manages two types of data: items and virtual currencies.
 
@@ -18,34 +18,34 @@ In short, Inventory manages two types of data: items and virtual currencies.
 ## Getting started
 To use the inventory system, first:
 
-1. Go to the [Content Window](content.md).
-2. Select `item` as a type.
-3. Create an item content definition.
-4. Select `currency` as a type.
-5. Create a currency content definition.
-6. For this guide, make sure their `Client Permission` property is set to `true`.
-7. Publish this content to the realm.
+1. Go to the [Content Window](content.md)
+2. Select `item` as a type
+3. Create an item content definition
+4. Select `currency` as a type
+5. Create a currency content definition
+6. For this guide, make sure their `Client Permission` property is set to `true`
+7. Publish this content to the realm
 
 Now that you have items and currencies published, follow the steps below to create a BP function that adds some currencies and grants an item to the player:
 
-1. Open your Level Blueprint (or some other BP).
+1. Open your Level Blueprint (or some other BP)
 2. Get the `BeamInventorySubsystem`
-3. Call `BeginInventoryUpdate`. This begins building a set of changes to submit to the Beamable backend later.
-4. Call `PrepareAddCurrency` and `PrepareAddItem` selecting the currency and item types you created.
-5. Call the `Commit Inventory Update` operation.
+3. Call `BeginInventoryUpdate`. This begins building a set of changes to submit to the Beamable backend later
+4. Call `PrepareAddCurrency` and `PrepareAddItem` selecting the currency and item types you created
+5. Call the `Commit Inventory Update` operation
 
 Call this function while a user is signed in to grant the currency/item to the player.
 
-![inventory-operations.png](../../../media/imgs/inventory-operations.png)
+![A Blueprint graph in two labelled stages — "Prepare the set of changes to make" wiring BeginInventoryUpdate, an AddCurrency node, and PrepareCommit, then "Commit changes to Beamable" feeding a Commit Inventory Update operation.](../../../media/imgs/inventory-operations.png)
 
 After running the above function at least once, you should be able to see the results of these calls in the Beamable Portal. To do so:
 
-- Copy the `Gamertag/UserId` from the Unreal Engine logs.
-- Select `Open Portal` in Beamable window.
-- Go to `Engage->Players` and search for the player via `Gamertag/UserId`.
-- Go to `Inventory` and see that the appropriate currency and items are inside the user's inventory.
+- Copy the `Gamertag/UserId` from the Unreal Engine logs
+- Select `Open Portal` in Beamable window
+- Go to `Engage->Players` and search for the player via `Gamertag/UserId`
+- Go to `Inventory` and see that the appropriate currency and items are inside the user's inventory
 
-![inventory-portal.png](../../../media/imgs/inventory-portal.png)
+![The Portal Inventory page listing a Currency section with coins and gems rows and an Items section with a super_item row, each showing its content ID, amount, and Client- or Server-Authoritative permission.](../../../media/imgs/inventory-portal.png)
 
 ### Batching updates
 In the getting started example, the code creates a new `FBeamInventoryUpdateCommand` and commits it right away.
@@ -55,11 +55,11 @@ It is desirable, for both performance and latency reasons, to batch as many inve
 ### Reading local state
 To read the local state of the player's inventory, you can use the following operations:
 
-![inventory-local-state.png](../../../media/imgs/inventory-local-state.png)
+![A Local State - Inventory - TryGetAllCurrencies node above a Local State - Inventory - TryGetAllItems node, each exposing a Loop Body, Return Value, per-element output, Array Index, and Completed pin.](../../../media/imgs/inventory-local-state.png)
 
 You can also use the `Local State - Inventory - TryGetAllItemsFilter` node to iterate over all the items of a particular subtype in the inventory.
 
-![inventory-auto-casting.png](../../../media/imgs/inventory-auto-casting.png)
+![A Local State - Inventory - TryGetAllItemsFilter node with its Filter Type set to BEAM INCLUDE SUBTYPES and its Filter dropdown open on the Beamball Skin Item content type; the Contents - Element pin connects to a Skin Data target.](../../../media/imgs/inventory-auto-casting.png)
 
 ## Currencies
 Currencies are used to buy items with the [Store system](stores.md) (for example, Gold). It can also be used to symbolize the player's progress through the game, such as experience points (XP) depending on the specifics of your game system.
@@ -73,7 +73,7 @@ The Items service allows for the creation and management of various in-game obje
 
 In the `UBeamInventorySubsystem`, each item instance inside a player's inventory is represented by `FBeamItemState`. These instances have the following properties:
 
-- **ContentId**: the Id of `UBeamItemContent` that represents the type of this item instance.
+- **ContentId**: the Id of `UBeamItemContent` that represents the type of this item instance
 - **Properties**: a key-value store of properties of this specific item instance. You control which properties exist here
 - **InstanceId**: a unique id of item instance inside this player's inventory
 - **CreatedAt**: when item instance was created
@@ -99,7 +99,7 @@ As with most key-value pairs for arbitrary data, try to follow the guidelines be
 - Keeping them under a few hundred characters is best for performance
 - Use enforceable and recognizable patterns for your keys
 	- Bad: `ItemEnhancementName` and `ENH_Count`
-	- Good: `ENHANCE_Name` and `ENHANCE_Count` OR `ItemEnhancementName` and `ItemEnhancementCount`.
+	- Good: `ENHANCE_Name` and `ENHANCE_Count` OR `ItemEnhancementName` and `ItemEnhancementCount`
 
 **For Values**: Values should be no more than a few hundred characters long.
 

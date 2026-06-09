@@ -19,15 +19,15 @@ Once a match is found, the result is a [Lobby](lobbies.md) containing all of the
 ## Getting started
 To use `UBeamMatchmakingSubsystem` via blueprints (or C++):
 
-- Use the [Content Window](content.md) to create a `Beam Game Type Content` with a single team with a Min/Max player count of 1.
+- Use the [Content Window](content.md) to create a `Beam Game Type Content` with a single team with a Min/Max player count of 1
 - Publish that content to your realm
 
-![matchmaking-content-creation.png](../../../media/imgs/matchmaking-content-creation.png)
+![The Content window with a BeamGameTypeContent named "solo" selected, its detail panel showing one team named Solo with Min Players and Max Players both set to 1.](../../../media/imgs/matchmaking-content-creation.png)
 
 ### Joining a queue
 To join a queue, use the `Matchmaking - Try Join Queue` operation. It takes in the `created Beam Game Type Content` content you set up.
 
-![matchmaking-join.png](../../../media/imgs/matchmaking-join.png)
+![An Operation - Matchmaking - Join Queue node with its Game Type Queue set to the game_types.solo BeamGameTypeContent and its Team pin fed by a Make Optional String node holding the value Solo.](../../../media/imgs/matchmaking-join.png)
 
 ### Responding to match found event
 Bind to the matchmaking events so you can respond to notifications regarding the queue you are in.
@@ -39,47 +39,47 @@ The semantics for each event are:
 - `OnMatchReady`: "I got matched and my match is ready"
 - `OnMatchCancelled`: "I, or my [Party Leader](parties.md), left the queue before the match was found"
 
-![matchmaking-events.png](../../../media/imgs/matchmaking-events.png)
+![An Events - Matchmaking - Bind node whose On Match Ready pin runs a Break Beam Matchmaking Ticket node and a Local State - Lobby - TryGetGlobalLobbyDataById node to read lobby data once a match is ready.](../../../media/imgs/matchmaking-events.png)
 
 ### Leaving a queue
 Use the `Matchmaking - Try Leave Queue` Operation to leave the current queue. When using this, keep in mind that the ticket is only invalidated *after* the operation succeeds.
 
-![matchmaking-leave.png](../../../media/imgs/matchmaking-leave.png)
+![An Operation - Matchmaking - Leave Queue node with a User Slot input and Synchronous Flow, On Success, On Error, and On Cancelled output pins.](../../../media/imgs/matchmaking-leave.png)
 
 ## Matchmaking queues
 Beamable's Matchmaking system depends on Beamable's [Content System](content.md) to define various matchmaking queues. Each Matchmaking queue is described by a `UBeamGameTypeContent`.
 
 This content type defines a few things about a queue:
 
-- `TArray<FBeamMatchmakingTeamRules> Teams`: defines the number of teams (one per entry in the array) and, for each of those teams, defines the number of players and a name.
+- `TArray<FBeamMatchmakingTeamRules> Teams`: defines the number of teams (one per entry in the array) and, for each of those teams, defines the number of players and a name
 
 !!! note "Dynamic Team Sizes"
 	This is for fixed-team-size queues. For teams that are built *after* the match is made, you can use the resulting [Lobby](lobbies.md)'s data and [Federated Game Servers](../federation/federated-game-server.md) to compute and store the dynamic team split.
 
-- `FOptionalBeamStatComparisonRule EntryRules`: Optionally defines a set of [Stat](stats.md) comparison rules. Only players whose [Stats](stats.md) match those comparisons will be allowed into this queue.
+- `FOptionalBeamStatComparisonRule EntryRules`: Optionally defines a set of [Stat](stats.md) comparison rules. Only players whose [Stats](stats.md) match those comparisons will be allowed into this queue
 
 !!! note "Gating by Rank"
 	Failing to meet entry rule requirements will cause the Join Operation to fail — so these can be used to gate queues on a player's account level or rank for example.
 
-- `Numeric Rules` and `String Rules` are match grouping rules.
+- `Numeric Rules` and `String Rules` are match grouping rules
 	- **Numeric Rules** tries to group players with a particular stat within certain delta range
 	- **String Rules** groups players whose values for a particular stat match a certain value
 
 !!! note "Grouping by WinRate"
 	If you compute and store a Win Percentage value in a `Stat`, for example, you can tell the queue to group players that are closer in win-rate than others using **Numeric Rules**.
 
-- `MaxWaitDurationSecs`: Defines how long the player can stay in the queue without being matched; after this time passes, the matchmaking fails and `OnMatchTimedOut` is triggered.
-- `MatchingIntervalSecs`: Defines the ticking interval for the queue. Defaults to 10 seconds, which means that new sets of matches are produced every 10 seconds.
+- `MaxWaitDurationSecs`: Defines how long the player can stay in the queue without being matched; after this time passes, the matchmaking fails and `OnMatchTimedOut` is triggered
+- `MatchingIntervalSecs`: Defines the ticking interval for the queue. Defaults to 10 seconds, which means that new sets of matches are produced every 10 seconds
 	- If the time it takes to tick a queue is longer than the value set here, the longer value becomes the new tick
-- `FederatedGameServerNamespace`: Defines a [Federation Id](../federation/federation.md#federation-id) for a [Federated Game Server](../federation/federated-game-server.md).
+- `FederatedGameServerNamespace`: Defines a [Federation Id](../federation/federation.md#federation-id) for a [Federated Game Server](../federation/federated-game-server.md)
 
 ## Lobby subsystem integration
 The Matchmaking Subsystem works with the [Lobby Subsystem](lobbies.md) by default. It does the following things:
 
-- By the time `OnMatchReady` fires, the match Lobby data has been fetched and is available.
-    - This means you can use the `Local State - Lobby` nodes to fetch information from the lobby directly on this event.
+- By the time `OnMatchReady` fires, the match Lobby data has been fetched and is available
+    - This means you can use the `Local State - Lobby` nodes to fetch information from the lobby directly on this event
     - For example, when used with [Federated Game Server](../federation/federated-game-server.md), get the connection string from the global lobby property to proceed
-- When joining a queue, you can optionally pass in a set of key/value pairs called `FBeamTag`.
+- When joining a queue, you can optionally pass in a set of key/value pairs called `FBeamTag`
     - When a match gets made with that particular user/party, these tags end up inside the [Lobby](lobbies.md)'s per-player data
 
 ## Party subsystem integration
@@ -96,7 +96,7 @@ When you join a queue in Beamable's matchmaking, you get back a `FBeamMatchmakin
 
 - **GameType**: queue type
 - **GamerTagsInTicket**: list of players that are in the ticket
-- **SlotsInTicket**: list of local `FUserSlot` that are in the ticket (only the Owner Player, unless your game has multiple local players and matchmaking).
-- **FoundMatchLobbyId**: only filled inside the `OnMatchReady` callback and has the id for the resulting [Lobby](lobbies.md) for the match. You can use this to retrieve data from the [Lobby Subsystem](lobbies.md) inside the `OnMatchReady` callback to get connection information and more.
+- **SlotsInTicket**: list of local `FUserSlot` that are in the ticket (only the Owner Player, unless your game has multiple local players and matchmaking)
+- **FoundMatchLobbyId**: only filled inside the `OnMatchReady` callback and has the id for the resulting [Lobby](lobbies.md) for the match. You can use this to retrieve data from the [Lobby Subsystem](lobbies.md) inside the `OnMatchReady` callback to get connection information and more
 
 To understand these tickets in more depth, see the source code of `UBeamMatchmakingSubsystem` — it is concise and covers the system in full.

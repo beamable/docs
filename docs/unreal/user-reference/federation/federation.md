@@ -13,7 +13,7 @@ Most implementations of Server-Side Callbacks are fire-and-forget (similar to a 
 
 Here is a high-level diagram of Federations:
 
-![microservices-architecture-federation-general.png](../../../media/imgs/microservices-architecture-federation-general.png)
+![A diagram showing Play-In-Editor instances on developer machines making a request to the Beamable Gateway in the current target realm, which forwards it to a managed Auth or Matchmaking service that then calls a federated endpoint on one of the deployed or local microservices known in the realm.](../../../media/imgs/microservices-architecture-federation-general.png)
 
 Each **Federation** has its own semantics, usage guidelines, performance characteristics, and constraints, described in its individual page.
 
@@ -60,4 +60,4 @@ The selected [Microservice Target](../microservices/microservices.md#microservic
 !!! warning "What about PROD?!"
 	By default, production realm disallows ***any and all routing to microservices that are not the deployed ones***. In other words, if you run a local microservice while in a Prod realm, by default, it CANNOT steal any traffic from the service that is deployed.
 
-![editor-ms.png](../../../media/imgs/editor-ms.png)
+![The Beamable Editor panel's Microservices tab listing local microservices on the left and, for the selected BeamballMs, a Run Local button plus PIE Settings, Federations, and Dependencies sections.](../../../media/imgs/editor-ms.png)

@@ -4,7 +4,7 @@ Beamable Unreal SDK provides a set of editor systems that help you manage multip
 
 ## Beamable editor panel
 
-![editor-home.png](../../../media/imgs/editor-home.png)
+![The Beamable Editor panel's Home tab showing the organization, game, and realm selectors with Apply To Build and Sign Out buttons, a Beamable Web Portal section of shortcut buttons, and a Reset PIE Users editor utility.](../../../media/imgs/editor-home.png)
 
 The Beamable Editor Panel is the main interface for interacting with Beamable features in the Unreal Engine editor. It provides access to various tools and settings that allow you to manage your game integration, including:
 
@@ -15,7 +15,7 @@ The Beamable Editor Panel is the main interface for interacting with Beamable fe
 
 ### Accessing the Beamable editor panel
 To open the Beamable Editor Panel, select the **Beamable** icon on the right side of the Unreal Engine toolbar. This will open the Beamable Editor Panel, where you can access all available features and settings.
-![editor-home-opening.png](../../../media/imgs/editor-home-opening.png)
+![The Beamable icon on the Unreal toolbar with the cursor hovering over it, showing an "Opens the Beamable Window" tooltip.](../../../media/imgs/editor-home-opening.png)
 
 ### Home section
 The Home section allows you to select the current realm for your project and provides quick access to the Beamable Portal. Realm selection is located at the top of the panel, and you can switch between different realms as needed. By using the **Apply to Build** button, you can apply the selected realm to your current build configuration.

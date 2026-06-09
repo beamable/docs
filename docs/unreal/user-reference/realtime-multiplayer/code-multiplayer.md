@@ -7,7 +7,7 @@ There are a few components here that you need to know about before you implement
 
 - `AGameMode::BeginPlay`: In most C++-based implementations, this is your server's "entry point"
 - `AGameMode::PreLoginAsync`: This is what UE calls whenever a client attempts to connect to a game server — once you invoke a callback it provides, the user is either accepted or rejected. This will be invoked on the server once per-player (if you have multiple players per-client, this is an important distinction)
-- `ULocalPlayer::GetGameLoginOptions`: This appends a string of Options to each `ULocalPlayer`'s connection string.
+- `ULocalPlayer::GetGameLoginOptions`: This appends a string of Options to each `ULocalPlayer`'s connection string
 - `FUniqueNetIdRepl`: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework
 
 ### Setting up your gameplay level's Blueprint
@@ -86,8 +86,8 @@ In client builds, passing these options can be achieved using `UBeamLobbySubsyst
 
 When implementing `PreLoginAsync`, you need to call two functions:
 
-- `BeamPIE::Authentication::GetExpectedClientPIEOptions` — this enables the PIE integration to work with Game Server Authentication (it gets around UE limitations — see further down for more information on this).
-- `BeamMultiplayer::Authentication::PreLoginAsync` — this uses the `Options` to validate the user is in fact inside a lobby that has been registered with this server.
+- `BeamPIE::Authentication::GetExpectedClientPIEOptions` — this enables the PIE integration to work with Game Server Authentication (it gets around UE limitations — see further down for more information on this)
+- `BeamMultiplayer::Authentication::PreLoginAsync` — this uses the `Options` to validate the user is in fact inside a lobby that has been registered with this server
 
 A simple implementation of that looks like this:
 
@@ -152,8 +152,8 @@ User Slots are a big part of the regular workflow when working with Beamable SDK
 
 This means a few things:
 
-- There is no need to `SignUp`/`Login`; only to `InitSDK`.
-- Calling APIs that read data from users via their `GamerTag` or other Ids will work fine.
+- There is no need to `SignUp`/`Login`; only to `InitSDK`
+- Calling APIs that read data from users via their `GamerTag` or other Ids will work fine
 - Calling APIs that write to user data is not recommended via regular SDK functions (see below for the alternative)
 
 !!! note "Server Mapping Slots - Experimental"
