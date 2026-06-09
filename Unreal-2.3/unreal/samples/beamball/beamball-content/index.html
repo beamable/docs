@@ -8819,10 +8819,10 @@
 
 
 <h1 id="beamball-store-and-content-system">Beamball – store and content system<a class="headerlink" href="#beamball-store-and-content-system" title="Permanent link">¶</a></h1>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-content.gif" data-desc-position="bottom"><img alt="beamball-content.gif" src="../../../../media/imgs/beamball-content.gif"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-content.gif" data-desc-position="bottom"><img alt="An animation of the Beamball sample's store screen, where the player browses skin listings and purchases one to add it to their inventory." src="../../../../media/imgs/beamball-content.gif"></a></p>
 <p>The <strong>Beamball</strong> sample includes a basic implementation of the Store and Inventory Systems. Those are built using the Beamable’s <strong>Store</strong> and <strong>Content</strong> services. The flow combines backend data (listings and offers) with <strong>local DataAssets</strong> that define the visual presentation of each item.</p>
 <h2 id="loading-and-displaying-store-items">Loading and displaying store items<a class="headerlink" href="#loading-and-displaying-store-items" title="Permanent link">¶</a></h2>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-content-blueprint.png" data-desc-position="bottom"><img alt="beamball-content-blueprint.png" src="../../../../media/imgs/beamball-content-blueprint.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-content-blueprint.png" data-desc-position="bottom"><img alt="A wide widget Blueprint graph that refreshes the store, retrieves the store view from local state, and builds an item widget for each listing into a grid layout." src="../../../../media/imgs/beamball-content-blueprint.png"></a></p>
 <p>The Content system in Beamball acts as a bridge between:</p>
 <ul>
 <li><strong>The online side</strong> – store listings and offers managed by Beamable services,</li>
@@ -8842,12 +8842,12 @@
 <div class="admonition note">
 <p class="admonition-title">Main Operators to be aware of:</p>
 <ul>
-<li><strong><code>Operation - Store - Refresh Store</code></strong>: Refreshes the player’s store state from the backend.</li>
-<li><strong><code>Local State - Store - TryGetStoreView</code></strong>: Retrieves the updated StoreView from the local Beamable state.</li>
+<li><strong><code>Operation - Store - Refresh Store</code></strong>: Refreshes the player’s store state from the backend</li>
+<li><strong><code>Local State - Store - TryGetStoreView</code></strong>: Retrieves the updated StoreView from the local Beamable state</li>
 </ul>
 </div>
 <h2 id="purchasing-items">Purchasing items<a class="headerlink" href="#purchasing-items" title="Permanent link">¶</a></h2>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-purchase.png" data-desc-position="bottom"><img alt="beamball-purchase.png" src="../../../../media/imgs/beamball-purchase.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-purchase.png" data-desc-position="bottom"><img alt="A WBP_MainMenu event graph where a Purchase button's On Clicked event runs an Operation - Store - Perform Purchase node with a Store Id of stores.SkinStore and a Listing Id fed by the selected purchase listing." src="../../../../media/imgs/beamball-purchase.png"></a></p>
 <p>When the player selects an item to purchase, the corresponding widget calls the <strong><code>Operation - Store - Perform Purchase</code></strong> operator. This operator takes care of the entire purchase flow, including:</p>
 <ul>
 <li>Validating the offer,</li>
@@ -8856,12 +8856,12 @@
 <li>Adding the item to the player’s inventory</li>
 </ul>
 <p>Upon successful completion of the purchase operation, the player’s inventory changes with the addition of the item. It triggers a redraw from scratch from the UI so it can include the newly acquired item.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-pruchase2.png" data-desc-position="bottom"><img alt="beamball-pruchase2.png" src="../../../../media/imgs/beamball-pruchase2.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamball-pruchase2.png" data-desc-position="bottom"><img alt="A WBP_MainMenu event graph where an Events - Inventory - Bind node's On Inventory Refreshed event reloads the shop UI and updates the main menu to show the newly purchased skin." src="../../../../media/imgs/beamball-pruchase2.png"></a></p>
 <div class="admonition note">
 <p class="admonition-title">Main Operators to be aware of:</p>
 <ul>
-<li><strong><code>Operation - Store - Perform Purchase</code></strong>: Purchase a listing in the player's account.</li>
-<li><strong><code>Events - Inventory - Bind</code></strong>: Trigger an event when the inventory is refreshed (Updated) in the server.</li>
+<li><strong><code>Operation - Store - Perform Purchase</code></strong>: Purchase a listing in the player's account</li>
+<li><strong><code>Events - Inventory - Bind</code></strong>: Trigger an event when the inventory is refreshed (Updated) in the server</li>
 </ul>
 </div>
 

@@ -9004,8 +9004,8 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
-<li>Copy the <code>beam_init_game_maker.sh</code> script into the root directory of your Unreal Project.</li>
-<li>From a terminal (on windows, <strong>GitBash</strong>) running in your project directory, run <code>beam_init_game_maker.sh</code> passing in the path to the <strong>UnrealSDK</strong> in your machine.<ol>
+<li>Copy the <code>beam_init_game_maker.sh</code> script into the root directory of your Unreal Project</li>
+<li>From a terminal (on windows, <strong>GitBash</strong>) running in your project directory, run <code>beam_init_game_maker.sh</code> passing in the path to the <strong>UnrealSDK</strong> in your machine<ol>
 <li><code>. beam_init_game_maker.sh "E:/Path/To/UnrealSDK"</code></li>
 </ol>
 </li>
@@ -9013,9 +9013,9 @@
 </div>
 <div class="tabbed-block">
 <ol>
-<li>Copy the <code>beam_init_game_maker.sh</code> script into the root directory of your Unreal Project.</li>
-<li>From a terminal, running in your project directory, run <code>beam_init_game_maker.sh</code> passing in the path to the <strong>UnrealSDK</strong> in your machine.<ol>
-<li>Run <code>chmod +x ./beam_init_game_maker.sh</code> before running the script.</li>
+<li>Copy the <code>beam_init_game_maker.sh</code> script into the root directory of your Unreal Project</li>
+<li>From a terminal, running in your project directory, run <code>beam_init_game_maker.sh</code> passing in the path to the <strong>UnrealSDK</strong> in your machine<ol>
+<li>Run <code>chmod +x ./beam_init_game_maker.sh</code> before running the script</li>
 <li><code>. beam_init_game_maker.sh "/Users/Me/Path/To/UnrealSDK"</code></li>
 </ol>
 </li>
@@ -9078,32 +9078,32 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
-<li>Regenerate project files.<ol>
-<li>Right-click the <code>.uproject</code> file and select <code>Generate Visual Studio project files</code>.</li>
+<li>Regenerate project files<ol>
+<li>Right-click the <code>.uproject</code> file and select <code>Generate Visual Studio project files</code></li>
 </ol>
 </li>
 <li>Verify that your project is set up correctly by going to your project's root directory:<ol>
-<li>Check if there is a <code>.beamable</code> folder there.</li>
-<li>Check if there is a <code>.config/dotnet-tools.json</code> file.</li>
-<li>Run <code>dotnet beam --version</code> from inside your project root directory and see that it outputs a valid <code>X.Y.Z</code> string.</li>
+<li>Check if there is a <code>.beamable</code> folder there</li>
+<li>Check if there is a <code>.config/dotnet-tools.json</code> file</li>
+<li>Run <code>dotnet beam --version</code> from inside your project root directory and see that it outputs a valid <code>X.Y.Z</code> string</li>
 </ol>
 </li>
-<li>Open your IDE and compile your editor.</li>
+<li>Open your IDE and compile your editor</li>
 </ol>
 </div>
 <div class="tabbed-block">
 <ol>
-<li>Regenerate project files.<ol>
-<li>From a terminal, run <code>sh "/Users/Shared/Epic Games/UE_5.6/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh" "/Users/Path/To/Your/Project/YourProject.uproject" -game</code>.</li>
+<li>Regenerate project files<ol>
+<li>From a terminal, run <code>sh "/Users/Shared/Epic Games/UE_5.6/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh" "/Users/Path/To/Your/Project/YourProject.uproject" -game</code></li>
 </ol>
 </li>
 <li>Verify that your project is set up correctly by going to your project's root directory:<ol>
-<li>Check there is a <code>.beamable</code> folder there.</li>
-<li>Check there is a <code>.config/dotnet-tools.json</code> file.</li>
-<li>Run <code>dotnet beam --version</code> from inside your project root directory and see that it outputs a valid <code>X.Y.Z</code> string.</li>
+<li>Check there is a <code>.beamable</code> folder there</li>
+<li>Check there is a <code>.config/dotnet-tools.json</code> file</li>
+<li>Run <code>dotnet beam --version</code> from inside your project root directory and see that it outputs a valid <code>X.Y.Z</code> string</li>
 </ol>
 </li>
-<li>Open your IDE and compile your editor.</li>
+<li>Open your IDE and compile your editor</li>
 </ol>
 </div>
 </div>
@@ -9112,17 +9112,17 @@
 <h2 id="upgrading-the-sdk">Upgrading the SDK<a class="headerlink" href="#upgrading-the-sdk" title="Permanent link">¶</a></h2>
 <p>Upgrading the SDK follows the same steps as the initial setup, with one difference: re-apply any custom changes you made to the SDK after the upgrade.</p>
 <ol>
-<li>Download the latest <a href="https://github.com/beamable/UnrealSDK/releases">tagged release version</a>.</li>
-<li>Run through the steps in the <a href="#setting-up-the-sdk-in-your-project">Setup SDK</a> section.</li>
-<li>If you made any custom changes to the SDK, use Git to re-apply them. Flag custom changes with a comment when you make them, so they are easy to find during this step.</li>
-<li>Fix any compilation errors caused by breaking changes. Also fix any blueprints after the editor compiles.</li>
-<li>Run <code>dotnet tool restore</code> from your project root.</li>
-<li>Verify that the CLI was updated to the proper version by running <code>dotnet beam version</code> and seeing that it matches the version in <code>E:/Path/To/UnrealSDK/.config/dotnet-tools.json</code>.</li>
+<li>Download the latest <a href="https://github.com/beamable/UnrealSDK/releases">tagged release version</a></li>
+<li>Run through the steps in the <a href="#setting-up-the-sdk-in-your-project">Setup SDK</a> section</li>
+<li>If you made any custom changes to the SDK, use Git to re-apply them. Flag custom changes with a comment when you make them, so they are easy to find during this step</li>
+<li>Fix any compilation errors caused by breaking changes. Also fix any blueprints after the editor compiles</li>
+<li>Run <code>dotnet tool restore</code> from your project root</li>
+<li>Verify that the CLI was updated to the proper version by running <code>dotnet beam version</code> and seeing that it matches the version in <code>E:/Path/To/UnrealSDK/.config/dotnet-tools.json</code></li>
 <li>If you have microservices:<ol>
-<li>From your microservice project's directory, run <code>dotnet restore</code>.</li>
-<li>Verify that the CLI was updated to the proper version by running <code>dotnet beam version</code> from the microservice directory.</li>
-<li>Run <code>dotnet beam checks scan --fix all</code>.<ol>
-<li>The CLI can fix some but not all breaking changes automatically with this command.</li>
+<li>From your microservice project's directory, run <code>dotnet restore</code></li>
+<li>Verify that the CLI was updated to the proper version by running <code>dotnet beam version</code> from the microservice directory</li>
+<li>Run <code>dotnet beam checks scan --fix all</code><ol>
+<li>The CLI can fix some but not all breaking changes automatically with this command</li>
 </ol>
 </li>
 </ol>

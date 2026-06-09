@@ -8985,47 +8985,47 @@
 <p>While it is considered a minor release in our release cycle, it brings a lot of new features and improvements to the Beamable Unreal SDK and user experience in general including many UI/UX improvements on the built-in editor window, reworked LiveOps demo, new Documentation website and many improvements on the codebase including new <code>OnlineSubsystemBeamable</code> features, and many bug fixes. You can see the full list of changes below.</p>
 <h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">¶</a></h2>
 <h3 id="new-beamable-editor-window">New Beamable editor window<a class="headerlink" href="#new-beamable-editor-window" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/intro-beamable-window-opened.png" data-desc-position="bottom"><img alt="intro-beamable-window-opened.png" src="../../../media/imgs/intro-beamable-window-opened.png"></a>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/intro-beamable-window-opened.png" data-desc-position="bottom"><img alt="The reworked Beamable Editor Window on its Home tab, with fixed Home, Content, Microservices, and PIE tabs across the top and the organization, game, and realm selectors below." src="../../../media/imgs/intro-beamable-window-opened.png"></a>
 The Beamable Editor Window was reworked making it easier to use the Beamable Systems in your project. Now you can easily access Home, Content and Microservices using fixed tabs on the top of the window without effort.</p>
 <h3 id="new-content-editor">New content editor<a class="headerlink" href="#new-content-editor" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/content-window.png" data-desc-position="bottom"><img alt="content-window.png" src="../../../media/imgs/content-window.png"></a>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/content-window.png" data-desc-position="bottom"><img alt="The reworked Content editor presenting content objects as a list with the currency.coins object selected and its properties, including a Federation section, shown in the right-hand detail panel." src="../../../media/imgs/content-window.png"></a>
 The Content Editor received a complete rework improving the usability and fixing many bugs. Now the content is presented in a list of items improving the visualization of large amounts of data; The filters were fixed on the top and the search is now a <code>Contains</code> search instead of a <code>StartsWith</code> search. Also, all changes in the data are now updated properly with real-time feedback without need to reload the window manually. You can check the new Content Editor Documentation <a href="../../user-reference/beamable-services/content/">here</a></p>
 <h3 id="new-connectivity-management-utilities">New connectivity management utilities<a class="headerlink" href="#new-connectivity-management-utilities" title="Permanent link">¶</a></h3>
 <p>In this version, the SDK now exposes utilities to assist you in dealing with loss of connectivity to the Beamable servers. These utilities allow you to gracefully respond to connection losses and instability.
 For more details, check out <a href="../../user-reference/runtime-systems/connectivity/">this page</a>.</p>
 <h3 id="new-unreal-documentation">New Unreal documentation<a class="headerlink" href="#new-unreal-documentation" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/news-1.1.0-docs.png" data-desc-position="bottom"><img alt="news-1.1.0-docs.png" src="../../../media/imgs/news-1.1.0-docs.png"></a>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/news-1.1.0-docs.png" data-desc-position="bottom"><img alt="The reorganized Unreal SDK documentation website, showing the &quot;Introduction to Unreal SDK&quot; page with the navigation sidebar listing Getting Started, What's New, User Reference, and Samples sections." src="../../../media/imgs/news-1.1.0-docs.png"></a>
 The Unreal Documentation was reorganized and improved to better guide the users on how to use the Beamable System in your project. More improvements in the Documentation of all Beamable Products are coming soon.</p>
 <h3 id="new-liveops-sample">New LiveOps sample<a class="headerlink" href="#new-liveops-sample" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/liveops.png" data-desc-position="bottom"><img alt="liveops.png" src="../../../media/imgs/liveops.png"></a>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/liveops.png" data-desc-position="bottom"><img alt="The reworked LiveOps sample screen titled &quot;Player Stats&quot;, explaining the Beamable Stats feature beside a my_sample_stat counter showing 1 and an Increase Stats button." src="../../../media/imgs/liveops.png"></a>
 The LiveOps Sample was improved with new UI and information. You can check the new LiveOps Sample Documentation <a href="../../samples/live-ops-demo/">here</a></p>
 <h2 id="other-changes">Other changes<a class="headerlink" href="#other-changes" title="Permanent link">¶</a></h2>
 <ul>
-<li><code>OnlineSubsystemBeamable</code> plugin now supports Frictionless Authentication and Identity Attaching.<ul>
+<li><code>OnlineSubsystemBeamable</code> plugin now supports Frictionless Authentication and Identity Attaching<ul>
 <li>This is the last feature update to this subsystem as it is now discontinued</li>
 </ul>
 </li>
 <li>Samples are now selected by running <code>dotnet beam unreal select-sample BEAMPROJ_Name</code> instead of <code>BeamProjOverride.txt</code></li>
-<li><code>beam_init_game_maker.sh</code> will now try to remove any read-only flags of files inside the existing <code>Plugins/BeamableCore</code> folder.
+<li><code>beam_init_game_maker.sh</code> will now try to remove any read-only flags of files inside the existing <code>Plugins/BeamableCore</code> folder
   This is needed because UE's integrations with VCSs (Git, P4) will often lock binary files at the file system level; which then
   leads to our CLI being unable to replace the folder with newer versions (due to "access denied" problems). If you are using a VCS that
   makes files read-only at the file-system level, and you run into "access denied" issues when running this script, make them not read-only and try again.</li>
-<li><code>UBeamNotifications::TrySubscribeForMessage</code> now also accepts any type implementing <code>IBeamJsonSerializableUObject</code> for its message type.
+<li><code>UBeamNotifications::TrySubscribeForMessage</code> now also accepts any type implementing <code>IBeamJsonSerializableUObject</code> for its message type
   This enables usage of the <code>BeamGenerateSchema</code> attribute in microservice code to keep custom notification payloads in-sync between Microservice and UE code.</li>
-<li>Added support for serializing <code>FColor</code>, <code>FLinearColor</code>, <code>FVector</code> and <code>FIntVector</code> inside <code>UBeamContentObject</code>types.</li>
+<li>Added support for serializing <code>FColor</code>, <code>FLinearColor</code>, <code>FVector</code> and <code>FIntVector</code> inside <code>UBeamContentObject</code>types</li>
 <li>Local Microservices started from the Unreal editor will now correctly terminate when the editor closes</li>
 </ul>
 <h2 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">¶</a></h2>
 <ul>
 <li>Fixed issue that could cause an internal engine check to fail during editor startup in very rare cases (PostObjectLoad issue)</li>
 <li>Fixed issue that could cause a crash when re-logging into any particular UserSlot (a cleaned up operation could be waited on; no longer possible now)</li>
-<li>Fixed an issue that would cause a subsystem initialized with <code>UBeamRuntime::ManuallyInitializeSubsystem</code> to not load its user's data correctly if the user signed in <strong>after</strong> the system was initialized.</li>
+<li>Fixed an issue that would cause a subsystem initialized with <code>UBeamRuntime::ManuallyInitializeSubsystem</code> to not load its user's data correctly if the user signed in <strong>after</strong> the system was initialized</li>
 <li>Fixed multiple cases where the Content Screen did not update automatically after changes</li>
 </ul>
 <h2 id="known-issues">Known issues<a class="headerlink" href="#known-issues" title="Permanent link">¶</a></h2>
 <ul>
-<li>When creating a custom event by hand, adding a <code>FUserSlot</code> parameter pin to that event can sometimes crash the engine. This also seems to happen with <em>some</em> Unreal types that have custom pins (the same crash happens with <code>bool</code> pins, though less frequently).<ul>
-<li>This does NOT happen if you create the event using the functionality in the <code>CreateEvent</code> node OR by any other means of creating a custom event with all the pins it knows it should have.</li>
+<li>When creating a custom event by hand, adding a <code>FUserSlot</code> parameter pin to that event can sometimes crash the engine. This also seems to happen with <em>some</em> Unreal types that have custom pins (the same crash happens with <code>bool</code> pins, though less frequently)<ul>
+<li>This does NOT happen if you create the event using the functionality in the <code>CreateEvent</code> node OR by any other means of creating a custom event with all the pins it knows it should have</li>
 <li>This crash also seems less likely to happen the longer the editor stays open</li>
 </ul>
 </li>

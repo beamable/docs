@@ -8923,7 +8923,7 @@
 <ul>
 <li><code>AGameMode::BeginPlay</code>: In most C++-based implementations, this is your server's "entry point"</li>
 <li><code>AGameMode::PreLoginAsync</code>: This is what UE calls whenever a client attempts to connect to a game server — once you invoke a callback it provides, the user is either accepted or rejected. This will be invoked on the server once per-player (if you have multiple players per-client, this is an important distinction)</li>
-<li><code>ULocalPlayer::GetGameLoginOptions</code>: This appends a string of Options to each <code>ULocalPlayer</code>'s connection string.</li>
+<li><code>ULocalPlayer::GetGameLoginOptions</code>: This appends a string of Options to each <code>ULocalPlayer</code>'s connection string</li>
 <li><code>FUniqueNetIdRepl</code>: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework</li>
 </ul>
 <h3 id="setting-up-your-gameplay-levels-blueprint">Setting up your gameplay level's Blueprint<a class="headerlink" href="#setting-up-your-gameplay-levels-blueprint" title="Permanent link">¶</a></h3>
@@ -8995,8 +8995,8 @@
 <p>In client builds, passing these options can be achieved using <code>UBeamLobbySubsystem::TryOpenLevelFromLobby</code>. You can also use <code>UBeamLobbySubsystem::PrepareLoginOptions</code> to append these to a string you'll pass to the regular <code>Open Level</code> calls used to connect to game servers.</p>
 <p>When implementing <code>PreLoginAsync</code>, you need to call two functions:</p>
 <ul>
-<li><code>BeamPIE::Authentication::GetExpectedClientPIEOptions</code> — this enables the <abbr title="Play in Editor">PIE</abbr> integration to work with Game Server Authentication (it gets around UE limitations — see further down for more information on this).</li>
-<li><code>BeamMultiplayer::Authentication::PreLoginAsync</code> — this uses the <code>Options</code> to validate the user is in fact inside a lobby that has been registered with this server.</li>
+<li><code>BeamPIE::Authentication::GetExpectedClientPIEOptions</code> — this enables the <abbr title="Play in Editor">PIE</abbr> integration to work with Game Server Authentication (it gets around UE limitations — see further down for more information on this)</li>
+<li><code>BeamMultiplayer::Authentication::PreLoginAsync</code> — this uses the <code>Options</code> to validate the user is in fact inside a lobby that has been registered with this server</li>
 </ul>
 <p>A simple implementation of that looks like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">PreLoginAsync</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Options</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Address</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FUniqueNetIdRepl</span><span class="o">&amp;</span><span class="w"> </span><span class="n">UniqueId</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FOnPreLoginCompleteDelegate</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OnComplete</span><span class="p">)</span><span class="w"> </span><span class="k">override</span>
@@ -9048,8 +9048,8 @@
 <p>User Slots are a big part of the regular workflow when working with Beamable SDK in game clients. For dedicated servers though they are not used. Any functions containing the <code>UserSlot</code> parameter, that parameter can be ignored.</p>
 <p>This means a few things:</p>
 <ul>
-<li>There is no need to <code>SignUp</code>/<code>Login</code>; only to <code>InitSDK</code>.</li>
-<li>Calling APIs that read data from users via their <code>GamerTag</code> or other Ids will work fine.</li>
+<li>There is no need to <code>SignUp</code>/<code>Login</code>; only to <code>InitSDK</code></li>
+<li>Calling APIs that read data from users via their <code>GamerTag</code> or other Ids will work fine</li>
 <li>Calling APIs that write to user data is not recommended via regular SDK functions (see below for the alternative)</li>
 </ul>
 <div class="admonition note">

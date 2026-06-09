@@ -8849,7 +8849,7 @@
 </ul>
 <p>Most implementations of Server-Side Callbacks are fire-and-forget (similar to a webhook). <strong>Federations</strong>, however, don't need to be fire-and-forget. Most <strong>Federations</strong> are calls made to your microservice that happen as part of a particular flow, often with things happening <strong><em>before</em></strong> and/or <strong><em>after the federated call finishes</em></strong>.</p>
 <p>Here is a high-level diagram of Federations:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture-federation-general.png" data-desc-position="bottom"><img alt="microservices-architecture-federation-general.png" src="../../../../media/imgs/microservices-architecture-federation-general.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-architecture-federation-general.png" data-desc-position="bottom"><img alt="A diagram showing Play-In-Editor instances on developer machines making a request to the Beamable Gateway in the current target realm, which forwards it to a managed Auth or Matchmaking service that then calls a federated endpoint on one of the deployed or local microservices known in the realm." src="../../../../media/imgs/microservices-architecture-federation-general.png"></a></p>
 <p>Each <strong>Federation</strong> has its own semantics, usage guidelines, performance characteristics, and constraints, described in its individual page.</p>
 <h2 id="federation-id">Federation ID<a class="headerlink" href="#federation-id" title="Permanent link">¶</a></h2>
 <p>Federations are delegate methods in your microservice that the Beamable backend calls at specific points in various flows, to perform tasks that would otherwise be entirely internal to the Beamable backend. A Federation Id is a unique <code>string</code> value that designates a specific implementation of Federation.</p>
@@ -8884,7 +8884,7 @@
 <p class="admonition-title">What about PROD?!</p>
 <p>By default, production realm disallows <strong><em>any and all routing to microservices that are not the deployed ones</em></strong>. In other words, if you run a local microservice while in a Prod realm, by default, it CANNOT steal any traffic from the service that is deployed.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/editor-ms.png" data-desc-position="bottom"><img alt="editor-ms.png" src="../../../../media/imgs/editor-ms.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/editor-ms.png" data-desc-position="bottom"><img alt="The Beamable Editor panel's Microservices tab listing local microservices on the left and, for the selected BeamballMs, a Run Local button plus PIE Settings, Federations, and Dependencies sections." src="../../../../media/imgs/editor-ms.png"></a></p>
 
 
 

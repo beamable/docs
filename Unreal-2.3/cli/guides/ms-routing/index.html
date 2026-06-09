@@ -8988,10 +8988,10 @@
 <h2 id="microservice-routing_1">Microservice routing<a class="headerlink" href="#microservice-routing_1" title="Permanent link">¶</a></h2>
 <p>Beamable Microservices use a privileged web socket to communicate with Beamable's existing APIs and services. There is a custom Beamable application level protocol, <em>Thorium</em>, that allows a Microservice to receive HTTPS traffic sent to <code>https://api.beamable.com</code>. However, for the Microservice to receive the traffic, the HTTP request needs to meet the following requirements,</p>
 <ol>
-<li>The <code>uri</code> of the HTTP request must have a <code>path</code> that maps to the desired Microservice.</li>
+<li>The <code>uri</code> of the HTTP request must have a <code>path</code> that maps to the desired Microservice</li>
 <li>The HTTP request must have an <code>X-DE-SCOPE</code> header, and</li>
 <li><em>Optionally</em>, the HTTP request should have a <code>X-BEAM-SERVICE-ROUTING-KEY</code> header that carries a map of service routing keys, and</li>
-<li><em>Optionally</em>, the HTTP request should have an <code>Authorization</code> header that carries a Bearer Token.</li>
+<li><em>Optionally</em>, the HTTP request should have an <code>Authorization</code> header that carries a Bearer Token</li>
 </ol>
 <h3 id="path-routing">Path routing<a class="headerlink" href="#path-routing" title="Permanent link">¶</a></h3>
 <p>The <code>uri</code> of the HTTP request destined for a Microservice must follow a strict format. The format is given by the code snippet below.</p>

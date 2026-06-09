@@ -8798,8 +8798,8 @@
 <ul>
 <li>Download/Clone our Tagged Release</li>
 <li>Extract it to a location in the same drive as your project</li>
-<li>Copy/Paste the <code>beam_game_maker_init.sh</code> into your project's root (next to your <code>.uproject</code> file).</li>
-<li>Open a shell (we recommend <code>GitBash</code> if you're using <code>git</code>) in your project root directory.</li>
+<li>Copy/Paste the <code>beam_game_maker_init.sh</code> into your project's root (next to your <code>.uproject</code> file)</li>
+<li>Open a shell (we recommend <code>GitBash</code> if you're using <code>git</code>) in your project root directory</li>
 <li>Run that script passing in the path to our extracted project</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># If you just want to install the BeamableCore plugin (no OnlineSubsystem)</span>
@@ -8834,11 +8834,11 @@
 </code></pre></div>
 <p>Now, if you have microservices, do the following steps. If not, skip to the next section.</p>
 <ul>
-<li>Open a shell inside your project root and run: <code>dotnet tool restore</code>.</li>
-<li>Unlink the Unreal Project by deleting the <code>.beamable/linked-projects.json</code> file.</li>
+<li>Open a shell inside your project root and run: <code>dotnet tool restore</code></li>
+<li>Unlink the Unreal Project by deleting the <code>.beamable/linked-projects.json</code> file</li>
 <li>Link it again using <code>dotnet beam project add-unreal-project .</code></li>
 <li>
-<p>Disable Automatic code Generation by setting <code>&lt;GenerateClientCode&gt;false&lt;/GenerateClientCode&gt;</code> in every service's <code>csproj</code> file.</p>
+<p>Disable Automatic code Generation by setting <code>&lt;GenerateClientCode&gt;false&lt;/GenerateClientCode&gt;</code> in every service's <code>csproj</code> file</p>
 </li>
 <li>
 <p>Follow the <a href="https://docs.beamable.com/v2.0.0/docs/cli-guide-upgrading#from-202-to-301">CLI upgrade guide found here</a> to ensure your microservice is now correctly configured</p>
@@ -8847,7 +8847,7 @@
 <p>Run your microservice from Rider to verify the upgrade worked</p>
 </li>
 <li>
-<p>If you want, re-enable Automatic Code Generation by setting <code>&lt;GenerateClientCode&gt;true&lt;/GenerateClientCode&gt;</code> in every service's <code>csproj</code> file.</p>
+<p>If you want, re-enable Automatic Code Generation by setting <code>&lt;GenerateClientCode&gt;true&lt;/GenerateClientCode&gt;</code> in every service's <code>csproj</code> file</p>
 </li>
 <li>If you don't want, you can read about manual generation <a href="../../user-reference/microservices/microservices/">here</a></li>
 </ul>
@@ -8859,27 +8859,27 @@
 <li>
 <p><code>Target.cs</code> file and <code>Beam.Configure___</code> functions</p>
 <ul>
-<li>We now add code to your project's <code>Target.cs</code> file. This code is callable from any <code>Target.cs</code> and <code>Build.cs</code> files.</li>
-<li>Before, you had to manually add the various <code>BeamableCore</code> modules to these things by hand. Now, you can call the respective functions based on the Type of <code>Target</code> or <code>Module</code>.</li>
-<li>You can refer to the <a href="../../intro">intro guide</a> to see which functions can be called in which <code>Target</code>/<code>Modules</code>.</li>
+<li>We now add code to your project's <code>Target.cs</code> file. This code is callable from any <code>Target.cs</code> and <code>Build.cs</code> files</li>
+<li>Before, you had to manually add the various <code>BeamableCore</code> modules to these things by hand. Now, you can call the respective functions based on the Type of <code>Target</code> or <code>Module</code></li>
+<li>You can refer to the <a href="../../intro">intro guide</a> to see which functions can be called in which <code>Target</code>/<code>Modules</code></li>
 </ul>
 </li>
 </ul>
 <p><strong>Initialization</strong> is now manual in all cases.</p>
 <ul>
-<li>Instead of <code>RegisterOnStarted</code>/<code>RegisterOnReady</code>, you should explicitly invoke: <code>InitSDK</code> or <code>InitSDKWithFrictionlessAuth</code>.<ul>
-<li><code>RegisterOnReady</code> no longer exists. Its semantics were hard to explain and provided little benefits.<ul>
-<li>It was replaced by <code>RegisterOnUserReady</code>.</li>
-<li>The semantics for this is: "runs at the end of every user's login process, when all the <code>UBeamRuntimeSubsystems</code> have already prefetched data for that user".</li>
+<li>Instead of <code>RegisterOnStarted</code>/<code>RegisterOnReady</code>, you should explicitly invoke: <code>InitSDK</code> or <code>InitSDKWithFrictionlessAuth</code><ul>
+<li><code>RegisterOnReady</code> no longer exists. Its semantics were hard to explain and provided little benefits<ul>
+<li>It was replaced by <code>RegisterOnUserReady</code></li>
+<li>The semantics for this is: "runs at the end of every user's login process, when all the <code>UBeamRuntimeSubsystems</code> have already prefetched data for that user"</li>
 </ul>
 </li>
-<li><code>RegisterOnStarted</code> remains the same.</li>
+<li><code>RegisterOnStarted</code> remains the same</li>
 <li>A few delegates have been renamed for clarity:<ul>
 <li><code>FRuntimeStateChangeHandler</code> =&gt; <code>FBeamRuntimeHandler</code></li>
 <li><code>FUserStateChangedCode</code>=&gt; <code>FUserStateChangedHandlerCode</code></li>
 </ul>
 </li>
-<li>We removed <code>IsFirstAuth</code> and <code>bDidFirstAuthRun</code> in favor of a simpler <code>IsLoggedIn(FUserSlot)</code> function with which you can build.<ul>
+<li>We removed <code>IsFirstAuth</code> and <code>bDidFirstAuthRun</code> in favor of a simpler <code>IsLoggedIn(FUserSlot)</code> function with which you can build<ul>
 <li>The new semantics are slightly different and just tell you that there's a user in that slot or not; you are free to handle "Return to main menu" situation as you wish</li>
 </ul>
 </li>
@@ -8891,20 +8891,20 @@
 <ul>
 <li>Microservices are now generated into their own exclusive Plugin. This makes the Microservice Client code accessible from any other Plugin or Module in your project</li>
 <li>This means a few things:<ul>
-<li>You must add this plugin to all relevant <code>Target.cs</code> and <code>Build.cs</code>.</li>
-<li>You must add this plugin to your Project's <code>.uproject</code> file (can be done via the editor, but since you might not be able to compile — you can do it manually too).</li>
+<li>You must add this plugin to all relevant <code>Target.cs</code> and <code>Build.cs</code></li>
+<li>You must add this plugin to your Project's <code>.uproject</code> file (can be done via the editor, but since you might not be able to compile — you can do it manually too)</li>
 <li>If you were using OnlineSubsystemBeamable:<ul>
-<li>Delete the <code>AutoGen</code> folder from inside the <code>Customer</code> directory.</li>
-<li>Add the <code>MicroserviceNameMicroserviceClients</code> plugin as a dependency to the OnlineSubsystemBeamable plugin.</li>
+<li>Delete the <code>AutoGen</code> folder from inside the <code>Customer</code> directory</li>
+<li>Add the <code>MicroserviceNameMicroserviceClients</code> plugin as a dependency to the OnlineSubsystemBeamable plugin</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>If you haven't already, regenerate the microservice clients via by rebuilding them (or running the <code>dotnet beam generate-client</code> command).<ul>
-<li>This will create a new Plugin in your project called <code>MicroserviceNameMicroserviceClients</code>.</li>
+<li>If you haven't already, regenerate the microservice clients via by rebuilding them (or running the <code>dotnet beam generate-client</code> command)<ul>
+<li>This will create a new Plugin in your project called <code>MicroserviceNameMicroserviceClients</code></li>
 <li>This Plugin can be added to any other Plugin or your own project to gain access to the microservice clients and types</li>
 <li>About code-changes:<ul>
-<li>The new clients no longer prefix <em>every</em> generated type with <code>MicroserviceName</code>; it only does so for the Request types.</li>
+<li>The new clients no longer prefix <em>every</em> generated type with <code>MicroserviceName</code>; it only does so for the Request types</li>
 <li>You'll have to go through the code and use the newly generated types</li>
 <li>This change was made to provide you with more control over naming data-types shared between microservice and Unreal and reduce the common-case verbosity of these names</li>
 <li>This means you can fix name conflicts as they appear <em>in your project</em> instead of us preemptively doing it</li>

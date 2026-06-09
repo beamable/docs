@@ -8869,13 +8869,13 @@
 <p><strong>There are two important specifiers of each stat: Visibility and Domain.</strong></p>
 <p>Visibility is represented in Unreal by enum <code>EBeamStatsVisibility</code>, and it describes stat visibility.</p>
 <ul>
-<li><code>private</code>: visible only to owning User and Backend.</li>
-<li><code>public</code>: visible to any User.</li>
+<li><code>private</code>: visible only to owning User and Backend</li>
+<li><code>public</code>: visible to any User</li>
 </ul>
 <p>Domain is represented in Unreal by enum <code>EBeamStatsDomain</code>, and it describes if a stat can be retrieved from the game itself or if it requires use of microservices:</p>
 <ul>
-<li><code>client</code>: Can be accessed from both <strong>Unreal</strong> and <strong>Microservices</strong>.</li>
-<li><code>game</code>: Cannot be accessed from <strong>Unreal</strong> directly, but it can still be accessed via <strong>Microservices</strong> using <code>ClientCallable</code> calls.</li>
+<li><code>client</code>: Can be accessed from both <strong>Unreal</strong> and <strong>Microservices</strong></li>
+<li><code>game</code>: Cannot be accessed from <strong>Unreal</strong> directly, but it can still be accessed via <strong>Microservices</strong> using <code>ClientCallable</code> calls</li>
 </ul>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>To write to a <code>client</code>/<code>public</code> stat from a client, use the <code>Set Stat Operation</code> for individual stat changes. For batching multiple stat changes, use the <code>TryCreateUpdateCommand</code> to begin building a set of stat changes for the given <code>UserSlot</code>, which are later committed via the <code>Commit Stats Operation</code>.</p>
@@ -8883,10 +8883,10 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/stats-create-stats.png" data-desc-position="bottom"><img alt="Two Blueprint graphs: a single Operation - Stats - SetStatOperation node for modifying one stat, and a Local State - Stats - TryCreateUpdateCommand feeding an Operation - Stats - CommitStatsOperation for batch updates." src="../../../../media/imgs/stats-create-stats.png"></a></p>
 <p>You can check if it is working in the Beamable Portal:</p>
 <ul>
-<li>Copy the <code>Gamertag/UserId</code> from the Unreal Engine logs.</li>
-<li>Select <code>Open Portal</code> in Beamable window.</li>
-<li>Go to <code>Engage-&gt;Players</code> and search for the player via <code>Gamertag/UserId</code>.</li>
-<li>Go to <code>Stats</code> and search for <code>NewStatKey</code>.</li>
+<li>Copy the <code>Gamertag/UserId</code> from the Unreal Engine logs</li>
+<li>Select <code>Open Portal</code> in Beamable window</li>
+<li>Go to <code>Engage-&gt;Players</code> and search for the player via <code>Gamertag/UserId</code></li>
+<li>Go to <code>Stats</code> and search for <code>NewStatKey</code></li>
 <li>You should see that it exists with correct value</li>
 </ul>
 <figure>
@@ -8897,8 +8897,8 @@
 <h2 id="batching-updates">Batching updates<a class="headerlink" href="#batching-updates" title="Permanent link">¶</a></h2>
 <p>In this example, a new <code>UpdateCommand</code> is created and committed immediately. For better performance and reduced calls to Beamable, it is encouraged to:</p>
 <ul>
-<li>Create <code>UpdateCommand</code>.</li>
-<li>Use the other functions in the <code>UBeamStatsSubsystem</code> to set up as many changes as possible.</li>
+<li>Create <code>UpdateCommand</code></li>
+<li>Use the other functions in the <code>UBeamStatsSubsystem</code> to set up as many changes as possible</li>
 <li>Commit</li>
 </ul>
 <p>When it is possible (and desirable) for your game, this flow reduces the overall latency your players experience and reduces the number of API calls you make to Beamable.</p>

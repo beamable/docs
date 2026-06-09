@@ -9079,7 +9079,7 @@
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
 <p>Aside from the <code>BeamableCore</code> Plugin, here's what the sample contains:</p>
 <ul>
-<li><strong><code>BEAMPROJ_Beamball</code> Unreal Plugin.</strong>: Contains the UE implementation for the client.</li>
+<li><strong><code>BEAMPROJ_Beamball</code> Unreal Plugin.</strong>: Contains the UE implementation for the client</li>
 <li><strong><code>Microservices/services/BeamballMs</code> Microservice</strong>: Microservice containing code that implements <code>IFederatedLogin</code></li>
 </ul>
 <p>To set up this sample, you'll need a few things:</p>
@@ -9095,55 +9095,55 @@
 <h2 id="configuring-the-sample-as-a-steam-application">Configuring the sample as a Steam application<a class="headerlink" href="#configuring-the-sample-as-a-steam-application" title="Permanent link">¶</a></h2>
 <p>Since this sample requires several resources, it is not pre-hosted. To access it, set up a Steam account and configure the sample:</p>
 <ol>
-<li>Log into your <a href="https://partner.steamgames.com/apps">Steam</a> developer account.</li>
-<li>Go to your App and set aside its <code>AppId</code>.</li>
+<li>Log into your <a href="https://partner.steamgames.com/apps">Steam</a> developer account</li>
+<li>Go to your App and set aside its <code>AppId</code></li>
 <li>Create a Publisher Web API key
    using <a href="https://partner.steamgames.com/doc/webapi_overview/auth#publisher-keys">this tutorial</a>. Set it aside in a
    notepad for future use.</li>
 <li>Make sure that the game is added to the user that you want to use to log in. To do that:<ol>
-<li>Generate a Steam Key.</li>
-<li>Add it to your Steam account so you can access the game.</li>
+<li>Generate a Steam Key</li>
+<li>Add it to your Steam account so you can access the game</li>
 </ol>
 </li>
 </ol>
 <h3 id="setting-up-beamable-systems">Setting up Beamable systems<a class="headerlink" href="#setting-up-beamable-systems" title="Permanent link">¶</a></h3>
 <p>Next, configure a Beamable realm to work with your Steam App:</p>
 <ol>
-<li>Go to the Beamable Portal and create a new Beamable realm called <code>beamball-demo</code>.</li>
-<li>Go to the Portal (<code>Account</code>) and set aside your Customer Id (<abbr title="customer ID">CID</abbr>).</li>
-<li>Go to the Portal and set aside your realm's <abbr title="realm identifier">PID</abbr> and Realm Secret (<code>Games -&gt; YourGame -&gt; beamball-demo</code>).</li>
-<li>On the Portal open the Realm Config page of the <code>beamball-demo</code> realm (<code>Operate -&gt; Config</code>).</li>
-<li>Hit the <code>Add Config</code> button.</li>
+<li>Go to the Beamable Portal and create a new Beamable realm called <code>beamball-demo</code></li>
+<li>Go to the Portal (<code>Account</code>) and set aside your Customer Id (<abbr title="customer ID">CID</abbr>)</li>
+<li>Go to the Portal and set aside your realm's <abbr title="realm identifier">PID</abbr> and Realm Secret (<code>Games -&gt; YourGame -&gt; beamball-demo</code>)</li>
+<li>On the Portal open the Realm Config page of the <code>beamball-demo</code> realm (<code>Operate -&gt; Config</code>)</li>
+<li>Hit the <code>Add Config</code> button</li>
 <li>Set the following key-value pairs for the namespace <code>steam_integration</code>:<ol>
 <li><code>appid -&gt; Your Steam application ID</code></li>
 <li><code>key -&gt; Your Steam Application Publisher Key</code></li>
 </ol>
 </li>
-<li>Compile and open the <code>BeamableUnreal</code> editor (it'll be configured as the <code>BEAMPROJ_Beamball</code>) project.</li>
-<li>Sign into your Beamable account and go to the <code>beamball-demo</code> realm.<ol>
-<li>Hit <code>Apply to Build</code>.</li>
+<li>Compile and open the <code>BeamableUnreal</code> editor (it'll be configured as the <code>BEAMPROJ_Beamball</code>) project</li>
+<li>Sign into your Beamable account and go to the <code>beamball-demo</code> realm<ol>
+<li>Hit <code>Apply to Build</code></li>
 </ol>
 </li>
-<li>Open a bash terminal at the <code>BeamableUnreal</code> root directory.</li>
+<li>Open a bash terminal at the <code>BeamableUnreal</code> root directory</li>
 <li>Run <code>dotnet beam project enable --with-group BEAMPROJ_Beamball</code></li>
 <li>Run <code>dotnet beam project disable --without-group BEAMPROJ_Beamball</code></li>
-<li>Guarantee <code>Docker</code> is open and running.</li>
-<li>Run <code>dotnet beam deploy plan</code>.<ol>
-<li>This tells you details about the services you would deploy given your project's local state.</li>
+<li>Guarantee <code>Docker</code> is open and running</li>
+<li>Run <code>dotnet beam deploy plan</code><ol>
+<li>This tells you details about the services you would deploy given your project's local state</li>
 </ol>
 </li>
-<li>Run <code>dotnet beam deploy release --latest-plan</code>.<ol>
-<li>This deploys the services outlined by the generated plan in the previous command.</li>
+<li>Run <code>dotnet beam deploy release --latest-plan</code><ol>
+<li>This deploys the services outlined by the generated plan in the previous command</li>
 </ol>
 </li>
-<li>Go to the Portal (<code>Operate -&gt; Microservices</code>) to verify that the microservices have initialized.</li>
-<li>In <code>DefaultEngine.ini</code> set the value of <code>SteamDevAppId</code> to your Steam Application ID. For more info, see the <a href="https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Online/Steam/">Unreal Engine Steam tutorial</a>.</li>
-<li>Package the project using the <code>BeamableUnrealSteam</code> target.</li>
+<li>Go to the Portal (<code>Operate -&gt; Microservices</code>) to verify that the microservices have initialized</li>
+<li>In <code>DefaultEngine.ini</code> set the value of <code>SteamDevAppId</code> to your Steam Application ID. For more info, see the <a href="https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Online/Steam/">Unreal Engine Steam tutorial</a></li>
+<li>Package the project using the <code>BeamableUnrealSteam</code> target</li>
 </ol>
 <p>Now, you are ready to log in with Steam.</p>
 <h2 id="playing-the-sample">Playing the sample<a class="headerlink" href="#playing-the-sample" title="Permanent link">¶</a></h2>
 <p>Testing the Steam integration in <abbr title="Play in Editor">PIE</abbr> should be performed in <abbr title="Play in Editor">PIE</abbr>'s <code>Standalone Game</code> mode as per Steam's documentation.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/steam-demo-PIE-mode.png" data-desc-position="bottom"><img alt="steam-demo-PIE-mode.png" src="../../../../media/imgs/steam-demo-PIE-mode.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/steam-demo-PIE-mode.png" data-desc-position="bottom"><img alt="The Unreal toolbar's play-mode dropdown open with Standalone Game checked, accessed via the &quot;Change Play Mode and Play Settings&quot; menu." src="../../../../media/imgs/steam-demo-PIE-mode.png"></a></p>
 <p>To test the sample:</p>
 <ul>
 <li>Open Beamball with Steam running on the account to which you added the game</li>
@@ -9155,29 +9155,29 @@
 <h3 id="client-side-implementation">Client-side implementation<a class="headerlink" href="#client-side-implementation" title="Permanent link">¶</a></h3>
 <p>The client uses the Steam SDK directly to obtain authentication credentials. The implementation in <code>BeamableSteam.h</code> provides a <code>TryGetSteamData</code> function that:</p>
 <ol>
-<li><strong>Retrieves Steam User Interface</strong>: Accesses the Steam SDK's <code>ISteamUser</code> interface to interact with the authenticated Steam user.</li>
-<li><strong>Generates Auth Session Ticket</strong>: Calls <code>GetAuthSessionTicket()</code> to generate a cryptographic proof that the user owns the game and has an active Steam session. This ticket is a binary blob that Steam can validate server-side.</li>
-<li><strong>Converts Ticket to Hex String</strong>: The binary ticket is converted to a hexadecimal string format for transmission to Beamable.</li>
-<li><strong>Obtains Steam ID</strong>: Retrieves the user's unique Steam ID (SteamID64) for identification purposes.</li>
+<li><strong>Retrieves Steam User Interface</strong>: Accesses the Steam SDK's <code>ISteamUser</code> interface to interact with the authenticated Steam user</li>
+<li><strong>Generates Auth Session Ticket</strong>: Calls <code>GetAuthSessionTicket()</code> to generate a cryptographic proof that the user owns the game and has an active Steam session. This ticket is a binary blob that Steam can validate server-side</li>
+<li><strong>Converts Ticket to Hex String</strong>: The binary ticket is converted to a hexadecimal string format for transmission to Beamable</li>
+<li><strong>Obtains Steam ID</strong>: Retrieves the user's unique Steam ID (SteamID64) for identification purposes</li>
 </ol>
 <p>In Blueprint, you can invoke the Steam login flow using operation nodes:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/steam-demo-login.png" data-desc-position="bottom"><img alt="steam-demo-login.png" src="../../../../media/imgs/steam-demo-login.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/steam-demo-login.png" data-desc-position="bottom"><img alt="A wide Blueprint graph that obtains the Steam auth session ticket and Steam ID and passes them into Beamable's Login - Federated Identity operation, then enables the login UI buttons." src="../../../../media/imgs/steam-demo-login.png"></a></p>
 <h3 id="server-side-implementation-microservice">Server-side implementation (Microservice)<a class="headerlink" href="#server-side-implementation-microservice" title="Permanent link">¶</a></h3>
 <p>The <code>BeamballMs.Steam.cs</code> microservice implements <code>IFederatedLogin&lt;SteamId&gt;</code> to handle authentication:</p>
 <ol>
-<li><strong>Authentication Flow</strong>: When a user attempts to log in, the microservice receives the Auth Session Ticket from the client.</li>
-<li><strong>Ticket Validation</strong>: The microservice calls Steam's <code>AuthenticateUserTicket</code> Web API endpoint to validate the ticket against Steam's servers using your Publisher Web API Key.</li>
-<li><strong>User Identification</strong>: Steam returns the user's unique Steam ID (SteamID64), which becomes the federated identity linked to the Beamable account.</li>
-<li><strong>Player Initialization</strong>: For first-time users, the microservice calls Steam's <code>GetPlayerSummaries</code> API to retrieve the user's profile data (display name, avatar URLs) and populates the Beamable account with this information as player stats.</li>
+<li><strong>Authentication Flow</strong>: When a user attempts to log in, the microservice receives the Auth Session Ticket from the client</li>
+<li><strong>Ticket Validation</strong>: The microservice calls Steam's <code>AuthenticateUserTicket</code> Web API endpoint to validate the ticket against Steam's servers using your Publisher Web API Key</li>
+<li><strong>User Identification</strong>: Steam returns the user's unique Steam ID (SteamID64), which becomes the federated identity linked to the Beamable account</li>
+<li><strong>Player Initialization</strong>: For first-time users, the microservice calls Steam's <code>GetPlayerSummaries</code> API to retrieve the user's profile data (display name, avatar URLs) and populates the Beamable account with this information as player stats</li>
 </ol>
 <p>This two-phase approach ensures that users are properly authenticated via Steam and their account is enriched with Steam profile data for display in-game.</p>
 <h2 id="can-i-use-it-as-a-template">Can I use it as a template?<a class="headerlink" href="#can-i-use-it-as-a-template" title="Permanent link">¶</a></h2>
 <p>This sample is NOT a template you can start your own repository from. However, Beamable code components are free for
 you to copy and use in your own project. Here's what these are:</p>
 <ul>
-<li>The <code>BeamballMs.Steam.cs</code> file in the <code>BeamballMs</code> Microservice. You can copy/paste it into any of your microservices.</li>
-<li>Beamable code inside <code>BEAMPROJ_Beamball/**/PlatformIntegrations</code> except code inside a <code>ThirdParty</code> directory.</li>
-<li>Content inside the <code>BEAMPROJ_Beamball</code> except things inside a <code>ThirdParty</code> directory.</li>
+<li>The <code>BeamballMs.Steam.cs</code> file in the <code>BeamballMs</code> Microservice. You can copy/paste it into any of your microservices</li>
+<li>Beamable code inside <code>BEAMPROJ_Beamball/**/PlatformIntegrations</code> except code inside a <code>ThirdParty</code> directory</li>
+<li>Content inside the <code>BEAMPROJ_Beamball</code> except things inside a <code>ThirdParty</code> directory</li>
 </ul>
 <h2 id="why-no-client-build">Why no client build<a class="headerlink" href="#why-no-client-build" title="Permanent link">¶</a></h2>
 <p>Clients must be pointed at your <code>steam-demo</code> realm, so you need to generate the build yourself by packaging it for any supported platform.</p>

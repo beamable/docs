@@ -8909,8 +8909,8 @@
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
 <p>Aside from the <code>BeamableCore</code> Plugin, here's what the sample contains:</p>
 <ul>
-<li><strong><code>BEAMPROJ_DiscordDemo</code> Unreal Plugin.</strong>: Contains the UE implementation for the client.</li>
-<li><strong><code>Microservices/services/DiscordDemo</code> Microservice</strong>: Microservice containing code that implements <code>IFederatedLogin</code> and a <code>DiscordBot</code> integration.</li>
+<li><strong><code>BEAMPROJ_DiscordDemo</code> Unreal Plugin.</strong>: Contains the UE implementation for the client</li>
+<li><strong><code>Microservices/services/DiscordDemo</code> Microservice</strong>: Microservice containing code that implements <code>IFederatedLogin</code> and a <code>DiscordBot</code> integration</li>
 </ul>
 <p>To set up this sample you'll need a few things:</p>
 <ul>
@@ -8925,41 +8925,41 @@
 <h2 id="setting-discord-application">Setting Discord application<a class="headerlink" href="#setting-discord-application" title="Permanent link">¶</a></h2>
 <p>Since this sample requires several resources, it is not pre-hosted. To access it, set up a Discord account and configure the sample Discord bot:</p>
 <ol>
-<li>Log into your <a href="https://discord.com/developers/applications">Discord.dev</a> account.</li>
-<li>Create an App. Set aside its <code>AppId</code> in a notepad for future use.<ol>
-<li>Fill out General Information about your app.</li>
-<li>No need for providing any of the URLs at the bottom of the General Information page.</li>
+<li>Log into your <a href="https://discord.com/developers/applications">Discord.dev</a> account</li>
+<li>Create an App. Set aside its <code>AppId</code> in a notepad for future use<ol>
+<li>Fill out General Information about your app</li>
+<li>No need for providing any of the URLs at the bottom of the General Information page</li>
 </ol>
 </li>
-<li>Go to App <code>Settings-&gt;OAuth2</code> and set the Redirects Url: <code>http://127.0.0.1</code>. Make sure that changes are saved.</li>
-<li>Go to App <code>Settings-&gt;Bot</code>.<ol>
-<li>Set a Bot username.</li>
-<li>Set as true all <strong>Privileged Gateway Intents</strong>, especially the <strong>Server Members Intent</strong>.</li>
-<li>Press the <code>Reset Token</code> button and set it aside (it will be required later on).</li>
+<li>Go to App <code>Settings-&gt;OAuth2</code> and set the Redirects Url: <code>http://127.0.0.1</code>. Make sure that changes are saved</li>
+<li>Go to App <code>Settings-&gt;Bot</code><ol>
+<li>Set a Bot username</li>
+<li>Set as true all <strong>Privileged Gateway Intents</strong>, especially the <strong>Server Members Intent</strong></li>
+<li>Press the <code>Reset Token</code> button and set it aside (it will be required later on)</li>
 </ol>
 </li>
-<li>Go to App <code>Settings-&gt;Installation</code>.<ol>
-<li>In <code>Install Link</code> select <code>Discord Provided Link</code>, copy and paste it into a browser.</li>
+<li>Go to App <code>Settings-&gt;Installation</code><ol>
+<li>In <code>Install Link</code> select <code>Discord Provided Link</code>, copy and paste it into a browser</li>
 <li>In <code>Default Install Settings</code> add <code>bot</code> to the <code>Scopes</code> field and <code>Administrator</code> to the <code>Permissions</code> field</li>
-<li>Install the App into your Discord server of choice.</li>
+<li>Install the App into your Discord server of choice</li>
 </ol>
 </li>
-<li>Now open the Discord application.<ol>
-<li>Open <code>Settings-&gt;Advanced</code> and enable <code>Developer Mode</code> to copy various IDs by right-clicking items in the UI.</li>
-<li>Right click on the server icon and select the option <code>Copy server ID</code> and set it aside.</li>
-<li>Right click on the server icon and select <code>Settings-&gt;Roles</code>.</li>
-<li>Create a <code>enabled-matchmaking</code> role.</li>
-<li>Right click on the role and select the option <code>Copy Role ID</code> and set it aside.</li>
-<li>Pick any text channel. Right click on the channel select the option <code>Copy Channel ID</code> and set it aside.</li>
+<li>Now open the Discord application<ol>
+<li>Open <code>Settings-&gt;Advanced</code> and enable <code>Developer Mode</code> to copy various IDs by right-clicking items in the UI</li>
+<li>Right click on the server icon and select the option <code>Copy server ID</code> and set it aside</li>
+<li>Right click on the server icon and select <code>Settings-&gt;Roles</code></li>
+<li>Create a <code>enabled-matchmaking</code> role</li>
+<li>Right click on the role and select the option <code>Copy Role ID</code> and set it aside</li>
+<li>Pick any text channel. Right click on the channel select the option <code>Copy Channel ID</code> and set it aside</li>
 </ol>
 </li>
 </ol>
 <h2 id="setting-up-beamable">Setting up Beamable<a class="headerlink" href="#setting-up-beamable" title="Permanent link">¶</a></h2>
 <p>Next, configure a Beamable realm to use it.</p>
 <ol>
-<li>Go to the Beamable Portal and create a new Beamable realm called <code>discord-demo</code>.</li>
-<li>On the Portal open the Realm Config page of the <code>discord-demo</code> realm (<code>Operate -&gt; Config</code>).</li>
-<li>Hit the <code>Add Config</code> button.</li>
+<li>Go to the Beamable Portal and create a new Beamable realm called <code>discord-demo</code></li>
+<li>On the Portal open the Realm Config page of the <code>discord-demo</code> realm (<code>Operate -&gt; Config</code>)</li>
+<li>Hit the <code>Add Config</code> button</li>
 <li>Set the following key-value pairs for the namespace <code>discord_integration</code>:<ol>
 <li><code>matchmaking_roles_whitelist -&gt; Your copied Role Id, can be multiple separated by comma</code></li>
 <li><code>bot_token -&gt; Your Bot Token</code></li>
@@ -8967,35 +8967,35 @@
 <li><code>notify_channel -&gt; Optional- Discord channel ID that bot will notify about status changes</code></li>
 </ol>
 </li>
-<li>Open the <code>Plugins/BEAMPROJ_DiscordDemo/Overrides/Config/DefaultGame.ini</code>.<ol>
-<li>Replace the <code>DiscordAppId</code> in it with <code>Your App Id</code>.</li>
-<li>Regenerate project files.</li>
+<li>Open the <code>Plugins/BEAMPROJ_DiscordDemo/Overrides/Config/DefaultGame.ini</code><ol>
+<li>Replace the <code>DiscordAppId</code> in it with <code>Your App Id</code></li>
+<li>Regenerate project files</li>
 </ol>
 </li>
-<li>Compile and open the <code>BeamableUnreal</code> editor (it'll be configured as the <code>BEAMPROJ_DiscordDemo</code>) project.</li>
+<li>Compile and open the <code>BeamableUnreal</code> editor (it'll be configured as the <code>BEAMPROJ_DiscordDemo</code>) project</li>
 </ol>
 <p>Now, you are ready to sign into a game using Discord.</p>
 <h2 id="playing-the-sample-in-editor">Playing the sample in editor<a class="headerlink" href="#playing-the-sample-in-editor" title="Permanent link">¶</a></h2>
 <p>To test the sample:</p>
 <ol>
 <li>Open the <code>BeamableUnreal</code> in the Unreal Editor</li>
-<li>Sign into your Beamable account in the <code>Beamable Window</code> and go to the <code>discord-demo</code> realm.</li>
-<li>Go to the <code>Microservices</code> and run the <code>DiscordSampleMS</code> microservice.</li>
-<li>Start game.</li>
-<li>Press the <code>Sign In with Discord</code> button following instructions (discord will ask for permission).</li>
-<li>After logging in, you should see information about being able to participate in matchmaking.</li>
-<li>Add or remove the role for the signed-in user on your Discord server.</li>
-<li>Observe the text on the UI changing to reflect your ability to participate in matchmaking.</li>
+<li>Sign into your Beamable account in the <code>Beamable Window</code> and go to the <code>discord-demo</code> realm</li>
+<li>Go to the <code>Microservices</code> and run the <code>DiscordSampleMS</code> microservice</li>
+<li>Start game</li>
+<li>Press the <code>Sign In with Discord</code> button following instructions (discord will ask for permission)</li>
+<li>After logging in, you should see information about being able to participate in matchmaking</li>
+<li>Add or remove the role for the signed-in user on your Discord server</li>
+<li>Observe the text on the UI changing to reflect your ability to participate in matchmaking</li>
 <li>If <code>notify_channel</code> was specified correctly in the configuration, the bot also notifies the channel of the status change:</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/discord_sample_notify.png" data-desc-position="bottom"><img alt="discord_sample_notify.png" src="../../../media/imgs/discord_sample_notify.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/discord_sample_notify.png" data-desc-position="bottom"><img alt="A Discord channel where the BeamableBot app posts two messages mentioning a user: &quot;Updated matchmaking status: access denied&quot; and &quot;Updated matchmaking status: access gained&quot;." src="../../../media/imgs/discord_sample_notify.png"></a></p>
 <p>To actually gate matchmaking, set up a rule in your <code>GameType</code> content that excludes people from the queue who do not have the role. This is not shown in this demo.</p>
 <h2 id="can-i-use-it-as-a-template">Can I use it as a template?<a class="headerlink" href="#can-i-use-it-as-a-template" title="Permanent link">¶</a></h2>
 <p>This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here's what these are:</p>
 <ul>
-<li>The <code>DiscordDemo</code> Microservice.</li>
-<li>Beamable code inside <code>BEAMPROJ_DiscordDemo</code> except code inside a <code>ThirdParty</code> directory.</li>
-<li>Content inside the <code>BEAMPROJ_DiscordDemo</code> except things inside a <code>ThirdParty</code> directory.</li>
+<li>The <code>DiscordDemo</code> Microservice</li>
+<li>Beamable code inside <code>BEAMPROJ_DiscordDemo</code> except code inside a <code>ThirdParty</code> directory</li>
+<li>Content inside the <code>BEAMPROJ_DiscordDemo</code> except things inside a <code>ThirdParty</code> directory</li>
 </ul>
 <h2 id="why-no-client-build">Why no client build<a class="headerlink" href="#why-no-client-build" title="Permanent link">¶</a></h2>
 <p>Clients must be pointed at your <code>discord-demo</code> realm, so you need to generate the build yourself by packaging it for any supported platform.</p>

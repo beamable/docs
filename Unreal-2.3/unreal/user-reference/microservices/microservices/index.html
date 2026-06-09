@@ -9350,21 +9350,21 @@
 <h2 id="microservice-coding">Microservice coding<a class="headerlink" href="#microservice-coding" title="Permanent link">¶</a></h2>
 <p>Microservices are developed in C# and in their own solution. They inherit from the <code>Microservice</code> base class and are <code>partial</code> by default. Inside each Microservice class, you can annotate instance methods with the following attributes to various effects:</p>
 <ul>
-<li><code>Callable</code>: This is the equivalent of a public endpoint. Any non-authenticated caller is allowed to invoke this function via a request. In Unreal, these will not require a <code>FUserSlot</code> (authenticated user).</li>
-<li><code>ClientCallable</code>: This is equivalent to an authenticated request. Any authenticated user in the same realm as the microservice is able to run this.</li>
-<li><code>AdminOnlyCallable</code>: These are similar to <code>ClientCallables</code> but requires the user to have admin privileges. They are useful for making utility endpoints called by internal developer tools.</li>
-<li><code>ServerCallable</code>: This is equivalent to a trusted-server request. It requires authentication in the form of a Signed Request. Primarily, these are callable from your game's Dedicated Server builds.</li>
-<li><code>Federated Endpoints</code>: <a href="../../federation/federation/">Federations</a> generate routes implicitly and <strong>do not need any <code>Callable</code> attributes</strong>.</li>
+<li><code>Callable</code>: This is the equivalent of a public endpoint. Any non-authenticated caller is allowed to invoke this function via a request. In Unreal, these will not require a <code>FUserSlot</code> (authenticated user)</li>
+<li><code>ClientCallable</code>: This is equivalent to an authenticated request. Any authenticated user in the same realm as the microservice is able to run this</li>
+<li><code>AdminOnlyCallable</code>: These are similar to <code>ClientCallables</code> but requires the user to have admin privileges. They are useful for making utility endpoints called by internal developer tools</li>
+<li><code>ServerCallable</code>: This is equivalent to a trusted-server request. It requires authentication in the form of a Signed Request. Primarily, these are callable from your game's Dedicated Server builds</li>
+<li><code>Federated Endpoints</code>: <a href="../../federation/federation/">Federations</a> generate routes implicitly and <strong>do not need any <code>Callable</code> attributes</strong></li>
 </ul>
 <p>Inside the method body, you can access properties inherited from the <code>Microservice</code> base class. Here are the most relevant:</p>
 <ul>
-<li><code>Context</code>: This field of the Microservice class has information about the request.<ul>
-<li><code>Context.Cid</code> | <code>Context.Pid</code>: Contain the relevant realm information for the microservice.</li>
-<li><code>Context.UserId</code>: Contains the <code>GamerTag</code> for the account making the call. This is <code>0</code> for non-authenticated endpoints such as <code>Callables</code> and <code>ServerCallables</code>.</li>
-<li><code>Context.Body</code>: Contains the raw body (typically JSON) of the request, if any; which can be useful if you want to do your own parsing.</li>
+<li><code>Context</code>: This field of the Microservice class has information about the request<ul>
+<li><code>Context.Cid</code> | <code>Context.Pid</code>: Contain the relevant realm information for the microservice</li>
+<li><code>Context.UserId</code>: Contains the <code>GamerTag</code> for the account making the call. This is <code>0</code> for non-authenticated endpoints such as <code>Callables</code> and <code>ServerCallables</code></li>
+<li><code>Context.Body</code>: Contains the raw body (typically JSON) of the request, if any; which can be useful if you want to do your own parsing</li>
 </ul>
 </li>
-<li><code>Services</code>: This field of the Microservice class gives you access to Beamable's Services from your microservice.<ul>
+<li><code>Services</code>: This field of the Microservice class gives you access to Beamable's Services from your microservice<ul>
 <li><code>Services.Inventory</code>: Access the inventory service...</li>
 <li><code>Services.Stats</code>: Access the stats service...</li>
 <li>So on and so forth...</li>
@@ -9382,23 +9382,23 @@
 <h3 id="signature-constraints">Signature constraints<a class="headerlink" href="#signature-constraints" title="Permanent link">¶</a></h3>
 <p>When declaring <code>Callable</code> functions, you should be aware of a few limitations regarding its signatures.</p>
 <ul>
-<li>No <code>void</code> return.</li>
-<li>Can be <code>async</code> or not.</li>
+<li>No <code>void</code> return</li>
+<li>Can be <code>async</code> or not</li>
 <li>Cannot return container types directly<ul>
 <li><code>List&lt;&gt;</code> / <code>Dictionary&lt;string,&gt;</code></li>
 <li>Wrap it in a struct/class instead</li>
 </ul>
 </li>
-<li>No overloading of <code>Callables</code>.<ul>
+<li>No overloading of <code>Callables</code><ul>
 <li>This is because each of these must map to a unique route so name things accordingly</li>
-<li>Non-<code>Callable</code> functions can be overloaded.</li>
+<li>Non-<code>Callable</code> functions can be overloaded</li>
 </ul>
 </li>
-<li>Avoid calling <code>Callable</code> functions from other <code>Callable</code> functions.<ul>
-<li>For code-reuse in the Microservice, write non-<code>Callable</code> static functions and call them inside the <code>Callable</code> body.</li>
+<li>Avoid calling <code>Callable</code> functions from other <code>Callable</code> functions<ul>
+<li>For code-reuse in the Microservice, write non-<code>Callable</code> static functions and call them inside the <code>Callable</code> body</li>
 </ul>
 </li>
-<li>Must be an instance method (no <code>static</code> keyword).<ul>
+<li>Must be an instance method (no <code>static</code> keyword)<ul>
 <li>Currently, every request is handled by a unique instance of the Microservice class</li>
 <li>This also means that it is highly discouraged to put member fields in the instance itself</li>
 </ul>
@@ -9496,7 +9496,7 @@
 <p>A few things to note:</p>
 <ul>
 <li>Unreal's lack of Namespaces in Blueprint-Compatible-land makes auto-generated code pretty verbose<ul>
-<li>When using these APIs, use <code>auto</code> liberally <em>but carefully</em>.</li>
+<li>When using these APIs, use <code>auto</code> liberally <em>but carefully</em></li>
 </ul>
 </li>
 <li>The code for <strong>all</strong> microservices in the solution is generated at once<ul>
@@ -9514,23 +9514,23 @@
 <h3 id="replacement-types">Replacement types<a class="headerlink" href="#replacement-types" title="Permanent link">¶</a></h3>
 <p>It can sometimes be useful to hand-write a type that would be otherwise generated by the Microservice Client code generation. These use-cases are things like:</p>
 <ul>
-<li>Changing the generated type from a <code>UCLASS</code> to a <code>USTRUCT</code>.</li>
+<li>Changing the generated type from a <code>UCLASS</code> to a <code>USTRUCT</code></li>
 <li>Adding utility functions to the generated type</li>
 <li>Writing custom serialization/deserialization logic (you'd have to modify the C# serialization too)</li>
 </ul>
 <p>To do that, use the CLI to register replacement types so that code generation skips a particular schema and uses a type you define instead.</p>
 <h4 id="adding-a-replacement-type">Adding a replacement type<a class="headerlink" href="#adding-a-replacement-type" title="Permanent link">¶</a></h4>
 <ol>
-<li>Write your replacement type inside your Unreal Project.</li>
-<li>This must exist inside the <code>______MicroserviceClients/CustomReplacementTypes</code> module.</li>
-<li>If you don't have the <code>____MicroserviceClients</code> yet, generate the microservice client code once via <code>dotnet beam project generate-client "."</code>.</li>
-<li>When writing the replacement type, look at the other generated code to see how to use the <code>UBeamJsonUtils</code> library to write the serialization logic.</li>
-<li>Use <code>dotnet beam project add-replacement-type</code> to add the created type.</li>
-<li>The <code>reference-id</code> argument is the OpenAPI ReferenceId for the type you want to replace. You can find this inside the <code>beam_openApi.json</code> file that lives in your microservice's <code>bin</code> directory. <code>ReferenceIds</code> are any of the json property names under the <code>components.schemas.&lt;ReferenceId&gt;</code> sub-object of this JSON file.</li>
-<li>The <code>replacement-type</code> argument is the name of the replacement type you've written.</li>
-<li>The <code>engine-import</code> argument is the <code>"#include \"FileName.h\""</code> string for the type.</li>
-<li>The <code>optional-replacement-type</code> argument is the name for the <code>FBeamOptional</code> wrapper for the replacement type you've written (this type is automatically generated – you don't need to write it).</li>
-<li>The project name is your UnrealProject's name (the <code>.uproject</code> file name).</li>
+<li>Write your replacement type inside your Unreal Project</li>
+<li>This must exist inside the <code>______MicroserviceClients/CustomReplacementTypes</code> module</li>
+<li>If you don't have the <code>____MicroserviceClients</code> yet, generate the microservice client code once via <code>dotnet beam project generate-client "."</code></li>
+<li>When writing the replacement type, look at the other generated code to see how to use the <code>UBeamJsonUtils</code> library to write the serialization logic</li>
+<li>Use <code>dotnet beam project add-replacement-type</code> to add the created type</li>
+<li>The <code>reference-id</code> argument is the OpenAPI ReferenceId for the type you want to replace. You can find this inside the <code>beam_openApi.json</code> file that lives in your microservice's <code>bin</code> directory. <code>ReferenceIds</code> are any of the json property names under the <code>components.schemas.&lt;ReferenceId&gt;</code> sub-object of this JSON file</li>
+<li>The <code>replacement-type</code> argument is the name of the replacement type you've written</li>
+<li>The <code>engine-import</code> argument is the <code>"#include \"FileName.h\""</code> string for the type</li>
+<li>The <code>optional-replacement-type</code> argument is the name for the <code>FBeamOptional</code> wrapper for the replacement type you've written (this type is automatically generated – you don't need to write it)</li>
+<li>The project name is your UnrealProject's name (the <code>.uproject</code> file name)</li>
 </ol>
 <p>Here's an example:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>add-replacement-type<span class="w"> </span><span class="se">\</span>
@@ -9579,15 +9579,15 @@
 <p>If you're in the very early stages of solving a problem, you want to get the features to work. Here's a workflow that doesn't require you to open Unreal at all, allowing you to focus only on getting your <code>Callables</code> to work!</p>
 <p>Here are the steps:</p>
 <ol>
-<li>Write your <code>Callable</code>'s code in your IDE.</li>
-<li>Press the Debug or Run button on the IDE.</li>
-<li>Wait for the Service to Start.<ol>
+<li>Write your <code>Callable</code>'s code in your IDE</li>
+<li>Press the Debug or Run button on the IDE</li>
+<li>Wait for the Service to Start<ol>
 <li>The service will print out <code>Service ready for traffic.</code></li>
 </ol>
 </li>
-<li>The service prints out a Portal URL for you or you can use the <code>dotnet beam project open-swagger MicroserviceName</code> command to open the Portal.</li>
-<li>From that page, you can make requests to your service as though your own developer account was a player in your realm.</li>
-<li>Iterate quickly.</li>
+<li>The service prints out a Portal URL for you or you can use the <code>dotnet beam project open-swagger MicroserviceName</code> command to open the Portal</li>
+<li>From that page, you can make requests to your service as though your own developer account was a player in your realm</li>
+<li>Iterate quickly</li>
 </ol>
 <p>This allows you to get services that might have complex logic working first and integrating them into Unreal later. <a href="#constraints-on-callable-functions">Keep in mind the type restrictions on method signatures mentioned here</a>.</p>
 <h3 id="integrating-with-unreal">Integrating with Unreal<a class="headerlink" href="#integrating-with-unreal" title="Permanent link">¶</a></h3>
@@ -9602,11 +9602,11 @@
 </div>
 <p>Once you have these, you can:</p>
 <ol>
-<li>Write code that uses the bindings to communicate with your service.</li>
-<li>Recompile your UE editor (or Blueprint).</li>
-<li>Run/Debug your local microservice (via the Microservice Window, IDE or <code>dotnet beam project run</code>).</li>
-<li>Run <abbr title="Play in Editor">PIE</abbr> and hit the point where you call your microservice.</li>
-<li>See your local service's <code>Callable</code>'s be hit.</li>
+<li>Write code that uses the bindings to communicate with your service</li>
+<li>Recompile your UE editor (or Blueprint)</li>
+<li>Run/Debug your local microservice (via the Microservice Window, IDE or <code>dotnet beam project run</code>)</li>
+<li>Run <abbr title="Play in Editor">PIE</abbr> and hit the point where you call your microservice</li>
+<li>See your local service's <code>Callable</code>'s be hit</li>
 </ol>
 <p>If you are using <a href="../../federation/federation/">Federations</a>, there are a few particulars of this workflow of which you should be aware. If not, the above works as described.</p>
 <h3 id="deploying-to-a-realm">Deploying to a realm<a class="headerlink" href="#deploying-to-a-realm" title="Permanent link">¶</a></h3>
@@ -9645,7 +9645,7 @@
 <li>As the engineer, boot up your local service with a debugger attached and a breakpoint</li>
 <li>As the designer, open the editor and the <strong>Microservice Window's Collaboration tab</strong> for the service and select your engineer's email from the drop-down</li>
 <li>As the designer, enter <abbr title="Play in Editor">PIE</abbr> and do what you do to repro the bug</li>
-<li>As the engineer, observe your (conditional or data) breakpoint is hit or read your additional <code>BeamableLogger</code> log lines.</li>
+<li>As the engineer, observe your (conditional or data) breakpoint is hit or read your additional <code>BeamableLogger</code> log lines</li>
 <li>Quickly diagnose the issue and unblock the designer</li>
 </ul>
 <p>For smaller teams that like to move fast and can rely on lots of direct communication between designers and engineers, this workflow is a <strong>massive improvement to the current available alternatives</strong>.</p>
