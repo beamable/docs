@@ -359,13 +359,13 @@ public class CustomConnectivityServiceExample : MonoBehaviour
 A few noteworthy clarifications:
 
 1. There are two services responsible for connectivity:
-  1. **ConnectivityChecker**: This service implements the call that determines whether Beamable is reachable.
+  1. **ConnectivityChecker**: This service implements the call that determines whether Beamable is reachable
   2. **ConnectivityService**: This service maintains the state on whether internet connectivity is currently available, and is also responsible for invoking any reconnect hooks and so forth
 2. The NoConnectivityException errors can occur as a result of a couple of conditions:
   1. The **ConnectivityChecker**, which checks connectivity every 3 seconds, experiences a failure **OR**
   2. A request to Beamable experiences a timeout or HTTP status code 0 from Unity
      Beamable also makes regular heartbeat calls which may also fall into this class
-3. When a NoConnectivityException is encountered, the **ConnectivityService** is notified that the internet connection has been lost, and the **ConnectivityService** then invokes any relevant hooks for reconnecting when the service is restored.
+3. When a NoConnectivityException is encountered, the **ConnectivityService** is notified that the internet connection has been lost, and the **ConnectivityService** then invokes any relevant hooks for reconnecting when the service is restored
 
 This can result in spurious disconnection reports — the **ConnectivityService** may report that connectivity has been lost if a single non-critical request times out.
 

@@ -45,7 +45,7 @@ The code for Global Price War 2 is available at [Chat GPW 2 With MicroStorage Sa
 
     There are two repos for the "Global Price Wars" game each with distinct learning goals.
 
-    1. [Chat GPW Sample Project](gpw.md) - Simpler project, the `GPWBasicDataFactory` uses random, local data values.
+    1. [Chat GPW Sample Project](gpw.md) - Simpler project, the `GPWBasicDataFactory` uses random, local data values
     2. **Chat GPW2 Sample Project With MicroStorage** - **Complex project, the `GPWMicroStorageDataFactory` uses Beamable Microservices and MicroStorage with data values stored in shared database. You are currently viewing the documentation for this project.**
 
 ## Download

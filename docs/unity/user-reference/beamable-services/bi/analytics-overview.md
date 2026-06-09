@@ -225,10 +225,10 @@ In this guide we will cover how to get setup to query your Athena Database and h
 
     PopSQL is a delightful tool that makes querying the Athena Database a breeze. There are many other options out there to query Athena, but we like PopSQL for a few reasons.
 
-    1. Both a thick & web client so you can access your Athena database from anywhere. Both are identical in every way.
+    1. Both a thick & web client so you can access your Athena database from anywhere. Both are identical in every way
     2. Very simple to setup
-    3. There are both free & paid versions available.
-    4. If you are using PopSQL with a Team, you can save, store & share queries across your entire team.
+    3. There are both free & paid versions available
+    4. If you are using PopSQL with a Team, you can save, store & share queries across your entire team
 
     [Signup for PopSQL to follow along with this guide!](https://popsql.com/users/sign_up)
 
@@ -257,9 +257,9 @@ Once you have downloaded PopSQL or have signed up and are using the web interfac
 _Note_: PopSQL settings interface image not available
 
 1. Navigate to your accounts menu and click **manage connections**
-2. Click the "Add new Connection" button. It is located in the top right corner.
+2. Click the "Add new Connection" button. It is located in the top right corner
 3. Select **Amazon Athena**
-4. The database value is a lowercase version of the project ID (PID) of your title. You can find this in the Beamable Portal and generally looks like **DE_1418422019508251**. Note that when you populate it here in the database that the **de_** needs to be lower case.
+4. The database value is a lowercase version of the project ID (PID) of your title. You can find this in the Beamable Portal and generally looks like **DE_1418422019508251**. Note that when you populate it here in the database that the **de_** needs to be lower case
 5. Put the provided S3 Output Location, AWS Access Key ID & AWS Secret Access Key. You can leave everything else blank or default. ( for example, AWS Session Token is not needed for this type of connection )
 6. Click Save and Connect
 
