@@ -9,7 +9,7 @@ Here are a few example use cases that Federations as a concept means to solve:
 - Integrating Beamable Inventory with Steam Inventory or Web3 Wallets
 - Integrating with Game Server Orchestrators such as Edgegap, Agones or even a custom stack
 
-Most implementations of Server-Side Callbacks are fire-and-forget (similar to a webhook). **Federations**, however, don't need to be fire-and-forget. Most **Federations** are calls made to your microservice that happen as part of a particular flow, often with things happening ***before*** and/or ***after the federated call finishes***.
+Most implementations of Server-Side Callbacks are fire-and-forget (similar to a webhook). **Federations**, however, do not need to be fire-and-forget. Most **Federations** are calls made to your microservice that happen as part of a particular flow, often with things happening ***before*** and/or ***after the federated call finishes***.
 
 Here is a high-level diagram of Federations:
 
@@ -31,7 +31,7 @@ Examples:
 `FederationId` values are the mechanism Beamable uses to select the correct Federation implementation when your microservice provides more than one of the same type. This is the `FederationId` parameter passed to `LoginFederatedOperation`, `SignUpFederatedOperation`, and `AttachFederatedOperation` on `UBeamRuntime`.
 
 ## Adding/Removing federations
-Federations are tied to interfaces implemented in your `Microservice` inherited class — these Federations and their IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, implement its Federation and recompile the microservice project.
+Federations are tied to interfaces implemented in your `Microservice` inherited class — these Federations and their IDs are automatically validated by a C# Analyzer that will tell you if you are missing things. To add one, implement its Federation and recompile the microservice project.
 
 ```csharp
 // FederationIds.cs
@@ -55,7 +55,7 @@ Take a look at each individual Federation's docs page for more information on us
 
 Most Federations are inside complex application paths. Therefore, you need a way to iterate on them locally, much like how you do with `Callables` (see [Microservices](../microservices/microservices.md#common-developer-workflows)).
 
-The selected [Microservice Target](../microservices/microservices.md#microservice-routing-and-microservice-target) defines which running microservice instance will handle the federated call. These get the same semantics as `Callables` routing. If any Federation does not support or requires additional configuration for local testing, it'll be specified in their documentation.
+The selected [Microservice Target](../microservices/microservices.md#microservice-routing-and-microservice-target) defines which running microservice instance will handle the federated call. These get the same semantics as `Callables` routing. If any Federation does not support or requires additional configuration for local testing, it will be specified in their documentation.
 
 !!! warning "What about PROD?!"
 	By default, production realm disallows ***any and all routing to microservices that are not the deployed ones***. In other words, if you run a local microservice while in a Prod realm, by default, it CANNOT steal any traffic from the service that is deployed.

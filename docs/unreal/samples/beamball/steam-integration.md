@@ -4,12 +4,12 @@ This page explains how to integrate a Beamable game with Steam using the **Beama
 
 ## Introduction
 
-Aside from the `BeamableCore` Plugin, here's what the sample contains:
+Aside from the `BeamableCore` Plugin, here is what the sample contains:
 
 - **`BEAMPROJ_Beamball` Unreal Plugin.**: Contains the UE implementation for the client
 - **`Microservices/services/BeamballMs` Microservice**: Microservice containing code that implements `IFederatedLogin`
 
-To set up this sample, you'll need a few things:
+To set up this sample, you will need a few things:
 
 - A Beamable Account and a Realm
 - A Steam Developer Account
@@ -41,10 +41,10 @@ Next, configure a Beamable realm to work with your Steam App:
 3. Go to the Portal and set aside your realm's PID and Realm Secret (`Games -> YourGame -> beamball-demo`)
 4. On the Portal open the Realm Config page of the `beamball-demo` realm (`Operate -> Config`)
 5. Hit the `Add Config` button
-6. Set the following key-value pairs for the namespace `steam_integration`:
-    1. `appid -> Your Steam application ID`
-    2. `key -> Your Steam Application Publisher Key`
-7. Compile and open the `BeamableUnreal` editor (it'll be configured as the `BEAMPROJ_Beamball`) project
+6. Set the following key-value pairs for the namespace `"steam_integration"`:
+    1. `"appid"` -> Your Steam application ID
+    2. `"key"` -> Your Steam Application Publisher Key
+7. Compile and open the `BeamableUnreal` editor (it will be configured as the `BEAMPROJ_Beamball`) project
 8. Sign into your Beamable account and go to the `beamball-demo` realm
     1. Hit `Apply to Build`
 9. Open a bash terminal at the `BeamableUnreal` root directory
@@ -104,7 +104,7 @@ This two-phase approach ensures that users are properly authenticated via Steam 
 ## Can I use it as a template?
 
 This sample is NOT a template you can start your own repository from. However, Beamable code components are free for
-you to copy and use in your own project. Here's what these are:
+you to copy and use in your own project. Here is what these are:
 
 - The `BeamballMs.Steam.cs` file in the `BeamballMs` Microservice. You can copy/paste it into any of your microservices
 - Beamable code inside `BEAMPROJ_Beamball/**/PlatformIntegrations` except code inside a `ThirdParty` directory

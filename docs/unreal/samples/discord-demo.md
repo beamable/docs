@@ -4,12 +4,12 @@ This demo showcases how you can use the **Beamable Unreal SDK** and **Beamable M
 
 ## Introduction
 
-Aside from the `BeamableCore` Plugin, here's what the sample contains:
+Aside from the `BeamableCore` Plugin, here is what the sample contains:
 
 - **`BEAMPROJ_DiscordDemo` Unreal Plugin.**: Contains the UE implementation for the client
 - **`Microservices/services/DiscordDemo` Microservice**: Microservice containing code that implements `IFederatedLogin` and a `DiscordBot` integration
 
-To set up this sample you'll need a few things:
+To set up this sample you will need a few things:
 
 - A Beamable Account and a Realm
 - A Discord Developer Account
@@ -50,15 +50,15 @@ Next, configure a Beamable realm to use it.
 1. Go to the Beamable Portal and create a new Beamable realm called `discord-demo`
 2. On the Portal open the Realm Config page of the `discord-demo` realm (`Operate -> Config`)
 3. Hit the `Add Config` button
-4. Set the following key-value pairs for the namespace `discord_integration`:
-      1. `matchmaking_roles_whitelist -> Your copied Role Id, can be multiple separated by comma`
-      2. `bot_token -> Your Bot Token`
-      3. `guild_id -> Your Discord Server ID`
-      4. `notify_channel -> Optional- Discord channel ID that bot will notify about status changes`
+4. Set the following key-value pairs for the namespace `"discord_integration"`:
+      1. `"matchmaking_roles_whitelist"` -> Your copied Role Id, can be multiple separated by comma
+      2. `"bot_token"` -> Your Bot Token
+      3. `"guild_id"` -> Your Discord Server ID
+      4. `"notify_channel"` -> Optional- Discord channel ID that bot will notify about status changes
 5. Open the `Plugins/BEAMPROJ_DiscordDemo/Overrides/Config/DefaultGame.ini`
       1. Replace the `DiscordAppId` in it with `Your App Id`
       2. Regenerate project files
-6. Compile and open the `BeamableUnreal` editor (it'll be configured as the `BEAMPROJ_DiscordDemo`) project
+6. Compile and open the `BeamableUnreal` editor (it will be configured as the `BEAMPROJ_DiscordDemo`) project
 
 Now, you are ready to sign into a game using Discord.
 
@@ -74,7 +74,7 @@ To test the sample:
 6. After logging in, you should see information about being able to participate in matchmaking
 7. Add or remove the role for the signed-in user on your Discord server
 8. Observe the text on the UI changing to reflect your ability to participate in matchmaking
-9. If `notify_channel` was specified correctly in the configuration, the bot also notifies the channel of the status change:
+9. If `"notify_channel"` was specified correctly in the configuration, the bot also notifies the channel of the status change:
 
 ![A Discord channel where the BeamableBot app posts two messages mentioning a user: "Updated matchmaking status: access denied" and "Updated matchmaking status: access gained".](../../media/imgs/discord_sample_notify.png)
 
@@ -82,7 +82,7 @@ To actually gate matchmaking, set up a rule in your `GameType` content that excl
 
 ## Can I use it as a template?
 
-This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here's what these are:
+This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here is what these are:
 
 - The `DiscordDemo` Microservice
 - Beamable code inside `BEAMPROJ_DiscordDemo` except code inside a `ThirdParty` directory

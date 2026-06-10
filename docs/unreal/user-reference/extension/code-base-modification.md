@@ -37,7 +37,7 @@ All custom code could be grouped using #pragma region.
 
 ```
 
-## 3. Extend, don’t erase
+## 3. Extend, do not erase
 
 Prefer extending or overriding behavior instead of deleting original code.
 

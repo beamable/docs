@@ -21,7 +21,7 @@ Logging in with the Beamable Unreal SDK means:
 
 This is handled automatically by the `Login` operations and `UBeamRuntimeSubsystem` implementations. See the [SDK Overview](../overview.md) for how this all works. The short version is: "After calling `Login` operations, your local state is ready for use."
 
-Here's a simple example using `Login - Frictionless` Operation:
+Here is a simple example using `Login - Frictionless` Operation:
 ![Blueprint graph wiring a Login - Frictionless operation node into a success handler that calls Update UI.](../../../media/imgs/federations-player-init-login-example.png)
 
 As you can see, the success handler tells the UI to update itself. The UI can then use the [`Local State - Stats`](stats.md) and [`Local State - Inventory`](inventory.md) nodes to read the player's stats and inventory to render itself.
@@ -46,12 +46,12 @@ To avoid that, players can "attach" some persistent identity information to that
 Attaching an identity can succeed or fail:
 
 - After a successful `Attach` call, a player will be able to log in via the corresponding `Login` operation
-    - For example, if you `Attach - EmailAndPassword` you'll be able to `Login - EmailAndPassword` to sign back into the account. <br><br>
+    - For example, if you `Attach - EmailAndPassword` you will be able to `Login - EmailAndPassword` to sign back into the account. <br><br>
 
 - If it fails with an `_IN_USE` error code, it means that the identity is already in use
 Handling of this is game specific, but most games will either:
     - Call the `Login` operation and log in with the in-use identity, discarding the guest account (this is the most common way to handle this)
-    - Detect progress on the guest account and, if above a particular threshold, use microservices to try and do some progress merging should the user want it. This is non-trivial and not a lot of games do it since cost-benefit isn't there in most cases (but it is _possible_)
+    - Detect progress on the guest account and, if above a particular threshold, use microservices to try and do some progress merging should the user want it. This is non-trivial and not a lot of games do it since cost-benefit is not there in most cases (but it is _possible_)
 
 See the [Discord sample](../../samples/discord-demo.md) for an example of this flow.
 
@@ -73,11 +73,11 @@ In these cases and builds:
 - Call `Sign Up - Email And Password` with `bAutoLogin` as `true`
     - You can optionally make use of properly configured Microservice with [Federated Player Initialization](../federation/federated-player-init.md) and the `InitProperties` in the `SignUp` node to pass in additional data to influence initial player state
 
-Here's what you would do once the user confirms the form:
+Here is what you would do once the user confirms the form:
 
 ![Email and Password](../../../media/imgs/identity-email-and-password.png)
 
-If your login/signup flows are the same (which is sometimes useful in early development), you can use the `Auto Login` option in this node. It'll create the account with email/password if it doesn't exist and, if it already does, it'll try to log into that account with the provided password.
+If your login/signup flows are the same (which is sometimes useful in early development), you can use the `Auto Login` option in this node. It will create the account with email/password if it does not exist and, if it already does, it will try to log into that account with the provided password.
 
 
 ### Local cache and federated identity
@@ -91,7 +91,7 @@ In builds for specific stores and platforms:
 - Call `Sign Up - Federated Identity` with `bAutoLogin` as `true` and a properly configured Microservice with [Federated Login](../federation/federated-login.md)
 - Both the success of the `Login - Local Cache` as well as the `Sign Up - Federated Identity` calls mean you have logged in successfully
 
-Here's how that looks in the client side:
+Here is how that looks in the client side:
 
 ![Local Cache + Federated Identity](../../../media/imgs/identity-cache-plus-platform.png)
 
@@ -100,7 +100,7 @@ Each different platform (Steam, EOS, PSN, etc.) requires a different Microservic
 !!! note "Why do platform integrations this way?"
 	The problem with Beamable supporting each platform directly in the SDK is that it ties Beamable SDK versions to each individual platform's SDK versions. This denies game makers the ability to independently select the feature-set they want to support from each individual platform.
 
-    It also causes breaking changes from these platforms to sometimes force the Beamable SDK to propagate them out. This creates scenarios where a game-maker wanting a new Beamable feature might need to update their Platform's SDK version even if they won't take advantage of the new Platform's SDK.
+    It also causes breaking changes from these platforms to sometimes force the Beamable SDK to propagate them out. This creates scenarios where a game-maker wanting a new Beamable feature might need to update their Platform's SDK version even if they will not take advantage of the new Platform's SDK.
 
     The advantages of the Federation approach is that the game-maker retains control of how they want to interact with the feature-set of each platform and gives them better control of upgrade timings.
 

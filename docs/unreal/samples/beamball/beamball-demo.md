@@ -6,7 +6,7 @@ This demo showcases how you can use the **Beamable Unreal SDK** in a full game p
 
 ## Introduction
 
-Aside from the `BeamableCore` Plugin, here's what the sample contains:
+Aside from the `BeamableCore` Plugin, here is what the sample contains:
 
 - **`BEAMPROJ_Beamball` Unreal Plugin.**: Contains the UE implementation for the sample client. Key locations in the project are:
       - `Plugins/BEAMPROJ_Beamball/Source/BEAMPROJ_Beamball/Public`: Public headers for gameplay/runtime systems
@@ -14,9 +14,9 @@ Aside from the `BeamableCore` Plugin, here's what the sample contains:
       - `Plugins/BEAMPROJ_Beamball/Source/BEAMPROJ_Beamball/Public/PlatformIntegrations` and `Private/PlatformIntegrations`: Platform-specific integrations (Edgegap, EOS, Steam)
       - `Plugins/BEAMPROJ_Beamball/Source/BEAMPROJ_BeamballBlueprintNodes`: Blueprint node module (`Public` headers and `Private` implementations)
       - `Plugins/BEAMPROJ_Beamball/Content/UI_BPs`: Blueprint assets used by the sample UI flow
-- **`Microservice/BeamballMs` Microservice**: Microservice containing code that's used by the sample for various matchmaking and stats functionality
+- **`Microservice/BeamballMs` Microservice**: Microservice containing code that is used by the sample for various matchmaking and stats functionality
 
-To set up this sample you'll need a Beamable Account and a Realm. To configure the repo for the sample, run `dotnet beam unreal select-sample BEAMPROJ_Beamball`.
+To set up this sample you will need a Beamable Account and a Realm. To configure the repo for the sample, run `dotnet beam unreal select-sample BEAMPROJ_Beamball`.
 
 ## Setting up the project
 To set up an organization and realm to run this sample, follow the steps below.
@@ -41,19 +41,19 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
 1. Open the Unreal editor
 2. Open the `L_Beamball_MainScreen` Level if it is not opened yet
       1. You can find it inside the `BEAMPROJ_Beamball Content` folder
-      2. If you can't see plugin content in your content browser, you can change the settings of the UE `Content Browser` to display it
+      2. If you cannot see plugin content in your content browser, you can change the settings of the UE `Content Browser` to display it
 3. Go to the `Beamable -> Microservice` window
       1. You should see the `BeamballMS` service there. Select it
       2. Click `Run` and wait until you see the `Service ready for traffic` log line (and the running icon in the Microservice's card to change)
-      3. After you're done with the sample, don't forget to come here and stop the service
-4. You don't need to select any Play Preset, as the `Beamball_MainScreen` level is the common entry point for the sample. So leave the Play Preset selector to `None`
+      3. After you are done with the sample, do not forget to come here and stop the service
+4. You do not need to select any Play Preset, as the `Beamball_MainScreen` level is the common entry point for the sample. So leave the Play Preset selector to `None`
 5. Play the `L_Beamball_MainScreen` in the Editor
 
 ### Running from the gameplay level
 1. Open the Unreal editor
 2. Open the `L_Beamball_Gameplay` Level if it is not opened yet
       1. You can find it inside the `BEAMPROJ_Beamball Content` folder
-      2. If you can't see plugin content in your content browser, you can change the settings of the UE `Content Browser` to display it
+      2. If you cannot see plugin content in your content browser, you can change the settings of the UE `Content Browser` to display it
 3. Go to the `Beamable -> PIE Settings -> Player Manager` window
    4. Create two players, one with the name `Player1` and another with the name `Player2`
 5. Go to the `Beamable -> PIE Settings -> Play Presets` window
@@ -61,7 +61,7 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
       7. Name: `Beamball Gameplay`
       8. Available Maps: Add `L_Beamball_Gameplay` to the list
       10. Enable PIE Lobby: Enabled
-      12. Game Type: `game_types.default`
+      12. Game Type: `"game_types.default"`
       13. Add both `Player1` and `Player2` to the preset
 6. Select the `Beamball Gameplay` Play Preset in the main toolbar
 7. Select `Play as Client` in the Net Mode settings and set the `Number of players` to 2
@@ -69,7 +69,7 @@ Leveraging the new Beamable PIE Settings, you can run the sample in editor throu
 
 ## Can I use it as a template?
 
-This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here's what these are:
+This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here is what these are:
 
 - The `BeamballMS` Microservice : located inside Microservice/BeamballMS
 - Beamable code and blueprints inside BEAMPROJ_Beamball plugin

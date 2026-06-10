@@ -81,7 +81,7 @@ To enable this workflow, the Beamable SDK:
     - If `Designer-A` publishes changes to `Content-1` and `Designer-B` had no changes made to that file in their machine, the SDK in `Designer-B`'s machine will automatically update their `Content-1` file to match the newest version of it published by `Designer-A`
     - The notification tells you what content was automatically synchronized. <br><br>
 - Informs you that you had made changes to a file that was modified in the published manifest. This is called a **Conflict**
-	- If `Designer-A` publishes changes to `Content-1` and `Designer-B` had made changes to that file in their machine, the SDK in `Designer-B`'s machine will NOT automatically update their `Content-1` file. Instead, it'll accuse a **Conflict**
+	- If `Designer-A` publishes changes to `Content-1` and `Designer-B` had made changes to that file in their machine, the SDK in `Designer-B`'s machine will NOT automatically update their `Content-1` file. Instead, it will accuse a **Conflict**
     - The notification informs you if a conflict happened
 
 To prevent `Designer-B` from overwriting changes made by `Designer-A` the SDK will not allow `Designer-B` to **Publish** until all detected conflicts are resolved. Resolving a conflict can be done in one of two ways:
@@ -167,11 +167,11 @@ Annotate your `UPROPERTY` with `EditAnywhere` and either:
 | `TArray<>`                      | `List<>` or `T[]`                          | Any `TArray<SomeType>` will serialize normally as long as `SomeType` is also supported.                                                                                                                                            |
 | `TMap<FString, >`               | `Dictionary<string,>`                      | Only `FString` keys are supported. The values can be any supported type.                                                                                                                                                 |
 | **Beamable Types**              |                                            |                                                                                                                                                                                                                                    |
-| `FBeamOptional`                 | `Optional____`                             | Any property of a type implementing `FBeamOptional` doesn't get serialized if `IsSet==false` but does get serialized otherwise.<br><br>For example, `FOptionalInt32` serializes to nothing OR an `int32`.                          |
+| `FBeamOptional`                 | `Optional____`                             | Any property of a type implementing `FBeamOptional` does not get serialized if `IsSet==false` but does get serialized otherwise.<br><br>For example, `FOptionalInt32` serializes to nothing OR an `int32`.                          |
 | `FBeamSemanticType`             | `string` OR semantic type equivalent in C# | This always gets serialized as a JSON blob when inside `UBeamContentObject`.                                                                                                                                                       |
 | `FBeamArray` and `FBeamMap`     | `ArrayOf` and `MapOf`                      | Any implementation of these wrappers are serialized correctly as JSON arrays and JSON<br>objects respectively. These are only used when<br>you want to nest `TArray<TArray<>>` / `TMap<,TMap<>>` and still have Blueprint Support. |
 | `FBeamJsonSerializableUStruct`  | Any C# class that maps to your struct      | Any type inheriting from this type gets serialized as a JSON object.                                                                                                                                                               |
-| `IBeamJsonSerializableUObject`  | Any C# class that maps to your class       | `UObject` in content should have their classes<br>annotated with `DefaultToInstanced`,<br>`EditInlineNew` since you shouldn't reference<br>assets directly inside content objects.<br><br>For that, use `TSoftObjectPtr<>`.        |
+| `IBeamJsonSerializableUObject`  | Any C# class that maps to your class       | `UObject` in content should have their classes<br>annotated with `DefaultToInstanced`,<br>`EditInlineNew` since you should not reference<br>assets directly inside content objects.<br><br>For that, use `TSoftObjectPtr<>`.        |
 
 Take a look at `UMockBeamContentObject` to see the supported types.
 
@@ -185,11 +185,11 @@ The SDK also supports live content updates (if you publish content while the gam
 
 - While the [`OwnerUserSlot`](../runtime-systems/user-slots.md) is signed in to Beamable, `UBeamContentSubsystem` listens for notifications that the realm's content manifest has been updated
 - When that happens, the SDK re-downloads the manifest
-- If `bDownloadIndividualContentAtStart` is `true`:
+- If `bDownloadIndividualContentOnStart` is `true`:
     - The SDK downloads and caches all updated content objects relative to the last manifest downloaded in this client
     - These updates are cached locally inside the `Saved` directory in binary form such that a user does not need to re-download content in subsequent runs of your game unless the published manifest changes
     - This cache is invalidated if your game-version changes, the SDK version changes or the UE version changes
-- If `bDownloadIndividualContentAtStart` is `false`:
+- If `bDownloadIndividualContentOnStart` is `false`:
     - You are then responsible for downloading each individual content via the APIs: `FetchIndividualContentBatchOperation` and `FetchIndividualContentOperation`
     - Caching will still occur automatically when manually downloading content
 
@@ -204,7 +204,7 @@ The content snapshot system allows you to save the state of your local content a
 
 This is useful for a couple of workflows:
 
-- You can use it to save the state of your local content before trying out risky changes and then restore it if you don't like the changes
+- You can use it to save the state of your local content before trying out risky changes and then restore it if you do not like the changes
 - You can save the current state of your local content and share it with your teammates so they can load it in their machines and have the same local content state as you
 - You can save the content state of your current realm and apply it to another realm
 
@@ -247,7 +247,7 @@ Baking content embeds it in your build as binary-serialized `UBeamContentCache` 
 
 To bake content, run the `EBP_BakeContent` editor utility at `/Editor/Utility/EBP_BakeContent.EBP_BakeContent` in the Beamable Core plugin folder. The utility bakes your **local** content state, so make sure it matches the realm before running it.
 
-!!! warning "I can't find the Beamable Core Content in the Content Browser"
+!!! warning "I cannot find the Beamable Core Content in the Content Browser"
 	UE's Content Browser does not show plugin content folders by default. Turn it on at `Content Browser -> Settings -> Show Plugin Content`.
 
 The baked assets (`BCC_`-prefixed `UBeamContentCache` objects) are stored in `/Game/Beamable/Content/Manifests/Cooked/`, which is included in packaged games by default. At runtime, `UBeamContentSubsystem` loads any `UBeamContentCache` automatically if it exists and is configured correctly.

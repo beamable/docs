@@ -4,12 +4,12 @@ This page explains how to integrate a Beamable game with Epic Online Services (E
 
 ## Introduction
 
-Aside from the `BeamableCore` Plugin, here's what the sample contains:
+Aside from the `BeamableCore` Plugin, here is what the sample contains:
 
 - **`BEAMPROJ_Beamball` Unreal Plugin.**: Contains the UE implementation for the client
 - **`Microservices/services/BeamballMs` Microservice**: Microservice containing code that implements `IFederatedLogin`
 
-To set up this sample, you'll need a few things:
+To set up this sample, you will need a few things:
 
 - A Beamable Account and a Realm
 - An Epic Games Developer Account
@@ -48,12 +48,12 @@ Next, configure a Beamable realm to work with your Epic Application:
 3. Go to the Portal and set aside your realm's PID and Realm Secret (`Games -> YourGame -> beamball-demo`)
 4. On the Portal open the Realm Config page of the `beamball-demo` realm (`Operate -> Config`)
 5. Hit the `Add Config` button
-6. Set the following key-value pairs for the namespace `eos_integration`:
-    1. `applicationId -> Your Epic Application ID`
-    2. `deploymentId -> Your Epic Deployment ID`
-    3. `clientId -> Your Epic Client ID`
-    4. `clientSecret -> Your Epic Client Secret`
-7. Compile and open the `BeamableUnreal` editor (it'll be configured as the `BEAMPROJ_Beamball`) project
+6. Set the following key-value pairs for the namespace `"eos_integration"`:
+    1. `"applicationId"` -> Your Epic Application ID
+    2. `"deploymentId"` -> Your Epic Deployment ID
+    3. `"clientId"` -> Your Epic Client ID
+    4. `"clientSecret"` -> Your Epic Client Secret
+7. Compile and open the `BeamableUnreal` editor (it will be configured as the `BEAMPROJ_Beamball`) project
 8. Sign into your Beamable account and go to the `beamball-demo` realm
     1. Hit `Apply to Build`
 9. Open a bash terminal at the `BeamableUnreal` root directory
@@ -123,7 +123,7 @@ The `BeamballMs.EpicOnlineServices.cs` microservice implements `IFederatedLogin<
    - **Signature**: Verifies the token was signed by Epic using their public keys
    - **Issuer**: Confirms token was issued by `https://api.epicgames.dev`
    - **Audience**: Validates the token is intended for your Client ID
-   - **Lifetime**: Ensures the token hasn't expired (with 2-minute clock skew tolerance)
+   - **Lifetime**: Ensures the token has not expired (with 2-minute clock skew tolerance)
    - **Application ID**: Verifies the `appid` claim matches your configured Application ID
 4. **User Identification**: Extracts the Epic Account ID from the `sub` (subject) claim, which becomes the federated identity linked to the Beamable account
 5. **Player Initialization**: For first-time users, the microservice obtains a client credentials access token and calls Epic's account information API to retrieve the user's display name and preferred language, populating the Beamable account with this data as player stats
@@ -132,7 +132,7 @@ This implementation follows Epic's official authentication documentation and sec
 
 ## Can I use it as a template?
 
-This sample is NOT a template you can start your own repository from. However, Beamable code components are free for you to copy and use in your own project. Here's what these are:
+This sample is NOT a template you can start your own repository from. However, Beamable code components are free for you to copy and use in your own project. Here is what these are:
 
 - The `BeamballMs.EpicOnlineServices.cs` file in the `BeamballMs` Microservice. You can copy/paste it into any of your microservices
 - Beamable code inside `BEAMPROJ_Beamball/**/PlatformIntegrations` except code inside a `ThirdParty` directory

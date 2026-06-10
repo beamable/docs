@@ -13,7 +13,7 @@ public class DefaultPlayerInit : IFederationId;
 public class MyService : Microservice, IFederatedPlayerInit<DefaultPlayerInit>
 ```
 
-Here's what an example implementation looks like:
+Here is what an example implementation looks like:
 
 ```csharp
 public async Promise<PlayerInitResult> CreatePlayer(Account account, Dictionary<string, string> properties)

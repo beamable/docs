@@ -2,7 +2,7 @@
 
 Games with live services require access to the internet and an open connection to the backend. In the Beamable SDK, an `FUserSlot` is considered **_connected_**:
 
-> When there's a signed-in user and the WebSocket connection (see `UBeamNotifications` and `UBeamRuntime`) for that user is alive.
+> When there is a signed-in user and the WebSocket connection (see `UBeamNotifications` and `UBeamRuntime`) for that user is alive.
 
 The semantics above are also what the servers use to keep track of any user's online status (relevant to real-time services like [Matchmaking](../beamable-services/matchmaking.md) and [Lobbies](../beamable-services/lobbies.md)).
 
@@ -11,7 +11,7 @@ The semantics above are also what the servers use to keep track of any user's on
 The Beamable SDK provides a `UBeamConnectivityManager` class that keeps the connectivity state for any logged-in `FUserSlot`.
 - For games that have only a single _local_ player, you can use `UBeamRuntime::GetOwnerSlotConnectivity` to access the correct manager by default
 
-- For games with multiple _local_ players, you can get the managers from `UBeamRuntime::GetSlotConnectivity` for each user (for the most part, they shouldn't differ in status)
+- For games with multiple _local_ players, you can get the managers from `UBeamRuntime::GetSlotConnectivity` for each user (for the most part, they should not differ in status)
 
 In Blueprints, there are a few [special nodes](blueprints.md) for accessing this data:
 
@@ -45,13 +45,13 @@ If the connection is reestablished, `UBeamConnectivityManager::OnReconnected` is
 
 - `false`: we enter `CONN_Fixup` and start ticking `UBeamConnectivityManager::FixupTick` until your game calls `UBeamConnectivityManager::NotifyFixupComplete()` (which returns to `CONN_Online` and stops the tick).<br><br>
 
-    You'll need to use the tick function to prepare your game to return to online mode. You could:
+    You will need to use the tick function to prepare your game to return to online mode. You could:
     - Wait until your game state would function if you were to refresh the `UBeamRuntimeSubsystem` implementations
     - Refresh the `UBeamRuntimeSubsystem` implementations
     - Call Microservices `ClientCallables` before resuming your game's flow.<br><br>
 
     At this point, you are connected and everything will function just as though you were in CONN_Online mode.
-    > *This state exists to help your code guard against the case of "I'm reconnected but not yet ready to function as though I'm online".*
+    > *This state exists to help your code guard against the case of "I am reconnected but not yet ready to function as though I am online".*
 
 
 ## Refreshing state after reconnection

@@ -15,10 +15,10 @@ If your game has no _local_ multiplayer (only a single local player), you only n
 
 - You should pass in the **Owner User Slot** (the one mapped to the "Local Player 0") to any calls taking an `FUserSlot`
     - In C++, you can use `UBeamCoreSettings::GetOwnerPlayerSlot()` to get it
-- In Blueprints, you'll only have to manually pass in user slots if you change the default slot from `"Player0"`
-- If you're using any of the lower-level APIs (`UBeam____Api` subsystems and `Low-Level` blueprint nodes), you might see functions that take in a `UObject* ContextObject`
+- In Blueprints, you will only have to manually pass in user slots if you change the default slot from `"Player0"`
+- If you are using any of the lower-level APIs (`UBeam____Api` subsystems and `Low-Level` blueprint nodes), you might see functions that take in a `UObject* ContextObject`
     - These are there to support Unreal's Multiplayer PIE mode (for the same reason a lot of UE's own APIs also need one of these)
-    - If you're calling them from a `UGameInstanceSubsystem`, `UActorComponent` or `AActor` or `Blueprint`, you can pass itself (`this`/`Self`) to this parameter
+    - If you are calling them from a `UGameInstanceSubsystem`, `UActorComponent` or `AActor` or `Blueprint`, you can pass itself (`this`/`Self`) to this parameter
 
 !!! warning "Non-Local Multiplayer Games"
     If your game is a normal one-player-per-client multiplayer game, you may want to take a look at the [Matchmaking](../beamable-services/matchmaking.md) and [Lobbies](../beamable-services/lobbies.md) systems.

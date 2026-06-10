@@ -19,7 +19,7 @@ Most of the time, you achieve this by doing the following:
 2. \[**Game Client**]: Invoke a `Login`/`SignUp`/`Attach` **Operation** and pass the following parameters:
 	1. **MicroserviceName**: this is the name of the Microservice (the **csproj** file name, in the default case)
 	2. **IdentityNamespace**: this is the Federation's **[Federation Id](federation.md#federation-id)**. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow
-	3. **IdentityUserId**: this is the third-party's `UserId` for the user trying to login. We use this to determine if there's already a Beamable account mapped to this third-party Id
+	3. **IdentityUserId**: this is the third-party's `UserId` for the user trying to login. We use this to determine if there is already a Beamable account mapped to this third-party Id
 	4. **IdentityAuthToken**: this is a token that for the user that can be used by the `Authenticate` function to map it back to a `UserId`
 	5. **Federation Id**: this is the Federation's **[Federation Id](federation.md#federation-id)**. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow
 
