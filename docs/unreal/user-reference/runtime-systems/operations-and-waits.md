@@ -16,7 +16,7 @@ A couple of examples:
 - "I want to go talk to a microservice to validate that you can actually join this matchmaking queue."
 
 !!! warning
-	While possible, avoid creating Operations as Blueprints. It's OK to do so for a quick experimentation session; but shipping with it is *not recommended*.
+	While possible, avoid creating Operations as Blueprints. It is OK to do so for a quick experimentation session; but shipping with it is *not recommended*.
 	**Calling *Operations* that are written in C++ is the primary way for Blueprints to interact with the Beamable SDK. The SDK even includes [special nodes](blueprints.md) for it.**
 
 ## Operation lifecycle
@@ -33,7 +33,7 @@ The lifecycle of an operation goes as follows:
 - **Operation Hooks**: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work
 
 ## Writing and exposing your own regular operations
-The SDK exposes all main operations in both BP and C++ flavors. If you'd like to do the same thing, this section is for you. To learn about writing hooks in C++, review the next section.
+The SDK exposes all main operations in both BP and C++ flavors. If you would like to do the same thing, this section is for you. To learn about writing hooks in C++, review the next section.
 
 **The primary trade-off**:
 
@@ -172,7 +172,7 @@ class UK2BeamNode_Operation_CommitInventoryUpdate : public UK2BeamNode_Operation
 #undef LOCTEXT_NAMESPACE
 ```
 
-As long as you have one of these in an `UncookedOnly` module of your game, you'll be able to expose your own custom operations as BP nodes (this is compatible with Multiplayer PIE mode).
+As long as you have one of these in an `UncookedOnly` module of your game, you will be able to expose your own custom operations as BP nodes (this is compatible with Multiplayer PIE mode).
 
 This is very useful when designing unique features using [MicroServices and MicroStorages](../microservices/microservices.md) and other `FBeamOperationHandle` returning functions.
 
@@ -268,7 +268,7 @@ SomeSystem->Hook.Add(F____::CreateLambda([this]()
 ```
 
 ## Why not template-based promises?
-The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style API won't work with BPs. The goal was an underlying system providing the same functionality while retaining BP compatibility, even without the template-based interface. The result was this `Operation` system.
+The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style API will not work with BPs. The goal was an underlying system providing the same functionality while retaining BP compatibility, even without the template-based interface. The result was this `Operation` system.
 
 !!! info
 	In building the Stateful `UBeamRuntimeSubsystems` with this system, the team found the absence of template syntax and `Do().Then()` chaining to be a non-issue in practice. Chaining may be revisited eventually — perhaps as "syntactic sugar" — but template-layer additions are unlikely given the BP-Compatibility requirement.

@@ -47,7 +47,7 @@ Docker is often used by Game Server Orchestrators for running built Game Servers
 	1. It should contain an `Engine` folder, a `ProjectName` folder and a script file with filename in format: `{ProjectName}Server.sh`
 3. Create `Dockerfile` file in `LinuxServer` directory
 4. Copy the file contents below to the created `Dockerfile`
-	1. **Don't forget to update the paths to match your project!**
+	1. **Do not forget to update the paths to match your project!**
 
 ```dockerfile
 FROM ubuntu:22.04

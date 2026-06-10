@@ -4,12 +4,12 @@ This demo showcases how you can use the **Unreal SDK** and **Beamable Microservi
 
 ## Introduction
 
-Aside from our `BeamableCore` Plugin, here's what the sample contains:
+Aside from our `BeamableCore` Plugin, here is what the sample contains:
 
 - **`BEAMPROJ_SteamDemo` Unreal Plugin.**: Contains the UE implementation for the client
 - **`Microservices/services/SteamDemo` Microservice**: Microservice containing code that implements **IFederatedLogin**
 
-To set up this sample you'll need a few things:
+To set up this sample you will need a few things:
 
 - A Beamable Account and a Realm
 - A Steam Developer Account
@@ -21,7 +21,7 @@ To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_SteamDem
 
 ## Setting Steam application
 
-Since this sample requires several resources, we do not host it ourselves. So, to access the sample we'll go set up a Steam account and setup the sample:
+Since this sample requires several resources, we do not host it ourselves. So, to access the sample we will go set up a Steam account and setup the sample:
 
 1. Log into your [Steam](https://partner.steamgames.com/apps) developer account
 2. Go to your App and set aside its `AppId`
@@ -42,7 +42,7 @@ Next, configure a Beamable realm to use it:
 6. Set the following key-value pairs for the namespace `steam`:
    1. `appid -> Your Steam application ID`
    2. `key -> Your Steam Application Publisher Key`
-7. Compile and open the `BeamableUnreal` editor (it'll be configured as the `BEAMPROJ_SteamDemo`) project
+7. Compile and open the `BeamableUnreal` editor (it will be configured as the `BEAMPROJ_SteamDemo`) project
 8. Sign into your Beamable account and go to the `steam-demo` realm
 	1. Hit `Apply to Build`
 9. Open a bash terminal at the `BeamableUnreal` root directory
@@ -80,11 +80,11 @@ This is how we initialize the SDK and sign in a user with their Steam account.
 
 ## Can I use it as a template?
 
-This sample is NOT a template you can start your own repository from. However, its Beamable code components are free for you to copy and use in your own project. Here's what these are:
+This sample is NOT a template you can start your own repository from. However, its Beamable code components are free for you to copy and use in your own project. Here is what these are:
 
 - The `SteamDemo` Microservice
 - Beamable code inside `BEAMPROJ_SteamDemo` except code inside a `ThirdParty` directory
 - Content inside the `BEAMPROJ_SteamDemo` except things inside a `ThirdParty` directory
 
-## Why don't we provide a client build?
+## Why do not we provide a client build?
 Clients must be pointed at your `steam-demo` realm, so you must generate the build yourself. You can do so by packaging it normally for any of our supported platforms.

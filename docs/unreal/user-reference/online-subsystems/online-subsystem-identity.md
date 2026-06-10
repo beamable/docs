@@ -3,11 +3,11 @@
 There are several different styles of signup/login flows games might want to use. This section explores how to set them up.
 
 ### Frictionless login and attaching identities
-This flow is useful for when you want to automatically create a user for the player and then, some time in the future, you'll provide your player the opportunity to attach identities to them. Mostly used by mobile games, but can also be used to implement automatic Steam/Epic store logins.
+This flow is useful for when you want to automatically create a user for the player and then, some time in the future, you will provide your player the opportunity to attach identities to them. Mostly used by mobile games, but can also be used to implement automatic Steam/Epic store logins.
 
 - Use the `IOnlineIdentity::Login` function with a `LoginType` of `BeamOSS::GetIdentityTypeFrictionless()` to create an account (or sign into the locally cached one)
 - Then, while signed into an account, call `Login` again with a `LoginType` of `BeamOSS::GetIdentityTypeAttach____()` to attach a new identity to the currently logged in account
-    - Don't forget to reassign the callbacks on `OnLoginCompleteDelegates` before calling login to respond to success/failure of attaching
+    - Do not forget to reassign the callbacks on `OnLoginCompleteDelegates` before calling login to respond to success/failure of attaching
 
 !!! warning "Swapping Accounts when Attaching"
     If you have `UOnlineSubsystemBeamableSettings::bAutoLoginOnAttach` set to `true`, trying to attach to an already-used identity will sign out of the current user and then sign-in to the given identity. Keep in mind the difference in the semantics of the `OnLoginCompleteDelegates` because of this.
@@ -18,7 +18,7 @@ This flow is useful for when you want to automatically create a user for the pla
 If your game has a sign-up and/or login screen that the user is expected to choose their sign-up or login flows, this is what you want.
 
 - Use the `IOnlineIdentity::Login` function with a `LoginType` of `BeamOSS::GetIdentityTypeSignUpEmail()`
-- If you have `UOnlineSubsystemBeamableSettings::bAutoSignUpWhenLogin` set to `true`, you can use `BeamOSS::GetIdentityTypeEmail()` and it'll automatically create an account if the credentials provided aren't already associated with an account (if they are, you'll sign into the provided credentials)
+- If you have `UOnlineSubsystemBeamableSettings::bAutoSignUpWhenLogin` set to `true`, you can use `BeamOSS::GetIdentityTypeEmail()` and it will automatically create an account if the credentials provided are not already associated with an account (if they are, you will sign into the provided credentials)
 
 !!! note "Attaching Other Identities"
     You can still attach other identities using any of the `BeamOSS::GetIdentityTypeAttach____()`. The same rules around `bAutoLoginOnAttach` apply.

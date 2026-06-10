@@ -21,7 +21,7 @@ Lobbies are rooms containing only [online players](../runtime-systems/connectivi
 	- Will be removed from the lobby after becoming offline (after a small delay)
 
 ## Getting started - Open/Closed lobbies
-This section describes how to set up and join manually created lobbies. Lobbies created via [Matchmaking](matchmaking.md) don't need this setup.
+This section describes how to set up and join manually created lobbies. Lobbies created via [Matchmaking](matchmaking.md) do not need this setup.
 
 ### Creating lobbies
 
@@ -69,13 +69,13 @@ To read from a specific player's data, you can use any of these nodes:
 ![The equivalent Local State - Lobby player-data nodes: iterate all key/values, retrieve one value with a default, and deserialize a JSON blob into a cast target.](../../../media/imgs/lobbies-read-player-data.png)
 
 ## Synchronizing across clients
-Beamable's Lobby system will automatically notify every player inside a lobby of relevant events. Once you're in a lobby, the SDK keeps track of your local state inside `UBeamLobbyState` (one per-`UserSlot`).
+Beamable's Lobby system will automatically notify every player inside a lobby of relevant events. Once you are in a lobby, the SDK keeps track of your local state inside `UBeamLobbyState` (one per-`UserSlot`).
 
 You can use `GetCurrentSlotLobbyState` to get the `UBeamLobbyState` and setup various **Delegates** in this object to respond to these events, normally updating your UI or custom system built on top of this subsystem.
 
 ![A Local State - Lobby - GetCurrentSlotLobbyState node whose return value feeds a Bind Event to On Lobby Updated node, wired to an OnLobbyUpdated custom event with Slot, Lobby, and Raw Evt outputs.](../../../media/imgs/lobbies-notification-binding.png)
 
-Here's the list of events exposed:
+Here is the list of events exposed:
 
 - **OnKickedFromLobby**: received whenever a host removes a player from the lobby via `KickPlayerOperation`
 	- Every player in the lobby receives this notification, including the host. <br><br>
@@ -105,7 +105,7 @@ Both lobby types have the same schema and are represented by the `ULobby` class.
 - **Passcode**: an auto-generated realm-scoped unique value that can be used to `JoinLobbyByPasscode`
 	- This is filled on-creation and the passcode length has a minimum of 6 characters
 - **MaxPlayers**: defines the maximum amount of players that can be in this lobby at the same time
-	- When changing this via `CommitLobbyUpdateOperation`, if you have more players than the new **MaxPlayer** value, you'll get an error
+	- When changing this via `CommitLobbyUpdateOperation`, if you have more players than the new **MaxPlayer** value, you will get an error
 - **Players**: a list of `ULobbyPlayer` containing data associated to each player in the lobby
 	- **PlayerId**: the player's `FBeamGamerTag`
 	- **Joined**: an ISO 8601 date-time string for when the player joined

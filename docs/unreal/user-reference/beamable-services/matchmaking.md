@@ -33,7 +33,7 @@ To join a queue, use the `Matchmaking - Try Join Queue` operation. It takes in t
 Bind to the matchmaking events so you can respond to notifications regarding the queue you are in.
 The semantics for each event are:
 
-- `OnMatchSearching`: "I'm in the queue, but wasn't matched yet"
+- `OnMatchSearching`: "I am in the queue, but was not matched yet"
 - `OnMatchRemoteSearchStarted`: "My [Party Leader](parties.md) has joined the queue for us"
 - `OnMatchTimedOut`: "I was in the queue for too long without a match"
 - `OnMatchReady`: "I got matched and my match is ready"

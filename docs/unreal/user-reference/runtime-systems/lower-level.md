@@ -1,11 +1,11 @@
 # Lower-level SDK
 
-This section talks about lower-level details of how requests to Beamable get made. ***You don't need to read this***, but... you might want to if you plan on implementing your own `UBeamRuntimeSubsystem`.
+This section talks about lower-level details of how requests to Beamable get made. ***You do not need to read this***, but... you might want to if you plan on implementing your own `UBeamRuntimeSubsystem`.
 
-Here's why you'd want to do this:
+Here is why you would want to do this:
 
 - You want to replace one of the SDK's implementations with something custom and want to provide guarantees about your system's lifecycle that are similar to those the SDK provides
-- You wish to guarantee that when any `Login / Signup` Operation's success is triggered, you'll already have access to custom data fetched via Microservices and MicroStorages
+- You wish to guarantee that when any `Login / Signup` Operation's success is triggered, you will already have access to custom data fetched via Microservices and MicroStorages
 
 Unless you are solving one of the two problems above, you will not need to write your own `UBeamRuntimeSubsystem`. If you do, the following concepts are essential.
 
@@ -27,8 +27,8 @@ The lowest layer of systems is shared between the SDK's UE Editor integration an
 - `UBeam_____Api`: Code-Generated Subsystems from the Beamable Backend OpenAPI spec
     - These are stateless `UEngineSubsystem` implementations
     - These provide you low-level access to every end-point of the Beamable backend even if the SDK does not include utilities that do exactly what you want
-    - As UE doesn't allow for namespaces AND BP-compatibility, this is _very_ verbose. Prefer more liberal use of `auto` when dealing with Code-Gen API Types
-    - At runtime, don't forget to pass in the `UObject* CallingContext` parameter: any `UWorld`, `UGameInstanceSubsystem`, `UActorComponent` or `AActor` will do (this ensures proper behavior in all cases of PIE).<br><br>
+    - As UE does not allow for namespaces AND BP-compatibility, this is _very_ verbose. Prefer more liberal use of `auto` when dealing with Code-Gen API Types
+    - At runtime, do not forget to pass in the `UObject* CallingContext` parameter: any `UWorld`, `UGameInstanceSubsystem`, `UActorComponent` or `AActor` will do (this ensures proper behavior in all cases of PIE).<br><br>
 
 - `UBeamBackend`, `UBeamNotifications` and `UBeam_____Notifications` are discussed in the sections below
 

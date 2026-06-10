@@ -54,7 +54,7 @@ virtual void BeginPlay() override
                         BeamMultiplayer::Orchestrator::NotifyLobbyReady(this, LobbyId, FBeamOperationEventHandlerCode::CreateLambda([](FBeamOperationEvent Evt)
                         {
                             // Users will never receive the notification that a match was found, will timeout and get put back into the queue.
-                            // Game-Dependent: Maybe kill the server so it doesn't linger?
+                            // Game-Dependent: Maybe kill the server so it does not linger?
                             if (Evt.CompletedWithError()) return;
 
                             // Users will start trying to connect soon (PreLoginAsync flow)
@@ -82,7 +82,7 @@ When using the Beamable SDK, to validate that the user should be allowed to conn
 
 These are expected to arrive via the `Options` parameter.
 
-In client builds, passing these options can be achieved using `UBeamLobbySubsystem::TryOpenLevelFromLobby`. You can also use `UBeamLobbySubsystem::PrepareLoginOptions` to append these to a string you'll pass to the regular `Open Level` calls used to connect to game servers.
+In client builds, passing these options can be achieved using `UBeamLobbySubsystem::TryOpenLevelFromLobby`. You can also use `UBeamLobbySubsystem::PrepareLoginOptions` to append these to a string you will pass to the regular `Open Level` calls used to connect to game servers.
 
 When implementing `PreLoginAsync`, you need to call two functions:
 
@@ -121,7 +121,7 @@ If you have multiple players per client, you should also implement a subclass of
 
 ```c++
 /**
- * If your game doesn't have multiple local players, this should not be needed, but it is fine to include it.
+ * If your game does not have multiple local players, this should not be needed, but it is fine to include it.
  * It will ensure each of the local players traveling together to the game server will forward their associated Beamable information as part of the options.
  */
 UCLASS()
@@ -160,7 +160,7 @@ This means a few things:
      By default, if you are implementing the **Game Server Authentication** described here. The server stores the AuthToken for each user inside server mapping slots — this means the Game Server _can_ make requests "as though they were the user itself" but with the Server's admin permissions. This can be useful due to certain legacy API limitations.
 
 ### Writing to a user's stats and inventory
-When writing your Game Server code, you generally don't want to be making requests for individual players one at a time (batching is generally better). Sometimes that is fine, but there are cases where you'll want to write several things to several players' Stats/Inventory (processing a match's results, for example). In cases like this, you should write `ServerCallable` functions in Microservices and call those from the Microservice. See [Microservices](../microservices/microservices.md) for more information about the various types of `Callable`.
+When writing your Game Server code, you generally do not want to be making requests for individual players one at a time (batching is generally better). Sometimes that is fine, but there are cases where you will want to write several things to several players' Stats/Inventory (processing a match's results, for example). In cases like this, you should write `ServerCallable` functions in Microservices and call those from the Microservice. See [Microservices](../microservices/microservices.md) for more information about the various types of `Callable`.
 
 ## Making Beam PIE faster
 Iteration time is one of the most important factors when developing a game. The goal is to let you enter PIE as fast as UE allows, while still having all the guarantees about Beamable. Unfortunately, that is not possible with Blueprints.

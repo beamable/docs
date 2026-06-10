@@ -2,7 +2,7 @@
 
 Games with live services require access to the internet and an open connection to the backend. In the Beamable SDK, an `FUserSlot` is considered **_connected_**:
 
-> When there's a signed-in user and the WebSocket connection (see `UBeamNotifications` and `UBeamRuntime`) for that user is alive.
+> When there is a signed-in user and the WebSocket connection (see `UBeamNotifications` and `UBeamRuntime`) for that user is alive.
 
 The semantics above are also what our servers use to keep track of any user's online status (relevant to our real-time services like [Matchmaking](../beamable-services/matchmaking.md) and [Lobbies](../beamable-services/lobbies.md)).
 
@@ -11,7 +11,7 @@ The semantics above are also what our servers use to keep track of any user's on
 The Beamable SDK provides a `UBeamConnectivityManager` class that keeps the connectivity state for any logged-in `FUserSlot`.
 - For games that have only a single _local_ player, you can use `UBeamRuntime::GetOwnerSlotConnectivity` to access the correct manager by default
 
-- For games with multiple _local_ players, you can get the managers from `UBeamRuntime::GetSlotConnectivity` for each user (for the most part, they shouldn't differ in status)
+- For games with multiple _local_ players, you can get the managers from `UBeamRuntime::GetSlotConnectivity` for each user (for the most part, they should not differ in status)
 
 In Blueprints, we have a few [special nodes](blueprints.md) for accessing this data:
 
@@ -35,7 +35,7 @@ Once we go into `CONN_Offline`, two things happen:
 2. We set up a Tick (`UBeamConnectivityManager::ReconnectionTick`) function to run while you are in `CONN_Offline` mode
     - Provides more flexibility for games that want to handle connectivity loss in complex ways such as waiting for X amount of time before booting the player out, reducing available feature set, etc.
 
-While in `CONN_Offline` mode, we'll keep trying to reestablish the `FUserSlot`'s connection with Beamable. This happens automatically in the background and is a continuous process.
+While in `CONN_Offline` mode, we will keep trying to reestablish the `FUserSlot`'s connection with Beamable. This happens automatically in the background and is a continuous process.
 
 ### Reconnect behavior
 
@@ -45,13 +45,13 @@ If we manage to reestablish the connection, we broadcast `UBeamConnectivityManag
 
 - `false`: we enter `CONN_Fixup` and start ticking `UBeamConnectivityManager::FixupTick` until your game calls `UBeamConnectivityManager::NotifyFixupComplete()` (which returns to `CONN_Online` and stops the tick).<br><br>
 
-    You'll need to use the tick function to prepare your game to return to online mode. You could:
+    You will need to use the tick function to prepare your game to return to online mode. You could:
     - Wait until your game state would function if you were to refresh the `UBeamRuntimeSubsystem` implementations
     - Refresh the `UBeamRuntimeSubsystem` implementations
     - Call Microservices `ClientCallables` before resuming your game's flow.<br><br>
 
     At this point, you are connected and everything will function just as though you were in CONN_Online mode.
-    > *This state exists to help your code guard against the case of "I'm reconnected but not yet ready to function as though I'm online".*
+    > *This state exists to help your code guard against the case of "I am reconnected but not yet ready to function as though I am online".*
 
 
 ## Refreshing state after reconnection
@@ -76,6 +76,6 @@ For these reasons, we decided to **_NOT_** automatically refresh and instead to 
 !!! warning "Why not do Request-based Heuristics?"
     We have tried estimating internet connectivity via some amount of heuristics over failed requests.
     We have found that having a semantic for connectivity that results in more stability is better.
-    Requests timeout if you're not connected to the internet and try to make them (or they are made and they can't reach the Beamable servers).
+    Requests timeout if you are not connected to the internet and try to make them (or they are made and they cannot reach the Beamable servers).
 
     Connectivity ONLY changes based on the WebSocket connection (which is more stable, at both the protocol level and at our own implementation level). This minimizes problems from broadcasting connectivity-related delegates in quick succession while making downstream code easier to write.

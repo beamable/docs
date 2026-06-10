@@ -47,7 +47,7 @@ The next image shows a high-level description of the authentication flows suppor
 ### Beamable runtime subsystems
 `BeamRuntimeSubsystems` are stateful subsystems that aim to provide an extendable baseline of some Beamable functionality. They are built on top of the auto-generated lower-level API (`UBeam____Api` classes) to make it simpler to use the SDK's APIs so that:
 
-1. You don't have to set up the common case
+1. You do not have to set up the common case
 2. You can use them and their extension points for variations of the common case
 3. You can use them as reference implementations to implement your own custom use cases
 

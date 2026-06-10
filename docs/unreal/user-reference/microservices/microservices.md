@@ -153,16 +153,16 @@ A few things to note:
 ## Making requests on behalf of users
 It is quite a common case that a Microservice needs to use one of Beamable's many APIs on behalf of a particular user. This allows you to re-use these APIs (usually written in a client-facing way) for multiple users. A practical example:
 
-> At the end of a MOBA match, you'll need to update player stats gathered during the match or process their account's new Experience or Rank. For this, you can make a `ServerCallable` called `ProcessMatchResults` and pass in information from your dedicated server whenever the match is over.
+> At the end of a MOBA match, you will need to update player stats gathered during the match or process their account's new Experience or Rank. For this, you can make a `ServerCallable` called `ProcessMatchResults` and pass in information from your dedicated server whenever the match is over.
 
 To make requests on behalf of users, use the `AssumeNewUser` function. It gives you back a `UserRequestDataHandler` that has fields like `Context` and `Services`. Making API calls from this `assumedUser.Services.Stats` instance as opposed to the usual `this.Services` will make the request on behalf of the user.
 
 ## Multiple Microservices and organizing code
-The first impulse a lot of people have is to separate microservices semantically; one-per-feature. **We do not recommend this.** Here's why:
+The first impulse a lot of people have is to separate microservices semantically; one-per-feature. **We do not recommend this.** Here is why:
 
 - Having a lot of microservices will increase your cost for no benefit (_in most cases_)
 - Having a lot of microservices increases project complexity (which impact development costs)
-- Having a lot of microservices makes you add latency to things that otherwise wouldn't have it (cross microservice communication is possible, but rarely actually needed)
+- Having a lot of microservices makes you add latency to things that otherwise would not have it (cross microservice communication is possible, but rarely actually needed)
 - Having a lot of microservices increases deployment times
 
 The key metric you should use to consider creating additional microservices is ***different load profiles at runtime***. Basically, if you have a set of features with similar expected load profiles, you can keep them together as the auto-scaling will work uniformly to handle the increased load. If you have services with "spike-y" load profiles (either in memory usage or CPU), then consider putting each of them in their own service so that they can be scaled independently and faster than your other larger services.
@@ -171,10 +171,10 @@ The key metric you should use to consider creating additional microservices is *
 >
 > **Beamable**: "You can create new parts of the `partial` Microservice type. You can declare utility static functions as well and make most `____Callable` just forward the call along."
 
-We've found these to be **reasonable defaults** that give you generally good runtime scalability for a low-cost and provide a simple developer experience. You should always keep an eye on your service's behavior for optimization opportunities as you observe its behavior under load.
+We have found these to be **reasonable defaults** that give you generally good runtime scalability for a low-cost and provide a simple developer experience. You should always keep an eye on your service's behavior for optimization opportunities as you observe its behavior under load.
 
 ## Microservice routing and Microservice target
-When you make a request to a microservice, you're not actually directly talking to your service. Your request comes in via Beamable's Gateway service and that service figures out to which running Microservice instance it will forward that request.
+When you make a request to a microservice, you are not actually directly talking to your service. Your request comes in via Beamable's Gateway service and that service figures out to which running Microservice instance it will forward that request.
 
 This allows us to integrate microservices running in your local machine "as though they" are part of the realm in two specific ways:
 
@@ -189,7 +189,7 @@ Enabling these two cases at the push of a button enables very fast development i
 There are a few different ways to work with Microservices in Unreal, each with their own advantages and disadvantages. These are NOT how-to guides, they are high-level descriptions to help you get a feel regarding how to work with Beamable and how its tools can be used to work alone and as a team.
 
 ### Designing the API
-If you're in the very early stages of solving a problem, you want to get the features to work. Here's a workflow that doesn't require you to open Unreal at all, allowing you to focus only on getting your `Callables` to work!
+If you are in the very early stages of solving a problem, you want to get the features to work. Here is a workflow that does not require you to open Unreal at all, allowing you to focus only on getting your `Callables` to work!
 
 Here are the steps:
 
@@ -211,7 +211,7 @@ Whenever it becomes preferable or necessary (see [Federations](../federation/fed
 We generate both C++ and Blueprint Bindings for every microservice `Callable`.
 
 !!! info "IMPORTANT: Using the generated code in UE"
-	The generated code exist inside a `__________MicroserviceClients` plugin. So, you should add this plugin as a dependency to any project/plugin you have from which you want to make calls to your microservices (don't forget to add it to `Target.cs` files as needed). Also, call `________MicroserviceClients.AddMicroserviceClients(this)` on any of the `Build.cs` files you have and want to communicate with a microservice.
+	The generated code exist inside a `__________MicroserviceClients` plugin. So, you should add this plugin as a dependency to any project/plugin you have from which you want to make calls to your microservices (do not forget to add it to `Target.cs` files as needed). Also, call `________MicroserviceClients.AddMicroserviceClients(this)` on any of the `Build.cs` files you have and want to communicate with a microservice.
 
 Once you have these, you can:
 
@@ -240,7 +240,7 @@ To allow your teammates to use the service without needing to run it locally, yo
 Deploying services for the UE integration is 100% CLI-based. The documentation for it can be found here.
 
 !!! info "Why no Deploy Editor UI?"
-	If there's enough demand for it, a deploy UI will be considered. However, deploying services is mostly done by engineers and CI/CD pipelines, and compiling and opening the UE Editor only to do this does not add enough value to the UE workflow.
+	If there is enough demand for it, a deploy UI will be considered. However, deploying services is mostly done by engineers and CI/CD pipelines, and compiling and opening the UE Editor only to do this does not add enough value to the UE workflow.
 
 ### Collaborative debugging
 This one is pretty unique to Beamable's Microservices.
@@ -260,7 +260,7 @@ The usual flow for handling this situation looks like this:
 
 Or... you could instead use Beamable's Collaborative Debugging workflow:
 
-- As the engineer, hop on a voice chat with the designer and make sure you're in the same realm as them
+- As the engineer, hop on a voice chat with the designer and make sure you are in the same realm as them
 - As the engineer, boot up your local service with a debugger attached and a breakpoint
 - As the designer, open the editor and the **Microservice Window's Collaboration tab** for the service and select your engineer's email from the drop-down
 - As the designer, enter PIE and do what you do to repro the bug
@@ -280,13 +280,13 @@ Beamable Microservices allow you to store data in Beamable's own managed service
 For those cases, Beamable offers a `MicroStorage`. This is a wrapper around a database that you can write to from your microservices. At the moment, only `MongoDB` is supported. Like Microservices, these are scoped by realm as well (as in, data from Realm A is only visible in Realm A). [Micro Storages](../microservices/microservices.md#micro-storages).
 
 !!! note "Relevancy for API Design and Client-Code Generation"
-	While there's no compilation problem in using types declared in the `MicroStorage` project as part of the signatures of `Callable` functions, exposing these types in Callable functions is **NOT RECOMMENDED**.
+	While there is no compilation problem in using types declared in the `MicroStorage` project as part of the signatures of `Callable` functions, exposing these types in Callable functions is **NOT RECOMMENDED**.
 
 	 While it can be simpler and faster to prototype this way, the post-release implications of doing that are all very bad. It makes it harder to modify your internal schema and makes it harder to introduce new behavior without doing data-migrations.
 
 	  **`Callables` should have unique request/response types for better long-term maintainability and flexibility**.
 
 ### Local development implications
-While you can develop microservices without Docker being run (except for its publishing step), you cannot do the same for `Microservices` that use `MicroStorages`. This is because the local running service expects there to be a locally running `MongoDB` instance it'll use as the Database.
+While you can develop microservices without Docker being run (except for its publishing step), you cannot do the same for `Microservices` that use `MicroStorages`. This is because the local running service expects there to be a locally running `MongoDB` instance it will use as the Database.
 
 To ensure this, the SDK runs `MongoDB`'s official container in your local Docker instance. This is managed automatically on startup of the microservice BUT does introduce a dependency on Docker for local iterative development.

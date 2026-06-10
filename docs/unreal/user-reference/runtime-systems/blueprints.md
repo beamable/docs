@@ -87,7 +87,7 @@ Common usages of these are in UIs with the following pattern:
 
 ![A Construct event wired into an Events - Inventory - Bind node, and a Destruct event routed through a Sequence into the same node's Unbind input.](../../../media/imgs/blueprint-event-bind-unbind.png)
 
-We also provide `Unbind` nodes for cases where the above pattern isn't possible or desirable. In this node, you can select which events you are unbinding:
+We also provide `Unbind` nodes for cases where the above pattern is not possible or desirable. In this node, you can select which events you are unbinding:
 
 ![An Events - Inventory - Unbind node beside an Events - Inventory - Unbind All Events node, with a Details panel listing OnInventoryRefreshed as the available event.](../../../media/imgs/blueprint-event-unbind.png)
 

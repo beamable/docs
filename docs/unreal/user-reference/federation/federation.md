@@ -9,9 +9,9 @@ Here are a few example use cases that Federations as a concept means to solve:
 - Integrating Beamable Inventory with Steam Inventory or Web3 Wallets
 - Integrating with Game Server Orchestrators such as Hathora, Agones or even a custom stack
 
-Most implementations of Server-Side Callbacks are fire-and-forget (similar to a webhook). **Federations**, however, don't need to be fire-and-forget. Most **Federations** are calls made to your microservice that happen as part of a particular flow, often with things happening ***before*** and/or ***after the Federated call finishes***.
+Most implementations of Server-Side Callbacks are fire-and-forget (similar to a webhook). **Federations**, however, do not need to be fire-and-forget. Most **Federations** are calls made to your microservice that happen as part of a particular flow, often with things happening ***before*** and/or ***after the Federated call finishes***.
 
-Here's a high-level diagram of what federations are:
+Here is a high-level diagram of what federations are:
 
 ![A diagram showing Play-In-Editor instances on developer machines making a request to the Beamable Gateway in the current target realm, which forwards it to a managed Auth or Matchmaking service that then calls a federated endpoint on one of the deployed or local microservices known in the realm.](../../../media/imgs/microservices-architecture-federation-general.png)
 
@@ -47,7 +47,7 @@ Examples:
 In other words, an id is a unique `string` that you pass along in specific places depending on the federation to **choose between one or more federations if any should be used**.
 
 ## Adding/Removing federations
-Federations are tied to interfaces implemented in your `Microservice` inherited class — these federations and its IDs are automatically validated by a C# Analyzer that will tell you if you're missing things. To add one, implement its federation and recompile the microservice project.
+Federations are tied to interfaces implemented in your `Microservice` inherited class — these federations and its IDs are automatically validated by a C# Analyzer that will tell you if you are missing things. To add one, implement its federation and recompile the microservice project.
 
 ```csharp
 // FederationIds.cs
@@ -70,7 +70,7 @@ Take a look at each individual federation docs page for more information on use-
 ## Workflows for developing federations
 Most federations are inside complex application paths. Thus, you need a way to iterate on them locally, much like how you do with `Callables` (see [Microservices](../microservices/microservices.md#common-developer-workflows)). This is why the SDK differentiates between In-Band calls to Federations and Out-of-Band calls to Federations.
 
-For **In-Band Calls** that reach a federated endpoint, the selected [Microservice Target](../microservices/microservices.md#microservice-routing-and-microservice-target) defines which running microservice instance will handle the federated call. In other words, you don't have to think about them. These get the same semantics as `Callables` routing.
+For **In-Band Calls** that reach a federated endpoint, the selected [Microservice Target](../microservices/microservices.md#microservice-routing-and-microservice-target) defines which running microservice instance will handle the federated call. In other words, you do not have to think about them. These get the same semantics as `Callables` routing.
 
 **Out-of-Band Calls** however do not originate in the client or gameplay server, so PIE's selected [Microservice Target](../microservices/microservices.md#microservice-routing-and-microservice-target) is not accessible. To solve that problem, out-of-band calls use semantic filtering logic to "steal" traffic from the realm's service.
 
