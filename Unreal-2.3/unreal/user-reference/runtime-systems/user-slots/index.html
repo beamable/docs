@@ -8811,10 +8811,10 @@
 <li>In C++, you can use <code>UBeamCoreSettings::GetOwnerPlayerSlot()</code> to get it</li>
 </ul>
 </li>
-<li>In Blueprints, you'll only have to manually pass in user slots if you change the default slot from <code>"Player0"</code></li>
-<li>If you're using any of the lower-level APIs (<code>UBeam____Api</code> subsystems and <code>Low-Level</code> blueprint nodes), you might see functions that take in a <code>UObject* ContextObject</code><ul>
+<li>In Blueprints, you will only have to manually pass in user slots if you change the default slot from <code>"Player0"</code></li>
+<li>If you are using any of the lower-level APIs (<code>UBeam____Api</code> subsystems and <code>Low-Level</code> blueprint nodes), you might see functions that take in a <code>UObject* ContextObject</code><ul>
 <li>These are there to support Unreal's Multiplayer <abbr title="Play in Editor">PIE</abbr> mode (for the same reason a lot of UE's own APIs also need one of these)</li>
-<li>If you're calling them from a <code>UGameInstanceSubsystem</code>, <code>UActorComponent</code> or <code>AActor</code> or <code>Blueprint</code>, you can pass itself (<code>this</code>/<code>Self</code>) to this parameter</li>
+<li>If you are calling them from a <code>UGameInstanceSubsystem</code>, <code>UActorComponent</code> or <code>AActor</code> or <code>Blueprint</code>, you can pass itself (<code>this</code>/<code>Self</code>) to this parameter</li>
 </ul>
 </li>
 </ul>

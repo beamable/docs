@@ -8999,12 +8999,12 @@
 <h1 id="beamball-epic-online-services-integration">Beamball - Epic Online Services integration<a class="headerlink" href="#beamball-epic-online-services-integration" title="Permanent link">¶</a></h1>
 <p>This page explains how to integrate a Beamable game with Epic Online Services (<abbr title="Epic Online Services">EOS</abbr>) using the <strong>Beamable Unreal SDK</strong> and <strong>Beamable Microservices</strong>.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
-<p>Aside from the <code>BeamableCore</code> Plugin, here's what the sample contains:</p>
+<p>Aside from the <code>BeamableCore</code> Plugin, here is what the sample contains:</p>
 <ul>
 <li><strong><code>BEAMPROJ_Beamball</code> Unreal Plugin.</strong>: Contains the UE implementation for the client</li>
 <li><strong><code>Microservices/services/BeamballMs</code> Microservice</strong>: Microservice containing code that implements <code>IFederatedLogin</code></li>
 </ul>
-<p>To set up this sample, you'll need a few things:</p>
+<p>To set up this sample, you will need a few things:</p>
 <ul>
 <li>A Beamable Account and a Realm</li>
 <li>An Epic Games Developer Account</li>
@@ -9041,14 +9041,14 @@
 <li>Go to the Portal and set aside your realm's <abbr title="realm identifier">PID</abbr> and Realm Secret (<code>Games -&gt; YourGame -&gt; beamball-demo</code>)</li>
 <li>On the Portal open the Realm Config page of the <code>beamball-demo</code> realm (<code>Operate -&gt; Config</code>)</li>
 <li>Hit the <code>Add Config</code> button</li>
-<li>Set the following key-value pairs for the namespace <code>eos_integration</code>:<ol>
-<li><code>applicationId -&gt; Your Epic Application ID</code></li>
-<li><code>deploymentId -&gt; Your Epic Deployment ID</code></li>
-<li><code>clientId -&gt; Your Epic Client ID</code></li>
-<li><code>clientSecret -&gt; Your Epic Client Secret</code></li>
+<li>Set the following key-value pairs for the namespace <code>"eos_integration"</code>:<ol>
+<li><code>"applicationId"</code> -&gt; Your Epic Application ID</li>
+<li><code>"deploymentId"</code> -&gt; Your Epic Deployment ID</li>
+<li><code>"clientId"</code> -&gt; Your Epic Client ID</li>
+<li><code>"clientSecret"</code> -&gt; Your Epic Client Secret</li>
 </ol>
 </li>
-<li>Compile and open the <code>BeamableUnreal</code> editor (it'll be configured as the <code>BEAMPROJ_Beamball</code>) project</li>
+<li>Compile and open the <code>BeamableUnreal</code> editor (it will be configured as the <code>BEAMPROJ_Beamball</code>) project</li>
 <li>Sign into your Beamable account and go to the <code>beamball-demo</code> realm<ol>
 <li>Hit <code>Apply to Build</code></li>
 </ol>
@@ -9111,14 +9111,14 @@
 <li><strong>Signature</strong>: Verifies the token was signed by Epic using their public keys</li>
 <li><strong>Issuer</strong>: Confirms token was issued by <code>https://api.epicgames.dev</code></li>
 <li><strong>Audience</strong>: Validates the token is intended for your Client ID</li>
-<li><strong>Lifetime</strong>: Ensures the token hasn't expired (with 2-minute clock skew tolerance)</li>
+<li><strong>Lifetime</strong>: Ensures the token has not expired (with 2-minute clock skew tolerance)</li>
 <li><strong>Application ID</strong>: Verifies the <code>appid</code> claim matches your configured Application ID</li>
 <li><strong>User Identification</strong>: Extracts the Epic Account ID from the <code>sub</code> (subject) claim, which becomes the federated identity linked to the Beamable account</li>
 <li><strong>Player Initialization</strong>: For first-time users, the microservice obtains a client credentials access token and calls Epic's account information API to retrieve the user's display name and preferred language, populating the Beamable account with this data as player stats</li>
 </ol>
 <p>This implementation follows Epic's official authentication documentation and security best practices for validating third-party tokens using asymmetric cryptography.</p>
 <h2 id="can-i-use-it-as-a-template">Can I use it as a template?<a class="headerlink" href="#can-i-use-it-as-a-template" title="Permanent link">¶</a></h2>
-<p>This sample is NOT a template you can start your own repository from. However, Beamable code components are free for you to copy and use in your own project. Here's what these are:</p>
+<p>This sample is NOT a template you can start your own repository from. However, Beamable code components are free for you to copy and use in your own project. Here is what these are:</p>
 <ul>
 <li>The <code>BeamballMs.EpicOnlineServices.cs</code> file in the <code>BeamballMs</code> Microservice. You can copy/paste it into any of your microservices</li>
 <li>Beamable code inside <code>BEAMPROJ_Beamball/**/PlatformIntegrations</code> except code inside a <code>ThirdParty</code> directory</li>

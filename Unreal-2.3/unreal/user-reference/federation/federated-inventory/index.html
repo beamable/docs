@@ -8729,16 +8729,16 @@
 
 <h1 id="federated-inventory">Federated inventory<a class="headerlink" href="#federated-inventory" title="Permanent link">¶</a></h1>
 <p>Federated Inventory allows you to integrate with other third-party inventory systems such as Steam's Inventory or Web3 wallets. Because of this intended usage, all <code>FederatedInventory</code> implementations are also <a href="../federated-login/">Federated Login</a> implementations.</p>
-<p>Here's how this works at a high-level:</p>
+<p>Here is how this works at a high-level:</p>
 <ul>
 <li>Take a <code>UBeamItemContent</code> or <code>UBeamCurrencyContent</code> whose <code>federation</code> field has a valid <a href="../federation/#federation-id">Federation Id</a></li>
 <li>Whenever the inventory is fetched, if that content object is within its scope, the Beamable backend will invoke the <code>GetInventoryState</code> call with the user's third-party <code>UserId</code> as its parameter</li>
 <li>Whenever an inventory update is committed, any currencies or items involved that are federated are bundled up and passed into <code>StartInventoryTransaction</code></li>
 </ul>
-<p>Here's some more detail:</p>
+<p>Here is some more detail:</p>
 <ul>
-<li>The "id" parameter is the UserId that the <code>IFederatedLogin.Authenticate</code> generates. All this function really does is add instances of items and currencies to the response and forward it along</li>
-<li>The "transaction" parameter is an optional string provided by the caller. You are expected to provide an idempotency guarantee that every given transaction string value is only processed once. In most cases, this is a pass-along to Web3 wallets or wherever you're keeping the inventory information. If that's not supported by your third-party, you can use StorageObjects to provide this guarantee</li>
+<li>The <code>id</code> parameter is the UserId that the <code>IFederatedLogin.Authenticate</code> generates. All this function really does is add instances of items and currencies to the response and forward it along</li>
+<li>The <code>transaction</code> parameter is an optional string provided by the caller. You are expected to provide an idempotency guarantee that every given transaction string value is only processed once. In most cases, this is a pass-along to Web3 wallets or wherever you are keeping the inventory information. If that is not supported by your third-party, you can use StorageObjects to provide this guarantee</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Support in SDK</p>

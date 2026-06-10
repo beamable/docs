@@ -8990,7 +8990,7 @@
 </li>
 </ul>
 <h2 id="getting-started-openclosed-lobbies">Getting started - Open/Closed lobbies<a class="headerlink" href="#getting-started-openclosed-lobbies" title="Permanent link">¶</a></h2>
-<p>This section describes how to set up and join manually created lobbies. Lobbies created via <a href="../matchmaking/">Matchmaking</a> don't need this setup.</p>
+<p>This section describes how to set up and join manually created lobbies. Lobbies created via <a href="../matchmaking/">Matchmaking</a> do not need this setup.</p>
 <h3 id="creating-lobbies">Creating lobbies<a class="headerlink" href="#creating-lobbies" title="Permanent link">¶</a></h3>
 <p>Use the <code>Lobby - Create Open Lobby</code> operation to create an <strong><em>Open Lobby</em></strong>. This Lobby will be visible to all players in the realm. You can use the <code>Lobby - Refresh Lobbies</code> operation to fetch filtered paged lists of Open lobbies in a realm.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-open-lobbies.png" data-desc-position="bottom"><img alt="A Blueprint graph labelled for refreshing open lobbies and selecting one by game logic, then later joining the chosen open lobby by its Id through an Operation - Lobby - Join Lobby node." src="../../../../media/imgs/lobbies-open-lobbies.png"></a></p>
@@ -9016,7 +9016,7 @@
 <p>To read from a specific player's data, you can use any of these nodes:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-read-player-data.png" data-desc-position="bottom"><img alt="Three Local State - Lobby nodes for reading a player's data: GetAllLobbyPlayerData to iterate all key/values, TryGetLobbyPlayerData to read one value with a default fallback, and TryGetLobbyPlayerDataCasted to deserialize a JSON blob into a cast target." src="../../../../media/imgs/lobbies-read-player-data.png"></a></p>
 <h2 id="synchronizing-across-clients">Synchronizing across clients<a class="headerlink" href="#synchronizing-across-clients" title="Permanent link">¶</a></h2>
-<p>Beamable's Lobby system will automatically notify every player inside a lobby of relevant events. Once you're in a lobby, the SDK keeps track of your local state inside <code>UBeamLobbyState</code> (one per-<code>UserSlot</code>).</p>
+<p>Beamable's Lobby system will automatically notify every player inside a lobby of relevant events. Once you are in a lobby, the SDK keeps track of your local state inside <code>UBeamLobbyState</code> (one per-<code>UserSlot</code>).</p>
 <p>You can use <code>GetCurrentSlotLobbyState</code> to get the <code>UBeamLobbyState</code> and setup various <strong>Delegates</strong> in this object to respond to these events, normally updating your UI or custom system built on top of this subsystem.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/lobbies-notification-binding.png" data-desc-position="bottom"><img alt="A Local State - Lobby - GetCurrentSlotLobbyState node whose return value feeds a Bind Event to On Lobby Updated node, wired to an OnLobbyUpdated custom event with Slot, Lobby, and Raw Evt outputs." src="../../../../media/imgs/lobbies-notification-binding.png"></a></p>
 <p>Here is the list of events the SDK exposes:</p>
@@ -9064,7 +9064,7 @@
 </ul>
 </li>
 <li><strong>MaxPlayers</strong>: defines the maximum amount of players that can be in this lobby at the same time<ul>
-<li>When changing this via <code>CommitLobbyUpdateOperation</code>, if you have more players than the new <strong>MaxPlayer</strong> value, you'll get an error</li>
+<li>When changing this via <code>CommitLobbyUpdateOperation</code>, if you have more players than the new <strong>MaxPlayer</strong> value, you will get an error</li>
 </ul>
 </li>
 <li><strong>Players</strong>: a list of <code>ULobbyPlayer</code> containing data associated to each player in the lobby<ul>

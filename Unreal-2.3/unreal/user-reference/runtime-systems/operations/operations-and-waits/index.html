@@ -8989,7 +8989,7 @@
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>While possible, avoid creating Operations as Blueprints. It's OK to do so for a quick experimentation session; but shipping with it is <em>not recommended</em>.
+<p>While possible, avoid creating Operations as Blueprints. It is OK to do so for a quick experimentation session; but shipping with it is <em>not recommended</em>.
 <strong>Calling <em>Operations</em> written in C++ is the primary way for Blueprints to interact with the Beamable SDK. The SDK even includes <a href="../../blueprints/">special nodes</a> for it.</strong></p>
 </div>
 <h2 id="operation-lifecycle">Operation lifecycle<a class="headerlink" href="#operation-lifecycle" title="Permanent link">¶</a></h2>
@@ -9002,7 +9002,7 @@
 <li><strong>Operation Hooks</strong>: involve two operations. The first one starts and will, at a certain point, call a function that returns the second operation (either a lambda that returns an operation OR a virtual function implementation) for which the first one waits before continuing its own work</li>
 </ul>
 <h2 id="writing-and-exposing-your-own-regular-operations">Writing and exposing your own regular operations<a class="headerlink" href="#writing-and-exposing-your-own-regular-operations" title="Permanent link">¶</a></h2>
-<p>The SDK exposes all main operations in both BP and C++ flavors. If you'd like to do the same thing, this section is for you. To learn about writing hooks in C++, review the next section.</p>
+<p>The SDK exposes all main operations in both BP and C++ flavors. If you would like to do the same thing, this section is for you. To learn about writing hooks in C++, review the next section.</p>
 <p><strong>The primary trade-off:</strong></p>
 <ul>
 <li>BP-Compatible versions do not allow for lambda binding and variable capturing</li>
@@ -9133,7 +9133,7 @@
 <a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
 <a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="cp">#undef LOCTEXT_NAMESPACE</span>
 </code></pre></div>
-<p>As long as you have one of these in an <code>UncookedOnly</code> module of your game, you'll be able to expose your own custom operations as BP nodes (this is compatible with Multiplayer <abbr title="Play in Editor">PIE</abbr> mode).</p>
+<p>As long as you have one of these in an <code>UncookedOnly</code> module of your game, you will be able to expose your own custom operations as BP nodes (this is compatible with Multiplayer <abbr title="Play in Editor">PIE</abbr> mode).</p>
 <p>This is very useful when designing unique features using <a href="../../../microservices/microservices/">MicroServices and MicroStorages</a> and other <code>FBeamOperationHandle</code> returning functions.</p>
 <h2 id="writing-hooks">Writing hooks<a class="headerlink" href="#writing-hooks" title="Permanent link">¶</a></h2>
 <p>Writing Hooks are callback points that let you customize how the SDK behaves during long-running operations.</p>
@@ -9181,7 +9181,7 @@
 </ol>
 </li>
 </ol>
-<p><strong>Here's a "template example" of how this will typically look:</strong></p>
+<p><strong>Here is a "template example" of how this will typically look:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Synchronous hook -- no requests needed:</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">const</span><span class="w"> </span><span class="n">U_____</span><span class="w"> </span><span class="n">SomeSystem</span><span class="p">;</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">SomeSystem</span><span class="o">-&gt;</span><span class="n">Hook</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">F____</span><span class="o">::</span><span class="n">CreateLambda</span><span class="p">([</span><span class="k">this</span><span class="p">]()</span>
@@ -9237,7 +9237,7 @@
 <a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="p">}));</span>
 </code></pre></div>
 <h2 id="why-not-template-based-promises">Why not template-based promises?<a class="headerlink" href="#why-not-template-based-promises" title="Permanent link">¶</a></h2>
-<p>The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style API won't work with BPs. The goal was an underlying system providing the same functionality while retaining BP compatibility, even without the template-based interface. The result was this <code>Operation</code> system.</p>
+<p>The biggest reason is Blueprint Compatibility. The most recognizable template-based Promise-style API will not work with BPs. The goal was an underlying system providing the same functionality while retaining BP compatibility, even without the template-based interface. The result was this <code>Operation</code> system.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>In building the Stateful <code>UBeamRuntimeSubsystems</code> with this system, the team found the absence of template syntax and <code>Do().Then()</code> chaining to be a non-issue in practice. Chaining may be revisited eventually — perhaps as "syntactic sugar" — but template-layer additions are unlikely given the BP-Compatibility requirement.</p>

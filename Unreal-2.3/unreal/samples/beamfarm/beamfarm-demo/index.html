@@ -8887,7 +8887,7 @@
 <h1 id="beamfarm-demo">BeamFarm demo<a class="headerlink" href="#beamfarm-demo" title="Permanent link">¶</a></h1>
 <p>This demo showcases how you can use the <strong>Beamable Unreal SDK</strong> in a mobile game project. Particularly, it focuses on the Mobile Link Account Flows across multiple providers like Google and Apple.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
-<p>Aside from the <code>BeamableCore</code> Plugin, here's what the sample contains:</p>
+<p>Aside from the <code>BeamableCore</code> Plugin, here is what the sample contains:</p>
 <ul>
 <li><strong><code>BEAMPROJ_BeamFarm</code> Unreal Plugin.</strong>: Contains the UE implementation for the sample client. Key locations in the project are:<ul>
 <li><code>Plugins/BEAMPROJ_BeamFarm/Source/BEAMPROJ_BeamFarm/Public</code>: Public headers for runtime systems, including sign-in interfaces</li>
@@ -8897,9 +8897,9 @@
 <li><code>Plugins/BEAMPROJ_BeamFarm/Content/UI_BPs</code>: Blueprint assets used by the sample UI flow</li>
 </ul>
 </li>
-<li><strong><code>Microservice/BeamfarmMs</code> Microservice</strong>: Microservice containing code that's used by the sample for various matchmaking and stats functionality</li>
+<li><strong><code>Microservice/BeamfarmMs</code> Microservice</strong>: Microservice containing code that is used by the sample for various matchmaking and stats functionality</li>
 </ul>
-<p>To set up this sample you'll need a Beamable Account and a Realm. To configure the repo for the sample, run <code>dotnet beam unreal select-sample BEAMPROJ_Beamfarm</code>.</p>
+<p>To set up this sample you will need a Beamable Account and a Realm. To configure the repo for the sample, run <code>dotnet beam unreal select-sample BEAMPROJ_Beamfarm</code>.</p>
 <h2 id="setting-up-the-project">Setting up the project<a class="headerlink" href="#setting-up-the-project" title="Permanent link">¶</a></h2>
 <p>To set up an organization and realm to run this sample, follow the steps below.</p>
 <ol>
@@ -8917,20 +8917,20 @@
 <li>Open the Unreal editor</li>
 <li>Open the <code>L_Beamfarm_MainScreen</code> Level if it is not opened yet<ol>
 <li>You can find it inside the <code>BEAMPROJ_Beamfarm Content</code> folder</li>
-<li>If you can't see plugin content in your content browser, you can change the settings of the UE <code>Content Browser</code> to display it</li>
+<li>If you cannot see plugin content in your content browser, you can change the settings of the UE <code>Content Browser</code> to display it</li>
 </ol>
 </li>
 <li>Go to the <code>Beamable -&gt; Microservice</code> window<ol>
 <li>You should see the <code>BeamfarmMS</code> service there. Select it</li>
 <li>Click <code>Run</code> and wait until you see the <code>Service ready for traffic</code> log line (and the running icon in the Microservice's card to change)</li>
-<li>After you're done with the sample, don't forget to come here and stop the service</li>
+<li>After you are done with the sample, do not forget to come here and stop the service</li>
 </ol>
 </li>
-<li>You don't need to select any Play Preset, as the <code>Beamfarm_MainScreen</code> level is the common entry point for the sample. So leave the Play Preset selector to <code>None</code></li>
+<li>You do not need to select any Play Preset, as the <code>Beamfarm_MainScreen</code> level is the common entry point for the sample. So leave the Play Preset selector to <code>None</code></li>
 <li>Play the <code>L_Beamfarm_MainScreen</code> in the Editor</li>
 </ol>
 <h2 id="can-i-use-it-as-a-template">Can I use it as a template?<a class="headerlink" href="#can-i-use-it-as-a-template" title="Permanent link">¶</a></h2>
-<p>This sample is not meant to be used as a template directly; however, its components are free for you to copy and use in your own project. Here's what these are:</p>
+<p>This sample is not meant to be used as a template directly; however, its components are free for you to copy and use in your own project. Here is what these are:</p>
 <ul>
 <li>The <code>BeamfarmMS</code> Microservice : located inside Microservice/BeamfarmMS</li>
 <li>Beamable code and blueprints inside BEAMPROJ_Beamfarm plugin</li>
