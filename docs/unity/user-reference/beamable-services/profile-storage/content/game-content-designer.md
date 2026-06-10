@@ -6,7 +6,7 @@ Live games often have frequent changes to their structured and unstructured data
 
 Managing these data structures is usually a pain, requiring special forms, processes, or direct-editing of source code files that contain data definitions.
 
-Game makers know that these problems only get worse when the game goes live -- because the desire is to change this data on the fly, without interfering with update, deployment, or live operations — or requiring engineering intervention. **That's why we created the Game Content Designer (GCD). This Google Sheets Add-On allows game makers to manage all the game's live data with the simplicity of a Google Sheet.**
+Game makers know that these problems only get worse when the game goes live -- because the desire is to change this data on the fly, without interfering with update, deployment, or live operations — or requiring engineering intervention. **That is why we created the Game Content Designer (GCD). This Google Sheets Add-On allows game makers to manage all the game's live data with the simplicity of a Google Sheet.**
 
 ![Game Content Designer workflow: create a sheet, install GCD from the Google marketplace, manage the data with CRUD operations, then bring the data into the game.](../../../../../media/imgs/content-designer-experience.png)
 
@@ -44,7 +44,7 @@ Schema headers are initially defined in the first row of a GCD sheet. For comple
 
 Google Sheets is a web-based spreadsheet app. Here data is arranged in the rows and columns in a grid and can be manipulated and used for modeling calculations.
 
-It's free, powerful, and a preferred tool of many game designers.
+It is free, powerful, and a preferred tool of many game designers.
 
 | Step | Detail |
 |------|--------|
@@ -114,7 +114,7 @@ A3     | B3   | C3
 
 **Basic Object With Comment**
 
-To write a comment, or have an empty row for whatever reason, just add a '#' to the start of the row. This will tell the exporter to act like the row doesn't even exist.
+To write a comment, or have an empty row for whatever reason, just add a '#' to the start of the row. This will tell the exporter to act like the row does not even exist.
 
 **Input:**
 ```
@@ -444,5 +444,5 @@ Mouse over a schema header to reveal the **cell notes**. Notes store the column 
 
 A **delimiter** is a sequence of one or more characters used to specify the boundary between separate, independent regions in plain text or other data streams. See Wikipedia's [Delimiter Overview](https://en.wikipedia.org/wiki/Delimiter) for more info.
 
-- Delimiters are how GCD distinguished where an array entry begins. Bottom level arrays don't need one, but everything else does. These columns can be any text, importing will make them the array's index they are delimiting. These columns are not actually exported
+- Delimiters are how GCD distinguished where an array entry begins. Bottom level arrays do not need one, but everything else does. These columns can be any text, importing will make them the array's index they are delimiting. These columns are not actually exported
 - The first column is always treated like a delimiter when exporting lists. You can make the first column unexported by giving it an underscore prefix. Note that to do this you will need to export as one sheet instead of splitting into individual files

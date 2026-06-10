@@ -533,7 +533,7 @@ Now that the core game logic is setup, use Beamable to connect 2 (or more) playe
 
 Here are some optional experiments game makers can complete in the sample project.
 
-Did you complete all the experiments with success? we'd love to hear about it. [Contact us](https://www.beamable.com/contact-us).
+Did you complete all the experiments with success? we would love to hear about it. [Contact us](https://www.beamable.com/contact-us).
 
 | Difficulty | Scene | Name | Detail |
 |------------|-------|------|--------|

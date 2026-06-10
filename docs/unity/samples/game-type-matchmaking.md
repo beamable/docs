@@ -6,7 +6,7 @@ Match players together based on region of the world
 
 This is a **code-only** sample project demonstrating game type based matchmaking. A core concept of the matchmaking system is game types, and Game Makers have the option to silo matchmaking pools by game type. This can have multiple usages:
 
-• Limiting matchmaking by the game rules (for example, King Of The Hill players shouldn't be matched with Capture The Flag players)
+• Limiting matchmaking by the game rules (for example, King Of The Hill players should not be matched with Capture The Flag players)
 • Grouping different competitive leagues to play together
 
 In this example, game types are used to only match players in a specific region of the world. Matching players in different regions may not be a good fit for some games, such as competitive multiplayer games, or games featuring region-specific content. This is the primary use-case demonstrated in the sample project.
@@ -47,7 +47,7 @@ namespace MatchmakingExample
 
 ## Step 1. create content
 
-For this example, we'll be creating a few game types for some different regions of the world: North America, Europe, and Asia.
+For this example, we will be creating a few game types for some different regions of the world: North America, Europe, and Asia.
 
 !!! info "Game Content Designer"
 

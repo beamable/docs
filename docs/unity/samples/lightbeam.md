@@ -7,12 +7,12 @@ Lightbeams are Unity Package Samples that teach you various parts of the Beamabl
 
 All Lightbeams share a common architectural design pattern and are versioned with each SDK release, letting you install multiple versions side by side in your `/Assets` folder.
 
-Unity Package Samples copy directly into `/Assets`, giving you full control over the source code. Fork them into your project or delete them when you're done.
+Unity Package Samples copy directly into `/Assets`, giving you full control over the source code. Fork them into your project or delete them when you are done.
 
 Most of the Lightbeams are full `.unity`scene files that offer a greybox UI to explore a feature-set.
 
 !!! info "TextMeshPro Resources"
-    The Lightbeam samples use the TMPro Resouces package. if you don't have it installed, it will be automatically installed when you add a Lightbeam sample to your project.
+    The Lightbeam samples use the TMPro Resouces package. if you do not have it installed, it will be automatically installed when you add a Lightbeam sample to your project.
 
 !!! warning Login Required
     All Lightbeams require a Beam account to run and you to be logged in to your Beam account in the editor to run them.

@@ -7,7 +7,7 @@ Beamable will create a user account for you when you initialize, but you can use
 !!! info "UI & Edge Cases"
     Using a custom username and password feature in your game does require some additional work and considerations. You will have to create multiple screens for sign-up, auto sign-in, password recovery, and error handling.
 
-Below is a simple username and password flow where, after initializing, we prompt the user for how they want to proceed. They have the option to create a new account or to log in. This example doesn't include flows for password recovery or account switching. However, those can be also implemented.
+Below is a simple username and password flow where, after initializing, we prompt the user for how they want to proceed. They have the option to create a new account or to log in. This example does not include flows for password recovery or account switching. However, those can be also implemented.
 
 ![Simple Username Password Flow](../../../../media/imgs/d86e42f-simple_username_password_flow.png){: style="height:auto;width:600px"}
 

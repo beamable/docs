@@ -151,7 +151,7 @@ An advantage to this approach is that the downstream projects can modify the Mic
 
 Before you can get started creating a new Microservice, you should make sure the following steps are complete.
 
-1. Install the Beamable SDK into your Unity project. If you haven't done this yet, check the Installing Beamable (Unity) guide. Make sure you install the SDK with version 2.0 or higher
+1. Install the Beamable SDK into your Unity project. If you have not done this yet, check the Installing Beamable (Unity) guide. Make sure you install the SDK with version 2.0 or higher
 2. Log into a Beamable organization inside the Unity SDK
 3. Install Docker on your system. Docker is an industry standard tool for bundling code into distributable packages. You can download DockerHub from their website, <https://www.docker.com/products/docker-desktop/>. If you forget this step, the _Beam Services_ window in the Unity SDK will prompt you to install Docker later
 

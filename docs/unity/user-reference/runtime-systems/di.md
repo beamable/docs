@@ -95,7 +95,7 @@ The `RegisterBeamableDependencies` takes two arguments, `order`, and `origin` th
 
 The `origin` option is an enum that is `RegistrationOrigin.RUNTIME` by default. The other option is `RegistrationOrigin.EDITOR`. Beamable uses the same dependency injection concepts in the Unity Editor environment as well. If you want to override an editor service, set the origin to `EDITOR`.
 
-The `order` option controls the invocation ordering of `RegisterBeamableDependencies` methods. Ideally, all custom services should be registered in a single `RegisterBeamableDependencies` method. However, sometimes due to logical separation or package separation, it isn't possible to centralize dependency registrations. In this case, there are multiple functions tagged with the `RegisterBeamableDependencies` attribute, and the _order_ they are invoked in can drastically change the outcome. All Beamable services are registered at an effective order value of -1000. The default `order` value for all custom `RegisterBeamableDependencies` methods is 0.
+The `order` option controls the invocation ordering of `RegisterBeamableDependencies` methods. Ideally, all custom services should be registered in a single `RegisterBeamableDependencies` method. However, sometimes due to logical separation or package separation, it is not possible to centralize dependency registrations. In this case, there are multiple functions tagged with the `RegisterBeamableDependencies` attribute, and the _order_ they are invoked in can drastically change the outcome. All Beamable services are registered at an effective order value of -1000. The default `order` value for all custom `RegisterBeamableDependencies` methods is 0.
 
 ### Modifying services
 

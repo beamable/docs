@@ -178,7 +178,7 @@ namespace Beamable.Examples.Services.EventsService
             // STANDARD EVENTS
             // The systems supports scoreRewards (redeemable at any time)
             // and rankRewards (redeemable only at end of phase)
-            // For this example, we'll honor only scoreRewards
+            // For this example, we will honor only scoreRewards
             bool hasClaimableScoreReward = false;
             foreach (var eventReward in eventView.scoreRewards)
             {
@@ -194,7 +194,7 @@ namespace Beamable.Examples.Services.EventsService
             // GROUP EVENTS
             // The systems supports scoreRewards (redeemable at any time)
             // and rankRewards (redeemable only at end of phase)
-            // For this example, we'll honor only scoreRewards
+            // For this example, we will honor only scoreRewards
             bool hasClaimableGroupScoreReward = false;
             if (eventView.groupRewards != null && eventView.groupRewards.scoreRewards != null)
             {

@@ -94,4 +94,4 @@ The Beamable Portal allows game makers to manage leaderboards, view player score
 
 !!! warning "Configuration Note"
 
-    The `Configuration.cs` in this sample is unrelated to Beamable's [Configuration Manager](../user-reference/beamable-services/profile-storage/content/content-overview.md). It's a project-specific ScriptableObject for game settings.
+    The `Configuration.cs` in this sample is unrelated to Beamable's [Configuration Manager](../user-reference/beamable-services/profile-storage/content/content-overview.md). It is a project-specific ScriptableObject for game settings.

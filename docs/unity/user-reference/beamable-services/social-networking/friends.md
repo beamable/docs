@@ -53,7 +53,7 @@ There are 4 main resources associated with a `PlayerSocial`,
 
 !!! info "Experiment with Multiple Beam Context objects"
 
-    Validating friend invites can be hard when you're just one developer on one machine. Luckily, you can create multiple `BeamContext` instances at once in the same gameplay session. These samples all use `BeamContext.Default` for simplicity, but you can change them to use `BeamContext.ForPlayer("player1")`, and `BeamContext.ForPlayer("player2")` to simulate two unique players.
+    Validating friend invites can be hard when you are just one developer on one machine. Luckily, you can create multiple `BeamContext` instances at once in the same gameplay session. These samples all use `BeamContext.Default` for simplicity, but you can change them to use `BeamContext.ForPlayer("player1")`, and `BeamContext.ForPlayer("player2")` to simulate two unique players.
 
 ### Sending an invite
 

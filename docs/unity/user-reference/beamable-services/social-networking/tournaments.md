@@ -129,7 +129,7 @@ namespace Beamable.Examples.Services.TournamentService
             // This allows the currently logged in user to join the tournament by its content id.
             await beamContext.Api.TournamentsService.JoinTournament(current.tournamentId, 0);
 
-            // Let's set the score for this player!
+            // Let us set the score for this player!
             await beamContext.Api.TournamentsService.SetScore(current.tournamentId, userId, score);
 
             Debug.Log($"Tournaments.SetScore({id},{userId},{score})");

@@ -61,7 +61,7 @@ private void FB_AuthCallback (ILoginResult result)
         await _beamContext.OnReady;
     ```
 
-We've passed in an additional helper object that will automate the Beamable login flow process. However, now we will expose what is "under the hood" of that helper.
+We have passed in an additional helper object that will automate the Beamable login flow process. However, now we will expose what is "under the hood" of that helper.
 
 ### Getting the access token string
 
@@ -97,7 +97,7 @@ var thirdParty = AuthThirdParty.Facebook;
 var available = await _beamContext.Api.AuthService.IsThirdPartyAvailable(thirdParty, token);
 var userHasCredentials = _beamContext.Api.User.HasThirdPartyAssociation(thirdParty);
 
-//Should we switch to a user that's not currently logged in?
+//Should we switch to a user that is not currently logged in?
 var shouldSwitchUsers = !available;
 //Should we create a brand new user with these credentials?
 var shouldCreateUser = available && userHasCredentials;

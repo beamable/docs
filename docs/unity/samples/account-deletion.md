@@ -85,7 +85,7 @@ private async Task<string> GetAccountId()
 
 Now that we have the account ID, we can call the forget user API. This is fairly similar to the last API call.
 
-It's worth noting that the example uses a custom parser for deserialization. This will effectively return the response string in its raw form, since it is only being returned to the client for logging purposes. If your game needs to make better use of this data, this can be accomplished by creating a class for the Requester to deserialize into, and changing the type parameter of Request (similar to how GetAccountId above).
+It is worth noting that the example uses a custom parser for deserialization. This will effectively return the response string in its raw form, since it is only being returned to the client for logging purposes. If your game needs to make better use of this data, this can be accomplished by creating a class for the Requester to deserialize into, and changing the type parameter of Request (similar to how GetAccountId above).
 
 ```csharp
 private async Task<string> ForgetUser(string accountId)

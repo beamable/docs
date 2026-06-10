@@ -376,7 +376,7 @@ The below changes (dependency registration and connectivity service override) al
 - You can also update the Project Settings to:
   - Disable offline cache
   - Disable sending heartbeat
-    - If you're using Beamable matchmaking, you want to keep this on
+    - If you are using Beamable matchmaking, you want to keep this on
   - Disable optimistic inventory updates
 
 The result of this is as follows:

@@ -6,7 +6,7 @@ This class is designed to support multiple local players, flexible API reference
 
 ## BeamContext overview
 
-After that setup, game makers use the `BeamContext` object as the main entry-point to Beamable functionality. Here's a simple example of initializing the `BeamContext`
+After that setup, game makers use the `BeamContext` object as the main entry-point to Beamable functionality. Here is a simple example of initializing the `BeamContext`
 
 ```csharp
 private async void InitializeBeamContext()

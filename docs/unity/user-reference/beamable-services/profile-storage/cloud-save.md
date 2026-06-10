@@ -36,7 +36,7 @@ _Note_: This API is demonstrated in the `CloudSavingServiceExample.cs` below.
 | `OnCloudSavingError` | This event is invoked any time that an Error Occurs to the Cloud Saving. |
 | `ForceUploadLocalData` | Forces an Upload of Local Data to the Cloud, ignoring any conflicts that may have and using Local Save. |
 | `ForceDownloadCloudData` | Forces a Download of Cloud Data to Local Device, ignoring any conflicts that may have and using Cloud Save. |
-| `GetDataConflictDetails` | If the Service was initialized and it wasn't possible to resolve the conflict between cloud and local. You can use this function to get the details about these conflicts. |
+| `GetDataConflictDetails` | If the Service was initialized and it was not possible to resolve the conflict between cloud and local. You can use this function to get the details about these conflicts. |
 | `ResolveDataConflict` | You need to use this function to solve a conflict that happened between a local or cloud file. This function takes the conflict detail and an enum of which data to use.<br><br>_Note: If you need to merge data between local and cloud saves, you can manually save the local file and mark to use the local file as the conflict resolve type._ |
 | `SaveData` | It allows you to save your data using the Service, allowing you to properly save the file without needing to get the full file path or handle file name sanitization. This function has 3 overrides for saving data as bytes, as a string, or as a serialized class/struct.<br><br>_Note: The serialize save by default uses `JsonUtility` to serialize, but you can override it by changing `PlayerCloudSavingConfiguration.CustomSerializer`._ |
 | `LoadDataString`<br>`LoadDataByte`<br>`LoadData<T>` | Loads the Local Data using the Service, allowing you to properly load the file without needing to get the full file path or handle file name sanitization.<br><br>It returns the content of the file depending on which `LoadData` call is used.<br><br>_Note: `LoadData<T>` by default uses `JsonUtility` to deserialize the data, but you can override it by changing `PlayerCloudSavingConfiguration.CustomDeserializer`._ |
@@ -125,7 +125,7 @@ public class PlayerCloudSaveCustomRegister
 
 ## Syncing of data
 
-The downloading operation uses Unity's [`DownloadHandlerFile`](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Networking.DownloadHandlerFile.html). If the file is new, it will be saved directly to the `/data/` Folder. If the file has a conflict it will first be saved to the `/temp/` folder, if the resolver chooses to use the Cloud Save, it'll be moved to the `/data/` folder, if not, it will be archived.
+The downloading operation uses Unity's [`DownloadHandlerFile`](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Networking.DownloadHandlerFile.html). If the file is new, it will be saved directly to the `/data/` Folder. If the file has a conflict it will first be saved to the `/temp/` folder, if the resolver chooses to use the Cloud Save, it will be moved to the `/data/` folder, if not, it will be archived.
 
 _Note_: If the destination files are kept open by some unrelated system during the syncing process, the `CloudSavingService` will reattempt several times. Upon any ultimate failure, an `IOException` will be thrown.
 
@@ -181,7 +181,7 @@ Here are the major operations you can perform against the player data.
     • While Beamable supports _minor_ edits to the player data from the Portal, restoring a customer's player data completely to a historic backup state is **not supported**.
     • The CloudSavingService **does not support** _multiple game sessions using the same user. If there are multiple sessions for the same user, for the same game, this will create an infinite ping/pong effect. For example, Device A will send updates that Device B will fetch, which will send updates that Device A will fetch._
     • Manually deleting content from the `LocalCloudDataFullPath` is **not supported**
-    • [Old Cloud Save Service](doc:cloud-save-code) **doesn't support** multiple files with the **same content**. If you want files with the same content (for example a backup file), please add a tag to **differentiate** them or use the [New Cloud Save Service](doc:player-cloud-save-code).
+    • [Old Cloud Save Service](doc:cloud-save-code) **does not support** multiple files with the **same content**. If you want files with the same content (for example a backup file), please add a tag to **differentiate** them or use the [New Cloud Save Service](doc:player-cloud-save-code).
 
 ## Sample code
 

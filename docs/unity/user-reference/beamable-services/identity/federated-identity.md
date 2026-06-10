@@ -32,7 +32,7 @@ public class HaddockCloudIdentity : IFederationId
 
 ### Implementing IFederatedLogin in your Microservice
 
-Let's say you already have a TunaService that holds all your user's data. We will use it to validate a "token" received by the client and respond with a "user_id".
+Let us say you already have a TunaService that holds all your user's data. We will use it to validate a "token" received by the client and respond with a "user_id".
 
 ```csharp
 [Microservice("AuthenticationMicroservice")]
@@ -61,7 +61,7 @@ public class AuthenticationMicroservice : IFederatedLogin<TunaCloudIdentity>, IF
   Ensure that User IDs are generated deterministically. For a given input from the provider, the resulting User ID must always be the same. Avoid using `Guid.NewGuid().ToString()`, as this creates a new account for every login attempt. Instead, use a unique identifier provided by the external auth provider (for example, a subject ID or public key).
 
 
-In this example, we didn't use the "challenge" and "solution" arguments. The standard use case for challenges is wallet authentication. If a client sends us a wallet address as a token, the only way to verify the ownership of that wallet is to issue a challenge, and require a user to sign that challenge using their private key. [Solana/Phantom wallet authentication](https://github.com/beamable/solana-example) is an example that uses a challenge.
+In this example, we did not use the "challenge" and "solution" arguments. The standard use case for challenges is wallet authentication. If a client sends us a wallet address as a token, the only way to verify the ownership of that wallet is to issue a challenge, and require a user to sign that challenge using their private key. [Solana/Phantom wallet authentication](https://github.com/beamable/solana-example) is an example that uses a challenge.
 
 
 ```csharp
@@ -69,7 +69,7 @@ public async Promise<FederatedAuthenticationResponse> Authenticate(string token,
 {
     if (string.IsNullOrEmpty(token))
     {
-        BeamableLogger.LogError("We didn't receive a token (public key)");
+        BeamableLogger.LogError("We did not receive a token (public key)");
         throw new InvalidAuthenticationRequest("Token (public key) is required");
     }
 
@@ -80,7 +80,7 @@ public async Promise<FederatedAuthenticationResponse> Authenticate(string token,
             // User identity is confirmed
             return new FederatedAuthenticationResponse
                 { user_id = token };
-        // Signature is invalid, user identity isn't confirmed
+        // Signature is invalid, user identity is not confirmed
         BeamableLogger.LogWarning(
             "Invalid signature {signature} for challenge {challenge} and wallet {wallet}", solution,
             challenge, token);

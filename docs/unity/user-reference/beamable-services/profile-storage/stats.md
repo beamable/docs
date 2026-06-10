@@ -41,12 +41,12 @@ Beamable automatically creates a specific set of _game private_ stats for each n
 | `DATE_SESSION` | Timestamp of the player's most recent session start expressed as unix time (millisecond since epoch) |
 | `DAYS_SINCE_INSTALL` | Total number of days that have passed since the player installed. Or in other words, total number of days between the player's first session and most recent session |
 | `INSTALL_DATE` | Date string of the player install (first session) expressed in format yyyy-MM-dd |
-| `PURCHASES_3D`<br>`PURCHASES_7D`<br>`PURCHASES_14D`<br>`PURCHASES_28D` | Total number of purchases in the last X days<br><br>_Note: Specifically this refers to X days preceding the most recent player session since stats are not updated when the player doesn't play_ |
+| `PURCHASES_3D`<br>`PURCHASES_7D`<br>`PURCHASES_14D`<br>`PURCHASES_28D` | Total number of purchases in the last X days<br><br>_Note: Specifically this refers to X days preceding the most recent player session since stats are not updated when the player does not play_ |
 | `PURCHASES_TOTAL` | Total number of in-app purchases, irrespective of the value of the purchases |
-| `SESSIONS_3D`<br>`SESSIONS_7D`<br>`SESSIONS_14D`<br>`SESSIONS_28D` | Total number of sessions in the last X days<br><br>_Note: Specifically this refers to X days preceding the most recent player session since stats are not updated when the player doesn't play_ |
+| `SESSIONS_3D`<br>`SESSIONS_7D`<br>`SESSIONS_14D`<br>`SESSIONS_28D` | Total number of sessions in the last X days<br><br>_Note: Specifically this refers to X days preceding the most recent player session since stats are not updated when the player does not play_ |
 | `SESSIONS_TOTAL` | Total number of sessions this player has started |
 | `SESSION_DAYS` | The total number of days the player has played (i.e., started at least one session) |
-| `SPEND_3D`<br>`SPEND_7D`<br>`SPEND_14D`<br>`SPEND_28D` | Total player spend (USD) in the last X days<br><br>_Note: Specifically this refers to X days preceding the most recent player session since stats are not updated when the player doesn't play_ |
+| `SPEND_3D`<br>`SPEND_7D`<br>`SPEND_14D`<br>`SPEND_28D` | Total player spend (USD) in the last X days<br><br>_Note: Specifically this refers to X days preceding the most recent player session since stats are not updated when the player does not play_ |
 | `SPEND_TOTAL` | Total player spend (USD) expressed in cents |
 | `THORIUM_GAME_DEVICE` | Type of device if provided |
 | `THORIUM_GAME_PLATFORM` | Platform the player is playing on (e.g., Facebook, iOS)<br><br>_Note: Unity reports all iOS devices as "iPhonePlayer" regardless of device type._ |

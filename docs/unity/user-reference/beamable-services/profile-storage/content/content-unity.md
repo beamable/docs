@@ -32,7 +32,7 @@ The level of the status bar indicates the overall state of local content:
 | Deleted    | • Content is removed on the local only                        |
 | Modified   | • Content is modified on the client only                      |
 | Up to Date | • Content local data matches remote data                      |
-| Conflicted | • Content local and remote data is modified and doesn't match |
+| Conflicted | • Content local and remote data is modified and does not match |
 
 ### Auto-sync
 
@@ -44,7 +44,7 @@ The Content Manager now supports **Auto-Sync**, which automatically detects remo
 A file is marked as **Conflicted** only when:
 
 - Both local and remote versions have been modified, **and**
-- The changes are incompatible (that is, they don't match)
+- The changes are incompatible (that is, they do not match)
 
 **No conflict is triggered if:**
 
@@ -174,7 +174,7 @@ This approach gives teams explicit control over version resolution while maintai
     When collaborating on a team of game makers, here are some suggestions for a safe process to try to lower potential content conflicts.
 
     - Carefully review which content items you publish,
-    - Only commit contents that have properties or tags changes, don't need to keep track of all `referenceManifestId` updates
+    - Only commit contents that have properties or tags changes, do not need to keep track of all `referenceManifestId` updates
 
 ## Content filtering
 

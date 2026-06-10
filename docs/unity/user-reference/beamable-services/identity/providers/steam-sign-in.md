@@ -5,7 +5,7 @@ In order to integrate Steam into any game you have to use the Steamworks SDK and
 ![Steamworks](../../../../../media/imgs/4caee67-steamworks.png){: style="height:auto;width:500px"}
 
 !!! info "Install the Steamworks.NET SDK into your project."
-    The Steamworks.NET SDK is a wrapper around the Steamworks SDK provided from Steam (Valve). You'll need to download the [Latest SDK](https://github.com/rlabrecque/Steamworks.NET/releases/latest) and install it into your project. Thankfully, it's only a Unity package and you can just import it into Unity like any other package.
+    The Steamworks.NET SDK is a wrapper around the Steamworks SDK provided from Steam (Valve). You will need to download the [Latest SDK](https://github.com/rlabrecque/Steamworks.NET/releases/latest) and install it into your project. Thankfully, it is only a Unity package and you can just import it into Unity like any other package.
 
 In this guide, you will learn the key components to integrating Steam and Beamable.
 
@@ -17,7 +17,7 @@ Primarily we use the Steamworks SDK to acquire the Steam Token for Authenticatio
 
 ## Steam AppID setup
 
-You'll need an AppID, which you can acquire from Steam. If you do not have one, you will need to create a new app in the [Steam Partner Portal](https://partner.steamgames.com). Once you've created your app, you can find its AppID, which will be a numeric value after the name of your Steam app.
+You will need an AppID, which you can acquire from Steam. If you do not have one, you will need to create a new app in the [Steam Partner Portal](https://partner.steamgames.com). Once you have created your app, you can find its AppID, which will be a numeric value after the name of your Steam app.
 
 `Example: MyAppName (1234567)`
 
@@ -27,7 +27,7 @@ You then need to place this AppID in a file that was installed in the root of yo
 
 ## Setup in the Portal
 
-There are some additional steps in order to configure Beamable for Steam Integration. You'll need to register your Web API key and AppID in the Beamable Portal at <https://portal.beamable.com/>
+There are some additional steps in order to configure Beamable for Steam Integration. You will need to register your Web API key and AppID in the Beamable Portal at <https://portal.beamable.com/>
 
 Once you have done this, you can verify that the Steamworks SDK is working by creating any MonoBehaviour and outputting the Steam User ID to the console.
 
@@ -66,7 +66,7 @@ You should see that your Steam ID is printed to the console.
 
 ## Getting Steam session ticket
 
-You'll need to acquire a Steam Session Ticket to validate. In the example below, we are using the `SteamUser.GetAuthSessionTicket()` function of the Steamworks SDK to accomplish this. You can copy and paste the following into your code as-is to get your Steam Session Ticket:
+You will need to acquire a Steam Session Ticket to validate. In the example below, we are using the `SteamUser.GetAuthSessionTicket()` function of the Steamworks SDK to accomplish this. You can copy and paste the following into your code as-is to get your Steam Session Ticket:
 
 ```csharp
 /// <summary>

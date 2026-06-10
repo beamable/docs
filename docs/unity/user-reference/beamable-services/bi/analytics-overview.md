@@ -131,11 +131,11 @@ where
 
 ### 30 day retention cohort
 
-Now that you have engaged players, it is worth ensuring they are sticky — that is, that they return to play regularly. This report shows how often players come back, and whether retention is declining. High churn (players who stop playing and don't return) is a signal to investigate your retention metrics more closely.
+Now that you have engaged players, it is worth ensuring they are sticky — that is, that they return to play regularly. This report shows how often players come back, and whether retention is declining. High churn (players who stop playing and do not return) is a signal to investigate your retention metrics more closely.
 
 !!! info "Query Notes"
 
-    When using PopSQL, you'll need the PID realm ID and a start and end date. If not using PopSQL, replace the {{pid}} field and the {{start_date}} and {{end_date}} fields with correct values.
+    When using PopSQL, you will need the PID realm ID and a start and end date. If not using PopSQL, replace the {{pid}} field and the {{start_date}} and {{end_date}} fields with correct values.
 
 ```sql
 WITH
@@ -283,7 +283,7 @@ Here we are going to get the last 10 events from the **platform_session_session*
 select * from platform_session_session limit 10;
 ```
 
-As you can see you already get some very interesting data about your player. Let's take a moment to explore the schema of this table.
+As you can see you already get some very interesting data about your player. Let us take a moment to explore the schema of this table.
 
 ### Getting the table schema
 
