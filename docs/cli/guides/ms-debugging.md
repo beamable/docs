@@ -27,9 +27,9 @@ Beamable Standalone Microservices run as vanilla .NET processes on your machine.
 
 ## Hot reload
 
-If you run your service with hot reload enabled, then your code will be recompiled automatically as you make changes to your code, and your running service won't need to restart.
+If you run your service with hot reload enabled, then your code will be recompiled automatically as you make changes to your code, and your running service will not need to restart.
 
-Unfortunately, JetBrains Rider has limited hot reload support out of the box. With that in mind, this guide will assume that if you want to use hot reload, you'll be using the CLI.
+Unfortunately, JetBrains Rider has limited hot reload support out of the box. With that in mind, this guide will assume that if you want to use hot reload, you will be using the CLI.
 
 Not all types of source code changes will work with hot reload. Only changes to the `.cs` files will be acceptable. No changes to the `.csproj` or other build-time configuration options will be reloaded.
 
