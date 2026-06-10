@@ -10175,14 +10175,14 @@ This sample hard-codes the BetterStack auth for simplicity. Better solutions for
 
 <span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="n">Exited</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// panic! If the collector has stopped, then logs aren't getting sent anywhere.</span>
+<span class="w">        </span><span class="c1">// panic! If the collector has stopped, then logs are not getting sent anywhere.</span>
 <span class="w">        </span><span class="c1">//  and all we can do is explode so that AWS will re-place the task.</span>
 <span class="w">        </span><span class="n">Environment</span><span class="p">.</span><span class="n">Exit</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
 <span class="w">    </span><span class="p">};</span>
 
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">.</span><span class="n">Start</span><span class="p">())</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// panic! If the collector did not start, then logs aren't getting sent anywhere.</span>
+<span class="w">        </span><span class="c1">// panic! If the collector did not start, then logs are not getting sent anywhere.</span>
 <span class="w">        </span><span class="c1">//  and all we can do is explode so that AWS will re-place the task.</span>
 <span class="w">        </span><span class="n">Environment</span><span class="p">.</span><span class="n">Exit</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
 

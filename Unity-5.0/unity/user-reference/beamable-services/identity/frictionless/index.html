@@ -9419,7 +9419,7 @@
 <p>Put this at the top of your class or any <code>MonoBehaviour</code> as a way to access the Beamable APIs.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="n">BeamContext</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">;</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>At face value, the following creates a player instance with access to Beamable APIs. But, under the hood, it is creating an anonymous user for you, if one doesn’t exist. It also assigns a User Id, also known as the <code>PlayerId</code>, which you can use to look up the player in <a href="https://docs.beamable.com/docs/portal">Portal</a>.</p>
+<p>At face value, the following creates a player instance with access to Beamable APIs. But, under the hood, it is creating an anonymous user for you, if one does not exist. It also assigns a User Id, also known as the <code>PlayerId</code>, which you can use to look up the player in <a href="https://docs.beamable.com/docs/portal">Portal</a>.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>

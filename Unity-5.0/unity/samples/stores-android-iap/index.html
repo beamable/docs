@@ -9585,7 +9585,7 @@
 <p>Ensure your target platform is Android before beginning setup. In your Unity project, navigate to Project Settings→Services→In-App Purchasing. Ensure it is enabled with the toggle in the screenshot below. After this is done, you should notice that <code>BEAMABLE_PURCHASING</code> has been added to your Scripting Define Symbols.</p>
 <div class="admonition info">
 <p class="admonition-title">BILLING Permission</p>
-<p>Attempting to set up in-app products with an existing APK may throw an error in the Google Play Console that reads "To add in-app products, you need to add the BILLING permission to your APK." Enabling Unity purchasing fixes this problem automatically. However, if you're using a custom purchaser, you can enable this flag via your Android manifest or gradle file, and ensuring the <code>com.android.vending.BILLING</code> dependency exists.</p>
+<p>Attempting to set up in-app products with an existing APK may throw an error in the Google Play Console that reads "To add in-app products, you need to add the BILLING permission to your APK." Enabling Unity purchasing fixes this problem automatically. However, if you are using a custom purchaser, you can enable this flag via your Android manifest or gradle file, and ensuring the <code>com.android.vending.BILLING</code> dependency exists.</p>
 </div>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/unity-iap-settings.png" data-desc-position="bottom"><img alt="Unity IAP Settings" src="../../../media/imgs/unity-iap-settings.png" style="height:auto;width:500px"></a></p>
 <h2 id="step-3-setup-google-app">Step 3. setup Google app<a class="headerlink" href="#step-3-setup-google-app" title="Permanent link">¶</a></h2>
@@ -9635,7 +9635,7 @@
 <p>Finally, add your license key to your realm configuration. Under the <code>"payments"</code> namespace, create a new key called <code>"googleplay.key"</code>, with the value being your license key.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/beamable-realm-config.png" data-desc-position="bottom"><img alt="Beamable Realm Config" src="../../../media/imgs/beamable-realm-config.png" style="height:auto;width:500px"></a></p>
 <h2 id="step-6-setup-products-unity">Step 6. setup products (Unity)<a class="headerlink" href="#step-6-setup-products-unity" title="Permanent link">¶</a></h2>
-<p>Back in Unity, we'll need to set up a store and create listings for the purchasable items. Unlike items that are purchased with virtual currency, real money items use SKUs as the price for the listing. Otherwise, the setup is mostly identical. For more info on virtual currency purchases or basic store setup, see <a href="doc:stores-guide">Stores - Guide</a>.</p>
+<p>Back in Unity, we will need to set up a store and create listings for the purchasable items. Unlike items that are purchased with virtual currency, real money items use SKUs as the price for the listing. Otherwise, the setup is mostly identical. For more info on virtual currency purchases or basic store setup, see <a href="doc:stores-guide">Stores - Guide</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Note</p>
 <p>The listings <em>must</em> be added to a store in your game's content. Otherwise, the <abbr title="in-app purchases">IAP</abbr> system will not be able to find the items.</p>
@@ -9733,15 +9733,15 @@
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">MakePurchase</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">listingId</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// We're creating a new ListingRef and resolving it just so we can continue</span>
+<span class="w">        </span><span class="c1">// We are creating a new ListingRef and resolving it just so we can continue</span>
 <span class="w">        </span><span class="c1">// using this function with a string parameter from the Unity inspector.</span>
 <span class="w">        </span><span class="c1">// This could just as easily work passing in a ListingRef as well, and</span>
 <span class="w">        </span><span class="c1">// skipping the construction of a new one.</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">listing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListingRef</span><span class="w"> </span><span class="p">{</span><span class="n">Id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listingId</span><span class="p">}.</span><span class="n">Resolve</span><span class="p">();</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">skuId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listing</span><span class="p">.</span><span class="n">price</span><span class="p">.</span><span class="n">symbol</span><span class="p">;</span>
 
-<span class="w">        </span><span class="c1">// This validates the existence of the SKU. Since the content service won't allow you to assign an</span>
-<span class="w">        </span><span class="c1">// invalid SKU to a Listing, this shouldn't really be necessary, but you can at least validate</span>
+<span class="w">        </span><span class="c1">// This validates the existence of the SKU. Since the content service will not allow you to assign an</span>
+<span class="w">        </span><span class="c1">// invalid SKU to a Listing, this should not really be necessary, but you can at least validate</span>
 <span class="w">        </span><span class="c1">// that your content is set up properly.</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">skusResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_context</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">PaymentService</span><span class="p">.</span><span class="n">GetSKUs</span><span class="p">();</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">sku</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">skusResponse</span><span class="p">.</span><span class="n">skus</span><span class="p">.</span><span class="n">definitions</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">skuId</span><span class="p">);</span>
@@ -9771,7 +9771,7 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/android-iap-game-view.png" data-desc-position="bottom"><img alt="Android IAP Game View" src="../../../media/imgs/android-iap-game-view.png" style="height:auto;width:200px"></a></p>
 <p>The editor will use a fake purchaser, and give a receipt, demonstrating successful communication with Google Play:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/android-iap-success-logs.png" data-desc-position="bottom"><img alt="Android IAP Success Logs" src="../../../media/imgs/android-iap-success-logs.png" style="height:auto;width:500px"></a></p>
-<p>If you're testing on an Android device, the purchasing service will be Google Play, however it will use a fake credit card that always works until your app is out of its testing phases.</p>
+<p>If you are testing on an Android device, the purchasing service will be Google Play, however it will use a fake credit card that always works until your app is out of its testing phases.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/android-iap-device-success.png" data-desc-position="bottom"><img alt="Android IAP Device Success" src="../../../media/imgs/android-iap-device-success.png" style="height:auto;width:200px"></a></p>
 
 

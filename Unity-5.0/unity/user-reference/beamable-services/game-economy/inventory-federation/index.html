@@ -9514,7 +9514,7 @@ implementations in a single microservice.</p>
 <h3 id="getinventorystate-implementation"><code>GetInventoryState</code> implementation<a class="headerlink" href="#getinventorystate-implementation" title="Permanent link">¶</a></h3>
 <p>You can perform any custom logic here. For example, you could AI generate some items, load items from a smart contract,
 use microstorage, or perform anything that satisfies your specific requirements.
-Here's a dummy example that will return some static items and currency, just to showcase the response structure:</p>
+Here is a dummy example that will return some static items and currency, just to showcase the response structure:</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -9593,7 +9593,7 @@ Here's a dummy example that will return some static items and currency, just to 
 <span class="w">    </span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>The important thing to emphasize here is the <code>id</code> argument. It's the same external account id that you return from the
+<p>The important thing to emphasize here is the <code>id</code> argument. It is the same external account id that you return from the
 <code>Authenticate</code> method. If you want to access the player's id in the Beamable system, you can use <code>this.Context.UserId</code>
 As an example, you can use the wallet address as an external user identifier when implementing blockchain federation.</p>
 <h3 id="startinventorytransaction-implementation"><code>StartInventoryTransaction</code> implementation<a class="headerlink" href="#startinventorytransaction-implementation" title="Permanent link">¶</a></h3>

@@ -9596,19 +9596,19 @@
 <tbody>
 <tr>
 <td><code>leaderBoard</code>/<code>boardId</code></td>
-<td>The board whose subset of rank entries you want to retrieve.<br>• For the partitioned case (<code>GetAssignedBoard</code>), it'll always return you the partition containing the requesting/authenticated user.</td>
+<td>The board whose subset of rank entries you want to retrieve.<br>• For the partitioned case (<code>GetAssignedBoard</code>), it will always return you the partition containing the requesting/authenticated user.</td>
 </tr>
 <tr>
 <td><code>from</code></td>
-<td>Is the first "rank" you want to retrieve. This parameter is ignored if a <code>focus</code> is given.<br>• If this value is greater than the lowest rank, you'll get no <code>RankEntries</code> back: if there are 10 entries in the board and you pass in <code>from=15</code>, you'll get an empty array of <code>RankEntries</code> in your <code>LeaderBoardView</code>.</td>
+<td>Is the first "rank" you want to retrieve. This parameter is ignored if a <code>focus</code> is given.<br>• If this value is greater than the lowest rank, you will get no <code>RankEntries</code> back: if there are 10 entries in the board and you pass in <code>from=15</code>, you will get an empty array of <code>RankEntries</code> in your <code>LeaderBoardView</code>.</td>
 </tr>
 <tr>
 <td><code>max</code></td>
-<td>Is the number of ranks, starting from <code>from</code>, and moving towards the lowest rank that you want to retrieve.<br>• As in, if <code>from=20</code> and <code>max=10</code>, you'll get ranks <code>[20~30]</code>.<br>• If there are not enough entries to fill this amount, the search is truncated.</td>
+<td>Is the number of ranks, starting from <code>from</code>, and moving towards the lowest rank that you want to retrieve.<br>• As in, if <code>from=20</code> and <code>max=10</code>, you will get ranks <code>[20~30]</code>.<br>• If there are not enough entries to fill this amount, the search is truncated.</td>
 </tr>
 <tr>
 <td><code>focus</code></td>
-<td>is a User's PlayerId that'll be used as the middle <code>RankEntry</code> of the resulting <code>LeaderBoardView</code>.<br>• Takes <code>max/2</code> ranks above the <code>focus</code> and <code>max/2</code> ranks from below the <code>focus</code>.<br>• It is inclusive. As in, if <code>focus</code> is at rank 50 and you pass in <code>max=10</code>, you should see <code>[40~61]</code>.<br>• If there are not enough entries in the leaderboard either above or below you, the corresponding <code>max/2</code> will be truncated.</td>
+<td>is a User's PlayerId that will be used as the middle <code>RankEntry</code> of the resulting <code>LeaderBoardView</code>.<br>• Takes <code>max/2</code> ranks above the <code>focus</code> and <code>max/2</code> ranks from below the <code>focus</code>.<br>• It is inclusive. As in, if <code>focus</code> is at rank 50 and you pass in <code>max=10</code>, you should see <code>[40~61]</code>.<br>• If there are not enough entries in the leaderboard either above or below you, the corresponding <code>max/2</code> will be truncated.</td>
 </tr>
 <tr>
 <td><code>outlier</code></td>

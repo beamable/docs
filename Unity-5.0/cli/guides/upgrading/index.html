@@ -10368,7 +10368,7 @@ Microservice project will <em>no longer generate client code automatically</em>.
 <p>You can generate a Unity client by hand using the following command,
 </p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>generate-client-oapi<span class="w"> </span>--output-dir<span class="w"> </span>./Path/To/Your/Unity/Folder/To/Put/Clients/In
 </code></pre></div></td></tr></tbody></table></div><p></p>
-<p>If you want to revert to the old method of producing client-code, you'll need to copy/paste the old target
+<p>If you want to revert to the old method of producing client-code, you will need to copy/paste the old target
 into your services' <code>.csproj</code> files. You can find the target here,
 <a href="https://github.com/beamable/BeamableProduct/blob/cli-4.3.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.targets#L15">CLI 4.3.0 .Targets File</a></p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -10433,7 +10433,7 @@ SomeDrive
 <span class="p">|</span>---ProjectRoot
 <span class="p">|</span>---<span class="p">|</span>---<span class="w"> </span>.beamable
 
-<span class="c1"># You should make sure you're in the directory containing the .beamable folder</span>
+<span class="c1"># You should make sure you are in the directory containing the .beamable folder</span>
 <span class="nb">cd</span><span class="w"> </span>SomeDrive/ProjectRoot
 </code></pre></div></td></tr></tbody></table></div>
 <h4 id="cli-file-structure">CLI file structure<a class="headerlink" href="#cli-file-structure" title="Permanent link">¶</a></h4>
@@ -10514,7 +10514,7 @@ SomeDrive
 </ul>
 </li>
 <li>It includes a Roslyn Static Analyzer to help you out with microservices and federation implementations</li>
-<li>It'll target <code>.net8</code></li>
+<li>It will target <code>.net8</code></li>
 </ul>
 <p>In every <code>csproj</code> file for <strong>Microservices</strong>, <strong>MicroStorages</strong>, and <strong>Common Libraries</strong>, follow the steps below:</p>
 <p>First, add a <code>PropertyGroup</code> with a <code>Label</code> called <code>Beamable Version</code> that looks like this:
@@ -10546,7 +10546,7 @@ SomeDrive
 <span class="nt">&lt;/PropertyGroup&gt;</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <blockquote>
-<p>📘 Don't update <code>netstandard2.1</code> to <code>net8.0</code></p>
+<p>📘 Do not update <code>netstandard2.1</code> to <code>net8.0</code></p>
 <p>Be careful not to update common projects from <code>netstandard2.1</code> to <code>net8.0</code>.
 The <code>netstandard2.1</code> target produces <code>.dll</code> files that can be copied
 directly into a wide variety of engines, such as Unity. However, <code>net8.0</code>
@@ -10586,11 +10586,11 @@ binaries are not compatible with Unity.</p>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <h4 id="microservice-code-changes-partial-and-federationid">Microservice code changes - <code>partial</code> and <code>FederationId</code><a class="headerlink" href="#microservice-code-changes-partial-and-federationid" title="Permanent link">¶</a></h4>
 <p>With the introduction of the <code>Beamable.Microservice.SourceGen</code> library, all Microservice classes must be marked with the <code>partial</code> keyword. This will allow the source-generator to add custom implementations to Microservices in future releases.</p>
-<p>If you use any Federated endpoints as part of your Microservices, there a few code-changes you'll have to make:</p>
+<p>If you use any Federated endpoints as part of your Microservices, there a few code-changes you will have to make:</p>
 <ul>
 <li>Replace all <code>IThirdPartyCloudIdentity</code> with <code>IFederationId</code></li>
 <li>Add a <code>FederationId</code> attribute to the class <code>IFederationId</code> — the <code>UniqueName</code> is the property</li>
-<li>If you were ever accessing the <code>UniqueName</code> property as part of your code, you'll need to replace those calls with <code>GetUniqueName()</code></li>
+<li>If you were ever accessing the <code>UniqueName</code> property as part of your code, you will need to replace those calls with <code>GetUniqueName()</code></li>
 </ul>
 <p>Once these are in, try to compile your services. The newly referenced Roslyn Static Analyzer should tell you if you made any mistakes.</p>
 <p>Finally, the analyzer will inform you that the federations you have in code are not in the <code>federation.json</code> file. The error will look something like this:

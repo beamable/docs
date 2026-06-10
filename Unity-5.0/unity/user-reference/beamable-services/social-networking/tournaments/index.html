@@ -9886,7 +9886,7 @@ TournamentServiceExample.cs
 <span class="w">            </span><span class="c1">// This allows the currently logged in user to join the tournament by its content id.</span>
 <span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">TournamentsService</span><span class="p">.</span><span class="n">JoinTournament</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">tournamentId</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
 
-<span class="w">            </span><span class="c1">// Let's set the score for this player!</span>
+<span class="w">            </span><span class="c1">// Let us set the score for this player!</span>
 <span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">TournamentsService</span><span class="p">.</span><span class="n">SetScore</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">tournamentId</span><span class="p">,</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">);</span>
 
 <span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Tournaments.SetScore({id},{userId},{score})"</span><span class="p">);</span>

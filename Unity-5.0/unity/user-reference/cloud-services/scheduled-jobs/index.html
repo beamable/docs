@@ -9857,7 +9857,7 @@ By default, <code>useLocal</code> is set as <code>true</code>.</p>
 </code></pre></div></td></tr></tbody></table></div>
 <p>The cron builder must specify all components of the cron string. Each time unit has an <code>At</code> method that specifies an exact value for the time. Each time unit also has an <code>Every</code> variant that puts a <code>*</code> in the place of that time value. Each time unit also has an <code>EveryNth</code> that places a <code>n/*</code> value in the cron string. <code>Between</code> and <code>Complex</code> can also be provided.</p>
 <div class="admonition warning">
-<p class="admonition-title">Don't forget about Cron Triggers!</p>
+<p class="admonition-title">Do not forget about Cron Triggers!</p>
 <p>It is easy to create a scheduled job using a cron trigger, and then forget it exists! Make sure keep track of your cron jobs. The API and SDK can search for active jobs, but it is always a good idea to have a sense of the jobs running in your realm.</p>
 </div>
 <p>For common schedule types (daily, weekly, monthly, twiceMonthly), short cuts exist.

@@ -9683,7 +9683,7 @@
 </tr>
 <tr>
 <td><code>GetDataConflictDetails</code></td>
-<td>If the Service was initialized and it wasn't possible to resolve the conflict between cloud and local. You can use this function to get the details about these conflicts.</td>
+<td>If the Service was initialized and it was not possible to resolve the conflict between cloud and local. You can use this function to get the details about these conflicts.</td>
 </tr>
 <tr>
 <td><code>ResolveDataConflict</code></td>
@@ -9832,7 +9832,7 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h2 id="syncing-of-data">Syncing of data<a class="headerlink" href="#syncing-of-data" title="Permanent link">¶</a></h2>
-<p>The downloading operation uses Unity's <a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Networking.DownloadHandlerFile.html"><code>DownloadHandlerFile</code></a>. If the file is new, it will be saved directly to the <code>/data/</code> Folder. If the file has a conflict it will first be saved to the <code>/temp/</code> folder, if the resolver chooses to use the Cloud Save, it'll be moved to the <code>/data/</code> folder, if not, it will be archived.</p>
+<p>The downloading operation uses Unity's <a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Networking.DownloadHandlerFile.html"><code>DownloadHandlerFile</code></a>. If the file is new, it will be saved directly to the <code>/data/</code> Folder. If the file has a conflict it will first be saved to the <code>/temp/</code> folder, if the resolver chooses to use the Cloud Save, it will be moved to the <code>/data/</code> folder, if not, it will be archived.</p>
 <p><em>Note</em>: If the destination files are kept open by some unrelated system during the syncing process, the <code>CloudSavingService</code> will reattempt several times. Upon any ultimate failure, an <code>IOException</code> will be thrown.</p>
 <h2 id="storage-of-data">Storage of data<a class="headerlink" href="#storage-of-data" title="Permanent link">¶</a></h2>
 <p>Data is stored in within Unity's <a href="https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html"><code>Application.persistentDataPath</code></a> and prefixed with the Customer ID (<abbr title="customer ID">CID</abbr>), Project ID (<abbr title="realm identifier">PID</abbr>), and Player ID (PlayerId). This is to ensure data is scoped to a game and a player. The full path is available at <a href="https://csharp.cdocs.beamable.com/latest/classBeamable_1_1Api_1_1CloudSaving_1_1CloudSavingService.html"><code>ICloudSavingService.LocalDataFullPath</code></a>.</p>
@@ -9884,7 +9884,7 @@
 <p>• While Beamable supports <em>minor</em> edits to the player data from the Portal, restoring a customer's player data completely to a historic backup state is <strong>not supported</strong>.
 • The CloudSavingService <strong>does not support</strong> <em>multiple game sessions using the same user. If there are multiple sessions for the same user, for the same game, this will create an infinite ping/pong effect. For example, Device A will send updates that Device B will fetch, which will send updates that Device A will fetch.</em>
 • Manually deleting content from the <code>LocalCloudDataFullPath</code> is <strong>not supported</strong>
-• <a href="doc:cloud-save-code">Old Cloud Save Service</a> <strong>doesn't support</strong> multiple files with the <strong>same content</strong>. If you want files with the same content (for example a backup file), please add a tag to <strong>differentiate</strong> them or use the <a href="doc:player-cloud-save-code">New Cloud Save Service</a>.</p>
+• <a href="doc:cloud-save-code">Old Cloud Save Service</a> <strong>does not support</strong> multiple files with the <strong>same content</strong>. If you want files with the same content (for example a backup file), please add a tag to <strong>differentiate</strong> them or use the <a href="doc:player-cloud-save-code">New Cloud Save Service</a>.</p>
 </div>
 <h2 id="sample-code">Sample code<a class="headerlink" href="#sample-code" title="Permanent link">¶</a></h2>
 <p>Here is some sample code that demonstrates how to use the Cloud Save Service in Unity. This sample code shows all the different options for using the Cloud Save Service. Note that this is an example for reference only. We do not recommend copying directly the functions used in the sample.</p>

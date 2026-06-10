@@ -9993,7 +9993,7 @@ Depending on the complexity of the game play, there may be dozens of custom even
 <span class="n">client</span><span class="p">.</span><span class="n">OnErrorFailed</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="c1">// TODO: force exit the match, because the network is too unstable to continue or recover.</span>
-<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Sim Client wasn't able to recover. {r.ErrorMessage}"</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Sim Client was not able to recover. {r.ErrorMessage}"</span><span class="w"> </span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></tbody></table></div>
 <p>The effect of <code>OnErrorFailed</code> event can also be captured by using a <code>try/catch</code> around the <code>SimClient.Update</code> function, like so...</p>

@@ -9571,19 +9571,19 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/4caee67-steamworks.png" data-desc-position="bottom"><img alt="Steamworks" src="../../../../../../media/imgs/4caee67-steamworks.png" style="height:auto;width:500px"></a></p>
 <div class="admonition info">
 <p class="admonition-title">Install the Steamworks.NET SDK into your project.</p>
-<p>The Steamworks.NET SDK is a wrapper around the Steamworks SDK provided from Steam (Valve). You'll need to download the <a href="https://github.com/rlabrecque/Steamworks.NET/releases/latest">Latest SDK</a> and install it into your project. Thankfully, it's only a Unity package and you can just import it into Unity like any other package.</p>
+<p>The Steamworks.NET SDK is a wrapper around the Steamworks SDK provided from Steam (Valve). You will need to download the <a href="https://github.com/rlabrecque/Steamworks.NET/releases/latest">Latest SDK</a> and install it into your project. Thankfully, it is only a Unity package and you can just import it into Unity like any other package.</p>
 </div>
 <p>In this guide, you will learn the key components to integrating Steam and Beamable.</p>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">¶</a></h2>
 <p>Primarily we use the Steamworks SDK to acquire the Steam Token for Authentication. This same token is also used for purchases through steam. For Authentication as shown below, we use the token to validate it with Beamable, and once that has been accomplished we use the token result to then Login, Create or Attach the User in Steam to Beamable.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/d37037e-steam_overview_flow.png" data-desc-position="bottom"><img alt="Steam Overview Flow" src="../../../../../../media/imgs/d37037e-steam_overview_flow.png" style="height:auto;width:500px"></a></p>
 <h2 id="steam-appid-setup">Steam AppID setup<a class="headerlink" href="#steam-appid-setup" title="Permanent link">¶</a></h2>
-<p>You'll need an AppID, which you can acquire from Steam. If you do not have one, you will need to create a new app in the <a href="https://partner.steamgames.com">Steam Partner Portal</a>. Once you've created your app, you can find its AppID, which will be a numeric value after the name of your Steam app.</p>
+<p>You will need an AppID, which you can acquire from Steam. If you do not have one, you will need to create a new app in the <a href="https://partner.steamgames.com">Steam Partner Portal</a>. Once you have created your app, you can find its AppID, which will be a numeric value after the name of your Steam app.</p>
 <p><code>Example: MyAppName (1234567)</code></p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/f5a715d-steam_create_appId.png" data-desc-position="bottom"><img alt="Steam Create AppID" src="../../../../../../media/imgs/f5a715d-steam_create_appId.png" style="height:auto;width:500px"></a></p>
 <p>You then need to place this AppID in a file that was installed in the root of your project folder. This file is called <strong>steam_appid.txt</strong>. The root of your project is located in the folder above your <em>Assets</em> folder. It should look like the following, with only the AppID present in the file steam_appid.txt: <code>1234567</code></p>
 <h2 id="setup-in-the-portal">Setup in the Portal<a class="headerlink" href="#setup-in-the-portal" title="Permanent link">¶</a></h2>
-<p>There are some additional steps in order to configure Beamable for Steam Integration. You'll need to register your Web API key and AppID in the Beamable Portal at <a href="https://portal.beamable.com/">https://portal.beamable.com/</a></p>
+<p>There are some additional steps in order to configure Beamable for Steam Integration. You will need to register your Web API key and AppID in the Beamable Portal at <a href="https://portal.beamable.com/">https://portal.beamable.com/</a></p>
 <p>Once you have done this, you can verify that the Steamworks SDK is working by creating any MonoBehaviour and outputting the Steam User ID to the console.</p>
 <p>Log in to [Steam Partner Portal] and use the dropdown option to Manage Groups. In your main group, you will need to create a Web API Key if you have not created one yet. It will be located as an option in the right-hand side bar. If you have already created one, then it will be displayed in the side bar as well.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/5156251-create_web_api_key.png" data-desc-position="bottom"><img alt="Create Web API Key" src="../../../../../../media/imgs/5156251-create_web_api_key.png" style="height:auto;width:500px"></a></p>
@@ -9643,7 +9643,7 @@
 <code>using Steamworks;</code></p>
 </div>
 <h2 id="getting-steam-session-ticket">Getting Steam session ticket<a class="headerlink" href="#getting-steam-session-ticket" title="Permanent link">¶</a></h2>
-<p>You'll need to acquire a Steam Session Ticket to validate. In the example below, we are using the <code>SteamUser.GetAuthSessionTicket()</code> function of the Steamworks SDK to accomplish this. You can copy and paste the following into your code as-is to get your Steam Session Ticket:</p>
+<p>You will need to acquire a Steam Session Ticket to validate. In the example below, we are using the <code>SteamUser.GetAuthSessionTicket()</code> function of the Steamworks SDK to accomplish this. You can copy and paste the following into your code as-is to get your Steam Session Ticket:</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>

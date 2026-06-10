@@ -9586,7 +9586,7 @@ This will create a <code>"tuna"</code> namespace for your new authentication sch
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="implementing-ifederatedlogin-in-your-microservice">Implementing IFederatedLogin in your Microservice<a class="headerlink" href="#implementing-ifederatedlogin-in-your-microservice" title="Permanent link">¶</a></h3>
-<p>Let's say you already have a TunaService that holds all your user's data. We will use it to validate a "token" received by the client and respond with a "user_id".</p>
+<p>Let us say you already have a TunaService that holds all your user's data. We will use it to validate a "token" received by the client and respond with a "user_id".</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -9629,7 +9629,7 @@ This will create a <code>"tuna"</code> namespace for your new authentication sch
 <p class="admonition-title">User Id generation</p>
 </div>
 <p>Ensure that User IDs are generated deterministically. For a given input from the provider, the resulting User ID must always be the same. Avoid using <code>Guid.NewGuid().ToString()</code>, as this creates a new account for every login attempt. Instead, use a unique identifier provided by the external auth provider (for example, a subject ID or public key).</p>
-<p>In this example, we didn't use the "challenge" and "solution" arguments. The standard use case for challenges is wallet authentication. If a client sends us a wallet address as a token, the only way to verify the ownership of that wallet is to issue a challenge, and require a user to sign that challenge using their private key. <a href="https://github.com/beamable/solana-example">Solana/Phantom wallet authentication</a> is an example that uses a challenge.</p>
+<p>In this example, we did not use the "challenge" and "solution" arguments. The standard use case for challenges is wallet authentication. If a client sends us a wallet address as a token, the only way to verify the ownership of that wallet is to issue a challenge, and require a user to sign that challenge using their private key. <a href="https://github.com/beamable/solana-example">Solana/Phantom wallet authentication</a> is an example that uses a challenge.</p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -9662,7 +9662,7 @@ This will create a <code>"tuna"</code> namespace for your new authentication sch
 <span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">BeamableLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">"We didn't receive a token (public key)"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">BeamableLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">"We did not receive a token (public key)"</span><span class="p">);</span>
 <span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">InvalidAuthenticationRequest</span><span class="p">(</span><span class="s">"Token (public key) is required"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -9673,7 +9673,7 @@ This will create a <code>"tuna"</code> namespace for your new authentication sch
 <span class="w">            </span><span class="c1">// User identity is confirmed</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FederatedAuthenticationResponse</span>
 <span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="p">};</span>
-<span class="w">        </span><span class="c1">// Signature is invalid, user identity isn't confirmed</span>
+<span class="w">        </span><span class="c1">// Signature is invalid, user identity is not confirmed</span>
 <span class="w">        </span><span class="n">BeamableLogger</span><span class="p">.</span><span class="n">LogWarning</span><span class="p">(</span>
 <span class="w">            </span><span class="s">"Invalid signature {signature} for challenge {challenge} and wallet {wallet}"</span><span class="p">,</span><span class="w"> </span><span class="n">solution</span><span class="p">,</span>
 <span class="w">            </span><span class="n">challenge</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>

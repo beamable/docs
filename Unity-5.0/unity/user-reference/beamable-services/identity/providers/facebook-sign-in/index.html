@@ -9762,7 +9762,7 @@
 <span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 </div>
-<p>We've passed in an additional helper object that will automate the Beamable login flow process. However, now we will expose what is "under the hood" of that helper.</p>
+<p>We have passed in an additional helper object that will automate the Beamable login flow process. However, now we will expose what is "under the hood" of that helper.</p>
 <h3 id="getting-the-access-token-string">Getting the access token string<a class="headerlink" href="#getting-the-access-token-string" title="Permanent link">¶</a></h3>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -9801,7 +9801,7 @@
 <span class="kt">var</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">IsThirdPartyAvailable</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">HasThirdPartyAssociation</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">);</span>
 
-<span class="c1">//Should we switch to a user that's not currently logged in?</span>
+<span class="c1">//Should we switch to a user that is not currently logged in?</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">shouldSwitchUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">available</span><span class="p">;</span>
 <span class="c1">//Should we create a brand new user with these credentials?</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">shouldCreateUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="p">;</span>
