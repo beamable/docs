@@ -380,14 +380,14 @@ public static void SetupCollector()
 
 	p.Exited += (sender, args) =>
 	{
-		// panic! If the collector has stopped, then logs aren't getting sent anywhere.
+		// panic! If the collector has stopped, then logs are not getting sent anywhere.
 		//  and all we can do is explode so that AWS will re-place the task.
 		Environment.Exit(1);
 	};
 
 	if (!p.Start())
 	{
-		// panic! If the collector did not start, then logs aren't getting sent anywhere.
+		// panic! If the collector did not start, then logs are not getting sent anywhere.
 		//  and all we can do is explode so that AWS will re-place the task.
 		Environment.Exit(1);
 
