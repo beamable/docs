@@ -197,7 +197,7 @@ Additionally, you can completely opt out of usage reporting by setting the `BEAM
 
 Common .NET properties may be explored through [.NET documentation](https://learn.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2022) . However, there are a few properties that are set automatically through the usage of the [Beamable Microservice NuGet Package](https://www.nuget.org/packages/Beamable.Microservice.Runtime). To view these default settings, you should view the package source code's `.props` file, located here,
 
-[https://github.com/beamable/BeamableProduct/blob/cli-6.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props](https://github.com/beamable/BeamableProduct/blob/cli-2.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props)
+[https://github.com/beamable/BeamableProduct/blob/cli-6.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props](https://github.com/beamable/BeamableProduct/blob/cli-6.0.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.props)
 
 !!! info "Make sure to reference the right version!"
 

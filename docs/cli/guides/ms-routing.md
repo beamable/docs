@@ -103,7 +103,7 @@ Microservices can automatically generate client code for the Unity game engine. 
 dotnet beam project add-unity-project <relative-path-to-unity-project>
 ```
 
-Provide the relative path to the Unity project. If it isn't right, the CLI will offer an explorative search flow to identify a valid Unity project.
+Provide the relative path to the Unity project. If it is not right, the CLI will offer an explorative search flow to identify a valid Unity project.
 
 After the command has run, there will be a `.beamable/linked-projects.json` file. You can review it to double check your project has been added correctly.
 
