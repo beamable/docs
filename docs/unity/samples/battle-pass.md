@@ -60,7 +60,7 @@ Content Manager:
 ## Fetching and using the battle pass at runtime
 
 After the Battle Pass is defined and published, use Beamable’s features to fetch and use the content at runtime.
-In this example, we'll retrieve the Battle Pass.
+In this example, we will retrieve the Battle Pass.
 
 ```csharp
 // Fetch the Battle Pass content
@@ -104,7 +104,7 @@ private async Promise DisplayBattlePassDetails()
 ```
 
 ## Adding the battle pass to player inventory
-You can add the Battle Pass to a player's inventory using Beamable's Inventory system. Here's how you can use the
+You can add the Battle Pass to a player's inventory using Beamable's Inventory system. Here is how you can use the
 `Inventory.Update` method to store the Battle Pass details, such as its name and end date.
 
 To access `items.battlepass`, an item named `battlepass` should be created and published through the Content Manager.
@@ -129,7 +129,7 @@ private async Task AddBattlepassToInventory()
 ## Handling end date and expiration validation in a Microservice
 
 You can use Beamable’s Microservices to validate the Battle Pass expiration. Since `Battlepass` is a custom
-`ContentObject`, the type won't be findable by default in Microservices. You can create or move the `Battlepass`
+`ContentObject`, the type will not be findable by default in Microservices. You can create or move the `Battlepass`
 custom content script into the Beamable's `Common` folder, which is also referenced in the Microservices. The folder
 can be found in `Assets/Beamable/Common`.
 

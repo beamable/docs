@@ -18,7 +18,7 @@ Ensure your target platform is Android before beginning setup. In your Unity pro
 
 !!! info "BILLING Permission"
 
-    Attempting to set up in-app products with an existing APK may throw an error in the Google Play Console that reads "To add in-app products, you need to add the BILLING permission to your APK." Enabling Unity purchasing fixes this problem automatically. However, if you're using a custom purchaser, you can enable this flag via your Android manifest or gradle file, and ensuring the `com.android.vending.BILLING` dependency exists.
+    Attempting to set up in-app products with an existing APK may throw an error in the Google Play Console that reads "To add in-app products, you need to add the BILLING permission to your APK." Enabling Unity purchasing fixes this problem automatically. However, if you are using a custom purchaser, you can enable this flag via your Android manifest or gradle file, and ensuring the `com.android.vending.BILLING` dependency exists.
 
 ![Unity IAP Settings](../../media/imgs/unity-iap-settings.png){: style="height:auto;width:500px"}
 
@@ -64,7 +64,7 @@ Finally, add your license key to your realm configuration. Under the `"payments"
 
 ## Step 6. setup products (Unity)
 
-Back in Unity, we'll need to set up a store and create listings for the purchasable items. Unlike items that are purchased with virtual currency, real money items use SKUs as the price for the listing. Otherwise, the setup is mostly identical. For more info on virtual currency purchases or basic store setup, see [Stores - Guide](doc:stores-guide).
+Back in Unity, we will need to set up a store and create listings for the purchasable items. Unlike items that are purchased with virtual currency, real money items use SKUs as the price for the listing. Otherwise, the setup is mostly identical. For more info on virtual currency purchases or basic store setup, see [Stores - Guide](doc:stores-guide).
 
 !!! warning "Note"
 
@@ -99,15 +99,15 @@ public class IAPExample : MonoBehaviour
 
     public async void MakePurchase(string listingId)
     {
-        // We're creating a new ListingRef and resolving it just so we can continue
+        // We are creating a new ListingRef and resolving it just so we can continue
         // using this function with a string parameter from the Unity inspector.
         // This could just as easily work passing in a ListingRef as well, and
         // skipping the construction of a new one.
         var listing = await new ListingRef {Id = listingId}.Resolve();
         var skuId = listing.price.symbol;
 
-        // This validates the existence of the SKU. Since the content service won't allow you to assign an
-        // invalid SKU to a Listing, this shouldn't really be necessary, but you can at least validate
+        // This validates the existence of the SKU. Since the content service will not allow you to assign an
+        // invalid SKU to a Listing, this should not really be necessary, but you can at least validate
         // that your content is set up properly.
         var skusResponse = await _context.Api.PaymentService.GetSKUs();
         var sku = skusResponse.skus.definitions.Find(i => i.name == skuId);
@@ -143,6 +143,6 @@ The editor will use a fake purchaser, and give a receipt, demonstrating successf
 
 ![Android IAP Success Logs](../../media/imgs/android-iap-success-logs.png){: style="height:auto;width:500px"}
 
-If you're testing on an Android device, the purchasing service will be Google Play, however it will use a fake credit card that always works until your app is out of its testing phases.
+If you are testing on an Android device, the purchasing service will be Google Play, however it will use a fake credit card that always works until your app is out of its testing phases.
 
 ![Android IAP Device Success](../../media/imgs/android-iap-device-success.png){: style="height:auto;width:200px"}

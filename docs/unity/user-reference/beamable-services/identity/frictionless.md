@@ -18,7 +18,7 @@ Put this at the top of your class or any `MonoBehaviour` as a way to access the 
 private BeamContext _beamContext;
 ```
 
-At face value, the following creates a player instance with access to Beamable APIs. But, under the hood, it is creating an anonymous user for you, if one doesn’t exist. It also assigns a User Id, also known as the `PlayerId`, which you can use to look up the player in [Portal](https://docs.beamable.com/docs/portal).
+At face value, the following creates a player instance with access to Beamable APIs. But, under the hood, it is creating an anonymous user for you, if one does not exist. It also assigns a User Id, also known as the `PlayerId`, which you can use to look up the player in [Portal](https://docs.beamable.com/docs/portal).
 
 ```csharp
 private async void Start()

@@ -175,7 +175,7 @@ client.OnErrorRecovered += (r) =>
 client.OnErrorFailed += r =>
 {
     // TODO: force exit the match, because the network is too unstable to continue or recover.
-    Debug.Log($"Sim Client wasn't able to recover. {r.ErrorMessage}" );
+    Debug.Log($"Sim Client was not able to recover. {r.ErrorMessage}" );
 };
 ```
 

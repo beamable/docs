@@ -120,7 +120,7 @@ var thirdParty = AuthThirdParty.GoogleGamesServices;
 var available = await _beamContext.Api.AuthService.IsThirdPartyAvailable(thirdParty, token);
 var userHasCredentials = _beamContext.Api.User.HasThirdPartyAssociation(thirdParty);
 
-//Should we switch to a user that's not currently logged in?
+//Should we switch to a user that is not currently logged in?
 var shouldSwitchUsers = !available;
 //Should we create a brand new user with these credentials?
 var shouldCreateUser = available && userHasCredentials;

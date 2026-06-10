@@ -1,6 +1,6 @@
 # Photon multiplayer (RLGL) - overview
 
-Welcome to "Red Light, Green Light" (RLGL). In this game, **Race other players to the finish line, but don't get caught moving during a red light! This sample project utilizes several of Beamable's features.**
+Welcome to "Red Light, Green Light" (RLGL). In this game, **Race other players to the finish line, but do not get caught moving during a red light! This sample project utilizes several of Beamable's features.**
 
 !!! info "Related Features"
 
@@ -54,7 +54,7 @@ To learn more about Photon Fusion, read more on the [official documentation](htt
 | 2. Create a Photon Fusion app | [Fusion Introduction](https://doc.photonengine.com/en-us/fusion/current/getting-started/fusion-intro) |
 | 3. Copy and paste your Fusion App ID into the PhotonAppSettings | This is located in the project, in Assets/Photon/Fusion/Resources/PhotonAppSettings.<br>![Photon App Settings](../../media/imgs/rlgl-photon-app-settings.png) |
 
-After these steps are complete, the game is ready to test. Open the Login scene, then click Play in the editor. Once you're in the main menu, either click "Find Match", or do a standalone build of the game and run the build. Then run the Unity Editor. In both running games, choose "Find Match" to play against yourself.
+After these steps are complete, the game is ready to test. Open the Login scene, then click Play in the editor. Once you are in the main menu, either click "Find Match", or do a standalone build of the game and run the build. Then run the Unity Editor. In both running games, choose "Find Match" to play against yourself.
 
 ## Additional project setup (optional)
 

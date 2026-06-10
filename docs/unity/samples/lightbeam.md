@@ -1,6 +1,6 @@
 # Lightbeam overview
 
-The _Beam Library_ window in the Unity Editor has a list of Lightbeams. Lightbeams are Unity Package Samples designed to teach you various parts of the Beamable SDK. The Lightbeams share a common architectural design pattern. Unity Package Samples are copied into your `/Assets` folder and you have complete control over their source code. This means you can fork these samples into your project, or just delete them when you're done. The Lightbeams are versioned with each release of the Beamable SDK, which means you can have multiple versions of the Lightbeam installed in your `/Assets` folder.
+The _Beam Library_ window in the Unity Editor has a list of Lightbeams. Lightbeams are Unity Package Samples designed to teach you various parts of the Beamable SDK. The Lightbeams share a common architectural design pattern. Unity Package Samples are copied into your `/Assets` folder and you have complete control over their source code. This means you can fork these samples into your project, or just delete them when you are done. The Lightbeams are versioned with each release of the Beamable SDK, which means you can have multiple versions of the Lightbeam installed in your `/Assets` folder.
 
 Most of the Lightbeams are full `.unity`scene files that offer a greybox UI to explore a feature-set.
 

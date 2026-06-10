@@ -10,7 +10,7 @@ Welcome to Beamable! This guide will walk you through the steps required to inst
 
 ## Setting up an account in the Beamable Portal
 
-To start using Beamable in your project, you need to have a valid Beamable account. Please create an account via our [Portal](https://portal.beamable.com/signup/registration). Please remember your **Alias** as it'll be used to log into the SDK in your editor or via the Beamable CLI.
+To start using Beamable in your project, you need to have a valid Beamable account. Please create an account via our [Portal](https://portal.beamable.com/signup/registration). Please remember your **Alias** as it will be used to log into the SDK in your editor or via the Beamable CLI.
 
 ## Downloading and installing the Beamable SDK
 
@@ -24,7 +24,7 @@ Once downloaded, follow these steps to install the Beamable SDK into your Unity 
 | 2. Verify the import | ![Verify Import](../../media/imgs/step-2-verify-import.png)<br>• Press the "Import" button |
 | 3. Install the **Beamable SDK** | ![Install SDK](./installation-01.png)<br>• Click to continue |
 | 4. Remove the **Beamable SDK Installer Package** | • Now that the installation process is complete, the installer package is no longer needed. You can remove it. |
-| 5. **Install .NET (if required)** | Starting with the Unity 5.0.0 SDK, Beamable requires that you have .NET 10.0.100 or 8.0.302 installed on your machine. If you don't, the Beamable SDK will offer a download option for you, and once you've finished installing it, you can continue through the dialog. |
+| 5. **Install .NET (if required)** | Starting with the Unity 5.0.0 SDK, Beamable requires that you have .NET 10.0.100 or 8.0.302 installed on your machine. If you do not, the Beamable SDK will offer a download option for you, and once you have finished installing it, you can continue through the dialog. |
 
 Congratulations, the Beamable SDK is now installed!
 
@@ -37,7 +37,7 @@ Open the Beamable Login Window by clicking the Beamable button in the Unity tool
 
 ![Beamable Login Window](./login.png){: style="max-width: 400px;" }
 
-Now you're ready to start your first Beamable project!
+Now you are ready to start your first Beamable project!
 
 ## Say _hello_ to Beamable!
 To confirm that you have a working Beamable setup, we will pull in the default Beamable runtime console prefab and make sure we can access a player account.

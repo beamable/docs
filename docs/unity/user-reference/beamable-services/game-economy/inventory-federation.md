@@ -49,7 +49,7 @@ public class MyFederationService : Microservice, IFederatedInventory<MyFederatio
 
 You can perform any custom logic here. For example, you could AI generate some items, load items from a smart contract,
 use microstorage, or perform anything that satisfies your specific requirements.
-Here's a dummy example that will return some static items and currency, just to showcase the response structure:
+Here is a dummy example that will return some static items and currency, just to showcase the response structure:
 
 ```csharp
 public Promise<FederatedInventoryProxyState> GetInventoryState(string id)
@@ -93,7 +93,7 @@ public Promise<FederatedInventoryProxyState> GetInventoryState(string id)
 }
 ```
 
-The important thing to emphasize here is the `id` argument. It's the same external account id that you return from the
+The important thing to emphasize here is the `id` argument. It is the same external account id that you return from the
 `Authenticate` method. If you want to access the player's id in the Beamable system, you can use `this.Context.UserId`
 As an example, you can use the wallet address as an external user identifier when implementing blockchain federation.
 

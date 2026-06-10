@@ -81,7 +81,7 @@ The snippet below demonstrate what that would look like.
 public class BaseCustomContent : ContentObject { /** (...) */ }
 
 // AbstractCustomContent.cs
-// This type is not a Beamable ContentType, but it'll share its members and functions with its children.
+// This type is not a Beamable ContentType, but it will share its members and functions with its children.
 [System.Serializable]
 public abstract class AbstractCustomContent : BaseCustomContent { /** (...) */ }
 
@@ -210,7 +210,7 @@ namespace Beamable.Examples.Services.ContentService
     - If the content your game uses is known ahead of time (for example, there will only be subtle differences in existing pieces of content), use a content reference (such as `ContentLink` or `ContentRef`)
     - However, if the content in your game needs to be more dynamic (for example, the Game Maker will be pushing entirely new pieces of content, unknown to the game client), use a content subscription
     - **DO**: Use `ContentLink` in any member variable in your _custom_ content type that references another content type. ContentLink is useful for data that needs to be loaded quickly at runtime, since it is preloaded in very early stages of the application's lifecycle
-    - **DON'T**: Use `ContentRef` by default _everywhere_ in your project. This is supported but is considered overkill. ContentRef is useful for data that the application can afford to load on-demand (especially data that might not get loaded at all)
+    - **Do not**: Use `ContentRef` by default _everywhere_ in your project. This is supported but is considered overkill. ContentRef is useful for data that the application can afford to load on-demand (especially data that might not get loaded at all)
 
 ### GetManifest method
 

@@ -49,7 +49,7 @@ public class MyExampleEvent : CoreEvent
     }
 ```
 
-Now that you have defined what data you want to send, you can then send that event using the `AnalyticsTracker.TrackEvent()` API. This takes your `CoreEvent` and a flag for whether you want to send it immediately or queued, which we'll talk about in the next section.
+Now that you have defined what data you want to send, you can then send that event using the `AnalyticsTracker.TrackEvent()` API. This takes your `CoreEvent` and a flag for whether you want to send it immediately or queued, which we will talk about in the next section.
 
 ```csharp
 var beamContext = BeamContext.Default;

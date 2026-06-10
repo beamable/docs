@@ -1,6 +1,6 @@
 # Head Adornment Test Scenario - multiplayer sample
 
-Welcome to "HATS" (Head Adornment Test Scenario). In this game, **Think ahead quickly, because there's absolutely no headroom here. The coolest head prevails.**
+Welcome to "HATS" (Head Adornment Test Scenario). In this game, **Think ahead quickly, because there is absolutely no headroom here. The coolest head prevails.**
 
 !!! info "Related Features"
 
@@ -29,7 +29,7 @@ Learning Resources:
 - In each turn, choose between four actions:
 
 1. Move: Go to a free grid cell around you
-2. Shield: Don't move, but be resistant to incoming fireballs or arrows
+2. Shield: Do not move, but be resistant to incoming fireballs or arrows
 3. Fireball: Shoot a fireball across the grid
 4. Arrow: Shoot an arrow
 
@@ -238,7 +238,7 @@ public static async Task<List<CharacterContent>> GetAvailableCharacters()
 
 Here are some optional experiments game makers can complete in the sample project.
 
-Did you complete all the experiments with success? We'd love to hear about it. [Contact us](https://www.beamable.com/contact-us).
+Did you complete all the experiments with success? We would love to hear about it. [Contact us](https://www.beamable.com/contact-us).
 
 | Difficulty | Scene | Name | Detail |
 |------------|-------|------|--------|

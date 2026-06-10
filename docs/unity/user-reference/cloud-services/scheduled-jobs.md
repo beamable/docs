@@ -116,7 +116,7 @@ var job = await Services.Scheduler.Schedule()
 
 The cron builder must specify all components of the cron string. Each time unit has an `At` method that specifies an exact value for the time. Each time unit also has an `Every` variant that puts a `*` in the place of that time value. Each time unit also has an `EveryNth` that places a `n/*` value in the cron string. `Between` and `Complex` can also be provided.
 
-!!! warning "Don't forget about Cron Triggers!"
+!!! warning "Do not forget about Cron Triggers!"
 
     It is easy to create a scheduled job using a cron trigger, and then forget it exists! Make sure keep track of your cron jobs. The API and SDK can search for active jobs, but it is always a good idea to have a sense of the jobs running in your realm.
 

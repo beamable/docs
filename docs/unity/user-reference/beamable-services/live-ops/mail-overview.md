@@ -2,7 +2,7 @@
 
 The Beamable **Mail** service allows game makers to create and manage in-game mail messaging systems for players.
 
-The purpose of this service is to allow players to manage in-game mail messages. Let's say your users have an inbox in their player profile, and they can receive messages whenever something significant happens. This is a good fit for Mail.
+The purpose of this service is to allow players to manage in-game mail messages. Let us say your users have an inbox in their player profile, and they can receive messages whenever something significant happens. This is a good fit for Mail.
 
 Mail provides a messaging system that enables players to send and receive persistent messages with attachments and rewards, creating engagement through communication and item distribution.
 

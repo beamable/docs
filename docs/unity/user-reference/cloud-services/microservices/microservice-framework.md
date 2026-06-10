@@ -140,9 +140,9 @@ Basically, the decision for this has to do with expected traffic hitting that fe
 
 To keep things a bit simpler, here are general rules of thumb:
 
-- Group as many features with low request-per-second profiles as you can in a single service. This simplifies your development process and make auto-scaling of the service more efficient. Especially if they don't spike quickly
+- Group as many features with low request-per-second profiles as you can in a single service. This simplifies your development process and make auto-scaling of the service more efficient. Especially if they do not spike quickly
 - Split out features that are expected to have heavy request-per-second profiles and want a lot of server resources (CPU/Memory) into their own C#MSs. Especially, if their usage spikes in a short amount of time
-- Keep payloads as small as you can. While we support larger payloads, it'll end up causing the C#MS to have to scale sooner. Try to keep these well below 10kb
+- Keep payloads as small as you can. While we support larger payloads, it will end up causing the C#MS to have to scale sooner. Try to keep these well below 10kb
 - Code organization should not factor into this decision if you want the maximum bang for your buck while using Beamable C# Microservices
 
 If the above is true and you still wish to share code between two different microservices, architect your code and functions so that the parts that are worth sharing can be pulled into a separate AssemblyDefinition both services reference. Keep in mind that you should only do this if the complexity is worth the code reuse — over-using AssemblyDefinitions can increase overall project complexity for not that much gain.
@@ -270,7 +270,7 @@ namespace Beamable.Microservices {
     [ClientCallable]
     public async Task < string > ServerCall() {
       try {
-        // do something that will trigger a failure, like trying to reference a piece of content that doesn't exist.
+        // do something that will trigger a failure, like trying to reference a piece of content that does not exist.
         await Services.Inventory.SetCurrency("does-not-exist-so-it-will-trigger-a-400", 0);
       } catch (RequesterException ex) {
         return $ "{ex.Method.ToReadableString()} / {ex.Payload} / {ex.Prefix} / {ex.Status} / {ex.Uri} / {ex.RequestError.error} / {ex.RequestError.message} / {ex.RequestError.service}";

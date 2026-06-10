@@ -712,7 +712,7 @@ namespace Beamable.Samples.TBF
 
                   if (_gameSceneManager.RemotePlayerAI.IsEnabled)
                   {
-                     // HumanVSBot: The human move is done. Don't wait for other moves.
+                     // HumanVSBot: The human move is done. Do not wait for other moves.
                      await SetGameState(GameState.RoundEvaluating);
                   }
                   else if  (_gameSceneManager.GameProgressData.GameMoveEventsThisRoundBucket.Count ==
@@ -1018,7 +1018,7 @@ private async void MultiplayerSession_OnGameMoveEvent(GameMoveEvent gameMoveEven
 
 Here are some optional experiments game makers can complete in the sample project.
 
-Did you complete all the experiments with success? We'd love to hear about it. <a href="https://www.beamable.com/contact-us" class="aInCallout" target="_blank" >Contact us</a>.
+Did you complete all the experiments with success? We would love to hear about it. <a href="https://www.beamable.com/contact-us" class="aInCallout" target="_blank" >Contact us</a>.
 
 | Difficulty | Scene | Name | Detail |
 |------------|-------|------|--------|
