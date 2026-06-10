@@ -10273,11 +10273,11 @@
 <h1 id="identity-using-online-subsystem">Identity using Online Subsystem<a class="headerlink" href="#identity-using-online-subsystem" title="Permanent link">¶</a></h1>
 <p>There are several different styles of signup/login flows games might want to use. This section explores how to set them up.</p>
 <h3 id="frictionless-login-and-attaching-identities">Frictionless login and attaching identities<a class="headerlink" href="#frictionless-login-and-attaching-identities" title="Permanent link">¶</a></h3>
-<p>This flow is useful for when you want to automatically create a user for the player and then, some time in the future, you'll provide your player the opportunity to attach identities to them. Mostly used by mobile games, but can also be used to implement automatic Steam/Epic store logins.</p>
+<p>This flow is useful for when you want to automatically create a user for the player and then, some time in the future, you will provide your player the opportunity to attach identities to them. Mostly used by mobile games, but can also be used to implement automatic Steam/Epic store logins.</p>
 <ul>
 <li>Use the <code>IOnlineIdentity::Login</code> function with a <code>LoginType</code> of <code>BeamOSS::GetIdentityTypeFrictionless()</code> to create an account (or sign into the locally cached one)</li>
 <li>Then, while signed into an account, call <code>Login</code> again with a <code>LoginType</code> of <code>BeamOSS::GetIdentityTypeAttach____()</code> to attach a new identity to the currently logged in account<ul>
-<li>Don't forget to reassign the callbacks on <code>OnLoginCompleteDelegates</code> before calling login to respond to success/failure of attaching</li>
+<li>Do not forget to reassign the callbacks on <code>OnLoginCompleteDelegates</code> before calling login to respond to success/failure of attaching</li>
 </ul>
 </li>
 </ul>
@@ -10290,7 +10290,7 @@
 <p>If your game has a sign-up and/or login screen that the user is expected to choose their sign-up or login flows, this is what you want.</p>
 <ul>
 <li>Use the <code>IOnlineIdentity::Login</code> function with a <code>LoginType</code> of <code>BeamOSS::GetIdentityTypeSignUpEmail()</code></li>
-<li>If you have <code>UOnlineSubsystemBeamableSettings::bAutoSignUpWhenLogin</code> set to <code>true</code>, you can use <code>BeamOSS::GetIdentityTypeEmail()</code> and it'll automatically create an account if the credentials provided aren't already associated with an account (if they are, you'll sign into the provided credentials)</li>
+<li>If you have <code>UOnlineSubsystemBeamableSettings::bAutoSignUpWhenLogin</code> set to <code>true</code>, you can use <code>BeamOSS::GetIdentityTypeEmail()</code> and it will automatically create an account if the credentials provided are not already associated with an account (if they are, you will sign into the provided credentials)</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Attaching Other Identities</p>

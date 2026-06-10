@@ -10366,7 +10366,7 @@ best practices.</p>
 <p>Authenticating the user, fetching all relevant data from the backend into the <code>UBeamRuntimeSubsystem</code>'s in-memory state, and then completing the operation.</p>
 </blockquote>
 <p>This is handled automatically by the <code>Login</code> operations and <code>UBeamRuntimeSubsystem</code> implementations. See the <a href="../../overview/">SDK Overview</a> for how this all works. The short version is: "After calling <code>Login</code> operations, your local state is ready for use."</p>
-<p>Here's a simple example using <code>Login - Frictionless</code> Operation:
+<p>Here is a simple example using <code>Login - Frictionless</code> Operation:
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/federations-player-init-login-example.png" data-desc-position="bottom"><img alt="Blueprint graph wiring a Login - Frictionless operation node into a success handler that calls Update UI." src="../../../../media/imgs/federations-player-init-login-example.png"></a></p>
 <p>As you can see, in the success handling of the operation, the UI is told to update itself. While not shown in this image, that UI can then use the <a href="../stats/"><code>Local State - Stats</code></a> and <a href="../inventory/"><code>Local State - Inventory</code></a> nodes to read the player's stats and inventory to render itself.</p>
 <div class="admonition note">
@@ -10386,7 +10386,7 @@ To avoid that, players can "attach" some persistent identity information to that
 <li>
 <p>After a successful <code>Attach</code> call, a player will be able to log in via the corresponding <code>Login</code> operation</p>
 <ul>
-<li>For example, if you <code>Attach - EmailAndPassword</code> you'll be able to <code>Login - EmailAndPassword</code> to sign back into the account. <br><br></li>
+<li>For example, if you <code>Attach - EmailAndPassword</code> you will be able to <code>Login - EmailAndPassword</code> to sign back into the account. <br><br></li>
 </ul>
 </li>
 <li>
@@ -10394,7 +10394,7 @@ To avoid that, players can "attach" some persistent identity information to that
 Handling of this is game specific, but most games will either:</p>
 <ul>
 <li>Call the <code>Login</code> operation and log in with the in-use identity, discarding the guest account (this is the most common way to handle this)</li>
-<li>Detect progress on the guest account and, if above a particular threshold, use microservices to try and do some progress merging should the user want it. This is non-trivial and not a lot of games do it since cost-benefit isn't there in most cases (but it is <em>possible</em>)</li>
+<li>Detect progress on the guest account and, if above a particular threshold, use microservices to try and do some progress merging should the user want it. This is non-trivial and not a lot of games do it since cost-benefit is not there in most cases (but it is <em>possible</em>)</li>
 </ul>
 </li>
 </ul>
@@ -10414,9 +10414,9 @@ Handling of this is game specific, but most games will either:</p>
 </ul>
 </li>
 </ul>
-<p>Here's what you would do once the user confirms the form:</p>
+<p>Here is what you would do once the user confirms the form:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/identity-email-and-password.png" data-desc-position="bottom"><img alt="Email and Password" src="../../../../media/imgs/identity-email-and-password.png"></a></p>
-<p>If your login/signup flows are the same (which is sometimes useful in early development), you can use the <code>Auto Login</code> option in this node. It'll create the account with email/password if it doesn't exist and, if it already does, it'll try to log into that account with the provided password.</p>
+<p>If your login/signup flows are the same (which is sometimes useful in early development), you can use the <code>Auto Login</code> option in this node. It will create the account with email/password if it does not exist and, if it already does, it will try to log into that account with the provided password.</p>
 <h3 id="local-cache-and-federated-identity">Local cache and federated identity<a class="headerlink" href="#local-cache-and-federated-identity" title="Permanent link">¶</a></h3>
 <p>Beamable has a different approach for supporting third-party platforms such as Steam and Epic Online Services. Rather than maintaining a small subset of all existing third-party platforms, Beamable uses <a href="../../federation/federation/">Microservice Federation</a> capabilities to let you implement whichever Platform-specific features you need for your game.</p>
 <p>Platform login flows are usually very simple. You can see that in the working <a href="../../../samples/steam-demo/">Steam Demo</a>.</p>
@@ -10426,13 +10426,13 @@ Handling of this is game specific, but most games will either:</p>
 <li>Call <code>Sign Up - Federated Identity</code> with <code>bAutoLogin</code> as <code>true</code> and a properly configured Microservice with <a href="../../federation/federated-login/">Federated Login</a></li>
 <li>Both the success of the <code>Login - Local Cache</code> as well as the <code>Sign Up - Federated Identity</code> calls mean you have logged in successfully</li>
 </ul>
-<p>Here's how that looks in the client side:</p>
+<p>Here is how that looks in the client side:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/identity-cache-plus-platform.png" data-desc-position="bottom"><img alt="Local Cache + Federated Identity" src="../../../../media/imgs/identity-cache-plus-platform.png"></a></p>
 <p>Each different platform (Steam, <abbr title="Epic Online Services">EOS</abbr>, PSN, etc.) requires a different Microservice implementation. At the moment, only a sample for Steam is available — but samples for all major platforms (Steam, <abbr title="Epic Online Services">EOS</abbr>, Console and Mobile platforms) are planned as the SDK evolves to support each target.</p>
 <div class="admonition note">
 <p class="admonition-title">Why do platform integrations this way?</p>
 <p>The problem with Beamable supporting each platform directly in the SDK is that it ties Beamable SDK versions to each individual platform's SDK versions. This denies game makers the ability to independently select the feature-set they want to support from each individual platform.</p>
-<p>It also causes breaking changes from these platforms to sometimes force the Beamable SDK to propagate them out. This creates scenarios where a game-maker wanting a new Beamable feature might need to update their Platform's SDK version even if they won't take advantage of the new Platform's SDK.</p>
+<p>It also causes breaking changes from these platforms to sometimes force the Beamable SDK to propagate them out. This creates scenarios where a game-maker wanting a new Beamable feature might need to update their Platform's SDK version even if they will not take advantage of the new Platform's SDK.</p>
 <p>The advantages of the Federation approach is that the game-maker retains control of how they want to interact with the feature-set of each platform and gives them better control of upgrade timings.</p>
 </div>
 <h2 id="identity-in-dedicated-servers">Identity in dedicated servers<a class="headerlink" href="#identity-in-dedicated-servers" title="Permanent link">¶</a></h2>

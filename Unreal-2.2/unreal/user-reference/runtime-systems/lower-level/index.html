@@ -10249,11 +10249,11 @@
 
 
 <h1 id="lower-level-sdk">Lower-level SDK<a class="headerlink" href="#lower-level-sdk" title="Permanent link">¶</a></h1>
-<p>This section talks about lower-level details of how requests to Beamable get made. <strong><em>You don't need to read this</em></strong>, but... you might want to if you plan on implementing your own <code>UBeamRuntimeSubsystem</code>.</p>
-<p>Here's why you'd want to do this:</p>
+<p>This section talks about lower-level details of how requests to Beamable get made. <strong><em>You do not need to read this</em></strong>, but... you might want to if you plan on implementing your own <code>UBeamRuntimeSubsystem</code>.</p>
+<p>Here is why you would want to do this:</p>
 <ul>
 <li>You want to replace one of the SDK's implementations with something custom and want to provide guarantees about your system's lifecycle that are similar to those the SDK provides</li>
-<li>You wish to guarantee that when any <code>Login / Signup</code> Operation's success is triggered, you'll already have access to custom data fetched via Microservices and MicroStorages</li>
+<li>You wish to guarantee that when any <code>Login / Signup</code> Operation's success is triggered, you will already have access to custom data fetched via Microservices and MicroStorages</li>
 </ul>
 <p>Unless you are solving one of the two problems above, you will not need to write your own <code>UBeamRuntimeSubsystem</code>. If you do, the following concepts are essential.</p>
 <div class="admonition warning">
@@ -10283,8 +10283,8 @@
 <ul>
 <li>These are stateless <code>UEngineSubsystem</code> implementations</li>
 <li>These provide you low-level access to every end-point of the Beamable backend even if the SDK does not include utilities that do exactly what you want</li>
-<li>As UE doesn't allow for namespaces AND BP-compatibility, this is <em>very</em> verbose. Prefer more liberal use of <code>auto</code> when dealing with Code-Gen API Types</li>
-<li>At runtime, don't forget to pass in the <code>UObject* CallingContext</code> parameter: any <code>UWorld</code>, <code>UGameInstanceSubsystem</code>, <code>UActorComponent</code> or <code>AActor</code> will do (this ensures proper behavior in all cases of <abbr title="Play in Editor">PIE</abbr>).<br><br></li>
+<li>As UE does not allow for namespaces AND BP-compatibility, this is <em>very</em> verbose. Prefer more liberal use of <code>auto</code> when dealing with Code-Gen API Types</li>
+<li>At runtime, do not forget to pass in the <code>UObject* CallingContext</code> parameter: any <code>UWorld</code>, <code>UGameInstanceSubsystem</code>, <code>UActorComponent</code> or <code>AActor</code> will do (this ensures proper behavior in all cases of <abbr title="Play in Editor">PIE</abbr>).<br><br></li>
 </ul>
 </li>
 <li>

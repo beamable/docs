@@ -10322,7 +10322,7 @@
 <p>Most Unreal <code>.[vcs]ignore</code> file templates you can find online ignore all <code>*.sln</code> files. Instead of doing that, make sure to only ignore in the root directory with this <code>/*.sln</code> instead of <code>*.sln</code>. In Git, you can also ensure your Microservice <code>.sln</code> is not ignored explicitly via <code>!/ProjectNameBeamable/ProjectNameBeamable.sln</code>.</p>
 </div>
 <h3 id="create-the-microservice-solution-and-project">Create the Microservice solution and project<a class="headerlink" href="#create-the-microservice-solution-and-project" title="Permanent link">¶</a></h3>
-<p><strong>Make sure that you've completed the <a href="../../../getting-started/setup/">Setup</a> process for the SDK and that the editor is not running before starting this guide.</strong></p>
+<p><strong>Make sure that you have completed the <a href="../../../getting-started/setup/">Setup</a> process for the SDK and that the editor is not running before starting this guide.</strong></p>
 <p>Open a terminal/shell (in Windows, use <code>GitBash</code>) at your project's root and run the following command to create a new project and add a new microservice.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet beam project new service MicroserviceName --sln ProjectNameBeamable/ProjectNameBeamable.sln
 </code></pre></div>
@@ -10413,7 +10413,7 @@
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">UE Code Generation Limitations</p>
-<p>You can write any code here and share types between microservices. Keep in mind that, if you use these types in method signatures of multiple microservices, due to Unreal's lack of namespacing, you'll end up with two different UE types for the same shared type.</p>
+<p>You can write any code here and share types between microservices. Keep in mind that, if you use these types in method signatures of multiple microservices, due to Unreal's lack of namespacing, you will end up with two different UE types for the same shared type.</p>
 <p>For that reason, avoid exposing shared complex types inside <code>Callable</code> method signatures.</p>
 </div>
 

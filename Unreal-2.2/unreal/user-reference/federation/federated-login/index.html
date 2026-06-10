@@ -10379,7 +10379,7 @@
 <li>[<strong>Game Client</strong>]: Invoke a <code>Login</code>/<code>SignUp</code>/<code>Attach</code> <strong>Operation</strong> and pass the following parameters:<ol>
 <li><strong>MicroserviceName</strong>: this is the name of the Microservice (the <strong>csproj</strong> file name, in the default case)</li>
 <li><strong>IdentityNamespace</strong>: this is the Federation's <strong><a href="../federation/#federation-id">Federation Id</a></strong>. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow</li>
-<li><strong>IdentityUserId</strong>: this is the third party's <code>UserId</code> for the user trying to login. Beamable uses this to determine if there's already a Beamable account mapped to this third-party Id</li>
+<li><strong>IdentityUserId</strong>: this is the third party's <code>UserId</code> for the user trying to login. Beamable uses this to determine if there is already a Beamable account mapped to this third-party Id</li>
 <li><strong>IdentityAuthToken</strong>: this is a token that for the user that can be used by the <code>Authenticate</code> function to map it back to a <code>UserId</code></li>
 <li><strong>Federation Id</strong>: this is the Federation's <strong><a href="../federation/#federation-id">Federation Id</a></strong>. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow</li>
 </ol>
@@ -10418,7 +10418,7 @@
 <li><strong>Account Creation Time</strong>: <code>Context.UserId</code> is <code>0</code>; as at this time, no account exists</li>
 <li><strong>Account Attach Time</strong>: <code>Context.UserId</code> is a valid <code>GamerTag</code>; as you are adding an identity to an existing account</li>
 </ul>
-<p>For non-MFA flows (which are most of the Store and Console login flows) this is all that is needed. Here's an example from the <a href="../../../samples/steam-demo/">Steam Demo</a>.</p>
+<p>For non-MFA flows (which are most of the Store and Console login flows) this is all that is needed. Here is an example from the <a href="../../../samples/steam-demo/">Steam Demo</a>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedAuthenticationResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Authenticate</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">challenge</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">solution</span><span class="p">)</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// No user made the request, which means we are trying to sign in.</span>
@@ -10434,7 +10434,7 @@
 <h2 id="federated-login-multi-factor-authentication">Federated login - multi-factor authentication<a class="headerlink" href="#federated-login-multi-factor-authentication" title="Permanent link">¶</a></h2>
 <h3 id="setting-up-the-client_1">Setting up the client<a class="headerlink" href="#setting-up-the-client_1" title="Permanent link">¶</a></h3>
 <p>In the client, start by invoking the <code>Login - Federated Identity</code> operation. This operation has a sub-event that gets invoked when the microservice responds with a <code>challenge</code> string to solve. The SDK provides a <code>UBeamMultiFactorLoginData</code> object you can store and carry around your game state so that your player can solve the challenge.</p>
-<p>Here's an example from the Sui-Wallet integration showcase.</p>
+<p>Here is an example from the Sui-Wallet integration showcase.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/federated-login-2fa-start.png" data-desc-position="bottom"><img alt="A Blueprint graph from the Sui-Wallet showcase invoking the Operation - Login - Federated Identity node and storing the UBeamMultiFactorLoginData it returns from the challenge sub-event." src="../../../../media/imgs/federated-login-2fa-start.png"></a></p>
 <p>Once the player has solved the challenge, send it to the Microservice by calling <code>Login - Commit Federated Identity</code>. The example below shows signing the challenge before sending the solution to the microservice.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/federated-login-2fa-commit.png" data-desc-position="bottom"><img alt="A Blueprint graph that gets the challenge solution, signs the message, and passes the multi-factor data into an Operation - Login - Commit Federated Identity node." src="../../../../media/imgs/federated-login-2fa-commit.png"></a></p>

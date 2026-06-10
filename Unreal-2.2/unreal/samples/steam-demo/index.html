@@ -2206,10 +2206,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-dont-we-provide-a-client-build" class="md-nav__link">
+  <a href="#why-do-not-we-provide-a-client-build" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why don't we provide a client build?
+        Why do not we provide a client build?
       
     </span>
   </a>
@@ -10331,10 +10331,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-dont-we-provide-a-client-build" class="md-nav__link">
+  <a href="#why-do-not-we-provide-a-client-build" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why don't we provide a client build?
+        Why do not we provide a client build?
       
     </span>
   </a>
@@ -10361,12 +10361,12 @@
 <h1 id="steam-integration-sample">Steam integration sample<a class="headerlink" href="#steam-integration-sample" title="Permanent link">¶</a></h1>
 <p>This demo showcases how you can use the <strong>Unreal SDK</strong> and <strong>Beamable Microservices</strong> to integrate with Steam.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
-<p>Aside from our <code>BeamableCore</code> Plugin, here's what the sample contains:</p>
+<p>Aside from our <code>BeamableCore</code> Plugin, here is what the sample contains:</p>
 <ul>
 <li><strong><code>BEAMPROJ_SteamDemo</code> Unreal Plugin.</strong>: Contains the UE implementation for the client</li>
 <li><strong><code>Microservices/services/SteamDemo</code> Microservice</strong>: Microservice containing code that implements <strong>IFederatedLogin</strong></li>
 </ul>
-<p>To set up this sample you'll need a few things:</p>
+<p>To set up this sample you will need a few things:</p>
 <ul>
 <li>A Beamable Account and a Realm</li>
 <li>A Steam Developer Account</li>
@@ -10377,7 +10377,7 @@
 <p>Instructions below assume that you already have the Steam application created. If that is not the case, be sure to create one first.</p>
 </div>
 <h2 id="setting-steam-application">Setting Steam application<a class="headerlink" href="#setting-steam-application" title="Permanent link">¶</a></h2>
-<p>Since this sample requires several resources, we do not host it ourselves. So, to access the sample we'll go set up a Steam account and setup the sample:</p>
+<p>Since this sample requires several resources, we do not host it ourselves. So, to access the sample we will go set up a Steam account and setup the sample:</p>
 <ol>
 <li>Log into your <a href="https://partner.steamgames.com/apps">Steam</a> developer account</li>
 <li>Go to your App and set aside its <code>AppId</code></li>
@@ -10399,7 +10399,7 @@
 <li>Set the following key-value pairs for the namespace <code>steam</code>:</li>
 <li><code>appid -&gt; Your Steam application ID</code></li>
 <li><code>key -&gt; Your Steam Application Publisher Key</code></li>
-<li>Compile and open the <code>BeamableUnreal</code> editor (it'll be configured as the <code>BEAMPROJ_SteamDemo</code>) project</li>
+<li>Compile and open the <code>BeamableUnreal</code> editor (it will be configured as the <code>BEAMPROJ_SteamDemo</code>) project</li>
 <li>Sign into your Beamable account and go to the <code>steam-demo</code> realm<ol>
 <li>Hit <code>Apply to Build</code></li>
 </ol>
@@ -10435,13 +10435,13 @@
 <p>This is how we initialize the SDK and sign in a user with their Steam account.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/steam-demo-login.png" data-desc-position="bottom"><img alt="A Blueprint graph in two labelled stages: &quot;Initialize the Beamable SDK&quot; running Beam Runtime initialization, and &quot;Set up Federated Login Via Steam&quot; passing the Steam credentials into a Login - Federated Identity operation." src="../../../media/imgs/steam-demo-login.png"></a></p>
 <h2 id="can-i-use-it-as-a-template">Can I use it as a template?<a class="headerlink" href="#can-i-use-it-as-a-template" title="Permanent link">¶</a></h2>
-<p>This sample is NOT a template you can start your own repository from. However, its Beamable code components are free for you to copy and use in your own project. Here's what these are:</p>
+<p>This sample is NOT a template you can start your own repository from. However, its Beamable code components are free for you to copy and use in your own project. Here is what these are:</p>
 <ul>
 <li>The <code>SteamDemo</code> Microservice</li>
 <li>Beamable code inside <code>BEAMPROJ_SteamDemo</code> except code inside a <code>ThirdParty</code> directory</li>
 <li>Content inside the <code>BEAMPROJ_SteamDemo</code> except things inside a <code>ThirdParty</code> directory</li>
 </ul>
-<h2 id="why-dont-we-provide-a-client-build">Why don't we provide a client build?<a class="headerlink" href="#why-dont-we-provide-a-client-build" title="Permanent link">¶</a></h2>
+<h2 id="why-do-not-we-provide-a-client-build">Why do not we provide a client build?<a class="headerlink" href="#why-do-not-we-provide-a-client-build" title="Permanent link">¶</a></h2>
 <p>Clients must be pointed at your <code>steam-demo</code> realm, so you must generate the build yourself. You can do so by packaging it normally for any of our supported platforms.</p>
 
 

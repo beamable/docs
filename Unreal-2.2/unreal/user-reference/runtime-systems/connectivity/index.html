@@ -10285,14 +10285,14 @@
 <h1 id="connectivity-management">Connectivity management<a class="headerlink" href="#connectivity-management" title="Permanent link">¶</a></h1>
 <p>Games with live services require access to the internet and an open connection to the backend. In the Beamable SDK, an <code>FUserSlot</code> is considered <strong><em>connected</em></strong>:</p>
 <blockquote>
-<p>When there's a signed-in user and the WebSocket connection (see <code>UBeamNotifications</code> and <code>UBeamRuntime</code>) for that user is alive.</p>
+<p>When there is a signed-in user and the WebSocket connection (see <code>UBeamNotifications</code> and <code>UBeamRuntime</code>) for that user is alive.</p>
 </blockquote>
 <p>The semantics above are also what our servers use to keep track of any user's online status (relevant to our real-time services like <a href="../../beamable-services/matchmaking/">Matchmaking</a> and <a href="../../beamable-services/lobbies/">Lobbies</a>).</p>
 <h2 id="thinking-about-connectivity">Thinking about connectivity<a class="headerlink" href="#thinking-about-connectivity" title="Permanent link">¶</a></h2>
 <p>The Beamable SDK provides a <code>UBeamConnectivityManager</code> class that keeps the connectivity state for any logged-in <code>FUserSlot</code>.
 - For games that have only a single <em>local</em> player, you can use <code>UBeamRuntime::GetOwnerSlotConnectivity</code> to access the correct manager by default</p>
 <ul>
-<li>For games with multiple <em>local</em> players, you can get the managers from <code>UBeamRuntime::GetSlotConnectivity</code> for each user (for the most part, they shouldn't differ in status)</li>
+<li>For games with multiple <em>local</em> players, you can get the managers from <code>UBeamRuntime::GetSlotConnectivity</code> for each user (for the most part, they should not differ in status)</li>
 </ul>
 <p>In Blueprints, we have a few <a href="../blueprints/">special nodes</a> for accessing this data:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/connectivity-local-state-nodes.png" data-desc-position="bottom"><img alt="Local State - Auth nodes for IsLoggedIn, GetOwnerSlotConnectivity, and GetSlotConnectivity, with their return values feeding Beam Connectivity Manager checks such as Is Disconnected, Is Authenticated, and Has Never Connected This Session." src="../../../../media/imgs/connectivity-local-state-nodes.png"></a></p>
@@ -10320,7 +10320,7 @@
 </ul>
 </li>
 </ol>
-<p>While in <code>CONN_Offline</code> mode, we'll keep trying to reestablish the <code>FUserSlot</code>'s connection with Beamable. This happens automatically in the background and is a continuous process.</p>
+<p>While in <code>CONN_Offline</code> mode, we will keep trying to reestablish the <code>FUserSlot</code>'s connection with Beamable. This happens automatically in the background and is a continuous process.</p>
 <h3 id="reconnect-behavior">Reconnect behavior<a class="headerlink" href="#reconnect-behavior" title="Permanent link">¶</a></h3>
 <p>If we manage to reestablish the connection, we broadcast <code>UBeamConnectivityManager::OnReconnected</code>. Then if <code>Project Settings → Beam Runtime → AutomaticallyNotifyFixupComplete</code> is:</p>
 <ul>
@@ -10329,13 +10329,13 @@
 </li>
 <li>
 <p><code>false</code>: we enter <code>CONN_Fixup</code> and start ticking <code>UBeamConnectivityManager::FixupTick</code> until your game calls <code>UBeamConnectivityManager::NotifyFixupComplete()</code> (which returns to <code>CONN_Online</code> and stops the tick).<br><br></p>
-<p>You'll need to use the tick function to prepare your game to return to online mode. You could:
+<p>You will need to use the tick function to prepare your game to return to online mode. You could:
 - Wait until your game state would function if you were to refresh the <code>UBeamRuntimeSubsystem</code> implementations
 - Refresh the <code>UBeamRuntimeSubsystem</code> implementations
 - Call Microservices <code>ClientCallables</code> before resuming your game's flow.<br><br></p>
 <p>At this point, you are connected and everything will function just as though you were in CONN_Online mode.</p>
 <blockquote>
-<p><em>This state exists to help your code guard against the case of "I'm reconnected but not yet ready to function as though I'm online".</em></p>
+<p><em>This state exists to help your code guard against the case of "I am reconnected but not yet ready to function as though I am online".</em></p>
 </blockquote>
 </li>
 </ul>
@@ -10369,7 +10369,7 @@
 <p class="admonition-title">Why not do Request-based Heuristics?</p>
 <p>We have tried estimating internet connectivity via some amount of heuristics over failed requests.
 We have found that having a semantic for connectivity that results in more stability is better.
-Requests timeout if you're not connected to the internet and try to make them (or they are made and they can't reach the Beamable servers).</p>
+Requests timeout if you are not connected to the internet and try to make them (or they are made and they cannot reach the Beamable servers).</p>
 <p>Connectivity ONLY changes based on the WebSocket connection (which is more stable, at both the protocol level and at our own implementation level). This minimizes problems from broadcasting connectivity-related delegates in quick succession while making downstream code easier to write.</p>
 </div>
 

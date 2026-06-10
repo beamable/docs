@@ -10318,12 +10318,12 @@
 <p>This demo showcases how you can use the <strong>Beamable Unreal SDK</strong> in LiveOps game projects. Particularly, it focuses on the Player Stats, Announcements, and Inventory Systems.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/liveops.png" data-desc-position="bottom"><img alt="The LiveOps sample's &quot;Player Stats&quot; screen, explaining the Beamable Stats feature beside a my_sample_stat counter showing 1 and an Increase Stats button." src="../../../media/imgs/liveops.png"></a></p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
-<p>Aside from our <code>BeamableCore</code> Plugin, here's what the sample contains:</p>
+<p>Aside from our <code>BeamableCore</code> Plugin, here is what the sample contains:</p>
 <ul>
 <li><strong><code>BEAMPROJ_LiveOpsDemo</code> Unreal Plugin.</strong>: Contains the UE implementation for the sample's client. The core code is inside <code>LiveOpsDemoMainMenu.h</code> and part of the implementation is done through BPs inside the folder <code>UI_BPs</code> folder of the <code>BEAMPROJ_LiveOpsDemo</code> project</li>
-<li><strong><code>Microservice/LiveOpsDemo</code> Microservice</strong>: Microservice containing code that's used by the sample for various inventory and stat related things</li>
+<li><strong><code>Microservice/LiveOpsDemo</code> Microservice</strong>: Microservice containing code that is used by the sample for various inventory and stat related things</li>
 </ul>
-<p>To set up this sample you'll need a Beamable Account and a Realm. To configure the repo for the sample run <code>dotnet beam unreal select-sample BEAMPROJ_LiveOpsDemo</code>.</p>
+<p>To set up this sample you will need a Beamable Account and a Realm. To configure the repo for the sample run <code>dotnet beam unreal select-sample BEAMPROJ_LiveOpsDemo</code>.</p>
 <h2 id="setting-up-the-project">Setting up the project<a class="headerlink" href="#setting-up-the-project" title="Permanent link">¶</a></h2>
 <p>To set up an organization and realm to run this sample, follow the steps below.</p>
 <ol>
@@ -10336,8 +10336,8 @@
 <li>Set up the content:<ol>
 <li>First, run the command <code>dotnet beam content restore --pid DE_1816044586323024 --name LastPublished-global</code> to bring all the content from the sample to your current realm</li>
 <li>Open the <code>Content</code> window</li>
-<li>Ensure there's an <code>item</code> content with the name <code>sample_item</code></li>
-<li>Ensure there are 2 <code>currency</code> contents with names <code>gems</code> and <code>coins</code></li>
+<li>Ensure there is an <code>item</code> content with the name <code>"sample_item"</code></li>
+<li>Ensure there are 2 <code>currency</code> contents with names <code>"gems"</code> and <code>"coins"</code></li>
 <li>Click <code>Publish</code> to publish those new contents to the realm</li>
 <li>See the <a href="../../user-reference/beamable-services/content/">Content System documentation</a></li>
 </ol>
@@ -10349,19 +10349,19 @@
 <li>Click on Create Campaign</li>
 <li>Initialize the campaign scheduling, content, and the gifts it provides and save it
         1. Make sure the type is <code>Announcement</code>
-        2. In the <code>Content</code> section, add a Gift that gives some amount of <code>coin</code> to the user. Optionally, you can also gift them an instance of the <code>sample_item</code> with a property called <code>level</code> set to <code>1</code>
+        2. In the <code>Content</code> section, add a Gift that gives some amount of <code>"coin"</code> to the user. Optionally, you can also gift them an instance of the <code>"sample_item"</code> with a property called <code>level</code> set to <code>1</code>
         3. You can leave the rest as the default</li>
 </ol>
 </li>
 </ol>
 <h2 id="running-the-sample-in-editor">Running the sample in editor<a class="headerlink" href="#running-the-sample-in-editor" title="Permanent link">¶</a></h2>
-<p>Now you're set up to run the sample.</p>
+<p>Now you are set up to run the sample.</p>
 <ol>
 <li>Open the Unreal editor</li>
 <li>Go to the <code>Beamable -&gt; Microservice</code> window<ol>
 <li>You should see the <code>LiveOpsDemoMS</code> service there. Select it</li>
 <li>Click <code>Run</code> and wait until you see the <code>Service ready for traffic</code> log line (and the running icon in the Microservice's card to change)</li>
-<li>After you're done with the sample, don't forget to come here and stop the service</li>
+<li>After you are done with the sample, do not forget to come here and stop the service</li>
 </ol>
 </li>
 <li>Reset <abbr title="Play in Editor">PIE</abbr> Users to clear any existing data<ol>
@@ -10371,7 +10371,7 @@
 </li>
 <li>Open the <code>LiveOpsDemo</code> Level if it is not opened yet<ol>
 <li>You can find it inside the <code>BEAMPROJ_LiveOpsDemo Content</code> folder</li>
-<li>If you can't see plugin content in your content browser, you can change the settings of the UE <code>Content Browser</code> to display it</li>
+<li>If you cannot see plugin content in your content browser, you can change the settings of the UE <code>Content Browser</code> to display it</li>
 </ol>
 </li>
 <li>Play the <code>LiveOpsDemo</code> in the Editor</li>
@@ -10380,23 +10380,23 @@
 <p>At runtime, the sample works in the following way:</p>
 <ol>
 <li>Every time you run the demo, it will initialize the player inventory with 3 sample items that have the an item property called <code>level</code> set to <code>1</code></li>
-<li>It'll also initialize a Stat <code>sample_stat</code> with the value <code>1</code><ol>
+<li>It will also initialize a Stat <code>"sample_stat"</code> with the value <code>1</code><ol>
 <li>You can also click the button next to the <code>sample stat</code> stat to increment it</li>
 </ol>
 </li>
-<li>In the announcements page, you'll find all the announcements you configured via the Portal (provided the schedule you put in makes it active)<ol>
+<li>In the announcements page, you will find all the announcements you configured via the Portal (provided the schedule you put in makes it active)<ol>
 <li>You can click on any announcement</li>
 <li>Doing so shows its content and all the rewards/gifts that could be claimed through this announcement (if any)</li>
 <li>You can claim the gifts inside the announcement by clicking on the claim button</li>
 </ol>
 </li>
-<li>In the Inventory page, You can see each of the <code>sample_item</code> instances the player has and their level at the right portion of the screen<ol>
+<li>In the Inventory page, You can see each of the <code>"sample_item"</code> instances the player has and their level at the right portion of the screen<ol>
 <li>You should be able to upgrade the item level using the upgrade button</li>
 </ol>
 </li>
 </ol>
 <h2 id="can-i-use-it-as-a-template">Can I use it as a template?<a class="headerlink" href="#can-i-use-it-as-a-template" title="Permanent link">¶</a></h2>
-<p>This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here's what these are:</p>
+<p>This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here is what these are:</p>
 <ul>
 <li>The LiveOpsDemoMS Microservice : located inside Microservice/LiveOpsDemoMS</li>
 <li>Beamable code and blueprints inside BEAMPROJ_LiveOpsDemo plugin</li>

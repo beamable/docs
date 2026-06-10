@@ -10231,7 +10231,7 @@
 <li>Download/Clone our Tagged Release</li>
 <li>Extract it to a location in the same drive as your project</li>
 <li>Copy/Paste the <code>beam_game_maker_init.sh</code> into your project's root (next to your <code>.uproject</code> file)</li>
-<li>Open a shell (we recommend <code>GitBash</code> if you're using <code>git</code>) in your project root directory</li>
+<li>Open a shell (we recommend <code>GitBash</code> if you are using <code>git</code>) in your project root directory</li>
 <li>Run that script passing in the path to our extracted project</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># If you just want to install the BeamableCore plugin (no OnlineSubsystem)</span>
@@ -10254,7 +10254,7 @@
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Already installed BeamableCore plugin. Removing it so we can re-install it.
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Installed BeamableCore plugin.
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a># If you're using OnlineSubsystemBeamable, you should see these lines...
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a># If you are using OnlineSubsystemBeamable, you should see these lines...
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Already installed OnlineSubsystemBeamable plugin. Removing it so we can re-install it.
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>Copying OnlineSubsystemBeamable plugin's Beamable Content folder.
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>Copying OnlineSubsystemBeamable plugin's Build.cs file.
@@ -10281,7 +10281,7 @@
 <li>
 <p>If you want, re-enable Automatic Code Generation by setting <code>&lt;GenerateClientCode&gt;true&lt;/GenerateClientCode&gt;</code> in every service's <code>csproj</code> file</p>
 </li>
-<li>If you don't want, you can read about manual generation <a href="../../user-reference/microservices/microservices/">here</a></li>
+<li>If you do not want, you can read about manual generation <a href="../../user-reference/microservices/microservices/">here</a></li>
 </ul>
 <p><strong>In the Unreal Solution</strong>:</p>
 <ul>
@@ -10312,7 +10312,7 @@
 </ul>
 </li>
 <li>We removed <code>IsFirstAuth</code> and <code>bDidFirstAuthRun</code> in favor of a simpler <code>IsLoggedIn(FUserSlot)</code> function with which you can build<ul>
-<li>The new semantics are slightly different and just tell you that there's a user in that slot or not; you are free to handle "Return to main menu" situation as you wish</li>
+<li>The new semantics are slightly different and just tell you that there is a user in that slot or not; you are free to handle "Return to main menu" situation as you wish</li>
 </ul>
 </li>
 <li>Read more about the initialization flow <a href="../../intro">here</a></li>
@@ -10332,12 +10332,12 @@
 </li>
 </ul>
 </li>
-<li>If you haven't already, regenerate the microservice clients via by rebuilding them (or running the <code>dotnet beam generate-client</code> command)<ul>
+<li>If you have not already, regenerate the microservice clients via by rebuilding them (or running the <code>dotnet beam generate-client</code> command)<ul>
 <li>This will create a new Plugin in your project called <code>MicroserviceNameMicroserviceClients</code></li>
 <li>This Plugin can be added to any other Plugin or your own project to gain access to the microservice clients and types</li>
 <li>About code-changes:<ul>
 <li>The new clients no longer prefix <em>every</em> generated type with <code>MicroserviceName</code>; it only does so for the Request types</li>
-<li>You'll have to go through the code and use the newly generated types</li>
+<li>You will have to go through the code and use the newly generated types</li>
 <li>This change was made to provide you with more control over naming data-types shared between microservice and Unreal and reduce the common-case verbosity of these names</li>
 <li>This means you can fix name conflicts as they appear <em>in your project</em> instead of us preemptively doing it</li>
 </ul>

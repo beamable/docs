@@ -10354,12 +10354,12 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/beamable-release.gif" data-desc-position="bottom"><img alt="An animation showcasing the Beamball sample game, which demonstrates the Store, Leaderboard, Stats, and Matchmaking services." src="../../../../media/imgs/beamable-release.gif"></a></p>
 <p>This demo showcases how you can use the <strong>Beamable Unreal SDK</strong> in a full game project. Particularly it focuses on the Store, Leaderboard, Stats, and Matchmaking services.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
-<p>Aside from our <code>BeamableCore</code> Plugin, here's what the sample contains:</p>
+<p>Aside from our <code>BeamableCore</code> Plugin, here is what the sample contains:</p>
 <ul>
 <li><strong><code>BEAMPROJ_Beamball</code> Unreal Plugin.</strong>: Contains the UE implementation for the sample's client. The core code is inside <code>LiveOpsDemoMainMenu.h</code> and part of the implementation is done through BPs inside the folder <code>UI_BPs</code> folder of the <code>BEAMPROJ_Beamball</code> project</li>
-<li><strong><code>Microservice/BeamballMs</code> Microservice</strong>: Microservice containing code that's used by the sample for various matchmaking and stats functionality</li>
+<li><strong><code>Microservice/BeamballMs</code> Microservice</strong>: Microservice containing code that is used by the sample for various matchmaking and stats functionality</li>
 </ul>
-<p>To set up this sample you'll need a Beamable Account and a Realm. To configure the repo for the sample, run <code>dotnet beam unreal select-sample BEAMPROJ_Beamball</code>.</p>
+<p>To set up this sample you will need a Beamable Account and a Realm. To configure the repo for the sample, run <code>dotnet beam unreal select-sample BEAMPROJ_Beamball</code>.</p>
 <h2 id="setting-up-the-project">Setting up the project<a class="headerlink" href="#setting-up-the-project" title="Permanent link">¶</a></h2>
 <p>To set up an organization and realm to run this sample, follow the steps below.</p>
 <ol>
@@ -10372,10 +10372,10 @@
 <li>Set up the Content<ol>
 <li>First, run the command <code>dotnet beam content restore --pid DE_1885450253346843 --name LastPublished-global</code> to bring all the content from the sample to your current realm</li>
 <li>Open the <code>Content</code> window</li>
-<li>Ensure there's a <code>game_types</code> content with the name <code>default</code></li>
-<li>Ensure there's a <code>currency</code> content with the name <code>coins</code></li>
+<li>Ensure there is a <code>game_types</code> content with the name <code>default</code></li>
+<li>Ensure there is a <code>currency</code> content with the name <code>coins</code></li>
 <li>Ensure there are 4 <code>itemskin</code> content with the names <code>skin1</code>, <code>skin2</code>, <code>skin3</code>, <code>skin4</code></li>
-<li>Ensure there's a <code>leaderboard</code> content with the name <code>global</code></li>
+<li>Ensure there is a <code>leaderboard</code> content with the name <code>global</code></li>
 <li>Ensure there are 3 <code>listings</code> content with the names <code>skin1</code>, <code>skin2</code>, <code>skin3</code></li>
 <li>Select <code>Publish</code> to publish those new contents to the realm</li>
 <li>See the <a href="../../../user-reference/beamable-services/content/">Content System documentation</a></li>
@@ -10389,16 +10389,16 @@
 <li>Open the Unreal editor</li>
 <li>Open the <code>L_Beamball_MainScreen</code> Level if it is not opened yet<ol>
 <li>You can find it inside the <code>BEAMPROJ_Beamball Content</code> folder</li>
-<li>If you can't see plugin content in your content browser, you can change the settings of the UE <code>Content Browser</code> to display it</li>
+<li>If you cannot see plugin content in your content browser, you can change the settings of the UE <code>Content Browser</code> to display it</li>
 </ol>
 </li>
 <li>Go to the <code>Beamable -&gt; Microservice</code> window<ol>
 <li>You should see the <code>BeamballMS</code> service there. Select it</li>
 <li>Click <code>Run</code> and wait until you see the <code>Service ready for traffic</code> log line (and the running icon in the Microservice's card to change)</li>
-<li>After you're done with the sample, don't forget to come here and stop the service</li>
+<li>After you are done with the sample, do not forget to come here and stop the service</li>
 </ol>
 </li>
-<li>You don't need select any Play Preset, as the <code>Beamball_MainScreen</code> level is the common entry point for the sample. So leave the Play Preset selector to <code>None</code></li>
+<li>You do not need select any Play Preset, as the <code>Beamball_MainScreen</code> level is the common entry point for the sample. So leave the Play Preset selector to <code>None</code></li>
 <li>Play the <code>L_Beamball_MainScreen</code> in the Editor</li>
 </ol>
 <h3 id="running-from-the-gameplay-level">Running from the gameplay level<a class="headerlink" href="#running-from-the-gameplay-level" title="Permanent link">¶</a></h3>
@@ -10406,7 +10406,7 @@
 <li>Open the Unreal editor</li>
 <li>Open the <code>L_Beamball_Gameplay</code> Level if it is not opened yet<ol>
 <li>You can find it inside the <code>BEAMPROJ_Beamball Content</code> folder</li>
-<li>If you can't see plugin content in your content browser, you can change the settings of the UE <code>Content Browser</code> to display it</li>
+<li>If you cannot see plugin content in your content browser, you can change the settings of the UE <code>Content Browser</code> to display it</li>
 </ol>
 </li>
 <li>Go to the <code>Beamable -&gt; PIE Settings -&gt; Player Manager</code> window</li>
@@ -10416,7 +10416,7 @@
 <li>Name: <code>Beamball Gameplay</code></li>
 <li>Available Maps: Add <code>L_Beamball_Gameplay</code> to the list</li>
 <li>Enable <abbr title="Play in Editor">PIE</abbr> Lobby: Enabled</li>
-<li>Game Type: <code>game_types.default</code></li>
+<li>Game Type: <code>"game_types.default"</code></li>
 <li>Add both <code>Player1</code> and <code>Player2</code> to the preset</li>
 </ol>
 </li>
@@ -10425,7 +10425,7 @@
 <li>Play the <code>L_Beamball_Gameplay</code> in the Editor</li>
 </ol>
 <h2 id="can-i-use-it-as-a-template">Can I use it as a template?<a class="headerlink" href="#can-i-use-it-as-a-template" title="Permanent link">¶</a></h2>
-<p>This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here's what these are:</p>
+<p>This sample is not meant to be used as a template directly, however, its components are free for you to copy and use in your own project. Here is what these are:</p>
 <ul>
 <li>The <code>BeamballMS</code> Microservice : located inside Microservice/BeamballMS</li>
 <li>Beamable code and blueprints inside BEAMPROJ_Beamball plugin</li>

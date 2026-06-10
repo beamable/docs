@@ -10488,7 +10488,7 @@
 </ul>
 </li>
 <li>Informs you that you had made changes to a file that was modified in the published manifest. This is called a <strong>Conflict</strong><ul>
-<li>If <code>Designer-A</code> publishes changes to <code>Content-1</code> and <code>Designer-B</code> had made changes to that file in their machine, the SDK in <code>Designer-B</code>'s machine will NOT automatically update their <code>Content-1</code> file. Instead, it'll accuse a <strong>Conflict</strong></li>
+<li>If <code>Designer-A</code> publishes changes to <code>Content-1</code> and <code>Designer-B</code> had made changes to that file in their machine, the SDK in <code>Designer-B</code>'s machine will NOT automatically update their <code>Content-1</code> file. Instead, it will accuse a <strong>Conflict</strong></li>
 <li>The notification informs you if a conflict happened</li>
 </ul>
 </li>
@@ -10633,7 +10633,7 @@
 <tr>
 <td><code>FBeamOptional</code></td>
 <td><code>Optional____</code></td>
-<td>Any property of a type implementing <code>FBeamOptional</code> doesn't get serialized if <code>IsSet==false</code> but does get serialized otherwise.<br><br>For example, <code>FOptionalInt32</code> serializes to nothing OR an <code>int32</code>.</td>
+<td>Any property of a type implementing <code>FBeamOptional</code> does not get serialized if <code>IsSet==false</code> but does get serialized otherwise.<br><br>For example, <code>FOptionalInt32</code> serializes to nothing OR an <code>int32</code>.</td>
 </tr>
 <tr>
 <td><code>FBeamSemanticType</code></td>
@@ -10653,7 +10653,7 @@
 <tr>
 <td><code>IBeamJsonSerializableUObject</code></td>
 <td>Any C# class that maps to your class</td>
-<td><code>UObject</code> in content should have their classes<br>annotated with <code>DefaultToInstanced</code>,<br><code>EditInlineNew</code> since you shouldn't reference<br>assets directly inside content objects.<br><br>For that, use <code>TSoftObjectPtr&lt;&gt;</code>.</td>
+<td><code>UObject</code> in content should have their classes<br>annotated with <code>DefaultToInstanced</code>,<br><code>EditInlineNew</code> since you should not reference<br>assets directly inside content objects.<br><br>For that, use <code>TSoftObjectPtr&lt;&gt;</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -10665,13 +10665,13 @@
 <ul>
 <li>While the <a href="../../runtime-systems/user-slots/"><code>OwnerUserSlot</code></a> is signed in to Beamable, <code>UBeamContentSubsystem</code> listens for notifications that the realm's content manifest has been updated</li>
 <li>When that happens, the SDK re-downloads the manifest</li>
-<li>If <code>bDownloadIndividualContentAtStart</code> is <code>true</code>:<ul>
+<li>If <code>bDownloadIndividualContentOnStart</code> is <code>true</code>:<ul>
 <li>The SDK downloads and caches all the updated content objects relative to the last manifest downloaded in this client</li>
 <li>These updates are cached locally inside the <code>Saved</code> directory in binary form such that a user does not need to re-download content in subsequent runs of your game unless the published manifest changes</li>
 <li>This cache is invalidated if your game-version changes, the SDK version changes or the UE version changes</li>
 </ul>
 </li>
-<li>If <code>bDownloadIndividualContentAtStart</code> is <code>false</code>:<ul>
+<li>If <code>bDownloadIndividualContentOnStart</code> is <code>false</code>:<ul>
 <li>You are then responsible for downloading each individual content via the APIs: <code>FetchIndividualContentBatchOperation</code> and <code>FetchIndividualContentOperation</code></li>
 <li>Caching will still occur automatically when manually downloading content</li>
 </ul>
@@ -10689,9 +10689,9 @@
 This is a special asset type that has the <code>UBeamContentObject</code> instances serialized using UE's binary serialization as opposed to JSON.</p>
 <p><strong>Keep in mind that this utility uses your local content, so make sure your content matches the realm's content before running it</strong>.</p>
 <p>The utility is called <code>EBP_BakeContent</code> and can be found in Beamable Core's plugin folder under <code>/Editor/Utility/EBP_BakeContent.EBP_BakeContent</code>. Running this utility goes through your local content and bakes them into a <code>BCC_</code> assets ( <code>UBeamContentCache</code> ) stored in <code>/Game/Beamable/Content/Manifests/Cooked/</code> directory. This directory is configured, by default, to be included in packaged games.</p>
-<p>At runtime, any <code>UBeamContentCache</code> is loaded automatically by the <code>UBeamContentSubsystem</code> if it exists and is configured correctly; so you don't have to do anything to have it work.</p>
+<p>At runtime, any <code>UBeamContentCache</code> is loaded automatically by the <code>UBeamContentSubsystem</code> if it exists and is configured correctly; so you do not have to do anything to have it work.</p>
 <div class="admonition warning">
-<p class="admonition-title">I can't find the Beamable Core Content in the Content Browser</p>
+<p class="admonition-title">I cannot find the Beamable Core Content in the Content Browser</p>
 <p>UE's Content Browser does not show Plugin content folders by default. If you want to see these, you need to turn it on at <code>Content Browser -&gt; Settings -&gt; Show Plugin Content</code>.</p>
 </div>
 <h2 id="notes-on-binary-serialization">Notes on binary serialization<a class="headerlink" href="#notes-on-binary-serialization" title="Permanent link">¶</a></h2>
