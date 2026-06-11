@@ -144,7 +144,7 @@ A few things to note:
 	- This is also a result of the Namespaces constraint
 
 !!! note "Semantic Type Support"
-	You can use the `BeamGamerTag` and `ContentRef` and other C# declarations of Semantic Types which will generate the appropriate type in UE, such as `FBeamGamerTag` and `FBeamContentId`.
+	You can use the `BeamGamerTag` and `ContentRef` and other C# declarations of Semantic Types that will generate the appropriate type in UE, such as `FBeamGamerTag` and `FBeamContentId`.
 
 ## Customizing the generated code
 The Microservice Client's code generation allows for a few different ways to customize its output. Here is an outline of the intended use-cases and how to do it.

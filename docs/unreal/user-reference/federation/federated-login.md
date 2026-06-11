@@ -64,10 +64,10 @@ For non-MFA flows (which are most of the Store and Console login flows) this is 
 ```csharp
 public async Promise<FederatedAuthenticationResponse> Authenticate(string token, string challenge, string solution)
 {
-    // No user made the request, which means we are trying to sign in.
+    // No account context on the request (UserId == 0): a fresh sign-in / account creation.
 	var isLogin = _requestContext.UserId == 0L;
 
-	// A user made the request which means we are trying to attach the identity to the user.
+	// An existing account made the request (UserId != 0): we are attaching this identity to it.
 	var isAttach = _requestContext.UserId != 0L;
 
 	// Get the token and use whatever 3rd Party SDK to fetch the user's id and return it
@@ -111,10 +111,10 @@ The implementation looks something like this:
 ```csharp
 public async Promise<FederatedAuthenticationResponse> Authenticate(string token, string challenge, string solution)
 {
-	// No user made the request, which means we are trying to sign in.
+	// No account context on the request (UserId == 0): a fresh sign-in / account creation.
 	var isLogin = _requestContext.UserId == 0L;
 
-	// A user made the request which means we are trying to attach the identity to the user.
+	// An existing account made the request (UserId != 0): we are attaching this identity to it.
 	var isAttach = _requestContext.UserId != 0L;
 
 	// Handle the case where we are asking for a challenge to solve (`solution` is empty).
