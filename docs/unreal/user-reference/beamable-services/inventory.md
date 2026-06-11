@@ -69,7 +69,7 @@ In the Beamable Unreal SDK, currencies are represented by the `UBeamCurrencyCont
 You can [subclass](content.md#defining-custom-content-types) this content type if you want to add more information to currency that is specific to your liking, such as UI related `ObjectPaths` and other references to assets that might be relevant to your game.
 
 ## Items
-The Items service allows for the creation and management of various in-game objects, such as equipment, consumables, and resources. In the Beamable Unreal SDK, items are represented by the `UBeamItemContent` type. You can [subclass](content.md#defining-custom-content-types) this content type to add game-specific information to item content which is then accessible via the `UBeamContentSubsystem` and in Microservices.
+The Items service allows for the creation and management of various in-game objects, such as equipment, consumables, and resources. In the Beamable Unreal SDK, items are represented by the `UBeamItemContent` type. You can [subclass](content.md#defining-custom-content-types) this content type to add game-specific information to item content that is then accessible via the `UBeamContentSubsystem` and in Microservices.
 
 In the `UBeamInventorySubsystem`, each item instance inside a player's inventory is represented by `FBeamItemState`. These instances have the following properties:
 

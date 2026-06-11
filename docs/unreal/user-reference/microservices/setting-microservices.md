@@ -64,7 +64,7 @@ After generating the client in your Unreal project, these are the next steps:
     - `MyProjectServer.Target.cs`, if you have a dedicated server build
 - Add `ProjectNameMicroserviceClients.AddMicroserviceClients(this)` line to your game module's `Build.cs` files
 
-The generated microservice clients are implementations of `UBeamMicroserviceClientSubsystem` which are `UEngineSubsystem`. The client exposes functions for each microservice request that are essentially the same as the [UBeam_____Api](../runtime-systems/lower-level.md) Lower Level API.
+The generated microservice clients are implementations of `UBeamMicroserviceClientSubsystem` that are `UEngineSubsystem`. The client exposes functions for each microservice request that are essentially the same as the [UBeam_____Api](../runtime-systems/lower-level.md) Lower Level API.
 
 To call microservices in Blueprints, you use `Low Level - Microservice Name` nodes.
 

@@ -48,7 +48,7 @@ To create a new Play Preset, click the **Create New Preset** button. You can the
     When "None" is selected, the entire system is disabled, including the automatic Beamable SDK initialization.
 
 ### Map settings
-Play Presets can be configured to apply to specific maps or a list of maps which match the name rule requirement (Regex). This allows you to have different presets for different levels or game modes. You can specify the maps in the **Available Maps** list of the preset editor and/or add a name rule in the Map Name Pattern in case you have a lot of maps.
+Play Presets can be configured to apply to specific maps or a list of maps that match the name rule requirement (Regex). This allows you to have different presets for different levels or game modes. You can specify the maps in the **Available Maps** list of the preset editor and/or add a name rule in the Map Name Pattern in case you have a lot of maps.
 
 ![A preset's Map Settings showing a Map Name Pattern of ".*" and an Available Maps list containing L_Beamball_Gameplay with an Add Map button.](../../../media/imgs/pie-map-settings.png)
 
