@@ -33,7 +33,7 @@ Once you set up your version, add the following environment variables to the ver
 
 ### Storing Edgegap credentials in realm config
 
-EdgeGap integration requires three configuration parameters that should be stored in your Realm Config:
+EdgeGap integration requires three configuration parameters. Store them in your Realm Config:
 
 - **API Key**: Your EdgeGap API key for authentication
 - **Application Name**: Your registered EdgeGap application name

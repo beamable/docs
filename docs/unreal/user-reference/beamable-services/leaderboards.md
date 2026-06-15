@@ -27,7 +27,7 @@ Then select the leaderboard content type as shown in the image below.
 
 ![The Content window's Type dropdown open with BeamLeaderboardContent highlighted among the content type options.](../../../media/imgs/leaderboards-select-content-type.png)
 
-After selecting the leaderboard content type, you will type the name of the leaderboard using the input field.
+After selecting the leaderboard content type, type the name of the leaderboard in the input field.
 
 ![The Content window with the Type set to BeamLeaderboard and the Name field holding "new-leaderboard" next to a Create button, all highlighted.](../../../media/imgs/leaderboards-content-create.png)
 

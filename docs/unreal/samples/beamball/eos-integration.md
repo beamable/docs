@@ -21,7 +21,7 @@ To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_Beamball
 
 ## Configuring the sample as an Epic application
 
-Since this sample requires several resources, it is not pre-hosted. To access it, set up an Epic Games account and configure the sample:
+This sample integrates with a third-party platform, so it relies on your own credentials and Beamable does not host a ready-to-run version. Set up an Epic Games account and configure the sample:
 
 1. Log into your [Epic Games Developer Portal](https://dev.epicgames.com/portal)
 2. Create or select your application

@@ -5,11 +5,11 @@ Beamable provides several types of Blueprint nodes to interact with its systems.
 !!! note "Navigating to C++ Code"
     All special Blueprint nodes link back to the appropriate C++ function via `Right-Click on Node > Go to Definition` or `Double-Click on Node`.
 
-    To make sure this works, you can verify that:
+    To make sure this works, verify that:
 
     - `Editor Preferences > Blueprint Editor Settings > Navigate to Native Functions from Call Nodes` is `true` (this should be `true` by default)
 
-    - You should also select your IDE in `Editor Preferences > Source Code > Source Code Editor` (this may or may not be automatically set depending on your choice of IDE)
+    - Also select your IDE in `Editor Preferences > Source Code > Source Code Editor` (this may or may not be automatically set depending on your choice of IDE)
 
 
 ## Low level Blueprints

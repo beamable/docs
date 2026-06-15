@@ -52,7 +52,7 @@ For games with dedicated servers, the `Lobby - Provision Game Server for Lobby` 
 ## Reading and writing to lobbies
 For both Matchmaking lobbies and Open/Closed lobbies, the SDK exposes APIs to read/write lobby data that is synchronized between all players in the lobby.
 
-Updating the Lobby's `Global Data` and any of its configurations can only be done by the Lobby's host (or a server in case of Matchmaking lobbies).
+Only the Lobby's host (or a server, for Matchmaking lobbies) can update the Lobby's `Global Data` and any of its configurations.
 
 ![A Blueprint graph in three labelled stages: TryBeginUpdateLobby to start a batch, PrepareUpdateGlobalData and PrepareUpdateDescription to stage the changes, and Commit Lobby Update to send them all in a single request.](../../../media/imgs/lobbies-updating-lobby-data.png)
 

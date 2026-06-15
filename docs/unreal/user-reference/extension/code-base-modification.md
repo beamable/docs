@@ -1,6 +1,6 @@
 # Plugin source modification guidelines
 
-This plugin is intentionally designed to be **modified directly at the source level**, rather than extended through Dependency Injection (DI).
+This plugin is intended for **direct modification at the source level**, rather than extension through Dependency Injection (DI).
 To keep custom changes maintainable and upgrade-friendly, **all modifications must follow the rules below**.
 
 ---

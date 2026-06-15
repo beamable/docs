@@ -33,6 +33,6 @@ This step is required to correctly map Beamable users to Unreal's gameplay frame
 
 ## Enable/Disable the feature
 
-If you would like to enable/disable the automatically created link between the Game Framework and Beamable, you can go to `Project Settings > Beamable Runtime > Enable Gameplay Framework Integration`.
+To enable or disable the automatically created link between the Game Framework and Beamable, go to `Project Settings > Beamable Runtime > Enable Gameplay Framework Integration`.
 
 ![PlayerState Utility](../../../media/imgs/beamruntime-enable-gameplayframework.png)

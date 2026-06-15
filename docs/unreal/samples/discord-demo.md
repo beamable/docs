@@ -20,7 +20,7 @@ To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_DiscordD
       Instructions below assume that you already have the Discord server that you want to use for integration. If that is not the case, be sure to create one first. Make sure that you have the admin access to the Discord server of choice.
 
 ## Setting Discord application
-Since this sample requires several resources, it is not pre-hosted. To access it, set up a Discord account and configure the sample Discord bot:
+This sample integrates with a third-party platform, so it relies on your own credentials and Beamable does not host a ready-to-run version. Set up a Discord account and configure the sample Discord bot:
 
 1. Log into your [Discord.dev](https://discord.com/developers/applications) account
 2. Create an App. Set aside its `AppId` in a notepad for future use

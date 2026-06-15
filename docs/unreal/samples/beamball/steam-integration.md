@@ -21,7 +21,7 @@ To configure the sample, run `dotnet beam unreal select-sample BEAMPROJ_Beamball
 
 ## Configuring the sample as a Steam application
 
-Since this sample requires several resources, it is not pre-hosted. To access it, set up a Steam account and configure the sample:
+This sample integrates with a third-party platform, so it relies on your own credentials and Beamable does not host a ready-to-run version. Set up a Steam account and configure the sample:
 
 1. Log into your [Steam](https://partner.steamgames.com/apps) developer account
 2. Go to your App and set aside its `AppId`
@@ -63,7 +63,7 @@ Now, you are ready to log in with Steam.
 
 ## Playing the sample
 
-Testing the Steam integration in PIE should be performed in PIE's `Standalone Game` mode as per Steam's documentation.
+Test the Steam integration in PIE's `Standalone Game` mode, as per Steam's documentation.
 
 ![The Unreal toolbar's play-mode dropdown open with Standalone Game checked, accessed via the "Change Play Mode and Play Settings" menu.](../../../media/imgs/steam-demo-PIE-mode.png)
 

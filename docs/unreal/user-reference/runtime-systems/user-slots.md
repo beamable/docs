@@ -13,7 +13,7 @@ Almost all SDK APIs take in a `FUserSlot` struct representing the local user mak
 
 If your game has no _local_ multiplayer (only a single local player), you only need to know a few things about user slots:
 
-- You should pass in the **Owner User Slot** (the one mapped to the "Local Player 0") to any calls taking an `FUserSlot`
+- Pass in the **Owner User Slot** (the one mapped to the "Local Player 0") to any calls taking an `FUserSlot`
     - In C++, you can use `UBeamCoreSettings::GetOwnerPlayerSlot()` to get it
 - In Blueprints, you will only have to manually pass in user slots if you change the default slot from `"Player0"`
 - If you are using any of the lower-level APIs (`UBeam____Api` subsystems and `Low-Level` blueprint nodes), you might see functions that take in a `UObject* ContextObject`
