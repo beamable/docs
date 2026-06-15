@@ -72,7 +72,7 @@ virtual void BeginPlay() override
 }
 ```
 
-**The code above still expects you to have the `Easy Enable` node in your level blueprint marked with `Init when Server Build`.**
+**You must still mark the `Easy Enable` node in your level blueprint with `Init when Server Build`.**
 
 ## Implementing game server authentication
 When using the Beamable SDK, to validate that the user should be allowed to connect to this game server, the server needs to know a few things:
