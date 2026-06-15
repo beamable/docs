@@ -69,6 +69,76 @@ Use the `help` command to list every registered command and its usage:
 > help
 ```
 
+## Built-in commands
+
+Beamable registers these commands by default:
+
+| Command                                         | Detail                                                                                                              |
+| :---------------------------------------------- | :------------------------------------------------------------------------------------------------------------------ |
+| `help`                                          | Show the list of all admin commands                                                                                 |
+| `TRACK_PAYMENT`                                 | Track a test payment audit                                                                                          |
+| `ECHO <message>`                                | Repeat a message to the console                                                                                     |
+| `WHERE <command>`                               | Find where a console command was registered from, if it was registered with a `BeamableConsoleCommand` attribute    |
+| `account_toggle`                                | Emit an account management toggle event                                                                            |
+| `account_list`                                  | List user data                                                                                                     |
+| `IDFA`                                          | Print the advertising identifier                                                                                   |
+| `RESET`                                         | Clear the access token and start with a fresh account                                                              |
+| `LOCALNOTE [<delay> [<title> [<body>]]]`        | Send a local notification (default delay is 10 seconds)                                                            |
+| `TIMESCALE <value> \| variable`                 | Set the current timescale                                                                                          |
+| `SUBSCRIBER_DETAILS`                            | Query subscriber details                                                                                           |
+| `DBID`                                          | Show the current player's PlayerId                                                                                 |
+| `ENTITLEMENTS <symbol> <state>`                 | Show the current player's entitlements                                                                             |
+| `HEARTBEAT <dbid>`                              | Get the heartbeat of a user                                                                                        |
+| `LOGIN_ACCOUNT <email> <password>`              | Log in to the PlayerId designated by the given username and password                                               |
+| `MAIL_GET <category>`                           | Get mailbox messages                                                                                               |
+| `MAIL_UPDATE <id> <state> <acceptAttachments>`  | Update a mail                                                                                                      |
+| `REGISTER_ACCOUNT <email> <password>`           | Register this PlayerId with the given username and password                                                        |
+| `EXPIRE_TOKEN`                                  | Expire the current access token to trigger the refresh flow                                                        |
+| `CORRUPT_TOKEN`                                 | Corrupt the current access token to trigger the refresh flow                                                       |
+| `TEST-ANALYTICS`                                | Run 1000 events to test batching and load                                                                          |
+| `IAP_BUY <listing> <sku>`                       | Invoke the real-money transaction flow to purchase the given item                                                  |
+| `IAP_PENDING`                                   | Display pending transactions                                                                                       |
+
+## Custom commands
+
+You can register your own commands to extend the console. Annotate a class with `[BeamableConsoleCommandProvider]` and each command method with `[BeamableConsoleCommand]`:
+
+CustomConsoleCommandExample.cs
+```csharp
+using Beamable.ConsoleCommands;
+using UnityEngine;
+
+namespace Beamable.Examples.AdminConsole
+{
+    [BeamableConsoleCommandProvider]
+    public class CustomConsoleCommandProvider
+    {
+        [BeamableConsoleCommand("Add", "A sample addition command", "Add <int> <int>")]
+        public string Add(string[] args)
+        {
+            var a = int.Parse(args[0]);
+            var b = int.Parse(args[1]);
+            return "Result: " + (a + b);
+        }
+    }
+
+    /// <summary>
+    /// Demonstrates a custom <see cref="BeamableAdminConsole"/> command.
+    /// </summary>
+    public class CustomConsoleCommandExample : MonoBehaviour
+    {
+        //  Unity Methods  --------------------------------
+        protected void Start()
+        {
+            Debug.Log($"Start() Instructions...\n" +
+                      " * Run the scene\n" +
+                      " * Type '~' in the Unity Game window to open the Admin Console\n" +
+                      " * Type 'Add 5 10'\n" +
+                      " * See 'Result: 15' in the Unity Console window\n");
+        }
+    }
+}
+```
 
 ## Logging to the console
 

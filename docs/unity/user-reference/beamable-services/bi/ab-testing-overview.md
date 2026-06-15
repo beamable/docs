@@ -117,7 +117,7 @@ Access these values programmatically via **get** as `game.private.player`.
 
 ### Debugging manifests
 
-For debugging the manifests, game players can use the Admin Flow to enter commands.
+For debugging the manifests, game players can use the Admin Console to enter commands.
 
 **Commands**
 
