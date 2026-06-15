@@ -9256,7 +9256,7 @@
 <li>In the editor, this is automatically kept in sync with the selected microservice target and <code>Editor Preferences -&gt; Play -&gt; Play in Standalone Game -&gt; Additional Launch Parameters</code> so you can use the editor's <code>Standalone Game</code> <abbr title="Play in Editor">PIE</abbr>-mode option (useful for when testing Steam, for example)</li>
 </ul>
 </li>
-<li>All non-frictionless <code>SignUp</code> functions now have auto-login option; which will automatically try to login into the given account should the identity being signed up as be already in use</li>
+<li>All non-frictionless <code>SignUp</code> functions now include auto-login: if the identity is already in use, they automatically attempt to log in with it instead of failing</li>
 <li>CLI is now optionally installed — none of the beamable editor functionality will be available and the project will always set the TargetRealm to the branch-wise realm; not the local override<ul>
 <li>Basically, if you want to have a subset of your team work without the ability to swap realms and/or interact with Beamable's editor workflows at all; you no longer need to install the CLI for that subset</li>
 <li>In most cases and for most teams, we recommend you <strong>do not</strong> do this and instead just have .NET and the CLI installed for everyone though</li>
