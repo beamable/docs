@@ -64,7 +64,7 @@ There are built-in Beamable admin commands and game makers can create custom adm
 | `HEARTBEAT <dbid>`                              | Get heartbeat of a user                                                                                              |
 | `LOGIN_ACCOUNT <email> <password> `             | Log in to the PlayerId designated by the given username and password                                                 |
 | `MAIL_GET <category>`                           | Get mailbox messages                                                                                                 |
-| `MAIL_UODATE <id> <state> <acceptAttachments> ` | Update a mail                                                                                                        |
+| `MAIL_UPDATE <id> <state> <acceptAttachments> ` | Update a mail                                                                                                        |
 | `REGISTER_ACCOUNT <email> <password>`           | Registers this PlayerId with the given username and password                                                         |
 | `EXPIRE_TOKEN`                                  | Expires the current access token to trigger the refresh flow                                                         |
 | `CORRUPT_TOKEN`                                 | Corrupts the current access token to trigger the refresh flow                                                        |
