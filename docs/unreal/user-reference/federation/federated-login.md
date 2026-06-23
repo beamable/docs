@@ -23,7 +23,7 @@ Most of the time, you achieve this by doing the following:
 	4. **IdentityAuthToken**: this is a token that for the user that can be used by the `Authenticate` function to map it back to a `UserId`
 	5. **Federation Id**: this is the Federation's **[Federation Id](federation.md#federation-id)**. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow
 
-After this, the flow goes into your `Authenticate` function. What that function should do, depends on whether or not you are implementing 2FA or not.
+After this, the flow goes into your `Authenticate` function. What that function should do, depends on whether you are implementing 2FA.
 
 ## Federated login - without 2FA
 

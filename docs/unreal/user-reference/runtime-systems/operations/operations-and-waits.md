@@ -190,7 +190,7 @@ If a Delegate or Virtual Function returns one or more `FBeamOperationHandle`, yo
 
 2. **Runtime Subsystem Implementation**: implementations of virtual functions in one of the SDK's base classes such as `UBeamRuntimeSubsystem`
 	1. This is for when you wish to make a system that ties into the Beamable life-cycle like the SDK's `UBeamRuntimeSubsystem` implementations do
-	2. This is rarely needed, but in unique custom use-cases it is likely to be the best way to accomplish your goals.<br><br>
+	2. This is rarely needed, but in unique custom use cases it is likely to be the best way to accomplish your goals.<br><br>
 
 3. **Hooks**: bind into delegates created via `DEFINE_BEAM_OPERATION_HOOK`
 	1. Rest assured: the Beamable Unreal SDK will never use Hooks internally. They are reserved exclusively for your extensions
@@ -285,7 +285,7 @@ Examples are available in the SDK. The most common are:
 
 ---
 
-Understanding these concepts and how to use them can unlock the maximum potential uses and customizability of the SDK, but superficial knowledge is enough for the most basic use-cases.
+Understanding these concepts and how to use them can unlock the full power of the SDK, but superficial knowledge is sufficient for basic use cases.
 
 
 Take your time, read the source, and refer back to this page as you need!

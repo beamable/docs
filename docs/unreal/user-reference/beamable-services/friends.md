@@ -101,4 +101,4 @@ The example below shows how to retrieve the user's friend state and use it to up
 
 ## Conclusion
 
-This is a brief document that describes the basic usage of the Friend Subsystem, once you implement those features, consider testing with multiple users or adding more complex interactions.
+This document describes the basic usage of the Friend Subsystem, once you implement those features, consider testing with multiple users or adding more complex interactions.

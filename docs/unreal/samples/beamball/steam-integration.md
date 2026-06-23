@@ -84,7 +84,7 @@ The client uses the Steam SDK directly to obtain authentication credentials. The
 1. **Retrieves Steam User Interface**: Accesses the Steam SDK's `ISteamUser` interface to interact with the authenticated Steam user
 2. **Generates Auth Session Ticket**: Calls `GetAuthSessionTicket()` to generate a cryptographic proof that the user owns the game and has an active Steam session. This ticket is a binary blob that Steam can validate server-side
 3. **Converts Ticket to Hex String**: The binary ticket is converted to a hexadecimal string format for transmission to Beamable
-4. **Obtains Steam ID**: Retrieves the user's unique Steam ID (SteamID64) for identification purposes
+4. **Obtains Steam ID**: Retrieves the user's unique Steam ID (SteamID64) for identification
 
 In Blueprint, you can invoke the Steam login flow using operation nodes:
 

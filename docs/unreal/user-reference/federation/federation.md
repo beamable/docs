@@ -49,7 +49,7 @@ public partial class MyMicroservice : IFederatedGameServer<EdgegapId> { }
 
 After adding any Federation, your IDE will likely complain that you are not implementing the functions of the interfaces above; most IDEs will then offer you the option of generating the function signatures for those interfaces. After that, all you have to do is write the code for it.
 
-Take a look at each individual Federation's docs page for more information on use-cases and usage guidelines.
+Take a look at each individual Federation's docs page for more information on use cases and usage guidelines.
 
 ## Workflows for developing federations
 

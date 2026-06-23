@@ -1,6 +1,6 @@
 # Content system
 
-Beamable Content System is a read-only (at runtime) arbitrary data store that allows you to define arbitrary JSON-serialized _content objects_ for use at runtime. Several of Beamable's own managed features also use content in some way or another.
+Beamable Content System is a read-only (at runtime) arbitrary data store that allows you to define arbitrary JSON-serialized _content objects_ for use at runtime. Several of Beamable's own managed features also use content in some way.
 
 The system is manifest-based.
 
@@ -102,7 +102,7 @@ This workflow can also be used for engineers that are developing non-Beamable re
 
 In addition to the workflow above, there are cases where you might want to create realms to have a more controlled environment for developing. Common examples are:
 
-- Large features that make use of new custom content definitions developed alongside Microservices
+- Large features that use new custom content definitions developed alongside Microservices
 - Content schema modifications or equivalents that will require migrating existing content to a new schema
 
 To achieve this, create a new realm for the development of that feature.

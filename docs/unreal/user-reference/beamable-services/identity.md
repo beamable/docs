@@ -24,7 +24,7 @@ This is handled automatically by the `Login` operations and `UBeamRuntimeSubsyst
 Here is a simple example using `Login - Frictionless` Operation:
 ![Blueprint graph wiring a Login - Frictionless operation node into a success handler that calls Update UI.](../../../media/imgs/federations-player-init-login-example.png)
 
-As you can see, the success handler tells the UI to update itself. The UI can then use the [`Local State - Stats`](stats.md) and [`Local State - Inventory`](inventory.md) nodes to read the player's stats and inventory to render itself.
+The success handler tells the UI to update itself. The UI can then use the [`Local State - Stats`](stats.md) and [`Local State - Inventory`](inventory.md) nodes to read the player's stats and inventory to render itself.
 
 !!! note "Customizing the Login Flow"
 	If you want to add calls to Microservices to be made as part of the login flow (such that every time your game opens you make those calls), you can see how you can implement your own [`UBeamRuntimeSubsystem`](../runtime-systems/lower-level.md) and call your custom Microservice from there.
@@ -71,7 +71,7 @@ In these cases and builds:
 
 - Call `Login - Local Cache` to first try logging in as the locally cached user in that slot
 - Call `Sign Up - Email And Password` with `bAutoLogin` as `true`
-    - You can optionally make use of properly configured Microservice with [Federated Player Initialization](../federation/federated-player-init.md) and the `InitProperties` in the `SignUp` node to pass in additional data to influence initial player state
+    - You can optionally use a properly configured Microservice with [Federated Player Initialization](../federation/federated-player-init.md) and the `InitProperties` in the `SignUp` node to pass in additional data to influence initial player state
 
 Here is what you would do once the user confirms the form:
 

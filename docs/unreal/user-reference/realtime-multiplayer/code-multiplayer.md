@@ -1,7 +1,7 @@
 # C++ real-time multiplayer systems
 In Unreal, there are certain parts of implementing a dedicated server game that MUST be implemented using C++. Namely, **Game Server Authentication**. This means: implementing logic that your Game Server runs to decide whether an incoming connection is allowed in this game server or not.
 
-By default, Beamable integrates with the Gameplay Framework to give you cross-platform Game Server Authentication (to enable cross-play) WITHOUT going through OnlineSubsystem interfaces. Basically, the `FUniqueNetId` for each player is the user's `GamerTag`. More details about disabling this further down in this document (not recommended).
+By default, Beamable integrates with the Gameplay Framework to give you cross-platform Game Server Authentication (to enable cross-play) WITHOUT going through OnlineSubsystem interfaces. The `FUniqueNetId` for each player is the user's `GamerTag`. More details about disabling this further down in this document (not recommended).
 
 There are a few components here that you need to know about before you implement this:
 
@@ -160,7 +160,7 @@ This means a few things:
      By default, if you are implementing the **Game Server Authentication** described here. The server stores the AuthToken for each user inside server mapping slots — this means the Game Server _can_ make requests "as though they were the user itself" but with the Server's admin permissions. This can be useful due to certain legacy API limitations.
 
 ### Writing to a user's stats and inventory
-When writing your Game Server code, you generally do not want to be making requests for individual players one at a time (batching is generally better). Sometimes that is fine, but there are cases where you will want to write several things to several players' Stats/Inventory (processing a match's results, for example). In cases like this, you should write `ServerCallable` functions in Microservices and call those from the Microservice. See [Microservices](../microservices/microservices.md) for more information about the various types of `Callable`.
+When writing your Game Server code, avoid serially requesting individual players' data — prefer batching. Sometimes that is fine, but there are cases where you will want to write several things to several players' Stats/Inventory (processing a match's results, for example). In cases like this, you should write `ServerCallable` functions in Microservices and call those from the Microservice. See [Microservices](../microservices/microservices.md) for more information about the various types of `Callable`.
 
 ## Making Beam PIE faster
 Iteration time is one of the most important factors in game development, so entering PIE as fast as UE allows — without sacrificing Beamable's guarantees — is worth the extra setup.

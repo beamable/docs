@@ -8,7 +8,7 @@ Beamable Matchmaking is a flexible system for connecting players together in onl
 - Manage queue state and match found notifications
 - Optionally integrate with game server provisioning
 
-Once a match is found, the result is a [Lobby](lobbies.md) containing all of the players in the match that was found.
+Once a match is found, the result is a [Lobby](lobbies.md) containing all the players in the match.
 
 **If you are working on a game with dedicated servers, review these pages first:**
 
@@ -74,7 +74,7 @@ This content type defines a few things about a queue:
 - `FederatedGameServerNamespace`: Defines a [Federation Id](../federation/federation.md#federation-id) for a [Federated Game Server](../federation/federated-game-server.md)
 
 ## Lobby subsystem integration
-The Matchmaking Subsystem works with the [Lobby Subsystem](lobbies.md) by default. It does the following things:
+The Matchmaking Subsystem works with the [Lobby Subsystem](lobbies.md) by default. It does the following:
 
 - By the time `OnMatchReady` fires, the match Lobby data has been fetched and is available
     - This means you can use the `Local State - Lobby` nodes to fetch information from the lobby directly on this event

@@ -59,7 +59,7 @@ In Blueprints, all you need to do is create a new account using `Login - Frictio
 
 ![Player Init Federation](../../../media/imgs/federations-player-init-login-example.png)
 
-As you can see, defining the initial state of your players using custom logic in this federation makes this initial state transparent to client logic.
+Defining the initial state of your players using custom logic in this federation makes this initial state transparent to client logic.
 
 A few ideas on how to use this:
 
