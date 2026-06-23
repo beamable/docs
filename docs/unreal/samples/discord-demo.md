@@ -78,7 +78,7 @@ To test the sample:
 
 ![A Discord channel where the BeamableBot app posts two messages mentioning a user: "Updated matchmaking status: access denied" and "Updated matchmaking status: access gained".](../../media/imgs/discord_sample_notify.png)
 
-To actually gate matchmaking, set up a rule in your `GameType` content that excludes people from the queue who do not have the role. This is not shown in this demo.
+The demo only displays each player's eligibility. To enforce the gate, set up a rule in your `GameType` content that excludes players without the role from the queue.
 
 ## Can I use it as a template?
 

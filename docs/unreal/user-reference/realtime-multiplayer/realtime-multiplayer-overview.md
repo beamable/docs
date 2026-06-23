@@ -115,7 +115,7 @@ There are several overridable functions and events the Game Mode class exposes t
 
 > Callbacks that happen before the **Player Controller** is fully created (before `PostLogin`), cannot interact with the Beamable SDK and do NOT have the guarantee the SDK is ready.
 
-This is because initializing the SDK is an Asynchronous Process and takes time — there is no way to tell Unreal to wait until the SDK is initialized before running `Begin Play`. From `PostLogin` forward, you can make use of the SDK; Content is ready, the Lobby information is available and so on...
+This is because initializing the SDK is an Asynchronous Process and takes time — there is no way to tell Unreal to wait until the SDK is initialized before running `Begin Play`. From `PostLogin` forward, you can use the SDK; Content is ready, the Lobby information is available and so on...
 
 !!! warning "World Actors"
     If you have Blueprints in your Level Actor that need to access data inside the Lobby to be initialized, do not use `Begin Play` — instead, call a function on it from a point where you have the guarantee the SDK is initialized and ready for use.

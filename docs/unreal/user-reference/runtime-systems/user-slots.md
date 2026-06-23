@@ -37,7 +37,7 @@ The `UBeamUserSlots` Engine Subsystem is responsible for:
     - This is why, like UE, the API takes in a `UObject* CallingContext` in certain parts
     - At runtime, this parameter is never optional
 - Asserting that only slots defined in the `UBeamCoreSettings` are in use
-    - Any User Slot with `Test` in its name is exempt from this rule so you can write automated tests with arbitrary amounts of user slots by using user slots with `Test` in their names
+    - Any User Slot with `Test` in its name is exempt — useful for automated tests with arbitrarily many slots
 
 `UBeamUserSlots` does not handle the actual logging in and logging out. That is handled by `UBeamRuntime`, a `UGameInstanceSubsystem`, responsible for PIE instances and packaged games.
 

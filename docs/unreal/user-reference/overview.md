@@ -57,7 +57,7 @@ These are handwritten and maintained by the Beamable SDK team. Here are a few ex
 - `UBeamInventorySubsystem`: provides builder functions around the Inventory APIs that allow you to combine what would be multiple API requests into a single batched inventory update. It also receives inventory notifications coming from the server and keeps in-memory player state in sync
 - `UBeamMatchmakingSubsystem`: provides a stateful way of joining/canceling a matchmaking queue and receiving updates when a match is found
 
-These systems make use of the various `UBeamRuntimeSubsystem` callbacks to keep their state correct and expose callbacks and configuration options for **Game-Maker Code** to run with semantically relevant guarantees. Coupled with [Federations](federation/federation.md), these guarantees can be used to greatly simplify the complexity of client implementations — usually reducing the complexity and cost of your game's systems implementation.
+These systems make use of the various `UBeamRuntimeSubsystem` callbacks to keep their state correct and expose callbacks and configuration options for **Game-Maker Code** to run with semantically relevant guarantees. Coupled with [Federations](federation/federation.md), these guarantees can greatly simplify client implementations and reduce their cost.
 
 All [Blueprint](runtime-systems/blueprints.md) nodes, except the **Low-Level** ones, are backed by these subsystem implementations.
 

@@ -65,7 +65,7 @@ public partial class MyMicroservice : IFederatedGameServer<HathoraId> { }
 
 After adding any federation, your IDE will likely complain that you are not implementing the functions of the interfaces above; most IDEs will then offer you the option of generating the function signatures for those interfaces. After that, all you have to do is write the code for it.
 
-Take a look at each individual federation docs page for more information on use-cases and usage guidelines.
+Take a look at each individual federation docs page for more information on use cases and usage guidelines.
 
 ## Workflows for developing federations
 Most federations are inside complex application paths. Thus, you need a way to iterate on them locally, much like how you do with `Callables` (see [Microservices](../microservices/microservices.md#common-developer-workflows)). This is why the SDK differentiates between In-Band calls to Federations and Out-of-Band calls to Federations.

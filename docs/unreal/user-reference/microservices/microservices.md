@@ -171,7 +171,7 @@ The key metric you should use to consider creating additional microservices is *
 >
 > **Beamable**: "You can create new parts of the `partial` Microservice type. You can declare utility static functions as well and make most `____Callable` just forward the call along."
 
-We have found these to be **reasonable defaults** that give you generally good runtime scalability for a low-cost and provide a simple developer experience. You should always keep an eye on your service's behavior for optimization opportunities as you observe its behavior under load.
+We have found these to be **reasonable defaults** that give you generally good runtime scalability for a low-cost and provide a simple developer experience. Always keep an eye on your service's behavior under load. That is a gold mine for optimizations.
 
 ## Microservice routing and Microservice target
 When you make a request to a microservice, you are not actually directly talking to your service. Your request comes in via Beamable's Gateway service and that service figures out to which running Microservice instance it will forward that request.

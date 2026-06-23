@@ -58,7 +58,7 @@ There are two ways to assign a player to a leaderboard:
 
 !!! warning "If you assign a player without a score"
 	If you assign a player without a score, it will be the first of the empty scores. So for example if you have 3 players, the first one with 10 of score the second one with 0 and the third one with 0, when you assign a new player to this leaderboard the new player will take the second place.
-	Basically the priority is same score, last assigned.
+	The priority is same score, last assigned.
 
 !!! note "Non Partitioned Leaderboard"
 	If you use this operation on a non-partitioned leaderboard, it returns the original leaderboard ID without any partition suffix.

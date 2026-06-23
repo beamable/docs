@@ -36,7 +36,7 @@ Use the `Lobby - Create Closed Lobby` operation to create a **_Closed Lobby_**. 
 When in a [Party](parties.md), only the party leader is allowed to join a Lobby. Doing so will also bring all other party members into the Lobby with them. If the Lobby **MaxPlayer** count would be surpassed by the entire party joining, nobody can join.
 
 ### Leaving and kicking users
-Once in a Lobby, any player can leave it by using the `Lobby - Leave Lobby` operation. By default, whenever a host leaves the lobby, Beamable will disband the lobby and notify all players in it. The Lobby's Host also has the ability to kick players via the `Lobby - Kick Player` operation.
+Once in a Lobby, any player can leave it by using the `Lobby - Leave Lobby` operation. By default, whenever a host leaves the lobby, Beamable will disband the lobby and notify all players in it. The Lobby's Host can also kick players via the `Lobby - Kick Player` operation.
 
 ![Two Blueprint graphs side by side: one calling an Operation - Lobby - Leave Lobby node to leave the lobby, the other calling an Operation - Lobby - Kick Player node to kick a player from it.](../../../media/imgs/lobbies-leave-kick.png)
 

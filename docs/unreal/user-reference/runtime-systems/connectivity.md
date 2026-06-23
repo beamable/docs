@@ -35,7 +35,7 @@ Once we go into `CONN_Offline`, two things happen:
 2. We set up a Tick (`UBeamConnectivityManager::ReconnectionTick`) function to run while you are in `CONN_Offline` mode
     - Provides more flexibility for games that want to handle connectivity loss in complex ways such as waiting for X amount of time before booting the player out, reducing available feature set, etc.
 
-While in `CONN_Offline` mode, we will keep trying to reestablish the `FUserSlot`'s connection with Beamable. This happens automatically in the background and is a continuous process.
+While in `CONN_Offline` mode, we will keep trying to reestablish the `FUserSlot`'s connection with Beamable. This happens automatically in the background.
 
 ### Reconnect behavior
 

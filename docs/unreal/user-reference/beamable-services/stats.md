@@ -12,7 +12,7 @@ Visibility is represented in Unreal by enum `EBeamStatsVisibility`, and it descr
 - `private`: visible only to owning User and Backend
 - `public`: visible to any User
 
-Domain is represented in Unreal by enum `EBeamStatsDomain`, and it describes if a stat can be retrieved from the game itself or if it requires use of microservices:
+Domain is represented in Unreal by enum `EBeamStatsDomain`, and it describes if a stat can be retrieved from the game itself or if it requires microservices:
 
 - `client`: Can be accessed from both **Unreal** and **Microservices**
 - `game`: Cannot be accessed from **Unreal** directly, but it can still be accessed via **Microservices** using `ClientCallable` calls
