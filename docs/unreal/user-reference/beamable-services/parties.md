@@ -1,6 +1,6 @@
 # Parties
 
-Beamable's Party system provides a comprehensive set of tools for managing player groups in your game. Whether you are
+Beamable's Party system provides tools for managing player groups in your game. Whether you are
 developing a cooperative game, competitive multiplayer, or social gaming features, the Party system offers flexible
 options for player collaboration and team organization.
 

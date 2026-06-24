@@ -77,7 +77,7 @@ There are two events related to blocking players: one for the player who initiat
 ???+ Warning "Removed Friend Event"
     The removed friend event will be triggered in both players if they were friends before.
 
-The unblock flow is very similar: `UBeamFriendsSubsystem` provides `OnPlayerUnblocked` (fires for the player who initiates the unblock) and `OnPlayerBeenUnblocked` (fires for the player who was unblocked).
+The unblock flow is similar: `UBeamFriendsSubsystem` provides `OnPlayerUnblocked` (fires for the player who initiates the unblock) and `OnPlayerBeenUnblocked` (fires for the player who was unblocked).
 
 To show a friend's presence status, register on `OnFriendPresenceStatusUpdate`; the status is an `EBeamPresenceStatus` value — `Visible`, `Invisible`, `Dnd`, or `Away`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
 

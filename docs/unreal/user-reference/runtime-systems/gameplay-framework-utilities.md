@@ -1,6 +1,6 @@
 # Gameplay framework utilities
 
-To streamline the integration between the Beamable SDK and the Unreal Engine Gameplay Framework, the SDK provides a set of utilities and helper functions designed to simplify and accelerate your workflow when combining both systems.
+The SDK provides utilities that streamline Beamable integration with the Unreal Engine Gameplay Framework.
 
 Beamable introduces the concept of [User Slots](user-slots.md), which are used to manage named local players. On the Unreal side, **local players** refers to users who are directly connected to the game instance, while **remote players** are those connected via the network.
 

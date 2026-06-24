@@ -9,7 +9,7 @@ Here is how this works at a high-level:
 
 Here is some more detail:
 
-- The `id` parameter is the UserId that the `IFederatedLogin.Authenticate` generates. All this function really does is add instances of items and currencies to the response and forward it along
+- The `id` parameter is the UserId that `IFederatedLogin.Authenticate` generates. `GetInventoryState` decorates the response with currencies and item instances and forwards it along, nothing more
 - The `transaction` parameter is an optional string provided by the caller. You are expected to provide an idempotency guarantee that every given transaction string value is only processed once. In most cases, this is a pass-along to Web3 wallets or wherever you are keeping the inventory information. If that is not supported by your third-party, you can use StorageObjects to provide this guarantee
 
 !!! note "Support in SDK"

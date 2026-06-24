@@ -45,7 +45,7 @@ When the player selects an item to purchase, the corresponding widget calls the 
 - Deducting the cost,
 - Adding the item to the player’s inventory
 
-Upon successful completion of the purchase operation, the player’s inventory changes with the addition of the item. It triggers a redraw from scratch from the UI so it can include the newly acquired item.
+Upon successful completion of the purchase operation, the player’s inventory changes with the addition of the item. This triggers a UI redraw to include the newly acquired item.
 
 ![A WBP_MainMenu event graph where an Events - Inventory - Bind node's On Inventory Refreshed event reloads the shop UI and updates the main menu to show the newly purchased skin.](../../../media/imgs/beamball-pruchase2.png)
 
