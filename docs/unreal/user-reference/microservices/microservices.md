@@ -19,7 +19,7 @@ The Microservice is:
 
 Under the hood, microservices are a wrapper around a custom WebSocket protocol and Job Scheduler with a set of layered APIs you can use to easily write the simple cases and peel back to write the complex cases.
 
-It solves or helps with all the listed items above and the amount of code you actually need to write to expose an Endpoint your game can call is:
+It solves or helps with all the listed items above and the amount of code you need to write to expose an Endpoint your game can call is:
 
 ```csharp
 [ClientCallable]

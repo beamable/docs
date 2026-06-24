@@ -1,6 +1,6 @@
 # Stores
 
-Beamable's Store service enables game-makers to create and manage dynamic in-game storefronts where players can purchase items using virtual currencies. Stores support various features including:
+Beamable's Store service enables game-makers to create and manage dynamic in-game storefronts where players can purchase items using virtual currencies. Stores support features such as:
 
 - Per Store Settings
 - Purchase limitations and player requirements

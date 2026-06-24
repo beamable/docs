@@ -45,7 +45,7 @@ Open your Level Blueprint and add the following nodes:
 
 ### How it works
 
-The `BeamRuntime` is a `GameInstanceSubsystem` that is responsible for controlling the SDK's lifecycle and player authentication. Call this function to initialize the SDK. The [Technical Overview](../user-reference/overview.md) covers the Beamable Runtime in depth.
+The `BeamRuntime` is a `GameInstanceSubsystem` that controls the SDK's lifecycle and player authentication. Call this function to initialize the SDK. The [Technical Overview](../user-reference/overview.md) covers the Beamable Runtime in depth.
 
 Once the SDK is initialized, you can log in a guest account automatically. To do that, use the `Login - Frictionless` Operation node, which logs a guest account into the `Player0` user slot.
 

@@ -3,7 +3,7 @@
 Identity provides authentication and account management functionality for your game. Through the Identity
 system, players can create accounts, sign in, and manage their credentials across different platforms and devices.
 
-The Beamable SDK includes a comprehensive set of pre-implemented operations that handle common authentication scenarios:
+The Beamable SDK includes a set of pre-implemented operations that handle common authentication scenarios:
 
 - Email/password authentication
 - Guest account creation and management
