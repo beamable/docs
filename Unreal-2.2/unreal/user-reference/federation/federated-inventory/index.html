@@ -10169,7 +10169,7 @@
 </ul>
 <p>Here is some more detail:</p>
 <ul>
-<li>The <code>id</code> parameter is the UserId that the <code>IFederatedLogin.Authenticate</code> generates. All this function really does is add instances of items and currencies to the response and forward it along</li>
+<li>The <code>id</code> parameter is the UserId that <code>IFederatedLogin.Authenticate</code> generates. <code>GetInventoryState</code> decorates the response with currencies and item instances and forwards it along, nothing more</li>
 <li>The <code>transaction</code> parameter is an optional string provided by the caller. You are expected to provide an idempotency guarantee that every given transaction string value is only processed once. In most cases, this is a pass-along to Web3 wallets or wherever you are keeping the inventory information. If that is not supported by your third-party, you can use StorageObjects to provide this guarantee</li>
 </ul>
 <div class="admonition note">

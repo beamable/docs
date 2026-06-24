@@ -10479,7 +10479,7 @@
 <li>SDK - Fixed a race condition that could cause the <code>BeamMultiplayer::Authentication::PreLoginAsync</code> reject a user that was in the lobby</li>
 </ul>
 <h3 id="upgrading">Upgrading<a class="headerlink" href="#upgrading" title="Permanent link">¶</a></h3>
-<p>If you are upgrading from version 2.2.0, the upgrade process is very simple:</p>
+<p>If you are upgrading from version 2.2.0, the upgrade process is simple:</p>
 <ul>
 <li>Follow the <a href="../../getting-started/setup/#upgrading-the-sdk">Upgrade Guide</a></li>
 <li>This release requires that you regenerate your microservice clients after rebuilding the microservice projects, if you have any. So you will need to run: <code>dotnet beam project generate-client "."</code></li>
@@ -10502,7 +10502,7 @@
 <li>Unreal Editor - When duplicating a content item, it automatically selects the created item and sets the focus to the Name Text Field</li>
 </ul>
 <h3 id="upgrading_1">Upgrading<a class="headerlink" href="#upgrading_1" title="Permanent link">¶</a></h3>
-<p>If you are upgrading from version 2.0.1, the upgrade process is very simple:</p>
+<p>If you are upgrading from version 2.0.1, the upgrade process is simple:</p>
 <ul>
 <li>Follow the <a href="../../getting-started/setup/#upgrading-the-sdk">Upgrade Guide</a></li>
 <li>This release requires that you regenerate your microservice clients after rebuilding the microservice projects, if you have any. So you will need to run: <code>dotnet beam project generate-client "."</code></li>
@@ -10512,7 +10512,7 @@
 <h4 id="fixing-android-packagingdeployment-issues-in-ue-56">Fixing Android Packaging/Deployment issues in UE 5.6<a class="headerlink" href="#fixing-android-packagingdeployment-issues-in-ue-56" title="Permanent link">¶</a></h4>
 <p>In Unreal Engine 5.6, you can find Android packaging and deployment <a href="https://dev.epicgames.com/community/learning/tutorials/d6ne/how-to-fix-unreal-engine-5-6-1-error-undefined-symbol-std-__ndk1-__libcpp_verbose_abort-when-packaging-apk">issues</a> occurring due to a conflict between Unreal and certain internal Android NDK libraries. This problem affects projects using NDK versions 28 or above. The root cause is the mismatch introduced in how UE 5.6 interacts with the newer NDK libraries, and resolving it requires adjusting your setup following these steps:</p>
 <ol>
-<li>Close your Unreal project completely</li>
+<li>Quit the Unreal Editor so that it releases its folder locks</li>
 <li>Delete the following folders from your project directory: <code>Intermediate</code>, <code>Saved</code>, <code>DerivedDataCache</code>, <code>Binaries</code>, <code>Build</code></li>
 <li>
 <p>Run the Android setup script:</p>
@@ -10524,7 +10524,7 @@
 </ol>
 </li>
 <li>
-<p>Reopen your project in Unreal Engine</p>
+<p>Open your project in Unreal Engine again</p>
 <ol>
 <li>The Android functionality should now be restored</li>
 </ol>

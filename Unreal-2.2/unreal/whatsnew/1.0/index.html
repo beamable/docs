@@ -10226,7 +10226,7 @@
 
 <h1 id="version-10-release-notes">Version 1.0 release notes<a class="headerlink" href="#version-10-release-notes" title="Permanent link">¶</a></h1>
 <h2 id="migrating-from-100-preview">Migrating from 1.0.0 PREVIEW<a class="headerlink" href="#migrating-from-100-preview" title="Permanent link">¶</a></h2>
-<p>We highly recommend you start this process with no staged changes to your VCS and in an isolated local branch such that you can revert as needed.</p>
+<p>We recommend you start this process with no staged changes to your VCS and in an isolated local branch such that you can revert as needed.</p>
 <ul>
 <li>Download/Clone our Tagged Release</li>
 <li>Extract it to a location in the same drive as your project</li>
@@ -10292,7 +10292,7 @@
 <p><code>Target.cs</code> file and <code>Beam.Configure___</code> functions</p>
 <ul>
 <li>We now add code to your project's <code>Target.cs</code> file. This code is callable from any <code>Target.cs</code> and <code>Build.cs</code> files</li>
-<li>Before, you had to manually add the various <code>BeamableCore</code> modules to these things by hand. Now, you can call the respective functions based on the Type of <code>Target</code> or <code>Module</code></li>
+<li>Before, you had to manually add the various <code>BeamableCore</code> modules to these things. Now, you can call the respective functions based on the Type of <code>Target</code> or <code>Module</code></li>
 <li>You can refer to the <a href="../../intro">intro guide</a> to see which functions can be called in which <code>Target</code>/<code>Modules</code></li>
 </ul>
 </li>
@@ -10332,7 +10332,7 @@
 </li>
 </ul>
 </li>
-<li>If you have not already, regenerate the microservice clients via by rebuilding them (or running the <code>dotnet beam generate-client</code> command)<ul>
+<li>If you have not already, regenerate the microservice clients by rebuilding them (or running the <code>dotnet beam generate-client</code> command)<ul>
 <li>This will create a new Plugin in your project called <code>MicroserviceNameMicroserviceClients</code></li>
 <li>This Plugin can be added to any other Plugin or your own project to gain access to the microservice clients and types</li>
 <li>About code-changes:<ul>
