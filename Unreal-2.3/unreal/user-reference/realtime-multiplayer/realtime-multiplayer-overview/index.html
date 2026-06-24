@@ -9222,7 +9222,7 @@
 <blockquote>
 <p>Callbacks that happen before the <strong>Player Controller</strong> is fully created (before <code>PostLogin</code>), cannot interact with the Beamable SDK and do NOT have the guarantee the SDK is ready.</p>
 </blockquote>
-<p>This is because initializing the SDK is an Asynchronous Process and takes time — so there is no way to tell Unreal to wait until the SDK is initialized to then run <code>Begin Play</code>. From <code>PostLogin</code> forward, you can make use of the SDK; Content is ready, the Lobby information is available and so on...</p>
+<p>This is because initializing the SDK is an Asynchronous Process and takes time — so there is no way to tell Unreal to wait until the SDK is initialized to then run <code>Begin Play</code>. From <code>PostLogin</code> forward, you can use the SDK; Content is ready, the Lobby information is available and so on...</p>
 <div class="admonition warning">
 <p class="admonition-title">World Actors</p>
 <p>If you have Blueprints in your Level Actor that need to access data inside the Lobby to be initialized, do not use <code>Begin Play</code> — instead, call a function on it from a point where you have the guarantee the SDK is initialized and ready for use.</p>

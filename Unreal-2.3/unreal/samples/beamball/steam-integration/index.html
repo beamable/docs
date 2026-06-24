@@ -9158,7 +9158,7 @@
 <li><strong>Retrieves Steam User Interface</strong>: Accesses the Steam SDK's <code>ISteamUser</code> interface to interact with the authenticated Steam user</li>
 <li><strong>Generates Auth Session Ticket</strong>: Calls <code>GetAuthSessionTicket()</code> to generate a cryptographic proof that the user owns the game and has an active Steam session. This ticket is a binary blob that Steam can validate server-side</li>
 <li><strong>Converts Ticket to Hex String</strong>: The binary ticket is converted to a hexadecimal string format for transmission to Beamable</li>
-<li><strong>Obtains Steam ID</strong>: Retrieves the user's unique Steam ID (SteamID64) for identification purposes</li>
+<li><strong>Obtains Steam ID</strong>: Retrieves the user's unique Steam ID (SteamID64) for identification</li>
 </ol>
 <p>In Blueprint, you can invoke the Steam login flow using operation nodes:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/steam-demo-login.png" data-desc-position="bottom"><img alt="A wide Blueprint graph that obtains the Steam auth session ticket and Steam ID and passes them into Beamable's Login - Federated Identity operation, then enables the login UI buttons." src="../../../../media/imgs/steam-demo-login.png"></a></p>

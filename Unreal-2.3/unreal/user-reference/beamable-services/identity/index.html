@@ -8919,7 +8919,7 @@
 <h1 id="identity">Identity<a class="headerlink" href="#identity" title="Permanent link">¶</a></h1>
 <p>Identity provides authentication and account management functionality for your game. Through the Identity
 system, players can create accounts, sign in, and manage their credentials across different platforms and devices.</p>
-<p>The Beamable SDK includes a comprehensive set of pre-implemented operations that handle common authentication scenarios:</p>
+<p>The Beamable SDK includes a set of pre-implemented operations that handle common authentication scenarios:</p>
 <ul>
 <li>Email/password authentication</li>
 <li>Guest account creation and management</li>
@@ -8936,7 +8936,7 @@ best practices.</p>
 <p>This is handled automatically by the <code>Login</code> operations and <code>UBeamRuntimeSubsystem</code> implementations. See the <a href="../../overview/">SDK Overview</a> for how this all works. The short version is: "After calling <code>Login</code> operations, your local state is ready for use."</p>
 <p>Here is a simple example using <code>Login - Frictionless</code> Operation:
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/federations-player-init-login-example.png" data-desc-position="bottom"><img alt="Blueprint graph wiring a Login - Frictionless operation node into a success handler that calls Update UI." src="../../../../media/imgs/federations-player-init-login-example.png"></a></p>
-<p>As you can see, the success handler tells the UI to update itself. The UI can then use the <a href="../stats/"><code>Local State - Stats</code></a> and <a href="../inventory/"><code>Local State - Inventory</code></a> nodes to read the player's stats and inventory to render itself.</p>
+<p>The success handler tells the UI to update itself. The UI can then use the <a href="../stats/"><code>Local State - Stats</code></a> and <a href="../inventory/"><code>Local State - Inventory</code></a> nodes to read the player's stats and inventory to render itself.</p>
 <div class="admonition note">
 <p class="admonition-title">Customizing the Login Flow</p>
 <p>If you want to add calls to Microservices to be made as part of the login flow (such that every time your game opens you make those calls), you can see how you can implement your own <a href="../../runtime-systems/lower-level/"><code>UBeamRuntimeSubsystem</code></a> and call your custom Microservice from there.</p>
@@ -8978,7 +8978,7 @@ Handling of this is game specific, but most games will either:</p>
 <ul>
 <li>Call <code>Login - Local Cache</code> to first try logging in as the locally cached user in that slot</li>
 <li>Call <code>Sign Up - Email And Password</code> with <code>bAutoLogin</code> as <code>true</code><ul>
-<li>You can optionally make use of properly configured Microservice with <a href="../../federation/federated-player-init/">Federated Player Initialization</a> and the <code>InitProperties</code> in the <code>SignUp</code> node to pass in additional data to influence initial player state</li>
+<li>You can optionally use a properly configured Microservice with <a href="../../federation/federated-player-init/">Federated Player Initialization</a> and the <code>InitProperties</code> in the <code>SignUp</code> node to pass in additional data to influence initial player state</li>
 </ul>
 </li>
 </ul>

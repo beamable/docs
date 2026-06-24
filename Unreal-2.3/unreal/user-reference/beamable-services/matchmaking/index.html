@@ -8969,7 +8969,7 @@
 <li>Manage queue state and match found notifications</li>
 <li>Optionally integrate with game server provisioning</li>
 </ul>
-<p>Once a match is found, the result is a <a href="../lobbies/">Lobby</a> containing all of the players in the match that was found.</p>
+<p>Once a match is found, the result is a <a href="../lobbies/">Lobby</a> containing all the players in the match.</p>
 <p><strong>If you are working on a game with dedicated servers, review these pages first:</strong></p>
 <ul>
 <li><a href="../../realtime-multiplayer/realtime-multiplayer-overview/">Runtime Dedicated Servers</a></li>
@@ -9037,7 +9037,7 @@ The semantics for each event are:</p>
 <li><code>FederatedGameServerNamespace</code>: Defines a <a href="../../federation/federation/#federation-id">Federation Id</a> for a <a href="../../federation/federated-game-server/">Federated Game Server</a></li>
 </ul>
 <h2 id="lobby-subsystem-integration">Lobby subsystem integration<a class="headerlink" href="#lobby-subsystem-integration" title="Permanent link">¶</a></h2>
-<p>The Matchmaking Subsystem works with the <a href="../lobbies/">Lobby Subsystem</a> by default. It does the following things:</p>
+<p>The Matchmaking Subsystem works with the <a href="../lobbies/">Lobby Subsystem</a> by default. It does the following:</p>
 <ul>
 <li>By the time <code>OnMatchReady</code> fires, the match Lobby data has been fetched and is available<ul>
 <li>This means you can use the <code>Local State - Lobby</code> nodes to fetch information from the lobby directly on this event</li>

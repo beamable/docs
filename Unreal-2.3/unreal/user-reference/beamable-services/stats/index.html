@@ -8872,7 +8872,7 @@
 <li><code>private</code>: visible only to owning User and Backend</li>
 <li><code>public</code>: visible to any User</li>
 </ul>
-<p>Domain is represented in Unreal by enum <code>EBeamStatsDomain</code>, and it describes if a stat can be retrieved from the game itself or if it requires use of microservices:</p>
+<p>Domain is represented in Unreal by enum <code>EBeamStatsDomain</code>, and it describes if a stat can be retrieved from the game itself or if it requires microservices:</p>
 <ul>
 <li><code>client</code>: Can be accessed from both <strong>Unreal</strong> and <strong>Microservices</strong></li>
 <li><code>game</code>: Cannot be accessed from <strong>Unreal</strong> directly, but it can still be accessed via <strong>Microservices</strong> using <code>ClientCallable</code> calls</li>
