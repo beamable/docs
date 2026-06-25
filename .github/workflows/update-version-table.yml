@@ -66,7 +66,8 @@ jobs:
             cli_version=$(gh api \
               "repos/beamable/BeamableProduct/contents/client/Packages/com.beamable/Runtime/Environment/Resources/versions-default.json?ref=${tag}" \
               --jq '.content' | base64 -d | jq -r '.nugetPackageVersion')
-            echo "| ${sdk_version} | ${cli_version} |" >> /tmp/table-rows.txt
+            release_date=$(gh api "repos/beamable/BeamableProduct/commits/${tag}" --jq '.commit.committer.date' | cut -dT -f1)
+            echo "| ${sdk_version} | ${cli_version} | ${release_date} |" >> /tmp/table-rows.txt
           done < /tmp/release-tags.txt
 
           echo "Generated table rows:"
@@ -88,13 +89,15 @@ jobs:
               if len(parts) < 3:
                   continue
               sdk_version = parts[1].strip()
+              cli_version = parts[2].strip()
               major_minor = ".".join(sdk_version.split(".")[:2])
+              row = f"| {sdk_version} | {cli_version} |\n"
 
               if major_minor == current_minor:
-                  condensed.append(line)
+                  condensed.append(row)
               elif major_minor not in seen_minors:
                   seen_minors.add(major_minor)
-                  condensed.append(line)
+                  condensed.append(row)
 
           pathlib.Path("/tmp/condensed-rows.txt").write_text("".join(condensed))
           EOF
@@ -136,8 +139,8 @@ jobs:
           rows = pathlib.Path("/tmp/table-rows.txt").read_text().rstrip("\n")
 
           full_table = (
-              "| SDK Version | CLI Version |\n"
-              "| :---------- | :---------- |\n"
+              "| SDK Version | CLI Version | Release Date |\n"
+              "| :---------- | :---------- | :----------- |\n"
               + rows
           )
 
@@ -148,6 +151,8 @@ jobs:
               "\n"
               "For installation instructions and a summary of current versions,\n"
               "see [Installing Beamable](./installing-beamable.md).\n"
+              "\n"
+              "Release dates reflect each version's Git tag date.\n"
               "\n"
               + full_table
               + "\n"
