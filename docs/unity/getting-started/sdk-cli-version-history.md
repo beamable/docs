@@ -9,6 +9,7 @@ Release dates reflect each version's Git tag date.
 
 | SDK Version | CLI Version | Release Date |
 | :---------- | :---------- | :----------- |
+| 5.1.1 | 7.2.1 | 2026-06-30 |
 | 5.1.0 | 7.2.0 | 2026-06-16 |
 | 5.0.1 | 7.0.1 | 2026-04-02 |
 | 5.0.0 | 7.0.0 | 2026-02-19 |
