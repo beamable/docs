@@ -34,3 +34,34 @@ This creates a new `.csproj` in your existing `.sln`. You will also be prompted 
 When developing locally, anytime a Microservice that depends on a Storage Object starts, it will make sure the Docker container for the Storage Object is running. If there is no running container, it will start a container. This can take several seconds and it may appear the service is failing to start.
 
 The code documentation explains how to interact with a Storage Object.
+
+## Storage objects and Common Libraries
+
+!!! warning "Keep storage types out of Common Libraries"
+    Storage object types (`MongoStorageObject` subclasses) and the MongoDB-serialized document types they persist (types using `[BsonElement]`, `[BsonId]`, and other `MongoDB.Bson` attributes) must live in your microservice or storage project, not in a shared Common Library (`dotnet beam project new common-lib`). A Common Library references only `Beamable.Common` — it has no MongoDB dependency, so these types will not compile there. Adding a `MongoDB` package reference to the Common Library is not a fix: the library is copied into every linked Unity project, and Unity has no MongoDB driver (only a small set of mock Bson attributes), so the build breaks. Share plain data contracts (DTOs, enums) through the Common Library; keep storage objects and their documents server-side.
+
+A data transfer object (DTO) is a plain contract you share with the client through the Common Library. It references nothing beyond `Beamable.Common`, so it compiles both server-side and in Unity:
+
+```csharp
+[Serializable]
+public class PlayerLoadout
+{
+    public string WeaponId;
+    public int[] PerkIds;
+}
+```
+
+A data storage object (DSO) is the record you persist. It derives from `StorageDocument` and can carry `MongoDB.Bson` attributes and server-only fields, so it stays in the microservice or storage project:
+
+```csharp
+public class PlayerRecord : StorageDocument
+{
+    [BsonElement("loadout")]
+    public PlayerLoadout Loadout { get; set; }
+
+    [BsonElement("bannedUntil")]
+    public long BannedUntilTicks { get; set; }
+}
+```
+
+There is no shared base class between the two. Every type you store is constrained to `StorageDocument`, so a DSO must derive from it; because C# permits a single base class, a DSO cannot also inherit a DTO, and a DTO cannot derive from `StorageDocument` without pulling `MongoDB.Bson` into the Common Library. Prefer composition: give the DSO a field of the DTO type — as `PlayerRecord.Loadout` does above — keeping the shared shape in the Common Library and the storage concerns server-side.
