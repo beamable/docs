@@ -10378,7 +10378,6 @@
 </li>
 <li>[<strong>Game Client</strong>]: Invoke a <code>Login</code>/<code>SignUp</code>/<code>Attach</code> <strong>Operation</strong> and pass the following parameters:<ol>
 <li><strong>MicroserviceName</strong>: this is the name of the Microservice (the <strong>csproj</strong> file name, in the default case)</li>
-<li><strong>IdentityNamespace</strong>: this is the Federation's <strong><a href="../federation/#federation-id">Federation Id</a></strong>. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow</li>
 <li><strong>IdentityUserId</strong>: this is the third party's <code>UserId</code> for the user trying to login. Beamable uses this to determine if there is already a Beamable account mapped to this third-party Id</li>
 <li><strong>IdentityAuthToken</strong>: this is a token that for the user that can be used by the <code>Authenticate</code> function to map it back to a <code>UserId</code></li>
 <li><strong>Federation Id</strong>: this is the Federation's <strong><a href="../federation/#federation-id">Federation Id</a></strong>. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow</li>
