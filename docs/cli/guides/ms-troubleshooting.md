@@ -148,6 +148,7 @@ Microservice Callable method `CallServiceAsync` uses a Type that cannot be insid
 
 **Solutions**:
 - Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server
+- Keep storage objects and their `StorageDocument` types out of that shared project — see [Storage objects and Common Libraries](ms-storage.md#storage-objects-and-common-libraries)
 
 **Example of Solved Code** (Microservice):
 ```csharp
