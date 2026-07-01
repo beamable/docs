@@ -295,13 +295,17 @@ Follow these steps to create and configure an event:
 | 5. Save the Unity Project                                 | • Unity → File → Save Project<br/><br/>_Best Practice: If you are working on a team, commit to version control in this step._                                                                                                       |
 | 6. Publish the content                                    | • Press the "Publish" button in the Content Manager Window                                                                                                                                                                          |
 
-At this point, your event has been created and has been published live to players. To see how players can interact with the event, see the [Code](doc:events-code) section. Below are some more advanced topics, covering optional parameters for the events in your app.
+At this point, your event has been created and has been published live to players. To see how players can interact with the event, see the [Code](doc:events-code) section.
+
+### Advanced
+
+Below are some more advanced topics, covering optional parameters for the events in your app.
 
 In this image and tables are **example** name/value pairs to demonstrate how to populate the Event content object. The actual name and values used depend on the specific needs of the game project.
 
 ![Events Configuration Long](../../../../media/imgs/events-configuration-long.png){: style="height:auto;width:400px"}
 
-### Adding rules
+#### Adding rules
 
 Event rules are optional and are not parsed by the client. However, they are a powerful tool to use to create and maintain server-authoritative logic.
 
@@ -310,7 +314,7 @@ Event rules are optional and are not parsed by the client. However, they are a p
 | "collect_gems" | 10                  | Create custom client logic to parse the name and value.<br/><br/>Require that players meet this rule.<br/><br/>_Example: Limit which players may enter the Event or limit which players may claim rewards_ |
 | "idle_content" | < some content id > | Create custom client logic to parse the name and value.<br/><br/>Require that players meet this rule.<br/><br/>_Example: Limit which players may enter the Event or limit which players may claim rewards_ |
 
-### Adding rewards
+#### Adding rewards
 
 Event rewards are optional, but they are a fundamental part of marketing the live Event. Rewards encourage player participation.
 
@@ -323,7 +327,7 @@ The reward given to the player may be of currency type, of item type, or both.
 | "currency.Currency01" | 10            | Each player who meets the criteria will earn 10 gems.                       |
 | "items.BronzeArmor"   | 1             | Each player who meets the criteria will earn 1 Bronze Armor inventory item. |
 
-### Adding stores
+#### Adding stores
 
 Event stores are optional, but they are a fundamental part of monetizing a live event. Game makers can make a limited-time offer within in-game stores to encourage player purchase behavior. This creates effective monetization because there is urgency and sense of purpose to the related purchases.
 
@@ -333,7 +337,7 @@ Refer to the table below for an example of a limited store, where event-driven o
 |------------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | "Store Id" | stores.LimitedStore01 | Each player in the Event will see a special "LimitedStore" version of the in-game store. Game makers can offer new items or can offer existing items at an exclusive price. |
 
-### Adding group rewards
+#### Adding group rewards
 
 Typically, the event rewards (for the **standard** events described above) are based on the player's individual progress (score, rank, etc.) in the game and the reward is given to that individual.
 
