@@ -11,7 +11,7 @@ There are a few components here that you need to know about before you implement
 - `FUniqueNetIdRepl`: This is how UE's Gameplay Framework identifies each player in the network and the basis for Beamable's SDK integration with UE Gameplay Framework
 
 ### Setting up your gameplay level's Blueprint
-This section is the C++ version of [what is done in the Level Blueprint here](realtime-multiplayer-overview.md#setting-up-your-gameplay-levels-level-blueprint).
+This section is the C++ version of [what is done in the Level Blueprint here](realtime-multiplayer-overview.md#setting-up-your-gameplay-levels-blueprint).
 
 In C++, this would usually be done in `AGameMode::BeginPlay` and would look something like this.
 

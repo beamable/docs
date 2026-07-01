@@ -34,7 +34,7 @@ In the SDK, all events can be bound using the custom bind node on the subsystem.
 
 ![A Send Invite button's On Clicked event running an Operation - Friend - SendFriendInvite node, whose Friend Gamer Tag input is fed by a UI Input Player ID field's text.](../../../media/imgs/friends-send-invite.png)
 
-You can listen for received invite changes — for example, alerting the player that a new invite arrived. You will need to bind to the event `OnInviteReceived` shown in the [How to Bind the Friends Events](#how-to-bind-the-friends-events).
+You can listen for received invite changes — for example, alerting the player that a new invite arrived. You will need to bind to the event `OnInviteReceived` shown in the [Binding the friends events](#binding-the-friends-events).
 
 ### Accepting a friend invite
 
@@ -45,7 +45,7 @@ You can listen for received invite changes — for example, alerting the player 
 
 When the player that received the invite accepts it, both receive the invite accepted event, it could be used for updates in the invite list or to start to show the new friend in the friend list.
 
-To bind to this event you can use the `OnInviteAccepted` as shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
+To bind to this event you can use the `OnInviteAccepted` as shown in the section above [Binding the friends events](#binding-the-friends-events).
 
 ???+ Warning "Local Player Feedback"
     Once the player accepts the invite, if you prefer not to wait for the backend notification to update the friend list, you can directly use the operation for the player who accepted and update the local state either synchronously or asynchronously.
@@ -57,12 +57,12 @@ To bind to this event you can use the `OnInviteAccepted` as shown in the section
 
 ![A Decline button's On Clicked event running an Operation - Friend - DeclineFriendInvite node whose Friend Gamer Tag input is supplied by a Friend Gamer Tag variable.](../../../media/imgs/friends-decline-invite.png)
 
-When the player that received the invite decline it, both receive the `OnInviteDeclined` notification, that can help to update the visuals and the player list. The local state is already updated when the player receive this notification. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
+When the player that received the invite decline it, both receive the `OnInviteDeclined` notification, that can help to update the visuals and the player list. The local state is already updated when the player receive this notification. As shown in the section above [Binding the friends events](#binding-the-friends-events).
 
 ### Blocking and unblocking a player
 
 1. Open your Level Blueprint (or some other BP)
-2. Call the `Operation - Friend - BlockPlayer`/`Operation - Friend - Unblock`. This will allow you to block/unblock a player using the gamer tag of this player
+2. Call the `Operation - Friend - BlockPlayer`/`Operation - Friend - UnblockPlayer`. This will allow you to block/unblock a player using the gamer tag of this player
 
 ???+ Warning "Observations"
     - You can block any player — friend or not
@@ -72,14 +72,14 @@ When the player that received the invite decline it, both receive the `OnInviteD
 
 ![A Block button's On Clicked event running an Operation - Friend - BlockPlayer node whose Player Gamer Tag input is supplied by a Friend Gamer Tag variable.](../../../media/imgs/friends-block-player.png)
 
-There are two events related to blocking players: one for the player who initiates the block and one for the player who is blocked. The first event, `OnPlayerBlocked`, is triggered only for the player who blocks another player. The blocked player does not receive this event, as it is typically not necessary to handle the blocked player in this case. Instead, the blocked player will receive the second event, `OnPlayerBeenBlocked`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
+There are two events related to blocking players: one for the player who initiates the block and one for the player who is blocked. The first event, `OnPlayerBlocked`, is triggered only for the player who blocks another player. The blocked player does not receive this event, as it is typically not necessary to handle the blocked player in this case. Instead, the blocked player will receive the second event, `OnPlayerBeenBlocked`. As shown in the section above [Binding the friends events](#binding-the-friends-events).
 
 ???+ Warning "Removed Friend Event"
     The removed friend event will be triggered in both players if they were friends before.
 
 The unblock flow is similar: `UBeamFriendsSubsystem` provides `OnPlayerUnblocked` (fires for the player who initiates the unblock) and `OnPlayerBeenUnblocked` (fires for the player who was unblocked).
 
-To show a friend's presence status, register on `OnFriendPresenceStatusUpdate`; the status is an `EBeamPresenceStatus` value — `Visible`, `Invisible`, `Dnd`, or `Away`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
+To show a friend's presence status, register on `OnFriendPresenceStatusUpdate`; the status is an `EBeamPresenceStatus` value — `Visible`, `Invisible`, `Dnd`, or `Away`. As shown in the section above [Binding the friends events](#binding-the-friends-events).
 
 ### Removing a friend
 
@@ -90,7 +90,7 @@ To show a friend's presence status, register on `OnFriendPresenceStatusUpdate`; 
 
 When a player is removed from the friend list it will trigger this notification. You will be able to register on this to treat the behavior in your game.
 
-The event triggered is `OnFriendRemoved`. As shown in the section above [How to Bind the Friends Events](#how-to-bind-the-friends-events).
+The event triggered is `OnFriendRemoved`. As shown in the section above [Binding the friends events](#binding-the-friends-events).
 When it triggers, the local state of the friend list will already have been updated.
 
 ### How to update the view using system state (invite sample)

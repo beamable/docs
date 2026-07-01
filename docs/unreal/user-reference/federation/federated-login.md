@@ -18,10 +18,9 @@ Most of the time, you achieve this by doing the following:
 	1. See our [Steam](../../samples/beamball/steam-integration.md) and [Discord](../../samples/discord-demo.md) Samples for examples of this
 2. \[**Game Client**]: Invoke a `Login`/`SignUp`/`Attach` **Operation** and pass the following parameters:
 	1. **MicroserviceName**: this is the name of the Microservice (the **csproj** file name, in the default case)
-	2. **IdentityNamespace**: this is the Federation's **[Federation Id](federation.md#federation-id)**. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow
-	3. **IdentityUserId**: this is the third-party's `UserId` for the user trying to login. We use this to determine if there is already a Beamable account mapped to this third-party Id
-	4. **IdentityAuthToken**: this is a token that for the user that can be used by the `Authenticate` function to map it back to a `UserId`
-	5. **Federation Id**: this is the Federation's **[Federation Id](federation.md#federation-id)**. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow
+	2. **IdentityUserId**: this is the third-party's `UserId` for the user trying to login. We use this to determine if there is already a Beamable account mapped to this third-party Id
+	3. **IdentityAuthToken**: this is a token that for the user that can be used by the `Authenticate` function to map it back to a `UserId`
+	4. **Federation Id**: this is the Federation's **[Federation Id](federation.md#federation-id)**. Passing this in informs Beamable which federated login to invoke as part of the account creation/attach flow
 
 After this, the flow goes into your `Authenticate` function. What that function should do, depends on whether you are implementing 2FA.
 

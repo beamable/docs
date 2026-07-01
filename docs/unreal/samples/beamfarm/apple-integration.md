@@ -46,7 +46,7 @@ Apple login relies on Unreal’s **OnlineSubsystemIOS** plugin.
 Enable it via **Edit → Plugins** or by copying it from the Engine plugins folder.
 
 API reference:
-[https://dev.epicgames.com/documentation/en-us/unreal-engine/API/PluginIndex/OnlineSubsystemIOS](https://github.com/beamable/UnrealSDK/tree/main/Plugins/BEAMPROJ_BeamFarm/Source/BEAMPROJ_BeamFarm)
+[https://dev.epicgames.com/documentation/en-us/unreal-engine/API/PluginIndex/OnlineSubsystemIOS](https://dev.epicgames.com/documentation/en-us/unreal-engine/API/PluginIndex/OnlineSubsystemIOS)
 
 ### Build.cs configuration
 
