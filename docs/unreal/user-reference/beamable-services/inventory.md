@@ -66,10 +66,10 @@ Currencies are used to buy items with the [Store system](stores.md) (for example
 
 In the Beamable Unreal SDK, currencies are represented by the `UBeamCurrencyContent`. Each currency can specify a `startingAmount` that is used to pre-seed player accounts with that amount of currency for very simple cases. For more control over each player's starting state, use [Federated Player Init](../federation/federated-player-init.md).
 
-You can [subclass](content.md#defining-custom-content-types) this content type if you want to add more information to currency that is specific to your liking, such as UI related `ObjectPaths` and other references to assets that might be relevant to your game.
+You can [subclass](content.md#custom-content-types) this content type if you want to add more information to currency that is specific to your liking, such as UI related `ObjectPaths` and other references to assets that might be relevant to your game.
 
 ## Items
-The Items service allows for the creation and management of various in-game objects, such as equipment, consumables, and resources. In the Beamable Unreal SDK, items are represented by the `UBeamItemContent` type. You can [subclass](content.md#defining-custom-content-types) this content type to add game-specific information to item content that is then accessible via the `UBeamContentSubsystem` and in Microservices.
+The Items service allows for the creation and management of various in-game objects, such as equipment, consumables, and resources. In the Beamable Unreal SDK, items are represented by the `UBeamItemContent` type. You can [subclass](content.md#custom-content-types) this content type to add game-specific information to item content that is then accessible via the `UBeamContentSubsystem` and in Microservices.
 
 In the `UBeamInventorySubsystem`, each item instance inside a player's inventory is represented by `FBeamItemState`. These instances have the following properties:
 
