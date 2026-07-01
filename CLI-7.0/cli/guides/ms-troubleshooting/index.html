@@ -6638,7 +6638,8 @@ Types used in <code>[ClientCallable]</code> methods must be available to both se
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Microservice Callable method `CallServiceAsync` uses a Type that cannot be inside microservice scope. Type: `DTO`.
 </code></pre></div><p></p>
 <p><strong>Solutions</strong>:
-- Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server</p>
+- Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server
+- Keep storage objects and their <code>StorageDocument</code> types out of that shared project — see <a href="../ms-storage/#storage-objects-and-common-libraries">Storage objects and Common Libraries</a></p>
 <p><strong>Example of Solved Code</strong> (Microservice):
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="na">[Microservice("MyMicroservice")]</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyMicroservice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>

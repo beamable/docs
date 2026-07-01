@@ -1303,6 +1303,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#storage-objects-and-common-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage objects and Common Libraries
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6079,6 +6090,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#storage-objects-and-common-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage objects and Common Libraries
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6117,6 +6139,30 @@
 <p>This creates a new <code>.csproj</code> in your existing <code>.sln</code>. You will also be prompted to assign a reference between the Storage Object and some Microservices. A Storage Object cannot exist independently of a Microservice. When you specify a dependency between a Storage Object and a Microservice, Beamable knows to pass the connection credentials to the Microservice.</p>
 <p>When developing locally, anytime a Microservice that depends on a Storage Object starts, it will make sure the Docker container for the Storage Object is running. If there is no running container, it will start a container. This can take several seconds and it may appear the service is failing to start.</p>
 <p>The code documentation explains how to interact with a Storage Object.</p>
+<h2 id="storage-objects-and-common-libraries">Storage objects and Common Libraries<a class="headerlink" href="#storage-objects-and-common-libraries" title="Permanent link">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Keep storage types out of Common Libraries</p>
+<p>Storage object types (<code>MongoStorageObject</code> subclasses) and the MongoDB-serialized document types they persist (types using <code>[BsonElement]</code>, <code>[BsonId]</code>, and other <code>MongoDB.Bson</code> attributes) must live in your microservice or storage project, not in a shared Common Library (<code>dotnet beam project new common-lib</code>). A Common Library references only <code>Beamable.Common</code> — it has no MongoDB dependency, so these types will not compile there. Adding a <code>MongoDB</code> package reference to the Common Library is not a fix: the library is copied into every linked Unity project, and Unity has no MongoDB driver (only a small set of mock Bson attributes), so the build breaks. Share plain data contracts (DTOs, enums) through the Common Library; keep storage objects and their documents server-side.</p>
+</div>
+<p>A data transfer object (DTO) is a plain contract you share with the client through the Common Library. It references nothing beyond <code>Beamable.Common</code>, so it compiles both server-side and in Unity:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[Serializable]</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PlayerLoadout</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">WeaponId</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">PerkIds</span><span class="p">;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+</code></pre></div>
+<p>A data storage object (DSO) is the record you persist. It derives from <code>StorageDocument</code> and can carry <code>MongoDB.Bson</code> attributes and server-only fields, so it stays in the microservice or storage project:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PlayerRecord</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">StorageDocument</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="na">[BsonElement("loadout")]</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">PlayerLoadout</span><span class="w"> </span><span class="n">Loadout</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="na">[BsonElement("bannedUntil")]</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">BannedUntilTicks</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+</code></pre></div>
+<p>There is no shared base class between the two. Every type you store is constrained to <code>StorageDocument</code>, so a DSO must derive from it; because C# permits a single base class, a DSO cannot also inherit a DTO, and a DTO cannot derive from <code>StorageDocument</code> without pulling <code>MongoDB.Bson</code> into the Common Library. Prefer composition: give the DSO a field of the DTO type — as <code>PlayerRecord.Loadout</code> does above — keeping the shared shape in the Common Library and the storage concerns server-side.</p>
 
 
 

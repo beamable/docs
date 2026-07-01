@@ -6268,10 +6268,10 @@
 <h2 id="microservice-routing_1">Microservice routing<a class="headerlink" href="#microservice-routing_1" title="Permanent link">¶</a></h2>
 <p>Beamable Microservices use a privileged web socket to communicate with Beamable's existing APIs and services. There is a custom Beamable application level protocol, <em>Thorium</em>, that allows a Microservice to receive HTTPS traffic sent to <code>https://api.beamable.com</code>. However, for the Microservice to receive the traffic, the HTTP request needs to meet the following requirements,</p>
 <ol>
-<li>The <code>uri</code> of the HTTP request must have a <code>path</code> that maps to the desired Microservice.</li>
+<li>The <code>uri</code> of the HTTP request must have a <code>path</code> that maps to the desired Microservice</li>
 <li>The HTTP request must have an <code>X-DE-SCOPE</code> header, and</li>
 <li><em>Optionally</em>, the HTTP request should have a <code>X-BEAM-SERVICE-ROUTING-KEY</code> header that carries a map of service routing keys, and</li>
-<li><em>Optionally</em>, the HTTP request should have an <code>Authorization</code> header that carries a Bearer Token.</li>
+<li><em>Optionally</em>, the HTTP request should have an <code>Authorization</code> header that carries a Bearer Token</li>
 </ol>
 <h3 id="path-routing">Path routing<a class="headerlink" href="#path-routing" title="Permanent link">¶</a></h3>
 <p>The <code>uri</code> of the HTTP request destined for a Microservice must follow a strict format. The format is given by the code snippet below.</p>
@@ -6378,7 +6378,7 @@
 <p>Microservices can automatically generate client code for the Unity game engine. First, link a Unity project to the <code>.beamable/</code> workspace using the project add-unity-project command.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>add-unity-project<span class="w"> </span>&lt;relative-path-to-unity-project&gt;
 </code></pre></div>
-<p>Provide the relative path to the Unity project. If it isn't right, the CLI will offer an explorative search flow to identify a valid Unity project.</p>
+<p>Provide the relative path to the Unity project. If it is not right, the CLI will offer an explorative search flow to identify a valid Unity project.</p>
 <p>After the command has run, there will be a <code>.beamable/linked-projects.json</code> file. You can review it to double check your project has been added correctly.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>MyProject<span class="w"> </span>%<span class="w"> </span>cat<span class="w"> </span>.beamable/linked-projects.json
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="o">{</span>
@@ -6395,7 +6395,7 @@
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
 </code></pre></div>
-<p>The automatic client code generation can be disabled when a project builds by modifying the <code>&lt;GenerateClientCode&gt;</code> option. Learn more in the <a href="../ms-configuration/#GenerateClientCode">configuration guide</a>.</p>
+<p>The automatic client code generation can be disabled when a project builds by modifying the <code>&lt;GenerateClientCode&gt;</code> option. Learn more in the <a href="../ms-configuration/#generateclientcode">configuration guide</a>.</p>
 <h3 id="open-api">Open API<a class="headerlink" href="#open-api" title="Permanent link">¶</a></h3>
 <p>You can use the project oapi command to generate an Open API document and then use open source tools to transpile the document into a client in some other programming language.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>oapi<span class="w"> </span>--output<span class="w"> </span>example.json<span class="w"> </span>--ids<span class="w"> </span>MyService
