@@ -10536,7 +10536,7 @@ Microservice project will <em>no longer generate client code automatically</em>.
 <p>You can generate a Unity client by hand using the following command,
 </p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>generate-client-oapi<span class="w"> </span>--output-dir<span class="w"> </span>./Path/To/Your/Unity/Folder/To/Put/Clients/In
 </code></pre></div></td></tr></tbody></table></div><p></p>
-<p>If you want to revert to the old method of producing client-code, you'll need to copy/paste the old target
+<p>If you want to revert to the old method of producing client-code, you will need to copy/paste the old target
 into your services' <code>.csproj</code> files. You can find the target here,
 <a href="https://github.com/beamable/BeamableProduct/blob/cli-4.3.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.targets#L15">CLI 4.3.0 .Targets File</a></p>
 <div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -10567,7 +10567,7 @@ declaration,</p>
 </p><div class="language-xml highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;TargetFramework&gt;</span>net8.0<span class="nt">&lt;/TargetFramework&gt;</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <blockquote>
-<p>📘 Update Dotnet SDK</p>
+<p>📘 Update .NET SDK</p>
 <p>As of CLI 4.0.0, you must have dotnet8 SDK installed on your development
 machines, instead of the dotnet6 SDK.</p>
 </blockquote>
@@ -10589,7 +10589,7 @@ following line to the end of the file.
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <h3 id="from-202-to-301">From 2.0.2 to 3.0.1<a class="headerlink" href="#from-202-to-301" title="Permanent link">¶</a></h3>
 <p>The upgrade from 2.0.x to 3.0.1 brings a few critical updates to the <code>csproj</code> file, how the Beam CLI tool is managed, and the version of <code>dotnet</code>.</p>
-<p><strong>To start this process, let's open a terminal and navigate to the directory containing your <code>.beamable/</code> folder. All commands are written as though invoked from this directory.</strong></p>
+<p><strong>To start this process, open a terminal and navigate to the directory containing your <code>.beamable/</code> folder. All commands are written as though invoked from this directory.</strong></p>
 <div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -10601,7 +10601,7 @@ SomeDrive
 <span class="p">|</span>---ProjectRoot
 <span class="p">|</span>---<span class="p">|</span>---<span class="w"> </span>.beamable
 
-<span class="c1"># You should make sure you're in the directory containing the .beamable folder</span>
+<span class="c1"># You should make sure you are in the directory containing the .beamable folder</span>
 <span class="nb">cd</span><span class="w"> </span>SomeDrive/ProjectRoot
 </code></pre></div></td></tr></tbody></table></div>
 <h4 id="cli-file-structure">CLI file structure<a class="headerlink" href="#cli-file-structure" title="Permanent link">¶</a></h4>
@@ -10681,8 +10681,8 @@ SomeDrive
 <li>You can manually edit this to dodge the version-lock if you want to risk it</li>
 </ul>
 </li>
-<li>It includes a Roslyn Static Analyser to help you out with microservices and federation implementations</li>
-<li>It'll target <code>.net8</code></li>
+<li>It includes a Roslyn Static Analyzer to help you out with microservices and federation implementations</li>
+<li>It will target <code>.net8</code></li>
 </ul>
 <p>In every <code>csproj</code> file for <strong>Microservices</strong>, <strong>MicroStorages</strong>, and <strong>Common Libraries</strong>, follow the steps below:</p>
 <p>First, add a <code>PropertyGroup</code> with a <code>Label</code> called <code>Beamable Version</code> that looks like this:
@@ -10704,8 +10704,7 @@ SomeDrive
 <span class="w">  </span><span class="cm">&lt;!-- When running from inside docker, this gets injected via the Dockerfile at build-time. --&gt;</span>
 <span class="nt">&lt;/PropertyGroup&gt;</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
-<p>If the project is targeting <code>net6.0</code> or <code>net7.0</code>, then, we recommend you
-upgrade the <code>TargetFramework</code> to <code>.net8.0</code>.
+<p>If the project is targeting <code>net6.0</code> or <code>net7.0</code>, upgrade the <code>TargetFramework</code> to <code>.net8.0</code>.
 </p><div class="language-xml highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -10715,7 +10714,7 @@ upgrade the <code>TargetFramework</code> to <code>.net8.0</code>.
 <span class="nt">&lt;/PropertyGroup&gt;</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <blockquote>
-<p>📘 Don't update <code>netstandard2.1</code> to <code>net8.0</code></p>
+<p>📘 Do not update <code>netstandard2.1</code> to <code>net8.0</code></p>
 <p>Be careful not to update common projects from <code>netstandard2.1</code> to <code>net8.0</code>.
 The <code>netstandard2.1</code> target produces <code>.dll</code> files that can be copied
 directly into a wide variety of engines, such as Unity. However, <code>net8.0</code>
@@ -10755,11 +10754,11 @@ binaries are not compatible with Unity.</p>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <h4 id="microservice-code-changes-partial-and-federationid">Microservice code changes - <code>partial</code> and <code>FederationId</code><a class="headerlink" href="#microservice-code-changes-partial-and-federationid" title="Permanent link">¶</a></h4>
 <p>With the introduction of the <code>Beamable.Microservice.SourceGen</code> library, all Microservice classes must be marked with the <code>partial</code> keyword. This will allow the source-generator to add custom implementations to Microservices in future releases.</p>
-<p>If you use any Federated endpoints as part of your Microservices, there a few code-changes you'll have to make:</p>
+<p>If you use any Federated endpoints as part of your Microservices, there a few code-changes you will have to make:</p>
 <ul>
 <li>Replace all <code>IThirdPartyCloudIdentity</code> with <code>IFederationId</code></li>
 <li>Add a <code>FederationId</code> attribute to the class <code>IFederationId</code> — the <code>UniqueName</code> is the property</li>
-<li>If you were ever accessing the <code>UniqueName</code> property as part of your code, you'll need to replace those calls with <code>GetUniqueName()</code></li>
+<li>If you were ever accessing the <code>UniqueName</code> property as part of your code, you will need to replace those calls with <code>GetUniqueName()</code></li>
 </ul>
 <p>Once these are in, try to compile your services. The newly referenced Roslyn Static Analyzer should tell you if you made any mistakes.</p>
 <p>Finally, the analyzer will inform you that the federations you have in code are not in the <code>federation.json</code> file. The error will look something like this:
@@ -10768,7 +10767,7 @@ binaries are not compatible with Unity.</p>
 <p>You can run the command described in the error message to register the federation in the code with the <code>federation.json</code> file.</p>
 <blockquote>
 <p>📘 Why is this needed?</p>
-<p>We now support the ability to test federations locally (which was previously impossible due to architecture of 2.0.0). With this new ability, some UX requirements changed for our engine integrations. This change helps the development experience of such cases in the Unity/Unreal editor integrations.</p>
+<p>Beamable now supports testing federations locally (which was previously impossible due to the architecture of 2.0.0). With this new ability, some UX requirements changed for the engine integrations. This change improves the development experience in the Unity/Unreal editor integrations.</p>
 </blockquote>
 <h4 id="updating-each-dockerfile">Updating each <code>Dockerfile</code><a class="headerlink" href="#updating-each-dockerfile" title="Permanent link">¶</a></h4>
 <p>This is very simple: simply replace the contents of each Dockerfile with the following. After replacing it, you can re-add any previous modifications you might've had.</p>

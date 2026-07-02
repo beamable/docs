@@ -10115,7 +10115,7 @@ Methods marked as <code>[Callable]</code>, <code>[ClientCallable]</code>, <code>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <h2 id="invalid-type-usage-in-callable-method">Invalid type usage in callable method<a class="headerlink" href="#invalid-type-usage-in-callable-method" title="Permanent link">¶</a></h2>
 <p><strong>Explanation</strong>:
-Types used in <code>[ClientCallable]</code> methods must be available to both server and client. Declaring types inside the microservice class makes them inaccessible to the Unity client as we're not regenerating DTO for Client.</p>
+Types used in <code>[ClientCallable]</code> methods must be available to both server and client. Declaring types inside the microservice class makes them inaccessible to the Unity client, as the SDK does not regenerate DTOs for the client in that case.</p>
 <p><strong>Example Code Triggering the Error</strong>:
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -10149,7 +10149,8 @@ Types used in <code>[ClientCallable]</code> methods must be available to both se
 </p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Microservice Callable method `CallServiceAsync` uses a Type that cannot be inside microservice scope. Type: `DTO`.
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Solutions</strong>:
-- Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server</p>
+- Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server
+- Keep storage objects and their <code>StorageDocument</code> types out of that shared project — see <a href="../ms-storage/#storage-objects-and-common-libraries">Storage objects and Common Libraries</a></p>
 <p><strong>Example of Solved Code</strong> (Microservice):
 </p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>

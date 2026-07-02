@@ -9756,7 +9756,7 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 <li><em>Optionally</em>, the HTTP request should have a <code>X-BEAM-SERVICE-ROUTING-KEY</code> header that carries a map of service routing keys, and</li>
 <li><em>Optionally</em>, the HTTP request should have an <code>Authorization</code> header that carries a Bearer Token</li>
 </ol>
-<h4 id="path-routing">Path routing<a class="headerlink" href="#path-routing" title="Permanent link">¶</a></h4>
+<h3 id="path-routing">Path routing<a class="headerlink" href="#path-routing" title="Permanent link">¶</a></h3>
 <p>The <code>uri</code> of the HTTP request destined for a Microservice must follow a strict format. The format is given by the code snippet below.</p>
 <div class="language-javascript highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">uri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'https://'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">host</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'/basic/'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">cid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'.'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">pid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'.'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">localPrefix</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'micro_'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">serviceName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'/'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">method</span><span class="p">;</span>
 </code></pre></div></td></tr></tbody></table></div>
@@ -9810,18 +9810,18 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 </tbody>
 </table>
 <p>When the <code>host</code> (<code>api.beamable.com</code>) receives an HTTP request with the following <code>uri</code> format, the request will be deconstructed into the variable components, and the contents of the HTTP request will be forwarded to your Microservice via the <em>Thorium</em> web socket protocol. The Microservice receives the request, and uses the <code>method</code> component of the original request to invoke the right <code>[Callable]</code> method.</p>
-<h4 id="x-beam-service-routing-key-header">X-BEAM-SERVICE-ROUTING-KEY header<a class="headerlink" href="#x-beam-service-routing-key-header" title="Permanent link">¶</a></h4>
+<h3 id="x-beam-service-routing-key-header">X-BEAM-SERVICE-ROUTING-KEY header<a class="headerlink" href="#x-beam-service-routing-key-header" title="Permanent link">¶</a></h3>
 <p>When a Microservice is started locally, it may share the same name with a Microservice running in the Beamable cloud. When this happens, and your local development machine is generating traffic for the named service, the <em>routing key</em> defines <em>which</em> Microservice instance (the local or remote) receives the traffic.</p>
 <p>A Microservice instance may optionally register a routing key, and if they do, then they will only receive traffic that includes the routing key in a custom <code>X-BEAM-SERVICE-ROUTING-KEY</code> header.</p>
 <p>All microservice instances running on the Beamable cloud <em>do not</em> register any routing keys, so they receive traffic that does not include any <code>X-BEAM-SERVICE-ROUTING-KEY</code> value.</p>
 <p>The format of the <code>X-BEAM-SERVICE-ROUTING-KEY</code> value should be a series of <code>&lt;service&gt;:&lt;routingKey&gt;</code> pairs, separated by commas. Here is an example of a routing key header value that routes two services,</p>
 <div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>serviceA:routingKeyA,serviceB:routingKeyB
 </code></pre></div></td></tr></tbody></table></div>
-<h4 id="x-de-scope-header">X-DE-SCOPE header<a class="headerlink" href="#x-de-scope-header" title="Permanent link">¶</a></h4>
+<h3 id="x-de-scope-header">X-DE-SCOPE header<a class="headerlink" href="#x-de-scope-header" title="Permanent link">¶</a></h3>
 <p>In addition to specifying the <code>cid</code> and <code>pid</code> in the <code>uri</code> of the HTTP request, those values must also be sent in a special HTTP header, <code>X-DE-SCOPE</code>. The value for this header should take the format,</p>
 <div class="language-javascript highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'.'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">pid</span><span class="p">;</span>
 </code></pre></div></td></tr></tbody></table></div>
-<h4 id="authorization">Authorization<a class="headerlink" href="#authorization" title="Permanent link">¶</a></h4>
+<h3 id="authorization">Authorization<a class="headerlink" href="#authorization" title="Permanent link">¶</a></h3>
 <p>Finally, while not required, we recommend sending an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project.</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cat<span class="w"> </span>.beamable/temp/auth.beam.json
 </code></pre></div></td></tr></tbody></table></div>
@@ -9861,7 +9861,7 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 <p>Microservices can automatically generate client code for the Unity game engine. First, link a Unity project to the <code>.beamable/</code> workspace using the project add-unity-project command.</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>add-unity-project<span class="w"> </span>&lt;relative-path-to-unity-project&gt;
 </code></pre></div></td></tr></tbody></table></div>
-<p>Provide the relative path to the Unity project. If it isn't right, the CLI will offer an explorative search flow to identify a valid Unity project.</p>
+<p>Provide the relative path to the Unity project. If it is not right, the CLI will offer an explorative search flow to identify a valid Unity project.</p>
 <p>After the command has run, there will be a <code>.beamable/linked-projects.json</code> file. You can review it to double check your project has been added correctly.</p>
 <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -9911,7 +9911,7 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 <span class="w">    </span>--additional-properties<span class="o">=</span><span class="nv">usePromises</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-o<span class="w"> </span>/local/out/js
 </code></pre></div></td></tr></tbody></table></div>
-<p>In this example, we need to use <code>browserify</code> to convert the generated client code into a valid browser script.
+<p>In this example, use <code>browserify</code> to convert the generated client code into a valid browser script.
 </p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>browserify
 browserify<span class="w"> </span>./dist/index.js<span class="w"> </span>--standalone<span class="w"> </span>helloWorld<span class="w"> </span>&gt;<span class="w"> </span>../../app/bundle.js
