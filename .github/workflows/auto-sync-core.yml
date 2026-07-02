@@ -48,7 +48,7 @@ jobs:
           # squashes, which collides and produces conflict PRs even for
           # clean core-owned files. A path-scoped overwrite is conflict-free
           # by construction and stateless (no merge-base dependence).
-          CORE_OWNED_PATHS="docs/cli/guides docs/includes docs/portal"
+          CORE_OWNED_PATHS="docs/cli/guides docs/cli/SUMMARY.md docs/includes docs/portal"
 
           git fetch origin ${{ github.ref_name }}
 
