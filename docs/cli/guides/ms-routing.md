@@ -29,7 +29,7 @@ Beamable Microservices use a privileged web socket to communicate with Beamable'
 3. _Optionally_, the HTTP request should have a `X-BEAM-SERVICE-ROUTING-KEY` header that carries a map of service routing keys, and
 4. _Optionally_, the HTTP request should have an `Authorization` header that carries a Bearer Token
 
-#### Path routing
+### Path routing
 
 The `uri` of the HTTP request destined for a Microservice must follow a strict format. The format is given by the code snippet below.
 
@@ -50,7 +50,7 @@ The variables are described in the following table.
 
 When the `host` (`api.beamable.com`) receives an HTTP request with the following `uri` format, the request will be deconstructed into the variable components, and the contents of the HTTP request will be forwarded to your Microservice via the _Thorium_ web socket protocol. The Microservice receives the request, and uses the `method` component of the original request to invoke the right `[Callable]` method.
 
-#### X-BEAM-SERVICE-ROUTING-KEY header
+### X-BEAM-SERVICE-ROUTING-KEY header
 
 When a Microservice is started locally, it may share the same name with a Microservice running in the Beamable cloud. When this happens, and your local development machine is generating traffic for the named service, the _routing key_ defines _which_ Microservice instance (the local or remote) receives the traffic.
 
@@ -64,14 +64,14 @@ The format of the `X-BEAM-SERVICE-ROUTING-KEY` value should be a series of `<ser
 serviceA:routingKeyA,serviceB:routingKeyB
 ```
 
-#### X-DE-SCOPE header
+### X-DE-SCOPE header
 
 In addition to specifying the `cid` and `pid` in the `uri` of the HTTP request, those values must also be sent in a special HTTP header, `X-DE-SCOPE`. The value for this header should take the format,
 
 ```javascript
 var scope = cid + '.' + pid;
 ```
-#### Authorization
+### Authorization
 
 Finally, while not required, we recommend sending an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project.
 
@@ -103,7 +103,7 @@ Microservices can automatically generate client code for the Unity game engine. 
 dotnet beam project add-unity-project <relative-path-to-unity-project>
 ```
 
-Provide the relative path to the Unity project. If it isn't right, the CLI will offer an explorative search flow to identify a valid Unity project.
+Provide the relative path to the Unity project. If it is not right, the CLI will offer an explorative search flow to identify a valid Unity project.
 
 After the command has run, there will be a `.beamable/linked-projects.json` file. You can review it to double check your project has been added correctly.
 
@@ -156,7 +156,7 @@ docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate \
 ```
 
 
-In this example, we need to use `browserify` to convert the generated client code into a valid browser script.
+In this example, use `browserify` to convert the generated client code into a valid browser script.
 ```sh
 npm install -g browserify
 browserify ./dist/index.js --standalone helloWorld > ../../app/bundle.js

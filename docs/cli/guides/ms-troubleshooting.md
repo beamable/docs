@@ -120,7 +120,7 @@ public partial class MyMicroservice : Microservice
 ## Invalid type usage in callable method
 
 **Explanation**:
-Types used in `[ClientCallable]` methods must be available to both server and client. Declaring types inside the microservice class makes them inaccessible to the Unity client as we're not regenerating DTO for Client.
+Types used in `[ClientCallable]` methods must be available to both server and client. Declaring types inside the microservice class makes them inaccessible to the Unity client, as the SDK does not regenerate DTOs for the client in that case.
 
 **Example Code Triggering the Error**:
 ```csharp
@@ -148,6 +148,7 @@ Microservice Callable method `CallServiceAsync` uses a Type that cannot be insid
 
 **Solutions**:
 - Move shared types (DTOs, Enums, etc.) to a shared project referenced by both Unity and the server
+- Keep storage objects and their `StorageDocument` types out of that shared project — see [Storage objects and Common Libraries](ms-storage.md#storage-objects-and-common-libraries)
 
 **Example of Solved Code** (Microservice):
 ```csharp

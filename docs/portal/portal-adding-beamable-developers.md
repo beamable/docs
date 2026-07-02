@@ -7,7 +7,7 @@ For purposes of privacy and security, when you add someone to your account throu
 
 ### Creating the account (team admin)
 
-First, let's create your teammate's new account:
+First, create your teammate's new account:
 
 1. Navigate to [portal.beamable.com/login/](https://portal.beamable.com/login/) and login using the customer ID, email, and password with which you registered your project
 
@@ -16,7 +16,7 @@ First, let's create your teammate's new account:
 
 2. Click to expand the _Admin_ section in the navigation panel and click the _User Administration_ link
 
-The "User Administration" page features a list of all the admins, developers, and testers on your project.
+The "User Administration" page features a list of all of the admins, developers, and testers on your project.
 
 ![Portal Add Devs Team](../media/imgs/Portal-Add_Devs-A2_Team.png)
 
@@ -55,7 +55,7 @@ Next, your teammate should follow these steps to proceed through the password re
 
 ### Finding your CID
 
-To get your customer ID (CID), look for _config-defaults.txt_ in your project. The shell snippet below illustrates how to get it from the command line if you are on MacOS.
+To get your customer ID (CID), look for _config-defaults.txt_ in your project. The shell snippet below illustrates how to get it from the command line if you are on macOS.
 
 ```text
    % find . -name config-defaults.txt
@@ -63,5 +63,5 @@ To get your customer ID (CID), look for _config-defaults.txt_ in your project. T
    % grep cid ./Assets/Beamable/Resources/config-defaults.txt
        "cid": "1320644969098300",
    ```
-You can also email us at [support@beamable.com](mailto:support@beamable.com) with the email you used to register and we can look it up for you.
+You can also email [support@beamable.com](mailto:support@beamable.com) with the email you used to register and the support team can look it up for you.
 

@@ -43,7 +43,7 @@ public partial class ExampleService : IFederatedLogin<MySample>
 }
 ```
 
-The `MySample` class included as the generic type in the `IFederatedLogin` interface specifies the id for the federated login. The class signature for these types must implement the `IFederationId` type, and be annotated with a `FederationId` attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.
+The `MySample` class included as the generic type in the `IFederatedLogin` interface specifies the id for the federated login. The class signature for these types must implement the `IFederationId` type and include a `FederationId` attribute. The string argument for the attribute constructor must be stable between releases of your service. It also needs to be unique.
 
 ```csharp
 [FederationId("myId")]
@@ -137,5 +137,21 @@ The following IFederationId must be annotated with a FederationIdAttribute with 
   [FederationId("default")]
   public interface MyFederation : IFederationId {}
   ```
+
+---
+
+### Missing routing keys
+
+When calling a local microservice, you may see this error:
+
+**Example error message**:
+
+```json
+{"status":400,"service":"auth","error":"MissingRoutingKeys","message":"Routing keys not configured"}
+```
+
+This means the realm configuration does not have routing keys configured. To fix this, add a `realms.supportedFilters` config entry with the value `*` in the Portal for that realm. Note that `*` is the only currently accepted value — setting it to anything else has no effect.
+
+If your realm lacks this setting, it may predate the setting's introduction. Production realms always omit the setting to ensure local microservices cannot siphon production traffic.
 
 ---

@@ -16,13 +16,17 @@ The Beamable Portal provides access to manage all aspects of your game's data ar
 
 ## Steps
 
-The Beamable Portal is available in your favorite web-browser at [https://portal.beamable.com/](https://portal.beamable.com/)
+The Beamable Portal is available in your favorite web-browser at [https://portal.beamable.com/](https://portal.beamable.com/).{width="300px"}
 
-| Step                               | Screenshot                                        |
-|:-----------------------------------|:--------------------------------------------------|
-| 1. Click the "Toolbox" Widget      | ![ToolboxWidget](../media/imgs/ToolboxWidget.png) |
-| 2. Click the "Goto Portal" Option  | ![GoToPortal](../media/imgs/GotoPortal.png)       |
+| Step                         | Detail                                              |
+| :--------------------------- | :-------------------------------------------------- |
+| 1. Open the "Toolbox" Window | •	Unity → Window → Beamable → Open Beamable Toolbox |
+| 2. Open the "Portal" Window  | •	Click the "Open Portal" Button                    |
+
+![The Beamable Menu](../media/imgs/MenuItem_2.jpg){width="400px"}
 
 
+Here is the "Open Portal" Button.
 
+![The "Open Portal" Button in the Beamable Toolbox Window](../media/imgs/toolbox-open-portal.png){width="600px"}
 

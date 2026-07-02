@@ -47,17 +47,16 @@ dotnet beam deploy plan --plan "path to plan file"
 
 The `deploy plan` command validates that your Standalone Microservice can be built and, optionally, that it will start accepting HTTPS traffic.
 
-**The command WILL NOT validate the services are booting up correctly by default.** It assumes that you have tested your service locally before deploying it. However, you can pass in the `--health`  argument to make the command, run the built services locally and wait for the service to start responding to health check API calls. This takes longer, but guarantees that the services *at least starts up*. This is especially useful if you're using our `[ConfigureServices]` and/or `[InitializeServices]` attributes to modify the service boot process.
+**The command WILL NOT validate the services are booting up correctly by default.** It assumes that you have tested your service locally before deploying it. However, you can pass in the `--health`  argument to make the command, run the built services locally and wait for the service to start responding to health check API calls. This takes longer, but guarantees that the services *at least starts up*. This is especially useful if you are using the `[ConfigureServices]` and/or `[InitializeServices]` attributes to modify the service boot process.
 
-After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local _service manifest_ is built implicitly from configurations inside your project. The built plan is there inform you about the changes you will be making (enabling/disabling existing services, adding new services, etc...) if you decide to `deploy release` it.
+After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local _service manifest_ is built implicitly from configurations inside your project. The built plan is there to inform you about the changes you will be making (enabling/disabling existing services, adding new services) if you decide to `deploy release` it.
 
-As an example, here's the output from a `deploy plan` invocation from inside our `UnrealSDK` project.
+As an example, here is the output from a `deploy plan` invocation from inside the `UnrealSDK` project.
 ```
 $ dotnet beam deploy plan
 
       fetching latest ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
 build DiscordSampleMs ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
-    build HathoraDemo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
   build LiveOpsDemoMS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
    build MSPlayground ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
       build SteamDemo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
@@ -65,7 +64,6 @@ build DiscordSampleMs ━━━━━━━━━━━━━━━━━━━�
 
 Adding 5 services
  - DiscordSampleMs
- - HathoraDemo
  - LiveOpsDemoMS
  - MSPlayground
  - SteamDemo
@@ -73,7 +71,6 @@ Adding 5 services
 
 Enabling 3 federations
  - DiscordSampleMs [IFederatedLogin/discord]
- - HathoraDemo [IFederatedGameServer/hathora]
  - SteamDemo [IFederatedLogin/steam]
 
 
@@ -82,7 +79,6 @@ Adding 1 storage
 
 
 Uploading 5 services
- - HathoraDemo
  - MSPlayground
  - LiveOpsDemoMS
  - SteamDemo
@@ -99,7 +95,7 @@ To release, use `dotnet beam deploy release --plan E:\UnrealProjects\BeamableUnr
 Saved plan: E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json
 ```
 
-As you can see from the example, every `plan` invocation creates a `timestamp.plan.json` file inside your `.beamable\temp\plans` folder.
+As you can see from the example, every `plan` invocation creates a `timestamp.plan.json` file inside your `.beamable/temp/plans` folder.
 #### Merge and replace plans
 When planning to release microservices, its important to think about how to handle existing services. This is especially true of times when you remove a service. For that case, we provide two ways of generating a plan: **Replace** and **Merge**.
 
@@ -112,7 +108,7 @@ By default, we use the **replace** plan as it keeps "whatever is in your reposit
 For example, in cases where you want to remove the source code of a service from the repo, but still have the service be available for a while; this can happen if you have multiple *supported* client versions in existence, one dependent on a removed service and the other not.
 
 ### Releasing the plan
-Calling `deploy release` makes the plan a reality. It'll upload the images the Beamable docker container registry and then publish a _service manifest_ to your current Beamable realm. Upon successfully publishing the manifest, the Beamable Cloud creates the necessary resources to run your services. The services will be enabled, and you can see them available in the Beamable Portal's _Operation/Microservices_ section.
+Calling `deploy release` makes the plan a reality. It will upload the images the Beamable docker container registry and then publish a _service manifest_ to your current Beamable realm. Upon successfully publishing the manifest, the Beamable Cloud creates the necessary resources to run your services. The services will be enabled, and you can see them available in the Beamable Portal's _Operation/Microservices_ section.
 
 ![Beamable Deployments](https://files.readme.io/55ee363-image.png)
 
@@ -120,7 +116,7 @@ Now that your service is running on the Beamable Cloud, you can send HTTPS traff
 #### Redeploying existing services
 Another important, albeit not common, usage of the `deploy release` command is to re-deploy your currently deployed services. This may be necessary to deal with bugs in your microservice code (or Beamable itself) that cause instability until you push a fix to them.
 
-Here's how you'd do that:
+Here is how you would do that:
 ```shell
 dotnet beam deploy --redeploy
 ```
@@ -155,7 +151,7 @@ See the [Microservice Configuration Section](ms-configuration.md) for more detai
 
     Remember, Every service running on Beamable Cloud may increase your Beamable Bill. Disable your services to reduce your monthly bill.
 
-A quick-note: we highly recommend you ***delete services from your repository*** instead of enabling/disabling them *in most cases*. This feature exists for use-cases similar to the ones we have for the distribution of our Unreal SDK samples.
+A quick-note: ***delete services from your repository*** instead of enabling/disabling them *in most cases*. This feature exists for use-cases similar to those used for distributing the Unreal SDK samples.
 
 For game-makers, these are often advanced use-cases. An example could be:
 
@@ -222,7 +218,7 @@ ENTRYPOINT "dotnet" $BEAM_APP
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
 ```
 ### Local Docker testing and debugging
-The recommended developer workflow is to run your micro services using Dotnet. However, because deployments are running within a container, it may be beneficial to validate that your services work in Docker before deploying them (especially if you've made changes to the default `Dockerfile`).
+The recommended developer workflow is to run your micro services using .NET. However, because deployments are running within a container, it may be beneficial to validate that your services work in Docker before deploying them (especially if you have made changes to the default `Dockerfile`).
 
 To validate your Docker services, use the `--docker-compose-dir` option for the `beam deploy plan` command. The `plan` command will generate a [docker compose](https://docs.docker.com/compose/) project directory at the given path. The project will have all of your enabled services and storages.
 
@@ -252,11 +248,11 @@ You have full control over the docker-compose file, so if you want to set up per
 #### Useful debugging practices
 **Running the Docker Container Manually**: If you have a customized Dockerfile or encounter some problems when building/running the image/container, it can be sometimes useful to run the container via docker's CLI directly.
 
-You can do that by running `dotnet beam deploy plan --logs v`, which prints out all docker commands it is using under the hood. You can then use the printed commands as a starting point for your investigation into whatever problem you're solving.
+You can do that by running `dotnet beam deploy plan --logs v`, which prints out all docker commands it is using under the hood. You can then use the printed commands as a starting point for your investigation into whatever problem you are solving.
 
-**Debugging Container Structure**: In some cases of customized `Dockerfiles`, the image may fail to build or the container fail to run due to aspects of the container's file structure. Docker will not allow you to easily inspect a container's file structure unless its running; and we cleanup the container once its `ENTRYPOINT` process is killed.
+**Debugging Container Structure**: In some cases of customized `Dockerfiles`, the image may fail to build or the container fail to run due to aspects of the container's file structure. Docker will not allow you to easily inspect a container's file structure unless it is running; and the container is removed once its `ENTRYPOINT` process is killed.
 
-This means that if SAMS code depends on local file structure (DLLs not existing where they should being the most common thing) and it fails because of a malformation of that structure you'll have a hard time debugging it.
+This means that if SAMS code depends on local file structure (DLLs not existing where they should being the most common thing) and it fails because of a malformation of that structure you will have a hard time debugging it.
 
 In some cases, it may be useful to not start the actual process and instead use this endpoint below:
 ```Dockerfile
@@ -264,7 +260,7 @@ In some cases, it may be useful to not start the actual process and instead use 
 ENTRYPOINT ["tail", "-f", "/dev/null"]
 ```
 
-When you do that, the service will not start — but the container will look exactly like it does just before the service runs, except it won't be cleaned up by the health-check failing. This means you can easily inspect its file structure via Docker for Windows/Mac's UI or other tools.
+When you do that, the service will not start — but the container will look exactly like it does just before the service runs, except it will not be cleaned up by the health-check failing. This means you can easily inspect its file structure via Docker for Windows/Mac's UI or other tools.
 
 !!! info "Troubleshoot"
 

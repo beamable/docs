@@ -42,6 +42,40 @@ public void SampleLog()
 }
 ```
 
+## Setting a custom logger
+
+To set a custom logger, you can assign a delegate to `config.AddLoggerProvider` inside an `OverrideConfig` call on `BeamServiceConfigBuilder`.
+
+The delegate has the signature `Func<ILoggingBuilder, DebugLogProcessor, DebugLogProcessor>`:
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `builder` | `ILoggingBuilder` | The Microsoft logging builder, used to add or clear log providers |
+| `defaultProcessor` | `DebugLogProcessor` | The default ZLogger async log processor that Beamable has already set up |
+| **returns** | `DebugLogProcessor` | The processor that should actually be used — return `defaultProcessor` or `null` to keep the default, return a new instance to replace it |
+
+### Example of logger override
+```csharp
+await BeamServer
+    .Create()
+    .IncludeRoutes<BeamService>()
+    .OverrideConfig(config =>
+    {
+        config.AddLoggerProvider = (builder, defaultProcessor) =>
+        {
+            builder.ClearProviders(); // Remove all previously registered providers
+            builder.AddProvider(new MyCustomLogProvider()); // Add your own ILoggerProvider
+            return defaultProcessor; // Keep Beamable's default DebugLogProcessor
+        };
+    })
+    .RunForever();
+```
+
+Please check the official .NET documentation for more details on how to create a custom
+[ILoggerProvider](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.iloggerprovider?view=net-10.0).
+For more information on ZLogger's `DebugLogProcessor` and async log processing, see the
+[ZLogger LogProcessor documentation](https://github.com/Cysharp/ZLogger?tab=readme-ov-file#logprocessor).
+
 !!! info
 
 	Local microservice logs will not appear in the Portal unless the `BEAM_LOCAL_OTEL` environment variable is set.
@@ -214,11 +248,11 @@ There are several standard log attributes that will be included automatically. S
 
 ### Third party log hosting
 
-Starting with version 6.0, you can send Microservice logs to third-party log hosting services. In this example, we will use BetterStack.
+Starting with version 6.0, you can send Microservice logs to third-party log hosting services. This example uses BetterStack.
 
 This section will assume you have set up a BetterStack account, and created a _Source_ such that you have a _source token_ and an _ingesting host_.
 
-To start, we will configure locally running Microservices to send data to BetterStack. To start, create this file called `config.yaml` next to your `BeamableServices.sln` file.
+First, configure locally running Microservices to send data to BetterStack. Create a file called `config.yaml` next to your `BeamableServices.sln` file.
 
 ```yml
 receivers:
@@ -274,7 +308,7 @@ docker run -p 4317:4317 -p 4318:4318 \
 	ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.125.0
 ```
 
-Now you have a locally running telemetry collector. We need to configure your local Microservice to _use_ the collector. Prepare the following environment variables,
+Now you have a locally running telemetry collector. Next, configure your local Microservice to _use_ the collector. Prepare the following environment variables:
 
 ```sh
 export BEAM_DISABLE_STANDARD_OTEL=1
@@ -292,7 +326,7 @@ In a few moments, you should see log data appear in BetterStack.
 
 ----
 
-To configure a deployed Microservice to report log data to BetterStack, we need to start the collector in the deployed environment. The easiest way to do this is to run the collector as a local process.
+To configure a deployed Microservice to report log data to BetterStack, start the collector in the deployed environment. The easiest way to do this is to run the collector as a local process.
 
 Modify the `Dockerfile` to include the collector in the built image. Add these lines right below the `WORKDIR /beamApp` line,
 
@@ -316,7 +350,7 @@ Copy the `config.yaml` file from before and paste it next to the `Dockerfile`.
 Add the following functions to your `Program.cs`
 
 > [!WARNING]
-> This sample hard-codes the BetterStack auth for simplicity. We are working on better solutions for secret management. Please check in soon.
+> This sample hard-codes the BetterStack auth for simplicity. Better solutions for secret management are in development.
 
 ```csharp
 
@@ -346,14 +380,14 @@ public static void SetupCollector()
 
 	p.Exited += (sender, args) =>
 	{
-		// panic! If the collector has stopped, then logs aren't getting sent anywhere.
+		// panic! If the collector has stopped, then logs are not getting sent anywhere.
 		//  and all we can do is explode so that AWS will re-place the task.
 		Environment.Exit(1);
 	};
 
 	if (!p.Start())
 	{
-		// panic! If the collector did not start, then logs aren't getting sent anywhere.
+		// panic! If the collector did not start, then logs are not getting sent anywhere.
 		//  and all we can do is explode so that AWS will re-place the task.
 		Environment.Exit(1);
 

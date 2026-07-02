@@ -36,7 +36,7 @@ A new file, `BeamableServices.sln` has been created in `/MyProject`. Open it in 
 ![Project Structure](https://files.readme.io/751b491-image.png)
 
 
-Congratulations, you have a local Beamable Standalone Microservice! To run it, you can use the IDE tooling to start the `HelloWorld` project, or you can use the project run command. If you're familiar with `dotnet`, you can also use the normal `dotnet run` command as well.
+Congratulations, you have a local Beamable Standalone Microservice! To run it, you can use the IDE tooling to start the `HelloWorld` project, or you can use the project run command. If you are familiar with `dotnet`, you can also use the normal `dotnet run` command as well.
 
 However you decide to run the project, you should see a stream of logs similar to the snippet below,
 
