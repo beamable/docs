@@ -90,7 +90,7 @@ For Apple integration:
 - Beamable uses it to authenticate or attach the identity
 
 Federation reference:
-[user-reference/federation/federated-login](../../../user-reference/federation/federated-login/)
+[user-reference/federation/federated-login](../../user-reference/federation/federated-login.md)
 
 ---
 
