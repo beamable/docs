@@ -105,7 +105,7 @@ If you enter PIE now, here is what happens under the hood:
 
 The above process guarantees two things:
 
-- The SDK in both Clients and Servers is guaranteed to be in the same state they'd be if you had entered the Gameplay Level via your normal flows (starting from the **Main Boot Level**): the Beamable SDK is fully initialized in both Server and each Client
+- The SDK in both Clients and Servers is guaranteed to be in the same state they would be if you had entered the Gameplay Level via your normal flows (starting from the **Main Boot Level**): the Beamable SDK is fully initialized in both Server and each Client
 - Every code/blueprint running AFTER the Game Mode's **PostLogin** is guaranteed to have no differences between the PIE flow and the Main Boot Level one
 
 The above guarantees allow you to use Beamable with much less PIE-specific code.
