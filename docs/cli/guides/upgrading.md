@@ -376,7 +376,7 @@ You can run the command described in the error message to register the federatio
 > Beamable now supports testing federations locally (which was previously impossible due to the architecture of 2.0.0). With this new ability, some UX requirements changed for the engine integrations. This change improves the development experience in the Unity/Unreal editor integrations.
 
 #### Updating each `Dockerfile`
-This is very simple: simply replace the contents of each Dockerfile with the following. After replacing it, you can re-add any previous modifications you might've had.
+This is very simple: simply replace the contents of each Dockerfile with the following. After replacing it, you can re-add any previous modifications you might have had.
 
 Make sure that the version in this line  `ARG BEAM_DOTNET_VERSION="8.0-alpine"` matches the `.net` version in the `.csproj` file.
 
