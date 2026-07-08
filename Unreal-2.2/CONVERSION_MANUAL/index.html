@@ -10318,7 +10318,7 @@
 <p><strong>Important Notes</strong>:
 - The title should be extracted from the <code>title</code> field in the metadata
 - Remove quotes around the title when converting to the H1 header
-- Ensure there's a blank line between the header and the first paragraph
+- Ensure there is a blank line between the header and the first paragraph
 - This creates proper document structure for MkDocs
 - <strong>ONLY ONE H1 HEADER PER DOCUMENT</strong>: If a ReadMe.io file contains multiple documents (indicated by multiple <code>---</code> sections), convert additional titles to H2 headers (<code>##</code>) instead of H1 (<code>#</code>)</p>
 <p><strong>Multi-Document Files</strong>:
@@ -10357,7 +10357,7 @@ Some ReadMe.io exports contain multiple documents concatenated together. Handle 
 - <strong>H2 (<code>##</code>)</strong>: Major sections
 - <strong>H3 (<code>###</code>)</strong>: Subsections
 - <strong>H4 (<code>####</code>)</strong>: Sub-subsections
-- Never skip header levels (e.g., don't go from H2 directly to H4)</p>
+- Never skip header levels (e.g., do not go from H2 directly to H4)</p>
 <h3 id="2-convert-block-quotes-to-mkdocs-callouts">2. Convert block quotes to MkDocs callouts<a class="headerlink" href="#2-convert-block-quotes-to-mkdocs-callouts" title="Permanent link">¶</a></h3>
 <p><strong>Identify</strong>: Look for sections starting with <code>&gt;</code> (block quotes)</p>
 <p><strong>Convert based on emoji/content type</strong>:</p>
@@ -10381,7 +10381,7 @@ Some ReadMe.io exports contain multiple documents concatenated together. Handle 
 </code></pre></div><p></p>
 <h3 id="3-remove-readmeio-html-blocks">3. Remove ReadMe.io HTML blocks<a class="headerlink" href="#3-remove-readmeio-html-blocks" title="Permanent link">¶</a></h3>
 <p><strong>Identify</strong>: Look for <code>[block:html]</code> sections</p>
-<p><strong>Action</strong>: Remove entire blocks as they contain ReadMe.io-specific CSS that won't work in MkDocs</p>
+<p><strong>Action</strong>: Remove entire blocks as they contain ReadMe.io-specific CSS that will not work in MkDocs</p>
 <p><strong>Example</strong>:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[block:html]
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>{
