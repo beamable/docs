@@ -65,7 +65,7 @@ If you run the project in the Unity editor...
 **Important Notes**:
 - The title should be extracted from the `title` field in the metadata
 - Remove quotes around the title when converting to the H1 header
-- Ensure there's a blank line between the header and the first paragraph
+- Ensure there is a blank line between the header and the first paragraph
 - This creates proper document structure for MkDocs
 - **ONLY ONE H1 HEADER PER DOCUMENT**: If a ReadMe.io file contains multiple documents (indicated by multiple `---` sections), convert additional titles to H2 headers (`##`) instead of H1 (`#`)
 
@@ -110,7 +110,7 @@ Even more content...
 - **H2 (`##`)**: Major sections
 - **H3 (`###`)**: Subsections
 - **H4 (`####`)**: Sub-subsections
-- Never skip header levels (e.g., don't go from H2 directly to H4)
+- Never skip header levels (e.g., do not go from H2 directly to H4)
 
 ### 2. Convert block quotes to MkDocs callouts
 
@@ -144,7 +144,7 @@ Even more content...
 
 **Identify**: Look for `[block:html]` sections
 
-**Action**: Remove entire blocks as they contain ReadMe.io-specific CSS that won't work in MkDocs
+**Action**: Remove entire blocks as they contain ReadMe.io-specific CSS that will not work in MkDocs
 
 **Example**:
 ```markdown
