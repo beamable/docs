@@ -75,7 +75,7 @@ For **In-Band Calls** that reach a federated endpoint, the selected [Microservic
 **Out-of-Band Calls** however do not originate in the client or gameplay server, so PIE's selected [Microservice Target](../microservices/microservices.md#microservice-routing-and-microservice-target) is not accessible. To solve that problem, out-of-band calls use semantic filtering logic to "steal" traffic from the realm's service.
 
 !!! warning "What about PROD?!"
-	By default, production realm disallows ***any and all routing to microservices that are not the deployed ones***. In other words, if you run a local microservice while in a Prod realm it CANNOT steal any traffic from the service that is deployed; be it **in-band** or **out-of-band**.
+	By default, production realm disallows ***any and all routing to microservices that are not the deployed ones***. In other words, if you run a local microservice while in a production realm it CANNOT steal any traffic from the service that is deployed; be it **in-band** or **out-of-band**.
 
 To configure these filters, you can use the **Local - Federations** tab of your **[Microservice Inspector](../microservices/microservices.md#microservice-window)**. The filters, when out-of-band calls can be made to a particular federated endpoint, are described in each federation's own pages (for an example, [see here](federated-game-server.md)).
 
