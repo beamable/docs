@@ -242,6 +242,23 @@ Deploying services for the UE integration is 100% CLI-based. The documentation f
 !!! info "Why no Deploy Editor UI?"
 	If there is enough demand for it, a deploy UI will be considered. However, deploying services is mostly done by engineers and CI/CD pipelines, and compiling and opening the UE Editor only to do this does not add enough value to the UE workflow.
 
+### Remote logging
+By default, a published Microservice logs at the `"info"` level. When you run a service locally, it logs at `"debug"`.
+
+For per-request control, go to the microservice section of the Portal and create a Log Config Rule for your service. This changes the log level dynamically based on which player calls the service or which route is invoked — for example, enabling `"debug"` logging only for a player who contacted your customer-support line. See the [Microservice Logging guide](../../../cli/guides/ms-logging.md) for details.
+
+To change the default log level for a service, use Realm Config. Go to the Realm Config page of the Portal and create a namespace called `"service_logs"`. Add an entry to that namespace for each service whose log level you want to change: the entry key is the name of the Microservice, and the value is one of `"verbose"`, `"debug"`, `"info"`, `"warn"`, `"error"`, or `"fatal"`.
+
+<figure markdown="span">
+  ![The service_logs namespace on the Portal Realm Config page, with a single entry keyed yourMicroservice set to the value verbose.](../../../media/imgs/service-logs-realm-config.png)
+  <figcaption>The service_logs namespace in Portal Realm Config</figcaption>
+</figure>
+
+Log levels are ordered: configuring a service with `"fatal"` shows only `"fatal"` messages, whereas configuring it with `"debug"` shows `"debug"` and every level above it (`"info"`, `"warn"`, `"error"`, and `"fatal"`).
+
+!!! tip
+	The request level sets the log level for all requests made to your service, but internal Beamable framework logs stay at a default level of `"info"`, so few system logs appear.
+
 ### Collaborative debugging
 This one is pretty unique to Beamable's Microservices.
 
