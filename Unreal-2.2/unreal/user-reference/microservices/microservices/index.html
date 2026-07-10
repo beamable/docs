@@ -1625,6 +1625,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#remote-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#collaborative-debugging" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -10588,6 +10599,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#remote-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#collaborative-debugging" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -10933,6 +10955,20 @@
 <div class="admonition info">
 <p class="admonition-title">Why no Deploy Editor UI?</p>
 <p>If there is enough demand for it, a deploy UI will be considered. However, deploying services is mostly done by engineers and CI/CD pipelines, and compiling and opening the UE Editor only to do this does not add enough value to the UE workflow.</p>
+</div>
+<h3 id="remote-logging">Remote logging<a class="headerlink" href="#remote-logging" title="Permanent link">¶</a></h3>
+<p>By default, a published Microservice logs at the <code>"info"</code> level. When you run a service locally, it logs at <code>"debug"</code>.</p>
+<p>For per-request control, go to the microservice section of the Portal and create a Log Config Rule for your service. This changes the log level dynamically based on which player calls the service or which route is invoked — for example, enabling <code>"debug"</code> logging only for a player who contacted your customer-support line. See the <a href="../../../../cli/guides/ms-logging/">Microservice Logging guide</a> for details.</p>
+<p>To change the default log level for a service, use Realm Config. Go to the Realm Config page of the Portal and create a namespace called <code>"service_logs"</code>. Add an entry to that namespace for each service whose log level you want to change: the entry key is the name of the Microservice, and the value is one of <code>"verbose"</code>, <code>"debug"</code>, <code>"info"</code>, <code>"warn"</code>, <code>"error"</code>, or <code>"fatal"</code>.</p>
+<figure>
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/service-logs-realm-config.png" data-desc-position="bottom"><img alt="The service_logs namespace on the Portal Realm Config page, with a single entry keyed yourMicroservice set to the value verbose." src="../../../../media/imgs/service-logs-realm-config.png"></a>
+<br>
+<figcaption>The service_logs namespace in Portal Realm Config</figcaption>
+</figure>
+<p>Log levels are ordered: configuring a service with <code>"fatal"</code> shows only <code>"fatal"</code> messages, whereas configuring it with <code>"debug"</code> shows <code>"debug"</code> and every level above it (<code>"info"</code>, <code>"warn"</code>, <code>"error"</code>, and <code>"fatal"</code>).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The request level sets the log level for all requests made to your service, but internal Beamable framework logs stay at a default level of <code>"info"</code>, so few system logs appear.</p>
 </div>
 <h3 id="collaborative-debugging">Collaborative debugging<a class="headerlink" href="#collaborative-debugging" title="Permanent link">¶</a></h3>
 <p>This one is pretty unique to Beamable's Microservices.</p>
