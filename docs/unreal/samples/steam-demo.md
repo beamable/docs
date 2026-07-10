@@ -39,9 +39,9 @@ Next, configure a Beamable realm to use it:
 3. Go to the Portal and set aside your realm's PID and Realm Secret (`Games -> YourGame -> steam-demo`)
 4. On the Portal open the Realm Config page of the `steam-demo` realm (`Operate -> Config`)
 5. Hit the `Add Config` button
-6. Set the following key-value pairs for the namespace `steam`:
-   1. `appid -> Your Steam application ID`
-   2. `key -> Your Steam Application Publisher Key`
+6. Set the following key-value pairs for the namespace `"steam"`:
+   1. `"appid"` -> Your Steam application ID
+   2. `"key"` -> Your Steam Application Publisher Key
 7. Compile and open the `BeamableUnreal` editor (it will be configured as the `BEAMPROJ_SteamDemo`) project
 8. Sign into your Beamable account and go to the `steam-demo` realm
 	1. Hit `Apply to Build`
