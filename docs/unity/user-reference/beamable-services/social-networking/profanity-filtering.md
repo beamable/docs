@@ -46,11 +46,14 @@ not report which words caused the verdict, masking with this provider is
 all-or-nothing: a flagged chat message is replaced entirely by the censor
 mask (default `***`) rather than having individual words censored.
 
-The provider degrades gracefully. If the moderation endpoint is
-unreachable, returns an error, or no API key is configured, text passes
-through unfiltered rather than failing the player's request. A moderation
-outage therefore never breaks chat, group updates, or registration; it
-only suspends filtering until the provider recovers.
+Provider failures are surfaced rather than silently ignored. If the
+moderation endpoint is unreachable, returns an error, or no API key is
+configured, the moderated request fails with an HTTP 500 error whose
+message names the cause (for example, `OpenAI Moderation API responded
+with 503 Service Unavailable`). Players can simply retry. If the provider
+outage is persistent, set `"provider"` to `"none"` in Realm Config to
+restore the affected flows (unfiltered) until the issue is resolved; the
+change takes effect without a redeploy.
 
 ### Local provider
 
