@@ -58,6 +58,6 @@ Most Federations are inside complex application paths. Therefore, you need a way
 The selected [Microservice Target](../microservices/microservices.md#microservice-routing-and-microservice-target) defines which running microservice instance will handle the federated call. These get the same semantics as `Callables` routing. If any Federation does not support or requires additional configuration for local testing, it will be specified in their documentation.
 
 !!! warning "What about PROD?!"
-	By default, production realm disallows ***any and all routing to microservices that are not the deployed ones***. In other words, if you run a local microservice while in a Prod realm, by default, it CANNOT steal any traffic from the service that is deployed.
+	By default, production realm disallows ***any and all routing to microservices that are not the deployed ones***. In other words, if you run a local microservice while in a production realm, by default, it CANNOT steal any traffic from the service that is deployed.
 
 ![The Beamable Editor panel's Microservices tab listing local microservices on the left and, for the selected BeamballMs, a Run Local button plus PIE Settings, Federations, and Dependencies sections.](../../../media/imgs/editor-ms.png)
