@@ -43,7 +43,7 @@ Before publishing, there are some configurations that can affect how your leader
  - **Cohort Settings**: Specifies criteria for grouping players together
 
 
-### Assign player to leaderboard
+### Assigning a player to a leaderboard
 
 There are two ways to assign a player to a leaderboard:
 
