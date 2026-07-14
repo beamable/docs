@@ -9793,12 +9793,12 @@
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can configure Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>--version
 dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>In order to configure a Microservice, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>init<span class="w"> </span>MyProject
 <span class="nb">cd</span><span class="w"> </span>MyProject
@@ -9879,7 +9879,7 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="authorization">Authorization<a class="headerlink" href="#authorization" title="Permanent link">¶</a></h3>
 <p>Finally, while not required, we recommend sending an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cat<span class="w"> </span>.beamable/temp/auth.beam.json
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cat<span class="w"> </span>.beamable/temp/auth.beam.json
 </code></pre></div></td></tr></tbody></table></div>
 <p>Beamable does not require that any access token be provided via an authorization header. However, if an authorization header is provided, then Beamable will decorate the request with account information before the request is forwarded to the Microservice. The Microservice itself may enforce the account details to have minimal access permissions. These constraints vary based on the type of <code>[Callable]</code> attribute you use.</p>
 <p>The account information is accessible via the <code>Context.UserId</code> property when executing the <code>[Callable]</code> method.</p>
@@ -9915,11 +9915,11 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 <p>You should be using the Beamable SDK in your Unity projects that use Standalone Microservices. Otherwise, there will be many compile errors as the Beamable SDK is not available.</p>
 </div>
 <p>Microservices can automatically generate client code for the Unity game engine. First, link a Unity project to the <code>.beamable/</code> workspace using the project add-unity-project command.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>add-unity-project<span class="w"> </span>&lt;relative-path-to-unity-project&gt;
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>add-unity-project<span class="w"> </span>&lt;relative-path-to-unity-project&gt;
 </code></pre></div></td></tr></tbody></table></div>
 <p>Provide the relative path to the Unity project. If it is not right, the CLI will offer an explorative search flow to identify a valid Unity project.</p>
 <p>After the command has run, there will be a <code>.beamable/linked-projects.json</code> file. You can review it to double check your project has been added correctly.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -9947,7 +9947,7 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 <p>The automatic client code generation can be disabled when a project builds by modifying the <code>&lt;GenerateClientCode&gt;</code> option. Learn more in the <a href="../ms-configuration/#generateclientcode">configuration guide</a>.</p>
 <h3 id="open-api">Open API<a class="headerlink" href="#open-api" title="Permanent link">¶</a></h3>
 <p>You can use the project oapi command to generate an Open API document and then use open source tools to transpile the document into a client in some other programming language.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>oapi<span class="w"> </span>--output<span class="w"> </span>example.json<span class="w"> </span>--ids<span class="w"> </span>MyService
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>oapi<span class="w"> </span>--output<span class="w"> </span>example.json<span class="w"> </span>--ids<span class="w"> </span>MyService
 </code></pre></div></td></tr></tbody></table></div>
 <p>In fact, that command can baked into the Microservice's <code>.csproj</code> file with a custom build target. This requires that the <code>&lt;SolutionDir&gt;</code> property is set, which only happens when you run the project from the IDE. See the generate-props command to extend the <code>&lt;SolutionDir&gt;</code> property outside of IDE use cases.
 </p><div class="language-xml highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -9957,7 +9957,7 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 <span class="nt">&lt;/Target&gt;</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>Then, you can use the open source <a href="https://openapi-generator.tech/docs/generators/javascript/">Open API Generator</a> to build a local javascript client. This snippet uses docker to interact with the generator tool, but you can also use <code>npm</code>.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -9968,7 +9968,7 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 <span class="w">    </span>-o<span class="w"> </span>/local/out/js
 </code></pre></div></td></tr></tbody></table></div>
 <p>In this example, use <code>browserify</code> to convert the generated client code into a valid browser script.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>browserify
 browserify<span class="w"> </span>./dist/index.js<span class="w"> </span>--standalone<span class="w"> </span>helloWorld<span class="w"> </span>&gt;<span class="w"> </span>../../app/bundle.js
 </code></pre></div></td></tr></tbody></table></div><p></p>

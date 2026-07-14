@@ -9757,7 +9757,7 @@ someOtherFolder
 <h2 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">¶</a></h2>
 <p>From any folder, you can run the <a href="../../commands/cli-command-reference/config/config/">beam config</a> command to print information about your current Beamable folder.</p>
 <p>In the example directory structure above, if the <code>beam config</code> command was invoked from the <code>mainFolder</code>, it would log information about the <code>mainFolder/.beamable/</code> folder.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -9772,7 +9772,7 @@ someOtherFolder
 <span class="w"> </span><span class="o">}</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>However, if the <code>beam config</code> command was invoked from the <code>someOtherFolder</code> path, you should expect to see an error, because there is no <code>.beamable/</code> folder within the parent lineage.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>

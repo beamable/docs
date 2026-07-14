@@ -9873,7 +9873,7 @@
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can deploy Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>--version
@@ -9882,10 +9882,10 @@ beam<span class="w"> </span>version
 <span class="c1"># "dotnet beam version" when using the CLI with an engine integration</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>To deploy, you also need to have <a href="https://www.docker.com/products/docker-desktop/">Docker</a> installed. You can verify it is installed correctly by using the <code>--version</code> command.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>--version
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>--version
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>In order to deploy a Microservice, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below (Unity/Unreal engine integrations will do this for you).
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>init<span class="w"> </span>MyProject
 <span class="nb">cd</span><span class="w"> </span>MyProject
@@ -9915,7 +9915,7 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w">
 <p><strong>The command WILL NOT validate the services are booting up correctly by default.</strong> It assumes that you have tested your service locally before deploying it. However, you can pass in the <code>--health</code>  argument to make the command, run the built services locally and wait for the service to start responding to health check API calls. This takes longer, but guarantees that the services <em>at least starts up</em>. This is especially useful if you are using the <code>[ConfigureServices]</code> and/or <code>[InitializeServices]</code> attributes to modify the service boot process.</p>
 <p>After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local <em>service manifest</em> is built implicitly from configurations inside your project. The built plan is there to inform you about the changes you will be making (enabling/disabling existing services, adding new services) if you decide to <code>deploy release</code> it.</p>
 <p>As an example, here is the output from a <code>deploy plan</code> invocation from inside the <code>UnrealSDK</code> project.
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+</p><div class="language-console highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -9954,46 +9954,46 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w">
 <span class="normal">37</span>
 <span class="normal">38</span>
 <span class="normal">39</span>
-<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code>$ dotnet beam deploy plan
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gp">$ </span>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>plan
 
-      fetching latest ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
-build DiscordSampleMs ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
-  build LiveOpsDemoMS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
-   build MSPlayground ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
-      build SteamDemo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
-     calculating plan ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+<span class="go">      fetching latest ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%</span>
+<span class="go">build DiscordSampleMs ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%</span>
+<span class="go">  build LiveOpsDemoMS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%</span>
+<span class="go">   build MSPlayground ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%</span>
+<span class="go">      build SteamDemo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%</span>
+<span class="go">     calculating plan ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%</span>
 
-Adding 5 services
- - DiscordSampleMs
- - LiveOpsDemoMS
- - MSPlayground
- - SteamDemo
-
-
-Enabling 3 federations
- - DiscordSampleMs [IFederatedLogin/discord]
- - SteamDemo [IFederatedLogin/steam]
+<span class="go">Adding 5 services</span>
+<span class="go"> - DiscordSampleMs</span>
+<span class="go"> - LiveOpsDemoMS</span>
+<span class="go"> - MSPlayground</span>
+<span class="go"> - SteamDemo</span>
 
 
-Adding 1 storage
- - DBPlayground
+<span class="go">Enabling 3 federations</span>
+<span class="go"> - DiscordSampleMs [IFederatedLogin/discord]</span>
+<span class="go"> - SteamDemo [IFederatedLogin/steam]</span>
 
 
-Uploading 5 services
- - MSPlayground
- - LiveOpsDemoMS
- - SteamDemo
- - DiscordSampleMs
+<span class="go">Adding 1 storage</span>
+<span class="go"> - DBPlayground</span>
 
 
-Local Health-checks were not run! Services may work as expected, but they have not been explicitly tested locally.
-Consider re-running a plan command with the `--health` option.
+<span class="go">Uploading 5 services</span>
+<span class="go"> - MSPlayground</span>
+<span class="go"> - LiveOpsDemoMS</span>
+<span class="go"> - SteamDemo</span>
+<span class="go"> - DiscordSampleMs</span>
 
-This plan has 14 pending changes!
 
-To release, use `dotnet beam deploy release --plan E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json`
+<span class="go">Local Health-checks were not run! Services may work as expected, but they have not been explicitly tested locally.</span>
+<span class="go">Consider re-running a plan command with the `--health` option.</span>
 
-Saved plan: E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json
+<span class="go">This plan has 14 pending changes!</span>
+
+<span class="go">To release, use `dotnet beam deploy release --plan E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json`</span>
+
+<span class="go">Saved plan: E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>As you can see from the example, every <code>plan</code> invocation creates a <code>timestamp.plan.json</code> file inside your <code>.beamable/temp/plans</code> folder.</p>
 <h4 id="merge-and-replace-plans">Merge and replace plans<a class="headerlink" href="#merge-and-replace-plans" title="Permanent link">¶</a></h4>
@@ -10141,19 +10141,19 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 <h3 id="local-docker-testing-and-debugging">Local Docker testing and debugging<a class="headerlink" href="#local-docker-testing-and-debugging" title="Permanent link">¶</a></h3>
 <p>The recommended developer workflow is to run your micro services using .NET. However, because deployments are running within a container, it may be beneficial to validate that your services work in Docker before deploying them (especially if you have made changes to the default <code>Dockerfile</code>).</p>
 <p>To validate your Docker services, use the <code>--docker-compose-dir</code> option for the <code>beam deploy plan</code> command. The <code>plan</code> command will generate a <a href="https://docs.docker.com/compose/">docker compose</a> project directory at the given path. The project will have all of your enabled services and storages.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>plan<span class="w"> </span>--docker-compose-dir<span class="w"> </span>example
 <span class="nb">cd</span><span class="w"> </span>example
 docker<span class="w"> </span>compose<span class="w"> </span>up
 </code></pre></div></td></tr></tbody></table></div>
 <p>You can validate that your services are running in docker using project ps or by using Docker directly.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>ps
 docker<span class="w"> </span>ps
 </code></pre></div></td></tr></tbody></table></div>
 <p>After you are done testing, you can use Docker directly to stop all the containers, or your can use <code>docker compose down</code>.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>down
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>down
 </code></pre></div></td></tr></tbody></table></div>
 <p>Please note that when validating docker containers this way, the resulting docker compose project is built to mirror the deployed environment, so your services will start up 10 connections to Beamable.</p>
 <p>You have full control over the docker-compose file, so if you want to set up persistent storage objects via docker volumes, or set up mongo-express, please reference the Mongo <a href="https://hub.docker.com/_/mongo">documentation</a>.</p>

@@ -9694,13 +9694,13 @@
 <p>Before you can use Distribute a Microservice with UPM, you need to complete the
 <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>--version
 dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># beam --version also works.</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>You also need to have a local <code>.beamable/</code> workspace with a Beamable
 Standalone Microservice. As a reminder, you can create one quickly using the commands below.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>init<span class="w"> </span>Project
 <span class="nb">cd</span><span class="w"> </span>Project
@@ -9789,7 +9789,7 @@ asmdef</code> (replace <code>"Service"</code> with your service name), and paste
 <li>Now you are ready to generate the client code. To do this, run the
    following command <strong>AFTER</strong> building your Microservice. This command
    should be run from the <code>/services~/Service</code> folder.
-   <div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>generate-client<span class="w"> </span>./bin/Debug/net8.0/Service.dll<span class="w"> </span>--output-links<span class="w"> </span>--output-path-hints<span class="w"> </span><span class="s2">"Service=Runtime/Client/ServiceClient.cs"</span><span class="w"> </span>--logs<span class="w"> </span>v
+   <div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>generate-client<span class="w"> </span>./bin/Debug/net8.0/Service.dll<span class="w"> </span>--output-links<span class="w"> </span>--output-path-hints<span class="w"> </span><span class="s2">"Service=Runtime/Client/ServiceClient.cs"</span><span class="w"> </span>--logs<span class="w"> </span>v
 </code></pre></div></td></tr></tbody></table></div></li>
 <li>You need to create a <code>package.json</code> file. Place it next to the <code>/Assets</code>
    folder in the Microservice project.

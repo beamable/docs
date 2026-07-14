@@ -9694,12 +9694,12 @@
 <p>This guide assumes you have an existing Microservice. You need to complete the
 <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed by checking the versions of the tools.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>--version
 dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>In order to emit analytics events, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>init<span class="w"> </span>MyProject
 <span class="nb">cd</span><span class="w"> </span>MyProject
