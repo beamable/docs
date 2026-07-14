@@ -7,13 +7,13 @@ Add database storage to Beamable Standalone Microservices
 Before you can use Beamable Storage Objects, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
-```sh
+```shell
 dotnet --version
 dotnet beam version # dotnet beam --version also works.
 ```
 
 In order to use a Storage Object, you also need to have a local `.beamable/` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
-```sh
+```shell
 beam init MyProject
 cd MyProject
 dotnet beam project new service HelloWorld
@@ -25,7 +25,7 @@ A Storage Object is a MongoDB database. Beamable will host and manage a database
 
 To create a Storage Object, use the [project new storage](ms-workflow.md#creating-new-projects) command.
 
-```sh
+```shell
 dotnet beam project new storage
 ```
 

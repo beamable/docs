@@ -7,7 +7,7 @@ Managing Microservices from the CLI
 Before you can manage Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
-```sh
+```shell
 dotnet --version
 dotnet beam version   # dotnet beam --version also works.
 ```
@@ -18,7 +18,7 @@ New Microservices, Storages, and Common projects can be created within an existi
 
 Use the `beam project new` commands to create new projects.
 
-```sh
+```shell
 dotnet beam project new service <name> # create a new Microservice
 dotnet beam project new storage <name> # create a new Storage
 dotnet beam project new common-lib <name> # create a new Common Library
@@ -32,7 +32,7 @@ Projects will be created in the `BeamableServices/services/` directory by defaul
 
 Once there is a Microservice in your `.beamable/` workspace, you can check for its existence by running the project list command. It will return services detected in your workspace.
 
-```sh
+```shell
 MyProject % dotnet beam project list
  {
     "localServices": [
@@ -55,7 +55,7 @@ Microservices can be run in several ways,
 
 The project run command will turn on a service.
 
-```sh
+```shell
 dotnet beam project run --ids HelloWorld
 ```
 
@@ -65,7 +65,7 @@ Optionally, you can enable hot-reload by passing the `-w` flag.
 
 You can use the `project ps` command to check for _running_ services. If you run the command while no services are running, the output will be empty. However, if the command is executed while a Microservice is running, then it will be displayed.
 
-```sh
+```shell
 MyProject % dotnet beam project ps
 HelloWorld is available prefix=[Chriss-MacBook-Pro-2] docker=[False]
 ```
@@ -78,14 +78,14 @@ Optionally, you can pass the `-w` flag to watch for changes to running services.
 
 If a service is running, then the project stop command may be used to stop the program. If the service is not running, then the command will have no output. However, if the service is running, it will log a stop message.
 
-```sh
+```shell
 MyProject % dotnet beam project stop --ids HelloWorld
 stopped HelloWorld.
 ```
 
 When a service is stopped this way, you should expect to see a log in the Microservice itself,
 
-```
+```text
 [Info] Stopping service through debug-server due to reason=[cli-request]
 ```
 
@@ -95,13 +95,13 @@ When a service is run, the process that starts the service should receive the lo
 
 For example, imagine that a service is run through `dotnet` directly,
 
-```sh
+```shell
 dotnet dotnet run --project services/HelloWorld
 ```
 
 Then, in a separate terminal window, the project logs command can be used to tail the logs.
 
-```sh
+```shell
 MyProject % dotnet beam project logs HelloWorld
 [Debug] Skipped get_ServiceProvider
 [Debug] Skipped ProvideContext
