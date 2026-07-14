@@ -54,10 +54,10 @@ Once the console overlay is open, the following shortcuts are active:
 
 ## Running commands
 
-Type a command and press `Enter`. The console echoes the command, runs it, and appends the result to the output log.
+Type a command and press `Enter`. The console echoes the command prefixed with `>` and runs it. Status messages appear in the Admin Console output, but a command's detailed result may be written to the Unity Console log instead, depending on how the command logs.
 
 Example:
-```
+```text
 > account_list
 ```
 
@@ -65,7 +65,7 @@ Example:
 
 Use the `help` command to list every registered command and its usage:
 
-```
+```text
 > help
 ```
 

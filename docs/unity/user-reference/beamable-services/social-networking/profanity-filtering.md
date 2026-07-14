@@ -96,7 +96,7 @@ Beyond the automatic checks, the chat service exposes an endpoint that
 asserts a piece of text is clean. It returns `{"result": "ok"}` for clean
 text and an HTTP 400 error for flagged text:
 
-```
+```text
 GET /basic/chat/profanityAssert?text=<text to check>
 ```
 

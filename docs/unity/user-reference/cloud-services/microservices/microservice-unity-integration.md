@@ -200,7 +200,7 @@ Before you start the service, choose a non-production realm.
 
 Back in Unity, in the _Beam Services_ window, press the play button to start the service. You can also run the service directly from your IDE using the IDE's play or debugging buttons. Log messages will appear in the _Beam Services_ window, and eventually when the service has successfully initialized, this log message will appear.
 
-```
+```text
 Service ready for traffic
 ```
 

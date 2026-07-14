@@ -39,7 +39,7 @@ This guide provides step-by-step instructions to set up Google Sign-In with Beam
 **Record the KeyStore SHA-1 Fingerprint**
 
    - Open a terminal where you created the keystore and run:
-   ```bash
+   ```shell
    keytool -list -v -keystore <your.keystore>
    ```
    - Look for the SHA-1 fingerprint in the output and save it
@@ -94,7 +94,7 @@ Beamable's Google Sign-In integration requires `play-services-auth` in your Andr
 - Look for the `dependencies` block
 - Add `play-services-auth` as shown below:
 
-```gradle
+```groovy
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.google.android.gms:play-services-auth:21.5.0'
