@@ -9,7 +9,7 @@ Beamable offers a rich microservice development workflow using the Beam CLI and 
 Before you can develop a Beamable Standalone Microservice, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
-```sh
+```shell
 dotnet --version
 dotnet beam version # dotnet beam --version also works.
 ```
@@ -19,14 +19,14 @@ dotnet beam version # dotnet beam --version also works.
 
 Standalone Microservices require a `.beamable/` workspace, so you either need to create one with [beam init](../commands/cli-command-reference/init.md), or use an existing one.
 
-```sh
+```shell
 dotnet beam init MyProject
 cd MyProject
 ```
 
 Once you have a `.beamable/` workspace, you can create a new Standalone Microservice using the [project new](ms-workflow.md#creating-new-projects) command.
 
-```sh
+```shell
 # run this inside your .beamable workspace
 dotnet beam project new service HelloWorld
 ```
@@ -40,7 +40,7 @@ Congratulations, you have a local Beamable Standalone Microservice! To run it, y
 
 However you decide to run the project, you should see a stream of logs similar to the snippet below,
 
-```
+```text
 13:25:33.077 [DBUG] Service provider initialized
 13:25:33.307 [DBUG] Event provider initialized
 13:25:33.308 [INFO] Service ready for traffic.baseVersion=2.0.0-PREVIEW.RC2 executionVersion= portalURL=https://portal.beamable.com/cid/games/DE_1751365810229268/realms/pid/microservices/HelloWorld/docs?refresh_token=redacted&prefix=redacted
@@ -49,7 +49,7 @@ However you decide to run the project, you should see a stream of logs similar t
 
 The service is running! You can send requests to the service over HTTP. To verify, you can open the local Open API documentation by using the project open-swagger command.
 
-```sh
+```shell
 dotnet beam project open-swagger
 ```
 
@@ -67,7 +67,7 @@ Click on the last green button that says, "`POST` /Add", and then select the "Tr
 ```
 And then click the Execute button! In your Standalone Microservice project, you should see some logs appear indicating the service was invoked.
 
-```
+```text
 13:30:18.945 [DBUG] Handling Add
 ```
 

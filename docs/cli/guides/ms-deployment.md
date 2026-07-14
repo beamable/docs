@@ -7,7 +7,7 @@ Deploy Standalone Microservices to the Beamable Cloud
 Before you can deploy Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
-```sh
+```shell
 dotnet --version
 beam version
 # "beam --version" also works
@@ -15,12 +15,12 @@ beam version
 ```
 
 To deploy, you also need to have [Docker](https://www.docker.com/products/docker-desktop/) installed. You can verify it is installed correctly by using the `--version` command.
-```sh
+```shell
 docker --version
 ```
 
 In order to deploy a Microservice, you also need to have a local `.beamable/` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below (Unity/Unreal engine integrations will do this for you).
-```sh
+```shell
 dotnet beam init MyProject
 cd MyProject
 dotnet beam project new service HelloWorld
@@ -52,7 +52,7 @@ The `deploy plan` command validates that your Standalone Microservice can be bui
 After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local _service manifest_ is built implicitly from configurations inside your project. The built plan is there to inform you about the changes you will be making (enabling/disabling existing services, adding new services) if you decide to `deploy release` it.
 
 As an example, here is the output from a `deploy plan` invocation from inside the `UnrealSDK` project.
-```
+```console
 $ dotnet beam deploy plan
 
       fetching latest ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
@@ -222,7 +222,7 @@ The recommended developer workflow is to run your micro services using .NET. How
 
 To validate your Docker services, use the `--docker-compose-dir` option for the `beam deploy plan` command. The `plan` command will generate a [docker compose](https://docs.docker.com/compose/) project directory at the given path. The project will have all of your enabled services and storages.
 
-```sh
+```shell
 dotnet beam deploy plan --docker-compose-dir example
 cd example
 docker compose up
@@ -230,14 +230,14 @@ docker compose up
 
 You can validate that your services are running in docker using project ps or by using Docker directly.
 
-```sh
+```shell
 dotnet beam project ps
 docker ps
 ```
 
 After you are done testing, you can use Docker directly to stop all the containers, or your can use `docker compose down`.
 
-```sh
+```shell
 docker compose down
 ```
 
@@ -266,7 +266,7 @@ When you do that, the service will not start — but the container will look exa
 
     If you are on a Mac with the apple silicon processors (M1, M2, etc) the following error might occur when deploying C# Microservices. In that case, make sure that the `Use Rosetta for emulation on Apple Silicon` is disabled in your Docker settings.
 
-    ```
+    ```text
     assertion failed [block != nullptr]: BasicBlock requested for unrecognized address
     (BuilderBase.h:550 block_for_offset)
     ```
