@@ -87,7 +87,7 @@ For all the following examples, we assume that the export type is set as **List*
 **Basic Object**
 
 **Input:**
-```
+```text
 symbol | data | other_data
 A2     | B2   | C2
 A3     | B3   | C3
@@ -117,7 +117,7 @@ A3     | B3   | C3
 To write a comment, or have an empty row for whatever reason, just add a '#' to the start of the row. This will tell the exporter to act like the row does not even exist.
 
 **Input:**
-```
+```text
 symbol | data | other_data
 A2     | B2   | C2
 #      |      |
@@ -150,7 +150,7 @@ Adding a dot '.' to a path, creates a more complex object. Multiple columns can 
 These can be as deep as needed.
 
 **Input:**
-```
+```text
 symbol | data | object.one | object.two | deep.foo | deep.child.bar | deep.child.delta
 A2     | B2   | C2         | D2         | E2       | F2             | G2
 A3     | B3   | C3         | D3         | E3       | F3             | G3
@@ -230,7 +230,7 @@ In the end, GCD generates properly formatted JSON. It does not prescribe a deliv
 For example, here is a Google Sheet with GCD used to configure the following data set:
 
 **Input:**
-```
+```text
 Weapons[].Name | Weapons[].Damage
 Sword          | 20
 Dagger         | 5

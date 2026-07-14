@@ -409,7 +409,7 @@ Each content JSON file contains a `referenceManifestId` representing its last sy
 
 The SDK adds the following entries to `.beamable/.gitignore`:
 
-```
+```text
 temp/**/*
 local/**/*
 ```
