@@ -7,4 +7,5 @@
 - [Matchmaking](matchmaking.md)
 - [Multiplayer](multiplayer.md)
 - [Parties](parties.md)
+- [Profanity Filtering](profanity-filtering.md)
 - [Tournaments](tournaments.md)
