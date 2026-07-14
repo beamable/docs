@@ -9781,7 +9781,7 @@
 <p><strong>Record the KeyStore SHA-1 Fingerprint</strong></p>
 <ul>
 <li>Open a terminal where you created the keystore and run:
-   <div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>keytool<span class="w"> </span>-list<span class="w"> </span>-v<span class="w"> </span>-keystore<span class="w"> </span>&lt;your.keystore&gt;
+   <div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>keytool<span class="w"> </span>-list<span class="w"> </span>-v<span class="w"> </span>-keystore<span class="w"> </span>&lt;your.keystore&gt;
 </code></pre></div></td></tr></tbody></table></div></li>
 <li>Look for the SHA-1 fingerprint in the output and save it</li>
 <li>If you do not have <code>keytool</code> installed, follow <a href="https://stackoverflow.com/questions/5488339/how-can-i-find-and-run-the-keytool">the instructions for finding and running keytool</a> after installing Java on your machine</li>
@@ -9829,15 +9829,15 @@
 <li>Look for the <code>dependencies</code> block</li>
 <li>Add <code>play-services-auth</code> as shown below:</li>
 </ul>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="language-groovy highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.google.android.gms:play-services-auth:21.5.0'
-    **DEPS**
-}
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">dependencies</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">implementation</span><span class="w"> </span><span class="n">fileTree</span><span class="o">(</span><span class="nl">dir:</span><span class="w"> </span><span class="s1">'libs'</span><span class="o">,</span><span class="w"> </span><span class="nl">include:</span><span class="w"> </span><span class="o">[</span><span class="s1">'*.jar'</span><span class="o">])</span>
+<span class="w">    </span><span class="n">implementation</span><span class="w"> </span><span class="s1">'com.google.android.gms:play-services-auth:21.5.0'</span>
+<span class="w">    </span><span class="o">**</span><span class="n">DEPS</span><span class="o">**</span>
+<span class="o">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <hr>
 <h3 id="additional-ios-setup">Additional iOS setup<a class="headerlink" href="#additional-ios-setup" title="Permanent link">¶</a></h3>

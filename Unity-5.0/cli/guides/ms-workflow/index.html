@@ -9523,14 +9523,14 @@
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can manage Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>--version
 dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w">   </span><span class="c1"># dotnet beam --version also works.</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <h2 id="creating-new-projects">Creating new projects<a class="headerlink" href="#creating-new-projects" title="Permanent link">¶</a></h2>
 <p>New Microservices, Storages, and Common projects can be created within an existing <code>.beamable/</code> workspace.</p>
 <p>Use the <code>beam project new</code> commands to create new projects.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>&lt;name&gt;<span class="w"> </span><span class="c1"># create a new Microservice</span>
 dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>storage<span class="w"> </span>&lt;name&gt;<span class="w"> </span><span class="c1"># create a new Storage</span>
@@ -9540,7 +9540,7 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 <p>Projects will be created in the <code>BeamableServices/services/</code> directory by default.</p>
 <h2 id="finding-microservices">Finding Microservices<a class="headerlink" href="#finding-microservices" title="Permanent link">¶</a></h2>
 <p>Once there is a Microservice in your <code>.beamable/</code> workspace, you can check for its existence by running the project list command. It will return services detected in your workspace.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -9568,12 +9568,12 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 2. using <code>dotnet</code> commands directly, or
 3. using <code>beam</code> commands</p>
 <p>The project run command will turn on a service.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>run<span class="w"> </span>--ids<span class="w"> </span>HelloWorld
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>run<span class="w"> </span>--ids<span class="w"> </span>HelloWorld
 </code></pre></div></td></tr></tbody></table></div>
 <p>Optionally, you can enable hot-reload by passing the <code>-w</code> flag.</p>
 <h2 id="checking-running-microservices">Checking running Microservices<a class="headerlink" href="#checking-running-microservices" title="Permanent link">¶</a></h2>
 <p>You can use the <code>project ps</code> command to check for <em>running</em> services. If you run the command while no services are running, the output will be empty. However, if the command is executed while a Microservice is running, then it will be displayed.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>MyProject<span class="w"> </span>%<span class="w"> </span>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>ps
 HelloWorld<span class="w"> </span>is<span class="w"> </span>available<span class="w"> </span><span class="nv">prefix</span><span class="o">=[</span>Chriss-MacBook-Pro-2<span class="o">]</span><span class="w"> </span><span class="nv">docker</span><span class="o">=[</span>False<span class="o">]</span>
 </code></pre></div></td></tr></tbody></table></div>
@@ -9581,7 +9581,7 @@ HelloWorld<span class="w"> </span>is<span class="w"> </span>available<span class
 <p>Optionally, you can pass the <code>-w</code> flag to watch for changes to running services.</p>
 <h2 id="stopping-services">Stopping services<a class="headerlink" href="#stopping-services" title="Permanent link">¶</a></h2>
 <p>If a service is running, then the project stop command may be used to stop the program. If the service is not running, then the command will have no output. However, if the service is running, it will log a stop message.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>MyProject<span class="w"> </span>%<span class="w"> </span>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>stop<span class="w"> </span>--ids<span class="w"> </span>HelloWorld
 stopped<span class="w"> </span>HelloWorld.
 </code></pre></div></td></tr></tbody></table></div>
@@ -9591,10 +9591,10 @@ stopped<span class="w"> </span>HelloWorld.
 <h2 id="observing-logs">Observing logs<a class="headerlink" href="#observing-logs" title="Permanent link">¶</a></h2>
 <p>When a service is run, the process that starts the service should receive the log outputs. For example, if the service is run through the IDE, then the IDE should receive the logs from the service. However, you can attach to the logs of a running service from a separate process.</p>
 <p>For example, imagine that a service is run through <code>dotnet</code> directly,</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>dotnet<span class="w"> </span>run<span class="w"> </span>--project<span class="w"> </span>services/HelloWorld
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>dotnet<span class="w"> </span>run<span class="w"> </span>--project<span class="w"> </span>services/HelloWorld
 </code></pre></div></td></tr></tbody></table></div>
 <p>Then, in a separate terminal window, the project logs command can be used to tail the logs.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>MyProject<span class="w"> </span>%<span class="w"> </span>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>logs<span class="w"> </span>HelloWorld

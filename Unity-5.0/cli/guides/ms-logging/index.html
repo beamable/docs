@@ -9627,12 +9627,12 @@
 [Getting-Started Guide]
 (getting-started.md). That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>--version
 dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>In order to configure a Microservice, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>init<span class="w"> </span>MyProject
 <span class="nb">cd</span><span class="w"> </span>MyProject
@@ -9978,7 +9978,7 @@ number is even!
 <p>Starting with version 6.0, you can send Microservice logs to third-party log hosting services. This example uses BetterStack.</p>
 <p>This section will assume you have set up a BetterStack account, and created a <em>Source</em> such that you have a <em>source token</em> and an <em>ingesting host</em>.</p>
 <p>First, configure locally running Microservices to send data to BetterStack. Create a file called <code>config.yaml</code> next to your <code>BeamableServices.sln</code> file.</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="language-yaml highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -10004,40 +10004,40 @@ number is even!
 <span class="normal">24</span>
 <span class="normal">25</span>
 <span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>receivers:
-  otlp:
-    protocols:
-      grpc:
-        endpoint: 0.0.0.0:4317
-      http:
-        endpoint: 0.0.0.0:4318
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">receivers</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">otlp</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">protocols</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">grpc</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:4317</span>
+<span class="w">      </span><span class="nt">http</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:4318</span>
 
-processors:
-  batch:
+<span class="nt">processors</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">batch</span><span class="p">:</span>
 
-exporters:
-  otlphttp/betterstack:
-    endpoint: "${env:BETTERSTACK_ENDPOINT}"
-    headers:
-      Authorization: "${env:BETTERSTACK_AUTH}"
+<span class="nt">exporters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">otlphttp/betterstack</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="s">"${env:BETTERSTACK_ENDPOINT}"</span>
+<span class="w">    </span><span class="nt">headers</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">Authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"${env:BETTERSTACK_AUTH}"</span>
 
-service:
-  pipelines:
-    metrics/betterstack:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [otlphttp/betterstack]
-    logs/betterstack:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [otlphttp/betterstack]
+<span class="nt">service</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">pipelines</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metrics/betterstack</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">receivers</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">otlp</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">processors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">batch</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">exporters</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">otlphttp/betterstack</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">logs/betterstack</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">receivers</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">otlp</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">processors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">batch</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">exporters</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">otlphttp/betterstack</span><span class="p p-Indicator">]</span>
 </code></pre></div></td></tr></tbody></table></div>
 <blockquote>
 <p>[!TIP]
 Learn more about this file by reading the <a href="https://opentelemetry.io/docs/collector/configuration/">documentation</a></p>
 </blockquote>
 <p>Prepare the following environment variables.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -10054,7 +10054,7 @@ Learn more about this file by reading the <a href="https://opentelemetry.io/docs
 <span class="nb">export</span><span class="w"> </span><span class="nv">BETTERSTACK_ENDPOINT</span><span class="o">=</span><span class="s2">"https://123.eu-nbg-2.betterstackdata.com"</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>Run the standard Open Telemetry collector in Docker,
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -10065,14 +10065,14 @@ Learn more about this file by reading the <a href="https://opentelemetry.io/docs
 <span class="w">    </span>ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.125.0
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>Now you have a locally running telemetry collector. Next, configure your local Microservice to <em>use</em> the collector. Prepare the following environment variables:</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_DISABLE_STANDARD_OTEL</span><span class="o">=</span><span class="m">1</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_OTEL_EXPORTER_OTLP_ENDPOINT</span><span class="o">=</span>http://127.0.0.1:4318
 <span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_OTEL_EXPORTER_OTLP_PROTOCOL</span><span class="o">=</span>HttpProtobuf
 </code></pre></div></td></tr></tbody></table></div>
 <p>Run the Microservice under the above environment, which will disable the standard Beamable collector, and route log traffic to the collector you just created in the previous step.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>run
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>run
 </code></pre></div></td></tr></tbody></table></div>
 <p>In a few moments, you should see log data appear in BetterStack.</p>
 <hr>
@@ -10218,7 +10218,7 @@ This sample hard-codes the BetterStack auth for simplicity. Better solutions for
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>Deploy the service
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>release
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>release
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <blockquote>
 <p>[!tip]

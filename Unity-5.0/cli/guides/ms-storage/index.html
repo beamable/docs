@@ -9435,12 +9435,12 @@
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can use Beamable Storage Objects, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>--version
 dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>In order to use a Storage Object, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
-</p><div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>init<span class="w"> </span>MyProject
 <span class="nb">cd</span><span class="w"> </span>MyProject
@@ -9449,7 +9449,7 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 <h2 id="storage-objects">Storage objects<a class="headerlink" href="#storage-objects" title="Permanent link">¶</a></h2>
 <p>A Storage Object is a MongoDB database. Beamable will host and manage a database on your behalf when you deploy your project. Locally, the Beam CLI creates a local mongo database inside a Docker container. Beamable never installs mongo directly on your host machine.</p>
 <p>To create a Storage Object, use the <a href="../ms-workflow/#creating-new-projects">project new storage</a> command.</p>
-<div class="language-sh highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>storage
+<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>storage
 </code></pre></div></td></tr></tbody></table></div>
 <p>This creates a new <code>.csproj</code> in your existing <code>.sln</code>. You will also be prompted to assign a reference between the Storage Object and some Microservices. A Storage Object cannot exist independently of a Microservice. When you specify a dependency between a Storage Object and a Microservice, Beamable knows to pass the connection credentials to the Microservice.</p>
 <p>When developing locally, anytime a Microservice that depends on a Storage Object starts, it will make sure the Docker container for the Storage Object is running. If there is no running container, it will start a container. This can take several seconds and it may appear the service is failing to start.</p>
