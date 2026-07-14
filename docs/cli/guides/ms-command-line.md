@@ -7,7 +7,7 @@ Passing output from the CLI to other processes
 Before you can use the Beamable CLI, you need to complete the [Getting-Started Guide](doc:cli-guide-getting-started). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
-```sh
+```shell
 dotnet --version
 dotnet beam version # dotnet beam --version also works.
 ```
@@ -30,7 +30,7 @@ The log levels are as follows,
 
 In order to set the log level, the full level name may be used (case insensitive), or simply the first letter of the level. For example, to use verbose logs, the following expression may be used.
 
-```sh
+```shell
 dotnet beam config --logs v
 ```
 
@@ -41,7 +41,7 @@ By default, the Beam CLI prints output in a variety of ways. Some commands will 
 
 The `--raw` flag will always print messages in JSON. The `--raw` message contains additional information than what may be printed for commands that already use JSON. For example, the `beam config` command prints JSON,
 
-```sh
+```shell
 dotnet beam config
  {
     "host": "https://api.beamable.com",
@@ -53,7 +53,7 @@ dotnet beam config
 
 However, when the `--raw` flag is given, the output becomes,
 
-```sh
+```shell
 dotnet beam config --raw
 {"ts":1716908373832,"type":"stream","data":{"host":"https://api.beamable.com","cid":"123","pid":"DE_123","configPath":"/Users/Test/MyProject/.beamable"}}
 ```
@@ -70,7 +70,7 @@ There are 3 top level parameters.
 
 When a Beam CLI command is piped into another process, the `--raw` flag is force enabled. For example, if `beam config` is piped into a file, then the contents of the file will be the `--raw` output.
 
-```sh
+```shell
 dotnet beam config > output.txt
 cat output.txt
 {"ts":1716908709811,"type":"stream","data":{"host":"https://api.beamable.com","cid":"123","pid":"DE_123","configPath":"/Users/Test/MyProject/.beamable"}}
@@ -79,7 +79,7 @@ cat output.txt
 A common workflow is to use the [JQ](https://jqlang.github.io/jq/download/) tool to navigate the piped `--raw` output. Below are some common examples.
 
 To pipe the `data` to a file, you can write:
-```sh
+```shell
 dotnet beam config | jq '.data' > output.txt
 cat output.txt
 {
@@ -91,14 +91,14 @@ cat output.txt
 ```
 
 To print only the `cid` value to console, you can write:
-```sh
+```shell
 dotnet beam config | jq '.data.cid'
 "123"
 ```
 
 Sometimes you need the unescaped JSON; the `fromjson` component of JQ can be used. To get the `cid` value without quotes:
 
-```sh
+```shell
 dotnet beam config | jq '.data.cid | fromjson'
 123
 
@@ -113,13 +113,13 @@ When the `--raw` flag is used, or a command is piped to a file, then the Standar
 
 To do so, pipe the Standard Error Buffer to a file. For example, the following expression will put the process logs into a file.
 
-```sh
+```shell
 dotnet beam config --logs v 2> test.txt
 ```
 
 The contents of the `test.txt` file contain the process logs, not the `--raw` output.
 
-```sh
+```shell
 cat test.txt
 Trying to get option=ConfigDirOption from Env Vars! Value Found=
 Using standard unix docker uri=[unix:/var/run/docker.sock]
@@ -133,7 +133,7 @@ The Beam CLI usually creates a temporary log file and emits verbose logs to the 
 
 When an error occurs, the output log should include a line similar to,
 
-```
+```text
 Logs at
   .beamable/temp/logs/beamCliLog.txt
 ```
