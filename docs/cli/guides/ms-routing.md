@@ -7,13 +7,13 @@ Configure Standalone Microservice routing and client generation
 Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
-```sh
+```shell
 dotnet --version
 beam version # beam --version also works.
 ```
 
 In order to configure a Microservice, you also need to have a local `.beamable` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
-```sh
+```shell
 beam init MyProject
 cd MyProject
 dotnet beam project new service HelloWorld
@@ -60,7 +60,7 @@ All microservice instances running on the Beamable cloud _do not_ register any r
 
 The format of the `X-BEAM-SERVICE-ROUTING-KEY` value should be a series of `<service>:<routingKey>` pairs, separated by commas. Here is an example of a routing key header value that routes two services,
 
-```
+```text
 serviceA:routingKeyA,serviceB:routingKeyB
 ```
 
@@ -75,7 +75,7 @@ var scope = cid + '.' + pid;
 
 Finally, while not required, it is important to send an HTTP authorization header in the form of a Bearer token. The bearer token should be a valid access token for a Beamable Player. These tokens can be fetched from the Portal, or you can use the following command to view the token information from a local beamable CLI project.
 
-```sh
+```shell
 cat .beamable/temp/connection-auth.json
 ```
 
@@ -99,7 +99,7 @@ The account information is accessible via the `Context.UserId` property when exe
 
 Microservices can automatically generate client code for the Unity game engine. First, a Unity project needs to be linked to the `.beamable` workspace. To do this, use the project add-unity-project command.
 
-```sh
+```shell
 dotnet beam project add-unity-project <relative-path-to-unity-project>
 ```
 
@@ -107,7 +107,7 @@ The given path should be the relative path to the Unity project. If it isn't rig
 
 After the command has run, there will be a `.beamable/linked-projects.json` file. You can review it to double check your project has been added correctly.
 
-```sh
+```shell
 MyProject % cat .beamable/linked-projects.json
 {
   "unityProjectsPaths": [
@@ -134,7 +134,7 @@ The automatic client code generation can be disabled when a project builds by mo
 
 It is possible to use the project oapi command to generate an Open API document and then use open source tools to transpile the document into a client in some other programming language.
 
-```sh
+```shell
 dotnet beam project oapi --output example.json --ids MyService
 ```
 
@@ -147,7 +147,7 @@ In fact, that command can baked into the Microservice's `.csproj` file with a cu
 
 Then, you can use the open source [Open API Generator](https://openapi-generator.tech/docs/generators/javascript/) to build a local javascript client. This snippet uses docker to interact with the generator tool, but you can also use `npm`.
 
-```sh
+```shell
 docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate \
 	-i /local/doc.json \
 	-g javascript \
@@ -157,7 +157,7 @@ docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate \
 
 
 In this example, use `browserify` to convert the generated client code into a valid browser script.
-```sh
+```shell
 npm install -g browserify
 browserify ./dist/index.js --standalone helloWorld > ../../app/bundle.js
 ```

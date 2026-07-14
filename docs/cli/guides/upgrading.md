@@ -6,7 +6,7 @@ Update the Beamable CLI and workspaces
 
 To install the latest version of the CLI, use the following command.
 
-```sh
+```shell
 dotnet beam version install latest
 ```
 
@@ -46,7 +46,7 @@ To run a Microservice, please use the `dotnet beam project run` command, or simp
 
 To build and validate _Docker_ images locally, there is a new option on the `beam deploy plan` command that will generate a [docker compose](https://docs.docker.com/compose/) project out of the _Docker_ images. Use the `--docker-compose-dir` option to create a docker compose workspace, and then use docker compose directly to turn on and off the docker containers.
 
-```sh
+```shell
 dotnet beam deploy plan --docker-compose-dir Example
 cd Example
 docker compose up
@@ -56,7 +56,7 @@ docker compose up
 ### From 4.3.x to 5.0.0
 The upgrade from 4.x to 5 has a few breaking changes. Once your project is using
 CLI 5+, run the following command to automatically fix known compiler errors,
-```sh
+```shell
 beam checks scan --fix all
 ```
 
@@ -124,7 +124,7 @@ are responsible for generating the client code, and the default behavior is that
 Microservice project will _no longer generate client code automatically_.
 
 It is possible to generate a unity client by hand using the following command,
-```sh
+```shell
 dotnet beam project generate-client-oapi --output-dir ./Path/To/Your/Unity/Folder/To/Put/Clients/In
 ```
 
@@ -190,7 +190,7 @@ package. You can also change the version number to exactly `2.19.2`.
 #### Modify the `.dockerignore` file if you have one
 In your service projects, if you have a `dockerignore` file, add the
 following line to the end of the file.
-```
+```text
 !**/beamApp
 ```
 
@@ -222,7 +222,7 @@ In 3.0.0, the CLI should be installed as a _local dotnet tool_.
 The steps to change your project from using the global CLI tool to a *local dotnet tool* are defined below.
 
 Start by verifying you are in the correct location by running the following command.
-```sh
+```shell
 cat .beamable/connection-configuration.json
 {
   "host": "https://api.beamable.com",
@@ -249,7 +249,7 @@ Next, run `dotnet tool install --create-manifest-if-needed beamable.tools --vers
 
 
 Finally, to verify that the tool is installed locally, run the following,
-```sh
+```shell
 dotnet beam version
  {
     "version": "3.0.1",
@@ -264,7 +264,7 @@ From here on out, if you want to use the project specific CLI run `dotnet beam` 
 However, if you run `beam` in the context of a local project _and_ the global version of your CLI is different than the local project version, the command will be automatically forwarded to the local version. This does add some latency so prefer `dotnet beam` whenever you can.
 
 You will see a warning message similar to this when invoking `beam` directly:
-```
+```text
 You tried using a Beamable CLI version=[3.0.1] which is different than the one configured in this project=[3.0.0-PREVIEW.RC2]. We are forwarding the command (beam
 --pretty version) to the version the project is using via dotnet=[dotnet]. Instead of relying on this forwarding, please 'dotnet beam' from inside the project directory.
 ```
@@ -356,7 +356,7 @@ If you use any Federated endpoints as part of your Microservices, there a few co
 Once these are in, try to compile your services. The newly referenced Roslyn Static Analyzer should tell you if you made any mistakes.
 
 Finally, the analyzer will inform you that the federations you have in code are not in the `federation.json` file. The error will look something like this:
-```log
+```text
 Error BEAM_FED_O001 : Missing declared Federation in MicroserviceFederationsConfig. Microservice=SteamDemo, Id=steam, Interface=IFederatedLogin. Please add this Id by running `dotnet beam fed add SteamDemo steam IFederatedLogin` from your project's root directory. Or remove the IFederatedLogin that references steam  interface from the SteamDemo Microservice class.
 ```
 
@@ -421,7 +421,7 @@ ENTRYPOINT "dotnet" $BEAM_APP
 The `.beamable` folder structure changes between the major versions 1, and 2.
 After you upgrade your global CLI to 2.0.1, run the following command in your project. This command should automatically perform some of the required upgrade steps.
 
-```sh
+```shell
 beam config
 ```
 

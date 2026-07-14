@@ -8,13 +8,13 @@ This guide assumes you have an existing Microservice. You need to complete the
 (getting-started.md). That means having [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
-```sh
+```shell
 dotnet --version
 beam version # beam --version also works.
 ```
 
 In order to configure a Microservice, you also need to have a local `.beamable` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
-```sh
+```shell
 beam init MyProject
 cd MyProject
 dotnet beam project new service HelloWorld
@@ -83,7 +83,7 @@ public void CustomAttribute(int a)
 ```
 
 If the method was invoked with `a` equal to `42`, then the rendered log message would appear as:
-```
+```text
 attribute 42
 ```
 
@@ -127,7 +127,7 @@ public bool CheckIfNumberIsOdd(int number)
 
 The log lines will be rendered as follows:
 
-```
+```text
 Checking number
 number is even!
 42 is odd=False
@@ -218,7 +218,7 @@ This section will assume you have set up a BetterStack account, and created a _S
 
 To configure locally running Microservices to send data to BetterStack, create a file called `config.yaml` next to your `BeamableServices.sln` file.
 
-```yml
+```yaml
 receivers:
   otlp:
     protocols:
@@ -252,7 +252,7 @@ service:
 > Learn more about this file by reading the [documentation](https://opentelemetry.io/docs/collector/configuration/)
 
 Prepare the following environment variables.
-```sh
+```shell
 # Send local log data to Portal for debug purposes
 export BEAM_LOCAL_OTEL=true
 
@@ -264,7 +264,7 @@ export BETTERSTACK_ENDPOINT="https://123.eu-nbg-2.betterstackdata.com"
 ```
 
 Run the standard Open Telemetry collector in Docker,
-```sh
+```shell
 docker run -p 4317:4317 -p 4318:4318 \
 	-v $(pwd)/config.yaml:/etc/otelcol-contrib/config.yaml \
 	-e BETTERSTACK_ENDPOINT=$BETTERSTACK_ENDPOINT \
@@ -274,7 +274,7 @@ docker run -p 4317:4317 -p 4318:4318 \
 
 Now you have a locally running telemetry collector. Next, configure your local Microservice to _use_ the collector. Prepare the following environment variables,
 
-```sh
+```shell
 export BEAM_DISABLE_STANDARD_OTEL=1
 export BEAM_OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:4318
 export BEAM_OTEL_EXPORTER_OTLP_PROTOCOL=HttpProtobuf
@@ -282,7 +282,7 @@ export BEAM_OTEL_EXPORTER_OTLP_PROTOCOL=HttpProtobuf
 
 Run the Microservice under the above environment, which will disable the standard Beamable collector, and route log traffic to the collector you just created in the previous step.
 
-```sh
+```shell
 dotnet run
 ```
 
@@ -379,7 +379,7 @@ public static async Task Main()
 ```
 
 Deploy the service
-```sh
+```shell
 dotnet beam deploy release
 ```
 

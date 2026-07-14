@@ -17,7 +17,7 @@ public partial class MyOtherMicroservice : Microservice {}
 ```
 
 **Example Error Message**:
-```
+```text
 Multiple Microservice classes detected. Make sure only a single class implementing Microservice exists in each service project. ClassNames=MyMicroservice, MyOtherMicroservice.
 ```
 
@@ -44,7 +44,7 @@ public class MyMicroservice : Microservice {}
 ```
 
 **Example Error Message**:
-```
+```text
 Non-Partial Microservice class detected. Make sure your Microservice class is marked as partial.
 ```
 
@@ -70,7 +70,7 @@ public partial class MyMicroservice : Microservice {}
 ```
 
 **Example Error Message**:
-```
+```text
 Microservice class is missing the microservice id
 ```
 
@@ -101,7 +101,7 @@ public partial class MyMicroservice : Microservice
 ```
 
 **Example Error Message**:
-```
+```text
 Microservice Callable methods cannot be async voids. Ex: CallMicroservice.
 ```
 
@@ -142,7 +142,7 @@ public class DTO
 ```
 
 **Example Error Message**:
-```
+```text
 Microservice Callable method `CallServiceAsync` uses a Type that cannot be inside microservice scope. Type: `DTO`.
 ```
 
@@ -193,7 +193,7 @@ public partial class MyMicroservice : Microservice
 ```
 
 **Example Error Message**:
-```
+```text
 {nameof(Server.Microservice)} Callable method CallService uses a Type that is Nested, which is not supported by the Source Code Generator. Please move DTO to outer scope.
 ```
 
@@ -236,7 +236,7 @@ public partial class MyMicroservice : Microservice
 ```
 
 **Example Error Message**:
-```
+```text
 Type DTO contains [BeamGenerateSchema] attribute and is a Nested type, which is not supported by the Source Generator. Please move DTO to outer scope.
 ```
 
@@ -281,7 +281,7 @@ public partial class MyMicroservice : Microservice {}
 ```
 
 **Example Error Message**:
-```
+```text
 Microservice ID: `MyMicroservice` is invalid, it needs to be the same as <BeamId> csharp property (or as csproj name if none exist): `OtherBeamId`
 ```
 
@@ -327,7 +327,7 @@ public partial class MyMicroservice : Microservice
 ```
 
 **Example Warning Message**:
-```
+```text
 Consider making 'ContentId' a readonly field. Otherwise the value may be inconsistent in production environments.
 ```
 
@@ -370,10 +370,10 @@ public partial class MyMicroservice : Microservice
 ```
 
 **Example Error Messages**:
-```
+```text
 Add the [Serializable] attribute to type 'MyDto'
 ```
-```
+```text
 Add the [Serializable] attribute to type 'MyOtherDto'
 ```
 
@@ -417,7 +417,7 @@ public class MyDto
 ```
 
 **Example Warning Message**:
-```
+```text
 Consider changing property 'X' to a field to include it in client-generated code
 ```
 
@@ -449,7 +449,7 @@ public class MyDto
 ```
 
 **Example Error Message**:
-```
+```text
 Change field 'Score' to use Optional<T> instead of a nullable type
 ```
 
@@ -485,7 +485,7 @@ public class MyItem : ContentObject {}
 
 **Example Error Message**:
 
-```
+```text
 Change 'item' to use ContentRef<MyItem> instead of MyItem
 ```
 
@@ -524,7 +524,7 @@ public class MyOtherDTO
 ```
 
 **Example Error Message**:
-```
+```text
 Add the [BeamGenerateSchema] attribute to type 'MyOtherDTO'
 ```
 
@@ -562,7 +562,7 @@ public class MyDTO
 
 **Example Error Message**:
 
-```
+```text
 Change the dictionary key of field 'InvalidDict' to string instead of type 'int'
 ```
 
@@ -601,7 +601,7 @@ public class MyDTO
 
 **Example Error Message**:
 
-```
+```text
 Replace field 'customDict' to Dictionary instead of type 'MyDict'
 ```
 
@@ -640,7 +640,7 @@ public class MyDTO
 
 **Example Error Message**:
 
-```
+```text
 Replace field 'customList' to List instead of type 'MyList'
 ```
 
@@ -679,7 +679,7 @@ public class MyMicroservice : Microservice
 
 **Example Error Message**:
 
-```
+```text
 Change type 'MyContent' to use the base ContentObject type instead of a subtype
 ```
 
@@ -716,7 +716,7 @@ public class MyMicroservice : Microservice
 
 **Example Error Message**:
 
-```
+```text
 Change the dictionary key of 'input' to string instead of type 'int'
 ```
 
@@ -755,7 +755,7 @@ public class MyMicroservice : Microservice
 
 **Example Error Message**:
 
-```
+```text
 Replace 'input' to Dictionary instead of type 'MyDict'
 ```
 
@@ -794,7 +794,7 @@ public class MyMicroservice : Microservice
 
 **Example Error Message**:
 
-```
+```text
 Replace 'input' to List instead of type 'MyList'
 ```
 
@@ -847,7 +847,7 @@ public partial class MyMicroservice : Microservice
 
 **Example Error Message**:
 
-```
+```text
 Generic Types on Microservice Callable methods or classes with [BeamGenerateSchema] are not supported. The only generic types allowed are: List<T>, Dictionary<TKey, TValue>, Optional<T>, ContentRef<T>. Please change 'GenericContainer<int>' in 'MyDTO.container' to a non-generic type.
 ```
 

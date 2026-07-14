@@ -15,7 +15,7 @@ This section is the C++ version of [what is done in the Level Blueprint here](re
 
 In C++, this would usually be done in `AGameMode::BeginPlay` and would look something like this.
 
-```c++
+```cpp
 virtual void BeginPlay() override
 {
     // This will run once the Beamable SDK is initialized (which you can call here OR in a blueprint)
@@ -91,7 +91,7 @@ When implementing `PreLoginAsync`, you need to call two functions:
 
 A simple implementation of that looks like this:
 
-```c++
+```cpp
 virtual void PreLoginAsync(const FString& Options, const FString& Address, const FUniqueNetIdRepl& UniqueId, const FOnPreLoginCompleteDelegate& OnComplete) override
 {
     // This enables us to test the Pre-Login in PIE correctly (it adds options in the expected deterministic order the PIE instances create and connect so that we can map their users in order)
@@ -119,7 +119,7 @@ The `BeamMultiplayer::Authentication::PreLoginAsync` function runs an operation 
 
 If you have multiple players per client, you should also implement a subclass of `ULocalPlayer` that includes Beamable information. This will guarantee the correct GamerTag for each `UserSlot` in that client is correctly forwarded when that particular Local Player tries to connect to the Game Server. You can then configure the Local Player class for your game in `Project Settings > Engine > General Settings > Default Classes > Local Player Class`.
 
-```c++
+```cpp
 /**
  * If your game does not have multiple local players, this should not be needed, but it is fine to include it.
  * It will ensure each of the local players traveling together to the game server will forward their associated Beamable information as part of the options.
@@ -169,7 +169,7 @@ However, it is possible with a custom `GameInstance` implementation.
 
 So, to enable you to take advantage of this, you can implement this snippet and configure your custom Game Instance class to be used in your `Project Settings > Project > Maps & Modes > Game Instance Class`.
 
-```c++
+```cpp
 /**
  * This is BeamPIE's advanced implementation.
  * It is MUCH faster than the Blueprint node version at the cost of being a little more complex in what it is doing under the hood.

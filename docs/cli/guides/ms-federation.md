@@ -7,14 +7,14 @@ Federate Standalone Microservices with external services
 Before you can federate using Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed, and getting the  [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
-```sh
+```shell
 dotnet --version
 beam version # beam --version also works.
 ```
 
 In order to federate using a Microservice, you also need to have a local `.beamable` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
 
-```sh
+```shell
 beam init MyProject
 cd MyProject
 dotnet beam project new service HelloWorld
@@ -56,7 +56,7 @@ public class MySample : IFederationId { }
 The CLI offers a few commands to enable and disable federations for a service. The `beam fed` command suite allows you to read and write federation data. None of the commands will modify your C# source files.
 
 The `beam fed list` command will show all federations for all services.
-```sh
+```shell
 dotnet beam fed list
  {
     "cid": "1338004997867618",
@@ -89,7 +89,7 @@ public partial class MyMicroservice : Microservice, IFederatedInventory<MyFedera
 ```
 
 **Example Error Message**:
-```
+```text
 The following IFederationId is invalid. They must: Start with a letter. Contain only alphanumeric characters and/or `_`. Microservice=MyMicroservice, Id=123-MyFederation.
 ```
 
@@ -106,7 +106,7 @@ public class MyFederation : IFederationId {}
 ```
 
 **Example Error Message**:
-```
+```text
 IFederationId is missing FederationIdAttribute
 ```
 
@@ -127,7 +127,7 @@ public class MyFederation : IFederationId {}
 ```
 
 **Example Message**:
-```
+```text
 The following IFederationId must be annotated with a FederationIdAttribute with a value of "default", Id=MyFederation
 ```
 

@@ -3,7 +3,7 @@
 ## Getting started with C# Microservices
 Creating your first microservice will automatically create your solution for you. Following the guide below will generate the following recommended folder structure:
 
-```
+```text
 /repo-root
 |- .beamable/
 |- ProjectName.uproject
@@ -23,7 +23,7 @@ Creating your first microservice will automatically create your solution for you
 
 Open a terminal/shell (in Windows, use `GitBash`) at your project's root and run the following command to create a new project and add a new microservice.
 
-```
+```shell
 dotnet beam project new service MicroserviceName --sln ProjectNameBeamable/ProjectNameBeamable.sln
 ```
 
@@ -45,13 +45,13 @@ public partial class MicroserviceName : Microservice
 
 Afterward, you can run the command below from your project's root.
 
-```
+```shell
 dotnet beam project add-unreal-project .
 ```
 
 Linking a project informs the CLI where it should put generated C++ files for communicating with the Microservice from UE code. **To generate the project files, run**:
 
-```bash
+```shell
 # Run manually whenever you make schema changes to `Callable` method signatures or to types used in them
 dotnet beam project generate-client "."
 ```
@@ -106,7 +106,7 @@ This is a useful architectural alternative when making complex features that do 
 
 To create a `MicroStorage`, run the command below.
 
-```
+```shell
 dotnet beam project new storage StorageName --sln ProjectNameBeamable/ProjectNameBeamable.sln \
   --link-to MicroserviceName
 ```

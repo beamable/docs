@@ -42,7 +42,7 @@ The SDK exposes all main operations in both BP and C++ flavors. If you would lik
 
 To easily support both flavors, the snippet below explains how you should write the actual operation logic such that it can be shared for both CPP and BP versions.
 
-```c++
+```cpp
 // This is the BP-Compatible Function
 FBeamOperationHandle U________::__________Operation(FUserSlot UserSlot, (...OperationParams...), FBeamOperationEventHandler OnOperationEvent, UObject* CallingContext)
 {
@@ -147,7 +147,7 @@ To create these nodes for your own operations, look at any of the SDK's nodes (i
 
 **Example declaration** — the SDK source is more up to date than the docs; prefer it over this snippet.
 
-```c++
+```cpp
 #define LOCTEXT_NAMESPACE "K2BeamNode_Operation_CommitInventoryUpdate"
 
 UCLASS(meta=(BeamFlowNode))
@@ -211,7 +211,7 @@ If a Delegate or Virtual Function returns one or more `FBeamOperationHandle`, yo
 
 **Here is a "template example" of how this will typically look**:
 
-```C++
+```cpp
 // Synchronous hook -- no requests needed:
 const U_____ SomeSystem;
 SomeSystem->Hook.Add(F____::CreateLambda([this]()
