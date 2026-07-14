@@ -7,13 +7,13 @@ Configure Standalone Microservices
 Before you can configure Beamable Standalone Microservices, you need to complete the [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
-```sh
+```shell
 dotnet --version
 dotnet beam version # dotnet beam --version also works.
 ```
 
 In order to configure a Microservice, you also need to have a local `.beamable/` workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
-```sh
+```shell
 dotnet beam init MyProject
 cd MyProject
 dotnet beam project new service HelloWorld

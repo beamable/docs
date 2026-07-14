@@ -8,14 +8,14 @@ Before you can use Distribute a Microservice with UPM, you need to complete the
 [Getting-Started Guide](getting-started.md). That means having [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed, and getting the [Beam CLI](https://www.nuget.org/packages/Beamable.Tools).
 
 You can confirm you have everything installed checking the versions of the tools.
-```sh
+```shell
 dotnet --version
 dotnet beam version # beam --version also works.
 ```
 
 You also need to have a local `.beamable/` workspace with a Beamable
 Standalone Microservice. As a reminder, you can create one quickly using the commands below.
-```sh
+```shell
 beam init Project
 cd Project
 dotnet beam project new service Service
@@ -49,7 +49,7 @@ compatible Microservice.
     ```
 
    So far, your folder structure should at least have these files.
-   ```
+   ```text
    /Project
      /.beamable
        linked-projects.json
@@ -85,7 +85,7 @@ asmdef` (replace `"Service"` with your service name), and paste the following,
 7. Now you are ready to generate the client code. To do this, run the
    following command **AFTER** building your Microservice. This command
    should be run from the `/services~/Service` folder.
-   ```sh
+   ```shell
    dotnet beam project generate-client ./bin/Debug/net8.0/Service.dll --output-links --output-path-hints "Service=Runtime/Client/ServiceClient.cs" --logs v
    ```
 8. You need to create a `package.json` file. Place it next to the `/Assets`
@@ -101,7 +101,7 @@ asmdef` (replace `"Service"` with your service name), and paste the following,
 Finally, your project structure should look similar to this,
 
 So far, your folder structure should at least have these files.
-   ```
+   ```text
    /Project
      package.json
      /.beamable
