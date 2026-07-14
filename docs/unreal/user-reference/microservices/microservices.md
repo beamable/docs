@@ -174,7 +174,7 @@ To do that, use the CLI to register replacement types so that code generation sk
 
 Here is an example:
 
-```bash
+```shell
 dotnet beam project add-replacement-type \
    --reference-id=MyMicroservice.MyType \
    --replacement-type=FMyType \

@@ -224,7 +224,7 @@ Even more content...
 1. Extract URL: `https://files.readme.io/cc24bbf-Screenshot_2024-06-12_at_5.00.58_PM.png`
 2. Check if image exists in `docs/media/imgs/`
 3. If not found, download with descriptive name:
-   ```bash
+   ```shell
    curl -o "docs/media/imgs/realm-selector-screenshot.png" "https://files.readme.io/cc24bbf-Screenshot_2024-06-12_at_5.00.58_PM.png"
    ```
 4. Convert to markdown:
@@ -288,7 +288,7 @@ Even more content...
 Always optimze this size to fit well within the content layout.
 
 **Download Script Example**:
-```bash
+```shell
 # Extract image URL from [block:image]
 # Download with descriptive filename
 curl -o "docs/media/imgs/unity-editor-realm-selector.png" "https://files.readme.io/cc24bbf-Screenshot_2024-06-12_at_5.00.58_PM.png"
@@ -342,7 +342,7 @@ using Beamable.Stats;
 using UnityEngine;
 // ... rest of code
 ```
-```
+```text
 
 **After** (MkDocs compatible format):
 ```markdown
@@ -352,7 +352,7 @@ using Beamable.Stats;
 using UnityEngine;
 // ... rest of code
 ```
-```
+```text
 
 **Alternative Format** (using heading):
 ```markdown
@@ -362,7 +362,7 @@ using Beamable.Stats;
 using UnityEngine;
 // ... rest of code
 ```
-```
+```text
 
 **Common Patterns to Fix**:
 - ````csharp FileName.cs` → Move filename before code block
@@ -428,7 +428,7 @@ After conversion, verify:
 docs/
 ├── index.md                    → media/imgs/filename.png
 └── media/imgs/filename.png
-```
+```text
 Path: `media/imgs/filename.png`
 
 **Level 2** - Files one folder deep:
@@ -437,7 +437,7 @@ docs/
 ├── unity/
 │   └── getting-started.md      → ../media/imgs/filename.png
 └── media/imgs/filename.png
-```
+```text
 Path: `../media/imgs/filename.png`
 
 **Level 3** - Files two folders deep:
@@ -447,7 +447,7 @@ docs/
 │   └── user-reference/
 │       └── overview.md         → ../../media/imgs/filename.png
 └── media/imgs/filename.png
-```
+```text
 Path: `../../media/imgs/filename.png`
 
 **Level 4** - Files three folders deep:
@@ -458,7 +458,7 @@ docs/
 │       └── editor-systems/
 │           └── builds-environments.md → ../../../media/imgs/filename.png
 └── media/imgs/filename.png
-```
+```text
 Path: `../../../media/imgs/filename.png`
 
 **Level 5** - Files four folders deep:
@@ -470,7 +470,7 @@ docs/
 │           └── subsection/
 │               └── detail.md   → ../../../../media/imgs/filename.png
 └── media/imgs/filename.png
-```
+```text
 Path: `../../../../media/imgs/filename.png`
 
 **Quick Reference Table**:

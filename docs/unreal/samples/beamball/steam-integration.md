@@ -123,19 +123,19 @@ Beamable uses secure socket connections, and on some platforms the OS requires a
 
 1. Locate the certificate file bundled with the engine:
 
-    ```
+    ```text
     \Epic Games\UE_5.6\Engine\Content\Certificates\ThirdParty\cacert.pem
     ```
 
 2. Copy it into a folder named `Certificates` inside your project's **Source** folder:
 
-    ```
+    ```text
     <ProjectRoot>/Source/Certificates/cacert.pem
     ```
 
 3. In your project settings, add this folder to the **Additional Non-Asset Directories to Copy** list (under **Packaging**) so Unreal includes it in the packaged build:
 
-    ```
+    ```text
     Certificates
     ```
 
@@ -149,7 +149,7 @@ When developing on macOS, the App Sandbox may block Steam network calls and Beam
 
 Open the following file in your project:
 
-```
+```text
 Build/Mac/Resources/Sandbox.Server.entitlements
 ```
 

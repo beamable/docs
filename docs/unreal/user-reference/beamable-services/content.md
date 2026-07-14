@@ -120,7 +120,7 @@ In Unreal, you define content schemas as sub-classes of `UBeamContentObject` or 
 
 The following example of `UBeamCurrencyContent` shows how that can be done:
 
-```c++
+```cpp
 UCLASS(BlueprintType)
 class BEAMABLECORE_API UBeamCurrencyContent : public UBeamContentObject
 {

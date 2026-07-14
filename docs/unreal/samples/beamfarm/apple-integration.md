@@ -188,13 +188,13 @@ Beamable uses secure socket connections on iOS, and the OS requires a trusted CA
 
 1. Locate the certificate file bundled with the engine:
 
-    ```
+    ```text
     \Epic Games\UE_5.6\Engine\Content\Certificates\ThirdParty\cacert.pem
     ```
 
 2. Copy it into a folder named `Certificates` inside your project's **Source** folder:
 
-    ```
+    ```text
     <ProjectRoot>/Source/Certificates/cacert.pem
     ```
 
@@ -206,7 +206,7 @@ Unreal must be told about the entitlements file so it can embed the correct Appl
 
 In your project's **iOS build settings**, verify that the **Additional Plist Data** or equivalent entitlements path is pointing to a file named `GameCenter.entitlements` located at the **root of the project**:
 
-```
+```text
 <ProjectRoot>/GameCenter.entitlements
 ```
 
