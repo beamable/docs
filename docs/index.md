@@ -8,7 +8,7 @@ Beamable supports the last 3 major versions of Unity. Today, that means the Beam
 
 - Unity 2021
 - Unity 2022
-- Unity 6
+- Unity 6.0 through 6.3
 
 ## Quick start
 
