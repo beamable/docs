@@ -36,7 +36,7 @@ You can find these tokens in a variety of ways, or generate a new one for a gues
 
 If you want a brand new player account to experiment with, you can create one by issuing a request to one of the few _public_ APIs in Beamable that does not require any authentication at all. 
 
-```sh
+```shell
 curl -X POST "https://api.beamable.com/basic/auth/token" \
     -H 'accept: application/json'\
     -H 'content-type: application/json'\
@@ -51,7 +51,7 @@ curl -X POST "https://api.beamable.com/basic/auth/token" \
 
 If you have a player that has an email & password associated with it (such as a developer account), you can retrieve an access token for that account by using the credentials. 
 
-```sh
+```shell
 curl -X POST "https://api.beamable.com/basic/auth/token" \
     -H 'accept: application/json'\
     -H 'content-type: application/json'\
@@ -71,7 +71,7 @@ If you have initialized a `.beamable` workspace on your computer, you can use th
 !!! tip
     This examples assumes you have `jq` available. If you do not, just look at the output and find the `accessToken` field.
 
-```sh
+```shell
 beam me | jq .data.accessToken
 ```
 
