@@ -168,7 +168,9 @@ Requirements: Python 3.12, git-lfs
 bash setup.sh
 ```
 
-`setup.sh` installs: `mkdocs-material`, `mkdocs-glightbox`, `mkdocs-autorefs`, `mkdocs-literate-nav`, `mike`
+`setup.sh` installs: `mkdocs-material`, `mkdocs-glightbox`, `mkdocs-autorefs`, `mkdocs-literate-nav`, `mike`, `mkdocs-swagger-ui-tag`
+
+`mkdocs-swagger-ui-tag` is required only by the `api/v1.0` branch (its `mkdocs.yml` declares the `swagger-ui-tag` plugin for the OpenAPI reference page). It is installed for every branch so `mkdocs build` works uniformly; without it, builds on `api/v1.0` abort with a plugin-not-installed configuration error.
 
 ## Common Commands
 
