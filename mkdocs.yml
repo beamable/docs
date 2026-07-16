@@ -19,6 +19,7 @@ theme:
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
+      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets:
       auto_append:
