@@ -6477,23 +6477,23 @@
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can deploy Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>beam<span class="w"> </span>version
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># "beam --version" also works</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># "dotnet beam version" when using the CLI with an engine integration</span>
 </code></pre></div><p></p>
 <p>To deploy, you also need to have <a href="https://www.docker.com/products/docker-desktop/">Docker</a> installed. You can verify it is installed correctly by using the <code>--version</code> command.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>--version
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>--version
 </code></pre></div><p></p>
 <p>In order to deploy a Microservice, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below (Unity/Unreal engine integrations will do this for you).
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>init<span class="w"> </span>MyProject
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>init<span class="w"> </span>MyProject
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>MyProject
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
 </code></pre></div><p></p>
 <h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">¶</a></h2>
 <p>Beamable Standalone Microservices use .NET as the core technology to run locally on your development machine. However, when it is time to release your Microservice to production, the service will be built into an OCI compliant image using <a href="https://www.docker.com/products/docker-desktop/">Docker</a>, and uploaded to the Beamable Cloud. Beamable's internal orchestration platform (sometimes called <em>BeamO</em> ) will deploy containerized instances of the service.</p>
 <p>Deploying services is a two-step process. First, you must build the images and generate a <strong>plan file</strong>. Then, you use the CLI to deploy a plan.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># This will generate a plan file.</span>
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># This will generate a plan file.</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># We store these automatically inside the .beamable folder.</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>plan
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># The above prints out the command you need to run to deploy the resulting plan.</span>
@@ -6507,7 +6507,7 @@
 <p><strong>The command WILL NOT validate the services are booting up correctly by default.</strong> It assumes that you have tested your service locally before deploying it. However, you can pass in the <code>--health</code>  argument to make the command, run the built services locally and wait for the service to start responding to health check API calls. This takes longer, but guarantees that the services <em>at least starts up</em>. This is especially useful if you are using the <code>[ConfigureServices]</code> and/or <code>[InitializeServices]</code> attributes to modify the service boot process.</p>
 <p>After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local <em>service manifest</em> is built implicitly from configurations inside your project. The built plan is there to inform you about the changes you will be making (enabling/disabling existing services, adding new services) if you decide to <code>deploy release</code> it.</p>
 <p>As an example, here is the output from a <code>deploy plan</code> invocation from inside the <code>UnrealSDK</code> project.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">$ </span>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>plan
+</p><div class="language-console highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">$ </span>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>plan
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="go">      fetching latest ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="go">build DiscordSampleMs ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%</span>
@@ -6562,10 +6562,10 @@
 <h4 id="redeploying-existing-services">Redeploying existing services<a class="headerlink" href="#redeploying-existing-services" title="Permanent link">¶</a></h4>
 <p>Another important, albeit not common, usage of the <code>deploy release</code> command is to re-deploy your currently deployed services. This may be necessary to deal with bugs in your microservice code (or Beamable itself) that cause instability until you push a fix to them.</p>
 <p>Here is how you would do that:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>--redeploy
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>--redeploy
 </code></pre></div><p></p>
 <p>Alternatively, if you wish to revert to a previous deployment you can use a combination of the following commands:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># This will output a list of the previous deployments to your realm</span>
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># This will output a list of the previous deployments to your realm</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>ps
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># You can then call this command with an id obtained from the command above</span>
@@ -6576,7 +6576,7 @@
 <p>After a Standalone Microservice has been deployed, it will continue to be available on the Beamable Cloud until it is disabled. A service can be temporarily disabled through the Portal, but they will be re-activated after a fresh <code>deploy release</code> command occurs.</p>
 <p>To disable a service, you need to modify the configuration of the Microservice source code itself. In the <code>.csproj</code> file of your service, set the <code>&lt;BeamEnabled&gt;</code> property to <code>false</code>. Then, re-run the <code>deploy plan</code> command. You will see that the service would become disabled if you were to <code>deploy release</code> that plan.</p>
 <p>Alternatively, you can use the following commands to enable/disable services:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># This disables a service</span>
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># This disables a service</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>disable<span class="w"> </span>--ids<span class="w"> </span>HelloWorld
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># This enables a service</span>
@@ -6604,7 +6604,7 @@
 </div>
 <p>Finally, the port <code>6565</code> <strong>MUST</strong> be exposed. The port is used as a health check mechanism within the Beamable Cloud. If you delete that line, your services will fail to pass health checks and cannot be uploaded.</p>
 <p>Here is a sample <code>Dockerfile</code> from a service created with Beam CLI 3.0.0.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">ARG</span><span class="w"> </span><span class="nv">BEAM_DOTNET_VERSION</span><span class="o">=</span><span class="s2">"8.0-alpine"</span>
+<div class="language-Dockerfile highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">ARG</span><span class="w"> </span><span class="nv">BEAM_DOTNET_VERSION</span><span class="o">=</span><span class="s2">"8.0-alpine"</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">mcr.microsoft.com/dotnet/runtime:${BEAM_DOTNET_VERSION}</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c"># These args are provided by the Beam CLI</span>
@@ -6647,16 +6647,16 @@
 <h3 id="local-docker-testing-and-debugging">Local Docker testing and debugging<a class="headerlink" href="#local-docker-testing-and-debugging" title="Permanent link">¶</a></h3>
 <p>The recommended developer workflow is to run your micro services using .NET. However, because deployments are running within a container, it may be beneficial to validate that your services work in Docker before deploying them (especially if you have made changes to the default <code>Dockerfile</code>).</p>
 <p>To validate your Docker services, use the <code>--docker-compose-dir</code> option for the <code>beam deploy plan</code> command. The <code>plan</code> command will generate a <a href="https://docs.docker.com/compose/">docker compose</a> project directory at the given path. The project will have all of your enabled services and storages.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>plan<span class="w"> </span>--docker-compose-dir<span class="w"> </span>example
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>plan<span class="w"> </span>--docker-compose-dir<span class="w"> </span>example
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">cd</span><span class="w"> </span>example
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>docker<span class="w"> </span>compose<span class="w"> </span>up
 </code></pre></div>
 <p>You can validate that your services are running in docker using project ps or by using Docker directly.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>ps
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>ps
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>docker<span class="w"> </span>ps
 </code></pre></div>
 <p>After you are done testing, you can use Docker directly to stop all the containers, or your can use <code>docker compose down</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>down
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>down
 </code></pre></div>
 <p>Please note that when validating docker containers this way, the resulting docker compose project is built to mirror the deployed environment, so your services will start up 10 connections to Beamable.</p>
 <p>You have full control over the docker-compose file, so if you want to set up persistent storage objects via docker volumes, or set up mongo-express, please reference the Mongo <a href="https://hub.docker.com/_/mongo">documentation</a>.</p>
@@ -6666,14 +6666,14 @@
 <p><strong>Debugging Container Structure</strong>: In some cases of customized <code>Dockerfiles</code>, the image may fail to build or the container fail to run due to aspects of the container's file structure. Docker will not allow you to easily inspect a container's file structure unless it is running; and the container is removed once its <code>ENTRYPOINT</code> process is killed.</p>
 <p>This means that if SAMS code depends on local file structure (DLLs not existing where they should being the most common thing) and it fails because of a malformation of that structure you will have a hard time debugging it.</p>
 <p>In some cases, it may be useful to not start the actual process and instead use this endpoint below:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c"># Comment out the original entry point and put this in.</span>
+</p><div class="language-Dockerfile highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c"># Comment out the original entry point and put this in.</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">"tail"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-f"</span><span class="p">,</span><span class="w"> </span><span class="s2">"/dev/null"</span><span class="p">]</span>
 </code></pre></div><p></p>
 <p>When you do that, the service will not start — but the container will look exactly like it does just before the service runs, except it will not be cleaned up by the health-check failing. This means you can easily inspect its file structure via Docker for Windows/Mac's UI or other tools.</p>
 <div class="admonition info">
 <p class="admonition-title">Troubleshoot</p>
 <p>If you are on a Mac with the apple silicon processors (M1, M2, etc) the following error might occur when deploying C# Microservices. In that case, make sure that the <code>Use Rosetta for emulation on Apple Silicon</code> is disabled in your Docker settings.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>assertion failed [block != nullptr]: BasicBlock requested for unrecognized address
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>assertion failed [block != nullptr]: BasicBlock requested for unrecognized address
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>(BuilderBase.h:550 block_for_offset)
 </code></pre></div>
 </div>
