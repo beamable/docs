@@ -10307,7 +10307,7 @@
 <h1 id="setting-up-microservices">Setting up Microservices<a class="headerlink" href="#setting-up-microservices" title="Permanent link">¶</a></h1>
 <h2 id="getting-started-with-c-microservices">Getting started with C# Microservices<a class="headerlink" href="#getting-started-with-c-microservices" title="Permanent link">¶</a></h2>
 <p>Creating your first microservice will automatically create your solution for you. Following the guide below will generate the following recommended folder structure:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/repo-root
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/repo-root
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>|- .beamable/
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>|- ProjectName.uproject
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>|- ProjectName.sln
@@ -10324,10 +10324,10 @@
 <h3 id="create-the-microservice-solution-and-project">Create the Microservice solution and project<a class="headerlink" href="#create-the-microservice-solution-and-project" title="Permanent link">¶</a></h3>
 <p><strong>Before starting this guide, complete the <a href="../../../getting-started/setup/">Setup</a> process for the SDK and make sure the editor is not running.</strong></p>
 <p>Open a terminal/shell (in Windows, use <code>GitBash</code>) at your project's root and run the following command to create a new project and add a new microservice.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>MicroserviceName<span class="w"> </span>--sln<span class="w"> </span>ProjectNameBeamable/ProjectNameBeamable.sln
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>MicroserviceName<span class="w"> </span>--sln<span class="w"> </span>ProjectNameBeamable/ProjectNameBeamable.sln
 </code></pre></div>
 <p>The created Microservice will look something like the example below.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">[Microservice("MicroserviceName")]</span>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">[Microservice("MicroserviceName")]</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MicroserviceName</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">{</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="na">[ClientCallable]</span>
@@ -10339,10 +10339,10 @@
 </code></pre></div>
 <p><strong>Now that you have a microservice, you can compile it via your IDE.</strong></p>
 <p>Afterward, you can run the command below from your project's root.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>add-unreal-project<span class="w"> </span>.
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>add-unreal-project<span class="w"> </span>.
 </code></pre></div>
 <p>Linking a project informs the CLI where it should put generated C++ files for communicating with the Microservice from UE code. <strong>To generate the project files, run</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Run manually whenever you make schema changes to `Callable` method signatures or to types used in them</span>
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Run manually whenever you make schema changes to `Callable` method signatures or to types used in them</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>generate-client<span class="w"> </span><span class="s2">"."</span>
 </code></pre></div>
 <p>After generating the client in your Unreal project, these are the next steps:</p>
@@ -10359,7 +10359,7 @@
 <p>To call microservices in Blueprints, you use <code>Low Level - Microservice Name</code> nodes.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../media/imgs/microservices-example-blueprint-node.png" data-desc-position="bottom"><img alt="A LowLevel - MSPlayground - Add node with integer A and B inputs whose On Success and Response pins feed a Break MSPlaygroundAddResponse node and a Print String node." src="../../../../media/imgs/microservices-example-blueprint-node.png"></a></p>
 <p>In C++ this is what calling a microservice looks like:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// From inside any GameInstanceSubsystem, Actor or Component...</span>
+<div class="language-cpp highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// From inside any GameInstanceSubsystem, Actor or Component...</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">// Get the Generated API subsystem</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">MsApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GEngine</span><span class="o">-&gt;</span><span class="n">GetEngineSubsystem</span><span class="o">&lt;</span><span class="n">UBeamMicroserviceNameApi</span><span class="o">&gt;</span><span class="p">();</span>
@@ -10387,7 +10387,7 @@
 <p>MicroStorages are a Beamable service that allows you, the Game-Maker, access to a MongoDB you can use to define your own custom persisted data formats to go along with your own custom microservice logic.</p>
 <p>This is a useful architectural alternative when making complex features that do not map well to the default cases of Beamable's own data-storing Managed Services (<a href="../../beamable-services/stats/">Stats</a>, <a href="../../beamable-services/inventory/">Inventory</a>, etc.).</p>
 <p>To create a <code>MicroStorage</code>, run the command below.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>storage<span class="w"> </span>StorageName<span class="w"> </span>--sln<span class="w"> </span>ProjectNameBeamable/ProjectNameBeamable.sln<span class="w"> </span><span class="se">\</span>
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>storage<span class="w"> </span>StorageName<span class="w"> </span>--sln<span class="w"> </span>ProjectNameBeamable/ProjectNameBeamable.sln<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>--link-to<span class="w"> </span>MicroserviceName
 </code></pre></div>
 <p>This will add a <code>StorageName.csproj</code> project to the solution and reference that new project in the <code>MicroserviceName.csproj</code> file, making the code in the <code>StorageName</code> project accessible to the Microservice.</p>

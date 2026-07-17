@@ -10343,13 +10343,13 @@
 Verify it is installed by running <code>dotnet --version</code> from a terminal.</p>
 <h2 id="installing">Installing<a class="headerlink" href="#installing" title="Permanent link">¶</a></h2>
 <p>To install the Beamable CLI, run the following command in a shell.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>Beamable.Tools
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>Beamable.Tools
 </code></pre></div>
 <p>And verify your installation with <code>beam version</code>.</p>
 <h3 id="updating">Updating<a class="headerlink" href="#updating" title="Permanent link">¶</a></h3>
 <p>As of 1.16.2, a globally installed CLI can manage its own updates through the use of the beam version install command.</p>
 <p>The following command will install the latest CLI. The "latest" string can be any valid CLI version
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>beam<span class="w"> </span>version<span class="w"> </span>install<span class="w"> </span>latest
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>beam<span class="w"> </span>version<span class="w"> </span>install<span class="w"> </span>latest
 </code></pre></div><p></p>
 <div class="admonition info">
 <p class="admonition-title">Check Versions on NuGet</p>
@@ -10359,11 +10359,11 @@ Verify it is installed by running <code>dotnet --version</code> from a terminal.
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>Now that Beamable is installed, you can connect to an existing Beamable organization. If you haven't setup an organization yet, <a href="https://beta-portal.beamable.com/signup/registration/">create a Beamable organization</a> first.</p>
 <p>You can connect the CLI to your Beamable organization with the <a href="../../commands/cli-command-reference/cli-init/">beam init</a> command.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkdir<span class="w"> </span>MyProject
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkdir<span class="w"> </span>MyProject
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>beam<span class="w"> </span>init
 </code></pre></div>
 <p>This command will prompt you for your organization's alias, your credentials, and which realm to use. When it is complete, you should see a <code>./beamable</code> folder in the current directory. See the <a href="../configuration/">Configuration</a> for details about this folder. Now, you can run a <a href="../../commands/cli-command-reference/cli-config/">beam config</a> command to verify your project is set up.</p>
-<p></p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config
+<p></p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config
 </code></pre></div>
 You should expect to see your <abbr title="customer ID">CID</abbr>/<abbr title="realm identifier">PID</abbr> printed out.<p></p>
 <p>As of CLI 3.0.0, anytime you create a Beamable workspace, the CLI will be installed as a local tool next to the workspace's <code>.beamable</code> folder. This means that you can run the local tool with <code>dotnet beam</code>. If you continue to use <code>beam</code> in the workspace, the global installation will automatically forward your command to the local tool. This will be inefficient and lead to poor performance. We recommend you use <code>dotnet beam</code> wherever possible.</p>

@@ -10328,7 +10328,7 @@
 <p>In other words, an id is a unique <code>string</code> that you pass along in specific places depending on the federation to <strong>choose between one or more federations if any should be used</strong>.</p>
 <h2 id="addingremoving-federations">Adding/Removing federations<a class="headerlink" href="#addingremoving-federations" title="Permanent link">¶</a></h2>
 <p>Federations are tied to interfaces implemented in your <code>Microservice</code> inherited class — these federations and its IDs are automatically validated by a C# Analyzer that will tell you if you are missing things. To add one, implement its federation and recompile the microservice project.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// FederationIds.cs</span>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// FederationIds.cs</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">[FederationId("cool")]</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CoolId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span><span class="p">;</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>

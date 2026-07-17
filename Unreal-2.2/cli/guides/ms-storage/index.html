@@ -10253,18 +10253,18 @@
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
 <p>Before you can use Beamable Storage Objects, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">.NET 8</a> installed, and getting the  <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># beam --version also works.</span>
 </code></pre></div><p></p>
 <p>In order to use a Storage Object, you also need to have a local <code>.beamable</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>beam<span class="w"> </span>init<span class="w"> </span>MyProject
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>beam<span class="w"> </span>init<span class="w"> </span>MyProject
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>MyProject
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
 </code></pre></div><p></p>
 <h2 id="storage-objects">Storage objects<a class="headerlink" href="#storage-objects" title="Permanent link">¶</a></h2>
 <p>A Storage Object is a MongoDB database. Beamable will host and manage a database on your behalf when you deploy your project. Locally, the Beam CLI creates a local MongoDB database inside a Docker container. Beamable never installs MongoDB directly on your host machine.</p>
 <p>To create a Storage Object, use the <a href="../ms-workflow/#creating-new-projects">project new storage</a> command.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>storage
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>storage
 </code></pre></div>
 <p>This creates a new <code>.csproj</code> in your existing <code>.sln</code>. You will also be prompted to assign a reference between the Storage Object and some Microservices. A Storage Object cannot exist independently of a Microservice. When you specify a dependency between a Storage Object and a Microservice, Beamable knows to pass the connection credentials to the Microservice.</p>
 <p>When developing locally, anytime a Microservice that depends on a Storage Object starts, it will make sure the Docker container for the Storage Object is running. If there is no running container, it will start a container. This can take several seconds and it may appear the service is failing to start.</p>
