@@ -9244,7 +9244,7 @@
 <h2 id="custom-content-types">Custom content types<a class="headerlink" href="#custom-content-types" title="Permanent link">¶</a></h2>
 <p>In Unreal, you define content schemas as sub-classes of <code>UBeamContentObject</code> or any of its subtypes available in the SDK ( <code>UBeamItemContent</code> , <code>UBeamGameTypeContent</code> , etc.). Every content type must define a unique string ID for that particular type and a function that returns it.</p>
 <p>The following example of <code>UBeamCurrencyContent</code> shows how that can be done:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">UCLASS</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">UCLASS</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">)</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">BEAMABLECORE_API</span><span class="w"> </span><span class="n">UBeamCurrencyContent</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UBeamContentObject</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">{</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">GENERATED_BODY</span><span class="p">()</span>

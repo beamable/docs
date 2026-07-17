@@ -9107,24 +9107,24 @@
 [Getting-Started Guide]
 (getting-started.md). That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
 <p>You can confirm you have everything installed checking the versions of the tools.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span><span class="c1"># dotnet beam --version also works.</span>
 </code></pre></div><p></p>
 <p>In order to configure a Microservice, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>beam<span class="w"> </span>init<span class="w"> </span>MyProject
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>beam<span class="w"> </span>init<span class="w"> </span>MyProject
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>MyProject
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
 </code></pre></div><p></p>
 <h2 id="logs">Logs<a class="headerlink" href="#logs" title="Permanent link">¶</a></h2>
 <p>In CLI 6.0+, Microservices use the standard <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line">Microservice Logging Tools</a> for logging. To log something, use the following example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">[ClientCallable]</span>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">[ClientCallable]</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SampleLog</span><span class="p">()</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">{</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="n">Information</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
 </code></pre></div>
 <p>The static functions on the <code>Log</code> type will reference a default <code>ILogger</code>. If you want to use custom logging functions, access the <code>ILogger</code> via <code>Log.Default</code>. Beamable Microservices use <em>ZLogger</em> under the hood, so you can access those methods directly if you want to.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[ClientCallable]</span>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[ClientCallable]</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SampleLog</span><span class="p">()</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">{</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">ZLogInformation</span><span class="p">(</span><span class="s">$"Hello"</span><span class="p">);</span>
@@ -9160,7 +9160,7 @@
 </tbody>
 </table>
 <h3 id="example-of-logger-override">Example of logger override<a class="headerlink" href="#example-of-logger-override" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">await</span><span class="w"> </span><span class="n">BeamServer</span>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">await</span><span class="w"> </span><span class="n">BeamServer</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="p">.</span><span class="n">Create</span><span class="p">()</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="p">.</span><span class="n">IncludeRoutes</span><span class="o">&lt;</span><span class="n">BeamService</span><span class="o">&gt;</span><span class="p">()</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p">.</span><span class="n">OverrideConfig</span><span class="p">(</span><span class="n">config</span><span class="w"> </span><span class="o">=&gt;</span>
@@ -9203,19 +9203,19 @@ For more information on ZLogger's <code>DebugLogProcessor</code> and async log p
 <p>In version 6.0+, Microservice logs include attributes that can be explored in the Portal.</p>
 <h4 id="single-custom-attributes">Single custom attributes<a class="headerlink" href="#single-custom-attributes" title="Permanent link">¶</a></h4>
 <p>You can add custom attributes per log message by using the standard string formatting approach:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">[ClientCallable]</span>
+</p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">[ClientCallable]</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CustomAttribute</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">{</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="n">Information</span><span class="p">(</span><span class="s">"attribute {a}"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
 </code></pre></div><p></p>
 <p>If the method was invoked with <code>a</code> equal to <code>42</code>, then the rendered log message would appear as:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>attribute 42
+</p><div class="language-text highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>attribute 42
 </code></pre></div><p></p>
 <p>However, the attribute, <code>a</code>, is available for querying in the Portal. Use a custom search expression for <code>a:42</code> to find any log messages with the <code>a</code> attribute value of <code>42</code>.</p>
 <h4 id="scoped-custom-attributes">Scoped custom attributes<a class="headerlink" href="#scoped-custom-attributes" title="Permanent link">¶</a></h4>
 <p>You can automatically add attributes to an entire sequence of logs. For example, imagine you wanted to tag a series of log lines as being part of an algorithm.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">[ClientCallable]</span>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">[ClientCallable]</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CustomAttribute</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">{</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">isOdd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CheckIfNumberIsOdd</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
@@ -9246,14 +9246,14 @@ For more information on ZLogger's <code>DebugLogProcessor</code> and async log p
 <a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="p">}</span>
 </code></pre></div>
 <p>The log lines will be rendered as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Checking number
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Checking number
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>number is even!
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>42 is odd=False
 </code></pre></div>
 <p>However, the <em>attributes</em> available on the log lines will include the <code>operation</code> and <code>number</code>, while the attributes on the last log will not.</p>
 <h4 id="defined-custom-attributes">Defined custom attributes<a class="headerlink" href="#defined-custom-attributes" title="Permanent link">¶</a></h4>
 <p>In the previous section, the custom log attributes are localized to specific log events. The attributes are searchable in the Portal, but they will not appear as <em>known</em> attributes, because they are not declared at any top level location. In order to define known attributes, you need to use a custom <code>ITelemetryAttributeProvider</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomAttributes</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ITelemetryAttributeProvider</span>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomAttributes</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ITelemetryAttributeProvider</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">{</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">TelemetryAttributeDescriptor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetDescriptors</span><span class="p">()</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="p">{</span>
@@ -9277,7 +9277,7 @@ For more information on ZLogger's <code>DebugLogProcessor</code> and async log p
 <a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="p">}</span>
 </code></pre></div>
 <p>And register the <code>CustomAttributes</code> in the dependency scope of your service.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="p">{</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">BeamServer</span>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">        </span><span class="p">.</span><span class="n">Create</span><span class="p">()</span>
@@ -9431,7 +9431,7 @@ For more information on ZLogger's <code>DebugLogProcessor</code> and async log p
 <p>Starting with version 6.0, you can send Microservice logs to third-party log hosting services. This example uses BetterStack.</p>
 <p>This section will assume you have set up a BetterStack account, and created a <em>Source</em> such that you have a <em>source token</em> and an <em>ingesting host</em>.</p>
 <p>First, configure locally running Microservices to send data to BetterStack. Create a file called <code>config.yaml</code> next to your <code>BeamableServices.sln</code> file.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">receivers</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">receivers</span><span class="p">:</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">otlp</span><span class="p">:</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="nt">protocols</span><span class="p">:</span>
 <a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">      </span><span class="nt">grpc</span><span class="p">:</span>
@@ -9464,7 +9464,7 @@ For more information on ZLogger's <code>DebugLogProcessor</code> and async log p
 Learn more about this file by reading the <a href="https://opentelemetry.io/docs/collector/configuration/">documentation</a></p>
 </blockquote>
 <p>Prepare the following environment variables.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Send local log data to Portal for debug purposes</span>
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Send local log data to Portal for debug purposes</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_LOCAL_OTEL</span><span class="o">=</span><span class="nb">true</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Use the tokenSource from better stack instead of 123</span>
@@ -9474,25 +9474,25 @@ Learn more about this file by reading the <a href="https://opentelemetry.io/docs
 <a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BETTERSTACK_ENDPOINT</span><span class="o">=</span><span class="s2">"https://123.eu-nbg-2.betterstackdata.com"</span>
 </code></pre></div><p></p>
 <p>Run the standard Open Telemetry collector in Docker,
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">4317</span>:4317<span class="w"> </span>-p<span class="w"> </span><span class="m">4318</span>:4318<span class="w"> </span><span class="se">\</span>
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">4317</span>:4317<span class="w"> </span>-p<span class="w"> </span><span class="m">4318</span>:4318<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/config.yaml:/etc/otelcol-contrib/config.yaml<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">BETTERSTACK_ENDPOINT</span><span class="o">=</span><span class="nv">$BETTERSTACK_ENDPOINT</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">BETTERSTACK_AUTH</span><span class="o">=</span><span class="nv">$BETTERSTACK_AUTH</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span>ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.125.0
 </code></pre></div><p></p>
 <p>Now you have a locally running telemetry collector. Next, configure your local Microservice to <em>use</em> the collector. Prepare the following environment variables:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_DISABLE_STANDARD_OTEL</span><span class="o">=</span><span class="m">1</span>
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_DISABLE_STANDARD_OTEL</span><span class="o">=</span><span class="m">1</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_OTEL_EXPORTER_OTLP_ENDPOINT</span><span class="o">=</span>http://127.0.0.1:4318
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BEAM_OTEL_EXPORTER_OTLP_PROTOCOL</span><span class="o">=</span>HttpProtobuf
 </code></pre></div>
 <p>Run the Microservice under the above environment, which will disable the standard Beamable collector, and route log traffic to the collector you just created in the previous step.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>dotnet<span class="w"> </span>run
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>dotnet<span class="w"> </span>run
 </code></pre></div>
 <p>In a few moments, you should see log data appear in BetterStack.</p>
 <hr>
 <p>To configure a deployed Microservice to report log data to BetterStack, start the collector in the deployed environment. The easiest way to do this is to run the collector as a local process.</p>
 <p>Modify the <code>Dockerfile</code> to include the collector in the built image. Add these lines right below the <code>WORKDIR /beamApp</code> line,</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c"># Install utilities</span>
+<div class="language-dockerfile highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c"># Install utilities</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">RUN</span><span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>--no-cache<span class="w"> </span>curl<span class="w"> </span>tar
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
 <a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c"># Download and install OpenTelemetry Collector Contrib</span>
@@ -9511,7 +9511,7 @@ Learn more about this file by reading the <a href="https://opentelemetry.io/docs
 <p>[!WARNING]
 This sample hard-codes the BetterStack auth for simplicity. Better solutions for secret management are in development.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupTelemetry</span><span class="p">()</span>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupTelemetry</span><span class="p">()</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="p">{</span>
 <a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="n">Environment</span><span class="p">.</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s">"BEAM_DISABLE_STANDARD_OTEL"</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">);</span>
 <a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="n">Environment</span><span class="p">.</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s">"BEAM_OTEL_EXPORTER_OTLP_ENDPOINT"</span><span class="p">,</span><span class="w"> </span><span class="s">"http://127.0.0.1:4318"</span><span class="p">);</span>
@@ -9555,7 +9555,7 @@ This sample hard-codes the BetterStack auth for simplicity. Better solutions for
 <a id="__codelineno-17-42" name="__codelineno-17-42" href="#__codelineno-17-42"></a><span class="p">}</span>
 </code></pre></div>
 <p>And invoke those methods before starting the service.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">/// &lt;summary&gt;</span>
+</p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">/// &lt;summary&gt;</span>
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="c1">/// The entry point for the &lt;see cref="BeamService"/&gt; service.</span>
 <a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="c1">/// &lt;/summary&gt;</span>
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
@@ -9569,7 +9569,7 @@ This sample hard-codes the BetterStack auth for simplicity. Better solutions for
 <a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="p">}</span>
 </code></pre></div><p></p>
 <p>Deploy the service
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>release
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>release
 </code></pre></div><p></p>
 <blockquote>
 <p>[!tip]

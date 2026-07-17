@@ -9216,17 +9216,17 @@ you to copy and use in your own project. Here is what these are:</p>
 <ol>
 <li>
 <p>Locate the certificate file bundled with the engine:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>\Epic Games\UE_5.6\Engine\Content\Certificates\ThirdParty\cacert.pem
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>\Epic Games\UE_5.6\Engine\Content\Certificates\ThirdParty\cacert.pem
 </code></pre></div>
 </li>
 <li>
 <p>Copy it into a folder named <code>Certificates</code> inside your project's <strong>Source</strong> folder:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;ProjectRoot&gt;/Source/Certificates/cacert.pem
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;ProjectRoot&gt;/Source/Certificates/cacert.pem
 </code></pre></div>
 </li>
 <li>
 <p>In your project settings, add this folder to the <strong>Additional Non-Asset Directories to Copy</strong> list (under <strong>Packaging</strong>) so Unreal includes it in the packaged build:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Certificates
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Certificates
 </code></pre></div>
 </li>
 </ol>
@@ -9235,10 +9235,10 @@ you to copy and use in your own project. Here is what these are:</p>
 <h2 id="macos-development-disabling-app-sandbox">macOS development: disabling app sandbox<a class="headerlink" href="#macos-development-disabling-app-sandbox" title="Permanent link">¶</a></h2>
 <p>When developing on macOS, the App Sandbox may block Steam network calls and Beamable connections. If you are working in a <strong>development build</strong>, you should disable the sandbox by editing the entitlements file.</p>
 <p>Open the following file in your project:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Build/Mac/Resources/Sandbox.Server.entitlements
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Build/Mac/Resources/Sandbox.Server.entitlements
 </code></pre></div>
 <p>Set the <code>com.apple.security.app-sandbox</code> key to <code>false</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nt">&lt;plist</span><span class="w"> </span><span class="na">version=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nt">&lt;dict&gt;</span>

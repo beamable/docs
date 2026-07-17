@@ -8764,7 +8764,7 @@
 </div>
 <p>To use the Online Subsystem integration, update your <code>*.Target.cs</code> 's <code>Beam.ConfigureGame</code> method call. As well as re-running, <code>beam-init-game-maker.sh "Path/To/SDK/Clone" true</code> with a second argument as true.</p>
 <p>The Enabling Online Subsystem would require updating the value of the second argument of that method, <code>Beam.OssConfig</code> value, example values for Beamball sample project:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">oss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Beam</span><span class="p">.</span><span class="n">OssConfig</span><span class="p">()</span>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">oss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Beam</span><span class="p">.</span><span class="n">OssConfig</span><span class="p">()</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">IsEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">,</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>

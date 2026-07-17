@@ -9347,7 +9347,7 @@
 <p>API reference:
 <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/API/PluginIndex/OnlineSubsystemIOS">https://dev.epicgames.com/documentation/en-us/unreal-engine/API/PluginIndex/OnlineSubsystemIOS</a></p>
 <h3 id="buildcs-configuration">Build.cs configuration<a class="headerlink" href="#buildcs-configuration" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Target</span><span class="p">.</span><span class="n">Platform</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">UnrealTargetPlatform</span><span class="p">.</span><span class="n">IOS</span><span class="p">)</span>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Target</span><span class="p">.</span><span class="n">Platform</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">UnrealTargetPlatform</span><span class="p">.</span><span class="n">IOS</span><span class="p">)</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">DynamicallyLoadedModuleNames</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"OnlineSubsystemIOS"</span><span class="p">);</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
@@ -9382,13 +9382,13 @@
 <hr>
 <h2 id="apple-federation-microservice">Apple federation Microservice<a class="headerlink" href="#apple-federation-microservice" title="Permanent link">¶</a></h2>
 <h3 id="federation-identifier">Federation identifier<a class="headerlink" href="#federation-identifier" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">[FederationId("gamecenter")]</span>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">[FederationId("gamecenter")]</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GameCenterFederation</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFederationId</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">{</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
 </code></pre></div>
 <h3 id="federated-login-implementation">Federated login implementation<a class="headerlink" href="#federated-login-implementation" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedAuthenticationResponse</span><span class="o">&gt;</span>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">FederatedAuthenticationResponse</span><span class="o">&gt;</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">IFederatedLogin</span><span class="o">&lt;</span><span class="n">GameCenterFederation</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Authenticate</span><span class="p">(</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">,</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">_</span><span class="p">,</span>
@@ -9454,12 +9454,12 @@
 <ol>
 <li>
 <p>Locate the certificate file bundled with the engine:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>\Epic Games\UE_5.6\Engine\Content\Certificates\ThirdParty\cacert.pem
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>\Epic Games\UE_5.6\Engine\Content\Certificates\ThirdParty\cacert.pem
 </code></pre></div>
 </li>
 <li>
 <p>Copy it into a folder named <code>Certificates</code> inside your project's <strong>Source</strong> folder:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&lt;ProjectRoot&gt;/Source/Certificates/cacert.pem
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&lt;ProjectRoot&gt;/Source/Certificates/cacert.pem
 </code></pre></div>
 </li>
 </ol>
@@ -9467,7 +9467,7 @@
 <h3 id="game-center-entitlements-gamecenterentitlements">Game Center entitlements (<code>GameCenter.entitlements</code>)<a class="headerlink" href="#game-center-entitlements-gamecenterentitlements" title="Permanent link">¶</a></h3>
 <p>Unreal must be told about the entitlements file so it can embed the correct Apple capabilities (Game Center and Sign in with Apple) during the build and signing process.</p>
 <p>In your project's <strong>iOS build settings</strong>, verify that the <strong>Additional Plist Data</strong> or equivalent entitlements path is pointing to a file named <code>GameCenter.entitlements</code> located at the <strong>root of the project</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&lt;ProjectRoot&gt;/GameCenter.entitlements
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&lt;ProjectRoot&gt;/GameCenter.entitlements
 </code></pre></div>
 <p>This file must be referenced in the project settings so that Unreal includes it during code signing. Without it, Apple capabilities such as Game Center will not be active in the signed build, and authentication will fail.</p>
 
