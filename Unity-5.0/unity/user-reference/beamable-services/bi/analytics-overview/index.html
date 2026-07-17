@@ -9956,121 +9956,70 @@
 <p>When using PopSQL you can put <strong>-30</strong> in the variable field. If not using PopSQL you can replace {{days}} with <strong>-30</strong> for MAU. For DAU put <strong>0</strong>.</p>
 </div>
 <p>MAU &amp; DAU
-</p><div class="language-sql highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">--MAU DAU</span>
-<span class="k">select</span>
-<span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="n">event_id</span><span class="p">)</span><span class="w"> </span><span class="n">METRIC</span>
-<span class="k">from</span><span class="w"> </span><span class="n">platform_session_session</span>
-<span class="k">where</span>
-<span class="w">    </span><span class="ss">"e.firstDailySession"</span><span class="o">=</span><span class="s1">'true'</span>
-<span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="n">act_time</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">date_add</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="err">{{</span><span class="n">days</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-sql highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">--MAU DAU</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">select</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="n">event_id</span><span class="p">)</span><span class="w"> </span><span class="n">METRIC</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">from</span><span class="w"> </span><span class="n">platform_session_session</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">where</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="ss">"e.firstDailySession"</span><span class="o">=</span><span class="s1">'true'</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="n">act_time</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">date_add</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="err">{{</span><span class="n">days</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">);</span>
+</code></pre></div><p></p>
 <p>Average Session Length
-</p><div class="language-sql highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">--Average Session Length</span>
-<span class="k">select</span>
-<span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="k">avg</span><span class="p">(</span><span class="k">cast</span><span class="p">(</span><span class="ss">"e.session_length_minutes"</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb">integer</span><span class="p">)),</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">average_session_length</span>
-<span class="k">from</span><span class="w"> </span><span class="n">platform_session_session_end</span>
-<span class="k">where</span>
-<span class="w"> </span><span class="n">act_time</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">date_add</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="err">{{</span><span class="n">days</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-sql highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">--Average Session Length</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">select</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="k">avg</span><span class="p">(</span><span class="k">cast</span><span class="p">(</span><span class="ss">"e.session_length_minutes"</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb">integer</span><span class="p">)),</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">average_session_length</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">from</span><span class="w"> </span><span class="n">platform_session_session_end</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">where</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w"> </span><span class="n">act_time</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">date_add</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="err">{{</span><span class="n">days</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">);</span>
+</code></pre></div><p></p>
 <h3 id="30-day-retention-cohort">30 day retention cohort<a class="headerlink" href="#30-day-retention-cohort" title="Permanent link">¶</a></h3>
 <p>Now that you have engaged players, it is worth ensuring they are sticky — that is, that they return to play regularly. This report shows how often players come back, and whether retention is declining. High churn (players who stop playing and do not return) is a signal to investigate your retention metrics more closely.</p>
 <div class="admonition info">
 <p class="admonition-title">Query Notes</p>
 <p>When using PopSQL, you will need the <abbr title="realm identifier">PID</abbr> realm ID and a start and end date. If not using PopSQL, replace the {{pid}} field and the {{start_date}} and {{end_date}} fields with correct values.</p>
 </div>
-<div class="language-sql highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">WITH</span>
-<span class="n">activities</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
-<span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="n">act_date</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">start</span><span class="p">,</span><span class="w"> </span><span class="n">gamer_tag</span>
-<span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">{{</span><span class="n">pid</span><span class="err">}}</span><span class="p">.</span><span class="n">platform_session_session</span>
-<span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="n">act_date</span><span class="p">)</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="s1">'{{start_date}}'</span><span class="p">)</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="s1">'{{end_date}}'</span><span class="p">)</span>
-<span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">gamer_tag</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span>
-<span class="w">   </span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">gamer_tag</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="n">pid</span><span class="err">}}</span><span class="p">.</span><span class="n">platform_session_install</span>
-<span class="w">   </span><span class="k">WHERE</span><span class="w"> </span><span class="n">act_date</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="s1">'{{start_date}}'</span>
-<span class="w"> </span><span class="p">)</span>
-<span class="p">),</span>
-<span class="n">new_users</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">gamer_tag</span><span class="p">,</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="k">MIN</span><span class="p">(</span><span class="nb">DATE</span><span class="p">(</span><span class="n">act_date</span><span class="p">)))</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">start_time</span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="n">pid</span><span class="err">}}</span><span class="p">.</span><span class="n">platform_session_install</span>
-<span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">gamer_tag</span>
-<span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
-<span class="p">),</span>
-<span class="n">user_activities</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">gamer_tag</span><span class="p">,</span><span class="w"> </span><span class="n">date_diff</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="k">C</span><span class="p">.</span><span class="n">start_time</span><span class="p">,</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">start</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">period_number</span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">activities</span><span class="w"> </span><span class="n">A</span>
-<span class="w">  </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">new_users</span><span class="w"> </span><span class="k">C</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">gamer_tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">C</span><span class="p">.</span><span class="n">gamer_tag</span>
-<span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">  </span><span class="k">HAVING</span><span class="w"> </span><span class="n">date_diff</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="k">C</span><span class="p">.</span><span class="n">start_time</span><span class="p">,</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">start</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span>
-<span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
-<span class="p">),</span>
-<span class="n">cohort_size</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">start_time</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">num_users</span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">new_users</span>
-<span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span>
-<span class="p">),</span>
-<span class="n">retention_table</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="k">C</span><span class="p">.</span><span class="n">start_time</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">period_number</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">num_users</span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">user_activities</span><span class="w"> </span><span class="n">A</span>
-<span class="w">  </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">new_users</span><span class="w"> </span><span class="k">C</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">gamer_tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">C</span><span class="p">.</span><span class="n">gamer_tag</span>
-<span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
-<span class="p">)</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">start_time</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">act_date</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">period_number</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">num_users</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">new_users</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">num_users</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">retained_users</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">B</span><span class="p">.</span><span class="n">num_users</span><span class="o">/</span><span class="k">cast</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">num_users</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">double</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">retention</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">retention_table</span><span class="w"> </span><span class="n">B</span>
-<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">cohort_size</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">start_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">start_time</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">start_time</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">period_number</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-sql highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">WITH</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">activities</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="n">act_date</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">start</span><span class="p">,</span><span class="w"> </span><span class="n">gamer_tag</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">{{</span><span class="n">pid</span><span class="err">}}</span><span class="p">.</span><span class="n">platform_session_session</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="n">act_date</span><span class="p">)</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="s1">'{{start_date}}'</span><span class="p">)</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="s1">'{{end_date}}'</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">gamer_tag</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">   </span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">gamer_tag</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="n">pid</span><span class="err">}}</span><span class="p">.</span><span class="n">platform_session_install</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">   </span><span class="k">WHERE</span><span class="w"> </span><span class="n">act_date</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="s1">'{{start_date}}'</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">),</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">new_users</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">gamer_tag</span><span class="p">,</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="k">MIN</span><span class="p">(</span><span class="nb">DATE</span><span class="p">(</span><span class="n">act_date</span><span class="p">)))</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">start_time</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="n">pid</span><span class="err">}}</span><span class="p">.</span><span class="n">platform_session_install</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">gamer_tag</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="p">),</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="n">user_activities</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">gamer_tag</span><span class="p">,</span><span class="w"> </span><span class="n">date_diff</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="k">C</span><span class="p">.</span><span class="n">start_time</span><span class="p">,</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">start</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">period_number</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">activities</span><span class="w"> </span><span class="n">A</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">  </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">new_users</span><span class="w"> </span><span class="k">C</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">gamer_tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">C</span><span class="p">.</span><span class="n">gamer_tag</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">  </span><span class="k">HAVING</span><span class="w"> </span><span class="n">date_diff</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="k">C</span><span class="p">.</span><span class="n">start_time</span><span class="p">,</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">start</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="p">),</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="n">cohort_size</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">start_time</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">num_users</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">new_users</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="p">),</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="n">retention_table</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="k">C</span><span class="p">.</span><span class="n">start_time</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">period_number</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">num_users</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">user_activities</span><span class="w"> </span><span class="n">A</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">  </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">new_users</span><span class="w"> </span><span class="k">C</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">gamer_tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">C</span><span class="p">.</span><span class="n">gamer_tag</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">  </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="p">)</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">start_time</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">act_date</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">period_number</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">num_users</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">new_users</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">num_users</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">retained_users</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">B</span><span class="p">.</span><span class="n">num_users</span><span class="o">/</span><span class="k">cast</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">num_users</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">double</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">retention</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="k">FROM</span><span class="w"> </span><span class="n">retention_table</span><span class="w"> </span><span class="n">B</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">cohort_size</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">start_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">start_time</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">start_time</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">period_number</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+</code></pre></div>
 <h3 id="monthly-players-spending-total-revenue-per-month">Monthly players spending (total revenue per month)<a class="headerlink" href="#monthly-players-spending-total-revenue-per-month" title="Permanent link">¶</a></h3>
 <p>When you have an engaged &amp; retained player base and you offer any sort of <abbr title="in-app purchases">IAP</abbr> (in app purchases) then this report will be important for you to understand how much money players are spending and how much money you are making per month. This query will show you how much your players are spending each month as an aggregated total.</p>
 <div class="admonition info">
@@ -10078,16 +10027,12 @@
 <p>This is a very simple way to get the total dollar amount spent across all players and all sessions during a 30 day period. When using PopSQL you can put <strong>-30</strong> in the variable field. If not using PopSQL you can replace {{days}} with <strong>-30</strong>.</p>
 </div>
 <p>Monthly Spending
-</p><div class="language-sql highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">select</span>
-<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">cast</span><span class="p">(</span><span class="ss">"e.spendTotal"</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb">integer</span><span class="p">))</span><span class="w"> </span><span class="n">SpendTotal</span>
-<span class="k">from</span><span class="w"> </span><span class="n">platform_session_session</span>
-<span class="k">where</span>
-<span class="w"> </span><span class="n">act_time</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">date_add</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="err">{{</span><span class="n">days</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-sql highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">select</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">cast</span><span class="p">(</span><span class="ss">"e.spendTotal"</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb">integer</span><span class="p">))</span><span class="w"> </span><span class="n">SpendTotal</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">from</span><span class="w"> </span><span class="n">platform_session_session</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">where</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w"> </span><span class="n">act_time</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">date_add</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="err">{{</span><span class="n">days</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">);</span>
+</code></pre></div><p></p>
 <h3 id="30-day-daily-spending-report">30 day - daily spending report<a class="headerlink" href="#30-day-daily-spending-report" title="Permanent link">¶</a></h3>
 <p>Knowing how much money your game is making from <abbr title="in-app purchases">IAP</abbr> each day is highly valuable. If you monitor this over time and you start seeing a dip, this could be a sign that something is wrong in your game. It is also a great success metric to show that your game monetizes well.</p>
 <div class="admonition info">
@@ -10095,20 +10040,14 @@
 <p>The below query will give you any spending that was done across all sessions on a particular date. If no spending was done and there were sessions there will be a record with 0. When using PopSQL you can put <strong>-30</strong> in the variable field. If not using PopSQL you can replace {{days}} with <strong>-30</strong>.</p>
 </div>
 <p>30 Day Daily Spending
-</p><div class="language-sql highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">select</span>
-<span class="w">    </span><span class="nb">date</span><span class="p">(</span><span class="n">act_time</span><span class="p">)</span><span class="w"> </span><span class="n">SessionDate</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="k">cast</span><span class="p">(</span><span class="ss">"e.spendTotal"</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb">integer</span><span class="p">))</span><span class="w"> </span><span class="n">SpendTotal</span>
-<span class="k">from</span><span class="w"> </span><span class="n">platform_session_session</span>
-<span class="k">where</span>
-<span class="w"> </span><span class="n">act_time</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">date_add</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="err">{{</span><span class="n">days</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">)</span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="nb">date</span><span class="p">(</span><span class="n">act_time</span><span class="p">)</span>
-<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="nb">date</span><span class="p">(</span><span class="n">act_time</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-sql highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">select</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nb">date</span><span class="p">(</span><span class="n">act_time</span><span class="p">)</span><span class="w"> </span><span class="n">SessionDate</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="k">cast</span><span class="p">(</span><span class="ss">"e.spendTotal"</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb">integer</span><span class="p">))</span><span class="w"> </span><span class="n">SpendTotal</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">from</span><span class="w"> </span><span class="n">platform_session_session</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">where</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w"> </span><span class="n">act_time</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">date_add</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w"> </span><span class="err">{{</span><span class="n">days</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="nb">date</span><span class="p">(</span><span class="n">act_time</span><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="nb">date</span><span class="p">(</span><span class="n">act_time</span><span class="p">);</span>
+</code></pre></div><p></p>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>In this guide we will cover how to get setup to query your Athena Database and how to write some simple queries to see that it is working.</p>
 <div class="admonition info">
@@ -10158,12 +10097,12 @@
 <p>The schemas and tables in PopSQL should show (0). You can query them, but you cannot browse them for permission reasons.</p>
 <p><em>Note</em>: PopSQL connection setup image not available</p>
 <p>Here we are going to get the last 10 events from the <strong>platform_session_session</strong> table.</p>
-<div class="language-sql highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">platform_session_session</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-sql highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">platform_session_session</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
 <p>As you can see you already get some very interesting data about your player. Let us take a moment to explore the schema of this table.</p>
 <h3 id="getting-the-table-schema">Getting the table schema<a class="headerlink" href="#getting-the-table-schema" title="Permanent link">¶</a></h3>
-<div class="language-sql highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">columns</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">table_schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'[your de_ID goes here]'</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'platform_session_session'</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-sql highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">columns</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">table_schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'[your de_ID goes here]'</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'platform_session_session'</span>
+</code></pre></div>
 <p>The above query will yield the following results. And as you can see the information provided in this table is immensely valuable. Beamable by default calculates a bunch of information for you making it easy to extract MAU, DAU, Session Length, Spending habits, and more.</p>
 <table>
 <thead>
@@ -10315,8 +10254,8 @@
 <li><code>platform_session_install</code></li>
 </ul>
 <p>But as you use Beamable services and as you write custom Telemetry events more data and tables will automatically be available. Query periodically to see what tables are available. The following query will provide you with a list of all currently available tables.</p>
-<div class="language-sql highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">columns</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">table_schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'your de_ID goes here'</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-sql highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">columns</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">table_schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'your de_ID goes here'</span>
+</code></pre></div>
 <h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h3>
 <p>Now you have the basics you need to query your Athena database, see what tables are available and see which fields are available within those tables. The power is now in your hands to ask the questions you want to know about your players and query your data to find out the answers!</p>
 

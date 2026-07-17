@@ -9513,16 +9513,12 @@
 <p>.NET 10 is the latest Long Term Support version of .NET, and it has a lot of <a href="https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-14">language features</a> and <a href="https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-10/">performance improvements</a>. The Beamable Unity SDK 5.0 supports .NET 10 (as well as .NET 8).</p>
 <p>If you are using .NET 8, you will not be required to update to .NET 10. However, if you do not have any .NET installed, the Beamable SDK will prefer to use .NET 10 by default.</p>
 <p>The .NET version is controlled by the <code>global.json</code> file in your Unity project. This file will automatically be created by the Beamable SDK.
-</p><div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">"sdk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.0.100"</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-json highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">"sdk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.0.100"</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+</code></pre></div><p></p>
 <p>You are allowed to use <code>8.0.302</code>, or any of the .NET 10 versions.</p>
 <p>If you decide to update from .NET 8 to .NET 10, then please remember to update the <code>global.json</code> file, as well as the <code>&lt;TargetFramework&gt;</code> option in your Microservice <code>.csproj</code> files. You can view <a href="https://learn.microsoft.com/en-us/dotnet/core/install/upgrade">Microsoft's documentation</a> on how to update a project's .NET version.</p>
 <h3 id="unity-63-support">Unity 6.3 support<a class="headerlink" href="#unity-63-support" title="Permanent link">¶</a></h3>

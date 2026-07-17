@@ -9595,18 +9595,18 @@ Verify it is installed by running <code>dotnet --version</code> from a terminal.
 </div>
 <h2 id="installing">Installing<a class="headerlink" href="#installing" title="Permanent link">¶</a></h2>
 <p>To install the Beamable CLI, run the following command in a shell.</p>
-<p></p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>Beamable.Tools
-</code></pre></div></td></tr></tbody></table></div>
+<p></p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>Beamable.Tools
+</code></pre></div>
 It is also possible to install a specific version instead of the latest one using the <code>--version</code> parameter
-<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>Beamable.Tools<span class="w"> </span>--version<span class="w"> </span>X.Y.Z
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>Beamable.Tools<span class="w"> </span>--version<span class="w"> </span>X.Y.Z
+</code></pre></div>
 If you are using the Beamable CLI on Unity, please check if the installed version matches the Unity SDK version that you are using, you can use <a href="https://beamable.github.io/docs/unity/getting-started/installing-beamable/#beam-cli-dependency">this</a> table to check the version.
 And verify your installation with <code>beam version</code>.<p></p>
 <h3 id="updating">Updating<a class="headerlink" href="#updating" title="Permanent link">¶</a></h3>
 <p>As of 1.16.2, a globally installed CLI can manage its own updates through the use of the beam version install command.</p>
 <p>The following command will install the latest CLI. The "latest" string can be any valid CLI version
-</p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>version<span class="w"> </span>install<span class="w"> </span>latest
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>beam<span class="w"> </span>version<span class="w"> </span>install<span class="w"> </span>latest
+</code></pre></div><p></p>
 <div class="admonition info">
 <p class="admonition-title">Check Versions on NuGet</p>
 <p>Remember, Beamable.Tools is a .NET tool available through NuGet. You can find all available versions at <a href="https://www.nuget.org/packages/Beamable.Tools">nuget.org</a></p>
@@ -9615,13 +9615,12 @@ And verify your installation with <code>beam version</code>.<p></p>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>Now that Beamable is installed, you can connect to an existing Beamable organization. If you have not setup an organization yet, <a href="https://portal.beamable.com/signup/registration/">create a Beamable organization</a> first.</p>
 <p>You can connect the CLI to your Beamable organization with the <a href="../../commands/cli-command-reference/init/">beam init</a> command.</p>
-<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>MyProject
-beam<span class="w"> </span>init
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mkdir<span class="w"> </span>MyProject
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>beam<span class="w"> </span>init
+</code></pre></div>
 <p>This command will prompt you for your organization's alias, your credentials, and which realm to use. When it is complete, you should see a <code>.beamable/</code> folder in the current directory. See the <a href="../configuration/">Configuration</a> for details about this folder. Now, you can run a <a href="../../commands/cli-command-reference/config/config/">beam config</a> command to verify your project is set up.</p>
-<p></p><div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>config
-</code></pre></div></td></tr></tbody></table></div>
+<p></p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>config
+</code></pre></div>
 You should expect to see your <abbr title="customer ID">CID</abbr>/<abbr title="realm identifier">PID</abbr> printed out.<p></p>
 <p>As of CLI 3.0.0, anytime you create a Beamable workspace, the CLI will be installed as a local tool next to the workspace's <code>.beamable/</code> folder. This means that you can run the local tool with <code>dotnet beam</code>. If you continue to use <code>beam</code> in the workspace, the global installation will automatically forward your command to the local tool. This will be inefficient and lead to poor performance. We recommend you use <code>dotnet beam</code> wherever possible.</p>
 <p>To check that everything is working correctly, you can use the beam me command. Now you have a configured CLI project!</p>
@@ -9632,26 +9631,23 @@ You should expect to see your <abbr title="customer ID">CID</abbr>/<abbr title="
 <h2 id="try-a-microservice-locally">Try a microservice locally<a class="headerlink" href="#try-a-microservice-locally" title="Permanent link">¶</a></h2>
 <p>If you want to evaluate a Beamable microservice without integrating an engine SDK, you can scaffold an isolated C# workspace in a few commands. This path uses a local <a href="https://learn.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use">dotnet tool manifest</a>, so the CLI version is pinned to the workspace and nothing is installed globally.</p>
 <h3 id="create-an-isolated-workspace">Create an isolated workspace<a class="headerlink" href="#create-an-isolated-workspace" title="Permanent link">¶</a></h3>
-<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>MyService
-<span class="nb">cd</span><span class="w"> </span>MyService
-dotnet<span class="w"> </span>new<span class="w"> </span>tool-manifest
-dotnet<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>Beamable.Tools
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mkdir<span class="w"> </span>MyService
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span>MyService
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>dotnet<span class="w"> </span>new<span class="w"> </span>tool-manifest
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>dotnet<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>Beamable.Tools
+</code></pre></div>
 <p>These commands establish a tool manifest in a new directory of your choice. You can confirm by looking at <code>.config/dotnet-tools.json</code>; when in this directory, or any subdirectory, <code>dotnet beam</code> will use this specific Beam CLI.</p>
 <h3 id="initialize-beamable-and-log-in">Initialize Beamable and log in<a class="headerlink" href="#initialize-beamable-and-log-in" title="Permanent link">¶</a></h3>
-<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>init
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>init
+</code></pre></div>
 <p><code>dotnet beam init</code> prompts for your organization's alias, your credentials, and the realm to use, then writes a <code>.beamable/</code> directory alongside the tool manifest. See <a href="../../commands/cli-command-reference/init/"><code>beam init</code></a> for the full list of arguments and the <a href="../configuration/">Configuration</a> guide for the layout of <code>.beamable/</code>.</p>
 <h3 id="scaffold-and-run-a-microservice">Scaffold and run a microservice<a class="headerlink" href="#scaffold-and-run-a-microservice" title="Permanent link">¶</a></h3>
-<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>NewService
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>NewService
+</code></pre></div>
 <p>This command generates a <code>BeamableServices.sln</code> solution and a <code>services/NewService/</code> project containing <code>NewService.cs</code>, <code>Program.cs</code>, <code>NewService.csproj</code>, and a <code>Dockerfile</code>. See <a href="../../commands/cli-command-reference/project/new/service/"><code>beam project new service</code></a> for the available options.</p>
 <p>Run the new service through your IDE, with <code>dotnet run</code> from the project directory, or with:</p>
-<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>run
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>run
+</code></pre></div>
 <p>You should see a log line ending in <code>Service ready for traffic</code> — at that point the service is reachable over HTTP. The <a href="../microservices/">Microservices guide</a> covers the next steps: opening the local OpenAPI page with <code>dotnet beam project open-swagger</code>, calling the generated <code>Add</code> endpoint, and adding your own <code>[ClientCallable]</code> methods.</p>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
 <p>From here, you can:</p>
