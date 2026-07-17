@@ -10146,11 +10146,11 @@ A file is marked as <strong>Conflicted</strong> only when:</p>
 </ul>
 <p>If you want to revert all conflicted files at once using the same strategy, you can do the following on your terminal.</p>
 <p><strong>Local</strong></p>
-<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>content<span class="w"> </span>resolve<span class="w"> </span>--use<span class="w"> </span><span class="nb">local</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>beam<span class="w"> </span>content<span class="w"> </span>resolve<span class="w"> </span>--use<span class="w"> </span><span class="nb">local</span>
+</code></pre></div>
 <p><strong>Remote</strong></p>
-<div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>content<span class="w"> </span>resolve<span class="w"> </span>--use<span class="w"> </span>realm
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>beam<span class="w"> </span>content<span class="w"> </span>resolve<span class="w"> </span>--use<span class="w"> </span>realm
+</code></pre></div>
 <p>This approach gives teams explicit control over version resolution while maintaining data integrity.</p>
 <div class="admonition info">
 <p class="admonition-title">Best Practice</p>
@@ -10328,274 +10328,143 @@ A file is marked as <strong>Conflicted</strong> only when:</p>
 <h3 id="content-validation-examples">Content validation examples<a class="headerlink" href="#content-validation-examples" title="Permanent link">¶</a></h3>
 <p>This <code>ContentValidationExample.cs</code> snippet demonstrates the usage of built-in validation and custom validation within a custom subclass of <code>ContentObject</code>.</p>
 <p>ComplexItem.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content.Validation</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Inventory</span><span class="p">;</span>
-
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.ContentService</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Serializable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ComplexItemLink</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentLink</span><span class="o">&lt;</span><span class="n">ComplexItem</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
-
-<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">    </span><span class="c1">/// This demonstrates validation rules</span>
-<span class="w">    </span><span class="c1">/// for use with any fields within a &lt;&lt;see cref="ContentObject"/&gt;</span>
-<span class="w">    </span><span class="c1">/// subclass.</span>
-<span class="w">    </span><span class="c1">///</span>
-<span class="w">    </span><span class="c1">/// Using validation is optional.</span>
-<span class="w">    </span><span class="c1">///</span>
-<span class="w">    </span><span class="c1">/// See "Beamable.Common.Content.Validation" for full list.</span>
-<span class="w">    </span><span class="c1">///</span>
-<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">    </span><span class="na">[ContentType("complex_item")]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ComplexItem</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ItemContent</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">        </span><span class="c1">/// Built-in: Validation requires that the value be NOT blank.</span>
-<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">        </span><span class="na">[CannotBeBlank]</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
-
-<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">        </span><span class="c1">/// Custom: Validation requires that the value be string and of</span>
-<span class="w">        </span><span class="c1">/// string length of 2 or 3.</span>
-<span class="w">        </span><span class="c1">/// See &lt;see cref="MustBeStringLength"/&gt;.</span>
-<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">        </span><span class="na">[MustBeStringLength (2, 3)]</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">FavoriteLetters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
-
-<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">        </span><span class="c1">/// Built-in: Validation requires that the value be positive and</span>
-<span class="w">        </span><span class="c1">/// non-zero.</span>
-<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">        </span><span class="na">[MustBePositive(false)]</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Defense</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-
-<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">        </span><span class="c1">/// Built-In: Here is an optional value with no validation.</span>
-<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">OptionalInt</span><span class="w"> </span><span class="n">Health</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+</p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content.Validation</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Inventory</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.ContentService</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="na">[Serializable]</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ComplexItemLink</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentLink</span><span class="o">&lt;</span><span class="n">ComplexItem</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="c1">/// This demonstrates validation rules</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="c1">/// for use with any fields within a &lt;&lt;see cref="ContentObject"/&gt;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="c1">/// subclass.</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="c1">///</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="c1">/// Using validation is optional.</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="c1">///</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="c1">/// See "Beamable.Common.Content.Validation" for full list.</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="c1">///</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="na">[ContentType("complex_item")]</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ComplexItem</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ItemContent</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">        </span><span class="c1">/// Built-in: Validation requires that the value be NOT blank.</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">        </span><span class="na">[CannotBeBlank]</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">        </span><span class="c1">/// Custom: Validation requires that the value be string and of</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">        </span><span class="c1">/// string length of 2 or 3.</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">        </span><span class="c1">/// See &lt;see cref="MustBeStringLength"/&gt;.</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">        </span><span class="na">[MustBeStringLength (2, 3)]</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">FavoriteLetters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">        </span><span class="c1">/// Built-in: Validation requires that the value be positive and</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="w">        </span><span class="c1">/// non-zero.</span>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="w">        </span><span class="na">[MustBePositive(false)]</span>
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Defense</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="w">        </span><span class="c1">/// Built-In: Here is an optional value with no validation.</span>
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">OptionalInt</span><span class="w"> </span><span class="n">Health</span><span class="p">;</span>
+<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="p">}</span>
+</code></pre></div>
 This <code>MustBeStringLength.cs</code> snippet demonstrates the implementation of <strong>custom</strong> validation.<p></p>
 <p>MustBeStringLength.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span>
-<span class="normal">83</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content.Validation</span><span class="p">;</span>
-
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.ContentService</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">    </span><span class="c1">/// Demonstrates a custom validation rule for a</span>
-<span class="w">    </span><span class="c1">/// field of a &lt;see cref="ContentObject"/&gt; subclass.</span>
-<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MustBeStringLength</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ValidationAttribute</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">//  Fields  ---------------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">STRING_TYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Value must be a string type."</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">ARGUMENT_ERROR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The StringLengthMin of {0} must be &lt;= StringLengthMax of {1}."</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">VALUE_ERROR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The field string length of {0} must be &gt;= {1} and &lt;= {2}."</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-
-<span class="w">        </span><span class="c1">//  Constructor Methods  --------------------------------</span>
-
-<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">        </span><span class="c1">/// Optional. Pass validation arguments.</span>
-<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">        </span><span class="c1">/// &lt;param name="stringLengthMin"&gt;&lt;/param&gt;</span>
-<span class="w">        </span><span class="c1">/// &lt;param name="stringLengthMax"&gt;&lt;/param&gt;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">MustBeStringLength</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">stringLengthMin</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stringLengthMax</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">_stringLengthMin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringLengthMin</span><span class="p">;</span>
-<span class="w">            </span><span class="n">_stringLengthMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringLengthMax</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="c1">//  Other Methods  --------------------------------</span>
-
-<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">        </span><span class="c1">/// Performs the validation using the current field type,</span>
-<span class="w">        </span><span class="c1">/// field value, and any validation arguments.</span>
-<span class="w">        </span><span class="c1">///</span>
-<span class="w">        </span><span class="c1">/// Any thrown &lt;see cref="ContentValidationException"/&gt; will</span>
-<span class="w">        </span><span class="c1">/// show helpful text in the inspector to the game maker.</span>
-<span class="w">        </span><span class="c1">///</span>
-<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">        </span><span class="c1">/// &lt;param name="args"&gt;&lt;/param&gt;</span>
-<span class="w">        </span><span class="c1">/// &lt;exception cref="ContentValidationException"&gt;&lt;/exception&gt;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Validate</span><span class="p">(</span><span class="n">ContentValidationArgs</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">ValidationFieldWrapper</span><span class="w"> </span><span class="n">validationField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="n">ValidationField</span><span class="p">;</span>
-<span class="w">            </span><span class="n">IContentObject</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="n">Content</span><span class="p">;</span>
-<span class="w">            </span><span class="n">Type</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">validationField</span><span class="p">.</span><span class="n">FieldType</span><span class="p">;</span>
-<span class="w">            </span><span class="kt">object</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">validationField</span><span class="p">.</span><span class="n">GetValue</span><span class="p">();</span>
-
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Optional</span><span class="p">).</span><span class="n">IsAssignableFrom</span><span class="p">(</span><span class="n">type</span><span class="p">))</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">Optional</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Optional</span><span class="p">;</span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">optional</span><span class="p">.</span><span class="n">HasValue</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
-<span class="w">                </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">optional</span><span class="p">.</span><span class="n">GetOptionalType</span><span class="p">();</span>
-<span class="w">                </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">optional</span><span class="p">.</span><span class="n">GetValue</span><span class="p">();</span>
-<span class="w">            </span><span class="p">}</span>
-
-<span class="w">            </span><span class="c1">// Validation: Is it a string?</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ValidationAttribute</span><span class="p">.</span><span class="n">IsNumericType</span><span class="p">(</span><span class="n">type</span><span class="p">))</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span><span class="w"> </span><span class="n">STRING_TYPE</span><span class="w"> </span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
-
-<span class="w">            </span><span class="c1">// Validation: Are the arguments correct?</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_stringLengthMin</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span>
-<span class="w">                    </span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">ARGUMENT_ERROR</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">));</span>
-<span class="w">            </span><span class="p">}</span>
-
-<span class="w">            </span><span class="c1">// Validation: Is the current value correct?</span>
-<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">stringValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stringValue</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">||</span>
-<span class="w">                </span><span class="o">!</span><span class="p">(</span><span class="n">stringValue</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">stringValue</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">))</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span>
-<span class="w">                    </span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">VALUE_ERROR</span><span class="p">,</span><span class="w"> </span><span class="n">stringValue</span><span class="p">.</span><span class="n">Length</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">));</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content.Validation</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.ContentService</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="c1">/// Demonstrates a custom validation rule for a</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="c1">/// field of a &lt;see cref="ContentObject"/&gt; subclass.</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MustBeStringLength</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ValidationAttribute</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="c1">//  Fields  ---------------------------------------</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">STRING_TYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Value must be a string type."</span><span class="p">;</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">ARGUMENT_ERROR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The StringLengthMin of {0} must be &lt;= StringLengthMax of {1}."</span><span class="p">;</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">VALUE_ERROR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The field string length of {0} must be &gt;= {1} and &lt;= {2}."</span><span class="p">;</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="c1">//  Constructor Methods  --------------------------------</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">        </span><span class="c1">/// Optional. Pass validation arguments.</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">        </span><span class="c1">/// &lt;param name="stringLengthMin"&gt;&lt;/param&gt;</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">        </span><span class="c1">/// &lt;param name="stringLengthMax"&gt;&lt;/param&gt;</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">MustBeStringLength</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">stringLengthMin</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stringLengthMax</span><span class="p">)</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">            </span><span class="n">_stringLengthMin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringLengthMin</span><span class="p">;</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">            </span><span class="n">_stringLengthMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringLengthMax</span><span class="p">;</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">        </span><span class="c1">//  Other Methods  --------------------------------</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="w">        </span><span class="c1">/// Performs the validation using the current field type,</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="w">        </span><span class="c1">/// field value, and any validation arguments.</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="w">        </span><span class="c1">///</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="w">        </span><span class="c1">/// Any thrown &lt;see cref="ContentValidationException"/&gt; will</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="w">        </span><span class="c1">/// show helpful text in the inspector to the game maker.</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="w">        </span><span class="c1">///</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="w">        </span><span class="c1">/// &lt;param name="args"&gt;&lt;/param&gt;</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="w">        </span><span class="c1">/// &lt;exception cref="ContentValidationException"&gt;&lt;/exception&gt;</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Validate</span><span class="p">(</span><span class="n">ContentValidationArgs</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a><span class="w">            </span><span class="n">ValidationFieldWrapper</span><span class="w"> </span><span class="n">validationField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="n">ValidationField</span><span class="p">;</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="w">            </span><span class="n">IContentObject</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="n">Content</span><span class="p">;</span>
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="w">            </span><span class="n">Type</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">validationField</span><span class="p">.</span><span class="n">FieldType</span><span class="p">;</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a><span class="w">            </span><span class="kt">object</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">validationField</span><span class="p">.</span><span class="n">GetValue</span><span class="p">();</span>
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Optional</span><span class="p">).</span><span class="n">IsAssignableFrom</span><span class="p">(</span><span class="n">type</span><span class="p">))</span>
+<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a><span class="w">                </span><span class="n">Optional</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Optional</span><span class="p">;</span>
+<a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">optional</span><span class="p">.</span><span class="n">HasValue</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a><span class="w">                </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">optional</span><span class="p">.</span><span class="n">GetOptionalType</span><span class="p">();</span>
+<a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a><span class="w">                </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">optional</span><span class="p">.</span><span class="n">GetValue</span><span class="p">();</span>
+<a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>
+<a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a><span class="w">            </span><span class="c1">// Validation: Is it a string?</span>
+<a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ValidationAttribute</span><span class="p">.</span><span class="n">IsNumericType</span><span class="p">(</span><span class="n">type</span><span class="p">))</span>
+<a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a><span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span><span class="w"> </span><span class="n">STRING_TYPE</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>
+<a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a><span class="w">            </span><span class="c1">// Validation: Are the arguments correct?</span>
+<a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_stringLengthMin</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">)</span>
+<a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a><span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span>
+<a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a><span class="w">                    </span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">ARGUMENT_ERROR</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">));</span>
+<a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a>
+<a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a><span class="w">            </span><span class="c1">// Validation: Is the current value correct?</span>
+<a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a><span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">stringValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stringValue</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">||</span>
+<a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a><span class="w">                </span><span class="o">!</span><span class="p">(</span><span class="n">stringValue</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">stringValue</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">))</span>
+<a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a><span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ContentValidationException</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">validationField</span><span class="p">,</span>
+<a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a><span class="w">                    </span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="n">VALUE_ERROR</span><span class="p">,</span><span class="w"> </span><span class="n">stringValue</span><span class="p">.</span><span class="n">Length</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMin</span><span class="p">,</span><span class="w"> </span><span class="n">_stringLengthMax</span><span class="p">));</span>
+<a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-82" name="__codelineno-3-82" href="#__codelineno-3-82"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-83" name="__codelineno-3-83" href="#__codelineno-3-83"></a><span class="p">}</span>
+</code></pre></div><p></p>
 <h3 id="optional-values">Optional values<a class="headerlink" href="#optional-values" title="Permanent link">¶</a></h3>
 <p>Beamable includes a suite of "optional" datatypes. Here the game maker must set the checkbox to true in the inspector before populating the field. The "optional" functionality and the "validation" functionality may be combined too.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../../media/imgs/optional.png" data-desc-position="bottom"><img alt="Optional" src="../../../../../../media/imgs/optional.png"></a></p>
@@ -10608,10 +10477,9 @@ This <code>MustBeStringLength.cs</code> snippet demonstrates the implementation 
 </ul>
 <h3 id="why-beamablelocal-is-gitignored">Why <code>.beamable/local/</code> is gitignored<a class="headerlink" href="#why-beamablelocal-is-gitignored" title="Permanent link">¶</a></h3>
 <p>The SDK adds the following entries to <code>.beamable/.gitignore</code>:</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>temp/**/*
-local/**/*
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>temp/**/*
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>local/**/*
+</code></pre></div>
 <p>The <code>local/**/*</code> entry intentionally excludes <code>.beamable/local/</code> from Git. Because <code>referenceManifestId</code> is updated on every publish, even a single publish touches every content JSON file — producing frequent, low-signal commits. For Git-friendly content tracking, use <strong>Content Snapshots</strong> instead (see the Snapshot button in Beam Content).</p>
 <p>You can track the raw local JSON files in Git by removing <code>local/**/*</code> from your <code>.gitignore</code>, but this is not recommended unless your team is comfortable with the resulting commit noise.</p>
 <h3 id="version-control-best-practices">Version control best practices<a class="headerlink" href="#version-control-best-practices" title="Permanent link">¶</a></h3>
@@ -10621,8 +10489,8 @@ local/**/*
 <li>These changes can safely be reverted if needed</li>
 <li><strong>Handling Revert Operations</strong>
    Reverting to an older version will trigger conflict detection (due to mismatched <code>referenceManifestId</code>). To resolve while preserving your content changes, run:
-   <div class="language-shell highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>beam<span class="w"> </span>content<span class="w"> </span>resolve<span class="w"> </span>--use<span class="w"> </span><span class="nb">local</span>
-</code></pre></div></td></tr></tbody></table></div>
+   <div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>beam<span class="w"> </span>content<span class="w"> </span>resolve<span class="w"> </span>--use<span class="w"> </span><span class="nb">local</span>
+</code></pre></div>
    This command keeps your local content modifications and updates the <code>referenceManifestId</code> to match the remote version for each conflicted content.</li>
 </ol>
 <h2 id="storage-location-of-content-types-in-editor">Storage location of content types in editor<a class="headerlink" href="#storage-location-of-content-types-in-editor" title="Permanent link">¶</a></h2>

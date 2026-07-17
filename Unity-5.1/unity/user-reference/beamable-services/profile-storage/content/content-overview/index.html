@@ -10096,107 +10096,63 @@
 </table>
 <p>Apply <code>[IgnoreContentField]</code> to any field you wish to exclude from the Content Serialization process.</p>
 <p>MyCustomContent.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Agnostic]</span>
-<span class="na">[ContentType("MyCustomContent")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span>
-<span class="p">{</span>
-<span class="w">     </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">;</span>
-<span class="w">     </span><span class="k">public</span><span class="w"> </span><span class="n">AssetReferenceSprite</span><span class="w"> </span><span class="n">Icon</span><span class="p">;</span>
-
-<span class="w">     </span><span class="na">[IgnoreContentField]</span>
-<span class="w">     </span><span class="k">public</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">KeyValuePair</span><span class="p">;</span>
-
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">[Agnostic]</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">[ContentType("MyCustomContent")]</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">     </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">     </span><span class="k">public</span><span class="w"> </span><span class="n">AssetReferenceSprite</span><span class="w"> </span><span class="n">Icon</span><span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">     </span><span class="na">[IgnoreContentField]</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">     </span><span class="k">public</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">KeyValuePair</span><span class="p">;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+</code></pre></div><p></p>
 <h3 id="inheritance-hierarchies">Inheritance hierarchies<a class="headerlink" href="#inheritance-hierarchies" title="Permanent link">¶</a></h3>
 <p>There might be cases where you want to have some hierarchy chain of <code>ContentObject</code> but have one of the types in the chain not be an actual <code>ContentType</code>; for example, to share code between different child <code>ContentTypes</code> but in a parent class that can never be created directly as a piece of Beamable content. You can do that by making the class abstract and <strong>not</strong> marking it as a <code>ContentType</code>.</p>
 <p>The snippet below demonstrate what that would look like.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// BaseCustomContent.cs</span>
-<span class="na">[ContentType("BaseCustomContent")]</span>
-<span class="na">[System.Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BaseCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/** (...) */</span><span class="w"> </span><span class="p">}</span>
-
-<span class="c1">// AbstractCustomContent.cs</span>
-<span class="c1">// This type is not a Beamable ContentType, but it will share its members and functions with its children.</span>
-<span class="na">[System.Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AbstractCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">BaseCustomContent</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/** (...) */</span><span class="w"> </span><span class="p">}</span>
-
-<span class="c1">// Leaf1CustomContent.cs</span>
-<span class="na">[ContentType("leaf1")]</span>
-<span class="na">[System.Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Leaf1CustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AbstractCustomContent</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/** (...) */</span><span class="w"> </span><span class="p">}</span>
-
-<span class="c1">// Leaf2CustomContent.cs</span>
-<span class="na">[ContentType("leaf2")]</span>
-<span class="na">[System.Serializable]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Leaf2CustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AbstractCustomContent</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/** (...) */</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// BaseCustomContent.cs</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">[ContentType("BaseCustomContent")]</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">[System.Serializable]</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BaseCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/** (...) */</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">// AbstractCustomContent.cs</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">// This type is not a Beamable ContentType, but it will share its members and functions with its children.</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="na">[System.Serializable]</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">public</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AbstractCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">BaseCustomContent</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/** (...) */</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1">// Leaf1CustomContent.cs</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="na">[ContentType("leaf1")]</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="na">[System.Serializable]</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Leaf1CustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AbstractCustomContent</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/** (...) */</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="c1">// Leaf2CustomContent.cs</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="na">[ContentType("leaf2")]</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="na">[System.Serializable]</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Leaf2CustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AbstractCustomContent</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/** (...) */</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <h2 id="content-api">Content API<a class="headerlink" href="#content-api" title="Permanent link">¶</a></h2>
 <h3 id="subscribing-to-content-changes">Subscribing to content changes<a class="headerlink" href="#subscribing-to-content-changes" title="Permanent link">¶</a></h3>
 <p>The ContentService API allows you to subscribe to content changes on the server. This is useful for dynamically updating content in your game without requiring a full game update.</p>
 <p>You can subscribe to all content changes, or filter by a specific type of content. The example below demonstrates both methods.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
-
-<span class="w">    </span><span class="c1">// Fetch All</span>
-<span class="w">    </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ContentService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">clientManifest</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"#1. ContentService, all object count = {clientManifest.entries.Count}"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">});</span>
-
-<span class="w">    </span><span class="c1">// Fetch Filtered</span>
-<span class="w">    </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ContentService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="s">"items"</span><span class="p">,</span><span class="w"> </span><span class="n">clientManifest</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"#2. ContentService, filtered 'items' object count = {clientManifest.entries.Count}"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">});</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">// Fetch All</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ContentService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">clientManifest</span><span class="w"> </span><span class="o">=&gt;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"#1. ContentService, all object count = {clientManifest.entries.Count}"</span><span class="p">);</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="c1">// Fetch Filtered</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ContentService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="s">"items"</span><span class="p">,</span><span class="w"> </span><span class="n">clientManifest</span><span class="w"> </span><span class="o">=&gt;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"#2. ContentService, filtered 'items' object count = {clientManifest.entries.Count}"</span><span class="p">);</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">}</span>
+</code></pre></div>
 <p>Beamable supports subscriptions to Content as well as direct references to individual pieces of content. Both of these will allow you to download content from the server as needed.</p>
 <h3 id="contentlink-and-contentref">ContentLink and ContentRef<a class="headerlink" href="#contentlink-and-contentref" title="Permanent link">¶</a></h3>
 <p>Subscriptions use a PlatformSubscription to dynamically read the data on the server, and fire a callback when the data is changed. However, ContentLink and ContentRef are both resolved manually when the data is needed.</p>
@@ -10207,134 +10163,71 @@
 </ul>
 <p>In short, <code>ContentLink</code>s are strict "hard" connections whereas <code>ContentRef</code>s are "soft" or "loose" connections.</p>
 <p>ContentServiceExistingExample.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Inventory</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
-
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.ContentService</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="na">[Serializable]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ItemLink</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentLink</span><span class="o">&lt;</span><span class="n">ItemContent</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
-
-<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">    </span><span class="c1">/// Demonstrates &lt;see cref="ContentService"/&gt;.</span>
-<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ContentServiceExistingExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">//  Fields  ---------------------------------------</span>
-<span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">ItemLink</span><span class="w"> </span><span class="n">_itemLink</span><span class="p">;</span>
-<span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">ItemRef</span><span class="w"> </span><span class="n">_itemRef</span><span class="p">;</span>
-
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">ItemContent</span><span class="w"> </span><span class="n">_itemContentFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">ItemContent</span><span class="w"> </span><span class="n">_itemContentFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-
-<span class="w">        </span><span class="c1">//  Unity Methods  --------------------------------</span>
-<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start()"</span><span class="p">);</span>
-
-<span class="w">            </span><span class="n">SetupBeamable</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="c1">//  Methods  --------------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
-
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"beamContext.PlayerId = {beamContext.PlayerId}"</span><span class="p">);</span>
-
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_itemLink</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
-<span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_itemContentFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_itemContentFromLink.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                              </span><span class="s">$"Id = {_itemContentFromLink.Id}"</span><span class="p">);</span>
-<span class="w">                </span><span class="p">})</span>
-<span class="w">                </span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromLink.Resolve() Error!"</span><span class="p">);</span>
-<span class="w">                </span><span class="p">});</span>
-
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_itemRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
-<span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">_itemContentFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_itemContentFromRef.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                              </span><span class="s">$"Id = {_itemContentFromRef.Id}"</span><span class="p">);</span>
-
-<span class="w">                </span><span class="p">}).</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromRef.Resolve() Error!"</span><span class="p">);</span>
-<span class="w">                </span><span class="p">});</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Inventory</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Services.ContentService</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="na">[Serializable]</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ItemLink</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentLink</span><span class="o">&lt;</span><span class="n">ItemContent</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="c1">/// Demonstrates &lt;see cref="ContentService"/&gt;.</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ContentServiceExistingExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="c1">//  Fields  ---------------------------------------</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">ItemLink</span><span class="w"> </span><span class="n">_itemLink</span><span class="p">;</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">ItemRef</span><span class="w"> </span><span class="n">_itemRef</span><span class="p">;</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">ItemContent</span><span class="w"> </span><span class="n">_itemContentFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">ItemContent</span><span class="w"> </span><span class="n">_itemContentFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">        </span><span class="c1">//  Unity Methods  --------------------------------</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start()"</span><span class="p">);</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">            </span><span class="n">SetupBeamable</span><span class="p">();</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">        </span><span class="c1">//  Methods  --------------------------------------</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"beamContext.PlayerId = {beamContext.PlayerId}"</span><span class="p">);</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_itemLink</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="w">                    </span><span class="n">_itemContentFromLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_itemContentFromLink.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="w">                              </span><span class="s">$"Id = {_itemContentFromLink.Id}"</span><span class="p">);</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="w">                </span><span class="p">})</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="w">                </span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromLink.Resolve() Error!"</span><span class="p">);</span>
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="w">                </span><span class="p">});</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a><span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_itemRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">()</span>
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a><span class="w">                </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
+<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a><span class="w">                    </span><span class="n">_itemContentFromRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
+<a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a><span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"_itemContentFromRef.Resolve() Success! "</span><span class="w"> </span><span class="o">+</span>
+<a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a><span class="w">                              </span><span class="s">$"Id = {_itemContentFromRef.Id}"</span><span class="p">);</span>
+<a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>
+<a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a><span class="w">                </span><span class="p">}).</span><span class="n">Error</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">=&gt;</span>
+<a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a><span class="w">                    </span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">$"_itemContentFromRef.Resolve() Error!"</span><span class="p">);</span>
+<a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a><span class="w">                </span><span class="p">});</span>
+<a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a><span class="p">}</span>
+</code></pre></div><p></p>
 <div class="admonition info">
 <p class="admonition-title">Best Practices</p>
 <ul>
@@ -10346,111 +10239,68 @@
 </div>
 <h3 id="getmanifest-method">GetManifest method<a class="headerlink" href="#getmanifest-method" title="Permanent link">¶</a></h3>
 <p>In the SDK, the <code>GetManifest</code> function accepts a filter string, as shown in the example below. You can read more about filters in the Content Management section.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">IList</span><span class="o">&lt;</span><span class="n">IContentObject</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">LoadMyTaggedContent</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">tag</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-
-<span class="w">    </span><span class="c1">// load a manifest that only has content including the request tag</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Content</span><span class="p">.</span><span class="n">GetManifest</span><span class="p">(</span><span class="s">$"tag:{tag}"</span><span class="p">);</span>
-
-<span class="w">    </span><span class="c1">// resolve all the content in that manifest</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="n">manifest</span><span class="p">.</span><span class="n">ResolveAll</span><span class="p">();</span>
-
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">IList</span><span class="o">&lt;</span><span class="n">IContentObject</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">LoadMyTaggedContent</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">tag</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="c1">// load a manifest that only has content including the request tag</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Content</span><span class="p">.</span><span class="n">GetManifest</span><span class="p">(</span><span class="s">$"tag:{tag}"</span><span class="p">);</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="c1">// resolve all the content in that manifest</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="n">manifest</span><span class="p">.</span><span class="n">ResolveAll</span><span class="p">();</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
+</code></pre></div>
 <h3 id="getcontent-method">GetContent method<a class="headerlink" href="#getcontent-method" title="Permanent link">¶</a></h3>
 <p>Beamable's ContentService has another method that can pull content: GetContent. Since this method will attempt to pull several pieces of content at once, it is often inefficient, however it may be useful depending on the scope of your project.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">contentIdToLoad</span><span class="p">;</span>
-
-<span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">GetContent</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rawContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ContentService</span><span class="p">.</span><span class="n">GetContent</span><span class="p">(</span><span class="n">contentIdToLoad</span><span class="p">);</span><span class="w"> </span><span class="c1">//Returns as IContentObject</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rawContent</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ItemContent</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">//content can now be used as ItemContent</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">contentIdToLoad</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">GetContent</span><span class="p">()</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rawContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ContentService</span><span class="p">.</span><span class="n">GetContent</span><span class="p">(</span><span class="n">contentIdToLoad</span><span class="p">);</span><span class="w"> </span><span class="c1">//Returns as IContentObject</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rawContent</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ItemContent</span><span class="p">;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="c1">//content can now be used as ItemContent</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
+</code></pre></div>
 <p>Filter strings do not grant type safety in the SDK, and are more prone to bugs and unintentional filtering. The above sample can be re-written with the <code>ContentQuery</code> class instead of the filter string. The <code>ContentQuery</code> allows the developer to specify constraints in a type safe way and will avoid filter serialization bugs.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">IList</span><span class="o">&lt;</span><span class="n">IContentObject</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">LoadMyTaggedContent</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">tag</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">   </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">   </span><span class="kt">var</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Content</span><span class="p">.</span><span class="n">GetManifest</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ContentQuery</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">     </span><span class="n">TagConstraints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">{</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="p">}</span>
-<span class="w">   </span><span class="p">});</span>
-<span class="w">   </span><span class="kt">var</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="n">manifest</span><span class="p">.</span><span class="n">ResolveAll</span><span class="p">();</span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">IList</span><span class="o">&lt;</span><span class="n">IContentObject</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">LoadMyTaggedContent</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">tag</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">   </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">   </span><span class="kt">var</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Content</span><span class="p">.</span><span class="n">GetManifest</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ContentQuery</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">   </span><span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">     </span><span class="n">TagConstraints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">{</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">   </span><span class="p">});</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">   </span><span class="kt">var</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="n">manifest</span><span class="p">.</span><span class="n">ResolveAll</span><span class="p">();</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">}</span>
+</code></pre></div>
 <h3 id="content-with-microservices">Content with Microservices<a class="headerlink" href="#content-with-microservices" title="Permanent link">¶</a></h3>
 <p>This 'MyCustomContent.cs' snippet includes the  <code>[Agnostic]</code> attribute. To make content classes available to your microservices, add the attribute to your content classes.</p>
 <p>See <a href="../../../../cloud-services/microservices/microservice-framework/">Microservices</a> for more info.</p>
 <p>MyCustomContent.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">[Agnostic]</span>
-<span class="na">[ContentType("MyCustomContent")]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">[Agnostic]</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">[ContentType("MyCustomContent")]</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyCustomContent</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div><p></p>
 <h3 id="changing-content-namespaces">Changing content namespaces<a class="headerlink" href="#changing-content-namespaces" title="Permanent link">¶</a></h3>
 <p>This sample shows how to switch the default content namespace to <code>"tuna"</code> before resolving a <code>CurrencyRef</code>.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tester</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">CurrencyRef</span><span class="w"> </span><span class="n">currency</span><span class="p">;</span>
-
-<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-
-<span class="w">        </span><span class="n">ctx</span><span class="p">.</span><span class="n">Content</span><span class="p">.</span><span class="n">GetContent</span><span class="p">(</span><span class="n">content</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="s">"tuna"</span><span class="p">);</span>
-
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ContentService</span><span class="p">)</span><span class="n">ctx</span><span class="p">.</span><span class="n">Content</span><span class="p">;</span>
-<span class="w">        </span><span class="n">service</span><span class="p">.</span><span class="n">SwitchDefaultManifestID</span><span class="p">(</span><span class="s">"tuna"</span><span class="p">);</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">currency</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tester</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">CurrencyRef</span><span class="w"> </span><span class="n">currency</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="n">ctx</span><span class="p">.</span><span class="n">Content</span><span class="p">.</span><span class="n">GetContent</span><span class="p">(</span><span class="n">content</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="s">"tuna"</span><span class="p">);</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ContentService</span><span class="p">)</span><span class="n">ctx</span><span class="p">.</span><span class="n">Content</span><span class="p">;</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="n">service</span><span class="p">.</span><span class="n">SwitchDefaultManifestID</span><span class="p">(</span><span class="s">"tuna"</span><span class="p">);</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">currency</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="content-management">Content management<a class="headerlink" href="#content-management" title="Permanent link">¶</a></h2>
 <p>Content management is critical to keep the content in your game engaging and reactive, and Beamable provides a number of content management tools. This is a mixture of solutions within the "Beamable SDK for Unity" and Rest API calls. In addition Beamable provides some extended tools that integrate with Google Sheets as a plugin.</p>
 <p>Beamable provides a streamlined Content Publishing pipeline. You can deploy your content across multiple environments that can be tailored to your own internal publishing workflow.</p>
@@ -10460,12 +10310,12 @@
 <h3 id="storage-location-of-content-types-and-content-live-refresh">Storage location of content types and content live refresh<a class="headerlink" href="#storage-location-of-content-types-and-content-live-refresh" title="Permanent link">¶</a></h3>
 <p>One of the main benefits of our content system is that, when you hit publish and the content updates, we will automatically refresh that content on each game client via a server-to-client message. This allows for the system to be incredibly interactive at development time as well as allowing for over the air updates to players who are playing in production after a content promotion.</p>
 <p>While using the Content Manager Editor (Unity Editor) it will be saved locally to your project in the following location:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">/</span><span class="n">Assets</span><span class="o">/</span><span class="n">Beamable</span><span class="o">/</span><span class="n">Editor</span><span class="o">/</span><span class="n">content</span><span class="o">/</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">/</span><span class="n">Assets</span><span class="o">/</span><span class="n">Beamable</span><span class="o">/</span><span class="n">Editor</span><span class="o">/</span><span class="n">content</span><span class="o">/</span>
+</code></pre></div>
 <p>On client builds for devices, the development location is not included in the built game project. Instead, when the player loads the game, a fresh copy of all content is retrieved from the Beamable backend and stored on device. This allows Beamable to serve <em>dynamic</em> content to the game project. By default, this is a lazy loading operation. Each of Beamable's feature prefabs show a loading progress indicator UI automatically.</p>
 <p>Content is stored on device within Unity's <a href="https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html"><code>Application.persistentDataPath</code></a>.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="n">Application</span><span class="p">.</span><span class="n">persistentDataPath</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">$"/content/{contentId}.json"</span><span class="p">;</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="w"> </span><span class="n">Application</span><span class="p">.</span><span class="n">persistentDataPath</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">$"/content/{contentId}.json"</span><span class="p">;</span>
+</code></pre></div>
 <h3 id="content-caching">Content caching<a class="headerlink" href="#content-caching" title="Permanent link">¶</a></h3>
 <p>Content is cached by the client and stored both in memory and persisted to disk. When content is updated on our backend, Beamable updates a client manifest and push it to all clients to invalidate and update the cache.</p>
 <p>See source code of <code>Runtime/DisruptorEngine/Content/ContentCache.cs</code> for more info.</p>

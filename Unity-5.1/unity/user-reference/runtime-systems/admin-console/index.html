@@ -9973,35 +9973,35 @@
 <h2 id="running-commands">Running commands<a class="headerlink" href="#running-commands" title="Permanent link">¶</a></h2>
 <p>Type a command and press <code>Enter</code>. The console echoes the command prefixed with <code>&gt;</code> and runs it. Status messages appear in the Admin Console output, but a command's detailed result may be written to the Unity Console log instead, depending on how the command logs.</p>
 <p>Example:
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt; account_list
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&gt; account_list
+</code></pre></div><p></p>
 <h2 id="listing-all-commands">Listing all Commands<a class="headerlink" href="#listing-all-commands" title="Permanent link">¶</a></h2>
 <p>Use the <code>help</code> command to list every registered command and its usage:</p>
-<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt; help
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&gt; help
+</code></pre></div>
 <h2 id="logging-to-the-console">Logging to the console<a class="headerlink" href="#logging-to-the-console" title="Permanent link">¶</a></h2>
 <p>Any script can write lines to the console output by calling <code>Log</code> on the singleton instance:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">BeamableAdminConsole</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Inventory refreshed."</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">BeamableAdminConsole</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Inventory refreshed."</span><span class="p">);</span>
+</code></pre></div>
 <h2 id="api-reference">API reference<a class="headerlink" href="#api-reference" title="Permanent link">¶</a></h2>
 <h3 id="instance">Instance<a class="headerlink" href="#instance" title="Permanent link">¶</a></h3>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">BeamableAdminConsole</span><span class="w"> </span><span class="n">Instance</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">BeamableAdminConsole</span><span class="w"> </span><span class="n">Instance</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <p>Singleton reference set during <code>InitializeConsole</code>. Use this to call <code>Log</code>, check state, or subscribe to events from anywhere in your code without holding a direct reference to the component.</p>
 <h3 id="isactive">IsActive<a class="headerlink" href="#isactive" title="Permanent link">¶</a></h3>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">IsActive</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">IsActive</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <p><code>true</code> while the console overlay is visible on screen. Use this to pause game input or suppress UI interactions that should not fire while the console is open.</p>
 <h3 id="isinitialized">IsInitialized<a class="headerlink" href="#isinitialized" title="Permanent link">¶</a></h3>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">IsInitialized</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">IsInitialized</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <p><code>true</code> after <code>InitializeConsole</code> has completed successfully. Calls to <code>Log</code> or <code>Instance</code> before initialization are safe but will have no visible effect until the console is ready.</p>
 <h3 id="onlogline">OnLogLine<a class="headerlink" href="#onlogline" title="Permanent link">¶</a></h3>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">event</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OnLogLine</span><span class="p">;</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">public</span><span class="w"> </span><span class="k">event</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OnLogLine</span><span class="p">;</span>
+</code></pre></div>
 <p>Fired each time a line is appended to the console output, whether from a command result, a <code>Log</code> call, or internal console messages. Subscribe to forward output to an external logger or display it in a custom UI:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">BeamableAdminConsole</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">OnLogLine</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">MyLogger</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">BeamableAdminConsole</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">OnLogLine</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">MyLogger</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+</code></pre></div>
 
 
 

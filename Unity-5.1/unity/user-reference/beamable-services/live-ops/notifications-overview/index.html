@@ -9742,41 +9742,28 @@
 <p>The Notifications service can be accessed via the NotificationsService from the Beamable API. Notifications primarily function using a <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">Publish-subscribe pattern</a>, where objects that should react to incoming messages (the "subscribers") listen for messages being sent out by another object (the "publishers"). Following this pattern, the API is quite simple.</p>
 <h3 id="callback-function">Callback function<a class="headerlink" href="#callback-function" title="Permanent link">¶</a></h3>
 <p>When a subscribed object receives a message, the message carries some data with it that can provide extra content about the event that occurred. For the purposes of this document, this function will be used:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">void</span><span class="w"> </span><span class="nf">CallbackAction</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">callbackObject</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="c1">//Some code that uses the callback object</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">void</span><span class="w"> </span><span class="nf">CallbackAction</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">callbackObject</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="c1">//Some code that uses the callback object</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</code></pre></div>
 <h3 id="subscribeunsubscribe">Subscribe/Unsubscribe<a class="headerlink" href="#subscribeunsubscribe" title="Permanent link">¶</a></h3>
 <p>Subscriptions are PlayerId based, so an event published by the server (for example, a microservice) must specify your PlayerId in order for your client to receive the event.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">beamable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-
-<span class="c1">//Start listening to events published with the specified message name</span>
-<span class="n">beamable</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">NotificationService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="s">"messageName"</span><span class="p">,</span><span class="w"> </span><span class="n">CallbackAction</span><span class="w"> </span><span class="p">);</span>
-
-<span class="c1">//Stop listening for events with the specified message name</span>
-<span class="n">beamable</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">NotificationService</span><span class="p">.</span><span class="n">Unsubscribe</span><span class="p">(</span><span class="s">"messageName"</span><span class="p">,</span><span class="w"> </span><span class="n">CallbackAction</span><span class="w"> </span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">beamable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">//Start listening to events published with the specified message name</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">beamable</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">NotificationService</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="s">"messageName"</span><span class="p">,</span><span class="w"> </span><span class="n">CallbackAction</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">//Stop listening for events with the specified message name</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">beamable</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">NotificationService</span><span class="p">.</span><span class="n">Unsubscribe</span><span class="p">(</span><span class="s">"messageName"</span><span class="p">,</span><span class="w"> </span><span class="n">CallbackAction</span><span class="w"> </span><span class="p">);</span>
+</code></pre></div>
 <h3 id="publish-from-microservice">Publish (from Microservice)<a class="headerlink" href="#publish-from-microservice" title="Permanent link">¶</a></h3>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">SendNotificationFromMicroservice</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">playerIds</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="w"> </span><span class="n">payload</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonUtility</span><span class="p">.</span><span class="n">ToJson</span><span class="p">(</span><span class="n">payload</span><span class="p">);</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Notifications</span><span class="p">.</span><span class="n">NotifyPlayer</span><span class="p">(</span><span class="n">playerIds</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">json</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">SendNotificationFromMicroservice</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">playerIds</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="w"> </span><span class="n">payload</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonUtility</span><span class="p">.</span><span class="n">ToJson</span><span class="p">(</span><span class="n">payload</span><span class="p">);</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">Services</span><span class="p">.</span><span class="n">Notifications</span><span class="p">.</span><span class="n">NotifyPlayer</span><span class="p">(</span><span class="n">playerIds</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">json</span><span class="p">);</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+</code></pre></div>
 
 
 

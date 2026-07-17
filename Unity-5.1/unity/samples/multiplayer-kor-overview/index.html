@@ -10132,765 +10132,390 @@
 <p>The <code>GameSceneManager</code> is the main entry point to the Game Scene logic.</p>
 <p>Here a a few highlights.</p>
 <p><strong>Send Game Event</strong></p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">SendNetworkMessage</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ReadyEvent</span><span class="p">(</span><span class="n">_ownAttributes</span><span class="p">,</span><span class="w"> </span><span class="k">alias</span><span class="p">));</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">SendNetworkMessage</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ReadyEvent</span><span class="p">(</span><span class="n">_ownAttributes</span><span class="p">,</span><span class="w"> </span><span class="k">alias</span><span class="p">));</span>
+</code></pre></div>
 <p><strong>Receive Game Event</strong></p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPlayerReady</span><span class="w"> </span><span class="p">(</span><span class="n">ReadyEvent</span><span class="w"> </span><span class="n">readyEvent</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="c1">// Handle consequences...</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPlayerReady</span><span class="w"> </span><span class="p">(</span><span class="n">ReadyEvent</span><span class="w"> </span><span class="n">readyEvent</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Handle consequences...</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
+</code></pre></div>
 <p><em>In this section you will find some partial code snippets. Download the project to see the complete code.</em></p>
 <p>GameSceneManager.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
-<span class="normal">  2</span>
-<span class="normal">  3</span>
-<span class="normal">  4</span>
-<span class="normal">  5</span>
-<span class="normal">  6</span>
-<span class="normal">  7</span>
-<span class="normal">  8</span>
-<span class="normal">  9</span>
-<span class="normal"> 10</span>
-<span class="normal"> 11</span>
-<span class="normal"> 12</span>
-<span class="normal"> 13</span>
-<span class="normal"> 14</span>
-<span class="normal"> 15</span>
-<span class="normal"> 16</span>
-<span class="normal"> 17</span>
-<span class="normal"> 18</span>
-<span class="normal"> 19</span>
-<span class="normal"> 20</span>
-<span class="normal"> 21</span>
-<span class="normal"> 22</span>
-<span class="normal"> 23</span>
-<span class="normal"> 24</span>
-<span class="normal"> 25</span>
-<span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
-<span class="normal"> 35</span>
-<span class="normal"> 36</span>
-<span class="normal"> 37</span>
-<span class="normal"> 38</span>
-<span class="normal"> 39</span>
-<span class="normal"> 40</span>
-<span class="normal"> 41</span>
-<span class="normal"> 42</span>
-<span class="normal"> 43</span>
-<span class="normal"> 44</span>
-<span class="normal"> 45</span>
-<span class="normal"> 46</span>
-<span class="normal"> 47</span>
-<span class="normal"> 48</span>
-<span class="normal"> 49</span>
-<span class="normal"> 50</span>
-<span class="normal"> 51</span>
-<span class="normal"> 52</span>
-<span class="normal"> 53</span>
-<span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span>
-<span class="normal">119</span>
-<span class="normal">120</span>
-<span class="normal">121</span>
-<span class="normal">122</span>
-<span class="normal">123</span>
-<span class="normal">124</span>
-<span class="normal">125</span>
-<span class="normal">126</span>
-<span class="normal">127</span>
-<span class="normal">128</span>
-<span class="normal">129</span>
-<span class="normal">130</span>
-<span class="normal">131</span>
-<span class="normal">132</span>
-<span class="normal">133</span>
-<span class="normal">134</span>
-<span class="normal">135</span>
-<span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
-<span class="normal">142</span>
-<span class="normal">143</span>
-<span class="normal">144</span>
-<span class="normal">145</span>
-<span class="normal">146</span>
-<span class="normal">147</span>
-<span class="normal">148</span>
-<span class="normal">149</span>
-<span class="normal">150</span>
-<span class="normal">151</span>
-<span class="normal">152</span>
-<span class="normal">153</span>
-<span class="normal">154</span>
-<span class="normal">155</span>
-<span class="normal">156</span>
-<span class="normal">157</span>
-<span class="normal">158</span>
-<span class="normal">159</span>
-<span class="normal">160</span>
-<span class="normal">161</span>
-<span class="normal">162</span>
-<span class="normal">163</span>
-<span class="normal">164</span>
-<span class="normal">165</span>
-<span class="normal">166</span>
-<span class="normal">167</span>
-<span class="normal">168</span>
-<span class="normal">169</span>
-<span class="normal">170</span>
-<span class="normal">171</span>
-<span class="normal">172</span>
-<span class="normal">173</span>
-<span class="normal">174</span>
-<span class="normal">175</span>
-<span class="normal">176</span>
-<span class="normal">177</span>
-<span class="normal">178</span>
-<span class="normal">179</span>
-<span class="normal">180</span>
-<span class="normal">181</span>
-<span class="normal">182</span>
-<span class="normal">183</span>
-<span class="normal">184</span>
-<span class="normal">185</span>
-<span class="normal">186</span>
-<span class="normal">187</span>
-<span class="normal">188</span>
-<span class="normal">189</span>
-<span class="normal">190</span>
-<span class="normal">191</span>
-<span class="normal">192</span>
-<span class="normal">193</span>
-<span class="normal">194</span>
-<span class="normal">195</span>
-<span class="normal">196</span>
-<span class="normal">197</span>
-<span class="normal">198</span>
-<span class="normal">199</span>
-<span class="normal">200</span>
-<span class="normal">201</span>
-<span class="normal">202</span>
-<span class="normal">203</span>
-<span class="normal">204</span>
-<span class="normal">205</span>
-<span class="normal">206</span>
-<span class="normal">207</span>
-<span class="normal">208</span>
-<span class="normal">209</span>
-<span class="normal">210</span>
-<span class="normal">211</span>
-<span class="normal">212</span>
-<span class="normal">213</span>
-<span class="normal">214</span>
-<span class="normal">215</span>
-<span class="normal">216</span>
-<span class="normal">217</span>
-<span class="normal">218</span>
-<span class="normal">219</span>
-<span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span>
-<span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span>
-<span class="normal">226</span>
-<span class="normal">227</span>
-<span class="normal">228</span>
-<span class="normal">229</span>
-<span class="normal">230</span>
-<span class="normal">231</span>
-<span class="normal">232</span>
-<span class="normal">233</span>
-<span class="normal">234</span>
-<span class="normal">235</span>
-<span class="normal">236</span>
-<span class="normal">237</span>
-<span class="normal">238</span>
-<span class="normal">239</span>
-<span class="normal">240</span>
-<span class="normal">241</span>
-<span class="normal">242</span>
-<span class="normal">243</span>
-<span class="normal">244</span>
-<span class="normal">245</span>
-<span class="normal">246</span>
-<span class="normal">247</span>
-<span class="normal">248</span>
-<span class="normal">249</span>
-<span class="normal">250</span>
-<span class="normal">251</span>
-<span class="normal">252</span>
-<span class="normal">253</span>
-<span class="normal">254</span>
-<span class="normal">255</span>
-<span class="normal">256</span>
-<span class="normal">257</span>
-<span class="normal">258</span>
-<span class="normal">259</span>
-<span class="normal">260</span>
-<span class="normal">261</span>
-<span class="normal">262</span>
-<span class="normal">263</span>
-<span class="normal">264</span>
-<span class="normal">265</span>
-<span class="normal">266</span>
-<span class="normal">267</span>
-<span class="normal">268</span>
-<span class="normal">269</span>
-<span class="normal">270</span>
-<span class="normal">271</span>
-<span class="normal">272</span>
-<span class="normal">273</span>
-<span class="normal">274</span>
-<span class="normal">275</span>
-<span class="normal">276</span>
-<span class="normal">277</span>
-<span class="normal">278</span>
-<span class="normal">279</span>
-<span class="normal">280</span>
-<span class="normal">281</span>
-<span class="normal">282</span>
-<span class="normal">283</span>
-<span class="normal">284</span>
-<span class="normal">285</span>
-<span class="normal">286</span>
-<span class="normal">287</span>
-<span class="normal">288</span>
-<span class="normal">289</span>
-<span class="normal">290</span>
-<span class="normal">291</span>
-<span class="normal">292</span>
-<span class="normal">293</span>
-<span class="normal">294</span>
-<span class="normal">295</span>
-<span class="normal">296</span>
-<span class="normal">297</span>
-<span class="normal">298</span>
-<span class="normal">299</span>
-<span class="normal">300</span>
-<span class="normal">301</span>
-<span class="normal">302</span>
-<span class="normal">303</span>
-<span class="normal">304</span>
-<span class="normal">305</span>
-<span class="normal">306</span>
-<span class="normal">307</span>
-<span class="normal">308</span>
-<span class="normal">309</span>
-<span class="normal">310</span>
-<span class="normal">311</span>
-<span class="normal">312</span>
-<span class="normal">313</span>
-<span class="normal">314</span>
-<span class="normal">315</span>
-<span class="normal">316</span>
-<span class="normal">317</span>
-<span class="normal">318</span>
-<span class="normal">319</span>
-<span class="normal">320</span>
-<span class="normal">321</span>
-<span class="normal">322</span>
-<span class="normal">323</span>
-<span class="normal">324</span>
-<span class="normal">325</span>
-<span class="normal">326</span>
-<span class="normal">327</span>
-<span class="normal">328</span>
-<span class="normal">329</span>
-<span class="normal">330</span>
-<span class="normal">331</span>
-<span class="normal">332</span>
-<span class="normal">333</span>
-<span class="normal">334</span>
-<span class="normal">335</span>
-<span class="normal">336</span>
-<span class="normal">337</span>
-<span class="normal">338</span>
-<span class="normal">339</span>
-<span class="normal">340</span>
-<span class="normal">341</span>
-<span class="normal">342</span>
-<span class="normal">343</span>
-<span class="normal">344</span>
-<span class="normal">345</span>
-<span class="normal">346</span>
-<span class="normal">347</span>
-<span class="normal">348</span>
-<span class="normal">349</span>
-<span class="normal">350</span>
-<span class="normal">351</span>
-<span class="normal">352</span>
-<span class="normal">353</span>
-<span class="normal">354</span>
-<span class="normal">355</span>
-<span class="normal">356</span>
-<span class="normal">357</span>
-<span class="normal">358</span>
-<span class="normal">359</span>
-<span class="normal">360</span>
-<span class="normal">361</span>
-<span class="normal">362</span>
-<span class="normal">363</span>
-<span class="normal">364</span>
-<span class="normal">365</span>
-<span class="normal">366</span>
-<span class="normal">367</span>
-<span class="normal">368</span>
-<span class="normal">369</span>
-<span class="normal">370</span>
-<span class="normal">371</span>
-<span class="normal">372</span>
-<span class="normal">373</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Examples.Features.Multiplayer.Core</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Behaviours</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Data</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Multiplayer</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Multiplayer.Events</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Views</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Experimental.Api.Sim</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.Core.Debugging</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.Core.UI</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.Core.UI.DialogSystem</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.Core.Utilities</span><span class="p">;</span>
-
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">    </span><span class="c1">/// Handles the main scene logic: Game</span>
-<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GameSceneManager</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">//  Properties -----------------------------------</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">GameUIView</span><span class="w"> </span><span class="n">GameUIView</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">_gameUIView</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">Configuration</span><span class="w"> </span><span class="n">Configuration</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">_configuration</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnPointBehaviour</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AvailableSpawnPoints</span><span class="p">;</span>
-
-<span class="w">        </span><span class="c1">//  Fields ---------------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">IBeamableAPI</span><span class="w"> </span><span class="n">_beamableAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-
-<span class="w">        </span><span class="na">[SerializeField]</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">Configuration</span><span class="w"> </span><span class="n">_configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-
-<span class="w">        </span><span class="na">[SerializeField]</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">GameUIView</span><span class="w"> </span><span class="n">_gameUIView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">Attributes</span><span class="w"> </span><span class="n">_ownAttributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnablePlayer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_spawnablePlayers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnablePlayer</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnPointBehaviour</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_unusedSpawnPoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnPointBehaviour</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_dbidReadyReceived</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-
-<span class="w">        </span><span class="c1">//  Unity Methods   ------------------------------</span>
-<span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">6</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarUIViews</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">CanvasGroup</span><span class="o">&gt;</span><span class="p">().</span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.0f</span><span class="p">;</span>
-
-<span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">BackButton</span><span class="p">.</span><span class="n">onClick</span><span class="p">.</span><span class="n">AddListener</span><span class="p">(</span><span class="n">BackButton_OnClicked</span><span class="p">);</span>
-<span class="w">            </span><span class="n">SetupBeamable</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="c1">//  Other Methods   ------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DebugLog</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// Respects Configuration.IsDebugLog Checkbox</span>
-<span class="w">            </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">_beamableAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Beamable</span><span class="p">.</span><span class="n">API</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">Initialize</span><span class="p">();</span>
-<span class="w">            </span><span class="n">_ownAttributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">GetChosenPlayerAttributes</span><span class="p">();</span>
-
-<span class="w">            </span><span class="c1">// Do this after calling "Beamable.API.Instance" for smoother UI</span>
-<span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">CanvasGroupsDoFadeIn</span><span class="p">();</span>
-
-<span class="w">            </span><span class="c1">// Set defaults if scene was loaded directly</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">TargetPlayerCount</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">KORConstants</span><span class="p">.</span><span class="n">UnsetValue</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">DebugLog</span><span class="p">(</span><span class="n">KORHelper</span><span class="p">.</span><span class="n">GetSceneLoadingMessage</span><span class="p">(</span><span class="n">gameObject</span><span class="p">.</span><span class="n">scene</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">));</span>
-<span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">TargetPlayerCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
-<span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CurrentPlayerCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
-<span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LocalPlayerDbid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamableAPI</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
-<span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">MatchId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KORMatchmaking</span><span class="p">.</span><span class="n">GetRandomMatchId</span><span class="p">();</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="k">else</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">DebugLog</span><span class="p">(</span><span class="n">KORHelper</span><span class="p">.</span><span class="n">GetSceneLoadingMessage</span><span class="p">(</span><span class="n">gameObject</span><span class="p">.</span><span class="n">scene</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">));</span>
-<span class="w">            </span><span class="p">}</span>
-
-<span class="w">            </span><span class="c1">// Set the ActiveSimGameType. This happens in 2+ spots to handle direct scene loading</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">IsSinglePlayerMode</span><span class="p">)</span>
-<span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">ActiveSimGameType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_configuration</span><span class="p">.</span><span class="n">SimGameType01Ref</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
-<span class="w">            </span><span class="k">else</span>
-<span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">ActiveSimGameType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_configuration</span><span class="p">.</span><span class="n">SimGameType02Ref</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
-
-<span class="w">            </span><span class="c1">// Initialize ECS</span>
-<span class="w">            </span><span class="n">SystemManager</span><span class="p">.</span><span class="n">StartGameSystems</span><span class="p">();</span>
-
-<span class="w">            </span><span class="c1">// Show the player's attributes in the UI of this scene</span>
-
-<span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AttributesPanelUI</span><span class="p">.</span><span class="n">Attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_ownAttributes</span><span class="p">;</span>
-
-<span class="w">            </span><span class="c1">// Initialize Networking</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Init</span><span class="p">();</span>
-
-<span class="w">            </span><span class="c1">// Set Available Spawns</span>
-<span class="w">            </span><span class="n">_unusedSpawnPoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AvailableSpawnPoints</span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
-
-<span class="w">            </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Log</span><span class="p">.</span><span class="n">CreateNewConsumer</span><span class="p">(</span><span class="n">HandleNetworkUpdate</span><span class="p">);</span>
-<span class="w">            </span><span class="c1">// Optional: Stuff to use later when player moves are incoming</span>
-<span class="w">            </span><span class="kt">long</span><span class="w"> </span><span class="n">tbdIncomingPlayerDbid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamableAPI</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">id</span><span class="p">;</span><span class="w"> </span><span class="c1">// test value;</span>
-<span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"MinPlayerCount = {RuntimeDataStorage.Instance.MinPlayerCount}"</span><span class="p">);</span>
-<span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"MaxPlayerCount = {RuntimeDataStorage.Instance.MaxPlayerCount}"</span><span class="p">);</span>
-<span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"CurrentPlayerCount = {RuntimeDataStorage.Instance.CurrentPlayerCount}"</span><span class="p">);</span>
-<span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"LocalPlayerDbid = {RuntimeDataStorage.Instance.LocalPlayerDbid}"</span><span class="p">);</span>
-<span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"IsLocalPlayerDbid = {RuntimeDataStorage.Instance.IsLocalPlayerDbid(tbdIncomingPlayerDbid)}"</span><span class="p">);</span>
-<span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"IsSinglePlayerMode = {RuntimeDataStorage.Instance.IsSinglePlayerMode}"</span><span class="p">);</span>
-
-<span class="w">            </span><span class="c1">// Optional: Show queueable status text onscreen</span>
-<span class="w">            </span><span class="n">SetStatusText</span><span class="p">(</span><span class="n">KORConstants</span><span class="p">.</span><span class="n">GameUIView_Playing</span><span class="p">,</span><span class="w"> </span><span class="n">TMP_BufferedText</span><span class="p">.</span><span class="n">BufferedTextMode</span><span class="p">.</span><span class="n">Immediate</span><span class="p">);</span>
-
-<span class="w">            </span><span class="c1">// Optional: Add easily configurable delays</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromSeconds</span><span class="p">(</span><span class="n">_configuration</span><span class="p">.</span><span class="n">DelayGameBeforeMove</span><span class="p">));</span>
-
-<span class="w">            </span><span class="c1">// Optional: Play sound</span>
-<span class="w">            </span><span class="c1">//SoundManager.Instance.PlayAudioClip(SoundConstants.Click01);</span>
-
-<span class="w">            </span><span class="c1">// Optional: Render color and text of avatar ui</span>
-<span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarViews</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPlayerJoined</span><span class="p">(</span><span class="n">PlayerJoinedEvent</span><span class="w"> </span><span class="n">joinEvent</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
-<span class="w">                </span><span class="k">return</span><span class="p">;</span>
-
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">spawnIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">rand</span><span class="p">.</span><span class="n">Next</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">_unusedSpawnPoints</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">spawnPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_unusedSpawnPoints</span><span class="p">[</span><span class="n">spawnIndex</span><span class="p">];</span>
-<span class="w">            </span><span class="n">_unusedSpawnPoints</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">spawnPoint</span><span class="p">);</span>
-
-<span class="w">            </span><span class="n">SpawnablePlayer</span><span class="w"> </span><span class="n">newPlayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SpawnablePlayer</span><span class="p">(</span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">,</span><span class="w"> </span><span class="n">spawnPoint</span><span class="p">);</span>
-<span class="w">            </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">);</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">Initialize</span><span class="p">();</span>
-<span class="w">            </span><span class="n">newPlayer</span><span class="p">.</span><span class="n">ChosenCharacter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">GetChosenCharacterByDBID</span><span class="p">(</span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">);</span>
-<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="k">alias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">GetPlayerAliasByDBID</span><span class="p">(</span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">);</span>
-
-<span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"alias from joinEvent dbid={joinEvent.PlayerDbid} alias={alias}"</span><span class="p">);</span>
-
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LocalDbid</span><span class="p">)</span>
-<span class="w">                </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">SendNetworkMessage</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ReadyEvent</span><span class="p">(</span><span class="n">_ownAttributes</span><span class="p">,</span><span class="w"> </span><span class="k">alias</span><span class="p">));</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPlayerReady</span><span class="p">(</span><span class="n">ReadyEvent</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Getting ready for dbid={readyEvt.PlayerDbid}"</span>
-<span class="w">                                       </span><span class="o">+</span><span class="w"> </span><span class="s">$" attributes move/charge={readyEvt.aggregateMovementSpeed}/{readyEvt.aggregateChargeSpeed}"</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLogLevel</span><span class="p">.</span><span class="n">Verbose</span><span class="p">);</span>
-
-<span class="w">            </span><span class="n">_dbidReadyReceived</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">readyEvt</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">);</span>
-
-<span class="w">            </span><span class="n">SpawnablePlayer</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">);</span>
-<span class="w">            </span><span class="n">sp</span><span class="p">.</span><span class="n">Attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Attributes</span><span class="p">(</span><span class="n">readyEvt</span><span class="p">.</span><span class="n">aggregateChargeSpeed</span><span class="p">,</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">.</span><span class="n">aggregateMovementSpeed</span><span class="p">);</span>
-<span class="w">            </span><span class="n">sp</span><span class="p">.</span><span class="n">PlayerAlias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">.</span><span class="n">playerAlias</span><span class="p">;</span>
-
-<span class="w">            </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"alias from readyEvt dbid={readyEvt.PlayerDbid} alias={sp.PlayerAlias}"</span><span class="p">);</span>
-
-<span class="w">            </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"OnPlayerReady Players={_dbidReadyReceived.Count}/{RuntimeDataStorage.Instance.CurrentPlayerCount}"</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLogLevel</span><span class="p">.</span><span class="n">Verbose</span><span class="p">);</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">_dbidReadyReceived</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CurrentPlayerCount</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
-<span class="w">                </span><span class="n">SpawnAllPlayersAtOnce</span><span class="p">();</span>
-<span class="w">                </span><span class="n">StartGameTimer</span><span class="p">();</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">StartGameTimer</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">GameUIView</span><span class="p">.</span><span class="n">GameTimerBehaviour</span><span class="p">.</span><span class="n">StartMatch</span><span class="p">();</span>
-<span class="w">            </span><span class="n">GameUIView</span><span class="p">.</span><span class="n">GameTimerBehaviour</span><span class="p">.</span><span class="n">OnGameOver</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="c1">// TODO: score the players, and end the game.</span>
-<span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Game over!"</span><span class="p">);</span>
-
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">uis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindObjectsOfType</span><span class="o">&lt;</span><span class="n">AvatarUIView</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">validUis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uis</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">ui</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ui</span><span class="p">.</span><span class="n">Player</span><span class="p">).</span><span class="n">ToList</span><span class="p">();</span>
-<span class="w">                </span><span class="n">validUis</span><span class="p">.</span><span class="n">Sort</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">SpawnablePlayer</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">SpawnablePlayer</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">);</span>
-<span class="w">                </span><span class="n">validUis</span><span class="p">.</span><span class="n">Sort</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">HealthBehaviour</span><span class="p">.</span><span class="n">Health</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">HealthBehaviour</span><span class="p">.</span><span class="n">Health</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
-
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">scores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">validUis</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">ui</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PlayerResult</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">playerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ui</span><span class="p">.</span><span class="n">SpawnablePlayer</span><span class="p">.</span><span class="n">DBID</span><span class="p">,</span>
-<span class="w">                    </span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ui</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">HealthBehaviour</span><span class="p">.</span><span class="n">Health</span><span class="p">,</span>
-<span class="w">                </span><span class="p">}).</span><span class="n">ToArray</span><span class="p">();</span>
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">selfRank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">selfScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scores</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
-<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">scores</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">playerId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LocalDbid</span><span class="p">)</span>
-<span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="n">selfRank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">                        </span><span class="n">selfScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<span class="w">                    </span><span class="p">}</span>
-<span class="w">                </span><span class="p">}</span>
-
-<span class="w">                </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">motionBehaviour</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">FindObjectsOfType</span><span class="o">&lt;</span><span class="n">AvatarMotionBehaviour</span><span class="o">&gt;</span><span class="p">())</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">motionBehaviour</span><span class="p">.</span><span class="n">Stop</span><span class="p">();</span>
-<span class="w">                    </span><span class="n">motionBehaviour</span><span class="p">.</span><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-<span class="w">                </span><span class="p">}</span>
-
-<span class="w">                </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">inputBehaviour</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">FindObjectsOfType</span><span class="o">&lt;</span><span class="n">PlayerInputBehaviour</span><span class="o">&gt;</span><span class="p">())</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">inputBehaviour</span><span class="p">.</span><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-<span class="w">                </span><span class="p">}</span>
-
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">ReportResults</span><span class="p">(</span><span class="n">scores</span><span class="p">);</span>
-
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">isWinner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">selfRank</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">earnings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">","</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">.</span><span class="n">currenciesGranted</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">grant</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"{grant.amount}x{grant.symbol}"</span><span class="p">));</span>
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">earningsBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">earnings</span><span class="p">)</span>
-<span class="w">                    </span><span class="o">?</span><span class="w"> </span><span class="s">"nothing"</span>
-<span class="w">                    </span><span class="p">:</span><span class="w"> </span><span class="n">earnings</span><span class="p">;</span>
-<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"You came in place: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">selfRank</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">". You earned "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">earningsBody</span><span class="p">;</span>
-<span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">ShowDialogBox</span><span class="o">&lt;</span><span class="n">DialogUI</span><span class="o">&gt;</span><span class="p">(</span>
-
-<span class="w">                    </span><span class="c1">// Renders this prefab. DUPLICATE this prefab and drag</span>
-<span class="w">                    </span><span class="c1">// into _storeUIView to change layout</span>
-<span class="w">                    </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">DialogUIPrefab</span><span class="p">,</span>
-
-<span class="w">                    </span><span class="c1">// Set Text</span>
-<span class="w">                    </span><span class="n">isWinner</span>
-<span class="w">                        </span><span class="o">?</span><span class="w"> </span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_GameOver_Victory</span>
-<span class="w">                        </span><span class="p">:</span><span class="w"> </span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_GameOver_Defeat</span><span class="p">,</span>
-<span class="w">                    </span><span class="n">body</span><span class="p">,</span>
-
-<span class="w">                    </span><span class="c1">// Create zero or more buttons</span>
-<span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DialogButtonData</span><span class="o">&gt;</span>
-<span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="k">new</span><span class="w"> </span><span class="nf">DialogButtonData</span><span class="p">(</span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_Ok</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                        </span><span class="p">{</span>
-<span class="w">                            </span><span class="n">KORHelper</span><span class="p">.</span><span class="n">PlayAudioForUIClickPrimary</span><span class="p">();</span>
-<span class="w">                            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">HideDialogBox</span><span class="p">();</span>
-
-<span class="w">                            </span><span class="c1">// Clean up manager</span>
-<span class="w">                            </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">                            </span><span class="n">_unusedSpawnPoints</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">                            </span><span class="n">_dbidReadyReceived</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">                            </span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-<span class="w">                            </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Cleanup</span><span class="p">();</span>
-
-<span class="w">                            </span><span class="c1">// Destroy ECS</span>
-<span class="w">                            </span><span class="n">SystemManager</span><span class="p">.</span><span class="n">DestroyGameSystems</span><span class="p">();</span>
-
-<span class="w">                            </span><span class="c1">// Change scenes</span>
-<span class="w">                            </span><span class="n">StartCoroutine</span><span class="p">(</span><span class="n">KORHelper</span><span class="p">.</span><span class="n">LoadScene_Coroutine</span><span class="p">(</span><span class="n">_configuration</span><span class="p">.</span><span class="n">IntroSceneName</span><span class="p">,</span>
-<span class="w">                                </span><span class="n">_configuration</span><span class="p">.</span><span class="n">DelayBeforeLoadScene</span><span class="p">));</span>
-<span class="w">                        </span><span class="p">})</span>
-<span class="w">                    </span><span class="p">});</span>
-<span class="w">            </span><span class="p">};</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SpawnAllPlayersAtOnce</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">List</span><span class="o">&lt;</span><span class="n">CanvasGroup</span><span class="o">&gt;</span><span class="w"> </span><span class="n">avatarUiCanvasGroups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">CanvasGroup</span><span class="o">&gt;</span><span class="p">();</span>
-
-<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="o">++</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">SpawnablePlayer</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_spawnablePlayers</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
-
-<span class="w">                </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"DBID={sp.DBID} Spawning character={sp.ChosenCharacter.CharacterContentObject.ContentName}"</span>
-<span class="w">                                           </span><span class="o">+</span><span class="w"> </span><span class="s">$" attributes move/charge={sp.Attributes.MovementSpeed}/{sp.Attributes.ChargeSpeed}"</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLogLevel</span><span class="p">.</span><span class="n">Verbose</span><span class="p">);</span>
-
-<span class="w">                </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"playerAlias={sp.PlayerAlias}"</span><span class="p">);</span>
-
-<span class="w">                </span><span class="n">AvatarView</span><span class="w"> </span><span class="n">avatarView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameObject</span><span class="p">.</span><span class="n">Instantiate</span><span class="o">&lt;</span><span class="n">AvatarView</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">ChosenCharacter</span><span class="p">.</span><span class="n">AvatarViewPrefab</span><span class="p">);</span>
-<span class="w">                </span><span class="n">avatarView</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">SetPhysicsPosition</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">SpawnPointBehaviour</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
-
-<span class="w">                </span><span class="n">Player</span><span class="w"> </span><span class="n">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avatarView</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">                </span><span class="n">player</span><span class="p">.</span><span class="n">SetAlias</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">PlayerAlias</span><span class="p">);</span>
-
-<span class="w">                </span><span class="n">avatarView</span><span class="p">.</span><span class="n">SetForPlayer</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">DBID</span><span class="p">);</span>
-<span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarViews</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">avatarView</span><span class="p">);</span>
-
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LocalDbid</span><span class="p">)</span>
-<span class="w">                    </span><span class="n">avatarView</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">AvatarMotionBehaviour</span><span class="o">&gt;</span><span class="p">().</span><span class="n">PreviewBehaviour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">                </span><span class="k">else</span>
-<span class="w">                    </span><span class="n">avatarView</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">PlayerInputBehaviour</span><span class="o">&gt;</span><span class="p">().</span><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-
-<span class="w">                </span><span class="n">AvatarMotionBehaviour</span><span class="w"> </span><span class="n">amb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avatarView</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">AvatarMotionBehaviour</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">                </span><span class="n">amb</span><span class="p">.</span><span class="n">Attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">Attributes</span><span class="p">;</span>
-
-<span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarUIViews</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">Set</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="w"> </span><span class="n">sp</span><span class="p">);</span>
-<span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarUIViews</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">Render</span><span class="p">();</span>
-<span class="w">                </span><span class="n">avatarUiCanvasGroups</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarUIViews</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">CanvasGroup</span><span class="o">&gt;</span><span class="p">());</span>
-<span class="w">            </span><span class="p">}</span>
-
-<span class="w">            </span><span class="n">TweenHelper</span><span class="p">.</span><span class="n">CanvasGroupsDoFade</span><span class="p">(</span><span class="n">avatarUiCanvasGroups</span><span class="p">,</span><span class="w"> </span><span class="m">0.0f</span><span class="p">,</span><span class="w"> </span><span class="m">1.0f</span><span class="p">,</span><span class="w"> </span><span class="m">1.0f</span><span class="p">,</span><span class="w"> </span><span class="m">0.0f</span><span class="p">,</span><span class="w"> </span><span class="m">0.0f</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">HandleNetworkUpdate</span><span class="p">(</span><span class="n">TimeUpdate</span><span class="w"> </span><span class="n">update</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">evt</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">update</span><span class="p">.</span><span class="n">Events</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">HandleNetworkEvent</span><span class="p">(</span><span class="n">evt</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">HandleNetworkEvent</span><span class="p">(</span><span class="n">KOREvent</span><span class="w"> </span><span class="n">korEvent</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">korEvent</span><span class="p">)</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="n">ReadyEvent</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">:</span>
-<span class="w">                    </span><span class="n">OnPlayerReady</span><span class="p">(</span><span class="n">readyEvt</span><span class="p">);</span>
-<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
-
-<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="n">PlayerJoinedEvent</span><span class="w"> </span><span class="n">joinEvt</span><span class="p">:</span>
-<span class="w">                    </span><span class="n">OnPlayerJoined</span><span class="p">(</span><span class="n">joinEvt</span><span class="p">);</span>
-<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">        </span><span class="c1">/// Render UI text</span>
-<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">        </span><span class="c1">/// &lt;param name="message"&gt;&lt;/param&gt;</span>
-<span class="w">        </span><span class="c1">/// &lt;param name="statusTextMode"&gt;&lt;/param&gt;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetStatusText</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">TMP_BufferedText</span><span class="p">.</span><span class="n">BufferedTextMode</span><span class="w"> </span><span class="n">statusTextMode</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">BufferedText</span><span class="p">.</span><span class="n">SetText</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">statusTextMode</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="c1">//  Event Handlers -------------------------------</span>
-<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">BackButton_OnClicked</span><span class="p">()</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">KORHelper</span><span class="p">.</span><span class="n">PlayAudioForUIClickBack</span><span class="p">();</span>
-
-<span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">ShowDialogBox</span><span class="o">&lt;</span><span class="n">DialogUI</span><span class="o">&gt;</span><span class="p">(</span>
-
-<span class="w">                </span><span class="c1">// Renders this prefab. DUPLICATE this prefab and drag</span>
-<span class="w">                </span><span class="c1">// into _storeUIView to change layout</span>
-<span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">DialogUIPrefab</span><span class="p">,</span>
-
-<span class="w">                </span><span class="c1">// Set Text</span>
-<span class="w">                </span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_AreYouSure</span><span class="p">,</span>
-<span class="w">                </span><span class="s">"This will end your game."</span><span class="p">,</span>
-
-<span class="w">                </span><span class="c1">// Create zero or more buttons</span>
-<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DialogButtonData</span><span class="o">&gt;</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="nf">DialogButtonData</span><span class="p">(</span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_Ok</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="n">KORHelper</span><span class="p">.</span><span class="n">PlayAudioForUIClickPrimary</span><span class="p">();</span>
-<span class="w">                        </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">HideDialogBox</span><span class="p">();</span>
-
-<span class="w">                        </span><span class="c1">// Clean up manager</span>
-<span class="w">                        </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">                        </span><span class="n">_unusedSpawnPoints</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">                        </span><span class="n">_dbidReadyReceived</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
-<span class="w">                        </span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-<span class="w">                        </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Cleanup</span><span class="p">();</span>
-
-<span class="w">                        </span><span class="c1">// Destroy ECS</span>
-<span class="w">                        </span><span class="n">SystemManager</span><span class="p">.</span><span class="n">DestroyGameSystems</span><span class="p">();</span>
-
-<span class="w">                        </span><span class="c1">// Change scenes</span>
-<span class="w">                        </span><span class="n">StartCoroutine</span><span class="p">(</span><span class="n">KORHelper</span><span class="p">.</span><span class="n">LoadScene_Coroutine</span><span class="p">(</span><span class="n">_configuration</span><span class="p">.</span><span class="n">IntroSceneName</span><span class="p">,</span>
-<span class="w">                            </span><span class="n">_configuration</span><span class="p">.</span><span class="n">DelayBeforeLoadScene</span><span class="p">));</span>
-<span class="w">                    </span><span class="p">}),</span>
-<span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="nf">DialogButtonData</span><span class="p">(</span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_Cancel</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="n">KORHelper</span><span class="p">.</span><span class="n">PlayAudioForUIClickSecondary</span><span class="p">();</span>
-<span class="w">                        </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">HideDialogBox</span><span class="p">();</span>
-<span class="w">                    </span><span class="p">})</span>
-<span class="w">                </span><span class="p">});</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Examples.Features.Multiplayer.Core</span><span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Behaviours</span><span class="p">;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Data</span><span class="p">;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Multiplayer</span><span class="p">;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Multiplayer.Events</span><span class="p">;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR.Views</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Experimental.Api.Sim</span><span class="p">;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.Core.Debugging</span><span class="p">;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.Core.UI</span><span class="p">;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.Core.UI.DialogSystem</span><span class="p">;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Samples.Core.Utilities</span><span class="p">;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Samples.KOR</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="p">{</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="c1">/// Handles the main scene logic: Game</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GameSceneManager</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">        </span><span class="c1">//  Properties -----------------------------------</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">GameUIView</span><span class="w"> </span><span class="n">GameUIView</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">_gameUIView</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">Configuration</span><span class="w"> </span><span class="n">Configuration</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">_configuration</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnPointBehaviour</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AvailableSpawnPoints</span><span class="p">;</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">        </span><span class="c1">//  Fields ---------------------------------------</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">IBeamableAPI</span><span class="w"> </span><span class="n">_beamableAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">        </span><span class="na">[SerializeField]</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">Configuration</span><span class="w"> </span><span class="n">_configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">        </span><span class="na">[SerializeField]</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">GameUIView</span><span class="w"> </span><span class="n">_gameUIView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">Attributes</span><span class="w"> </span><span class="n">_ownAttributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnablePlayer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_spawnablePlayers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnablePlayer</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnPointBehaviour</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_unusedSpawnPoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SpawnPointBehaviour</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_dbidReadyReceived</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="w">        </span><span class="c1">//  Unity Methods   ------------------------------</span>
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">6</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarUIViews</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">CanvasGroup</span><span class="o">&gt;</span><span class="p">().</span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.0f</span><span class="p">;</span>
+<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>
+<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a><span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">BackButton</span><span class="p">.</span><span class="n">onClick</span><span class="p">.</span><span class="n">AddListener</span><span class="p">(</span><span class="n">BackButton_OnClicked</span><span class="p">);</span>
+<a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="w">            </span><span class="n">SetupBeamable</span><span class="p">();</span>
+<a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a>
+<a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a><span class="w">        </span><span class="c1">//  Other Methods   ------------------------------</span>
+<a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DebugLog</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
+<a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a><span class="w">            </span><span class="c1">// Respects Configuration.IsDebugLog Checkbox</span>
+<a id="__codelineno-2-60" name="__codelineno-2-60" href="#__codelineno-2-60"></a><span class="w">            </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+<a id="__codelineno-2-61" name="__codelineno-2-61" href="#__codelineno-2-61"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-62" name="__codelineno-2-62" href="#__codelineno-2-62"></a>
+<a id="__codelineno-2-63" name="__codelineno-2-63" href="#__codelineno-2-63"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupBeamable</span><span class="p">()</span>
+<a id="__codelineno-2-64" name="__codelineno-2-64" href="#__codelineno-2-64"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-65" name="__codelineno-2-65" href="#__codelineno-2-65"></a><span class="w">            </span><span class="n">_beamableAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Beamable</span><span class="p">.</span><span class="n">API</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
+<a id="__codelineno-2-66" name="__codelineno-2-66" href="#__codelineno-2-66"></a><span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">Initialize</span><span class="p">();</span>
+<a id="__codelineno-2-67" name="__codelineno-2-67" href="#__codelineno-2-67"></a><span class="w">            </span><span class="n">_ownAttributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">GetChosenPlayerAttributes</span><span class="p">();</span>
+<a id="__codelineno-2-68" name="__codelineno-2-68" href="#__codelineno-2-68"></a>
+<a id="__codelineno-2-69" name="__codelineno-2-69" href="#__codelineno-2-69"></a><span class="w">            </span><span class="c1">// Do this after calling "Beamable.API.Instance" for smoother UI</span>
+<a id="__codelineno-2-70" name="__codelineno-2-70" href="#__codelineno-2-70"></a><span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">CanvasGroupsDoFadeIn</span><span class="p">();</span>
+<a id="__codelineno-2-71" name="__codelineno-2-71" href="#__codelineno-2-71"></a>
+<a id="__codelineno-2-72" name="__codelineno-2-72" href="#__codelineno-2-72"></a><span class="w">            </span><span class="c1">// Set defaults if scene was loaded directly</span>
+<a id="__codelineno-2-73" name="__codelineno-2-73" href="#__codelineno-2-73"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">TargetPlayerCount</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">KORConstants</span><span class="p">.</span><span class="n">UnsetValue</span><span class="p">)</span>
+<a id="__codelineno-2-74" name="__codelineno-2-74" href="#__codelineno-2-74"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-2-75" name="__codelineno-2-75" href="#__codelineno-2-75"></a><span class="w">                </span><span class="n">DebugLog</span><span class="p">(</span><span class="n">KORHelper</span><span class="p">.</span><span class="n">GetSceneLoadingMessage</span><span class="p">(</span><span class="n">gameObject</span><span class="p">.</span><span class="n">scene</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">));</span>
+<a id="__codelineno-2-76" name="__codelineno-2-76" href="#__codelineno-2-76"></a><span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">TargetPlayerCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<a id="__codelineno-2-77" name="__codelineno-2-77" href="#__codelineno-2-77"></a><span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CurrentPlayerCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<a id="__codelineno-2-78" name="__codelineno-2-78" href="#__codelineno-2-78"></a><span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LocalPlayerDbid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamableAPI</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+<a id="__codelineno-2-79" name="__codelineno-2-79" href="#__codelineno-2-79"></a><span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">MatchId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KORMatchmaking</span><span class="p">.</span><span class="n">GetRandomMatchId</span><span class="p">();</span>
+<a id="__codelineno-2-80" name="__codelineno-2-80" href="#__codelineno-2-80"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-81" name="__codelineno-2-81" href="#__codelineno-2-81"></a><span class="w">            </span><span class="k">else</span>
+<a id="__codelineno-2-82" name="__codelineno-2-82" href="#__codelineno-2-82"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-2-83" name="__codelineno-2-83" href="#__codelineno-2-83"></a><span class="w">                </span><span class="n">DebugLog</span><span class="p">(</span><span class="n">KORHelper</span><span class="p">.</span><span class="n">GetSceneLoadingMessage</span><span class="p">(</span><span class="n">gameObject</span><span class="p">.</span><span class="n">scene</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">));</span>
+<a id="__codelineno-2-84" name="__codelineno-2-84" href="#__codelineno-2-84"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-85" name="__codelineno-2-85" href="#__codelineno-2-85"></a>
+<a id="__codelineno-2-86" name="__codelineno-2-86" href="#__codelineno-2-86"></a><span class="w">            </span><span class="c1">// Set the ActiveSimGameType. This happens in 2+ spots to handle direct scene loading</span>
+<a id="__codelineno-2-87" name="__codelineno-2-87" href="#__codelineno-2-87"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">IsSinglePlayerMode</span><span class="p">)</span>
+<a id="__codelineno-2-88" name="__codelineno-2-88" href="#__codelineno-2-88"></a><span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">ActiveSimGameType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_configuration</span><span class="p">.</span><span class="n">SimGameType01Ref</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
+<a id="__codelineno-2-89" name="__codelineno-2-89" href="#__codelineno-2-89"></a><span class="w">            </span><span class="k">else</span>
+<a id="__codelineno-2-90" name="__codelineno-2-90" href="#__codelineno-2-90"></a><span class="w">                </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">ActiveSimGameType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_configuration</span><span class="p">.</span><span class="n">SimGameType02Ref</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
+<a id="__codelineno-2-91" name="__codelineno-2-91" href="#__codelineno-2-91"></a>
+<a id="__codelineno-2-92" name="__codelineno-2-92" href="#__codelineno-2-92"></a><span class="w">            </span><span class="c1">// Initialize ECS</span>
+<a id="__codelineno-2-93" name="__codelineno-2-93" href="#__codelineno-2-93"></a><span class="w">            </span><span class="n">SystemManager</span><span class="p">.</span><span class="n">StartGameSystems</span><span class="p">();</span>
+<a id="__codelineno-2-94" name="__codelineno-2-94" href="#__codelineno-2-94"></a>
+<a id="__codelineno-2-95" name="__codelineno-2-95" href="#__codelineno-2-95"></a><span class="w">            </span><span class="c1">// Show the player's attributes in the UI of this scene</span>
+<a id="__codelineno-2-96" name="__codelineno-2-96" href="#__codelineno-2-96"></a>
+<a id="__codelineno-2-97" name="__codelineno-2-97" href="#__codelineno-2-97"></a><span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AttributesPanelUI</span><span class="p">.</span><span class="n">Attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_ownAttributes</span><span class="p">;</span>
+<a id="__codelineno-2-98" name="__codelineno-2-98" href="#__codelineno-2-98"></a>
+<a id="__codelineno-2-99" name="__codelineno-2-99" href="#__codelineno-2-99"></a><span class="w">            </span><span class="c1">// Initialize Networking</span>
+<a id="__codelineno-2-100" name="__codelineno-2-100" href="#__codelineno-2-100"></a><span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Init</span><span class="p">();</span>
+<a id="__codelineno-2-101" name="__codelineno-2-101" href="#__codelineno-2-101"></a>
+<a id="__codelineno-2-102" name="__codelineno-2-102" href="#__codelineno-2-102"></a><span class="w">            </span><span class="c1">// Set Available Spawns</span>
+<a id="__codelineno-2-103" name="__codelineno-2-103" href="#__codelineno-2-103"></a><span class="w">            </span><span class="n">_unusedSpawnPoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AvailableSpawnPoints</span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
+<a id="__codelineno-2-104" name="__codelineno-2-104" href="#__codelineno-2-104"></a>
+<a id="__codelineno-2-105" name="__codelineno-2-105" href="#__codelineno-2-105"></a><span class="w">            </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Log</span><span class="p">.</span><span class="n">CreateNewConsumer</span><span class="p">(</span><span class="n">HandleNetworkUpdate</span><span class="p">);</span>
+<a id="__codelineno-2-106" name="__codelineno-2-106" href="#__codelineno-2-106"></a><span class="w">            </span><span class="c1">// Optional: Stuff to use later when player moves are incoming</span>
+<a id="__codelineno-2-107" name="__codelineno-2-107" href="#__codelineno-2-107"></a><span class="w">            </span><span class="kt">long</span><span class="w"> </span><span class="n">tbdIncomingPlayerDbid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamableAPI</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">id</span><span class="p">;</span><span class="w"> </span><span class="c1">// test value;</span>
+<a id="__codelineno-2-108" name="__codelineno-2-108" href="#__codelineno-2-108"></a><span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"MinPlayerCount = {RuntimeDataStorage.Instance.MinPlayerCount}"</span><span class="p">);</span>
+<a id="__codelineno-2-109" name="__codelineno-2-109" href="#__codelineno-2-109"></a><span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"MaxPlayerCount = {RuntimeDataStorage.Instance.MaxPlayerCount}"</span><span class="p">);</span>
+<a id="__codelineno-2-110" name="__codelineno-2-110" href="#__codelineno-2-110"></a><span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"CurrentPlayerCount = {RuntimeDataStorage.Instance.CurrentPlayerCount}"</span><span class="p">);</span>
+<a id="__codelineno-2-111" name="__codelineno-2-111" href="#__codelineno-2-111"></a><span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"LocalPlayerDbid = {RuntimeDataStorage.Instance.LocalPlayerDbid}"</span><span class="p">);</span>
+<a id="__codelineno-2-112" name="__codelineno-2-112" href="#__codelineno-2-112"></a><span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"IsLocalPlayerDbid = {RuntimeDataStorage.Instance.IsLocalPlayerDbid(tbdIncomingPlayerDbid)}"</span><span class="p">);</span>
+<a id="__codelineno-2-113" name="__codelineno-2-113" href="#__codelineno-2-113"></a><span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"IsSinglePlayerMode = {RuntimeDataStorage.Instance.IsSinglePlayerMode}"</span><span class="p">);</span>
+<a id="__codelineno-2-114" name="__codelineno-2-114" href="#__codelineno-2-114"></a>
+<a id="__codelineno-2-115" name="__codelineno-2-115" href="#__codelineno-2-115"></a><span class="w">            </span><span class="c1">// Optional: Show queueable status text onscreen</span>
+<a id="__codelineno-2-116" name="__codelineno-2-116" href="#__codelineno-2-116"></a><span class="w">            </span><span class="n">SetStatusText</span><span class="p">(</span><span class="n">KORConstants</span><span class="p">.</span><span class="n">GameUIView_Playing</span><span class="p">,</span><span class="w"> </span><span class="n">TMP_BufferedText</span><span class="p">.</span><span class="n">BufferedTextMode</span><span class="p">.</span><span class="n">Immediate</span><span class="p">);</span>
+<a id="__codelineno-2-117" name="__codelineno-2-117" href="#__codelineno-2-117"></a>
+<a id="__codelineno-2-118" name="__codelineno-2-118" href="#__codelineno-2-118"></a><span class="w">            </span><span class="c1">// Optional: Add easily configurable delays</span>
+<a id="__codelineno-2-119" name="__codelineno-2-119" href="#__codelineno-2-119"></a><span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromSeconds</span><span class="p">(</span><span class="n">_configuration</span><span class="p">.</span><span class="n">DelayGameBeforeMove</span><span class="p">));</span>
+<a id="__codelineno-2-120" name="__codelineno-2-120" href="#__codelineno-2-120"></a>
+<a id="__codelineno-2-121" name="__codelineno-2-121" href="#__codelineno-2-121"></a><span class="w">            </span><span class="c1">// Optional: Play sound</span>
+<a id="__codelineno-2-122" name="__codelineno-2-122" href="#__codelineno-2-122"></a><span class="w">            </span><span class="c1">//SoundManager.Instance.PlayAudioClip(SoundConstants.Click01);</span>
+<a id="__codelineno-2-123" name="__codelineno-2-123" href="#__codelineno-2-123"></a>
+<a id="__codelineno-2-124" name="__codelineno-2-124" href="#__codelineno-2-124"></a><span class="w">            </span><span class="c1">// Optional: Render color and text of avatar ui</span>
+<a id="__codelineno-2-125" name="__codelineno-2-125" href="#__codelineno-2-125"></a><span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarViews</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<a id="__codelineno-2-126" name="__codelineno-2-126" href="#__codelineno-2-126"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-127" name="__codelineno-2-127" href="#__codelineno-2-127"></a>
+<a id="__codelineno-2-128" name="__codelineno-2-128" href="#__codelineno-2-128"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPlayerJoined</span><span class="p">(</span><span class="n">PlayerJoinedEvent</span><span class="w"> </span><span class="n">joinEvent</span><span class="p">)</span>
+<a id="__codelineno-2-129" name="__codelineno-2-129" href="#__codelineno-2-129"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-130" name="__codelineno-2-130" href="#__codelineno-2-130"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<a id="__codelineno-2-131" name="__codelineno-2-131" href="#__codelineno-2-131"></a><span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-2-132" name="__codelineno-2-132" href="#__codelineno-2-132"></a>
+<a id="__codelineno-2-133" name="__codelineno-2-133" href="#__codelineno-2-133"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">spawnIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">rand</span><span class="p">.</span><span class="n">Next</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">_unusedSpawnPoints</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
+<a id="__codelineno-2-134" name="__codelineno-2-134" href="#__codelineno-2-134"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">spawnPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_unusedSpawnPoints</span><span class="p">[</span><span class="n">spawnIndex</span><span class="p">];</span>
+<a id="__codelineno-2-135" name="__codelineno-2-135" href="#__codelineno-2-135"></a><span class="w">            </span><span class="n">_unusedSpawnPoints</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">spawnPoint</span><span class="p">);</span>
+<a id="__codelineno-2-136" name="__codelineno-2-136" href="#__codelineno-2-136"></a>
+<a id="__codelineno-2-137" name="__codelineno-2-137" href="#__codelineno-2-137"></a><span class="w">            </span><span class="n">SpawnablePlayer</span><span class="w"> </span><span class="n">newPlayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SpawnablePlayer</span><span class="p">(</span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">,</span><span class="w"> </span><span class="n">spawnPoint</span><span class="p">);</span>
+<a id="__codelineno-2-138" name="__codelineno-2-138" href="#__codelineno-2-138"></a><span class="w">            </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">);</span>
+<a id="__codelineno-2-139" name="__codelineno-2-139" href="#__codelineno-2-139"></a><span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">Initialize</span><span class="p">();</span>
+<a id="__codelineno-2-140" name="__codelineno-2-140" href="#__codelineno-2-140"></a><span class="w">            </span><span class="n">newPlayer</span><span class="p">.</span><span class="n">ChosenCharacter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">GetChosenCharacterByDBID</span><span class="p">(</span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">);</span>
+<a id="__codelineno-2-141" name="__codelineno-2-141" href="#__codelineno-2-141"></a><span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="k">alias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CharacterManager</span><span class="p">.</span><span class="n">GetPlayerAliasByDBID</span><span class="p">(</span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">);</span>
+<a id="__codelineno-2-142" name="__codelineno-2-142" href="#__codelineno-2-142"></a>
+<a id="__codelineno-2-143" name="__codelineno-2-143" href="#__codelineno-2-143"></a><span class="w">            </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"alias from joinEvent dbid={joinEvent.PlayerDbid} alias={alias}"</span><span class="p">);</span>
+<a id="__codelineno-2-144" name="__codelineno-2-144" href="#__codelineno-2-144"></a>
+<a id="__codelineno-2-145" name="__codelineno-2-145" href="#__codelineno-2-145"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">joinEvent</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LocalDbid</span><span class="p">)</span>
+<a id="__codelineno-2-146" name="__codelineno-2-146" href="#__codelineno-2-146"></a><span class="w">                </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">SendNetworkMessage</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ReadyEvent</span><span class="p">(</span><span class="n">_ownAttributes</span><span class="p">,</span><span class="w"> </span><span class="k">alias</span><span class="p">));</span>
+<a id="__codelineno-2-147" name="__codelineno-2-147" href="#__codelineno-2-147"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-148" name="__codelineno-2-148" href="#__codelineno-2-148"></a>
+<a id="__codelineno-2-149" name="__codelineno-2-149" href="#__codelineno-2-149"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPlayerReady</span><span class="p">(</span><span class="n">ReadyEvent</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">)</span>
+<a id="__codelineno-2-150" name="__codelineno-2-150" href="#__codelineno-2-150"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-151" name="__codelineno-2-151" href="#__codelineno-2-151"></a><span class="w">            </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Getting ready for dbid={readyEvt.PlayerDbid}"</span>
+<a id="__codelineno-2-152" name="__codelineno-2-152" href="#__codelineno-2-152"></a><span class="w">                                       </span><span class="o">+</span><span class="w"> </span><span class="s">$" attributes move/charge={readyEvt.aggregateMovementSpeed}/{readyEvt.aggregateChargeSpeed}"</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLogLevel</span><span class="p">.</span><span class="n">Verbose</span><span class="p">);</span>
+<a id="__codelineno-2-153" name="__codelineno-2-153" href="#__codelineno-2-153"></a>
+<a id="__codelineno-2-154" name="__codelineno-2-154" href="#__codelineno-2-154"></a><span class="w">            </span><span class="n">_dbidReadyReceived</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">readyEvt</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">);</span>
+<a id="__codelineno-2-155" name="__codelineno-2-155" href="#__codelineno-2-155"></a>
+<a id="__codelineno-2-156" name="__codelineno-2-156" href="#__codelineno-2-156"></a><span class="w">            </span><span class="n">SpawnablePlayer</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">.</span><span class="n">PlayerDbid</span><span class="p">);</span>
+<a id="__codelineno-2-157" name="__codelineno-2-157" href="#__codelineno-2-157"></a><span class="w">            </span><span class="n">sp</span><span class="p">.</span><span class="n">Attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Attributes</span><span class="p">(</span><span class="n">readyEvt</span><span class="p">.</span><span class="n">aggregateChargeSpeed</span><span class="p">,</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">.</span><span class="n">aggregateMovementSpeed</span><span class="p">);</span>
+<a id="__codelineno-2-158" name="__codelineno-2-158" href="#__codelineno-2-158"></a><span class="w">            </span><span class="n">sp</span><span class="p">.</span><span class="n">PlayerAlias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">.</span><span class="n">playerAlias</span><span class="p">;</span>
+<a id="__codelineno-2-159" name="__codelineno-2-159" href="#__codelineno-2-159"></a>
+<a id="__codelineno-2-160" name="__codelineno-2-160" href="#__codelineno-2-160"></a><span class="w">            </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"alias from readyEvt dbid={readyEvt.PlayerDbid} alias={sp.PlayerAlias}"</span><span class="p">);</span>
+<a id="__codelineno-2-161" name="__codelineno-2-161" href="#__codelineno-2-161"></a>
+<a id="__codelineno-2-162" name="__codelineno-2-162" href="#__codelineno-2-162"></a><span class="w">            </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"OnPlayerReady Players={_dbidReadyReceived.Count}/{RuntimeDataStorage.Instance.CurrentPlayerCount}"</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLogLevel</span><span class="p">.</span><span class="n">Verbose</span><span class="p">);</span>
+<a id="__codelineno-2-163" name="__codelineno-2-163" href="#__codelineno-2-163"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">_dbidReadyReceived</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">RuntimeDataStorage</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">CurrentPlayerCount</span><span class="p">)</span>
+<a id="__codelineno-2-164" name="__codelineno-2-164" href="#__codelineno-2-164"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-2-165" name="__codelineno-2-165" href="#__codelineno-2-165"></a><span class="w">                </span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<a id="__codelineno-2-166" name="__codelineno-2-166" href="#__codelineno-2-166"></a><span class="w">                </span><span class="n">SpawnAllPlayersAtOnce</span><span class="p">();</span>
+<a id="__codelineno-2-167" name="__codelineno-2-167" href="#__codelineno-2-167"></a><span class="w">                </span><span class="n">StartGameTimer</span><span class="p">();</span>
+<a id="__codelineno-2-168" name="__codelineno-2-168" href="#__codelineno-2-168"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-169" name="__codelineno-2-169" href="#__codelineno-2-169"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-170" name="__codelineno-2-170" href="#__codelineno-2-170"></a>
+<a id="__codelineno-2-171" name="__codelineno-2-171" href="#__codelineno-2-171"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">StartGameTimer</span><span class="p">()</span>
+<a id="__codelineno-2-172" name="__codelineno-2-172" href="#__codelineno-2-172"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-173" name="__codelineno-2-173" href="#__codelineno-2-173"></a><span class="w">            </span><span class="n">GameUIView</span><span class="p">.</span><span class="n">GameTimerBehaviour</span><span class="p">.</span><span class="n">StartMatch</span><span class="p">();</span>
+<a id="__codelineno-2-174" name="__codelineno-2-174" href="#__codelineno-2-174"></a><span class="w">            </span><span class="n">GameUIView</span><span class="p">.</span><span class="n">GameTimerBehaviour</span><span class="p">.</span><span class="n">OnGameOver</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
+<a id="__codelineno-2-175" name="__codelineno-2-175" href="#__codelineno-2-175"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-2-176" name="__codelineno-2-176" href="#__codelineno-2-176"></a><span class="w">                </span><span class="c1">// TODO: score the players, and end the game.</span>
+<a id="__codelineno-2-177" name="__codelineno-2-177" href="#__codelineno-2-177"></a><span class="w">                </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Game over!"</span><span class="p">);</span>
+<a id="__codelineno-2-178" name="__codelineno-2-178" href="#__codelineno-2-178"></a>
+<a id="__codelineno-2-179" name="__codelineno-2-179" href="#__codelineno-2-179"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">uis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindObjectsOfType</span><span class="o">&lt;</span><span class="n">AvatarUIView</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-2-180" name="__codelineno-2-180" href="#__codelineno-2-180"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">validUis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uis</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">ui</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ui</span><span class="p">.</span><span class="n">Player</span><span class="p">).</span><span class="n">ToList</span><span class="p">();</span>
+<a id="__codelineno-2-181" name="__codelineno-2-181" href="#__codelineno-2-181"></a><span class="w">                </span><span class="n">validUis</span><span class="p">.</span><span class="n">Sort</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">SpawnablePlayer</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">SpawnablePlayer</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">);</span>
+<a id="__codelineno-2-182" name="__codelineno-2-182" href="#__codelineno-2-182"></a><span class="w">                </span><span class="n">validUis</span><span class="p">.</span><span class="n">Sort</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">HealthBehaviour</span><span class="p">.</span><span class="n">Health</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">HealthBehaviour</span><span class="p">.</span><span class="n">Health</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+<a id="__codelineno-2-183" name="__codelineno-2-183" href="#__codelineno-2-183"></a>
+<a id="__codelineno-2-184" name="__codelineno-2-184" href="#__codelineno-2-184"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">scores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">validUis</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">ui</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PlayerResult</span>
+<a id="__codelineno-2-185" name="__codelineno-2-185" href="#__codelineno-2-185"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-2-186" name="__codelineno-2-186" href="#__codelineno-2-186"></a><span class="w">                    </span><span class="n">playerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ui</span><span class="p">.</span><span class="n">SpawnablePlayer</span><span class="p">.</span><span class="n">DBID</span><span class="p">,</span>
+<a id="__codelineno-2-187" name="__codelineno-2-187" href="#__codelineno-2-187"></a><span class="w">                    </span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ui</span><span class="p">.</span><span class="n">Player</span><span class="p">.</span><span class="n">HealthBehaviour</span><span class="p">.</span><span class="n">Health</span><span class="p">,</span>
+<a id="__codelineno-2-188" name="__codelineno-2-188" href="#__codelineno-2-188"></a><span class="w">                </span><span class="p">}).</span><span class="n">ToArray</span><span class="p">();</span>
+<a id="__codelineno-2-189" name="__codelineno-2-189" href="#__codelineno-2-189"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">selfRank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a id="__codelineno-2-190" name="__codelineno-2-190" href="#__codelineno-2-190"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">selfScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scores</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+<a id="__codelineno-2-191" name="__codelineno-2-191" href="#__codelineno-2-191"></a><span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">scores</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-2-192" name="__codelineno-2-192" href="#__codelineno-2-192"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-2-193" name="__codelineno-2-193" href="#__codelineno-2-193"></a><span class="w">                    </span><span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-2-194" name="__codelineno-2-194" href="#__codelineno-2-194"></a><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">playerId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LocalDbid</span><span class="p">)</span>
+<a id="__codelineno-2-195" name="__codelineno-2-195" href="#__codelineno-2-195"></a><span class="w">                    </span><span class="p">{</span>
+<a id="__codelineno-2-196" name="__codelineno-2-196" href="#__codelineno-2-196"></a><span class="w">                        </span><span class="n">selfRank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-2-197" name="__codelineno-2-197" href="#__codelineno-2-197"></a><span class="w">                        </span><span class="n">selfScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-2-198" name="__codelineno-2-198" href="#__codelineno-2-198"></a><span class="w">                    </span><span class="p">}</span>
+<a id="__codelineno-2-199" name="__codelineno-2-199" href="#__codelineno-2-199"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-2-200" name="__codelineno-2-200" href="#__codelineno-2-200"></a>
+<a id="__codelineno-2-201" name="__codelineno-2-201" href="#__codelineno-2-201"></a><span class="w">                </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">motionBehaviour</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">FindObjectsOfType</span><span class="o">&lt;</span><span class="n">AvatarMotionBehaviour</span><span class="o">&gt;</span><span class="p">())</span>
+<a id="__codelineno-2-202" name="__codelineno-2-202" href="#__codelineno-2-202"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-2-203" name="__codelineno-2-203" href="#__codelineno-2-203"></a><span class="w">                    </span><span class="n">motionBehaviour</span><span class="p">.</span><span class="n">Stop</span><span class="p">();</span>
+<a id="__codelineno-2-204" name="__codelineno-2-204" href="#__codelineno-2-204"></a><span class="w">                    </span><span class="n">motionBehaviour</span><span class="p">.</span><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<a id="__codelineno-2-205" name="__codelineno-2-205" href="#__codelineno-2-205"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-2-206" name="__codelineno-2-206" href="#__codelineno-2-206"></a>
+<a id="__codelineno-2-207" name="__codelineno-2-207" href="#__codelineno-2-207"></a><span class="w">                </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">inputBehaviour</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">FindObjectsOfType</span><span class="o">&lt;</span><span class="n">PlayerInputBehaviour</span><span class="o">&gt;</span><span class="p">())</span>
+<a id="__codelineno-2-208" name="__codelineno-2-208" href="#__codelineno-2-208"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-2-209" name="__codelineno-2-209" href="#__codelineno-2-209"></a><span class="w">                    </span><span class="n">inputBehaviour</span><span class="p">.</span><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<a id="__codelineno-2-210" name="__codelineno-2-210" href="#__codelineno-2-210"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-2-211" name="__codelineno-2-211" href="#__codelineno-2-211"></a>
+<a id="__codelineno-2-212" name="__codelineno-2-212" href="#__codelineno-2-212"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">ReportResults</span><span class="p">(</span><span class="n">scores</span><span class="p">);</span>
+<a id="__codelineno-2-213" name="__codelineno-2-213" href="#__codelineno-2-213"></a>
+<a id="__codelineno-2-214" name="__codelineno-2-214" href="#__codelineno-2-214"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">isWinner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">selfRank</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a id="__codelineno-2-215" name="__codelineno-2-215" href="#__codelineno-2-215"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">earnings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">","</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">.</span><span class="n">currenciesGranted</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">grant</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"{grant.amount}x{grant.symbol}"</span><span class="p">));</span>
+<a id="__codelineno-2-216" name="__codelineno-2-216" href="#__codelineno-2-216"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">earningsBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">earnings</span><span class="p">)</span>
+<a id="__codelineno-2-217" name="__codelineno-2-217" href="#__codelineno-2-217"></a><span class="w">                    </span><span class="o">?</span><span class="w"> </span><span class="s">"nothing"</span>
+<a id="__codelineno-2-218" name="__codelineno-2-218" href="#__codelineno-2-218"></a><span class="w">                    </span><span class="p">:</span><span class="w"> </span><span class="n">earnings</span><span class="p">;</span>
+<a id="__codelineno-2-219" name="__codelineno-2-219" href="#__codelineno-2-219"></a><span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"You came in place: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">selfRank</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">". You earned "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">earningsBody</span><span class="p">;</span>
+<a id="__codelineno-2-220" name="__codelineno-2-220" href="#__codelineno-2-220"></a><span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">ShowDialogBox</span><span class="o">&lt;</span><span class="n">DialogUI</span><span class="o">&gt;</span><span class="p">(</span>
+<a id="__codelineno-2-221" name="__codelineno-2-221" href="#__codelineno-2-221"></a>
+<a id="__codelineno-2-222" name="__codelineno-2-222" href="#__codelineno-2-222"></a><span class="w">                    </span><span class="c1">// Renders this prefab. DUPLICATE this prefab and drag</span>
+<a id="__codelineno-2-223" name="__codelineno-2-223" href="#__codelineno-2-223"></a><span class="w">                    </span><span class="c1">// into _storeUIView to change layout</span>
+<a id="__codelineno-2-224" name="__codelineno-2-224" href="#__codelineno-2-224"></a><span class="w">                    </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">DialogUIPrefab</span><span class="p">,</span>
+<a id="__codelineno-2-225" name="__codelineno-2-225" href="#__codelineno-2-225"></a>
+<a id="__codelineno-2-226" name="__codelineno-2-226" href="#__codelineno-2-226"></a><span class="w">                    </span><span class="c1">// Set Text</span>
+<a id="__codelineno-2-227" name="__codelineno-2-227" href="#__codelineno-2-227"></a><span class="w">                    </span><span class="n">isWinner</span>
+<a id="__codelineno-2-228" name="__codelineno-2-228" href="#__codelineno-2-228"></a><span class="w">                        </span><span class="o">?</span><span class="w"> </span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_GameOver_Victory</span>
+<a id="__codelineno-2-229" name="__codelineno-2-229" href="#__codelineno-2-229"></a><span class="w">                        </span><span class="p">:</span><span class="w"> </span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_GameOver_Defeat</span><span class="p">,</span>
+<a id="__codelineno-2-230" name="__codelineno-2-230" href="#__codelineno-2-230"></a><span class="w">                    </span><span class="n">body</span><span class="p">,</span>
+<a id="__codelineno-2-231" name="__codelineno-2-231" href="#__codelineno-2-231"></a>
+<a id="__codelineno-2-232" name="__codelineno-2-232" href="#__codelineno-2-232"></a><span class="w">                    </span><span class="c1">// Create zero or more buttons</span>
+<a id="__codelineno-2-233" name="__codelineno-2-233" href="#__codelineno-2-233"></a><span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DialogButtonData</span><span class="o">&gt;</span>
+<a id="__codelineno-2-234" name="__codelineno-2-234" href="#__codelineno-2-234"></a><span class="w">                    </span><span class="p">{</span>
+<a id="__codelineno-2-235" name="__codelineno-2-235" href="#__codelineno-2-235"></a><span class="w">                        </span><span class="k">new</span><span class="w"> </span><span class="nf">DialogButtonData</span><span class="p">(</span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_Ok</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
+<a id="__codelineno-2-236" name="__codelineno-2-236" href="#__codelineno-2-236"></a><span class="w">                        </span><span class="p">{</span>
+<a id="__codelineno-2-237" name="__codelineno-2-237" href="#__codelineno-2-237"></a><span class="w">                            </span><span class="n">KORHelper</span><span class="p">.</span><span class="n">PlayAudioForUIClickPrimary</span><span class="p">();</span>
+<a id="__codelineno-2-238" name="__codelineno-2-238" href="#__codelineno-2-238"></a><span class="w">                            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">HideDialogBox</span><span class="p">();</span>
+<a id="__codelineno-2-239" name="__codelineno-2-239" href="#__codelineno-2-239"></a>
+<a id="__codelineno-2-240" name="__codelineno-2-240" href="#__codelineno-2-240"></a><span class="w">                            </span><span class="c1">// Clean up manager</span>
+<a id="__codelineno-2-241" name="__codelineno-2-241" href="#__codelineno-2-241"></a><span class="w">                            </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<a id="__codelineno-2-242" name="__codelineno-2-242" href="#__codelineno-2-242"></a><span class="w">                            </span><span class="n">_unusedSpawnPoints</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<a id="__codelineno-2-243" name="__codelineno-2-243" href="#__codelineno-2-243"></a><span class="w">                            </span><span class="n">_dbidReadyReceived</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<a id="__codelineno-2-244" name="__codelineno-2-244" href="#__codelineno-2-244"></a><span class="w">                            </span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<a id="__codelineno-2-245" name="__codelineno-2-245" href="#__codelineno-2-245"></a><span class="w">                            </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Cleanup</span><span class="p">();</span>
+<a id="__codelineno-2-246" name="__codelineno-2-246" href="#__codelineno-2-246"></a>
+<a id="__codelineno-2-247" name="__codelineno-2-247" href="#__codelineno-2-247"></a><span class="w">                            </span><span class="c1">// Destroy ECS</span>
+<a id="__codelineno-2-248" name="__codelineno-2-248" href="#__codelineno-2-248"></a><span class="w">                            </span><span class="n">SystemManager</span><span class="p">.</span><span class="n">DestroyGameSystems</span><span class="p">();</span>
+<a id="__codelineno-2-249" name="__codelineno-2-249" href="#__codelineno-2-249"></a>
+<a id="__codelineno-2-250" name="__codelineno-2-250" href="#__codelineno-2-250"></a><span class="w">                            </span><span class="c1">// Change scenes</span>
+<a id="__codelineno-2-251" name="__codelineno-2-251" href="#__codelineno-2-251"></a><span class="w">                            </span><span class="n">StartCoroutine</span><span class="p">(</span><span class="n">KORHelper</span><span class="p">.</span><span class="n">LoadScene_Coroutine</span><span class="p">(</span><span class="n">_configuration</span><span class="p">.</span><span class="n">IntroSceneName</span><span class="p">,</span>
+<a id="__codelineno-2-252" name="__codelineno-2-252" href="#__codelineno-2-252"></a><span class="w">                                </span><span class="n">_configuration</span><span class="p">.</span><span class="n">DelayBeforeLoadScene</span><span class="p">));</span>
+<a id="__codelineno-2-253" name="__codelineno-2-253" href="#__codelineno-2-253"></a><span class="w">                        </span><span class="p">})</span>
+<a id="__codelineno-2-254" name="__codelineno-2-254" href="#__codelineno-2-254"></a><span class="w">                    </span><span class="p">});</span>
+<a id="__codelineno-2-255" name="__codelineno-2-255" href="#__codelineno-2-255"></a><span class="w">            </span><span class="p">};</span>
+<a id="__codelineno-2-256" name="__codelineno-2-256" href="#__codelineno-2-256"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-257" name="__codelineno-2-257" href="#__codelineno-2-257"></a>
+<a id="__codelineno-2-258" name="__codelineno-2-258" href="#__codelineno-2-258"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SpawnAllPlayersAtOnce</span><span class="p">()</span>
+<a id="__codelineno-2-259" name="__codelineno-2-259" href="#__codelineno-2-259"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-260" name="__codelineno-2-260" href="#__codelineno-2-260"></a><span class="w">            </span><span class="n">List</span><span class="o">&lt;</span><span class="n">CanvasGroup</span><span class="o">&gt;</span><span class="w"> </span><span class="n">avatarUiCanvasGroups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">CanvasGroup</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-2-261" name="__codelineno-2-261" href="#__codelineno-2-261"></a>
+<a id="__codelineno-2-262" name="__codelineno-2-262" href="#__codelineno-2-262"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-2-263" name="__codelineno-2-263" href="#__codelineno-2-263"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-2-264" name="__codelineno-2-264" href="#__codelineno-2-264"></a><span class="w">                </span><span class="n">SpawnablePlayer</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_spawnablePlayers</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
+<a id="__codelineno-2-265" name="__codelineno-2-265" href="#__codelineno-2-265"></a>
+<a id="__codelineno-2-266" name="__codelineno-2-266" href="#__codelineno-2-266"></a><span class="w">                </span><span class="n">Configuration</span><span class="p">.</span><span class="n">Debugger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"DBID={sp.DBID} Spawning character={sp.ChosenCharacter.CharacterContentObject.ContentName}"</span>
+<a id="__codelineno-2-267" name="__codelineno-2-267" href="#__codelineno-2-267"></a><span class="w">                                           </span><span class="o">+</span><span class="w"> </span><span class="s">$" attributes move/charge={sp.Attributes.MovementSpeed}/{sp.Attributes.ChargeSpeed}"</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLogLevel</span><span class="p">.</span><span class="n">Verbose</span><span class="p">);</span>
+<a id="__codelineno-2-268" name="__codelineno-2-268" href="#__codelineno-2-268"></a>
+<a id="__codelineno-2-269" name="__codelineno-2-269" href="#__codelineno-2-269"></a><span class="w">                </span><span class="n">DebugLog</span><span class="p">(</span><span class="s">$"playerAlias={sp.PlayerAlias}"</span><span class="p">);</span>
+<a id="__codelineno-2-270" name="__codelineno-2-270" href="#__codelineno-2-270"></a>
+<a id="__codelineno-2-271" name="__codelineno-2-271" href="#__codelineno-2-271"></a><span class="w">                </span><span class="n">AvatarView</span><span class="w"> </span><span class="n">avatarView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameObject</span><span class="p">.</span><span class="n">Instantiate</span><span class="o">&lt;</span><span class="n">AvatarView</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">ChosenCharacter</span><span class="p">.</span><span class="n">AvatarViewPrefab</span><span class="p">);</span>
+<a id="__codelineno-2-272" name="__codelineno-2-272" href="#__codelineno-2-272"></a><span class="w">                </span><span class="n">avatarView</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">SetPhysicsPosition</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">SpawnPointBehaviour</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
+<a id="__codelineno-2-273" name="__codelineno-2-273" href="#__codelineno-2-273"></a>
+<a id="__codelineno-2-274" name="__codelineno-2-274" href="#__codelineno-2-274"></a><span class="w">                </span><span class="n">Player</span><span class="w"> </span><span class="n">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avatarView</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-2-275" name="__codelineno-2-275" href="#__codelineno-2-275"></a><span class="w">                </span><span class="n">player</span><span class="p">.</span><span class="n">SetAlias</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">PlayerAlias</span><span class="p">);</span>
+<a id="__codelineno-2-276" name="__codelineno-2-276" href="#__codelineno-2-276"></a>
+<a id="__codelineno-2-277" name="__codelineno-2-277" href="#__codelineno-2-277"></a><span class="w">                </span><span class="n">avatarView</span><span class="p">.</span><span class="n">SetForPlayer</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">DBID</span><span class="p">);</span>
+<a id="__codelineno-2-278" name="__codelineno-2-278" href="#__codelineno-2-278"></a><span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarViews</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">avatarView</span><span class="p">);</span>
+<a id="__codelineno-2-279" name="__codelineno-2-279" href="#__codelineno-2-279"></a>
+<a id="__codelineno-2-280" name="__codelineno-2-280" href="#__codelineno-2-280"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">DBID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LocalDbid</span><span class="p">)</span>
+<a id="__codelineno-2-281" name="__codelineno-2-281" href="#__codelineno-2-281"></a><span class="w">                    </span><span class="n">avatarView</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">AvatarMotionBehaviour</span><span class="o">&gt;</span><span class="p">().</span><span class="n">PreviewBehaviour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<a id="__codelineno-2-282" name="__codelineno-2-282" href="#__codelineno-2-282"></a><span class="w">                </span><span class="k">else</span>
+<a id="__codelineno-2-283" name="__codelineno-2-283" href="#__codelineno-2-283"></a><span class="w">                    </span><span class="n">avatarView</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">PlayerInputBehaviour</span><span class="o">&gt;</span><span class="p">().</span><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<a id="__codelineno-2-284" name="__codelineno-2-284" href="#__codelineno-2-284"></a>
+<a id="__codelineno-2-285" name="__codelineno-2-285" href="#__codelineno-2-285"></a><span class="w">                </span><span class="n">AvatarMotionBehaviour</span><span class="w"> </span><span class="n">amb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avatarView</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">AvatarMotionBehaviour</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-2-286" name="__codelineno-2-286" href="#__codelineno-2-286"></a><span class="w">                </span><span class="n">amb</span><span class="p">.</span><span class="n">Attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">Attributes</span><span class="p">;</span>
+<a id="__codelineno-2-287" name="__codelineno-2-287" href="#__codelineno-2-287"></a>
+<a id="__codelineno-2-288" name="__codelineno-2-288" href="#__codelineno-2-288"></a><span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarUIViews</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">Set</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="w"> </span><span class="n">sp</span><span class="p">);</span>
+<a id="__codelineno-2-289" name="__codelineno-2-289" href="#__codelineno-2-289"></a><span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarUIViews</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">Render</span><span class="p">();</span>
+<a id="__codelineno-2-290" name="__codelineno-2-290" href="#__codelineno-2-290"></a><span class="w">                </span><span class="n">avatarUiCanvasGroups</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">AvatarUIViews</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">CanvasGroup</span><span class="o">&gt;</span><span class="p">());</span>
+<a id="__codelineno-2-291" name="__codelineno-2-291" href="#__codelineno-2-291"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-292" name="__codelineno-2-292" href="#__codelineno-2-292"></a>
+<a id="__codelineno-2-293" name="__codelineno-2-293" href="#__codelineno-2-293"></a><span class="w">            </span><span class="n">TweenHelper</span><span class="p">.</span><span class="n">CanvasGroupsDoFade</span><span class="p">(</span><span class="n">avatarUiCanvasGroups</span><span class="p">,</span><span class="w"> </span><span class="m">0.0f</span><span class="p">,</span><span class="w"> </span><span class="m">1.0f</span><span class="p">,</span><span class="w"> </span><span class="m">1.0f</span><span class="p">,</span><span class="w"> </span><span class="m">0.0f</span><span class="p">,</span><span class="w"> </span><span class="m">0.0f</span><span class="p">);</span>
+<a id="__codelineno-2-294" name="__codelineno-2-294" href="#__codelineno-2-294"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-295" name="__codelineno-2-295" href="#__codelineno-2-295"></a>
+<a id="__codelineno-2-296" name="__codelineno-2-296" href="#__codelineno-2-296"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">HandleNetworkUpdate</span><span class="p">(</span><span class="n">TimeUpdate</span><span class="w"> </span><span class="n">update</span><span class="p">)</span>
+<a id="__codelineno-2-297" name="__codelineno-2-297" href="#__codelineno-2-297"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-298" name="__codelineno-2-298" href="#__codelineno-2-298"></a><span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">evt</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">update</span><span class="p">.</span><span class="n">Events</span><span class="p">)</span>
+<a id="__codelineno-2-299" name="__codelineno-2-299" href="#__codelineno-2-299"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-2-300" name="__codelineno-2-300" href="#__codelineno-2-300"></a><span class="w">                </span><span class="n">HandleNetworkEvent</span><span class="p">(</span><span class="n">evt</span><span class="p">);</span>
+<a id="__codelineno-2-301" name="__codelineno-2-301" href="#__codelineno-2-301"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-302" name="__codelineno-2-302" href="#__codelineno-2-302"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-303" name="__codelineno-2-303" href="#__codelineno-2-303"></a>
+<a id="__codelineno-2-304" name="__codelineno-2-304" href="#__codelineno-2-304"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">HandleNetworkEvent</span><span class="p">(</span><span class="n">KOREvent</span><span class="w"> </span><span class="n">korEvent</span><span class="p">)</span>
+<a id="__codelineno-2-305" name="__codelineno-2-305" href="#__codelineno-2-305"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-306" name="__codelineno-2-306" href="#__codelineno-2-306"></a><span class="w">            </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">korEvent</span><span class="p">)</span>
+<a id="__codelineno-2-307" name="__codelineno-2-307" href="#__codelineno-2-307"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-2-308" name="__codelineno-2-308" href="#__codelineno-2-308"></a><span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="n">ReadyEvent</span><span class="w"> </span><span class="n">readyEvt</span><span class="p">:</span>
+<a id="__codelineno-2-309" name="__codelineno-2-309" href="#__codelineno-2-309"></a><span class="w">                    </span><span class="n">OnPlayerReady</span><span class="p">(</span><span class="n">readyEvt</span><span class="p">);</span>
+<a id="__codelineno-2-310" name="__codelineno-2-310" href="#__codelineno-2-310"></a><span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-2-311" name="__codelineno-2-311" href="#__codelineno-2-311"></a>
+<a id="__codelineno-2-312" name="__codelineno-2-312" href="#__codelineno-2-312"></a><span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="n">PlayerJoinedEvent</span><span class="w"> </span><span class="n">joinEvt</span><span class="p">:</span>
+<a id="__codelineno-2-313" name="__codelineno-2-313" href="#__codelineno-2-313"></a><span class="w">                    </span><span class="n">OnPlayerJoined</span><span class="p">(</span><span class="n">joinEvt</span><span class="p">);</span>
+<a id="__codelineno-2-314" name="__codelineno-2-314" href="#__codelineno-2-314"></a><span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-2-315" name="__codelineno-2-315" href="#__codelineno-2-315"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-316" name="__codelineno-2-316" href="#__codelineno-2-316"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-317" name="__codelineno-2-317" href="#__codelineno-2-317"></a>
+<a id="__codelineno-2-318" name="__codelineno-2-318" href="#__codelineno-2-318"></a><span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-2-319" name="__codelineno-2-319" href="#__codelineno-2-319"></a><span class="w">        </span><span class="c1">/// Render UI text</span>
+<a id="__codelineno-2-320" name="__codelineno-2-320" href="#__codelineno-2-320"></a><span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-2-321" name="__codelineno-2-321" href="#__codelineno-2-321"></a><span class="w">        </span><span class="c1">/// &lt;param name="message"&gt;&lt;/param&gt;</span>
+<a id="__codelineno-2-322" name="__codelineno-2-322" href="#__codelineno-2-322"></a><span class="w">        </span><span class="c1">/// &lt;param name="statusTextMode"&gt;&lt;/param&gt;</span>
+<a id="__codelineno-2-323" name="__codelineno-2-323" href="#__codelineno-2-323"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetStatusText</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">TMP_BufferedText</span><span class="p">.</span><span class="n">BufferedTextMode</span><span class="w"> </span><span class="n">statusTextMode</span><span class="p">)</span>
+<a id="__codelineno-2-324" name="__codelineno-2-324" href="#__codelineno-2-324"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-325" name="__codelineno-2-325" href="#__codelineno-2-325"></a><span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">BufferedText</span><span class="p">.</span><span class="n">SetText</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">statusTextMode</span><span class="p">);</span>
+<a id="__codelineno-2-326" name="__codelineno-2-326" href="#__codelineno-2-326"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-327" name="__codelineno-2-327" href="#__codelineno-2-327"></a>
+<a id="__codelineno-2-328" name="__codelineno-2-328" href="#__codelineno-2-328"></a><span class="w">        </span><span class="c1">//  Event Handlers -------------------------------</span>
+<a id="__codelineno-2-329" name="__codelineno-2-329" href="#__codelineno-2-329"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">BackButton_OnClicked</span><span class="p">()</span>
+<a id="__codelineno-2-330" name="__codelineno-2-330" href="#__codelineno-2-330"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-331" name="__codelineno-2-331" href="#__codelineno-2-331"></a><span class="w">            </span><span class="n">KORHelper</span><span class="p">.</span><span class="n">PlayAudioForUIClickBack</span><span class="p">();</span>
+<a id="__codelineno-2-332" name="__codelineno-2-332" href="#__codelineno-2-332"></a>
+<a id="__codelineno-2-333" name="__codelineno-2-333" href="#__codelineno-2-333"></a><span class="w">            </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">ShowDialogBox</span><span class="o">&lt;</span><span class="n">DialogUI</span><span class="o">&gt;</span><span class="p">(</span>
+<a id="__codelineno-2-334" name="__codelineno-2-334" href="#__codelineno-2-334"></a>
+<a id="__codelineno-2-335" name="__codelineno-2-335" href="#__codelineno-2-335"></a><span class="w">                </span><span class="c1">// Renders this prefab. DUPLICATE this prefab and drag</span>
+<a id="__codelineno-2-336" name="__codelineno-2-336" href="#__codelineno-2-336"></a><span class="w">                </span><span class="c1">// into _storeUIView to change layout</span>
+<a id="__codelineno-2-337" name="__codelineno-2-337" href="#__codelineno-2-337"></a><span class="w">                </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">DialogUIPrefab</span><span class="p">,</span>
+<a id="__codelineno-2-338" name="__codelineno-2-338" href="#__codelineno-2-338"></a>
+<a id="__codelineno-2-339" name="__codelineno-2-339" href="#__codelineno-2-339"></a><span class="w">                </span><span class="c1">// Set Text</span>
+<a id="__codelineno-2-340" name="__codelineno-2-340" href="#__codelineno-2-340"></a><span class="w">                </span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_AreYouSure</span><span class="p">,</span>
+<a id="__codelineno-2-341" name="__codelineno-2-341" href="#__codelineno-2-341"></a><span class="w">                </span><span class="s">"This will end your game."</span><span class="p">,</span>
+<a id="__codelineno-2-342" name="__codelineno-2-342" href="#__codelineno-2-342"></a>
+<a id="__codelineno-2-343" name="__codelineno-2-343" href="#__codelineno-2-343"></a><span class="w">                </span><span class="c1">// Create zero or more buttons</span>
+<a id="__codelineno-2-344" name="__codelineno-2-344" href="#__codelineno-2-344"></a><span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DialogButtonData</span><span class="o">&gt;</span>
+<a id="__codelineno-2-345" name="__codelineno-2-345" href="#__codelineno-2-345"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-2-346" name="__codelineno-2-346" href="#__codelineno-2-346"></a><span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="nf">DialogButtonData</span><span class="p">(</span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_Ok</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
+<a id="__codelineno-2-347" name="__codelineno-2-347" href="#__codelineno-2-347"></a><span class="w">                    </span><span class="p">{</span>
+<a id="__codelineno-2-348" name="__codelineno-2-348" href="#__codelineno-2-348"></a><span class="w">                        </span><span class="n">KORHelper</span><span class="p">.</span><span class="n">PlayAudioForUIClickPrimary</span><span class="p">();</span>
+<a id="__codelineno-2-349" name="__codelineno-2-349" href="#__codelineno-2-349"></a><span class="w">                        </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">HideDialogBox</span><span class="p">();</span>
+<a id="__codelineno-2-350" name="__codelineno-2-350" href="#__codelineno-2-350"></a>
+<a id="__codelineno-2-351" name="__codelineno-2-351" href="#__codelineno-2-351"></a><span class="w">                        </span><span class="c1">// Clean up manager</span>
+<a id="__codelineno-2-352" name="__codelineno-2-352" href="#__codelineno-2-352"></a><span class="w">                        </span><span class="n">_spawnablePlayers</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<a id="__codelineno-2-353" name="__codelineno-2-353" href="#__codelineno-2-353"></a><span class="w">                        </span><span class="n">_unusedSpawnPoints</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<a id="__codelineno-2-354" name="__codelineno-2-354" href="#__codelineno-2-354"></a><span class="w">                        </span><span class="n">_dbidReadyReceived</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<a id="__codelineno-2-355" name="__codelineno-2-355" href="#__codelineno-2-355"></a><span class="w">                        </span><span class="n">_hasSpawned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<a id="__codelineno-2-356" name="__codelineno-2-356" href="#__codelineno-2-356"></a><span class="w">                        </span><span class="n">NetworkController</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Cleanup</span><span class="p">();</span>
+<a id="__codelineno-2-357" name="__codelineno-2-357" href="#__codelineno-2-357"></a>
+<a id="__codelineno-2-358" name="__codelineno-2-358" href="#__codelineno-2-358"></a><span class="w">                        </span><span class="c1">// Destroy ECS</span>
+<a id="__codelineno-2-359" name="__codelineno-2-359" href="#__codelineno-2-359"></a><span class="w">                        </span><span class="n">SystemManager</span><span class="p">.</span><span class="n">DestroyGameSystems</span><span class="p">();</span>
+<a id="__codelineno-2-360" name="__codelineno-2-360" href="#__codelineno-2-360"></a>
+<a id="__codelineno-2-361" name="__codelineno-2-361" href="#__codelineno-2-361"></a><span class="w">                        </span><span class="c1">// Change scenes</span>
+<a id="__codelineno-2-362" name="__codelineno-2-362" href="#__codelineno-2-362"></a><span class="w">                        </span><span class="n">StartCoroutine</span><span class="p">(</span><span class="n">KORHelper</span><span class="p">.</span><span class="n">LoadScene_Coroutine</span><span class="p">(</span><span class="n">_configuration</span><span class="p">.</span><span class="n">IntroSceneName</span><span class="p">,</span>
+<a id="__codelineno-2-363" name="__codelineno-2-363" href="#__codelineno-2-363"></a><span class="w">                            </span><span class="n">_configuration</span><span class="p">.</span><span class="n">DelayBeforeLoadScene</span><span class="p">));</span>
+<a id="__codelineno-2-364" name="__codelineno-2-364" href="#__codelineno-2-364"></a><span class="w">                    </span><span class="p">}),</span>
+<a id="__codelineno-2-365" name="__codelineno-2-365" href="#__codelineno-2-365"></a><span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="nf">DialogButtonData</span><span class="p">(</span><span class="n">KORConstants</span><span class="p">.</span><span class="n">Dialog_Cancel</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span>
+<a id="__codelineno-2-366" name="__codelineno-2-366" href="#__codelineno-2-366"></a><span class="w">                    </span><span class="p">{</span>
+<a id="__codelineno-2-367" name="__codelineno-2-367" href="#__codelineno-2-367"></a><span class="w">                        </span><span class="n">KORHelper</span><span class="p">.</span><span class="n">PlayAudioForUIClickSecondary</span><span class="p">();</span>
+<a id="__codelineno-2-368" name="__codelineno-2-368" href="#__codelineno-2-368"></a><span class="w">                        </span><span class="n">_gameUIView</span><span class="p">.</span><span class="n">DialogSystem</span><span class="p">.</span><span class="n">HideDialogBox</span><span class="p">();</span>
+<a id="__codelineno-2-369" name="__codelineno-2-369" href="#__codelineno-2-369"></a><span class="w">                    </span><span class="p">})</span>
+<a id="__codelineno-2-370" name="__codelineno-2-370" href="#__codelineno-2-370"></a><span class="w">                </span><span class="p">});</span>
+<a id="__codelineno-2-371" name="__codelineno-2-371" href="#__codelineno-2-371"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-372" name="__codelineno-2-372" href="#__codelineno-2-372"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-373" name="__codelineno-2-373" href="#__codelineno-2-373"></a><span class="p">}</span>
+</code></pre></div><p></p>
 <h3 id="step-4-create-the-multiplayer-code">Step 4. create the multiplayer code<a class="headerlink" href="#step-4-create-the-multiplayer-code" title="Permanent link">¶</a></h3>
 <p>Now that the core game logic is setup, use Beamable to connect 2 (or more) players together. Create the Multiplayer event objects, send outgoing events, and handle incoming events.</p>
 <table>

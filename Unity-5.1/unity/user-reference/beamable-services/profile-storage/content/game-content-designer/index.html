@@ -10068,166 +10068,97 @@
 <p>For all the following examples, we assume that the export type is set as <strong>List</strong>. This represents the typical common setup.</p>
 <p><strong>Basic Object</strong></p>
 <p><strong>Input:</strong>
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>symbol | data | other_data
-A2     | B2   | C2
-A3     | B3   | C3
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>symbol | data | other_data
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>A2     | B2   | C2
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>A3     | B3   | C3
+</code></pre></div><p></p>
 <p><strong>Output:</strong>
-</p><div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"__README"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Readme here ... "</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"BasicObject"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A2"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B2"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"other_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C2"</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A3"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B3"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"other_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C3"</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-json highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">"__README"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Readme here ... "</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">"BasicObject"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A2"</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B2"</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">"other_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C2"</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A3"</span><span class="p">,</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B3"</span><span class="p">,</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="nt">"other_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C3"</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="p">}</span>
+</code></pre></div><p></p>
 <p><strong>Basic Object With Comment</strong></p>
 <p>To write a comment, or have an empty row for whatever reason, just add a '#' to the start of the row. This will tell the exporter to act like the row does not even exist.</p>
 <p><strong>Input:</strong>
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>symbol | data | other_data
-A2     | B2   | C2
-#      |      |
-A4     | B4   | C4
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-text highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>symbol | data | other_data
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>A2     | B2   | C2
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>#      |      |
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>A4     | B4   | C4
+</code></pre></div><p></p>
 <p><strong>Output:</strong>
-</p><div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"__README"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Readme text ... "</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"BasicObjectWithComment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A2"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B2"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"other_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C2"</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A4"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B4"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"other_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C4"</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-json highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">"__README"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Readme text ... "</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">"BasicObjectWithComment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A2"</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B2"</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">      </span><span class="nt">"other_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C2"</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A4"</span><span class="p">,</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B4"</span><span class="p">,</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="nt">"other_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C4"</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">}</span>
+</code></pre></div><p></p>
 <p><strong>Complex Object</strong></p>
 <p>Adding a dot '.' to a path, creates a more complex object. Multiple columns can map to the same object with different fields.</p>
 <p>These can be as deep as needed.</p>
 <p><strong>Input:</strong>
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>symbol | data | object.one | object.two | deep.foo | deep.child.bar | deep.child.delta
-A2     | B2   | C2         | D2         | E2       | F2             | G2
-A3     | B3   | C3         | D3         | E3       | F3             | G3
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-text highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>symbol | data | object.one | object.two | deep.foo | deep.child.bar | deep.child.delta
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>A2     | B2   | C2         | D2         | E2       | F2             | G2
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>A3     | B3   | C3         | D3         | E3       | F3             | G3
+</code></pre></div><p></p>
 <p><strong>Output:</strong>
-</p><div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"__README"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Readme text ..."</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"ComplexObject"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A2"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B2"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"one"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C2"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"two"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D2"</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">"deep"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"child"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"bar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F2"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"delta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"G2"</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A3"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B3"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"one"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C3"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"two"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D3"</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">"deep"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E3"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"child"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"bar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F3"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"delta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"G3"</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-json highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">"__README"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Readme text ..."</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">"ComplexObject"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A2"</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B2"</span><span class="p">,</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">      </span><span class="nt">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="nt">"one"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C2"</span><span class="p">,</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="nt">"two"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D2"</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">      </span><span class="nt">"deep"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="nt">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2"</span><span class="p">,</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="nt">"child"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">          </span><span class="nt">"bar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F2"</span><span class="p">,</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">          </span><span class="nt">"delta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"G2"</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A3"</span><span class="p">,</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B3"</span><span class="p">,</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">      </span><span class="nt">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">        </span><span class="nt">"one"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C3"</span><span class="p">,</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">        </span><span class="nt">"two"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D3"</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">      </span><span class="nt">"deep"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">        </span><span class="nt">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E3"</span><span class="p">,</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">        </span><span class="nt">"child"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">          </span><span class="nt">"bar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F3"</span><span class="p">,</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">          </span><span class="nt">"delta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"G3"</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="p">}</span>
+</code></pre></div><p></p>
 <div class="admonition warning">
 <p class="admonition-title">Important Notes</p>
 <p>Here are some common issues and solutions:</p>
@@ -10265,47 +10196,29 @@ A3     | B3   | C3         | D3         | E3       | F3             | G3
 <p>In the end, GCD generates properly formatted JSON. It does not prescribe a delivery mechanism. The system is flexible to how game makers choose to use the data in the game project.</p>
 <p>For example, here is a Google Sheet with GCD used to configure the following data set:</p>
 <p><strong>Input:</strong>
-</p><div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>Weapons[].Name | Weapons[].Damage
-Sword          | 20
-Dagger         | 5
-Spear          | 30
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-text highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Weapons[].Name | Weapons[].Damage
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Sword          | 20
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Dagger         | 5
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Spear          | 30
+</code></pre></div><p></p>
 <p><strong>Output:</strong>
-</p><div class="language-json highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"Weapons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sword"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"Damage"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dagger"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"Damage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spear"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"Damage"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-json highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">"Weapons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sword"</span><span class="p">,</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">      </span><span class="nt">"Damage"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dagger"</span><span class="p">,</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">      </span><span class="nt">"Damage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spear"</span><span class="p">,</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">      </span><span class="nt">"Damage"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="p">}</span>
+</code></pre></div><p></p>
 <p>Here are 3 popular usage techniques.</p>
 <h3 id="loading-json-from-local-storage">Loading JSON from local storage<a class="headerlink" href="#loading-json-from-local-storage" title="Permanent link">¶</a></h3>
 <p>The game maker exports the data to flat files, adds them to the Unity project, and loads them <strong>locally</strong> as needed.</p>
@@ -10379,88 +10292,48 @@ Spear          | 30
 </table>
 <p><strong>Sample Code</strong></p>
 <p>GameContentDesignerDemo_Json.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
-
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Labs.GameContentDesigner.Json</span>
-<span class="p">{</span>
-<span class="w">   </span><span class="na">[System.Serializable]</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeaponJson</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">;</span>
-<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Damage</span><span class="p">;</span>
-<span class="w">   </span><span class="p">}</span>
-
-<span class="w">   </span><span class="na">[System.Serializable]</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeaponsJson</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="n">WeaponJson</span><span class="p">[]</span><span class="w"> </span><span class="n">Weapons</span><span class="p">;</span>
-<span class="w">   </span><span class="p">}</span>
-
-<span class="w">   </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">   </span><span class="c1">/// Demonstrates &lt;see cref="GameContentDesignerDemo"/&gt;.</span>
-<span class="w">   </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GameContentDesignerDemo_Json</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="c1">//  Fields  ---------------------------------------</span>
-
-<span class="w">      </span><span class="na">[SerializeField]</span>
-<span class="w">      </span><span class="k">private</span><span class="w"> </span><span class="n">TextAsset</span><span class="w"> </span><span class="n">_weaponsJson</span><span class="p">;</span>
-
-<span class="w">      </span><span class="c1">//  Unity Methods  --------------------------------</span>
-<span class="w">      </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">      </span><span class="p">{</span>
-<span class="w">         </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start()"</span><span class="p">);</span>
-
-<span class="w">         </span><span class="n">WeaponsJson</span><span class="w"> </span><span class="n">weapons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonUtility</span><span class="p">.</span><span class="n">FromJson</span><span class="o">&lt;</span><span class="n">WeaponsJson</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_weaponsJson</span><span class="p">.</span><span class="n">text</span><span class="p">);</span>
-
-<span class="w">         </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">WeaponJson</span><span class="w"> </span><span class="n">weapon</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">weapons</span><span class="p">.</span><span class="n">Weapons</span><span class="p">)</span>
-<span class="w">         </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"weapon.Name = {weapon.Name}, weapon.Damage = {weapon.Damage}"</span><span class="p">);</span>
-<span class="w">         </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Labs.GameContentDesigner.Json</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">{</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">   </span><span class="na">[System.Serializable]</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeaponJson</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">   </span><span class="p">{</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Damage</span><span class="p">;</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">   </span><span class="na">[System.Serializable]</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeaponsJson</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">   </span><span class="p">{</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="n">WeaponJson</span><span class="p">[]</span><span class="w"> </span><span class="n">Weapons</span><span class="p">;</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">   </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">   </span><span class="c1">/// Demonstrates &lt;see cref="GameContentDesignerDemo"/&gt;.</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">   </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GameContentDesignerDemo_Json</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">   </span><span class="p">{</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">      </span><span class="c1">//  Fields  ---------------------------------------</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">      </span><span class="na">[SerializeField]</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">      </span><span class="k">private</span><span class="w"> </span><span class="n">TextAsset</span><span class="w"> </span><span class="n">_weaponsJson</span><span class="p">;</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">      </span><span class="c1">//  Unity Methods  --------------------------------</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">      </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">         </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start()"</span><span class="p">);</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="w">         </span><span class="n">WeaponsJson</span><span class="w"> </span><span class="n">weapons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonUtility</span><span class="p">.</span><span class="n">FromJson</span><span class="o">&lt;</span><span class="n">WeaponsJson</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_weaponsJson</span><span class="p">.</span><span class="n">text</span><span class="p">);</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>
+<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="w">         </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">WeaponJson</span><span class="w"> </span><span class="n">weapon</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">weapons</span><span class="p">.</span><span class="n">Weapons</span><span class="p">)</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a><span class="w">         </span><span class="p">{</span>
+<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"weapon.Name = {weapon.Name}, weapon.Damage = {weapon.Damage}"</span><span class="p">);</span>
+<a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a><span class="w">         </span><span class="p">}</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a><span class="p">}</span>
+</code></pre></div><p></p>
 <h3 id="using-beamable-sdk">Using Beamable SDK<a class="headerlink" href="#using-beamable-sdk" title="Permanent link">¶</a></h3>
 <p>Beamable is optional for GCD. However, to complete <strong>this</strong> specific usage option, the Beamable SDK and a Beamable license are required.</p>
 <p><strong>Pros</strong>
@@ -10502,102 +10375,55 @@ Spear          | 30
 </tbody>
 </table>
 <p>GameContentDesignerDemo_Content.cs
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
-
-<span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Labs.GameContentDesignerDemo.Content</span>
-<span class="p">{</span>
-<span class="w">   </span><span class="na">[ContentType("gcd_weapon")]</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GCDWeapon</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">;</span>
-<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Damage</span><span class="p">;</span>
-<span class="w">   </span><span class="p">}</span>
-
-<span class="w">   </span><span class="na">[ContentType("gcd_weapons")]</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GCDWeapons</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="n">WeaponContentRef</span><span class="p">[]</span><span class="w"> </span><span class="n">WeaponContentRefs</span><span class="p">;</span>
-<span class="w">   </span><span class="p">}</span>
-
-<span class="w">   </span><span class="na">[System.Serializable]</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeaponContentRef</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentRef</span><span class="o">&lt;</span><span class="n">GCDWeapon</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">   </span><span class="na">[System.Serializable]</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeaponsContentRef</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentRef</span><span class="o">&lt;</span><span class="n">GCDWeapons</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">   </span><span class="c1">/// &lt;summary&gt;</span>
-<span class="w">   </span><span class="c1">/// Demonstrates &lt;see cref="GameContentDesignerDemo"/&gt;.</span>
-<span class="w">   </span><span class="c1">/// &lt;/summary&gt;</span>
-<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GameContentDesignerDemo_Content</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="c1">//  Fields  ---------------------------------------</span>
-<span class="w">      </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">WeaponsContentRef</span><span class="w"> </span><span class="n">_weaponsContentRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-
-<span class="w">      </span><span class="c1">//  Unity Methods   -------------------------------</span>
-<span class="w">      </span><span class="k">protected</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="w">      </span><span class="p">{</span>
-<span class="w">         </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start()"</span><span class="p">);</span>
-
-<span class="w">         </span><span class="n">GCDWeapons</span><span class="w"> </span><span class="n">weaponsContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_weaponsContentRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
-
-<span class="w">         </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">WeaponContentRef</span><span class="w"> </span><span class="n">weaponContentRef</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">weaponsContent</span><span class="p">.</span><span class="n">WeaponContentRefs</span><span class="p">)</span>
-<span class="w">         </span><span class="p">{</span>
-<span class="w">            </span><span class="n">GCDWeapon</span><span class="w"> </span><span class="n">weapon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">weaponContentRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
-
-<span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"weapon.Name = {weapon.Name}, weapon.Damage = {weapon.Damage}"</span><span class="p">);</span>
-<span class="w">         </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Common.Content</span><span class="p">;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Beamable.Examples.Labs.GameContentDesignerDemo.Content</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">{</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">   </span><span class="na">[ContentType("gcd_weapon")]</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GCDWeapon</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">   </span><span class="p">{</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">;</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Damage</span><span class="p">;</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">   </span><span class="na">[ContentType("gcd_weapons")]</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GCDWeapons</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentObject</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">   </span><span class="p">{</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="n">WeaponContentRef</span><span class="p">[]</span><span class="w"> </span><span class="n">WeaponContentRefs</span><span class="p">;</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">   </span><span class="na">[System.Serializable]</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeaponContentRef</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentRef</span><span class="o">&lt;</span><span class="n">GCDWeapon</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">   </span><span class="na">[System.Serializable]</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeaponsContentRef</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ContentRef</span><span class="o">&lt;</span><span class="n">GCDWeapons</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">   </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">   </span><span class="c1">/// Demonstrates &lt;see cref="GameContentDesignerDemo"/&gt;.</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">   </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GameContentDesignerDemo_Content</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">   </span><span class="p">{</span>
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="w">      </span><span class="c1">//  Fields  ---------------------------------------</span>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="w">      </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">WeaponsContentRef</span><span class="w"> </span><span class="n">_weaponsContentRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a>
+<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="w">      </span><span class="c1">//  Unity Methods   -------------------------------</span>
+<a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a><span class="w">      </span><span class="k">protected</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a><span class="w">         </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"Start()"</span><span class="p">);</span>
+<a id="__codelineno-9-37" name="__codelineno-9-37" href="#__codelineno-9-37"></a>
+<a id="__codelineno-9-38" name="__codelineno-9-38" href="#__codelineno-9-38"></a><span class="w">         </span><span class="n">GCDWeapons</span><span class="w"> </span><span class="n">weaponsContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_weaponsContentRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
+<a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a>
+<a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a><span class="w">         </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">WeaponContentRef</span><span class="w"> </span><span class="n">weaponContentRef</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">weaponsContent</span><span class="p">.</span><span class="n">WeaponContentRefs</span><span class="p">)</span>
+<a id="__codelineno-9-41" name="__codelineno-9-41" href="#__codelineno-9-41"></a><span class="w">         </span><span class="p">{</span>
+<a id="__codelineno-9-42" name="__codelineno-9-42" href="#__codelineno-9-42"></a><span class="w">            </span><span class="n">GCDWeapon</span><span class="w"> </span><span class="n">weapon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">weaponContentRef</span><span class="p">.</span><span class="n">Resolve</span><span class="p">();</span>
+<a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a>
+<a id="__codelineno-9-44" name="__codelineno-9-44" href="#__codelineno-9-44"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"weapon.Name = {weapon.Name}, weapon.Damage = {weapon.Damage}"</span><span class="p">);</span>
+<a id="__codelineno-9-45" name="__codelineno-9-45" href="#__codelineno-9-45"></a><span class="w">         </span><span class="p">}</span>
+<a id="__codelineno-9-46" name="__codelineno-9-46" href="#__codelineno-9-46"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-9-47" name="__codelineno-9-47" href="#__codelineno-9-47"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-9-48" name="__codelineno-9-48" href="#__codelineno-9-48"></a><span class="p">}</span>
+</code></pre></div><p></p>
 <h2 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link">¶</a></h2>
 <p>Mouse over a schema header to reveal the <strong>cell notes</strong>. Notes store the column metadata.</p>
 <ul>

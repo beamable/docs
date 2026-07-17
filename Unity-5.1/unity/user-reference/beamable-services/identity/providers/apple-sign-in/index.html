@@ -9750,121 +9750,74 @@
 <p>Since Apple Sign-In is only supported on Apple devices, it is recommended to wrap your core functionality in <code>#if UNITY_IOS</code> and a matching <code>#endif</code> to prevent compilation on non-iOS devices.</p>
 </div>
 <p>The first step is to initialize a new instance of SignInWithApple:</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="n">SignInWithApple</span><span class="w"> </span><span class="n">signInWithApple</span><span class="p">;</span>
-
-<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">signInWithApple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SignInWithApple</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">private</span><span class="w"> </span><span class="n">SignInWithApple</span><span class="w"> </span><span class="n">signInWithApple</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">signInWithApple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SignInWithApple</span><span class="p">();</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+</code></pre></div>
 <p>Call the next function from a UI button or interface where the user intends to start the sign-in process. Similar to the other third party login code, we just need to retrieve the token for the user then add a third party credential to a new or existing user.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">StartAppleLogin</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="cp">#if UNITY_IOS</span>
-<span class="w">    </span><span class="n">signInWithApple</span><span class="p">.</span><span class="n">Login</span><span class="p">(</span><span class="n">callbackArgs</span><span class="w"> </span><span class="o">=&gt;</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">callbackArgs</span><span class="p">.</span><span class="n">error</span><span class="p">))</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">//An error happened, notify user</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">else</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">callbackArgs</span><span class="p">.</span><span class="n">userInfo</span><span class="p">.</span><span class="n">idToken</span><span class="p">;</span>
-<span class="w">            </span><span class="c1">//We have the token, see below functions</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">});</span>
-<span class="w">    </span><span class="cp">#else</span>
-<span class="w">    </span><span class="c1">// We are not on an Apple device, so do not do anything</span>
-<span class="w">    </span><span class="cp">#endif</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">StartAppleLogin</span><span class="p">()</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="cp">#if UNITY_IOS</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">signInWithApple</span><span class="p">.</span><span class="n">Login</span><span class="p">(</span><span class="n">callbackArgs</span><span class="w"> </span><span class="o">=&gt;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">callbackArgs</span><span class="p">.</span><span class="n">error</span><span class="p">))</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">            </span><span class="c1">//An error happened, notify user</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="k">else</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">callbackArgs</span><span class="p">.</span><span class="n">userInfo</span><span class="p">.</span><span class="n">idToken</span><span class="p">;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">            </span><span class="c1">//We have the token, see below functions</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="cp">#else</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="c1">// We are not on an Apple device, so do not do anything</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="cp">#endif</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="handle-various-flow-scenarios">Handle various flow scenarios<a class="headerlink" href="#handle-various-flow-scenarios" title="Permanent link">¶</a></h2>
 <p>Depending on the state of the currently logged in user, we may need to attach the credentials to the current user, switch to a different user, or create a new one entirely. The following code covers all 3 cases.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//Specify the third party auth provider</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">thirdParty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">Apple</span><span class="p">;</span>
-<span class="c1">//Get information about the user's third party credential</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">IsThirdPartyAvailable</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">HasThirdPartyAssociation</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">);</span>
-
-<span class="c1">//Should we switch to a user that is not currently logged in?</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">shouldSwitchUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">available</span><span class="p">;</span>
-<span class="c1">//Should we create a brand new user with these credentials?</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">shouldCreateUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="p">;</span>
-<span class="c1">//Should we attach the credentials to an existing user?</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">shouldAttachToCurrentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">userHasCredentials</span><span class="p">;</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">//Specify the third party auth provider</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">var</span><span class="w"> </span><span class="n">thirdParty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">Apple</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">//Get information about the user's third party credential</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kt">var</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">IsThirdPartyAvailable</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">var</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">HasThirdPartyAssociation</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">);</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">//Should we switch to a user that is not currently logged in?</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kt">var</span><span class="w"> </span><span class="n">shouldSwitchUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">available</span><span class="p">;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1">//Should we create a brand new user with these credentials?</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="kt">var</span><span class="w"> </span><span class="n">shouldCreateUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1">//Should we attach the credentials to an existing user?</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="kt">var</span><span class="w"> </span><span class="n">shouldAttachToCurrentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">userHasCredentials</span><span class="p">;</span>
+</code></pre></div>
 <h3 id="should-switch-users">Should switch users<a class="headerlink" href="#should-switch-users" title="Permanent link">¶</a></h3>
 <p>Here we are authenticating the third party (Apple) with Beamable by logging them in using the LoginThirdParty API.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">shouldSwitchUsers</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">LoginThirdParty</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">if</span><span class="p">(</span><span class="n">shouldSwitchUsers</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">LoginThirdParty</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+</code></pre></div>
 <h3 id="should-create-user">Should create user<a class="headerlink" href="#should-create-user" title="Permanent link">¶</a></h3>
 <p>Here we create a new user, apply the current token to that user, then register the third party login (Apple) using the RegisterThirdPartyCredentials API. We take the user returned and then update the user data.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">shouldCreateUser</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">tokenResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">CreateUser</span><span class="p">();</span>
-<span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ApplyToken</span><span class="p">(</span><span class="n">tokenResponse</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">RegisterThirdPartyCredentials</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
-<span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">UpdateUserData</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">if</span><span class="p">(</span><span class="n">shouldCreateUser</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">tokenResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">CreateUser</span><span class="p">();</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">ApplyToken</span><span class="p">(</span><span class="n">tokenResponse</span><span class="p">);</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">RegisterThirdPartyCredentials</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">UpdateUserData</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span>
+</code></pre></div>
 <h3 id="should-update-current-user">Should update current user<a class="headerlink" href="#should-update-current-user" title="Permanent link">¶</a></h3>
 <p>Here we are attaching to the current user with the Apple token. This scenario is essentially "auto-login". The Apple user has already been linked with the current Beamable user and we can safely apply the token.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">shouldAttachToCurrentUser</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">RegisterThirdPartyCredentials</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
-<span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">UpdateUserData</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">if</span><span class="p">(</span><span class="n">shouldAttachToCurrentUser</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">RegisterThirdPartyCredentials</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">UpdateUserData</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="apples-app-privacy-questionnaire">Apple's app privacy questionnaire<a class="headerlink" href="#apples-app-privacy-questionnaire" title="Permanent link">¶</a></h2>
 <p>Any developer that wants to submit a new application or app update to the Apple App Store is required to submit an application privacy questionnaire specifying which data is collected by their app and the data collected by any SDKs integrated into their app. <a href="https://developer.apple.com/app-store/app-privacy-details/">More information.</a></p>
 <p>If you are using Beamable, and are attempting to fill out the Apple privacy questionnaire, please refer to the details below that explain what forms of data are collected by the Beamable SDK.</p>

@@ -9940,67 +9940,47 @@
 <p>Below are the integration steps that will allow you to implement Facebook Sign-In &amp; Beamable via Code. This section will describe several API pieces for you to implement your own wrapper.</p>
 <h2 id="facebook-login-and-callbacks">Facebook login and callbacks<a class="headerlink" href="#facebook-login-and-callbacks" title="Permanent link">¶</a></h2>
 <p>Ultimately you will have to implement the Facebook SDK and listen for the callback with the Login Result. The callback is triggered by the <em>FB.LogInWithReadPermissions()</em> API call.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">perms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(){</span><span class="s">"public_profile"</span><span class="p">,</span><span class="w"> </span><span class="s">"email"</span><span class="p">};</span>
-<span class="n">FB</span><span class="p">.</span><span class="n">LogInWithReadPermissions</span><span class="p">(</span><span class="n">perms</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">FB_AuthCallback</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">perms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(){</span><span class="s">"public_profile"</span><span class="p">,</span><span class="w"> </span><span class="s">"email"</span><span class="p">};</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">FB</span><span class="p">.</span><span class="n">LogInWithReadPermissions</span><span class="p">(</span><span class="n">perms</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">FB_AuthCallback</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
+</code></pre></div>
 <p>In this example, we are forwarding the result into our own method. In this method you should check for errors from Facebook. In addition, you would check to ensure that login was successful.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">FB_AuthCallback</span><span class="w"> </span><span class="p">(</span><span class="n">ILoginResult</span><span class="w"> </span><span class="n">result</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">Error</span><span class="p">)){</span>
-<span class="w">     </span><span class="c1">//There was an error to handle</span>
-<span class="w">     </span><span class="k">return</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">FB</span><span class="p">.</span><span class="n">IsLoggedIn</span><span class="p">){</span>
-<span class="w">        </span><span class="c1">//User is logged into facebook successfully.</span>
-
-<span class="w">    </span><span class="c1">// AccessToken class will have session details</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">aToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Facebook</span><span class="p">.</span><span class="n">Unity</span><span class="p">.</span><span class="n">AccessToken</span><span class="p">.</span><span class="n">CurrentAccessToken</span><span class="p">;</span>
-
-<span class="w">    </span><span class="k">return</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">FB_AuthCallback</span><span class="w"> </span><span class="p">(</span><span class="n">ILoginResult</span><span class="w"> </span><span class="n">result</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">Error</span><span class="p">)){</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">     </span><span class="c1">//There was an error to handle</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">     </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">FB</span><span class="p">.</span><span class="n">IsLoggedIn</span><span class="p">){</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="c1">//User is logged into facebook successfully.</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="c1">// AccessToken class will have session details</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">aToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Facebook</span><span class="p">.</span><span class="n">Unity</span><span class="p">.</span><span class="n">AccessToken</span><span class="p">.</span><span class="n">CurrentAccessToken</span><span class="p">;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="beamable-login-with-accesstoken">Beamable login with AccessToken<a class="headerlink" href="#beamable-login-with-accesstoken" title="Permanent link">¶</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Beamable SDK Initialization</p>
 <p>The following assumes that you have initialized the Beamable SDK and it is stored in a variable named <code>_beamContext</code>.
-</p><div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="n">_beamContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
+</code></pre></div><p></p>
 </div>
 <p>We have passed in an additional helper object that will automate the Beamable login flow process. However, now we will expose what is "under the hood" of that helper.</p>
 <h3 id="getting-the-access-token-string">Getting the access token string<a class="headerlink" href="#getting-the-access-token-string" title="Permanent link">¶</a></h3>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// AccessToken class will have session details</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">aToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Facebook</span><span class="p">.</span><span class="n">Unity</span><span class="p">.</span><span class="n">AccessToken</span><span class="p">.</span><span class="n">CurrentAccessToken</span><span class="p">;</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">tokenString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aToken</span><span class="p">.</span><span class="n">TokenString</span><span class="p">;</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// AccessToken class will have session details</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">var</span><span class="w"> </span><span class="n">aToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Facebook</span><span class="p">.</span><span class="n">Unity</span><span class="p">.</span><span class="n">AccessToken</span><span class="p">.</span><span class="n">CurrentAccessToken</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kt">var</span><span class="w"> </span><span class="n">tokenString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aToken</span><span class="p">.</span><span class="n">TokenString</span><span class="p">;</span>
+</code></pre></div>
 <p>You will want a reference to the actual TokenString to pass to the Beamable third-party login service.</p>
 <h3 id="isthirdpartyavailable">IsThirdPartyAvailable<a class="headerlink" href="#isthirdpartyavailable" title="Permanent link">¶</a></h3>
 <p>With the access token, we need to check if this third party provider is available to the logged in user. It will return a boolean.</p>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">thirdParty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">Facebook</span><span class="p">;</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">IsThirdPartyAvailable</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">tokenString</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">thirdParty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">Facebook</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kt">var</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">IsThirdPartyAvailable</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">tokenString</span><span class="p">);</span>
+</code></pre></div>
 <h2 id="handle-various-flow-scenarios">Handle various flow scenarios<a class="headerlink" href="#handle-various-flow-scenarios" title="Permanent link">¶</a></h2>
 <p>Now that we have the Facebook token, we need to account for 3 different scenarios:</p>
 <ul>
@@ -10008,30 +9988,19 @@
 <li>Create New Player - Player wants to Create a new Player account</li>
 <li>Attach To Current Player - Player wants to attach this third-party login to an already authenticated Player</li>
 </ul>
-<div class="language-csharp highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//Specify the third party auth provider</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">thirdParty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">Facebook</span><span class="p">;</span>
-<span class="c1">//Get information about the user's third party credential</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">IsThirdPartyAvailable</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">HasThirdPartyAssociation</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">);</span>
-
-<span class="c1">//Should we switch to a user that is not currently logged in?</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">shouldSwitchUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">available</span><span class="p">;</span>
-<span class="c1">//Should we create a brand new user with these credentials?</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">shouldCreateUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="p">;</span>
-<span class="c1">//Should we attach the credentials to an existing user?</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">shouldAttachToCurrentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">userHasCredentials</span><span class="p">;</span>
-</code></pre></div></td></tr></tbody></table></div>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">//Specify the third party auth provider</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">var</span><span class="w"> </span><span class="n">thirdParty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AuthThirdParty</span><span class="p">.</span><span class="n">Facebook</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">//Get information about the user's third party credential</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kt">var</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">AuthService</span><span class="p">.</span><span class="n">IsThirdPartyAvailable</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kt">var</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">HasThirdPartyAssociation</span><span class="p">(</span><span class="n">thirdParty</span><span class="p">);</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">//Should we switch to a user that is not currently logged in?</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="kt">var</span><span class="w"> </span><span class="n">shouldSwitchUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">available</span><span class="p">;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1">//Should we create a brand new user with these credentials?</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="kt">var</span><span class="w"> </span><span class="n">shouldCreateUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">userHasCredentials</span><span class="p">;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1">//Should we attach the credentials to an existing user?</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="kt">var</span><span class="w"> </span><span class="n">shouldAttachToCurrentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">userHasCredentials</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="facebooks-data-protection-assessment">Facebook's data protection assessment<a class="headerlink" href="#facebooks-data-protection-assessment" title="Permanent link">¶</a></h2>
 <p>If you implement Facebook sign-in, you might be asked to submit an annual Data Protection Assessment through your Facebook Developer account. The following answers can be used if you have implemented Facebook authentication through Beamable.</p>
 <div class="admonition warning">
