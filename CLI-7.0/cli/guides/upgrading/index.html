@@ -6966,7 +6966,7 @@
 <p>Update the Beamable CLI and workspaces</p>
 <h2 id="update-the-cli">Update the CLI<a class="headerlink" href="#update-the-cli" title="Permanent link">¶</a></h2>
 <p>To install the latest version of the CLI, use the following command.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span>install<span class="w"> </span>latest
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version<span class="w"> </span>install<span class="w"> </span>latest
 </code></pre></div>
 <p>You can also search for available versions with the <code>beam version ls</code> command. The <code>beam version install</code> command accepts any valid version instead of the "latest" string in the example above.</p>
 <div class="admonition info">
@@ -6997,14 +6997,14 @@
 2. building Microservice <em>Docker</em> images and testing the containers</p>
 <p>To run a Microservice, please use the <code>dotnet beam project run</code> command, or simply run the service from your IDE, or with <code>dotnet run</code>.</p>
 <p>To build and validate <em>Docker</em> images locally, there is a new option on the <code>beam deploy plan</code> command that will generate a <a href="https://docs.docker.com/compose/">docker compose</a> project out of the <em>Docker</em> images. Use the <code>--docker-compose-dir</code> option to create a docker compose workspace, and then use docker compose directly to turn on and off the docker containers.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>plan<span class="w"> </span>--docker-compose-dir<span class="w"> </span>Example
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>plan<span class="w"> </span>--docker-compose-dir<span class="w"> </span>Example
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>Example
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>docker<span class="w"> </span>compose<span class="w"> </span>up
 </code></pre></div>
 <h3 id="from-43x-to-500">From 4.3.x to 5.0.0<a class="headerlink" href="#from-43x-to-500" title="Permanent link">¶</a></h3>
 <p>The upgrade from 4.x to 5 has a few breaking changes. Once your project is using
 CLI 5+, run the following command to automatically fix known compiler errors,
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>beam<span class="w"> </span>checks<span class="w"> </span>scan<span class="w"> </span>--fix<span class="w"> </span>all
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>beam<span class="w"> </span>checks<span class="w"> </span>scan<span class="w"> </span>--fix<span class="w"> </span>all
 </code></pre></div><p></p>
 <h4 id="mongodbdriver-upgrade-to-30"><code>MongoDb.Driver</code> upgrade to 3.0<a class="headerlink" href="#mongodbdriver-upgrade-to-30" title="Permanent link">¶</a></h4>
 <p>This fix will be automatically handled by running <code>beam checks scan --fix all</code></p>
@@ -7012,7 +7012,7 @@ CLI 5+, run the following command to automatically fix known compiler errors,
 If your project does not include any storage objects,
 you can ignore this step. However, if you do have storage objects, then
 those projects likely include this reference in the <code>.csproj</code> files,</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"MongoDB.Driver"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.15.1"</span><span class="nt">/&gt;</span>
+<div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"MongoDB.Driver"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.15.1"</span><span class="nt">/&gt;</span>
 </code></pre></div>
 <p>If your storage object does not include direct references to the <code>MongoDB.
 Driver</code>, you can simply delete this line, and the correct version will be
@@ -7025,15 +7025,15 @@ it extensively in earlier versions. However, with CLI 5+, Beamable migrated to
 use <code>ZLogger</code>, which is a higher performance logging tool.</p>
 <p>If your code uses the following types of log statements, then you will need to make a small
 change,
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Log</span><span class="p">.</span><span class="n">Info</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">);</span>
+</p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Log</span><span class="p">.</span><span class="n">Info</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">);</span>
 </code></pre></div><p></p>
 <p>The <code>Log</code> type used to come from <code>Serilog</code>'s namespace, but since <code>Serilog</code> is no
 longer included in the package, the <code>Log</code> type will fail to compile. You should
 see a <code>using</code> statement at the top of your file,
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Serilog</span><span class="p">;</span>
+</p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Serilog</span><span class="p">;</span>
 </code></pre></div><p></p>
 <p>This can be replaced with the following line, and the new <code>Log</code> type will be referenced.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Server</span><span class="p">;</span>
+</p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Server</span><span class="p">;</span>
 </code></pre></div><p></p>
 <h4 id="game-server-federation-uses-new-lobby-type">Game server federation uses new <code>Lobby</code> type<a class="headerlink" href="#game-server-federation-uses-new-lobby-type" title="Permanent link">¶</a></h4>
 <p>This fix will be automatically handled by running <code>beam checks scan --fix all</code></p>
@@ -7052,12 +7052,12 @@ generated when the Microservices were built. However, in CLI 5+, the engine inte
 are responsible for generating the client code, and the default behavior is that a standalone
 Microservice project will <em>no longer generate client code automatically</em>.</p>
 <p>You can generate a Unity client by hand using the following command,
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>generate-client-oapi<span class="w"> </span>--output-dir<span class="w"> </span>./Path/To/Your/Unity/Folder/To/Put/Clients/In
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>generate-client-oapi<span class="w"> </span>--output-dir<span class="w"> </span>./Path/To/Your/Unity/Folder/To/Put/Clients/In
 </code></pre></div><p></p>
 <p>If you want to revert to the old method of producing client-code, you will need to copy/paste the old target
 into your services' <code>.csproj</code> files. You can find the target here,
 <a href="https://github.com/beamable/BeamableProduct/blob/cli-4.3.0/microservice/microservice/Targets/Beamable.Microservice.Runtime.targets#L15">CLI 4.3.0 .Targets File</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">public</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">ServerInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateGameServer</span><span class="p">(</span><span class="n">Beamable</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">Autogenerated</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">Lobby</span><span class="w"> </span><span class="n">autoGeneratedlobby</span><span class="p">)</span>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">public</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">ServerInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateGameServer</span><span class="p">(</span><span class="n">Beamable</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">Autogenerated</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">Lobby</span><span class="w"> </span><span class="n">autoGeneratedlobby</span><span class="p">)</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">{</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">lobby</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">autoGeneratedlobby</span><span class="p">.</span><span class="n">ConvertLobbyType</span><span class="p">();</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="c1">// rest of method</span>
@@ -7075,10 +7075,10 @@ releases.</p>
 The CLI 4.0 release officially drops Beamable support for these EOL .NET versions; when you update your projects, you must update your <code>.csproj</code> files to use <code>net8.0</code>.</p>
 <p>In all your <code>.csproj</code> files, find the line with the <code>&lt;TargetFramework&gt;</code>
 declaration,</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">&lt;TargetFramework&gt;</span>net6.0<span class="nt">&lt;/TargetFramework&gt;</span>
+<div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">&lt;TargetFramework&gt;</span>net6.0<span class="nt">&lt;/TargetFramework&gt;</span>
 </code></pre></div>
 <p>And update it to
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">&lt;TargetFramework&gt;</span>net8.0<span class="nt">&lt;/TargetFramework&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">&lt;TargetFramework&gt;</span>net8.0<span class="nt">&lt;/TargetFramework&gt;</span>
 </code></pre></div><p></p>
 <blockquote>
 <p>📘 Update .NET SDK</p>
@@ -7090,7 +7090,7 @@ machines, instead of the dotnet6 SDK.</p>
 Driver</code> NuGet package. If your project does not include any storage objects,
 you can ignore this step. However, if you do have storage objects, then
 those projects likely include this reference in the <code>.csproj</code> files,</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"MongoDB.Driver"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.15.1"</span><span class="nt">/&gt;</span>
+<div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"MongoDB.Driver"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.15.1"</span><span class="nt">/&gt;</span>
 </code></pre></div>
 <p>If your storage object does not include direct references to the <code>MongoDB.
 Driver</code>, you can simply delete this line, and the correct version will be
@@ -7099,12 +7099,12 @@ package. You can also change the version number to exactly <code>2.19.2</code>.<
 <h4 id="modify-the-dockerignore-file-if-you-have-one">Modify the <code>.dockerignore</code> file if you have one<a class="headerlink" href="#modify-the-dockerignore-file-if-you-have-one" title="Permanent link">¶</a></h4>
 <p>In your service projects, if you have a <code>dockerignore</code> file, add the
 following line to the end of the file.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>!**/beamApp
+</p><div class="language-text highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>!**/beamApp
 </code></pre></div><p></p>
 <h3 id="from-202-to-301">From 2.0.2 to 3.0.1<a class="headerlink" href="#from-202-to-301" title="Permanent link">¶</a></h3>
 <p>The upgrade from 2.0.x to 3.0.1 brings a few critical updates to the <code>csproj</code> file, how the Beam CLI tool is managed, and the version of <code>dotnet</code>.</p>
 <p><strong>To start this process, open a terminal and navigate to the directory containing your <code>.beamable/</code> folder. All commands are written as though invoked from this directory.</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># In this file structure...</span>
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># In this file structure...</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>SomeDrive
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">|</span>---ProjectRoot
 <a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">|</span>---<span class="p">|</span>---<span class="w"> </span>.beamable
@@ -7122,7 +7122,7 @@ following line to the end of the file.
 <p>In 3.0.0, the CLI should be installed as a <em>local dotnet tool</em>.</p>
 <p>The steps to change your project from using the global CLI tool to a <em>local dotnet tool</em> are defined below.</p>
 <p>Start by verifying you are in the correct location by running the following command.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>cat<span class="w"> </span>.beamable/connection-configuration.json
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>cat<span class="w"> </span>.beamable/connection-configuration.json
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="o">{</span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="s2">"host"</span>:<span class="w"> </span><span class="s2">"https://api.beamable.com"</span>,
 <a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="s2">"cid"</span>:<span class="w"> </span><span class="s2">"857238240682"</span>,
@@ -7130,7 +7130,7 @@ following line to the end of the file.
 <a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="o">}</span>
 </code></pre></div><p></p>
 <p>Next, run <code>dotnet tool install --create-manifest-if-needed beamable.tools --version 3.0.1</code>. This should create a file in a top level <code>.config/dotnet-tools.json</code> with the following contents.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
+</p><div class="language-json highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nt">"isRoot"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="nt">"tools"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -7144,7 +7144,7 @@ following line to the end of the file.
 <a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">  </span><span class="p">}}</span>
 </code></pre></div><p></p>
 <p>Finally, to verify that the tool is installed locally, run the following,
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version
+</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>version
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w"> </span><span class="o">{</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="s2">"version"</span>:<span class="w"> </span><span class="s2">"3.0.1"</span>,
 <a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="s2">"location"</span>:<span class="w"> </span><span class="s2">"/usr/local/share/dotnet/dotnet"</span>,
@@ -7155,7 +7155,7 @@ following line to the end of the file.
 <p>From here on out, if you want to use the project specific CLI run <code>dotnet beam</code> instead of <code>beam</code>.</p>
 <p>However, if you run <code>beam</code> in the context of a local project <em>and</em> the global version of your CLI is different than the local project version, the command will be automatically forwarded to the local version. This does add some latency so prefer <code>dotnet beam</code> whenever you can.</p>
 <p>You will see a warning message similar to this when invoking <code>beam</code> directly:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>You tried using a Beamable CLI version=[3.0.1] which is different than the one configured in this project=[3.0.0-PREVIEW.RC2]. We are forwarding the command (beam
+</p><div class="language-text highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>You tried using a Beamable CLI version=[3.0.1] which is different than the one configured in this project=[3.0.0-PREVIEW.RC2]. We are forwarding the command (beam
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>--pretty version) to the version the project is using via dotnet=[dotnet]. Instead of relying on this forwarding, please 'dotnet beam' from inside the project directory.
 </code></pre></div><p></p>
 <h4 id="updating-the-csproj-files">Updating the <code>.csproj</code> files<a class="headerlink" href="#updating-the-csproj-files" title="Permanent link">¶</a></h4>
@@ -7171,7 +7171,7 @@ following line to the end of the file.
 </ul>
 <p>In every <code>csproj</code> file for <strong>Microservices</strong>, <strong>MicroStorages</strong>, and <strong>Common Libraries</strong>, follow the steps below:</p>
 <p>First, add a <code>PropertyGroup</code> with a <code>Label</code> called <code>Beamable Version</code> that looks like this:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cm">&lt;!-- These are special Beamable parameters that we use to keep the beamable packages in-sync to the CLI version your project is using. --&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cm">&lt;!-- These are special Beamable parameters that we use to keep the beamable packages in-sync to the CLI version your project is using. --&gt;</span>
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="cm">&lt;!-- This makes it so your microservices are auto-updated whenever you update the CLI installed in your project. --&gt;</span>
 <a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Beamable Version"</span><span class="w"> </span><span class="na">Condition=</span><span class="s">"$(DOTNET_RUNNING_IN_CONTAINER)!=true"</span><span class="nt">&gt;</span>
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="nt">&lt;DotNetConfigPath</span><span class="w"> </span><span class="na">Condition=</span><span class="s">"'$(DotNetConfigPath)' == ''"</span><span class="nt">&gt;</span>$([MSBuild]::GetDirectoryNameOfFileAbove("$(MSBuildProjectDirectory)/..",<span class="w"> </span>".config/dotnet-tools.json"))<span class="nt">&lt;/DotNetConfigPath&gt;</span>
@@ -7182,7 +7182,7 @@ following line to the end of the file.
 <a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="nt">&lt;/PropertyGroup&gt;</span>
 </code></pre></div><p></p>
 <p>If the project is targeting <code>net6.0</code> or <code>net7.0</code>, upgrade the <code>TargetFramework</code> to <code>.net8.0</code>.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Dotnet Settings"</span><span class="nt">&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Dotnet Settings"</span><span class="nt">&gt;</span>
 <a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="cm">&lt;!-- net8.0 is the LTS version until 2026. To update your net version, update the &lt;TargetFramework&gt; when Beamable announces support. --&gt;</span>
 <a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="nt">&lt;TargetFramework&gt;</span>net8.0<span class="nt">&lt;/TargetFramework&gt;</span>
 <a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="nt">&lt;/PropertyGroup&gt;</span>
@@ -7196,28 +7196,28 @@ binaries are not compatible with Unity.</p>
 </blockquote>
 <h5 id="microservices">Microservices<a class="headerlink" href="#microservices" title="Permanent link">¶</a></h5>
 <p>For every Microservice project replace all <code>PackageReference</code> elements that reference a <code>Beamable.</code> with the following two references:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"$(BeamableVersion)"</span><span class="w"> </span><span class="nt">/&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"$(BeamableVersion)"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.SourceGen"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"$(BeamableVersion)"</span><span class="w"> </span><span class="na">OutputItemType=</span><span class="s">"Analyzer"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </code></pre></div><p></p>
 <p>Then, also add the following to the <code>Beamable Settings</code> <code>Property Group</code>:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Beamable Settings"</span><span class="nt">&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Beamable Settings"</span><span class="nt">&gt;</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="cm">&lt;!-- All Microservices must have the value, "service" --&gt;</span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="nt">&lt;BeamProjectType&gt;</span>service<span class="nt">&lt;/BeamProjectType&gt;</span>
 <a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="nt">&lt;/PropertyGroup&gt;</span>
 </code></pre></div><p></p>
 <h5 id="microstorages">MicroStorages<a class="headerlink" href="#microstorages" title="Permanent link">¶</a></h5>
 <p>For every MicroStorage project, replace all <code>PackageReference</code> elements that reference a <code>Beamable.</code> with the following reference:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"$(BeamableVersion)"</span><span class="w"> </span><span class="nt">/&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"$(BeamableVersion)"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </code></pre></div><p></p>
 <p>Then, add the following to the <code>Beamable Settings</code> <code>Property Group</code>. Please replace <code>MyStorage</code> with your <code>csproj</code>'s file name.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nt">&lt;BeamProjectType&gt;</span>storage<span class="nt">&lt;/BeamProjectType&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nt">&lt;BeamProjectType&gt;</span>storage<span class="nt">&lt;/BeamProjectType&gt;</span>
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="cm">&lt;!-- When the Storage Object is running locally in Docker, these volume names are used to persist data between container restart events. --&gt;</span>
 <a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="nt">&lt;MyStorageDockerDataVolume&gt;</span>beamable_storage_MyStorage_data<span class="nt">&lt;/MyStorageDockerDataVolume&gt;</span>
 <a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="nt">&lt;MyStorageDockerFilesVolume&gt;</span>beamable_storage_MyStorage_files<span class="nt">&lt;/MyStorageDockerFilesVolume&gt;</span>
 </code></pre></div><p></p>
 <h5 id="common-libraries">Common libraries<a class="headerlink" href="#common-libraries" title="Permanent link">¶</a></h5>
 <p>For every Common Library project, replace all <code>PackageReference</code> elements that reference a <code>Beamable.</code> with the following reference:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Common"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"$(BeamableVersion)"</span><span class="w"> </span><span class="nt">/&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Common"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"$(BeamableVersion)"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </code></pre></div><p></p>
 <h4 id="microservice-code-changes-partial-and-federationid">Microservice code changes - <code>partial</code> and <code>FederationId</code><a class="headerlink" href="#microservice-code-changes-partial-and-federationid" title="Permanent link">¶</a></h4>
 <p>With the introduction of the <code>Beamable.Microservice.SourceGen</code> library, all Microservice classes must be marked with the <code>partial</code> keyword. This will allow the source-generator to add custom implementations to Microservices in future releases.</p>
@@ -7229,7 +7229,7 @@ binaries are not compatible with Unity.</p>
 </ul>
 <p>Once these are in, try to compile your services. The newly referenced Roslyn Static Analyzer should tell you if you made any mistakes.</p>
 <p>Finally, the analyzer will inform you that the federations you have in code are not in the <code>federation.json</code> file. The error will look something like this:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Error BEAM_FED_O001 : Missing declared Federation in MicroserviceFederationsConfig. Microservice=SteamDemo, Id=steam, Interface=IFederatedLogin. Please add this Id by running `dotnet beam fed add SteamDemo steam IFederatedLogin` from your project's root directory. Or remove the IFederatedLogin that references steam  interface from the SteamDemo Microservice class.
+</p><div class="language-text highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Error BEAM_FED_O001 : Missing declared Federation in MicroserviceFederationsConfig. Microservice=SteamDemo, Id=steam, Interface=IFederatedLogin. Please add this Id by running `dotnet beam fed add SteamDemo steam IFederatedLogin` from your project's root directory. Or remove the IFederatedLogin that references steam  interface from the SteamDemo Microservice class.
 </code></pre></div><p></p>
 <p>You can run the command described in the error message to register the federation in the code with the <code>federation.json</code> file.</p>
 <blockquote>
@@ -7239,7 +7239,7 @@ binaries are not compatible with Unity.</p>
 <h4 id="updating-each-dockerfile">Updating each <code>Dockerfile</code><a class="headerlink" href="#updating-each-dockerfile" title="Permanent link">¶</a></h4>
 <p>This is very simple: simply replace the contents of each Dockerfile with the following. After replacing it, you can re-add any previous modifications you might have had.</p>
 <p>Make sure that the version in this line  <code>ARG BEAM_DOTNET_VERSION="8.0-alpine"</code> matches the <code>.net</code> version in the <code>.csproj</code> file.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">ARG</span><span class="w"> </span><span class="nv">BEAM_DOTNET_VERSION</span><span class="o">=</span><span class="s2">"8.0-alpine"</span>
+<div class="language-Dockerfile highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">ARG</span><span class="w"> </span><span class="nv">BEAM_DOTNET_VERSION</span><span class="o">=</span><span class="s2">"8.0-alpine"</span>
 <a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">mcr.microsoft.com/dotnet/runtime:${BEAM_DOTNET_VERSION}</span>
 <a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>
 <a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="c"># These args are provided by the Beam CLI</span>
@@ -7283,7 +7283,7 @@ binaries are not compatible with Unity.</p>
 <h4 id="cli-file-structure_1">CLI file structure<a class="headerlink" href="#cli-file-structure_1" title="Permanent link">¶</a></h4>
 <p>The <code>.beamable/</code> folder structure changes between the major versions 1, and 2.
 After you upgrade your global CLI to 2.0.1, run the following command in your project. This command should automatically perform some of the required upgrade steps.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>beam<span class="w"> </span>config
+<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>beam<span class="w"> </span>config
 </code></pre></div>
 <p>If you forgot to the run the command, or would like to verify that the upgrade happened correctly, follow the bullets below.</p>
 <ul>
@@ -7300,13 +7300,13 @@ After you upgrade your global CLI to 2.0.1, run the following command in your pr
 <p>Unfortunately, the upgrade flow between major version 1 and 2 does not automatically upgrade the NuGet dependency on Beamable. All of the <code>.csproj</code> files you may have will need to be manually upgraded to Beamable 2.0.1. Remember, every service, common library, and storage have their own <code>.csproj</code> files.</p>
 <p>Open each <code>csproj</code> file, and find the <code>&lt;PackageReference&gt;</code> for Beamable.
 For a service, it will likely look like this,
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"1.19.22"</span><span class="w"> </span><span class="nt">/&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"1.19.22"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </code></pre></div><p></p>
 <p>For a storage, it may (unfortunately) look like this
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"1.15.0-PREVIEW.RC1"</span><span class="w"> </span><span class="nt">/&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Microservice.Runtime"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"1.15.0-PREVIEW.RC1"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </code></pre></div><p></p>
 <p>And for a common library,
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Common"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"1.19.22"</span><span class="w"> </span><span class="nt">/&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Beamable.Common"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"1.19.22"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </code></pre></div><p></p>
 <p>In all these cases, please update the <code>Version</code> to <code>2.0.1</code>.</p>
 <h5 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">¶</a></h5>
@@ -7314,7 +7314,7 @@ For a service, it will likely look like this,
 <h6 id="services">Services<a class="headerlink" href="#services" title="Permanent link">¶</a></h6>
 <p>For services, the <code>csproj</code> file has been simplified between major versions 1 and 2. You can remove all the tasks and extraneous NuGet references.</p>
 <p>This snippet can (and should) be removed from a 1.19.22 service's <code>csproj</code> file.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"EmbedIO"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"3.4.*"</span><span class="w"> </span><span class="nt">/&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"EmbedIO"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"3.4.*"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"LoxSmoke.DocXml"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"3.4.*"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Microsoft.Extensions.DependencyInjection"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"6.0.0-preview.6.21352.12"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Microsoft.OpenApi"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"1.6.3"</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -7329,7 +7329,7 @@ For a service, it will likely look like this,
 <a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"System.Threading.RateLimiting"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"7.0.0"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </code></pre></div><p></p>
 <p>Also, all of these targets can be removed,
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="cm">&lt;!-- After the build completes, we can open the local swagger page to make it easy to test endpoints --&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="cm">&lt;!-- After the build completes, we can open the local swagger page to make it easy to test endpoints --&gt;</span>
 <a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="nt">&lt;Target</span><span class="w"> </span><span class="na">Name=</span><span class="s">"open-swagger"</span><span class="w"> </span><span class="na">AfterTargets=</span><span class="s">"Build"</span><span class="w"> </span><span class="na">Condition=</span><span class="s">"$(OpenLocalSwaggerOnRun)==true AND $(DOTNET_RUNNING_IN_CONTAINER)!=true"</span><span class="nt">&gt;</span>
 <a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">    </span><span class="nt">&lt;Message</span><span class="w"> </span><span class="na">Text=</span><span class="s">"Opening local swagger docs..."</span><span class="w"> </span><span class="na">Importance=</span><span class="s">"high"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">    </span><span class="nt">&lt;Exec</span><span class="w"> </span><span class="na">Command=</span><span class="s">"$(BeamableTool) project open-swagger $(AssemblyName)"</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -7362,7 +7362,7 @@ For a service, it will likely look like this,
 <p>The following property group section can be dramatically simplified. The only required properties from the following snippet are,
 1. <code>GenerateClientCode</code>, and
 2. <code>TargetFramework</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="cm">&lt;!--  Settings for Beamable Build  --&gt;</span>
+<div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="cm">&lt;!--  Settings for Beamable Build  --&gt;</span>
 <a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="nt">&lt;PropertyGroup&gt;</span>
 <a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">    </span><span class="cm">&lt;!-- The tool path for the beamCLI. "dotnet beam" will refer to the local project tool, and "beam" would install to a globally installed tool --&gt;</span>
 <a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">    </span><span class="nt">&lt;BeamableTool&gt;</span>beam<span class="nt">&lt;/BeamableTool&gt;</span>
@@ -7400,10 +7400,10 @@ For a service, it will likely look like this,
 <a id="__codelineno-33-36" name="__codelineno-33-36" href="#__codelineno-33-36"></a><span class="nt">&lt;/PropertyGroup&gt;</span>
 </code></pre></div>
 <p>However, there is one <em>new</em> property that is <strong>REQUIRED</strong>. You must add the following property,
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nt">&lt;BeamProjectType&gt;</span>service<span class="nt">&lt;/BeamProjectType&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nt">&lt;BeamProjectType&gt;</span>service<span class="nt">&lt;/BeamProjectType&gt;</span>
 </code></pre></div><p></p>
 <p>After all the edits, you should have a <code>csproj</code> file that looks similar to the following. This is the <code>csproj</code> file that is generated for a new service using CLI 2.0.1.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">    </span><span class="nt">&lt;PropertyGroup</span><span class="w"> </span><span class="na">Label=</span><span class="s">"Beamable Settings"</span><span class="nt">&gt;</span>
 <a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">        </span><span class="cm">&lt;!-- All Microservices must have the value, "service" --&gt;</span>
 <a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">        </span><span class="nt">&lt;BeamProjectType&gt;</span>service<span class="nt">&lt;/BeamProjectType&gt;</span>
@@ -7423,7 +7423,7 @@ For a service, it will likely look like this,
 <h6 id="common-libraries_1">Common libraries<a class="headerlink" href="#common-libraries_1" title="Permanent link">¶</a></h6>
 <p>Similar to services, the <code>csproj</code> file for common libraries has been simplified between major versions 1 and 2.</p>
 <p>You should remove this target,
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="cm">&lt;!-- Move the built dll to the linked projects --&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="cm">&lt;!-- Move the built dll to the linked projects --&gt;</span>
 <a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="nt">&lt;Target</span><span class="w"> </span><span class="na">Name=</span><span class="s">"share-code"</span><span class="w"> </span><span class="na">AfterTargets=</span><span class="s">"Build"</span><span class="w"> </span><span class="na">Condition=</span><span class="s">"$(CopyToLinkedProjects)==true AND $(DOTNET_RUNNING_IN_CONTAINER)!=true"</span><span class="nt">&gt;</span>
 <a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">    </span><span class="nt">&lt;Message</span><span class="w"> </span><span class="na">Text=</span><span class="s">"Generating code for other projects"</span><span class="w"> </span><span class="na">Importance=</span><span class="s">"high"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">    </span><span class="nt">&lt;Exec</span><span class="w"> </span><span class="na">Command=</span><span class="s">"$(BeamableTool) project share-code $(OutDir)/$(AssemblyName).dll --dep-prefix-blacklist Newtonsoft,Unity.Beamable,UnityEngine,Unity.Addressables,System"</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -7432,7 +7432,7 @@ For a service, it will likely look like this,
 <p>And from the following properties the only two that you need are,
 1. <code>CopyToLinkedProjects</code>, and
 2. <code>TargetFramework</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nt">&lt;PropertyGroup&gt;</span>
+<div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nt">&lt;PropertyGroup&gt;</span>
 <a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">    </span><span class="cm">&lt;!-- Unity 2021 can handle netstandard2.1 libraries --&gt;</span>
 <a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>netstandard2.1<span class="nt">&lt;/TargetFramework&gt;</span>
 <a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">    </span><span class="nt">&lt;GenerateDocumentationFile&gt;</span>true<span class="nt">&lt;/GenerateDocumentationFile&gt;</span>
@@ -7455,7 +7455,7 @@ For a service, it will likely look like this,
 <a id="__codelineno-37-21" name="__codelineno-37-21" href="#__codelineno-37-21"></a><span class="nt">&lt;/PropertyGroup&gt;</span>
 </code></pre></div>
 <p>When you are done with these edits, your <code>csproj</code> file should appear similar to the following snippet. Here is the <code>csproj</code> file for a common library created with CLI 2.0.1.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
+</p><div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
 <a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="w">    </span><span class="nt">&lt;PropertyGroup&gt;</span>
 <a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="w">        </span><span class="cm">&lt;!-- Unity 2021 can handle netstandard2.1 libraries --&gt;</span>
@@ -7477,7 +7477,7 @@ For a service, it will likely look like this,
 <h4 id="dockerfiles">Dockerfiles<a class="headerlink" href="#dockerfiles" title="Permanent link">¶</a></h4>
 <p>Any service you created in 1.19.22 will have a <code>Dockerfile</code>. These files need some manual edits to make them compatible with 2.0.1.</p>
 <p>Select all the lines <em>between</em> the first <code>FROM</code> command, and the <code>RUN dotnet publish</code> command, and <em>replace</em> them with the following.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="c"># &lt;BEAM-CLI-COPY-ENV&gt; this line signals the start of environment variables copies into the built container. Do not remove it. This will be overwritten every time a variable changes in the execution of the CLI.</span>
+<div class="language-Dockerfile highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="c"># &lt;BEAM-CLI-COPY-ENV&gt; this line signals the start of environment variables copies into the built container. Do not remove it. This will be overwritten every time a variable changes in the execution of the CLI.</span>
 <a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
 <a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="c"># &lt;/BEAM-CLI-COPY-ENV&gt; this line signals the end of environment variables copies into the built container. Do not remove it.</span>
 <a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>
@@ -7489,7 +7489,7 @@ For a service, it will likely look like this,
 <a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/</span>
 </code></pre></div>
 <p>Next, select the lines starting with (and <em>including</em>) <code>RUN dotnet publish</code> until the line (but not including) <code>ENTRYPOINT</code> , and <em>replace</em> them with the following,
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="k">RUN</span><span class="w"> </span>dotnet<span class="w"> </span>publish<span class="w"> </span><span class="si">${</span><span class="nv">BEAM_CSPROJ_PATH</span><span class="si">}</span><span class="w"> </span>-c<span class="w"> </span>release<span class="w"> </span>-o<span class="w"> </span>/beamApp
+</p><div class="language-Dockerfile highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="k">RUN</span><span class="w"> </span>dotnet<span class="w"> </span>publish<span class="w"> </span><span class="si">${</span><span class="nv">BEAM_CSPROJ_PATH</span><span class="si">}</span><span class="w"> </span>-c<span class="w"> </span>release<span class="w"> </span>-o<span class="w"> </span>/beamApp
 <a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>
 <a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="c"># use the dotnet runtime as the final stage</span>
 <a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="k">FROM</span><span class="w"> </span><span class="s">mcr.microsoft.com/dotnet/runtime:6.0-alpine</span>
@@ -7504,7 +7504,7 @@ For a service, it will likely look like this,
 <p>Here is a Dockerfile that was adapted from 2.0.1. There are two important things to note,
 1. this file is for a service called <code>Example3</code>, which justifies the <code>ENTRYPOINT</code>, and
 2. when you run <code>beam services run</code>, the CLI will <em>inject</em> content into the file between on the <code>BEAM-CLI-</code> tags. After the command runs, you should see <code>ENV</code>, <code>RUN</code>, and <code>COPY</code> statements between the beamable tags. This is how the <code>${BEAM_CSPROJ_PATH}</code> reference will be resolved</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="c"># use the dotnet sdk as a build stage</span>
+<div class="language-Dockerfile highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="c"># use the dotnet sdk as a build stage</span>
 <a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">mcr.microsoft.com/dotnet/sdk:6.0-alpine</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">build-env</span>
 <a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>
 <a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="c"># &lt;BEAM-CLI-COPY-ENV&gt; this line signals the start of environment variables copies into the built container. Do not remove it. This will be overwritten every time a variable changes in the execution of the CLI.</span>
