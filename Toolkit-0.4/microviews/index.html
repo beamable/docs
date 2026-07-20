@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://beamable.github.io/Docs/Toolkit-0.4/microapp/">
+        <link rel="canonical" href="https://beamable.github.io/Docs/Toolkit-0.4/microviews/">
       
       
         <link rel="prev" href="../console/">
       
       
-        <link rel="next" href="../microapp-react/">
+        <link rel="next" href="../microviews-react/">
       
       
       <link rel="icon" href="../assets/images/beamable-badge.png">
@@ -231,6 +231,28 @@
   
   
     <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../console/" class="md-nav__link">
         
   
@@ -263,10 +285,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -279,8 +301,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             MicroViews
           </label>
@@ -376,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../microapp-react/" class="md-nav__link">
+      <a href="../microviews-react/" class="md-nav__link">
         
   
   
@@ -399,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../microapp-contract/" class="md-nav__link">
+      <a href="../microviews-contract/" class="md-nav__link">
         
   
   
@@ -422,7 +444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../microapp-context/" class="md-nav__link">
+      <a href="../microviews-context/" class="md-nav__link">
         
   
   
@@ -532,10 +554,10 @@
 <p>Every MicroView is a web bundle. The Console loads it, mounts it at a location you declare, and hands it a runtime <code>context</code> for talking to the Console and the Beamable SDK. </p>
 <p>There are two ways to build one. Pick the guide that fits how you want to work.</p>
 <ul>
-<li><strong><a href="../microapp-react/">Build with React</a></strong> is the fast path. Beamable ships a React template and a component library (<a href="https://www.npmjs.com/package/@beamable/portal-toolkit"><code>@beamable/portal-toolkit</code></a>) that match the Console's look. Start here if you are comfortable in React. Most built-in Console pages are built this way</li>
-<li><strong><a href="../microapp-contract/">The extension contract</a></strong> is the framework-agnostic path. Underneath, a MicroView is just a JavaScript bundle that follows a small contract. Read this to use another framework, no framework, or to understand what the React template does for you</li>
+<li><strong><a href="../microviews-react/">Build with React</a></strong> is the fast path. Beamable ships a React template and a component library (<a href="https://www.npmjs.com/package/@beamable/portal-toolkit"><code>@beamable/portal-toolkit</code></a>) that match the Console's look. Start here if you are comfortable in React. Most built-in Console pages are built this way</li>
+<li><strong><a href="../microviews-contract/">The extension contract</a></strong> is the framework-agnostic path. Underneath, a MicroView is just a JavaScript bundle that follows a small contract. Read this to use another framework, no framework, or to understand what the React template does for you</li>
 </ul>
-<p>Both paths hand your MicroView the same runtime <code>context</code>. See <a href="../microapp-context/">Working with the context</a> for the full reference on the Beam SDK, storage, site data, args, and the rest.</p>
+<p>Both paths hand your MicroView the same runtime <code>context</code>. See <a href="../microviews-context/">Working with the context</a> for the full reference on the Beam SDK, storage, site data, args, and the rest.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <p>Before you build a MicroView you need:</p>
 <ul>
@@ -547,7 +569,7 @@
 <p>From your workspace, scaffold a new MicroView with:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>portal-extension<span class="w"> </span>MyView
 </code></pre></div>
-<p>The CLI asks where the MicroView mounts (or pass <code>--mount-page</code> and <code>--mount-selector</code>) and creates a React project inside your workspace, next to your services. Continue in <a href="../microapp-react/">Build with React</a> to build, run, and <a href="../microapp-react/#deploying">deploy</a> it.</p>
+<p>The CLI asks where the MicroView mounts (or pass <code>--mount-page</code> and <code>--mount-selector</code>) and creates a React project inside your workspace, next to your services. Continue in <a href="../microviews-react/">Build with React</a> to build, run, and <a href="../microviews-react/#deploying">deploy</a> it.</p>
 
 
 

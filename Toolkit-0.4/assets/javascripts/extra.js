@@ -7,10 +7,12 @@ if (window.location.pathname.includes('Unreal')) {
     VERSION_NAME = 'Unity'
 } else if (window.location.pathname.includes('Web')) {
     VERSION_NAME = 'WebSDK'
+} else if (window.location.pathname.includes('Toolkit')) {
+    VERSION_NAME = 'Toolkit'
 }
 
-// We can't use the same solution because CLI will be in all the branches. Let's hardcode it for this
-VERSION_NAME = "CLI"
+// This is the Toolkit docs branch, so pin the version filter to Toolkit.
+VERSION_NAME = "Toolkit"
 
 // ---- Helpers ---------------------------------------------------------------
 function WaitForVersionNav(selector, callback) {
@@ -47,15 +49,17 @@ WaitForVersionNav('.md-version__list:not(.beam-sdk__list)', function(element) {
     // If VERSION_NAME is empty: show everything and add the three section headers like the original
     if (!VERSION_NAME) {
         // Find the first occurrence for each family BEFORE inserting anything
-        const firstUnity  = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Unity"));
-        const firstUnreal = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Unreal"));
-        const firstWeb    = nodes.find(n => isVersionEntry(n) && n.textContent.includes("WebSDK"));
-        const firstCli    = nodes.find(n => isVersionEntry(n) && n.textContent.includes("CLI"));
+        const firstUnity   = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Unity"));
+        const firstUnreal  = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Unreal"));
+        const firstWeb     = nodes.find(n => isVersionEntry(n) && n.textContent.includes("WebSDK"));
+        const firstCli     = nodes.find(n => isVersionEntry(n) && n.textContent.includes("CLI"));
+        const firstToolkit = nodes.find(n => isVersionEntry(n) && n.textContent.includes("Toolkit"));
 
-        if (firstUnity)  insertHeader(element, "Unity SDK",  firstUnity);
-        if (firstUnreal) insertHeader(element, "Unreal SDK", firstUnreal);
-        if (firstWeb)    insertHeader(element, "Web SDK",    firstWeb);
-        if (firstCli)    insertHeader(element, "CLI",    firstWeb);
+        if (firstUnity)   insertHeader(element, "Unity SDK",  firstUnity);
+        if (firstUnreal)  insertHeader(element, "Unreal SDK", firstUnreal);
+        if (firstWeb)     insertHeader(element, "Web SDK",    firstWeb);
+        if (firstCli)     insertHeader(element, "CLI",        firstCli);
+        if (firstToolkit) insertHeader(element, "Toolkit",    firstToolkit);
         return; // don't filter anything
     }
 
@@ -82,7 +86,7 @@ WaitForVersionNav('.md-version__list:not(.beam-sdk__list)', function(element) {
 
     // after filtering, strip off the sdk name, because it is extranous
     const subNodes = document.querySelectorAll('.md-header__topic .md-version *');
-    const textReplacements = ['Unity-', 'Unreal-', 'WebSDK-', 'CLI-'];
+    const textReplacements = ['Unity-', 'Unreal-', 'WebSDK-', 'CLI-', 'Toolkit-'];
     for (var i = 0 ; i < subNodes.length; i ++){
         const subNode = subNodes[i];
         if (subNode.tagName == 'BUTTON' || subNode.tagName == 'A'){
@@ -123,6 +127,10 @@ WaitForVersionNav('.md-header__topic span.md-ellipsis', function(element) {
         {
             name: 'CLI',
             link: 'CLI-Latest'
+        },
+        {
+            name: 'Toolkit',
+            link: 'Toolkit-Latest'
         }
     ]
 

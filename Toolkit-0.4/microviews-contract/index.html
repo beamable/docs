@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://beamable.github.io/Docs/Toolkit-0.4/microapp-contract/">
+        <link rel="canonical" href="https://beamable.github.io/Docs/Toolkit-0.4/microviews-contract/">
       
       
-        <link rel="prev" href="../microapp-react/">
+        <link rel="prev" href="../microviews-react/">
       
       
-        <link rel="next" href="../microapp-context/">
+        <link rel="next" href="../microviews-context/">
       
       
       <link rel="icon" href="../assets/images/beamable-badge.png">
@@ -231,6 +231,28 @@
   
   
     <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../console/" class="md-nav__link">
         
   
@@ -263,10 +285,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -279,8 +301,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             MicroViews
           </label>
@@ -293,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../microapp/" class="md-nav__link">
+      <a href="../microviews/" class="md-nav__link">
         
   
   
@@ -316,7 +338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../microapp-react/" class="md-nav__link">
+      <a href="../microviews-react/" class="md-nav__link">
         
   
   
@@ -449,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../microapp-context/" class="md-nav__link">
+      <a href="../microviews-context/" class="md-nav__link">
         
   
   
@@ -582,13 +604,13 @@
 
 
 <h1 id="the-microview-extension-contract">The MicroView extension contract<a class="headerlink" href="#the-microview-extension-contract" title="Permanent link">¶</a></h1>
-<p>A MicroView is a JavaScript bundle that the Console loads and mounts. The <a href="../microapp-react/">React template</a> is one way to produce that bundle, but nothing about the contract requires React. This page describes the contract itself, so you can build a MicroView with any framework or none, and understand what the React toolkit does under the hood.</p>
+<p>A MicroView is a JavaScript bundle that the Console loads and mounts. The <a href="../microviews-react/">React template</a> is one way to produce that bundle, but nothing about the contract requires React. This page describes the contract itself, so you can build a MicroView with any framework or none, and understand what the React toolkit does under the hood.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¶</a></h2>
 <p>Every MicroView must satisfy four requirements:</p>
 <ol>
 <li>An npm project whose <code>package.json</code> has a <code>beam-build</code> script. Running it must emit an <a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">IIFE</a> bundle at <code>assets/index.js</code> and a stylesheet at <code>assets/style.css</code></li>
 <li>A <code>beamable</code> block in <code>package.json</code> (the manifest) that marks the project as a MicroView and declares where it mounts (see <a href="#the-manifest">The manifest</a>)</li>
-<li>A dependency on <a href="https://www.npmjs.com/package/@beamable/portal-toolkit"><code>@beamable/portal-toolkit</code></a>. It brings in <code>@beamable/sdk</code> as a peer dependency, so backend calls need no extra dependency (see <a href="../microapp-context/#the-beam-sdk">The Beam SDK</a>)</li>
+<li>A dependency on <a href="https://www.npmjs.com/package/@beamable/portal-toolkit"><code>@beamable/portal-toolkit</code></a>. It brings in <code>@beamable/sdk</code> as a peer dependency, so backend calls need no extra dependency (see <a href="../microviews-context/#the-beam-sdk">The Beam SDK</a>)</li>
 <li>An entry module that registers the MicroView with <code>Portal.registerExtension</code> (see <a href="#registering">Registering</a>)</li>
 </ol>
 <div class="admonition info">
@@ -625,8 +647,8 @@
 <li><code>navLabel</code>, <code>navGroup</code>, <code>navIcon</code>, <code>navDescription</code>, <code>navColor</code>, <code>navLabelOrder</code>, <code>navGroupOrder</code>: optional sidebar presentation. A single-segment <code>page</code> with these fields declares a hub</li>
 </ul>
 <p>Alongside <code>mounts</code>, the top-level <code>serviceGroups</code> (optional) tags the MicroView as part of one or more named groups of related MicroViews, typically the hub it belongs to (for example <code>players</code>).</p>
-<p><code>microserviceDependencies</code> lists the BeamIds of the microservices this MicroView calls. Do not edit it by hand: run <code>beam portal extension add-microservice &lt;view&gt; &lt;service&gt;</code>, which adds the entry and generates a typed client for that service. See <a href="../microapp-context/#calling-your-microservice">Calling your microservice</a>.</p>
-<p>Like a microservice, a MicroView is tracked in your workspace's service manifest and ships with <code>beam deploy</code> (see <a href="../microapp-react/#deploying">Deploying</a>). The built <code>assets/</code> output is a build artifact, not source: the CLI regenerates it, so you do not commit it.</p>
+<p><code>microserviceDependencies</code> lists the BeamIds of the microservices this MicroView calls. Do not edit it by hand: run <code>beam portal extension add-microservice &lt;view&gt; &lt;service&gt;</code>, which adds the entry and generates a typed client for that service. See <a href="../microviews-context/#calling-your-microservice">Calling your microservice</a>.</p>
+<p>Like a microservice, a MicroView is tracked in your workspace's service manifest and ships with <code>beam deploy</code> (see <a href="../microviews-react/#deploying">Deploying</a>). The built <code>assets/</code> output is a build artifact, not source: the CLI regenerates it, so you do not commit it.</p>
 <h2 id="registering">Registering<a class="headerlink" href="#registering" title="Permanent link">¶</a></h2>
 <p>The entry module registers the MicroView by calling <code>Portal.registerExtension</code>. This is what the React helper wraps.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Portal</span><span class="p">,</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">ExtensionContext</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@beamable/portal-toolkit'</span>
@@ -660,7 +682,7 @@
 <li><code>config</code>: portal-wide settings as read-only observables (<code>dateRange</code>, <code>timezone</code>, <code>theme</code>, <code>account</code>), each with <code>.get()</code> and <code>.subscribe()</code></li>
 <li><code>updateBadge(value)</code>: set the sidebar badge, or clear it with <code>null</code></li>
 </ul>
-<p>See <a href="../microapp-context/">Working with the context</a> for the full reference on each field, including the Beam SDK, storage, site data, and args.</p>
+<p>See <a href="../microviews-context/">Working with the context</a> for the full reference on each field, including the Beam SDK, storage, site data, and args.</p>
 <h2 id="badges">Badges<a class="headerlink" href="#badges" title="Permanent link">¶</a></h2>
 <p>A MicroView can show a sidebar badge, a count or short label, in one of four tones (<code>info</code>, <code>warning</code>, <code>error</code>, <code>accent</code>). Set it two ways:</p>
 <ul>

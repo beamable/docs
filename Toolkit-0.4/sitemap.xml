@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+         <loc>https://beamable.github.io/Docs/Toolkit-0.4/</loc>
+         <lastmod>2026-07-20</lastmod>
+    </url>
+    <url>
          <loc>https://beamable.github.io/Docs/Toolkit-0.4/console/</loc>
          <lastmod>2026-07-20</lastmod>
     </url>
     <url>
-         <loc>https://beamable.github.io/Docs/Toolkit-0.4/microapp-context/</loc>
+         <loc>https://beamable.github.io/Docs/Toolkit-0.4/microviews-context/</loc>
          <lastmod>2026-07-20</lastmod>
     </url>
     <url>
-         <loc>https://beamable.github.io/Docs/Toolkit-0.4/microapp-contract/</loc>
+         <loc>https://beamable.github.io/Docs/Toolkit-0.4/microviews-contract/</loc>
          <lastmod>2026-07-20</lastmod>
     </url>
     <url>
-         <loc>https://beamable.github.io/Docs/Toolkit-0.4/microapp-react/</loc>
+         <loc>https://beamable.github.io/Docs/Toolkit-0.4/microviews-react/</loc>
          <lastmod>2026-07-20</lastmod>
     </url>
     <url>
-         <loc>https://beamable.github.io/Docs/Toolkit-0.4/microapp/</loc>
+         <loc>https://beamable.github.io/Docs/Toolkit-0.4/microviews/</loc>
          <lastmod>2026-07-20</lastmod>
     </url>
     <url>

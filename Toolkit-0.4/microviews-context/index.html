@@ -5,10 +5,10 @@
       
       
       
-        <link rel="canonical" href="https://beamable.github.io/Docs/Toolkit-0.4/microapp-context/">
+        <link rel="canonical" href="https://beamable.github.io/Docs/Toolkit-0.4/microviews-context/">
       
       
-        <link rel="prev" href="../microapp-contract/">
+        <link rel="prev" href="../microviews-contract/">
       
       
         <link rel="next" href="../toolkit/">
@@ -231,6 +231,28 @@
   
   
     <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../console/" class="md-nav__link">
         
   
@@ -263,10 +285,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -279,8 +301,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             MicroViews
           </label>
@@ -293,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../microapp/" class="md-nav__link">
+      <a href="../microviews/" class="md-nav__link">
         
   
   
@@ -316,7 +338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../microapp-react/" class="md-nav__link">
+      <a href="../microviews-react/" class="md-nav__link">
         
   
   
@@ -339,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../microapp-contract/" class="md-nav__link">
+      <a href="../microviews-contract/" class="md-nav__link">
         
   
   
@@ -770,8 +792,8 @@
 <h1 id="working-with-the-context">Working with the context<a class="headerlink" href="#working-with-the-context" title="Permanent link">¶</a></h1>
 <p>Every MicroView receives an <code>ExtensionContext</code>. It is your MicroView's connection to the Console: identity, the Beam SDK, routing, portal settings, storage, and more. You get the same object no matter how you built the MicroView:</p>
 <ul>
-<li>In the <a href="../microapp-react/">React template</a>, it arrives as the <code>context</code> prop on your <code>App</code></li>
-<li>With the <a href="../microapp-contract/">raw contract</a>, it is the second argument to <code>onMount</code></li>
+<li>In the <a href="../microviews-react/">React template</a>, it arrives as the <code>context</code> prop on your <code>App</code></li>
+<li>With the <a href="../microviews-contract/">raw contract</a>, it is the second argument to <code>onMount</code></li>
 </ul>
 <p>This page is the reference for what is on the context and how to use each part. Examples are framework-neutral; where the React toolkit offers a shortcut (such as <code>useBeam</code>), that is called out.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">ExtensionContext</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@beamable/portal-toolkit'</span>
@@ -834,7 +856,7 @@
 </code></pre></div>
 <p>This does two things:</p>
 <ul>
-<li>adds <code>MyService</code>'s BeamId to your MicroView's <code>microserviceDependencies</code> (see <a href="../microapp-contract/#the-manifest">the manifest</a>)</li>
+<li>adds <code>MyService</code>'s BeamId to your MicroView's <code>microserviceDependencies</code> (see <a href="../microviews-contract/#the-manifest">the manifest</a>)</li>
 <li>generates a typed client into <code>MyView/beamable/clients/</code>, one method per <code>[ClientCallable]</code> endpoint</li>
 </ul>
 <p>The microservice must already exist in your workspace and have been built at least once, so the CLI can read its endpoints. Re-run the command to regenerate after you change endpoints; do not hand-edit the generated file.</p>
@@ -887,7 +909,7 @@
 <li><code>location</code>: a read-only snapshot of the URL at mount time (<code>pathname</code>, <code>search</code>, <code>hash</code>). It does not update after mount; read <code>window.location</code> or listen for <code>popstate</code> if you need live URL changes</li>
 <li><code>navigate(path, opts?)</code>: move the Console to another route. A path with no leading <code>/</code> is realm-relative; a leading <code>/</code> is absolute to the domain</li>
 </ul>
-<p>The realm-relative vs absolute rule (and the full realm URL prefix) is covered in <a href="../microapp-react/#routes-realm-relative-and-absolute">Routes: realm-relative and absolute</a>.</p>
+<p>The realm-relative vs absolute rule (and the full realm URL prefix) is covered in <a href="../microviews-react/#routes-realm-relative-and-absolute">Routes: realm-relative and absolute</a>.</p>
 <h2 id="portal-config">Portal config<a class="headerlink" href="#portal-config" title="Permanent link">¶</a></h2>
 <p><code>context.config</code> exposes portal-wide settings as read-only observables. Each has <code>.get()</code> for the current value and <code>.subscribe(handler)</code> to react to changes; <code>.subscribe</code> returns its unsubscribe function.</p>
 <ul>
@@ -903,7 +925,7 @@
 </code></pre></div>
 <p>Subscribing keeps your MicroView in step with the rest of the Console. Extensions never write back through <code>config</code>; it is read-only.</p>
 <h2 id="site-data">Site data<a class="headerlink" href="#site-data" title="Permanent link">¶</a></h2>
-<p>When a MicroView is mounted inside another through a <a href="../microapp-react/#composition-and-tabs">mount site</a>, the parent can hand it data. The child reads it from <code>context.siteData</code>.</p>
+<p>When a MicroView is mounted inside another through a <a href="../microviews-react/#composition-and-tabs">mount site</a>, the parent can hand it data. The child reads it from <code>context.siteData</code>.</p>
 <p><code>siteData</code> is a snapshot taken at mount time. Mutating the parent's value afterward does not update an already-mounted child; a remount picks up the new value. For a child that stays in sync with live changes, the parent passes a store (a handle with <code>get()</code> and <code>subscribe()</code>) and the child subscribes to it.</p>
 <p><code>context.siteData</code> is typed as <code>unknown</code>, because a mount site is a generic slot and the type system cannot know a given site's contract. Validate it at the receiving end with a companion type, a schema, or a defensive cast.</p>
 <p>Use <code>args</code> for values fixed by your own manifest, and <code>siteData</code> for values a parent supplies at runtime.</p>
@@ -936,9 +958,9 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nx">context</span><span class="p">.</span><span class="nx">updateBadge</span><span class="p">({</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">unread</span><span class="p">,</span><span class="w"> </span><span class="nx">tone</span><span class="o">:</span><span class="w"> </span><span class="s1">'warning'</span><span class="w"> </span><span class="p">})</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nx">context</span><span class="p">.</span><span class="nx">updateBadge</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
 </code></pre></div>
-<p>A badge is a count or a short label in one of four tones (<code>info</code>, <code>warning</code>, <code>error</code>, <code>accent</code>). To show a badge before the page is ever opened, supply a <code>getBadge</code> callback at registration instead; see <a href="../microapp-react/#badges">Badges</a>.</p>
+<p>A badge is a count or a short label in one of four tones (<code>info</code>, <code>warning</code>, <code>error</code>, <code>accent</code>). To show a badge before the page is ever opened, supply a <code>getBadge</code> callback at registration instead; see <a href="../microviews-react/#badges">Badges</a>.</p>
 <h2 id="discovering-mount-site-candidates">Discovering mount-site candidates<a class="headerlink" href="#discovering-mount-site-candidates" title="Permanent link">¶</a></h2>
-<p>If your MicroView exposes a <a href="../microapp-react/#composition-and-tabs">mount site</a> for others to fill, <code>context.getMountSiteCandidates(selector)</code> returns a reactive list of the MicroViews that could mount there, each with its <code>beamId</code>, matched <code>mount</code> entry, toolkit version, and whether it is running locally. Subscribe to react as candidates deploy, enable, or disable. Use it to build UI such as a "which view" picker, or to compute which children to render.</p>
+<p>If your MicroView exposes a <a href="../microviews-react/#composition-and-tabs">mount site</a> for others to fill, <code>context.getMountSiteCandidates(selector)</code> returns a reactive list of the MicroViews that could mount there, each with its <code>beamId</code>, matched <code>mount</code> entry, toolkit version, and whether it is running locally. Subscribe to react as candidates deploy, enable, or disable. Use it to build UI such as a "which view" picker, or to compute which children to render.</p>
 
 
 

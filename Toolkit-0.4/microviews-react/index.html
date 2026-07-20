@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://beamable.github.io/Docs/Toolkit-0.4/microapp-react/">
+        <link rel="canonical" href="https://beamable.github.io/Docs/Toolkit-0.4/microviews-react/">
       
       
-        <link rel="prev" href="../microapp/">
+        <link rel="prev" href="../microviews/">
       
       
-        <link rel="next" href="../microapp-contract/">
+        <link rel="next" href="../microviews-contract/">
       
       
       <link rel="icon" href="../assets/images/beamable-badge.png">
@@ -231,6 +231,28 @@
   
   
     <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../console/" class="md-nav__link">
         
   
@@ -263,10 +285,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -279,8 +301,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             MicroViews
           </label>
@@ -293,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../microapp/" class="md-nav__link">
+      <a href="../microviews/" class="md-nav__link">
         
   
   
@@ -600,7 +622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../microapp-contract/" class="md-nav__link">
+      <a href="../microviews-contract/" class="md-nav__link">
         
   
   
@@ -623,7 +645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../microapp-context/" class="md-nav__link">
+      <a href="../microviews-context/" class="md-nav__link">
         
   
   
@@ -930,7 +952,7 @@
 
 
 <h1 id="build-a-microview-with-react">Build a MicroView with React<a class="headerlink" href="#build-a-microview-with-react" title="Permanent link">¶</a></h1>
-<p>Beamable ships a React template for MicroViews, plus a component library that matches the Console's look and theme. This is the fastest way to build, and it is how most built-in Console pages (players, analytics, and the rest) are built. If you <em>must</em>, you can use the non React framework, see <a href="../microapp-contract/">The extension contract</a>.</p>
+<p>Beamable ships a React template for MicroViews, plus a component library that matches the Console's look and theme. This is the fastest way to build, and it is how most built-in Console pages (players, analytics, and the rest) are built. If you <em>must</em>, you can use the non React framework, see <a href="../microviews-contract/">The extension contract</a>.</p>
 <h2 id="scaffold-and-run">Scaffold and run<a class="headerlink" href="#scaffold-and-run" title="Permanent link">¶</a></h2>
 <ol>
 <li>Scaffold the template from your workspace: <code>beam project new portal-extension MyView</code>. The CLI asks where it mounts, or pass <code>--mount-page</code> and <code>--mount-selector</code> (add <code>--mount-group</code> and <code>--mount-label</code> for a full-page nav entry)</li>
@@ -938,7 +960,7 @@
 <li>Register it with the local CLI so the Console can find it: <code>beam project run --ids MyView</code></li>
 <li>Open the page in the Console</li>
 </ol>
-<p>Always run your MicroView through <code>beam project run --ids &lt;your-view&gt;</code>. That command builds the bundle and registers it with the Console, which is what makes it discoverable. The <code>beam-build</code> script produces the deployable bundle (see the <a href="../microapp-contract/#requirements">extension contract</a> for what it emits).</p>
+<p>Always run your MicroView through <code>beam project run --ids &lt;your-view&gt;</code>. That command builds the bundle and registers it with the Console, which is what makes it discoverable. The <code>beam-build</code> script produces the deployable bundle (see the <a href="../microviews-contract/#requirements">extension contract</a> for what it emits).</p>
 <div class="admonition warning">
 <p class="admonition-title">Use the CLI to run, not <code>npm run dev</code></p>
 <p>The Vite dev server (<code>npm run dev</code>) builds the app but does not register it with the Console, so your MicroView never appears there. Run through <code>beam project run --ids &lt;your-view&gt;</code> instead.</p>
@@ -995,7 +1017,7 @@
 </code></pre></div>
 <p><code>beam project new portal-extension</code> scaffolds all of these, so you rarely write them by hand.</p>
 <h2 id="the-context">The context<a class="headerlink" href="#the-context" title="Permanent link">¶</a></h2>
-<p><code>context</code> is your MicroView's connection to the Console. <a href="../microapp-context/">Working with the context</a> is the full reference; the fields you reach for most:</p>
+<p><code>context</code> is your MicroView's connection to the Console. <a href="../microviews-context/">Working with the context</a> is the full reference; the fields you reach for most:</p>
 <ul>
 <li><code>params</code>: route parameters matched from the mount's <code>page</code> pattern (see <a href="#route-params">Route params</a>)</li>
 <li><code>navigate(path, opts?)</code>: move the Console to another route (see <a href="#routes-realm-relative-and-absolute">Routes: realm-relative and absolute</a>)</li>
@@ -1054,7 +1076,7 @@
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">await</span><span class="w"> </span><span class="nx">playersPostStatsByPlayerId</span><span class="p">(</span><span class="nx">beam</span><span class="p">.</span><span class="nx">requester</span><span class="p">,</span><span class="w"> </span><span class="nx">beam</span><span class="p">.</span><span class="nx">player</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">set</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="s1">'7'</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s1">'client'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Public'</span><span class="p">)</span>
 </code></pre></div>
-<p>See <a href="../microapp-context/#the-beam-sdk">The Beam SDK</a> for the full data-access pattern, and <a href="../microapp-context/#which-player">Which player?</a> for the operator-vs-subject identity model. The raw promise is also on <code>context.beam</code> for use outside React.</p>
+<p>See <a href="../microviews-context/#the-beam-sdk">The Beam SDK</a> for the full data-access pattern, and <a href="../microviews-context/#which-player">Which player?</a> for the operator-vs-subject identity model. The raw promise is also on <code>context.beam</code> for use outside React.</p>
 <h3 id="calling-your-own-microservice">Calling your own microservice<a class="headerlink" href="#calling-your-own-microservice" title="Permanent link">¶</a></h3>
 <p>To call your microservice's <code>[ClientCallable]</code> endpoints, generate a client with <code>beam portal extension add-microservice MyView MyService</code>, then register and call it. In React, do this inside an effect once <code>beam</code> is ready:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useEffect</span><span class="p">,</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'react'</span>
@@ -1075,10 +1097,10 @@
 <a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span><span class="nx">Score</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">score</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">'…'</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 <a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="p">}</span>
 </code></pre></div>
-<p>The microservice must be running (locally or deployed) for the call to resolve. See <a href="../microapp-context/#calling-your-microservice">Calling your microservice</a> for the full workflow.</p>
+<p>The microservice must be running (locally or deployed) for the call to resolve. See <a href="../microviews-context/#calling-your-microservice">Calling your microservice</a> for the full workflow.</p>
 <div class="admonition info">
 <p class="admonition-title">The SDK comes with the toolkit</p>
-<p>You can import from <code>@beamable/sdk</code> and <code>@beamable/sdk/api</code> directly. The SDK installs automatically as a peer dependency of <code>@beamable/portal-toolkit</code>, so you do not add it to your <code>package.json</code>. If you call a microservice, list its BeamId in the manifest's <code>microserviceDependencies</code> (see the <a href="../microapp-contract/#the-manifest">manifest reference</a>).</p>
+<p>You can import from <code>@beamable/sdk</code> and <code>@beamable/sdk/api</code> directly. The SDK installs automatically as a peer dependency of <code>@beamable/portal-toolkit</code>, so you do not add it to your <code>package.json</code>. If you call a microservice, list its BeamId in the manifest's <code>microserviceDependencies</code> (see the <a href="../microviews-contract/#the-manifest">manifest reference</a>).</p>
 </div>
 <h2 id="ui-components">UI components<a class="headerlink" href="#ui-components" title="Permanent link">¶</a></h2>
 <div class="admonition tip">
@@ -1165,7 +1187,7 @@
 </code></pre></div>
 <p>The tracker gives you <code>draft</code> (baseline plus edits), <code>isDirty</code>, <code>changes</code> (<code>added</code> / <code>modified</code> / <code>deleted</code> / <code>summary</code>), <code>errors</code>, and <code>isValid</code>, plus <code>updateItem</code>, <code>addItem</code>, <code>deleteItem</code>, <code>discard</code>, and <code>applyOriginal</code>. Drive <code>BeamChangeBar</code> from <code>changes</code>, gate <code>save</code> on <code>isValid</code>, and call <code>applyOriginal</code> with the fresh server data after a successful save.</p>
 <h2 id="where-your-microview-appears">Where your MicroView appears<a class="headerlink" href="#where-your-microview-appears" title="Permanent link">¶</a></h2>
-<p>The <code>mounts</code> array in <code>package.json</code> declares where the MicroView shows up. Each entry's <code>page</code> is a realm-relative <a href="#routes-realm-relative-and-absolute">route pattern</a>; the Console mounts your MicroView wherever the current URL matches, and can add a sidebar entry. The <a href="../microapp-contract/#the-manifest">manifest reference</a> lists every field. In the players hub, two mount shapes cover most cases.</p>
+<p>The <code>mounts</code> array in <code>package.json</code> declares where the MicroView shows up. Each entry's <code>page</code> is a realm-relative <a href="#routes-realm-relative-and-absolute">route pattern</a>; the Console mounts your MicroView wherever the current URL matches, and can add a sidebar entry. The <a href="../microviews-contract/#the-manifest">manifest reference</a> lists every field. In the players hub, two mount shapes cover most cases.</p>
 <p>A <strong>hub</strong> is a top-level sidebar destination. Its <code>page</code> is a single segment with no <code>/</code>, so it sits directly under the realm: <code>players</code> resolves to <code>.../realms/&lt;pid&gt;/players</code>. The nav fields turn it into a sidebar entry:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>{
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  "page": "players",
