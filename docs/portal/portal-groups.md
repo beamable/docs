@@ -16,6 +16,6 @@ Follow these steps to configure Groups settings:
 
 The following screenshot shows the Groups management interface:
 
-![Portal Groups Realm Interface](../media/imgs/portal-groups-realm-interface.png)
+![The Groups page in Portal, listing the realm's groups by ID, name, and enrollment type.](../media/imgs/portal-groups-realm-interface.png)
 
 

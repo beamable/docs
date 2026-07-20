@@ -17,15 +17,15 @@ Only admins can archive realms. Developers and testers can log into Portal, but 
 3. Find the realm you want to archive in the realm hierarchy
 
 4. In the Cyan-Teal area of the realm card, click the Ellipsis (three-dot) menu
-![Realm Card](../media/imgs/archive-realmCard.png)
+![A realm card for the Child-test dev realm, with the three-dot menu in its colored side strip.](../media/imgs/archive-realmCard.png)
 5. Open the realm card menu
-![Realm Card Menu](../media/imgs/archive-realmMenu.png)
+![The realm details card for Child-test, showing its project ID, secret, customer ID, and parent realm.](../media/imgs/archive-realmMenu.png)
 6. In the upper-right corner of the realm card, click the three-dot menu
 
 7. Select _Archive Realm_
 
 8. Type the realm name exactly as Portal instructs
-![Archive Realm](../media/imgs/archive-archiveRealm.png)
+![The Archive Realm dialog, warning that archiving removes the realm and requiring the realm name to confirm.](../media/imgs/archive-archiveRealm.png)
 9. Click _Archive_
 
 ## Stop running Microservices
@@ -39,7 +39,7 @@ You cannot archive a realm while it has running Microservices. If _Archive Realm
 3. Find a running Microservice and click its three-dot menu
 
 4. Select the stop option for that Microservice
-![Stop MS](../media/imgs/archive-microserviceStop.png)
+![The Microservices list with a running service's action menu open, showing the Stop option.](../media/imgs/archive-microserviceStop.png)
 5. Wait until Portal marks the Microservice as stopped
 
 6. Repeat this process for each running Microservice in the realm
