@@ -16,7 +16,7 @@ Follow these steps to manage leaderboards:
 
 The leaderboards management interface allows you to view and configure leaderboard settings:
 
-![Portal Leaderboards Interface](../media/imgs/Portal-Leaderboards.png)
+![The Leaderboards page in Portal, listing the realm's leaderboards by name.](../media/imgs/Portal-Leaderboards.png)
 
-![Add Leaderboard Dialog](../media/imgs/Portal-Leaderboards-Add.png){width="400px"}
+![The Add Leaderboard dialog, with fields for ID, score name, freeze time, TTL, and max entries.](../media/imgs/Portal-Leaderboards-Add.png){width="400px"}
 

@@ -18,4 +18,4 @@ Follow these steps to manage player tournaments:
 
 The tournaments management interface allows you to view and manage player tournament participation:
 
-![Player Tournaments Profile](../media/imgs/Portal-Tournaments-profile.png)
+![The player Tournaments page in Portal, with an empty tournament table.](../media/imgs/Portal-Tournaments-profile.png)
