@@ -1,6 +1,6 @@
 # Build a MicroView with React
 
-Beamable ships a React template for MicroViews, plus a component library that matches the Console's look and theme. This is the fastest way to build, and it is how most built-in Console pages (players, analytics, and the rest) are built. If you _must_, you can use the non React framework, see [The extension contract](./microapp-contract.md).
+Beamable ships a React template for MicroViews, plus a component library that matches the Console's look and theme. This is the fastest way to build, and it is how most built-in Console pages (players, analytics, and the rest) are built. If you _must_, you can use the non React framework, see [The extension contract](./microviews-contract.md).
 
 ## Scaffold and run
 
@@ -9,7 +9,7 @@ Beamable ships a React template for MicroViews, plus a component library that ma
 3. Register it with the local CLI so the Console can find it: `beam project run --ids MyView`
 4. Open the page in the Console
 
-Always run your MicroView through `beam project run --ids <your-view>`. That command builds the bundle and registers it with the Console, which is what makes it discoverable. The `beam-build` script produces the deployable bundle (see the [extension contract](./microapp-contract.md#requirements) for what it emits).
+Always run your MicroView through `beam project run --ids <your-view>`. That command builds the bundle and registers it with the Console, which is what makes it discoverable. The `beam-build` script produces the deployable bundle (see the [extension contract](./microviews-contract.md#requirements) for what it emits).
 
 !!! warning "Use the CLI to run, not `npm run dev`"
 
@@ -94,7 +94,7 @@ import '@beamable/portal-toolkit/react'
 
 ## The context
 
-`context` is your MicroView's connection to the Console. [Working with the context](./microapp-context.md) is the full reference; the fields you reach for most:
+`context` is your MicroView's connection to the Console. [Working with the context](./microviews-context.md) is the full reference; the fields you reach for most:
 
 - `params`: route parameters matched from the mount's `page` pattern (see [Route params](#route-params))
 - `navigate(path, opts?)`: move the Console to another route (see [Routes: realm-relative and absolute](#routes-realm-relative-and-absolute))
@@ -176,7 +176,7 @@ import { playersPostStatsByPlayerId } from '@beamable/sdk/api'
 await playersPostStatsByPlayerId(beam.requester, beam.player.id, { set: { level: '7' } }, 'client', 'Public')
 ```
 
-See [The Beam SDK](./microapp-context.md#the-beam-sdk) for the full data-access pattern, and [Which player?](./microapp-context.md#which-player) for the operator-vs-subject identity model. The raw promise is also on `context.beam` for use outside React.
+See [The Beam SDK](./microviews-context.md#the-beam-sdk) for the full data-access pattern, and [Which player?](./microviews-context.md#which-player) for the operator-vs-subject identity model. The raw promise is also on `context.beam` for use outside React.
 
 ### Calling your own microservice
 
@@ -202,11 +202,11 @@ function Score({ context }: { context: ExtensionContext }) {
 }
 ```
 
-The microservice must be running (locally or deployed) for the call to resolve. See [Calling your microservice](./microapp-context.md#calling-your-microservice) for the full workflow.
+The microservice must be running (locally or deployed) for the call to resolve. See [Calling your microservice](./microviews-context.md#calling-your-microservice) for the full workflow.
 
 !!! info "The SDK comes with the toolkit"
 
-    You can import from `@beamable/sdk` and `@beamable/sdk/api` directly. The SDK installs automatically as a peer dependency of `@beamable/portal-toolkit`, so you do not add it to your `package.json`. If you call a microservice, list its BeamId in the manifest's `microserviceDependencies` (see the [manifest reference](./microapp-contract.md#the-manifest)).
+    You can import from `@beamable/sdk` and `@beamable/sdk/api` directly. The SDK installs automatically as a peer dependency of `@beamable/portal-toolkit`, so you do not add it to your `package.json`. If you call a microservice, list its BeamId in the manifest's `microserviceDependencies` (see the [manifest reference](./microviews-contract.md#the-manifest)).
 
 ## UI components
 
@@ -308,7 +308,7 @@ The tracker gives you `draft` (baseline plus edits), `isDirty`, `changes` (`adde
 
 ## Where your MicroView appears
 
-The `mounts` array in `package.json` declares where the MicroView shows up. Each entry's `page` is a realm-relative [route pattern](#routes-realm-relative-and-absolute); the Console mounts your MicroView wherever the current URL matches, and can add a sidebar entry. The [manifest reference](./microapp-contract.md#the-manifest) lists every field. In the players hub, two mount shapes cover most cases.
+The `mounts` array in `package.json` declares where the MicroView shows up. Each entry's `page` is a realm-relative [route pattern](#routes-realm-relative-and-absolute); the Console mounts your MicroView wherever the current URL matches, and can add a sidebar entry. The [manifest reference](./microviews-contract.md#the-manifest) lists every field. In the players hub, two mount shapes cover most cases.
 
 A **hub** is a top-level sidebar destination. Its `page` is a single segment with no `/`, so it sits directly under the realm: `players` resolves to `.../realms/<pid>/players`. The nav fields turn it into a sidebar entry:
 

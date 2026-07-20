@@ -1,7 +1,8 @@
+- [Home](index.md)
 - [Console](console.md)
 - MicroViews
-    - [Overview](microapp.md)
-    - [Build with React](microapp-react.md)
-    - [The extension contract](microapp-contract.md)
-    - [Working with the context](microapp-context.md)
+    - [Overview](microviews.md)
+    - [Build with React](microviews-react.md)
+    - [The extension contract](microviews-contract.md)
+    - [Working with the context](microviews-context.md)
 - [Toolkit](toolkit.md)

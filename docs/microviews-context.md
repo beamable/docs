@@ -2,8 +2,8 @@
 
 Every MicroView receives an `ExtensionContext`. It is your MicroView's connection to the Console: identity, the Beam SDK, routing, portal settings, storage, and more. You get the same object no matter how you built the MicroView:
 
-- In the [React template](./microapp-react.md), it arrives as the `context` prop on your `App`
-- With the [raw contract](./microapp-contract.md), it is the second argument to `onMount`
+- In the [React template](./microviews-react.md), it arrives as the `context` prop on your `App`
+- With the [raw contract](./microviews-contract.md), it is the second argument to `onMount`
 
 This page is the reference for what is on the context and how to use each part. Examples are framework-neutral; where the React toolkit offers a shortcut (such as `useBeam`), that is called out.
 
@@ -89,7 +89,7 @@ beam portal extension add-microservice MyView MyService
 
 This does two things:
 
-- adds `MyService`'s BeamId to your MicroView's `microserviceDependencies` (see [the manifest](./microapp-contract.md#the-manifest))
+- adds `MyService`'s BeamId to your MicroView's `microserviceDependencies` (see [the manifest](./microviews-contract.md#the-manifest))
 - generates a typed client into `MyView/beamable/clients/`, one method per `[ClientCallable]` endpoint
 
 The microservice must already exist in your workspace and have been built at least once, so the CLI can read its endpoints. Re-run the command to regenerate after you change endpoints; do not hand-edit the generated file.
@@ -160,7 +160,7 @@ const mode = context.mount.args?.mode   // 'list' or 'archive'
 - `location`: a read-only snapshot of the URL at mount time (`pathname`, `search`, `hash`). It does not update after mount; read `window.location` or listen for `popstate` if you need live URL changes
 - `navigate(path, opts?)`: move the Console to another route. A path with no leading `/` is realm-relative; a leading `/` is absolute to the domain
 
-The realm-relative vs absolute rule (and the full realm URL prefix) is covered in [Routes: realm-relative and absolute](./microapp-react.md#routes-realm-relative-and-absolute).
+The realm-relative vs absolute rule (and the full realm URL prefix) is covered in [Routes: realm-relative and absolute](./microviews-react.md#routes-realm-relative-and-absolute).
 
 ## Portal config
 
@@ -182,7 +182,7 @@ Subscribing keeps your MicroView in step with the rest of the Console. Extension
 
 ## Site data
 
-When a MicroView is mounted inside another through a [mount site](./microapp-react.md#composition-and-tabs), the parent can hand it data. The child reads it from `context.siteData`.
+When a MicroView is mounted inside another through a [mount site](./microviews-react.md#composition-and-tabs), the parent can hand it data. The child reads it from `context.siteData`.
 
 `siteData` is a snapshot taken at mount time. Mutating the parent's value afterward does not update an already-mounted child; a remount picks up the new value. For a child that stays in sync with live changes, the parent passes a store (a handle with `get()` and `subscribe()`) and the child subscribes to it.
 
@@ -232,8 +232,8 @@ context.updateBadge({ value: unread, tone: 'warning' })
 context.updateBadge(null)
 ```
 
-A badge is a count or a short label in one of four tones (`info`, `warning`, `error`, `accent`). To show a badge before the page is ever opened, supply a `getBadge` callback at registration instead; see [Badges](./microapp-react.md#badges).
+A badge is a count or a short label in one of four tones (`info`, `warning`, `error`, `accent`). To show a badge before the page is ever opened, supply a `getBadge` callback at registration instead; see [Badges](./microviews-react.md#badges).
 
 ## Discovering mount-site candidates
 
-If your MicroView exposes a [mount site](./microapp-react.md#composition-and-tabs) for others to fill, `context.getMountSiteCandidates(selector)` returns a reactive list of the MicroViews that could mount there, each with its `beamId`, matched `mount` entry, toolkit version, and whether it is running locally. Subscribe to react as candidates deploy, enable, or disable. Use it to build UI such as a "which view" picker, or to compute which children to render.
+If your MicroView exposes a [mount site](./microviews-react.md#composition-and-tabs) for others to fill, `context.getMountSiteCandidates(selector)` returns a reactive list of the MicroViews that could mount there, each with its `beamId`, matched `mount` entry, toolkit version, and whether it is running locally. Subscribe to react as candidates deploy, enable, or disable. Use it to build UI such as a "which view" picker, or to compute which children to render.

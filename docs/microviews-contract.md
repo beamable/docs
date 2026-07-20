@@ -1,6 +1,6 @@
 # The MicroView extension contract
 
-A MicroView is a JavaScript bundle that the Console loads and mounts. The [React template](./microapp-react.md) is one way to produce that bundle, but nothing about the contract requires React. This page describes the contract itself, so you can build a MicroView with any framework or none, and understand what the React toolkit does under the hood.
+A MicroView is a JavaScript bundle that the Console loads and mounts. The [React template](./microviews-react.md) is one way to produce that bundle, but nothing about the contract requires React. This page describes the contract itself, so you can build a MicroView with any framework or none, and understand what the React toolkit does under the hood.
 
 ## Requirements
 
@@ -8,7 +8,7 @@ Every MicroView must satisfy four requirements:
 
 1. An npm project whose `package.json` has a `beam-build` script. Running it must emit an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) bundle at `assets/index.js` and a stylesheet at `assets/style.css`
 2. A `beamable` block in `package.json` (the manifest) that marks the project as a MicroView and declares where it mounts (see [The manifest](#the-manifest))
-3. A dependency on [`@beamable/portal-toolkit`](https://www.npmjs.com/package/@beamable/portal-toolkit). It brings in `@beamable/sdk` as a peer dependency, so backend calls need no extra dependency (see [The Beam SDK](./microapp-context.md#the-beam-sdk))
+3. A dependency on [`@beamable/portal-toolkit`](https://www.npmjs.com/package/@beamable/portal-toolkit). It brings in `@beamable/sdk` as a peer dependency, so backend calls need no extra dependency (see [The Beam SDK](./microviews-context.md#the-beam-sdk))
 4. An entry module that registers the MicroView with `Portal.registerExtension` (see [Registering](#registering))
 
 !!! info "Build tools are your choice"
@@ -50,9 +50,9 @@ Each entry in `mounts` is matched independently against the current URL. The mou
 
 Alongside `mounts`, the top-level `serviceGroups` (optional) tags the MicroView as part of one or more named groups of related MicroViews, typically the hub it belongs to (for example `players`).
 
-`microserviceDependencies` lists the BeamIds of the microservices this MicroView calls. Do not edit it by hand: run `beam portal extension add-microservice <view> <service>`, which adds the entry and generates a typed client for that service. See [Calling your microservice](./microapp-context.md#calling-your-microservice).
+`microserviceDependencies` lists the BeamIds of the microservices this MicroView calls. Do not edit it by hand: run `beam portal extension add-microservice <view> <service>`, which adds the entry and generates a typed client for that service. See [Calling your microservice](./microviews-context.md#calling-your-microservice).
 
-Like a microservice, a MicroView is tracked in your workspace's service manifest and ships with `beam deploy` (see [Deploying](./microapp-react.md#deploying)). The built `assets/` output is a build artifact, not source: the CLI regenerates it, so you do not commit it.
+Like a microservice, a MicroView is tracked in your workspace's service manifest and ships with `beam deploy` (see [Deploying](./microviews-react.md#deploying)). The built `assets/` output is a build artifact, not source: the CLI regenerates it, so you do not commit it.
 
 ## Registering
 
@@ -92,7 +92,7 @@ Both `onMount` and, in React, your `App` receive an `ExtensionContext`. It carri
 - `config`: portal-wide settings as read-only observables (`dateRange`, `timezone`, `theme`, `account`), each with `.get()` and `.subscribe()`
 - `updateBadge(value)`: set the sidebar badge, or clear it with `null`
 
-See [Working with the context](./microapp-context.md) for the full reference on each field, including the Beam SDK, storage, site data, and args.
+See [Working with the context](./microviews-context.md) for the full reference on each field, including the Beam SDK, storage, site data, and args.
 
 ## Badges
 
