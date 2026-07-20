@@ -11,14 +11,14 @@ First, create your teammate's new account:
 
 1. Navigate to [portal.beamable.com/login/](https://portal.beamable.com/login/) and login using the customer ID, email, and password with which you registered your project
 
-![Portal Login](../media/imgs/Portal_login.png)
+![The Beamable Portal login screen, with fields for customer ID, email, and password.](../media/imgs/Portal_login.png)
 
 
 2. Click to expand the _Admin_ section in the navigation panel and click the _User Administration_ link
 
 The "User Administration" page features a list of all of the admins, developers, and testers on your project.
 
-![Portal Add Devs Team](../media/imgs/Portal-Add_Devs-A2_Team.png)
+![The User Administration page listing team members by email, DBID, and admin scope, with the Add button at the top right.](../media/imgs/Portal-Add_Devs-A2_Team.png)
 
 3. Click the _+ ADD_ link located at the top right of the user list
 
@@ -29,7 +29,7 @@ The "User Administration" page features a list of all of the admins, developers,
 
 6. Click _save_ to register an account for your teammate. They will receive an auto-generated email with login instructions
 
-![Portal Add Devs A3 Add](../media/imgs/Portal-Add_Devs-A3_Add.png)
+![The Permissions dialog, entering a new teammate's email and choosing a global role.](../media/imgs/Portal-Add_Devs-A3_Add.png)
 
 ### Setting your password (new teammate)
 
@@ -40,14 +40,14 @@ Next, your teammate should follow these steps to proceed through the password re
 
 2. Click the _Forgot Password_ link at the bottom of the login screen
 
-![Portal Add Devs Forgot Password](../media/imgs/Portal-Add_Devs-B1_forgot_pw.png)
+![The login screen's Forgot password link, below the email and password fields.](../media/imgs/Portal-Add_Devs-B1_forgot_pw.png)
 
 
 3. Enter your email address and press _Send Code_. An email with a reset code will be sent to the address entered. Each reset code is valid for 1 hour. A fresh reset code will be required if the "Change Password" is closed
 
 4. Retrieve the reset code from that email and navigate back to the "Change Password" page
 
-![Portal Add Devs B2 Reset Password](../media/imgs/Portal-Add_Devs-B2_reset_pw.png)
+![The Change Password screen, with fields for customer ID, email, reset code, and a new password.](../media/imgs/Portal-Add_Devs-B2_reset_pw.png)
 
 5. Click _Change & Login_ to proceed to your organization's dashboard. The projects, page links, and other content that you will have access to are determined by the permissions your organization admin granted you
 

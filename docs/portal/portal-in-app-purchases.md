@@ -16,6 +16,6 @@ Follow these steps to configure In-App Purchases settings:
 
 The following screenshot shows the In-App Purchases management interface:
 
-![Portal In-App Purchases Interface](../media/imgs/portal-in-app-purchases-interface.png)
+![The Purchases page in Portal, listing real-money transactions by status, provider, and value.](../media/imgs/portal-in-app-purchases-interface.png)
 
 
