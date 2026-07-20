@@ -18,7 +18,7 @@ Follow these steps to manage player stats:
 
 The stats management interface allows you to view and modify player statistics:
 
-![Player Stats Profile](../media/imgs/Portal-Stats-1-profile.png)
+![The player Stats page in Portal, listing stats by write access, visibility, and name.](../media/imgs/Portal-Stats-1-profile.png)
 
-![Add Player Stats](../media/imgs/Portal-Stats-2-profile-add.png){width="400px"}
+![The Add Player Stat dialog, with fields for origin, visibility, stat, and value.](../media/imgs/Portal-Stats-2-profile-add.png){width="400px"}
 

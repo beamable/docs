@@ -33,7 +33,7 @@ dotnet beam project new service HelloWorld
 
 A new file, `BeamableServices.sln` has been created in `/MyProject`. Open it in your IDE of choice (Visual Studio Code, Rider, or Visual Studio).
 
-![Project Structure](https://files.readme.io/751b491-image.png)
+![A solution tree with the HelloWorld microservice and its Dockerfile, HelloWorld.cs, and Program.cs files.](https://files.readme.io/751b491-image.png)
 
 
 Congratulations, you have a local Beamable Standalone Microservice! To run it, you can use the IDE tooling to start the `HelloWorld` project, or you can use the project run command. If you are familiar with `dotnet`, you can also use the normal `dotnet run` command as well.
@@ -54,7 +54,7 @@ dotnet beam project open-swagger
 ```
 
 Your local web browser should open to the Beamable Portal, showing the local Open API documentation,
-![local swagger docs](https://files.readme.io/6c000ac-image.png)
+![The microservice's local Swagger documentation, listing its admin and uncategorized POST endpoints.](https://files.readme.io/6c000ac-image.png)
 
 
 Click on the last green button that says, "`POST` /Add", and then select the "Try It Out" button. In the Request Body, enter some sample JSON,

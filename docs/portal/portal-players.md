@@ -16,8 +16,8 @@ Follow these steps to manage players:
 
 The players management interface allows you to view and manage player accounts:
 
-![Players List View](../media/imgs/Portal-Players-1-List.png)
+![The Players page in Portal, listing recent players by gamertag, platform, and install date.](../media/imgs/Portal-Players-1-List.png)
 
-![Player Profile](../media/imgs/Portal-Players-2-profile.png)
+![A player profile in Portal, showing account details, games played, and session history.](../media/imgs/Portal-Players-2-profile.png)
 
-![Player Profile Actions](../media/imgs/Portal-Players-3-profile-actions.png)
+![The player profile Actions menu open, showing Change email, Reset password, Forget user, and Add device.](../media/imgs/Portal-Players-3-profile-actions.png)
