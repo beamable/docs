@@ -1,6 +1,6 @@
 # Build a MicroView with React
 
-Beamable ships a React template for MicroViews, plus a component library that matches the Console's look and theme. This is the fastest way to build, and it is how most built-in Console pages (players, analytics, and the rest) are built. If you _must_, you can use the non React framework, see [The extension contract](./microviews-contract.md).
+Beamable ships a React template for MicroViews, plus a component library that matches the Console's look and theme. This is the fastest way to build a MicroView — we build standard Console pages (such as the players and analytics pages) this way. We strongly recommend using React for MicroViews, but if you need another library or framework, the [extension contract](./microviews-contract.md) can interoperate with it.
 
 ## Scaffold and run
 
@@ -241,7 +241,7 @@ import { BeamKpiRow, BeamKpiCard } from '@beamable/portal-toolkit/react'
 
 The components are web components under the hood, so the Console's theme tokens (`--color-beam-accent`, `--color-beam-text-muted`, and the rest) cross into your MicroView. You rarely need to branch on theme yourself.
 
-For the full list, use the in-Console galleries linked above; in your editor, the same components autocomplete from `@beamable/portal-toolkit/react`. You can still use plain HTML, your own CSS, and other React components or npm packages alongside them. Reach for the Beam components first so your MicroView stays visually native to the Console.
+For the full list, use the in-Console galleries linked above; in your editor, the same components autocomplete from `@beamable/portal-toolkit/react`. You can still use plain HTML, your own CSS, and other React components or NPM packages alongside them. Reach for the Beam components first so your MicroView stays visually native to the Console.
 
 ## Editing and saving
 

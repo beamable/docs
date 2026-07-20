@@ -6,7 +6,7 @@ Every MicroView is a web bundle. The Console loads it, mounts it at a location y
 
 There are two ways to build one. Pick the guide that fits how you want to work.
 
-- **[Build with React](./microviews-react.md)** is the fast path. Beamable ships a React template and a component library ([`@beamable/portal-toolkit`](https://www.npmjs.com/package/@beamable/portal-toolkit)) that match the Console's look. Start here if you are comfortable in React. Most built-in Console pages are built this way
+- **[Build with React](./microviews-react.md)** is the fast path. Beamable ships a React template and a component library ([`@beamable/portal-toolkit`](https://www.npmjs.com/package/@beamable/portal-toolkit)) that match the Console's look. Start here if you are comfortable in React. We build standard Console pages this way
 - **[The extension contract](./microviews-contract.md)** is the framework-agnostic path. Underneath, a MicroView is just a JavaScript bundle that follows a small contract. Read this to use another framework, no framework, or to understand what the React template does for you
 
 Both paths hand your MicroView the same runtime `context`. See [Working with the context](./microviews-context.md) for the full reference on the Beam SDK, storage, site data, args, and the rest.
@@ -17,7 +17,7 @@ Before you build a MicroView you need:
 
 - **A Beamable organization and workspace.** A MicroView is a project inside a Beamable workspace (the folder with a `.beamable` directory), created next to your microservices
 - **The Beam CLI**, installed as a .NET tool. It scaffolds, runs, and deploys MicroViews
-- **Node.js 22.14 or newer**, with npm. The template is a Vite and React 19 project
+- **Node.js 22.14 or newer**, with NPM. The template is a Vite and React 19 project
 
 ## Getting started
 

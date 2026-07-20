@@ -1,5 +1,5 @@
 # Beamable Console
 
-The [Beamable Console](https://console.beamable.com) is the admin facing control website for Beamable.
+[Beamable Console](https://console.beamable.com) is the successor to the Beamable Portal, a web interface for game administration.
 
-The Console may be customized through [MicroViews](./microviews.md)
+You can customize Beamable Console with [MicroViews](./microviews.md).
