@@ -110,7 +110,7 @@ For example, in cases where you want to remove the source code of a service from
 ### Releasing the plan
 Calling `deploy release` makes the plan a reality. It will upload the images the Beamable docker container registry and then publish a _service manifest_ to your current Beamable realm. Upon successfully publishing the manifest, the Beamable Cloud creates the necessary resources to run your services. The services will be enabled, and you can see them available in the Beamable Portal's _Operation/Microservices_ section.
 
-![Beamable Deployments](https://files.readme.io/55ee363-image.png)
+![The Microservices page in Portal, showing current service status, storage objects, and deployment history.](https://files.readme.io/55ee363-image.png)
 
 Now that your service is running on the Beamable Cloud, you can send HTTPS traffic to your service. To help test, you can open the dot-dot-dot (`...`) menu on the right side of the `HelloWorld` card, and select "Docs" to open an Open API page.
 #### Redeploying existing services

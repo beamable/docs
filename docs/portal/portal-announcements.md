@@ -16,6 +16,6 @@ Follow these steps to access and configure Announcements:
 
 The Portal Announcements interface provides comprehensive management of in-game announcements.
 
-![Portal Announcements](../media/imgs/Portal-Announcements.png)
+![The Announcements page in Portal, with search filters and an empty announcements table.](../media/imgs/Portal-Announcements.png)
 
 

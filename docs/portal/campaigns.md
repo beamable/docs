@@ -11,14 +11,14 @@ In brief, the campaign types available are:
 These options are available when you create a new campaign via the
 Beamable Portal, under **Communicate > Campaigns > + Create Campaign.**
 
-![Campaigns section](../media/imgs/campaigns-section.png){width="200px"}
+![The Portal sidebar with the Communicate section expanded and Campaigns highlighted.](../media/imgs/campaigns-section.png){width="200px"}
 
 
 After that, you can create campaigns setting some information through a few steps:
 
 - Meta information: This covers the main information about your Campaign. Select the campaign Type, name, and date
 
-![Campaign Meta Information](../media/imgs/campaigns-meta-information.png)
+![The campaign wizard's Meta step, with fields for campaign name, type, and delivery dates.](../media/imgs/campaigns-meta-information.png)
 
 - Content: The information you want to send to your players, usually just a subject and a description. Depending on the campaign type, you can send this information using many formats, like HTML, Unity TMP, etc.
 
@@ -26,11 +26,11 @@ After that, you can create campaigns setting some information through a few step
 
     In case the campaign is of the In-game mail type, you will have the option to use Entitlements to grant rewards to players. However, Entitlements are a deprecated legacy system. Use Inventory instead, in conjunction with a different delivery mechanism such as Announcements or a custom C# Microservice.
 
-![Campaign Content](../media/imgs/campaigns-content.png)
+![The campaign wizard's Content step, with a subject field and a rich-text editor offering Editor, HTML, and Unity TMP modes.](../media/imgs/campaigns-content.png)
 
 - Segment: In this section you are going to set the conditions required from players to be able to receive your campaign. So if you want to target specific players, you can do it through the use of Players Activities and/or Player Stats
 
-![Campaign Segment](../media/imgs/campaigns-segment.png)
+![The campaign wizard's Segment step, targeting players by activity and stats with a live targeting summary.](../media/imgs/campaigns-segment.png)
 
 - Summary: finally, there will be a summary of your campaign so you can verify that all the information is correct and ready to go
 
