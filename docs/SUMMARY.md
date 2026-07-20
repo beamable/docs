@@ -1,2 +1,7 @@
-- [Beamable Portal](portal/)
-- [Beamable CLI](cli/)
+- [Console](console.md)
+- MicroViews
+    - [Overview](microapp.md)
+    - [Build with React](microapp-react.md)
+    - [The extension contract](microapp-contract.md)
+    - [Working with the context](microapp-context.md)
+- [Toolkit](toolkit.md)

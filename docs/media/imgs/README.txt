@@ -1,1 +1,0 @@
-﻿// Put all images of the documentation here
