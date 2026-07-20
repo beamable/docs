@@ -2,7 +2,7 @@
 
 A MicroView is a small web app that mounts into the [Beamable Console](./console.md) to add new pages and workflows. Anything the Console does not ship out of the box, such as live-ops tools, player dashboards, or content editors, you can add as a MicroView.
 
-Every MicroView is a web bundle. The Console loads it, mounts it at a location you declare, and hands it a runtime `context` for talking to the Console and the Beamable SDK. 
+Every MicroView is a web bundle. The Console loads it, mounts it at a location you declare, and hands it a runtime `context` for talking to the Console and the Beamable SDK.
 
 There are two ways to build one. Pick the guide that fits how you want to work.
 
