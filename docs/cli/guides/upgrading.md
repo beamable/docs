@@ -118,7 +118,7 @@ A better approach is to explicitly list the `IFederatedGameServer.CreateGameServ
 parameter with the new namespace, and then use a conversion tool to get back the old type. 
 
 #### Client Generation
-In the old CLI and Microservice packages, Unity and Unreal Engine client could we be automatically
+In the old CLI and Microservice packages, Unity and Unreal Engine client code could be automatically
 generated when the Microservices were built. However, in CLI 5+, the engine integrations themselves
 are responsible for generating the client code, and the default behaviour is that a standalone
 Microservice project will _no longer generate client code automatically_.
