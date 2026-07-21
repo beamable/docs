@@ -7,17 +7,17 @@ This guide assumes there is already an account for the person whose access you a
 
 1. Navigate to [beta-portal.beamable.com/login/](https://beta-portal.beamable.com/login/) and login using the customer ID, email, and password with which you registered your project
 
-![Portal Login](../media/imgs/Portal_login.png)
+![The Beamable Portal login screen, with fields for customer ID, email, and password.](../media/imgs/Portal_login.png)
 
 2. Click to expand the _Admin_ section in the navigation panel and click the _User Administration_ link
 
 3. Scroll through the list of team members or use the search field to find the teammate whose permissions you intend to change
 
-![Portal Permissions User List](../media/imgs/Portal-Permissions-2_elipses.png)
+![The User Administration list with a row's action menu open, showing Permissions and Revoke Access.](../media/imgs/Portal-Permissions-2_elipses.png)
 
 4. Press the vertical ellipsis at the end of the teammate's row in the table. This will open a dialog that allows you to edit account permissions
 
-![Portal Permissions Edit Dialog](../media/imgs/Portal-Permissions-3_edit.png)
+![The Permissions dialog, assigning a global role and per-realm scoped roles to a user.](../media/imgs/Portal-Permissions-3_edit.png)
 
 
 5. Select a role to apply it and grant its permissions to the teammate's account

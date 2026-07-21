@@ -23,7 +23,7 @@ dotnet beam project new service HelloWorld
 
 Beamable Standalone Microservices run as vanilla dotnet processes on your machine. That means you can use your favorite IDE to debug the service. You can attach breakpoints and then start the service with Debugging, or attach to existing process using your IDE.
 
-![A breakpoint in a microservice](https://files.readme.io/88da124-image.png)
+![A code editor paused at a breakpoint inside the microservice's Add method, showing the incoming parameter values.](https://files.readme.io/88da124-image.png)
 
 ## Hot reload
 

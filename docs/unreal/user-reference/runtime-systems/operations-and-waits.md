@@ -125,7 +125,7 @@ Use them as a template for implementing and reasoning about `Operations`.
 ### Beam flow nodes - operations
 As part of the [Blueprint integration](blueprints.md), the SDK includes a few custom nodes that make invoking operations from Blueprints much simpler. These look like this:
 
-![beam-flow-node](../../../media/imgs/operation-and-waits-beam-flow-nodes.png)
+![A Beamable operation Blueprint node titled Operation - Inventory - CommitInventoryUpdate, with a User Slot input set to Player0 and output pins for Synchronous Flow, Operation Handle, User Slots, On Success, On Error, On Cancelled, and Operation Event.](../../../media/imgs/operation-and-waits-beam-flow-nodes.png)
 
 **Beamable Operation Flow Nodes assume a few things**:
 

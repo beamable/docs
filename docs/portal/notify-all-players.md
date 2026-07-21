@@ -1,7 +1,7 @@
 # Notify all players
 To access the Notify All Players feature, navigate to the Communicate section and select "Notify All Players"
 
-![Notify All Players Interface](../media/imgs/notify-all-players-interface.png)
+![The Notify All Players page in Portal, with a message field and a Send Notification button.](../media/imgs/notify-all-players-interface.png)
 
 Any text put into this field will be sent to the NotificationService and into the DBENGINE.SYSTEM.MSG channel. By subscribing to this channel using the NotificationService, you can receive this message at the game client and display it to players.
 

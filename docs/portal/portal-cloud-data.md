@@ -17,10 +17,10 @@ Follow these steps to configure cloud data settings:
 
 The following screenshots show the cloud data configuration interface:
 
-![Portal Cloud Data Interface](../media/imgs/portal-cloud-data-interface.png)
+![The Game Base Cloud Data page in Portal, with an empty data table and an Upload YAML File button.](../media/imgs/portal-cloud-data-interface.png)
 
 
-![Portal Cloud Data YAML Configuration](../media/imgs/portal-cloud-data-yaml-config.png){width="300px"}
+![The Add or Update Game Cloud Data dialog, with fields for a symbol and a YAML file.](../media/imgs/portal-cloud-data-yaml-config.png){width="300px"}
 
 
 
