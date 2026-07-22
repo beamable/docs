@@ -7,6 +7,7 @@ on:
       - 'unreal/**'
       - 'core/**'
       - 'websdk/**'
+      - 'toolkit/**'
 
 run-name: Auto Publish Branch ${{ github.ref_name }} by @${{ github.actor }}
 
@@ -56,6 +57,9 @@ jobs:
                   ;;
                 core)
                   PRODUCT_NAME="CLI"
+                  ;;
+                toolkit)
+                  PRODUCT_NAME="Toolkit"
                   ;;
                 *)
                   PRODUCT_NAME="Unknown"
