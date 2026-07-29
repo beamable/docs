@@ -4,16 +4,25 @@
 #
 # The working Auto Sync Core lives on each `core/v*` branch. NEVER HERE.
 #
-# WHY A COPY EXISTS ON `main` AT ALL:
+# This exact file belongs on EVERY branch that is not a `core/v*` branch, and
+# is byte-identical on all of them. If you are reading it on `main`, on an
+# engine branch, or on any other content branch, that is correct and expected.
+#
+# WHY A COPY EXISTS ON NON-CORE BRANCHES:
 #
 #   1. DISCOVERABILITY. AGENTS.md calls `main` the starting point for new
 #      contributors, but `main` carries none of the automation that actually
 #      governs this repo. Without this file, someone auditing the workflows
 #      from `main` sees no evidence that core-to-downstream syncing exists.
 #   2. WORKFLOW NAMING. GitHub resolves a workflow's display name from the
-#      copy on the default branch. With no copy here, the Actions UI kept
+#      copy on the default branch. With no copy there, the Actions UI kept
 #      showing this workflow under its long-obsolete "Auto Merge Core" name
 #      years after the squash-merge design was replaced.
+#   3. IT DISPLACES SOMETHING WORSE. Engine branches used to carry a real,
+#      executable copy of the OLD squash-merge workflow, and `toolkit/v0.4`
+#      carried a real copy of the CURRENT one declaring a downstream matrix it
+#      does not own. Both were inert, but both read as authoritative to anyone
+#      opening them. A loud stub is strictly better than a plausible lie.
 #
 # WHY EDITING THIS FILE CHANGES NOTHING:
 #
@@ -24,6 +33,14 @@
 #   here expecting downstream branches to follow, nothing will happen and
 #   nothing will warn you.
 #
+#   This is also why the stub is now SAFE to keep on a downstream branch.
+#   Under the retired squash-merge design the sync merged whole branches, so
+#   it dragged `.github/workflows/` across and would have overwritten this
+#   stub with core's real workflow on the next core push. The current sync
+#   copies only `docs/cli/guides`, `docs/cli/SUMMARY.md`, `docs/includes`,
+#   and `docs/portal` — `.github/` is not among them, so nothing upstream can
+#   clobber this file.
+#
 # WHERE THE REAL CONFIGURATION LIVES:
 #
 #   Each core branch declares its own downstream targets in the
@@ -32,18 +49,37 @@
 #   here: a stale mapping in a stub would be worse than no mapping at all.
 #   See AGENTS.md, "Branch mapping", for how to read it.
 #
+# NOT EVERY BRANCH IS IN THE SYNC GRAPH AT ALL:
+#
+#   Sources are the `core/v*` branches. Targets are the engine branches named
+#   in some core branch's matrix. Everything else — `toolkit/v0.4`,
+#   `unreal/v2.2`, `api/v1.0`, `internal`, `websdk/v1.0`, `home`, `main` —
+#   is in neither set: nothing syncs in, nothing syncs out. That is a
+#   deliberate architectural position, not an oversight. `toolkit/v0.4` in
+#   particular is engine-agnostic but has NO version coupling to any engine
+#   SDK, so there is no principled matrix to write for it.
+#
 # ============================================================================
 
 name: Auto Sync Core
 
-# NO `push` TRIGGER, BY DESIGN. A push-triggered stub on the default branch
-# would either fail on every push to `main` or sit here as decoration that
-# can never execute. `workflow_dispatch` is the only entry point, and it
-# exists solely so the failure below can explain itself.
+# The `core/**` push trigger is the trap. A push to a core branch runs that
+# branch's OWN copy of this file, so this stub can only fire when a `core/*`
+# branch is carrying the stub instead of the real workflow — which is exactly
+# the mistake of cutting a new core branch without installing it. Today that
+# mistake is SILENT: the new branch simply never syncs and nothing warns.
+# There is no false-positive surface: a correctly-configured core branch has
+# the real workflow here and never reaches this file.
+#
+# `workflow_dispatch` exists solely so the failure below can explain itself
+# to someone who runs this from the Actions UI on the wrong ref.
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - 'core/**'
 
-run-name: Invalid main @${{ github.actor }}
+run-name: "Invalid — Auto Sync Core stub on ${{ github.ref_name }} @${{ github.actor }}"
 
 jobs:
   stub:
@@ -51,15 +87,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Refuse to run and explain why
+        env:
+          REF: ${{ github.ref_name }}
         run: |
-          echo "::error::Auto Sync Core cannot run from 'main'. This is a stub."
-          echo
-          echo "The real workflow runs only on push to a core/v* branch, using"
-          echo "that branch's own copy of .github/workflows/auto-sync-core.yml."
-          echo
-          echo "To change which branches a core branch feeds, edit the"
-          echo "matrix.branch list in that file ON THE CORE BRANCH ITSELF."
-          echo "Editing the copy on 'main' accomplishes nothing."
+          if [[ "$REF" == core/* ]]; then
+            echo "::error::'$REF' is a core branch carrying the Auto Sync Core STUB, not the real workflow. Nothing will sync downstream from it."
+            echo
+            echo "A core branch must carry the REAL auto-sync-core.yml. This"
+            echo "branch was almost certainly cut from 'main' or from a content"
+            echo "branch, inheriting the stub."
+            echo
+            echo "TO FIX: copy .github/workflows/auto-sync-core.yml from an"
+            echo "existing core branch (core/v7.1 or core/v7.2) onto '$REF',"
+            echo "then set BOTH:"
+            echo "  * on.push.branches  -> ['$REF']"
+            echo "  * matrix.branch     -> the downstream engine branches it feeds"
+            echo
+            echo "Until then this branch syncs nothing, silently."
+          else
+            echo "::error::Auto Sync Core cannot run from '$REF'. This is a stub."
+            echo
+            echo "The real workflow runs only on push to a core/v* branch, using"
+            echo "that branch's own copy of .github/workflows/auto-sync-core.yml."
+            echo
+            echo "To change which branches a core branch feeds, edit the"
+            echo "matrix.branch list in that file ON THE CORE BRANCH ITSELF."
+            echo "Editing this copy accomplishes nothing."
+          fi
           echo
           echo "See AGENTS.md, section 'Branch mapping'."
           exit 1
