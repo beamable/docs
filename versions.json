@@ -41,14 +41,14 @@
   {
     "version": "Unity-6.0",
     "title": "Unity-6.0",
-    "aliases": []
+    "aliases": [
+      "Unity-Latest"
+    ]
   },
   {
     "version": "Unity-5.1",
     "title": "Unity-5.1",
-    "aliases": [
-      "Unity-Latest"
-    ]
+    "aliases": []
   },
   {
     "version": "Unity-5.0",
