@@ -21,7 +21,7 @@ Valid mount points are defined by the Portal, not invented by you, so `beam proj
 
 To browse the options yourself:
 
-```sh
+```shell
 beam portal extension list-mount-sites
 ```
 
@@ -106,7 +106,7 @@ import '@beamable/portal-toolkit/react'
 
 The Console addresses every page under the realm you have selected. A realm's full URL prefix is:
 
-```
+```text
 /<cid>/games/<gameId>/realms/<pid>/
 ```
 
@@ -312,7 +312,7 @@ The `mounts` array in `package.json` declares where the MicroView shows up. Each
 
 A **hub** is a top-level sidebar destination. Its `page` is a single segment with no `/`, so it sits directly under the realm: `players` resolves to `.../realms/<pid>/players`. The nav fields turn it into a sidebar entry:
 
-```jsonc
+```json
 {
   "page": "players",
   "selector": "#extension-page",
@@ -325,7 +325,7 @@ A **hub** is a top-level sidebar destination. Its `page` is a single segment wit
 
 A **sub-page** under a hub adds `navGroup` and ordering:
 
-```jsonc
+```json
 {
   "page": "players/players-overview",
   "selector": "#extension-page",
@@ -372,7 +372,7 @@ The player detail page uses `tabs-route`. The host renders the tab site:
 
 Each tab is a separate MicroView that targets that site and declares its own URL:
 
-```jsonc
+```json
 // players-detail-engagement
 {
   "page": "players/list/:playerId/engagement",

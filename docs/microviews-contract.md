@@ -19,7 +19,7 @@ Every MicroView must satisfy four requirements:
 
 The `beamable` block in `package.json` tells the Console the MicroView exists and where it belongs:
 
-```jsonc
+```json
 {
   "beamable": {
     "version": "1.0.0",

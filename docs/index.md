@@ -14,7 +14,7 @@ The Beamable Toolkit lets you extend the [Beamable Console](console.md) with you
 
 From your Beamable workspace:
 
-```sh
+```shell
 beam project new portal-extension MyView
 beam project run --ids MyView
 ```

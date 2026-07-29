@@ -4,6 +4,6 @@ The Beamable Toolkit defines the interface between the [Beamable Console](./cons
 
 The Toolkit is available on npm as [`@beamable/portal-toolkit`](https://www.npmjs.com/package/@beamable/portal-toolkit).
 
-```sh
+```shell
 npm install @beamable/portal-toolkit
 ```

@@ -83,7 +83,7 @@ The examples above use Beamable's built-in APIs. To call your own microservice's
 
 From your workspace, add the microservice as a dependency of your MicroView:
 
-```sh
+```shell
 beam portal extension add-microservice MyView MyService
 ```
 
@@ -140,7 +140,7 @@ Calls resolve only when the service is running, either locally with `beam projec
 
 `context.mount.args` is an arbitrary object you set on the mount entry in the manifest. It is static, declared by the author, and handed straight back at runtime. Use it to render the same bundle differently at different mount points.
 
-```jsonc
+```json
 // package.json: two mounts of one bundle, distinguished by args
 "mounts": [
   { "page": "orders", "selector": "#extension-page", "args": { "mode": "list" } },

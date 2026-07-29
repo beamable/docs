@@ -23,7 +23,7 @@ Before you build a MicroView you need:
 
 From your workspace, scaffold a new MicroView with:
 
-```sh
+```shell
 beam project new portal-extension MyView
 ```
 
