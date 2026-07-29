@@ -13,6 +13,7 @@ Each SDK version is maintained on its own branch with its own `mkdocs.yml`:
 - `unreal/v*` — Unreal SDK docs
 - `websdk/v*` — WebSDK docs
 - `api/v*`, `typescript/v*` — API and TypeScript docs
+- `toolkit/v*` — Beamable Toolkit docs: a set of TypeScript helpers for writing consistent, effective MicroViews (also called Portal Extensions). Published but not yet meant for public consumption — Beamable Toolkit and Beamable Console are unreleased, so the docs are deliberately unadvertised. Not a secret: readers who have the URL are welcome, it is simply not ready for prime time. Prose on this branch is in normal copyediting scope
 - `internal` — Internal Beamable staff guides (published but not publicly advertised; only accessible via direct URL)
 - `gh-pages` — GitHub Pages deployment target (do not edit directly)
 
@@ -61,6 +62,7 @@ beamable-docs-unreal-2.2   → unreal/v2.2
 beamable-docs-unreal-2.3   → unreal/v2.3
 beamable-docs-websdk-1.0   → websdk/v1.0
 beamable-docs-api-1.0      → api/v1.0
+beamable-docs-toolkit-0.4  → toolkit/v0.4
 beamable-docs-internal     → internal
 ```
 
@@ -148,7 +150,7 @@ for d in beamable-docs-core-7.0 beamable-docs-core-7.1 beamable-docs-core-7.2 \
          beamable-docs-unity-5.0 beamable-docs-unity-5.1 beamable-docs-unity-6.0 \
          beamable-docs-unreal-2.2 beamable-docs-unreal-2.3 \
          beamable-docs-internal beamable-docs-api-1.0 \
-         beamable-docs-websdk-1.0; do
+         beamable-docs-toolkit-0.4 beamable-docs-websdk-1.0; do
   cp ~/src/beamable/docs/AGENTS.md ~/src/beamable/$d/AGENTS.md
   cp ~/src/beamable/docs/CLAUDE.md ~/src/beamable/$d/CLAUDE.md
   git -C ~/src/beamable/$d add AGENTS.md CLAUDE.md
