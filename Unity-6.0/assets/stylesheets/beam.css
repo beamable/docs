@@ -1,0 +1,35 @@
+div.lightbeam {
+    position: relative;
+}
+
+.lightbeam .beam-mask {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, .8);
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.beam-mask::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* opacity: .6; */
+    z-index: -1;
+    background-image:
+        linear-gradient(to bottom,
+          rgba(20,20,26,1) 0%,     /* full opacity at top */
+        rgba(20,20,26,.8) 50%,  /* quickly starts fading */
+        rgba(20,20,26,.7) 80%,  /* mostly transparent by halfway */
+        rgba(20,20,26,.5) 100%  /* stays transparent at bottom */
+        ),
+        url('/Docs/assets/images/lightbeam-background.jpg');
+    filter: grayscale(40%) drop-shadow(10px 10px 5px rgba(0,0,0,0.5)) blur(6px);
+    background-size: cover;
+    background-position: center;
+}
