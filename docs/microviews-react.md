@@ -241,7 +241,7 @@ import { BeamKpiRow, BeamKpiCard } from '@beamable/portal-toolkit/react'
 
 The components are web components under the hood, so the Console's theme tokens (`--color-beam-accent`, `--color-beam-text-muted`, and the rest) cross into your MicroView. You rarely need to branch on theme yourself.
 
-For the full list, use the in-Console galleries linked above; in your editor, the same components autocomplete from `@beamable/portal-toolkit/react`. You can still use plain HTML, your own CSS, and other React components or NPM packages alongside them. Reach for the Beam components first so your MicroView stays visually native to the Console.
+For the full list, use the in-Console galleries linked above; in your editor, the same components autocomplete from `@beamable/portal-toolkit/react`. You can still use plain HTML, your own CSS, and other React components or npm packages alongside them. Reach for the Beam components first so your MicroView stays visually native to the Console.
 
 ## Editing and saving
 

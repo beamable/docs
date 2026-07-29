@@ -6,7 +6,7 @@ A MicroView is a JavaScript bundle that the Console loads and mounts. The [React
 
 Every MicroView must satisfy four requirements:
 
-1. An NPM project whose `package.json` has a `beam-build` script. Running it must emit an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) bundle at `assets/index.js` and a stylesheet at `assets/style.css`
+1. An npm project whose `package.json` has a `beam-build` script. Running it must emit an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) bundle at `assets/index.js` and a stylesheet at `assets/style.css`
 2. A `beamable` block in `package.json` (the manifest) that marks the project as a MicroView and declares where it mounts (see [The manifest](#the-manifest))
 3. A dependency on [`@beamable/portal-toolkit`](https://www.npmjs.com/package/@beamable/portal-toolkit). It brings in `@beamable/sdk` as a peer dependency, so backend calls need no extra dependency (see [The Beam SDK](./microviews-context.md#the-beam-sdk))
 4. An entry module that registers the MicroView with `Portal.registerExtension` (see [Registering](#registering))
