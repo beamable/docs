@@ -133,6 +133,7 @@ Auto-sync flows from a core branch into one or more engine branches, but the ver
 - Stop copyediting it; factual backports only
 - Leave the branch and its published Mike version alone. Retired versions stay reachable — `Unity-4.0` and `Unity-5.0` both still resolve. Do not `mike delete`
 - The feeding core branch retires alongside it and needs no edit of its own: `auto-sync-core` fires only on push, and a retired core branch is not pushed again
+- **As the final commit before freezing** (do this before removing worktrees, or you will have to re-add them), prepend a frozen-branch notice to the top of that branch's own `AGENTS.md`, above the Project Overview, naming the freeze date and pointing at `main`. Otherwise the stale copy — its worktree list, branch mapping, and copyediting scope — reads as authoritative to anyone, human or agent, who opens that worktree. Where `AGENTS.md` is gitignored on the branch (`unity/v4.0`) this is not possible; skip it
 
 Two invariants worth holding in context:
 
