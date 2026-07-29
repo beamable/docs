@@ -1,0 +1,122 @@
+# Moves a "<Product>-Latest" Mike alias onto an already-published version.
+#
+# This is deliberately a SEPARATE workflow from Deploy Docs Branch, and
+# deliberately manual-trigger only. Promoting a version to Latest is a
+# judgement call made AFTER eyeballing the published site, so it must not
+# ride along with every deploy. The human keeps the decision; CI does the
+# execution, so the alias is written by a consistent toolchain, attributed
+# to an actor in the run history, and does not depend on a correctly
+# provisioned local Python environment.
+#
+# Runs from `main`: aliasing touches only `gh-pages`, so unlike Deploy Docs
+# Branch this never needs a content branch checked out.
+
+name: Set Latest Alias
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Published version to promote (e.g. Unity-6.0)'
+        required: true
+        type: string
+      alias:
+        description: 'Alias to move. Blank derives it, e.g. Unity-6.0 -> Unity-Latest'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Report what would change without pushing'
+        required: false
+        default: true
+        type: boolean
+
+run-name: >-
+  ${{ inputs.dry_run && 'Preview' || 'Set' }}
+  ${{ inputs.alias != '' && inputs.alias || 'Latest' }}
+  -> ${{ inputs.version }} by @${{ github.actor }}
+
+jobs:
+  set-alias:
+    name: Set alias
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Run setup.sh
+        run: bash setup.sh
+
+      # mike reads and rewrites the gh-pages branch, so it must exist locally.
+      - name: Fetch gh-pages
+        run: git fetch origin gh-pages:gh-pages
+
+      - name: Resolve alias
+        id: resolve
+        env:
+          VERSION: ${{ inputs.version }}
+          ALIAS: ${{ inputs.alias }}
+        run: |
+          if [ -n "$ALIAS" ]; then
+            RESOLVED="$ALIAS"
+          else
+            # Unity-6.0 -> Unity-Latest; CLI-7.2 -> CLI-Latest
+            RESOLVED="${VERSION%%-*}-Latest"
+          fi
+          echo "alias=$RESOLVED" >> "$GITHUB_OUTPUT"
+          echo "Version: $VERSION"
+          echo "Alias:   $RESOLVED"
+
+      # Refuse to alias something Mike has never published, and refuse to
+      # treat an existing alias as if it were a version.
+      - name: Verify version is published
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          mike list --branch gh-pages --json > /tmp/versions.json
+          if ! jq -e --arg v "$VERSION" 'any(.[]; .version == $v)' /tmp/versions.json > /dev/null; then
+            echo "::error::'$VERSION' is not a published version."
+            echo "Publish it first with Deploy Docs Branch from its content branch."
+            echo "Currently published:"
+            jq -r '.[].version' /tmp/versions.json | sed 's/^/  /'
+            exit 1
+          fi
+          echo "'$VERSION' is published."
+
+      - name: Show current alias holder
+        env:
+          ALIAS: ${{ steps.resolve.outputs.alias }}
+        run: |
+          HOLDER=$(jq -r --arg a "$ALIAS" \
+            '.[] | select(.aliases | index($a)) | .version' /tmp/versions.json)
+          if [ -z "$HOLDER" ]; then
+            echo "BEFORE: '$ALIAS' does not exist yet and will be created."
+          else
+            echo "BEFORE: '$ALIAS' currently points at '$HOLDER'."
+          fi
+
+      - name: Configure git for mike
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+
+      # Without --push nothing leaves the runner, so the commit mike makes
+      # to the local gh-pages checkout is discarded with the runner.
+      - name: Move alias (dry run)
+        if: ${{ inputs.dry_run }}
+        run: |
+          mike alias --update-aliases --branch gh-pages \
+            "${{ inputs.version }}" "${{ steps.resolve.outputs.alias }}"
+          echo "AFTER (not pushed):"
+          mike list --branch gh-pages | sed 's/^/  /'
+          echo "::notice::Dry run only. Re-run with dry_run unchecked to publish."
+
+      - name: Move alias (push)
+        if: ${{ !inputs.dry_run }}
+        run: |
+          mike alias --update-aliases --branch gh-pages --push \
+            "${{ inputs.version }}" "${{ steps.resolve.outputs.alias }}"
+          echo "AFTER:"
+          mike list --branch gh-pages | sed 's/^/  /'

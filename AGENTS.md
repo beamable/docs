@@ -13,7 +13,7 @@ Each SDK version is maintained on its own branch with its own `mkdocs.yml`:
 - `unreal/v*` — Unreal SDK docs
 - `websdk/v*` — WebSDK docs
 - `api/v*`, `typescript/v*` — API and TypeScript docs
-- `toolkit/v*` — Beamable Toolkit docs: a set of TypeScript helpers for writing consistent, effective MicroViews (also called Portal Extensions). Published but not yet meant for public consumption — Beamable Toolkit and Beamable Console are unreleased, so the docs are deliberately unadvertised. Not a secret: readers who have the URL are welcome, it is simply not ready for prime time. Prose on this branch is in normal copyediting scope
+- `toolkit/v*` — Beamable Toolkit and Beamable Console docs, covering MicroViews (also called Portal Extensions). The toolkit is the npm package `@beamable/portal-toolkit`: TypeScript source shipping CJS + ESM builds plus type definitions, so JavaScript consumers work too. It provides `Portal.registerExtension()`, TypeScript types for Beamable's web components (`beam-btn`, `beam-data-table`, …), React helpers (React 19 is a peer dependency), and Vite/Rollup build integrations. Source of truth for current behavior is `beam-portal-toolkit/` in the BeamableProduct repo; note its package version tracks separately from this docs branch version. Both products are unreleased, so these docs are published but not promoted — they appear in the version selector as a deliberate teaser. Prose here is in normal copyediting scope
 - `internal` — Internal Beamable staff guides (published but not publicly advertised; only accessible via direct URL)
 - `gh-pages` — GitHub Pages deployment target (do not edit directly)
 
@@ -52,10 +52,8 @@ Because content lives on many branches simultaneously, `git worktree` is the rec
 Suggested naming convention (siblings of `docs/` under `~/src/beamable/`, or wherever you clone it):
 
 ```
-beamable-docs-unity-5.0    → unity/v5.0
 beamable-docs-unity-5.1    → unity/v5.1
 beamable-docs-unity-6.0    → unity/v6.0
-beamable-docs-core-7.0     → core/v7.0
 beamable-docs-core-7.1     → core/v7.1
 beamable-docs-core-7.2     → core/v7.2
 beamable-docs-unreal-2.2   → unreal/v2.2
@@ -124,9 +122,17 @@ echo; echo "All pushes complete."
 
 ### Branch mapping
 
-Auto-sync flows from a core branch into one or more engine branches, but the version numbers do **not** correspond arithmetically — the mapping is explicit and must be read, not inferred (`core/v7.0` → `unity/v5.0`; `core/v7.2` → `unity/v5.1` and `unity/v6.0`; `core/v7.1` → `unreal/v2.3`). Each core branch declares its own downstream targets in the `matrix.branch` list of `.github/workflows/auto-sync-core.yml` *on that core branch*; that file is the only authoritative source. Check it before assuming any relationship.
+Auto-sync flows from a core branch into one or more engine branches, but the version numbers do **not** correspond arithmetically — the mapping is explicit and must be read, not inferred (`core/v7.2` → `unity/v5.1` and `unity/v6.0`; `core/v7.1` → `unreal/v2.3`). Each core branch declares its own downstream targets in the `matrix.branch` list of `.github/workflows/auto-sync-core.yml` *on that core branch*; that file is the only authoritative source. Check it before assuming any relationship.
 
-**Version-support policy:** maintain the current and previous version per engine. That currently means Unity `v6.0` (current) + `v5.1` (previous) and Unreal `v2.3` (current) + `v2.2` (previous), with a ceiling of four core branches in rotation at once. Unity SDK 6.0.0 kept the CLI on 7.2.x, so both supported Unity versions share one core feed (`core/v7.2` → `v5.1` and `v6.0`) rather than each having its own; a major SDK bump does not imply a new core branch — check the SDK/CLI version history before assuming one is needed. Unreal keeps only `core/v7.1` → `v2.3` because the current docs landed recently enough that no prior core branch pertains to `v2.2` (it takes core-owned fixes by direct edit or cherry-pick). When a new release ships, retire the core branch feeding the version that falls out of the current/previous window along with its engine branch — `unity/v5.0` and its feed `core/v7.0` fell out of the window when 6.0.0 shipped and are pending retirement.
+**Version-support policy:** maintain the current and previous version per engine. That currently means Unity `v6.0` (current) + `v5.1` (previous) and Unreal `v2.3` (current) + `v2.2` (previous), with a ceiling of four core branches in rotation at once. Unity SDK 6.0.0 kept the CLI on 7.2.x, so both supported Unity versions share one core feed (`core/v7.2` → `v5.1` and `v6.0`) rather than each having its own; a major SDK bump does not imply a new core branch — check the SDK/CLI version history before assuming one is needed. Unreal keeps only `core/v7.1` → `v2.3` because the current docs landed recently enough that no prior core branch pertains to `v2.2` (it takes core-owned fixes by direct edit or cherry-pick). When a new release ships, retire the core branch feeding the version that falls out of the current/previous window along with its engine branch. `unity/v5.0` and its feed `core/v7.0` were retired this way when 6.0.0 shipped.
+
+**Retiring a version** freezes a branch; it does not delete or unpublish it. `unity/v4.0` and `unity/v5.0` are the worked examples.
+
+- Remove the engine branch from the `matrix.branch` list in `update-version-table.yml` on `main`. Membership there rewrites and pushes the version tables on every SDK release, and since the branch matches `unity/**` each such commit triggers a `gh-pages` deploy — so a retired branch left in the matrix republishes frozen docs forever and competes for the deploy concurrency slot
+- Remove it from the worktree list and stamp loop below, and tidy up any local worktrees for it (paths and names vary by contributor)
+- Stop copyediting it; factual backports only
+- Leave the branch and its published Mike version alone. Retired versions stay reachable — `Unity-4.0` and `Unity-5.0` both still resolve. Do not `mike delete`
+- The feeding core branch retires alongside it and needs no edit of its own: `auto-sync-core` fires only on push, and a retired core branch is not pushed again
 
 Two invariants worth holding in context:
 
@@ -143,11 +149,11 @@ Project instructions live in **`AGENTS.md`** so every agent reads them. Codex, C
 
 Claude Code expands that `@`-import to pull in `AGENTS.md`, so both toolchains see the same instructions and there is nothing to drift. Edit `AGENTS.md`, never `CLAUDE.md` (the one-liner is fixed).
 
-Both files live on every content branch so agents working from any worktree see project-specific instructions. `main` holds the canonical `AGENTS.md`; all edits land there first. There is no automation propagating `main` → other branches. These files are **not** core-owned paths, so they do not ride `auto-sync-core` (which syncs only `docs/cli/guides`, `docs/cli/SUMMARY.md`, `docs/includes`, and `docs/portal`) — including the auto-sync targets `unity/v5.0`, `unity/v5.1`, `unity/v6.0`, and `unreal/v2.3`, which receive core-owned content downstream but not these. After editing `AGENTS.md` on main, stamp it (and the one-line `CLAUDE.md`) onto each worktree branch in the same session:
+Both files live on every content branch so agents working from any worktree see project-specific instructions. `main` holds the canonical `AGENTS.md`; all edits land there first. There is no automation propagating `main` → other branches. These files are **not** core-owned paths, so they do not ride `auto-sync-core` (which syncs only `docs/cli/guides`, `docs/cli/SUMMARY.md`, `docs/includes`, and `docs/portal`) — including the auto-sync targets `unity/v5.1`, `unity/v6.0`, and `unreal/v2.3`, which receive core-owned content downstream but not these. After editing `AGENTS.md` on main, stamp it (and the one-line `CLAUDE.md`) onto each worktree branch in the same session:
 
 ```bash
-for d in beamable-docs-core-7.0 beamable-docs-core-7.1 beamable-docs-core-7.2 \
-         beamable-docs-unity-5.0 beamable-docs-unity-5.1 beamable-docs-unity-6.0 \
+for d in beamable-docs-core-7.1 beamable-docs-core-7.2 \
+         beamable-docs-unity-5.1 beamable-docs-unity-6.0 \
          beamable-docs-unreal-2.2 beamable-docs-unreal-2.3 \
          beamable-docs-internal beamable-docs-api-1.0 \
          beamable-docs-toolkit-0.4 beamable-docs-websdk-1.0; do
@@ -225,7 +231,7 @@ For **feature and fix PRs**, prefer **squash-and-merge**. These are typically si
 
 ### Backporting
 
-Copyediting and style changes (grammar, punctuation, passive voice, style consistency) apply only to `unity/v5.x` branches and newer, `unreal/v2.x` and newer, and the corresponding core branches. Do not backport these to `unity/v4.0` or earlier. Only backport factual corrections pertinent to that specific version (SDK/CLI version table entries, bug fix notes, feature corrections, etc.).
+Copyediting and style changes (grammar, punctuation, passive voice, style consistency) apply only to `unity/v5.1` and newer, `unreal/v2.x` and newer, and the corresponding core branches. Do not backport these to retired branches (`unity/v5.0` and earlier). Only backport factual corrections pertinent to that specific version (SDK/CLI version table entries, bug fix notes, feature corrections, etc.).
 
 For **Unreal**, apply copyediting changes to `unreal/v2.2` immediately after finishing each item on `unreal/v2.3` — do not defer all `v2.2` work to the end of the session. Applying each change while context is fresh is faster and less error-prone than a bulk pass later. Exception: if a `v2.3` item is flagged for SDK-team verification (Priority 3), hold off on `v2.2` until the `v2.3` fix is confirmed.
 
