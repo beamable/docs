@@ -53,6 +53,12 @@ jobs:
       - name: Fetch gh-pages
         run: git fetch origin gh-pages:gh-pages
 
+      # Every mike call below passes BOTH --branch and --remote. `main` carries
+      # no mkdocs config, and mike falls back to reading the config file to
+      # resolve the remote — so --branch alone still aborts with
+      # "No such file or directory: 'mkdocs.yml'". Deploy Docs Branch never
+      # hits this because it runs with a content branch checked out.
+
       - name: Resolve alias
         id: resolve
         env:
@@ -75,7 +81,7 @@ jobs:
         env:
           VERSION: ${{ inputs.version }}
         run: |
-          mike list --branch gh-pages --json > /tmp/versions.json
+          mike list --branch gh-pages --remote origin --json > /tmp/versions.json
           if ! jq -e --arg v "$VERSION" 'any(.[]; .version == $v)' /tmp/versions.json > /dev/null; then
             echo "::error::'$VERSION' is not a published version."
             echo "Publish it first with Deploy Docs Branch from its content branch."
@@ -107,16 +113,16 @@ jobs:
       - name: Move alias (dry run)
         if: ${{ inputs.dry_run }}
         run: |
-          mike alias --update-aliases --branch gh-pages \
+          mike alias --update-aliases --branch gh-pages --remote origin \
             "${{ inputs.version }}" "${{ steps.resolve.outputs.alias }}"
           echo "AFTER (not pushed):"
-          mike list --branch gh-pages | sed 's/^/  /'
+          mike list --branch gh-pages --remote origin | sed 's/^/  /'
           echo "::notice::Dry run only. Re-run with dry_run unchecked to publish."
 
       - name: Move alias (push)
         if: ${{ !inputs.dry_run }}
         run: |
-          mike alias --update-aliases --branch gh-pages --push \
+          mike alias --update-aliases --branch gh-pages --remote origin --push \
             "${{ inputs.version }}" "${{ steps.resolve.outputs.alias }}"
           echo "AFTER:"
-          mike list --branch gh-pages | sed 's/^/  /'
+          mike list --branch gh-pages --remote origin | sed 's/^/  /'
