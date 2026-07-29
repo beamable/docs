@@ -1,5 +1,13 @@
 # AGENTS.md
 
+> **This branch is frozen.** It holds the core content that fed `unity/v5.0`,
+> retired from active maintenance on 2026-07-29 when Unity 6.0.0 shipped.
+> Everything below is a snapshot from that date. Its branch topology,
+> automation details, worktree list, and copyediting scope are no longer
+> maintained here and are likely stale — read `AGENTS.md` on `main` for
+> current tooling and process. Only factual corrections pertinent to this
+> version belong on this branch.
+
 ## Project Overview
 
 Beamable Docs is a multi-version documentation site for Beamable SDKs (Unity, Unreal, WebSDK, Core, TypeScript, API). Documentation content lives on versioned Git branches, not on `main`. The `main` branch holds only the shared tooling, setup scripts, and CI/CD configuration.
