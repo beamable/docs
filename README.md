@@ -1,10 +1,26 @@
 # Beamable Docs Repository
 
-This project is s the unified repository for Beamable Docs. This include the following documentation branches
-- "core" - Shared Beamable Concepts Documentation
-- "unreal" - Unreal SDK Documentation
-- "unity" - Unity SDK Documentation
-- "internal" - Beamable Internal Documentation and Guides
+This is the unified repository for Beamable Docs. Documentation content lives on
+versioned branches, not on `main` — `main` holds only the shared tooling, setup
+scripts, and CI/CD configuration.
+
+Content branches:
+
+- `core/v*` — shared Beamable concepts (CLI guides, Portal); synced into the engine branches
+- `unity/v*` — Unity SDK documentation
+- `unreal/v*` — Unreal SDK documentation
+- `websdk/v*` — Web SDK documentation
+- `api/v*` — Beamable API documentation
+- `toolkit/v*` — Beamable Toolkit and Console documentation (MicroViews)
+- `internal` — Beamable internal documentation and guides (published, but not publicly advertised)
+
+Infrastructure branches:
+
+- `home` — builds the product-chooser landing page at `help.beamable.com/`. A newly published product line is not discoverable from the top of the site until it has a card here
+- `gh-pages` — the GitHub Pages deployment target; do not edit directly
+
+See [`AGENTS.md`](AGENTS.md) for the full branch architecture, the core-to-engine
+sync rules, and the contribution conventions.
 
 # Cloning and Installing Dependencies:
 - Clone the main branch of this repo (make sure you have git-lfs installed).
@@ -17,4 +33,4 @@ This project is s the unified repository for Beamable Docs. This include the fol
 - Open the Serve link in your browser http://127.0.0.1:8000/Docs/
 
 # Next Steps:
-You will find more details about the process of editing, building and deploying documents in the "Internal" documentation in the [website](https://beamable.github.io/docs/Internal/) or in running the internal branch.
+You will find more details about the process of editing, building and deploying documents in the "Internal" documentation on the [website](https://help.beamable.com/Internal/) or by running the `internal` branch locally.

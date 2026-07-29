@@ -15,9 +15,10 @@ Each SDK version is maintained on its own branch with its own `mkdocs.yml`:
 - `api/v*`, `typescript/v*` — API and TypeScript docs
 - `toolkit/v*` — Beamable Toolkit and Beamable Console docs, covering MicroViews (also called Portal Extensions). The toolkit is the npm package `@beamable/portal-toolkit`: TypeScript source shipping CJS + ESM builds plus type definitions, so JavaScript consumers work too. It provides `Portal.registerExtension()`, TypeScript types for Beamable's web components (`beam-btn`, `beam-data-table`, …), React helpers (React 19 is a peer dependency), and Vite/Rollup build integrations. Source of truth for current behavior is `beam-portal-toolkit/` in the BeamableProduct repo; note its package version tracks separately from this docs branch version. Both products are unreleased, so these docs are published but not promoted — they appear in the version selector as a deliberate teaser. Prose here is in normal copyediting scope
 - `internal` — Internal Beamable staff guides (published but not publicly advertised; only accessible via direct URL)
+- `home` — **the site's front door.** Builds the product chooser published at `gh-pages:Home/`, which `help.beamable.com/` redirects to. This is the landing page with the Unity / Unreal / Web SDK / CLI / API cards, and its card list is the *only* thing that makes a product line discoverable to a reader who starts at the top. A published Mike version that is absent from this chooser is reachable only via the version dropdown — which readers interpret as "pick a version of what I'm looking at," not "pick a product" — so it is effectively undiscoverable. **When a new product line is published, add its card here**; that step is easy to miss because nothing in the deploy workflows touches this branch. `toolkit/v0.4` is currently absent by design (unreleased; see the `toolkit/v*` entry above)
 - `gh-pages` — GitHub Pages deployment target (do not edit directly)
 
-Two branches have no version component: `main` (shared tooling and CI/CD; the starting point for new contributors) and `internal`. All other content branches carry a version suffix.
+Four branches have no version component: `main` (shared tooling and CI/CD; the starting point for new contributors), `internal`, `home`, and `gh-pages`. All other content branches carry a version suffix.
 
 To edit documentation, switch to the appropriate versioned branch before making changes.
 
@@ -123,6 +124,17 @@ echo; echo "All pushes complete."
 ### Branch mapping
 
 Auto-sync flows from a core branch into one or more engine branches, but the version numbers do **not** correspond arithmetically — the mapping is explicit and must be read, not inferred (`core/v7.2` → `unity/v5.1` and `unity/v6.0`; `core/v7.1` → `unreal/v2.3`). Each core branch declares its own downstream targets in the `matrix.branch` list of `.github/workflows/auto-sync-core.yml` *on that core branch*; that file is the only authoritative source. Check it before assuming any relationship.
+
+**Every branch carries `auto-sync-core.yml`, and only core branches carry the real one.** The invariant, as of 2026-07-29:
+
+- **`core/v*`** — the real, executable workflow, pinned by `on.push.branches` to its own branch and declaring its own `matrix.branch`. Its first step is a guard that fails loudly if the workflow ever runs from a non-`core/*` ref
+- **every other branch** — a byte-identical **stub** that refuses to run and explains why. Verify with `md5sum`; they must all match
+
+This matters because a `push` event runs the workflow file from **the tree of the pushed commit**. A push to `core/v7.2` runs *that branch's* copy, so editing any other branch's copy has no effect on sync behavior and nothing warns you. The stub exists so that reading the file from `main` or a content branch tells you this, instead of presenting a plausible-looking workflow that can never fire.
+
+The stub also traps the reverse mistake: it triggers on `push` to `core/**`, so cutting a new core branch *without* installing the real workflow fails loudly on the first push rather than silently never syncing. There is no false-positive surface — a correctly-configured core branch has the real workflow and never reaches the stub.
+
+The stub is safe to keep on downstream branches only because the sync is path-scoped. The retired squash-merge design merged whole branches, dragging `.github/workflows/` across and overwriting any such stub on the next core push; the current copy touches only the four core-owned paths, and `.github/` is not among them. Retired branches (`unity/v4.0`) may still hold the obsolete merge-based copy — frozen, inert, and deliberately left alone.
 
 **Version-support policy:** maintain the current and previous version per engine. That currently means Unity `v6.0` (current) + `v5.1` (previous) and Unreal `v2.3` (current) + `v2.2` (previous), with a ceiling of four core branches in rotation at once. Unity SDK 6.0.0 kept the CLI on 7.2.x, so both supported Unity versions share one core feed (`core/v7.2` → `v5.1` and `v6.0`) rather than each having its own; a major SDK bump does not imply a new core branch — check the SDK/CLI version history before assuming one is needed. Unreal keeps only `core/v7.1` → `v2.3` because the current docs landed recently enough that no prior core branch pertains to `v2.2` (it takes core-owned fixes by direct edit or cherry-pick). When a new release ships, retire the core branch feeding the version that falls out of the current/previous window along with its engine branch. `unity/v5.0` and its feed `core/v7.0` were retired this way when 6.0.0 shipped.
 
