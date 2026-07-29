@@ -20,6 +20,28 @@ jobs:
       synced_branches: ${{ steps.sync.outputs.synced_branches }}
 
     steps:
+      # Defense in depth. `on.push.branches` above already pins this workflow to
+      # one core branch, so it cannot fire elsewhere today. The guard matters if
+      # this file is ever copied onto a non-core branch AND its trigger adjusted
+      # — a real, matrix-declaring copy of this workflow was sitting on
+      # `toolkit/v0.4` until 2026-07-29, inert only because the trigger still
+      # named a core branch. Deliberately a failing step rather than a job-level
+      # `if:`, which would report a misconfigured run as a green skip.
+      - name: Guard — refuse to sync from a non-core branch
+        env:
+          REF: ${{ github.ref_name }}
+        run: |
+          if [[ "$REF" != core/* ]]; then
+            echo "::error::Auto Sync Core ran from '$REF', which is not a core/* branch. Refusing to sync."
+            echo
+            echo "Only core/v* branches may push core-owned paths downstream."
+            echo "If this file was copied onto a non-core branch, replace it with"
+            echo "the stub that lives on 'main' and on every other non-core"
+            echo "branch. See AGENTS.md, section 'Branch mapping'."
+            exit 1
+          fi
+          echo "Ref '$REF' is a core branch; proceeding."
+
       - name: Checkout target branch
         uses: actions/checkout@v5
         with:
