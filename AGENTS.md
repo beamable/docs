@@ -53,6 +53,7 @@ Suggested naming convention (siblings of `docs/` under `~/src/beamable/`, or whe
 ```
 beamable-docs-unity-5.0    → unity/v5.0
 beamable-docs-unity-5.1    → unity/v5.1
+beamable-docs-unity-6.0    → unity/v6.0
 beamable-docs-core-7.0     → core/v7.0
 beamable-docs-core-7.1     → core/v7.1
 beamable-docs-core-7.2     → core/v7.2
@@ -121,9 +122,9 @@ echo; echo "All pushes complete."
 
 ### Branch mapping
 
-Auto-sync flows from a core branch into one or more engine branches, but the version numbers do **not** correspond arithmetically — the mapping is explicit and must be read, not inferred (`core/v7.0` → `unity/v5.0`; `core/v7.2` → `unity/v5.1`; `core/v7.1` → `unreal/v2.3`). Each core branch declares its own downstream targets in the `matrix.branch` list of `.github/workflows/auto-sync-core.yml` *on that core branch*; that file is the only authoritative source. Check it before assuming any relationship.
+Auto-sync flows from a core branch into one or more engine branches, but the version numbers do **not** correspond arithmetically — the mapping is explicit and must be read, not inferred (`core/v7.0` → `unity/v5.0`; `core/v7.2` → `unity/v5.1` and `unity/v6.0`; `core/v7.1` → `unreal/v2.3`). Each core branch declares its own downstream targets in the `matrix.branch` list of `.github/workflows/auto-sync-core.yml` *on that core branch*; that file is the only authoritative source. Check it before assuming any relationship.
 
-**Version-support policy:** maintain the current and previous version per engine. That currently means Unity `v5.1` (current) + `v5.0` (previous) and Unreal `v2.3` (current) + `v2.2` (previous), with a ceiling of four core branches in rotation at once. Unity's two versions each have a core feed (`core/v7.2` → `v5.1`, `core/v7.0` → `v5.0`); Unreal keeps only `core/v7.1` → `v2.3` because the current docs landed recently enough that no prior core branch pertains to `v2.2` (it takes core-owned fixes by direct edit or cherry-pick). When a new release ships, retire the core branch feeding the version that falls out of the current/previous window along with its engine branch.
+**Version-support policy:** maintain the current and previous version per engine. That currently means Unity `v6.0` (current) + `v5.1` (previous) and Unreal `v2.3` (current) + `v2.2` (previous), with a ceiling of four core branches in rotation at once. Unity SDK 6.0.0 kept the CLI on 7.2.x, so both supported Unity versions share one core feed (`core/v7.2` → `v5.1` and `v6.0`) rather than each having its own; a major SDK bump does not imply a new core branch — check the SDK/CLI version history before assuming one is needed. Unreal keeps only `core/v7.1` → `v2.3` because the current docs landed recently enough that no prior core branch pertains to `v2.2` (it takes core-owned fixes by direct edit or cherry-pick). When a new release ships, retire the core branch feeding the version that falls out of the current/previous window along with its engine branch — `unity/v5.0` and its feed `core/v7.0` fell out of the window when 6.0.0 shipped and are pending retirement.
 
 Two invariants worth holding in context:
 
@@ -140,11 +141,11 @@ Project instructions live in **`AGENTS.md`** so every agent reads them. Codex, C
 
 Claude Code expands that `@`-import to pull in `AGENTS.md`, so both toolchains see the same instructions and there is nothing to drift. Edit `AGENTS.md`, never `CLAUDE.md` (the one-liner is fixed).
 
-Both files live on every content branch so agents working from any worktree see project-specific instructions. `main` holds the canonical `AGENTS.md`; all edits land there first. There is no automation propagating `main` → other branches. These files are **not** core-owned paths, so they do not ride `auto-sync-core` (which syncs only `docs/cli/guides`, `docs/cli/SUMMARY.md`, `docs/includes`, and `docs/portal`) — including the auto-sync targets `unity/v5.0`, `unity/v5.1`, and `unreal/v2.3`, which receive core-owned content downstream but not these. After editing `AGENTS.md` on main, stamp it (and the one-line `CLAUDE.md`) onto each worktree branch in the same session:
+Both files live on every content branch so agents working from any worktree see project-specific instructions. `main` holds the canonical `AGENTS.md`; all edits land there first. There is no automation propagating `main` → other branches. These files are **not** core-owned paths, so they do not ride `auto-sync-core` (which syncs only `docs/cli/guides`, `docs/cli/SUMMARY.md`, `docs/includes`, and `docs/portal`) — including the auto-sync targets `unity/v5.0`, `unity/v5.1`, `unity/v6.0`, and `unreal/v2.3`, which receive core-owned content downstream but not these. After editing `AGENTS.md` on main, stamp it (and the one-line `CLAUDE.md`) onto each worktree branch in the same session:
 
 ```bash
 for d in beamable-docs-core-7.0 beamable-docs-core-7.1 beamable-docs-core-7.2 \
-         beamable-docs-unity-5.0 beamable-docs-unity-5.1 \
+         beamable-docs-unity-5.0 beamable-docs-unity-5.1 beamable-docs-unity-6.0 \
          beamable-docs-unreal-2.2 beamable-docs-unreal-2.3 \
          beamable-docs-internal beamable-docs-api-1.0 \
          beamable-docs-websdk-1.0; do
