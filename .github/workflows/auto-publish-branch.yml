@@ -1,0 +1,74 @@
+# ============================================================================
+# THIS IS A STUB. IT DOES NOTHING. IT IS NOT THE REAL WORKFLOW.
+# ============================================================================
+#
+# The working Auto Publish Branch lives on each content branch. NEVER HERE.
+#
+# WHY A COPY EXISTS ON `main` AT ALL:
+#
+#   1. DISCOVERABILITY. This workflow governs EVERY automatic deploy to
+#      `gh-pages`, yet `main` carried no trace of it. Someone auditing how
+#      the published site gets built would find nothing here to explain it.
+#   2. WORKFLOW NAMING. GitHub resolves a workflow's display name from the
+#      copy on the default branch, so a missing copy here lets the Actions
+#      UI drift onto stale names.
+#
+# WHY EDITING THIS FILE CHANGES NOTHING:
+#
+#   `push` events run the workflow file from the tree of THE PUSHED COMMIT.
+#   A push to `unity/v6.0` therefore runs *that branch's* copy of
+#   auto-publish-branch.yml. This file cannot fire for a content-branch push,
+#   and editing it has NO EFFECT ON PUBLISHING BEHAVIOR WHATSOEVER.
+#
+# HOW THE REAL WORKFLOW BEHAVES (the part that surprises people):
+#
+#   It DOES NOT publish a version that Mike has never seen. It runs
+#   `mike list`, greps for the derived alias, and SKIPS THE ENTIRE DEPLOY if
+#   there is no match. A brand-new branch therefore publishes NOTHING on its
+#   first push, silently and successfully.
+#
+#   THE FIRST PUBLISH OF ANY NEW VERSION MUST BE DONE BY HAND, via a
+#   `Deploy Docs Branch` workflow_dispatch from the new branch. Only after
+#   that does auto-publish take over for subsequent pushes.
+#
+#   It derives the Mike version from the branch name, mapping the branch
+#   prefix to a product: `core/*` publishes as CLI-<version>, NOT Core.
+#
+# WHERE THE REAL CONFIGURATION LIVES:
+#
+#   On each content branch, in its own copy of this file. Behavior can and
+#   does differ between branches; that copy is THE ONLY AUTHORITATIVE SOURCE
+#   for how a given branch publishes. See AGENTS.md, "Deployment".
+#
+# ============================================================================
+
+name: Auto Publish Branch
+
+# NO `push` TRIGGER, BY DESIGN. A push-triggered stub on the default branch
+# would either fail on every push to `main` or sit here as decoration that
+# can never execute. `workflow_dispatch` is the only entry point, and it
+# exists solely so the failure below can explain itself.
+on:
+  workflow_dispatch:
+
+run-name: Invalid main @${{ github.actor }}
+
+jobs:
+  stub:
+    name: Stub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Refuse to run and explain why
+        run: |
+          echo "::error::Auto Publish Branch cannot run from 'main'. This is a stub."
+          echo
+          echo "The real workflow runs only on push to a content branch, using"
+          echo "that branch's own copy of this file."
+          echo
+          echo "It also refuses to publish a version Mike has not seen before."
+          echo "TO PUBLISH A NEW VERSION FOR THE FIRST TIME, dispatch"
+          echo "'Deploy Docs Branch' from the new branch by hand. Auto-publish"
+          echo "handles every push after that."
+          echo
+          echo "See AGENTS.md, section 'Deployment'."
+          exit 1

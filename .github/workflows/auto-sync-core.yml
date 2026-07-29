@@ -1,0 +1,65 @@
+# ============================================================================
+# THIS IS A STUB. IT DOES NOTHING. IT IS NOT THE REAL WORKFLOW.
+# ============================================================================
+#
+# The working Auto Sync Core lives on each `core/v*` branch. NEVER HERE.
+#
+# WHY A COPY EXISTS ON `main` AT ALL:
+#
+#   1. DISCOVERABILITY. AGENTS.md calls `main` the starting point for new
+#      contributors, but `main` carries none of the automation that actually
+#      governs this repo. Without this file, someone auditing the workflows
+#      from `main` sees no evidence that core-to-downstream syncing exists.
+#   2. WORKFLOW NAMING. GitHub resolves a workflow's display name from the
+#      copy on the default branch. With no copy here, the Actions UI kept
+#      showing this workflow under its long-obsolete "Auto Merge Core" name
+#      years after the squash-merge design was replaced.
+#
+# WHY EDITING THIS FILE CHANGES NOTHING:
+#
+#   `push` events run the workflow file from the tree of THE PUSHED COMMIT.
+#   A push to `core/v7.2` therefore runs *that branch's* copy of
+#   auto-sync-core.yml. This file cannot fire for a core push, and editing
+#   it has NO EFFECT ON SYNC BEHAVIOR WHATSOEVER. If you change the matrix
+#   here expecting downstream branches to follow, nothing will happen and
+#   nothing will warn you.
+#
+# WHERE THE REAL CONFIGURATION LIVES:
+#
+#   Each core branch declares its own downstream targets in the
+#   `matrix.branch` list of ITS OWN copy of this file. That is THE ONLY
+#   AUTHORITATIVE SOURCE for the mapping. It is deliberately NOT duplicated
+#   here: a stale mapping in a stub would be worse than no mapping at all.
+#   See AGENTS.md, "Branch mapping", for how to read it.
+#
+# ============================================================================
+
+name: Auto Sync Core
+
+# NO `push` TRIGGER, BY DESIGN. A push-triggered stub on the default branch
+# would either fail on every push to `main` or sit here as decoration that
+# can never execute. `workflow_dispatch` is the only entry point, and it
+# exists solely so the failure below can explain itself.
+on:
+  workflow_dispatch:
+
+run-name: Invalid main @${{ github.actor }}
+
+jobs:
+  stub:
+    name: Stub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Refuse to run and explain why
+        run: |
+          echo "::error::Auto Sync Core cannot run from 'main'. This is a stub."
+          echo
+          echo "The real workflow runs only on push to a core/v* branch, using"
+          echo "that branch's own copy of .github/workflows/auto-sync-core.yml."
+          echo
+          echo "To change which branches a core branch feeds, edit the"
+          echo "matrix.branch list in that file ON THE CORE BRANCH ITSELF."
+          echo "Editing the copy on 'main' accomplishes nothing."
+          echo
+          echo "See AGENTS.md, section 'Branch mapping'."
+          exit 1
