@@ -15,7 +15,7 @@ jobs:
     name: Sync ${{ github.ref_name }} into ${{ matrix.branch }}
     strategy:
       matrix:
-        branch: [unity/v5.1]
+        branch: [unity/v5.1, unity/v6.0]
     outputs:
       synced_branches: ${{ steps.sync.outputs.synced_branches }}
 
