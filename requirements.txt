@@ -1,0 +1,69 @@
+# Pinned Python toolchain for building and publishing these docs.
+#
+# WHY THIS FILE EXISTS: setup.sh previously installed every dependency
+# unpinned, so the CI toolchain could change with nobody touching the repo.
+# It did. mkdocs-literate-nav 0.6.3 added a dependency on `properdocs` (the
+# continuation of MkDocs, which has had no release since 2024), and from that
+# release onward every CI run silently built with ProperDocs instead of
+# MkDocs, while contributors with older virtualenvs kept building with MkDocs.
+# The divergence went unnoticed for roughly three months. Pin, and changes
+# arrive as a reviewable diff instead of a surprise in a commit message.
+#
+# NOTE: properdocs is what actually builds the site. It is listed below as a
+# transitive dependency because that is how it currently enters the tree, via
+# mkdocs-literate-nav. Promoting it to a direct dependency and renaming
+# mkdocs.yml to properdocs.yml is tracked separately.
+#
+# TO REGENERATE after changing a direct dependency below:
+#   pip install --dry-run --ignore-installed --report report.json <direct deps>
+# then rewrite the pins from report.json.
+#
+# NOT HASH-PINNED, deliberately. Several of these ship platform-specific
+# wheels, so hashes captured on one OS break installs on another. Doing it
+# properly needs `pip-compile --generate-hashes`, which collects every
+# platform's hash per version. Tracked as follow-up work.
+
+# --- Direct dependencies (keep this list in sync with the comment in setup.sh) ---
+mkdocs==1.6.1
+mkdocs-material==9.7.7
+mkdocs-glightbox==0.5.2
+mkdocs-autorefs==1.4.4
+mkdocs-literate-nav==0.6.3
+mike==2.2.0
+mkdocs-swagger-ui-tag==0.8.1
+
+# --- Transitive dependencies (pinned for reproducibility; do not edit by hand) ---
+babel==2.18.0
+backrefs==8.0
+beautifulsoup4==4.15.0
+certifi==2026.7.22
+charset-normalizer==3.4.9
+click==8.4.2
+colorama==0.4.6
+ghp-import==2.1.0
+idna==3.18
+jinja2==3.1.6
+markdown==3.10.2
+markupsafe==3.0.3
+mergedeep==1.3.4
+mkdocs-get-deps==0.2.2
+mkdocs-material-extensions==1.3.1
+packaging==26.2
+paginate==0.5.7
+pathspec==1.1.1
+platformdirs==4.11.0
+properdocs==1.6.7
+pygments==2.20.0
+pymdown-extensions==11.0.1
+pyparsing==3.3.2
+python-dateutil==2.9.0.post0
+pyyaml==6.0.3
+pyyaml_env_tag==1.1
+requests==2.34.2
+selectolax==0.4.11
+six==1.17.0
+soupsieve==2.9.1
+typing_extensions==4.16.0
+urllib3==2.7.0
+verspec==0.1.0
+watchdog==6.0.0
