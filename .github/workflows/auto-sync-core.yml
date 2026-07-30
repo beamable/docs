@@ -3,7 +3,7 @@ name: Auto Sync Core
 on:
   push:
     branches:
-      - 'core/v7.2'
+      - 'core/v8.0'
 
 run-name: "Sync ${{ github.ref_name }} core-owned paths into docs"
 
@@ -15,7 +15,8 @@ jobs:
     name: Sync ${{ github.ref_name }} into ${{ matrix.branch }}
     strategy:
       matrix:
-        branch: [unity/v5.1]
+        # TODO: when Unity or Unreal depends on cli 8.0, add those versions here. 
+        branch: []
     outputs:
       synced_branches: ${{ steps.sync.outputs.synced_branches }}
 

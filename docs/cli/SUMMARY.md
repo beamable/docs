@@ -10,6 +10,7 @@
     - [Routing](guides/ms-routing.md)
     - [Storage](guides/ms-storage.md)
     - [Federation](guides/ms-federation.md)
+    - [Zoned Microservices](guides/ms-zones.md)
     - [CLI Workflows](guides/ms-workflow.md)
     - [UPM](guides/ms-upm.md)
     - [Logging](guides/ms-logging.md)
