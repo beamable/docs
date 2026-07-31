@@ -1,4 +1,4 @@
-﻿- [Unity SDK](https://help.beamable.com/Unity-Latest/)
+- [Unity SDK](https://help.beamable.com/Unity-Latest/)
 - [Unreal SDK](https://help.beamable.com/Unreal-Latest/)
 - [Web SDK](https://help.beamable.com/WebSDK-Latest/)
 - [Beamable CLI](https://help.beamable.com/CLI-Latest/)
