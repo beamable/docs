@@ -15,9 +15,9 @@ Both paths hand your MicroView the same runtime `context`. See [Working with the
 
 Before you build a MicroView you need:
 
-- **A Beamable organization and workspace.** A MicroView is a project inside a Beamable workspace (the folder with a `.beamable` directory), created next to your microservices
-- **The Beam CLI**, installed as a .NET tool. It scaffolds, runs, and deploys MicroViews
-- **Node.js 22.14 or newer**, with npm. The template is a Vite and React 19 project
+- **A Beamable organization and workspace**: a MicroView is a project inside a Beamable workspace (the folder with a `.beamable` directory), created next to your microservices
+- **The Beam CLI, installed as a .NET tool**: it scaffolds, runs, and deploys MicroViews
+- **Node.js 22.14 or newer, with npm**: the template is a Vite and React 19 project
 
 ## Getting started
 

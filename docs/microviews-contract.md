@@ -96,7 +96,7 @@ See [Working with the context](./microviews-context.md) for the full reference o
 
 ## Badges
 
-A MicroView can show a sidebar badge, a count or short label, in one of four tones (`info`, `warning`, `error`, `accent`). Set it two ways:
+A MicroView can show a sidebar badge, a count or short label, in one of four tones (`info`, `warning`, `error`, `accent`). Set it in one of two ways:
 
 - **Pull**: pass a `getBadge` callback to `Portal.registerExtension`. The Console calls it once per page load when the sidebar item is in view, before the MicroView mounts. It receives a narrow context (`realm`, `cid`, `beam`, `config`) and returns a badge or `null`
 - **Push**: call `context.updateBadge(value)` while mounted to update the badge live

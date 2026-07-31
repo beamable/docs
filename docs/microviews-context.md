@@ -70,8 +70,8 @@ The trailing `domain` and `visibility` arguments pick which stat bucket you touc
 The Console is an operator tool, so "the player" depends on the situation:
 
 - `beam.player` is the **signed-in operator's** player in the current realm. `beam.player.id` is their realm-scoped identifier (gamertag)
-- a page that inspects **another** player takes that player from a route param, for example a mount at `players/list/:playerId` read as `context.params.playerId`. That value is usually an **account identifier**, which is stable across realms
-- stats and most per-player data are keyed by the **realm-scoped gamertag**, not the account identifier. When you start from an account identifier, resolve the gamertag first (with `accountsGetFindBasic`) before calling player-scoped endpoints
+- A page that inspects **another** player takes that player from a route param, for example a mount at `players/list/:playerId` read as `context.params.playerId`. That value is usually an **account identifier**, which is stable across realms
+- Stats and most per-player data are keyed by the **realm-scoped gamertag**, not the account identifier. When you start from an account identifier, resolve the gamertag first (with `accountsGetFindBasic`) before calling player-scoped endpoints
 
 To call your own microservice's endpoints (not just the built-in APIs), see [Calling your microservice](#calling-your-microservice).
 
