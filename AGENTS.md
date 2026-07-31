@@ -192,7 +192,10 @@ bash setup.sh
 
 `setup.sh` installs: `mkdocs-material`, `mkdocs-glightbox`, `mkdocs-autorefs`, `mkdocs-literate-nav`, `mike`, `mkdocs-swagger-ui-tag`
 
-`mkdocs-swagger-ui-tag` is required only by the `api/v1.0` branch (its `mkdocs.yml` declares the `swagger-ui-tag` plugin for the OpenAPI reference page). It is installed for every branch so `mkdocs build` works uniformly; without it, builds on `api/v1.0` abort with a plugin-not-installed configuration error.
+Two plugins are single-branch but installed everywhere so `mkdocs build` works uniformly from any worktree. Without them, builds on the branch that declares the plugin abort with a plugin-not-installed configuration error rather than a warning:
+
+- `mkdocs-swagger-ui-tag` — required only by `api/v1.0`, whose `mkdocs.yml` declares `swagger-ui-tag` for the OpenAPI reference page
+- `mkdocs-open-in-new-tab` — required only by `home`, whose `mkdocs.yml` declares `open-in-new-tab` so the product-chooser cards open the per-product sites in a new tab
 
 ## Common Commands
 

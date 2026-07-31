@@ -24,7 +24,8 @@ main() {
     
     # Install from the pinned requirements.txt rather than resolving names
     # here. Direct dependencies are mkdocs, mkdocs-material, mkdocs-glightbox,
-    # mkdocs-autorefs, mkdocs-literate-nav, mike, and mkdocs-swagger-ui-tag;
+    # mkdocs-autorefs, mkdocs-literate-nav, mike, mkdocs-swagger-ui-tag, and
+    # mkdocs-open-in-new-tab;
     # requirements.txt pins those plus their whole transitive tree. See the
     # header of that file for why, and for how to regenerate it.
     REQUIREMENTS="$(dirname "$0")/requirements.txt"

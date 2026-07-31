@@ -31,6 +31,7 @@ mkdocs-autorefs==1.4.4
 mkdocs-literate-nav==0.6.3
 mike==2.2.0
 mkdocs-swagger-ui-tag==0.8.1
+mkdocs-open-in-new-tab==1.0.8
 
 # --- Transitive dependencies (pinned for reproducibility; do not edit by hand) ---
 babel==2.18.0
