@@ -1,4 +1,4 @@
-﻿# Getting Started
+# Getting Started
 
 ## Setup your Environment
 Run the `setup.sh` script. This script will install all the dependencies needed to run the documentation, including MkDocs and Mike.

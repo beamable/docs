@@ -1,4 +1,4 @@
-﻿- [Introduction](index.md)
+- [Introduction](index.md)
 - Internal
     - [Documentation](internal/documentation/)
     - [Workflows](internal/workflows/)
