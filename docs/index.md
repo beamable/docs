@@ -11,7 +11,7 @@ This is the official comprehensive guide to utilizing the entire suite of Beamab
 -   **[![Unity-e1761237485948.png](media/imgs/Unity-e1761237485948.png)](https://help.beamable.com/Unity-Latest/) <span style="display: block; text-align: center; font-weight: bold; font-size: 30px;">Unity SDK</span>**
 
     ---
-    The Official Unity SDK provides a complete, component-based integration with the Unity Editor, enabling seamless setup and code-first access to all Beamable Lie Services.
+    The Official Unity SDK provides a complete, component-based integration with the Unity Editor, enabling seamless setup and code-first access to all Beamable Live Services.
 
     [:octicons-arrow-right-24: Getting started](https://help.beamable.com/Unity-Latest/)
 
