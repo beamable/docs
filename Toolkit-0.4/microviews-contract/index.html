@@ -680,36 +680,36 @@
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¶</a></h2>
 <p>Every MicroView must satisfy four requirements:</p>
 <ol>
-<li>An NPM project whose <code>package.json</code> has a <code>beam-build</code> script. Running it must emit an <a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">IIFE</a> bundle at <code>assets/index.js</code> and a stylesheet at <code>assets/style.css</code></li>
+<li>An npm project whose <code>package.json</code> has a <code>beam-build</code> script. Running it must emit an <a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE"><abbr title="immediately invoked function expression">IIFE</abbr></a> bundle at <code>assets/index.js</code> and a stylesheet at <code>assets/style.css</code></li>
 <li>A <code>beamable</code> block in <code>package.json</code> (the manifest) that marks the project as a MicroView and declares where it mounts (see <a href="#the-manifest">The manifest</a>)</li>
 <li>A dependency on <a href="https://www.npmjs.com/package/@beamable/portal-toolkit"><code>@beamable/portal-toolkit</code></a>. It brings in <code>@beamable/sdk</code> as a peer dependency, so backend calls need no extra dependency (see <a href="../microviews-context/#the-beam-sdk">The Beam SDK</a>)</li>
 <li>An entry module that registers the MicroView with <code>Portal.registerExtension</code> (see <a href="#registering">Registering</a>)</li>
 </ol>
 <div class="admonition info">
 <p class="admonition-title">Build tools are your choice</p>
-<p>Beamable's template uses <a href="https://vite.dev">Vite</a> to satisfy the <code>beam-build</code> contract, and <code>@beamable/portal-toolkit/vite</code> wraps the config. Vite is not required. The requirement is the output: an IIFE <code>assets/index.js</code> and an <code>assets/style.css</code>.</p>
+<p>Beamable's template uses <a href="https://vite.dev">Vite</a> to satisfy the <code>beam-build</code> contract, and <code>@beamable/portal-toolkit/vite</code> wraps the config. Vite is not required. The requirement is the output: an <abbr title="immediately invoked function expression">IIFE</abbr> <code>assets/index.js</code> and an <code>assets/style.css</code>.</p>
 </div>
 <h2 id="the-manifest">The manifest<a class="headerlink" href="#the-manifest" title="Permanent link">¶</a></h2>
 <p>The <code>beamable</code> block in <code>package.json</code> tells the Console the MicroView exists and where it belongs:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  "beamable": {
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    "version": "1.0.0",
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    "portalExtension": true,        // marks this project as a MicroView
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    "serviceGroups": ["my-hub"],    // optional: groups related MicroViews (usually the hub)
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    "microserviceDependencies": [], // BeamIds of microservices this view calls
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    "mounts": [
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>      {
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        "page": "my-hub/my-page",   // realm-relative URL pattern; supports :params
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        "selector": "#extension-page",
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        "args": {},                 // arbitrary data passed to the mount on context.mount
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        "navGroup": "My Hub",       // sidebar group label
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        "navLabel": "My Page",      // sidebar item label
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        "navIcon": "robot",
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        "navLabelOrder": 1
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>      }
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    ]
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>  }
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>}
+<div class="language-json highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"beamable"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">"portalExtension"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">        </span><span class="c1">// marks this project as a MicroView</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">"serviceGroups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"my-hub"</span><span class="p">],</span><span class="w">    </span><span class="c1">// optional: groups related MicroViews (usually the hub)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">"microserviceDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="c1">// BeamIds of microservices this view calls</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">"mounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-hub/my-page"</span><span class="p">,</span><span class="w">   </span><span class="c1">// realm-relative URL pattern; supports :params</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#extension-page"</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">                 </span><span class="c1">// arbitrary data passed to the mount on context.mount</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="nt">"navGroup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Hub"</span><span class="p">,</span><span class="w">       </span><span class="c1">// sidebar group label</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="nt">"navLabel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Page"</span><span class="p">,</span><span class="w">      </span><span class="c1">// sidebar item label</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="nt">"navIcon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"robot"</span><span class="p">,</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="nt">"navLabelOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">}</span>
 </code></pre></div>
 <p>Each entry in <code>mounts</code> is matched independently against the current URL. The mount fields:</p>
 <ul>
@@ -723,7 +723,7 @@
 <p>Like a microservice, a MicroView is tracked in your workspace's service manifest and ships with <code>beam deploy</code> (see <a href="../microviews-react/#deploying">Deploying</a>). The built <code>assets/</code> output is a build artifact, not source: the CLI regenerates it, so you do not commit it.</p>
 <h2 id="registering">Registering<a class="headerlink" href="#registering" title="Permanent link">¶</a></h2>
 <p>The entry module registers the MicroView by calling <code>Portal.registerExtension</code>. This is what the React helper wraps.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Portal</span><span class="p">,</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">ExtensionContext</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@beamable/portal-toolkit'</span>
+<div class="language-ts highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Portal</span><span class="p">,</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">ExtensionContext</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@beamable/portal-toolkit'</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nx">Portal</span><span class="p">.</span><span class="nx">registerExtension</span><span class="p">({</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nx">beamId</span><span class="o">:</span><span class="w"> </span><span class="s1">'my-view'</span><span class="p">,</span><span class="w">   </span><span class="c1">// must match the package.json name</span>
@@ -756,12 +756,12 @@
 </ul>
 <p>See <a href="../microviews-context/">Working with the context</a> for the full reference on each field, including the Beam SDK, storage, site data, and args.</p>
 <h2 id="badges">Badges<a class="headerlink" href="#badges" title="Permanent link">¶</a></h2>
-<p>A MicroView can show a sidebar badge, a count or short label, in one of four tones (<code>info</code>, <code>warning</code>, <code>error</code>, <code>accent</code>). Set it two ways:</p>
+<p>A MicroView can show a sidebar badge, a count or short label, in one of four tones (<code>info</code>, <code>warning</code>, <code>error</code>, <code>accent</code>). Set it in one of two ways:</p>
 <ul>
 <li><strong>Pull</strong>: pass a <code>getBadge</code> callback to <code>Portal.registerExtension</code>. The Console calls it once per page load when the sidebar item is in view, before the MicroView mounts. It receives a narrow context (<code>realm</code>, <code>cid</code>, <code>beam</code>, <code>config</code>) and returns a badge or <code>null</code></li>
 <li><strong>Push</strong>: call <code>context.updateBadge(value)</code> while mounted to update the badge live</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">Portal</span><span class="p">.</span><span class="nx">registerExtension</span><span class="p">({</span>
+<div class="language-ts highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">Portal</span><span class="p">.</span><span class="nx">registerExtension</span><span class="p">({</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nx">beamId</span><span class="o">:</span><span class="w"> </span><span class="s1">'tickets'</span><span class="p">,</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nx">onMount</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">},</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nx">onUnmount</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">},</span>
