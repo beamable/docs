@@ -13,10 +13,12 @@ Each SDK version is maintained on its own branch with its own `mkdocs.yml`:
 - `unreal/v*` — Unreal SDK docs
 - `websdk/v*` — WebSDK docs
 - `api/v*`, `typescript/v*` — API and TypeScript docs
+- `toolkit/v*` — Beamable Toolkit and Beamable Console docs, covering MicroViews (also called Portal Extensions). The toolkit is the npm package `@beamable/portal-toolkit`: TypeScript source shipping CJS + ESM builds plus type definitions, so JavaScript consumers work too. It provides `Portal.registerExtension()`, TypeScript types for Beamable's web components (`beam-btn`, `beam-data-table`, …), React helpers (React 19 is a peer dependency), and Vite/Rollup build integrations. Source of truth for current behavior is `beam-portal-toolkit/` in the BeamableProduct repo; note its package version tracks separately from this docs branch version. Both products are unreleased, so these docs are published but not promoted — they appear in the version selector as a deliberate teaser. Prose here is in normal copyediting scope
 - `internal` — Internal Beamable staff guides (published but not publicly advertised; only accessible via direct URL)
+- `home` — **the site's front door.** Builds the product chooser published at `gh-pages:Home/`, which `help.beamable.com/` redirects to. This is the landing page with the Unity / Unreal / Web SDK / CLI / API cards, and its card list is the *only* thing that makes a product line discoverable to a reader who starts at the top. A published Mike version that is absent from this chooser is reachable only via the version dropdown — which readers interpret as "pick a version of what I'm looking at," not "pick a product" — so it is effectively undiscoverable. **When a new product line is published, add its card here**; that step is easy to miss because nothing in the deploy workflows touches this branch. `toolkit/v0.4` is currently absent by design (unreleased; see the `toolkit/v*` entry above)
 - `gh-pages` — GitHub Pages deployment target (do not edit directly)
 
-Two branches have no version component: `main` (shared tooling and CI/CD; the starting point for new contributors) and `internal`. All other content branches carry a version suffix.
+Four branches have no version component: `main` (shared tooling and CI/CD; the starting point for new contributors), `internal`, `home`, and `gh-pages`. All other content branches carry a version suffix.
 
 To edit documentation, switch to the appropriate versioned branch before making changes.
 
@@ -51,16 +53,15 @@ Because content lives on many branches simultaneously, `git worktree` is the rec
 Suggested naming convention (siblings of `docs/` under `~/src/beamable/`, or wherever you clone it):
 
 ```
-beamable-docs-unity-5.0    → unity/v5.0
 beamable-docs-unity-5.1    → unity/v5.1
 beamable-docs-unity-6.0    → unity/v6.0
-beamable-docs-core-7.0     → core/v7.0
 beamable-docs-core-7.1     → core/v7.1
 beamable-docs-core-7.2     → core/v7.2
 beamable-docs-unreal-2.2   → unreal/v2.2
 beamable-docs-unreal-2.3   → unreal/v2.3
 beamable-docs-websdk-1.0   → websdk/v1.0
 beamable-docs-api-1.0      → api/v1.0
+beamable-docs-toolkit-0.4  → toolkit/v0.4
 beamable-docs-internal     → internal
 ```
 
@@ -122,9 +123,29 @@ echo; echo "All pushes complete."
 
 ### Branch mapping
 
-Auto-sync flows from a core branch into one or more engine branches, but the version numbers do **not** correspond arithmetically — the mapping is explicit and must be read, not inferred (`core/v7.0` → `unity/v5.0`; `core/v7.2` → `unity/v5.1` and `unity/v6.0`; `core/v7.1` → `unreal/v2.3`). Each core branch declares its own downstream targets in the `matrix.branch` list of `.github/workflows/auto-sync-core.yml` *on that core branch*; that file is the only authoritative source. Check it before assuming any relationship.
+Auto-sync flows from a core branch into one or more engine branches, but the version numbers do **not** correspond arithmetically — the mapping is explicit and must be read, not inferred (`core/v7.2` → `unity/v5.1` and `unity/v6.0`; `core/v7.1` → `unreal/v2.3`). Each core branch declares its own downstream targets in the `matrix.branch` list of `.github/workflows/auto-sync-core.yml` *on that core branch*; that file is the only authoritative source. Check it before assuming any relationship.
 
-**Version-support policy:** maintain the current and previous version per engine. That currently means Unity `v6.0` (current) + `v5.1` (previous) and Unreal `v2.3` (current) + `v2.2` (previous), with a ceiling of four core branches in rotation at once. Unity SDK 6.0.0 kept the CLI on 7.2.x, so both supported Unity versions share one core feed (`core/v7.2` → `v5.1` and `v6.0`) rather than each having its own; a major SDK bump does not imply a new core branch — check the SDK/CLI version history before assuming one is needed. Unreal keeps only `core/v7.1` → `v2.3` because the current docs landed recently enough that no prior core branch pertains to `v2.2` (it takes core-owned fixes by direct edit or cherry-pick). When a new release ships, retire the core branch feeding the version that falls out of the current/previous window along with its engine branch — `unity/v5.0` and its feed `core/v7.0` fell out of the window when 6.0.0 shipped and are pending retirement.
+**Every branch carries `auto-sync-core.yml`, and only core branches carry the real one.** The invariant, as of 2026-07-29:
+
+- **`core/v*`** — the real, executable workflow, pinned by `on.push.branches` to its own branch and declaring its own `matrix.branch`. Its first step is a guard that fails loudly if the workflow ever runs from a non-`core/*` ref
+- **every other branch** — a byte-identical **stub** that refuses to run and explains why. Verify with `md5sum`; they must all match
+
+This matters because a `push` event runs the workflow file from **the tree of the pushed commit**. A push to `core/v7.2` runs *that branch's* copy, so editing any other branch's copy has no effect on sync behavior and nothing warns you. The stub exists so that reading the file from `main` or a content branch tells you this, instead of presenting a plausible-looking workflow that can never fire.
+
+The stub also traps the reverse mistake: it triggers on `push` to `core/**`, so cutting a new core branch *without* installing the real workflow fails loudly on the first push rather than silently never syncing. There is no false-positive surface — a correctly-configured core branch has the real workflow and never reaches the stub.
+
+The stub is safe to keep on downstream branches only because the sync is path-scoped. The retired squash-merge design merged whole branches, dragging `.github/workflows/` across and overwriting any such stub on the next core push; the current copy touches only the four core-owned paths, and `.github/` is not among them. Retired branches (`unity/v4.0`) may still hold the obsolete merge-based copy — frozen, inert, and deliberately left alone.
+
+**Version-support policy:** maintain the current and previous version per engine. That currently means Unity `v6.0` (current) + `v5.1` (previous) and Unreal `v2.3` (current) + `v2.2` (previous), with a ceiling of four core branches in rotation at once. Unity SDK 6.0.0 kept the CLI on 7.2.x, so both supported Unity versions share one core feed (`core/v7.2` → `v5.1` and `v6.0`) rather than each having its own; a major SDK bump does not imply a new core branch — check the SDK/CLI version history before assuming one is needed. Unreal keeps only `core/v7.1` → `v2.3` because the current docs landed recently enough that no prior core branch pertains to `v2.2` (it takes core-owned fixes by direct edit or cherry-pick). When a new release ships, retire the core branch feeding the version that falls out of the current/previous window along with its engine branch. `unity/v5.0` and its feed `core/v7.0` were retired this way when 6.0.0 shipped.
+
+**Retiring a version** freezes a branch; it does not delete or unpublish it. `unity/v4.0` and `unity/v5.0` are the worked examples.
+
+- Remove the engine branch from the `matrix.branch` list in `update-version-table.yml` on `main`. Membership there rewrites and pushes the version tables on every SDK release, and since the branch matches `unity/**` each such commit triggers a `gh-pages` deploy — so a retired branch left in the matrix republishes frozen docs forever and competes for the deploy concurrency slot
+- Remove it from the worktree list and stamp loop below, and tidy up any local worktrees for it (paths and names vary by contributor)
+- Stop copyediting it; factual backports only
+- Leave the branch and its published Mike version alone. Retired versions stay reachable — `Unity-4.0` and `Unity-5.0` both still resolve. Do not `mike delete`
+- The feeding core branch retires alongside it and needs no edit of its own: `auto-sync-core` fires only on push, and a retired core branch is not pushed again
+- **As the final commit before freezing** (do this before removing worktrees, or you will have to re-add them), prepend a frozen-branch notice to the top of that branch's own `AGENTS.md`, above the Project Overview, naming the freeze date and pointing at `main`. Otherwise the stale copy — its worktree list, branch mapping, and copyediting scope — reads as authoritative to anyone, human or agent, who opens that worktree. Where `AGENTS.md` is gitignored on the branch (`unity/v4.0`) this is not possible; skip it
 
 Two invariants worth holding in context:
 
@@ -141,14 +162,14 @@ Project instructions live in **`AGENTS.md`** so every agent reads them. Codex, C
 
 Claude Code expands that `@`-import to pull in `AGENTS.md`, so both toolchains see the same instructions and there is nothing to drift. Edit `AGENTS.md`, never `CLAUDE.md` (the one-liner is fixed).
 
-Both files live on every content branch so agents working from any worktree see project-specific instructions. `main` holds the canonical `AGENTS.md`; all edits land there first. There is no automation propagating `main` → other branches. These files are **not** core-owned paths, so they do not ride `auto-sync-core` (which syncs only `docs/cli/guides`, `docs/cli/SUMMARY.md`, `docs/includes`, and `docs/portal`) — including the auto-sync targets `unity/v5.0`, `unity/v5.1`, `unity/v6.0`, and `unreal/v2.3`, which receive core-owned content downstream but not these. After editing `AGENTS.md` on main, stamp it (and the one-line `CLAUDE.md`) onto each worktree branch in the same session:
+Both files live on every content branch so agents working from any worktree see project-specific instructions. `main` holds the canonical `AGENTS.md`; all edits land there first. There is no automation propagating `main` → other branches. These files are **not** core-owned paths, so they do not ride `auto-sync-core` (which syncs only `docs/cli/guides`, `docs/cli/SUMMARY.md`, `docs/includes`, and `docs/portal`) — including the auto-sync targets `unity/v5.1`, `unity/v6.0`, and `unreal/v2.3`, which receive core-owned content downstream but not these. After editing `AGENTS.md` on main, stamp it (and the one-line `CLAUDE.md`) onto each worktree branch in the same session:
 
 ```bash
-for d in beamable-docs-core-7.0 beamable-docs-core-7.1 beamable-docs-core-7.2 \
-         beamable-docs-unity-5.0 beamable-docs-unity-5.1 beamable-docs-unity-6.0 \
+for d in beamable-docs-core-7.1 beamable-docs-core-7.2 \
+         beamable-docs-unity-5.1 beamable-docs-unity-6.0 \
          beamable-docs-unreal-2.2 beamable-docs-unreal-2.3 \
          beamable-docs-internal beamable-docs-api-1.0 \
-         beamable-docs-websdk-1.0; do
+         beamable-docs-toolkit-0.4 beamable-docs-websdk-1.0; do
   cp ~/src/beamable/docs/AGENTS.md ~/src/beamable/$d/AGENTS.md
   cp ~/src/beamable/docs/CLAUDE.md ~/src/beamable/$d/CLAUDE.md
   git -C ~/src/beamable/$d add AGENTS.md CLAUDE.md
@@ -223,7 +244,7 @@ For **feature and fix PRs**, prefer **squash-and-merge**. These are typically si
 
 ### Backporting
 
-Copyediting and style changes (grammar, punctuation, passive voice, style consistency) apply only to `unity/v5.x` branches and newer, `unreal/v2.x` and newer, and the corresponding core branches. Do not backport these to `unity/v4.0` or earlier. Only backport factual corrections pertinent to that specific version (SDK/CLI version table entries, bug fix notes, feature corrections, etc.).
+Copyediting and style changes (grammar, punctuation, passive voice, style consistency) apply only to `unity/v5.1` and newer, `unreal/v2.x` and newer, and the corresponding core branches. Do not backport these to retired branches (`unity/v5.0` and earlier). Only backport factual corrections pertinent to that specific version (SDK/CLI version table entries, bug fix notes, feature corrections, etc.).
 
 For **Unreal**, apply copyediting changes to `unreal/v2.2` immediately after finishing each item on `unreal/v2.3` — do not defer all `v2.2` work to the end of the session. Applying each change while context is fresh is faster and less error-prone than a bulk pass later. Exception: if a `v2.3` item is flagged for SDK-team verification (Priority 3), hold off on `v2.2` until the `v2.3` fix is confirmed.
 
@@ -262,10 +283,14 @@ Internal team documentation lives at `https://help.beamable.com/Internal/interna
 - **Code terms in prose:** backtick-fence class names, method names, property names, and attribute names when referring to the code entity (e.g., `` `BeamContext` ``, `` `PlayerId` ``). For .NET attributes, use the consumer-facing short form without the `Attribute` suffix (e.g., `[IgnoreContentField]`, not `[IgnoreContentFieldAttribute]`). Exception: `MonoBehaviour` must preserve Unity's spelling with the `u` regardless of American English preference elsewhere.
 - **American English spelling:** use American forms throughout (-ize, -ization, single-L in "canceling", "canceled", "modeling", etc.). Exception: `MonoBehaviour` (Unity API name; spelling is fixed).
 - **Product term capitalization:** Portal, Cloud Save, Content Manager, Admin Console, Beam Library (capitalized); see commit history for resolved cases
+- **Third-party names follow their owner's house style**, even where it fights our sentence-case and capitalization habits. Settled cases: **npm** is always lowercase, including sentence-initial (npm's own styling; write "an npm project" — the article is "an" because it reads as "en-pee-em"). `MonoBehaviour` keeps Unity's British spelling. `.NET` in prose, not "dotnet". When a new third-party tool or registry enters the docs, check its own site before defaulting to Title Case
 - **`docs/includes/abbreviations.md`:** provides hover tooltips for TLAs across all pages. Omit "SDK" and "API" — they appear too frequently in these docs for a tooltip to add value, and the constant underline creates visual noise. Add an acronym only when a reader encountering it cold would benefit from the expansion.
 - **Definition list bullets:** bold the term but not the colon — `**Term**: description` not `**Term:** description`
 - **Heading capitalization:** Sentence case at all levels (H1–H4) — capitalize only the first word and proper nouns/product terms. Applies to `unity/v5.0` and newer, `unreal/v2.2` and newer, and the corresponding core branches; `unity/v4.0` and earlier remain on their original Title Case convention and are not being converted. `scripts/sentence_case_headings.py` on `main` is the maintained enforcement tool — run it from a content-branch worktree to convert any newly-added Title Case headings, and extend its `MULTI_WORD` / `SINGLE_WORD` whitelists when a new proper-noun term enters the docs. **Title Case rules for legacy branches (`unity/v4.0` and earlier):** capitalize by part of speech — verbs, nouns, adjectives, and adverbs capitalize; articles, coordinating conjunctions, and prepositions stay lowercase regardless of length (*across*, *between*, *against*, *without*, *throughout*, etc.); for dash-separated segments (e.g., `Advanced - Beyond Hooks`), the first word after the dash capitalizes regardless of part of speech.
 - **Path separators:** prefer forward slashes in prose paths (e.g., `.beamable/temp/plans`), even when the path is conceptually on a Windows filesystem. Two exceptions where backslashes stay: (1) **verbatim CLI/shell transcripts** inside fenced code blocks — these reproduce what the tool actually prints on Windows, so altering them misrepresents the output; (2) **paths with an explicit Windows drive prefix** like `C:\Program Files\...` or `F:\UnrealToolchains\...` — the drive letter signals "this is a Windows path", and Windows readers expect backslashes when they see `C:\`. Forward-slashifying a `C:\`-prefixed path produces a hybrid (`C:/Program Files/...`) that looks wrong to everyone. Drive-prefixed paths and CLI transcripts: backslashes. Everything else: forward slashes.
+- **Code fence language tokens:** every triple-backtick fence carries a language token. Shell commands → `shell` (**not** `bash` or `sh`; all three resolve to the same Pygments lexer, and `shell` is what the CLI doc generator already emits for the ~206 usage blocks per branch, which is the largest fence corpus on the site). Command-plus-output transcripts with `$` or `#` prompts → `console` (the Bash Session lexer recognizes `$`/`#` only, not `>`). C++ → `cpp`. Real source → its real language (`csharp`, `json`, `xml`, `yaml`, …). Everything that should not be colored — paths, directory trees, output-only blocks, in-game Admin Console `>` echoes, pseudo-tables → `text`. A bare fence renders identically to `text`, so tag it anyway: the token signals the unadorned rendering is deliberate rather than a forgotten hint. Use only tokens Pygments actually knows — an unknown token (`jsonc`, `gradle`, `yml`, `log`) silently renders unhighlighted and `mkdocs build --strict` does not complain
+- **List-item capitalization:** capitalize the first word of a bullet unless the bullet grammatically continues the stem that introduces it. Bullets completing "This does two things:" stay lowercase; bullets answering a heading such as "Which player?" are independent fragments and capitalize
+- **Relative links:** prefix same-directory links with `./` (`./console.md`, not `console.md`). Both resolve; the prefix is the house form
 - **Reference style guides:** Google Developer Documentation Style Guide and Microsoft Writing Style Guide
 
 ## Working with Claude Code
