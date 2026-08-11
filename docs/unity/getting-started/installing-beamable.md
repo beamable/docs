@@ -40,7 +40,7 @@ Open the Beamable Login Window by clicking the Beamable button in the Unity tool
 Now you are ready to start your first Beamable project!
 
 ## Say _hello_ to Beamable!
-To confirm that you have a working Beamable setup, we will pull in the `BeamableBehavior` component and make sure we can access a player account using the [Admin Console](../user-reference/runtime-systems/admin-console.md).
+To confirm that you have a working Beamable setup, we will pull in the `BeamableBehaviour` component and make sure we can access a player account using the [Admin Console](../user-reference/runtime-systems/admin-console.md).
 
 ![Animated walkthrough of the Unity Editor in play mode: the Beamable runtime initializes in the Console, then the Admin Console opens to confirm access to a player account.](../../media/imgs/getting-started.gif)
 

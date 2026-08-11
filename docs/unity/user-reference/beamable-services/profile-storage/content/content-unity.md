@@ -196,6 +196,9 @@ Content filter strings can be entered into the Content Manager's search box, or 
 | `tag:a`       | returns all content elements that have the `"a"` tag                 |
 | `tag:a b`     | returns all content elements that have the `"a"` tag and the `"b"` tag |
 
+!!! info "Good to know: tag filtering and `OmitContentManifestTags`"
+    If you enable `OmitContentManifestTags` on `ContentConfiguration`, the manifest your game fetches at runtime is downloaded without tags. Tag-based `GetManifest` and `ContentQuery` filters (for example, `tag:weapon`) then return no results in builds. The in-Editor Content Manager search box is unaffected, since it filters local content.
+
 **Id Filtering:** To filter by content id, use the `id` filter constraint, or use no constraint at all. The `id` filter constraint is the default constraint. The following table shows examples of id constraints.
 
 | Filter String | Description                                                    |
