@@ -5,28 +5,28 @@ Most of the Beamable API requires authentication. To be authenticated, each requ
 
 ### Player Scoped Authentication
 
-The most common way to authenticate requests is to use player scoped authentication. Each request should include headers that will specify the user identification, project identification, and credential. 
+The most common way to authenticate requests is to use player scoped authentication. Each request should include headers that will specify the user identification, project identification, and credential.
 
-Notably, developer accounts are also player accounts, but with higher privileges. Anyone can make a guest account for your game, which means they are a _player_. However, through Portal, you can grant specific accounts higher levels of access, such as _tester_, _developer_, or _admin_. 
+Notably, developer accounts are also player accounts, but with higher privileges. Anyone can make a guest account for your game, which means they are a _player_. However, through Portal, you can grant specific accounts higher levels of access, such as _tester_, _developer_, or _admin_.
 
-Different APIs require different levels of privilege. 
+Different APIs require different levels of privilege.
 
-To authenticate a request using player scoped authentication, you need to include a few headers on the request. 
+To authenticate a request using player scoped authentication, you need to include a few headers on the request.
 
 #### `X-BEAM-SCOPE`
 
 The `X-BEAM-SCOPE` header carries project identification in the format, `<cid>.<pid>`. For example, if your `cid` was `123`, and your `pid` was `456`, the header value would be `123.456`.
 
-Remember, you can find your `cid` and `pid` on Portal by using the `/games` page. 
+Remember, you can find your `cid` and `pid` on Portal by using the `/games` page.
 
-!!! tip 
+!!! tip
     You can use your `alias` in place of the `cid`.
 
 #### `Authorization`
 
-The `Authorization` header carries the user credential in the format, `Bearer <token>`. For example, if your token was `123`, the header value would be `Bearer 123`. 
+The `Authorization` header carries the user credential in the format, `Bearer <token>`. For example, if your token was `123`, the header value would be `Bearer 123`.
 
-There are two types of tokens, 
+There are two types of tokens,
 1. GUID tokens,
 2. JWTs
 
@@ -34,14 +34,14 @@ You can find these tokens in a variety of ways, or generate a new one for a gues
 
 ##### Create a new guest account
 
-If you want a brand new player account to experiment with, you can create one by issuing a request to one of the few _public_ APIs in Beamable that does not require any authentication at all. 
+If you want a brand new player account to experiment with, you can create one by issuing a request to one of the few _public_ APIs in Beamable that does not require any authentication at all.
 
 ```shell
 curl -X POST "https://api.beamable.com/basic/auth/token" \
     -H 'accept: application/json'\
     -H 'content-type: application/json'\
     -H 'x-beam-scope: <cid>.<pid>' \
-    -d '{"grant_type":"guest"}' 
+    -d '{"grant_type":"guest"}'
 ```
 
 !!! note
@@ -49,19 +49,19 @@ curl -X POST "https://api.beamable.com/basic/auth/token" \
 
 ##### Log in with email & password
 
-If you have a player that has an email & password associated with it (such as a developer account), you can retrieve an access token for that account by using the credentials. 
+If you have a player that has an email & password associated with it (such as a developer account), you can retrieve an access token for that account by using the credentials.
 
 ```shell
 curl -X POST "https://api.beamable.com/basic/auth/token" \
     -H 'accept: application/json'\
     -H 'content-type: application/json'\
     -H 'x-beam-scope: <cid>.<pid>' \
-    -d '{"username":"<email>","grant_type":"password","password":"<password>"}' 
+    -d '{"username":"<email>","grant_type":"password","password":"<password>"}'
 
 ```
 
 !!! note
-    Make sure to fill in your own custom `X-BEAM-SCOPE` header, as well as pass the `<email>` and `<password>` values in the `"username"` and `"password"` fields respectively. 
+    Make sure to fill in your own custom `X-BEAM-SCOPE` header, as well as pass the `<email>` and `<password>` values in the `"username"` and `"password"` fields respectively.
 
 
 ##### Use the CLI
@@ -75,20 +75,20 @@ If you have initialized a `.beamable` workspace on your computer, you can use th
 beam me | jq .data.accessToken
 ```
 
-Remember, both the Beamable Unity and Unreal SDKs create `.beamable` workspaces automatically. For example, you could run the `beam me` command within your Unity project folder. 
+Remember, both the Beamable Unity and Unreal SDKs create `.beamable` workspaces automatically. For example, you could run the `beam me` command within your Unity project folder.
 
 ##### Grab it from the Portal
 
-A common debug technique for acquiring a token is to snoop the token from your browser. Go to Portal and sign in. Open the developer tools in your browser, go to the _network_ tab, and find any request going to `api.beamable.com`. Observe the request headers, and look for the `Authorization` header value. You can copy/paste the header value for your own debugging purposes. 
+A common debug technique for acquiring a token is to snoop the token from your browser. Go to Portal and sign in. Open the developer tools in your browser, go to the _network_ tab, and find any request going to `api.beamable.com`. Observe the request headers, and look for the `Authorization` header value. You can copy/paste the header value for your own debugging purposes.
 
 #### `X-BEAM-GAMERTAG`
 
-The `X-BEAM-GAMERTAG` header carries the user identification in the format, `<gamertag>`. For example, if the player's gamertag was `123`, the header value would be `123`. 
+The `X-BEAM-GAMERTAG` header carries the user identification in the format, `<gamertag>`. For example, if the player's gamertag was `123`, the header value would be `123`.
 
-Normally, the `Authorizaton` header carries enough information to imply the user identification, but if you needed to _override_ the user, use this header. 
+Normally, the `Authorizaton` header carries enough information to imply the user identification, but if you needed to _override_ the user, use this header.
 
-!!! tip 
-    **This header is optional** for player scoped requests. 
+!!! tip
+    **This header is optional** for player scoped requests.
 
 
 

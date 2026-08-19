@@ -1,14 +1,14 @@
 <!-- https://rapidocweb.com/api.html -->
 
-<!-- 
+<!--
     We could filter the available routes using a regex.
     match-paths="object|basic|api"
     match-type="regex" -->
 
-<rapi-doc 
+<rapi-doc
     heading-text="Beamable"
     primary-color="#02c3ef"
-    spec-url="/Docs/assets/beamable-oapi.json" 
+    spec-url="/Docs/assets/beamable-oapi.json"
     update-route="true"
     show-header="false"
     render-style="focused"
@@ -52,7 +52,7 @@
             const main = rapiDoc.shadowRoot.querySelector('#the-main-body > main')
 
             setInterval(function() {
-                nav.style['height'] = 'max(100vh,' + (main.clientHeight) + 'px)' 
+                nav.style['height'] = 'max(100vh,' + (main.clientHeight) + 'px)'
             }, 1)
             clearInterval(reverseInterval);
         } catch {
