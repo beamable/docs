@@ -46,10 +46,10 @@ If you want a brand new player account to experiment with, you can create one by
 
 ```shell
 curl -X POST "https://api.beamable.com/basic/auth/token" \
-    -H 'accept: application/json'\
-    -H 'content-type: application/json'\
-    -H 'x-beam-scope: <cid>.<pid>' \
-    -d '{"grant_type":"guest"}'
+-H 'Accept: application/json' \
+-H 'Content-Type: application/json' \
+-H 'X-BEAM-SCOPE: <cid>.<pid>' \
+-d '{"grant_type":"guest"}'
 ```
 
 !!! note
@@ -61,11 +61,10 @@ If you have a player that has an email and password associated with it (such as 
 
 ```shell
 curl -X POST "https://api.beamable.com/basic/auth/token" \
-    -H 'accept: application/json'\
-    -H 'content-type: application/json'\
-    -H 'x-beam-scope: <cid>.<pid>' \
-    -d '{"username":"<email>","grant_type":"password","password":"<password>"}'
-
+-H 'Accept: application/json' \
+-H 'Content-Type: application/json' \
+-H 'X-BEAM-SCOPE: <cid>.<pid>' \
+-d '{"username":"<email>","grant_type":"password","password":"<password>"}'
 ```
 
 !!! note
@@ -177,5 +176,4 @@ public class BeamableSignedRequester
 		return response;
 	}
 }
-
 ```

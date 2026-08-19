@@ -23,7 +23,6 @@
     >
     </rapi-doc>
 
-
 <p style="opacity: .7; margin-top: 4px">
     Note: All shortcut keys are disabled on this page to avoid accidental API invocations.
 </p>
