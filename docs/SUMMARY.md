@@ -1,3 +1,3 @@
 - Beamable API
-    - [Authentication](api/authenticating.md)
-    - [Open API Specification](api/oapi.md)
+    - [Authenticating the API](api/authenticating.md)
+    - [OpenAPI specification](api/oapi.md)
