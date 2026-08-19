@@ -38,7 +38,7 @@ Tokens come in two forms, and the header is built the same way for both:
 1. opaque UUID tokens, as above
 2. JSON Web Tokens (JWTs), which are much longer and begin with `eyJ`
 
-You can find these tokens in a variety of ways, or generate a new one for a guest account. Here are _some_ methods to find a token for using the API directly.
+You can get a token in several ways. The methods below are the most common for using the API directly.
 
 #### Create a new guest account
 
