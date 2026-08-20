@@ -1,6 +1,6 @@
 # Documentation Introduction
 
-This documentation is intended to provide a comprehensive guide to the Beamable SDK Documents. It is intended for Beamable employees only. If you are a customer or partner, please refer to the [Public Documentation](https://beamable.github.io/docs/).
+This documentation is intended to provide a comprehensive guide to the Beamable SDK Documents. It is intended for Beamable employees only. If you are a customer or partner, please refer to the [Public Documentation](https://help.beamable.com/).
 
 Beamable has a unique set of requirements for documentation. These requirements are intended to ensure that the documentation is clear, concise, and easy to understand :
 

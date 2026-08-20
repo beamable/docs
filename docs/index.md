@@ -1,2 +1,2 @@
 # Internal Beamable Documents
-This is the internal documentation of Beamable. It is intended for Beamable employees only. If you are a customer or partner, please refer to the [public documentation](https://beamable.github.io/docs/).
+This is the internal documentation of Beamable. It is intended for Beamable employees only. If you are a customer or partner, please refer to the [public documentation](https://help.beamable.com/).
