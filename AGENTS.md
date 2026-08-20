@@ -228,7 +228,9 @@ Deployment is triggered manually via GitHub Actions (`Deploy Docs Branch` workfl
 - `sdk` — SDK type (`Unity`, `Unreal`, or `WebSDK`)
 - `version` — Version string (e.g., `5.0`)
 
-The workflow runs `mike deploy "{sdk}-{version}" --push`, which publishes to `gh-pages` and is served at `https://beamable.github.io/Docs/`.
+The workflow runs `mike deploy "{sdk}-{version}" --push`, which publishes to `gh-pages` and is served at `https://help.beamable.com/{sdk}-{version}/` — for example `https://help.beamable.com/Unity-6.0/`.
+
+That hostname comes from the `CNAME` file at the root of `gh-pages`, and it is the only URL the site answers on. GitHub Pages serves a custom domain from the domain root, so there is **no `/Docs/` path segment**: `beamable.github.io/Docs/` has never resolved (the Pages path segment is the lowercase repository name), and `beamable.github.io/docs/...` 301-redirects to the same path under `help.beamable.com`. Write `help.beamable.com` URLs in prose and in `site_url`; a `beamable.github.io` URL anywhere in the docs is a bug.
 
 ## PR Workflow
 
