@@ -1,5 +1,5 @@
 site_name: Beamable Documentation
-site_url: https://beamable.github.io/Docs/
+site_url: https://help.beamable.com/
 theme:
   name: material
   logo: assets/images/logoSmall.png
