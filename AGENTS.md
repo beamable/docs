@@ -215,7 +215,7 @@ Deployment is triggered manually via GitHub Actions (`Deploy Docs Branch` workfl
 - `sdk` — SDK type (`Unity`, `Unreal`, or `WebSDK`)
 - `version` — Version string (e.g., `5.0`)
 
-The workflow runs `mike deploy "{sdk}-{version}" --push`, which publishes to `gh-pages` and is served at `https://beamable.github.io/Docs/`.
+The workflow runs `mike deploy "{sdk}-{version}" --push`, which publishes to `gh-pages` and is served at `https://help.beamable.com/{sdk}-{version}/` — for example `https://help.beamable.com/Unity-5.0/`. There is no `/Docs/` path segment: `gh-pages` carries a `CNAME` of `help.beamable.com`, and GitHub Pages serves a custom domain from the domain root.
 
 ## PR Workflow
 
