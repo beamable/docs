@@ -5,7 +5,7 @@
       
       
       
-        <link rel="canonical" href="https://beamable.github.io/Docs/Unity-4.0/unity/samples/bbb/">
+        <link rel="canonical" href="https://help.beamable.com/Unity-4.0/unity/samples/bbb/">
       
       
         <link rel="prev" href="../multiplayer-tbf-overview/">
@@ -9752,7 +9752,7 @@
 <span class="w">         </span><span class="n">_gameUI</span><span class="p">.</span><span class="n">AttackButton</span><span class="p">.</span><span class="n">onClick</span><span class="p">.</span><span class="n">AddListener</span><span class="p">(</span><span class="n">AttackButton_OnClicked</span><span class="p">);</span>
 
 <span class="w">         </span><span class="c1">// Block user interaction</span>
-<span class="w">         </span><span class="n">_gameUI</span><span class="p">.</span><span class="n">CanvasGroup</span><span class="p">.</span><span class="n">DOFade</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="w">         </span><span class="n">_gameUI</span><span class="p">.</span><span class="n">CanvasGroup</span><span class="p">.</span><span class="n">DOFade</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="w">         </span><span class="n">_gameUI</span><span class="p">.</span><span class="n">AttackButton</span><span class="p">.</span><span class="n">interactable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
 
 <span class="w">         </span><span class="n">_bbbGameMicroserviceClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BBBGameMicroserviceClient</span><span class="p">();</span>
@@ -9779,12 +9779,12 @@
 <span class="w">                  </span><span class="p">.</span><span class="n">Then</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">                  </span><span class="p">{</span>
 <span class="w">                     </span><span class="c1">//TODO; Fix fade in of models (Both scenes)</span>
-<span class="w">                     </span><span class="n">BBBHelper</span><span class="p">.</span><span class="n">RenderersDoFade</span><span class="p">(</span><span class="n">_bossView</span><span class="p">.</span><span class="n">Renderers</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">);</span>
-<span class="w">                     </span><span class="n">BBBHelper</span><span class="p">.</span><span class="n">RenderersDoFade</span><span class="p">(</span><span class="n">_heroView</span><span class="p">.</span><span class="n">Renderers</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">);</span>
+<span class="w">                     </span><span class="n">BBBHelper</span><span class="p">.</span><span class="n">RenderersDoFade</span><span class="p">(</span><span class="n">_bossView</span><span class="p">.</span><span class="n">Renderers</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">                     </span><span class="n">BBBHelper</span><span class="p">.</span><span class="n">RenderersDoFade</span><span class="p">(</span><span class="n">_heroView</span><span class="p">.</span><span class="n">Renderers</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 
 <span class="w">                     </span><span class="c1">// Allow user interaction</span>
 <span class="w">                     </span><span class="n">_gameUI</span><span class="p">.</span><span class="n">AttackButton</span><span class="p">.</span><span class="n">interactable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
-<span class="w">                     </span><span class="n">_gameUI</span><span class="p">.</span><span class="n">CanvasGroup</span><span class="p">.</span><span class="n">DOFade</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">).</span><span class="n">SetDelay</span><span class="p">(</span><span class="m">0.50f</span><span class="p">);</span>
+<span class="w">                     </span><span class="n">_gameUI</span><span class="p">.</span><span class="n">CanvasGroup</span><span class="p">.</span><span class="n">DOFade</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">).</span><span class="n">SetDelay</span><span class="p">(</span><span class="mf">0.50f</span><span class="p">);</span>
 
 <span class="w">                  </span><span class="p">})</span>
 <span class="w">                  </span><span class="p">.</span><span class="n">Error</span><span class="p">((</span><span class="n">Exception</span><span class="w"> </span><span class="n">exception</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
@@ -9850,12 +9850,12 @@
 <span class="w">         </span><span class="n">_pointsViewInstance</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_bossView</span><span class="p">.</span><span class="n">PointsViewTarget</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
 
 <span class="w">         </span><span class="c1">// Evaluate damage</span>
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">attackTheBossResults</span><span class="p">.</span><span class="n">DamageAmount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">attackTheBossResults</span><span class="p">.</span><span class="n">DamageAmount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">         </span><span class="p">{</span>
 <span class="w">            </span><span class="c1">// Wait - Damage</span>
 <span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">WaitForSeconds</span><span class="p">(</span><span class="n">_configuration</span><span class="p">.</span><span class="n">Delay4BeforeTakeDamage</span><span class="p">);</span>
 <span class="w">            </span><span class="n">SoundManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">PlayAudioClip</span><span class="p">(</span><span class="n">SoundConstants</span><span class="p">.</span><span class="n">TakeDamage01</span><span class="p">);</span>
-<span class="w">            </span><span class="n">BBBHelper</span><span class="p">.</span><span class="n">RenderersDoColorFlicker</span><span class="p">(</span><span class="n">_bossView</span><span class="p">.</span><span class="n">Renderers</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="m">0.1f</span><span class="p">);</span>
+<span class="w">            </span><span class="n">BBBHelper</span><span class="p">.</span><span class="n">RenderersDoColorFlicker</span><span class="p">(</span><span class="n">_bossView</span><span class="p">.</span><span class="n">Renderers</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1f</span><span class="p">);</span>
 <span class="w">            </span><span class="n">_bossView</span><span class="p">.</span><span class="n">TakeDamage</span><span class="p">();</span>
 
 <span class="w">            </span><span class="c1">// Wait - Points</span>
@@ -9874,7 +9874,7 @@
 <span class="w">            </span><span class="n">_pointsViewInstance</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BBBHelper</span><span class="p">.</span><span class="n">GetAttackMissedText</span><span class="p">();</span>
 <span class="w">         </span><span class="p">}</span>
 
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">attackTheBossResults</span><span class="p">.</span><span class="n">BossHealthRemaining</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">attackTheBossResults</span><span class="p">.</span><span class="n">BossHealthRemaining</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">         </span><span class="p">{</span>
 <span class="w">            </span><span class="n">_bossView</span><span class="p">.</span><span class="n">Die</span><span class="p">();</span>
 <span class="w">            </span><span class="n">SoundManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">PlayAudioClip</span><span class="p">(</span><span class="n">SoundConstants</span><span class="p">.</span><span class="n">GameOverWin</span><span class="p">);</span>
@@ -10139,7 +10139,7 @@
 
 <span class="w">         </span><span class="c1">// Calculate the damage</span>
 <span class="w">         </span><span class="n">Random</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Random</span><span class="p">();</span>
-<span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">damageAmount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">damageAmount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">         </span><span class="kt">double</span><span class="w"> </span><span class="n">hitRandom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="n">NextDouble</span><span class="p">();</span>
 
 <span class="w">         </span><span class="c1">//Console.WriteLine($"weaponData.hitChance={weapon.HitChance}.");</span>

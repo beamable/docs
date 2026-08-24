@@ -5,7 +5,7 @@
       
       
       
-        <link rel="canonical" href="https://beamable.github.io/Docs/Unity-4.0/unity/user-reference/beamable-services/social-networking/matchmaking/">
+        <link rel="canonical" href="https://help.beamable.com/Unity-4.0/unity/user-reference/beamable-services/social-networking/matchmaking/">
       
       
         <link rel="prev" href="../lobbies/">
@@ -9981,7 +9981,7 @@
 <span class="w">      </span><span class="p">{</span>
 <span class="w">         </span><span class="k">get</span>
 <span class="w">         </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">playerCountMin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">playerCountMin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">TeamContent</span><span class="w"> </span><span class="n">teamContent</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">_simGameType</span><span class="p">.</span><span class="n">teams</span><span class="p">)</span>
 <span class="w">            </span><span class="p">{</span>
 <span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">teamContent</span><span class="p">.</span><span class="n">minPlayers</span><span class="p">.</span><span class="n">HasValue</span><span class="p">)</span>
@@ -9997,7 +9997,7 @@
 <span class="w">      </span><span class="p">{</span>
 <span class="w">         </span><span class="k">get</span>
 <span class="w">         </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">playerCountMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">playerCountMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">TeamContent</span><span class="w"> </span><span class="n">teamContent</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">_simGameType</span><span class="p">.</span><span class="n">teams</span><span class="p">)</span>
 <span class="w">            </span><span class="p">{</span>
 <span class="w">               </span><span class="n">playerCountMax</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">teamContent</span><span class="p">.</span><span class="n">maxPlayers</span><span class="p">;</span>
@@ -10088,7 +10088,7 @@
 
 <span class="w">         </span><span class="n">_myMatchmakingResult</span><span class="p">.</span><span class="n">MatchmakingHandle</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="n">_matchmakingService</span><span class="p">.</span><span class="n">StartMatchmaking</span><span class="p">(</span>
 <span class="w">            </span><span class="n">_myMatchmakingResult</span><span class="p">.</span><span class="n">SimGameType</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span>
-<span class="w">            </span><span class="n">maxWait</span><span class="p">:</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromSeconds</span><span class="p">(</span><span class="m">10</span><span class="p">),</span>
+<span class="w">            </span><span class="n">maxWait</span><span class="p">:</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromSeconds</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
 <span class="w">            </span><span class="n">updateHandler</span><span class="p">:</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="w">            </span><span class="p">{</span>
 <span class="w">               </span><span class="n">OnUpdateHandler</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
@@ -10110,7 +10110,7 @@
 
 <span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">CancelMatchmaking</span><span class="p">()</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">         </span><span class="k">await</span><span class="w"> </span><span class="n">_matchmakingService</span><span class="p">.</span><span class="n">CancelMatchmaking</span><span class="p">(</span><span class="n">_myMatchmakingResult</span><span class="p">.</span><span class="n">MatchmakingHandle</span><span class="p">.</span><span class="n">Tickets</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">ticketId</span><span class="p">);</span>
+<span class="w">         </span><span class="k">await</span><span class="w"> </span><span class="n">_matchmakingService</span><span class="p">.</span><span class="n">CancelMatchmaking</span><span class="p">(</span><span class="n">_myMatchmakingResult</span><span class="p">.</span><span class="n">MatchmakingHandle</span><span class="p">.</span><span class="n">Tickets</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ticketId</span><span class="p">);</span>
 <span class="w">      </span><span class="p">}</span>
 
 

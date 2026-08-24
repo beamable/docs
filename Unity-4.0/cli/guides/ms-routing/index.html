@@ -5,7 +5,7 @@
       
       
       
-        <link rel="canonical" href="https://beamable.github.io/Docs/Unity-4.0/cli/guides/ms-routing/">
+        <link rel="canonical" href="https://help.beamable.com/Unity-4.0/cli/guides/ms-routing/">
       
       
         <link rel="prev" href="../ms-configuration/">
@@ -9522,7 +9522,7 @@ dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Promise</span><span class="w"> </span><span class="nf">TalkToMicroservice</span><span class="p">(){</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Microservices</span><span class="p">().</span><span class="n">HelloWorld</span><span class="p">();</span><span class="w">  </span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <p>The automatic client code generation can be disabled when a project builds by modifying the <code>&lt;GenerateClientCode&gt;</code> option. Learn more in the <a href="../ms-configuration/#GenerateClientCode">configuration guide</a>.</p>

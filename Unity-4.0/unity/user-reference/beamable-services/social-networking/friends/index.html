@@ -5,7 +5,7 @@
       
       
       
-        <link rel="canonical" href="https://beamable.github.io/Docs/Unity-4.0/unity/user-reference/beamable-services/social-networking/friends/">
+        <link rel="canonical" href="https://help.beamable.com/Unity-4.0/unity/user-reference/beamable-services/social-networking/friends/">
       
       
         <link rel="prev" href="../connectivity/">
@@ -9613,7 +9613,7 @@
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
 <span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">ReceivedInvites</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">AcceptInvite</span><span class="p">();</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">ReceivedInvites</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">AcceptInvite</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
@@ -9640,7 +9640,7 @@
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
 <span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">Friends</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Unfriend</span><span class="p">();</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">Friends</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">Unfriend</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
@@ -9667,7 +9667,7 @@
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
 <span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">SentInvites</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Cancel</span><span class="p">();</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">SentInvites</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">Cancel</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
@@ -9727,7 +9727,7 @@
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
 <span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">OnReady</span><span class="p">;</span>
 
-<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">Blocked</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Unblock</span><span class="p">();</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Social</span><span class="p">.</span><span class="n">Blocked</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">Unblock</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>

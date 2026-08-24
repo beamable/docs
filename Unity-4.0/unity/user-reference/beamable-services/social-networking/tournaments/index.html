@@ -5,7 +5,7 @@
       
       
       
-        <link rel="canonical" href="https://beamable.github.io/Docs/Unity-4.0/unity/user-reference/beamable-services/social-networking/tournaments/">
+        <link rel="canonical" href="https://help.beamable.com/Unity-4.0/unity/user-reference/beamable-services/social-networking/tournaments/">
       
       
         <link rel="prev" href="../parties/">
@@ -9668,7 +9668,7 @@ TournamentServiceExample.cs
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TournamentServiceExample</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">TournamentRef</span><span class="w"> </span><span class="n">_tournamentRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">_score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">;</span>
+<span class="w">        </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">_score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 
 <span class="w">        </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
 <span class="w">        </span><span class="p">{</span>
@@ -9689,7 +9689,7 @@ TournamentServiceExample.cs
 <span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">TournamentsService</span><span class="p">.</span><span class="n">GetTournamentInfo</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
 
 <span class="w">            </span><span class="c1">// This allows the currently logged in user to join the tournament by its content id.</span>
-<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">TournamentsService</span><span class="p">.</span><span class="n">JoinTournament</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">tournamentId</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">TournamentsService</span><span class="p">.</span><span class="n">JoinTournament</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">tournamentId</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 
 <span class="w">            </span><span class="c1">// Let's set the score for this player!</span>
 <span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">beamContext</span><span class="p">.</span><span class="n">Api</span><span class="p">.</span><span class="n">TournamentsService</span><span class="p">.</span><span class="n">SetScore</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">tournamentId</span><span class="p">,</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">);</span>
