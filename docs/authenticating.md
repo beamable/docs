@@ -119,7 +119,7 @@ The signature for any given request is a one-way hash of five pieces of informat
 1. Realm Secret (a UUID)
 2. The PID of the realm
 3. API version string; at present the version is always `1`
-4. The path part of the URL including its leading slash (for example: `/basic/tournaments/rewards`)
+4. The path part of the URL, including its leading slash (for example: `/basic/tournaments/rewards`)
 5. The exact body of the request, if it has one
 
 To calculate the signature, concatenate these five strings, take the digest of the MD5 hash of the concatenated plaintext, and Base64-encode it. This should result in a Base64 string a couple dozen characters long.

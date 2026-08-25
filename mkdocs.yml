@@ -70,4 +70,4 @@ extra_css:
 
 extra_javascript:
   - assets/javascripts/extra.js
-  - https://unpkg.com/rapidoc/dist/rapidoc-min.js
+  - https://unpkg.com/rapidoc@9.3.8/dist/rapidoc-min.js

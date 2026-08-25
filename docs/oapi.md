@@ -8,13 +8,13 @@
 <rapi-doc
     heading-text="Beamable"
     primary-color="#02c3ef"
-    spec-url="/Docs/assets/beamable-oapi.json"
+    spec-url="../assets/beamable-oapi.json"
     update-route="true"
     show-header="false"
     render-style="focused"
     theme = "dark"
     layout="column"
-    show-curl-before-try="true"
+    allow-try="false"
     allow-server-selection="false"
     show-info="false"
     goto-path="get-/basic/accounts/me"
@@ -23,16 +23,7 @@
     >
     </rapi-doc>
 
-<p style="opacity: .7; margin-top: 4px">
-    Note: All shortcut keys are disabled on this page to avoid accidental API invocations.
-</p>
-
 <script lang="javascript">
-
-    document.addEventListener('keydown', event => {
-        // Disable Material's search shortcuts
-        event.stopPropagation();
-    });
 
     const sidebar = document.querySelector('.md-sidebar.md-sidebar--secondary')
     console.log('removing sidebar', sidebar)
