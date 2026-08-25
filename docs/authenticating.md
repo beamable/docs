@@ -1,10 +1,10 @@
 # Authenticating the API
 
-Most of the Beamable API requires authentication. To be authenticated, each request needs to carry user identification, project identification, and a privileged credential. There are multiple methods to achieve those requirements. Which method you select depends on your use case.
+Most of the Beamable API requires authentication. To be authenticated, each request needs to carry user identification, project identification, and a privileged credential. Several methods satisfy these requirements. Which method you select depends on your use case.
 
 ## Player-scoped authentication
 
-The most common way to authenticate requests is to use player-scoped authentication. Each request should include headers that will specify the user identification, project identification, and credential.
+The most common way to authenticate requests is to use player-scoped authentication. Each request should include headers that specify the user identification, project identification, and credential.
 
 Notably, developer accounts are also player accounts, but with higher privileges. Anyone can make a guest account for your game, which means they are a _player_. However, through Portal, you can grant specific accounts higher levels of access, such as _tester_, _developer_, or _admin_.
 
@@ -35,14 +35,14 @@ Authorization: Bearer 5f8c9d2e-7b41-4a03-9e6f-1c2d3a4b5c6d
 
 Tokens come in two forms, and the header is built the same way for both:
 
-1. opaque UUID tokens, as above
+1. Opaque UUID tokens, as above
 2. JSON Web Tokens (JWTs), which are much longer and begin with `eyJ`
 
 You can get a token in several ways. The methods below are the most common for using the API directly.
 
 #### Create a new guest account
 
-If you want a brand new player account to experiment with, you can create one by issuing a request to one of the few _public_ APIs in Beamable that does not require any authentication at all.
+You can experiment with the API using a guest player. Create one with a POST to the `/basic/auth/token` endpoint, using the `"guest"` grant type — one of the few Beamable API routes that requires no authentication. Fill in your own `X-BEAM-SCOPE` header: it identifies the realm the account belongs to.
 
 ```shell
 curl -X POST "https://api.beamable.com/basic/auth/token" \
@@ -51,9 +51,6 @@ curl -X POST "https://api.beamable.com/basic/auth/token" \
 -H 'X-BEAM-SCOPE: <cid>.<pid>' \
 -d '{"grant_type":"guest"}'
 ```
-
-!!! note
-    Make sure to fill in your own custom `X-BEAM-SCOPE` header.
 
 #### Log in with email and password
 
@@ -83,9 +80,12 @@ beam me | jq .data.accessToken
 
 Remember, both the Beamable Unity and Unreal SDKs create `.beamable` workspaces automatically. For example, you could run the `beam me` command within your Unity project folder.
 
-#### Grab it from the Portal
+#### Scrape it from Portal
 
-A common debug technique for acquiring a token is to snoop the token from your browser. Go to Portal and sign in. Open the developer tools in your browser, go to the _network_ tab, and find any request going to `api.beamable.com`. Observe the request headers, and look for the `Authorization` header value. You can copy/paste the header value for your own debugging purposes.
+One possible debug technique for acquiring a token is to snoop it out of your own browser session. Go to Portal and sign in. Open your browser's developer tools, switch to the _Network_ tab, and find any request going to `api.beamable.com`. Look at that request's headers and copy the value of the `Authorization` header.
+
+!!! warning
+    This is a debugging shortcut. The token belongs to your Portal login, carries your account's privileges, and will eventually expire. Prefer one of the methods above for anything that needs to keep working.
 
 ### `X-BEAM-GAMERTAG`
 
@@ -95,7 +95,7 @@ The `X-BEAM-GAMERTAG` header carries the user identification — the player's nu
 X-BEAM-GAMERTAG: 1434609330280865
 ```
 
-Normally, the `Authorization` header carries enough information to imply the user identification, but if you needed to _override_ the user, use this header.
+Normally, the `Authorization` header carries enough information to imply the user identification, but if you do need to override the user, use this header.
 
 !!! tip
     **This header is optional** for player-scoped requests.
@@ -116,13 +116,13 @@ Both token-based requests and signed requests require the `X-BEAM-SCOPE` header 
 
 The signature for any given request is a one-way hash of five pieces of information:
 
-1. Realm Secret (a UUID)
+1. The realm's secret (a UUID, visible in Portal as "Project Secret")
 2. The PID of the realm
 3. API version string; at present the version is always `1`
 4. The path part of the URL, including its leading slash (for example: `/basic/tournaments/rewards`)
 5. The exact body of the request, if it has one
 
-To calculate the signature, concatenate these five strings, take the digest of the MD5 hash of the concatenated plaintext, and Base64-encode it. This should result in a Base64 string a couple dozen characters long.
+To calculate the signature, concatenate these five strings, take the MD5 digest of the concatenated plaintext, and Base64-encode it. This should result in a Base64 string a couple dozen characters long.
 
 ```csharp
 public class BeamableSignedRequester
