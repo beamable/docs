@@ -26,7 +26,7 @@ jobs:
       pull-requests: write
     strategy:
       matrix:
-        branch: [unity/v5.1, unity/v6.0]
+        branch: [unity/v6.0, unity/v6.1]
     concurrency:
       group: update-version-table-${{ matrix.branch }}
       cancel-in-progress: false
