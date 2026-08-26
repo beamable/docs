@@ -21,7 +21,7 @@ jobs:
     steps:
       # Checkout main to get setup.sh
       - name: Checkout main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: main
 
@@ -82,13 +82,13 @@ jobs:
 
      # Checkout gh-pages so mike can read the published versions list
       - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: gh-pages
 
       # Checkout the pushed branch so mike can build the docs
       - name: Checkout branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.ref_name }}
 
