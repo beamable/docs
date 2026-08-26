@@ -125,7 +125,7 @@ echo; echo "All pushes complete."
 
 Auto-sync flows from a core branch into one or more engine branches, but the version numbers do **not** correspond arithmetically — the mapping is explicit and must be read, not inferred (`core/v7.2` → `unity/v6.0` and `unity/v6.1`; `core/v7.1` → `unreal/v2.3`). Each core branch declares its own downstream targets in the `matrix.branch` list of `.github/workflows/auto-sync-core.yml` *on that core branch*; that file is the only authoritative source. Check it before assuming any relationship.
 
-**Every branch carries `auto-sync-core.yml`, and only core branches carry the real one.** The invariant, as of 2026-07-29:
+**Every product lane branch carries `auto-sync-core.yml`, and only core branches carry the real one.** The invariant, as of 2026-07-29:
 
 - **`core/v*`** — the real, executable workflow, pinned by `on.push.branches` to its own branch and declaring its own `matrix.branch`. Its first step is a guard that fails loudly if the workflow ever runs from a non-`core/*` ref
 - **every other branch** — a byte-identical **stub** that refuses to run and explains why. Verify with `md5sum`; they must all match
@@ -236,6 +236,8 @@ Deployment is triggered manually via GitHub Actions (`Deploy Docs Branch` workfl
 The workflow runs `mike deploy "{sdk}-{version}" --push`, which publishes to `gh-pages` and is served at `https://help.beamable.com/{sdk}-{version}/` — for example `https://help.beamable.com/Unity-6.0/`.
 
 That hostname comes from the `CNAME` file at the root of `gh-pages`, and it is the only URL the site answers on. GitHub Pages serves a custom domain from the domain root, so there is **no `/Docs/` path segment**: `beamable.github.io/Docs/` has never resolved (the Pages path segment is the lowercase repository name), and `beamable.github.io/docs/...` 301-redirects to the same path under `help.beamable.com`. Write `help.beamable.com` URLs in prose and in `site_url`; a `beamable.github.io` URL anywhere in the docs is a bug.
+
+That dispatch is needed only for a version's **first** publish. Afterwards `auto-publish-branch.yml`, which lives on the content branches rather than `main`, re-publishes on every push to the branch it sits on, so ordinary edits reach the site with no dispatch at all. It deliberately refuses to publish an alias `mike list` does not already know, printing `'<alias>' is not published yet — skipping` and then **succeeding** — so a newly cut branch publishes nothing on its first push, however green the run looks. Dispatch `Deploy Docs Branch` once and pushes take over from there. Every copy but `internal`'s also declares the `gh-pages-deploy` concurrency group, which is what **Staggered pushes** above exists to respect.
 
 ## PR Workflow
 
