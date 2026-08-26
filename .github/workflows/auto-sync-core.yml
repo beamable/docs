@@ -43,7 +43,7 @@ jobs:
           echo "Ref '$REF' is a core branch; proceeding."
 
       - name: Checkout target branch
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: ${{ matrix.branch }}
           token: ${{ secrets.DOCS_PAT }}
