@@ -9,6 +9,15 @@ on:
         default: false
 
 run-name: Deploy Branch ${{ github.ref_name }} by @${{ github.actor }}
+
+# Serializes against every other workflow that writes gh-pages, so a
+# dispatch fired during a run of pushes queues instead of racing another
+# `mike` push. A dry run queues too, which is mild friction on the safe
+# inspection path and cheaper than a lost deploy.
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
+
 jobs:
   deploy:
     name: Deploy
