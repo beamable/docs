@@ -43,7 +43,7 @@ jobs:
 
       # Checkout main branch first
       - name: Checkout main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: main
 
@@ -57,13 +57,13 @@ jobs:
 
       # Checkout the gh-pages branch
       - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: gh-pages
 
       # Checkout the branch that the workflow file is running from
       - name: Checkout workflow branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.ref_name }}
 
