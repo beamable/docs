@@ -4,7 +4,7 @@
 
 The purpose of this guide is to demonstrate everything needed for game makers to set up a web page that handles Beamable login and account administration.
 In this guide we will have a step-by-step approach to creating a simple HTML page that can log in users and retrieve their account information. After following through this guide, the new HTML login will be functional and ready for any additional branding and customization.
-This web page may be setup in a game specific or studio specific setting. It is recommended to have some basic knowledge of web development, including basic HTML and JavaScript before continuing.
+This web page may be set up in a game-specific or studio-specific setting. If you are new to web development, MDN's [Getting started with the Web](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web) is a good primer on HTML and JavaScript before continuing.
 
 ## Creating HTML login page
 

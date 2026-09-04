@@ -178,8 +178,6 @@ foreach (var evt in Simulation.PlayGame())
 
 !!! info "Related Guides"
 
-    Related Guides: It is recommended to read the guide before continuing with the sample steps below.
-
     • [Leaderboards](../user-reference/beamable-services/social-networking/leaderboards.md) - Display and update per-game leaderboards
 
 Leaderboard-related functionality is handled via `LeaderboardScreenController`. It retrieves the current leaderboard in one essential call to Beamable's leaderboard SDK:
@@ -200,8 +198,6 @@ if (isWinner)
 **Inventory**
 
 !!! info "Related Guides"
-
-    Related Guides: It is recommended to read the guide before continuing with the sample steps below.
 
     • [Inventory](../user-reference/beamable-services/game-economy/inventory-overview.md) - Define player inventory and offer items in a store
 

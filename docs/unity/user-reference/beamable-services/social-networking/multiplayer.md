@@ -197,7 +197,7 @@ In the event that a network outage is unrecoverable, the entire `SimNetworkEvent
 
 #### Custom fault tolerance
 
-It is possible to inject custom network outage fault tolerance logic. Use [Custom Dependency Injection](../../runtime-systems/di.md) to inject a new instance of `ISimFaultHandler`, or pass in a custom instance of `ISimFaultHandler` as an optional parameter to the `SimNetworkEventStream`.
+You can inject custom network outage fault tolerance logic via [Custom Dependency Injection](../../runtime-systems/di.md) — pass a new instance of `ISimFaultHandler`, or provide one as an optional parameter to `SimNetworkEventStream`.
 
 The default implementation of the `ISimFaultHandler` is the `DefaultSimFaultHandler`.
 

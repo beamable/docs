@@ -116,7 +116,7 @@ After publishing the microservice, you can call the DeleteAccount method from th
 
 ## Unity code
 
-For additional thoroughness of erasure, it is recommended to also call `ClearAndStopAllContexts`, which is a static function from the Beamable SDK intended to clear all access tokens for logged in users, and clean up any subscriptions that were running.
+For thorough erasure, we also recommend calling `ClearAndStopAllContexts`, a static Beamable SDK function that clears all access tokens for logged-in users and cleans up any running subscriptions.
 
 ```csharp
 //C# client code

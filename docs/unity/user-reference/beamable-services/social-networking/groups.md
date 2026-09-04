@@ -25,7 +25,7 @@ Unlike many Beamable services, Groups do not require a specific Beamable Feature
 
 !!! info "Learning Fundamentals"
 
-    Before using this service, it is recommended to understand Beamable's fundamental concepts.
+    Understand Beamable's fundamental concepts before using this service.
 
     • See [Beamable: Asynchronous Programming](https://docs.beamable.com/docs/guides-overview#asynchronous-programming) for more info
 

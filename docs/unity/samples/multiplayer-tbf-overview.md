@@ -98,7 +98,7 @@ Here are instructions to set up the Beamable SDK and the `game_types` content ty
 
 Multiplayer game development offers additional challenges beyond those of a typical single player game.
 
-When designing a game with Beamable's Multiplayer feature, it is important to plan which user interactions will be sent to the servers.
+Planning which user interactions to send to the servers is an important part of designing a game with Beamable's Multiplayer feature.
 
 | Step | Detail |
 |------|--------|

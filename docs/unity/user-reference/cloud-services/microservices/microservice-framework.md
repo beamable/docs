@@ -97,7 +97,7 @@ public int Example();
 
 As your project grows, you may want to split your C#MS code across multiple C#MSs to keep it organized.
 
-However, doing so has implications you should take into consideration when deciding things for your project. In many cases, it is possible to simplify C#MS and reduce the quantity without sacrificing functionality.
+However, doing so has implications you should take into consideration when deciding things for your project. In many cases, you can simplify your C#MS setup and reduce the number of services without sacrificing functionality.
 
 - Having multiple deployed C#MSs incurs costs as each is a separate instance
 

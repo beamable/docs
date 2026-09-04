@@ -99,7 +99,7 @@ The `order` option controls the invocation ordering of `RegisterBeamableDependen
 
 ### Modifying services
 
-In a `RegisterBeamableDependencies` method, the `IDependencyBuilder` instance can be used to _remove_ existing registrations. Beamable automatically registers all of the services it needs to operate the base SDK. However, as an advanced developer, it is possible to remove Beamable service classes and replace them with custom implementations. To find the Beamable service registration listings, see the `com.beamable/Runtime/Beam.cs`static constructor. Additionally, look for references of `RegisterBeamableDependencies` to find any special places where services are added.
+In a `RegisterBeamableDependencies` method, the `IDependencyBuilder` instance can be used to _remove_ existing registrations. Beamable automatically registers all of the services it needs to operate the base SDK. However, as an advanced developer, you can remove Beamable service classes and replace them with custom implementations. To find the Beamable service registration listings, see the `com.beamable/Runtime/Beam.cs`static constructor. Additionally, look for references of `RegisterBeamableDependencies` to find any special places where services are added.
 
 In the example below, the `IDeviceIdResolver` interface is reconfigured to use a custom implementation. The `IDeviceIdResolver` is the interface responsible for identifying a device identifier used for Beamable Auth Device Id.
 

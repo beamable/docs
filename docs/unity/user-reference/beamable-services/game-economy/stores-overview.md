@@ -2,7 +2,7 @@
 
 Beamable's Store service allows the game maker to create a storefront in their application. Users can purchase items with real money or virtual currency. These can be attached to third-party purchasing methods (Apple, Google, etc.), or Unity's built-in IAP system.
 
-The setup for Stores uses the [Content Manager](../profile-storage/content/content-overview.md#content-management), and relies on at least one valid [Virtual Currency](virtual-currency-overview.md), so it is recommended to review those services before implementation.
+The setup for Stores uses the [Content Manager](../profile-storage/content/content-overview.md#content-management), and relies on at least one valid [Virtual Currency](virtual-currency-overview.md), so we recommend reviewing those services before implementation.
 
 Beamable supports purchasing using both virtual currency and real money (IAP) to purchase in-game items.
 
@@ -17,7 +17,7 @@ Beamable offers various APIs to allow the game maker to set up purchasing with v
 
 ### Making a purchase
 
-Use `CommerceService.Purchase()`, which takes a Store ID and an Item ID. For ease of use, it is recommended to create a `StoreRef` and `ListingRef`, which will create a drop-down in the Inspector to select a valid store and item.
+Use `CommerceService.Purchase()`, which takes a Store ID and an Item ID. For ease of use, we recommend declaring `StoreRef` and `ListingRef` as serialized fields on your `MonoBehaviour` — Unity's Inspector will render a drop-down for each, letting you select a valid store and listing.
 
 StoreTest.cs
 ```csharp
