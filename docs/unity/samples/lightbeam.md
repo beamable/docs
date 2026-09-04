@@ -61,7 +61,7 @@ The `CreateLightBeam` function takes 3 parameters. The first 2 are UI related. T
 
 ### Light components
 
-The Lightbeam framework adds a special extension method to the `IDependencyBuilder`, called `AddLightComponent()`. This method injects a sub-type of `ILightComponent`. These types are UI elements that can be spawned in using the Dependency Injection system. For example, in the Account Lightbeam, it is possible to have several Accounts loaded at once, and each one needs to instantiate a prefab instance as a UI element. The Lightbeam is created with this line in the `CreateLightBeam`'s dependency configuration,
+The Lightbeam framework adds a special extension method to the `IDependencyBuilder`, called `AddLightComponent()`. This method injects a sub-type of `ILightComponent`. These types are UI elements that can be spawned in using the Dependency Injection system. For example, in the Account Lightbeam, you may have several Accounts loaded at once, each needing to instantiate a prefab instance as a UI element. The Lightbeam is created with this line in the `CreateLightBeam`'s dependency configuration,
 
 ```csharp
 builder.AddLightComponent<AccountDisplayBehaviour, PlayerAccount>(config.accountDisplayTemplate);

@@ -12,7 +12,7 @@ Beamable integrates with Apple Sign-In to make it easy for users to sign in to y
 The recommended solution for implementing Apple Sign-In is to build a wrapper on top of SignInWithApple, a Unity package that is installed with Beamable.
 
 !!! warning "Preprocessor Directives"
-    Since Apple Sign-In is only supported on Apple devices, it is recommended to wrap your core functionality in `#if UNITY_IOS` and a matching `#endif` to prevent compilation on non-iOS devices.
+    Since Apple Sign-In is only supported on Apple devices, we recommend wrapping your core functionality in `#if UNITY_IOS` and a matching `#endif` to prevent compilation on non-iOS devices.
 
 The first step is to initialize a new instance of SignInWithApple:
 

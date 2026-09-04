@@ -434,7 +434,7 @@ Mouse over a schema header to reveal the **cell notes**. Notes store the column 
 
 !!! info "Best Practice"
 
-    While **cell notes** can be edited manually, it is recommended to use the provided settings UI
+    While **cell notes** can be edited manually, we recommend using the provided settings UI
 
     • **Sheet Settings** - Google Sheet → Add-Ons → Game Content Designer → Documentation Settings
     • **Column Settings** - Google Sheet → Add-Ons → Game Content Designer → Documentation Settings
