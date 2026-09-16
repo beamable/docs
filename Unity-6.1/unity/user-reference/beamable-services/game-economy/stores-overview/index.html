@@ -9858,7 +9858,7 @@
 
 <h1 id="stores-overview">Stores - overview<a class="headerlink" href="#stores-overview" title="Permanent link">¶</a></h1>
 <p>Beamable's Store service allows the game maker to create a storefront in their application. Users can purchase items with real money or virtual currency. These can be attached to third-party purchasing methods (Apple, Google, etc.), or Unity's built-in <abbr title="in-app purchases">IAP</abbr> system.</p>
-<p>The setup for Stores uses the <a href="../../profile-storage/content/content-overview/#content-management">Content Manager</a>, and relies on at least one valid <a href="../virtual-currency-overview/">Virtual Currency</a>, so it is recommended to review those services before implementation.</p>
+<p>The setup for Stores uses the <a href="../../profile-storage/content/content-overview/#content-management">Content Manager</a>, and relies on at least one valid <a href="../virtual-currency-overview/">Virtual Currency</a>, so we recommend reviewing those services before implementation.</p>
 <p>Beamable supports purchasing using both virtual currency and real money (<abbr title="in-app purchases">IAP</abbr>) to purchase in-game items.</p>
 <h2 id="stores-api">Stores API<a class="headerlink" href="#stores-api" title="Permanent link">¶</a></h2>
 <p>Beamable offers various APIs to allow the game maker to set up purchasing with various configurations. <a href="../virtual-currency-overview/">Virtual Currency</a> or real money can be used to purchase items, as well as support for Unity <abbr title="in-app purchases">IAP</abbr> or a variety of third-party or custom purchasers.</p>
@@ -9867,7 +9867,7 @@
 <p>Before users can purchase items, you must set up at least one valid currency, a store item, and store listing.</p>
 </div>
 <h3 id="making-a-purchase">Making a purchase<a class="headerlink" href="#making-a-purchase" title="Permanent link">¶</a></h3>
-<p>Use <code>CommerceService.Purchase()</code>, which takes a Store ID and an Item ID. For ease of use, it is recommended to create a <code>StoreRef</code> and <code>ListingRef</code>, which will create a drop-down in the Inspector to select a valid store and item.</p>
+<p>Use <code>CommerceService.Purchase()</code>, which takes the content ID of a store and the content ID of one of its listings. For ease of use, we recommend declaring <code>StoreRef</code> and <code>ListingRef</code> as serialized fields on your <code>MonoBehaviour</code> — Unity's Inspector will render a drop-down for each, letting you select a valid store and listing.</p>
 <p>StoreTest.cs
 </p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">StoreRef</span><span class="w"> </span><span class="n">storeRef</span><span class="p">;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">ListingRef</span><span class="w"> </span><span class="n">listingRef</span><span class="p">;</span>

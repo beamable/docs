@@ -9747,7 +9747,7 @@
 <p>The recommended solution for implementing Apple Sign-In is to build a wrapper on top of SignInWithApple, a Unity package that is installed with Beamable.</p>
 <div class="admonition warning">
 <p class="admonition-title">Preprocessor Directives</p>
-<p>Since Apple Sign-In is only supported on Apple devices, it is recommended to wrap your core functionality in <code>#if UNITY_IOS</code> and a matching <code>#endif</code> to prevent compilation on non-iOS devices.</p>
+<p>Since Apple Sign-In is only supported on Apple devices, we recommend wrapping your core functionality in <code>#if UNITY_IOS</code> and a matching <code>#endif</code> to prevent compilation on non-iOS devices.</p>
 </div>
 <p>The first step is to initialize a new instance of SignInWithApple:</p>
 <div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">private</span><span class="w"> </span><span class="n">SignInWithApple</span><span class="w"> </span><span class="n">signInWithApple</span><span class="p">;</span>
