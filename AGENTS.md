@@ -63,7 +63,18 @@ beamable-docs-websdk-1.0   → websdk/v1.0
 beamable-docs-api-1.0      → api/v1.0
 beamable-docs-toolkit-0.4  → toolkit/v0.4
 beamable-docs-internal     → internal
+beamable-docs-home         → home
 ```
+
+`home` is worth a standing worktree for comprehensive docs work even though it holds no
+SDK content. It is the product chooser, so a newly published product line needs a card
+added there, and nothing in the deploy workflows will remind you — having the worktree on
+disk is what makes that step visible.
+
+`core/v8.0` is **unpublished future work, not a rotation branch.** Real Beam-CLI releases are
+still on 7.x, and `core/v8.0` currently holds a single unmerged commit off `core/v7.2`. Keep a
+worktree for it if you want visibility into what is coming, but it is out of copyediting scope,
+it feeds nothing, and it is not counted against the four-core-branch rotation ceiling below.
 
 Add a worktree:
 
@@ -171,7 +182,8 @@ for d in beamable-docs-core-7.1 beamable-docs-core-7.2 \
          beamable-docs-unity-6.0 beamable-docs-unity-6.1 \
          beamable-docs-unreal-2.2 beamable-docs-unreal-2.3 \
          beamable-docs-internal beamable-docs-api-1.0 \
-         beamable-docs-toolkit-0.4 beamable-docs-websdk-1.0; do
+         beamable-docs-toolkit-0.4 beamable-docs-websdk-1.0 \
+         beamable-docs-home; do
   cp ~/src/beamable/docs/AGENTS.md ~/src/beamable/$d/AGENTS.md
   cp ~/src/beamable/docs/CLAUDE.md ~/src/beamable/$d/CLAUDE.md
   git -C ~/src/beamable/$d add AGENTS.md CLAUDE.md
@@ -185,7 +197,7 @@ Push these commits per the **Staggered pushes** procedure.
 
 ## Setup
 
-Requirements: Python 3.12, git-lfs
+Requirements: Python 3.12 or newer, git-lfs (verified good on 3.14.7)
 
 ```sh
 # Install Python dependencies
