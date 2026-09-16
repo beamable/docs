@@ -1,6 +1,12 @@
 # Beamball sample
 
-![An animation showcasing the Beamball sample game, which demonstrates the Store, Leaderboard, Stats, and Matchmaking services.](../../../media/imgs/beamable-release.gif)
+<figure>
+  <video autoplay loop muted playsinline
+         style="width:100%; max-width:800px;">
+    <source src="../../../../media/vids/beamable-release.mp4" type="video/mp4">
+  </video>
+  <figcaption>The Beamball sample game, demonstrating the Store, Leaderboard, Stats, and Matchmaking services</figcaption>
+</figure>
 
 This demo showcases how you can use the **Beamable Unreal SDK** in a full game project. Particularly it focuses on the Store, Leaderboard, Stats and Matchmaking services.
 
