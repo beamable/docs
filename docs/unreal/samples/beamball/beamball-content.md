@@ -1,6 +1,12 @@
 # Beamball – store and content system
 
-![An animation of the Beamball sample's store screen, where the player browses skin listings and purchases one to add it to their inventory.](../../../media/imgs/beamball-content.gif)
+<figure>
+  <video autoplay loop muted playsinline
+         style="width:100%; max-width:800px;">
+    <source src="../../../../media/vids/beamball-content.mp4" type="video/mp4">
+  </video>
+  <figcaption>The Beamball sample's store screen: browsing skin listings and purchasing one to add it to the player's inventory</figcaption>
+</figure>
 
 In the **Beamball** sample we have a basic implementation of the Store and Inventory Systems. Those are built using the Beamable’s **Store** and **Content** services. The flow combines backend data (listings and offers) with **local DataAssets** that define the visual presentation of each item.
 
