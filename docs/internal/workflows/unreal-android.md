@@ -16,7 +16,7 @@ There's some complementary information you can find useful in the Unreal documen
  2. With the unreal installed, expand the menu in the side and open the options.
  3. After this enable the Android option and wait until it installs.
 
-The images below shows how to handle the steps above.
+The images below show how to handle the steps above.
 
 
 | ![epic-unreal-library.png](../../media/imgs/epic-unreal-library.png) |
