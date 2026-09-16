@@ -9968,7 +9968,7 @@
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">BeamContext</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">// GetItems() allows a ItemRef to specify which type of items to get</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Inventory</span><span class="p">.</span><span class="n">GetItems</span><span class="p">();</span><span class="w"> </span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">Inventory</span><span class="p">.</span><span class="n">GetItems</span><span class="p">();</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="c1">// wait for the items to be updated</span>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="n">Refresh</span><span class="p">();</span>
@@ -10004,8 +10004,8 @@
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
 </code></pre></div><p></p>
 <h3 id="delayed-updates">Delayed Updates<a class="headerlink" href="#delayed-updates" title="Permanent link">¶</a></h3>
-<p>Every time the Update method is called, a network request will be sent to Beamable. In some circumstances this will 
-produce too much network traffic. In the Unity SDK, the UpdateDelayed function can be used to batch requests made in 
+<p>Every time the Update method is called, a network request will be sent to Beamable. In some circumstances this will
+produce too much network traffic. In the Unity SDK, the UpdateDelayed function can be used to batch requests made in
 quick succession.</p>
 <div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">PerformDelayedUpdates</span><span class="p">()</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>

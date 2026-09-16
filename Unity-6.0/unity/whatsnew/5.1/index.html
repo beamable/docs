@@ -502,7 +502,7 @@
   <a href="#reworked-lightbeam-samples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reworked Lightbeam Samples
+        Reworked Lightbeam samples
       
     </span>
   </a>
@@ -9652,7 +9652,7 @@
   <a href="#reworked-lightbeam-samples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reworked Lightbeam Samples
+        Reworked Lightbeam samples
       
     </span>
   </a>
@@ -9721,11 +9721,17 @@
 
 
 <h1 id="version-51">Version 5.1<a class="headerlink" href="#version-51" title="Permanent link">¶</a></h1>
-<p>These are the release notes for the Beamable Unity SDK version 5.1. This release includes a new Admin Console, reworkd Lightbeam samples and bug fixes to enhance your experience with the Beamable Unity SDK. Below are the highlights of this release:</p>
+<p>These are the release notes for the Beamable Unity SDK version 5.1. This release includes a new Admin Console, reworked Lightbeam samples and bug fixes to enhance your experience with the Beamable Unity SDK. Below are the highlights of this release:</p>
 <h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">¶</a></h2>
-<h3 id="reworked-lightbeam-samples">Reworked Lightbeam Samples<a class="headerlink" href="#reworked-lightbeam-samples" title="Permanent link">¶</a></h3>
-<p>The Lightbeams samples was reworked to improve the interfaces and visuals alongside many bug fixes and new docs. You can access them from the <code>Beam Samples Window</code> in the Unity Editor.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/lightbeam-samples.gif" data-desc-position="bottom"><img alt="The reworked Lightbeam samples window in the Unity Editor, with selectable cards for each bundled feature sample." src="../../../media/imgs/lightbeam-samples.gif" width="800px"></a></p>
+<h3 id="reworked-lightbeam-samples">Reworked Lightbeam samples<a class="headerlink" href="#reworked-lightbeam-samples" title="Permanent link">¶</a></h3>
+<p>We reworked the Lightbeam samples to improve the visuals and interface, as well as fixing several bugs and adding new documentation. You can access them from the <code>Beam Samples Window</code> in the Unity Editor.</p>
+<figure>
+  <video controls="" preload="metadata" playsinline="" poster="../../../media/imgs/lightbeam-samples-poster.jpg" style="width:100%; max-width:800px;">
+    <source src="../../../media/vids/lightbeam-samples.mp4" type="video/mp4">
+  </video>
+  <figcaption>The reworked Player Account Manager sample: switching between player accounts, setting an alias, and choosing an avatar</figcaption>
+</figure>
+
 <p>Here is the updated list of samples and the new docs:</p>
 <ul>
 <li><a href="../../samples/lightbeam-account/">Player Account Manager</a></li>
@@ -9737,9 +9743,15 @@
 </ul>
 <p>See the <a href="../../samples/lightbeam/">Lightbeam samples overview</a> for the shared framework, common sample structure, and customization options.</p>
 <h3 id="new-admin-console">New Admin Console<a class="headerlink" href="#new-admin-console" title="Permanent link">¶</a></h3>
-<p>The <a href="../../user-reference/runtime-systems/admin-console/">Admin Console</a> is now a built-in runtime overlay managed directly by the Beamable runtime — no manual prefab setup is required. </p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../media/imgs/admin-console.gif" data-desc-position="bottom"><img alt="The Beamable Admin Console overlay rendered over a running game scene, showing a Console ready prompt above a command input line." src="../../../media/imgs/admin-console.gif" width="800px"></a></p>
-<p>To start using it Open the console with the backtick (<code>`</code>) key on keyboard or a 3-finger swipe on touch platforms.</p>
+<p>The <a href="../../user-reference/runtime-systems/admin-console/">Admin Console</a> is now a built-in runtime overlay managed directly by the Beamable runtime — no manual prefab setup is required.</p>
+<figure>
+  <video controls="" preload="metadata" playsinline="" poster="../../../media/imgs/admin-console-poster.png" style="width:100%; max-width:800px;">
+    <source src="../../../media/vids/admin-console.mp4" type="video/mp4">
+  </video>
+  <figcaption>The Beamable Admin Console overlay in a running game scene: listing the available commands, then running <code>dbid</code> to print the player's ID</figcaption>
+</figure>
+
+<p>You can open the console with the backtick/tilde (<code>`</code>/<code>~</code>) key or 3-finger swipe on touch platforms.</p>
 <p>The old AdminFlow console is now considered <a href="#deprecations">deprecated</a></p>
 <h3 id="deprecations">Deprecations<a class="headerlink" href="#deprecations" title="Permanent link">¶</a></h3>
 <h4 id="adminflow-prefab">AdminFlow Prefab<a class="headerlink" href="#adminflow-prefab" title="Permanent link">¶</a></h4>

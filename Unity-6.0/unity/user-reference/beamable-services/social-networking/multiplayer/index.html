@@ -10205,7 +10205,7 @@ Depending on the complexity of the game play, there may be dozens of custom even
 </code></pre></div>
 <p>In the event that a network outage is unrecoverable, the entire <code>SimNetworkEventStream</code> instance needs to be reconstructed. Any further calls to <code>SimClient.Update</code> will re-throw the <code>SimNetworkErrorException</code>.</p>
 <h4 id="custom-fault-tolerance">Custom fault tolerance<a class="headerlink" href="#custom-fault-tolerance" title="Permanent link">¶</a></h4>
-<p>It is possible to inject custom network outage fault tolerance logic. Use <a href="../../../runtime-systems/di/">Custom Dependency Injection</a> to inject a new instance of <code>ISimFaultHandler</code>, or pass in a custom instance of <code>ISimFaultHandler</code> as an optional parameter to the <code>SimNetworkEventStream</code>.</p>
+<p>You can inject custom network outage fault tolerance logic via <a href="../../../runtime-systems/di/">Custom Dependency Injection</a> — pass a new instance of <code>ISimFaultHandler</code>, or provide one as an optional parameter to <code>SimNetworkEventStream</code>.</p>
 <p>The default implementation of the <code>ISimFaultHandler</code> is the <code>DefaultSimFaultHandler</code>.</p>
 <div class="admonition info">
 <p class="admonition-title">Change Default Fault Tolerance Duration</p>
