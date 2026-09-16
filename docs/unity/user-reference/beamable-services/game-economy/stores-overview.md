@@ -17,7 +17,7 @@ Beamable offers various APIs to allow the game maker to set up purchasing with v
 
 ### Making a purchase
 
-Use `CommerceService.Purchase()`, which takes a Store ID and an Item ID. For ease of use, we recommend declaring `StoreRef` and `ListingRef` as serialized fields on your `MonoBehaviour` — Unity's Inspector will render a drop-down for each, letting you select a valid store and listing.
+Use `CommerceService.Purchase()`, which takes the content ID of a store and the content ID of one of its listings. For ease of use, we recommend declaring `StoreRef` and `ListingRef` as serialized fields on your `MonoBehaviour` — Unity's Inspector will render a drop-down for each, letting you select a valid store and listing.
 
 StoreTest.cs
 ```csharp
