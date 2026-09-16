@@ -32,7 +32,7 @@ public async Task AddOneItem()
 {
   	// acquire a context
   	var ctx = await BeamContext.Default.Instance;
-  
+
     // grant an item
     await ctx.Inventory.Update(builder => builder.AddItem("item.hat"));
 }
@@ -45,10 +45,10 @@ public async Task GetItems()
 {
     // acquire a context
     var ctx = await BeamContext.Default.Instance;
-    
+
     // GetItems() allows a ItemRef to specify which type of items to get
-    var items = ctx.Inventory.GetItems(); 
-    
+    var items = ctx.Inventory.GetItems();
+
     // wait for the items to be updated
     await items.Refresh();
     foreach (var item in items)
@@ -81,15 +81,15 @@ public async Task DeleteOneItem()
     var ctx = await BeamContext.Default.Instance;
     var items = ctx.Inventory.GetItems();
     await items.Refresh();
-    
+
     var itemToDelete = items[0];
     await ctx.Inventory.Update(builder => builder.DeleteItem(itemToDelete.ContentId, itemToDelete.ItemId));
 }
 ```
 
 ### Delayed Updates
-Every time the Update method is called, a network request will be sent to Beamable. In some circumstances this will 
-produce too much network traffic. In the Unity SDK, the UpdateDelayed function can be used to batch requests made in 
+Every time the Update method is called, a network request will be sent to Beamable. In some circumstances this will
+produce too much network traffic. In the Unity SDK, the UpdateDelayed function can be used to batch requests made in
 quick succession.
 
 ```csharp
@@ -97,11 +97,11 @@ quick succession.
 public async Task PerformDelayedUpdates()
 {
     var ctx = await BeamContext.Default.Instance;
-    
+
     ctx.Inventory.UpdateDelayed(b => b.CurrencyChange("currency.gems", 3));
     ctx.Inventory.UpdateDelayed(b => b.CurrencyChange("currency.coins", 3));
     ctx.Inventory.UpdateDelayed(b => b.CurrencyChange("currency.dollars", 3));
-    
+
     await ctx.Inventory.WaitForDelayedUpdate();
 }
 ```
@@ -112,10 +112,10 @@ Observe changes (ex. add/remove) for the active player of all owned Inventory It
 private async Task ListenForInventory()
 {
     var ctx = await BeamContext.Default.Instance;
-    
+
     var items = ctx.Inventory.GetItems();
     await items.Refresh();
-    
+
     foreach (var item in items)
     {
       item.OnUpdated += () =>
@@ -123,12 +123,12 @@ private async Task ListenForInventory()
         Debug.Log($"Item updated {item.ItemId}");
       };
     }
-    
+
     items.OnUpdated += () =>
     {
       Debug.Log("Inventory updated");
     };
-    
+
     items.OnElementsAdded += newItems =>
     {
       Debug.Log("Added items");
@@ -140,7 +140,7 @@ private async Task ListenForInventory()
         };
       }
     };
-    
+
     items.OnElementRemoved += removedItems =>
     {
       Debug.Log($"Removed {removedItems.Count()} items");
