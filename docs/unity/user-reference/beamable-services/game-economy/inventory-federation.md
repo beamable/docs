@@ -41,7 +41,7 @@ public class MyFederationIdentity : IThirdPartyCloudIdentity
 [Microservice("MyFederation")]
 public class MyFederationService : Microservice, IFederatedInventory<MyFederationIdentity>
 {
-   
+
 }
 ```
 
