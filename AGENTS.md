@@ -90,47 +90,26 @@ After pushing to a core branch, immediately `git pull` in the corresponding unit
 
 ### Staggered pushes
 
-GitHub Actions serializes gh-pages deploys with a concurrency group (one active job, one pending). Pushing multiple branches in rapid succession causes queued jobs to be canceled. Push branches sequentially, waiting for each deploy to complete before pushing the next (typical run: 40–90 seconds).
+Every workflow that writes `gh-pages` shares one concurrency group, which holds one running job and one pending one and **cancels** anything beyond that. So pushing several branches in quick succession drops deploys. Push sequentially, waiting for each deploy to finish before starting the next.
 
-The script below pushes all ahead worktrees with a 2-minute gap. Save it as a shell function or run it directly:
-
-```bash
-#!/usr/bin/env bash
-to_push=()
-for dir in ~/src/beamable/beamable-docs-*/; do
-  dir="${dir%/}"
-  ahead=$(git -C "$dir" rev-list --count '@{u}..HEAD' 2>/dev/null)
-  [[ "$ahead" -gt 0 ]] && to_push+=("$dir")
-done
-
-if [[ ${#to_push[@]} -eq 0 ]]; then
-  echo "Nothing ahead of remote in any beamable-docs worktree."
-  exit 0
-fi
-
-echo "Queued:"; for d in "${to_push[@]}"; do echo "  $(basename "$d")"; done
-
-# Push order relies on lexical glob expansion of beamable-docs-*/:
-# api, core, internal, unity, unreal, websdk. This happens to place
-# core/* before unity/* and unreal/*, which is required by the
-# auto-sync-core dependency (core's core-owned paths are copied
-# onto unity and unreal on push, so core must land first). If a future SDK
-# is named alphabetically before "core" with a downstream sync
-# relationship, replace this implicit ordering with an explicit
-# priority sort.
-
-for i in "${!to_push[@]}"; do
-  echo; echo "Pushing $(basename "${to_push[$i]}")..."
-  # Pull --rebase first to pick up any auto-sync-core sync commits
-  # that landed while editing. Without this, the push fails as
-  # non-fast-forward whenever a core branch was pushed upstream
-  # of a downstream branch since the last local fetch.
-  git -C "${to_push[$i]}" pull --rebase || { echo "Pull failed for $(basename "${to_push[$i]}") — resolve and re-run."; exit 1; }
-  git -C "${to_push[$i]}" push
-  [[ $i -ge 1 && $i -lt $((${#to_push[@]} - 1)) ]] && echo "Waiting 2 minutes..." && sleep 120
-done
-echo; echo "All pushes complete."
+```shell
+scripts/docs-push.sh --dry-run   # show the queue, then re-run without the flag
 ```
+
+The script pushes every worktree that is ahead of its upstream, `core/*` first — pushing a core branch makes `auto-sync-core` commit onto its downstream engine branches, so a downstream push landing before that would be rejected as non-fast-forward. It discovers worktrees with `git worktree list`, so it does not depend on directory naming.
+
+**It waits on the deploy rather than sleeping a fixed interval.** The interval it replaced (2 minutes) was sized against the wrong thing: `Auto Publish Branch` runs measured 47s median and 91s max on 2026-09-17 and never queued, while a core push that touches core-owned paths syncs to each downstream engine branch and every one of those commits triggers its own publish — so the real wait ranges from about 50 seconds to several minutes. The script polls in two phases: first for a run matching the pushed commit to *appear*, then for the repo to go *quiet*. Both are needed, because `git push` returns before GitHub has registered the run — polling only for quiet sails straight through the gap.
+
+`pages-build-deployment` is deliberately excluded from that wait. It is GitHub's own Pages builder, it renders whatever is on `gh-pages` at the time, and a superseded build loses nothing because the winner's tree already contains the earlier commit. Seeing it `cancelled` is normal and needs no gap. Our own writers are the opposite: each `Auto Publish Branch` run is a `mike deploy` of a *different* version, so a cancelled one silently loses that version's update.
+
+Two behaviors worth knowing:
+
+- **It asks the remote whether a push landed** instead of trusting the exit status. A connection dropped after the remote accepts the pack exits nonzero on a push that actually succeeded — seen on `toolkit/v0.4`, 2026-09-17. Genuine failures are collected and reported at the end with a nonzero exit, rather than aborting the run partway
+- **It holds `caffeinate -i` for the duration.** An unattended run outlasts the idle-sleep timer: on 2026-09-17 the machine slept ten minutes in, stretching 22 minutes of work over 94 and killing one push mid-pack. `-i` blocks idle sleep only, so the display still sleeps
+
+**Two live branches publish nothing on push:** `api/v1.0` and `websdk/v1.0` carry no `auto-publish-branch.yml`, so they update only by a manual `Deploy Docs Branch` dispatch. That is deliberate — both hold generated content, which should publish on a deliberate regeneration rather than on any push. The script reports `no deploy registered` for them and moves on rather than waiting out its timeout.
+
+`home` was a third such branch until 2026-09-17 and is now automatic. Each branch's copy of `auto-publish-branch.yml` is a superset of a shared base, adding its own entry to `on.push.branches` plus whatever alias handling it needs; the copies are deliberately *not* byte-identical, unlike the `auto-sync-core.yml` stub. A branch with no version component needs a fixed-alias case beside `internal`'s, because the generic path assumes `{product}/v{version}` — `home` without one derived `Unknown-home`, which `mike list` never matches, so the run skipped and still reported success. `home` additionally carries no `auto-sync-core.yml` stub, unlike every other non-core branch.
 
 ### Branch mapping
 
