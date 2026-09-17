@@ -15,14 +15,46 @@ jobs:
     name: Sync ${{ github.ref_name }} into ${{ matrix.branch }}
     strategy:
       matrix:
-        # TODO: when Unity or Unreal depends on cli 8.0, add those versions here. 
-        branch: []
+        # TODO: when Unity or Unreal depends on cli 8.0, add those versions
+        # here, replacing the empty-string placeholder.
+        #
+        # The placeholder exists because Actions fails a job whose matrix
+        # vector is empty, which would paint this branch permanently red for
+        # a branch that simply has no downstream targets yet. The job-level
+        # `if:` below turns that into a skip. Note the interaction with the
+        # guard step: while the list is empty the whole job skips, so the
+        # guard does not run — harmless, since a copy with no targets syncs
+        # nothing anyway. Adding a real target re-arms both at once.
+        branch: ['']
+    if: matrix.branch != ''
     outputs:
       synced_branches: ${{ steps.sync.outputs.synced_branches }}
 
     steps:
+      # Defense in depth. `on.push.branches` above already pins this workflow to
+      # one core branch, so it cannot fire elsewhere today. The guard matters if
+      # this file is ever copied onto a non-core branch AND its trigger adjusted
+      # — a real, matrix-declaring copy of this workflow was sitting on
+      # `toolkit/v0.4` until 2026-07-29, inert only because the trigger still
+      # named a core branch. Deliberately a failing step rather than a job-level
+      # `if:`, which would report a misconfigured run as a green skip.
+      - name: Guard — refuse to sync from a non-core branch
+        env:
+          REF: ${{ github.ref_name }}
+        run: |
+          if [[ "$REF" != core/* ]]; then
+            echo "::error::Auto Sync Core ran from '$REF', which is not a core/* branch. Refusing to sync."
+            echo
+            echo "Only core/v* branches may push core-owned paths downstream."
+            echo "If this file was copied onto a non-core branch, replace it with"
+            echo "the stub that lives on 'main' and on every other non-core"
+            echo "branch. See AGENTS.md, section 'Branch mapping'."
+            exit 1
+          fi
+          echo "Ref '$REF' is a core branch; proceeding."
+
       - name: Checkout target branch
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: ${{ matrix.branch }}
           token: ${{ secrets.DOCS_PAT }}
