@@ -20,13 +20,15 @@ jobs:
         #
         # The placeholder exists because Actions fails a job whose matrix
         # vector is empty, which would paint this branch permanently red for
-        # a branch that simply has no downstream targets yet. The job-level
-        # `if:` below turns that into a skip. Note the interaction with the
-        # guard step: while the list is empty the whole job skips, so the
-        # guard does not run — harmless, since a copy with no targets syncs
-        # nothing anyway. Adding a real target re-arms both at once.
+        # a branch that simply has no downstream targets yet. Each sync step
+        # below is gated on the placeholder so they all skip and the job goes
+        # green; the guard step is deliberately left ungated so it still runs.
+        #
+        # The gate has to sit on the steps, not on the job. `matrix` is not
+        # among the contexts available to `jobs.<job_id>.if`, so a job-level
+        # gate is a workflow-compile error, not a skip — the run fails with no
+        # jobs at all, which looks exactly like the failure it was meant to fix.
         branch: ['']
-    if: matrix.branch != ''
     outputs:
       synced_branches: ${{ steps.sync.outputs.synced_branches }}
 
@@ -54,6 +56,7 @@ jobs:
           echo "Ref '$REF' is a core branch; proceeding."
 
       - name: Checkout target branch
+        if: matrix.branch != ''
         uses: actions/checkout@v7
         with:
           ref: ${{ matrix.branch }}
@@ -61,11 +64,13 @@ jobs:
           fetch-depth: 0
 
       - name: Configure Git
+        if: matrix.branch != ''
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Sync core-owned paths
+        if: matrix.branch != ''
         id: sync
         run: |
           # Core owns exactly these paths; they must not be edited on
