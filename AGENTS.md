@@ -177,23 +177,17 @@ Claude Code expands that `@`-import to pull in `AGENTS.md`, so both toolchains s
 
 Both files live on every content branch so agents working from any worktree see project-specific instructions. `main` holds the canonical `AGENTS.md`; all edits land there first. There is no automation propagating `main` → other branches. These files are **not** core-owned paths, so they do not ride `auto-sync-core` (which syncs only `docs/cli/guides`, `docs/cli/SUMMARY.md`, `docs/includes`, and `docs/portal`) — including the auto-sync targets `unity/v6.0`, `unity/v6.1`, and `unreal/v2.3`, which receive core-owned content downstream but not these. After editing `AGENTS.md` on main, stamp it (and the one-line `CLAUDE.md`) onto each worktree branch in the same session:
 
-```bash
-for d in beamable-docs-core-7.1 beamable-docs-core-7.2 \
-         beamable-docs-unity-6.0 beamable-docs-unity-6.1 \
-         beamable-docs-unreal-2.2 beamable-docs-unreal-2.3 \
-         beamable-docs-internal beamable-docs-api-1.0 \
-         beamable-docs-toolkit-0.4 beamable-docs-websdk-1.0 \
-         beamable-docs-home; do
-  cp ~/src/beamable/docs/AGENTS.md ~/src/beamable/$d/AGENTS.md
-  cp ~/src/beamable/docs/CLAUDE.md ~/src/beamable/$d/CLAUDE.md
-  git -C ~/src/beamable/$d add AGENTS.md CLAUDE.md
-  git -C ~/src/beamable/$d commit -m "Sync AGENTS.md from main"
-done
+```shell
+scripts/stamp-agents-md.sh --dry-run   # review, then re-run without the flag
 ```
 
 Push these commits per the **Staggered pushes** procedure.
 
-`CLAUDE.md` is a static one-liner identical on every branch, so in practice only `AGENTS.md` changes. When the branches already match `main`, `git cherry-pick`-ing the main commit onto each branch is a cleaner-history alternative to the `cp` stamp — it preserves the original message and author, and applies without conflict. Fall back to the `cp` stamp if a branch has drifted. `unity/v4.0` is excluded from propagation: the files are gitignored there and the branch has no standing worktree.
+The script derives the branch list rather than hardcoding it, because a hardcoded list drifts silently — `core/v8.0` sat 14 commits stale for exactly that reason, despite having a worktree the whole time. After `git fetch --prune`, every remote-tracking ref is a local object, so it reads `AGENTS.md` at each branch with `git show origin/<branch>:AGENTS.md` — no API calls, no network, about half a second for the whole repo. A branch counts as live if that file exists and does not carry the frozen-branch notice. Both retirement eras therefore exclude themselves without anyone maintaining a list: branches retired under the current recipe carry the notice, and branches predating `AGENTS.md` have no file to sync at all (which is also why `unity/v4.0`, where the files are gitignored, needs no special case).
+
+**Prerequisite: have a worktree for every live branch.** The script stamps through worktrees, so a live branch with none is a hard stop — it names the branch and exits without touching anything, rather than skipping it quietly. Add the worktree and re-run. That is the one manual step a new product line or a freshly cut version branch still needs.
+
+It also skips any worktree with uncommitted changes, and reports branches already matching `main` instead of making empty commits. `CLAUDE.md` is a static one-liner identical on every branch, so in practice only `AGENTS.md` changes. When every branch already matches `main`, `git cherry-pick`-ing the main commit onto each is a cleaner-history alternative that preserves the original message and author; fall back to the script whenever a branch has drifted.
 
 ## Setup
 
