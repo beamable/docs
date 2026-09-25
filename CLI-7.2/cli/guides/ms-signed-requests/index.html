@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://help.beamable.com/CLI-7.2/cli/guides/ms-deployment/">
+        <link rel="canonical" href="https://help.beamable.com/CLI-7.2/cli/guides/ms-signed-requests/">
       
       
-        <link rel="prev" href="../microservices/">
+        <link rel="prev" href="../ms-routing/">
       
       
-        <link rel="next" href="../ms-debugging/">
+        <link rel="next" href="../ms-storage/">
       
       
         
@@ -22,7 +22,7 @@
     
     
       
-        <title>Deployment - Beamable Docs</title>
+        <title>Signed requests - Beamable Docs</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#microservice-deployment" class="md-skip">
+        <a href="#signed-requests" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Deployment
+              Signed requests
             
           </span>
         </div>
@@ -1107,37 +1107,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deployment
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ms-deployment/" class="md-nav__link">
         
   
   
@@ -1153,166 +1126,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dependencies
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Deployment
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Deployment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#building-the-plan" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Building the plan
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Building the plan">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#merge-and-replace-plans" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Merge and replace plans
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#releasing-the-plan" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Releasing the plan
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Releasing the plan">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#redeploying-existing-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redeploying existing services
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enabling-and-disabling-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Enabling and disabling services
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dockerfiles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dockerfiles
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Dockerfiles">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#local-docker-testing-and-debugging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Local Docker testing and debugging
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Local Docker testing and debugging">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#useful-debugging-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful debugging practices
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1406,10 +1219,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../ms-signed-requests/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Signed requests
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1425,6 +1265,65 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#signed-requests-in-microservices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signed requests in Microservices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculating-signatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calculating Signatures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Calculating Signatures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-examples-calculate-signed-request-signature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Examples: Calculate Signed Request Signature
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -6344,10 +6243,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
+  <a href="#signed-requests-in-microservices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dependencies
+        Signed requests in Microservices
       
     </span>
   </a>
@@ -6355,126 +6254,25 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deployment" class="md-nav__link">
+  <a href="#calculating-signatures" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deployment
+        Calculating Signatures
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Deployment">
+    <nav class="md-nav" aria-label="Calculating Signatures">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#building-the-plan" class="md-nav__link">
+  <a href="#code-examples-calculate-signed-request-signature" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Building the plan
+        Code Examples: Calculate Signed Request Signature
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Building the plan">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#merge-and-replace-plans" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Merge and replace plans
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#releasing-the-plan" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Releasing the plan
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Releasing the plan">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#redeploying-existing-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redeploying existing services
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enabling-and-disabling-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Enabling and disabling services
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dockerfiles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dockerfiles
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Dockerfiles">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#local-docker-testing-and-debugging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Local Docker testing and debugging
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Local Docker testing and debugging">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#useful-debugging-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful debugging practices
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -6500,211 +6298,148 @@
 
 
 
-<h1 id="microservice-deployment">Microservice deployment<a class="headerlink" href="#microservice-deployment" title="Permanent link">¶</a></h1>
-<p>Deploy Standalone Microservices to the Beamable Cloud</p>
-<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h2>
-<p>Before you can deploy Beamable Standalone Microservices, you need to complete the <a href="../getting-started/">Getting-Started Guide</a>. That means having <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0">.NET 10</a> installed, and getting the <a href="https://www.nuget.org/packages/Beamable.Tools">Beam CLI</a>.</p>
-<p>You can confirm you have everything installed checking the versions of the tools.
-</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>--version
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>beam<span class="w"> </span>version
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># "beam --version" also works</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># "dotnet beam version" when using the CLI with an engine integration</span>
-</code></pre></div><p></p>
-<p>To deploy, you also need to have <a href="https://www.docker.com/products/docker-desktop/">Docker</a> installed. You can verify it is installed correctly by using the <code>--version</code> command.
-</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>--version
-</code></pre></div><p></p>
-<p>In order to deploy a Microservice, you also need to have a local <code>.beamable/</code> workspace with a Beamable Standalone Microservice. As a reminder, you can create one quickly using the commands below (Unity/Unreal engine integrations will do this for you).
-</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>init<span class="w"> </span>MyProject
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>MyProject
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>new<span class="w"> </span>service<span class="w"> </span>HelloWorld
-</code></pre></div><p></p>
-<h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">¶</a></h2>
-<p>Beamable Standalone Microservices use .NET as the core technology to run locally on your development machine. However, when it is time to release your Microservice to production, the service will be built into an OCI compliant image using <a href="https://www.docker.com/products/docker-desktop/">Docker</a>, and uploaded to the Beamable Cloud. Beamable's internal orchestration platform (sometimes called <em>BeamO</em> ) will deploy containerized instances of the service.</p>
-<p>Deploying services is a two-step process. First, you must build the images and generate a <strong>plan file</strong>. Then, you use the CLI to deploy a plan.</p>
-<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># This will generate a plan file.</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># We store these automatically inside the .beamable folder.</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>plan
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># The above prints out the command you need to run to deploy the resulting plan.</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># OR you can use this to the most recent plan generated</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>release<span class="w"> </span>--latest-plan
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># OR this to use a specific plan file.</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>plan<span class="w"> </span>--plan<span class="w"> </span><span class="s2">"path to plan file"</span>
+<h1 id="signed-requests">Signed Requests<a class="headerlink" href="#signed-requests" title="Permanent link">¶</a></h1>
+<p>Make privileged server-to-server Beamable API requests using signatures based on your realm secret</p>
+<p>Beamable supports server-to-server privileged API requests in addition to token based access. In contrast to token based requests which must act as a particular Beamable user (who may or may not have administrative privileges), signed requests act as a server entity with universal privileges in its realm. This allows for server-authoritative action such as setting "game.private" stats, submitting scores to leaderboards whose "writeSelf" access is false, and so on.</p>
+<p>In technical terms, signed requests differ from token based requests in several ways:</p>
+<ul>
+<li>Signed requests never have an <code>Authorization:</code> header; instead, they rely on the signature to prove their authorization</li>
+<li>Signed requests must include a signature in the <code>X-BEAM-SIGNATURE:</code> header. The procedure for calculating the signature value is described below.</li>
+<li>Signed requests may include a player ID in the <code>X-BEAM-GAMERTAG:</code> header; this is useful when using an API route that is normally player-oriented and usually gets the player ID implicitly from the access token.</li>
+</ul>
+<p>Both token based requests and signed requests require the <code>X-BEAM-SCOPE:</code> header to indicate which realm they are operating in. The format for the scope header is a dotted pair of <abbr title="customer ID">CID</abbr> (numeric organization ID) and <abbr title="realm identifier">PID</abbr> (project ID, identifying the realm within the organization). Example: <code>X-BEAM-SCOPE: 1434605640884224.DE_1434605640884225</code></p>
+<h2 id="signed-requests-in-microservices">Signed requests in Microservices<a class="headerlink" href="#signed-requests-in-microservices" title="Permanent link">¶</a></h2>
+<p>A <code>Microservice</code> exposes the request-scoped <code>this.SignedRequester</code>. Pass it to generated API constructors to make signed requests in the Microservice's current realm. The following admin-only method finds an account by player ID (gamerTag), then returns that player's public game stats:</p>
+<p>For a locally running Microservice, enable realm secret authentication in <code>Program.Main</code> before starting the service:</p>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">await</span><span class="w"> </span><span class="n">BeamServer</span><span class="p">.</span><span class="n">Create</span><span class="p">()</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="p">.</span><span class="n">IncludeRoutes</span><span class="o">&lt;</span><span class="n">PlayerStatsService</span><span class="o">&gt;</span><span class="p">(</span><span class="n">routePrefix</span><span class="p">:</span><span class="w"> </span><span class="s">""</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="p">.</span><span class="n">UseRealmSecretAuth</span><span class="p">()</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="p">.</span><span class="n">RunForever</span><span class="p">();</span>
 </code></pre></div>
-<h3 id="building-the-plan">Building the plan<a class="headerlink" href="#building-the-plan" title="Permanent link">¶</a></h3>
-<p>The <code>deploy plan</code> command validates that your Standalone Microservice can be built and, optionally, that it will start accepting HTTPS traffic.</p>
-<p><strong>The command WILL NOT validate the services are booting up correctly by default.</strong> It assumes that you have tested your service locally before deploying it. However, you can pass in the <code>--health</code>  argument to make the command, run the built services locally and wait for the service to start responding to health check API calls. This takes longer, but guarantees that the services <em>at least starts up</em>. This is especially useful if you are using the <code>[ConfigureServices]</code> and/or <code>[InitializeServices]</code> attributes to modify the service boot process.</p>
-<p>After all the Microservices have been built, the command looks for changes between the current service manifest and the deployed service manifest (against your current realm). Your local <em>service manifest</em> is built implicitly from configurations inside your project. The built plan is there to inform you about the changes you will be making (enabling/disabling existing services, adding new services) if you decide to <code>deploy release</code> it.</p>
-<p>As an example, here is the output from a <code>deploy plan</code> invocation from inside the <code>UnrealSDK</code> project.
-</p><div class="language-console highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">$ </span>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>plan
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="go">      fetching latest ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="go">build DiscordSampleMs ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="go">  build LiveOpsDemoMS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="go">   build MSPlayground ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="go">      build SteamDemo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="go">     calculating plan ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="go">Adding 5 services</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="go"> - DiscordSampleMs</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="go"> - LiveOpsDemoMS</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="go"> - MSPlayground</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="go"> - SteamDemo</span>
+<p><code>UseRealmSecretAuth()</code> makes local environment generation include the current realm's secret. Without it, <code>this.SignedRequester</code> can send a request with an invalid signature and the gateway returns <code>403 InvalidSignatureError</code>. Restart the local Microservice after changing its startup configuration. The account running it must have permission to retrieve the realm secret.</p>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Api.Autogenerated.Accounts</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Api.Autogenerated.Models</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Api.Autogenerated.Stats</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">using</span><span class="w"> </span><span class="nn">Beamable.Server</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PlayerStatsService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Microservice</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">{</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="na">[AdminOnlyCallable]</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">StatsResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetPublicGameStats</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">userId</span><span class="p">)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">requester</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">SignedRequester</span><span class="p">;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">AccountsApi</span><span class="p">(</span><span class="n">requester</span><span class="p">).</span><span class="n">GetFind</span><span class="p">(</span><span class="n">userId</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">StatsApi</span><span class="p">(</span><span class="n">requester</span><span class="p">).</span><span class="n">ObjectGet</span><span class="p">(</span><span class="s">$"game.public.player.{userId}"</span><span class="p">);</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">}</span>
+</code></pre></div>
+<p>Use the same constructor pattern for other generated APIs. For example, inside an admin-only method that receives <code>long userId</code>, these calls read the player's inventory and Cloud Save manifest:</p>
+<div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">requester</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">SignedRequester</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">var</span><span class="w"> </span><span class="n">inventory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InventoryApi</span><span class="p">(</span><span class="n">requester</span><span class="p">).</span><span class="n">ObjectGet</span><span class="p">(</span><span class="n">userId</span><span class="p">);</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">var</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CloudsavingApi</span><span class="p">(</span><span class="n">requester</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">.</span><span class="n">Get</span><span class="p">(</span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="p">.</span><span class="n">RecoverFrom404</span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CloudsavingBasicManifest</span><span class="p">());</span>
+</code></pre></div>
+<p>Add <code>Beamable.Api.Autogenerated.Inventory</code>, <code>Beamable.Api.Autogenerated.Cloudsaving</code>, and <code>Beamable.Common.Api</code> to the example's <code>using</code> directives for the second snippet. <code>RecoverFrom404</code> is optional; it supplies an empty manifest when the player has no Cloud Save manifest. The <code>false</code> argument to <code>Get</code> omits a player authentication header, while the requester still signs the call.</p>
+<p>The built-in requester signs for the <strong>current realm</strong>. Passing <code>userId</code> to these API methods selects a player in that realm; it does not switch the request's player context or sign for another realm. Keep signed-request operations behind an admin-only callable because the signature carries realm-level privileges.</p>
+<h2 id="calculating-signatures">Calculating Signatures<a class="headerlink" href="#calculating-signatures" title="Permanent link">¶</a></h2>
+<p>The signature for any given request is a one-way hash of five pieces of information:</p>
+<ol>
+<li>Realm Secret (a UUID)</li>
+<li>The <abbr title="realm identifier">PID</abbr> of the realm</li>
+<li>API version string; at present the version is always "1"</li>
+<li>The path part of the URL including its leading slash (for example: <code>/basic/tournaments/rewards</code>)</li>
+<li>The exact body of the request, if it has one</li>
+</ol>
+<p>To calculate the signature, concatenate these five strings, take the digest of the MD5 hash of the concatenated plaintext, and Base64-encode it. This should result in a Base64 string a couple dozen characters long.</p>
+<h3 id="code-examples-calculate-signed-request-signature">Code Examples: Calculate Signed Request Signature<a class="headerlink" href="#code-examples-calculate-signed-request-signature" title="Permanent link">¶</a></h3>
+<p></p><div class="language-csharp highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BeamableSignedRequester</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">HttpClient</span><span class="w"> </span><span class="n">_client</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">_cid</span><span class="p">,</span><span class="w"> </span><span class="n">_pid</span><span class="p">,</span><span class="w"> </span><span class="n">_secret</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">BeamableSignedRequester</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">cid</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">secret</span><span class="p">,</span><span class="w"> </span><span class="n">HttpClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="n">_cid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cid</span><span class="p">;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="n">_pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pid</span><span class="p">;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="n">_secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">secret</span><span class="p">;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="n">_client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpClient</span><span class="p">();</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="c1">/// Calculate the Beamable signature for a given request. This signature</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="c1">/// can be used in the X-BEAM-SIGNATURE header of a HTTP request to make</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="c1">/// a privileged request to the Beamable API.</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="c1">/// &lt;param name="pid"&gt;Project ID of the realm ("DE_...")&lt;/param&gt;</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="c1">/// &lt;param name="secret"&gt;The realm secret, which is a UUID&lt;/param&gt;</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="c1">/// &lt;param name="uriPathAndQuery"&gt;Path and query parts of the URI&lt;/param&gt;</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="c1">/// &lt;param name="body"&gt;Request body, if any&lt;/param&gt;</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">    </span><span class="c1">/// &lt;returns&gt;Signature as a short Base64 string&lt;/returns&gt;</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">CalculateSignature</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">secret</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">uriPathAndQuery</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"1"</span><span class="p">;</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">md5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Security</span><span class="p">.</span><span class="n">Cryptography</span><span class="p">.</span><span class="n">MD5</span><span class="p">.</span><span class="n">Create</span><span class="p">();</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">dataToSign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"{secret}{pid}{version}{uriPathAndQuery}"</span><span class="p">;</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">body</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="n">dataToSign</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">body</span><span class="p">;</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">        </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">dataToSign</span><span class="p">);</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">        </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">md5</span><span class="p">.</span><span class="n">ComputeHash</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">hash</span><span class="p">);</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">CalculateRequestSignature</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">uriPathAndQuery</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="w">        </span><span class="n">CalculateSignature</span><span class="p">(</span><span class="n">_pid</span><span class="p">,</span><span class="w"> </span><span class="n">_secret</span><span class="p">,</span><span class="w"> </span><span class="n">uriPathAndQuery</span><span class="p">,</span><span class="w"> </span><span class="n">body</span><span class="p">);</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">HttpResponseMessage</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Request</span><span class="p">(</span><span class="n">HttpMethod</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">Uri</span><span class="w"> </span><span class="n">uri</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">signature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CalculateRequestSignature</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="n">PathAndQuery</span><span class="p">,</span><span class="w"> </span><span class="n">body</span><span class="p">);</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpRequestMessage</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">uri</span><span class="p">);</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="n">Headers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"X-BEAM-SCOPE"</span><span class="p">,</span><span class="w"> </span><span class="s">$"{_cid}.{_pid}"</span><span class="p">);</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="n">Headers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"X-BEAM-SIGNATURE"</span><span class="p">,</span><span class="w"> </span><span class="n">signature</span><span class="p">);</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">body</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="w">            </span><span class="n">request</span><span class="p">.</span><span class="n">Content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringContent</span><span class="p">(</span><span class="n">body</span><span class="p">,</span><span class="w"> </span><span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">,</span><span class="w"> </span><span class="s">"application/json"</span><span class="p">);</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_client</span><span class="p">.</span><span class="n">SendAsync</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="p">;</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a><span class="p">}</span>
+</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="sd">"""</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="sd">signedrequest - Make Beamable signed requests using the realm secret.</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="sd">"""</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">base64</span><span class="w"> </span><span class="kn">import</span> <span class="n">b64encode</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hashlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">md5</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">REALM_SECRET</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'REALM_SECRET'</span><span class="p">]</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">BEAM_PID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'PID'</span><span class="p">]</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">API_VERSION</span> <span class="o">=</span> <span class="s1">'1'</span>
 <a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
 <a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="go">Enabling 3 federations</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="go"> - DiscordSampleMs [IFederatedLogin/discord]</span>
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="go"> - SteamDemo [IFederatedLogin/steam]</span>
-<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>
-<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="go">Adding 1 storage</span>
-<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="go"> - DBPlayground</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">signature</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">body</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    <span class="n">plaintext</span> <span class="o">=</span> <span class="p">(</span><span class="n">REALM_SECRET</span> <span class="o">+</span> <span class="n">BEAM_PID</span> <span class="o">+</span> <span class="n">API_VERSION</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="n">body</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="n">md5hash</span> <span class="o">=</span> <span class="n">md5</span><span class="p">(</span><span class="n">plaintext</span><span class="p">)</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    <span class="n">digest</span> <span class="o">=</span> <span class="n">md5hash</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="n">base64bytes</span> <span class="o">=</span> <span class="n">b64encode</span><span class="p">(</span><span class="n">digest</span><span class="p">)</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    <span class="k">return</span> <span class="n">base64bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
 <a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>
-<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>
-<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="go">Uploading 5 services</span>
-<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="go"> - MSPlayground</span>
-<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="go"> - LiveOpsDemoMS</span>
-<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="go"> - SteamDemo</span>
-<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="go"> - DiscordSampleMs</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>    <span class="n">url</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>    <span class="n">body</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="s1">''</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>    <span class="n">sig</span> <span class="o">=</span> <span class="n">signature</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>
 <a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>
-<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>
-<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="go">Local Health-checks were not run! Services may work as expected, but they have not been explicitly tested locally.</span>
-<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="go">Consider re-running a plan command with the `--health` option.</span>
-<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>
-<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="go">This plan has 14 pending changes!</span>
-<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>
-<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="go">To release, use `dotnet beam deploy release --plan E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json`</span>
-<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>
-<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="go">Saved plan: E:\UnrealProjects\BeamableUnreal\.beamable\temp\plans\plan-1733140465006.plan.json</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>    <span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
 </code></pre></div><p></p>
-<p>As you can see from the example, every <code>plan</code> invocation creates a <code>timestamp.plan.json</code> file inside your <code>.beamable/temp/plans</code> folder.</p>
-<h4 id="merge-and-replace-plans">Merge and replace plans<a class="headerlink" href="#merge-and-replace-plans" title="Permanent link">¶</a></h4>
-<p>When planning to release microservices, its important to think about how to handle existing services. This is especially true of times when you remove a service. For that case, we provide two ways of generating a plan: <strong>Replace</strong> and <strong>Merge</strong>.</p>
-<p><strong>Replace (default)</strong>: Creates a release plan that completely overrides the existing remote services. Existing deployed services that are not present locally will be removed.</p>
-<p><strong>Merge</strong>: Creates a release plan that merges your current local environment to the existing remote services. In other words, existing deployed services that are not present locally will remain unaffected.</p>
-<p>By default, we use the <strong>replace</strong> plan as it keeps "whatever is in your repository" as the source of truth. That being said, there are cases where <strong>merge</strong> can be useful.</p>
-<p>For example, in cases where you want to remove the source code of a service from the repo, but still have the service be available for a while; this can happen if you have multiple <em>supported</em> client versions in existence, one dependent on a removed service and the other not.</p>
-<h3 id="releasing-the-plan">Releasing the plan<a class="headerlink" href="#releasing-the-plan" title="Permanent link">¶</a></h3>
-<p>Calling <code>deploy release</code> makes the plan a reality. It will upload the images the Beamable docker container registry and then publish a <em>service manifest</em> to your current Beamable realm. Upon successfully publishing the manifest, the Beamable Cloud creates the necessary resources to run your services. The services will be enabled, and you can see them available in the Beamable Portal's <em>Operation/Microservices</em> section.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://files.readme.io/55ee363-image.png" data-desc-position="bottom"><img alt="The Microservices page in Portal, showing current service status, storage objects, and deployment history." src="https://files.readme.io/55ee363-image.png"></a></p>
-<p>Now that your service is running on the Beamable Cloud, you can send HTTPS traffic to your service. To help test, you can open the dot-dot-dot (<code>...</code>) menu on the right side of the <code>HelloWorld</code> card, and select "Docs" to open an Open API page.</p>
-<h4 id="redeploying-existing-services">Redeploying existing services<a class="headerlink" href="#redeploying-existing-services" title="Permanent link">¶</a></h4>
-<p>Another important, albeit not common, usage of the <code>deploy release</code> command is to re-deploy your currently deployed services. This may be necessary to deal with bugs in your microservice code (or Beamable itself) that cause instability until you push a fix to them.</p>
-<p>Here is how you would do that:
-</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>--redeploy
-</code></pre></div><p></p>
-<p>Alternatively, if you wish to revert to a previous deployment you can use a combination of the following commands:
-</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># This will output a list of the previous deployments to your realm</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>ps
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># You can then call this command with an id obtained from the command above</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># to revert to a previous deployment.</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>release<span class="w"> </span>--from-manifest-id<span class="w"> </span><span class="s2">"id from the other command"</span>
-</code></pre></div><p></p>
-<h2 id="enabling-and-disabling-services">Enabling and disabling services<a class="headerlink" href="#enabling-and-disabling-services" title="Permanent link">¶</a></h2>
-<p>After a Standalone Microservice has been deployed, it will continue to be available on the Beamable Cloud until it is disabled. A service can be temporarily disabled through the Portal, but they will be re-activated after a fresh <code>deploy release</code> command occurs.</p>
-<p>To disable a service, you need to modify the configuration of the Microservice source code itself. In the <code>.csproj</code> file of your service, set the <code>&lt;BeamEnabled&gt;</code> property to <code>false</code>. Then, re-run the <code>deploy plan</code> command. You will see that the service would become disabled if you were to <code>deploy release</code> that plan.</p>
-<p>Alternatively, you can use the following commands to enable/disable services:
-</p><div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># This disables a service</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>disable<span class="w"> </span>--ids<span class="w"> </span>HelloWorld
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># This enables a service</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--ids<span class="w"> </span>HelloWorld
-</code></pre></div><p></p>
-<p>See the <a href="../ms-configuration/">Microservice Configuration Section</a> for more details about project configuration.</p>
-<div class="admonition info">
-<p class="admonition-title">Services Cost Money!</p>
-<p>Remember, Every service running on Beamable Cloud may increase your Beamable Bill. Disable your services to reduce your monthly bill.</p>
-</div>
-<p>A quick-note: <strong><em>delete services from your repository</em></strong> instead of enabling/disabling them <em>in most cases</em>. This feature exists for use-cases similar to those used for distributing the Unreal SDK samples.</p>
-<p>For game-makers, these are often advanced use-cases. An example could be:</p>
-<blockquote>
-<p>A Microservice containing DevTools that should NEVER be available in your production realm but SHOULD be available in non-production realms. This type of service cannot simply be removed. Instead, you need to control which realms have it deployed or not.</p>
-<p>So, you can hide these services from your production realm by always having it disabled before publishing to Prod; but never having it disabled when publishing to other realms.</p>
-</blockquote>
-<h2 id="dockerfiles">Dockerfiles<a class="headerlink" href="#dockerfiles" title="Permanent link">¶</a></h2>
-<p>Standalone Microservices build custom Docker images that are run on the Beamable Cloud. Each service has a <code>Dockerfile</code> that defines how the Docker image is constructed.</p>
-<p>You may modify this file to extend the capabilities of your resulting docker image. However, there are a few restrictions about how you may modify the file. Do not edit or remove anything between the <code>&lt;beamReserved&gt;</code> tags. This is a special tag that should allow us to programmatically add things to the <code>Dockerfile</code> should the need arise.</p>
-<p>Beamable has validated that .NET 8 is stable for all supported platforms. You may change the .NET framework version at your own peril.</p>
-<div class="admonition info">
-<p class="admonition-title">Docker CPU Architecture</p>
-<p>Beamable Cloud requires that all services are built to x64 CPU architectures. Unfortunately, this means that developers with non x86 based computers will need to <em>cross compile</em> services, which causes the <code>deploy</code> process to take longer.</p>
-<p>This is transparent to you and handled by your own machine's installed .NET toolchain.</p>
-</div>
-<p>Finally, the port <code>6565</code> <strong>MUST</strong> be exposed. The port is used as a health check mechanism within the Beamable Cloud. If you delete that line, your services will fail to pass health checks and cannot be uploaded.</p>
-<p>Here is a sample <code>Dockerfile</code> from a service created with Beam CLI 3.0.0.</p>
-<div class="language-Dockerfile highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">ARG</span><span class="w"> </span><span class="nv">BEAM_DOTNET_VERSION</span><span class="o">=</span><span class="s2">"8.0-alpine"</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">mcr.microsoft.com/dotnet/runtime:${BEAM_DOTNET_VERSION}</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c"># These args are provided by the Beam CLI</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c"># Declares the relative path from the beamable workspace to the pre-build support binaries for BeamService</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c">#  Normally, this will be /services/BeamService/bin/beamApp/support</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="k">ARG</span><span class="w"> </span>BEAM_SUPPORT_SRC_PATH
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="c"># Declares the relative path from the beamable workspace to the pre-built binaries for BeamService</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="c">#  Normally, this will be /services/BeamService/bin/beamApp/app</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="k">ARG</span><span class="w"> </span>BEAM_APP_SRC_PATH
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="c"># Declares where the built application will exist inside the Docker image.</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="c">#  This value is usually /beamApp/BeamService</span>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="k">ARG</span><span class="w"> </span>BEAM_APP_DEST
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="c"># &lt;beamReserved&gt; Beamable may inject custom settings into this Dockerfile. Please do not remove these lines. # &lt;/beamReserved&gt;</span>
-<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
-<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="c"># /beamApp is the directory that will hold the application</span>
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/beamApp</span>
-<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>
-<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="c"># expose the health port</span>
-<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="k">EXPOSE</span><span class="w"> </span><span class="s">6565</span>
-<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="c"># copy general supporting files</span>
-<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="k">COPY</span><span class="w"> </span><span class="nv">$BEAM_SUPPORT_SRC_PATH</span><span class="w"> </span>.
-<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>
-<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="c"># copy specific application code</span>
-<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="k">COPY</span><span class="w"> </span><span class="nv">$BEAM_APP_SRC_PATH</span><span class="w"> </span>.
-<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>
-<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="c"># ensure that the application is runnable</span>
-<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="k">RUN</span><span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span><span class="nv">$BEAM_APP_DEST</span>
-<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">BEAM_APP</span><span class="o">=</span><span class="nv">$BEAM_APP_DEST</span>
-<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>
-<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="c"># when starting the container, run dotnet with the built dll</span>
-<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="s2">"dotnet"</span><span class="w"> </span><span class="nv">$BEAM_APP</span>
-<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>
-<a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a><span class="c"># Swap entrypoints if the container is exploding and you want to keep it alive indefinitely so you can go look into it.</span>
-<a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="c">#ENTRYPOINT ["tail", "-f", "/dev/null"]</span>
-</code></pre></div>
-<h3 id="local-docker-testing-and-debugging">Local Docker testing and debugging<a class="headerlink" href="#local-docker-testing-and-debugging" title="Permanent link">¶</a></h3>
-<p>The recommended developer workflow is to run your micro services using .NET. However, because deployments are running within a container, it may be beneficial to validate that your services work in Docker before deploying them (especially if you have made changes to the default <code>Dockerfile</code>).</p>
-<p>To validate your Docker services, use the <code>--docker-compose-dir</code> option for the <code>beam deploy plan</code> command. The <code>plan</code> command will generate a <a href="https://docs.docker.com/compose/">docker compose</a> project directory at the given path. The project will have all of your enabled services and storages.</p>
-<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>deploy<span class="w"> </span>plan<span class="w"> </span>--docker-compose-dir<span class="w"> </span>example
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">cd</span><span class="w"> </span>example
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>docker<span class="w"> </span>compose<span class="w"> </span>up
-</code></pre></div>
-<p>You can validate that your services are running in docker using project ps or by using Docker directly.</p>
-<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>dotnet<span class="w"> </span>beam<span class="w"> </span>project<span class="w"> </span>ps
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>docker<span class="w"> </span>ps
-</code></pre></div>
-<p>After you are done testing, you can use Docker directly to stop all the containers, or your can use <code>docker compose down</code>.</p>
-<div class="language-shell highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>down
-</code></pre></div>
-<p>Please note that when validating docker containers this way, the resulting docker compose project is built to mirror the deployed environment, so your services will start up 10 connections to Beamable.</p>
-<p>You have full control over the docker-compose file, so if you want to set up persistent storage objects via docker volumes, or set up mongo-express, please reference the Mongo <a href="https://hub.docker.com/_/mongo">documentation</a>.</p>
-<h4 id="useful-debugging-practices">Useful debugging practices<a class="headerlink" href="#useful-debugging-practices" title="Permanent link">¶</a></h4>
-<p><strong>Running the Docker Container Manually</strong>: If you have a customized Dockerfile or encounter some problems when building/running the image/container, it can be sometimes useful to run the container via docker's CLI directly.</p>
-<p>You can do that by running <code>dotnet beam deploy plan --logs v</code>, which prints out all docker commands it is using under the hood. You can then use the printed commands as a starting point for your investigation into whatever problem you are solving.</p>
-<p><strong>Debugging Container Structure</strong>: In some cases of customized <code>Dockerfiles</code>, the image may fail to build or the container fail to run due to aspects of the container's file structure. Docker will not allow you to easily inspect a container's file structure unless it is running; and the container is removed once its <code>ENTRYPOINT</code> process is killed.</p>
-<p>This means that if SAMS code depends on local file structure (DLLs not existing where they should being the most common thing) and it fails because of a malformation of that structure you will have a hard time debugging it.</p>
-<p>In some cases, it may be useful to not start the actual process and instead use this endpoint below:
-</p><div class="language-Dockerfile highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c"># Comment out the original entry point and put this in.</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">"tail"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-f"</span><span class="p">,</span><span class="w"> </span><span class="s2">"/dev/null"</span><span class="p">]</span>
-</code></pre></div><p></p>
-<p>When you do that, the service will not start — but the container will look exactly like it does just before the service runs, except it will not be cleaned up by the health-check failing. This means you can easily inspect its file structure via Docker for Windows/Mac's UI or other tools.</p>
-<div class="admonition info">
-<p class="admonition-title">Troubleshoot</p>
-<p>If you are on a Mac with the apple silicon processors (M1, M2, etc) the following error might occur when deploying C# Microservices. In that case, make sure that the <code>Use Rosetta for emulation on Apple Silicon</code> is disabled in your Docker settings.</p>
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>assertion failed [block != nullptr]: BasicBlock requested for unrecognized address
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>(BuilderBase.h:550 block_for_offset)
-</code></pre></div>
-</div>
 
 
 
