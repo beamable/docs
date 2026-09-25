@@ -8,6 +8,7 @@
     - [Debugging](guides/ms-debugging.md)
     - [Configuration](guides/ms-configuration.md)
     - [Routing](guides/ms-routing.md)
+    - [Signed requests](guides/ms-signed-requests.md)
     - [Storage](guides/ms-storage.md)
     - [Federation](guides/ms-federation.md)
     - [CLI Workflows](guides/ms-workflow.md)
