@@ -27,7 +27,7 @@
 # WHY EDITING THIS FILE CHANGES NOTHING:
 #
 #   `push` events run the workflow file from the tree of THE PUSHED COMMIT.
-#   A push to `core/v7.2` therefore runs *that branch's* copy of
+#   A push to a `core/v*` branch therefore runs *that branch's* copy of
 #   auto-sync-core.yml. This file cannot fire for a core push, and editing
 #   it has NO EFFECT ON SYNC BEHAVIOR WHATSOEVER. If you change the matrix
 #   here expecting downstream branches to follow, nothing will happen and
@@ -52,12 +52,12 @@
 # NOT EVERY BRANCH IS IN THE SYNC GRAPH AT ALL:
 #
 #   Sources are the `core/v*` branches. Targets are the engine branches named
-#   in some core branch's matrix. Everything else — `toolkit/v0.4`,
-#   `unreal/v2.2`, `api/v1.0`, `internal`, `websdk/v1.0`, `home`, `main` —
-#   is in neither set: nothing syncs in, nothing syncs out. That is a
-#   deliberate architectural position, not an oversight. `toolkit/v0.4` in
-#   particular is engine-agnostic but has NO version coupling to any engine
-#   SDK, so there is no principled matrix to write for it.
+#   in some core branch's matrix. Everything else — `toolkit/v*`, `api/v*`,
+#   `websdk/v*`, `internal`, `home`, `main`, and any engine branch that no
+#   core matrix names — is in neither set: nothing syncs in, nothing syncs
+#   out. That is a deliberate architectural position, not an oversight. The
+#   toolkit in particular is engine-agnostic but has NO version coupling to
+#   any engine SDK, so there is no principled matrix to write for it.
 #
 # ============================================================================
 
@@ -98,8 +98,7 @@ jobs:
             echo "branch, inheriting the stub."
             echo
             echo "TO FIX: copy .github/workflows/auto-sync-core.yml from an"
-            echo "existing core branch (core/v7.1 or core/v7.2) onto '$REF',"
-            echo "then set BOTH:"
+            echo "existing core/v* branch onto '$REF', then set BOTH:"
             echo "  * on.push.branches  -> ['$REF']"
             echo "  * matrix.branch     -> the downstream engine branches it feeds"
             echo
