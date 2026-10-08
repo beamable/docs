@@ -3,7 +3,7 @@ name: Auto Sync Core
 on:
   push:
     branches:
-      - 'core/v7.2'
+      - 'core/v7.3'
 
 run-name: "Sync ${{ github.ref_name }} core-owned paths into docs"
 
@@ -15,7 +15,7 @@ jobs:
     name: Sync ${{ github.ref_name }} into ${{ matrix.branch }}
     strategy:
       matrix:
-        branch: [unity/v6.0, unity/v6.1]
+        branch: [unity/v6.2]
     outputs:
       synced_branches: ${{ steps.sync.outputs.synced_branches }}
 
