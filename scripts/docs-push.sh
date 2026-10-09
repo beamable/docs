@@ -27,7 +27,7 @@ fi
 # different mike version, so a cancelled one loses that version's update. The
 # Pages builder (pages-build-deployment) is excluded on purpose — it renders
 # whatever is on gh-pages, so newest-wins is correct and needs no gap.
-writers='Auto Publish Branch|Auto Sync Core'
+writers='^(Auto Publish Branch|Auto Sync Core|Deploy Docs Branch|Set Latest Alias|Publish Site Assets)$'
 
 active_writers() {
   gh run list --repo "$repo" --limit 40 --json workflowName,status \

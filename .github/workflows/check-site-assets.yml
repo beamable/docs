@@ -1,0 +1,38 @@
+name: Check Site Assets
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/*site-assets.py'
+      - 'scripts/check-site-discovery.py'
+      - 'site-assets/**'
+      - 'tests/site-assets/**'
+      - 'requirements.txt'
+      - '.github/workflows/*site-assets.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/*site-assets.py'
+      - 'scripts/check-site-discovery.py'
+      - 'site-assets/**'
+      - 'tests/site-assets/**'
+      - 'requirements.txt'
+      - '.github/workflows/*site-assets.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Install pinned toolchain
+        run: python -m pip install -r requirements.txt
+      - name: Test generator and combined publication
+        run: python -m unittest discover -s tests/site-assets -p 'test_*.py'
+      - name: Test browser tools
+        run: node --test tests/site-assets/webmcp.test.cjs

@@ -5,3 +5,7 @@
 
 # Personal Claude Code memory (not shared)
 CLAUDE.local.md
+
+# Local Python verification artifacts
+__pycache__/
+*.pyc
