@@ -1,0 +1,9 @@
+{
+  "origin": "https://help.beamable.com",
+  "legacy_origins": ["https://beamable.github.io/Docs/", "https://beamable.github.io/docs/"],
+  "products": ["Unity", "Unreal", "CLI", "WebSDK"],
+  "standalone_versions": ["Home"],
+  "excluded_products": ["Toolkit"],
+  "excluded_versions": ["Internal"],
+  "disallow_paths": ["/Internal/", "/Toolkit-0.4/", "/site/"]
+}

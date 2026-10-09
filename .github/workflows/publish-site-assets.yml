@@ -1,0 +1,50 @@
+name: Publish Site Assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site-assets/**'
+      - 'scripts/generate-site-assets.py'
+      - 'scripts/publish-site-assets.py'
+      - 'requirements.txt'
+      - '.github/workflows/publish-site-assets.yml'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Validate without publishing
+        type: boolean
+        default: true
+
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+          # A PAT push triggers the branch-based Pages builder. GITHUB_TOKEN
+          # commits do not trigger GitHub Pages builds.
+          token: ${{ secrets.DOCS_PAT }}
+      - name: Install toolchain
+        run: bash setup.sh
+      - name: Fetch published tree
+        run: git fetch origin gh-pages:gh-pages
+      - name: Configure Git
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+      - name: Preview generated assets
+        if: github.event_name == 'workflow_dispatch' && inputs.dry_run
+        run: python scripts/publish-site-assets.py
+      - name: Publish generated assets
+        if: github.event_name != 'workflow_dispatch' || !inputs.dry_run
+        run: python scripts/publish-site-assets.py --push
