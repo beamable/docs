@@ -18,6 +18,9 @@ concurrency:
   group: gh-pages-deploy
   cancel-in-progress: false
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     name: Deploy
@@ -55,13 +58,16 @@ jobs:
         uses: actions/checkout@v7
         with:
           ref: main
+          path: tooling
 
       # Run setup.sh
       - name: Run setup.sh
+        working-directory: tooling
         run: bash setup.sh
 
       # Fetch all remote branches
       - name: Fetch remote branch names
+        working-directory: tooling
         run: git fetch --depth=1 origin +refs/heads/*:refs/remotes/origin/*
 
       # Checkout the gh-pages branch
@@ -69,14 +75,21 @@ jobs:
         uses: actions/checkout@v7
         with:
           ref: gh-pages
+          path: content
+          fetch-depth: 0
+          token: ${{ secrets.DOCS_PAT }}
 
       # Checkout the branch that the workflow file is running from
       - name: Checkout workflow branch
         uses: actions/checkout@v7
         with:
           ref: ${{ github.ref_name }}
+          path: content
+          fetch-depth: 0
+          token: ${{ secrets.DOCS_PAT }}
 
       - name: Configure git for mike
+        working-directory: content
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
@@ -84,9 +97,15 @@ jobs:
       # Deploy with mike in dry run mode
       - name: Deploy SDK (dry run)
         if: ${{ github.event.inputs.dry_run == 'true' }}
-        run: mike deploy "${{ steps.parse_branch.outputs.sdk }}-${{ steps.parse_branch.outputs.version }}"
+        working-directory: content
+        run: |
+          mike deploy "${{ steps.parse_branch.outputs.sdk }}-${{ steps.parse_branch.outputs.version }}"
+          python "$GITHUB_WORKSPACE/tooling/scripts/publish-site-assets.py" --repo .
 
       # Deploy with mike and push
       - name: Deploy SDK (push)
         if: ${{ github.event.inputs.dry_run != 'true' }}
-        run: mike deploy "${{ steps.parse_branch.outputs.sdk }}-${{ steps.parse_branch.outputs.version }}" --push
+        working-directory: content
+        run: |
+          mike deploy "${{ steps.parse_branch.outputs.sdk }}-${{ steps.parse_branch.outputs.version }}"
+          python "$GITHUB_WORKSPACE/tooling/scripts/publish-site-assets.py" --repo . --push
