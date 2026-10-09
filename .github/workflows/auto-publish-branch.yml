@@ -15,6 +15,9 @@ concurrency:
   group: gh-pages-deploy
   cancel-in-progress: false
 
+permissions:
+  contents: write
+
 jobs:
   auto-publish:
     name: Auto Publish ${{ github.ref_name }}
@@ -25,13 +28,16 @@ jobs:
         uses: actions/checkout@v7
         with:
           ref: main
+          path: tooling
 
       # Install Python dependencies (includes mike)
       - name: Run setup.sh
+        working-directory: tooling
         run: bash setup.sh
 
       # Fetch all remote branches
       - name: Fetch remote branch names
+        working-directory: tooling
         run: git fetch --depth=1 origin +refs/heads/*:refs/remotes/origin/*
 
 
@@ -89,15 +95,22 @@ jobs:
         uses: actions/checkout@v7
         with:
           ref: gh-pages
+          path: content
+          fetch-depth: 0
+          token: ${{ secrets.DOCS_PAT }}
 
       # Checkout the pushed branch so mike can build the docs
       - name: Checkout branch
         uses: actions/checkout@v7
         with:
           ref: ${{ github.ref_name }}
+          path: content
+          fetch-depth: 0
+          token: ${{ secrets.DOCS_PAT }}
 
       # List all published versions so we can see what mike knows about
       - name: List published versions
+        working-directory: content
         run: |
           echo "Currently published versions:"
           mike list
@@ -105,6 +118,7 @@ jobs:
       # Check whether this version has already been published (case-insensitive)
       - name: Check if version is already published
         id: check
+        working-directory: content
         run: |
           MIKE_ALIAS="${{ steps.version.outputs.mike_alias }}"
           if mike list | grep -qiE "^${MIKE_ALIAS}"; then
@@ -117,6 +131,7 @@ jobs:
 
       - name: Skip if not published
         if: steps.check.outputs.published == 'false'
+        working-directory: content
         run: echo "Skipping — ${{ steps.version.outputs.mike_alias }} has not been manually published yet."
 
  
@@ -124,6 +139,7 @@ jobs:
       # Confirm mkdocs.yml is present before attempting a deploy
       - name: Verify mkdocs.yml exists
         if: steps.check.outputs.published == 'true'
+        working-directory: content
         run: |
           if [ ! -f mkdocs.yml ]; then
             echo "ERROR: mkdocs.yml not found in ${{ github.ref_name }}"
@@ -134,13 +150,17 @@ jobs:
 
       - name: Configure git for mike
         if: steps.check.outputs.published == 'true'
+        working-directory: content
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
       - name: Deploy with mike
         if: steps.check.outputs.published == 'true'
-        run: mike deploy "${{ steps.version.outputs.mike_alias }}" --branch gh-pages --push
+        working-directory: content
+        run: |
+          mike deploy "${{ steps.version.outputs.mike_alias }}" --branch gh-pages
+          python "$GITHUB_WORKSPACE/tooling/scripts/publish-site-assets.py" --repo . --push
 
       - name: Notify Slack
         # if: steps.check.outputs.published == 'true' 
@@ -149,6 +169,7 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_DOCS_CHANNEL_URL }}
           MIKE_ALIAS: ${{ steps.version.outputs.mike_alias }}
           BRANCH: ${{ steps.version.outputs.branch }}
+        working-directory: content
         run: |
           PAYLOAD=$(jq -n \
             --arg alias "$MIKE_ALIAS" \
